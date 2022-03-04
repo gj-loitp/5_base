@@ -26,7 +26,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivWhySeeAd"
@@ -40,7 +40,7 @@
                     android:id="@+id/tvWhySeeAd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/why_u_see_ad"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -59,7 +59,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivRate"
@@ -73,7 +73,7 @@
                     android:id="@+id/tvRate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/rate_app"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -92,7 +92,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivMore"
@@ -106,7 +106,7 @@
                     android:id="@+id/tvMore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/more_app"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -125,7 +125,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivShare"
@@ -139,7 +139,7 @@
                     android:id="@+id/tvShare"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/share_app"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -158,7 +158,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivLikeFbFanpage"
@@ -172,7 +172,7 @@
                     android:id="@+id/tvLikeFbFanpage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/like_facebook_fanpage"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -191,7 +191,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivSupport"
@@ -205,7 +205,7 @@
                     android:id="@+id/tvSupport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/support_24_7"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />

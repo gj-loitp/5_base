@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/margin_5"
+        android:layout_margin="@dimen/w_5"
         android:background="@drawable/l_bt_corner"
         tools:ignore="UselessParent">
 
@@ -17,6 +17,6 @@
             android:layout_height="match_parent"
             android:background="@color/transparent"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ic_launcher_loitp" />
     </LinearLayout>
 </LinearLayout>

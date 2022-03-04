@@ -20,12 +20,12 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="@dimen/padding_medium">
+            android:padding="@dimen/margin_padding_medium">
 
             <com.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
-                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginTop="@dimen/w_50"
                 android:elevation="5dp"
                 android:translationZ="5dp"
                 app:lrl_backgroundColor="?attr/themeTextColor"
@@ -43,7 +43,7 @@
             <com.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
-                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginTop="@dimen/w_50"
                 android:elevation="5dp"
                 android:translationZ="5dp"
                 app:lrl_backgroundColor="?attr/themeTextColor"
@@ -73,7 +73,7 @@
             <com.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
-                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginTop="@dimen/w_50"
                 android:elevation="5dp"
                 app:lrl_backgroundColor="?attr/themeTextColor"
                 app:lrl_cornerLeftTop="40dp"
@@ -86,7 +86,7 @@
             <com.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
-                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginTop="@dimen/w_50"
                 android:elevation="5dp"
                 app:lrl_backgroundColor="?attr/themeTextColor"
                 app:lrl_cornerLeftTop="40dp"
@@ -111,7 +111,7 @@
             <com.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
-                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginTop="@dimen/w_50"
                 android:elevation="0dp"
                 app:lrl_backgroundColor="?attr/themeTextColor"
                 app:lrl_cornerLeftBottom="90dp"
@@ -121,7 +121,7 @@
             <com.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
-                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginTop="@dimen/w_50"
                 android:elevation="0dp"
                 app:lrl_backgroundColor="?attr/themeTextColor"
                 app:lrl_cornerLeftBottom="90dp"
@@ -143,7 +143,7 @@
             <com.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
-                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginTop="@dimen/w_50"
                 android:elevation="5dp"
                 android:translationZ="5dp"
                 app:lrl_backgroundColor="?attr/themeTextColor"
@@ -161,7 +161,7 @@
             <com.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
-                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginTop="@dimen/w_50"
                 android:elevation="5dp"
                 android:translationZ="5dp"
                 app:lrl_backgroundColor="?attr/themeTextColor"

@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginLeft="@dimen/margin_10"
-    android:layout_marginTop="@dimen/margin_5"
-    android:layout_marginRight="@dimen/margin_10"
-    android:layout_marginBottom="@dimen/margin_5"
+    android:layout_marginLeft="@dimen/w_10"
+    android:layout_marginTop="@dimen/w_5"
+    android:layout_marginRight="@dimen/w_10"
+    android:layout_marginBottom="@dimen/w_5"
     android:foreground="?android:selectableItemBackground"
     card_view:cardBackgroundColor="@color/white"
     card_view:cardCornerRadius="0dp"
@@ -31,9 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView"
             android:maxLines="2"
-            android:padding="@dimen/padding_5"
+            android:padding="@dimen/w_5"
             android:textColor="@color/black"
-            android:textSize="@dimen/txt_16" />
+            android:textSize="@dimen/txt_medium" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_date"
@@ -41,9 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvTitle"
             android:gravity="center|end|bottom"
-            android:padding="@dimen/padding_5"
+            android:padding="@dimen/w_5"
             android:textColor="@color/gray"
-            android:textSize="@dimen/txt_10" />
+            android:textSize="@dimen/txt_medium" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

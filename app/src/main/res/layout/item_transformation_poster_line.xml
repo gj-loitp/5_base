@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
             android:orientation="vertical"
-            android:padding="@dimen/padding_small"
+            android:padding="@dimen/margin_padding_small"
             tools:ignore="UnusedAttribute">
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -40,7 +40,7 @@
                 android:id="@+id/tvItemPosterTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:maxLines="1"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium"
@@ -55,10 +55,10 @@
                 android:id="@+id/tvItemPosterRunningTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginStart="@dimen/margin_padding_medium"
+                android:layout_marginTop="@dimen/margin_padding_small"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_small"
+                android:textSize="@dimen/txt_small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ivItemPosterPost"
                 app:layout_constraintTop_toBottomOf="@+id/tvItemPosterTitle"

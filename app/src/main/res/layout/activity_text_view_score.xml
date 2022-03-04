@@ -11,13 +11,13 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_80" />
+        android:textSize="@dimen/txt_50" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/margin_medium"
+        android:layout_margin="@dimen/margin_padding_medium"
         android:text="Start" />
 
 </RelativeLayout>

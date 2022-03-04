@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/w_48"
-    android:drawablePadding="@dimen/padding_medium"
+    android:drawablePadding="@dimen/margin_padding_medium"
     android:gravity="start|center_vertical"
-    android:paddingStart="@dimen/padding_medium"
-    android:paddingEnd="@dimen/padding_medium"
+    android:paddingStart="@dimen/margin_padding_medium"
+    android:paddingEnd="@dimen/margin_padding_medium"
     android:textColor="@color/red"
     tools:text="Item" />

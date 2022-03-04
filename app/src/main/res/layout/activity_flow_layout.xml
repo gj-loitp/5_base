@@ -18,20 +18,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding_medium"
-            app:flChildSpacing="@dimen/margin_25"
+            android:padding="@dimen/margin_padding_medium"
+            app:flChildSpacing="@dimen/w_25"
             app:flChildSpacingForLastRow="100dp"
             app:flFlow="true"
             app:flMaxRows="3"
             app:flMinChildSpacing="30dp"
-            app:flRowSpacing="@dimen/padding_15"
+            app:flRowSpacing="@dimen/margin_padding_medium"
             app:flRowVerticalGravity="top"
             app:flRtl="false">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bt_tag"
                 android:text="@string/app_name"
                 android:textColor="@color/black"
@@ -40,7 +40,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bt_tag"
                 android:text="11111111111111111111111"
                 android:textColor="@color/red"
@@ -49,7 +49,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bt_tag"
                 android:text="2222222222222222222222222222"
                 android:textColor="@color/blue"
@@ -58,7 +58,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bt_tag"
                 android:text="3333"
                 android:textColor="@color/green"
@@ -67,16 +67,16 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bt_tag"
                 android:text="4444444444444444444444444444444444444444444444444"
                 android:textColor="@color/gray"
-                android:textSize="@dimen/txt_40" />
+                android:textSize="@dimen/txt_largest" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bt_tag"
                 android:text="55555555555555555555555555555555"
                 android:textColor="@color/red"

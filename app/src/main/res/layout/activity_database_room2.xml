@@ -27,7 +27,7 @@
                 android:id="@+id/btSaveListFrom10To20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:text="Save List id 10 -> 20"
                 android:textColor="?attr/themeTextColor" />
 
@@ -35,7 +35,7 @@
                 android:id="@+id/btInsert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:text="Insert"
                 android:textColor="?attr/themeTextColor" />
 
@@ -43,7 +43,7 @@
                 android:id="@+id/btGetList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:text="Get List"
                 android:textColor="?attr/themeTextColor" />
 
@@ -51,7 +51,7 @@
                 android:id="@+id/btGetListFrom3To5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:text="Get List From 3 To 5"
                 android:textColor="?attr/themeTextColor" />
 
@@ -59,7 +59,7 @@
                 android:id="@+id/btFind1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:text="Find id=1"
                 android:textColor="?attr/themeTextColor" />
 
@@ -67,7 +67,7 @@
                 android:id="@+id/btDeleteAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:text="Delete All"
                 android:textColor="?attr/themeTextColor" />
         </LinearLayout>

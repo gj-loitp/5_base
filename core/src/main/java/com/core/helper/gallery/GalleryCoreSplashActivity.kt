@@ -3,9 +3,8 @@ package com.core.helper.gallery
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.net.Uri
+import android.graphics.Color
 import android.os.Bundle
-import android.provider.Settings
 import android.view.View
 import com.R
 import com.annotation.IsFullScreen
@@ -13,18 +12,16 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.album.GalleryCoreAlbumActivity
-import com.core.utilities.* // ktlint-disable no-wildcard-imports
+import com.core.utilities.LActivityUtil
+import com.core.utilities.LImageUtil
+import com.core.utilities.LUIUtil
+import com.core.utilities.LValidateUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.MultiplePermissionsReport
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import com.permissionx.guolindev.PermissionX
 import com.restapi.restclient.RestClient
 import com.utils.util.AppUtils
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @SuppressLint("CustomSplashScreen")
 @LogTag("GalleryCoreSplashActivity")
@@ -32,7 +29,6 @@ import java.util.* // ktlint-disable no-wildcard-imports
 class GalleryCoreSplashActivity : BaseFontActivity() {
     private var adView: AdView? = null
     private var adMobBannerUnitId: String? = null
-    private var isShowDialogCheck: Boolean = false
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_flickr_gallery_core_splash
@@ -51,8 +47,8 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         } else {
             adView = AdView(this)
             adView?.let {
-                it.adSize = AdSize.SMART_BANNER
-                it.adUnitId = adMobBannerUnitId
+                it.adSize = AdSize.BANNER
+                it.adUnitId = adMobBannerUnitId!!
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)
 //                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
@@ -70,6 +66,8 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         LUIUtil.setTextShadow(textView = tvName, color = null)
 
         LValidateUtil.isValidPackageName()
+
+        checkPermission()
     }
 
     private fun goToHome() {
@@ -91,9 +89,6 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
     override fun onResume() {
         adView?.resume()
         super.onResume()
-        if (!isShowDialogCheck) {
-            checkPermission()
-        }
     }
 
     public override fun onPause() {
@@ -107,80 +102,42 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
     }
 
     private fun checkPermission() {
-        isShowDialogCheck = true
-
-        Dexter.withContext(this)
-            .withPermissions(
+        val color = if (LUIUtil.isDarkTheme()) {
+            Color.WHITE
+        } else {
+            Color.BLACK
+        }
+        PermissionX.init(this)
+            .permissions(
+                Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.ACCESS_FINE_LOCATION
             )
-            .withListener(object : MultiplePermissionsListener {
-                override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-                    // check if all permissions are granted
-                    if (report.areAllPermissionsGranted()) {
-                        logD("onPermissionsChecked do you work now")
-                        goToHome()
-                    } else {
-                        logD("!areAllPermissionsGranted")
-                        showShouldAcceptPermission()
-                    }
-
-                    // check for permanent denial of any permission
-                    if (report.isAnyPermissionPermanentlyDenied) {
-                        logD("onPermissionsChecked permission is denied permenantly, navigate user to app settings")
-                        showSettingsDialog()
-                    }
-                    isShowDialogCheck = true
-                }
-
-                override fun onPermissionRationaleShouldBeShown(
-                    permissions: List<PermissionRequest>,
-                    token: PermissionToken
-                ) {
-                    logD("onPermissionRationaleShouldBeShown")
-                    token.continuePermissionRequest()
-                }
-            })
-            .onSameThread()
-            .check()
-    }
-
-    private fun showShouldAcceptPermission() {
-        val alertDialog = LDialogUtil.showDialog2(
-            context = this,
-            title = "Need Permissions",
-            msg = "This app needs permission to use this feature.",
-            button1 = "Okay",
-            button2 = "Cancel",
-            onClickButton1 = {
-                checkPermission()
-            },
-            onClickButton2 = {
-                onBackPressed()
+            .setDialogTintColor(color, color)
+            .onExplainRequestReason { scope, deniedList, _ ->
+                val message = getString(R.string.app_name) + getString(R.string.needs_per)
+                scope.showRequestReasonDialog(
+                    permissions = deniedList,
+                    message = message,
+                    positiveText = getString(R.string.allow),
+                    negativeText = getString(R.string.deny)
+                )
             }
-        )
-        alertDialog.setCancelable(false)
-    }
-
-    private fun showSettingsDialog() {
-        val alertDialog = LDialogUtil.showDialog2(
-            context = this,
-            title = "Need Permissions",
-            msg = "This app needs permission to use this feature. You can grant them in app settings.",
-            button1 = "GOTO SETTINGS",
-            button2 = getString(R.string.cancel),
-            onClickButton1 = {
-                isShowDialogCheck = false
-                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                val uri = Uri.fromParts("package", packageName, null)
-                intent.data = uri
-                startActivityForResult(intent, 101)
-            },
-            onClickButton2 = {
-                onBackPressed()
+            .onForwardToSettings { scope, deniedList ->
+                scope.showForwardToSettingsDialog(
+                    permissions = deniedList,
+                    message = getString(R.string.per_manually_msg),
+                    positiveText = getString(R.string.ok),
+                    negativeText = getString(R.string.cancel)
+                )
             }
-        )
-        alertDialog.setCancelable(false)
+            .request { allGranted, _, _ ->
+                if (allGranted) {
+                    goToHome()
+                } else {
+                    finish()
+                    LActivityUtil.tranOut(this)
+                }
+            }
     }
 }

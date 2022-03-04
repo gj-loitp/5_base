@@ -15,7 +15,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_padding_medium"
         android:layout_weight="1"
         android:ellipsize="end"
         android:maxLines="2"
@@ -30,7 +30,7 @@
             android:id="@+id/ivPlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/margin_medium"
+            android:padding="@dimen/margin_padding_medium"
             android:src="@drawable/exo_icon_play"
             android:visibility="gone"
             tools:visibility="visible" />
@@ -39,7 +39,7 @@
             android:id="@+id/ivPause"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/margin_medium"
+            android:padding="@dimen/margin_padding_medium"
             android:src="@drawable/ic_pause_black_48dp" />
 
     </RelativeLayout>
@@ -48,6 +48,6 @@
         android:id="@+id/ivClose"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:padding="@dimen/margin_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:src="@drawable/ic_close_black_48dp" />
 </LinearLayout>

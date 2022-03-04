@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:gravity="center"
                 android:text="@string/copyright"
                 android:textColor="?attr/themeTextColor"
@@ -41,8 +41,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/margin_medium"
-                android:layout_marginBottom="@dimen/margin_55"
+                android:layout_margin="@dimen/margin_padding_medium"
+                android:layout_marginBottom="@dimen/w_55"
                 android:indeterminateTint="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:text="@string/lgallery"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_50" />

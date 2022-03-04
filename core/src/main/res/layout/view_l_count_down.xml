@@ -11,7 +11,7 @@
         android:layout_centerInParent="true"
         android:text="@string/_5"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_150"
+        android:textSize="@dimen/txt_50"
         android:textStyle="bold" />
 
 </RelativeLayout>

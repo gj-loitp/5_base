@@ -116,7 +116,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:onClick="onCancelClick"
                 android:text="Cancel"

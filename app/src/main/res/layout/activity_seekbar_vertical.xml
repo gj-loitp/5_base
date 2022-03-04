@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         tools:context=".MainActivity">
 
         <!-- LVerticalSeekBar in non-ScrollView -->
@@ -73,7 +73,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_padding_medium"
             android:background="@color/green"
             android:text="@string/text_in_scroll_view"
             android:textAppearance="@android:style/TextAppearance.Small"

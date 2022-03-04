@@ -2,10 +2,8 @@ package com.core.helper.gallery.albumonly
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.net.Uri
+import android.graphics.Color
 import android.os.Bundle
-import android.provider.Settings
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,16 +14,12 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
-import com.core.utilities.*
+import com.core.utilities.* // ktlint-disable no-wildcard-imports
 import com.function.pump.download.Pump
 import com.function.pump.download.core.DownloadListener
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.MultiplePermissionsReport
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import com.permissionx.guolindev.PermissionX
 import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
@@ -34,12 +28,7 @@ import com.views.layout.swipeback.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_album.*
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.lnAdView
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.progressBar
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.recyclerView
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.swipeBackLayout
 
 @LogTag("GalleryCorePhotosOnlyActivity")
 @IsFullScreen(false)
@@ -56,7 +45,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     private var adView: AdView? = null
     private var photosetID: String? = null
     private var photosSize: Int = 0
-    private var isShowDialogCheck: Boolean = false
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_flickr_gallery_core_photos_only
@@ -76,7 +64,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         } else {
             adView = AdView(this)
             adView?.let {
-                it.adSize = AdSize.SMART_BANNER
+                it.adSize = AdSize.BANNER
                 it.adUnitId = adUnitId
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)
@@ -174,6 +162,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             }
         })
         LValidateUtil.isValidPackageName()
+        checkPermission()
     }
 
     private fun showListPage() {
@@ -334,9 +323,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     public override fun onResume() {
         adView?.resume()
         super.onResume()
-        if (!isShowDialogCheck) {
-            checkPermission()
-        }
     }
 
     public override fun onDestroy() {
@@ -345,80 +331,43 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     }
 
     private fun checkPermission() {
-        isShowDialogCheck = true
-        Dexter.withContext(this)
-            .withPermissions(
+        val color = if (LUIUtil.isDarkTheme()) {
+            Color.WHITE
+        } else {
+            Color.BLACK
+        }
+        PermissionX.init(this)
+            .permissions(
+                Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.ACCESS_FINE_LOCATION
             )
-            .withListener(object : MultiplePermissionsListener {
-                override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-                    // check if all permissions are granted
-                    if (report.areAllPermissionsGranted()) {
-//                            logD("onPermissionsChecked do you work now")
-                        goToHome()
-                    } else {
-//                            logD("!areAllPermissionsGranted")
-                        showShouldAcceptPermission()
-                    }
-
-                    // check for permanent denial of any permission
-                    if (report.isAnyPermissionPermanentlyDenied) {
-//                            logD("onPermissionsChecked permission is denied permenantly, navigate user to app settings")
-                        showSettingsDialog()
-                    }
-                    isShowDialogCheck = true
-                }
-
-                override fun onPermissionRationaleShouldBeShown(
-                    permissions: List<PermissionRequest>,
-                    token: PermissionToken
-                ) {
-//                        logD("onPermissionRationaleShouldBeShown")
-                    token.continuePermissionRequest()
-                }
-            })
-            .onSameThread()
-            .check()
-    }
-
-    private fun showShouldAcceptPermission() {
-        val alertDialog = LDialogUtil.showDialog2(
-            context = this,
-            title = "Need Permissions",
-            msg = "This app needs permission to use this feature.",
-            button1 = "Okay",
-            button2 = "Cancel",
-            onClickButton1 = {
-                checkPermission()
-            },
-            onClickButton2 = {
-                onBackPressed()
+            .setDialogTintColor(color, color)
+            .onExplainRequestReason { scope, deniedList, _ ->
+                val message = getString(R.string.app_name) + getString(R.string.needs_per)
+                scope.showRequestReasonDialog(
+                    permissions = deniedList,
+                    message = message,
+                    positiveText = getString(R.string.allow),
+                    negativeText = getString(R.string.deny)
+                )
             }
-        )
-        alertDialog.setCancelable(false)
-    }
-
-    private fun showSettingsDialog() {
-        val alertDialog = LDialogUtil.showDialog2(
-            context = this,
-            title = "Need Permissions",
-            msg = "This app needs permission to use this feature. You can grant them in app settings.",
-            button1 = "GOTO SETTINGS",
-            button2 = getString(R.string.cancel),
-            onClickButton1 = {
-                isShowDialogCheck = false
-                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                val uri = Uri.fromParts("package", packageName, null)
-                intent.data = uri
-                startActivityForResult(intent, 101)
-            },
-            onClickButton2 = {
-                onBackPressed()
+            .onForwardToSettings { scope, deniedList ->
+                scope.showForwardToSettingsDialog(
+                    permissions = deniedList,
+                    message = getString(R.string.per_manually_msg),
+                    positiveText = getString(R.string.ok),
+                    negativeText = getString(R.string.cancel)
+                )
             }
-        )
-        alertDialog.setCancelable(false)
+            .request { allGranted, _, _ ->
+                if (allGranted) {
+                    goToHome()
+                } else {
+                    finish()
+                    LActivityUtil.tranOut(this)
+                }
+            }
     }
 
     private fun save(url: String) {

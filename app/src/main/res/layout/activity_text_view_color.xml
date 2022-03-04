@@ -19,7 +19,7 @@
             <com.views.textview.color.LColorTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:text="You can get 500 credits after connect and share the WIFI"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_large"

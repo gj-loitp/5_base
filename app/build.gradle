@@ -109,26 +109,17 @@ repositories {
 
 dependencies {
     api project(':core')
-//    api 'com.github.tplloi:basemaster:4.4.64'
+//    api 'com.github.tplloi:basemaster:4.4.69'
 
     //https://github.com/square/retrofit/tree/master/retrofit-converters/moshi
     api 'com.squareup.retrofit2:converter-moshi:2.9.0'
 
-    //region database
     //realm
     //noinspection AnnotationProcessorOnCompilePath
     api 'io.realm:realm-android:0.82.1'
 
-    //endregion
-
-    //region picker
-
     //https://github.com/ParkSangGwon/TedImagePicker
-    api 'io.github.ParkSangGwon:tedimagepicker:1.2.4'
-
-    //endregion
-
-    //region util
+//    api 'io.github.ParkSangGwon:tedimagepicker:1.2.7'
 
     //https://github.com/barteksc/AndroidPdfViewer
     api 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
@@ -136,16 +127,7 @@ dependencies {
     //https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
 
-    //endregion
-
-    //region architecture component
-    //Room components
-//    api "androidx.room:room-runtime:2.2.2" //defined in core module
-//    api "androidx.room:room-ktx:2.2.2" //defined in core module
-    kapt "androidx.room:room-compiler:2.3.0"
-//    androidTestImplementation "androidx.room:room-testing:2.2.2" //defined in core module
-
-    //endregion
+    kapt "androidx.room:room-compiler:2.4.1"
 
     //https://github.com/nex3z/ToggleButtonGroup
     api 'com.nex3z:toggle-button-group:1.2.3'
@@ -161,7 +143,6 @@ dependencies {
     api 'com.thedeanda:lorem:2.1'
 
     //https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
-//    api 'com.github.ernestoyaquello:DragDropSwipeRecyclerview:1.0.0'
     api 'com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:1.1.0'
 
     //https://github.com/tuanhav95/DragView
@@ -184,6 +165,12 @@ dependencies {
 
     //https://github.com/transferwise/sequence-layout
     api 'com.github.transferwise:sequence-layout:1.1.1'
+
+    //https://github.com/bhoomit11/ScopedMediaPicker
+    api 'com.github.bhoomit11:ScopedMediaPicker:1.0.3'
+
+    //https://github.com/Zaid-Mirza/AttachmentManager
+    api 'com.github.Zaid-Mirza:AttachmentManager:2.0.1'
 
 }
 //apply plugin: 'com.google.gms.google-services'

@@ -14,8 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="@dimen/padding_medium"
-            android:paddingBottom="@dimen/padding_medium">
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btArchitectureComponent"
@@ -66,16 +66,6 @@
                 android:id="@+id/btGalleryMember"
                 style="@style/ButtonMenu"
                 android:text="@string/gallery_member" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btGirl"
-                style="@style/ButtonMenu"
-                android:text="Girl" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btComic"
-                style="@style/ButtonMenu"
-                android:text="Comic" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMapTracker"

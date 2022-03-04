@@ -46,17 +46,17 @@
             style="@style/ScrollVertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/padding_small"
-            android:paddingTop="@dimen/padding_medium"
-            android:paddingEnd="@dimen/padding_small"
-            android:paddingBottom="@dimen/padding_medium"
+            android:paddingStart="@dimen/margin_padding_small"
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingEnd="@dimen/margin_padding_small"
+            android:paddingBottom="@dimen/margin_padding_medium"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
         <com.sackcentury.shinebuttonlib.ShineButton
             android:id="@+id/btLike"
             android:layout_width="@dimen/w_50"
             android:layout_height="@dimen/w_50"
-            android:layout_marginEnd="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_padding_large"
             android:visibility="invisible"
             app:allow_random_color="true"
             app:btn_color="@color/gray"

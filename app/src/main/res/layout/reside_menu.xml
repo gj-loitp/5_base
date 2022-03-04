@@ -28,7 +28,7 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_gravity="left|center_vertical"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="@drawable/ic_more_vert_grey"
                 android:backgroundTint="?attr/themeTextColor"
                 tools:ignore="RtlHardcoded" />
@@ -47,7 +47,7 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_gravity="end|center_vertical"
-                android:layout_marginEnd="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_padding_medium"
                 android:background="@drawable/ic_more_vert_grey"
                 android:backgroundTint="?attr/themeTextColor" />
         </FrameLayout>

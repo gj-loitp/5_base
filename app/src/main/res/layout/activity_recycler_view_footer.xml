@@ -18,7 +18,7 @@
             android:id="@+id/tvType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginStart="@dimen/margin_padding_medium"
             android:layout_weight="1"
             android:text="LinearLayoutManager vertical"
             android:textColor="?attr/themeTextColor"
@@ -82,7 +82,7 @@
                 android:gravity="center"
                 android:text="FOOTER"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_large"
+                android:textSize="@dimen/txt_medium"
                 android:textStyle="bold" />
         </RelativeLayout>
 

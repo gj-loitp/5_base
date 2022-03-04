@@ -51,8 +51,8 @@
         android:background="@android:color/white"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingTop="@dimen/padding_10"
-        android:paddingBottom="@dimen/padding_10">
+        android:paddingTop="@dimen/w_10"
+        android:paddingBottom="@dimen/w_10">
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/btn_rotaion"

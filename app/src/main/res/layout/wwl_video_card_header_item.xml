@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@color/colorPrimary60"
     android:orientation="vertical"
-    android:padding="@dimen/padding_5">
+    android:padding="@dimen/w_5">
 
     <TextView
         android:id="@+id/liTitle"

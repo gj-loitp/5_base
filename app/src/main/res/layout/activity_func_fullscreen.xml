@@ -18,7 +18,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btToggleFullScreen"
                 style="@style/ButtonMenu"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:text="@string/toggle_fullscreen" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:text="@string/large_text"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />

@@ -5,16 +5,16 @@
     android:id="@+id/roundRect"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/margin_medium"
-    android:layout_marginTop="@dimen/margin_medium"
-    android:layout_marginEnd="@dimen/margin_medium"
+    android:layout_marginStart="@dimen/margin_padding_medium"
+    android:layout_marginTop="@dimen/margin_padding_medium"
+    android:layout_marginEnd="@dimen/margin_padding_medium"
     android:elevation="@dimen/w_3"
     android:foreground="?selectableItemBackground"
     app:shape_roundRect_borderColor="?attr/themeTextColor"
     app:shape_roundRect_borderWidth="@dimen/w_3"
     app:shape_roundRect_bottomLeftRadius="0dp"
-    app:shape_roundRect_bottomRightRadius="@dimen/round_45"
-    app:shape_roundRect_topLeftRadius="@dimen/round_45"
+    app:shape_roundRect_bottomRightRadius="@dimen/round_larger"
+    app:shape_roundRect_topLeftRadius="@dimen/round_larger"
     app:shape_roundRect_topRightRadius="0dp"
     tools:ignore="UnusedAttribute">
 
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/padding_medium">
+        android:padding="@dimen/margin_padding_medium">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
@@ -56,8 +56,8 @@
         android:layout_height="@dimen/w_50"
         android:layout_centerInParent="true"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/margin_large"
-        android:layout_marginBottom="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_padding_large"
+        android:layout_marginBottom="@dimen/margin_padding_large"
         app:allow_random_color="true"
         app:btn_color="@color/gray"
         app:btn_fill_color="@color/green"

@@ -13,6 +13,6 @@
         android:id="@+id/btStart"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/margin_medium"
+        android:layout_margin="@dimen/margin_padding_medium"
         android:text="@string/start" />
 </RelativeLayout>

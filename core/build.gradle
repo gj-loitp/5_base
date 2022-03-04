@@ -27,6 +27,10 @@ android {
         }
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     dexOptions {
         jumboMode true
         javaMaxHeapSize "4g"
@@ -46,8 +50,6 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-    //region image loader
-
     //glide
     api 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
@@ -60,10 +62,6 @@ dependencies {
     //https://github.com/wasabeef/glide-transformations
     api 'jp.wasabeef:glide-transformations:4.3.0'
 
-    //endregion
-
-    //region network
-
     //retrofit
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
@@ -73,17 +71,11 @@ dependencies {
     api 'com.j256.ormlite:ormlite-core:5.1'
     api 'com.j256.ormlite:ormlite-android:5.1'
 
-    //endregion
-
-    //region rx
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
     api 'io.reactivex.rxjava2:rxjava:2.2.21'
-    //endregion
 
     api 'androidx.legacy:legacy-support-v4:1.0.0'
     api 'androidx.dynamicanimation:dynamicanimation:1.1.0-alpha03'
-
-    //region view
 
     api 'androidx.appcompat:appcompat:1.4.1'
     api 'com.google.android.material:material:1.6.0-alpha02'
@@ -94,11 +86,13 @@ dependencies {
     api 'com.otaliastudios:zoomlayout:1.8.0'//https://github.com/natario1/ZoomLayout
     api 'com.flaviofaria:kenburnsview:1.0.7'//https://github.com/flavioarfaria/KenBurnsView
     api 'com.labo.kaji:relativepopupwindow:0.4.1'//https://github.com/kakajika/RelativePopupWindow
-    api 'com.github.stfalcon:stfalcon-imageviewer:1.0.1'//https://github.com/stfalcon-studio/StfalconImageViewer
-    api "com.github.skydoves:transformationlayout:1.1.0"//https://github.com/skydoves/TransformationLayout
-    api 'com.github.hackware1993:MagicIndicator:1.7.0'//https://github.com/hackware1993/MagicIndicator
+    api 'com.github.stfalcon:stfalcon-imageviewer:1.0.1'
+//https://github.com/stfalcon-studio/StfalconImageViewer
+    api "com.github.skydoves:transformationlayout:1.1.0"
+//https://github.com/skydoves/TransformationLayout
+    api 'com.github.hackware1993:MagicIndicator:1.7.0'
+//https://github.com/hackware1993/MagicIndicator
     api 'androidx.webkit:webkit:1.4.0'
-    //endregion
 
     //fragment navigation
     api 'androidx.navigation:navigation-fragment-ktx:2.4.0'
@@ -108,14 +102,13 @@ dependencies {
 
     //https://github.com/adblockplus/libadblockplus-android
     api 'org.adblockplus:adblock-android-webview:4.4.0'
-    
+
     //multidex
     api 'androidx.multidex:multidex:2.0.1'
 
     //https://github.com/greenrobot/EventBus
     api 'org.greenrobot:eventbus:3.2.0'
 
-    //region animation
     //https://github.com/daimajia/AnimationEasingFunctions
     api 'com.daimajia.easing:library:2.4@aar'
     api 'com.daimajia.androidanimations:library:2.4@aar'
@@ -140,9 +133,6 @@ dependencies {
 
     //https://github.com/tombayley/ActivityCircularReveal
     api 'com.github.tombayley:ActivityCircularReveal:1.0.2'
-    //endregion
-
-    //region google service
 
     //https://github.com/google/gson
     api 'com.google.code.gson:gson:2.8.8'
@@ -150,17 +140,13 @@ dependencies {
     //google service https://developers.google.com/android/guides/setup
     //compile 'com.google.android.gms:play-services-plus:15.0.1'
     //api 'com.google.android.gms:play-services-cast-framework:16.1.0'
-    api 'com.google.android.gms:play-services-maps:17.0.0'//gg map
-    api 'com.google.android.gms:play-services-ads:19.7.0'
-    api 'com.google.android.gms:play-services-location:17.1.0'
-    api 'com.nineoldandroids:library:2.4.0'//for draggable view
-    //endregion
+    api 'com.google.android.gms:play-services-maps:18.0.2'
+    api 'com.google.android.gms:play-services-ads:20.5.0'
+    api 'com.google.android.gms:play-services-location:19.0.1'
 
     //https://github.com/JakeWharton/NineOldAndroids
-    //TODO delete lib
-    api 'com.nineoldandroids:library:2.4.0'//for draggable view
+    api 'com.nineoldandroids:library:2.4.0' //for draggable view
 
-    //region exoplayer
     //https://github.com/google/ExoPlayer
     api 'com.google.android.exoplayer:exoplayer:2.10.4'
     //compile 'com.google.android.exoplayer:exoplayer-core:2.10.4''
@@ -175,16 +161,13 @@ dependencies {
     //https://github.com/rubensousa/PreviewSeekBar
     //api 'com.github.rubensousa:previewseekbar:2.0.0'
     //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
-    //endregion
 
-    //TODO replace lib
-    //https://github.com/Karumi/Dexter
-    api 'com.karumi:dexter:6.2.3'
+    //https://github.com/guolindev/PermissionX
+    api 'com.guolindev.permissionx:permissionx:1.6.1'
 
     //https://github.com/InflationX/Calligraphy
     api 'io.github.inflationx:calligraphy3:3.1.1'
     api 'io.github.inflationx:viewpump:2.0.3'
-    //endregion
 
     //https://github.com/Yalantis/uCrop
 //    api 'com.yalantis:ucrop:2.2.0'
@@ -193,22 +176,21 @@ dependencies {
     //https://github.com/nuonveyo/AutoRefreshNetworkConnection
     api 'com.veyo:autorefreshnetworkconnection:1.0.6'
 
-    //region architecture component
     api "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    //noinspection LifecycleAnnotationProcessorWithJava8
     kapt "androidx.lifecycle:lifecycle-compiler:2.5.0-alpha01"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
     //Room components
-    api "androidx.room:room-runtime:2.3.0"
-    api "androidx.room:room-ktx:2.3.0"
-    kapt "androidx.room:room-compiler:2.3.0"
-    androidTestImplementation "androidx.room:room-testing:2.3.0"
+    api "androidx.room:room-runtime:2.4.1"
+    api "androidx.room:room-ktx:2.4.1"
+    kapt "androidx.room:room-compiler:2.4.1"
+    androidTestImplementation "androidx.room:room-testing:2.4.1"
 
     //ViewModel Kotlin support
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
     //Coroutines
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
-    //endregion
 
     //https://github.com/florent37/ExpansionPanel
     api 'com.github.florent37:expansionpanel:1.2.4'
@@ -232,12 +214,12 @@ dependencies {
     //https://github.com/ChadCSong/ShineButton
     api 'com.sackcentury:shinebutton:1.0.0'
 
-    //https://github.com/81813780/AVLoadingIndicatorView
-//    api 'com.wang.avi:library:2.1.3'
-
     //https://github.com/alirezat775/downloader
 //    api 'com.github.alirezat775:downloader:1.0.2'
 
     //https://github.com/huxq17/Pump
 //    api'com.huxq17.pump:download:1.3.10'
+
+    // required to avoid crash on Android 12 API 31
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
 }

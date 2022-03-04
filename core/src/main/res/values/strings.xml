@@ -9,8 +9,12 @@
     <string name="err">Error</string>
     <string name="err_unknow">Lỗi không xác định, xin vui lòng thử lại sau.</string>
     <string name="err_unknow_en">Unknown error, please try again later.</string>
+    <string name="allow">Allow</string>
+    <string name="deny">Deny</string>
+    <string name="needs_per">needs following permissions to continue</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="per_manually_msg">You need to allow necessary permissions in Settings manually</string>
     <string name="play">Play</string>
     <string name="pause">Pause</string>
     <string name="fast_forward">Fast forward</string>

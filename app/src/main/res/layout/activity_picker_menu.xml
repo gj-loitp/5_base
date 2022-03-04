@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    tools:ignore="HardcodedText">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -15,18 +17,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="@dimen/padding_medium"
-            android:paddingBottom="@dimen/padding_medium">
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btNumbePicker"
+                android:id="@+id/btAttachmentManager"
+                style="@style/ButtonMenu"
+                android:text="Attachment Manager (+)" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNumberPicker"
                 style="@style/ButtonMenu"
                 android:text="Number Picker" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btTedImagePicker"
+                android:id="@+id/btScopedMediaPicker"
                 style="@style/ButtonMenu"
-                android:text="TedImagePicker" />
+                android:text="ScopedMediaPicker (Beta)" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTimePicker"

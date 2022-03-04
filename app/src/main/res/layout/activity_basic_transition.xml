@@ -20,7 +20,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_15"
+                android:padding="@dimen/margin_padding_medium"
                 android:text="Android BasicTransition Sample
 A basic app showing how to use the Transition framework introduced in KitKat. The app shows radioboxes to select between different Scenes, and uses various ways to transition between them.
 

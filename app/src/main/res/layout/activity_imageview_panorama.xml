@@ -18,10 +18,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/red50"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="@string/an_imageview_can_auto_scroll_with_device_rotating_vertical_or_horizontal"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/text_medium"
+        android:textSize="@dimen/txt_medium"
         android:textStyle="bold" />
 
 </RelativeLayout>

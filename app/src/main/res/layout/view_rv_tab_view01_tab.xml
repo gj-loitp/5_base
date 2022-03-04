@@ -4,20 +4,20 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="horizontal"
-    android:paddingLeft="@dimen/padding_medium"
-    android:paddingRight="@dimen/padding_medium">
+    android:paddingLeft="@dimen/margin_padding_medium"
+    android:paddingRight="@dimen/margin_padding_medium">
 
     <View
         android:id="@+id/color"
         android:layout_width="@dimen/w_10"
         android:layout_height="@dimen/w_10"
-        android:background="@drawable/ic_launcher" />
+        android:background="@drawable/ic_launcher_loitp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_padding_medium"
         android:ellipsize="end"
         android:maxLines="1"
         android:textColor="@color/darkCyan" />

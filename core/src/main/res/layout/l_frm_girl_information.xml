@@ -26,7 +26,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
@@ -38,7 +38,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/why_u_see_ad_en"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -57,7 +57,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
@@ -69,7 +69,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/rate_app_en"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -88,7 +88,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
@@ -100,7 +100,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/more_app_en"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -119,7 +119,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
@@ -131,7 +131,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/share_app_en"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -150,7 +150,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
@@ -162,7 +162,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/like_facebook_fanpage"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -181,7 +181,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
@@ -193,7 +193,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/support_24_7_en"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -203,7 +203,7 @@
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin_55"
+                android:layout_marginTop="@dimen/w_55"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
                 android:src="@drawable/l_donation" />
@@ -213,12 +213,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:paddingStart="@dimen/padding_medium"
-                android:paddingTop="@dimen/padding_medium"
-                android:paddingEnd="@dimen/padding_medium"
-                android:paddingBottom="@dimen/padding_200"
+                android:paddingStart="@dimen/margin_padding_medium"
+                android:paddingTop="@dimen/margin_padding_medium"
+                android:paddingEnd="@dimen/margin_padding_medium"
+                android:paddingBottom="@dimen/w_200"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_large"
+                android:textSize="@dimen/txt_medium"
                 tools:text="Hello World!" />
 
         </LinearLayout>

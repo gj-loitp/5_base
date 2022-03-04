@@ -6,6 +6,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.IntentSender.SendIntentException
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import android.net.Uri
 import android.os.Bundle
@@ -15,21 +16,18 @@ import androidx.core.app.ActivityCompat
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LLocationUtil
+import com.core.utilities.LUIUtil
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
-import com.google.android.gms.location.* // ktlint-disable no-wildcard-imports
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionDeniedResponse
-import com.karumi.dexter.listener.PermissionGrantedResponse
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.single.PermissionListener
+import com.google.android.gms.location.*
+import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_func_location.*
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 import java.text.DateFormat
-import java.util.* // ktlint-disable no-wildcard-imports
+import java.util.*
 
 @LogTag("LocationActivity")
 @IsFullScreen(false)
@@ -181,79 +179,99 @@ class LocationActivity : BaseFontActivity() {
      */
     private fun startLocationUpdates() {
         mSettingsClient?.let { settingsClient ->
-            settingsClient.checkLocationSettings(mLocationSettingsRequest)
-                .addOnSuccessListener(this) {
-                    logD("All location settings are satisfied.")
-                    showShortInformation("Started location updates!")
-                    if (ActivityCompat.checkSelfPermission(
-                            this,
-                            Manifest.permission.ACCESS_FINE_LOCATION
-                        ) == PackageManager.PERMISSION_GRANTED &&
-                        ActivityCompat.checkSelfPermission(
+            mLocationSettingsRequest?.let { locationSettingsRequest ->
+                settingsClient.checkLocationSettings(locationSettingsRequest)
+                    .addOnSuccessListener(this) {
+                        logD("All location settings are satisfied.")
+                        showShortInformation("Started location updates!")
+                        if (ActivityCompat.checkSelfPermission(
                                 this,
-                                Manifest.permission.ACCESS_COARSE_LOCATION
-                            ) == PackageManager.PERMISSION_GRANTED
-                    ) {
-                        mFusedLocationClient?.requestLocationUpdates(
-                            mLocationRequest,
-                            mLocationCallback,
-                            Looper.myLooper()
-                        )
-                        updateLocationUI()
-                    } else {
-                        showShortInformation("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
+                                Manifest.permission.ACCESS_FINE_LOCATION
+                            ) == PackageManager.PERMISSION_GRANTED &&
+                            ActivityCompat.checkSelfPermission(
+                                    this,
+                                    Manifest.permission.ACCESS_COARSE_LOCATION
+                                ) == PackageManager.PERMISSION_GRANTED
+                        ) {
+                            mLocationRequest?.let { lr ->
+                                mLocationCallback?.let { lc ->
+                                    Looper.myLooper()?.let { l ->
+                                        mFusedLocationClient?.requestLocationUpdates(
+                                            lr,
+                                            lc,
+                                            l
+                                        )
+                                    }
+                                }
+                            }
+                            updateLocationUI()
+                        } else {
+                            showShortInformation("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
+                        }
                     }
-                }
-                .addOnFailureListener(this) { e ->
-                    when ((e as ApiException).statusCode) {
-                        LocationSettingsStatusCodes.RESOLUTION_REQUIRED -> {
-                            logD("Location settings are not satisfied. Attempting to upgrade location settings ")
-                            try {
-                                // Show the dialog by calling startResolutionForResult(), and check the
-                                // result in onActivityResult().
-                                val rae = e as ResolvableApiException
-                                rae.startResolutionForResult(this, REQUEST_CHECK_SETTINGS)
-                            } catch (sie: SendIntentException) {
-                                sie.printStackTrace()
+                    .addOnFailureListener(this) { e ->
+                        when ((e as ApiException).statusCode) {
+                            LocationSettingsStatusCodes.RESOLUTION_REQUIRED -> {
+                                logD("Location settings are not satisfied. Attempting to upgrade location settings ")
+                                try {
+                                    // Show the dialog by calling startResolutionForResult(), and check the
+                                    // result in onActivityResult().
+                                    val rae = e as ResolvableApiException
+                                    rae.startResolutionForResult(this, REQUEST_CHECK_SETTINGS)
+                                } catch (sie: SendIntentException) {
+                                    sie.printStackTrace()
+                                }
+                            }
+                            LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> {
+                                val errorMessage =
+                                    "Location settings are inadequate, and cannot be fixed here. Fix in Settings."
+                                logD(errorMessage)
+                                showShortInformation(errorMessage)
                             }
                         }
-                        LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> {
-                            val errorMessage =
-                                "Location settings are inadequate, and cannot be fixed here. Fix in Settings."
-                            logD(errorMessage)
-                            showShortInformation(errorMessage)
-                        }
+                        updateLocationUI()
                     }
-                    updateLocationUI()
-                }
+            }
         }
     }
 
     private fun startLocationButtonClick() {
-        // Requesting ACCESS_FINE_LOCATION using Dexter library
-        Dexter.withContext(this)
-            .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-            .withListener(object : PermissionListener {
-                override fun onPermissionGranted(response: PermissionGrantedResponse) {
+        val color = if (LUIUtil.isDarkTheme()) {
+            Color.WHITE
+        } else {
+            Color.BLACK
+        }
+        PermissionX.init(this)
+            .permissions(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            )
+            .setDialogTintColor(color, color)
+            .onExplainRequestReason { scope, deniedList, _ ->
+                val message = getString(com.R.string.app_name) + getString(com.R.string.needs_per)
+                scope.showRequestReasonDialog(
+                    permissions = deniedList,
+                    message = message,
+                    positiveText = getString(com.R.string.allow),
+                    negativeText = getString(com.R.string.deny)
+                )
+            }
+            .onForwardToSettings { scope, deniedList ->
+                scope.showForwardToSettingsDialog(
+                    permissions = deniedList,
+                    message = getString(com.R.string.per_manually_msg),
+                    positiveText = getString(com.R.string.ok),
+                    negativeText = getString(com.R.string.cancel)
+                )
+            }
+            .request { allGranted, _, _ ->
+                if (allGranted) {
                     mRequestingLocationUpdates = true
                     startLocationUpdates()
+                } else {
+                    finish()
+                    LActivityUtil.tranOut(this)
                 }
-
-                override fun onPermissionDenied(response: PermissionDeniedResponse) {
-                    if (response.isPermanentlyDenied) {
-                        // open device settings when the permission is
-                        // denied permanently
-                        openSettings()
-                    }
-                }
-
-                override fun onPermissionRationaleShouldBeShown(
-                    permission: PermissionRequest,
-                    token: PermissionToken
-                ) {
-                    token.continuePermissionRequest()
-                }
-            }).check()
+            }
     }
 
     private fun stopLocationButtonClick() {
@@ -263,11 +281,13 @@ class LocationActivity : BaseFontActivity() {
 
     private fun stopLocationUpdates() {
         // Removing location updates
-        mFusedLocationClient?.removeLocationUpdates(mLocationCallback)
-            ?.addOnCompleteListener(this) {
-                showShortInformation("Location updates stopped!")
-                toggleButtons()
-            }
+        mLocationCallback?.let { lc ->
+            mFusedLocationClient?.removeLocationUpdates(lc)
+                ?.addOnCompleteListener(this) {
+                    showShortInformation("Location updates stopped!")
+                    toggleButtons()
+                }
+        }
     }
 
     private fun showLastKnownLocation() {

@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:scaleType="centerInside"
         android:src="@drawable/find_the_number"
         android:visibility="invisible"
@@ -27,10 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="@string/copyright"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_find_number" />
+        android:textSize="@dimen/txt_larger" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -39,6 +39,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_padding_medium"
         android:indeterminateTint="?attr/themeTextColor" />
 </RelativeLayout>

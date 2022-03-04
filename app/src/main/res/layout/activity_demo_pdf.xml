@@ -6,8 +6,8 @@
     android:animateLayoutChanges="true"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical"
-    android:paddingTop="@dimen/padding_medium"
-    android:paddingBottom="@dimen/padding_medium">
+    android:paddingTop="@dimen/margin_padding_medium"
+    android:paddingBottom="@dimen/margin_padding_medium">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btFileAsyncTask"
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/w_10"
             android:layout_centerInParent="true"
-            android:layout_margin="@dimen/margin_medium"
+            android:layout_margin="@dimen/margin_padding_medium"
             android:indeterminateTint="@color/red"
             android:max="100"
             android:visibility="gone"

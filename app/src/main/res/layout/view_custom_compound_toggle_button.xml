@@ -7,8 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
-        android:paddingTop="@dimen/padding_medium"
-        android:paddingBottom="@dimen/padding_medium"
+        android:paddingTop="@dimen/margin_padding_medium"
+        android:paddingBottom="@dimen/margin_padding_medium"
         android:scaleType="fitCenter"
         tools:src="@drawable/card_a" />
 
@@ -17,8 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
-        android:paddingTop="@dimen/padding_medium"
-        android:paddingBottom="@dimen/padding_medium"
+        android:paddingTop="@dimen/margin_padding_medium"
+        android:paddingBottom="@dimen/margin_padding_medium"
         android:scaleType="fitCenter"
         android:src="@drawable/card_a" />
 

@@ -15,10 +15,10 @@
         android:id="@+id/tvSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:singleLine="true"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/text_large"
+        android:textSize="@dimen/txt_medium"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/margin_small"
+        android:layout_margin="@dimen/margin_padding_small"
         android:baselineAligned="false">
 
         <FrameLayout

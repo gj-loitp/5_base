@@ -18,7 +18,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:text="@string/large_text"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
@@ -51,7 +51,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:text="@string/hello_world"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />

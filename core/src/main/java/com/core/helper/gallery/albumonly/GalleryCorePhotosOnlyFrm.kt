@@ -1,10 +1,10 @@
 package com.core.helper.gallery.albumonly
 
+// ktlint-disable no-wildcard-imports
 import android.Manifest
-import android.content.Intent
-import android.net.Uri
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
-import android.provider.Settings
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.R
@@ -13,14 +13,13 @@ import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
-import com.core.utilities.*
+import com.core.utilities.LActivityUtil
+import com.core.utilities.LDialogUtil
+import com.core.utilities.LSocialUtil
+import com.core.utilities.LUIUtil
 import com.function.pump.download.Pump
 import com.function.pump.download.core.DownloadListener
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.MultiplePermissionsReport
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import com.permissionx.guolindev.PermissionX
 import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
@@ -29,9 +28,7 @@ import com.views.setSafeOnClickListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_album.*
 import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
-import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.progressBar
 import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.recyclerView
 
 @LogTag("GalleryCorePhotosOnlyFrm")
@@ -52,7 +49,6 @@ class GalleryCorePhotosOnlyFrm(
     private var photosOnlyAdapter: PhotosOnlyAdapter? = null
     private var photosetID: String? = null
     private var photosSize: Int = 0
-    private var isShowDialogCheck: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,7 +106,8 @@ class GalleryCorePhotosOnlyFrm(
                     override fun onClickCmt(photo: Photo, pos: Int) {
                         LSocialUtil.openFacebookComment(context = a, url = photo.urlO)
                     }
-                })
+                }
+            )
         }
         photosOnlyAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
@@ -125,7 +122,7 @@ class GalleryCorePhotosOnlyFrm(
             recyclerView.adapter = animAdapter
         }
 
-        //LUIUtil.setPullLikeIOSVertical(recyclerView)
+        // LUIUtil.setPullLikeIOSVertical(recyclerView)
 
 //        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
 //            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -157,6 +154,7 @@ class GalleryCorePhotosOnlyFrm(
         btPage.setSafeOnClickListener {
             showListPage()
         }
+        checkPermission()
     }
 
     private fun showListPage() {
@@ -176,7 +174,8 @@ class GalleryCorePhotosOnlyFrm(
                     PhotosDataCore.instance.clearData()
                     updateAllViews()
                     photosetsGetPhotos(photosetID)
-                })
+                }
+            )
         }
     }
 
@@ -210,39 +209,40 @@ class GalleryCorePhotosOnlyFrm(
         val userID = FlickrConst.USER_KEY
         val page = 1
         val perPage = 500
-        //String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
+        // String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
         val primaryPhotoExtras = ""
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getListPhotoset(
-            method,
-            apiKey,
-            userID,
-            page,
-            perPage,
-            primaryPhotoExtras,
-            format,
-            noJsonCallBack
-        )
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ wrapperPhotosetGetlist ->
+        compositeDisposable.add(
+            service.getListPhotoset(
+                method,
+                apiKey,
+                userID,
+                page,
+                perPage,
+                primaryPhotoExtras,
+                format,
+                noJsonCallBack
+            )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ wrapperPhotosetGetlist ->
 
-                wrapperPhotosetGetlist?.photosets?.photoset?.let { list ->
-                    for (photoset in list) {
-                        if (photoset.id == photosetID) {
-                            photosSize = Integer.parseInt(photoset.photos ?: "0")
-                            init()
-                            return@subscribe
+                    wrapperPhotosetGetlist?.photosets?.photoset?.let { list ->
+                        for (photoset in list) {
+                            if (photoset.id == photosetID) {
+                                photosSize = Integer.parseInt(photoset.photos ?: "0")
+                                init()
+                                return@subscribe
+                            }
                         }
                     }
-                }
-            }, { e ->
-                e.printStackTrace()
-                handleException(e)
-                LDialogUtil.hideProgress(progressBar)
-            })
+                }, { e ->
+                    e.printStackTrace()
+                    handleException(e)
+                    LDialogUtil.hideProgress(progressBar)
+                })
         )
     }
 
@@ -272,138 +272,93 @@ class GalleryCorePhotosOnlyFrm(
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getPhotosetPhotos(
-            method = method,
-            apiKey = apiKey,
-            photosetId = photosetID,
-            userId = userID,
-            extras = primaryPhotoExtras,
-            perPage = PER_PAGE_SIZE,
-            page = currentPage,
-            format = format,
-            noJsonCallback = noJsonCallBack
-        )
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ wrapperPhotosetGetPhotos ->
-                logD(
-                    "photosetsGetPhotos onSuccess " + BaseApplication.gson.toJson(
-                        wrapperPhotosetGetPhotos
+        compositeDisposable.add(
+            service.getPhotosetPhotos(
+                method = method,
+                apiKey = apiKey,
+                photosetId = photosetID,
+                userId = userID,
+                extras = primaryPhotoExtras,
+                perPage = PER_PAGE_SIZE,
+                page = currentPage,
+                format = format,
+                noJsonCallback = noJsonCallBack
+            )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ wrapperPhotosetGetPhotos ->
+                    logD(
+                        "photosetsGetPhotos onSuccess " + BaseApplication.gson.toJson(
+                            wrapperPhotosetGetPhotos
+                        )
                     )
-                )
 
-                val s =
-                    wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
-                tvTitle.text = s
-                wrapperPhotosetGetPhotos?.photoset?.photo?.let {
-                    it.shuffle()
-                    PhotosDataCore.instance.addPhoto(it)
-                }
-                updateAllViews()
+                    val s =
+                        wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
+                    tvTitle.text = s
+                    wrapperPhotosetGetPhotos?.photoset?.photo?.let {
+                        it.shuffle()
+                        PhotosDataCore.instance.addPhoto(it)
+                    }
+                    updateAllViews()
 
-                LDialogUtil.hideProgress(progressBar)
-                btPage.visibility = View.VISIBLE
-                isLoading = false
-                currentPage--
-            }, { e ->
-                handleException(e)
-                LDialogUtil.hideProgress(progressBar)
-                isLoading = true
-            })
+                    LDialogUtil.hideProgress(progressBar)
+                    btPage.visibility = View.VISIBLE
+                    isLoading = false
+                    currentPage--
+                }, { e ->
+                    handleException(e)
+                    LDialogUtil.hideProgress(progressBar)
+                    isLoading = true
+                })
         )
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateAllViews() {
         photosOnlyAdapter?.notifyDataSetChanged()
     }
 
-    override fun onResume() {
-        super.onResume()
-//        logD("onResume")
-        if (!isShowDialogCheck) {
-            checkPermission()
-        }
-    }
-
     private fun checkPermission() {
-        isShowDialogCheck = true
-        Dexter.withContext(context)
-            .withPermissions(
+        val color = if (LUIUtil.isDarkTheme()) {
+            Color.WHITE
+        } else {
+            Color.BLACK
+        }
+        PermissionX.init(this)
+            .permissions(
+                Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.ACCESS_FINE_LOCATION
             )
-            .withListener(object : MultiplePermissionsListener {
-                override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-                    // check if all permissions are granted
-                    if (report.areAllPermissionsGranted()) {
-                        logD("onPermissionsChecked do you work now")
-                        goToHome()
-                    } else {
-                        logD("!areAllPermissionsGranted")
-                        showShouldAcceptPermission()
+            .setDialogTintColor(color, color)
+            .onExplainRequestReason { scope, deniedList, _ ->
+                val message = getString(R.string.app_name) + getString(R.string.needs_per)
+                scope.showRequestReasonDialog(
+                    permissions = deniedList,
+                    message = message,
+                    positiveText = getString(R.string.allow),
+                    negativeText = getString(R.string.deny)
+                )
+            }
+            .onForwardToSettings { scope, deniedList ->
+                scope.showForwardToSettingsDialog(
+                    permissions = deniedList,
+                    message = getString(R.string.per_manually_msg),
+                    positiveText = getString(R.string.ok),
+                    negativeText = getString(R.string.cancel)
+                )
+            }
+            .request { allGranted, _, _ ->
+                if (allGranted) {
+                    goToHome()
+                } else {
+                    activity?.let {
+                        it.finish()
+                        LActivityUtil.tranOut(it)
                     }
-
-                    // check for permanent denial of any permission
-                    if (report.isAnyPermissionPermanentlyDenied) {
-                        logD("onPermissionsChecked permission is denied permenantly, navigate user to app settings")
-                        showSettingsDialog()
-                    }
-                    isShowDialogCheck = true
                 }
-
-                override fun onPermissionRationaleShouldBeShown(
-                    permissions: List<PermissionRequest>,
-                    token: PermissionToken
-                ) {
-                    logD("onPermissionRationaleShouldBeShown")
-                    token.continuePermissionRequest()
-                }
-            })
-            .onSameThread()
-            .check()
-    }
-
-    private fun showShouldAcceptPermission() {
-        activity?.let { a ->
-            val alertDialog = LDialogUtil.showDialog2(
-                context = a,
-                title = "Need Permissions",
-                msg = "This app needs permission to use this feature.",
-                button1 = "Okay",
-                button2 = "Cancel",
-                onClickButton1 = {
-                    checkPermission()
-                },
-                onClickButton2 = {
-                    a.onBackPressed()
-                }
-            )
-            alertDialog.setCancelable(false)
-        }
-    }
-
-    private fun showSettingsDialog() {
-        activity?.let { a ->
-            val alertDialog = LDialogUtil.showDialog2(
-                context = a,
-                title = "Need Permissions",
-                msg = "This app needs permission to use this feature. You can grant them in app settings.",
-                button1 = "GOTO SETTINGS",
-                button2 = getString(R.string.cancel),
-                onClickButton1 = {
-                    isShowDialogCheck = false
-                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    val uri = Uri.fromParts("package", a.packageName, null)
-                    intent.data = uri
-                    startActivityForResult(intent, 101)
-                },
-                onClickButton2 = {
-                    activity?.onBackPressed()
-                }
-            )
-            alertDialog.setCancelable(false)
-        }
+            }
     }
 
     private fun save(url: String) {
@@ -422,9 +377,9 @@ class GalleryCorePhotosOnlyFrm(
                     showShortError("Download failed")
                 }
             })
-            //Optionally,Set whether to repeatedly download the downloaded file,default false.
+            // Optionally,Set whether to repeatedly download the downloaded file,default false.
             .forceReDownload(true)
-            //Optionally,Set how many threads are used when downloading,default 3.
+            // Optionally,Set how many threads are used when downloading,default 3.
             .threadNum(3)
             .setRetry(3, 200)
             .submit()

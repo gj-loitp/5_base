@@ -136,12 +136,17 @@ public class AlarmNotification extends BaseFontActivity {
         intent.setAction(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
 
-        activity = PendingIntent.getActivity(this, (int) alarm.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        activity = PendingIntent.getActivity(this, (int) alarm.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            activity = PendingIntent.getActivity(this, (int) alarm.getId(), intent, PendingIntent.FLAG_MUTABLE);
+        } else {
+            activity = PendingIntent.getActivity(this, (int) alarm.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         notification = builder
                 .setContentIntent(activity)
-                .setSmallIcon(R.drawable.ic_launcher)
+                .setSmallIcon(R.drawable.ic_launcher_loitp)
                 .setAutoCancel(true)
                 .setContentTitle("Missed alarm: " + alarm.getTitle())
                 .setContentText(mDateTime.formatDetails(alarm))

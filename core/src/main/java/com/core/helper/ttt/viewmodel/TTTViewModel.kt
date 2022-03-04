@@ -12,16 +12,17 @@ import com.core.helper.ttt.model.comic.Comic
 import com.core.helper.ttt.model.comictype.ComicType
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
+import com.service.livedata.QueuedMutableLiveData
 import com.service.livedata.SingleLiveEvent
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import java.util.* // ktlint-disable no-wildcard-imports
-import kotlin.collections.ArrayList
 
 @LogTag("TTTViewModel")
 class TTTViewModel : BaseViewModel() {
     val comicTypeLiveEvent: SingleLiveEvent<ComicType> = SingleLiveEvent()
+    val testStringQueuedMutableLiveData: QueuedMutableLiveData<String> = QueuedMutableLiveData()
 
     val listComicActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
     val tttChapActionLiveData: ActionLiveData<ActionData<TTTChap>> = ActionLiveData()
@@ -33,7 +34,18 @@ class TTTViewModel : BaseViewModel() {
     val unfavComicLiveData: ActionLiveData<ActionData<Comic>> = ActionLiveData()
 
     fun setComicType(comicType: ComicType) {
-        comicTypeLiveEvent.postValue(comicType)
+        logD("setComicType ${comicType.url}")
+//        comicTypeLiveEvent.set(comicType)
+        ioScope.launch {
+            comicTypeLiveEvent.postValue(comicType)
+        }
+    }
+
+    fun setStringQueued(s: String) {
+        logD("loitpp setStringQueued $s")
+        ioScope.launch {
+            testStringQueuedMutableLiveData.postValue(s)
+        }
     }
 
     fun getListComic(link: String) {

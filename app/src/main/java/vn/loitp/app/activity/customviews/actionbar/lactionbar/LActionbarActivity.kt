@@ -1,12 +1,13 @@
 package vn.loitp.app.activity.customviews.actionbar.lactionbar
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.View
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
-import com.views.actionbar.LActionBar
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_l_action_bar.*
 import vn.loitp.app.R
 
@@ -24,21 +25,29 @@ class LActionbarActivity : BaseFontActivity() {
         setupActionBar()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupActionBar() {
         textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.lactionbar)
 
-        lActionBar.setOnClickBack(object : LActionBar.Callback {
-            override fun onClickBack(view: View) {
-                onBackPressed()
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.let {
+                LUIUtil.setSafeOnClickListenerElastic(
+                    view = it,
+                    runnable = {
+                        showShortInformation(msg = "onClickMenu", isTopAnchor = false)
+                    }
+                )
+                it.isVisible = true
+                it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-
-            override fun onClickMenu(view: View) {
-                showShortInformation("onClickMenu")
-            }
-        })
-        lActionBar.showMenuIcon()
-        lActionBar.showShadowView()
-        lActionBar.setImageMenuIcon(R.drawable.ic_chevron_right_black_48dp)
-        lActionBar.setTvTitle("Demo LActionbarActivity")
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = "LActionbarActivity"
+        }
     }
 }

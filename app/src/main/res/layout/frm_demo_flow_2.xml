@@ -21,14 +21,14 @@
         android:gravity="center"
         android:text="Screen 2"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_32" />
+        android:textSize="@dimen/txt_largest" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"
         android:background="@color/red"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="Pop this fragment" />
 
 </RelativeLayout>

@@ -41,19 +41,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding_medium">
+            android:padding="@dimen/margin_padding_medium">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 app:cardElevation="@dimen/w_3"
                 app:cardUseCompatPadding="true">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:text="@string/large_text"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />

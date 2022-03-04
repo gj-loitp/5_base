@@ -49,7 +49,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
         logD("\n" + msg)
         val tv = TextView(this)
         tv.text = msg
-        LUIUtil.setTextSize(textView = tv, size = resources.getDimension(R.dimen.text_small))
+        LUIUtil.setTextSize(textView = tv, size = resources.getDimension(R.dimen.txt_small))
         tv.setTextColor(Color.RED)
         ll.addView(tv)
     }

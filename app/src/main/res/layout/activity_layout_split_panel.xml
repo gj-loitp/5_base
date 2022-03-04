@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/margin_padding_medium"
             android:text="@string/hello_world"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/margin_padding_medium"
             android:text="@string/hello_world"
             android:textColor="@color/red"
             android:textSize="@dimen/txt_medium" />

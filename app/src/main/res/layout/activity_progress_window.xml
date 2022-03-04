@@ -45,7 +45,7 @@
             android:id="@+id/hideWP7Btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginStart="@dimen/margin_padding_medium"
             android:layout_weight="1"
             android:background="?attr/themeBackgroundColorMedium"
             android:text="Hide WP7 bar"
@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/wp7Ll"
-        android:layout_marginBottom="@dimen/margin_medium">
+        android:layout_marginBottom="@dimen/margin_padding_medium">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/showWP10Btn"
@@ -73,7 +73,7 @@
             android:id="@+id/hideWP10Btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginStart="@dimen/margin_padding_medium"
             android:layout_weight="1"
             android:background="?attr/themeBackgroundColorMedium"
             android:text="Hide WP10 bar"

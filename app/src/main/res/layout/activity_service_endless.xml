@@ -13,7 +13,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnStartService"
         style="@style/ButtonMenu"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_padding_medium"
         android:text="Start Foreground Service" />
 
     <androidx.appcompat.widget.AppCompatButton

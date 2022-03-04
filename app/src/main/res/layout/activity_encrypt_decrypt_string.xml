@@ -23,10 +23,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bkg_et"
                 android:orientation="vertical"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvBase64"
@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/large_dummy_text"
                     android:textColor="@color/red"
-                    android:textSize="@dimen/text_small"
+                    android:textSize="@dimen/txt_small"
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -60,10 +60,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bkg_et"
                 android:orientation="vertical"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv0"
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/large_dummy_text"
                     android:textColor="@color/deepPink"
-                    android:textSize="@dimen/text_small"
+                    android:textSize="@dimen/txt_small"
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -86,9 +86,9 @@
                     android:id="@+id/tv1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:textColor="@color/darkCyan"
-                    android:textSize="@dimen/text_small"
+                    android:textSize="@dimen/txt_small"
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatButton

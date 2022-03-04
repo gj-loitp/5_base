@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_padding_medium"
         android:gravity="center"
         android:text="@string/click_above_button"
         android:textColor="?attr/themeTextColor"

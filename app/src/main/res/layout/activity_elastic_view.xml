@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding_medium">
+            android:padding="@dimen/margin_padding_medium">
 
             <com.skydoves.elasticviews.ElasticButton
                 android:id="@+id/elasticButton"
@@ -33,7 +33,7 @@
                 android:id="@+id/elasticCheckButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:background="@color/deepPink"
                 android:text="ElasticCheckButton"
                 android:textColor="@color/white"
@@ -47,7 +47,7 @@
                 android:id="@+id/elasticImageView"
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_150"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:scaleType="centerCrop"
                 android:src="@drawable/loitp"
                 app:imageView_duration="300"
@@ -57,7 +57,7 @@
                 android:id="@+id/elasticFloatingActionButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:src="@drawable/ic_add_black_48dp"
                 app:fabSize="normal"
                 app:fabutton_duration="400"
@@ -68,7 +68,7 @@
                 android:id="@+id/elasticCardView"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_100"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 app:cardBackgroundColor="@color/blue"
                 app:cardCornerRadius="@dimen/round_medium"
                 app:cardElevation="@dimen/w_3"
@@ -89,7 +89,7 @@
             <com.skydoves.elasticviews.ElasticLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_100"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:background="@color/yellow"
                 app:layout_cornerRadius="@dimen/round_medium"
                 app:layout_duration="500"
@@ -115,14 +115,14 @@
             <View
                 android:id="@+id/anyView"
                 android:layout_width="@dimen/w_100"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:background="@color/cyan"
                 android:layout_height="@dimen/w_100" />
 
             <View
                 android:id="@+id/anyView2"
                 android:layout_width="@dimen/w_100"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:background="@color/deepSkyBlue"
                 android:layout_height="@dimen/w_100" />
 

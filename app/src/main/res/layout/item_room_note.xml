@@ -5,9 +5,9 @@
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/margin_medium"
-    android:layout_marginTop="@dimen/margin_medium"
-    android:layout_marginEnd="@dimen/margin_medium"
+    android:layout_marginStart="@dimen/margin_padding_medium"
+    android:layout_marginTop="@dimen/margin_padding_medium"
+    android:layout_marginEnd="@dimen/margin_padding_medium"
     android:foreground="?selectableItemBackground"
     app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
     app:cardCornerRadius="@dimen/round_medium"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         tools:ignore="UseCompoundDrawables">
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/margin_padding_medium"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"
             tools:text="@string/app_name" />

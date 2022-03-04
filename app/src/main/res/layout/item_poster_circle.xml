@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
             android:orientation="vertical"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/margin_padding_medium"
             tools:ignore="UnusedAttribute">
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium"
                 android:textStyle="bold"
@@ -53,10 +53,10 @@
                 android:id="@+id/tvItemPosterRunningTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="@dimen/padding_medium"
-                android:paddingEnd="@dimen/padding_medium"
+                android:paddingStart="@dimen/margin_padding_medium"
+                android:paddingEnd="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_small"
+                android:textSize="@dimen/txt_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvItemPosterTitle"

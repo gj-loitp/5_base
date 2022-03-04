@@ -39,7 +39,7 @@
             <com.views.progressloadingview.circular.LCircularProgressBar
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
-                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginTop="@dimen/w_10"
                 app:animateProgress="true"
                 app:backgroundStrokeColor="@color/red"
                 app:backgroundStrokeWidth="15dp"
@@ -58,7 +58,7 @@
             <com.views.progressloadingview.circular.LCircularProgressBar
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
-                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginTop="@dimen/w_10"
                 app:animateProgress="true"
                 app:backgroundStrokeColor="@color/red"
                 app:backgroundStrokeWidth="2dp"

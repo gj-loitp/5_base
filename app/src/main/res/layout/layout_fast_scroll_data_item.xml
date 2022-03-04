@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/w_48"
     android:gravity="start|center_vertical"
-    android:paddingStart="@dimen/padding_medium"
-    android:paddingEnd="@dimen/padding_medium"
+    android:paddingStart="@dimen/margin_padding_medium"
+    android:paddingEnd="@dimen/margin_padding_medium"
     android:textColor="?attr/themeTextColor"
     android:textSize="@dimen/txt_medium"
     tools:text="Item" />

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:padding="@dimen/padding_medium">
+        android:padding="@dimen/margin_padding_medium">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                     android:gravity="center"
                     android:text="ShadowView Helper"
                     android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/text_medium" />
+                    android:textSize="@dimen/txt_medium" />
 
             </LinearLayout>
 
@@ -37,9 +37,9 @@
                 android:id="@+id/ll1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_55"
+                android:layout_marginTop="@dimen/w_55"
                 android:orientation="vertical"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                     android:gravity="center"
                     android:text="@string/app_name"
                     android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/text_medium" />
+                    android:textSize="@dimen/txt_medium" />
 
             </LinearLayout>
 
@@ -56,7 +56,7 @@
                 android:layout_width="@dimen/w_80"
                 android:layout_height="@dimen/w_80"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/margin_55"
+                android:layout_marginTop="@dimen/w_55"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/loitp" />
 

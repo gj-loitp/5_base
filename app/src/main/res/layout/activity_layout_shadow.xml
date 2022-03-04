@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding_medium">
+            android:padding="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvChangeOval"
@@ -30,8 +30,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:layout_marginBottom="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
+                android:layout_marginBottom="@dimen/margin_padding_medium"
                 app:shadowColor="@color/red50"
                 app:shadowDx="0dp"
                 app:shadowDy="0dp"
@@ -66,8 +66,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:layout_marginBottom="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
+                android:layout_marginBottom="@dimen/margin_padding_medium"
                 app:shadowColor="@color/red50"
                 app:shadowDx="0dp"
                 app:shadowDy="0dp"
@@ -99,8 +99,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:layout_marginBottom="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
+                android:layout_marginBottom="@dimen/margin_padding_medium"
                 app:shadowColor="@color/red50"
                 app:shadowDx="0dp"
                 app:shadowDy="0dp"

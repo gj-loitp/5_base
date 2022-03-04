@@ -11,6 +11,7 @@ import com.core.helper.ttt.model.comictype.ComicType
 import com.core.helper.ttt.viewmodel.TTTViewModel
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
 import vn.loitp.app.R
 
@@ -35,18 +36,27 @@ class TTTAPIComicListActivity : BaseFontActivity() {
         LDialogUtil.hideProgress(progressBar)
         comicTypeList.addAll(ComicUtils.comicTypeList)
 
-        btSelect.setOnClickListener {
+        btSelect.setSafeOnClickListener {
             showDialogSelect()
+        }
+        btTestQueuedMutableLiveData.setSafeOnClickListener {
+            for (i in 0..10) {
+                tttViewModel?.setStringQueued("Number $i")
+            }
         }
     }
 
     private fun setupViewModels() {
         tttViewModel = getViewModel(TTTViewModel::class.java)
         tttViewModel?.let { vm ->
-            vm.comicTypeLiveEvent.observe(this, { comicType ->
+            vm.comicTypeLiveEvent.observe(this) { comicType ->
+                logD(">>>comicTypeLiveEvent comicType ${comicType.url}")
                 vm.getListComic(link = comicType.url)
-            })
-            vm.listComicActionLiveData.observe(this, { actionData ->
+            }
+            vm.testStringQueuedMutableLiveData.observe(this) { s ->
+                logD(">>>loitpp testStringQueuedMutableLiveData $s")
+            }
+            vm.listComicActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
 
@@ -61,7 +71,7 @@ class TTTAPIComicListActivity : BaseFontActivity() {
                         }
                     }
                 }
-            })
+            }
         }
     }
 

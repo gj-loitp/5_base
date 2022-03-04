@@ -178,7 +178,7 @@ class LDebugViewService : Service(), OnTouchListener {
         }
         LUIUtil.setTextSize(
             textView = textView,
-            size = baseContext.resources.getDimension(R.dimen.text_tiny)
+            size = baseContext.resources.getDimension(R.dimen.txt_tiny)
         )
         when (msgFromActivity.type) {
             LComunicateDebug.MsgFromActivity.TYPE_D -> {

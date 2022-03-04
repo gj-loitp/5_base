@@ -30,7 +30,7 @@
         android:id="@+id/btSelectAnim"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/margin_medium"
+        android:layout_margin="@dimen/margin_padding_medium"
         android:text="@string/select_animation" />
 
 </RelativeLayout>

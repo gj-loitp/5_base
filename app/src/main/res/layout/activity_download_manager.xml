@@ -25,7 +25,7 @@
                     android:id="@+id/tvCurrentStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -56,14 +56,14 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/green"
                     android:indeterminateOnly="false"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:progressTint="@color/red" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvPercent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     tools:text="@string/app_name" />
@@ -72,7 +72,7 @@
                     android:id="@+id/tvSize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     tools:text="@string/app_name" />
@@ -81,7 +81,7 @@
                     android:id="@+id/tvTotalSize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     tools:text="@string/app_name" />
@@ -96,12 +96,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/padding_medium">
+                android:paddingBottom="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:text="Download file zip from google drive, then unzip"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -110,7 +110,7 @@
                     android:id="@+id/tvCurrentStatusZip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -122,14 +122,14 @@
                     android:backgroundTint="@color/green"
                     android:indeterminateOnly="false"
                     android:indeterminateTint="@color/red"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:progressTint="@color/deepPink" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvPercentZip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     tools:text="@string/app_name" />
@@ -138,7 +138,7 @@
                     android:id="@+id/tvSizeZip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     tools:text="@string/app_name" />
@@ -147,7 +147,7 @@
                     android:id="@+id/tvTotalSizeZip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     tools:text="@string/app_name" />
@@ -171,10 +171,10 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:text="Test LStore Util"
                     android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/text_large"
+                    android:textSize="@dimen/txt_medium"
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatButton

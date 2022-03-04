@@ -16,13 +16,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:padding="@dimen/padding_medium">
+        android:padding="@dimen/margin_padding_medium">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btReport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_padding_medium"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/ic_bug_report_black_48dp"
@@ -49,8 +49,8 @@
             android:id="@+id/btShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_medium"
-            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_marginLeft="@dimen/margin_padding_medium"
+            android:layout_marginRight="@dimen/margin_padding_medium"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/ic_share_black_48dp"

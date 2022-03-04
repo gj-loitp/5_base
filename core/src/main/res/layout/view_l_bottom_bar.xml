@@ -10,7 +10,7 @@
         android:id="@+id/realTimeBlurView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:realtimeBlurRadius="@dimen/round_80"
+        app:realtimeBlurRadius="@dimen/round_largest"
         app:realtimeOverlayColor="@color/whiteTrans99" />
 
     <LinearLayout
@@ -47,7 +47,7 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/gray"
-                android:textSize="@dimen/txt_12"
+                android:textSize="@dimen/txt_small"
                 android:visibility="gone"
                 tools:text="@string/copyright"
                 tools:visibility="visible" />
@@ -82,7 +82,7 @@
                 android:singleLine="true"
                 android:text="@string/copyright"
                 android:textColor="@color/gray"
-                android:textSize="@dimen/txt_12"
+                android:textSize="@dimen/txt_small"
                 android:visibility="gone"
                 tools:visibility="visible" />
         </RelativeLayout>
@@ -115,7 +115,7 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/gray"
-                android:textSize="@dimen/txt_12"
+                android:textSize="@dimen/txt_small"
                 android:visibility="gone"
                 tools:text="@string/copyright"
                 tools:visibility="visible" />
@@ -150,7 +150,7 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/gray"
-                android:textSize="@dimen/txt_12"
+                android:textSize="@dimen/txt_small"
                 android:visibility="gone"
                 tools:text="@string/copyright"
                 tools:visibility="visible" />
@@ -184,7 +184,7 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/gray"
-                android:textSize="@dimen/txt_12"
+                android:textSize="@dimen/txt_small"
                 android:visibility="gone"
                 tools:text="@string/copyright"
                 tools:visibility="visible" />
@@ -218,7 +218,7 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/gray"
-                android:textSize="@dimen/txt_12"
+                android:textSize="@dimen/txt_small"
                 android:visibility="gone"
                 tools:text="@string/copyright"
                 tools:visibility="visible" />

@@ -32,7 +32,7 @@ class FloatDragFullScreenActivity : BaseActivity() {
         mDecorView = window.decorView
         val rootView = mDecorView?.findViewById<ViewGroup>(android.R.id.content)
         val floatDragLayout = FloatDragLayout(this)
-        floatDragLayout.setBackgroundResource(R.drawable.ic_launcher)
+        floatDragLayout.setBackgroundResource(R.drawable.ic_launcher_loitp)
         val size = DisplayUtil.dp2px(this, 45)
         val layoutParams = FrameLayout.LayoutParams(size, size)
         floatDragLayout.layoutParams = layoutParams

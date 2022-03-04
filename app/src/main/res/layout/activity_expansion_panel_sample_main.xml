@@ -14,7 +14,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_medium"
+            android:layout_margin="@dimen/margin_padding_medium"
             app:cardBackgroundColor="?attr/themeBackgroundColor"
             app:cardCornerRadius="@dimen/round_medium"
             app:cardElevation="@dimen/w_3"

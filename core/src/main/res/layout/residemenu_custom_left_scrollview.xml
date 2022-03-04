@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="start"
             android:orientation="vertical"
-            android:paddingStart="@dimen/padding_30" />
+            android:paddingStart="@dimen/w_3" />
     </ScrollView>
 
 </RelativeLayout>

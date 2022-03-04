@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/themeBackgroundColorMedium"
             android:orientation="vertical"
-            android:padding="@dimen/padding_medium">
+            android:padding="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvTitle"
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_small"
+                android:textSize="@dimen/txt_small"
                 tools:text="@string/app_name" />
 
         </LinearLayout>

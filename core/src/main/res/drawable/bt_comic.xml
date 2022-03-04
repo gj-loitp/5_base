@@ -5,14 +5,14 @@
         <shape>
             <solid android:color="?attr/themeBackgroundColor50" />
             <stroke android:width="0.5dp" android:color="?attr/themeBackgroundColor50" />
-            <corners android:radius="@dimen/round_45" />
+            <corners android:radius="@dimen/round_larger" />
         </shape>
     </item>
     <item>
         <shape>
             <gradient android:angle="270" android:endColor="?attr/themeBackgroundColor" android:startColor="?attr/themeBackgroundColor" />
             <stroke android:width="0.5dp" android:color="?attr/themeBackgroundColor" />
-            <corners android:radius="@dimen/round_45" />
+            <corners android:radius="@dimen/round_larger" />
         </shape>
     </item>
 

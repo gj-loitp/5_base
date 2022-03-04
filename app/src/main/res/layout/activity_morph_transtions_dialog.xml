@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/margin_medium">
+    android:layout_margin="@dimen/margin_padding_medium">
 
     <LinearLayout
         android:id="@+id/container"
@@ -17,10 +17,10 @@
         android:minWidth="256dp"
         android:minHeight="100dp"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/padding_medium"
-        android:paddingTop="@dimen/padding_medium"
-        android:paddingRight="@dimen/padding_medium"
-        android:paddingBottom="@dimen/padding_medium"
+        android:paddingLeft="@dimen/margin_padding_medium"
+        android:paddingTop="@dimen/margin_padding_medium"
+        android:paddingRight="@dimen/margin_padding_medium"
+        android:paddingBottom="@dimen/margin_padding_medium"
         android:transitionName="@string/transition_morph">
 
         <androidx.appcompat.widget.AppCompatImageView

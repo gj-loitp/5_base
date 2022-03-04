@@ -4,22 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    tools:ignore="HardcodedText">
 
     <ScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/swDarkTheme"
-        android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="@dimen/padding_medium"
-            android:paddingBottom="@dimen/padding_medium">
+            android:paddingTop="@dimen/w_65"
+            android:paddingBottom="@dimen/margin_padding_medium">
+
+            <com.views.switchtoggle.appcompatswitch.LColorSwitchCompat
+                android:id="@+id/swDarkTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Dark theme"
+                android:textColor="?attr/themeTextColor"
+                app:bgOffColor="@color/vip1"
+                app:bgOnColor="@color/vip2"
+                app:toggleOffColor="@color/vip3"
+                app:toggleOnColor="@color/vip4" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center"
+                android:padding="@dimen/margin_padding_medium"
+                android:text="@string/policy"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                tools:ignore="UnusedAttribute" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAds"
@@ -128,34 +151,8 @@
         </LinearLayout>
     </ScrollView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="@string/main_menu" />
-
-    <com.views.switchtoggle.appcompatswitch.LColorSwitchCompat
-        android:id="@+id/swDarkTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tvPolicy"
-        android:layout_centerHorizontal="true"
-        android:text="Dark theme"
-        android:textColor="?attr/themeTextColor"
-        app:bgOffColor="@color/vip1"
-        app:bgOnColor="@color/vip2"
-        app:toggleOffColor="@color/vip3"
-        app:toggleOnColor="@color/vip4" />
-
-    <TextView
-        android:id="@+id/tvPolicy"
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:foreground="?selectableItemBackground"
-        android:gravity="center"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/policy"
-        android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_10"
-        tools:ignore="UnusedAttribute" />
+        android:layout_height="wrap_content" />
 </RelativeLayout>

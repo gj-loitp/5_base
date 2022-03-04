@@ -34,7 +34,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/margin_padding_medium"
             android:text="Chiều ngày 14/3, UBND TP. HCM vừa có công văn khẩn yêu cầu tạm ngừng hoạt động của các rạp chiếu phim, quán bar, game online, điểm massage, karaoke, vũ trường, sân khấu kể từ 18h ngày 15/3.
 Văn bản chỉ đạo trên được chuyển khẩn đến các Sở ngành và UBND 24 quận/huyện trên địa bàn thành phố.
 

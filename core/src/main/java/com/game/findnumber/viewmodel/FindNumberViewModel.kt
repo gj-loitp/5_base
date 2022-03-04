@@ -1,7 +1,7 @@
 package com.game.findnumber.viewmodel
 
 import com.annotation.LogTag
-import com.core.helper.mup.girl.service.BaseGirlViewModel
+import com.core.base.BaseViewModel
 import com.game.findnumber.db.Db
 import com.game.findnumber.db.FindNumberDatabase
 import com.game.findnumber.model.Level
@@ -10,7 +10,7 @@ import com.service.livedata.ActionLiveData
 import kotlinx.coroutines.launch
 
 @LogTag("FindNumberViewModel")
-class FindNumberViewModel : BaseGirlViewModel() {
+class FindNumberViewModel : BaseViewModel() {
     val listLevelActionLiveData: ActionLiveData<ActionData<ArrayList<Level>>> = ActionLiveData()
     val firstLevelOpenActionLiveData: ActionLiveData<ActionData<Level>> = ActionLiveData()
 

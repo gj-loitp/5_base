@@ -7,8 +7,8 @@
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/padding_medium"
-    android:paddingRight="@dimen/padding_medium">
+    android:paddingLeft="@dimen/margin_padding_medium"
+    android:paddingRight="@dimen/margin_padding_medium">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title"

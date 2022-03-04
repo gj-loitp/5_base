@@ -109,7 +109,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_5"
+                android:padding="@dimen/w_5"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatImageView

@@ -109,7 +109,7 @@ class SingleLevelActivity : BaseFontActivity() {
         findNumberViewModel = getViewModel(FindNumberViewModel::class.java)
         findNumberViewModel?.let { vm ->
 
-            vm.listLevelActionLiveData.observe(this, { actionData ->
+            vm.listLevelActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
                     LDialogUtil.showProgress(progressBar)
@@ -131,7 +131,7 @@ class SingleLevelActivity : BaseFontActivity() {
                         })
                     }
                 }
-            })
+            }
 
             vm.firstLevelOpenActionLiveData.observe(this, { actionData ->
                 val isDoing = actionData.isDoing

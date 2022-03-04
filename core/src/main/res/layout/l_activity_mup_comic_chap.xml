@@ -65,14 +65,14 @@
                 style="@style/ScrollVertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="@dimen/padding_small"
-                android:paddingBottom="@dimen/padding_small" />
+                android:paddingTop="@dimen/margin_padding_small"
+                android:paddingBottom="@dimen/margin_padding_small" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/lottieAnimationViewNoData"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/w_250"
-                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginTop="@dimen/w_50"
                 android:visibility="gone"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
@@ -85,7 +85,7 @@
             android:id="@+id/fabLike"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
+            android:layout_margin="@dimen/margin_padding_medium"
             android:contentDescription="@string/app_name"
             app:backgroundTint="?attr/themeTextColor"
             app:layout_anchor="@id/appBarLayout"

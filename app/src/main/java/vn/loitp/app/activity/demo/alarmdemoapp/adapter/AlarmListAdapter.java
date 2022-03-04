@@ -130,7 +130,14 @@ public class AlarmListAdapter extends BaseAdapter {
         if (alarm.getEnabled() && !alarm.getOutdated()) {
             intent = new Intent(mContext, AlarmReceiver.class);
             alarm.toIntent(intent);
-            sender = PendingIntent.getBroadcast(mContext, (int) alarm.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//            sender = PendingIntent.getBroadcast(mContext, (int) alarm.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+                sender = PendingIntent.getActivity(mContext, (int) alarm.getId(), intent, PendingIntent.FLAG_MUTABLE);
+            } else {
+                sender = PendingIntent.getActivity(mContext, (int) alarm.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            }
+
             mAlarmManager.setExact(AlarmManager.RTC_WAKEUP, alarm.getDate(), sender);
         }
     }
