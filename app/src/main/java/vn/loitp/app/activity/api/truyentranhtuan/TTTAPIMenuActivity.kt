@@ -2,10 +2,12 @@ package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_api_ttt_menu.*
 import vn.loitp.app.R
@@ -25,6 +27,17 @@ class TTTAPIMenuActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = TTTAPIMenuActivity::class.java.simpleName
+        }
         btComicList.setSafeOnClickListener {
             val intent = Intent(this, TTTAPIComicListActivity::class.java)
             startActivity(intent)
