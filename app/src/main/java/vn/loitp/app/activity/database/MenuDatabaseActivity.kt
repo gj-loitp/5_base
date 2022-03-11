@@ -46,7 +46,7 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = false
+            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuDatabaseActivity::class.java.simpleName
         }
         btSqlite.setOnClickListener(this)
