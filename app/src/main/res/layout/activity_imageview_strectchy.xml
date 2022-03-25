@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:paddingTop="@dimen/w_65"
             tools:ignore="UseCompoundDrawables">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -36,4 +37,8 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
