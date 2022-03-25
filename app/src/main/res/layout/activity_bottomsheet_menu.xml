@@ -10,57 +10,51 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/w_65"
+            android:paddingBottom="@dimen/margin_padding_medium">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/tvMenu"
-                android:orientation="vertical"
-                android:paddingTop="@dimen/margin_padding_medium"
-                android:paddingBottom="@dimen/margin_padding_medium">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt0"
+                style="@style/ButtonMenu"
+                android:text="@string/show_bottom_sheet" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt0"
-                    style="@style/ButtonMenu"
-                    android:text="@string/show_bottom_sheet" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt1"
+                style="@style/ButtonMenu"
+                android:text="@string/show_bottom_sheet_dialog" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt1"
-                    style="@style/ButtonMenu"
-                    android:text="@string/show_bottom_sheet_dialog" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt2"
+                style="@style/ButtonMenu"
+                android:text="@string/show_bottom_sheet_dialog_fragment" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt2"
-                    style="@style/ButtonMenu"
-                    android:text="@string/show_bottom_sheet_dialog_fragment" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt1Option"
+                style="@style/ButtonMenu"
+                android:text="1 option" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt1Option"
-                    style="@style/ButtonMenu"
-                    android:text="1 option" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt2Option"
+                style="@style/ButtonMenu"
+                android:text="2 option" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt2Option"
-                    style="@style/ButtonMenu"
-                    android:text="2 option" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt3Option"
-                    style="@style/ButtonMenu"
-                    android:text="3 option" />
-            </LinearLayout>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvMenu"
-                style="@style/TextMenu"
-                android:text="@string/menu_bottomsheet" />
-        </RelativeLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt3Option"
+                style="@style/ButtonMenu"
+                android:text="3 option" />
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <!-- Adding bottom sheet after main content -->
     <include layout="@layout/bottom_sheet_0" />
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
