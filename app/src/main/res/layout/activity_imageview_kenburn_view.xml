@@ -4,16 +4,16 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Kenburn View" />
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <com.flaviofaria.kenburnsview.KenBurnsView
         android:id="@+id/kbv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tvMenu" />
+        android:layout_below="@+id/lActionBar" />
 
     <LinearLayout
         android:layout_width="match_parent"
