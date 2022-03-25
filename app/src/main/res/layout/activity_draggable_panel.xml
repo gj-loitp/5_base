@@ -19,6 +19,11 @@
             android:textSize="@dimen/txt_medium" />
     </ScrollView>
 
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <com.views.layout.draggablepanel.DraggablePanel
         android:id="@+id/draggablePanel"
         android:layout_width="match_parent"

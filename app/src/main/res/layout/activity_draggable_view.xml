@@ -25,6 +25,11 @@
         </LinearLayout>
     </ScrollView>
 
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <com.views.layout.draggablepanel.DraggableView xmlns:draggable_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/draggableView"
         android:layout_width="match_parent"
