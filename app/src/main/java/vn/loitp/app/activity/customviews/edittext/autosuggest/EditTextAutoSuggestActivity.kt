@@ -3,10 +3,12 @@ package vn.loitp.app.activity.customviews.edittext.autosuggest
 import android.graphics.Color
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
+import com.core.utilities.LUIUtil
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.views.edittext.autosuggest.LAutoSuggestEditText
 import io.reactivex.Single
@@ -32,6 +34,17 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = EditTextAutoSuggestActivity::class.java.simpleName
+        }
         aet0.apply {
             this.popupHeight = LScreenUtil.screenHeight / 2
             this.vertPos = RelativePopupWindow.VerticalPosition.BELOW
