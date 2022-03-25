@@ -4,14 +4,16 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LSocialUtil
+import com.core.utilities.LUIUtil
 import com.views.dialog.prettydialog.PrettyDialog
 import kotlinx.android.synthetic.main.activity_dialog_pretty.*
 import vn.loitp.app.R
 
-// https://github.com/mjn1369/PrettyDialog
 @LogTag("PrettyDialogActivity")
 @IsFullScreen(false)
 class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
@@ -24,6 +26,33 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.let {
+                LUIUtil.setSafeOnClickListenerElastic(
+                    view = it,
+                    runnable = {
+                        LSocialUtil.openUrlInBrowser(
+                            context = context,
+                            url = "https://github.com/mjn1369/PrettyDialog"
+                        )
+                    }
+                )
+                it.isVisible = true
+                it.setImageResource(R.drawable.ic_baseline_code_48)
+            }
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = PrettyDialogActivity::class.java.simpleName
+        }
         btShow1.setOnClickListener(this)
         btShow2.setOnClickListener(this)
         btShow3.setOnClickListener(this)
