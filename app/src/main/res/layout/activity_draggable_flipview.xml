@@ -12,5 +12,10 @@
         android:layout_centerInParent="true"
         app:backView="@layout/view_back"
         app:frontView="@layout/view_front" />
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
 
