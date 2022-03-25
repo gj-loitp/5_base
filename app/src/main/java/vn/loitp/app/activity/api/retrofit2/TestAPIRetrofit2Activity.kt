@@ -2,12 +2,14 @@ package vn.loitp.app.activity.api.retrofit2
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_retrofit2_test_api.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,7 +18,6 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.api.retrofit2.AnswersAdapter.PostItemListener
 import vn.loitp.app.activity.api.retrofit2.ApiUtils.Companion.sOService
 import vn.loitp.app.activity.api.retrofit2.model.SOAnswersResponse
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("TestAPIRetrofit2Activity")
 @IsFullScreen(false)
@@ -30,8 +31,23 @@ class TestAPIRetrofit2Activity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupViews()
+    }
+
+    private fun setupViews() {
         mService = sOService
 
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = TestAPIRetrofit2Activity::class.java.simpleName
+        }
         mAdapter = AnswersAdapter(
             mItems = ArrayList(0),
             mItemListener = object : PostItemListener {
