@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.ads.admobbanner
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -22,9 +23,24 @@ class AdMobBannerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = AdMobBannerActivity::class.java.simpleName
+        }
         val adView = LUIUtil.createAdBanner(adView = adView)
         adView.adListener = object : AdListener() {
-            override fun onAdFailedToLoad(loadAdError: LoadAdError?) {
+            override fun onAdFailedToLoad(loadAdError: LoadAdError) {
                 super.onAdFailedToLoad(loadAdError)
                 logD("onAdFailedToLoad loadAdError $loadAdError")
             }

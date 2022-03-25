@@ -5,8 +5,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.graphics.* // ktlint-disable no-wildcard-imports
-import android.graphics.drawable.* // ktlint-disable no-wildcard-imports
+import android.graphics.*
+import android.graphics.drawable.*
 import android.graphics.drawable.shapes.RectShape
 import android.net.Uri
 import android.os.Build
@@ -22,8 +22,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.inputmethod.EditorInfo
-import android.widget.* // ktlint-disable no-wildcard-imports
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
@@ -32,7 +31,7 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 import com.core.common.Constants
 import com.data.AdmobData
-import com.google.android.gms.ads.* // ktlint-disable no-wildcard-imports
+import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.material.navigation.NavigationView
@@ -48,8 +47,7 @@ import io.github.inflationx.calligraphy3.CalligraphyUtils
 import io.github.inflationx.viewpump.ViewPump
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 import java.io.InputStream
-import java.util.* // ktlint-disable no-wildcard-imports
-import kotlin.collections.ArrayList
+import java.util.*
 
 class LUIUtil {
     companion object {
@@ -943,7 +941,7 @@ class LUIUtil {
             view: View? = null,
             scaleX: Float = 0.8f,
             scaleY: Float = 0.8f,
-            duration: Int = 300,
+            duration: Int = 100,
             runnable: Runnable? = null
         ) {
             view?.let { v ->
@@ -964,7 +962,7 @@ class LUIUtil {
             view: View? = null,
             scaleX: Float = 0.8f,
             scaleY: Float = 0.8f,
-            duration: Int = 300,
+            duration: Int = 100,
             runnable: Runnable? = null
         ) {
             view?.let { v ->
