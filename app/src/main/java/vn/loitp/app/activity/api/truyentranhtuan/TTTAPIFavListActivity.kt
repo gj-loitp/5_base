@@ -50,6 +50,7 @@ class TTTAPIFavListActivity : BaseFontActivity() {
             comic.date = "29.07.2014"
             comic.url = "http://truyentranhtuan.com/vuong-phong-loi-i/"
             comic.title = "Vương Phong Lôi I"
+            comic.isFav = true
             tttViewModel?.favComic(comic = comic)
         }
         btRemove.setSafeOnClickListener {
@@ -57,6 +58,7 @@ class TTTAPIFavListActivity : BaseFontActivity() {
             comic.date = "29.07.2014"
             comic.url = "http://truyentranhtuan.com/vuong-phong-loi-i/"
             comic.title = "Vương Phong Lôi I"
+            comic.isFav = false
             tttViewModel?.unfavComic(comic = comic)
         }
     }
