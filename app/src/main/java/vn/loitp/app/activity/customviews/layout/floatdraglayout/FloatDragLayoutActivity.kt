@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LUIUtil
 import com.views.layout.floatdraglayout.DisplayUtil
 import com.views.layout.floatdraglayout.FloatDragLayout
 import com.views.layout.floatdraglayout.FloatDragPopupWindow
@@ -33,6 +35,17 @@ class FloatDragLayoutActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = FloatDragLayoutActivity::class.java.simpleName
+        }
         var rootView = window.decorView as ViewGroup
         rootView = rootView.findViewById(android.R.id.content)
 
