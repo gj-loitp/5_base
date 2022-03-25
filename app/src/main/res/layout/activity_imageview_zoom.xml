@@ -11,4 +11,8 @@
         android:layout_height="match_parent"
         tools:src="@drawable/loitp" />
 
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
