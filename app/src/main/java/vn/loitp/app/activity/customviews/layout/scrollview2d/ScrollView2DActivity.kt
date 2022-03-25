@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.layout.scrollview2d
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -19,6 +20,21 @@ class ScrollView2DActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ScrollView2DActivity::class.java.simpleName
+        }
         twoDScrollView.setScrollChangeListener { _, x, y, oldx, oldy ->
             logD("setScrollChangeListener $x - $y - $oldx - $oldy")
         }

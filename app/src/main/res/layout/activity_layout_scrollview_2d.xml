@@ -14,6 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:paddingTop="@dimen/w_65"
             tools:ignore="UseCompoundDrawables">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -33,4 +34,8 @@
         </LinearLayout>
     </com.views.scrollview.TwoDScrollView>
 
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
