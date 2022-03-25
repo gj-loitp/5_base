@@ -2,6 +2,7 @@ package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -25,8 +26,23 @@ class TTTAPIChapListActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
         setupViewModels()
         tttViewModel?.getListChap(link = "http://truyentranhtuan.com/one-piece/")
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = TTTAPIChapListActivity::class.java.simpleName
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -34,7 +50,7 @@ class TTTAPIChapListActivity : BaseFontActivity() {
         tttViewModel = getViewModel(TTTViewModel::class.java)
         tttViewModel?.let { vm ->
 
-            vm.tttChapActionLiveData.observe(this, { actionData ->
+            vm.tttChapActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
 
@@ -50,7 +66,7 @@ class TTTAPIChapListActivity : BaseFontActivity() {
                         tvTitle.text = "Chap truyện One Piece - size: " + tttChap?.chaps?.chap?.size
                     }
                 }
-            })
+            }
         }
     }
 }
