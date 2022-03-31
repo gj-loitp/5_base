@@ -6,14 +6,15 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.SeekBar
 import android.widget.SimpleAdapter
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LUIUtil
 import com.views.progressloadingview.circularprogressindicator.CircularProgressIndicator
 import kotlinx.android.synthetic.main.activity_progress_circular_progress_indicator.*
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
-import java.util.*
 
 @LogTag("CircularProgressIndicatorActivity")
 @IsFullScreen(false)
@@ -34,6 +35,18 @@ class CircularProgressIndicatorActivity :
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = CircularProgressIndicatorActivity::class.java.simpleName
+        }
+
         circularProgress.maxProgress = 10000.0
 
         progressColor.setOnClickListener(this)
@@ -54,7 +67,7 @@ class CircularProgressIndicatorActivity :
         }
         useCustomTextAdapter.setOnCheckedChangeListener { _, isChecked ->
             circularProgress.setProgressTextAdapter(
-                if (isChecked) TIME_TEXT_ADAPTER else null
+                if (isChecked) timeTextAdapter else null
             )
         }
         fillBackground.setOnCheckedChangeListener { _, isChecked ->
@@ -172,7 +185,7 @@ class CircularProgressIndicatorActivity :
         }
     }
 
-    private val TIME_TEXT_ADAPTER = CircularProgressIndicator.ProgressTextAdapter { mTime ->
+    private val timeTextAdapter = CircularProgressIndicator.ProgressTextAdapter { mTime ->
         var time = mTime
         val hours = (time / 3600).toInt()
         time %= 3600.0
