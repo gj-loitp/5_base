@@ -3,12 +3,15 @@ package vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LSocialUtil
+import com.core.utilities.LUIUtil
 import com.views.recyclerview.gallery.GalleryLayoutManager
 import com.views.recyclerview.gallery.GalleryLayoutManager.ItemTransformer
 import kotlinx.android.synthetic.main.activity_recycler_view_menu_gallery_layout_manager.*
@@ -16,8 +19,6 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
-
-// https://github.com/BCsl/GalleryLayoutManager
 
 @LogTag("GalleryLayoutManagerVerticalActivity")
 @IsFullScreen(false)
@@ -32,6 +33,33 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.let {
+                LUIUtil.setSafeOnClickListenerElastic(
+                    view = it,
+                    runnable = {
+                        LSocialUtil.openUrlInBrowser(
+                            context = context,
+                            url = "https://github.com/BCsl/GalleryLayoutManager"
+                        )
+                    }
+                )
+                it.isVisible = true
+                it.setImageResource(R.drawable.ic_baseline_code_48)
+            }
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = GalleryLayoutManagerVerticalActivity::class.java.simpleName
+        }
         galleryAdapterVertical =
             GalleryAdapterVertical(
                 moviesList = instance.movieList,
