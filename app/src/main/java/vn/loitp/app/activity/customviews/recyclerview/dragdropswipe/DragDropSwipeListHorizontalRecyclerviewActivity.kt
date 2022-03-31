@@ -1,11 +1,14 @@
 package vn.loitp.app.activity.customviews.recyclerview.dragdropswipe
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LSocialUtil
+import com.core.utilities.LUIUtil
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
 import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemDragListener
 import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemSwipeListener
@@ -13,7 +16,6 @@ import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnListScrollListen
 import kotlinx.android.synthetic.main.activity_recycler_drag_drop_swipe_list_horizontal.*
 import vn.loitp.app.R
 
-// https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
 @LogTag("DragDropSwipeListHorizontalRecyclerviewActivity")
 @IsFullScreen(false)
 class DragDropSwipeListHorizontalRecyclerviewActivity : BaseFontActivity() {
@@ -39,6 +41,30 @@ class DragDropSwipeListHorizontalRecyclerviewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.let {
+                LUIUtil.setSafeOnClickListenerElastic(
+                    view = it,
+                    runnable = {
+                        LSocialUtil.openUrlInBrowser(
+                            context = context,
+                            url = "https://github.com/ernestoyaquello/DragDropSwipeRecyclerview"
+                        )
+                    }
+                )
+                it.isVisible = true
+                it.setImageResource(R.drawable.ic_baseline_code_48)
+            }
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = DragDropSwipeListHorizontalRecyclerviewActivity::class.java.simpleName
+        }
+
         dragDropAdapter = DragDropAdapter(dataSet = setData(), isHorizontal = true)
 
         dragDropSwipeRecyclerView.layoutManager =
