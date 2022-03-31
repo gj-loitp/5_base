@@ -1,14 +1,15 @@
 package vn.loitp.app.activity.customviews.layout.zoomlayout
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LSocialUtil
+import com.core.utilities.LUIUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_layout_zoom.*
 import vn.loitp.app.R
-
-// read more
-// https://github.com/natario1/ZoomLayout
 
 @LogTag("ZoomLayoutActivity")
 @IsFullScreen(false)
@@ -21,10 +22,37 @@ class ZoomLayoutActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        bt1.setOnClickListener {
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.let {
+                LUIUtil.setSafeOnClickListenerElastic(
+                    view = it,
+                    runnable = {
+                        LSocialUtil.openUrlInBrowser(
+                            context = context,
+                            url = "https://github.com/natario1/ZoomLayout"
+                        )
+                    }
+                )
+                it.isVisible = true
+                it.setImageResource(R.drawable.ic_baseline_code_48)
+            }
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ZoomLayoutActivity::class.java.simpleName
+        }
+        bt1.setSafeOnClickListener {
             showShortInformation("Click button bt_1")
         }
-        bt2.setOnClickListener {
+        bt2.setSafeOnClickListener {
             showShortInformation("Click button bt_2")
         }
 

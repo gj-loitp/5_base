@@ -5,9 +5,15 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <com.otaliastudios.zoom.ZoomLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/lActionBar"
         android:scrollbars="vertical|horizontal"
         app:alignment="center"
         app:animationDuration="280"
@@ -68,5 +74,5 @@
                 android:textColor="?attr/themeTextColor" />
         </LinearLayout>
     </com.otaliastudios.zoom.ZoomLayout>
-    >
+
 </RelativeLayout>
