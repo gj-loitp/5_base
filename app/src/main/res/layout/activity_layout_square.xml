@@ -12,7 +12,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/w_65">
 
             <com.views.layout.squarelayout.LSquareFrameLayout
                 android:layout_width="@dimen/w_50"
@@ -47,4 +48,9 @@
                 android:background="@color/purple" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
