@@ -5,7 +5,6 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdk 32
-//    buildToolsVersion '30.0.3'
 
     defaultConfig {
         applicationId "loitp93.basemaster"
@@ -87,19 +86,6 @@ android {
         jumboMode true
         javaMaxHeapSize "4g"
     }
-
-//    compileOptions {
-//        sourceCompatibility JavaVersion.VERSION_1_8
-//        targetCompatibility JavaVersion.VERSION_1_8
-//    }
-
-//    kotlinOptions {
-//        jvmTarget = JavaVersion.VERSION_1_8.toString()
-//    }
-
-//    packagingOptions {
-//        exclude 'META-INF/atomicfu.kotlin_module'
-//    }
 }
 
 repositories {
@@ -127,7 +113,7 @@ dependencies {
     //https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
 
-    kapt "androidx.room:room-compiler:2.4.1"
+    kapt "androidx.room:room-compiler:2.4.2"
 
     //https://github.com/nex3z/ToggleButtonGroup
     api 'com.nex3z:toggle-button-group:1.2.3'
