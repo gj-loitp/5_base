@@ -4,10 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
-import android.webkit.WebChromeClient
-import android.webkit.WebSettings
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
 import com.core.utilities.LLog
@@ -48,6 +45,7 @@ class LWebViewAdblock : AdblockWebView {
 
     init {
         settings.javaScriptEnabled = true
+        settings.domStorageEnabled = true
 
         // load the page with cache
         settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
@@ -67,10 +65,21 @@ class LWebViewAdblock : AdblockWebView {
 
     fun shouldOverrideUrlLoading(shouldOverrideUrlLoading: Boolean) {
         webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                // return true load with system-default-browser or other browsers, false with your webView
+//            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+//                // return true load with system-default-browser or other browsers, false with your webView
+//                logD("shouldOverrideUrlLoading url $url")
+//                callback?.shouldOverrideUrlLoading(url = url)
+//                return shouldOverrideUrlLoading
+//            }
+
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
                 logD("shouldOverrideUrlLoading url $url")
-                callback?.shouldOverrideUrlLoading(url = url)
+                url?.let {
+                    callback?.shouldOverrideUrlLoading(url = it)
+                }
                 return shouldOverrideUrlLoading
             }
         }
