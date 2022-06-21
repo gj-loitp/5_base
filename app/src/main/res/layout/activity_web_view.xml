@@ -107,7 +107,7 @@
         android:progressTint="?attr/themeTextColor" />
 
     <com.views.LWebViewAdblock
-        android:id="@+id/webView"
+        android:id="@+id/lWebView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

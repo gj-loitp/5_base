@@ -31,7 +31,7 @@ class LWebViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        webView.callback = object : LWebViewAdblock.Callback {
+        lWebView.callback = object : LWebViewAdblock.Callback {
             override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
             }
 
@@ -57,7 +57,7 @@ class LWebViewActivity : BaseFontActivity() {
 
                 // detect click button submit
                 if (isDetectButtonClickAsset) {
-                    webView.addJavascriptInterface(object : Any() {
+                    lWebView.addJavascriptInterface(object : Any() {
                         @JavascriptInterface
                         @Throws(java.lang.Exception::class)
                         fun performClick() {
@@ -67,7 +67,7 @@ class LWebViewActivity : BaseFontActivity() {
                 }
 
                 if (isDetectButtonClickWeb) {
-                    webView.addJavascriptInterface(object : Any() {
+                    lWebView.addJavascriptInterface(object : Any() {
                         @JavascriptInterface
                         @Throws(java.lang.Exception::class)
                         fun performClick() {
@@ -81,19 +81,19 @@ class LWebViewActivity : BaseFontActivity() {
         btLoadUrl.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
-            webView.loadUrl("https://vnexpress.net/facebook-hay-google-manh-hon-4226827.html/")
+            lWebView.loadUrl("https://vnexpress.net/facebook-hay-google-manh-hon-4226827.html/")
         }
         btLoadData.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
-            webView.loadDataString(bodyContent = "Hello, world!")
+            lWebView.loadDataString(bodyContent = "Hello, world!")
         }
         btLoadDataCustom.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
             val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
             val paddingPx = LAppResource.getDimenValue(R.dimen.margin_padding_small)
-            webView.loadDataString(
+            lWebView.loadDataString(
                 bodyContent = getString(R.string.large_dummy_text),
                 backgroundColor = "black",
                 textColor = "white",
@@ -105,24 +105,24 @@ class LWebViewActivity : BaseFontActivity() {
         btLoadDataFromAsset.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
-            webView.loadUrl("file:///android_asset/web/policy.html")
+            lWebView.loadUrl("file:///android_asset/web/policy.html")
         }
         btLoadDataFromAssetAndClick.setSafeOnClickListener {
             isDetectButtonClickAsset = true
             isDetectButtonClickWeb = false
-            webView.loadUrl("file:///android_asset/web/index.html")
+            lWebView.loadUrl("file:///android_asset/web/index.html")
         }
         btLoadDataFromWebAndClick.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = true
-            webView.loadUrl("bizman.dikauri.com")
+            lWebView.loadUrl("bizman.dikauri.com")
         }
         swEnableCopyContent.setOnCheckedChangeListener { _, isChecked ->
-            webView.setEnableCopyContent(isChecked)
+            lWebView.setEnableCopyContent(isChecked)
         }
         swEnableDarkMode.setOnCheckedChangeListener { _, isChecked ->
             try {
-                webView.setDarkMode(isChecked)
+                lWebView.setDarkMode(isChecked)
             } catch (e: Exception) {
                 showSnackBarError("setOnCheckedChangeListener $e")
             }
@@ -130,8 +130,8 @@ class LWebViewActivity : BaseFontActivity() {
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
-            webView.goBack()
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && lWebView.canGoBack()) {
+            lWebView.goBack()
             return true
         }
         return super.onKeyDown(keyCode, event)
