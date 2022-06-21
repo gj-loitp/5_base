@@ -44,11 +44,11 @@ class LWebViewActivity : BaseFontActivity() {
             }
 
             override fun onProgressChanged(progress: Int) {
-//                logD("onProgressChanged $progress")
+                logD("onProgressChanged $progress")
                 pb.progress = progress
                 if (progress == 100) {
                     pb.visibility = View.GONE
-                    logD(">>>finish ${lWebView.url}")
+                    logD(">>>onProgressChanged finish ${lWebView.url}")
                 } else {
                     pb.visibility = View.VISIBLE
                 }

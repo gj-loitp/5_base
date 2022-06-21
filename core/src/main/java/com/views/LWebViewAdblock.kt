@@ -30,6 +30,7 @@ class LWebViewAdblock : AdblockWebView {
     }
 
     var callback: Callback? = null
+    var currentProgress: Int = 0
 
     private var isScrollBottomToTop = true
 
@@ -55,7 +56,11 @@ class LWebViewAdblock : AdblockWebView {
         webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView, newProgress: Int) {
 //                logD("onProgressChanged: $newProgress")
-                callback?.onProgressChanged(newProgress)
+
+                if (currentProgress != newProgress) {
+                    callback?.onProgressChanged(newProgress)
+                    currentProgress = newProgress
+                }
             }
         }
 
