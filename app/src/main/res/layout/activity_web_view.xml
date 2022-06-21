@@ -87,6 +87,7 @@
                 android:background="?attr/themeBackgroundColor"
                 android:text="Load Url From Asset And Click"
                 android:textColor="?attr/themeTextColor" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btLoadDataFromWebAndClick"
                 android:layout_width="wrap_content"
@@ -110,4 +111,10 @@
         android:id="@+id/lWebView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <WebView
+        android:id="@+id/wv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" />
 </LinearLayout>

@@ -4,6 +4,10 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.webkit.JavascriptInterface
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -31,6 +35,16 @@ class LWebViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        wv.settings.javaScriptEnabled = true
+        wv.settings.domStorageEnabled = true
+        wv.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                logE("shouldOverrideUrlLoading $url}")
+                view.loadUrl(url)
+                return true
+            }
+        }
+
         lWebView.callback = object : LWebViewAdblock.Callback {
             override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
             }
@@ -79,16 +93,22 @@ class LWebViewActivity : BaseFontActivity() {
         }
 
         btLoadUrl.setSafeOnClickListener {
+            lWebView.isVisible = true
+            wv.isVisible = false
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
             lWebView.loadUrl("https://vnexpress.net/facebook-hay-google-manh-hon-4226827.html/")
         }
         btLoadData.setSafeOnClickListener {
+            lWebView.isVisible = true
+            wv.isVisible = false
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
             lWebView.loadDataString(bodyContent = "Hello, world!")
         }
         btLoadDataCustom.setSafeOnClickListener {
+            lWebView.isVisible = true
+            wv.isVisible = false
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
             val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
@@ -103,19 +123,27 @@ class LWebViewActivity : BaseFontActivity() {
             )
         }
         btLoadDataFromAsset.setSafeOnClickListener {
+            lWebView.isVisible = true
+            wv.isVisible = false
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
             lWebView.loadUrl("file:///android_asset/web/policy.html")
         }
         btLoadDataFromAssetAndClick.setSafeOnClickListener {
+            lWebView.isVisible = true
+            wv.isVisible = false
             isDetectButtonClickAsset = true
             isDetectButtonClickWeb = false
             lWebView.loadUrl("file:///android_asset/web/index.html")
         }
         btLoadDataFromWebAndClick.setSafeOnClickListener {
+            lWebView.isVisible = false
+            wv.isVisible = true
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = true
-            lWebView.loadUrl("bizman.dikauri.com")
+            logE(">>>btLoadDataFromWebAndClick")
+            wv.loadUrl("https://bizman.dikauri.com/dashboard")
+//            wv.loadUrl("https://vnexpress.net/facebook-hay-google-manh-hon-4226827.html/")
         }
         swEnableCopyContent.setOnCheckedChangeListener { _, isChecked ->
             lWebView.setEnableCopyContent(isChecked)
