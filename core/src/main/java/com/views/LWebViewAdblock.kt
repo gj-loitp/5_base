@@ -14,7 +14,7 @@ import com.core.utilities.LLog
 import org.adblockplus.libadblockplus.android.webview.AdblockWebView
 
 @SuppressLint("SetJavaScriptEnabled", "RequiresFeature")
-class LWebView : AdblockWebView {
+class LWebViewAdblock : AdblockWebView {
 
     companion object {
         const val logTag = "LWebView"

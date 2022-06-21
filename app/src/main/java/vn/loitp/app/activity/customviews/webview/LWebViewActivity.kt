@@ -8,17 +8,17 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAppResource
-import com.views.LWebView
+import com.views.LWebViewAdblock
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_web_view.*
 import vn.loitp.app.R
-
 
 @LogTag("LWebViewActivity")
 @IsFullScreen(false)
 class LWebViewActivity : BaseFontActivity() {
 
-    var isDetectButtonClick = false;
+    var isDetectButtonClickAsset = false;
+    var isDetectButtonClickWeb = false;
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_web_view
@@ -31,7 +31,7 @@ class LWebViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        webView.callback = object : LWebView.Callback {
+        webView.callback = object : LWebViewAdblock.Callback {
             override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
             }
 
@@ -56,7 +56,7 @@ class LWebViewActivity : BaseFontActivity() {
             override fun shouldOverrideUrlLoading(url: String) {
 
                 // detect click button submit
-                if (isDetectButtonClick) {
+                if (isDetectButtonClickAsset) {
                     webView.addJavascriptInterface(object : Any() {
                         @JavascriptInterface
                         @Throws(java.lang.Exception::class)
@@ -65,19 +65,32 @@ class LWebViewActivity : BaseFontActivity() {
                         }
                     }, "login")
                 }
+
+                if (isDetectButtonClickWeb) {
+                    webView.addJavascriptInterface(object : Any() {
+                        @JavascriptInterface
+                        @Throws(java.lang.Exception::class)
+                        fun performClick() {
+                            showLongInformation("Print clicked");
+                        }
+                    }, "printOrder")
+                }
             }
         }
 
         btLoadUrl.setSafeOnClickListener {
-            isDetectButtonClick = false
+            isDetectButtonClickAsset = false
+            isDetectButtonClickWeb = false
             webView.loadUrl("https://vnexpress.net/facebook-hay-google-manh-hon-4226827.html/")
         }
         btLoadData.setSafeOnClickListener {
-            isDetectButtonClick = false
+            isDetectButtonClickAsset = false
+            isDetectButtonClickWeb = false
             webView.loadDataString(bodyContent = "Hello, world!")
         }
         btLoadDataCustom.setSafeOnClickListener {
-            isDetectButtonClick = false
+            isDetectButtonClickAsset = false
+            isDetectButtonClickWeb = false
             val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
             val paddingPx = LAppResource.getDimenValue(R.dimen.margin_padding_small)
             webView.loadDataString(
@@ -90,12 +103,19 @@ class LWebViewActivity : BaseFontActivity() {
             )
         }
         btLoadDataFromAsset.setSafeOnClickListener {
-            isDetectButtonClick = false
+            isDetectButtonClickAsset = false
+            isDetectButtonClickWeb = false
             webView.loadUrl("file:///android_asset/web/policy.html")
         }
         btLoadDataFromAssetAndClick.setSafeOnClickListener {
-            isDetectButtonClick = true
+            isDetectButtonClickAsset = true
+            isDetectButtonClickWeb = false
             webView.loadUrl("file:///android_asset/web/index.html")
+        }
+        btLoadDataFromWebAndClick.setSafeOnClickListener {
+            isDetectButtonClickAsset = false
+            isDetectButtonClickWeb = true
+            webView.loadUrl("bizman.dikauri.com")
         }
         swEnableCopyContent.setOnCheckedChangeListener { _, isChecked ->
             webView.setEnableCopyContent(isChecked)

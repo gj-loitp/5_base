@@ -39,7 +39,7 @@ import com.function.epub.viewmodels.EpubViewModel
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.utils.util.ConvertUtils
-import com.views.LWebView
+import com.views.LWebViewAdblock
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
 
@@ -330,7 +330,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         )
         logD("setFragmentView data $data")
         return if (isContentStyled) {
-            val lWebView = LWebView(this)
+            val lWebView = LWebViewAdblock(this)
             lWebView.apply {
                 setBackgroundColor(Color.TRANSPARENT)
                 shouldOverrideUrlLoading(shouldOverrideUrlLoading = true)
@@ -363,7 +363,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                 scrollBarSize = ConvertUtils.dp2px(2f)
                 this.layoutParams = layoutParams
                 lWebView.setTextSize(sizePercent = LPrefUtil.getTextSizePercentEpub())
-                callback = object : LWebView.Callback {
+                callback = object : LWebViewAdblock.Callback {
                     override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
                     }
 
@@ -419,7 +419,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         if (pageFragment == null || pageFragment.view == null) {
             return
         }
-        val webView = pageFragment.view?.findViewById<LWebView>(idWebView)
+        val webView = pageFragment.view?.findViewById<LWebViewAdblock>(idWebView)
         if (webView == null) {
             logE("webView null")
             return
@@ -443,7 +443,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         if (pageFragment == null || pageFragment.view == null) {
             return
         }
-        val webView = pageFragment.view?.findViewById<LWebView>(idWebView) ?: return
+        val webView = pageFragment.view?.findViewById<LWebViewAdblock>(idWebView) ?: return
         val settings = webView.settings
         val currentAiVersion = Build.VERSION.SDK_INT
         if (currentAiVersion <= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {

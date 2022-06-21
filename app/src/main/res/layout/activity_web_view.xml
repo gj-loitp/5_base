@@ -87,6 +87,14 @@
                 android:background="?attr/themeBackgroundColor"
                 android:text="Load Url From Asset And Click"
                 android:textColor="?attr/themeTextColor" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLoadDataFromWebAndClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_medium"
+                android:background="?attr/themeBackgroundColor"
+                android:text="Load Url From Web And Click"
+                android:textColor="?attr/themeTextColor" />
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -98,7 +106,7 @@
         android:indeterminateOnly="false"
         android:progressTint="?attr/themeTextColor" />
 
-    <com.views.LWebView
+    <com.views.LWebViewAdblock
         android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
