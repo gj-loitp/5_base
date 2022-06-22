@@ -133,9 +133,9 @@ class LWebViewActivity : BaseFontActivity() {
                 @JavascriptInterface
                 @Throws(java.lang.Exception::class)
                 fun performClick(id: String) {
-                    showLongInformation("Login clicked id: $id");
+                    showLongInformation("Login print order id: $id");
                 }
-            }, "handleFunctionLogin")
+            }, "handlePrintOrder")
         }
 
         if (isDetectButtonClickWeb) {
