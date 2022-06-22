@@ -135,7 +135,7 @@ class LWebViewActivity : BaseFontActivity() {
                 fun performClick() {
                     showLongInformation("Login clicked");
                 }
-            }, "login")
+            }, "handleFunctionLogin")
         }
 
         if (isDetectButtonClickWeb) {
