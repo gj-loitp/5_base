@@ -126,14 +126,14 @@ class LWebViewActivity : BaseFontActivity() {
         return super.onKeyDown(keyCode, event)
     }
 
-    private fun onDetectClick(){
+    private fun onDetectClick() {
         // detect click button submit
         if (isDetectButtonClickAsset) {
             lWebView.addJavascriptInterface(object : Any() {
                 @JavascriptInterface
                 @Throws(java.lang.Exception::class)
-                fun performClick() {
-                    showLongInformation("Login clicked");
+                fun performClick(id: String) {
+                    showLongInformation("Login clicked id: $id");
                 }
             }, "handleFunctionLogin")
         }
