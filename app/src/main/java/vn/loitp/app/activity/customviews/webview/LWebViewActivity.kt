@@ -27,6 +27,7 @@ class LWebViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        onDetectClick()
         setupViews()
     }
 
@@ -56,42 +57,25 @@ class LWebViewActivity : BaseFontActivity() {
 
             override fun shouldOverrideUrlLoading(url: String) {
                 logE(">shouldOverrideUrlLoading $url")
-                // detect click button submit
-                if (isDetectButtonClickAsset) {
-                    lWebView.addJavascriptInterface(object : Any() {
-                        @JavascriptInterface
-                        @Throws(java.lang.Exception::class)
-                        fun performClick() {
-                            showLongInformation("Login clicked");
-                        }
-                    }, "login")
-                }
-
-                if (isDetectButtonClickWeb) {
-                    lWebView.addJavascriptInterface(object : Any() {
-                        @JavascriptInterface
-                        @Throws(java.lang.Exception::class)
-                        fun performClick() {
-                            showLongInformation("Print clicked");
-                        }
-                    }, "printOrder")
-                }
             }
         }
 
         btLoadUrl.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
+            onDetectClick()
             lWebView.loadUrl("https://vnexpress.net/facebook-hay-google-manh-hon-4226827.html/")
         }
         btLoadData.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
+            onDetectClick()
             lWebView.loadDataString(bodyContent = "Hello, world!")
         }
         btLoadDataCustom.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
+            onDetectClick()
             val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
             val paddingPx = LAppResource.getDimenValue(R.dimen.margin_padding_small)
             lWebView.loadDataString(
@@ -106,16 +90,19 @@ class LWebViewActivity : BaseFontActivity() {
         btLoadDataFromAsset.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
+            onDetectClick()
             lWebView.loadUrl("file:///android_asset/web/policy.html")
         }
         btLoadDataFromAssetAndClick.setSafeOnClickListener {
             isDetectButtonClickAsset = true
             isDetectButtonClickWeb = false
+            onDetectClick()
             lWebView.loadUrl("file:///android_asset/web/index.html")
         }
         btLoadDataFromWebAndClick.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = true
+            onDetectClick()
             logE(">>>btLoadDataFromWebAndClick")
             lWebView.loadUrl("https://bizman.dikauri.com/dashboard")
         }
@@ -137,5 +124,28 @@ class LWebViewActivity : BaseFontActivity() {
             return true
         }
         return super.onKeyDown(keyCode, event)
+    }
+
+    private fun onDetectClick(){
+        // detect click button submit
+        if (isDetectButtonClickAsset) {
+            lWebView.addJavascriptInterface(object : Any() {
+                @JavascriptInterface
+                @Throws(java.lang.Exception::class)
+                fun performClick() {
+                    showLongInformation("Login clicked");
+                }
+            }, "login")
+        }
+
+        if (isDetectButtonClickWeb) {
+            lWebView.addJavascriptInterface(object : Any() {
+                @JavascriptInterface
+                @Throws(java.lang.Exception::class)
+                fun performClick() {
+                    showLongInformation("Print clicked");
+                }
+            }, "printOrder")
+        }
     }
 }
