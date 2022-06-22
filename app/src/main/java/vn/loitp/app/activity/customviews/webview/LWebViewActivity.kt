@@ -147,7 +147,7 @@ class LWebViewActivity : BaseFontActivity() {
                     logE("isDetectButtonClickWeb order id: $id")
                     showLongInformation("isDetectButtonClickWeb order id: $id");
                 }
-            }, "handlerPrintOrder")
+            }, "handlePrintOrder")
         }
     }
 }
