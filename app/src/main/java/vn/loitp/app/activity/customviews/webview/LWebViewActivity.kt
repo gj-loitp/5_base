@@ -104,7 +104,7 @@ class LWebViewActivity : BaseFontActivity() {
             isDetectButtonClickWeb = true
             onDetectClick()
             logE(">>>btLoadDataFromWebAndClick")
-            lWebView.loadUrl("https://bizman.dikauri.com/dashboard")
+            lWebView.loadUrl("https://bizman.dikauri.com/signin")
         }
         swEnableCopyContent.setOnCheckedChangeListener { _, isChecked ->
             lWebView.setEnableCopyContent(isChecked)
@@ -141,11 +141,15 @@ class LWebViewActivity : BaseFontActivity() {
         if (isDetectButtonClickWeb) {
             lWebView.addJavascriptInterface(object : Any() {
                 @JavascriptInterface
-                @Throws(java.lang.Exception::class)
-                fun performClick() {
-                    showLongInformation("Print clicked");
+                fun printOrder() {
+                    logE("printOrder")
+                    try {
+                        showLongInformation("~~~~~Print clicked")
+                    } catch (e: Exception) {
+                        logE(e.message.toString())
+                    }
                 }
-            }, "printOrder")
+            }, "Android")
         }
     }
 }
