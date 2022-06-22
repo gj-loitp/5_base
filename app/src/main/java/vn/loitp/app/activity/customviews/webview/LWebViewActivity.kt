@@ -127,6 +127,7 @@ class LWebViewActivity : BaseFontActivity() {
     }
 
     private fun onDetectClick() {
+        logE(">>>onDetectClick")
         // detect click button submit
         if (isDetectButtonClickAsset) {
             lWebView.addJavascriptInterface(object : Any() {
@@ -141,15 +142,12 @@ class LWebViewActivity : BaseFontActivity() {
         if (isDetectButtonClickWeb) {
             lWebView.addJavascriptInterface(object : Any() {
                 @JavascriptInterface
-                fun printOrder() {
-                    logE("printOrder")
-                    try {
-                        showLongInformation("~~~~~Print clicked")
-                    } catch (e: Exception) {
-                        logE(e.message.toString())
-                    }
+                @Throws(java.lang.Exception::class)
+                fun performClick(id: String) {
+                    logE("isDetectButtonClickWeb order id: $id")
+                    showLongInformation("isDetectButtonClickWeb order id: $id");
                 }
-            }, "Android")
+            }, "handlerPrintOrder")
         }
     }
 }
