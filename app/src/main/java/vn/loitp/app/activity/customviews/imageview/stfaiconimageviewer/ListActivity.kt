@@ -4,19 +4,19 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.ImageView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
+import com.core.utilities.LUIUtil
 import com.stfalcon.imageviewer.StfalconImageViewer
 import kotlinx.android.synthetic.main.activity_stfaiconimageviewer_list.*
-import kotlinx.android.synthetic.main.view_row_item_stf.view.*
 import kotlinx.android.synthetic.main.view_stf_overlay.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.common.Constants
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("ListActivity")
 @IsFullScreen(false)
@@ -36,6 +36,17 @@ class ListActivity : BaseFontActivity() {
 
     private var stf: StfalconImageViewer<Movie>? = null
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ListActivity::class.java.simpleName
+        }
         stfAdapter = StfAdapter(
             context = this,
             moviesList = movieList,
@@ -46,7 +57,6 @@ class ListActivity : BaseFontActivity() {
                     moviesList: MutableList<Movie>,
                     position: Int
                 ) {
-
                     val viewOverLay = LayoutInflater.from(this@ListActivity)
                         .inflate(R.layout.view_stf_overlay, null)
                     viewOverLay.bt.setOnClickListener {

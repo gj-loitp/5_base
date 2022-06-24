@@ -8,14 +8,16 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitle"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/margin_padding_medium">
+            android:paddingStart="@dimen/margin_padding_medium"
+            android:paddingTop="@dimen/w_65"
+            android:paddingEnd="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
 
             <com.views.card.LCardView
                 android:id="@+id/lCardView0"
@@ -31,8 +33,8 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvTitle"
-        style="@style/TextMenu"
-        android:text="@string/demo_lcardview" />
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

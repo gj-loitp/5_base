@@ -18,7 +18,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingStart="@dimen/margin_padding_medium"
+            android:paddingTop="@dimen/w_65"
+            android:paddingEnd="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -81,4 +83,8 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

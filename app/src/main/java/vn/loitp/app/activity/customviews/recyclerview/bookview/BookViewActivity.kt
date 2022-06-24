@@ -2,16 +2,17 @@ package vn.loitp.app.activity.customviews.recyclerview.bookview
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LUIUtil
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.activity_bookview.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.common.Constants
-import java.util.*
 
 @LogTag("BookViewActivity")
 @IsFullScreen(false)
@@ -26,6 +27,21 @@ class BookViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = BookViewActivity::class.java.simpleName
+        }
         bookAdapter = BookAdapter(
             context = this, column = 3, moviesList = movieList,
             callback = object : BookAdapter.Callback {

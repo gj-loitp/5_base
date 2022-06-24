@@ -2,6 +2,7 @@ package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -25,8 +26,23 @@ class TTTAPIPageListActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
         setupViewModels()
         tttViewModel?.getListPage(link = "http://truyentranhtuan.com/one-piece-chuong-69/")
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = TTTAPIPageListActivity::class.java.simpleName
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -34,7 +50,7 @@ class TTTAPIPageListActivity : BaseFontActivity() {
         tttViewModel = getViewModel(TTTViewModel::class.java)
         tttViewModel?.let { vm ->
 
-            vm.listPageActionLiveData.observe(this, { actionData ->
+            vm.listPageActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
 
@@ -50,7 +66,7 @@ class TTTAPIPageListActivity : BaseFontActivity() {
                         tvTitle.text = "Danh sách page trong chap 69 - size: " + listPage?.size
                     }
                 }
-            })
+            }
         }
     }
 

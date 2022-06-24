@@ -16,7 +16,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/w_65">
 
             <TextView
                 android:id="@+id/textView"
@@ -45,4 +46,9 @@
             ads:adSize="SMART_BANNER"
             ads:adUnitId="@string/str_b" />
     </LinearLayout>
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

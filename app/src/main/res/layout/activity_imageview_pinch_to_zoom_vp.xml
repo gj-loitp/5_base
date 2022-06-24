@@ -8,4 +8,9 @@
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

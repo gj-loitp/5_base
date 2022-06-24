@@ -2,12 +2,14 @@ package vn.loitp.app.activity.customviews.lcardview
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LScreenUtil
+import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.views.card.LCardView
 import kotlinx.android.synthetic.main.activity_card_view_l.*
@@ -28,6 +30,17 @@ class LCardViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = LCardViewActivity::class.java.simpleName
+        }
         lCardView0.apply {
             callback = object : LCardView.Callback {
                 override fun onClickRoot(v: View) {

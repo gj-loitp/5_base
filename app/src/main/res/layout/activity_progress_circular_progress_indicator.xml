@@ -16,7 +16,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/margin_padding_medium">
+            android:paddingStart="@dimen/margin_padding_medium"
+            android:paddingTop="@dimen/w_65"
+            android:paddingEnd="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
 
             <com.views.progressloadingview.circularprogressindicator.CircularProgressIndicator
                 android:id="@+id/circularProgress"
@@ -231,4 +234,9 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

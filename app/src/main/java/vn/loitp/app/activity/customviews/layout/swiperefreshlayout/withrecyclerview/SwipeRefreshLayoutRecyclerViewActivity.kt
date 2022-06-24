@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withrecycler
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +15,6 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
 import vn.loitp.app.common.Constants.Companion.URL_IMG
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("SwipeRefreshLayoutRecyclerViewActivity")
 @IsFullScreen(false)
@@ -29,6 +29,21 @@ class SwipeRefreshLayoutRecyclerViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = SwipeRefreshLayoutRecyclerViewActivity::class.java.simpleName
+        }
         swipeRefreshLayout.setOnRefreshListener { refresh() }
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout)
 

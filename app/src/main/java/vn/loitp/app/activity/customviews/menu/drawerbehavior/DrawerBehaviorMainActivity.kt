@@ -3,10 +3,12 @@ package vn.loitp.app.activity.customviews.menu.drawerbehavior
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_drawer_behavior_main.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.menu.drawerbehavior.drawer.*
@@ -22,6 +24,21 @@ class DrawerBehaviorMainActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = DrawerBehaviorMainActivity::class.java.simpleName
+        }
         buttonDefault.setOnClickListener(this)
         buttonAdvance1.setOnClickListener(this)
         buttonAdvance2.setOnClickListener(this)

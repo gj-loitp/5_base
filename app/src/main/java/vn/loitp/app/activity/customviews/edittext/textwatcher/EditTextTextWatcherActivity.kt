@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.edittext.textwatcher
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -19,8 +20,22 @@ class EditTextTextWatcherActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var text = ""
+        setupViews()
+    }
 
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = EditTextTextWatcherActivity::class.java.simpleName
+        }
+        var text = ""
         LUIUtil.addTextChangedListener(
             editText = editText,
             delayInMls = 1000, afterTextChanged = { s ->

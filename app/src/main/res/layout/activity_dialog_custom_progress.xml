@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
-
-    <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextMenu"
-        android:text="Custom dialog"
-        tools:ignore="HardcodedText" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt0"
@@ -19,4 +13,8 @@
         android:text="@string/show"
         android:textColor="?attr/themeTextColor" />
 
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

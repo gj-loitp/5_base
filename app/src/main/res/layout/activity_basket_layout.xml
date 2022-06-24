@@ -20,4 +20,9 @@
         tools:layout_width="150dp">
 
     </com.yonder.basketlayout.BasketLayoutView>
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

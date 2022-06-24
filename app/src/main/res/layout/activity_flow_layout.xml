@@ -10,7 +10,6 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
         <com.views.layout.flowlayout.FlowLayout
@@ -18,7 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/margin_padding_medium"
+            android:paddingStart="@dimen/margin_padding_medium"
+            android:paddingTop="@dimen/w_65"
+            android:paddingEnd="@dimen/margin_padding_medium"
             app:flChildSpacing="@dimen/w_25"
             app:flChildSpacingForLastRow="100dp"
             app:flFlow="true"
@@ -84,9 +85,9 @@
         </com.views.layout.flowlayout.FlowLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="@string/layout_menu" />
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
 

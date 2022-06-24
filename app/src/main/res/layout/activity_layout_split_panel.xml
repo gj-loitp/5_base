@@ -4,10 +4,16 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <com.views.layout.splitpanellayout.SplitPaneLayout xmlns:spl="http://schemas.android.com/apk/res-auto"
         android:id="@+id/splitPaneLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/lActionBar"
         spl:splitterBackground="@drawable/bkg_et"
         spl:splitterDraggingBackground="#88000000"
         spl:splitterOrientation="vertical"

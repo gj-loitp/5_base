@@ -1,10 +1,12 @@
 package vn.loitp.app.activity.customviews.button.qbutton
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAppResource
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_button_q.*
 import vn.loitp.app.R
 
@@ -23,6 +25,17 @@ class QButtonActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = QButtonActivity::class.java.simpleName
+        }
         btn.setCornerRadious(5)
         btn.setStrokeWidth(5)
         btn.setStrokeDashGap(5)

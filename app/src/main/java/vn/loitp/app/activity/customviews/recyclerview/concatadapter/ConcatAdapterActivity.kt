@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.recyclerview.concatadapter
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -8,6 +9,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
+import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_recycler_view_concat_adapter.*
@@ -16,8 +18,6 @@ import vn.loitp.app.activity.customviews.recyclerview.concatadapter.adapter.*
 import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.DataSource
 import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.AboutMe
 import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.News
-
-// https://blog.mindorks.com/implementing-merge-adapter-in-android-tutorial
 
 @LogTag("MergeAdapterActivity")
 @IsFullScreen(false)
@@ -35,10 +35,35 @@ class ConcatAdapterActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupDataInRecyclerView()
+
+        setupViews()
     }
 
-    private fun setupDataInRecyclerView() {
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.let {
+                LUIUtil.setSafeOnClickListenerElastic(
+                    view = it,
+                    runnable = {
+                        LSocialUtil.openUrlInBrowser(
+                            context = context,
+                            url = "https://blog.mindorks.com/implementing-merge-adapter-in-android-tutorial"
+                        )
+                    }
+                )
+                it.isVisible = true
+                it.setImageResource(R.drawable.ic_baseline_code_48)
+            }
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ConcatAdapterActivity::class.java.simpleName
+        }
+
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         aboutMeAdapter = AboutMeAdapter(ArrayList())

@@ -14,8 +14,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/w_65">
 
             <com.views.progressloadingview.circular.LCircularProgressBar
                 android:id="@+id/progressBar"
@@ -75,4 +76,9 @@
                 app:startAngle="270" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

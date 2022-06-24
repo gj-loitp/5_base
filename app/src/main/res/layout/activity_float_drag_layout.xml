@@ -3,39 +3,46 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor"
-    android:paddingTop="@dimen/margin_padding_medium"
-    android:paddingBottom="@dimen/margin_padding_medium">
+    android:background="?attr/themeBackgroundColor">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btChangeToFullScreen"
-        style="@style/ButtonMenu"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/change_to_fullscreen_model"
-        android:textAllCaps="false" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btChangeToNoTitle"
-        style="@style/ButtonMenu"
-        android:layout_below="@+id/btChangeToFullScreen"
-        android:layout_centerHorizontal="true"
-        android:text="@string/change_to_no_title_model"
-        android:textAllCaps="false" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/w_65">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btChangeToWindows"
-        style="@style/ButtonMenu"
-        android:layout_below="@+id/btChangeToNoTitle"
-        android:layout_centerHorizontal="true"
-        android:text="@string/change_to_windows_model"
-        android:textAllCaps="false" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btChangeToFullScreen"
+                style="@style/ButtonMenu"
+                android:text="@string/change_to_fullscreen_model"
+                android:textAllCaps="false" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btShowFloatDragPopupWindow"
-        style="@style/ButtonMenu"
-        android:layout_below="@+id/btChangeToWindows"
-        android:layout_centerHorizontal="true"
-        android:text="@string/show_floatdragpopupwindow"
-        android:textAllCaps="false" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btChangeToNoTitle"
+                style="@style/ButtonMenu"
+                android:text="@string/change_to_no_title_model"
+                android:textAllCaps="false" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btChangeToWindows"
+                style="@style/ButtonMenu"
+                android:text="@string/change_to_windows_model"
+                android:textAllCaps="false" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShowFloatDragPopupWindow"
+                style="@style/ButtonMenu"
+                android:text="@string/show_floatdragpopupwindow"
+                android:textAllCaps="false" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

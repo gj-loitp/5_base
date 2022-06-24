@@ -10,7 +10,8 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/w_65">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -139,4 +140,9 @@
             android:layout_height="wrap_content"
             app:layout_anchor="@id/cardView3" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

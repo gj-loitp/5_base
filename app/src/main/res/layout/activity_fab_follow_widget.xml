@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingTop="@dimen/margin_padding_medium">
+                android:paddingTop="@dimen/w_65">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView1"
@@ -132,4 +132,9 @@
             android:layout_margin="@dimen/margin_padding_medium"
             android:src="@drawable/iv" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

@@ -10,7 +10,8 @@
         android:id="@+id/rvAnswers"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/w_65" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
@@ -19,4 +20,9 @@
         android:gravity="center"
         android:text="Loading..."
         android:textColor="?attr/themeTextColor" />
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

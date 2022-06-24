@@ -3,6 +3,7 @@ package vn.loitp.app.activity.api.truyentranhtuan
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
+import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.textView
 import vn.loitp.app.R
 
 @LogTag("TTTAPIComicListActivity")
@@ -33,6 +35,17 @@ class TTTAPIComicListActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = TTTAPIComicListActivity::class.java.simpleName
+        }
         LDialogUtil.hideProgress(progressBar)
         comicTypeList.addAll(ComicUtils.comicTypeList)
 

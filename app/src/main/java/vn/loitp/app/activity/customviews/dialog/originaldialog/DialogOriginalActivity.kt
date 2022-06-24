@@ -8,10 +8,12 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.EditText
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_dialog_original.*
 import vn.loitp.app.R
 
@@ -27,6 +29,21 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = DialogOriginalActivity::class.java.simpleName
+        }
         btShow1.setOnClickListener(this)
         btShow2.setOnClickListener(this)
         btShow3.setOnClickListener(this)

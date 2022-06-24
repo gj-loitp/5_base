@@ -10,4 +10,8 @@
         android:layout_height="@dimen/w_250"
         android:layout_centerInParent="true" />
 
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

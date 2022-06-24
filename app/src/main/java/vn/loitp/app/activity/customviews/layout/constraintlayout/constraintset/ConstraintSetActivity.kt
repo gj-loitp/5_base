@@ -5,9 +5,11 @@ import android.os.Build
 import android.os.Bundle
 import android.transition.TransitionManager
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_constraint_set.*
 import vn.loitp.app.R
 
@@ -30,6 +32,17 @@ class ConstraintSetActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ConstraintSetActivity::class.java.simpleName
+        }
         mConstraintSetNormal.clone(layoutConstrainRoot)
         mConstraintSetBig.load(this, R.layout.constraintset_example_big)
         if (savedInstanceState != null) {

@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.imageview.pinchtozoom
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -11,7 +12,6 @@ import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_imageview_pinch_to_zoom_vp.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("PinchToZoomViewPagerActivity")
 @IsFullScreen(false)
@@ -26,6 +26,21 @@ class PinchToZoomViewPagerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = PinchToZoomViewPagerActivity::class.java.simpleName
+        }
         list.add(Constants.URL_IMG)
         list.add(Constants.URL_IMG_1)
         list.add(Constants.URL_IMG_2)

@@ -11,17 +11,14 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/logo" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/margin_padding_medium"
-        android:text="Touch anything"
-        android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_largest" />
-
     <com.views.layout.heartlayout.LHeartLayout
         android:id="@+id/heartLayout"
         android:layout_width="@dimen/w_100"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true" />
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

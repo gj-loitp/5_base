@@ -11,14 +11,14 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
         <LinearLayout
             android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/w_65">
 
             <com.views.answerview.LAnswerView
                 android:id="@+id/lAnswerView1"
@@ -41,8 +41,8 @@
         </LinearLayout>
     </ScrollView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="@string/answer_view" />
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.layout.basketlayout
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -24,6 +25,17 @@ class BasketLayoutActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = BasketLayoutActivity::class.java.simpleName
+        }
         basketView.apply {
             setBasketQuantity(quantity = 2)
             setMaxQuantity(maxQuantity = 5)

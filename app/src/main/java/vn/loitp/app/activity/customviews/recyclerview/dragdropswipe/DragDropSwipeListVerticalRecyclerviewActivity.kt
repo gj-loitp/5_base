@@ -1,15 +1,17 @@
 package vn.loitp.app.activity.customviews.recyclerview.dragdropswipe
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LSocialUtil
+import com.core.utilities.LUIUtil
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
 import kotlinx.android.synthetic.main.activity_recycler_drag_drop_swipe_list_vertical.*
 import vn.loitp.app.R
 
-// https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
 @LogTag("DragDropSwipeListVerticalRecyclerviewActivity")
 @IsFullScreen(false)
 class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
@@ -35,6 +37,31 @@ class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.let {
+                LUIUtil.setSafeOnClickListenerElastic(
+                    view = it,
+                    runnable = {
+                        LSocialUtil.openUrlInBrowser(
+                            context = context,
+                            url = "https://github.com/ernestoyaquello/DragDropSwipeRecyclerview"
+                        )
+                    }
+                )
+                it.isVisible = true
+                it.setImageResource(R.drawable.ic_baseline_code_48)
+            }
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text =
+                DragDropSwipeListVerticalRecyclerviewActivity::class.java.simpleName
+        }
+
         dragDropAdapter = DragDropAdapter(setData())
 
         dragDropSwipeRecyclerView.layoutManager = LinearLayoutManager(this) // list

@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor"
-    android:orientation="vertical">
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="@string/menu_action_bar" />
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -20,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingTop="@dimen/w_65"
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
@@ -50,4 +44,8 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-</LinearLayout>
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

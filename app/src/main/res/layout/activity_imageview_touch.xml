@@ -13,14 +13,8 @@
         android:layout_gravity="center"
         tools:src="@drawable/loitp" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="@dimen/margin_padding_medium"
-        android:text="@string/try_to_zoom"
-        android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_medium"
-        android:textStyle="bold" />
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

@@ -15,7 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/w_65">
 
             <com.views.layout.rotatelayout.LRotateLayout
                 android:id="@+id/rotateLayout"
@@ -82,8 +83,14 @@
         android:id="@+id/btRandomRotate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/w_100"
         android:background="?attr/themeBackgroundColorMedium"
         android:text="@string/random_rotate"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />
+
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

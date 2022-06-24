@@ -4,17 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
-import android.webkit.WebChromeClient
-import android.webkit.WebSettings
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
 import com.core.utilities.LLog
 import org.adblockplus.libadblockplus.android.webview.AdblockWebView
 
 @SuppressLint("SetJavaScriptEnabled", "RequiresFeature")
-class LWebView : AdblockWebView {
+class LWebViewAdblock : AdblockWebView {
 
     companion object {
         const val logTag = "LWebView"
@@ -33,6 +30,7 @@ class LWebView : AdblockWebView {
     }
 
     var callback: Callback? = null
+    var currentProgress: Int = 0
 
     private var isScrollBottomToTop = true
 
@@ -48,6 +46,7 @@ class LWebView : AdblockWebView {
 
     init {
         settings.javaScriptEnabled = true
+        settings.domStorageEnabled = true
 
         // load the page with cache
         settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
@@ -57,7 +56,11 @@ class LWebView : AdblockWebView {
         webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView, newProgress: Int) {
 //                logD("onProgressChanged: $newProgress")
-                callback?.onProgressChanged(newProgress)
+
+                if (currentProgress != newProgress) {
+                    callback?.onProgressChanged(newProgress)
+                    currentProgress = newProgress
+                }
             }
         }
 
@@ -67,10 +70,21 @@ class LWebView : AdblockWebView {
 
     fun shouldOverrideUrlLoading(shouldOverrideUrlLoading: Boolean) {
         webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                // return true load with system-default-browser or other browsers, false with your webView
+//            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+//                // return true load with system-default-browser or other browsers, false with your webView
+//                logD("shouldOverrideUrlLoading url $url")
+//                callback?.shouldOverrideUrlLoading(url = url)
+//                return shouldOverrideUrlLoading
+//            }
+
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
                 logD("shouldOverrideUrlLoading url $url")
-                callback?.shouldOverrideUrlLoading(url = url)
+                url?.let {
+                    callback?.shouldOverrideUrlLoading(url = it)
+                }
                 return shouldOverrideUrlLoading
             }
         }

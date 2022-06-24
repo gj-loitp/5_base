@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -33,11 +34,23 @@ class TTTAPIFavListActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.isVisible = false
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = TTTAPIFavListActivity::class.java.simpleName
+        }
         btAdd.setSafeOnClickListener {
             val comic = Comic()
             comic.date = "29.07.2014"
             comic.url = "http://truyentranhtuan.com/vuong-phong-loi-i/"
             comic.title = "Vương Phong Lôi I"
+            comic.isFav = true
             tttViewModel?.favComic(comic = comic)
         }
         btRemove.setSafeOnClickListener {
@@ -45,6 +58,7 @@ class TTTAPIFavListActivity : BaseFontActivity() {
             comic.date = "29.07.2014"
             comic.url = "http://truyentranhtuan.com/vuong-phong-loi-i/"
             comic.title = "Vương Phong Lôi I"
+            comic.isFav = false
             tttViewModel?.unfavComic(comic = comic)
         }
     }
@@ -52,7 +66,7 @@ class TTTAPIFavListActivity : BaseFontActivity() {
     private fun setupViewModels() {
         tttViewModel = getViewModel(TTTViewModel::class.java)
         tttViewModel?.let { vm ->
-            vm.listComicFavActionLiveData.observe(this, { actionData ->
+            vm.listComicFavActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
 
@@ -67,9 +81,9 @@ class TTTAPIFavListActivity : BaseFontActivity() {
                         }
                     }
                 }
-            })
+            }
 
-            vm.favComicLiveData.observe(this, { actionData ->
+            vm.favComicLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
 
@@ -84,9 +98,9 @@ class TTTAPIFavListActivity : BaseFontActivity() {
                         tttViewModel?.getListComicFav()
                     }
                 }
-            })
+            }
 
-            vm.unfavComicLiveData.observe(this, { actionData ->
+            vm.unfavComicLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
 
@@ -101,7 +115,7 @@ class TTTAPIFavListActivity : BaseFontActivity() {
                         tttViewModel?.getListComicFav()
                     }
                 }
-            })
+            }
         }
     }
 }
