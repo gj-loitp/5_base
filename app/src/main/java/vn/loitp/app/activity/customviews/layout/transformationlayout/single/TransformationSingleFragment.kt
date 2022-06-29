@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.layout.transformationlayout.single
 
 import android.os.Bundle
 import android.view.View
-import com.core.base.BaseFragment
+import com.loitpcore.core.base.BaseFragment
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.addTransformation
 import com.skydoves.transformationlayout.onTransformationStartContainer

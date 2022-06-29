@@ -6,13 +6,13 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LAppResource
-import com.views.menu.residemenu.ResideMenu
-import com.views.menu.residemenu.ResideMenu.OnMenuListener
-import com.views.menu.residemenu.ResideMenuItem
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LAppResource
+import com.loitpcore.views.menu.residemenu.ResideMenu
+import com.loitpcore.views.menu.residemenu.ResideMenu.OnMenuListener
+import com.loitpcore.views.menu.residemenu.ResideMenuItem
 import kotlinx.android.synthetic.main.reside_menu.*
 import vn.loitp.app.R
 

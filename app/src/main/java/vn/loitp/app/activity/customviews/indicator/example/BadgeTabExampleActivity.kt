@@ -10,10 +10,10 @@ import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LAppResource
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LAppResource
 import kotlinx.android.synthetic.main.activity_badge_tab_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
@@ -30,7 +30,6 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgeRule
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.indicator.ext.titles.ScaleTransitionPagerTitleView
-import java.util.*
 
 @LogTag("BadgeTabExampleActivity")
 @IsFullScreen(false)

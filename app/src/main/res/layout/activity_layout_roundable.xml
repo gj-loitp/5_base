@@ -20,7 +20,7 @@
             android:paddingEnd="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
-            <com.views.layout.roundablelayout.LRoundableLayout
+            <com.loitpcore.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -38,7 +38,7 @@
                 app:lrl_strokeLineColor="@color/colorPrimary"
                 app:lrl_strokeLineWidth="2dp" />
 
-            <com.views.layout.roundablelayout.LRoundableLayout
+            <com.loitpcore.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -66,9 +66,9 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-            </com.views.layout.roundablelayout.LRoundableLayout>
+            </com.loitpcore.views.layout.roundablelayout.LRoundableLayout>
 
-            <com.views.layout.roundablelayout.LRoundableLayout
+            <com.loitpcore.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -81,7 +81,7 @@
                 app:lrl_strokeLineColor="@color/red"
                 app:lrl_strokeLineWidth="5dp" />
 
-            <com.views.layout.roundablelayout.LRoundableLayout
+            <com.loitpcore.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -104,9 +104,9 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-            </com.views.layout.roundablelayout.LRoundableLayout>
+            </com.loitpcore.views.layout.roundablelayout.LRoundableLayout>
 
-            <com.views.layout.roundablelayout.LRoundableLayout
+            <com.loitpcore.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -116,7 +116,7 @@
                 app:lrl_cornerLeftTop="90dp"
                 app:lrl_cornerRightBottom="90dp" />
 
-            <com.views.layout.roundablelayout.LRoundableLayout
+            <com.loitpcore.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -136,9 +136,9 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-            </com.views.layout.roundablelayout.LRoundableLayout>
+            </com.loitpcore.views.layout.roundablelayout.LRoundableLayout>
 
-            <com.views.layout.roundablelayout.LRoundableLayout
+            <com.loitpcore.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -156,7 +156,7 @@
                 app:lrl_strokeLineColor="@color/red"
                 app:lrl_strokeLineWidth="5dp" />
 
-            <com.views.layout.roundablelayout.LRoundableLayout
+            <com.loitpcore.views.layout.roundablelayout.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -184,7 +184,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-            </com.views.layout.roundablelayout.LRoundableLayout>
+            </com.loitpcore.views.layout.roundablelayout.LRoundableLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -192,7 +192,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.views.actionbar.LActionBar
+    <com.loitpcore.views.actionbar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

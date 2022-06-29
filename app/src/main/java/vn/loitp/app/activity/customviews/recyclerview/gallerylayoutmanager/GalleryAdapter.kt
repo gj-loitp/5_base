@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.core.utilities.LImageUtil
+import com.loitpcore.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.row_item_gallery.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie

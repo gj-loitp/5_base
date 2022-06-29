@@ -4,10 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_tablayout_demo_tab_on_screen_limit.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo

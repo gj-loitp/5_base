@@ -1,10 +1,10 @@
 package vn.loitp.app.activity.database.readsqliteasset
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_read_sqlite_asset.*
 import vn.loitp.app.R
 import java.util.*

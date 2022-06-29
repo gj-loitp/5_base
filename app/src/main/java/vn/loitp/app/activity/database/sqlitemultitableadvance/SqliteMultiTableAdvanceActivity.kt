@@ -4,11 +4,11 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table_advance.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.database.sqlitemultitableadvance.helper.InspectionDatabaseHelper

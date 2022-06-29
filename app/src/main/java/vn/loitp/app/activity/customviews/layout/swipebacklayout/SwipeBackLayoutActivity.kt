@@ -3,14 +3,14 @@ package vn.loitp.app.activity.customviews.layout.swipebacklayout
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioGroup
-import com.annotation.IsFullScreen
-import com.annotation.IsSwipeActivity
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LScreenUtil
-import com.views.layout.swipeback.SwipeBackLayout
-import com.views.layout.swipeback.SwipeBackLayout.OnSwipeBackListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsSwipeActivity
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LScreenUtil
+import com.loitpcore.views.layout.swipeback.SwipeBackLayout
+import com.loitpcore.views.layout.swipeback.SwipeBackLayout.OnSwipeBackListener
 import kotlinx.android.synthetic.main.activity_swipeback_layout.*
 import vn.loitp.app.R
 

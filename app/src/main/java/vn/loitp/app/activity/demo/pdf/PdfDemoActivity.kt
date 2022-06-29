@@ -2,17 +2,17 @@ package vn.loitp.app.activity.demo.pdf
 
 import android.os.Bundle
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LStoreUtil
-import com.function.pump.download.Pump
-import com.function.pump.download.core.DownloadListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LStoreUtil
+import com.loitpcore.function.pump.download.Pump
+import com.loitpcore.function.pump.download.core.DownloadListener
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.github.barteksc.pdfviewer.util.FitPolicy
-import com.task.AsyncTaskDownloadPdfStream
-import com.task.GetPdfCoroutine
-import com.views.setSafeOnClickListener
+import com.loitpcore.task.AsyncTaskDownloadPdfStream
+import com.loitpcore.task.GetPdfCoroutine
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_demo_pdf.*
 import vn.loitp.app.R
 import java.io.File

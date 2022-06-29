@@ -2,8 +2,8 @@ package vn.loitp.app.activity.demo.fragmentnavigation
 
 import android.os.Bundle
 import android.view.View
-import com.annotation.LogTag
-import com.core.base.BaseFragment
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFragment
 import kotlinx.android.synthetic.main.frm_fn_1.*
 import vn.loitp.app.R
 

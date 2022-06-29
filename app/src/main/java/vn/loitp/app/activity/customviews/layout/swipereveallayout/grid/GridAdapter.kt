@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import com.views.LToast.showShortInformation
-import com.views.layout.swipereveallayout.LSwipeRevealLayout
-import com.views.layout.swipereveallayout.ViewBinderHelper
+import com.loitpcore.views.LToast.showShortInformation
+import com.loitpcore.views.layout.swipereveallayout.LSwipeRevealLayout
+import com.loitpcore.views.layout.swipereveallayout.ViewBinderHelper
 import vn.loitp.app.R
 
 class GridAdapter(

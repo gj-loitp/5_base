@@ -3,10 +3,10 @@ package vn.loitp.app.activity.customviews.switchtoggle
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_switch_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity

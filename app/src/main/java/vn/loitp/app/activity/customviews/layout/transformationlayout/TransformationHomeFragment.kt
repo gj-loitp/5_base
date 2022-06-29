@@ -3,8 +3,8 @@ package vn.loitp.app.activity.customviews.layout.transformationlayout
 import android.os.Bundle
 import android.os.SystemClock
 import android.view.View
-import com.core.base.BaseFragment
-import com.views.setSafeOnClickListener
+import com.loitpcore.core.base.BaseFragment
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.fragment_transformation_home.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.TransformationMockUtil.getMockPosters

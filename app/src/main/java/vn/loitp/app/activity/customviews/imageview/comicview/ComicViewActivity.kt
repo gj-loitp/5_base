@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
 import com.bumptech.glide.Glide
-import com.core.base.BaseFontActivity
+import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_comic_view.*
 import vn.loitp.app.R
 import java.util.* // ktlint-disable no-wildcard-imports

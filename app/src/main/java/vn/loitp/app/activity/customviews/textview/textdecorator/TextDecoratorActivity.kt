@@ -2,11 +2,11 @@ package vn.loitp.app.activity.customviews.textview.textdecorator
 
 import android.os.Bundle
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.views.textview.textdecorator.LTextDecorator
-import com.views.textview.textdecorator.OnTextClickListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.textview.textdecorator.LTextDecorator
+import com.loitpcore.views.textview.textdecorator.OnTextClickListener
 import kotlinx.android.synthetic.main.activity_text_view_text_decorator.*
 import vn.loitp.app.R
 

@@ -8,7 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.views.setSafeOnClickListener
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_view_pager_2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewpager.viewpager2.FrmViewPager2.Companion.getInstance

@@ -3,9 +3,9 @@ package vn.loitp.app.activity.service.endlessservice
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_service_endless.*
 import vn.loitp.app.R
 

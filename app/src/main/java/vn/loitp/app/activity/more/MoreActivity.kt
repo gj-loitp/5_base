@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.more
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.helper.more.FrmMore
-import com.core.utilities.LScreenUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.helper.more.FrmMore
+import com.loitpcore.core.utilities.LScreenUtil
 import vn.loitp.app.R
 
 @LogTag("MoreActivity")

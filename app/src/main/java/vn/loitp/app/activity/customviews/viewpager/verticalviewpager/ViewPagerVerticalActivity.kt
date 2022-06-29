@@ -1,9 +1,9 @@
 package vn.loitp.app.activity.customviews.viewpager.verticalviewpager
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_view_pager_vertical.*
 import vn.loitp.app.R
 import java.util.*

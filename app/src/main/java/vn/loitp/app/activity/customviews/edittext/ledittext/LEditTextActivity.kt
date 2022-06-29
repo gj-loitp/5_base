@@ -8,13 +8,13 @@ import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LAppResource
-import com.core.utilities.LKeyBoardUtil
-import com.core.utilities.LScreenUtil
-import com.views.edittext.leditext.LEditText
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LAppResource
+import com.loitpcore.core.utilities.LKeyBoardUtil
+import com.loitpcore.core.utilities.LScreenUtil
+import com.loitpcore.views.edittext.leditext.LEditText
 import kotlinx.android.synthetic.main.activity_editext_l_edit_text.*
 import vn.loitp.app.R
 

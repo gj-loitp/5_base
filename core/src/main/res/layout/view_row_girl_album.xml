@@ -18,7 +18,7 @@
     app:shape_roundRect_topRightRadius="0dp"
     tools:ignore="UnusedAttribute">
 
-    <com.views.imageview.dynamic.DynamicHeightImageView
+    <com.loitpcore.views.imageview.dynamic.DynamicHeightImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

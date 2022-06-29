@@ -11,11 +11,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.annotation.IsFullScreen;
-import com.annotation.LogTag;
-import com.core.base.BaseFontActivity;
-import com.core.utilities.LPrefUtil;
-import com.core.utilities.LUIUtil;
+import com.loitpcore.annotation.IsFullScreen;
+import com.loitpcore.annotation.LogTag;
+import com.loitpcore.core.base.BaseFontActivity;
+import com.loitpcore.core.utilities.LPrefUtil;
+import com.loitpcore.core.utilities.LUIUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.jetbrains.annotations.NotNull;

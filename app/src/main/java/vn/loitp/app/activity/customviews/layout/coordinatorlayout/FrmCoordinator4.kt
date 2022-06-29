@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.annotation.LogTag
-import com.core.base.BaseFragment
-import com.core.utilities.LUIUtil
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFragment
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.frm_coordinator_4.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie

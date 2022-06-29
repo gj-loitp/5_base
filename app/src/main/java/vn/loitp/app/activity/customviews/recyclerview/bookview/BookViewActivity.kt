@@ -4,10 +4,10 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.activity_bookview.*
 import vn.loitp.app.R

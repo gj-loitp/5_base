@@ -24,7 +24,7 @@
                 android:textSize="@dimen/txt_medium" />
         </androidx.core.widget.NestedScrollView>
 
-        <com.views.layout.youtubelayout.YoutubeLayout
+        <com.loitpcore.views.layout.youtubelayout.YoutubeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -55,6 +55,6 @@
                     android:textSize="@dimen/txt_medium" />
             </androidx.core.widget.NestedScrollView>
 
-        </com.views.layout.youtubelayout.YoutubeLayout>
+        </com.loitpcore.views.layout.youtubelayout.YoutubeLayout>
     </FrameLayout>
 </RelativeLayout>

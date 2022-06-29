@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.transition.Transition
 import android.widget.ImageView
 import androidx.core.view.ViewCompat
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LImageUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_animation_scene_transition_basic_details.*
 import vn.loitp.app.R
 

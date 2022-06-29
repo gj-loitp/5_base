@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.base.BaseFragment
-import com.core.utilities.LUIUtil
-import com.views.setSafeOnClickListener
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseFragment
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_coroutine_get_list.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel

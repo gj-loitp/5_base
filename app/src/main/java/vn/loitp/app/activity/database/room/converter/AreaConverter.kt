@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.database.room.converter
 
 import androidx.room.TypeConverter
-import com.core.base.BaseApplication
+import com.loitpcore.core.base.BaseApplication
 import com.google.gson.reflect.TypeToken
 import vn.loitp.app.activity.database.room.model.Area
 import java.lang.reflect.Type

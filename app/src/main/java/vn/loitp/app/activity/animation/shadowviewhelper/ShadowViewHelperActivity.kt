@@ -3,12 +3,12 @@ package vn.loitp.app.activity.animation.shadowviewhelper
 import android.graphics.Color
 import android.os.Bundle
 import androidx.core.view.ViewCompat
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LDisplayUtil
-import com.views.shadowviewhelper.ShadowProperty
-import com.views.shadowviewhelper.ShadowViewDrawable
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LDisplayUtil
+import com.loitpcore.views.shadowviewhelper.ShadowProperty
+import com.loitpcore.views.shadowviewhelper.ShadowViewDrawable
 import kotlinx.android.synthetic.main.activity_animation_shadowview_helper.*
 import vn.loitp.app.R
 

@@ -2,11 +2,11 @@ package vn.loitp.app.activity.customviews.dialog.customprogressdialog
 
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil
-import com.views.setSafeOnClickListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_dialog_custom_progress.*
 import vn.loitp.app.R
 

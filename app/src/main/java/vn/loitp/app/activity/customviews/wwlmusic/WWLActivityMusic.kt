@@ -1,13 +1,13 @@
 package vn.loitp.app.activity.customviews.wwlmusic
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.views.wwlmusic.layout.LWWLMusic
-import com.views.wwlmusic.utils.LWWLMusicUiUtil.hideSystemUI
-import com.views.wwlmusic.utils.LWWLMusicUiUtil.showSystemUI
-import com.views.wwlmusic.utils.LWWLMusicUiUtil.updateStatusBarAlpha
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.wwlmusic.layout.LWWLMusic
+import com.loitpcore.views.wwlmusic.utils.LWWLMusicUiUtil.hideSystemUI
+import com.loitpcore.views.wwlmusic.utils.LWWLMusicUiUtil.showSystemUI
+import com.loitpcore.views.wwlmusic.utils.LWWLMusicUiUtil.updateStatusBarAlpha
 import kotlinx.android.synthetic.main.activity_wwl_music.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLPlaylistFragment

@@ -10,9 +10,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.annotation.LogTag
-import com.core.base.BaseFragment
-import com.views.wwlmusic.utils.LWWLMusicUiUtil
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFragment
+import com.loitpcore.views.wwlmusic.utils.LWWLMusicUiUtil
 import kotlinx.android.synthetic.main.wwl_video_home_fragment.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost

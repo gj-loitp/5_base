@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import com.github.florent37.expansionpanel.ExpansionLayout
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
 import kotlinx.android.synthetic.main.activity_expansion_panel_sample_recycler.*

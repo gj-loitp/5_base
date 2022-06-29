@@ -20,7 +20,7 @@
             android:paddingEnd="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
-            <com.views.edittext.materialtextfield.LMaterialTextField
+            <com.loitpcore.views.edittext.materialtextfield.LMaterialTextField
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:mtf_image="@drawable/ic_launcher_loitp"
@@ -35,11 +35,11 @@
                     android:textCursorDrawable="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
-            </com.views.edittext.materialtextfield.LMaterialTextField>
+            </com.loitpcore.views.edittext.materialtextfield.LMaterialTextField>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.views.actionbar.LActionBar
+    <com.loitpcore.views.actionbar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

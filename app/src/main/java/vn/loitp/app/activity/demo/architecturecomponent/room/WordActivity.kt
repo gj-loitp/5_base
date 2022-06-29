@@ -3,11 +3,11 @@ package vn.loitp.app.activity.demo.architecturecomponent.room
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.base.BaseFontActivity
-import com.views.setSafeOnClickListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_demo_database_room_work.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word

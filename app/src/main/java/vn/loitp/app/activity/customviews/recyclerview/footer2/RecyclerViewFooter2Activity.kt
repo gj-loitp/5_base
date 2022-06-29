@@ -4,16 +4,15 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.* // ktlint-disable no-wildcard-imports
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LPopupMenu
-import com.core.utilities.LUIUtil
-import com.views.recyclerview.itemdecoration.StickyFooterItemDecoration
-import com.views.setSafeOnClickListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LDialogUtil
+import com.loitpcore.core.utilities.LPopupMenu
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.views.recyclerview.itemdecoration.StickyFooterItemDecoration
+import com.loitpcore.views.setSafeOnClickListener
 import jp.wasabeef.recyclerview.adapters.* // ktlint-disable no-wildcard-imports
-import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
 import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.*
 import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.progressBar
 import vn.loitp.app.R

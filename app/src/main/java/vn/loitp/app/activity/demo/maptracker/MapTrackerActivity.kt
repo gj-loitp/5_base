@@ -11,14 +11,14 @@ import android.os.Bundle
 import android.os.Looper
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LMathUtil
-import com.core.utilities.LUIUtil
-import com.core.utilities.LUIUtil.Companion.scrollToBottom
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LMathUtil
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.*
@@ -28,7 +28,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import com.permissionx.guolindev.PermissionX
-import com.views.setSafeOnClickListener
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_map_tracker.*
 import vn.loitp.app.R
 import java.io.IOException
@@ -106,20 +106,20 @@ class MapTrackerActivity :
             )
             .setDialogTintColor(color, color)
             .onExplainRequestReason { scope, deniedList, _ ->
-                val message = getString(com.R.string.app_name) + getString(com.R.string.needs_per)
+                val message = getString(R.string.app_name) + getString(R.string.needs_per)
                 scope.showRequestReasonDialog(
                     permissions = deniedList,
                     message = message,
-                    positiveText = getString(com.R.string.allow),
-                    negativeText = getString(com.R.string.deny)
+                    positiveText = getString(R.string.allow),
+                    negativeText = getString(R.string.deny)
                 )
             }
             .onForwardToSettings { scope, deniedList ->
                 scope.showForwardToSettingsDialog(
                     permissions = deniedList,
-                    message = getString(com.R.string.per_manually_msg),
-                    positiveText = getString(com.R.string.ok),
-                    negativeText = getString(com.R.string.cancel)
+                    message = getString(R.string.per_manually_msg),
+                    positiveText = getString(R.string.ok),
+                    negativeText = getString(R.string.cancel)
                 )
             }
             .request { allGranted, _, _ ->

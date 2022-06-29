@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.views.LToast;
-import com.views.layout.swipereveallayout.LSwipeRevealLayout;
-import com.views.layout.swipereveallayout.ViewBinderHelper;
+import com.loitpcore.views.LToast;
+import com.loitpcore.views.layout.swipereveallayout.LSwipeRevealLayout;
+import com.loitpcore.views.layout.swipereveallayout.ViewBinderHelper;
 
 import org.jetbrains.annotations.NotNull;
 

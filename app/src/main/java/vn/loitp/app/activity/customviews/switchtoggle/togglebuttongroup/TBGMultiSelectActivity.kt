@@ -1,9 +1,9 @@
 package vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup
 import kotlinx.android.synthetic.main.activity_switch_tbg_multi_select.*
 import vn.loitp.app.R

@@ -12,7 +12,7 @@ import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import com.views.LToast
+import com.loitpcore.views.LToast
 import vn.loitp.app.R
 
 class FloatingViewService : Service() {

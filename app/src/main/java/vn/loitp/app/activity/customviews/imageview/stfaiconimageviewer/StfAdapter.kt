@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.annotation.LogTag
-import com.core.adapter.BaseAdapter
-import com.core.utilities.LImageUtil
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.adapter.BaseAdapter
+import com.loitpcore.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_row_item_stf.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie

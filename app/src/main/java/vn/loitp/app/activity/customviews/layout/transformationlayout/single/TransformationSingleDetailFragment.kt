@@ -2,8 +2,8 @@ package vn.loitp.app.activity.customviews.layout.transformationlayout.single
 
 import android.os.Bundle
 import android.view.View
-import com.core.base.BaseFragment
-import com.core.utilities.LImageUtil
+import com.loitpcore.core.base.BaseFragment
+import com.loitpcore.core.utilities.LImageUtil
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
 import kotlinx.android.synthetic.main.activity_layout_transformation_detail.*

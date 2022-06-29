@@ -2,11 +2,11 @@ package vn.loitp.app.activity.picker.numberpicker
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.picker.number.LNumberPicker
-import com.views.setSafeOnClickListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.picker.number.LNumberPicker
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_picker_number_picker.*
 import vn.loitp.app.R
 

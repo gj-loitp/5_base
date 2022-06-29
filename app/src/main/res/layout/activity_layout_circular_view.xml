@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <com.views.layout.circularview.CircularView
+    <com.loitpcore.views.layout.circularview.CircularView
         android:id="@+id/circularView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:centerBackgroundColor="@color/lightYellow"
         app:centerDrawable="@drawable/ic_launcher_loitp" />
 
-    <com.views.actionbar.LActionBar
+    <com.loitpcore.views.actionbar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

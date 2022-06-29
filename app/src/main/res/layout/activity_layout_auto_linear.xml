@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.views.layout.autolinearlayout.LAutoLinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        <com.loitpcore.views.layout.autolinearlayout.LAutoLinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/margin_padding_medium"
@@ -226,10 +226,10 @@
                 android:text="child25"
                 android:textColor="?attr/themeTextColor" />
 
-        </com.views.layout.autolinearlayout.LAutoLinearLayout>
+        </com.loitpcore.views.layout.autolinearlayout.LAutoLinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.views.actionbar.LActionBar
+    <com.loitpcore.views.actionbar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

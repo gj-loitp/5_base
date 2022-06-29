@@ -4,11 +4,11 @@ import android.content.Context
 import android.os.Bundle
 import android.view.OrientationEventListener
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LImageUtil
-import com.core.utilities.LScreenUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_func_sensor.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants.Companion.URL_IMG

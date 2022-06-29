@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.core.utilities.LImageUtil
+import com.loitpcore.core.utilities.LImageUtil
 import com.tuanhav95.drag.utils.inflate
 import kotlinx.android.synthetic.main.fragment_drag_view_bottom.*
 import kotlinx.android.synthetic.main.item_drag_view_normal.view.*

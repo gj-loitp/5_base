@@ -20,7 +20,7 @@
             android:paddingTop="@dimen/w_65"
             android:paddingBottom="@dimen/margin_padding_medium">
 
-            <com.views.switchtoggle.appcompatswitch.LColorSwitchCompat
+            <com.loitpcore.views.switchtoggle.appcompatswitch.LColorSwitchCompat
                 android:id="@+id/swDarkTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.views.actionbar.LActionBar
+    <com.loitpcore.views.actionbar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

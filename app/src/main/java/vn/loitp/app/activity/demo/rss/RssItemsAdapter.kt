@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.annotation.LogTag
-import com.core.adapter.BaseAdapter
-import com.core.utilities.LImageUtil
-import com.rss.RssItem
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.adapter.BaseAdapter
+import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.rss.RssItem
 import kotlinx.android.synthetic.main.row_rss_item.view.*
 import vn.loitp.app.R
 import java.util.*

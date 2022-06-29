@@ -2,11 +2,11 @@ package vn.loitp.app.activity.function.fullscreen
 
 import android.os.Bundle
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LScreenUtil
-import com.views.dialog.imersivedialog.ImmersiveDialogFragment
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LScreenUtil
+import com.loitpcore.views.dialog.imersivedialog.ImmersiveDialogFragment
 import kotlinx.android.synthetic.main.activity_func_fullscreen.*
 import vn.loitp.app.R
 

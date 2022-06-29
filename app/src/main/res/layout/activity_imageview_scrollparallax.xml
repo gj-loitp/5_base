@@ -17,7 +17,7 @@
             android:orientation="vertical"
             android:paddingTop="@dimen/w_65">
 
-            <com.views.imageview.scrollparallax.LScrollParallaxImageView
+            <com.loitpcore.views.imageview.scrollparallax.LScrollParallaxImageView
                 android:id="@+id/spiv"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -48,7 +48,7 @@
         android:text="ScrollParallaxImageView extends ImageView, and provides parallax effects when it scrolls in the screen.It can be use in any view which can scroll its content, like ListView, RecyclerView, ScrollView, etc."
         android:textColor="?attr/themeTextColor" />
 
-    <com.views.actionbar.LActionBar
+    <com.loitpcore.views.actionbar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
