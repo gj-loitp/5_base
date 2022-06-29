@@ -24,19 +24,19 @@ android {
 //            }
 //        }
 
-//        kapt {
-//            arguments {
-//                arg("room.schemaLocation", "$projectDir/schemas")
-//            }
-//        }
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += [
-                        "room.schemaLocation":"$projectDir/schemas".toString(),
-                        "room.incremental":"true",
-                        "room.expandProjection":"true"]
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
             }
         }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments += [
+//                        "room.schemaLocation":"$projectDir/schemas".toString(),
+//                        "room.incremental":"true",
+//                        "room.expandProjection":"true"]
+//            }
+//        }
 
         buildConfigField("String", "RECAPTCHA_KEY", '"6LcposQUAAAAAB7X6uNt4cmmdMgGEIaOJfAkCVvy"')
 
@@ -121,8 +121,8 @@ dependencies {
     //https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
 
-//    kapt "androidx.room:room-compiler:2.5.0-alpha02"
-    annotationProcessor "androidx.room:room-compiler:2.5.0-alpha02"
+    kapt "androidx.room:room-compiler:2.5.0-alpha02"
+//    annotationProcessor "androidx.room:room-compiler:2.5.0-alpha02"
 //    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
 
     //https://github.com/nex3z/ToggleButtonGroup

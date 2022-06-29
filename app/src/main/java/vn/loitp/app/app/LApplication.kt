@@ -47,7 +47,7 @@ class LApplication : BaseApplication() {
 
         //TODO room
         // room database
-//        FNBDatabase.getInstance(this)
+        FNBDatabase.getInstance(this)
 
         // ttt database
 //        TTTDatabase.getInstance(this)

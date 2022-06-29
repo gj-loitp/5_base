@@ -17,19 +17,19 @@ android {
 
         multiDexEnabled true
 
-//        kapt {
-//            arguments {
-//                arg("room.schemaLocation", "$projectDir/schemas")
-//            }
-//        }
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += [
-                        "room.schemaLocation":"$projectDir/schemas".toString(),
-                        "room.incremental":"true",
-                        "room.expandProjection":"true"]
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
             }
         }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments += [
+//                        "room.schemaLocation":"$projectDir/schemas".toString(),
+//                        "room.incremental":"true",
+//                        "room.expandProjection":"true"]
+//            }
+//        }
     }
 
     dataBinding {
@@ -180,8 +180,8 @@ dependencies {
     //Room components
     api "androidx.room:room-runtime:2.5.0-alpha02"
     api "androidx.room:room-ktx:2.5.0-alpha02"
-//    kapt "androidx.room:room-compiler:2.5.0-alpha02"
-    annotationProcessor "androidx.room:room-compiler:2.5.0-alpha02"
+    kapt "androidx.room:room-compiler:2.5.0-alpha02"
+//    annotationProcessor "androidx.room:room-compiler:2.5.0-alpha02"
     androidTestImplementation "androidx.room:room-testing:2.5.0-alpha02"
 //    kapt 'android.arch.persistence.room:compiler:1.1.1'
 //    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
