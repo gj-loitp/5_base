@@ -159,7 +159,7 @@ dependencies {
     //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
 
     //https://github.com/guolindev/PermissionX
-    api 'com.guolindev.permissionx:permissionx:1.6.1'
+    api 'com.guolindev.permissionx:permissionx:1.6.4'
 
     //https://github.com/InflationX/Calligraphy
     api 'io.github.inflationx:calligraphy3:3.1.1'
@@ -189,7 +189,7 @@ dependencies {
     //ViewModel Kotlin support
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
     //Coroutines
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3'
 
     //https://github.com/florent37/ExpansionPanel
     api 'com.github.florent37:expansionpanel:1.2.4'
