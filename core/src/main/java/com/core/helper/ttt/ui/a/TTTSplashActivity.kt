@@ -49,8 +49,10 @@ class TTTSplashActivity : BaseFontActivity() {
         } else {
             adView = AdView(this)
             adView?.let {
-                it.adSize = AdSize.BANNER
-                it.adUnitId = admobBannerUnitId!!
+                it.setAdSize(AdSize.BANNER)
+                admobBannerUnitId?.let { id ->
+                    it.adUnitId = id
+                }
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)
             }

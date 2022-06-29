@@ -114,7 +114,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         } else {
             adView = AdView(this)
             adView?.let { av ->
-                av.adSize = AdSize.SMART_BANNER
+                av.setAdSize(AdSize.BANNER)
                 av.adUnitId = adUnitId
                 LUIUtil.createAdBanner(av)
                 lnAdView.addView(av)

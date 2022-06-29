@@ -362,6 +362,7 @@ class FloatingViewEdgeService : Service() {
                     }
                 }
             }
+            else -> {}
         }
     }
 

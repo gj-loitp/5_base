@@ -41,7 +41,7 @@ class TTTComicLoginActivity : BaseFontActivity() {
         } else {
             adView = AdView(this)
             adView?.let {
-                it.adSize = AdSize.SMART_BANNER
+                it.setAdSize(AdSize.BANNER)
                 it.adUnitId = admobBannerUnitId
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)

@@ -37,7 +37,7 @@ class ProcessUtils {
                     println(list)
                     if (list?.isNotEmpty() == true) {
                         try {
-                            val info = packageManager?.getApplicationInfo(
+                            val info = packageManager.getApplicationInfo(
                                 getContext()?.packageName
                                     ?: "",
                                 0

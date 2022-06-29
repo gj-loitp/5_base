@@ -18,11 +18,11 @@ android {
         renderscriptSupportModeEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        javaCompileOptions {
-            annotationProcessorOptions {
-                includeCompileClasspath true
-            }
-        }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                includeCompileClasspath true
+//            }
+//        }
 
         kapt {
             arguments {
@@ -65,13 +65,13 @@ android {
         release {
             debuggable false
             minifyEnabled true
-            useProguard true //used android.enableR8=true in gradle.properties
+            //used android.enableR8=true in gradle.properties
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
         debug {
             minifyEnabled false
-            useProguard false //used android.enableR8=true in gradle.properties
+            //used android.enableR8=true in gradle.properties
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -95,7 +95,7 @@ repositories {
 
 dependencies {
     api project(':core')
-    api 'com.github.tplloi:basemaster:4.4.71'
+//    api 'com.github.tplloi:basemaster:4.4.71'
 
     //https://github.com/square/retrofit/tree/master/retrofit-converters/moshi
     api 'com.squareup.retrofit2:converter-moshi:2.9.0'
@@ -113,7 +113,8 @@ dependencies {
     //https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
 
-    kapt "androidx.room:room-compiler:2.4.2"
+//    kapt "androidx.room:room-compiler:2.4.2"
+    annotationProcessor "androidx.room:room-compiler:2.4.2"
 
     //https://github.com/nex3z/ToggleButtonGroup
     api 'com.nex3z:toggle-button-group:1.2.3'

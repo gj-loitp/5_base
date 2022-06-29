@@ -47,8 +47,10 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         } else {
             adView = AdView(this)
             adView?.let {
-                it.adSize = AdSize.BANNER
-                it.adUnitId = adMobBannerUnitId!!
+                it.setAdSize(AdSize.BANNER)
+                adMobBannerUnitId?.let { id ->
+                    it.adUnitId = id
+                }
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)
 //                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)

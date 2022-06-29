@@ -58,7 +58,7 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
         get() = mParrallaxMode
         set(mode) {
             mParrallaxMode = mode
-            mParallaxTransformer?.parrallaxMode = mode
+            mParallaxTransformer?.parallaxMode = mode
             if (mode === ParrallaxMode.LEFT_OVERLAY) {
                 setPageTransformer(true, mParallaxTransformer)
             } else if (mode === ParrallaxMode.RIGHT_OVERLAY) {

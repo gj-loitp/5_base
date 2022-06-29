@@ -62,7 +62,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         } else {
             adView = AdView(this)
             adView?.let {
-                it.adSize = AdSize.SMART_BANNER
+                it.setAdSize(AdSize.BANNER)
                 it.adUnitId = admobBannerUnitId
                 LUIUtil.createAdBanner(adView = it)
                 lnAdView.addView(it)

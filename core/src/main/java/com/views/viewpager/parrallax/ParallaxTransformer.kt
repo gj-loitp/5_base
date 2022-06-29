@@ -1,7 +1,6 @@
 package com.views.viewpager.parrallax
 
 import android.animation.FloatEvaluator
-import android.os.Build
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Interpolator
@@ -10,7 +9,7 @@ import androidx.viewpager.widget.ViewPager
 import kotlin.math.abs
 
 class ParallaxTransformer : ViewPager.PageTransformer {
-    var parrallaxMode: ParrallaxMode? = null
+    var parallaxMode: ParrallaxMode? = null
     var interpolator: Interpolator = LinearInterpolator()
     private val mEvaluator: FloatEvaluator = FloatEvaluator()
     var outset: Int = 0
@@ -25,7 +24,7 @@ class ParallaxTransformer : ViewPager.PageTransformer {
         if (position == 0f) {
             return
         }
-        when (parrallaxMode) {
+        when (parallaxMode) {
             ParrallaxMode.LEFT_OVERLAY -> if (position > 0) {
                 transform(page, position)
             } else if (position < 0) {
@@ -38,6 +37,7 @@ class ParallaxTransformer : ViewPager.PageTransformer {
             }
             ParrallaxMode.NONE -> {
             }
+            else -> {}
         }
     }
 

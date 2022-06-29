@@ -46,7 +46,7 @@ class LApplication : BaseApplication() {
         LUIUtil.fontForAll = Constants.FONT_PATH
 
         // room database
-        FNBDatabase.getInstance(this)
+//        FNBDatabase.getInstance(this)
 
         // ttt database
         TTTDatabase.getInstance(this)
