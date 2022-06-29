@@ -148,7 +148,7 @@ dependencies {
     api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'
 
     //https://github.com/Crysis21/PulsingView
-    api 'ro.holdone:pulseview:1.0.1'
+    api 'ro.holdone:pulseview:1.0.2'
 
     //https://github.com/abhishekti7/UnicornFilePicker
     api 'com.github.abhishekti7:UnicornFilePicker:1.0.2'
@@ -157,7 +157,7 @@ dependencies {
     api 'com.github.yusufonderd:BasketLayout:1.0'
 
     //https://github.com/amilcar-sr/JustifiedTextView
-    api 'com.codesgood:justifiedtextview:1.1.0'
+    api 'com.codesgood:justifiedtextview:2.0.1'
 
     //https://github.com/transferwise/sequence-layout
     api 'com.github.transferwise:sequence-layout:1.1.1'
