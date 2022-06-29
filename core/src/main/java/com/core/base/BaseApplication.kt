@@ -42,7 +42,8 @@ open class BaseApplication : MultiDexApplication() {
         val isDarkTheme = LUIUtil.isDarkTheme()
         LUIUtil.setDarkTheme(isDarkTheme = isDarkTheme)
 
-//        FindNumberDatabase.getInstance(this)
+        //game find number database
+        FindNumberDatabase.getInstance(this)
     }
 
     protected fun logD(msg: String) {
