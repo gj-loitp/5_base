@@ -102,8 +102,8 @@ repositories {
 }
 
 dependencies {
-    api project(':core')
-//    api 'com.github.tplloi:basemaster:4.4.71'
+//    api project(':core')
+    api 'com.github.tplloi:basemaster:4.4.73'
 
     //https://github.com/square/retrofit/tree/master/retrofit-converters/moshi
     api 'com.squareup.retrofit2:converter-moshi:2.9.0'
@@ -167,6 +167,9 @@ dependencies {
 
     //https://github.com/Zaid-Mirza/AttachmentManager
     api 'com.github.Zaid-Mirza:AttachmentManager:2.0.1'
+
+    //animation
+    api 'com.daimajia.androidanimations:library:2.4@aar'
 
 }
 //apply plugin: 'com.google.gms.google-services'
