@@ -10,6 +10,8 @@ import com.R
 import com.annotation.LogTag
 import com.core.adapter.BaseAdapter
 import com.core.utilities.LUIUtil
+import com.game.findnumber.db.Db.Companion.STATUS_LEVEL_OPEN
+import com.game.findnumber.db.Db.Companion.STATUS_LEVEL_WIN
 import com.game.findnumber.model.Level
 import kotlinx.android.synthetic.main.view_row_item_find_number_level.view.*
 
@@ -34,9 +36,9 @@ class LevelAdapter() : BaseAdapter() {
             itemView.tvLevel.text = "${level.name}"
             LUIUtil.setTextShadow(textView = itemView.tvLevel, color = Color.BLACK)
 
-            if (level.status == Level.STATUS_LEVEL_OPEN) {
+            if (level.status == STATUS_LEVEL_OPEN) {
                 itemView.layoutRootView.setBackgroundResource(R.drawable.bkg_blue_2)
-            } else if (level.status == Level.STATUS_LEVEL_WIN) {
+            } else if (level.status == STATUS_LEVEL_WIN) {
                 itemView.layoutRootView.setBackgroundResource(R.drawable.bkg_yellow)
             }
 

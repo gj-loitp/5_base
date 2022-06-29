@@ -3,13 +3,11 @@ package com.game.findnumber.db
 import com.R
 import com.game.findnumber.model.Level
 
-/**
- * Created by ©Loitp93 on 12/28/2020.
- * VinHMS
- * www.muathu@gmail.com
- */
 class Db {
     companion object {
+
+        const val STATUS_LEVEL_OPEN = 0
+        const val STATUS_LEVEL_WIN = 1
 
         fun genListLevel(): ArrayList<Level> {
             val listLevel = ArrayList<Level>()
@@ -24,7 +22,7 @@ class Db {
                     rotate = 0f,
                     frame = R.drawable.flute_k5,
                     bkg = R.drawable.bkg_2,
-                    status = Level.STATUS_LEVEL_OPEN,
+                    status = STATUS_LEVEL_OPEN,
                     timeInMls = 0
                 )
             )
@@ -37,7 +35,7 @@ class Db {
                     rotate = 0f,
                     frame = R.drawable.flute_k5,
                     bkg = R.drawable.bkg_2,
-                    status = Level.STATUS_LEVEL_OPEN,
+                    status = STATUS_LEVEL_OPEN,
                     timeInMls = 0
                 )
             )
@@ -50,7 +48,7 @@ class Db {
                     rotate = 0f,
                     frame = R.drawable.flute_k5,
                     bkg = R.drawable.bkg_2,
-                    status = Level.STATUS_LEVEL_OPEN,
+                    status = STATUS_LEVEL_OPEN,
                     timeInMls = 0
                 )
             )
@@ -63,7 +61,7 @@ class Db {
                     rotate = 0f,
                     frame = R.drawable.flute_k5,
                     bkg = R.drawable.bkg_2,
-                    status = Level.STATUS_LEVEL_OPEN,
+                    status = STATUS_LEVEL_OPEN,
                     timeInMls = 0
                 )
             )
@@ -76,7 +74,7 @@ class Db {
                     rotate = 0f,
                     frame = R.drawable.flute_k5,
                     bkg = R.drawable.bkg_2,
-                    status = Level.STATUS_LEVEL_OPEN,
+                    status = STATUS_LEVEL_OPEN,
                     timeInMls = 0
                 )
             )
@@ -89,7 +87,7 @@ class Db {
                     rotate = 0f,
                     frame = R.drawable.flute_k5,
                     bkg = R.drawable.bkg_2,
-                    status = Level.STATUS_LEVEL_OPEN,
+                    status = STATUS_LEVEL_OPEN,
                     timeInMls = 0
                 )
             )
@@ -102,7 +100,7 @@ class Db {
                     rotate = 0f,
                     frame = R.drawable.flute_k5,
                     bkg = R.drawable.bkg_2,
-                    status = Level.STATUS_LEVEL_OPEN,
+                    status = STATUS_LEVEL_OPEN,
                     timeInMls = 0
                 )
             )
@@ -115,7 +113,7 @@ class Db {
                     rotate = 0f,
                     frame = R.drawable.flute_k5,
                     bkg = R.drawable.bkg_2,
-                    status = Level.STATUS_LEVEL_OPEN,
+                    status = STATUS_LEVEL_OPEN,
                     timeInMls = 0
                 )
             )
@@ -128,7 +126,7 @@ class Db {
                     rotate = 0f,
                     frame = R.drawable.flute_k5,
                     bkg = R.drawable.bkg_2,
-                    status = Level.STATUS_LEVEL_OPEN,
+                    status = STATUS_LEVEL_OPEN,
                     timeInMls = 0
                 )
             )
@@ -141,7 +139,7 @@ class Db {
                     rotate = 0f,
                     frame = R.drawable.flute_k5,
                     bkg = R.drawable.bkg_1,
-                    status = Level.STATUS_LEVEL_OPEN,
+                    status = STATUS_LEVEL_OPEN,
                     timeInMls = 0
                 )
             )
@@ -155,7 +153,7 @@ class Db {
                     rotate = 0f,
                     frame = R.drawable.flute_k5,
                     bkg = R.drawable.bkg_1,
-                    status = Level.STATUS_LEVEL_OPEN,
+                    status = STATUS_LEVEL_OPEN,
                     timeInMls = 0
                 )
             )

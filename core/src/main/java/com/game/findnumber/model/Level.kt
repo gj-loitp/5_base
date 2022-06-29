@@ -3,6 +3,7 @@ package com.game.findnumber.model
 import androidx.annotation.Keep
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.game.findnumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
@@ -47,9 +48,4 @@ data class Level(
     @Expose
     var timeInMls: Long = 0
 
-) : Serializable {
-    companion object {
-        const val STATUS_LEVEL_OPEN = 0
-        const val STATUS_LEVEL_WIN = 1
-    }
-}
+) : Serializable

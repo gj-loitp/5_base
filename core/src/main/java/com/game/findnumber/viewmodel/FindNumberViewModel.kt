@@ -3,6 +3,7 @@ package com.game.findnumber.viewmodel
 import com.annotation.LogTag
 import com.core.base.BaseViewModel
 import com.game.findnumber.db.Db
+import com.game.findnumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import com.game.findnumber.db.FindNumberDatabase
 import com.game.findnumber.model.Level
 import com.service.livedata.ActionData
@@ -63,7 +64,7 @@ class FindNumberViewModel : BaseViewModel() {
         firstLevelOpenActionLiveData.set(ActionData(isDoing = true))
         ioScope.launch {
             val lastedLevel =
-                FindNumberDatabase.instance?.levelDao()?.getFirstLevelOpen(Level.STATUS_LEVEL_OPEN)
+                FindNumberDatabase.instance?.levelDao()?.getFirstLevelOpen(STATUS_LEVEL_OPEN)
             firstLevelOpenActionLiveData.post(
                 ActionData(
                     isDoing = false,
