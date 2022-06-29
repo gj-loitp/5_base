@@ -17,11 +17,11 @@ android {
 
         multiDexEnabled true
 
-        kapt {
-            arguments {
-                arg("room.schemaLocation", "$projectDir/schemas")
-            }
-        }
+//        kapt {
+//            arguments {
+//                arg("room.schemaLocation", "$projectDir/schemas")
+//            }
+//        }
 //        javaCompileOptions {
 //            annotationProcessorOptions {
 //                arguments += [
