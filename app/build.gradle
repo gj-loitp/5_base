@@ -139,7 +139,7 @@ dependencies {
     api 'com.thedeanda:lorem:2.1'
 
     //https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
-    api 'com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:1.1.0'
+    api 'com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:1.1.1'
 
     //https://github.com/tuanhav95/DragView
     api 'com.github.tuanhav95:DragView:1.1.0'
