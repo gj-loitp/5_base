@@ -53,7 +53,7 @@ class LImageUtil {
             if (linkUrlM.isEmpty()) {
                 return ""
             }
-            linkUrlM = linkUrlM.toLowerCase(Locale.getDefault())
+            linkUrlM = linkUrlM.lowercase(Locale.getDefault())
             if (linkUrlM.contains(".jpg")) {
                 linkUrlM = linkUrlM.replace(".jpg", "_t.jpg")
             } else if (linkUrlM.contains(".png")) {
@@ -83,7 +83,7 @@ class LImageUtil {
             if (linkUrlM.isEmpty()) {
                 return ""
             }
-            linkUrlM = linkUrlM.toLowerCase(Locale.getDefault())
+            linkUrlM = linkUrlM.lowercase(Locale.getDefault())
             if (linkUrlM.contains(".jpg")) {
                 linkUrlM = linkUrlM.replace(".jpg", "_z.jpg")
             } else if (linkUrlM.contains(".png")) {
@@ -113,7 +113,7 @@ class LImageUtil {
             if (linkUrlM.isEmpty()) {
                 return ""
             }
-            linkUrlM = linkUrlM.toLowerCase(Locale.getDefault())
+            linkUrlM = linkUrlM.lowercase(Locale.getDefault())
             if (linkUrlM.contains(".jpg")) {
                 linkUrlM = linkUrlM.replace(".jpg", "_n.jpg")
             } else if (linkUrlM.contains(".png")) {
@@ -143,7 +143,7 @@ class LImageUtil {
             if (linkUrlM.isEmpty()) {
                 return ""
             }
-            linkUrlM = linkUrlM.toLowerCase(Locale.getDefault())
+            linkUrlM = linkUrlM.lowercase(Locale.getDefault())
             if (linkUrlM.contains(".jpg")) {
                 linkUrlM = linkUrlM.replace(".jpg", "_b.jpg")
             } else if (linkUrlM.contains(".png")) {

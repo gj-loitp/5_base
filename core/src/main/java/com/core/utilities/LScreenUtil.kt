@@ -68,8 +68,7 @@ class LScreenUtil {
             val outPoint = Point()
             // include navigation bar
             display.getRealSize(outPoint)
-            val mRealSizeHeight: Int
-            mRealSizeHeight = if (outPoint.y > outPoint.x) {
+            val mRealSizeHeight: Int = if (outPoint.y > outPoint.x) {
                 outPoint.y
                 // mRealSizeWidth = outPoint.x;
             } else {

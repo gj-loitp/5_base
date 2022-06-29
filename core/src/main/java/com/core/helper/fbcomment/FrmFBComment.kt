@@ -6,6 +6,7 @@ import android.net.Uri
 import android.net.http.SslError
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.os.Message
 import android.view.View
 import android.view.ViewGroup
@@ -118,7 +119,7 @@ class FrmFBComment : BaseFragment() {
             // val host = Uri.parse(url).host
             setLoading(false)
             if (url.contains("/plugins/close_popup.php?reload")) {
-                val handler = Handler()
+                val handler = Handler(Looper.getMainLooper())
                 handler.postDelayed({
                     // Do something after 100ms
                     rlWebview.removeView(mWebViewPop)

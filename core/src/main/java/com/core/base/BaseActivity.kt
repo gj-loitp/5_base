@@ -119,7 +119,6 @@ abstract class BaseActivity : AppCompatActivity() {
 //                )
 //            }
 
-            // TODO fix full screen in android 11
             window.setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN

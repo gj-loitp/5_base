@@ -28,7 +28,7 @@ class LConvertUtil {
             value?.let {
 
                 val splitValue = value.toString().split(".")
-                var firstValue: BigDecimal? = null
+                val firstValue: BigDecimal?
                 var secondValue: BigDecimal? = null
                 if (splitValue.size > 1) {
                     firstValue = splitValue.first().toBigDecimalOrNull()

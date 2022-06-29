@@ -38,7 +38,7 @@ class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
     }
 
     private fun setupViews() {
-        tTTypeAdapter.onClickRootListener = { comicType, pos ->
+        tTTypeAdapter.onClickRootListener = { comicType, _ ->
             tTTViewModel?.setComicType(comicType)
             dismiss()
         }
@@ -48,7 +48,7 @@ class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
 
     private fun setupViewModels() {
         tTTViewModel = getViewModel(TTTViewModel::class.java)
-        tTTViewModel?.let { vm ->
+        tTTViewModel?.let { _ ->
             // do sth
         }
     }

@@ -360,7 +360,7 @@ class LStoreUtil {
                 @Throws(IOException::class)
                 override fun onResponse(call: Call, response: Response) {
                     if (response.isSuccessful) {
-                        val responseBody = response.body ?: return
+                        val responseBody = response.body
                         val json = responseBody.string()
                         val app = BaseApplication.gson.fromJson(json, App::class.java)
                         if (app == null) {
@@ -369,8 +369,7 @@ class LStoreUtil {
                             val localMsg = LPrefUtil.getGGAppMsg()
                             val serverMsg = app.config?.msg
                             LPrefUtil.setGGAppMsg(serverMsg)
-                            val isNeedToShowMsg: Boolean
-                            isNeedToShowMsg = if (serverMsg.isNullOrEmpty()) {
+                            val isNeedToShowMsg: Boolean = if (serverMsg.isNullOrEmpty()) {
                                 false
                             } else {
                                 !localMsg?.trim { it <= ' ' }.equals(serverMsg, ignoreCase = true)
@@ -403,8 +402,8 @@ class LStoreUtil {
                 override fun onResponse(call: Call, response: Response) {
                     if (response.isSuccessful) {
                         val responseBody = response.body
-                        val json = responseBody?.string()
-                        if (json.isNullOrEmpty()) {
+                        val json = responseBody.string()
+                        if (json.isEmpty()) {
                             onGGFailure?.invoke(
                                 call,
                                 NullPointerException("responseBody isNullOrEmpty")

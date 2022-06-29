@@ -14,8 +14,8 @@ class TrafficUtils {
 
         fun getNetworkSpeed(): String {
 
-            var downloadSpeedOutput = ""
-            var units = ""
+            val downloadSpeedOutput: String
+            val units: String
             val mBytesPrevious = TrafficStats.getTotalRxBytes() + TrafficStats.getTotalTxBytes()
 
             try {

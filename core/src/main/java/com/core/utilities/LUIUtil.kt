@@ -293,7 +293,7 @@ class LUIUtil {
             }
         }
 
-        fun fixSizeTabLayout(context: Context, tabLayout: TabLayout, titleList: Array<String>) {
+        fun fixSizeTabLayout(tabLayout: TabLayout, titleList: Array<String>) {
             if (titleList.size > 3) {
                 tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
             } else {
@@ -312,7 +312,7 @@ class LUIUtil {
         }
 
         @Suppress("DEPRECATION")
-        fun setTextAppearance(context: Context, textView: TextView, resId: Int) {
+        fun setTextAppearance(textView: TextView, resId: Int) {
             textView.setTextAppearance(resId)
         }
 
