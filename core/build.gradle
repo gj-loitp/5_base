@@ -36,10 +36,10 @@ android {
         enabled = true
     }
 
-    dexOptions {
-        jumboMode true
-        javaMaxHeapSize "4g"
-    }
+//    dexOptions {
+//        jumboMode true
+//        javaMaxHeapSize "4g"
+//    }
 }
 
 dependencies {
@@ -84,7 +84,7 @@ dependencies {
     api 'com.labo.kaji:relativepopupwindow:0.4.1'//https://github.com/kakajika/RelativePopupWindow
     api 'com.github.stfalcon:stfalcon-imageviewer:1.0.1'
 //https://github.com/stfalcon-studio/StfalconImageViewer
-    api "com.github.skydoves:transformationlayout:1.1.0"
+    api "com.github.skydoves:transformationlayout:1.1.1"
 //https://github.com/skydoves/TransformationLayout
     api 'com.github.hackware1993:MagicIndicator:1.7.0'
 //https://github.com/hackware1993/MagicIndicator
@@ -94,7 +94,7 @@ dependencies {
     api 'androidx.navigation:navigation-fragment-ktx:2.4.2'
 
     //jsoup
-    api 'org.jsoup:jsoup:1.13.1'
+    api 'org.jsoup:jsoup:1.15.1'
 
     //https://github.com/adblockplus/libadblockplus-android
     api 'org.adblockplus:adblock-android-webview:4.4.0'
@@ -103,7 +103,7 @@ dependencies {
     api 'androidx.multidex:multidex:2.0.1'
 
     //https://github.com/greenrobot/EventBus
-    api 'org.greenrobot:eventbus:3.2.0'
+    api 'org.greenrobot:eventbus:3.3.1'
 
     //https://github.com/daimajia/AnimationEasingFunctions
     api 'com.daimajia.easing:library:2.4@aar'
@@ -116,7 +116,7 @@ dependencies {
     api 'com.simmorsal.recolor:recolor:1.1.0'
 
     //https://github.com/airbnb/lottie-android
-    api 'com.airbnb.android:lottie:4.0.0'
+    api 'com.airbnb.android:lottie:5.2.0'
 
     //https://github.com/EverythingMe/overscroll-decor
     api 'io.github.everythingme:overscroll-decor-android:1.1.1'

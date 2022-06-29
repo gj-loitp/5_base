@@ -45,7 +45,7 @@ class JustTextFragment : Fragment() {
                                 item
                                     .title
                                     .substring(0, 1)
-                                    .toUpperCase(Locale.getDefault())
+                                    .uppercase(Locale.getDefault())
                             )
                         }
                 }
