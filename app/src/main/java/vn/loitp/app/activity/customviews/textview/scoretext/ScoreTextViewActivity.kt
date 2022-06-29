@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_text_view_score.*
 import vn.loitp.app.R
 

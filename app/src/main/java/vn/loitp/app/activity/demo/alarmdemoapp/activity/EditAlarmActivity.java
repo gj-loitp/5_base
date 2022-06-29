@@ -18,10 +18,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
-import com.annotation.IsFullScreen;
-import com.annotation.LogTag;
-import com.core.base.BaseFontActivity;
-import com.core.utilities.LActivityUtil;
+import com.loitpcore.annotation.IsFullScreen;
+import com.loitpcore.annotation.LogTag;
+import com.loitpcore.core.base.BaseFontActivity;
+import com.loitpcore.core.utilities.LActivityUtil;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

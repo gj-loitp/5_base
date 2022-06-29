@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import com.thedeanda.lorem.LoremIpsum
-import com.views.setSafeOnClickListener
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.layout_fast_scroll_menu.*
 import vn.loitp.app.R
 

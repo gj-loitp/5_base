@@ -4,8 +4,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.core.utilities.LEncryptionUtil
-import com.utils.util.DeviceUtils
+import com.loitpcore.core.utilities.LEncryptionUtil
+import com.loitpcore.utils.util.DeviceUtils
 import java.util.* // ktlint-disable no-wildcard-imports
 
 class BikeDatabase(context: Context) :

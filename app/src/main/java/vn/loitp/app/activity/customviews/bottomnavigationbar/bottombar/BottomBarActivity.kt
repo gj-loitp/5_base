@@ -2,14 +2,14 @@ package vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar
 
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LAppResource
-import com.core.utilities.LStoreUtil
-import com.core.utilities.LUIUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LAppResource
+import com.loitpcore.core.utilities.LStoreUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
-import com.views.bottombar.LBottomBar
+import com.loitpcore.views.bottombar.LBottomBar
 import kotlinx.android.synthetic.main.activity_bottom_bar_blur.*
 import vn.loitp.app.R
 

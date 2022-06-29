@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LStoreUtil
-import com.views.viewpager.parrallax.ParrallaxMode
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LStoreUtil
+import com.loitpcore.views.viewpager.parrallax.ParrallaxMode
 import kotlinx.android.synthetic.main.activity_viewpager_parallax.*
 import vn.loitp.app.R
 import java.util.* // ktlint-disable no-wildcard-imports

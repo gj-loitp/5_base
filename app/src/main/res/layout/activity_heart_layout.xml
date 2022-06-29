@@ -11,13 +11,13 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/logo" />
 
-    <com.views.layout.heartlayout.LHeartLayout
+    <com.loitpcore.views.layout.heartlayout.LHeartLayout
         android:id="@+id/heartLayout"
         android:layout_width="@dimen/w_100"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true" />
 
-    <com.views.actionbar.LActionBar
+    <com.loitpcore.views.actionbar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

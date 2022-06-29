@@ -7,10 +7,10 @@ import android.view.View
 import android.view.View.DragShadowBuilder
 import android.view.View.OnDragListener
 import android.widget.ImageView
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.views.setSafeOnClickListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_func_drag_drop_sample.*
 import vn.loitp.app.R
 

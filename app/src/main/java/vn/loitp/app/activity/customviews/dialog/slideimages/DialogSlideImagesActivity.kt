@@ -1,13 +1,13 @@
 package vn.loitp.app.activity.customviews.dialog.slideimages
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.common.Constants
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LImageUtil
-import com.views.setSafeOnClickListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.common.Constants
+import com.loitpcore.core.utilities.LDialogUtil
+import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_dialog_slide_images.*
 import vn.loitp.app.R
 

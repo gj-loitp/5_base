@@ -1,9 +1,9 @@
 package vn.loitp.app.activity.customviews.layout.constraintlayout.fabandsnackbar
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_fab_and_snackbar.*
 import vn.loitp.app.R

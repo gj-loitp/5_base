@@ -2,11 +2,11 @@ package vn.loitp.app.activity.customviews.imageview.circleimageview
 
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.core.utilities.LUIUtil
 import jp.wasabeef.glide.transformations.CropCircleTransformation
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation

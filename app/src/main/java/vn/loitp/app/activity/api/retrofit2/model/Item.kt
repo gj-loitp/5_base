@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.api.retrofit2.model
 
 import androidx.annotation.Keep
-import com.core.base.BaseModel
+import com.loitpcore.core.base.BaseModel
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 

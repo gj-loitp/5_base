@@ -3,11 +3,11 @@ package vn.loitp.app.activity.tutorial.rxjava2
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.base.BaseFontActivity
-import com.core.utilities.LThreadUtil.Companion.isUIThread
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LThreadUtil.Companion.isUIThread
 import com.google.gson.reflect.TypeToken
 import io.reactivex.Observable
 import io.reactivex.ObservableEmitter

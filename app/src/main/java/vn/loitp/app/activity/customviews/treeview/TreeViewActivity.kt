@@ -3,11 +3,11 @@ package vn.loitp.app.activity.customviews.treeview
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.views.treeview.BaseTreeAdapter
-import com.views.treeview.TreeNode
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.treeview.BaseTreeAdapter
+import com.loitpcore.views.treeview.TreeNode
 import kotlinx.android.synthetic.main.activity_tree_view.*
 import vn.loitp.app.R
 

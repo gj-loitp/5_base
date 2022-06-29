@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.annotation.LogTag
-import com.core.adapter.BaseAdapter
-import com.core.utilities.LUIUtil
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.adapter.BaseAdapter
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_item_net.view.*
 import vn.loitp.app.R
 

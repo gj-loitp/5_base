@@ -1,6 +1,6 @@
 package vn.loitp.app.activity.demo.rss
 
-import com.rss.RssFeed
+import com.loitpcore.rss.RssFeed
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Url

@@ -11,11 +11,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.annotation.IsFullScreen;
-import com.annotation.LogTag;
-import com.core.base.BaseFontActivity;
-import com.core.utilities.LActivityUtil;
-import com.core.utilities.LUIUtil;
+import com.loitpcore.annotation.IsFullScreen;
+import com.loitpcore.annotation.LogTag;
+import com.loitpcore.core.base.BaseFontActivity;
+import com.loitpcore.core.utilities.LActivityUtil;
+import com.loitpcore.core.utilities.LUIUtil;
 
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.adapter.AlarmListAdapter;

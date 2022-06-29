@@ -14,7 +14,7 @@
         tools:itemCount="69"
         tools:listitem="@layout/view_row_item_book" />
 
-    <com.views.actionbar.LActionBar
+    <com.loitpcore.views.actionbar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -1,6 +1,6 @@
 package vn.loitp.app.activity.demo.fragmentflow
 
-import com.core.base.BaseFragment
+import com.loitpcore.core.base.BaseFragment
 
 abstract class FrmFlowBase : BaseFragment(), OnBackClickListener {
 

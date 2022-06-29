@@ -13,12 +13,12 @@ import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LLocationUtil
-import com.core.utilities.LUIUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LLocationUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
@@ -247,20 +247,20 @@ class LocationActivity : BaseFontActivity() {
             )
             .setDialogTintColor(color, color)
             .onExplainRequestReason { scope, deniedList, _ ->
-                val message = getString(com.R.string.app_name) + getString(com.R.string.needs_per)
+                val message = getString(R.string.app_name) + getString(R.string.needs_per)
                 scope.showRequestReasonDialog(
                     permissions = deniedList,
                     message = message,
-                    positiveText = getString(com.R.string.allow),
-                    negativeText = getString(com.R.string.deny)
+                    positiveText = getString(R.string.allow),
+                    negativeText = getString(R.string.deny)
                 )
             }
             .onForwardToSettings { scope, deniedList ->
                 scope.showForwardToSettingsDialog(
                     permissions = deniedList,
-                    message = getString(com.R.string.per_manually_msg),
-                    positiveText = getString(com.R.string.ok),
-                    negativeText = getString(com.R.string.cancel)
+                    message = getString(R.string.per_manually_msg),
+                    positiveText = getString(R.string.ok),
+                    negativeText = getString(R.string.cancel)
                 )
             }
             .request { allGranted, _, _ ->

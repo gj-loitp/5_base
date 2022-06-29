@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.tutorial.rxjava2
 
 import android.os.Looper
-import com.core.utilities.LLog
+import com.loitpcore.core.utilities.LLog
 import io.reactivex.Single
 import io.reactivex.SingleEmitter
 import io.reactivex.android.schedulers.AndroidSchedulers

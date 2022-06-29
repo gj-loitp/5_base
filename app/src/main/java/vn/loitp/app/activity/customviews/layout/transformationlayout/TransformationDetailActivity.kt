@@ -3,11 +3,11 @@ package vn.loitp.app.activity.customviews.layout.transformationlayout
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.common.Constants
-import com.core.utilities.LImageUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.common.Constants
+import com.loitpcore.core.utilities.LImageUtil
 import com.skydoves.transformationlayout.TransformationCompat
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer

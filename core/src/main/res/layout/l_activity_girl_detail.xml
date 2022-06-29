@@ -1,4 +1,4 @@
-<com.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.loitpcore.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipeBackLayout"
     android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:background="?attr/themeBackgroundColorMedium">
 
-        <com.views.LAppBarLayout
+        <com.loitpcore.views.LAppBarLayout
             android:id="@+id/layoutAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
                 android:layout_height="match_parent"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <com.views.imageview.DynamicHeightKenBurnsView
+                <com.loitpcore.views.imageview.DynamicHeightKenBurnsView
                     android:id="@+id/ivCover"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
                     app:layout_collapseMode="pin" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
-        </com.views.LAppBarLayout>
+        </com.loitpcore.views.LAppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -89,4 +89,4 @@
             android:indeterminateTint="?attr/themeTextColor" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</com.views.layout.swipeback.SwipeBackLayout>
+</com.loitpcore.views.layout.swipeback.SwipeBackLayout>

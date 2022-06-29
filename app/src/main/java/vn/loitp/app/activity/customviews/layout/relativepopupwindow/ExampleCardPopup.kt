@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
-import com.views.LToast
+import com.loitpcore.views.LToast
 import kotlinx.android.synthetic.main.popup_card.view.*
 import vn.loitp.app.R
 

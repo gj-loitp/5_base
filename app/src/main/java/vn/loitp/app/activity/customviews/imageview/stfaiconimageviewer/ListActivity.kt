@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.stfalcon.imageviewer.StfalconImageViewer
 import kotlinx.android.synthetic.main.activity_stfaiconimageviewer_list.*
 import kotlinx.android.synthetic.main.view_stf_overlay.view.*

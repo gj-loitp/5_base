@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.views.setSafeOnClickListener
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_item_floor_plan.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.database.room.model.FloorPlan

@@ -2,11 +2,11 @@ package vn.loitp.app.activity.customviews.answerview
 
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil
-import com.views.answerview.LAnswerView
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.views.answerview.LAnswerView
 import kotlinx.android.synthetic.main.activity_answer_view.*
 import vn.loitp.app.R
 

@@ -3,11 +3,11 @@ package vn.loitp.app.activity.customviews.button.circularimageclick
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil
-import com.views.button.circularimageclick.LCircularClickImageButton
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.views.button.circularimageclick.LCircularClickImageButton
 import kotlinx.android.synthetic.main.activity_button_circular_image_click.*
 import vn.loitp.app.R
 

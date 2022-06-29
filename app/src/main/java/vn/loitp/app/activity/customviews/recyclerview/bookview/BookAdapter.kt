@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.annotation.LogTag
-import com.core.adapter.BaseAdapter
-import com.core.utilities.LImageUtil
-import com.core.utilities.LScreenUtil
-import com.core.utilities.LUIUtil
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.adapter.BaseAdapter
+import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.core.utilities.LScreenUtil
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_item_book.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie

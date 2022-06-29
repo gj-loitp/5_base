@@ -1,12 +1,12 @@
 package vn.loitp.app.app
 
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.common.Constants
-import com.core.helper.ttt.db.TTTDatabase
-import com.core.utilities.LUIUtil
-import com.data.ActivityData
-import com.data.AdmobData
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.common.Constants
+import com.loitpcore.core.helper.ttt.db.TTTDatabase
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.data.ActivityData
+import com.loitpcore.data.AdmobData
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.app.R

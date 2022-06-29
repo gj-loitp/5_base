@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.core.utilities.LUIUtil
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.item_room_note.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word

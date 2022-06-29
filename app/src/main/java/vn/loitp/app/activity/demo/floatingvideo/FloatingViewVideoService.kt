@@ -11,13 +11,9 @@ import android.view.* // ktlint-disable no-wildcard-imports
 import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import com.google.android.exoplayer2.* // ktlint-disable no-wildcard-imports
-import com.google.android.exoplayer2.trackselection.* // ktlint-disable no-wildcard-imports
 import com.google.android.exoplayer2.ui.PlayerView
-import com.views.exo.PlayerManager
-import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_video_exo_player.*
-import kotlinx.android.synthetic.main.exo_playback_control_view.*
+import com.loitpcore.views.exo.PlayerManager
+import com.loitpcore.views.setSafeOnClickListener
 import vn.loitp.app.R
 
 class FloatingViewVideoService : Service() {

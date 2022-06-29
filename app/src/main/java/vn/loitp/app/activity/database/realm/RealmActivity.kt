@@ -6,11 +6,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
-import com.views.setSafeOnClickListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.views.setSafeOnClickListener
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_realm.*
 import vn.loitp.app.R

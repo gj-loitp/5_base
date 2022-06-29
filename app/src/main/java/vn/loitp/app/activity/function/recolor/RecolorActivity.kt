@@ -1,9 +1,9 @@
 package vn.loitp.app.activity.function.recolor
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import com.simmorsal.recolor_project.ReColor
 import kotlinx.android.synthetic.main.activity_fun_recolor.*
 import vn.loitp.app.R

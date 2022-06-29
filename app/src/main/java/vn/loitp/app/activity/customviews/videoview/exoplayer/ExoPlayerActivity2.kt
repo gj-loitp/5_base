@@ -2,11 +2,11 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer
 
 import android.content.res.Configuration
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LScreenUtil
-import com.views.exo.PlayerManager
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LScreenUtil
+import com.loitpcore.views.exo.PlayerManager
 import kotlinx.android.synthetic.main.activity_video_exo_player2.*
 import kotlinx.android.synthetic.main.exo_playback_control_view.*
 import vn.loitp.app.R

@@ -8,8 +8,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import com.core.base.BaseActivity
-import com.core.base.BaseDialogFragment
+import com.loitpcore.core.base.BaseActivity
+import com.loitpcore.core.base.BaseDialogFragment
 import vn.loitp.app.R
 
 class PositionDialog : BaseDialogFragment() {

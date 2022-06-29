@@ -1,10 +1,10 @@
 package vn.loitp.app.activity.customviews.layout.coordinatorlayout
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LScreenUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LScreenUtil
 import vn.loitp.app.R
 
 // http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/

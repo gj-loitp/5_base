@@ -2,10 +2,10 @@ package vn.loitp.app.activity.customviews.scratchview.scratchviewtext
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.views.scratchview.LScratchTextView
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.scratchview.LScratchTextView
 import kotlinx.android.synthetic.main.activity_scratchview_text.*
 import vn.loitp.app.R
 

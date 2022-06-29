@@ -5,7 +5,7 @@
     android:background="?attr/themeBackgroundColor"
     android:fitsSystemWindows="true">
 
-    <com.views.LAppBarLayout
+    <com.loitpcore.views.LAppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                             android:textSize="@dimen/txt_medium" />
                     </LinearLayout>
 
-                    <com.views.button.circularimageclick.LCircularClickImageButton
+                    <com.loitpcore.views.button.circularimageclick.LCircularClickImageButton
                         android:id="@+id/btMenu"
                         android:layout_width="@dimen/w_50"
                         android:layout_height="@dimen/w_30"
@@ -98,7 +98,7 @@
             app:tabIndicatorColor="@color/red"
             app:tabSelectedTextColor="@color/green"
             app:tabTextColor="@color/red" />
-    </com.views.LAppBarLayout>
+    </com.loitpcore.views.LAppBarLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"

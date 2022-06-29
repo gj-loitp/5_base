@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import com.core.utilities.LReaderUtil
-import com.function.epub.model.BookInfo
+import com.loitpcore.core.utilities.LReaderUtil
+import com.loitpcore.function.epub.model.BookInfo
 import vn.loitp.app.R
 
 class BookInfoGridAdapter(

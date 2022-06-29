@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.core.view.isVisible
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.common.Constants
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LUIUtil
-import com.data.ActivityData
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.common.Constants
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.data.ActivityData
 import kotlinx.android.synthetic.main.activity_animation_1.*
 import vn.loitp.app.R
 

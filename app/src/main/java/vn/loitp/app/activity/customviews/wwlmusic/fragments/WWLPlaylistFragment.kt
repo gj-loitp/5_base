@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.annotation.LogTag
-import com.core.base.BaseFragment
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFragment
 import kotlinx.android.synthetic.main.wwl_music_playlist_fragment.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost

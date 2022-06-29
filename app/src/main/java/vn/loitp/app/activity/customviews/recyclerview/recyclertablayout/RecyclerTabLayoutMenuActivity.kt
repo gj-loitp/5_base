@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_recycler_tablayout_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.autoselect.RvTabAutoSelectActivityRvTab

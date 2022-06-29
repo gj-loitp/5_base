@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.picker.number.LNumberPicker
+            <com.loitpcore.picker.number.LNumberPicker
                 android:id="@+id/lnb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.utils.util.AppUtils
+import com.loitpcore.utils.util.AppUtils
 import vn.loitp.app.activity.database.sqlitemultitable.model.Note
 import vn.loitp.app.activity.database.sqlitemultitable.model.Tag
 import java.text.SimpleDateFormat

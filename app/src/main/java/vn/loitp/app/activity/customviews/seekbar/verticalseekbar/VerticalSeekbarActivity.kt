@@ -2,9 +2,9 @@ package vn.loitp.app.activity.customviews.seekbar.verticalseekbar
 
 import android.os.Bundle
 import android.widget.SeekBar
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_seekbar_vertical.*
 import vn.loitp.app.R
 

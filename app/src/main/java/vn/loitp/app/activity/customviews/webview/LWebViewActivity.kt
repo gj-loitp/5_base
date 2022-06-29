@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.webkit.JavascriptInterface
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LAppResource
-import com.views.LWebViewAdblock
-import com.views.setSafeOnClickListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LAppResource
+import com.loitpcore.views.LWebViewAdblock
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_web_view.*
 import vn.loitp.app.R
 

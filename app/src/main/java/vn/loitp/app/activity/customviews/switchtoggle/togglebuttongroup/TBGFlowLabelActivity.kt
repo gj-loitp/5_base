@@ -2,10 +2,10 @@ package vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup
 
 import android.graphics.Color
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.nex3z.togglebuttongroup.button.LabelToggle
 import kotlinx.android.synthetic.main.activity_switch_tbg_flow_label.*
 import vn.loitp.app.R

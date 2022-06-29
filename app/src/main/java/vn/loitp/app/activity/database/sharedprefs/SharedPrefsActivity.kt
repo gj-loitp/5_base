@@ -1,14 +1,14 @@
 package vn.loitp.app.activity.database.sharedprefs
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.base.BaseFontActivity
-import com.core.utilities.LConvertUtil
-import com.core.utilities.LSharedPrefsUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LConvertUtil
+import com.loitpcore.core.utilities.LSharedPrefsUtil
 import com.google.gson.reflect.TypeToken
-import com.views.setSafeOnClickListener
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_shared_prefs.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User

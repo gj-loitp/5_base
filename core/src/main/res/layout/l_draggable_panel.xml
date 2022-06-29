@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.views.layout.draggablepanel.DraggableView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.loitpcore.views.layout.draggablepanel.DraggableView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:draggable_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/draggableView"
     android:layout_width="match_parent"
@@ -20,4 +20,4 @@
         android:layout_alignParentTop="true"
         android:orientation="vertical" />
 
-</com.views.layout.draggablepanel.DraggableView>
+</com.loitpcore.views.layout.draggablepanel.DraggableView>

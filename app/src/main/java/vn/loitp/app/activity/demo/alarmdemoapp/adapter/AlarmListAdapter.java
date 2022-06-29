@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.core.utilities.LAppResource;
+import com.loitpcore.core.utilities.LAppResource;
 
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;

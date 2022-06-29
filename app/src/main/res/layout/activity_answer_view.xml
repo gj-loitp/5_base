@@ -20,7 +20,7 @@
             android:orientation="vertical"
             android:paddingTop="@dimen/w_65">
 
-            <com.views.answerview.LAnswerView
+            <com.loitpcore.views.answerview.LAnswerView
                 android:id="@+id/lAnswerView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
                 app:aw_canCancelAnswer="true"
                 app:aw_changeOnClick="true" />
 
-            <com.views.answerview.LAnswerView
+            <com.loitpcore.views.answerview.LAnswerView
                 android:id="@+id/lAnswerView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.views.actionbar.LActionBar
+    <com.loitpcore.views.actionbar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

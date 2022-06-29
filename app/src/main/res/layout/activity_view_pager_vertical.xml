@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.views.viewpager.vertical.VerticalViewPager
+    <com.loitpcore.views.viewpager.vertical.VerticalViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black">
 
-    </com.views.viewpager.vertical.VerticalViewPager>
+    </com.loitpcore.views.viewpager.vertical.VerticalViewPager>
 </RelativeLayout>

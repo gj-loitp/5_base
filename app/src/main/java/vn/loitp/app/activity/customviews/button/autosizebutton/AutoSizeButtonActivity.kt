@@ -2,11 +2,11 @@ package vn.loitp.app.activity.customviews.button.autosizebutton
 
 import android.os.Bundle
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LScreenUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_button_autosize.*
 import vn.loitp.app.R
 

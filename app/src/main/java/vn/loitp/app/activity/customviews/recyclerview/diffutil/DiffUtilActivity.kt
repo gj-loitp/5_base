@@ -3,10 +3,10 @@ package vn.loitp.app.activity.customviews.recyclerview.diffutil
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.common.Constants
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.common.Constants
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view_diff_util.*
 import vn.loitp.app.R

@@ -10,11 +10,11 @@ import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.airbnb.lottie.LottieAnimationView
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.common.Constants
-import com.core.utilities.LUIUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.common.Constants
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_animation_lottie.*
 import vn.loitp.app.R
 import java.io.IOException

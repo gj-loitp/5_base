@@ -3,15 +3,15 @@ package vn.loitp.app.activity.demo.epubreader
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.base.BaseFontActivity
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LReaderUtil
-import com.core.utilities.LUIUtil
-import com.function.epub.model.BookInfo
-import com.function.epub.viewmodels.EpubViewModel
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LDialogUtil
+import com.loitpcore.core.utilities.LReaderUtil
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.function.epub.model.BookInfo
+import com.loitpcore.function.epub.viewmodels.EpubViewModel
 import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
 import vn.loitp.app.R
 

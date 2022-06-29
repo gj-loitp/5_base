@@ -10,11 +10,11 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil
-import com.views.scrollview.LScrollView
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.views.scrollview.LScrollView
 import kotlinx.android.synthetic.main.activity_layout_scrollview_2d_advance.*
 import vn.loitp.app.R
 

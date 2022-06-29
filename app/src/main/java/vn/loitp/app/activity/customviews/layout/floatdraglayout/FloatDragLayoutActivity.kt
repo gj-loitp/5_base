@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.core.view.isVisible
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil
-import com.views.layout.floatdraglayout.DisplayUtil
-import com.views.layout.floatdraglayout.FloatDragLayout
-import com.views.layout.floatdraglayout.FloatDragPopupWindow
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.views.layout.floatdraglayout.DisplayUtil
+import com.loitpcore.views.layout.floatdraglayout.FloatDragLayout
+import com.loitpcore.views.layout.floatdraglayout.FloatDragPopupWindow
 import kotlinx.android.synthetic.main.activity_float_drag_layout.*
 import vn.loitp.app.R
 

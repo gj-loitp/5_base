@@ -3,10 +3,10 @@ package vn.loitp.app.activity.customviews.indicator.example
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.views.setSafeOnClickListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_dynamic_tab_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator

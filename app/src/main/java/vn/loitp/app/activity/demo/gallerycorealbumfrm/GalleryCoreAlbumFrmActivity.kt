@@ -1,12 +1,12 @@
 package vn.loitp.app.activity.demo.gallerycorealbumfrm
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.common.Constants
-import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyFrm
-import com.core.utilities.LScreenUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.common.Constants
+import com.loitpcore.core.helper.gallery.albumonly.GalleryCorePhotosOnlyFrm
+import com.loitpcore.core.utilities.LScreenUtil
 import vn.loitp.app.R
 
 @LogTag("GalleryCoreAlbumFrmActivity")
