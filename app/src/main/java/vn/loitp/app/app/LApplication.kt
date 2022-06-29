@@ -45,11 +45,10 @@ class LApplication : BaseApplication() {
         // config font
         LUIUtil.fontForAll = Constants.FONT_PATH
 
-        //TODO room
-        // room database
+        //room database
         FNBDatabase.getInstance(this)
 
         // ttt database
-//        TTTDatabase.getInstance(this)
+        TTTDatabase.getInstance(this)
     }
 }
