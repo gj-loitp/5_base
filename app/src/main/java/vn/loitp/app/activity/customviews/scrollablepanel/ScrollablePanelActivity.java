@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Random;
 
 import vn.loitp.app.R;
@@ -34,6 +35,11 @@ public class ScrollablePanelActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setupViews();
+    }
+
+    private void setupViews() {
         final LScrollablePanel LScrollablePanel = findViewById(R.id.scrollablePanel);
         final ScrollablePanelAdapter scrollablePanelAdapter = new ScrollablePanelAdapter();
         generateTestData(scrollablePanelAdapter);
@@ -81,7 +87,7 @@ public class ScrollablePanelActivity extends BaseFontActivity {
                 orderInfo.setStatus(OrderInfo.Status.randomStatus());
                 if (orderInfoList.size() > 0) {
                     final OrderInfo lastOrderInfo = orderInfoList.get(orderInfoList.size() - 1);
-                    if (orderInfo.getStatus().ordinal() == lastOrderInfo.getStatus().ordinal()) {
+                    if (Objects.requireNonNull(orderInfo.getStatus()).ordinal() == Objects.requireNonNull(lastOrderInfo.getStatus()).ordinal()) {
                         orderInfo.setId(lastOrderInfo.getId());
                         orderInfo.setBegin(false);
                         orderInfo.setGuestName("Loitp");

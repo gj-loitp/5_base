@@ -20,6 +20,10 @@ class AppcompatSwitchActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.lswitch)
 
         val isDarkTheme = LUIUtil.isDarkTheme()

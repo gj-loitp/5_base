@@ -8,7 +8,6 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_seekbar_boxed_vertical.*
 import vn.loitp.app.R
-import java.util.* // ktlint-disable no-wildcard-imports
 
 // https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291
 @LogTag("BoxedVerticalSeekBarActivity")
@@ -23,6 +22,10 @@ class BoxedVerticalSeekBarActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         boxedVertical.setOnBoxedPointsChangeListener(object : BoxedVertical.OnValuesChangeListener {
             override fun onPointsChanged(boxedPoints: BoxedVertical, value: Int) {
                 logD("onPointsChanged $value")

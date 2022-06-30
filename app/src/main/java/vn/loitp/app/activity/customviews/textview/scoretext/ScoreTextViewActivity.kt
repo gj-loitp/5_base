@@ -7,6 +7,7 @@ import android.os.Message
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_text_view_score.*
 import vn.loitp.app.R
 
@@ -27,8 +28,13 @@ class ScoreTextViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
         textView.text = "$currentScore"
-        bt.setOnClickListener {
+        bt.setSafeOnClickListener {
             currentScore = 0
             bt.isEnabled = false
             updateScore(maxScore)

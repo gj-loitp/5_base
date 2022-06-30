@@ -20,6 +20,10 @@ class StickerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         // add a stickerImage to canvas
         val ivSticker = StickerImageView(this)
         ivSticker.setBackgroundResource(R.drawable.logo)

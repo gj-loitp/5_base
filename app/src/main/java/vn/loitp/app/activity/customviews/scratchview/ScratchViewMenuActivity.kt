@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.scratchview
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -14,6 +15,7 @@ import vn.loitp.app.activity.customviews.scratchview.scratchviewtext.ScratchView
 
 @LogTag("ScratchViewMenuActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class ScratchViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
@@ -23,6 +25,10 @@ class ScratchViewMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btScratchViewImage.setOnClickListener(this)
         btScratchViewText.setOnClickListener(this)
     }

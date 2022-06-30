@@ -21,10 +21,10 @@ class TBGCustomButtonActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        init()
+        setupViews()
     }
 
-    private fun init() {
+    private fun setupViews() {
         groupSingleRadioButton.setOnCheckedChangeListener(SingleSelectListener())
         groupMultiCustomCompoundButton.setOnCheckedChangeListener(MultiSelectListener())
         groupMultiCustomToggleButton.setOnCheckedChangeListener(MultiSelectListener())

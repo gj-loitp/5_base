@@ -6,6 +6,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_switch_tbg_menu.*
 import vn.loitp.app.R
 
@@ -21,22 +22,26 @@ class TBGMenuActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btnMultiSelectSample.setOnClickListener {
+        setupViews()
+    }
+
+    private fun setupViews() {
+        btnMultiSelectSample.setSafeOnClickListener {
             val intent = Intent(this, TBGMultiSelectActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
         }
-        btnSingleSelectSample.setOnClickListener {
+        btnSingleSelectSample.setSafeOnClickListener {
             val intent = Intent(this, TBGSingleSelectActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
         }
-        btnLabelSample.setOnClickListener {
+        btnLabelSample.setSafeOnClickListener {
             val intent = Intent(this, TBGFlowLabelActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
         }
-        btnCustomButtonSample.setOnClickListener {
+        btnCustomButtonSample.setSafeOnClickListener {
             val intent = Intent(this, TBGCustomButtonActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)

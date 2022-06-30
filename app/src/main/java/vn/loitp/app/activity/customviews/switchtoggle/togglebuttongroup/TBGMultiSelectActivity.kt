@@ -19,6 +19,10 @@ class TBGMultiSelectActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         groupWeekdays.setOnCheckedChangeListener { group: MultiSelectToggleGroup, _: Int, _: Boolean ->
             logD("onCheckedStateChanged(): group.getCheckedIds() = " + group.checkedIds)
         }

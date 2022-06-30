@@ -22,6 +22,10 @@ class ToggleActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         labeledSwitch.setOnToggledListener(object : OnToggledListener {
             override fun onSwitched(labeledSwitch: LabeledSwitch, isOn: Boolean) {
                 showShortInformation("isOn $isOn")

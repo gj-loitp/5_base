@@ -19,6 +19,10 @@ class TypeWriterTextViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btn.setSafeOnClickListener {
             textView.text = ""
             textView.setCharacterDelay(150)

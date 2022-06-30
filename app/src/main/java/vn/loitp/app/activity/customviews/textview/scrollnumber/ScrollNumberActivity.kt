@@ -18,6 +18,10 @@ class ScrollNumberActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         multiScrollNumber.setTextColors(
             intArrayOf(
                 R.color.red50,

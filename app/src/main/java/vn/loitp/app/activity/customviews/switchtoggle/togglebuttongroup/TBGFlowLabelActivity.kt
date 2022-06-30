@@ -20,10 +20,11 @@ class TBGFlowLabelActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        init()
+
+        setupViews()
     }
 
-    private fun init() {
+    private fun setupViews() {
         groupWeekdays.setOnCheckedChangeListener { _, checkedId ->
             logD("onCheckedChanged(): checkedId = $checkedId")
         }
