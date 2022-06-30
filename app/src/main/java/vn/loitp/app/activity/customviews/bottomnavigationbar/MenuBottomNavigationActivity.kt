@@ -9,16 +9,16 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_bottom_navigation_bar_menu.*
+import kotlinx.android.synthetic.main.activity_menu_bottom_navigation_bar.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar.BottomBarActivity
 
 @LogTag("BottomNavigationMenuActivity")
 @IsFullScreen(false)
-class BottomNavigationMenuActivity : BaseFontActivity() {
+class MenuBottomNavigationActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_bottom_navigation_bar_menu
+        return R.layout.activity_menu_bottom_navigation_bar
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +37,7 @@ class BottomNavigationMenuActivity : BaseFontActivity() {
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = BottomNavigationMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuBottomNavigationActivity::class.java.simpleName
         }
         btBottomBarBlur.setSafeOnClickListener {
             val intent = Intent(this, BottomBarActivity::class.java)

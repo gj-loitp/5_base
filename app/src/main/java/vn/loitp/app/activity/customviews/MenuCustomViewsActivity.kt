@@ -13,10 +13,10 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_custom_view_menu.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity
+import vn.loitp.app.activity.customviews.actionbar.MenuActionBarActivity
 import vn.loitp.app.activity.customviews.answerview.AnswerViewActivity
-import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity
-import vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity
+import vn.loitp.app.activity.customviews.bottomnavigationbar.MenuBottomNavigationActivity
+import vn.loitp.app.activity.customviews.bottomsheet.MenuBottomSheetActivity
 import vn.loitp.app.activity.customviews.button.MenuButtonActivity
 import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
 import vn.loitp.app.activity.customviews.dialog.MenuDialogActivity
@@ -117,10 +117,10 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btButton -> Intent(this, MenuButtonActivity::class.java)
             btProgressLoading -> Intent(this, MenuProgressLoadingViewsActivity::class.java)
             btSwitch -> Intent(this, SwitchToggleMenuActivity::class.java)
-            btActionBar -> Intent(this, ActionbarMenuActivity::class.java)
+            btActionBar -> Intent(this, MenuActionBarActivity::class.java)
             btImageView -> Intent(this, MenuImageViewActivity::class.java)
             btTextView -> Intent(this, TextViewMenuActivity::class.java)
-            btBottomBarBlur -> Intent(this, BottomNavigationMenuActivity::class.java)
+            btBottomBarBlur -> Intent(this, MenuBottomNavigationActivity::class.java)
             btSticker -> Intent(this, StickerActivity::class.java)
             btEditText -> Intent(this, EditTextMenuActivity::class.java)
             btLayout -> Intent(this, MenuLayoutActivity::class.java)
@@ -135,7 +135,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btDraggableFlipView -> Intent(this, DraggableFlipViewActivity::class.java)
             btDragView -> Intent(this, MenuDragViewActivity::class.java)
             btAnswerView -> Intent(this, AnswerViewActivity::class.java)
-            btBottomSheet -> Intent(this, BottomSheetMenuActivity::class.java)
+            btBottomSheet -> Intent(this, MenuBottomSheetActivity::class.java)
             btScrollablePanel -> Intent(this, ScrollablePanelActivity::class.java)
             btFbCmt -> Intent(this, FacebookCommentActivity::class.java)
             btWwlMusic -> Intent(this, WWLActivityMusic::class.java)

@@ -98,7 +98,7 @@
             android:name=".activity.customviews.textview.scoretext.ScoreTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity"
+            android:name=".activity.customviews.bottomnavigationbar.MenuBottomNavigationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.bottomnavigationbar.bottombar.BottomBarActivity"
@@ -208,7 +208,7 @@
             android:name=".activity.customviews.popupmenu.PopupMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.actionbar.ActionbarMenuActivity"
+            android:name=".activity.customviews.actionbar.MenuActionBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity android:name=".activity.demo.alarmdemoapp.activity.AlarmMeActivity">
             <!--
@@ -406,7 +406,7 @@
             android:name=".activity.customviews.seekbar.verticalseekbar.VerticalSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomsheet.BottomSheetMenuActivity"
+            android:name=".activity.customviews.bottomsheet.MenuBottomSheetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity

@@ -10,7 +10,6 @@ import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.views.navigationview.LTextNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view_with_text.*
 import vn.loitp.app.R
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("NavigationViewWithTextActivity")
 @IsFullScreen(false)
@@ -23,6 +22,10 @@ class NavigationViewWithTextActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         nv.apply {
             setTextNext("Next")
             setTextPrev("Prev Prev Prev")

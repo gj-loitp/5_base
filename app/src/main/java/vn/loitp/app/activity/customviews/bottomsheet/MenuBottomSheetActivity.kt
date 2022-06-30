@@ -4,26 +4,26 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.loitpcore.views.LToast.show
 import com.loitpcore.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_bottomsheet_menu.*
+import kotlinx.android.synthetic.main.activity_menu_bottomsheet.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
 import vn.loitp.app.R
 
-@LogTag("BottomSheetMenuActivity")
+@LogTag("MenuBottomSheetActivity")
 @IsFullScreen(false)
-class BottomSheetMenuActivity : BaseFontActivity() {
+class MenuBottomSheetActivity : BaseFontActivity() {
     private var bottomSheetBehavior: BottomSheetBehavior<*>? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_bottomsheet_menu
+        return R.layout.activity_menu_bottomsheet
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +43,7 @@ class BottomSheetMenuActivity : BaseFontActivity() {
             )
             this.ivIconRight?.isVisible = false
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = BottomSheetMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuBottomSheetActivity::class.java.simpleName
         }
         btPayment.setSafeOnClickListener {
             show("Click layoutBottomSheet R.id.bt_payment")

@@ -10,7 +10,7 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.restapi.restclient.RestClient
-import kotlinx.android.synthetic.main.activity_api_menu.*
+import kotlinx.android.synthetic.main.activity_menu_api.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.activity.CoroutineAPIActivity
 import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity
@@ -22,7 +22,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity
 class MenuAPIActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_api_menu
+        return R.layout.activity_menu_api
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

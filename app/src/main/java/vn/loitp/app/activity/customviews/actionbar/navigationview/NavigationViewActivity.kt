@@ -11,7 +11,6 @@ import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.navigationview.LNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view.*
 import vn.loitp.app.R
-import java.util.*
 
 @LogTag("NavigationViewActivity")
 @IsFullScreen(false)
@@ -24,6 +23,10 @@ class NavigationViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         nv.apply {
             colorOn = LAppResource.getColor(R.color.red)
             colorOff = LAppResource.getColor(R.color.gray)

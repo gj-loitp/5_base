@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.google.android.material.snackbar.Snackbar
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -17,7 +18,6 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LPopupMenu
 import com.loitpcore.core.utilities.LUIUtil
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_collapsingtoolbar_withtablayout.*
 import vn.loitp.app.R
 
