@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.snackbar.Snackbar
 import com.loitpcore.R
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.utilities.LLog
 import com.loitpcore.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.loitpcore.core.utilities.LUIUtil.Companion.withBackground
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.snackbar.Snackbar
 
 open class BaseBottomSheetFragment(
     private val layoutId: Int,
@@ -31,12 +31,12 @@ open class BaseBottomSheetFragment(
 
     protected fun <T : ViewModel> getViewModel(className: Class<T>): T? {
         return activity?.let {
-            ViewModelProvider(it).get(className)
+            ViewModelProvider(it)[className]
         }
     }
 
     protected fun <T : ViewModel> getSelfViewModel(className: Class<T>): T {
-        return ViewModelProvider(this).get(className)
+        return ViewModelProvider(this)[className]
     }
 
     protected fun logD(msg: String) {
@@ -130,15 +130,15 @@ open class BaseBottomSheetFragment(
                 behaviour.isDraggable = isDraggable
 
                 behaviour.addBottomSheetCallback(object :
-                        BottomSheetBehavior.BottomSheetCallback() {
-                        override fun onStateChanged(bottomSheet: View, newState: Int) {
-                            onStateChanged?.invoke(bottomSheet, newState)
-                        }
+                    BottomSheetBehavior.BottomSheetCallback() {
+                    override fun onStateChanged(bottomSheet: View, newState: Int) {
+                        onStateChanged?.invoke(bottomSheet, newState)
+                    }
 
-                        override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                            onSlide?.invoke(bottomSheet, slideOffset)
-                        }
-                    })
+                    override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                        onSlide?.invoke(bottomSheet, slideOffset)
+                    }
+                })
             }
         }
         return sheetDialog

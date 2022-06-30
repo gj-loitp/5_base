@@ -1,15 +1,15 @@
 package com.loitpcore.core.base
 
 import androidx.multidex.MultiDexApplication
+import com.github.piasy.biv.BigImageViewer
+import com.github.piasy.biv.loader.glide.GlideImageLoader
+import com.google.gson.Gson
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LConnectivityUtil
 import com.loitpcore.core.utilities.LLog
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.game.findnumber.db.FindNumberDatabase
-import com.github.piasy.biv.BigImageViewer
-import com.github.piasy.biv.loader.glide.GlideImageLoader
-import com.google.gson.Gson
 import com.loitpcore.utils.util.Utils
 
 // GIT

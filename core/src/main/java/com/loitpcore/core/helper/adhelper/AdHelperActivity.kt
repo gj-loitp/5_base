@@ -17,11 +17,10 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.manojbhadane.QButton
 import com.loitpcore.utils.util.AppUtils
 import com.loitpcore.views.setSafeOnClickListener
+import com.manojbhadane.QButton
 import kotlinx.android.synthetic.main.l_activity_ad_helper.*
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("AdHelperActivity")
 @IsFullScreen(false)

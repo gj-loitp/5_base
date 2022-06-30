@@ -81,10 +81,10 @@ class FrmFBComment : BaseFragment() {
 
             // facebook comment widget including the article url
             val html = "<!doctype html> <html lang=\"en\"> <head></head> <body> " +
-                "<div id=\"fb-root\"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6\"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script> " +
-                "<div class=\"fb-comments\" data-href=\"" + postUrl + "\" " +
-                "data-numposts=\"" + NUMBER_OF_COMMENTS + "\" data-order-by=\"reverse_time\">" +
-                "</div> </body> </html>"
+                    "<div id=\"fb-root\"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6\"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script> " +
+                    "<div class=\"fb-comments\" data-href=\"" + postUrl + "\" " +
+                    "data-numposts=\"" + NUMBER_OF_COMMENTS + "\" data-order-by=\"reverse_time\">" +
+                    "</div> </body> </html>"
 
             loadDataWithBaseURL("http://www.nothing.com", html, "text/html", "UTF-8", null)
             minimumHeight = 200
@@ -109,6 +109,7 @@ class FrmFBComment : BaseFragment() {
     }
 
     private inner class UriWebViewClient : WebViewClient() {
+        @Deprecated("Deprecated in Java")
         override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
             val host = Uri.parse(url).host
             return host != "m.facebook.com"

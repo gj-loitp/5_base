@@ -8,21 +8,21 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.loitpcore.core.utilities.LUIUtil.Companion.withBackground
-import com.google.android.material.snackbar.Snackbar
 
 open class BaseDialogFragment : DialogFragment() {
 
     fun <T : ViewModel> getViewModel(className: Class<T>): T? {
 
-        return activity?.let { ViewModelProvider(it).get(className) }
+        return activity?.let { ViewModelProvider(it)[className] }
     }
 
     fun <T : ViewModel> getSelfViewModel(className: Class<T>): T {
 
-        return ViewModelProvider(this).get(className)
+        return ViewModelProvider(this)[className]
     }
 
     fun lockScreen(isLock: Boolean) {
