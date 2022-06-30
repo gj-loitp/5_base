@@ -17,7 +17,7 @@ import com.loitpcore.R
 
 class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     ViewPager(context, attrs) {
-    private var mParrallaxMode: ParrallaxMode? = null
+    private var mParrallaxMode: ParallaxMode? = null
     private val mShadowStart = Color.parseColor("#33000000")
     private val mShadowMid = Color.parseColor("#11000000")
     private val mShadowEnd = Color.parseColor("#00000000")
@@ -54,14 +54,14 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
             ensureInterpolator()
         }
 
-    var parrallaxMode: ParrallaxMode?
+    var parrallaxMode: ParallaxMode?
         get() = mParrallaxMode
         set(mode) {
             mParrallaxMode = mode
             mParallaxTransformer?.parallaxMode = mode
-            if (mode === ParrallaxMode.LEFT_OVERLAY) {
+            if (mode === ParallaxMode.LEFT_OVERLAY) {
                 setPageTransformer(true, mParallaxTransformer)
-            } else if (mode === ParrallaxMode.RIGHT_OVERLAY) {
+            } else if (mode === ParallaxMode.RIGHT_OVERLAY) {
                 setPageTransformer(false, mParallaxTransformer)
             }
         }
@@ -72,11 +72,11 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
             attrs, R.styleable.LParallaxViewPager, 0,
             0
         )
-        mParrallaxMode = ParrallaxMode.values()[
-            a.getInt(
-                R.styleable.LParallaxViewPager_modeParallaxViewPager,
-                0
-            )
+        mParrallaxMode = ParallaxMode.values()[
+                a.getInt(
+                    R.styleable.LParallaxViewPager_modeParallaxViewPager,
+                    0
+                )
         ]
         parrallaxMode = mParrallaxMode
 
@@ -134,15 +134,15 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
     }
 
     private fun drawShadow(canvas: Canvas) {
-        if (mParrallaxMode === ParrallaxMode.NONE) {
+        if (mParrallaxMode === ParallaxMode.NONE) {
             return
         }
         if (scrollX % width == 0) {
             return
         }
         when (mParrallaxMode) {
-            ParrallaxMode.LEFT_OVERLAY -> drawRightShadow(canvas)
-            ParrallaxMode.RIGHT_OVERLAY -> drawLeftShadow(canvas)
+            ParallaxMode.LEFT_OVERLAY -> drawRightShadow(canvas)
+            ParallaxMode.RIGHT_OVERLAY -> drawLeftShadow(canvas)
             else -> {
             }
         }

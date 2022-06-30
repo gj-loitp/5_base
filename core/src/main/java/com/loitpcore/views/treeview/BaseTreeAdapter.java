@@ -11,15 +11,17 @@ import android.view.ViewGroup;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 
+import java.util.Objects;
+
 public abstract class BaseTreeAdapter<VH> implements TreeAdapter<VH> {
     private final int mLayoutRes;
     private TreeNode mRootNode;
 
     private Algorithm mAlgorithm;
 
-    private LayoutInflater mLayoutInflater;
+    private final LayoutInflater mLayoutInflater;
 
-    private DataSetObservable mDataSetObservable = new DataSetObservable();
+    private final DataSetObservable mDataSetObservable = new DataSetObservable();
 
     public BaseTreeAdapter(@NonNull Context context, @LayoutRes int layoutRes) {
         mLayoutInflater = LayoutInflater.from(context);
@@ -36,7 +38,7 @@ public abstract class BaseTreeAdapter<VH> implements TreeAdapter<VH> {
     @Override
     public void notifySizeChanged(@NonNull TreeNodeSize size) {
         if (mRootNode != null) {
-            getAlgorithm().run(mRootNode, size);
+            Objects.requireNonNull(getAlgorithm()).run(mRootNode, size);
         }
     }
 

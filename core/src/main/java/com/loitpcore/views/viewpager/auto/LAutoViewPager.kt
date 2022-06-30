@@ -26,7 +26,7 @@ class LAutoViewPager : ViewPager {
             if (adapter == null) {
                 return
             }
-            currentItem = if (currentItem == adapter?.count?.minus(1) ?: 0) {
+            currentItem = if (currentItem == (adapter?.count?.minus(1) ?: 0)) {
                 0
             } else {
                 currentItem + 1
@@ -96,7 +96,7 @@ class LAutoViewPager : ViewPager {
     override fun onTouchEvent(event: MotionEvent): Boolean {
         try {
             if (indeterminate) {
-                if (currentItem == 0 || currentItem == adapter?.count?.minus(1) ?: 0) {
+                if (currentItem == 0 || currentItem == (adapter?.count?.minus(1) ?: 0)) {
                     val action = event.action
                     val x = event.x
                     when (action and MotionEvent.ACTION_MASK) {

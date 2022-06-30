@@ -3,14 +3,15 @@ package com.loitpcore.views.treeview;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 class BuchheimWalkerAlgorithm implements Algorithm {
 
     private static final int DEFAULT_SIBLING_SEPARATION = 100;
     private static final int DEFAULT_SUBTREE_SEPARATION = 100;
 
-    private BuchheimWalkerConfiguration mConfiguration;
-    private Map<TreeNode, BuchheimWalkerNodeData> mNodeData = new HashMap<>();
+    private final BuchheimWalkerConfiguration mConfiguration;
+    private final Map<TreeNode, BuchheimWalkerNodeData> mNodeData = new HashMap<>();
     private TreeNodeSize mSize;
 
     BuchheimWalkerAlgorithm(BuchheimWalkerConfiguration configuration) {
@@ -190,7 +191,7 @@ class BuchheimWalkerAlgorithm implements Algorithm {
     private TreeNode ancestor(TreeNode vim, TreeNode node, TreeNode defaultAncestor) {
         BuchheimWalkerNodeData vipNodeData = getNodeData(vim);
 
-        if (vipNodeData.getAncestor().getParent() == node.getParent()) {
+        if (Objects.requireNonNull(vipNodeData.getAncestor()).getParent() == node.getParent()) {
             return vipNodeData.getAncestor();
         }
 

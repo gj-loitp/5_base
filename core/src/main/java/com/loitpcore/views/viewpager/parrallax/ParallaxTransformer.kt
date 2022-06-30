@@ -9,7 +9,7 @@ import androidx.viewpager.widget.ViewPager
 import kotlin.math.abs
 
 class ParallaxTransformer : ViewPager.PageTransformer {
-    var parallaxMode: ParrallaxMode? = null
+    var parallaxMode: ParallaxMode? = null
     var interpolator: Interpolator = LinearInterpolator()
     private val mEvaluator: FloatEvaluator = FloatEvaluator()
     var outset: Int = 0
@@ -25,17 +25,17 @@ class ParallaxTransformer : ViewPager.PageTransformer {
             return
         }
         when (parallaxMode) {
-            ParrallaxMode.LEFT_OVERLAY -> if (position > 0) {
+            ParallaxMode.LEFT_OVERLAY -> if (position > 0) {
                 transform(page, position)
             } else if (position < 0) {
                 bringViewToFront(page)
             }
-            ParrallaxMode.RIGHT_OVERLAY -> if (position < 0) {
+            ParallaxMode.RIGHT_OVERLAY -> if (position < 0) {
                 transform(page, position)
             } else if (position > 0) {
                 bringViewToFront(page)
             }
-            ParrallaxMode.NONE -> {
+            ParallaxMode.NONE -> {
             }
             else -> {}
         }

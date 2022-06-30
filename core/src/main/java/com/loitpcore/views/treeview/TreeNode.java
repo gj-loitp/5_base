@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- */
-
 public class TreeNode {
     private Object mData;
     private int mX;
@@ -16,8 +13,8 @@ public class TreeNode {
     private int mLevel;
     private int mNodeCount = 1;
     private TreeNode mParent;
-    private List<TreeNode> mChildren = new ArrayList<>();
-    private List<TreeNodeObserver> mTreeNodeObservers = new ArrayList<>();
+    private final List<TreeNode> mChildren = new ArrayList<>();
+    private final List<TreeNodeObserver> mTreeNodeObservers = new ArrayList<>();
 
     public TreeNode() {
         this(null);

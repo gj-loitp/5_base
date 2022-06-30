@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
-import java.util.*
 
 class ObservableScrollView : ScrollView {
     private var mOnScrollChangedListeners: ArrayList<OnScrollChangedListener>? = null

@@ -1,5 +1,11 @@
 package com.loitpcore.views.wwlmusic.layout;
 
+import static android.view.MotionEvent.ACTION_CANCEL;
+import static android.view.MotionEvent.ACTION_DOWN;
+import static android.view.MotionEvent.ACTION_MOVE;
+import static android.view.MotionEvent.ACTION_POINTER_UP;
+import static android.view.MotionEvent.ACTION_UP;
+
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -23,12 +29,6 @@ import com.loitpcore.R;
 import com.loitpcore.views.wwlmusic.utils.LWWLMusicIllegal;
 
 import java.util.LinkedList;
-
-import static android.view.MotionEvent.ACTION_CANCEL;
-import static android.view.MotionEvent.ACTION_DOWN;
-import static android.view.MotionEvent.ACTION_MOVE;
-import static android.view.MotionEvent.ACTION_POINTER_UP;
-import static android.view.MotionEvent.ACTION_UP;
 
 public class LWWLMusic extends ViewGroup {
     public static final int STATE_HIDED = 0;

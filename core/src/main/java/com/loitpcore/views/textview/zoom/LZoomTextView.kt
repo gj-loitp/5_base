@@ -1,9 +1,5 @@
 package com.loitpcore.views.textview.zoom
 
-/**
- * Created by www.muathu@gmail.com on 11/1/2017.
- */
-
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet

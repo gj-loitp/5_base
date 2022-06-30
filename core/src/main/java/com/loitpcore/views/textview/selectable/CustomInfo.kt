@@ -11,11 +11,11 @@ class CustomInfo {
 
     override fun toString(): String {
         return "CustomInfo{" +
-            "mSpan=" + span +
-            ", mStart=" + mStart +
-            ", mEnd=" + mEnd +
-            ", mSpannable=" + spannable +
-            '}'
+                "mSpan=" + span +
+                ", mStart=" + mStart +
+                ", mEnd=" + mEnd +
+                ", mSpannable=" + spannable +
+                '}'
     }
 
     private var span: Any? = null

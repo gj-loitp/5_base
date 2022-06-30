@@ -1,5 +1,11 @@
 package com.loitpcore.views.wwlvideo;
 
+import static android.view.MotionEvent.ACTION_CANCEL;
+import static android.view.MotionEvent.ACTION_DOWN;
+import static android.view.MotionEvent.ACTION_MOVE;
+import static android.view.MotionEvent.ACTION_POINTER_UP;
+import static android.view.MotionEvent.ACTION_UP;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -25,12 +31,6 @@ import com.loitpcore.views.wwlmusic.utils.LWWLMusicIllegal;
 import com.loitpcore.views.wwlmusic.utils.LWWLMusicViewHelper;
 
 import java.util.LinkedList;
-
-import static android.view.MotionEvent.ACTION_CANCEL;
-import static android.view.MotionEvent.ACTION_DOWN;
-import static android.view.MotionEvent.ACTION_MOVE;
-import static android.view.MotionEvent.ACTION_POINTER_UP;
-import static android.view.MotionEvent.ACTION_UP;
 
 //14.12.2020 try to convert to kotlin but failed
 public class LWWLVideo extends ViewGroup {
