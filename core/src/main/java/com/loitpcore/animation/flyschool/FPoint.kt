@@ -6,8 +6,6 @@ package com.loitpcore.animation.flyschool
  * e.g. if it is given X = 0.5f and Y = 0.5f
  * It actially means : X = 0.5w and Y = 0.5h
  *
- *
- * Created by avin on 31/01/17.
  */
 class FPoint(
     private val mX: Float,

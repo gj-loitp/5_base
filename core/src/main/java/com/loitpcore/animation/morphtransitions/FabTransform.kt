@@ -28,7 +28,6 @@ import com.loitpcore.animation.morphtransitions.AnimUtils.NoPauseAnimator
 import com.loitpcore.animation.morphtransitions.AnimUtils.getFastOutLinearInInterpolator
 import com.loitpcore.animation.morphtransitions.AnimUtils.getFastOutSlowInInterpolator
 import com.loitpcore.animation.morphtransitions.AnimUtils.getLinearOutSlowInInterpolator
-import java.util.*
 import kotlin.math.hypot
 
 class FabTransform : Transition {
@@ -90,10 +89,10 @@ class FabTransform : Transition {
             typedArray = context.obtainStyledAttributes(attrs, R.styleable.FabTransform)
             require(
                 !(
-                    !typedArray.hasValue(R.styleable.FabTransform_fabColor) || !typedArray.hasValue(
-                        R.styleable.FabTransform_fabIcon
-                    )
-                    )
+                        !typedArray.hasValue(R.styleable.FabTransform_fabColor) || !typedArray.hasValue(
+                            R.styleable.FabTransform_fabIcon
+                        )
+                        )
             ) { "Must provide both color & icon." }
 
             color = typedArray.getColor(R.styleable.FabTransform_fabColor, Color.TRANSPARENT)
@@ -189,8 +188,8 @@ class FabTransform : Transition {
                         view.width / 2,
                         view.height / 2,
                         (
-                            startBounds.width() / 2
-                            ).toFloat(),
+                                startBounds.width() / 2
+                                ).toFloat(),
                         hypot(
                             (endBounds.width() / 2).toDouble(),
                             (endBounds.height() / 2).toDouble()
@@ -207,8 +206,8 @@ class FabTransform : Transition {
                             (startBounds.height() / 2).toDouble()
                         ).toFloat(),
                         (
-                            endBounds.width() / 2
-                            ).toFloat()
+                                endBounds.width() / 2
+                                ).toFloat()
                     )
                     circularReveal.interpolator = getLinearOutSlowInInterpolator(sceneRoot.context)
 

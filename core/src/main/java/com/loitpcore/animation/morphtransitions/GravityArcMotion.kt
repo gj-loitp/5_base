@@ -126,18 +126,18 @@ internal class GravityArcMotion : ArcMotion() {
                 ey = endY + eDistY
                 ex = endX
                 minimumArcDist2 = (
-                    midDist2 * mMinimumVerticalTangent
-                        * mMinimumVerticalTangent
-                    )
+                        midDist2 * mMinimumVerticalTangent
+                                * mMinimumVerticalTangent
+                        )
             } else {
                 // Same as above, but flip X & Y
                 val eDistX = h2 / (2 * deltaX)
                 ex = endX + eDistX
                 ey = endY
                 minimumArcDist2 = (
-                    midDist2 * mMinimumHorizontalTangent
-                        * mMinimumHorizontalTangent
-                    )
+                        midDist2 * mMinimumHorizontalTangent
+                                * mMinimumHorizontalTangent
+                        )
             }
             val arcDistX = dx - ex
             val arcDistY = dy - ey

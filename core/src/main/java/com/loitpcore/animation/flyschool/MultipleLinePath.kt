@@ -1,7 +1,6 @@
 package com.loitpcore.animation.flyschool
 
 import android.graphics.Path
-import java.util.* // ktlint-disable no-wildcard-imports
 
 class MultipleLinePath : FlyPath {
     private var mFPoints = ArrayList<FPoint>()

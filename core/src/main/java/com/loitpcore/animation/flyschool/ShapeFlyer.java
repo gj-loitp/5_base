@@ -2,12 +2,10 @@ package com.loitpcore.animation.flyschool;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,13 +15,6 @@ import com.loitpcore.R;
 
 import java.util.ArrayList;
 import java.util.Random;
-
-/**
- * View that uses the BluePrints (refer to the {@link FlyBluePrint})
- * defined by you to create and start animations
- * <p>
- * Created by avin on 09/01/17.
- */
 
 //https://www.desmos.com/calculator/cahqdxeshd
 //21.12.2020 try to convert kotlin but failed
@@ -52,7 +43,6 @@ public class ShapeFlyer extends RelativeLayout {
         init(attrs);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ShapeFlyer(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
@@ -75,10 +65,6 @@ public class ShapeFlyer extends RelativeLayout {
         }
     }
 
-    /**
-     * @param flyBluePrint : {@link FlyBluePrint} to be added to the list
-     *                     Adds a {@link FlyBluePrint} to the list, used to populate the animation
-     */
     public void addPath(FlyBluePrint flyBluePrint) {
         if (flyBluePrint != null) {
             if (mFlyBluePrints == null) {
@@ -99,11 +85,6 @@ public class ShapeFlyer extends RelativeLayout {
         }
     }
 
-    /**
-     * @param definedPath : {@link PATHS} to be added to the list
-     *                    Adds a Predefined Blue print to the list, used to populate the animation
-     *                    Please refer to the {@link PATHS} for more details
-     */
     public void addPath(PATHS definedPath) {
         if (definedPath != null) {
             FlyBluePrint flyBluePrint = definedPath.getmFlyBluePrint();
@@ -226,11 +207,6 @@ public class ShapeFlyer extends RelativeLayout {
         }
         initPaths();
         View shapeView;
-        /*if (Utils.isLowerThanLollipop()) {
-            shapeView = new AppCompatShapeView(getContext());
-        } else {
-            shapeView = new ShapeView(getContext());
-        }*/
         shapeView = new LFlySchoolView(getContext());
 
         LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

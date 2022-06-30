@@ -7,7 +7,6 @@ import android.util.ArrayMap
 import android.view.animation.AnimationUtils
 import android.view.animation.Interpolator
 import com.loitpcore.R
-import java.util.* // ktlint-disable no-wildcard-imports
 
 internal object AnimUtils {
     private var fastOutSlowIn: Interpolator? = null

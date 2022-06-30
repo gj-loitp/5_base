@@ -83,6 +83,7 @@ internal class MorphDrawable(
         invalidateSelf()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun getOpacity(): Int {
         return paint.alpha
     }

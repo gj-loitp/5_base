@@ -2,13 +2,6 @@ package com.loitpcore.animation.flyschool
 
 import android.graphics.Path
 
-/**
- * Simple line path generator
- * Requires one [FPoint] to generate the Path
- *
- *
- * Created by avin on 20/01/17.
- */
 class SingleLinePath(
     private val mFPoint: FPoint
 ) : FlyPath() {

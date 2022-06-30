@@ -5,11 +5,11 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import com.loitpcore.R
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.loitpcore.R
 import com.loitpcore.core.utilities.LImageUtil
 
 class LFlySchoolView : RelativeLayout, ShapeSetter {

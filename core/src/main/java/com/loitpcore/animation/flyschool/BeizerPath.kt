@@ -2,13 +2,6 @@ package com.loitpcore.animation.flyschool
 
 import android.graphics.Path
 
-/**
- * Simple beizer path generator
- * Requires three [FPoint] to generate the Path
- *
- *
- * Created by avin on 20/01/17.
- */
 class BeizerPath(
     private val mFPoint1: FPoint,
     private val mFPoint2: FPoint,

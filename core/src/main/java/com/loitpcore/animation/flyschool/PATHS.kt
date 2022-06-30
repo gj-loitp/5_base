@@ -1,17 +1,5 @@
 package com.loitpcore.animation.flyschool
 
-/**
- * A simple list of the pre-cooked Blue Prints
- * Nomenclature is simple :
- * <Shape_Name>_<Origin_Point>
- *
- *
- * Currently using [BeizerPath] and [SingleLinePath] to create all these blue prints
- *
- *
- * Created by avin on 20/01/17.
-</Origin_Point></Shape_Name> */
-
 enum class PATHS {
     // S Shapes
     S_BOTTOM_LEFT,
