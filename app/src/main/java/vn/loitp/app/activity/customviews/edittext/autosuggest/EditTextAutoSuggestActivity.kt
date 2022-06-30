@@ -4,12 +4,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import androidx.core.view.isVisible
+import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitpcore.views.edittext.autosuggest.LAutoSuggestEditText
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers

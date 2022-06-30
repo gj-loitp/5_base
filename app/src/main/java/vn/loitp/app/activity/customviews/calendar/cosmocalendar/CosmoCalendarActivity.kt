@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.calendar.cosmocalendar.calendarview
+package vn.loitp.app.activity.customviews.calendar.cosmocalendar
 
 import android.os.Bundle
 import android.view.Menu
@@ -22,8 +22,7 @@ import com.loitpcore.views.calendar.cosmocalendar.selection.criteria.month.Previ
 import com.loitpcore.views.calendar.cosmocalendar.utils.SelectionType
 import kotlinx.android.synthetic.main.activity_calendar_cosmo.*
 import vn.loitp.app.R
-import java.util.* // ktlint-disable no-wildcard-imports
-import kotlin.collections.ArrayList
+import java.util.*
 
 // https://github.com/ApplikeySolutions/CosmoCalendar
 // set color o colors.xml region cosmocalendar

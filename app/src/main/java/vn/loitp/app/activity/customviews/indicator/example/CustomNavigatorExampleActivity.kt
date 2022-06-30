@@ -41,6 +41,10 @@ class CustomNavigatorExampleActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         viewPager.adapter = mExamplePagerAdapter
         initMagicIndicator1()
         initMagicIndicator2()
@@ -76,11 +80,11 @@ class CustomNavigatorExampleActivity : BaseFontActivity() {
         scaleCircleNavigator.setNormalCircleColor(Color.LTGRAY)
         scaleCircleNavigator.setSelectedCircleColor(Color.DKGRAY)
         scaleCircleNavigator.setCircleClickListener(object :
-                ScaleCircleNavigator.OnCircleClickListener {
-                override fun onClick(index: Int) {
-                    viewPager.currentItem = index
-                }
-            })
+            ScaleCircleNavigator.OnCircleClickListener {
+            override fun onClick(index: Int) {
+                viewPager.currentItem = index
+            }
+        })
         magicIndicator3.navigator = scaleCircleNavigator
         ViewPagerHelper.bind(magicIndicator3, viewPager)
     }

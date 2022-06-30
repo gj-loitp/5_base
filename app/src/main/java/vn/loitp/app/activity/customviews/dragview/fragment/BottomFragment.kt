@@ -25,6 +25,10 @@ class BottomFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         recyclerView.adapter = ListAdapter()
         recyclerView.layoutManager = LinearLayoutManager(recyclerView.context)
     }

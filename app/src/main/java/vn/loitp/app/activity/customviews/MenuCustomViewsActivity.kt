@@ -17,15 +17,15 @@ import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity
 import vn.loitp.app.activity.customviews.answerview.AnswerViewActivity
 import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMenuActivity
 import vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity
-import vn.loitp.app.activity.customviews.button.ButtonMenuActivity
-import vn.loitp.app.activity.customviews.calendar.CalendarMenuActivity
-import vn.loitp.app.activity.customviews.dialog.DialogMenuActivity
+import vn.loitp.app.activity.customviews.button.MenuButtonActivity
+import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
+import vn.loitp.app.activity.customviews.dialog.MenuDialogActivity
 import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity
 import vn.loitp.app.activity.customviews.dragview.MenuDragViewActivity
 import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity
 import vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity
-import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity
-import vn.loitp.app.activity.customviews.indicator.example.MagicIndicatorMenuActivity
+import vn.loitp.app.activity.customviews.imageview.MenuImageViewActivity
+import vn.loitp.app.activity.customviews.indicator.example.MenuMagicIndicatorActivity
 import vn.loitp.app.activity.customviews.layout.MenuLayoutActivity
 import vn.loitp.app.activity.customviews.lcardview.LCardViewActivity
 import vn.loitp.app.activity.customviews.ldebugview.LDebugViewActivity
@@ -114,11 +114,11 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
     override fun onClick(v: View) {
         val intent: Intent? = when (v) {
             btViewPager -> Intent(this, ViewPagerMenuActivity::class.java)
-            btButton -> Intent(this, ButtonMenuActivity::class.java)
+            btButton -> Intent(this, MenuButtonActivity::class.java)
             btProgressLoading -> Intent(this, MenuProgressLoadingViewsActivity::class.java)
             btSwitch -> Intent(this, SwitchToggleMenuActivity::class.java)
             btActionBar -> Intent(this, ActionbarMenuActivity::class.java)
-            btImageView -> Intent(this, ImageViewMenuActivity::class.java)
+            btImageView -> Intent(this, MenuImageViewActivity::class.java)
             btTextView -> Intent(this, TextViewMenuActivity::class.java)
             btBottomBarBlur -> Intent(this, BottomNavigationMenuActivity::class.java)
             btSticker -> Intent(this, StickerActivity::class.java)
@@ -127,7 +127,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btVideoView -> Intent(this, VideoViewMenuActivity::class.java)
             btSeekBar -> Intent(this, SeekbarMenuActivity::class.java)
             btRecyclerView -> Intent(this, RecyclerViewMenuActivity::class.java)
-            btDialog -> Intent(this, DialogMenuActivity::class.java)
+            btDialog -> Intent(this, MenuDialogActivity::class.java)
             btPopupMenu -> Intent(this, PopupMenuActivity::class.java)
             btScratchView -> Intent(this, ScratchViewMenuActivity::class.java)
             btNavigation -> Intent(this, MenuNavigationActivity::class.java)
@@ -143,9 +143,9 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btLDebugView -> Intent(this, LDebugViewActivity::class.java)
             btMenu -> Intent(this, MenuMenuActivity::class.java)
             btLCardView -> Intent(this, LCardViewActivity::class.java)
-            btCalendar -> Intent(this, CalendarMenuActivity::class.java)
+            btCalendar -> Intent(this, MenuCalendarActivity::class.java)
             btWebView -> Intent(this, LWebViewActivity::class.java)
-            btIndicator -> Intent(this, MagicIndicatorMenuActivity::class.java)
+            btIndicator -> Intent(this, MenuMagicIndicatorActivity::class.java)
             btWheelSpinner -> Intent(this, WheelSpinnerActivity::class.java)
             else -> null
         }

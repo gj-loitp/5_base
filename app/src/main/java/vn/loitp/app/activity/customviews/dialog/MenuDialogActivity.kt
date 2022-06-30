@@ -9,7 +9,7 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_dialog_menu.*
+import kotlinx.android.synthetic.main.activity_menu_dialog.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.dialog.customdialog.CustomDialogActivity
 import vn.loitp.app.activity.customviews.dialog.customprogressdialog.CustomProgressDialogActivity
@@ -17,12 +17,12 @@ import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalAct
 import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity
 import vn.loitp.app.activity.customviews.dialog.slideimages.DialogSlideImagesActivity
 
-@LogTag("DialogMenuActivity")
+@LogTag("MenuDialogActivity")
 @IsFullScreen(false)
-class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
+class MenuDialogActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_dialog_menu
+        return R.layout.activity_menu_dialog
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +41,7 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = DialogMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuDialogActivity::class.java.simpleName
         }
         btOriginalDialog.setOnClickListener(this)
         btPrettyDialog.setOnClickListener(this)

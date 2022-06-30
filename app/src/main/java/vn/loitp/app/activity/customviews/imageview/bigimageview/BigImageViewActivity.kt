@@ -2,12 +2,12 @@ package vn.loitp.app.activity.customviews.imageview.bigimageview
 
 import android.net.Uri
 import android.os.Bundle
+import com.github.piasy.biv.loader.ImageLoader
+import com.github.piasy.biv.view.GlideImageViewFactory
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LDialogUtil
-import com.github.piasy.biv.loader.ImageLoader
-import com.github.piasy.biv.view.GlideImageViewFactory
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_imageview_big.*
 import vn.loitp.app.R

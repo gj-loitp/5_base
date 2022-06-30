@@ -56,7 +56,7 @@
             android:name=".activity.customviews.viewpager.parrallaxviewpager.ParallaxViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.button.ButtonMenuActivity"
+            android:name=".activity.customviews.button.MenuButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.button.shinebutton.ShineButtonActivity"
@@ -86,7 +86,7 @@
             android:name=".activity.customviews.actionbar.lactionbar.LActionbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.imageview.ImageViewMenuActivity"
+            android:name=".activity.customviews.imageview.MenuImageViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.imageview.circleimageview.CircleImageViewActivity"
@@ -259,7 +259,7 @@
             android:name=".activity.animation.flyschool.FlySchoolActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.dialog.DialogMenuActivity"
+            android:name=".activity.customviews.dialog.MenuDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.dialog.originaldialog.DialogOriginalActivity"
@@ -873,10 +873,10 @@
             android:name=".activity.demo.architecturecomponent.coroutine.CoroutineActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.calendar.CalendarMenuActivity"
+            android:name=".activity.customviews.calendar.MenuCalendarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.calendar.cosmocalendar.calendarview.CosmoCalendarActivity"
+            android:name=".activity.customviews.calendar.cosmocalendar.CosmoCalendarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.api.coroutine.activity.CoroutineAPIActivity"
@@ -1012,7 +1012,7 @@
             android:name=".activity.animation.elasticviews.ElasticActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.indicator.example.MagicIndicatorMenuActivity"
+            android:name=".activity.customviews.indicator.example.MenuMagicIndicatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.indicator.example.ScrollableTabExampleActivity"

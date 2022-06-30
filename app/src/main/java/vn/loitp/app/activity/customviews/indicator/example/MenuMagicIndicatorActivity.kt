@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -12,9 +13,10 @@ import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_magic_indicator_menu_layout.*
 import vn.loitp.app.R
 
-@LogTag("MagicIndicatorMenuActivity")
+@LogTag("MenuMagicIndicatorActivity")
 @IsFullScreen(false)
-class MagicIndicatorMenuActivity : BaseFontActivity() {
+@IsAutoAnimation(true)
+class MenuMagicIndicatorActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_magic_indicator_menu_layout
@@ -36,7 +38,7 @@ class MagicIndicatorMenuActivity : BaseFontActivity() {
             )
             this.ivIconRight?.isVisible = false
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = MagicIndicatorMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuMagicIndicatorActivity::class.java.simpleName
         }
     }
 

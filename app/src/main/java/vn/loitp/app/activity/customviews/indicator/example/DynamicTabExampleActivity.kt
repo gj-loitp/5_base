@@ -48,6 +48,10 @@ class DynamicTabExampleActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         viewPager.adapter = mExamplePagerAdapter
         magicIndicator1.setBackgroundColor(Color.parseColor("#d43d3d"))
         mCommonNavigator = CommonNavigator(this)

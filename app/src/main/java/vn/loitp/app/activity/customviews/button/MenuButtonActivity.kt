@@ -19,9 +19,9 @@ import vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity
 import vn.loitp.app.activity.customviews.button.qbutton.QButtonActivity
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity
 
-@LogTag("ButtonMenuActivity")
+@LogTag("MenuButtonActivity")
 @IsFullScreen(false)
-class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
+class MenuButtonActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_button_menu
@@ -43,7 +43,7 @@ class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = ButtonMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuButtonActivity::class.java.simpleName
         }
         btShineButton.setOnClickListener(this)
         btCircularImageClick.setOnClickListener(this)

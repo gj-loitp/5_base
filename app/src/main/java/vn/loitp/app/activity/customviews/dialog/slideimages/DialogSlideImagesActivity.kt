@@ -22,6 +22,10 @@ class DialogSlideImagesActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         val url0 = Constants.URL_IMG_1
         val url1 = Constants.URL_IMG_2
         val url2 = Constants.URL_IMG_3

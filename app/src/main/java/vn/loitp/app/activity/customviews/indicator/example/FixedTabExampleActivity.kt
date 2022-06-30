@@ -46,6 +46,10 @@ class FixedTabExampleActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         viewPager.adapter = mExamplePagerAdapter
         initMagicIndicator1()
         initMagicIndicator2()

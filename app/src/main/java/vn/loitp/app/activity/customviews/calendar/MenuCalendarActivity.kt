@@ -11,11 +11,11 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_calendar_menu.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.calendar.cosmocalendar.calendarview.CosmoCalendarActivity
+import vn.loitp.app.activity.customviews.calendar.cosmocalendar.CosmoCalendarActivity
 
-@LogTag("CalendarMenuActivity")
+@LogTag("MenuCalendarActivity")
 @IsFullScreen(false)
-class CalendarMenuActivity : BaseFontActivity(), View.OnClickListener {
+class MenuCalendarActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_calendar_menu
@@ -37,7 +37,7 @@ class CalendarMenuActivity : BaseFontActivity(), View.OnClickListener {
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = CalendarMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuCalendarActivity::class.java.simpleName
         }
         btCalendar.setOnClickListener(this)
     }

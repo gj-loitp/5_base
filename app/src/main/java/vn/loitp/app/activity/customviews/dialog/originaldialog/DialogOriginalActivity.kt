@@ -140,9 +140,11 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         testRun?.execute()
     }
 
-    private class TestRun(private val context: Context) : AsyncTask<Void, Int, Void>() {
+    private class TestRun(private val context: Context) :
+        AsyncTask<Void, Int, Void>() {
         private var progressDialog: ProgressDialog? = null
 
+        @Deprecated("Deprecated in Java")
         override fun onPreExecute() {
             super.onPreExecute()
             progressDialog = LDialogUtil.showProgressDialog(
@@ -156,6 +158,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
             )
         }
 
+        @Deprecated("Deprecated in Java")
         override fun doInBackground(vararg voids: Void): Void? {
             progressDialog?.max?.let {
                 for (i in 0 until it) {
@@ -170,6 +173,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
             return null
         }
 
+        @Deprecated("Deprecated in Java")
         override fun onProgressUpdate(vararg values: Int?) {
             super.onProgressUpdate(*values)
             values[0]?.let {
@@ -177,6 +181,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
             }
         }
 
+        @Deprecated("Deprecated in Java")
         override fun onPostExecute(result: Void?) {
             super.onPostExecute(result)
             progressDialog?.dismiss()

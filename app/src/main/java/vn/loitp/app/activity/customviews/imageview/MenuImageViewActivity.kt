@@ -29,7 +29,7 @@ import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewAc
 
 @LogTag("ImageViewMenuActivity")
 @IsFullScreen(false)
-class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
+class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_imageview_menu
@@ -51,7 +51,7 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
             )
             this.ivIconRight?.isVisible = false
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = ImageViewMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuImageViewActivity::class.java.simpleName
         }
         btCirleImageView.setOnClickListener(this)
         btStretchyImageView.setOnClickListener(this)

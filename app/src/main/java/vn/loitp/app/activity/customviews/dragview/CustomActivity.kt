@@ -4,9 +4,9 @@ import android.os.Bundle
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.setSafeOnClickListener
 import com.tuanhav95.drag.DragView
 import com.tuanhav95.drag.utils.toPx
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_drag_view_custom.*
 import kotlinx.android.synthetic.main.layout_drag_view_bottom.*
 import vn.loitp.app.R
@@ -15,7 +15,7 @@ import vn.loitp.app.activity.customviews.dragview.fragment.NormalTopFragment
 import kotlin.math.max
 import kotlin.math.min
 
-@LogTag("MenuCustomViewsActivity")
+@LogTag("CustomActivity")
 @IsFullScreen(false)
 class CustomActivity : BaseFontActivity() {
 

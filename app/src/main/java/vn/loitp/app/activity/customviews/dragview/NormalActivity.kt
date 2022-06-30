@@ -4,8 +4,8 @@ import android.os.Bundle
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.tuanhav95.drag.DragView
 import com.loitpcore.views.setSafeOnClickListener
+import com.tuanhav95.drag.DragView
 import kotlinx.android.synthetic.main.activity_drag_view_normal.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.dragview.fragment.BottomFragment
