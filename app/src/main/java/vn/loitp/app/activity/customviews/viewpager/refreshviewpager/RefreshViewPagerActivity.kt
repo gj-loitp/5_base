@@ -23,6 +23,10 @@ class RefreshViewPagerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         vp.adapter = SamplePagerAdapter(supportFragmentManager)
         LUIUtil.setPullLikeIOSHorizontal(vp)
         tabLayout.setupWithViewPager(vp)

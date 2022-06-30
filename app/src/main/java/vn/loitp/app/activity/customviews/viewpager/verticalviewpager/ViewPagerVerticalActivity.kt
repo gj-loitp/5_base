@@ -6,7 +6,6 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_view_pager_vertical.*
 import vn.loitp.app.R
-import java.util.*
 
 @LogTag("ViewPagerVerticalActivity")
 @IsFullScreen(false)
@@ -22,11 +21,10 @@ class ViewPagerVerticalActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         addData()
-        viewPager.adapter =
-            VerticalAdapter(
-                supportFragmentManager,
-                stringList
-            )
+        viewPager.adapter = VerticalAdapter(
+            supportFragmentManager,
+            stringList
+        )
     }
 
     private fun addData() {

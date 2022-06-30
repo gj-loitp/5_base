@@ -11,7 +11,6 @@ import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_view_pager_detect_swipe_out.*
 import vn.loitp.app.R
-import java.util.*
 
 @LogTag("DetectViewPagerSwipeOutActivity")
 @IsFullScreen(false)

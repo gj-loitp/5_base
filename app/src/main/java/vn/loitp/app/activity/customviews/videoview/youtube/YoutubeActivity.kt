@@ -20,6 +20,10 @@ class YoutubeActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         bt0.setSafeOnClickListener {
             LUIUtil.playYoutube(
                 activity = this,

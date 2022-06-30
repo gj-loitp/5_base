@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.core.view.isVisible
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -29,6 +30,7 @@ import vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActiv
 
 @LogTag("TextViewMenuActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {

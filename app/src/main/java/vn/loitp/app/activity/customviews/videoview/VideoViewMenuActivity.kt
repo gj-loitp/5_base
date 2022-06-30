@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.videoview
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -17,6 +18,7 @@ import vn.loitp.app.activity.customviews.videoview.youtube.YoutubeActivity
 
 @LogTag("VideoViewMenuActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class VideoViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
@@ -26,6 +28,10 @@ class VideoViewMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btExoPlayer2.setOnClickListener(this)
         btExoPlayer2IMA.setOnClickListener(this)
         bt2.setOnClickListener(this)

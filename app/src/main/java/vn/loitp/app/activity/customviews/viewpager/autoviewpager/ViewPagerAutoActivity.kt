@@ -24,6 +24,10 @@ class ViewPagerAutoActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         viewPager.adapter = SamplePagerAdapter(supportFragmentManager)
         // viewPager.setIndeterminate(true)
         viewPager.setAutoScrollEnabled(true)

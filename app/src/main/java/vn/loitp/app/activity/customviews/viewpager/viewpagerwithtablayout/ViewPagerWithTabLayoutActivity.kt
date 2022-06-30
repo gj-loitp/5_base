@@ -18,7 +18,6 @@ import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.viewpager.viewpagertransformers.*
 import kotlinx.android.synthetic.main.activity_viewpager_with_tablayout.*
 import vn.loitp.app.R
-import java.util.*
 
 // https://github.com/geftimov/android-viewpager-transformers
 @LogTag("ViewPagerWithTabLayoutActivity")
@@ -54,6 +53,10 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         for (i in 0..19) {
             resList.add(LStoreUtil.randomColor)
         }

@@ -1,12 +1,13 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer
 
 import android.os.Bundle
+import com.google.android.exoplayer2.ui.PlayerView
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LScreenUtil
-import com.google.android.exoplayer2.ui.PlayerView
 import com.loitpcore.views.exo.PlayerManager
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_video_exo_player3.*
 import vn.loitp.app.R
 
@@ -22,12 +23,16 @@ class ExoPlayerActivity3 : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         val linkPlay =
             "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
         playerManager = PlayerManager(this)
         playerManager?.init(context = this, playerView = playerView0, linkPlay = linkPlay)
 
-        bt0To1.setOnClickListener {
+        bt0To1.setSafeOnClickListener {
             playerView0.player?.let { p ->
                 PlayerView.switchTargetView(
                     p,
@@ -36,7 +41,7 @@ class ExoPlayerActivity3 : BaseFontActivity() {
                 )
             }
         }
-        bt1To0.setOnClickListener {
+        bt1To0.setSafeOnClickListener {
             playerView1.player?.let { p ->
                 PlayerView.switchTargetView(
                     p,

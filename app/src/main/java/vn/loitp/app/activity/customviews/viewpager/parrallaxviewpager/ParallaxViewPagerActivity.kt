@@ -15,7 +15,6 @@ import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.views.viewpager.parrallax.ParrallaxMode
 import kotlinx.android.synthetic.main.activity_viewpager_parallax.*
 import vn.loitp.app.R
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("ParallaxViewPagerActivity")
 @IsFullScreen(false)
@@ -29,6 +28,10 @@ class ParallaxViewPagerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         for (i in 0..19) {
             resList.add(LStoreUtil.randomColor)
         }
