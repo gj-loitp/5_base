@@ -7,7 +7,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "loitp93.basemaster"
+        applicationId "com.roygroup.base"
         minSdkVersion 24
         targetSdk 32
         versionCode 20220522

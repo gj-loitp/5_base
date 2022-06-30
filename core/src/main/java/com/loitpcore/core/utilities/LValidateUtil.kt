@@ -66,8 +66,8 @@ class LValidateUtil {
             "loitp93.rss.vnexpress", // admob ban
             "loitp93.basemaster",
             "loitp.khotruyenvuive",
-            "loitp.khotruyenvuive",
-            "com.roygroup.vnexpress"
+            "com.roygroup.base",
+            "com.roygroup.vnexpress",
         )
 
         fun isValidPackageName(): Boolean {
