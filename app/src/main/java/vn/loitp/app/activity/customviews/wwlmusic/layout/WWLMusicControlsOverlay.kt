@@ -16,7 +16,7 @@ class WWLMusicControlsOverlay(context: Context) : FrameLayout(context), View.OnC
     private val layoutBottomEndContainer: ViewGroup
     private val btFullscreen: ImageView
     private var listener: Listener? = null
-    private var isHided = false
+    private var isHide = false
 
     override fun onClick(v: View) {
         if (v === btPlayerCollapse) {
@@ -28,12 +28,12 @@ class WWLMusicControlsOverlay(context: Context) : FrameLayout(context), View.OnC
 
     fun showControls() {
         layoutControls.visibility = VISIBLE
-        isHided = false
+        isHide = false
     }
 
     fun hideControls() {
         layoutControls.visibility = GONE
-        isHided = true
+        isHide = true
     }
 
     fun setListener(l: Listener?) {
@@ -45,7 +45,7 @@ class WWLMusicControlsOverlay(context: Context) : FrameLayout(context), View.OnC
     }
 
     fun toggleControls() {
-        if (isHided) {
+        if (isHide) {
             showControls()
         } else {
             hideControls()

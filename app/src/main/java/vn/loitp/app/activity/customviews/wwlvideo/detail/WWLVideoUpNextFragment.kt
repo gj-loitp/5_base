@@ -40,6 +40,11 @@ class WWLVideoUpNextFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+        updateLayoutIfNeed()
+    }
+
+    private fun setupViews() {
         mLayoutManager = GridLayoutManager(activity, LWWLMusicUiUtil.getGridColumnCount(resources))
         recyclerView.layoutManager = mLayoutManager
         mAdapter = CustomAdapter(WWLVideoDataset.datasetItems)
@@ -49,7 +54,6 @@ class WWLVideoUpNextFragment : BaseFragment() {
                 return this@WWLVideoUpNextFragment.getSpanSize(position)
             }
         }
-        updateLayoutIfNeed()
     }
 
     @Suppress("NAME_SHADOWING")
@@ -70,6 +74,7 @@ class WWLVideoUpNextFragment : BaseFragment() {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
         if (mFragmentHost is FragmentHost) {

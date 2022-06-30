@@ -32,13 +32,18 @@ class WWLHomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+        updateLayoutIfNeed()
+    }
+
+    private fun setupViews() {
         mLayoutManager = GridLayoutManager(activity, getGridColumnCount(resources))
         recyclerView.layoutManager = mLayoutManager
         customAdapter = CustomAdapter(WWLMusicDataset.datasetItems)
         recyclerView.adapter = customAdapter
-        updateLayoutIfNeed()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
         mFragmentHost = activity as FragmentHost

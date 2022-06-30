@@ -49,6 +49,7 @@ class WWLWatchFragment : BaseFragment(), SurfaceTextureListener, WWLMusicControl
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
         mFragmentHost = activity as FragmentHost

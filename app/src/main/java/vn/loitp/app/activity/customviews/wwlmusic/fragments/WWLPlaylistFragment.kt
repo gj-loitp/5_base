@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.wwl_music_playlist_fragment.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("WWLPlaylistFragment")
 class WWLPlaylistFragment : BaseFragment() {
@@ -29,6 +28,10 @@ class WWLPlaylistFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         mLayoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = mLayoutManager
         recyclerView.scrollToPosition(0)
@@ -36,6 +39,7 @@ class WWLPlaylistFragment : BaseFragment() {
         recyclerView.adapter = mAdapter
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
         mFragmentHost = activity as FragmentHost

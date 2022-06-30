@@ -37,6 +37,10 @@ class WWLVideoActivity : BaseActivity(), LWWLVideo.Listener, FragmentHost {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         watchWhileLayout.setListener(this)
         frmPlayer =
             supportFragmentManager.findFragmentById(R.id.frmPlayer) as WWLVideoPlayerFragment?

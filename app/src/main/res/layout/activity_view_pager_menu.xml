@@ -56,7 +56,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btViewPager2"
                 style="@style/ButtonMenu"
-                android:text="ViewPager 2" />
+                android:text="ViewPager 2 (+)" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btViewPagerTabLayout"

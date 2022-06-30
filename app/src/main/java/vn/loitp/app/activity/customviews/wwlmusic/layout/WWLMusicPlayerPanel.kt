@@ -12,11 +12,11 @@ import vn.loitp.app.R
 
 class WWLMusicPlayerPanel(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
 
-    var mBgColorDrawable: ColorDrawable = ColorDrawable()
-    var layoutMiniControlsContainer: View? = null
-    var layoutMusicPlayerView: FrameLayout? = null
-    var playButton: ImageView? = null
-    var pauseButton: ImageView? = null
+    private var mBgColorDrawable: ColorDrawable = ColorDrawable()
+    private var layoutMiniControlsContainer: View? = null
+    private var layoutMusicPlayerView: FrameLayout? = null
+    private var playButton: ImageView? = null
+    private var pauseButton: ImageView? = null
 
     override fun onFinishInflate() {
         super.onFinishInflate()

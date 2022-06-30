@@ -31,6 +31,10 @@ class WWLActivityMusic : BaseFontActivity(), LWWLMusic.Listener, FragmentHost {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         watchWhileLayout.setListener(this)
         frmWatch = supportFragmentManager.findFragmentById(R.id.frmWatch) as WWLWatchFragment?
         frmPlaylist =

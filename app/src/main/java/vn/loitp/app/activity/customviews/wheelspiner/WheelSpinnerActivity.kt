@@ -8,7 +8,6 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_wheel_spinner.*
 import vn.loitp.app.R
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("WheelSpinnerActivity")
 @IsFullScreen(false)

@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.wwl_video_home_fragment.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset
-import java.util.*
 
 @LogTag("HomeFragment")
 class HomeFragment : BaseFragment() {
@@ -33,14 +32,19 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+        updateLayoutIfNeed()
+    }
+
+    private fun setupViews() {
         gridLayoutManager =
             GridLayoutManager(activity, LWWLMusicUiUtil.getGridColumnCount(resources))
         recyclerView.layoutManager = gridLayoutManager
         customAdapter = CustomAdapter(WWLVideoDataset.datasetItems)
         recyclerView.adapter = customAdapter
-        updateLayoutIfNeed()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
         fragmentHost = activity as FragmentHost
