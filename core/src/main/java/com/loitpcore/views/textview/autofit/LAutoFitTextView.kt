@@ -13,9 +13,9 @@ import androidx.appcompat.widget.AppCompatTextView
  * @attr ref R.styleable.AutofitTextView_minTextSize
  * @attr ref R.styleable.AutofitTextView_precision
  */
-class LAutofitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListener {
+class LAutoFitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListener {
 
-    private var autofitHelper: AutofitHelper? = null
+    private var autoFitHelper: AutofitHelper? = null
 
     constructor(context: Context) : super(context) {
         init(context, null, 0)
@@ -34,29 +34,29 @@ class LAutofitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
     }
 
     private fun init(context: Context, attrs: AttributeSet?, defStyle: Int) {
-        autofitHelper = AutofitHelper.create(this, attrs, defStyle)
+        autoFitHelper = AutofitHelper.create(this, attrs, defStyle)
             .addOnTextSizeChangeListener(this)
     }
 
     override fun setTextSize(unit: Int, size: Float) {
         super.setTextSize(unit, size)
-        autofitHelper?.setTextSize(unit, size)
+        autoFitHelper?.setTextSize(unit, size)
     }
 
     override fun setLines(lines: Int) {
         super.setLines(lines)
-        autofitHelper?.maxLines = lines
+        autoFitHelper?.maxLines = lines
     }
 
     override fun setMaxLines(maxLines: Int) {
         super.setMaxLines(maxLines)
-        autofitHelper?.maxLines = maxLines
+        autoFitHelper?.maxLines = maxLines
     }
 
     private var isSizeToFit: Boolean
-        get() = autofitHelper?.isEnabled ?: false
+        get() = autoFitHelper?.isEnabled ?: false
         set(sizeToFit) {
-            autofitHelper?.isEnabled = sizeToFit
+            autoFitHelper?.isEnabled = sizeToFit
         }
 
     /**
@@ -77,9 +77,9 @@ class LAutofitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
      * @attr ref android.R.styleable#TextView_textSize
      */
     var maxTextSize: Float
-        get() = autofitHelper?.maxTextSize ?: 0f
+        get() = autoFitHelper?.maxTextSize ?: 0f
         set(size) {
-            autofitHelper?.maxTextSize = size
+            autoFitHelper?.maxTextSize = size
         }
 
     /**
@@ -91,14 +91,14 @@ class LAutofitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
      * @attr ref android.R.styleable#TextView_textSize
      */
     fun setMaxTextSize(unit: Int, size: Float) {
-        autofitHelper?.setMaxTextSize(unit, size)
+        autoFitHelper?.setMaxTextSize(unit, size)
     }
 
     /**
      * Returns the minimum size (in pixels) of the text in this View.
      */
     val minTextSize: Float
-        get() = autofitHelper?.minTextSize ?: 0f
+        get() = autoFitHelper?.minTextSize ?: 0f
 
     /**
      * Set the minimum text size to the given value, interpreted as "scaled pixel" units. This size
@@ -108,7 +108,7 @@ class LAutofitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
      * @attr ref me.grantland.R.styleable#AutofitTextView_minTextSize
      */
     fun setMinTextSize(minSize: Int) {
-        autofitHelper?.setMinTextSize(TypedValue.COMPLEX_UNIT_SP, minSize.toFloat())
+        autoFitHelper?.setMinTextSize(TypedValue.COMPLEX_UNIT_SP, minSize.toFloat())
     }
 
     /**
@@ -120,7 +120,7 @@ class LAutofitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
      * @attr ref me.grantland.R.styleable#AutofitTextView_minTextSize
      */
     fun setMinTextSize(unit: Int, minSize: Float) {
-        autofitHelper?.setMinTextSize(unit, minSize)
+        autoFitHelper?.setMinTextSize(unit, minSize)
     }
     /**
      * Returns the amount of precision used to calculate the correct text size to fit within its
@@ -133,9 +133,9 @@ class LAutofitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
      * @param precision The amount of precision.
      */
     var precision: Float?
-        get() = autofitHelper?.precision
+        get() = autoFitHelper?.precision
         set(precision) {
-            autofitHelper?.precision = precision ?: 0f
+            autoFitHelper?.precision = precision ?: 0f
         }
 
     override fun onTextSizeChange(textSize: Float, oldTextSize: Float) {

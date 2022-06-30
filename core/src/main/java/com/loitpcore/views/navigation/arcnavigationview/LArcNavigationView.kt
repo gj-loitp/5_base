@@ -46,12 +46,16 @@ class LArcNavigationView : NavigationView {
         settings?.elevation = ViewCompat.getElevation(this)
         setBackgroundColor(Color.TRANSPARENT)
         setInsetsColor(Color.TRANSPARENT)
-        THRESHOLD = dpToPx(context = getContext(), dp = 15).roundToInt() //some threshold for child views while remeasuring them
+        THRESHOLD = dpToPx(
+            context = getContext(),
+            dp = 15
+        ).roundToInt() //some threshold for child views while remeasuring them
     }
 
     private fun setInsetsColor(color: Int) {
         try {
-            val insetForegroundField = ScrimInsetsFrameLayout::class.java.getDeclaredField("mInsetForeground")
+            val insetForegroundField =
+                ScrimInsetsFrameLayout::class.java.getDeclaredField("mInsetForeground")
             insetForegroundField.isAccessible = true
             val colorDrawable = ColorDrawable(color)
             insetForegroundField[this] = colorDrawable
@@ -69,56 +73,94 @@ class LArcNavigationView : NavigationView {
             val arcWidth = s.arcWidth
             val layoutParams = layoutParams as DrawerLayout.LayoutParams
             if (s.isCropInside) {
-                if (layoutParams.gravity == Gravity.START || layoutParams.gravity == Gravity.LEFT) {
-                    arcPath?.let { p ->
-                        p.moveTo(mWidth.toFloat(), 0f)
-                        p.quadTo(mWidth - arcWidth, (mHeight / 2).toFloat(), mWidth.toFloat(), mHeight.toFloat())
-                        p.close()
-                        path.moveTo(0f, 0f)
-                        path.lineTo(mWidth.toFloat(), 0f)
-                        path.quadTo(mWidth - arcWidth, (mHeight / 2).toFloat(), mWidth.toFloat(), mHeight.toFloat())
-                        path.lineTo(0f, mHeight.toFloat())
-                        path.close()
+                when (layoutParams.gravity) {
+                    Gravity.START, Gravity.LEFT -> {
+                        arcPath?.let { p ->
+                            p.moveTo(mWidth.toFloat(), 0f)
+                            p.quadTo(
+                                mWidth - arcWidth,
+                                (mHeight / 2).toFloat(),
+                                mWidth.toFloat(),
+                                mHeight.toFloat()
+                            )
+                            p.close()
+                            path.moveTo(0f, 0f)
+                            path.lineTo(mWidth.toFloat(), 0f)
+                            path.quadTo(
+                                mWidth - arcWidth,
+                                (mHeight / 2).toFloat(),
+                                mWidth.toFloat(),
+                                mHeight.toFloat()
+                            )
+                            path.lineTo(0f, mHeight.toFloat())
+                            path.close()
+                        }
                     }
-                } else if (layoutParams.gravity == Gravity.END || layoutParams.gravity == Gravity.RIGHT) {
-                    arcPath?.let { p ->
-                        p.moveTo(0f, 0f)
-                        p.quadTo(arcWidth, (mHeight / 2).toFloat(), 0f, mHeight.toFloat())
-                        p.close()
-                        path.moveTo(mWidth.toFloat(), 0f)
-                        path.lineTo(0f, 0f)
-                        path.quadTo(arcWidth, (mHeight / 2).toFloat(), 0f, mHeight.toFloat())
-                        path.lineTo(mWidth.toFloat(), mHeight.toFloat())
-                        path.close()
+                    Gravity.END, Gravity.RIGHT -> {
+                        arcPath?.let { p ->
+                            p.moveTo(0f, 0f)
+                            p.quadTo(arcWidth, (mHeight / 2).toFloat(), 0f, mHeight.toFloat())
+                            p.close()
+                            path.moveTo(mWidth.toFloat(), 0f)
+                            path.lineTo(0f, 0f)
+                            path.quadTo(arcWidth, (mHeight / 2).toFloat(), 0f, mHeight.toFloat())
+                            path.lineTo(mWidth.toFloat(), mHeight.toFloat())
+                            path.close()
+                        }
                     }
-                } else {
-                    //do nothing
+                    else -> {
+                        //do nothing
+                    }
                 }
             } else {
-                if (layoutParams.gravity == Gravity.START || layoutParams.gravity == Gravity.LEFT) {
-                    arcPath?.let { p ->
-                        p.moveTo(mWidth - arcWidth / 2, 0f)
-                        p.quadTo(mWidth + arcWidth / 2, (mHeight / 2).toFloat(), mWidth - arcWidth / 2, mHeight.toFloat())
-                        p.close()
-                        path.moveTo(0f, 0f)
-                        path.lineTo(mWidth - arcWidth / 2, 0f)
-                        path.quadTo(mWidth + arcWidth / 2, (mHeight / 2).toFloat(), mWidth - arcWidth / 2, mHeight.toFloat())
-                        path.lineTo(0f, mHeight.toFloat())
-                        path.close()
+                when (layoutParams.gravity) {
+                    Gravity.START, Gravity.LEFT -> {
+                        arcPath?.let { p ->
+                            p.moveTo(mWidth - arcWidth / 2, 0f)
+                            p.quadTo(
+                                mWidth + arcWidth / 2,
+                                (mHeight / 2).toFloat(),
+                                mWidth - arcWidth / 2,
+                                mHeight.toFloat()
+                            )
+                            p.close()
+                            path.moveTo(0f, 0f)
+                            path.lineTo(mWidth - arcWidth / 2, 0f)
+                            path.quadTo(
+                                mWidth + arcWidth / 2,
+                                (mHeight / 2).toFloat(),
+                                mWidth - arcWidth / 2,
+                                mHeight.toFloat()
+                            )
+                            path.lineTo(0f, mHeight.toFloat())
+                            path.close()
+                        }
                     }
-                } else if (layoutParams.gravity == Gravity.END || layoutParams.gravity == Gravity.RIGHT) {
-                    arcPath?.let { p ->
-                        p.moveTo(arcWidth / 2, 0f)
-                        p.quadTo(-arcWidth / 2, (mHeight / 2).toFloat(), arcWidth / 2, mHeight.toFloat())
-                        p.close()
-                        path.moveTo(mWidth.toFloat(), 0f)
-                        path.lineTo(arcWidth / 2, 0f)
-                        path.quadTo(-arcWidth / 2, (mHeight / 2).toFloat(), arcWidth / 2, mHeight.toFloat())
-                        path.lineTo(mWidth.toFloat(), mHeight.toFloat())
-                        path.close()
+                    Gravity.END, Gravity.RIGHT -> {
+                        arcPath?.let { p ->
+                            p.moveTo(arcWidth / 2, 0f)
+                            p.quadTo(
+                                -arcWidth / 2,
+                                (mHeight / 2).toFloat(),
+                                arcWidth / 2,
+                                mHeight.toFloat()
+                            )
+                            p.close()
+                            path.moveTo(mWidth.toFloat(), 0f)
+                            path.lineTo(arcWidth / 2, 0f)
+                            path.quadTo(
+                                -arcWidth / 2,
+                                (mHeight / 2).toFloat(),
+                                arcWidth / 2,
+                                mHeight.toFloat()
+                            )
+                            path.lineTo(mWidth.toFloat(), mHeight.toFloat())
+                            path.close()
+                        }
                     }
-                } else {
-                    //do nothing
+                    else -> {
+                        //do nothing
+                    }
                 }
             }
         }
@@ -133,11 +175,15 @@ class LArcNavigationView : NavigationView {
         }
     }
 
-    override fun measureChild(child: View, parentWidthMeasureSpec: Int, parentHeightMeasureSpec: Int) {
+    override fun measureChild(
+        child: View,
+        parentWidthMeasureSpec: Int,
+        parentHeightMeasureSpec: Int
+    ) {
         if (child is NavigationMenuView) {
             child.measure(
-                    MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY),
-                    MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec.EXACTLY)
+                MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY),
+                MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec.EXACTLY)
             )
         } else {
             super.measureChild(child, parentWidthMeasureSpec, parentHeightMeasureSpec)
@@ -190,23 +236,43 @@ class LArcNavigationView : NavigationView {
                 val pathCenterPointForItem = floatArrayOf(0f, 0f)
                 val location = locateView(child)
                 val halfHeight = location.height() / 2
-                pathMeasure.getPosTan((location.top + halfHeight).toFloat(), pathCenterPointForItem, null)
+                pathMeasure.getPosTan(
+                    (location.top + halfHeight).toFloat(),
+                    pathCenterPointForItem,
+                    null
+                )
                 if (layoutParams.gravity == Gravity.END || layoutParams.gravity == Gravity.RIGHT) {
                     val centerPathPoint = measuredWidth - pathCenterPointForItem[0].roundToInt()
                     if (child.measuredWidth > centerPathPoint) {
                         child.measure(
-                                MeasureSpec.makeMeasureSpec(centerPathPoint - THRESHOLD, MeasureSpec.EXACTLY),
-                                MeasureSpec.makeMeasureSpec(child.measuredHeight, MeasureSpec.EXACTLY)
+                            MeasureSpec.makeMeasureSpec(
+                                centerPathPoint - THRESHOLD,
+                                MeasureSpec.EXACTLY
+                            ),
+                            MeasureSpec.makeMeasureSpec(child.measuredHeight, MeasureSpec.EXACTLY)
                         )
-                        child.layout(centerPathPoint + THRESHOLD, child.top, child.right, child.bottom)
+                        child.layout(
+                            centerPathPoint + THRESHOLD,
+                            child.top,
+                            child.right,
+                            child.bottom
+                        )
                     }
                 } else if (layoutParams.gravity == Gravity.START || layoutParams.gravity == Gravity.LEFT) {
                     if (child.measuredWidth > pathCenterPointForItem[0]) {
                         child.measure(
-                                MeasureSpec.makeMeasureSpec(pathCenterPointForItem[0].roundToInt() - THRESHOLD, MeasureSpec.EXACTLY),
-                                MeasureSpec.makeMeasureSpec(child.measuredHeight, MeasureSpec.EXACTLY)
+                            MeasureSpec.makeMeasureSpec(
+                                pathCenterPointForItem[0].roundToInt() - THRESHOLD,
+                                MeasureSpec.EXACTLY
+                            ),
+                            MeasureSpec.makeMeasureSpec(child.measuredHeight, MeasureSpec.EXACTLY)
                         )
-                        child.layout(child.left, child.top, pathCenterPointForItem[0].roundToInt() - THRESHOLD, child.bottom)
+                        child.layout(
+                            child.left,
+                            child.top,
+                            pathCenterPointForItem[0].roundToInt() - THRESHOLD,
+                            child.bottom
+                        )
                     }
                 }
                 //set text ellipsize to end to prevent it from overlapping edge

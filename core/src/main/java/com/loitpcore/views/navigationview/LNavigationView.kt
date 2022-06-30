@@ -7,9 +7,9 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAnimationUtil
-import com.daimajia.androidanimations.library.Techniques
 
 class LNavigationView : RelativeLayout, View.OnClickListener {
     var ivPrev: ImageView? = null
@@ -17,7 +17,7 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
     var tv: TextView? = null
 
     private var stringList = ArrayList<String>()
-    private var currenIndex = 0
+    private var currentIndex = 0
     var colorOn = Color.BLACK
     var colorOff = Color.GRAY
     var isEnableAnimation = true
@@ -78,7 +78,7 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
         if (stringList == null || stringList.isEmpty()) {
             return
         }
-        currenIndex = 0
+        currentIndex = 0
         this.stringList = stringList
         updateUI()
     }
@@ -90,12 +90,12 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
         if (index < 0 || index > stringList.size - 1) {
             return
         }
-        currenIndex = index
+        currentIndex = index
         updateUI()
     }
 
     private fun updateUI() {
-        val s = stringList[currenIndex]
+        val s = stringList[currentIndex]
         tv?.text = s
         if (isEnableAnimation) {
             LAnimationUtil.play(view = tv, techniques = Techniques.FlipInX)
@@ -106,11 +106,11 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
             setEnableController(imageView = ivNext, isEnable = false)
         } else {
             when {
-                currenIndex <= 0 -> {
+                currentIndex <= 0 -> {
                     setEnableController(imageView = ivPrev, isEnable = false)
                     setEnableController(imageView = ivNext, isEnable = true)
                 }
-                currenIndex >= size - 1 -> {
+                currentIndex >= size - 1 -> {
                     setEnableController(imageView = ivPrev, isEnable = true)
                     setEnableController(imageView = ivNext, isEnable = false)
                 }
@@ -120,7 +120,7 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
                 }
             }
         }
-        nvCallback?.onIndexChange(index = currenIndex, s = s)
+        nvCallback?.onIndexChange(index = currentIndex, s = s)
     }
 
     override fun onClick(view: View) {
@@ -128,13 +128,13 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
             if (isEnableAnimation) {
                 LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
             }
-            currenIndex--
+            currentIndex--
             updateUI()
         } else if (view === ivNext) {
             if (isEnableAnimation) {
                 LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
             }
-            currenIndex++
+            currentIndex++
             updateUI()
         }
     }
@@ -143,7 +143,7 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
         return stringList
     }
 
-    fun getCurrenIndex(): Int {
-        return currenIndex
+    fun getCurrentIndex(): Int {
+        return currentIndex
     }
 }

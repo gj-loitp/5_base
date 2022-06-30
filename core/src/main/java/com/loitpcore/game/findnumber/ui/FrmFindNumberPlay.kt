@@ -20,7 +20,7 @@ import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.game.findnumber.dialog.FindNumberWinActivity
 import com.loitpcore.game.findnumber.model.Level
-import com.loitpcore.views.textview.autofit.LAutofitTextView
+import com.loitpcore.views.textview.autofit.LAutoFitTextView
 import kotlinx.android.synthetic.main.l_frm_find_number_play.*
 
 @LogTag("FrmFindNumberPlay")
@@ -78,7 +78,7 @@ class FrmFindNumberPlay(
         context?.let { c ->
             for (iRow in 0 until mRows) {
                 for (iCol in 0 until mCols) {
-                    val lAutofitTextView = LAutofitTextView(c)
+                    val lAutofitTextView = LAutoFitTextView(c)
                     layoutParams = ConstraintLayout.LayoutParams(
                         ConstraintSet.MATCH_CONSTRAINT,
                         ConstraintSet.MATCH_CONSTRAINT

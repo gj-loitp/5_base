@@ -17,14 +17,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
+import com.github.mmin18.widget.RealtimeBlurView;
 import com.loitpcore.R;
 import com.loitpcore.core.utilities.LUIUtil;
-import com.github.mmin18.widget.RealtimeBlurView;
+import com.loitpcore.views.layout.floatdraglayout.DisplayUtil;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.view.ViewHelper;
-import com.loitpcore.views.layout.floatdraglayout.DisplayUtil;
 
 import java.util.ArrayList;
 import java.util.List;

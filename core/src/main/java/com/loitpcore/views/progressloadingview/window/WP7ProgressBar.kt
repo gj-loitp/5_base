@@ -10,7 +10,6 @@ import android.view.animation.LinearInterpolator
 import android.widget.LinearLayout
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource.getColor
-import java.util.*
 
 class WP7ProgressBar : LinearLayout {
 
@@ -41,7 +40,11 @@ class WP7ProgressBar : LinearLayout {
         initialize(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         initialize(attrs)
     }
 
@@ -56,10 +59,18 @@ class WP7ProgressBar : LinearLayout {
     private fun setAttributes(attributeSet: AttributeSet?) {
         val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.WP7ProgressBar)
         interval = typedArray.getInt(R.styleable.WP7ProgressBar_wpInterval, INTERVAL_DEF)
-        animationDuration = typedArray.getInt(R.styleable.WP7ProgressBar_wpAnimationDuration, ANIMATION_DURATION_DEF)
-        indicatorHeight = typedArray.getInt(R.styleable.WP7ProgressBar_wpIndicatorHeight, INDICATOR_HEIGHT_DEF)
-        indicatorRadius = typedArray.getInt(R.styleable.WP7ProgressBar_wpIndicatorRadius, INDICATOR_RADIUS_DEF)
-        indicatorColor = typedArray.getColor(R.styleable.WP7ProgressBar_wpIndicatorColor, getColor(R.color.colorAccent))
+        animationDuration = typedArray.getInt(
+            R.styleable.WP7ProgressBar_wpAnimationDuration,
+            ANIMATION_DURATION_DEF
+        )
+        indicatorHeight =
+            typedArray.getInt(R.styleable.WP7ProgressBar_wpIndicatorHeight, INDICATOR_HEIGHT_DEF)
+        indicatorRadius =
+            typedArray.getInt(R.styleable.WP7ProgressBar_wpIndicatorRadius, INDICATOR_RADIUS_DEF)
+        indicatorColor = typedArray.getColor(
+            R.styleable.WP7ProgressBar_wpIndicatorColor,
+            getColor(R.color.colorAccent)
+        )
         typedArray.recycle()
     }
 
@@ -67,8 +78,8 @@ class WP7ProgressBar : LinearLayout {
         listWP7Indicators?.let {
             for (i in it.indices) {
                 it[i].startAnim(
-                        animationDuration = animationDuration.toLong(),
-                        delay = ((5 - i) * interval).toLong()
+                    animationDuration = animationDuration.toLong(),
+                    delay = ((5 - i) * interval).toLong()
                 )
             }
         }
@@ -79,10 +90,10 @@ class WP7ProgressBar : LinearLayout {
         val list = ArrayList<WP7Indicator>()
         for (i in 0 until INDICATOR_COUNT_DEF) {
             val wP7Indicator = WP7Indicator(
-                    context = context,
-                    indicatorHeight = indicatorHeight,
-                    color = indicatorColor,
-                    radius = indicatorRadius
+                context = context,
+                indicatorHeight = indicatorHeight,
+                color = indicatorColor,
+                radius = indicatorRadius
             )
             list.add(wP7Indicator)
             this.addView(wP7Indicator)

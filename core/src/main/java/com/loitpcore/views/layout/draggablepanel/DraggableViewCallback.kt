@@ -135,10 +135,10 @@ internal class DraggableViewCallback
         ) {
             val topBound = draggableView.paddingTop
             val bottomBound = (
-                draggableView.height -
-                    draggableView.draggedViewHeightPlusMarginTop -
-                    draggedView.paddingBottom
-                )
+                    draggableView.height -
+                            draggableView.draggedViewHeightPlusMarginTop -
+                            draggedView.paddingBottom
+                    )
             newTop = min(max(top, topBound), bottomBound)
         }
         return newTop

@@ -14,25 +14,10 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.Scroller;
-import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * <p>Layout container for a view hierarchy that can be scrolled by the user, allowing it to be larger than the
- * physical display. A TwoDScrollView is a {@link FrameLayout}, meaning you should place one child in it containing
- * the entire contents to scroll; this child may itself be a layout manager with a complex hierarchy of objects. A
- * child that is often used is a {@link LinearLayout} in a vertical orientation, presenting a vertical array of
- * top-level items that the user can scroll through.</p>
- *
- * <p>The {@link TextView} class also takes care of its own scrolling, so does not require a TwoDScrollView, but
- * using the two together is possible to achieve the effect of a text view within a larger container.</p>
- * <p>
- * Original source code from Matt Clark at:
- * http://web.archive.org/web/20110625064025/http://blog.gorges.us/2010/06/android-two-dimensional-scrollview
- */
 public class TwoDScrollView extends FrameLayout {
 
     static final int ANIMATED_SCROLL_GAP = 250;

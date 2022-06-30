@@ -7,7 +7,6 @@ import android.view.Gravity
 import android.widget.RelativeLayout
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource.getColor
-import java.util.*
 
 class WP10ProgressBar : RelativeLayout {
 

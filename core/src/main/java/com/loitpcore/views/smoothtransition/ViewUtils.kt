@@ -40,7 +40,7 @@ object ViewUtils {
         dipValue: Int,
         context: Context
     ): Int {
-        var result = 0
+        val result: Int
         val res = context.resources
         result = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,

@@ -2,12 +2,14 @@ package com.loitpcore.views.progressloadingview.window
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.view.View
 import android.widget.LinearLayout
 import com.loitpcore.views.progressloadingview.window.Utils.px2dp
 
+@SuppressLint("ViewConstructor")
 internal class WP7Indicator(
     context: Context,
     indicatorHeight: Int,

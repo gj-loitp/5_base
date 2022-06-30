@@ -210,17 +210,17 @@ class LContinuousScrollableImageView : LinearLayout {
         }
         when (DEFAULT_ASYMPTOTE) {
             HORIZONTAL -> animator?.addUpdateListener(object :
-                    ValueAnimator.AnimatorUpdateListener {
-                    override fun onAnimationUpdate(animation: ValueAnimator) {
-                        run {
-                            val progress = DIRECTION_MULTIPLIER * -(animation.animatedValue as Float)
-                            val width = DIRECTION_MULTIPLIER * (-(firstImage?.width ?: 0)).toFloat()
-                            val translationX = width * progress
-                            firstImage?.translationX = translationX
-                            secondImage?.translationX = translationX - width
-                        }
+                ValueAnimator.AnimatorUpdateListener {
+                override fun onAnimationUpdate(animation: ValueAnimator) {
+                    run {
+                        val progress = DIRECTION_MULTIPLIER * -(animation.animatedValue as Float)
+                        val width = DIRECTION_MULTIPLIER * (-(firstImage?.width ?: 0)).toFloat()
+                        val translationX = width * progress
+                        firstImage?.translationX = translationX
+                        secondImage?.translationX = translationX - width
                     }
-                })
+                }
+            })
             VERTICAL -> animator?.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
                 override fun onAnimationUpdate(animation: ValueAnimator) {
                     run {

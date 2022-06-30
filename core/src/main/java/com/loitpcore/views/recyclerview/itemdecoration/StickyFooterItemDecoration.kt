@@ -30,15 +30,15 @@ class StickyFooterItemDecoration : ItemDecoration() {
 
     private fun calculateTopOffset(parent: RecyclerView, footerView: View, itemCount: Int): Int {
         val topOffset = (
-            parent.height -
-                parent.paddingTop -
-                parent.paddingBottom -
-                visibleChildHeightWithFooter(
-                    parent = parent,
-                    footerView = footerView,
-                    itemCount = itemCount
+                parent.height -
+                        parent.paddingTop -
+                        parent.paddingBottom -
+                        visibleChildHeightWithFooter(
+                            parent = parent,
+                            footerView = footerView,
+                            itemCount = itemCount
+                        )
                 )
-            )
         return if (topOffset < 0) 0 else topOffset
     }
 

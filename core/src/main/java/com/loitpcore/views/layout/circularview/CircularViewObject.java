@@ -10,6 +10,7 @@ import android.util.StateSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CircularViewObject {
@@ -431,13 +432,13 @@ public class CircularViewObject {
         if (visibility != object.visibility) return false;
         if (Float.compare(object.x, x) != 0) return false;
         if (Float.compare(object.y, y) != 0) return false;
-        if (context != null ? !context.equals(object.context) : object.context != null)
+        if (!Objects.equals(context, object.context))
             return false;
-        if (drawable != null ? !drawable.equals(object.drawable) : object.drawable != null)
+        if (!Objects.equals(drawable, object.drawable))
             return false;
-        if (mAdapterDataSetObserver != null ? !mAdapterDataSetObserver.equals(object.mAdapterDataSetObserver) : object.mAdapterDataSetObserver != null)
+        if (!Objects.equals(mAdapterDataSetObserver, object.mAdapterDataSetObserver))
             return false;
-        if (paint != null ? !paint.equals(object.paint) : object.paint != null) return false;
+        if (!Objects.equals(paint, object.paint)) return false;
 
         return true;
     }

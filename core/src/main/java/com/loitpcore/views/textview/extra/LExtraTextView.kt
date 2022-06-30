@@ -63,10 +63,10 @@ open class LExtraTextView : AppCompatTextView {
         drawableHeight =
             typedArray.getDimensionPixelSize(R.styleable.LExtraTextView_ext_txt_drawableHeight, 0)
         drawablePosition = DrawablePosition.values()[
-            typedArray.getInt(
-                R.styleable.LExtraTextView_ext_txt_drawablePosition,
-                DrawablePosition.LEFT.ordinal
-            )
+                typedArray.getInt(
+                    R.styleable.LExtraTextView_ext_txt_drawablePosition,
+                    DrawablePosition.LEFT.ordinal
+                )
         ]
         drawableTint =
             typedArray.getColor(R.styleable.LExtraTextView_ext_txt_drawableTint, Color.TRANSPARENT)

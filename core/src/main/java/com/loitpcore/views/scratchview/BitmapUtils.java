@@ -4,9 +4,6 @@ import android.graphics.Bitmap;
 
 import java.nio.ByteBuffer;
 
-/**
- * Created by sharish on 15/09/16.
- */
 public class BitmapUtils {
 
     /**

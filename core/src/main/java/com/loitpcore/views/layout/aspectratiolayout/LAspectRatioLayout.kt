@@ -20,19 +20,19 @@ class LAspectRatioLayout : FrameLayout {
     private var heightRatio = 0f
 
     constructor(context: Context) :
-        super(context) {
-            init(context, null, 0, 0)
-        }
+            super(context) {
+        init(context, null, 0, 0)
+    }
 
     constructor(context: Context, attrs: AttributeSet?) :
-        super(context, attrs) {
-            init(context, attrs, 0, 0)
-        }
+            super(context, attrs) {
+        init(context, attrs, 0, 0)
+    }
 
     constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) :
-        super(context, attrs, defStyleAttr) {
-            init(context, attrs, defStyleAttr, 0)
-        }
+            super(context, attrs, defStyleAttr) {
+        init(context, attrs, defStyleAttr, 0)
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     constructor(
@@ -41,9 +41,9 @@ class LAspectRatioLayout : FrameLayout {
         @AttrRes defStyleAttr: Int,
         @StyleRes defStyleRes: Int
     ) :
-        super(context, attrs, defStyleAttr, defStyleRes) {
-            init(context, attrs, defStyleAttr, defStyleRes)
-        }
+            super(context, attrs, defStyleAttr, defStyleRes) {
+        init(context, attrs, defStyleAttr, defStyleRes)
+    }
 
     private fun init(
         context: Context,

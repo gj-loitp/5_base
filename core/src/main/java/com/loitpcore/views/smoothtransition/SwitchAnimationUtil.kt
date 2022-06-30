@@ -4,15 +4,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.LinearInterpolator
-import com.nineoldandroids.animation.AnimatorSet
-import com.nineoldandroids.animation.ObjectAnimator
 import com.loitpcore.views.smoothtransition.ViewUtils.init
 import com.loitpcore.views.smoothtransition.ViewUtils.screenWidth
+import com.nineoldandroids.animation.AnimatorSet
+import com.nineoldandroids.animation.ObjectAnimator
 
 // https://github.com/dkmeteor/SmoothTransition
-/**
- * @author Dean.Ding
- */
 class SwitchAnimationUtil {
 
     enum class AnimationType {

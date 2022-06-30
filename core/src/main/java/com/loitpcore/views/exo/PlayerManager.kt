@@ -5,10 +5,7 @@ import android.content.Context
 import android.net.Uri
 import android.view.ViewGroup
 import android.widget.ImageButton
-import com.loitpcore.R
-import com.loitpcore.core.utilities.LActivityUtil
-import com.loitpcore.core.utilities.LScreenUtil
-import com.google.android.exoplayer2.* // ktlint-disable no-wildcard-imports
+import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.C.ContentType
 import com.google.android.exoplayer2.ext.ima.ImaAdsLoader
 import com.google.android.exoplayer2.source.MediaSource
@@ -26,10 +23,12 @@ import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import com.google.android.exoplayer2.video.VideoListener
+import com.loitpcore.R
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.utils.util.AppUtils
 
 class PlayerManager : AdsMediaSource.MediaSourceFactory {
-    private val logTag = javaClass.simpleName
     private var adsLoader: ImaAdsLoader? = null
     private var dataSourceFactory: DataSource.Factory? = null
     var player: SimpleExoPlayer? = null

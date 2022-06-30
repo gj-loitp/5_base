@@ -4,9 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
+import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAnimationUtil
-import com.daimajia.androidanimations.library.Techniques
 import kotlinx.android.synthetic.main.view_l_count_down.view.*
 
 class LCountDownView : RelativeLayout {

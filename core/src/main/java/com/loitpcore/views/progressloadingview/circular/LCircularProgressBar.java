@@ -75,7 +75,6 @@ public class LCircularProgressBar extends View {
         initialize(context, attrs, defStyleAttr, 0);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public LCircularProgressBar(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr,
                                 int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);

@@ -24,12 +24,7 @@ class FitGridView : GridView {
     }
 
     private var column = 0
-    /**
-     * @return Number of rows associated with the view
-     */
-    /**
-     * @param row sets the desired number of row in the grid
-     */
+
     var numRows = 0
     private fun init(attrs: AttributeSet?) {
         getAttributes(attrs)

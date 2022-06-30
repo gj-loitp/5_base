@@ -102,14 +102,14 @@ internal object Util {
         mView: View?
     ): Boolean {
         return (
-            mView is ScrollView ||
-                mView is HorizontalScrollView ||
-                mView is NestedScrollView ||
-                mView is AbsListView ||
-                mView is RecyclerView ||
-                mView is ViewPager ||
-                mView is WebView
-            )
+                mView is ScrollView ||
+                        mView is HorizontalScrollView ||
+                        mView is NestedScrollView ||
+                        mView is AbsListView ||
+                        mView is RecyclerView ||
+                        mView is ViewPager ||
+                        mView is WebView
+                )
     }
 
     @JvmStatic

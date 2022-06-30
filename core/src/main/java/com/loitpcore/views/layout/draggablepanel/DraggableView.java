@@ -1,5 +1,6 @@
 package com.loitpcore.views.layout.draggablepanel;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -15,9 +16,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.loitpcore.R;
-import com.nineoldandroids.view.ViewHelper;
 import com.loitpcore.views.layout.draggablepanel.transformer.Transformer;
 import com.loitpcore.views.layout.draggablepanel.transformer.TransformerFactory;
+import com.nineoldandroids.view.ViewHelper;
 
 //https://github.com/pedrovgs/DraggablePanel
 public class DraggableView extends RelativeLayout {
@@ -642,7 +643,7 @@ public class DraggableView extends RelativeLayout {
      * @param attrs to be analyzed.
      */
     private void initializeAttributes(AttributeSet attrs) {
-        TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.draggable_view);
+        @SuppressLint("CustomViewStyleable") TypedArray attributes = getContext().obtainStyledAttributes(attrs, R.styleable.draggable_view);
         this.enableHorizontalAlphaEffect =
                 attributes.getBoolean(R.styleable.draggable_view_enable_minimized_horizontal_alpha_effect,
                         DEFAULT_ENABLE_HORIZONTAL_ALPHA_EFFECT);

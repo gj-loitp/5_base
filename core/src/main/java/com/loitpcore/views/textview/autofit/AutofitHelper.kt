@@ -9,7 +9,6 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import com.loitpcore.R
-import java.util.*
 
 class AutofitHelper private constructor(textView: TextView) {
 
@@ -509,7 +508,7 @@ class AutofitHelper private constructor(textView: TextView) {
         }
 
         private fun getMaxLines(view: TextView): Int {
-            var maxLines = -1 // No limit (Integer.MAX_VALUE also means no limit)
+            val maxLines: Int // No limit (Integer.MAX_VALUE also means no limit)
             val method = view.transformationMethod
             maxLines = if (method != null && method is SingleLineTransformationMethod) {
                 1

@@ -110,9 +110,9 @@ class LVerticalSeekBarWrapper
             val seekBarMeasuredHeight = seekBar.measuredHeight
             val hPadding = paddingLeft + paddingRight
             val vPadding = paddingTop + paddingBottom
-            val hOffset = (Math.max(0, w - hPadding) - seekBarMeasuredHeight) * 0.5f
+            val hOffset = (max(0, w - hPadding) - seekBarMeasuredHeight) * 0.5f
             val lp = seekBar.layoutParams
-            lp.width = Math.max(0, h - vPadding)
+            lp.width = max(0, h - vPadding)
             lp.height = ViewGroup.LayoutParams.WRAP_CONTENT
             seekBar.layoutParams = lp
             ViewCompat.setPivotX(seekBar, if (isLTR) 0f else max(a = 0, b = h - vPadding).toFloat())

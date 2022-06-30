@@ -5,6 +5,8 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 
+import java.util.Objects;
+
 public class Marker extends CircularViewObject {
     private float sectionMin;
     private float sectionMax;
@@ -137,7 +139,7 @@ public class Marker extends CircularViewObject {
 
         if (Float.compare(marker.sectionMax, sectionMax) != 0) return false;
         if (Float.compare(marker.sectionMin, sectionMin) != 0) return false;
-        if (animatorSet != null ? !animatorSet.equals(marker.animatorSet) : marker.animatorSet != null)
+        if (!Objects.equals(animatorSet, marker.animatorSet))
             return false;
 
         return true;

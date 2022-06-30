@@ -6,10 +6,10 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.daimajia.androidanimations.library.Techniques
 
 class LTextNavigationView : RelativeLayout, View.OnClickListener {
     var tvPrev: TextView? = null

@@ -81,10 +81,10 @@ class ShadowProperty : Serializable {
     }
 
     companion object {
-        val ALL = 0x1111
-        val LEFT = 0x0001
-        val TOP = 0x0010
-        val RIGHT = 0x0100
-        val BOTTOM = 0x1000
+        const val ALL = 0x1111
+        const val LEFT = 0x0001
+        const val TOP = 0x0010
+        const val RIGHT = 0x0100
+        const val BOTTOM = 0x1000
     }
 }

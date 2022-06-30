@@ -1,5 +1,7 @@
 package com.loitpcore.views.recyclerview.gallery;
 
+import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
+
 import android.content.Context;
 import android.graphics.PointF;
 import android.graphics.Rect;
@@ -16,8 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import org.jetbrains.annotations.NotNull;
-
-import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
 
 /**
  * A custom LayoutManager to build a {@link android.widget.Gallery} or a {@link ViewPager}like {@link RecyclerView} and

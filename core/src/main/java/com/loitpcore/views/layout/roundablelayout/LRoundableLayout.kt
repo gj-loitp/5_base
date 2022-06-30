@@ -201,7 +201,7 @@ class LRoundableLayout : ConstraintLayout {
             background = this
         }
 
-        outlineProvider = getOutlineProvider()
+        outlineProvider = outlineProvider
 
         clipChildren = false
 

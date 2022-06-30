@@ -14,7 +14,6 @@ import androidx.annotation.ColorRes
 import androidx.annotation.IntRange
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource.getColor
-import java.util.* // ktlint-disable no-wildcard-imports
 
 // guide https://github.com/a-voyager/ScrollNumber?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3973
 class MultiScrollNumber @JvmOverloads constructor(

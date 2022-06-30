@@ -6,7 +6,6 @@ import android.text.TextUtils
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 import com.loitpcore.R
-import java.util.*
 import kotlin.math.min
 
 class LColorTextView : AppCompatTextView {
@@ -20,7 +19,11 @@ class LColorTextView : AppCompatTextView {
         init(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init(attrs)
     }
 
@@ -62,7 +65,8 @@ class LColorTextView : AppCompatTextView {
         try {
             if (!TextUtils.isEmpty(mCurrentText)) {
                 for (i in 0 until size) {
-                    mCurrentText = mCurrentText?.replace(mColorTexts[i], color(mColors[i], mColorTexts[i]))
+                    mCurrentText =
+                        mCurrentText?.replace(mColorTexts[i], color(mColors[i], mColorTexts[i]))
                 }
             }
             if (!TextUtils.isEmpty(mCurrentText)) {

@@ -405,11 +405,11 @@ class LAutoLinearLayout : FrameLayout {
         if (mOrientation == HORIZONTAL) child.layout(
             pos.left, pos.top + lp.topMargin, pos.left + child.measuredWidth,
             pos.top +
-                child.measuredHeight + lp.topMargin
+                    child.measuredHeight + lp.topMargin
         ) else child.layout(
             pos.left + lp.leftMargin, pos.top,
             pos.left + child.measuredWidth +
-                lp.leftMargin,
+                    lp.leftMargin,
             pos.top + child.measuredHeight
         )
     }

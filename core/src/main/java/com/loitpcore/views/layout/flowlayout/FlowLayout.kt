@@ -16,7 +16,6 @@ class FlowLayout @JvmOverloads constructor(
 ) : ViewGroup(context, attrs) {
 
     companion object {
-        private val LOG_TAG = FlowLayout::class.java.simpleName
 
         /**
          * Special value for the child view spacing.

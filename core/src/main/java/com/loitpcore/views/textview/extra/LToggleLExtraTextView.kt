@@ -46,10 +46,10 @@ class LToggleLExtraTextView : LExtraTextView {
         )
 
         state = State.values()[
-            typedArray.getInt(
-                R.styleable.LToggleLExtraTextView_ext_txt_state,
-                State.IDLE.ordinal
-            )
+                typedArray.getInt(
+                    R.styleable.LToggleLExtraTextView_ext_txt_state,
+                    State.IDLE.ordinal
+                )
         ]
         activeDrawableResourceId = typedArray.getResourceId(
             R.styleable.LToggleLExtraTextView_ext_txt_activeDrawable,

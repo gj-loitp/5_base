@@ -1,5 +1,6 @@
 package com.loitpcore.views.scrollablepanel;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.loitpcore.R;
 
 import java.util.HashSet;
+import java.util.Objects;
 
 public class LScrollablePanel extends FrameLayout {
     protected RecyclerView recyclerView;
@@ -70,6 +72,7 @@ public class LScrollablePanel extends FrameLayout {
     /**
      * @param panelAdapter {@link PanelAdapter}
      */
+    @SuppressLint("NotifyDataSetChanged")
     public void setPanelAdapter(PanelAdapter panelAdapter) {
         if (this.panelLineAdapter != null) {
             panelLineAdapter.setPanelAdapter(panelAdapter);
@@ -100,7 +103,7 @@ public class LScrollablePanel extends FrameLayout {
         @NonNull
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return this.panelAdapter.onCreateViewHolder(parent, viewType);
+            return Objects.requireNonNull(this.panelAdapter.onCreateViewHolder(parent, viewType));
         }
 
         @Override
@@ -131,9 +134,9 @@ public class LScrollablePanel extends FrameLayout {
     private static class PanelLineAdapter extends RecyclerView.Adapter<PanelLineAdapter.ViewHolder> {
 
         private PanelAdapter panelAdapter;
-        private RecyclerView headerRecyclerView;
-        private RecyclerView contentRV;
-        private HashSet<RecyclerView> observerList = new HashSet<>();
+        private final RecyclerView headerRecyclerView;
+        private final RecyclerView contentRV;
+        private final HashSet<RecyclerView> observerList = new HashSet<>();
         private int firstPos = -1;
         private int firstOffset = -1;
 
@@ -192,11 +195,13 @@ public class LScrollablePanel extends FrameLayout {
         }
 
 
+        @SuppressLint("NotifyDataSetChanged")
         public void notifyDataChanged() {
             setUpHeaderRecyclerView();
             notifyDataSetChanged();
         }
 
+        @SuppressLint("NotifyDataSetChanged")
         private void setUpHeaderRecyclerView() {
             if (panelAdapter != null) {
                 if (headerRecyclerView.getAdapter() == null) {
@@ -208,6 +213,7 @@ public class LScrollablePanel extends FrameLayout {
             }
         }
 
+        @SuppressLint("ClickableViewAccessibility")
         public void initRecyclerView(RecyclerView recyclerView) {
             recyclerView.setHasFixedSize(true);
             LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
@@ -227,9 +233,10 @@ public class LScrollablePanel extends FrameLayout {
             });
             recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
-                public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
                     LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+                    assert linearLayoutManager != null;
                     int firstPos = linearLayoutManager.findFirstVisibleItemPosition();
                     View firstVisibleItem = linearLayoutManager.getChildAt(0);
                     if (firstVisibleItem != null) {

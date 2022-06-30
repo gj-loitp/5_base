@@ -1,9 +1,5 @@
 package com.loitpcore.views.switchtoggle.appcompatswitch
 
-/**
- * Created by www.muathu@gmail.com on 10/3/2017.
- */
-
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
@@ -24,7 +20,11 @@ class LColorSwitchCompat : SwitchCompat {
         applyAttributes(context, attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         applyAttributes(context, attrs)
     }
 

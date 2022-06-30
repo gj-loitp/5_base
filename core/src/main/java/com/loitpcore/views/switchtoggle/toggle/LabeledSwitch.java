@@ -189,7 +189,7 @@ public class LabeledSwitch extends View {
         float textCenter = paint.measureText(MAX_CHAR) / 2;
         if (isOn) {
             int alpha = (int) (((thumbBounds.centerX() - (width / 2)) / (thumbOnCenterX - (width / 2))) * 255);
-            int offColor = Color.argb(alpha < 0 ? 0 : alpha, Color.red(colorOff), Color.green(colorOff), Color.blue(colorOff));
+            int offColor = Color.argb(Math.max(alpha, 0), Color.red(colorOff), Color.green(colorOff), Color.blue(colorOff));
             paint.setColor(offColor);
 
             int maxSize = width - (2 * padding) - (2 * thumbRadii);
@@ -207,9 +207,9 @@ public class LabeledSwitch extends View {
             int alpha = (int) ((((width / 2) - thumbBounds.centerX()) / ((width / 2) - thumbOffCenterX)) * 255);
             int onColor;
             if (isEnabled()) {
-                onColor = Color.argb(alpha < 0 ? 0 : alpha, Color.red(colorOn), Color.green(colorOn), Color.blue(colorOn));
+                onColor = Color.argb(Math.max(alpha, 0), Color.red(colorOn), Color.green(colorOn), Color.blue(colorOn));
             } else {
-                onColor = Color.argb(alpha < 0 ? 0 : alpha, Color.red(colorDisabled), Color.green(colorDisabled), Color.blue(colorDisabled));
+                onColor = Color.argb(Math.max(alpha, 0), Color.red(colorDisabled), Color.green(colorDisabled), Color.blue(colorDisabled));
             }
             paint.setColor(onColor);
 
@@ -236,9 +236,9 @@ public class LabeledSwitch extends View {
 
             int onColor;
             if (isEnabled()) {
-                onColor = Color.argb(alpha < 0 ? 0 : alpha, Color.red(colorOn), Color.green(colorOn), Color.blue(colorOn));
+                onColor = Color.argb(Math.max(alpha, 0), Color.red(colorOn), Color.green(colorOn), Color.blue(colorOn));
             } else {
-                onColor = Color.argb(alpha < 0 ? 0 : alpha, Color.red(colorDisabled), Color.green(colorDisabled), Color.blue(colorDisabled));
+                onColor = Color.argb(Math.max(alpha, 0), Color.red(colorDisabled), Color.green(colorDisabled), Color.blue(colorDisabled));
             }
             paint.setColor(onColor);
             canvas.drawCircle(thumbBounds.centerX(), thumbBounds.centerY(), thumbRadii, paint);
@@ -299,33 +299,25 @@ public class LabeledSwitch extends View {
     @Override
     public boolean performClick() {
         super.performClick();
+        ValueAnimator switchColor;
         if (isOn) {
-            ValueAnimator switchColor = ValueAnimator.ofFloat(width - padding - thumbRadii, padding);
-            switchColor.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    float value = (float) animation.getAnimatedValue();
-                    thumbBounds.set(value, thumbBounds.top, value + thumbRadii, thumbBounds.bottom);
-                    invalidate();
-                }
+            switchColor = ValueAnimator.ofFloat(width - padding - thumbRadii, padding);
+            switchColor.addUpdateListener(animation -> {
+                float value = (float) animation.getAnimatedValue();
+                thumbBounds.set(value, thumbBounds.top, value + thumbRadii, thumbBounds.bottom);
+                invalidate();
             });
-            switchColor.setInterpolator(new AccelerateDecelerateInterpolator());
-            switchColor.setDuration(250);
-            switchColor.start();
         } else {
-            ValueAnimator switchColor = ValueAnimator.ofFloat(padding, width - padding - thumbRadii);
-            switchColor.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    float value = (float) animation.getAnimatedValue();
-                    thumbBounds.set(value, thumbBounds.top, value + thumbRadii, thumbBounds.bottom);
-                    invalidate();
-                }
+            switchColor = ValueAnimator.ofFloat(padding, width - padding - thumbRadii);
+            switchColor.addUpdateListener(animation -> {
+                float value = (float) animation.getAnimatedValue();
+                thumbBounds.set(value, thumbBounds.top, value + thumbRadii, thumbBounds.bottom);
+                invalidate();
             });
-            switchColor.setInterpolator(new AccelerateDecelerateInterpolator());
-            switchColor.setDuration(250);
-            switchColor.start();
         }
+        switchColor.setInterpolator(new AccelerateDecelerateInterpolator());
+        switchColor.setDuration(250);
+        switchColor.start();
         isOn = !isOn;
         return true;
     }
@@ -367,13 +359,10 @@ public class LabeledSwitch extends View {
                         if (x >= width / 2) {
                             // MOVE SWITCH TO RIGHT
                             ValueAnimator switchColor = ValueAnimator.ofFloat((x > (width - padding - thumbRadii) ? (width - padding - thumbRadii) : x), width - padding - thumbRadii);
-                            switchColor.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                                @Override
-                                public void onAnimationUpdate(ValueAnimator animation) {
-                                    float value = (float) animation.getAnimatedValue();
-                                    thumbBounds.set(value, thumbBounds.top, value + thumbRadii, thumbBounds.bottom);
-                                    invalidate();
-                                }
+                            switchColor.addUpdateListener(animation -> {
+                                float value = (float) animation.getAnimatedValue();
+                                thumbBounds.set(value, thumbBounds.top, value + thumbRadii, thumbBounds.bottom);
+                                invalidate();
                             });
                             switchColor.setInterpolator(new AccelerateDecelerateInterpolator());
                             switchColor.setDuration(250);

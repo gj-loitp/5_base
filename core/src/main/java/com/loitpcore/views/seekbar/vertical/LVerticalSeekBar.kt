@@ -71,15 +71,29 @@ class LVerticalSeekBar : AppCompatSeekBar {
         initialize(context, attrs, 0, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         initialize(context, attrs, defStyle, 0)
     }
 
-    private fun initialize(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
+    private fun initialize(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int
+    ) {
         ViewCompat.setLayoutDirection(this, ViewCompat.LAYOUT_DIRECTION_LTR)
 
         if (attrs != null) {
-            val a = context.obtainStyledAttributes(attrs, R.styleable.LVerticalSeekBar, defStyleAttr, defStyleRes)
+            val a = context.obtainStyledAttributes(
+                attrs,
+                R.styleable.LVerticalSeekBar,
+                defStyleAttr,
+                defStyleRes
+            )
             val rotationAngle = a.getInteger(R.styleable.LVerticalSeekBar_VSseekBarRotation, 0)
             if (isValidRotationAngle(rotationAngle)) {
                 mRotationAngle = rotationAngle
@@ -268,7 +282,11 @@ class LVerticalSeekBar : AppCompatSeekBar {
     private fun setProgressFromUser(progress: Int, fromUser: Boolean) {
         if (mMethodSetProgressFromUser == null) {
             try {
-                val m: Method = ProgressBar::class.java.getDeclaredMethod("setProgress", Int::class.javaPrimitiveType, Boolean::class.javaPrimitiveType)
+                val m: Method = ProgressBar::class.java.getDeclaredMethod(
+                    "setProgress",
+                    Int::class.javaPrimitiveType,
+                    Boolean::class.javaPrimitiveType
+                )
                 m.isAccessible = true
                 mMethodSetProgressFromUser = m
             } catch (e: NoSuchMethodException) {

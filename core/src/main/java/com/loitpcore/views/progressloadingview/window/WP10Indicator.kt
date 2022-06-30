@@ -3,11 +3,13 @@ package com.loitpcore.views.progressloadingview.window
 import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.Gravity
 import android.widget.RelativeLayout
 import com.loitpcore.views.progressloadingview.window.Utils.px2dp
 
+@SuppressLint("ViewConstructor")
 class WP10Indicator(
     context: Context,
     indicatorHeight: Int,

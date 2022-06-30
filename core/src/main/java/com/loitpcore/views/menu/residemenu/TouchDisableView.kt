@@ -6,9 +6,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 
-/**
- * Created by thonguyen on 15/4/14.
- */
 internal class TouchDisableView @JvmOverloads constructor(
     context: Context?,
     attrs: AttributeSet? = null
