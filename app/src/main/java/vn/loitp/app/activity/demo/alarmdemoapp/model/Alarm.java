@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.demo.alarmdemoapp.model;
 
-import android.content.Context;
 import android.content.Intent;
 
 import androidx.annotation.Keep;
@@ -26,7 +25,7 @@ public class Alarm implements Comparable<Alarm> {
     public static final int NEVER = 0;
     public static final int EVERY_DAY = 0x7f;
 
-    public Alarm(Context context) {
+    public Alarm() {
         mId = 0;
         mTitle = "";
         mDate = System.currentTimeMillis();

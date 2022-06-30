@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.loitpcore.core.utilities.LEncryptionUtil
 import com.loitpcore.utils.util.DeviceUtils
-import java.util.* // ktlint-disable no-wildcard-imports
 
 class BikeDatabase(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -85,17 +84,17 @@ class BikeDatabase(context: Context) :
     // Creating Tables
     override fun onCreate(db: SQLiteDatabase) {
         val query = (
-            "CREATE TABLE " + TABLE_BIKE + "(" +
-                KEY_ID + " INTEGER PRIMARY KEY," +
-                KEY_NAME + " TEXT NOT NULL, " +
-                KEY_BRANCH + " TEXT NOT NULL, " +
-                KEY_HP + " TEXT NOT NULL, " +
-                KEY_PRICE + " TEXT NOT NULL, " +
-                KEY_IMG_PATH_0 + " TEXT NOT NULL, " +
-                KEY_IMG_PATH_1 + " TEXT NOT NULL, " +
-                KEY_IMG_PATH_2 + " TEXT NOT NULL " +
-                ")"
-            )
+                "CREATE TABLE " + TABLE_BIKE + "(" +
+                        KEY_ID + " INTEGER PRIMARY KEY," +
+                        KEY_NAME + " TEXT NOT NULL, " +
+                        KEY_BRANCH + " TEXT NOT NULL, " +
+                        KEY_HP + " TEXT NOT NULL, " +
+                        KEY_PRICE + " TEXT NOT NULL, " +
+                        KEY_IMG_PATH_0 + " TEXT NOT NULL, " +
+                        KEY_IMG_PATH_1 + " TEXT NOT NULL, " +
+                        KEY_IMG_PATH_2 + " TEXT NOT NULL " +
+                        ")"
+                )
         db.execSQL(query)
     }
 

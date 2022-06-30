@@ -47,7 +47,7 @@ public class DataSource {
                 size = dis.readInt();
 
                 for (int i = 0; i < size; i++) {
-                    Alarm alarm = new Alarm(mContext);
+                    Alarm alarm = new Alarm();
                     alarm.deserialize(dis);
                     mList.add(alarm);
                 }

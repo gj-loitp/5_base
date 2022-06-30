@@ -8,12 +8,11 @@ import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmNotification;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 
 public class AlarmReceiver extends BroadcastReceiver {
-    private final String logTag = "AlarmMeActivity";
 
     @Override
     public void onReceive(Context context, Intent intent) {
         Intent newIntent = new Intent(context, AlarmNotification.class);
-        Alarm alarm = new Alarm(context);
+        Alarm alarm = new Alarm();
 
         alarm.fromIntent(intent);
         alarm.toIntent(newIntent);

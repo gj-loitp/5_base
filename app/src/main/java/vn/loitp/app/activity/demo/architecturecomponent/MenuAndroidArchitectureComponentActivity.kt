@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo.architecturecomponent
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -15,6 +16,7 @@ import vn.loitp.app.activity.demo.architecturecomponent.viewmodel.ViewModelActiv
 
 @LogTag("MenuAndroidArchitectureComponentActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
@@ -24,6 +26,10 @@ class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClic
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btCoroutine.setOnClickListener(this)
         btRoom.setOnClickListener(this)
         btViewModel.setOnClickListener(this)

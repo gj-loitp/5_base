@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.demo.alarmdemoapp.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -87,7 +88,7 @@ public class AlarmNotification extends BaseFontActivity {
     }
 
     private void start(Intent intent) {
-        mAlarm = new Alarm(this);
+        mAlarm = new Alarm();
         mAlarm.fromIntent(intent);
 
         logD("AlarmNotification.start('" + mAlarm.getTitle() + "')");
@@ -124,6 +125,7 @@ public class AlarmNotification extends BaseFontActivity {
         mPlayTime = (long) Integer.parseInt(prefs.getString("alarm_play_time_pref", "30")) * 1000;
     }
 
+    @SuppressLint("UnspecifiedImmutableFlag")
     private void addNotification(Alarm alarm) {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         Notification notification;

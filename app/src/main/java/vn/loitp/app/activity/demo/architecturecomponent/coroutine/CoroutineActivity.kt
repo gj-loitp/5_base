@@ -31,6 +31,10 @@ class CoroutineActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btTestBlocking.setSafeOnClickListener {
             testBlocking()
         }
@@ -64,6 +68,7 @@ class CoroutineActivity : BaseFontActivity() {
         }
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     private fun testWithContext() {
         newSingleThreadContext("thread1").use { ctx1 ->
             // tạo một context là ctx1 chứ chưa launch coroutine.
@@ -95,6 +100,7 @@ class CoroutineActivity : BaseFontActivity() {
         logD("out of ctx1 block - ${Thread.currentThread().name}")
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     private fun testJoin() {
         runBlocking {
             val job = GlobalScope.launch {
@@ -164,8 +170,8 @@ class CoroutineActivity : BaseFontActivity() {
         val coroutineTask = CoroutineTask()
         coroutineTask.startTask()
         LUIUtil.setDelay(
-            2000,
-            Runnable {
+            mls = 2000,
+            runnable = Runnable {
                 // coroutineTask.cancel()
             }
         )

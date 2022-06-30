@@ -65,9 +65,9 @@ class ViewModelActivity : BaseFontActivity() {
                 }
                 tvTime.text =
                     "countToStop: $countToStop -> $it -> " + LDateUtil.getDateCurrentTimeZoneMls(
-                    it,
-                    "yyyy-MM-dd HH:mm:ss"
-                )
+                        it,
+                        "yyyy-MM-dd HH:mm:ss"
+                    )
             }
         )
     }

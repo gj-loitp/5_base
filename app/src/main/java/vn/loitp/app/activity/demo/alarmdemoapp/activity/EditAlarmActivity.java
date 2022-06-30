@@ -66,7 +66,7 @@ public class EditAlarmActivity extends BaseFontActivity {
         mDateButton = findViewById(R.id.date_button);
         mTimeButton = findViewById(R.id.time_button);
 
-        mAlarm = new Alarm(this);
+        mAlarm = new Alarm();
         mAlarm.fromIntent(getIntent());
 
         mDateTime = new DateTime(this);

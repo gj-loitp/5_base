@@ -9,7 +9,6 @@ import vn.loitp.app.activity.demo.architecturecomponent.room.db.WordRoomDatabase
 import vn.loitp.app.activity.demo.architecturecomponent.room.repository.WordRepository
 
 class WordViewModel(application: Application) : AndroidViewModel(application) {
-    private val logTag = javaClass.simpleName
     private val repository: WordRepository
     var listWord: LiveData<List<Word>>? = null
     var wordFind: LiveData<Word>? = null

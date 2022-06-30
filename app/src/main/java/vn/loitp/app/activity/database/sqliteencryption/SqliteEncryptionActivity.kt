@@ -28,11 +28,15 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
 
         bikeDatabase = BikeDatabase(this)
+
+        setupView()
+        getAllBike()
+    }
+
+    private fun setupView() {
         btAddBike.setOnClickListener(this)
         btClearAll.setOnClickListener(this)
         btGetBikeWithId.setOnClickListener(this)
-
-        getAllBike()
     }
 
     private fun showProgress() {
@@ -63,7 +67,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         compositeDisposable.add(
             Single.create<List<Bike>> {
                 val bikeList = bikeDatabase.allBike
-                if (bikeList.isNullOrEmpty()) {
+                if (bikeList.isEmpty()) {
                     it.onError(Throwable("bikeList isNullOrEmpty"))
                 } else {
                     it.onSuccess(bikeList)

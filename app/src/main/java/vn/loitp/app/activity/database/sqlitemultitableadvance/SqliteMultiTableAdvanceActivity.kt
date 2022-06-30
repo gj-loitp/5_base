@@ -29,6 +29,10 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
         super.onCreate(savedInstanceState)
 
         inspectionDatabaseHelper = InspectionDatabaseHelper(applicationContext)
+        setupViews()
+    }
+
+    private fun setupViews() {
         btClearUI.setOnClickListener(this)
         btDeleteAllDatabase.setOnClickListener(this)
         btGetInspectionList.setOnClickListener(this)

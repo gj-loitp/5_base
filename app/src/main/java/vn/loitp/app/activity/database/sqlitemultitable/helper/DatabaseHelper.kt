@@ -12,7 +12,6 @@ import java.util.* // ktlint-disable no-wildcard-imports
 
 class DatabaseHelper(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
-    private val logTag = DatabaseHelper::class.java.name
 
     companion object {
         // Database Version
@@ -110,32 +109,32 @@ class DatabaseHelper(context: Context) :
     override fun onCreate(db: SQLiteDatabase) {
         // Table Create Statements
         val createTableToDo = (
-            "CREATE TABLE " + TABLE_NOTE + "(" +
-                KEY_ID + " INTEGER PRIMARY KEY," +
-                KEY_NOTE + " TEXT," +
-                KEY_STATUS + " INTEGER," +
-                KEY_CREATED_AT + " DATETIME" +
-                ")"
-            )
+                "CREATE TABLE " + TABLE_NOTE + "(" +
+                        KEY_ID + " INTEGER PRIMARY KEY," +
+                        KEY_NOTE + " TEXT," +
+                        KEY_STATUS + " INTEGER," +
+                        KEY_CREATED_AT + " DATETIME" +
+                        ")"
+                )
         db.execSQL(createTableToDo)
         // Tag table create statement
         val createTableTag = (
-            "CREATE TABLE " + TABLE_TAG + "(" +
-                KEY_ID + " INTEGER PRIMARY KEY," +
-                KEY_TAG_NAME + " TEXT," +
-                KEY_CREATED_AT + " DATETIME" +
-                ")"
-            )
+                "CREATE TABLE " + TABLE_TAG + "(" +
+                        KEY_ID + " INTEGER PRIMARY KEY," +
+                        KEY_TAG_NAME + " TEXT," +
+                        KEY_CREATED_AT + " DATETIME" +
+                        ")"
+                )
         db.execSQL(createTableTag)
         // todo_tag table create statement
         val createTableToDoTag = (
-            "CREATE TABLE " + TABLE_NOTE_TAG + "(" +
-                KEY_ID + " INTEGER PRIMARY KEY," +
-                KEY_NOTE_ID + " INTEGER," +
-                KEY_TAG_ID + " INTEGER," +
-                KEY_CREATED_AT + " DATETIME" +
-                ")"
-            )
+                "CREATE TABLE " + TABLE_NOTE_TAG + "(" +
+                        KEY_ID + " INTEGER PRIMARY KEY," +
+                        KEY_NOTE_ID + " INTEGER," +
+                        KEY_TAG_ID + " INTEGER," +
+                        KEY_CREATED_AT + " DATETIME" +
+                        ")"
+                )
         db.execSQL(createTableToDoTag)
     }
 
@@ -184,9 +183,9 @@ class DatabaseHelper(context: Context) :
         val db = this.readableDatabase
 
         val selectQuery = (
-            "SELECT  * FROM " + TABLE_NOTE + " WHERE " +
-                KEY_ID + " = " + noteId
-            )
+                "SELECT  * FROM " + TABLE_NOTE + " WHERE " +
+                        KEY_ID + " = " + noteId
+                )
 
         val c = db.rawQuery(selectQuery, null)
         c?.moveToFirst() ?: return null
@@ -208,9 +207,9 @@ class DatabaseHelper(context: Context) :
 
         val selectQuery =
             "SELECT  * FROM " + TABLE_NOTE + " td, " + TABLE_TAG + " tg, " + TABLE_NOTE_TAG + " tt " +
-                "WHERE tg." + KEY_TAG_NAME + " = '" + tagName + "'"
+                    "WHERE tg." + KEY_TAG_NAME + " = '" + tagName + "'"
         " AND tg." + KEY_ID + " = " + "tt." + KEY_TAG_ID +
-            " AND td." + KEY_ID + " = " + "tt." + KEY_NOTE_ID
+                " AND td." + KEY_ID + " = " + "tt." + KEY_NOTE_ID
 
         val db = this.readableDatabase
         val c = db.rawQuery(selectQuery, null)

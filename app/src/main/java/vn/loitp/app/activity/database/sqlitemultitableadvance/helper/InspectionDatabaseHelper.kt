@@ -11,7 +11,6 @@ import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Inspection
 
 class InspectionDatabaseHelper(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
-    private val logTag = InspectionDatabaseHelper::class.java.name
 
     companion object {
         // Database Version
@@ -39,21 +38,21 @@ class InspectionDatabaseHelper(context: Context) :
     override fun onCreate(db: SQLiteDatabase) {
         // Table Create Statements
         val queryCreateTableInspection = (
-            "CREATE TABLE " + TABLE_INSPECTION + "(" +
-                KEY_ID + " INTEGER PRIMARY KEY, " +
-                KEY_INSPECTION_ID + " TEXT, " +
-                KEY_INSPECTION_CONTENT + " TEXT " +
-                ")"
-            )
+                "CREATE TABLE " + TABLE_INSPECTION + "(" +
+                        KEY_ID + " INTEGER PRIMARY KEY, " +
+                        KEY_INSPECTION_ID + " TEXT, " +
+                        KEY_INSPECTION_CONTENT + " TEXT " +
+                        ")"
+                )
         db.execSQL(queryCreateTableInspection)
         // Action table create statement
         val queryCreateTableAction = (
-            "CREATE TABLE " + TABLE_ACTION + "(" +
-                KEY_ID + " INTEGER PRIMARY KEY, " +
-                KEY_ACTION_TYPE + " INTEGER, " +
-                KEY_ACTION_INSPECTION + " TEXT " +
-                ")"
-            )
+                "CREATE TABLE " + TABLE_ACTION + "(" +
+                        KEY_ID + " INTEGER PRIMARY KEY, " +
+                        KEY_ACTION_TYPE + " INTEGER, " +
+                        KEY_ACTION_INSPECTION + " TEXT " +
+                        ")"
+                )
         db.execSQL(queryCreateTableAction)
     }
 
@@ -122,7 +121,7 @@ class InspectionDatabaseHelper(context: Context) :
         return actionList
     }
 
-    fun getActionCount(): Int {
+    private fun getActionCount(): Int {
         val countQuery = "SELECT  * FROM $TABLE_ACTION"
         val db = this.readableDatabase
         val cursor = db.rawQuery(countQuery, null)
@@ -184,9 +183,9 @@ class InspectionDatabaseHelper(context: Context) :
         val db = this.readableDatabase
 
         val selectQuery = (
-            "SELECT  * FROM " + TABLE_INSPECTION + " WHERE " +
-                KEY_ID + " = " + inspectionId
-            )
+                "SELECT  * FROM " + TABLE_INSPECTION + " WHERE " +
+                        KEY_ID + " = " + inspectionId
+                )
 
         val c = db.rawQuery(selectQuery, null)
         if (c != null && c.moveToFirst()) {
@@ -233,9 +232,9 @@ class InspectionDatabaseHelper(context: Context) :
     fun getAction(actionId: Long): Action? {
         val db = this.readableDatabase
         val selectQuery = (
-            "SELECT  * FROM " + TABLE_ACTION + " WHERE " +
-                KEY_ID + " = " + actionId
-            )
+                "SELECT  * FROM " + TABLE_ACTION + " WHERE " +
+                        KEY_ID + " = " + actionId
+                )
         val c = db.rawQuery(selectQuery, null)
         if (c != null && c.moveToFirst()) {
             val action = Action()

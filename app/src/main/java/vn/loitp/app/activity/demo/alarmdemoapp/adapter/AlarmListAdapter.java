@@ -20,10 +20,8 @@ import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver;
 
 public class AlarmListAdapter extends BaseAdapter {
-    private final String logTag = "AlarmMeActivity";
 
     private final Context mContext;
-    private final DataSource mDataSource;
     private final LayoutInflater mInflater;
     private final DateTime mDateTime;
     private final int mColorOutdated;
@@ -32,7 +30,7 @@ public class AlarmListAdapter extends BaseAdapter {
 
     public AlarmListAdapter(Context context) {
         mContext = context;
-        mDataSource = DataSource.getInstance(context);
+        DataSource mDataSource = DataSource.getInstance(context);
 
         mInflater = LayoutInflater.from(context);
         mDateTime = new DateTime(context);
@@ -123,6 +121,7 @@ public class AlarmListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    @SuppressLint("UnspecifiedImmutableFlag")
     private void setAlarm(Alarm alarm) {
         PendingIntent sender;
         Intent intent;
@@ -142,6 +141,7 @@ public class AlarmListAdapter extends BaseAdapter {
         }
     }
 
+    @SuppressLint("UnspecifiedImmutableFlag")
     private void cancelAlarm(Alarm alarm) {
         PendingIntent sender;
         Intent intent;

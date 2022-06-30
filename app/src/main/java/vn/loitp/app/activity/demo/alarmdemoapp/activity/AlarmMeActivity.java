@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+
 import com.loitpcore.annotation.IsFullScreen;
 import com.loitpcore.annotation.LogTag;
 import com.loitpcore.core.base.BaseFontActivity;
@@ -46,6 +48,11 @@ public class AlarmMeActivity extends BaseFontActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
+        setupViews();
+        mCurrentAlarm = null;
+    }
+
+    private void setupViews() {
         ListView mAlarmList = findViewById(R.id.lv_alarm);
         LUIUtil.Companion.setPullLikeIOSVertical(mAlarmList);
 
@@ -53,8 +60,6 @@ public class AlarmMeActivity extends BaseFontActivity {
         mAlarmList.setAdapter(mAlarmListAdapter);
         mAlarmList.setOnItemClickListener(mListOnItemClickListener);
         registerForContextMenu(mAlarmList);
-
-        mCurrentAlarm = null;
     }
 
     @Override
@@ -72,7 +77,7 @@ public class AlarmMeActivity extends BaseFontActivity {
 
     public void onAddAlarmClick(View view) {
         Intent intent = new Intent(getBaseContext(), EditAlarmActivity.class);
-        mCurrentAlarm = new Alarm(this);
+        mCurrentAlarm = new Alarm();
         mCurrentAlarm.toIntent(intent);
         AlarmMeActivity.this.startActivityForResult(intent, NEW_ALARM_ACTIVITY);
         LActivityUtil.tranIn(this);
@@ -99,7 +104,7 @@ public class AlarmMeActivity extends BaseFontActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_alarm, menu);
         return true;
@@ -145,7 +150,7 @@ public class AlarmMeActivity extends BaseFontActivity {
             mAlarmListAdapter.delete(info.position);
         } else if (index == CONTEXT_MENU_DUPLICATE) {
             Alarm alarm = mAlarmListAdapter.getItem(info.position);
-            Alarm newAlarm = new Alarm(this);
+            Alarm newAlarm = new Alarm();
             Intent intent = new Intent();
 
             alarm.toIntent(intent);

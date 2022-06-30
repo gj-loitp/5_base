@@ -11,16 +11,17 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.loitpcore.annotation.IsFullScreen;
 import com.loitpcore.annotation.LogTag;
 import com.loitpcore.core.base.BaseFontActivity;
 import com.loitpcore.core.utilities.LPrefUtil;
 import com.loitpcore.core.utilities.LUIUtil;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -53,7 +54,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         recyclerView = findViewById(R.id.recycler);
 
         //get realm instance
-        this.realm = RealmController.Companion.with(this).getRealm();
+        this.realm = Objects.requireNonNull(RealmController.Companion.with(this)).getRealm();
 
         setupRecycler();
 
@@ -62,11 +63,11 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         }
 
         // refresh the realm instance
-        RealmController.Companion.with(this).refresh();
+        Objects.requireNonNull(RealmController.Companion.with(this)).refresh();
         // get all persisted objects
         // create the helper booksAdapter and notify data set changes
         // changes will be reflected automatically
-        setRealmAdapter(RealmController.Companion.with(this).getBooks());
+        setRealmAdapter(Objects.requireNonNull(RealmController.Companion.with(this)).getBooks());
 
         showShortInformation("Press card item for edit, long press to remove item", true);
 
@@ -165,7 +166,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
                 .setTitle("Add book")
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                     final Book book = new Book();
-                    book.setId(RealmController.getInstance().getBooks().size() + System.currentTimeMillis());
+                    book.setId(Objects.requireNonNull(RealmController.getInstance()).getBooks().size() + System.currentTimeMillis());
                     book.setTitle(editTitle.getText().toString());
                     book.setAuthor(editAuthor.getText().toString());
                     book.setImageUrl(editThumbnail.getText().toString());
@@ -181,9 +182,6 @@ public class EbookWithRealmActivity extends BaseFontActivity {
                         booksAdapter.notifyDataSetChanged();
                         recyclerView.smoothScrollToPosition(RealmController.getInstance().getBooks().size() - 1);
 
-                        /*booksAdapter.notifyItemInserted(RealmController.getInstance().getMyBookList().size() - 1);
-                        booksAdapter.notifyItemRangeChanged(RealmController.getInstance().getMyBookList().size() - 1, RealmController.getInstance().getMyBookList().size());
-                        recyclerView.scrollToPosition(RealmController.getInstance().getMyBookList().size() - 1);*/
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss());
@@ -248,7 +246,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         }
 
         booksAdapter.notifyItemRemoved(position);
-        booksAdapter.notifyItemRangeChanged(position, RealmController.getInstance().getBooks().size());
+        booksAdapter.notifyItemRangeChanged(position, Objects.requireNonNull(RealmController.getInstance()).getBooks().size());
 
         showShortInformation("Removed book: " + title, true);
 

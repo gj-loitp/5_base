@@ -1,12 +1,12 @@
 package vn.loitp.app.activity.database.sharedprefsencryption
 
 import android.os.Bundle
+import com.google.gson.reflect.TypeToken
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LEncryptionSharedPrefsUtil
-import com.google.gson.reflect.TypeToken
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_shared_prefs_encryption.*
 import vn.loitp.app.R
@@ -34,6 +34,10 @@ class EncryptionSharedPrefsActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btClearAll.setSafeOnClickListener {
             LEncryptionSharedPrefsUtil.instance.clear()
         }
