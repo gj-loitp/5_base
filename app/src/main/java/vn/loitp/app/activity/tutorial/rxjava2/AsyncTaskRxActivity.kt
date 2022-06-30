@@ -15,7 +15,6 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_asynctask_rx.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("AsyncTaskRxActivity")
 @IsFullScreen(false)
@@ -74,13 +73,16 @@ class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
         compositeDisposable.clear()
     }
 
+    @SuppressLint("StaticFieldLeak")
     private inner class TaskTest1 : AsyncTask<Void, Bike, List<Bike>>() {
+        @Deprecated("Deprecated in Java")
         @SuppressLint("SetTextI18n")
         override fun onPreExecute() {
             super.onPreExecute()
             textView.text = "onPreExecute"
         }
 
+        @Deprecated("Deprecated in Java")
         override fun doInBackground(vararg voids: Void): List<Bike> {
             val bikeList: MutableList<Bike> = ArrayList()
             for (i in 0..9) {
@@ -99,24 +101,27 @@ class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
             return bikeList
         }
 
+        @Deprecated("Deprecated in Java")
         override fun onProgressUpdate(vararg values: Bike) {
             super.onProgressUpdate(*values)
             val bike = values[0]
             textView.append("\n${bike.name} - ${bike.model}")
         }
 
+        @Deprecated("Deprecated in Java")
         override fun onCancelled() {
             super.onCancelled()
             textView.append("\nonCancelled")
         }
 
+        @Deprecated("Deprecated in Java")
         override fun onPostExecute(bikeList: List<Bike>) {
             super.onPostExecute(bikeList)
             textView.append("\nPostExecute")
         }
     }
 
-    private inner class Test2 internal constructor(private val count: Int) {
+    private inner class Test2(private val count: Int) {
         @SuppressLint("SetTextI18n")
         fun apply() {
             textView.text = "Prev"
@@ -165,12 +170,12 @@ class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
                 logD("Home -> 1 aBoolean: $aBoolean")
                 textView.append("Home -> 1 aBoolean: $aBoolean\n")
             }, { throwable: Throwable ->
-            logD("Home -> 2 throwable: $throwable")
-            textView.append("Home -> 2 throwable: $throwable\n")
-        }, {
-            logD("Home -> on disposed")
-            textView.append("Home -> on disposed\n")
-        }
+                logD("Home -> 2 throwable: $throwable")
+                textView.append("Home -> 2 throwable: $throwable\n")
+            }, {
+                logD("Home -> on disposed")
+                textView.append("Home -> on disposed\n")
+            }
         ) {
             logD("Home -> 3 finished")
             textView.append("Home -> 3 finished\n")

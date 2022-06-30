@@ -16,9 +16,9 @@ class ApiUser : BaseModel() {
 
     override fun toString(): String {
         return "ApiUser{" +
-            "id=" + id +
-            ", firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
-            '}'
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}'
     }
 }

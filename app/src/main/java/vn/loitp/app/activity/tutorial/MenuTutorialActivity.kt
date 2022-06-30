@@ -3,6 +3,7 @@ package vn.loitp.app.activity.tutorial
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -14,6 +15,7 @@ import vn.loitp.app.activity.tutorial.rxjava2.MenuRxJava2Activity
 
 @LogTag("MenuTutorialActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class MenuTutorialActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
