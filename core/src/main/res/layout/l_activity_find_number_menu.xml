@@ -21,7 +21,7 @@
             android:layout_centerHorizontal="true"
             android:padding="@dimen/margin_padding_medium"
             android:scaleType="centerInside"
-            android:src="@drawable/find_the_number"/>
+            android:src="@drawable/find_the_number" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBack"
@@ -30,7 +30,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/margin_padding_large"
-            android:src="@drawable/back_button"/>
+            android:src="@drawable/back_button" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivMore"
@@ -39,7 +39,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/margin_padding_large"
-            android:src="@drawable/more_games"/>
+            android:src="@drawable/more_games" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/btSinglePlayer"
@@ -54,7 +54,7 @@
             android:src="@drawable/bkg_blue"
             android:text="@string/single_player"
             android:textColor="@color/white"
-            android:textSize="@dimen/txt_larger"/>
+            android:textSize="@dimen/txt_larger" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/btTwoPlayers"
@@ -71,7 +71,7 @@
             android:src="@drawable/bkg_blue"
             android:text="@string/two_players"
             android:textColor="@color/white"
-            android:textSize="@dimen/txt_larger"/>
+            android:textSize="@dimen/txt_larger" />
 
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
