@@ -14,7 +14,6 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
 import vn.loitp.app.common.Constants
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("RecyclerViewFastScrollSeekbarActivity")
 @IsFullScreen(false)

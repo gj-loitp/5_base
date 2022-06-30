@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.lcardview
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
+import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -10,7 +11,6 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.views.card.LCardView
 import kotlinx.android.synthetic.main.activity_card_view_l.*
 import vn.loitp.app.R

@@ -3,9 +3,9 @@ package vn.loitp.app.activity.customviews.recyclerview.dragdropswipe
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeAdapter
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeAdapter
 import vn.loitp.app.R
 
 class DragDropAdapter(

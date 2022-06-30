@@ -8,7 +8,6 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
 import kotlinx.android.synthetic.main.reside_menu_calendar.*
 import vn.loitp.app.R
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("CalendarFragment")
 class CalendarFragment : BaseFragment() {

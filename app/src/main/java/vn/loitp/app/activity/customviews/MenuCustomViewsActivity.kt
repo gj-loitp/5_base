@@ -26,11 +26,11 @@ import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity
 import vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity
 import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity
 import vn.loitp.app.activity.customviews.indicator.example.MagicIndicatorMenuActivity
-import vn.loitp.app.activity.customviews.layout.LayoutMenuActivity
+import vn.loitp.app.activity.customviews.layout.MenuLayoutActivity
 import vn.loitp.app.activity.customviews.lcardview.LCardViewActivity
 import vn.loitp.app.activity.customviews.ldebugview.LDebugViewActivity
 import vn.loitp.app.activity.customviews.menu.MenuMenuActivity
-import vn.loitp.app.activity.customviews.navigation.NavigationMenuActivity
+import vn.loitp.app.activity.customviews.navigation.MenuNavigationActivity
 import vn.loitp.app.activity.customviews.popupmenu.PopupMenuActivity
 import vn.loitp.app.activity.customviews.progressloadingview.MenuProgressLoadingViewsActivity
 import vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity
@@ -123,14 +123,14 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btBottomBarBlur -> Intent(this, BottomNavigationMenuActivity::class.java)
             btSticker -> Intent(this, StickerActivity::class.java)
             btEditText -> Intent(this, EditTextMenuActivity::class.java)
-            btLayout -> Intent(this, LayoutMenuActivity::class.java)
+            btLayout -> Intent(this, MenuLayoutActivity::class.java)
             btVideoView -> Intent(this, VideoViewMenuActivity::class.java)
             btSeekBar -> Intent(this, SeekbarMenuActivity::class.java)
             btRecyclerView -> Intent(this, RecyclerViewMenuActivity::class.java)
             btDialog -> Intent(this, DialogMenuActivity::class.java)
             btPopupMenu -> Intent(this, PopupMenuActivity::class.java)
             btScratchView -> Intent(this, ScratchViewMenuActivity::class.java)
-            btNavigation -> Intent(this, NavigationMenuActivity::class.java)
+            btNavigation -> Intent(this, MenuNavigationActivity::class.java)
             btTreeView -> Intent(this, TreeViewActivity::class.java)
             btDraggableFlipView -> Intent(this, DraggableFlipViewActivity::class.java)
             btDragView -> Intent(this, MenuDragViewActivity::class.java)

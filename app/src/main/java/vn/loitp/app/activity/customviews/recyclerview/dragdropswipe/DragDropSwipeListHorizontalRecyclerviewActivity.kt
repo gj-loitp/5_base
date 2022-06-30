@@ -4,15 +4,15 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
+import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemDragListener
+import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemSwipeListener
+import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnListScrollListener
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
-import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemDragListener
-import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemSwipeListener
-import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnListScrollListener
 import kotlinx.android.synthetic.main.activity_recycler_drag_drop_swipe_list_horizontal.*
 import vn.loitp.app.R
 
@@ -62,7 +62,8 @@ class DragDropSwipeListHorizontalRecyclerviewActivity : BaseFontActivity() {
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = DragDropSwipeListHorizontalRecyclerviewActivity::class.java.simpleName
+            this.tvTitle?.text =
+                DragDropSwipeListHorizontalRecyclerviewActivity::class.java.simpleName
         }
 
         dragDropAdapter = DragDropAdapter(dataSet = setData(), isHorizontal = true)

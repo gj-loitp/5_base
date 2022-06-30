@@ -24,15 +24,9 @@ class BookAdapter(
 ) : BaseAdapter() {
 
     private val sizeW: Int = LScreenUtil.screenWidth / column
-    private val sizeH: Int
-    private val sizeMarginTopBottom: Int
-    private val sizeMarginTopLeftRight: Int
-
-    init {
-        sizeH = sizeW * 15 / 9
-        sizeMarginTopBottom = sizeW / 5
-        sizeMarginTopLeftRight = sizeW / 10
-    }
+    private val sizeH: Int = sizeW * 15 / 9
+    private val sizeMarginTopBottom: Int = sizeW / 5
+    private val sizeMarginTopLeftRight: Int = sizeW / 10
 
     interface Callback {
         fun onClick(movie: Movie, position: Int)

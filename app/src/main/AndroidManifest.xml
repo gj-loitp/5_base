@@ -116,7 +116,7 @@
             android:name=".activity.customviews.sticker.StickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.layout.LayoutMenuActivity"
+            android:name=".activity.customviews.layout.MenuLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.zoomlayout.ZoomLayoutActivity"
@@ -331,7 +331,7 @@
             android:name=".activity.customviews.recyclerview.footer2.RecyclerViewFooter2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.navigation.NavigationMenuActivity"
+            android:name=".activity.customviews.navigation.MenuNavigationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.navigation.arcnavigationview.ArcNavigationViewActivity"

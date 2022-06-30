@@ -18,6 +18,10 @@ class WindowProgressActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         wp10progressBar.setIndicatorRadius(5)
         showWP7Btn.setOnClickListener {
             wp7progressBar.showProgressBar()

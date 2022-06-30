@@ -6,7 +6,6 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_swipe_reveal_layout_grid.*
 import vn.loitp.app.R
-import java.util.*
 
 @LogTag("SwipeRevealLayoutGridActivity")
 @IsFullScreen(false)

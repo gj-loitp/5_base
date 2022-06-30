@@ -43,9 +43,9 @@ import vn.loitp.app.activity.customviews.layout.transformationlayout.Transformat
 import vn.loitp.app.activity.customviews.layout.transformationlayout.single.TransformationSingleActivity
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity
 
-@LogTag("LayoutMenuActivity")
+@LogTag("MenuLayoutActivity")
 @IsFullScreen(false)
-class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
+class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_layout_menu
@@ -67,7 +67,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             )
             this.ivIconRight?.isVisible = false
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = LayoutMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuLayoutActivity::class.java.simpleName
         }
         btAspectRatioLayout.setOnClickListener(this)
         btDraggablePanel.setOnClickListener(this)

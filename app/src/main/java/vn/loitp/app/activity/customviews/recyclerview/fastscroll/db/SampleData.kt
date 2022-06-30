@@ -18,24 +18,24 @@ val SAMPLE_DATA_TEXT_AND_HEADERS =
             showInFastScroll = true
         )
     ) +
-        LoremIpsum.getInstance()
-            .getWords(15)
-            .split(" ")
-            .distinct()
-            .map { ListItem.DataItem(it, showInFastScroll = false) } +
-        listOf(
-            ListItem.HeaderItem(
-                "All",
-                R.drawable.indicator_words,
-                showInFastScroll = false
-            )
-        ) +
-        LoremIpsum.getInstance()
-            .getWords(200)
-            .split(" ")
-            .distinct()
-            .sorted()
-            .map { ListItem.DataItem(it) }
+            LoremIpsum.getInstance()
+                .getWords(15)
+                .split(" ")
+                .distinct()
+                .map { ListItem.DataItem(it, showInFastScroll = false) } +
+            listOf(
+                ListItem.HeaderItem(
+                    "All",
+                    R.drawable.indicator_words,
+                    showInFastScroll = false
+                )
+            ) +
+            LoremIpsum.getInstance()
+                .getWords(200)
+                .split(" ")
+                .distinct()
+                .sorted()
+                .map { ListItem.DataItem(it) }
 
 sealed class ListItem(val showInFastScroll: Boolean = true) {
 

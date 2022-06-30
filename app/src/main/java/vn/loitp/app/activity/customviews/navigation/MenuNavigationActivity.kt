@@ -15,7 +15,7 @@ import vn.loitp.app.activity.customviews.navigation.arcnavigationview.ArcNavigat
 
 @LogTag("NavigationMenuActivity")
 @IsFullScreen(false)
-class NavigationMenuActivity : BaseFontActivity(), View.OnClickListener {
+class MenuNavigationActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_menu_navigation_view
@@ -37,7 +37,7 @@ class NavigationMenuActivity : BaseFontActivity(), View.OnClickListener {
             )
             this.ivIconRight?.isVisible = false
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = NavigationMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuNavigationActivity::class.java.simpleName
         }
         btArcNavigation.setOnClickListener(this)
     }

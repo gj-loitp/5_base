@@ -27,6 +27,10 @@ class SwipeRevealLayoutActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         setSupportActionBar(toolbar)
         tv1.setSafeOnClickListener {
             moreOnClick()

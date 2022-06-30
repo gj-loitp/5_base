@@ -7,6 +7,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
+import com.loitpcore.views.setSafeOnClickListener
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view_diff_util.*
 import vn.loitp.app.R
@@ -61,13 +62,13 @@ class DiffUtilActivity : BaseFontActivity() {
             items.add(Content(i, "Item $i", Constants.URL_IMG_ANDROID))
         }
         adapter.items = items
-        bt.setOnClickListener {
+        bt.setSafeOnClickListener {
             adapter.items = generate()
         }
-        btAdd.setOnClickListener {
+        btAdd.setSafeOnClickListener {
             adapter.items = add()
         }
-        btShuffle.setOnClickListener {
+        btShuffle.setSafeOnClickListener {
             adapter.items = shuffle()
         }
     }

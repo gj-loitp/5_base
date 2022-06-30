@@ -15,8 +15,8 @@ class SampleAdapter(
 ) : RecyclerView.Adapter<SampleAdapter.ViewHolder>() {
 
     companion object {
-        const val VIEWTYPE_HEADER = 0
-        const val VIEWTYPE_DATA = 1
+        const val VIEW_TYPE_HEADER = 0
+        const val VIEW_TYPE_DATA = 1
     }
 
     private val containsHeaders: Boolean = listItem.any { it is ListItem.HeaderItem }
@@ -26,8 +26,8 @@ class SampleAdapter(
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 when (viewType) {
-                    VIEWTYPE_HEADER -> R.layout.layout_fast_scroll_header_item
-                    VIEWTYPE_DATA -> R.layout.layout_fast_scroll_data_item
+                    VIEW_TYPE_HEADER -> R.layout.layout_fast_scroll_header_item
+                    VIEW_TYPE_DATA -> R.layout.layout_fast_scroll_data_item
                     else -> throw IllegalArgumentException()
                 },
                 parent,
@@ -40,8 +40,8 @@ class SampleAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return when (listItem[position]) {
-            is ListItem.HeaderItem -> VIEWTYPE_HEADER
-            is ListItem.DataItem -> VIEWTYPE_DATA
+            is ListItem.HeaderItem -> VIEW_TYPE_HEADER
+            is ListItem.DataItem -> VIEW_TYPE_DATA
         }
     }
 
