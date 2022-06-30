@@ -15,16 +15,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //version==3
-//        db.execSQL("CREATE TABLE IF NOT EXISTS " + DownloadProvider.DownloadTable.TABLE_NAME + " ("
-//                + DownloadProvider.DownloadTable.URL + " CHAR,"
-//                + DownloadProvider.DownloadTable.PATH + " CHAR,"
-//                + DownloadProvider.DownloadTable.THREAD_NUM + " INTEGER,"
-//                + DownloadProvider.DownloadTable.FILE_LENGTH + " INTEGER,"
-//                + DownloadProvider.DownloadTable.FINISHED + " INTEGER,"
-//                + DownloadProvider.DownloadTable.CREATE_TIME + " INTEGER,"
-//                + DownloadProvider.DownloadTable.TAG + " CHAR,"
-//                + "primary key(" + DownloadProvider.DownloadTable.URL + "," + DownloadProvider.DownloadTable.PATH + ")"
-//                + ");");
 
         db.execSQL("CREATE TABLE IF NOT EXISTS " + DownloadProvider.DownloadTable.TABLE_NAME + " ("
                 + DownloadProvider.DownloadTable.URL + " CHAR,"

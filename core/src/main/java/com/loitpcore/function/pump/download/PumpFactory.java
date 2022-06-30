@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class PumpFactory {
-    private static Map<Class<?>, Object> serviceMap = new ConcurrentHashMap<>();
+    private static final Map<Class<?>, Object> serviceMap = new ConcurrentHashMap<>();
 
     public static <T> T getService(Class<T> tClass) {
         return (T) serviceMap.get(tClass);

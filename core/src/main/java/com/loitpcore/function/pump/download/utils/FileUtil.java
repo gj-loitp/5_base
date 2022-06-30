@@ -53,8 +53,6 @@ public class FileUtil {
             bufferedSource = Okio.buffer(Okio.source(sourceFile));
             bufferedSink = Okio.buffer(Okio.sink(destFile));
             bufferedSink.writeAll(bufferedSource);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -107,71 +105,9 @@ public class FileUtil {
         return file.renameTo(to) && to.delete();
     }
 
-    //    /**
-//     * 合并文件
-//     *
-//     * @return {@code true} 合并成功，{@code false}合并失败
-//     */
-//    public static boolean mergeFiles(File[] sources, File dest) {
-//        File[] sortedFiles = new File[sources.length];
-//        //Sort temp files.
-//        for (int i = 0; i < sources.length; i++) {
-//            File partFile = sources[i];
-//            String partFileName = partFile.getName();
-//            int idIndex = partFileName.lastIndexOf("-") + 1;
-//            int id = Integer.parseInt(partFileName.substring(idIndex));
-//            if (id < sortedFiles.length) {
-//                sortedFiles[id] = partFile;
-//            } else {
-//                return false;
-//            }
-//        }
-//        FileOutputStream fos = null;
-//        FileChannel foc = null;
-//        SequenceInputStream sis = null;
-//        try {
-//            Vector<FileInputStream> streams = new Vector<>(sortedFiles.length);
-//            for (int i = 0; i < sortedFiles.length; i++) {
-//                File partFile = sortedFiles[i];
-//                if (partFile.exists()) {
-//                    if (i > 0) {
-//                        streams.add(new FileInputStream(partFile));
-//                    }
-//                } else {
-//                    for (FileInputStream fis : streams) {
-//                        fis.close();
-//                    }
-//                    streams.clear();
-//                    return false;
-//                }
-//            }
-//            fos = new FileOutputStream(sortedFiles[0],true);
-//            foc = fos.getChannel();
-//            sis = new SequenceInputStream(streams.elements());
-//            ReadableByteChannel fic = Channels.newChannel(sis);
-//            ByteBuffer bf = ByteBuffer.allocate(8196);
-//            while (fic.read(bf) != -1) {
-//                bf.flip();
-//                foc.write(bf);
-//                bf.compact();
-//            }
-//            fic.close();
-//            sis.close();
-//            return renameTo(sortedFiles[0], dest);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//            closeQuietly(sis);
-//            closeQuietly(foc);
-//            closeQuietly(fos);
-//        }
-//        return false;
-//    }
-
     public static boolean mergeFiles(File[] sources, File dest) {
         File[] sortedFiles = new File[sources.length];
-        for (int i = 0; i < sources.length; i++) {
-            File partFile = sources[i];
+        for (File partFile : sources) {
             String partFileName = partFile.getName();
             int idIndex = partFileName.lastIndexOf("-") + 1;
             int id = Integer.parseInt(partFileName.substring(idIndex));
@@ -198,8 +134,6 @@ public class FileUtil {
             bufferedSink.flush();
             renameTo(sortedFiles[0], dest);
             return true;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

@@ -15,10 +15,10 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class DBService {
-    private DBOpenHelper helper;
+    private final DBOpenHelper helper;
     private static DBService instance;
-    private DownloadInfoManager downloadInfoManager;
-    private AtomicInteger mOpenCounter = new AtomicInteger();
+    private final DownloadInfoManager downloadInfoManager;
+    private final AtomicInteger mOpenCounter = new AtomicInteger();
 
     public static void init(Context context) {
         instance = new DBService(context);

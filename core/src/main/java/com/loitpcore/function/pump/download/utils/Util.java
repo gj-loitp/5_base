@@ -75,11 +75,6 @@ public class Util {
     public static long getUsableSpace(File file) {
         if (file == null) return 0L;
         return getUsableSpaceBeforeO(file);
-//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-//            return getUsableSpaceBeforeO(file);
-//        } else {
-//
-//        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
