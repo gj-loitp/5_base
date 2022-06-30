@@ -13,7 +13,6 @@ import android.widget.PopupWindow
 import vn.loitp.app.R
 
 class KeyboardHeightProvider(private val activity: Activity) : PopupWindow(activity) {
-    private val logTag = javaClass.simpleName
     private var resizableView: View
     private var parentView: View? = null
     private var lastKeyboardHeight = -1
@@ -24,7 +23,7 @@ class KeyboardHeightProvider(private val activity: Activity) : PopupWindow(activ
         contentView = View.inflate(activity, R.layout.keyboard_popup, null)
         resizableView = contentView.findViewById(R.id.keyResizeContainer)
         softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE or
-            WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
         inputMethodMode = INPUT_METHOD_NEEDED
 
         width = 0
@@ -97,7 +96,6 @@ class KeyboardHeightProvider(private val activity: Activity) : PopupWindow(activ
     }
 
     private fun notifyKeyboardHeightChanged(height: Int, orientation: Int) {
-//        Log.d(logTag, "notifyKeyboardHeightChanged: $height $orientation")
         keyboardListeners.forEach {
             it.onHeightChanged(height)
         }

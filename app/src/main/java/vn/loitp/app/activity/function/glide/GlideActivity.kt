@@ -20,6 +20,10 @@ class GlideActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         bt0.setOnClickListener(this)
         bt1.setOnClickListener(this)
         bt2.setOnClickListener(this)

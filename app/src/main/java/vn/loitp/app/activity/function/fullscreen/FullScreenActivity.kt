@@ -23,6 +23,10 @@ class FullScreenActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btToggleFullScreen.setOnClickListener(this)
         btShowDialog.setOnClickListener(this)
     }

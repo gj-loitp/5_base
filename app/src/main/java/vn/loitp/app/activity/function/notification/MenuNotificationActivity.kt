@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -26,6 +27,7 @@ import vn.loitp.app.R
 
 @LogTag("MenuNotificationActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
 
     companion object {
@@ -154,7 +156,8 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
                 )
             }
             btBigPictureNotification -> {
-                val icon = BitmapFactory.decodeResource(this.resources, R.drawable.ic_launcher_loitp)
+                val icon =
+                    BitmapFactory.decodeResource(this.resources, R.drawable.ic_launcher_loitp)
                 val iconBig = BitmapFactory.decodeResource(this.resources, R.drawable.iv)
                 notti?.show(
                     NottiFactory[NottiFactory.TYPE.BIG_PICTURE, "some text", "some " + "content"]

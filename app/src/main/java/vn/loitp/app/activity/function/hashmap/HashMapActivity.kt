@@ -7,7 +7,6 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_func_hashmap.*
 import vn.loitp.app.R
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("HashMapActivity")
 @IsFullScreen(false)
@@ -22,6 +21,10 @@ class HashMapActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btAdd.setOnClickListener(this)
         btGetKey0.setOnClickListener(this)
         btRemoveKey0.setOnClickListener(this)
@@ -50,6 +53,6 @@ class HashMapActivity : BaseFontActivity(), View.OnClickListener {
         for ((key, value) in map) {
             s += "$key -> $value"
         }
-        textView.text = if (s.isEmpty()) "No data" else s
+        textView.text = s.ifEmpty { "No data" }
     }
 }

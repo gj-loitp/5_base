@@ -13,15 +13,16 @@ import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.location.*
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LLocationUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.common.api.ResolvableApiException
-import com.google.android.gms.location.*
+import com.loitpcore.views.setSafeOnClickListener
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_func_location.*
 import vn.loitp.app.BuildConfig
@@ -70,13 +71,17 @@ class LocationActivity : BaseFontActivity() {
 
         // restore the values from saved instance state
         restoreValuesFromBundle(savedInstanceState)
-        btStartLocationUpdates.setOnClickListener {
+        setupViews()
+    }
+
+    private fun setupViews() {
+        btStartLocationUpdates.setSafeOnClickListener {
             startLocationButtonClick()
         }
-        btStopLocationUpdates.setOnClickListener {
+        btStopLocationUpdates.setSafeOnClickListener {
             stopLocationButtonClick()
         }
-        btGetLastLocation.setOnClickListener {
+        btGetLastLocation.setSafeOnClickListener {
             showLastKnownLocation()
         }
     }
@@ -189,9 +194,9 @@ class LocationActivity : BaseFontActivity() {
                                 Manifest.permission.ACCESS_FINE_LOCATION
                             ) == PackageManager.PERMISSION_GRANTED &&
                             ActivityCompat.checkSelfPermission(
-                                    this,
-                                    Manifest.permission.ACCESS_COARSE_LOCATION
-                                ) == PackageManager.PERMISSION_GRANTED
+                                this,
+                                Manifest.permission.ACCESS_COARSE_LOCATION
+                            ) == PackageManager.PERMISSION_GRANTED
                         ) {
                             mLocationRequest?.let { lr ->
                                 mLocationCallback?.let { lc ->
@@ -298,6 +303,7 @@ class LocationActivity : BaseFontActivity() {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {

@@ -40,19 +40,19 @@ class KeyboardHeightProviderActivity : BaseFontActivity() {
         }
         keyboardHeightProvider = KeyboardHeightProvider(this)
         keyboardHeightProvider?.addKeyboardListener(object :
-                KeyboardHeightProvider.KeyboardListener {
-                override fun onHeightChanged(height: Int) {
-                    if (height == 0) {
-                        layoutKeyboardFake.isVisible = false
-                    } else {
-                        if (layoutKeyboardFake.layoutParams.height != height) {
-                            layoutKeyboardFake.layoutParams.height = height
-                            layoutKeyboardFake.requestLayout()
-                        }
-                        layoutKeyboardFake.isVisible = true
+            KeyboardHeightProvider.KeyboardListener {
+            override fun onHeightChanged(height: Int) {
+                if (height == 0) {
+                    layoutKeyboardFake.isVisible = false
+                } else {
+                    if (layoutKeyboardFake.layoutParams.height != height) {
+                        layoutKeyboardFake.layoutParams.height = height
+                        layoutKeyboardFake.requestLayout()
                     }
+                    layoutKeyboardFake.isVisible = true
                 }
-            })
+            }
+        })
     }
 
     override fun onResume() {

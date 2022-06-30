@@ -25,6 +25,10 @@ class DragDropSampleActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         ivPaper.tag = "paper"
         ivTrash.tag = "trash"
 

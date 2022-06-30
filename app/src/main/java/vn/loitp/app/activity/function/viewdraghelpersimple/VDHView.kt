@@ -19,7 +19,6 @@ class VDHView @JvmOverloads constructor(
     @AttrRes defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
-    private val logTag = javaClass.simpleName
     private lateinit var headerView: View
     private lateinit var bodyView: View
     private lateinit var mViewDragHelper: ViewDragHelper

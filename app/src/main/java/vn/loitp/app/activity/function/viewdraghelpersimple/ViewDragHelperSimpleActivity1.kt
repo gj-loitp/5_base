@@ -21,6 +21,10 @@ class ViewDragHelperSimpleActivity1 : BaseFontActivity(), VDHView.Callback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         vdhv.setCallback(this)
 
         btToast.setSafeOnClickListener {

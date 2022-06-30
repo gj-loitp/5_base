@@ -29,6 +29,10 @@ class ActivityServiceComunicateActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btNotifyMe.setSafeOnClickListener {
             handleNotify()
         }
@@ -48,6 +52,7 @@ class ActivityServiceComunicateActivity : BaseFontActivity() {
         startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {
             handleNotify()

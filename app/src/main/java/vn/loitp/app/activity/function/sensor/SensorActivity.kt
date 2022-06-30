@@ -25,6 +25,10 @@ class SensorActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         LImageUtil.load(context = this, any = URL_IMG, imageView = imageView)
         val w = LScreenUtil.screenWidth
         val h = w * 9 / 16
