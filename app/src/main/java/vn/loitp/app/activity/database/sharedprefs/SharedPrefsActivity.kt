@@ -1,13 +1,13 @@
 package vn.loitp.app.activity.database.sharedprefs
 
 import android.os.Bundle
+import com.google.gson.reflect.TypeToken
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LConvertUtil
 import com.loitpcore.core.utilities.LSharedPrefsUtil
-import com.google.gson.reflect.TypeToken
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_shared_prefs.*
 import vn.loitp.app.R
@@ -36,6 +36,10 @@ class SharedPrefsActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btPutString.setSafeOnClickListener {
             LSharedPrefsUtil.instance.putString(
                 KEY_STRING,

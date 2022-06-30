@@ -7,7 +7,6 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_read_sqlite_asset.*
 import vn.loitp.app.R
-import java.util.*
 
 @LogTag("ReadSqliteAssetActivity")
 @IsFullScreen(false)

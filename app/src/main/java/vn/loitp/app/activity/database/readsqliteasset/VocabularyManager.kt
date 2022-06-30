@@ -11,7 +11,6 @@ import com.loitpcore.utils.util.AppUtils.Companion.appVersionCode
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
-import java.util.* // ktlint-disable no-wildcard-imports
 
 class VocabularyManager(
     private val context: Context
@@ -36,7 +35,6 @@ class VocabularyManager(
         private const val KEY_SISOXFORDLIST = "sisoxfordlist"
     }
 
-    private val logTag = javaClass.simpleName
     private var sqLiteDatabase: SQLiteDatabase? = null
     override fun onCreate(db: SQLiteDatabase) {}
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {}

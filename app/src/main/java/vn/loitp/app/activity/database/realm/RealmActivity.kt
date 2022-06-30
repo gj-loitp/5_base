@@ -34,7 +34,10 @@ class RealmActivity : BaseFontActivity() {
         RealmController.with(application).refresh()
 
         getAllMyBook()
+        setupViews()
+    }
 
+    private fun setupViews() {
         btRealm.setSafeOnClickListener {
             val intent = Intent(this, EbookWithRealmActivity::class.java)
             startActivity(intent)
