@@ -23,12 +23,15 @@ class FrmCoordinator4 : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+        prepareMovieData()
+    }
+
+    private fun setupViews() {
         mAdapter = MultiAdapter()
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = mLayoutManager
         recyclerView.adapter = mAdapter
-
-        prepareMovieData()
     }
 
     private fun prepareMovieData() {

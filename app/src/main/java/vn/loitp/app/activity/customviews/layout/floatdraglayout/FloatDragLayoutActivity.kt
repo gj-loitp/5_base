@@ -22,7 +22,7 @@ import vn.loitp.app.R
 @IsFullScreen(false)
 class FloatDragLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
-    var floatDragPopupWindow: FloatDragPopupWindow? = null
+    private var floatDragPopupWindow: FloatDragPopupWindow? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_float_drag_layout

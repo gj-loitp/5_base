@@ -457,7 +457,7 @@
             android:name=".activity.customviews.layout.heartlayout.HeartLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity"
+            android:name=".activity.customviews.layout.constraintlayout.MenuConstraintlayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.constraintlayout.fabandsnackbar.FabAndSnackBarActivity"
@@ -597,7 +597,7 @@
             android:name=".activity.demo.twoinstanceactivity.Activity3"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.layout.coordinatorlayout.CoordinatorLayoutMenuActivity"
+            android:name=".activity.customviews.layout.coordinatorlayout.MenuCoordinatorLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.coordinatorlayout.CoordinatorLayoutSampleActivity"

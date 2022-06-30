@@ -14,9 +14,9 @@ import vn.loitp.app.R
 
 // http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
 
-@LogTag("CoordinatorLayoutMenuActivity")
+@LogTag("MenuCoordinatorLayoutActivity")
 @IsFullScreen(false)
-class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
+class MenuCoordinatorLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_menu_coordinator_layout
@@ -38,7 +38,7 @@ class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             )
             this.ivIconRight?.isVisible = false
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = CoordinatorLayoutMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuCoordinatorLayoutActivity::class.java.simpleName
         }
         bt0.setOnClickListener(this)
         bt1.setOnClickListener(this)

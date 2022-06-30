@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
+import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
-import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import kotlinx.android.synthetic.main.activity_relative_popup_window_layout.*
 import vn.loitp.app.R
 

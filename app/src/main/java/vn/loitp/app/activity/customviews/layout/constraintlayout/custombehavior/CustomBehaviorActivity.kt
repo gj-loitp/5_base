@@ -2,11 +2,11 @@ package vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior
 
 import android.os.Bundle
 import androidx.core.view.isVisible
+import com.google.android.material.snackbar.Snackbar
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
-import com.google.android.material.snackbar.Snackbar
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_custom_behavior.*
 import vn.loitp.app.R

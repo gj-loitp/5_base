@@ -35,8 +35,8 @@ class ScrollView2DActivity : BaseFontActivity() {
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = ScrollView2DActivity::class.java.simpleName
         }
-        twoDScrollView.setScrollChangeListener { _, x, y, oldx, oldy ->
-            logD("setScrollChangeListener $x - $y - $oldx - $oldy")
+        twoDScrollView.setScrollChangeListener { _, x, y, oldX, oldY ->
+            logD("setScrollChangeListener $x - $y - $oldX - $oldY")
         }
         LUIUtil.setDelay(
             mls = 2000,

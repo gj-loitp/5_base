@@ -16,8 +16,8 @@ import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayou
 import vn.loitp.app.activity.customviews.layout.basketlayout.BasketLayoutActivity
 import vn.loitp.app.activity.customviews.layout.chess.ChessLayoutActivity
 import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity
-import vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity
-import vn.loitp.app.activity.customviews.layout.coordinatorlayout.CoordinatorLayoutMenuActivity
+import vn.loitp.app.activity.customviews.layout.constraintlayout.MenuConstraintlayoutActivity
+import vn.loitp.app.activity.customviews.layout.coordinatorlayout.MenuCoordinatorLayoutActivity
 import vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity
 import vn.loitp.app.activity.customviews.layout.draggablepanelfree.DraggablePanelFreeActivity
 import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity
@@ -113,12 +113,12 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
             btSwipeRefreshLayout -> Intent(this, SwipeRefreshLayoutMenuActivity::class.java)
             btCircularView -> Intent(this, CircularViewActivity::class.java)
             btAutoLinearLayout -> Intent(this, AutoLinearLayoutActivity::class.java)
-            btConstraintLayout -> Intent(this, ConstraintlayoutMenuActivity::class.java)
+            btConstraintLayout -> Intent(this, MenuConstraintlayoutActivity::class.java)
             btSwipebackLayout -> Intent(this, SwipeBackLayoutActivity::class.java)
             btHeartLayout -> Intent(this, HeartLayoutActivity::class.java)
             btFloatDragLayout -> Intent(this, FloatDragLayoutActivity::class.java)
             btRotateLayout -> Intent(this, RotateLayoutActivity::class.java)
-            btCoordinatorLayout -> Intent(this, CoordinatorLayoutMenuActivity::class.java)
+            btCoordinatorLayout -> Intent(this, MenuCoordinatorLayoutActivity::class.java)
             btSquareLayout -> Intent(this, SquareLayoutActivity::class.java)
             btRelativePopupWindow -> Intent(this, RelativePopupWindowActivity::class.java)
             btExpansionPanel -> Intent(this, ExpansionLayoutMenuActivity::class.java)

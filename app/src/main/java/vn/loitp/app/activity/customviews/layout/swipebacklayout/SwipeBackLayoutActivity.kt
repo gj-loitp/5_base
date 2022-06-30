@@ -33,6 +33,10 @@ class SwipeBackLayoutActivity : BaseFontActivity() {
         screenW = LScreenUtil.screenWidth
         screenH = LScreenUtil.screenHeight
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         swipeBackLayout.directionMode = SwipeBackLayout.FROM_LEFT
         swipeBackLayout.setMaskAlpha(125)
         swipeBackLayout.setSwipeBackFactor(0.5f)

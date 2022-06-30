@@ -18,9 +18,9 @@ import vn.loitp.app.activity.customviews.layout.constraintlayout.demo.Constraint
 import vn.loitp.app.activity.customviews.layout.constraintlayout.fabandsnackbar.FabAndSnackBarActivity
 import vn.loitp.app.activity.customviews.layout.constraintlayout.fabfollowswiidget.FabFollowWidgetActivity
 
-@LogTag("ConstraintlayoutMenuActivity")
+@LogTag("MenuConstraintlayoutActivity")
 @IsFullScreen(false)
-class ConstraintlayoutMenuActivity : BaseFontActivity(), OnClickListener {
+class MenuConstraintlayoutActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_constraintlayout_menu
@@ -42,7 +42,7 @@ class ConstraintlayoutMenuActivity : BaseFontActivity(), OnClickListener {
             )
             this.ivIconRight?.isVisible = false
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = ConstraintlayoutMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuConstraintlayoutActivity::class.java.simpleName
         }
         btConstraintSet.setOnClickListener(this)
         btDemo.setOnClickListener(this)
