@@ -3,7 +3,6 @@ package vn.loitp.app.activity.demo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import com.loitpcore.BuildConfig
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -15,6 +14,7 @@ import com.loitpcore.core.helper.ttt.ui.a.TTTSplashActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.game.findnumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_demo_menu.*
+import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity
