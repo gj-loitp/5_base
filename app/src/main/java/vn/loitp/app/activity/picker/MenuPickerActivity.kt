@@ -3,6 +3,7 @@ package vn.loitp.app.activity.picker
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -17,6 +18,7 @@ import vn.loitp.app.activity.picker.unicornfilepicker.UnicornFilePickerActivity
 
 @LogTag("MenuPickerActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
@@ -26,6 +28,10 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btAttachmentManager.setOnClickListener(this)
         btTimePicker.setOnClickListener(this)
         btScopedMediaPicker.setOnClickListener(this)

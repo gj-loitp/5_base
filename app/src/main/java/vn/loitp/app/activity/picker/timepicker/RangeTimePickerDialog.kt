@@ -31,11 +31,11 @@ class RangeTimePickerDialog(
         super.onTimeChanged(view, hourOfDay, minute)
 
         val validTime = (
-            hourOfDay >= mMinHour &&
-                (hourOfDay != mMinHour || minute >= mMinMinute) &&
-                hourOfDay <= mMaxHour &&
-                (hourOfDay != mMaxHour || minute <= mMaxMinute)
-            )
+                hourOfDay >= mMinHour &&
+                        (hourOfDay != mMinHour || minute >= mMinMinute) &&
+                        hourOfDay <= mMaxHour &&
+                        (hourOfDay != mMaxHour || minute <= mMaxMinute)
+                )
         if (validTime) {
             mCurrentHour = hourOfDay
             mCurrentMinute = minute

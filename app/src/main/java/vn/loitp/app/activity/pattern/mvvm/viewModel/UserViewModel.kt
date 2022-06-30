@@ -57,6 +57,7 @@ class UserViewModel(private val user: User) : Observer, BaseObservable() {
             return "Tagline: " + user.tagline
         }
 
+    //cannot delete view: View, it called by xml
     fun onButtonClick(view: View) {
         this.user.age = 35
         this.user.imageUrl = "https://media.giphy.com/media/w7M8g9cTom0Du/giphy.gif"

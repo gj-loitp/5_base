@@ -26,6 +26,10 @@ class TimePickerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         timePickerSpiner.setIs24HourView(true)
 
         timePickerClock.setOnTimeChangedListener { _, hourOfDay, minute ->

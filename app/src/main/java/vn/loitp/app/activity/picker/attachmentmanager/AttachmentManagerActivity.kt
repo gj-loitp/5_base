@@ -11,9 +11,9 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.views.setSafeOnClickListener
 import com.mirza.attachmentmanager.managers.AttachmentManager
 import com.mirza.attachmentmanager.models.AttachmentDetail
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_attachment_manager.*
 import vn.loitp.app.R

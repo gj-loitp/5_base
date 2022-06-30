@@ -70,7 +70,7 @@ class ScopedMediaPickerActivity : BaseFontActivity() {
         // CHON HINH VA VIDEO CUNG LUC
         scopedMediaPicker.startMediaPicker(
             mediaType = ScopedMediaPicker.MEDIA_TYPE_IMAGE
-                or ScopedMediaPicker.MEDIA_TYPE_VIDEO,
+                    or ScopedMediaPicker.MEDIA_TYPE_VIDEO,
             actionType = ScopedMediaPicker.ACTION_TYPE_GALLERY
         ) { pathList, type ->
             when (type) {
@@ -126,7 +126,7 @@ class ScopedMediaPickerActivity : BaseFontActivity() {
     }
 
     private fun pickFile() {
-        scopedMediaPicker.startFilePicker() { pathList ->
+        scopedMediaPicker.startFilePicker { pathList ->
             var s = ""
             pathList.forEach {
                 s += it.fileName + "\n"
@@ -144,6 +144,7 @@ class ScopedMediaPickerActivity : BaseFontActivity() {
         scopedMediaPicker.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         scopedMediaPicker.onActivityResult(requestCode, resultCode, data)

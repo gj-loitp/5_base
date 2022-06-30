@@ -12,7 +12,6 @@ import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
 class DemoService : Service() {
-    private val logTag = javaClass.simpleName
     private val disposables = CompositeDisposable()
 
     override fun onBind(intent: Intent): IBinder? {

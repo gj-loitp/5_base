@@ -808,7 +808,7 @@
             android:name=".activity.customviews.recyclerview.recyclertablayout.years.RvTabYearsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.security.SecurityMenuActivity"
+            android:name=".activity.security.MenuSecurityActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.security.simple.SimpleEncryptDecryptStringActivity"

@@ -1,21 +1,20 @@
 package vn.loitp.app.activity.pattern.observerpattern
 
 import android.os.Handler
-import java.util.* // ktlint-disable no-wildcard-imports
+import android.os.Looper
 
 class UserDataRepository private constructor() : Subject {
     private var mFullName: String = ""
     private var mAge: Int = 0 // ktlint-disable no-wildcard-imports
     private val mObservers: ArrayList<RepositoryObserver> = ArrayList()
 
-    init {
-        // getNewDataFromRemote();
-    }
-
     // Simulate network
     fun getNewDataFromRemote() {
-        val handler = Handler()
-        handler.postDelayed({ setUserData("Loitp ^^! +${System.currentTimeMillis()}", 101) }, 2000)
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed(
+            { setUserData("Loitp ^^! +${System.currentTimeMillis()}", 101) },
+            2000
+        )
     }
 
     override fun registerObserver(repositoryObserver: RepositoryObserver) {
