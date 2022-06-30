@@ -6,12 +6,12 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.daimajia.androidanimations.library.Techniques
+import com.github.mmin18.widget.RealtimeBlurView
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
-import com.daimajia.androidanimations.library.Techniques
-import com.github.mmin18.widget.RealtimeBlurView
 import kotlinx.android.synthetic.main.view_l_bottom_bar.view.*
 
 class LBottomBar : RelativeLayout, View.OnClickListener {

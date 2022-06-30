@@ -9,7 +9,6 @@ import com.loitpcore.R
 import com.loitpcore.views.calendar.cosmocalendar.model.Day
 import com.loitpcore.views.calendar.cosmocalendar.view.CalendarView
 import com.loitpcore.views.calendar.cosmocalendar.view.customviews.CircleAnimationTextView
-import java.util.*
 
 class MultipleSelectionBarAdapter(
     calendarView: CalendarView,

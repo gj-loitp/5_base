@@ -1,5 +1,6 @@
 package com.loitpcore.views.button.circularimageclick
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -65,6 +66,7 @@ class LCircularClickImageButton : AppCompatImageButton {
         centerY = h / 2.toFloat()
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
 
         // here we get the toucj event and then we make sure that the touch event
