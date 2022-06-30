@@ -59,14 +59,14 @@ class Footer2Adapter(private val moviesList: List<Movie>, private val callback: 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == TYPE_BANNER) {
+        return if (viewType == TYPE_BANNER) {
             val itemView = LayoutInflater.from(parent.context)
                 .inflate(R.layout.view_row_item_about_me, parent, false)
-            return BannerViewHolder(itemView)
+            BannerViewHolder(itemView)
         } else {
             val itemView =
                 LayoutInflater.from(parent.context).inflate(R.layout.row_movie_list, parent, false)
-            return MovieViewHolder(itemView)
+            MovieViewHolder(itemView)
         }
     }
 

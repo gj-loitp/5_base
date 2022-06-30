@@ -14,9 +14,6 @@ import com.loitpcore.views.recyclerview.recyclertablayout.RecyclerTabLayout
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoImagePagerAdapter
 
-/**
- * Created by Shinichi Nishimura on 2015/07/22.
- */
 class RvTabCustomView02Adapter internal constructor(viewPager: ViewPager) :
     RecyclerTabLayout.Adapter<RvTabCustomView02Adapter.ViewHolder>(viewPager) {
 

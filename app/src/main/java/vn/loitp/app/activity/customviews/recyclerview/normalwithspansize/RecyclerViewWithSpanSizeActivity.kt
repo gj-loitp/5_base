@@ -15,7 +15,6 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
 import vn.loitp.app.common.Constants
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("RecyclerViewWithSpanSizeActivity")
 @IsFullScreen(false)
@@ -30,6 +29,11 @@ class RecyclerViewWithSpanSizeActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+        prepareMovieData()
+    }
+
+    private fun setupViews() {
         moviesAdapter =
             MoviesAdapter(
                 moviesList = movieList,
@@ -68,7 +72,6 @@ class RecyclerViewWithSpanSizeActivity : BaseFontActivity() {
             }
         }
         // LUIUtil.setPullLikeIOSVertical(rv)
-        prepareMovieData()
     }
 
     @SuppressLint("NotifyDataSetChanged")

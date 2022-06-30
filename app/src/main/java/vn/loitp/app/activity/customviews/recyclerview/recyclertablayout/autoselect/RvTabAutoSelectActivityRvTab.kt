@@ -28,6 +28,10 @@ class RvTabAutoSelectActivityRvTab : RvTabDemoBasicActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         recyclerTabLayout.setAutoSelectionMode(true)
     }
 }

@@ -28,6 +28,10 @@ open class RvTabImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChan
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         val keyDemo = intent.getStringExtra(KEY_DEMO)
         if (keyDemo.isNullOrEmpty()) {
             onBackPressed()

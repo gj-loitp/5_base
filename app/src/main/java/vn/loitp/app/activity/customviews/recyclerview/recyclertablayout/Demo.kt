@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout
 import vn.loitp.app.R
 
 enum class Demo(var titleResId: Int) {
-
     BASIC(R.string.title_basic),
     CUSTOM_VIEW01(R.string.title_custom_view01),
     CUSTOM_VIEW02(R.string.title_custom_view02),

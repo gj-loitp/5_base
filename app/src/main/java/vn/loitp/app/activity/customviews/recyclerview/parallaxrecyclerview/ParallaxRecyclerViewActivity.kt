@@ -18,6 +18,10 @@ class ParallaxRecyclerViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         rv.adapter = ParallaxAdapter(this)
     }
 }

@@ -3,7 +3,10 @@ package vn.loitp.app.activity.customviews.recyclerview.footer2
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
-import androidx.recyclerview.widget.* // ktlint-disable no-wildcard-imports
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -12,9 +15,8 @@ import com.loitpcore.core.utilities.LPopupMenu
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.recyclerview.itemdecoration.StickyFooterItemDecoration
 import com.loitpcore.views.setSafeOnClickListener
-import jp.wasabeef.recyclerview.adapters.* // ktlint-disable no-wildcard-imports
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.*
-import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.progressBar
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
@@ -33,6 +35,10 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         footer2Adapter = Footer2Adapter(
             moviesList = instance.movieList,
             callback = object : Footer2Adapter.Callback {

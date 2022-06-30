@@ -7,9 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import vn.loitp.app.R
-import java.util.*
-
-// ktlint-disable no-wildcard-imports
 
 class RvTabImitationLoopPagerAdapter : PagerAdapter() {
 
@@ -55,7 +52,7 @@ class RvTabImitationLoopPagerAdapter : PagerAdapter() {
         return mItems.size * NUMBER_OF_LOOPS / 2 + position
     }
 
-    fun getValueAt(position: Int): String? {
+    private fun getValueAt(position: Int): String? {
         return if (mItems.isEmpty()) {
             null
         } else mItems[position % mItems.size]

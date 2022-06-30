@@ -17,7 +17,6 @@ import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
-import java.util.*
 
 // https://github.com/wasabeef/recyclerview-animators
 

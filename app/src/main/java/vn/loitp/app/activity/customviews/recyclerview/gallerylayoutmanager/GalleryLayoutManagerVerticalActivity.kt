@@ -19,6 +19,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
+import kotlin.math.abs
 
 @LogTag("GalleryLayoutManagerVerticalActivity")
 @IsFullScreen(false)
@@ -122,7 +123,7 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
         ) {
             item.pivotX = item.width / 2f
             item.pivotY = item.height / 2.0f
-            val scale = 1 - 0.4f * Math.abs(fraction)
+            val scale = 1 - 0.4f * abs(fraction)
             item.scaleX = scale
             item.scaleY = scale
         }

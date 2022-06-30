@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_recycler_view_menu_gallery_layout
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
+import kotlin.math.abs
 
 @LogTag("GalleryLayoutManagerHorizontalActivity")
 @IsFullScreen(false)
@@ -122,7 +123,7 @@ class GalleryLayoutManagerHorizontalActivity : BaseFontActivity() {
         ) {
             item.pivotX = item.width / 2f
             item.pivotY = item.height / 2.0f
-            val scale = 1 - 0.4f * Math.abs(fraction)
+            val scale = 1 - 0.4f * abs(fraction)
             item.scaleX = scale
             item.scaleY = scale
         }

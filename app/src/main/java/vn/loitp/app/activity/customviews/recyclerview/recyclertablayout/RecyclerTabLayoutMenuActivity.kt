@@ -30,6 +30,10 @@ class RecyclerTabLayoutMenuActivity : BaseFontActivity(), AdapterView.OnItemClic
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         listView.onItemClickListener = this
 //        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
         val adapter = ArrayAdapter<String>(this, R.layout.view_row_test_retrofit)

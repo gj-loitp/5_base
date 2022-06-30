@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import kotlinx.android.synthetic.main.view_item_recycler_tablayout_page.view.*
 import vn.loitp.app.R
-import java.util.*
 
 class DemoColorPagerAdapter : PagerAdapter() {
 

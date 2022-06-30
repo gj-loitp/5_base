@@ -3,7 +3,10 @@ package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsin
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
-import androidx.recyclerview.widget.* // ktlint-disable no-wildcard-imports
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity

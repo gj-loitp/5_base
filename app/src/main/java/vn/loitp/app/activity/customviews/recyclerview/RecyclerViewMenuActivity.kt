@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -33,6 +34,7 @@ import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Recycler
 
 @LogTag("RecyclerViewMenuActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {

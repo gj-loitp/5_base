@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import vn.loitp.app.R
-import java.util.* // ktlint-disable no-wildcard-imports
 
 class YearsPagerAdapter : PagerAdapter() {
 
