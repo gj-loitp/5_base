@@ -1,9 +1,9 @@
 package com.loitpcore.restapi.flickr.model.photosetgetphotos
 
 import androidx.annotation.Keep
-import com.loitpcore.core.base.BaseModel
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.loitpcore.core.base.BaseModel
 
 @Keep
 class Photoset : BaseModel() {

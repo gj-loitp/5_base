@@ -10,6 +10,7 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
+import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
 import com.loitpcore.animation.morphtransitions.MorphTransform
 import com.loitpcore.annotation.LogTag
@@ -17,7 +18,6 @@ import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.game.findnumber.dialog.FindNumberWinActivity
 import com.loitpcore.game.findnumber.model.Level
 import com.loitpcore.views.textview.autofit.LAutofitTextView

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.IsSwipeActivity
@@ -14,7 +15,6 @@ import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.game.findnumber.adapter.LevelAdapter
 import com.loitpcore.game.findnumber.model.Level
 import com.loitpcore.game.findnumber.viewmodel.FindNumberViewModel
@@ -133,7 +133,7 @@ class SingleLevelActivity : BaseFontActivity() {
                 }
             }
 
-            vm.firstLevelOpenActionLiveData.observe(this, { actionData ->
+            vm.firstLevelOpenActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
                     LDialogUtil.showProgress(progressBar)
@@ -146,7 +146,7 @@ class SingleLevelActivity : BaseFontActivity() {
                         playGame(level = firstLevelOpen, view = ivPlay)
                     }
                 }
-            })
+            }
         }
     }
 

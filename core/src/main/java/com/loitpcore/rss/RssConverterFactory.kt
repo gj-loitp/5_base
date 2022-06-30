@@ -20,7 +20,7 @@ private constructor() : Converter.Factory() {
         annotations: Array<Annotation>?,
         retrofit: Retrofit?
     ):
-        Converter<ResponseBody, *> = RssResponseBodyConverter()
+            Converter<ResponseBody, *> = RssResponseBodyConverter()
 
     companion object {
 

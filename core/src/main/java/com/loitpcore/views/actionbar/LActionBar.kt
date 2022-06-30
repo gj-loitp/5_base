@@ -7,10 +7,10 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.github.mmin18.widget.RealtimeBlurView
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
-import com.github.mmin18.widget.RealtimeBlurView
 
 class LActionBar : RelativeLayout {
     var ivIconLeft: ImageView? = null

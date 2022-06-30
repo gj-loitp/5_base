@@ -10,7 +10,6 @@ import com.loitpcore.R
 import com.loitpcore.core.utilities.LUIUtil
 
 class TextViewWithSize : AppCompatTextView {
-    private val logTag = javaClass.simpleName
 
     constructor(context: Context) : super(context) {
         init()

@@ -218,13 +218,13 @@ class GestureAnalyser @JvmOverloads constructor(
                     fingNum2 = 1
                 ) &&
                 finalFingDist(fingNum1 = 1, fingNum2 = 2) > 1.75 * initialFingDist(
-                        fingNum1 = 1,
-                        fingNum2 = 2
-                    ) &&
+                    fingNum1 = 1,
+                    fingNum2 = 2
+                ) &&
                 finalFingDist(fingNum1 = 2, fingNum2 = 0) > 1.75 * initialFingDist(
-                        fingNum1 = 2,
-                        fingNum2 = 0
-                    )
+                    fingNum1 = 2,
+                    fingNum2 = 0
+                )
             ) {
                 return UNPINCH_3
             }
@@ -233,13 +233,13 @@ class GestureAnalyser @JvmOverloads constructor(
                     fingNum2 = 1
                 ) &&
                 finalFingDist(fingNum1 = 1, fingNum2 = 2) < 0.66 * initialFingDist(
-                        fingNum1 = 1,
-                        fingNum2 = 2
-                    ) &&
+                    fingNum1 = 1,
+                    fingNum2 = 2
+                ) &&
                 finalFingDist(fingNum1 = 2, fingNum2 = 0) < 0.66 * initialFingDist(
-                        fingNum1 = 2,
-                        fingNum2 = 0
-                    )
+                    fingNum1 = 2,
+                    fingNum2 = 0
+                )
             ) {
                 return PINCH_3
             }
@@ -278,17 +278,17 @@ class GestureAnalyser @JvmOverloads constructor(
                     fingNum2 = 1
                 ) &&
                 finalFingDist(fingNum1 = 1, fingNum2 = 2) > 1.5 * initialFingDist(
-                        fingNum1 = 1,
-                        fingNum2 = 2
-                    ) &&
+                    fingNum1 = 1,
+                    fingNum2 = 2
+                ) &&
                 finalFingDist(fingNum1 = 2, fingNum2 = 3) > 1.5 * initialFingDist(
-                        fingNum1 = 2,
-                        fingNum2 = 3
-                    ) &&
+                    fingNum1 = 2,
+                    fingNum2 = 3
+                ) &&
                 finalFingDist(fingNum1 = 3, fingNum2 = 0) > 1.5 * initialFingDist(
-                        fingNum1 = 3,
-                        fingNum2 = 0
-                    )
+                    fingNum1 = 3,
+                    fingNum2 = 0
+                )
             ) {
                 return UNPINCH_4
             }
@@ -297,17 +297,17 @@ class GestureAnalyser @JvmOverloads constructor(
                     fingNum2 = 1
                 ) &&
                 finalFingDist(fingNum1 = 1, fingNum2 = 2) < 0.8 * initialFingDist(
-                        fingNum1 = 1,
-                        fingNum2 = 2
-                    ) &&
+                    fingNum1 = 1,
+                    fingNum2 = 2
+                ) &&
                 finalFingDist(fingNum1 = 2, fingNum2 = 3) < 0.8 * initialFingDist(
-                        fingNum1 = 2,
-                        fingNum2 = 3
-                    ) &&
+                    fingNum1 = 2,
+                    fingNum2 = 3
+                ) &&
                 finalFingDist(fingNum1 = 3, fingNum2 = 0) < 0.8 * initialFingDist(
-                        fingNum1 = 3,
-                        fingNum2 = 0
-                    )
+                    fingNum1 = 3,
+                    fingNum2 = 0
+                )
             ) {
                 return PINCH_4
             }
@@ -318,14 +318,14 @@ class GestureAnalyser @JvmOverloads constructor(
     private fun initialFingDist(fingNum1: Int, fingNum2: Int): Double {
         return sqrt(
             (initialX[fingNum1] - initialX[fingNum2]).pow(2.0) +
-                (initialY[fingNum1] - initialY[fingNum2]).pow(2.0)
+                    (initialY[fingNum1] - initialY[fingNum2]).pow(2.0)
         )
     }
 
     private fun finalFingDist(fingNum1: Int, fingNum2: Int): Double {
         return sqrt(
             (finalX[fingNum1] - finalX[fingNum2]).pow(2.0) +
-                (finalY[fingNum1] - finalY[fingNum2]).pow(2.0)
+                    (finalY[fingNum1] - finalY[fingNum2]).pow(2.0)
         )
     }
 

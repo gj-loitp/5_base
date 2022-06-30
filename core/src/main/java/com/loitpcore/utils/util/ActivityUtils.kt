@@ -34,10 +34,10 @@ class ActivityUtils private constructor() {
             val intent = Intent()
             intent.setClassName(packageName, className)
             return !(
-                context.packageManager.resolveActivity(intent, 0) == null ||
-                    intent.resolveActivity(context.packageManager) == null ||
-                    context.packageManager.queryIntentActivities(intent, 0).size == 0
-                )
+                    context.packageManager.resolveActivity(intent, 0) == null ||
+                            intent.resolveActivity(context.packageManager) == null ||
+                            context.packageManager.queryIntentActivities(intent, 0).size == 0
+                    )
         }
 
         /**

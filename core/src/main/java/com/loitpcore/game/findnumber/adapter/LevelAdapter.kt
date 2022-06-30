@@ -16,7 +16,7 @@ import com.loitpcore.game.findnumber.model.Level
 import kotlinx.android.synthetic.main.view_row_item_find_number_level.view.*
 
 @LogTag("LevelAdapter")
-class LevelAdapter() : BaseAdapter() {
+class LevelAdapter : BaseAdapter() {
 
     private val listLevel = ArrayList<Level>()
 

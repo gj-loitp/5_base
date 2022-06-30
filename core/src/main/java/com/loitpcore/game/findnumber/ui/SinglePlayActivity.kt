@@ -10,8 +10,8 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.game.findnumber.model.Level
-import com.tombayley.activitycircularreveal.CircularReveal
 import com.loitpcore.views.setSafeOnClickListener
+import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_activity_find_number_single_play.*
 
 @LogTag("SinglePlayActivity")

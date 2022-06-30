@@ -1,22 +1,26 @@
 package com.loitpcore.game.findnumber.ui
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
+import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.*
-import com.daimajia.androidanimations.library.Techniques
+import com.loitpcore.core.utilities.LAnimationUtil
+import com.loitpcore.core.utilities.LScreenUtil
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.core.utilities.LValidateUtil
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_activity_find_number_splash.*
 
+@SuppressLint("CustomSplashScreen")
 @LogTag("SplashActivity")
 @IsFullScreen(true)
-// TODO loitpp add sound exf later
 class SplashActivity : BaseFontActivity() {
 
     companion object {

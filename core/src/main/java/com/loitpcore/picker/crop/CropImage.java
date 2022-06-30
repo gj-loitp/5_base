@@ -313,9 +313,7 @@ public final class CropImage {
      * @return true - required permission are not granted, false - either no need for permissions or they are granted
      */
     public static boolean isReadExternalStoragePermissionsRequired(@NonNull Context context, @NonNull Uri uri) {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
-                context.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
-                isUriRequiresPermissions(context, uri);
+        return context.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && isUriRequiresPermissions(context, uri);
     }
 
     /**

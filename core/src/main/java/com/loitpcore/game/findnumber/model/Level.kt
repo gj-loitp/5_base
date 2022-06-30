@@ -3,9 +3,9 @@ package com.loitpcore.game.findnumber.model
 import androidx.annotation.Keep
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.loitpcore.game.findnumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.loitpcore.game.findnumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import java.io.Serializable
 
 @Keep
