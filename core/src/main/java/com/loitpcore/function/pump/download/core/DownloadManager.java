@@ -16,9 +16,9 @@ import java.util.List;
 
 public class DownloadManager implements IDownloadManager {
     private Context context;
-    private DownloadInfoManager downloadInfoManager;
+    private final DownloadInfoManager downloadInfoManager;
 
-    private DownloadDispatcher downloadDispatcher;
+    private final DownloadDispatcher downloadDispatcher;
 
     private volatile boolean hasFetchDownloadList;
 
@@ -119,32 +119,17 @@ public class DownloadManager implements IDownloadManager {
 
     @Override
     public List<DownloadInfo> getDownloadingList() {
-        return getDownloadList(new Filter<DownloadDetailsInfo>() {
-            @Override
-            public boolean filter(DownloadDetailsInfo downloadDetailsInfo) {
-                return !downloadDetailsInfo.isFinished();
-            }
-        });
+        return getDownloadList(downloadDetailsInfo -> !downloadDetailsInfo.isFinished());
     }
 
     @Override
     public List<DownloadInfo> getDownloadedList() {
-        return getDownloadList(new Filter<DownloadDetailsInfo>() {
-            @Override
-            public boolean filter(DownloadDetailsInfo downloadDetailsInfo) {
-                return downloadDetailsInfo.isFinished();
-            }
-        });
+        return getDownloadList(DownloadDetailsInfo::isFinished);
     }
 
     @Override
     public List<DownloadInfo> getDownloadListByTag(final String tag) {
-        return getDownloadList(new Filter<DownloadDetailsInfo>() {
-            @Override
-            public boolean filter(DownloadDetailsInfo downloadDetailsInfo) {
-                return downloadDetailsInfo.getTag().equals(tag);
-            }
-        });
+        return getDownloadList(downloadDetailsInfo -> downloadDetailsInfo.getTag().equals(tag));
     }
 
     @Override

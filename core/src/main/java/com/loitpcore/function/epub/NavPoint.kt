@@ -41,20 +41,20 @@ class NavPoint : Serializable {
         }
     }
 
-//    override fun hashCode(): Int {
-//        var result = id?.hashCode() ?: 0
-//        result = 31 * result + playOrder
-//        result = 31 * result + (navLabel?.hashCode() ?: 0)
-//        result = 31 * result + (contentSrc?.hashCode() ?: 0)
-//        result = 31 * result + (type?.hashCode() ?: 0)
-//        result = 31 * result + (value?.hashCode() ?: 0)
-//        result = 31 * result + isMarkedToDelete.hashCode()
-//        result = 31 * result + typeCode
-//        result = 31 * result + (entryName?.hashCode() ?: 0)
-//        result = 31 * result + bodyTrimStartPosition
-//        result = 31 * result + bodyTrimEndPosition
-//        result = 31 * result + (openTags?.hashCode() ?: 0)
-//        result = 31 * result + isCalculated.hashCode()
-//        return result
-//    }
+    override fun hashCode(): Int {
+        var result = id?.hashCode() ?: 0
+        result = 31 * result + playOrder
+        result = 31 * result + (navLabel?.hashCode() ?: 0)
+        result = 31 * result + (contentSrc?.hashCode() ?: 0)
+        result = 31 * result + (type?.hashCode() ?: 0)
+        result = 31 * result + (value?.hashCode() ?: 0)
+        result = 31 * result + isMarkedToDelete.hashCode()
+        result = 31 * result + typeCode
+        result = 31 * result + (entryName?.hashCode() ?: 0)
+        result = 31 * result + bodyTrimStartPosition
+        result = 31 * result + bodyTrimEndPosition
+        result = 31 * result + (openTags?.hashCode() ?: 0)
+        result = 31 * result + isCalculated.hashCode()
+        return result
+    }
 }

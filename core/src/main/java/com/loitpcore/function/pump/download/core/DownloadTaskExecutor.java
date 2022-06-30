@@ -29,12 +29,6 @@ public interface DownloadTaskExecutor {
      */
     String getName();
 
-    /**
-     * Return the tag of this executor, use for tag all tasks that are executed by current executor,
-     * and will override {@link com.huxq17.download.core.DownloadRequest.DownloadGenerator#tag(String)}
-     *
-     * @return The tag of current executor.
-     */
     String getTag();
 
     /**

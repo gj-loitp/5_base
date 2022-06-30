@@ -22,11 +22,11 @@ import java.net.HttpURLConnection;
 import okhttp3.Response;
 
 public class DownloadBlockTask extends Task {
-    private DownloadConnection connection;
-    private int blockId;
+    private final DownloadConnection connection;
+    private final int blockId;
     private File tempFile;
-    private DownloadDetailsInfo downloadInfo;
-    private boolean isConnected;
+    private final DownloadDetailsInfo downloadInfo;
+    private final boolean isConnected;
 
 
     public DownloadBlockTask(DownloadRequest downloadRequest, int blockId) {
@@ -111,7 +111,7 @@ public class DownloadBlockTask extends Task {
             }
         } else if (startPosition == endPosition) {
             downloadTask.onDownload(0);
-        } else if (startPosition > endPosition) {
+        } else {
             if (downloadInfo.getErrorCode() == null) {
                 downloadInfo.setForceRetry(true);
             }

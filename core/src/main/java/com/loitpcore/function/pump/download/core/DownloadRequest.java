@@ -4,6 +4,7 @@ package com.loitpcore.function.pump.download.core;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import com.loitpcore.function.pump.download.Pump;
 import com.loitpcore.function.pump.download.PumpFactory;
 import com.loitpcore.function.pump.download.core.service.IDownloadManager;
 
@@ -12,14 +13,12 @@ import okhttp3.Request;
 public final class DownloadRequest {
     private final String id;
     private final String url;
-    private String filePath;
+    private final String filePath;
     private final int threadNum;
     private final String tag;
     private final boolean forceReDownload;
     private final int retryCount;
     private final int retryDelay;
-    //Maybe use in the future
-    private final DownloadListener downloadListener;
     private final DownloadTaskExecutor downloadTaskExecutor;
     private final boolean disableBreakPointDownload;
     private final Request.Builder httpRequestBuilder;
@@ -38,7 +37,8 @@ public final class DownloadRequest {
         this.forceReDownload = downloadGenerator.forceReDownload;
         this.retryCount = downloadGenerator.retryCount;
         this.retryDelay = downloadGenerator.retryDelay;
-        this.downloadListener = downloadGenerator.downloadListener;
+        //Maybe use in the future
+        DownloadListener downloadListener = downloadGenerator.downloadListener;
         this.downloadTaskExecutor = downloadGenerator.downloadTaskExecutor;
         this.disableBreakPointDownload = downloadGenerator.disableBreakPointDownload;
         this.httpRequestBuilder = downloadGenerator.httpRequestBuilder;
@@ -124,8 +124,8 @@ public final class DownloadRequest {
 
     public static class DownloadGenerator {
         private String id;
-        private String url;
-        private String filePath;
+        private final String url;
+        private final String filePath;
         private int threadNum;
         private String tag;
         private boolean forceReDownload;

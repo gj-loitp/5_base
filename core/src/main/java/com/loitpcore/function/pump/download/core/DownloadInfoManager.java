@@ -9,13 +9,13 @@ import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class DownloadInfoManager {
-    private ConcurrentHashMap<String, DownloadDetailsInfo> downloadInfoMap;
+    private final ConcurrentHashMap<String, DownloadDetailsInfo> downloadInfoMap;
 
     private DownloadInfoManager() {
         downloadInfoMap = new ConcurrentHashMap<>();
     }
 
-    private static DownloadInfoManager instance = new DownloadInfoManager();
+    private static final DownloadInfoManager instance = new DownloadInfoManager();
 
     public static DownloadInfoManager getInstance() {
         return instance;

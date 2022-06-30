@@ -1,6 +1,7 @@
 package com.loitpcore.function.epub.viewmodels
 
 import android.os.Environment
+import com.google.gson.reflect.TypeToken
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseViewModel
@@ -12,7 +13,6 @@ import com.loitpcore.function.epub.CssStatus
 import com.loitpcore.function.epub.Reader
 import com.loitpcore.function.epub.exception.ReadingException
 import com.loitpcore.function.epub.model.BookInfo
-import com.google.gson.reflect.TypeToken
 import com.loitpcore.service.livedata.ActionData
 import com.loitpcore.service.livedata.ActionLiveData
 import com.loitpcore.service.model.ErrorResponse
@@ -117,9 +117,9 @@ class EpubViewModel : BaseViewModel() {
             listBookInfo.sortWith { bookInfo1, bookInfo2 ->
                 (bookInfo1.title ?: "").compareTo(
                     (
-                        bookInfo2.title
-                            ?: ""
-                        ),
+                            bookInfo2.title
+                                ?: ""
+                            ),
                     ignoreCase = true
                 )
             }

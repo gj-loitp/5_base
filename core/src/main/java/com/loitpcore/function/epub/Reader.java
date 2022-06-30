@@ -52,6 +52,7 @@ public class Reader {
 
     /**
      * Does the same job with setFullContent but also tries to load saved progress if found any. If no progress file is found then it'll work the same as setFullContent does.
+     *
      * @return saved page index. 0 if no progress is found.
      */
     public int setFullContentWithProgress(String filePath) throws ReadingException {
@@ -66,6 +67,7 @@ public class Reader {
 
     /**
      * Main method that splits and gets the parts of the book.
+     *
      * @throws OutOfPagesException if index is greater than the page count.
      */
     public BookSection readSection(int index) throws ReadingException, OutOfPagesException {

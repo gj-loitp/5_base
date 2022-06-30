@@ -21,13 +21,13 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class DownloadDispatcher extends Thread {
-    private DownloadManager downloadManager;
-    private AtomicBoolean isCanceled = new AtomicBoolean();
+    private final DownloadManager downloadManager;
+    private final AtomicBoolean isCanceled = new AtomicBoolean();
     private final ConcurrentLinkedQueue<DownloadRequest> requestQueue = new ConcurrentLinkedQueue<>();
 
-    private ReentrantLock lock = new ReentrantLock();
-    private Condition consumer = lock.newCondition();
-    private HashSet<DownloadTaskExecutor> downloadTaskExecutors = new HashSet<>(1);
+    private final ReentrantLock lock = new ReentrantLock();
+    private final Condition consumer = lock.newCondition();
+    private final HashSet<DownloadTaskExecutor> downloadTaskExecutors = new HashSet<>(1);
     private DownloadTaskExecutor defaultTaskExecutor;
     private DownloadInfoManager downloadInfoManager;
 

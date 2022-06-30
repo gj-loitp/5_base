@@ -30,7 +30,6 @@ import com.loitpcore.function.pump.download.utils.LogUtil;
 import com.loitpcore.function.pump.download.utils.Util;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
@@ -49,12 +48,7 @@ public class ConnectInterceptor implements DownloadInterceptor {
     private void deleteTempIfThreadNumChanged(DownloadDetailsInfo downloadInfo) {
         File tempDir = downloadInfo.getTempDir();
         if (tempDir != null) {
-            String[] childList = tempDir.list(new FilenameFilter() {
-                @Override
-                public boolean accept(File dir, String name) {
-                    return name.startsWith(DOWNLOAD_PART);
-                }
-            });
+            String[] childList = tempDir.list((dir, name) -> name.startsWith(DOWNLOAD_PART));
             if (childList != null && childList.length != downloadInfo.getThreadNum()) {
                 downloadInfo.deleteTempDir();
             }
@@ -120,7 +114,7 @@ public class ConnectInterceptor implements DownloadInterceptor {
         if (responseCode == HttpURLConnection.HTTP_OK) {
             firstBlockTask.clearTemp();
         } else if (responseCode == HttpURLConnection.HTTP_PARTIAL) {
-
+            //do sth
         }
         DownloadProvider.CacheBean cacheBean = null;
         if (!TextUtils.isEmpty(lastModified) || !TextUtils.isEmpty(eTag)) {
