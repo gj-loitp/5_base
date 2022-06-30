@@ -6,15 +6,14 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
-import android.widget.* // ktlint-disable no-wildcard-imports
+import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.android.material.card.MaterialCardView
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LUIUtil
-import com.google.android.material.card.MaterialCardView
 import com.loitpcore.utils.util.ConvertUtils
 
 class LEditText : RelativeLayout {
-    private val logTag = javaClass.simpleName
     lateinit var mcv: MaterialCardView
     lateinit var editText: EditText
     lateinit var ivLeft: ImageView

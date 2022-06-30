@@ -10,9 +10,9 @@ import android.view.*
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ScrollView
+import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LUIUtil
-import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitpcore.utils.util.ConvertUtils
 import kotlin.math.hypot
 import kotlin.math.max
@@ -20,7 +20,6 @@ import kotlin.math.max
 @SuppressLint("InflateParams")
 class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callback: Callback?) :
     RelativePopupWindow() {
-    private val logTag = javaClass.simpleName
     private var ll: LinearLayout
     private var sv: ScrollView
 

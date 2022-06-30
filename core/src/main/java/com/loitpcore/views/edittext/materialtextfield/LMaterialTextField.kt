@@ -220,7 +220,7 @@ open class LMaterialTextField : FrameLayout {
         }
     }
 
-    protected fun findEditTextChild(): EditText? {
+    private fun findEditTextChild(): EditText? {
         return if (childCount > 0 && getChildAt(0) is EditText) {
             getChildAt(0) as EditText
         } else null
@@ -280,7 +280,7 @@ open class LMaterialTextField : FrameLayout {
         setHasFocus(hasFocus)
     }
 
-    protected fun customizeFromAttributes() {
+    private fun customizeFromAttributes() {
         if (labelColor != -1) {
             this.label?.setTextColor(labelColor)
         }

@@ -8,9 +8,9 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
+import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LUIUtil
-import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 
 class LAutoSuggestEditText : RelativeLayout {
     private val logTag = javaClass.simpleName

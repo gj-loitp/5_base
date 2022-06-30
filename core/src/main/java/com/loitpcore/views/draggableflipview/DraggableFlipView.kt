@@ -12,12 +12,6 @@ import android.widget.RelativeLayout
 import com.loitpcore.R
 import kotlin.math.abs
 
-/**
- * a class performing animation of view depending on the movement of user
- *
- *
- * Created by sasakicks on 2015/09/09.
- */
 class DraggableFlipView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,

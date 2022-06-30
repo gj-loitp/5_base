@@ -1,9 +1,6 @@
 package com.loitpcore.views.dialog.prettydialog
 
-/**
- * Created by www.muathu@gmail.com on 1/4/2018.
- */
-
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
@@ -18,12 +15,13 @@ import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
 import kotlin.math.min
 
+@SuppressLint("ViewConstructor")
 internal class PrettyDialogButton(
     var mContext: Context,
     var text: String,
     var textColor: Int?,
     var backgroundColor: /*PrettyDialog.BUTTON_TYPE background_type = PrettyDialog.BUTTON_TYPE.BORDER;*/
-        Int?,
+    Int?,
     var tf: Typeface?,
     /*PrettyDialog.BUTTON_TYPE type,*/
     var callback: Runnable?

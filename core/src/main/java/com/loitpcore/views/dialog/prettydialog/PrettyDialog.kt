@@ -22,7 +22,6 @@ import androidx.appcompat.app.AppCompatDialog
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
-import java.util.*
 
 class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     internal var defaultIconTint: Int = R.color.colorPrimary
@@ -144,7 +143,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setTitle(text: String): PrettyDialog {
-        if (text.trim { it <= ' ' }.length > 0) {
+        if (text.trim { it <= ' ' }.isNotEmpty()) {
             tvTitle?.visibility = View.VISIBLE
             tvTitle?.text = text
         } else {

@@ -10,7 +10,6 @@ import android.view.View
 import android.widget.TextView
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LLog
-import java.util.*
 
 /**
  * Created by www.muathu@gmail.com on 1/4/2018.

@@ -1,13 +1,7 @@
 package com.loitpcore.views.draggableflipview
 
 import android.view.MotionEvent
-import java.util.* // ktlint-disable no-wildcard-imports
 
-/**
- * a class detecting drag of user
- *
- * Created by sasakicks on 2015/09/09.
- */
 class DragGestureDetector(
     private val dragGestureListener: DragGestureListener
 ) {

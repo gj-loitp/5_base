@@ -23,7 +23,6 @@ class LCardView : RelativeLayout {
         fun onLongClickText(v: View)
     }
 
-    private val logTag = javaClass.simpleName
     lateinit var cardView: CardView
     lateinit var imageView: ImageView
     lateinit var textView: TextView

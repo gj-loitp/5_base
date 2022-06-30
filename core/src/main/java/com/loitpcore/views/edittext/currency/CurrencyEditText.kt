@@ -9,13 +9,13 @@ import android.text.InputType
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.widget.EditText
-import com.loitpcore.R
 import com.google.android.material.textfield.TextInputEditText
+import com.loitpcore.R
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
-import java.util.* // ktlint-disable no-wildcard-imports
+import java.util.*
 
 class CurrencyEditText @JvmOverloads constructor(
     context: Context,

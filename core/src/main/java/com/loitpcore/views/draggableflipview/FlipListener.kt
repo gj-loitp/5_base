@@ -3,11 +3,6 @@ package com.loitpcore.views.draggableflipview
 import android.animation.ValueAnimator
 import android.view.View
 
-/**
- * this is animation class for rotate
- *
- * Created by sasakicks on 2015/09/09.
- */
 class FlipListener(
     private var mFrontView: View?,
     private var mBackView: View?,
