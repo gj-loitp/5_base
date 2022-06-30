@@ -131,7 +131,7 @@ dependencies {
     api 'com.github.tombayley:ActivityCircularReveal:1.0.2'
 
     //https://github.com/google/gson
-    api 'com.google.code.gson:gson:2.8.9'
+    api 'com.google.code.gson:gson:2.9.0'
 
     //google service https://developers.google.com/android/guides/setup
     //compile 'com.google.android.gms:play-services-plus:15.0.1'
