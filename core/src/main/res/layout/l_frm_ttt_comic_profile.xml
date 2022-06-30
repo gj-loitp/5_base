@@ -77,16 +77,6 @@
                 android:layout_below="@+id/btInformation"
                 android:background="@color/lightGrey" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/btDonation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/lineInformation"
-                android:background="?selectableItemBackground"
-                android:padding="@dimen/margin_padding_medium"
-                android:text="@string/donation"
-                android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/txt_medium"/>
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>

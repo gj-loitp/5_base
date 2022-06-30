@@ -156,7 +156,7 @@ class TTTViewModel : BaseViewModel() {
 
                 // infor comic
                 val infoComics = eInforBox.select("p")
-                val infoComicList = java.util.ArrayList<String>()
+                val infoComicList = ArrayList<String>()
                 for (x in infoComics) {
                     infoComicList.add(x.text())
                 }

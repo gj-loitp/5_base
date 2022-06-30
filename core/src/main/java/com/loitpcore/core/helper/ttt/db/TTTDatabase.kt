@@ -24,7 +24,7 @@ abstract class TTTDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         TTTDatabase::class.java,
-                        "TTTDatabase"
+                        TTTDatabase::class.simpleName
                     )
                         .fallbackToDestructiveMigration()
                         .build()

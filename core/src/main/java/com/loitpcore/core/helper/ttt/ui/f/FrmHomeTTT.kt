@@ -53,14 +53,14 @@ class FrmHomeTTT : BaseFragment() {
     private fun setupViewModels() {
         tTTViewModel = getViewModel(TTTViewModel::class.java)
         tTTViewModel?.let { vm ->
-            vm.comicTypeLiveEvent.observe(viewLifecycleOwner, { comicType ->
+            vm.comicTypeLiveEvent.observe(viewLifecycleOwner) { comicType ->
                 logD("comicTypeLiveEvent observe comicType " + BaseApplication.gson.toJson(comicType))
                 setUIComicType()
 
                 // call api
                 vm.getListComic(link = comicType.url)
-            })
-            vm.listComicActionLiveData.observe(viewLifecycleOwner, { actionData ->
+            }
+            vm.listComicActionLiveData.observe(viewLifecycleOwner) { actionData ->
 //                logD("listComicActionLiveData observe actionData " + BaseApplication.gson.toJson(actionData))
                 if (actionData.isDoing == true) {
                     showDialogProgress()
@@ -74,7 +74,7 @@ class FrmHomeTTT : BaseFragment() {
                         hideDialogProgress()
                     }
                 }
-            })
+            }
         }
     }
 
