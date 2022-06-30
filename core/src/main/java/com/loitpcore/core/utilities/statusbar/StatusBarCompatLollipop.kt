@@ -16,10 +16,6 @@ import androidx.core.view.ViewCompat
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 
-/**
- * After Lollipop use system method.
- * Created by qiu on 8/27/16.
- */
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 internal class StatusBarCompatLollipop {
 

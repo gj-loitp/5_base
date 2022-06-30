@@ -8,7 +8,6 @@ import java.util.regex.Pattern
 
 class LValidateUtil {
     companion object {
-        private val logTag = "LValidateUtil"
 
         const val MSG_0 = "pw_must_length_more_8_character"
         const val MSG_1 = "pw_must_contain_number"

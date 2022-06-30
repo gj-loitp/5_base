@@ -10,7 +10,7 @@ class StatusBarCompat {
 
     companion object {
         // Get alpha color
-        internal fun calculateStatusBarColor(color: Int, alpha: Int): Int {
+        private fun calculateStatusBarColor(color: Int, alpha: Int): Int {
             val a = 1 - alpha / 255f
             var red = color shr 16 and 0xff
             var green = color shr 8 and 0xff

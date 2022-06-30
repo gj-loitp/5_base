@@ -101,9 +101,6 @@ class LSocialUtil {
             }
         }
 
-        /*
-        get url fb fanpage
-         */
         private fun getFacebookPageURL(): String {
             val facebookUrl = "https://www.facebook.com/hoidammedocsach"
             val facebookPageId = "hoidammedocsach"

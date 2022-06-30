@@ -28,9 +28,6 @@ import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager.widget.ViewPager
-import com.loitpcore.R
-import com.loitpcore.core.common.Constants
-import com.loitpcore.data.AdmobData
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
@@ -38,9 +35,12 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
-import com.skydoves.elasticviews.elasticAnimation
+import com.loitpcore.R
+import com.loitpcore.core.common.Constants
+import com.loitpcore.data.AdmobData
 import com.loitpcore.utils.util.ConvertUtils
 import com.loitpcore.views.setSafeOnClickListener
+import com.skydoves.elasticviews.elasticAnimation
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor
 import io.github.inflationx.calligraphy3.CalligraphyUtils

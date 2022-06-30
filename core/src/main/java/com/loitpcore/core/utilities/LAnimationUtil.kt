@@ -2,10 +2,10 @@ package com.loitpcore.core.utilities
 
 import android.animation.ValueAnimator
 import android.view.View
-import android.view.animation.* // ktlint-disable no-wildcard-imports
-import com.loitpcore.R
+import android.view.animation.*
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
+import com.loitpcore.R
 import kotlin.random.Random
 
 class LAnimationUtil {

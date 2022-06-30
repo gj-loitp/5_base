@@ -80,7 +80,7 @@ class LEncryptionUtil {
             }
         }
 
-        private fun generateSalt(): ByteArray? {
+        private fun generateSalt(): ByteArray {
             val b = ByteArray(PKCS5_SALT_LENGTH)
             random.nextBytes(b)
             return b

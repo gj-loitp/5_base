@@ -13,10 +13,6 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import kotlin.math.abs
 
-/**
- * After kitkat add fake status bar
- * Created by qiu on 8/27/16.
- */
 @TargetApi(Build.VERSION_CODES.KITKAT)
 internal class StatusBarCompatKitKat {
 

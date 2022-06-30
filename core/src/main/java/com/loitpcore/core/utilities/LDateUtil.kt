@@ -9,7 +9,6 @@ import java.util.*
 class LDateUtil {
 
     companion object {
-        private val logTag = LDateUtil::class.java.simpleName
 
         val currentDate: String
             get() {
@@ -71,10 +70,6 @@ class LDateUtil {
                 null
             }
         }
-
-        /*public static String dateToString(Date date, Context context) {
-            return dateToString(date, context.getString(R.string.date_format));
-        }*/
 
         fun getDate(year: Int, month: Int, day: Int): Date {
             val calendar = Calendar.getInstance()
