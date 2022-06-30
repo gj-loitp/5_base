@@ -110,6 +110,7 @@ class FloatingViewService : Service() {
             private var initialTouchX = 0f
             private var initialTouchY = 0f
 
+            @SuppressLint("ClickableViewAccessibility")
             override fun onTouch(v: View, event: MotionEvent): Boolean {
                 when (event.action) {
                     MotionEvent.ACTION_DOWN -> {

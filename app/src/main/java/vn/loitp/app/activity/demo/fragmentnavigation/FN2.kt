@@ -22,6 +22,10 @@ class FN2 : BaseFragment(), OnBackPressedListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setupViews()
+    }
+
+    private fun setupViews() {
         button2.setOnClickListener {
             val navController = fragmentNavigationActivity?.navController
             // new NavOptions.Builder().setExitAnim(R.anim.fade_out);

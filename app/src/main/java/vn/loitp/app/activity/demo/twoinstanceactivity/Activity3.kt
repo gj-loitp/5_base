@@ -22,8 +22,11 @@ class Activity3 : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        logD("suzuki onCreate")
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btGoTo1.setSafeOnClickListener {
             val intent = Intent(this, Activity1::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT

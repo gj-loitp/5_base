@@ -17,7 +17,9 @@ class CommunicateMng {
         }
     }
 
+    @Keep
     class MsgFromActivity(var msg: String)
 
+    @Keep
     class MsgFromService(var msg: String)
 }

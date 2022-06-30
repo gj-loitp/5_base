@@ -28,6 +28,10 @@ class FloatingWidgetActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btShow.setSafeOnClickListener {
             handleShow()
         }
@@ -74,6 +78,7 @@ class FloatingWidgetActivity : BaseFontActivity() {
         )
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 

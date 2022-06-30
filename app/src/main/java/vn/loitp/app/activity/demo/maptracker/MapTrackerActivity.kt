@@ -11,14 +11,6 @@ import android.os.Bundle
 import android.os.Looper
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
-import com.loitpcore.core.base.BaseApplication
-import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LActivityUtil
-import com.loitpcore.core.utilities.LMathUtil
-import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.*
@@ -27,8 +19,16 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
-import com.permissionx.guolindev.PermissionX
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LMathUtil
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.loitpcore.views.setSafeOnClickListener
+import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_map_tracker.*
 import vn.loitp.app.R
 import java.io.IOException
@@ -65,6 +65,11 @@ class MapTrackerActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+        checkPermission()
+    }
+
+    private fun setupViews() {
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(this)
 
@@ -90,10 +95,8 @@ class MapTrackerActivity :
             val distance = getDistance(startLatLng = startLatLng, endLatLng = endLatLng)
             showShortInformation("distance: $distance (m)")
         }
-        checkPermission()
     }
 
-    //region permisson
     private fun checkPermission() {
         val color = if (LUIUtil.isDarkTheme()) {
             Color.WHITE
@@ -347,9 +350,9 @@ class MapTrackerActivity :
                                 Manifest.permission.ACCESS_FINE_LOCATION
                             ) == PackageManager.PERMISSION_GRANTED &&
                             ActivityCompat.checkSelfPermission(
-                                    this,
-                                    Manifest.permission.ACCESS_COARSE_LOCATION
-                                ) == PackageManager.PERMISSION_GRANTED
+                                this,
+                                Manifest.permission.ACCESS_COARSE_LOCATION
+                            ) == PackageManager.PERMISSION_GRANTED
                         ) {
                             mLocationRequest?.let { lr ->
                                 mLocationCallback?.let { lc ->

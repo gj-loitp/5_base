@@ -38,6 +38,10 @@ class FragmentFlowActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         supportFragmentManager.addOnBackStackChangedListener(getListener())
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btAddFrmFlow0.setOnClickListener {
             showFragment(FrmFlow0())
         }

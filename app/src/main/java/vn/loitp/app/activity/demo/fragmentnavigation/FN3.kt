@@ -22,6 +22,10 @@ class FN3 : BaseFragment(), OnBackPressedListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setupViews()
+    }
+
+    private fun setupViews() {
         button3.setOnClickListener {
             fragmentNavigationActivity?.navController?.navigate(R.id.action_fn3_to_fn1)
         }

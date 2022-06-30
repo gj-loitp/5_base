@@ -21,6 +21,10 @@ class SoundActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btPlay.setOnClickListener(this)
     }
 

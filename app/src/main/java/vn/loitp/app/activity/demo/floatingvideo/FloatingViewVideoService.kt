@@ -17,7 +17,6 @@ import com.loitpcore.views.setSafeOnClickListener
 import vn.loitp.app.R
 
 class FloatingViewVideoService : Service() {
-    private val logTag = javaClass.simpleName
 
     private var mWindowManager: WindowManager? = null
     private lateinit var mFloatingView: View
@@ -34,6 +33,10 @@ class FloatingViewVideoService : Service() {
         super.onCreate()
 
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_demo_floating_video, null)
+        setupViews()
+    }
+
+    private fun setupViews() {
         val layoutFlag: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
         } else {

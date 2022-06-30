@@ -26,6 +26,10 @@ class FloatingWidgetActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btNotifyMe.setOnClickListener {
             startService()
         }
@@ -50,6 +54,7 @@ class FloatingWidgetActivity : BaseFontActivity() {
         )
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {

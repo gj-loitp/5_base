@@ -17,9 +17,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import vn.loitp.app.R
 
-/**
- * Fragment for listing fetched [RssItem] list
- */
 @LogTag("RssFragment")
 class RssFragment :
     BaseFragment(),

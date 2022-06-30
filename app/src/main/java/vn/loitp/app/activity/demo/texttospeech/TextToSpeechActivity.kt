@@ -24,7 +24,10 @@ class TextToSpeechActivity : BaseFontActivity(), OnClickListener {
         super.onCreate(savedInstanceState)
 
         LTextToSpeechUtil.instance.setupTTS()
+        setupViews()
+    }
 
+    private fun setupViews() {
         btILoveYou.setOnClickListener(this)
         btYouLoveMe.setOnClickListener(this)
         btSpeak.setOnClickListener(this)

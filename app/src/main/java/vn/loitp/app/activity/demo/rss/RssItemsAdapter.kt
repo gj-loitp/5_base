@@ -11,7 +11,6 @@ import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.rss.RssItem
 import kotlinx.android.synthetic.main.row_rss_item.view.*
 import vn.loitp.app.R
-import java.util.*
 
 @LogTag("RssItemsAdapter")
 class RssItemsAdapter(

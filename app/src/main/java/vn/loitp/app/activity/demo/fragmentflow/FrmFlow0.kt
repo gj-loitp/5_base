@@ -22,6 +22,10 @@ class FrmFlow0 : FrmFlowBase() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         print("onViewCreated")
+        setupViews()
+    }
+
+    private fun setupViews() {
         bt.setOnClickListener {
             if (activity is FragmentFlowActivity) {
                 (activity as FragmentFlowActivity).showFragment(FrmFlow1())

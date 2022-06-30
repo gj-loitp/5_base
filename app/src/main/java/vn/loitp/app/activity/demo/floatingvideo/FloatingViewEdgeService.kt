@@ -18,7 +18,6 @@ import vn.loitp.app.R
 import kotlin.math.abs
 
 class FloatingViewEdgeService : Service() {
-    private val logTag = javaClass.simpleName
 
     private var mWindowManager: WindowManager? = null
     private var screenWidth = 0
@@ -42,6 +41,13 @@ class FloatingViewEdgeService : Service() {
         screenHeight = LScreenUtil.screenHeight
         statusBarHeight = LScreenUtil.getStatusBarHeight()
 
+        setupViews()
+
+        // Drag and move floating view using user's touch action.
+        dragAndMove()
+    }
+
+    private fun setupViews() {
         // Inflate the floating view layout we created
         mFloatingView =
             LayoutInflater.from(this).inflate(R.layout.layout_demo_floating_view_edge, null)
@@ -76,9 +82,6 @@ class FloatingViewEdgeService : Service() {
         // Add the view to the window
         mWindowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         mWindowManager?.addView(mFloatingView, params)
-
-        // Drag and move floating view using user's touch action.
-        dragAndMove()
     }
 
     // only update 1 one time
