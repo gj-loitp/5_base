@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.loitpcore.R
-import com.loitpcore.annotation.LogTag
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.loitpcore.R
+import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.adapter.BaseAdapter
 import com.loitpcore.core.utilities.LDateUtil
 import com.loitpcore.core.utilities.LImageUtil
@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.l_item_flickr_album_core.view.*
 
 @LogTag("AlbumAdapter")
 class AlbumAdapter(
-    private val photosetList: List<Photoset>,
+    private val listPhotoSet: List<Photoset>,
     private val callback: Callback?
 ) : BaseAdapter() {
 
@@ -39,12 +39,12 @@ class AlbumAdapter(
     }
 
     override fun getItemCount(): Int {
-        return photosetList.size
+        return listPhotoSet.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ViewHolder) {
-            val photoSet = photosetList[position]
+            val photoSet = listPhotoSet[position]
             holder.bind(photoset = photoSet)
         }
     }

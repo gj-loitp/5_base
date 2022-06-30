@@ -10,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.loitpcore.R
 import com.loitpcore.annotation.IsSwipeActivity
 import com.loitpcore.annotation.LogTag
@@ -19,14 +21,12 @@ import com.loitpcore.core.helper.gallery.photos.PhotosDataCore
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
-import com.permissionx.guolindev.PermissionX
 import com.loitpcore.restapi.flickr.FlickrConst
 import com.loitpcore.restapi.flickr.model.photosetgetphotos.Photo
 import com.loitpcore.restapi.flickr.service.FlickrService
 import com.loitpcore.restapi.restclient.RestClient
 import com.loitpcore.views.layout.swipeback.SwipeBackLayout
+import com.permissionx.guolindev.PermissionX
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
@@ -40,7 +40,7 @@ class GalleryMemberActivity : BaseFontActivity() {
     private var isLoading: Boolean = false
     private var memberAdapter: MemberAdapter? = null
     private var adView: AdView? = null
-    private var photosetID: String? = null
+    private var photoSetID: String? = null
     private var photosSize: Int = 0
 
     override fun setLayoutResourceId(): Int {
@@ -59,7 +59,6 @@ class GalleryMemberActivity : BaseFontActivity() {
         }
 
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-//        logD("adUnitId $adUnitId")
         if (adUnitId.isNullOrEmpty()) {
             lnAdView.visibility = View.GONE
         } else {
@@ -72,10 +71,8 @@ class GalleryMemberActivity : BaseFontActivity() {
             }
         }
 
-//        LUIUtil.setTextShadow(textView = tvTitle, color = Color.BLACK)
-
-        photosetID = Constants.FLICKR_ID_MEMBERS
-        if (photosetID?.isEmpty() == true) {
+        photoSetID = Constants.FLICKR_ID_MEMBERS
+        if (photoSetID?.isEmpty() == true) {
             handleException(Exception(getString(R.string.err_unknow)))
             return
         }
@@ -119,7 +116,7 @@ class GalleryMemberActivity : BaseFontActivity() {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
-                        photosetsGetPhotos(photosetID = photosetID)
+                        photosetsGetPhotos(photosetID = photoSetID)
                     }
                 }
             }
@@ -145,7 +142,7 @@ class GalleryMemberActivity : BaseFontActivity() {
 
     private fun goToHome() {
         if (photosSize == Constants.NOT_FOUND) {
-            getPhotosets()
+            getPhotoSets()
         } else {
             init()
         }
@@ -160,10 +157,10 @@ class GalleryMemberActivity : BaseFontActivity() {
 
         currentPage = totalPage
 
-        photosetsGetPhotos(photosetID = photosetID)
+        photosetsGetPhotos(photosetID = photoSetID)
     }
 
-    private fun getPhotosets() {
+    private fun getPhotoSets() {
         LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
@@ -188,11 +185,11 @@ class GalleryMemberActivity : BaseFontActivity() {
             )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ wrapperPhotosetGetlist ->
-                    wrapperPhotosetGetlist?.photosets?.photoset?.let { list ->
-                        for (photoset in list) {
-                            if (photoset.id == photosetID) {
-                                photosSize = Integer.parseInt(photoset.photos ?: "0")
+                .subscribe({ wrapperPhotoSetGetList ->
+                    wrapperPhotoSetGetList?.photosets?.photoset?.let { list ->
+                        for (photoSet in list) {
+                            if (photoSet.id == photoSetID) {
+                                photosSize = Integer.parseInt(photoSet.photos ?: "0")
                                 init()
                                 return@subscribe
                             }
@@ -246,13 +243,11 @@ class GalleryMemberActivity : BaseFontActivity() {
             )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ wrapperPhotosetGetPhotos ->
-//                    logD("photosetsGetPhotos $currentPage/$totalPage")
-
+                .subscribe({ wrapperPhotoSetGetPhotos ->
                     val s =
-                        wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
+                        wrapperPhotoSetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
-                    wrapperPhotosetGetPhotos?.photoset?.photo?.let {
+                    wrapperPhotoSetGetPhotos?.photoset?.photo?.let {
                         it.shuffle()
                         PhotosDataCore.instance.addPhoto(it)
                     }

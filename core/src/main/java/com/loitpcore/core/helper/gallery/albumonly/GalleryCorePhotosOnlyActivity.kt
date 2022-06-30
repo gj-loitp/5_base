@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.IsSwipeActivity
@@ -14,17 +16,15 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.gallery.photos.PhotosDataCore
-import com.loitpcore.core.utilities.* // ktlint-disable no-wildcard-imports
+import com.loitpcore.core.utilities.*
 import com.loitpcore.function.pump.download.Pump
 import com.loitpcore.function.pump.download.core.DownloadListener
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
-import com.permissionx.guolindev.PermissionX
 import com.loitpcore.restapi.flickr.FlickrConst
 import com.loitpcore.restapi.flickr.model.photosetgetphotos.Photo
 import com.loitpcore.restapi.flickr.service.FlickrService
 import com.loitpcore.restapi.restclient.RestClient
 import com.loitpcore.views.layout.swipeback.SwipeBackLayout
+import com.permissionx.guolindev.PermissionX
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
@@ -43,7 +43,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     private var isLoading: Boolean = false
     private var photosOnlyAdapter: PhotosOnlyAdapter? = null
     private var adView: AdView? = null
-    private var photosetID: String? = null
+    private var photoSetID: String? = null
     private var photosSize: Int = 0
 
     override fun setLayoutResourceId(): Int {
@@ -71,17 +71,13 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             }
         }
 
-        photosetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
-        if (photosetID.isNullOrEmpty()) {
+        photoSetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
+        if (photoSetID.isNullOrEmpty()) {
             handleException(Exception(getString(R.string.err_unknow)))
             return
         }
-//        logD("photosetID $photosetID")
         photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
-//        logD("photosSize $photosSize")
-
         recyclerView.layoutManager = LinearLayoutManager(this)
-//        recyclerView.setHasFixedSize(true)
         photosOnlyAdapter = PhotosOnlyAdapter(
             callback = object : PhotosOnlyAdapter.Callback {
                 override fun onClick(photo: Photo, pos: Int) {
@@ -134,8 +130,8 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
-                        photosetID?.let {
-                            photosetsGetPhotos(photosetID = it)
+                        photoSetID?.let {
+                            photoSetsGetPhotos(photoSetID = it)
                         }
                     }
                 }
@@ -179,8 +175,8 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 currentPage = totalPage - position
                 PhotosDataCore.instance.clearData()
                 updateAllViews()
-                photosetID?.let {
-                    photosetsGetPhotos(it)
+                photoSetID?.let {
+                    photoSetsGetPhotos(it)
                 }
             }
         )
@@ -188,7 +184,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
     private fun goToHome() {
         if (photosSize == Constants.NOT_FOUND) {
-            getListPhotosets()
+            getListPhotoSets()
         } else {
             init()
         }
@@ -203,12 +199,12 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
         currentPage = totalPage
 
-        photosetID?.let {
-            photosetsGetPhotos(it)
+        photoSetID?.let {
+            photoSetsGetPhotos(it)
         }
     }
 
-    private fun getListPhotosets() {
+    private fun getListPhotoSets() {
         LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
@@ -233,30 +229,27 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ wrapperPhotosetGetlist ->
-                    wrapperPhotosetGetlist?.photosets?.photoset?.let { list ->
-                        for (photoset in list) {
-                            if (photoset.id == photosetID) {
-                                photosSize = Integer.parseInt(photoset.photos ?: "0")
+                .subscribe({ wrapperPhotoSetGetlist ->
+                    wrapperPhotoSetGetlist?.photosets?.photoset?.let { list ->
+                        for (photoSet in list) {
+                            if (photoSet.id == photoSetID) {
+                                photosSize = Integer.parseInt(photoSet.photos ?: "0")
                                 init()
                                 return@subscribe
                             }
                         }
                     }
                 }, { e ->
-                    logE("photosetsGetList onFail $e")
                     handleException(e)
                     LDialogUtil.hideProgress(progressBar)
                 })
         )
     }
 
-    private fun photosetsGetPhotos(photosetID: String) {
+    private fun photoSetsGetPhotos(photoSetID: String) {
         if (isLoading) {
-//            logD("photosetsGetList isLoading true -> return")
             return
         }
-//        logD("is calling photosetsGetPhotos $currentPage/$totalPage")
         isLoading = true
         LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
@@ -277,7 +270,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             service.getPhotosetPhotos(
                 method = method,
                 apiKey = apiKey,
-                photosetId = photosetID,
+                photosetId = photoSetID,
                 userId = userID,
                 extras = primaryPhotoExtras,
                 perPage = PER_PAGE_SIZE,
@@ -302,7 +295,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                     isLoading = false
                     currentPage--
                 }, { e ->
-                    logE("photosetsGetPhotos onFail $e")
                     handleException(e)
                     LDialogUtil.hideProgress(progressBar)
                     isLoading = true

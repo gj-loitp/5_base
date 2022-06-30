@@ -34,7 +34,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
     private var totalPage = 1
     private var isLoading = false
     private var photosAdapter: PhotosAdapter? = null
-    private var photosetID: String? = null
+    private var photoSetID: String? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_flickr_gallery_core_photos
@@ -45,7 +45,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
 
         PhotosDataCore.instance.clearData()
 
-        photosetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
+        photoSetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
         val photosSize = intent.getStringExtra(Constants.SK_PHOTOSET_SIZE)
 
         val totalPhotos = try {
@@ -68,7 +68,6 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
 
         val column = 2
         recyclerView.layoutManager = GridLayoutManager(this, column)
-//        recyclerView.setHasFixedSize(true)
         photosAdapter = PhotosAdapter(
             callback = object : PhotosAdapter.Callback {
                 override fun onClick(photo: Photo, pos: Int) {
@@ -99,14 +98,14 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         }
         // LUIUtil.setPullLikeIOSVertical(recyclerView)
 
-        photosetsGetPhotos(photosetID = photosetID)
+        photosetsGetPhotos(photosetID = photoSetID)
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
                         currentPage--
-                        photosetsGetPhotos(photosetID = photosetID)
+                        photosetsGetPhotos(photosetID = photoSetID)
                     }
                 }
             }
@@ -148,7 +147,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                 currentPage = totalPage - position
                 PhotosDataCore.instance.clearData()
                 updateAllViews()
-                photosetsGetPhotos(photosetID)
+                photosetsGetPhotos(photoSetID)
             }
         )
     }

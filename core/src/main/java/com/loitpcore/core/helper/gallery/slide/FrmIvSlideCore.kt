@@ -7,18 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.github.piasy.biv.loader.ImageLoader
+import com.github.piasy.biv.view.GlideImageViewFactory
 import com.loitpcore.R
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.github.piasy.biv.loader.ImageLoader
-import com.github.piasy.biv.view.GlideImageViewFactory
 import kotlinx.android.synthetic.main.l_item_flickr_photo_slide_iv_core.*
 import java.io.File
 
 class FrmIvSlideCore : Fragment() {
-    private val logTag = javaClass.simpleName
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,11 +64,5 @@ class FrmIvSlideCore : Fragment() {
             override fun onFail(error: Exception) {}
         })
         biv.showImage(Uri.parse(photo?.urlS), Uri.parse(photo?.urlO))
-//        biv.setOnClickListener {
-//            if (activity == null) {
-//                return@setOnClickListener
-//            }
-//            (activity as GalleryCoreSlideActivity).toggleDisplayRlControl()
-//        }
     }
 }

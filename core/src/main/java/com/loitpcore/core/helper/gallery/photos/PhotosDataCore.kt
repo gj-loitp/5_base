@@ -1,10 +1,8 @@
 package com.loitpcore.core.helper.gallery.photos
 
 import com.loitpcore.restapi.flickr.model.photosetgetphotos.Photo
-import java.util.*
 
 class PhotosDataCore private constructor() {
-    private val logTag = PhotosDataCore::class.java.simpleName
     private var photoList = ArrayList<Photo>()
 
     companion object {

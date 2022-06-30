@@ -200,7 +200,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    protected fun setCustomStatusBar(colorStatusBar: Int, colorNavigationBar: Int) {
+    fun setCustomStatusBar(colorStatusBar: Int, colorNavigationBar: Int) {
         window.statusBarColor = colorStatusBar
         window.navigationBarColor = colorNavigationBar
 

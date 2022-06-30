@@ -19,12 +19,12 @@ import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.function.pump.download.Pump
 import com.loitpcore.function.pump.download.core.DownloadListener
-import com.permissionx.guolindev.PermissionX
 import com.loitpcore.restapi.flickr.FlickrConst
 import com.loitpcore.restapi.flickr.model.photosetgetphotos.Photo
 import com.loitpcore.restapi.flickr.service.FlickrService
 import com.loitpcore.restapi.restclient.RestClient
 import com.loitpcore.views.setSafeOnClickListener
+import com.permissionx.guolindev.PermissionX
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
@@ -33,9 +33,9 @@ import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.recy
 
 @LogTag("GalleryCorePhotosOnlyFrm")
 class GalleryCorePhotosOnlyFrm(
-    val onTop: ((Unit) -> Unit)? = null,
-    val onBottom: ((Unit) -> Unit)? = null,
-    val onScrolled: ((isScrollDown: Boolean) -> Unit)? = null
+    private val onTop: ((Unit) -> Unit)? = null,
+    private val onBottom: ((Unit) -> Unit)? = null,
+    private val onScrolled: ((isScrollDown: Boolean) -> Unit)? = null
 ) : BaseFragment() {
 
     companion object {
@@ -121,19 +121,6 @@ class GalleryCorePhotosOnlyFrm(
             animAdapter.setFirstOnly(true)
             recyclerView.adapter = animAdapter
         }
-
-        // LUIUtil.setPullLikeIOSVertical(recyclerView)
-
-//        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-//            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-//                super.onScrollStateChanged(recyclerView, newState)
-//                if (!recyclerView.canScrollVertically(1)) {
-//                    if (!isLoading) {
-//                        photosetsGetPhotos(photosetID)
-//                    }
-//                }
-//            }
-//        })
 
         LUIUtil.setScrollChange(
             recyclerView = recyclerView,
