@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.webkit.JavascriptInterface
+import android.webkit.WebView
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -57,6 +58,10 @@ class LWebViewActivity : BaseFontActivity() {
 
             override fun shouldOverrideUrlLoading(url: String) {
                 logE(">shouldOverrideUrlLoading $url")
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                logD(">onPageFinished $url")
             }
         }
 

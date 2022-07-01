@@ -102,8 +102,8 @@ repositories {
 }
 
 dependencies {
-//    api project(':core')
-    api 'com.github.tplloi:basemaster:4.4.73'
+    api project(':core')
+//    api 'com.github.tplloi:basemaster:4.4.73'
 
     //https://github.com/square/retrofit/tree/master/retrofit-converters/moshi
     api 'com.squareup.retrofit2:converter-moshi:2.9.0'

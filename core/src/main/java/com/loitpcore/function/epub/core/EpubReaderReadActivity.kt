@@ -11,6 +11,7 @@ import android.util.Base64
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebSettings
+import android.webkit.WebView
 import android.widget.FrameLayout
 import android.widget.ScrollView
 import android.widget.TextView
@@ -380,6 +381,9 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
                     override fun shouldOverrideUrlLoading(url: String) {
 //                    logD("shouldOverrideUrlLoading $url")
+                    }
+
+                    override fun onPageFinished(view: WebView?, url: String?) {
                     }
                 }
             }

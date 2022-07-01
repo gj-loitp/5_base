@@ -27,6 +27,7 @@ class LWebViewAdblock : AdblockWebView {
         fun onScrollBottomToTop()
         fun onProgressChanged(progress: Int)
         fun shouldOverrideUrlLoading(url: String)
+        fun onPageFinished(view: WebView?, url: String?)
     }
 
     var callback: Callback? = null
@@ -86,6 +87,11 @@ class LWebViewAdblock : AdblockWebView {
                     callback?.shouldOverrideUrlLoading(url = it)
                 }
                 return shouldOverrideUrlLoading
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                callback?.onPageFinished(view, url)
             }
         }
     }
