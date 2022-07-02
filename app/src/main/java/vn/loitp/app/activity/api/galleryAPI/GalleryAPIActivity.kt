@@ -15,6 +15,7 @@ import com.loitpcore.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist
 import com.loitpcore.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos
 import com.loitpcore.restapi.flickr.service.FlickrService
 import com.loitpcore.restapi.restclient.RestClient
+import com.loitpcore.views.setSafeOnClickListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_api_gallery.*
@@ -37,10 +38,10 @@ class GalleryAPIActivity : BaseFontActivity() {
 
     private fun setupViews() {
         LDialogUtil.hideProgress(progressBar)
-        bt1.setOnClickListener {
+        bt1.setSafeOnClickListener {
             getPhotosets()
         }
-        bt2.setOnClickListener {
+        bt2.setSafeOnClickListener {
             showDialogSelectPhotoset()
         }
     }

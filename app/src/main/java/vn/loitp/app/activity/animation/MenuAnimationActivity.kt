@@ -12,20 +12,20 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_animation.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.animation.activitytransition.Animation1Activity
-import vn.loitp.app.activity.animation.activitytransitionreveal.RevealActivity1
-import vn.loitp.app.activity.animation.animationview.AnimationViewActivity
-import vn.loitp.app.activity.animation.basictransition.BasicTransition0Activity
-import vn.loitp.app.activity.animation.basictransitionactivity.SceneTransitionBasicActivity
-import vn.loitp.app.activity.animation.basictransitionfrm.BasicTransitionActivity
-import vn.loitp.app.activity.animation.elasticviews.ElasticActivity
-import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity
+import vn.loitp.app.activity.animation.activityTransition.Animation1Activity
+import vn.loitp.app.activity.animation.activityTransitionReveal.RevealActivity1
+import vn.loitp.app.activity.animation.animationView.AnimationViewActivity
+import vn.loitp.app.activity.animation.basicTransition.BasicTransition0Activity
+import vn.loitp.app.activity.animation.basicTransitionActivity.SceneTransitionBasicActivity
+import vn.loitp.app.activity.animation.basicTransitionFrm.BasicTransitionActivity
+import vn.loitp.app.activity.animation.elasticViews.ElasticActivity
+import vn.loitp.app.activity.animation.flySchool.FlySchoolActivity
 import vn.loitp.app.activity.animation.lottie.MenuLottieActivity
-import vn.loitp.app.activity.animation.morphtransitions.MorphTransitionsMainActivity
-import vn.loitp.app.activity.animation.overscroll.OverScrollActivity
-import vn.loitp.app.activity.animation.pulsingview.PulsingViewActivity
-import vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity
-import vn.loitp.app.activity.animation.valueanimator.ValueAnimatorActivity
+import vn.loitp.app.activity.animation.morphTransitions.MorphTransitionsMainActivity
+import vn.loitp.app.activity.animation.overScroll.OverScrollActivity
+import vn.loitp.app.activity.animation.pulsingView.PulsingViewActivity
+import vn.loitp.app.activity.animation.shadowViewHelper.ShadowViewHelperActivity
+import vn.loitp.app.activity.animation.valueAnimator.ValueAnimatorActivity
 
 @LogTag("MenuAnimationActivity")
 @IsFullScreen(false)

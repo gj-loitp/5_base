@@ -12,8 +12,8 @@ import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_menu_ads.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.ads.admobbanner.AdMobBannerActivity
-import vn.loitp.app.activity.ads.admobinterstitial.AdMobInterstitialActivity
+import vn.loitp.app.activity.ads.banner.AdMobBannerActivity
+import vn.loitp.app.activity.ads.interstitial.AdMobInterstitialActivity
 
 @LogTag("MenuAdsActivity")
 @IsFullScreen(false)
