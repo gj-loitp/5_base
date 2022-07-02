@@ -27,12 +27,12 @@ import vn.loitp.app.activity.customviews.facebookComment.FacebookCommentActivity
 import vn.loitp.app.activity.customviews.imageview.MenuImageViewActivity
 import vn.loitp.app.activity.customviews.indicator.example.MenuMagicIndicatorActivity
 import vn.loitp.app.activity.customviews.layout.MenuLayoutActivity
-import vn.loitp.app.activity.customviews.lcardview.LCardViewActivity
-import vn.loitp.app.activity.customviews.ldebugview.LDebugViewActivity
+import vn.loitp.app.activity.customviews.lCardView.LCardViewActivity
+import vn.loitp.app.activity.customviews.lDebugView.LDebugViewActivity
 import vn.loitp.app.activity.customviews.menu.MenuMenuActivity
 import vn.loitp.app.activity.customviews.navigation.MenuNavigationActivity
-import vn.loitp.app.activity.customviews.popupmenu.PopupMenuActivity
-import vn.loitp.app.activity.customviews.progressloadingview.MenuProgressLoadingViewsActivity
+import vn.loitp.app.activity.customviews.popupMenu.PopupMenuActivity
+import vn.loitp.app.activity.customviews.progressLoadingView.MenuProgressLoadingViewsActivity
 import vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity
 import vn.loitp.app.activity.customviews.scratchview.ScratchViewMenuActivity
 import vn.loitp.app.activity.customviews.scrollablepanel.ScrollablePanelActivity
