@@ -22,5 +22,5 @@ interface ApiService {
 
     @GET("users/")
     fun getUserTestAsync(@Query("page") page: Int):
-        Deferred<Response<ApiResponse<ArrayList<UserTest>>>>
+            Deferred<Response<ApiResponse<ArrayList<UserTest>>>>
 }

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.ads
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -16,6 +17,7 @@ import vn.loitp.app.activity.ads.admobinterstitial.AdMobInterstitialActivity
 
 @LogTag("MenuAdsActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class MenuAdsActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

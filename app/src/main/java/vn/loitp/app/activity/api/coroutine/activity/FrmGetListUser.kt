@@ -31,10 +31,8 @@ class FrmGetListUser : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         return if (frmRootView == null) {
-            logD("onViewCreated frmRootView == null")
             super.onCreateView(inflater, container, savedInstanceState)
         } else {
-            logD("onViewCreated frmRootView != null")
             frmRootView
         }
     }
@@ -116,12 +114,11 @@ class FrmGetListUser : BaseFragment() {
                 }
             )
             tvm.userTestListLiveData.observe(
-                viewLifecycleOwner,
-                {
-                    logD("userTestList.observe size: ${it?.size}")
-                    userListAdapter?.setList(it)
-                }
-            )
+                viewLifecycleOwner
+            ) {
+                logD("userTestList.observe size: ${it?.size}")
+                userListAdapter?.setList(it)
+            }
         }
     }
 }

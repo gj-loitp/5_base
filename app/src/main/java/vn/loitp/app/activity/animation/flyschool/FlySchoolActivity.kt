@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.activity_animation_fly_school.*
 import vn.loitp.app.R
 
 // https://github.com/cipherthinkers/shapeflyer?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5370
-
 @LogTag("FlySchoolActivity")
 @IsFullScreen(false)
 class FlySchoolActivity : BaseFontActivity() {

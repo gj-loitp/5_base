@@ -8,8 +8,8 @@ import androidx.core.content.ContextCompat
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.tombayley.activitycircularreveal.CircularReveal
 import com.loitpcore.views.setSafeOnClickListener
+import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.activity_reveal_1.*
 import vn.loitp.app.R
 
@@ -28,6 +28,10 @@ class RevealActivity1 : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         fab.setSafeOnClickListener {
             show(it)
         }
@@ -62,6 +66,7 @@ class RevealActivity1 : BaseFontActivity() {
         CircularReveal.presentActivity(builder)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 

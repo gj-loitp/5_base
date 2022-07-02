@@ -12,7 +12,6 @@ import vn.loitp.app.activity.api.coroutine.service.TestApiClient
 class TestViewModel : BaseViewModel() {
     private val repository: TestRepository = TestRepository(TestApiClient.apiService)
 
-    // action
     val userTestListLiveData: MutableLiveData<ArrayList<UserTest>?> = MutableLiveData()
     val userActionLiveData: ActionLiveData<ActionData<ArrayList<UserTest>>> = ActionLiveData()
 

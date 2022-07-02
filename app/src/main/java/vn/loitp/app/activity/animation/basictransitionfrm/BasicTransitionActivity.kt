@@ -7,7 +7,6 @@ import com.loitpcore.core.base.BaseFontActivity
 import vn.loitp.app.R
 
 // https://github.com/googlesamples/android-BasicTransition/#readme
-
 @LogTag("BasicTransitionActivity")
 @IsFullScreen(false)
 class BasicTransitionActivity : BaseFontActivity() {

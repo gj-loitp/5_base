@@ -18,7 +18,6 @@ import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_animation_lottie.*
 import vn.loitp.app.R
 import java.io.IOException
-import java.util.*
 
 // https://www.lottiefiles.com/?page=1
 @LogTag("MenuLottieActivity")

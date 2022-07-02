@@ -2,12 +2,12 @@ package vn.loitp.app.activity.ads.admobinterstitial
 
 import android.os.Bundle
 import androidx.core.view.isVisible
+import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.google.android.gms.ads.interstitial.InterstitialAd
 import kotlinx.android.synthetic.main.activity_admob_interstitial.*
 import vn.loitp.app.R
 

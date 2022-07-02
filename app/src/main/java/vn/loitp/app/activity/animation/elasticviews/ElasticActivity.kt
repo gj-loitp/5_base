@@ -24,7 +24,7 @@ class ElasticActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        // dont remove this code below
+        // don't remove this code below
         elasticButton.setSafeOnClickListener {
         }
         elasticCheckButton.setSafeOnClickListener {
