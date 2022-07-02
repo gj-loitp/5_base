@@ -20,9 +20,9 @@ import vn.loitp.app.activity.customviews.bottomSheet.MenuBottomSheetActivity
 import vn.loitp.app.activity.customviews.button.MenuButtonActivity
 import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
 import vn.loitp.app.activity.customviews.dialog.MenuDialogActivity
-import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity
-import vn.loitp.app.activity.customviews.dragview.MenuDragViewActivity
-import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity
+import vn.loitp.app.activity.customviews.draggableFlipView.DraggableFlipViewActivity
+import vn.loitp.app.activity.customviews.dragView.MenuDragViewActivity
+import vn.loitp.app.activity.customviews.edittext.MenuEditTextActivity
 import vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity
 import vn.loitp.app.activity.customviews.imageview.MenuImageViewActivity
 import vn.loitp.app.activity.customviews.indicator.example.MenuMagicIndicatorActivity
@@ -122,7 +122,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btTextView -> Intent(this, TextViewMenuActivity::class.java)
             btBottomBarBlur -> Intent(this, MenuBottomNavigationActivity::class.java)
             btSticker -> Intent(this, StickerActivity::class.java)
-            btEditText -> Intent(this, EditTextMenuActivity::class.java)
+            btEditText -> Intent(this, MenuEditTextActivity::class.java)
             btLayout -> Intent(this, MenuLayoutActivity::class.java)
             btVideoView -> Intent(this, VideoViewMenuActivity::class.java)
             btSeekBar -> Intent(this, SeekbarMenuActivity::class.java)

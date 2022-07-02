@@ -11,11 +11,11 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_dialog.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.dialog.customdialog.CustomDialogActivity
-import vn.loitp.app.activity.customviews.dialog.customprogressdialog.CustomProgressDialogActivity
-import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity
-import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity
-import vn.loitp.app.activity.customviews.dialog.slideimages.DialogSlideImagesActivity
+import vn.loitp.app.activity.customviews.dialog.customDialog.CustomDialogActivity
+import vn.loitp.app.activity.customviews.dialog.customProgressDialog.CustomProgressDialogActivity
+import vn.loitp.app.activity.customviews.dialog.original.DialogOriginalActivity
+import vn.loitp.app.activity.customviews.dialog.prettyDialog.PrettyDialogActivity
+import vn.loitp.app.activity.customviews.dialog.slideImages.DialogSlideImagesActivity
 
 @LogTag("MenuDialogActivity")
 @IsFullScreen(false)

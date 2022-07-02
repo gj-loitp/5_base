@@ -1,29 +1,27 @@
-package vn.loitp.app.activity.customviews.calendar
+package vn.loitp.app.activity.customviews.dragView
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_calendar.*
+import com.loitpcore.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.activity_menu_drag_view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.calendar.cosmoCalendar.CosmoCalendarActivity
 
-@LogTag("MenuCalendarActivity")
+@LogTag("MenuDragViewActivity")
 @IsFullScreen(false)
-class MenuCalendarActivity : BaseFontActivity(), View.OnClickListener {
+class MenuDragViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_calendar
+        return R.layout.activity_menu_drag_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setupViews()
     }
 
@@ -35,20 +33,20 @@ class MenuCalendarActivity : BaseFontActivity(), View.OnClickListener {
                     onBackPressed()
                 }
             )
-            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.ivIconRight?.isVisible = false
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = MenuCalendarActivity::class.java.simpleName
+            this.tvTitle?.text = MenuDragViewActivity::class.java.simpleName
         }
-        btCalendar.setOnClickListener(this)
-    }
-
-    override fun onClick(v: View) {
-        var intent: Intent? = null
-        when (v) {
-            btCalendar -> intent = Intent(this, CosmoCalendarActivity::class.java)
+        btnNormal.setSafeOnClickListener {
+            startActivity(Intent(this, NormalActivity::class.java))
+            LActivityUtil.tranIn(this)
         }
-        intent?.let {
-            startActivity(intent)
+        btnCustom.setSafeOnClickListener {
+            startActivity(Intent(this, DragViewCustomActivity::class.java))
+            LActivityUtil.tranIn(this)
+        }
+        btnExoplayer.setSafeOnClickListener {
+            startActivity(Intent(this, ExoPlayerActivity::class.java))
             LActivityUtil.tranIn(this)
         }
     }
