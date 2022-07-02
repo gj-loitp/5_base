@@ -11,7 +11,7 @@ import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.frm_coroutine_get_list.*
+import kotlinx.android.synthetic.main.frm_coroutine_get_list_user.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
 
@@ -22,7 +22,7 @@ class FrmGetListUser : BaseFragment() {
     private var page = 1
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_coroutine_get_list
+        return R.layout.frm_coroutine_get_list_user
     }
 
     override fun onCreateView(

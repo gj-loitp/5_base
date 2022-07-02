@@ -16,7 +16,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.activity.CoroutineAPIActivity
 import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity
 import vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity
-import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity
+import vn.loitp.app.activity.api.truyentranhtuan.MenuTTTAPIActivity
 
 @LogTag("MenuAPIActivity")
 @IsFullScreen(false)
@@ -62,7 +62,7 @@ class MenuAPIActivity : BaseFontActivity(), View.OnClickListener {
                 intent = Intent(this, GalleryAPIActivity::class.java)
             }
             btComicAPI -> {
-                intent = Intent(this, TTTAPIMenuActivity::class.java)
+                intent = Intent(this, MenuTTTAPIActivity::class.java)
             }
             btTestRetrofit2 -> {
                 intent = Intent(this, TestAPIRetrofit2Activity::class.java)

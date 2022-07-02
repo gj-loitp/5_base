@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -11,14 +12,15 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_action_bar.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout.CollapsingToolbarLayoutActivity
-import vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayoutwithtablayout.CollapsingToolbarWithTabLayoutActivity
-import vn.loitp.app.activity.customviews.actionbar.lactionbar.LActionbarActivity
-import vn.loitp.app.activity.customviews.actionbar.navigationview.NavigationViewActivity
-import vn.loitp.app.activity.customviews.actionbar.navigationviewwithtext.NavigationViewWithTextActivity
+import vn.loitp.app.activity.customviews.actionbar.collapsingToolbarLayout.CollapsingToolbarLayoutActivity
+import vn.loitp.app.activity.customviews.actionbar.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivity
+import vn.loitp.app.activity.customviews.actionbar.lActionbar.LActionbarActivity
+import vn.loitp.app.activity.customviews.actionbar.navigationView.NavigationViewActivity
+import vn.loitp.app.activity.customviews.actionbar.navigationViewWithText.NavigationViewWithTextActivity
 
 @LogTag("MenuActionBarActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class MenuActionBarActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {

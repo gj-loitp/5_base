@@ -11,12 +11,12 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_custom_view_menu.*
+import kotlinx.android.synthetic.main.activity_menu_custom_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.actionbar.MenuActionBarActivity
-import vn.loitp.app.activity.customviews.answerview.AnswerViewActivity
-import vn.loitp.app.activity.customviews.bottomnavigationbar.MenuBottomNavigationActivity
-import vn.loitp.app.activity.customviews.bottomsheet.MenuBottomSheetActivity
+import vn.loitp.app.activity.customviews.answerView.AnswerViewActivity
+import vn.loitp.app.activity.customviews.bottomNavigationBar.MenuBottomNavigationActivity
+import vn.loitp.app.activity.customviews.bottomSheet.MenuBottomSheetActivity
 import vn.loitp.app.activity.customviews.button.MenuButtonActivity
 import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
 import vn.loitp.app.activity.customviews.dialog.MenuDialogActivity
@@ -54,7 +54,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.WWLVideoActivity
 class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_custom_view_menu
+        return R.layout.activity_menu_custom_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -10,21 +10,21 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_button_menu.*
+import kotlinx.android.synthetic.main.activity_menu_button.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity
-import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity
-import vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity
-import vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity
-import vn.loitp.app.activity.customviews.button.qbutton.QButtonActivity
-import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity
+import vn.loitp.app.activity.customviews.button.autoSizeButton.AutoSizeButtonActivity
+import vn.loitp.app.activity.customviews.button.circularImageClick.CircularImageClickActivity
+import vn.loitp.app.activity.customviews.button.goodView.GoodViewActivity
+import vn.loitp.app.activity.customviews.button.lButton.LButtonActivity
+import vn.loitp.app.activity.customviews.button.qButton.QButtonActivity
+import vn.loitp.app.activity.customviews.button.shineButton.ShineButtonActivity
 
 @LogTag("MenuButtonActivity")
 @IsFullScreen(false)
 class MenuButtonActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_button_menu
+        return R.layout.activity_menu_button
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

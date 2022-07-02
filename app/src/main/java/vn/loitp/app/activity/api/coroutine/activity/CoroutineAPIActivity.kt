@@ -10,6 +10,6 @@ import vn.loitp.app.R
 class CoroutineAPIActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_api_coroutine
+        return R.layout.activity_coroutine_api
     }
 }

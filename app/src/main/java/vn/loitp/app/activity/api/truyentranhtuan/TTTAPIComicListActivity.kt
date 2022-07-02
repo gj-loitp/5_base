@@ -13,8 +13,7 @@ import com.loitpcore.core.helper.ttt.viewmodel.TTTViewModel
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
-import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.textView
+import kotlinx.android.synthetic.main.activity_ttt_api_comic_list.*
 import vn.loitp.app.R
 
 @LogTag("TTTAPIComicListActivity")
@@ -24,7 +23,7 @@ class TTTAPIComicListActivity : BaseFontActivity() {
     private var comicTypeList = ArrayList<ComicType>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_api_ttt_comic_list
+        return R.layout.activity_ttt_api_comic_list
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

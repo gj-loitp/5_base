@@ -36,7 +36,7 @@ class RecyclerTabLayoutMenuActivity : BaseFontActivity(), AdapterView.OnItemClic
     private fun setupViews() {
         listView.onItemClickListener = this
 //        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
-        val adapter = ArrayAdapter<String>(this, R.layout.view_row_test_retrofit)
+        val adapter = ArrayAdapter<String>(this, R.layout.view_item_test_retrofit)
 
         for (demo in Demo.values()) {
             adapter.add(getString(demo.titleResId))

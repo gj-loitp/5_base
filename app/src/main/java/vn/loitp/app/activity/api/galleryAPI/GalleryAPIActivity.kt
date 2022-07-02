@@ -24,7 +24,7 @@ import vn.loitp.app.R
 @LogTag("GalleryAPIActivity")
 @IsFullScreen(false)
 class GalleryAPIActivity : BaseFontActivity() {
-    private var mWrapperPhotosetGetlist: WrapperPhotosetGetlist? = null
+    private var mWrapperPhotoSetGetList: WrapperPhotosetGetlist? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_api_gallery
@@ -39,14 +39,14 @@ class GalleryAPIActivity : BaseFontActivity() {
     private fun setupViews() {
         LDialogUtil.hideProgress(progressBar)
         bt1.setSafeOnClickListener {
-            getPhotosets()
+            getPhotoSets()
         }
         bt2.setSafeOnClickListener {
             showDialogSelectPhotoset()
         }
     }
 
-    private fun getPhotosets() {
+    private fun getPhotoSets() {
         LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
@@ -72,7 +72,7 @@ class GalleryAPIActivity : BaseFontActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist: WrapperPhotosetGetlist? ->
-                    mWrapperPhotosetGetlist = wrapperPhotosetGetlist
+                    mWrapperPhotoSetGetList = wrapperPhotosetGetlist
                     wrapperPhotosetGetlist?.let {
                         LUIUtil.printBeautyJson(it, textView)
                     }
@@ -90,7 +90,7 @@ class GalleryAPIActivity : BaseFontActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Choose:")
         val listPhotoset = ArrayList<Photoset>()
-        mWrapperPhotosetGetlist?.photosets?.photoset?.let {
+        mWrapperPhotoSetGetList?.photosets?.photoset?.let {
             listPhotoset.addAll(it)
         }
         val items = arrayOfNulls<String>(listPhotoset.size)
