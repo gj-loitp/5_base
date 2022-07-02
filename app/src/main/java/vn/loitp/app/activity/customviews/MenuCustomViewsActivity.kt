@@ -23,7 +23,7 @@ import vn.loitp.app.activity.customviews.dialog.MenuDialogActivity
 import vn.loitp.app.activity.customviews.draggableFlipView.DraggableFlipViewActivity
 import vn.loitp.app.activity.customviews.dragView.MenuDragViewActivity
 import vn.loitp.app.activity.customviews.edittext.MenuEditTextActivity
-import vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity
+import vn.loitp.app.activity.customviews.facebookComment.FacebookCommentActivity
 import vn.loitp.app.activity.customviews.imageview.MenuImageViewActivity
 import vn.loitp.app.activity.customviews.indicator.example.MenuMagicIndicatorActivity
 import vn.loitp.app.activity.customviews.layout.MenuLayoutActivity

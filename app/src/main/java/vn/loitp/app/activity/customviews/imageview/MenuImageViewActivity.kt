@@ -10,29 +10,29 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_imageview_menu.*
+import kotlinx.android.synthetic.main.activity_menu_image_view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity
-import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewWithScrollViewActivity
-import vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageViewActivity
-import vn.loitp.app.activity.customviews.imageview.comicview.ComicViewActivity
-import vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview.ContinuousScrollableImageViewActivity
-import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity
-import vn.loitp.app.activity.customviews.imageview.kenburnview.KenburnViewActivity
-import vn.loitp.app.activity.customviews.imageview.panoramaimageview.PanoramaImageViewActivity
-import vn.loitp.app.activity.customviews.imageview.pinchtozoom.PinchToZoomViewPagerActivity
-import vn.loitp.app.activity.customviews.imageview.scrollparallaximageview.ScrollParallaxImageViewActivity
-import vn.loitp.app.activity.customviews.imageview.stfaiconimageviewer.ListActivity
-import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity
-import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity
-import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.bigImageView.BigImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.bigImageView.BigImageViewWithScrollViewActivity
+import vn.loitp.app.activity.customviews.imageview.circleImageView.CircleImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.comicView.ComicViewActivity
+import vn.loitp.app.activity.customviews.imageview.continuousScrollableImageView.ContinuousScrollableImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.fidgetSpinner.FidgetSpinnerImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.kenburnView.KenburnViewActivity
+import vn.loitp.app.activity.customviews.imageview.panorama.PanoramaImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.pinchToZoom.PinchToZoomViewPagerActivity
+import vn.loitp.app.activity.customviews.imageview.scrollParallax.ScrollParallaxImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.stfaiconImageViewer.ListActivity
+import vn.loitp.app.activity.customviews.imageview.strectchy.StrectchyImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.touch.TouchImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.zoom.ZoomImageViewActivity
 
 @LogTag("ImageViewMenuActivity")
 @IsFullScreen(false)
 class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_imageview_menu
+        return R.layout.activity_menu_image_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -9,46 +9,46 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_layout_menu.*
+import kotlinx.android.synthetic.main.activity_menu_layout.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.aspectratiolayout.AspectRatioLayoutActivity
-import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity
-import vn.loitp.app.activity.customviews.layout.basketlayout.BasketLayoutActivity
+import vn.loitp.app.activity.customviews.layout.aspectratio.AspectRatioLayoutActivity
+import vn.loitp.app.activity.customviews.layout.autoLinearLayout.AutoLinearLayoutActivity
+import vn.loitp.app.activity.customviews.layout.basketLayout.BasketLayoutActivity
 import vn.loitp.app.activity.customviews.layout.chess.ChessLayoutActivity
-import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity
-import vn.loitp.app.activity.customviews.layout.constraintlayout.MenuConstraintlayoutActivity
-import vn.loitp.app.activity.customviews.layout.coordinatorlayout.MenuCoordinatorLayoutActivity
-import vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelActivity
-import vn.loitp.app.activity.customviews.layout.draggablepanelfree.DraggablePanelFreeActivity
-import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity
-import vn.loitp.app.activity.customviews.layout.expansionpanel.ExpansionLayoutMenuActivity
-import vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragLayoutActivity
-import vn.loitp.app.activity.customviews.layout.flowlayout.FlowLayoutActivity
-import vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity
-import vn.loitp.app.activity.customviews.layout.relativepopupwindow.RelativePopupWindowActivity
-import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity
-import vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity
-import vn.loitp.app.activity.customviews.layout.roundablelayout.RoundableLayoutActivity
-import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DActivity
-import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DAdvanceActivity
-import vn.loitp.app.activity.customviews.layout.sequencelayout.SequenceLayoutActivity
-import vn.loitp.app.activity.customviews.layout.shadowlayout.ShadowLayoutActivity
-import vn.loitp.app.activity.customviews.layout.shapeofview.ShapeOfViewActivity
-import vn.loitp.app.activity.customviews.layout.splitpanellayout.SplitPanelLayoutActivity
-import vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivity
-import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity
-import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity
-import vn.loitp.app.activity.customviews.layout.swipereveallayout.SwipeRevealLayoutActivity
-import vn.loitp.app.activity.customviews.layout.transformationlayout.TransformationActivity
-import vn.loitp.app.activity.customviews.layout.transformationlayout.single.TransformationSingleActivity
-import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity
+import vn.loitp.app.activity.customviews.layout.circularView.CircularViewActivity
+import vn.loitp.app.activity.customviews.layout.constraintLayout.MenuConstraintlayoutActivity
+import vn.loitp.app.activity.customviews.layout.coordinatorLayout.MenuCoordinatorLayoutActivity
+import vn.loitp.app.activity.customviews.layout.draggablePanel.DraggablePanelActivity
+import vn.loitp.app.activity.customviews.layout.draggablePanelFree.DraggablePanelFreeActivity
+import vn.loitp.app.activity.customviews.layout.draggableView.DraggableViewActivity
+import vn.loitp.app.activity.customviews.layout.expansionPanel.ExpansionLayoutMenuActivity
+import vn.loitp.app.activity.customviews.layout.floatDragLayout.FloatDragLayoutActivity
+import vn.loitp.app.activity.customviews.layout.flowLayout.FlowLayoutActivity
+import vn.loitp.app.activity.customviews.layout.heartLayout.HeartLayoutActivity
+import vn.loitp.app.activity.customviews.layout.relativePopupWindow.RelativePopupWindowActivity
+import vn.loitp.app.activity.customviews.layout.rippleLayout.RippleLayoutActivity
+import vn.loitp.app.activity.customviews.layout.rotateLayout.RotateLayoutActivity
+import vn.loitp.app.activity.customviews.layout.roundableLayout.RoundableLayoutActivity
+import vn.loitp.app.activity.customviews.layout.scrollView2d.ScrollView2DActivity
+import vn.loitp.app.activity.customviews.layout.scrollView2d.ScrollView2DAdvanceActivity
+import vn.loitp.app.activity.customviews.layout.sequenceLayout.SequenceLayoutActivity
+import vn.loitp.app.activity.customviews.layout.shadowLayout.ShadowLayoutActivity
+import vn.loitp.app.activity.customviews.layout.shapeOfView.ShapeOfViewActivity
+import vn.loitp.app.activity.customviews.layout.splitPanelLayout.SplitPanelLayoutActivity
+import vn.loitp.app.activity.customviews.layout.squareLayout.SquareLayoutActivity
+import vn.loitp.app.activity.customviews.layout.swipeBackLayout.SwipeBackLayoutActivity
+import vn.loitp.app.activity.customviews.layout.swipeRefreshLayout.MenuSwipeRefreshLayoutActivity
+import vn.loitp.app.activity.customviews.layout.swipeRevealLayout.SwipeRevealLayoutActivity
+import vn.loitp.app.activity.customviews.layout.transformationLayout.TransformationActivity
+import vn.loitp.app.activity.customviews.layout.transformationLayout.single.TransformationSingleActivity
+import vn.loitp.app.activity.customviews.layout.zoomLayout.ZoomLayoutActivity
 
 @LogTag("MenuLayoutActivity")
 @IsFullScreen(false)
 class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_menu
+        return R.layout.activity_menu_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -110,7 +110,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
             btDraggableView -> Intent(this, DraggableViewActivity::class.java)
             btZoomLayout -> Intent(this, ZoomLayoutActivity::class.java)
             btRippleLayout -> Intent(this, RippleLayoutActivity::class.java)
-            btSwipeRefreshLayout -> Intent(this, SwipeRefreshLayoutMenuActivity::class.java)
+            btSwipeRefreshLayout -> Intent(this, MenuSwipeRefreshLayoutActivity::class.java)
             btCircularView -> Intent(this, CircularViewActivity::class.java)
             btAutoLinearLayout -> Intent(this, AutoLinearLayoutActivity::class.java)
             btConstraintLayout -> Intent(this, MenuConstraintlayoutActivity::class.java)
