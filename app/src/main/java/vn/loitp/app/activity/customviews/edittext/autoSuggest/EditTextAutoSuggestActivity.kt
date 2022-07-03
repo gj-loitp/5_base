@@ -10,7 +10,7 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.edittext.autosuggest.LAutoSuggestEditText
+import com.loitpcore.views.editText.autoSuggest.LAutoSuggestEditText
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable

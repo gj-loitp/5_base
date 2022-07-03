@@ -9,11 +9,11 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.gallery.GalleryCoreSplashActivity
-import com.loitpcore.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
+import com.loitpcore.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity
 import com.loitpcore.core.helper.gallery.member.GalleryMemberActivity
 import com.loitpcore.core.helper.ttt.ui.a.TTTSplashActivity
 import com.loitpcore.core.utilities.LActivityUtil
-import com.loitpcore.game.findnumber.ui.SplashActivity
+import com.loitpcore.game.findNumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_menu_demo.*
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R

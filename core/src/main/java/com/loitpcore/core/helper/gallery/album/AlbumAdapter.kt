@@ -16,7 +16,7 @@ import com.loitpcore.core.adapter.BaseAdapter
 import com.loitpcore.core.utilities.LDateUtil
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.restapi.flickr.model.photosetgetlist.Photoset
+import com.loitpcore.restApi.flickr.model.photoSetGetList.Photoset
 import kotlinx.android.synthetic.main.l_item_flickr_album_core.view.*
 
 @LogTag("AlbumAdapter")

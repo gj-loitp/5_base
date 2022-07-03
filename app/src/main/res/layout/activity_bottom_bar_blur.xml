@@ -127,13 +127,13 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.loitpcore.views.bottombar.LBottomBar
+    <com.loitpcore.views.bottomBar.LBottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
 
-    <com.loitpcore.views.actionbar.LActionBar
+    <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

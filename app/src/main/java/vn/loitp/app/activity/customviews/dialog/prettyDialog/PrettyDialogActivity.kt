@@ -10,7 +10,7 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.dialog.prettydialog.PrettyDialog
+import com.loitpcore.views.dialog.prettyDialog.PrettyDialog
 import kotlinx.android.synthetic.main.activity_pretty_dialog.*
 import vn.loitp.app.R
 

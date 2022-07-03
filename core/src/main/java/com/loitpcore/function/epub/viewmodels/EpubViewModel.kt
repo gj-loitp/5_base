@@ -13,8 +13,8 @@ import com.loitpcore.function.epub.CssStatus
 import com.loitpcore.function.epub.Reader
 import com.loitpcore.function.epub.exception.ReadingException
 import com.loitpcore.function.epub.model.BookInfo
-import com.loitpcore.service.livedata.ActionData
-import com.loitpcore.service.livedata.ActionLiveData
+import com.loitpcore.service.liveData.ActionData
+import com.loitpcore.service.liveData.ActionLiveData
 import com.loitpcore.service.model.ErrorResponse
 import kotlinx.coroutines.launch
 import java.io.File

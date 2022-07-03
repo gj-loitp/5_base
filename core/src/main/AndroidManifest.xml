@@ -54,7 +54,7 @@
             android:value="2.1" />
 
         <activity
-            android:name=".core.helper.adhelper.AdHelperActivity"
+            android:name=".core.helper.adHelper.AdHelperActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".core.helper.gallery.GalleryCoreSplashActivity"
@@ -71,7 +71,7 @@
             android:name=".core.helper.gallery.slide.GalleryCoreSlideActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".core.helper.fbcomment.FbCommentActivity"
+            android:name=".core.helper.fbComment.FbCommentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
 
@@ -81,7 +81,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity"
+            android:name=".core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
@@ -102,23 +102,23 @@
             android:name=".picker.crop.LGalleryActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".game.findnumber.ui.SplashActivity"
+            android:name=".game.findNumber.ui.SplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findnumber.ui.MenuActivity"
+            android:name=".game.findNumber.ui.MenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findnumber.ui.SingleLevelActivity"
+            android:name=".game.findNumber.ui.SingleLevelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findnumber.ui.SinglePlayActivity"
+            android:name=".game.findNumber.ui.SinglePlayActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findnumber.dialog.FindNumberWinActivity"
+            android:name=".game.findNumber.dialog.FindNumberWinActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity

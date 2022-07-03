@@ -9,7 +9,7 @@ import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LConnectivityUtil
 import com.loitpcore.core.utilities.LLog
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.game.findnumber.db.FindNumberDatabase
+import com.loitpcore.game.findNumber.db.FindNumberDatabase
 import com.loitpcore.utils.util.Utils
 
 // GIT

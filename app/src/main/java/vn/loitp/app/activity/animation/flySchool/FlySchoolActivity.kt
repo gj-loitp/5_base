@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.animation.flySchool
 
 import android.os.Bundle
-import com.loitpcore.animation.flyschool.ImgObject
-import com.loitpcore.animation.flyschool.PATHS
+import com.loitpcore.animation.flySchool.ImgObject
+import com.loitpcore.animation.flySchool.PATHS
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity

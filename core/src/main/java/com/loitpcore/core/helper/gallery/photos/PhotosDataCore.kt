@@ -1,6 +1,6 @@
 package com.loitpcore.core.helper.gallery.photos
 
-import com.loitpcore.restapi.flickr.model.photosetgetphotos.Photo
+import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 
 class PhotosDataCore private constructor() {
     private var photoList = ArrayList<Photo>()

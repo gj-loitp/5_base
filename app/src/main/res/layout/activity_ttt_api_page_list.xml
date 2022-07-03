@@ -43,7 +43,7 @@
         android:layout_centerInParent="true"
         android:indeterminateTint="?attr/themeTextColor" />
 
-    <com.loitpcore.views.actionbar.LActionBar
+    <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -7,7 +7,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.button.circularimageclick.LCircularClickImageButton
+import com.loitpcore.views.button.circularImageClick.LCircularClickImageButton
 import kotlinx.android.synthetic.main.activity_circular_image_click.*
 import vn.loitp.app.R
 

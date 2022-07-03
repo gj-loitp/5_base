@@ -6,7 +6,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.answerview.LAnswerView
+import com.loitpcore.views.answerView.LAnswerView
 import kotlinx.android.synthetic.main.activity_answer_view.*
 import vn.loitp.app.R
 

@@ -18,7 +18,7 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.LValidateUtil
-import com.loitpcore.restapi.restclient.RestClient
+import com.loitpcore.restApi.restClient.RestClient
 import com.loitpcore.utils.util.AppUtils
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*

@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.function.simplefingergestures.SimpleFingerGestures
+import com.loitpcore.function.simpleFingerGestures.SimpleFingerGestures
 import kotlinx.android.synthetic.main.activity_func_simple_finger_gestures.*
 import vn.loitp.app.R
 

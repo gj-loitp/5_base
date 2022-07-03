@@ -19,10 +19,10 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.LValidateUtil
-import com.loitpcore.restapi.flickr.FlickrConst
-import com.loitpcore.restapi.flickr.model.photosetgetlist.Photoset
-import com.loitpcore.restapi.flickr.service.FlickrService
-import com.loitpcore.restapi.restclient.RestClient
+import com.loitpcore.restApi.flickr.FlickrConst
+import com.loitpcore.restApi.flickr.model.photoSetGetList.Photoset
+import com.loitpcore.restApi.flickr.service.FlickrService
+import com.loitpcore.restApi.restClient.RestClient
 import com.loitpcore.views.layout.swipeback.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

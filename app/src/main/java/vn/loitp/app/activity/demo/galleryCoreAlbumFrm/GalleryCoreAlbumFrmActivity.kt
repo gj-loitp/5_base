@@ -5,7 +5,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
-import com.loitpcore.core.helper.gallery.albumonly.GalleryCorePhotosOnlyFrm
+import com.loitpcore.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyFrm
 import com.loitpcore.core.utilities.LScreenUtil
 import vn.loitp.app.R
 

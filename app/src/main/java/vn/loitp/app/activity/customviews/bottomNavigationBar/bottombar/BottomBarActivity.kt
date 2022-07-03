@@ -9,7 +9,7 @@ import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
-import com.loitpcore.views.bottombar.LBottomBar
+import com.loitpcore.views.bottomBar.LBottomBar
 import kotlinx.android.synthetic.main.activity_bottom_bar_blur.*
 import vn.loitp.app.R
 

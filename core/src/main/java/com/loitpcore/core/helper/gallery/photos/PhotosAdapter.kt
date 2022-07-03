@@ -16,7 +16,7 @@ import com.loitpcore.core.adapter.BaseAdapter
 import com.loitpcore.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.restapi.flickr.model.photosetgetphotos.Photo
+import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_core.view.*
 
 @LogTag("PhotosAdapter")

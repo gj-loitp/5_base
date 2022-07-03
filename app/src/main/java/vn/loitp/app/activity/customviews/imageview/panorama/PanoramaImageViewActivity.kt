@@ -7,8 +7,8 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.imageview.panorama.GyroscopeObserver
-import com.loitpcore.views.imageview.panorama.LPanoramaImageView
+import com.loitpcore.views.imageView.panorama.GyroscopeObserver
+import com.loitpcore.views.imageView.panorama.LPanoramaImageView
 import kotlinx.android.synthetic.main.activity_panorama_image_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.EmptyActivity

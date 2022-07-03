@@ -133,7 +133,7 @@
             android:src="@drawable/iv" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <com.loitpcore.views.actionbar.LActionBar
+    <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

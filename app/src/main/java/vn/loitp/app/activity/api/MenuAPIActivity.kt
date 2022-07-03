@@ -10,7 +10,7 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.restapi.restclient.RestClient
+import com.loitpcore.restApi.restClient.RestClient
 import kotlinx.android.synthetic.main.activity_menu_api.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.activity.CoroutineAPIActivity
