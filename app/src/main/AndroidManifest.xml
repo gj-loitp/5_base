@@ -77,10 +77,10 @@
             android:name=".activity.customviews.viewpager.detectviewpagerswipeout.DetectViewPagerSwipeOutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.switchtoggle.SwitchToggleMenuActivity"
+            android:name=".activity.customviews.switchToggle.MenuSwitchToggleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity"
+            android:name=".activity.customviews.switchToggle.appCompatWwitch.AppcompatSwitchActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.actionbar.lActionbar.LActionbarActivity"
@@ -92,10 +92,10 @@
             android:name=".activity.customviews.imageview.circleImageView.CircleImageViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.TextViewMenuActivity"
+            android:name=".activity.customviews.textview.MenuTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.scoretext.ScoreTextViewActivity"
+            android:name=".activity.customviews.textview.scoreText.ScoreTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.bottomNavigationBar.MenuBottomNavigationActivity"
@@ -104,7 +104,7 @@
             android:name=".activity.customviews.bottomNavigationBar.bottombar.BottomBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.countdown.CountDownActivity"
+            android:name=".activity.customviews.textview.countDown.CountDownActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.imageview.strectchy.StrectchyImageViewActivity"
@@ -128,16 +128,16 @@
             android:name=".activity.customviews.imageview.fidgetSpinner.FidgetSpinnerImageViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.colortextview.ColorTextViewActivity"
+            android:name=".activity.customviews.textview.colorTextView.ColorTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.scrollnumber.ScrollNumberActivity"
+            android:name=".activity.customviews.textview.scrollNumber.ScrollNumberActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.zoomtextview.ZoomTextViewActivity"
+            android:name=".activity.customviews.textview.zoom.ZoomTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.verticalmarqueetextview.VerticalMarqueeTextViewActivity"
+            android:name=".activity.customviews.textview.verticalMarquee.VerticalMarqueeTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.pattern.mvp.MVPActivity"
@@ -152,10 +152,10 @@
             android:name=".activity.customviews.edittext.materialTextField.MaterialTextFieldActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.videoview.VideoViewMenuActivity"
+            android:name=".activity.customviews.videoView.MenuVideoViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.typewritertextview.TypeWriterTextViewActivity"
+            android:name=".activity.customviews.textview.typeWriterTextView.TypeWriterTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.api.truyentranhtuan.MenuTTTAPIActivity"
@@ -241,7 +241,7 @@
             android:name=".activity.customviews.recyclerview.normalRecyclerView.RecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.textdecorator.TextDecoratorActivity"
+            android:name=".activity.customviews.textview.textDecorator.TextDecoratorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.viewpager.autoviewpager.ViewPagerAutoActivity"
@@ -250,7 +250,7 @@
             android:name=".activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.selectabletextView.SelectableTextViewActivity"
+            android:name=".activity.customviews.textview.selectableTextView.SelectableTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.recyclerview.normalWithSpanSize.RecyclerViewWithSpanSizeActivity"
@@ -278,7 +278,7 @@
             android:name=".activity.customviews.dialog.prettyDialog.PrettyDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.seekbar.SeekbarMenuActivity"
+            android:name=".activity.customviews.seekBar.SeekbarMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- FOR ALARM DEMO APP -->
         <activity
@@ -295,7 +295,7 @@
             android:name=".activity.function.simplefingergestures.SimpleFingerGesturesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.autofittextview.AutoFitTextViewActivity"
+            android:name=".activity.customviews.textview.autoFit.AutoFitTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.demo.ebookwithrealm.EbookWithRealmActivity"
@@ -361,7 +361,7 @@
             android:name=".activity.api.retrofit2.TestAPIRetrofit2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.treeview.TreeViewActivity"
+            android:name=".activity.customviews.treeView.TreeViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.button.goodView.GoodViewActivity"
@@ -382,7 +382,7 @@
             android:name=".activity.customviews.layout.circularView.CircularViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.switchtoggle.toggle.ToggleActivity"
+            android:name=".activity.customviews.switchToggle.toggle.ToggleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.autoLinearLayout.AutoLinearLayoutActivity"
@@ -403,7 +403,7 @@
             android:name=".activity.function.fullscreen.FullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.seekbar.verticalseekbar.VerticalSeekbarActivity"
+            android:name=".activity.customviews.seekBar.verticalSeekBar.VerticalSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.bottomSheet.MenuBottomSheetActivity"
@@ -417,11 +417,11 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".activity.customviews.seekbar.boxedverticalseekbar.BoxedVerticalSeekBarActivity"
+            android:name=".activity.customviews.seekBar.boxedVerticalSeekBar.BoxedVerticalSeekBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".activity.customviews.seekbar.seekbar.SeekbarActivity"
+            android:name=".activity.customviews.seekBar.seekBar.SeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -434,7 +434,7 @@
             android:name=".activity.customviews.recyclerview.galleryLayoutManager.GalleryLayoutManagerVerticalActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.scrollablepanel.ScrollablePanelActivity"
+            android:name=".activity.customviews.scrollablePanel.ScrollablePanelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.recyclerview.book.BookViewActivity"
@@ -566,13 +566,13 @@
             android:name=".activity.customviews.layout.constraintLayout.constraintSet.ConstraintSetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.videoview.exoplayer.ExoPlayerActivity"
+            android:name=".activity.customviews.videoView.exo.ExoPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.videoview.exoplayer.ExoPlayerActivity2"
+            android:name=".activity.customviews.videoView.exo.ExoPlayerActivity2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.videoview.exoplayer.ExoPlayerActivity3"
+            android:name=".activity.customviews.videoView.exo.ExoPlayerActivity3"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -585,7 +585,7 @@
             android:name=".activity.animation.valueAnimator.ValueAnimatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.videoview.youtube.YoutubeActivity"
+            android:name=".activity.customviews.videoView.youtube.YoutubeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.demo.twoinstanceactivity.Activity1"
@@ -685,7 +685,7 @@
             android:name=".activity.network.NetworkActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.extratextview.ExtraTextViewActivity"
+            android:name=".activity.customviews.textview.extraTextView.ExtraTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.demo.pdf.PdfDemoActivity"
@@ -709,7 +709,7 @@
             android:name=".activity.function.keyboard.KeyboardActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.strokedtextview.StrokedTextViewActivity"
+            android:name=".activity.customviews.textview.strokedTextView.StrokedTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.edittext.autoSuggest.EditTextAutoSuggestActivity"
@@ -909,19 +909,19 @@
             android:name=".activity.customviews.layout.flowLayout.FlowLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.switchtoggle.togglebuttongroup.TBGCustomButtonActivity"
+            android:name=".activity.customviews.switchToggle.toggleButtonGroup.TBGCustomButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.switchtoggle.togglebuttongroup.TBGFlowLabelActivity"
+            android:name=".activity.customviews.switchToggle.toggleButtonGroup.TBGFlowLabelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.switchtoggle.togglebuttongroup.TBGMenuActivity"
+            android:name=".activity.customviews.switchToggle.toggleButtonGroup.TBGMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.switchtoggle.togglebuttongroup.TBGMultiSelectActivity"
+            android:name=".activity.customviews.switchToggle.toggleButtonGroup.TBGMultiSelectActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.switchtoggle.togglebuttongroup.TBGSingleSelectActivity"
+            android:name=".activity.customviews.switchToggle.toggleButtonGroup.TBGSingleSelectActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.picker.numberpicker.NumberPickerActivity"
@@ -1105,7 +1105,7 @@
             android:name=".activity.customviews.layout.basketLayout.BasketLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.justifiedtextview.JustifiedTextViewActivity"
+            android:name=".activity.customviews.textview.justified.JustifiedTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.sequenceLayout.SequenceLayoutActivity"
@@ -1130,7 +1130,7 @@
         </provider>
 
         <activity
-            android:name=".activity.customviews.textview.autocompletetextview.AutoCompleteTextViewActivity"
+            android:name=".activity.customviews.textview.autoComplete.AutoCompleteTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.function.keyboardheightprovider.KeyboardHeightProviderActivity"

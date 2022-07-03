@@ -35,13 +35,13 @@ import vn.loitp.app.activity.customviews.popupMenu.PopupMenuActivity
 import vn.loitp.app.activity.customviews.progressLoadingView.MenuProgressLoadingViewsActivity
 import vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity
 import vn.loitp.app.activity.customviews.scratchView.MenuScratchViewActivity
-import vn.loitp.app.activity.customviews.scrollablepanel.ScrollablePanelActivity
-import vn.loitp.app.activity.customviews.seekbar.SeekbarMenuActivity
+import vn.loitp.app.activity.customviews.scrollablePanel.ScrollablePanelActivity
+import vn.loitp.app.activity.customviews.seekBar.SeekbarMenuActivity
 import vn.loitp.app.activity.customviews.sticker.StickerActivity
-import vn.loitp.app.activity.customviews.switchtoggle.SwitchToggleMenuActivity
-import vn.loitp.app.activity.customviews.textview.TextViewMenuActivity
-import vn.loitp.app.activity.customviews.treeview.TreeViewActivity
-import vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity
+import vn.loitp.app.activity.customviews.switchToggle.MenuSwitchToggleActivity
+import vn.loitp.app.activity.customviews.textview.MenuTextViewActivity
+import vn.loitp.app.activity.customviews.treeView.TreeViewActivity
+import vn.loitp.app.activity.customviews.videoView.MenuVideoViewActivity
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity
 import vn.loitp.app.activity.customviews.webview.LWebViewActivity
 import vn.loitp.app.activity.customviews.wheelspiner.WheelSpinnerActivity
@@ -116,15 +116,15 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btViewPager -> Intent(this, ViewPagerMenuActivity::class.java)
             btButton -> Intent(this, MenuButtonActivity::class.java)
             btProgressLoading -> Intent(this, MenuProgressLoadingViewsActivity::class.java)
-            btSwitch -> Intent(this, SwitchToggleMenuActivity::class.java)
+            btSwitch -> Intent(this, MenuSwitchToggleActivity::class.java)
             btActionBar -> Intent(this, MenuActionBarActivity::class.java)
             btImageView -> Intent(this, MenuImageViewActivity::class.java)
-            btTextView -> Intent(this, TextViewMenuActivity::class.java)
+            btTextView -> Intent(this, MenuTextViewActivity::class.java)
             btBottomBarBlur -> Intent(this, MenuBottomNavigationActivity::class.java)
             btSticker -> Intent(this, StickerActivity::class.java)
             btEditText -> Intent(this, MenuEditTextActivity::class.java)
             btLayout -> Intent(this, MenuLayoutActivity::class.java)
-            btVideoView -> Intent(this, VideoViewMenuActivity::class.java)
+            btVideoView -> Intent(this, MenuVideoViewActivity::class.java)
             btSeekBar -> Intent(this, SeekbarMenuActivity::class.java)
             btRecyclerView -> Intent(this, RecyclerViewMenuActivity::class.java)
             btDialog -> Intent(this, MenuDialogActivity::class.java)
