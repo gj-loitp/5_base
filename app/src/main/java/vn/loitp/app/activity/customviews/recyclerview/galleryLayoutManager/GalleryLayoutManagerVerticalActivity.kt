@@ -12,8 +12,8 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.recyclerview.gallery.GalleryLayoutManager
-import com.loitpcore.views.recyclerview.gallery.GalleryLayoutManager.ItemTransformer
+import com.loitpcore.views.recyclerView.gallery.GalleryLayoutManager
+import com.loitpcore.views.recyclerView.gallery.GalleryLayoutManager.ItemTransformer
 import kotlinx.android.synthetic.main.activity_recycler_view_menu_gallery_layout_manager.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie

@@ -13,7 +13,7 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LPopupMenu
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.recyclerview.itemdecoration.StickyFooterItemDecoration
+import com.loitpcore.views.recyclerView.itemDecoration.StickyFooterItemDecoration
 import com.loitpcore.views.setSafeOnClickListener
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.*

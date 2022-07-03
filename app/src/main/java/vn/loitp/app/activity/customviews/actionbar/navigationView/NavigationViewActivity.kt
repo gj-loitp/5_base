@@ -8,7 +8,7 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.navigationview.LNavigationView
+import com.loitpcore.views.navigationView.LNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view.*
 import vn.loitp.app.R
 

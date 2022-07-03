@@ -8,7 +8,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.viewpager.swipeout.LSwipeOutViewPager
+import com.loitpcore.views.viewPager.swipeOut.LSwipeOutViewPager
 import kotlinx.android.synthetic.main.activity_view_pager_swipe_out_2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewPager.autoViewPager.FrmIv.Companion.newInstance

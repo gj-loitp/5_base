@@ -14,7 +14,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.scrollview.LScrollView
+import com.loitpcore.views.scrollView.LScrollView
 import kotlinx.android.synthetic.main.activity_scrollview_2d_advance_layout.*
 import vn.loitp.app.R
 

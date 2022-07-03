@@ -13,7 +13,7 @@ import android.view.ScaleGestureDetector
 import android.view.animation.DecelerateInterpolator
 import androidx.core.view.GestureDetectorCompat
 import com.loitpcore.R
-import com.loitpcore.views.listview.LListView
+import com.loitpcore.views.listView.LListView
 import java.util.* // ktlint-disable no-wildcard-imports
 
 class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? = null) :

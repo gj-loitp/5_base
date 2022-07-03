@@ -5,7 +5,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.views.setSafeOnClickListener
-import com.loitpcore.views.textview.countdown.LCountDownView
+import com.loitpcore.views.textView.countDown.LCountDownView
 import kotlinx.android.synthetic.main.activity_text_view_count_down.*
 import vn.loitp.app.R
 

@@ -6,8 +6,8 @@ import android.widget.TextView
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.views.treeview.BaseTreeAdapter
-import com.loitpcore.views.treeview.TreeNode
+import com.loitpcore.views.treeView.BaseTreeAdapter
+import com.loitpcore.views.treeView.TreeNode
 import kotlinx.android.synthetic.main.activity_tree_view.*
 import vn.loitp.app.R
 

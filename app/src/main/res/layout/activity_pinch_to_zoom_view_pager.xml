@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <com.loitpcore.views.viewpager.ExtendedViewPager
+    <com.loitpcore.views.viewPager.ExtendedViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

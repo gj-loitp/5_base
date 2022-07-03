@@ -9,8 +9,8 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.base.BaseModel
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.ldebugview.LComunicateDebug
-import com.loitpcore.views.ldebugview.LDebug
+import com.loitpcore.views.lDebugView.LComunicateDebug
+import com.loitpcore.views.lDebugView.LDebug
 import kotlinx.android.synthetic.main.activity_l_debug_view.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants.Companion.URL_IMG

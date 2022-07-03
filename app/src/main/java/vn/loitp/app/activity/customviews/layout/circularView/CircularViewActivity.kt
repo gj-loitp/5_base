@@ -7,8 +7,8 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.layout.circularview.CircularView
-import com.loitpcore.views.layout.circularview.Marker
+import com.loitpcore.views.layout.circularView.CircularView
+import com.loitpcore.views.layout.circularView.Marker
 import kotlinx.android.synthetic.main.activity_circular_view_layout.*
 import vn.loitp.app.R
 

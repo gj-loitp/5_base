@@ -8,7 +8,7 @@
       android:pathData="M59,2H5A3,3 0,0 0,2 5V59a3,3 0,0 0,3 3H59a3,3 0,0 0,3 -3V5A3,3 0,0 0,59 2ZM5,4H59a1,1 0,0 1,1 1v5H4V5A1,1 0,0 1,5 4ZM59,60H5a1,1 0,0 1,-1 -1V12H60V59A1,1 0,0 1,59 60Z"/>
   <path
       android:fillColor="#FF000000"
-      android:pathData="M7,8H8A1,1 0,0 0,8 6H7A1,1 0,0 0,7 8Z"/>
+      android:pathData="M7,8H8A1,1 0,0 0,8 6H7A1,1 0,0 0,7 8Z" />
   <path
       android:fillColor="#FF000000"
       android:pathData="M12,8h1a1,1 0,0 0,0 -2H12a1,1 0,0 0,0 2Z"/>

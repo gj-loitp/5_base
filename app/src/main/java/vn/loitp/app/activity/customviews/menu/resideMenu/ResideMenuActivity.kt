@@ -10,9 +10,9 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LAppResource
-import com.loitpcore.views.menu.residemenu.ResideMenu
-import com.loitpcore.views.menu.residemenu.ResideMenu.OnMenuListener
-import com.loitpcore.views.menu.residemenu.ResideMenuItem
+import com.loitpcore.views.menu.resideMenu.ResideMenu
+import com.loitpcore.views.menu.resideMenu.ResideMenu.OnMenuListener
+import com.loitpcore.views.menu.resideMenu.ResideMenuItem
 import kotlinx.android.synthetic.main.activity_reside_menu.*
 import vn.loitp.app.R
 

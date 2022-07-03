@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.loitpcore.views.LToast.showShortInformation
-import com.loitpcore.views.layout.swipereveallayout.LSwipeRevealLayout
-import com.loitpcore.views.layout.swipereveallayout.ViewBinderHelper
+import com.loitpcore.views.layout.swipeReveal.LSwipeRevealLayout
+import com.loitpcore.views.layout.swipeReveal.ViewBinderHelper
 import vn.loitp.app.R
 
 class GridAdapter(

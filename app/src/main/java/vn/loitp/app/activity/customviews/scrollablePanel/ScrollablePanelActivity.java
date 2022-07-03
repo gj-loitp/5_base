@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import com.loitpcore.annotation.IsFullScreen;
 import com.loitpcore.annotation.LogTag;
 import com.loitpcore.core.base.BaseFontActivity;
-import com.loitpcore.views.scrollablepanel.LScrollablePanel;
+import com.loitpcore.views.scrollablePanel.LScrollablePanel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

@@ -30,7 +30,7 @@
         android:layout_marginStart="@dimen/margin_padding_medium"
         android:layout_marginTop="@dimen/margin_padding_medium"
         android:layout_marginEnd="@dimen/margin_padding_medium"
-        android:background="@drawable/bkg_bottom_sheet_option"
+        android:background="@drawable/bg_bottom_sheet_option"
         android:gravity="center"
         android:padding="@dimen/margin_padding_medium"
         android:textColor="?attr/themeBackgroundColor"
@@ -44,7 +44,7 @@
         android:layout_marginStart="@dimen/margin_padding_medium"
         android:layout_marginTop="@dimen/margin_padding_medium"
         android:layout_marginEnd="@dimen/margin_padding_medium"
-        android:background="@drawable/bkg_bottom_sheet_option"
+        android:background="@drawable/bg_bottom_sheet_option"
         android:gravity="center"
         android:padding="@dimen/margin_padding_medium"
         android:textColor="?attr/themeBackgroundColor"
@@ -58,7 +58,7 @@
         android:layout_marginTop="@dimen/margin_padding_medium"
         android:layout_marginEnd="@dimen/margin_padding_medium"
         android:layout_marginBottom="@dimen/margin_padding_medium"
-        android:background="@drawable/bkg_bottom_sheet_option">
+        android:background="@drawable/bg_bottom_sheet_option">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/bt3"

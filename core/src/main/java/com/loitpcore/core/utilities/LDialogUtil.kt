@@ -15,7 +15,7 @@ import androidx.viewpager.widget.ViewPager
 import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
 import com.loitpcore.views.dialog.slideImages.LSlideAdapter
-import com.loitpcore.views.progressloadingview.window.WP10ProgressBar
+import com.loitpcore.views.progressLoadingView.window.WP10ProgressBar
 
 class LDialogUtil {
     companion object {

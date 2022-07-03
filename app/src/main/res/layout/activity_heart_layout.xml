@@ -11,7 +11,7 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/logo" />
 
-    <com.loitpcore.views.layout.heartlayout.LHeartLayout
+    <com.loitpcore.views.layout.heart.LHeartLayout
         android:id="@+id/heartLayout"
         android:layout_width="@dimen/w_100"
         android:layout_height="match_parent"

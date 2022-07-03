@@ -6,8 +6,8 @@ import android.widget.FrameLayout
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseActivity
-import com.loitpcore.views.layout.floatdraglayout.DisplayUtil
-import com.loitpcore.views.layout.floatdraglayout.FloatDragLayout
+import com.loitpcore.views.layout.floatDrag.DisplayUtil
+import com.loitpcore.views.layout.floatDrag.FloatDragLayout
 import kotlinx.android.synthetic.main.activity_0.*
 import vn.loitp.app.R
 

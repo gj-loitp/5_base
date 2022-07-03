@@ -20,7 +20,7 @@ import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.dialog.FindNumberWinActivity
 import com.loitpcore.game.findNumber.model.Level
-import com.loitpcore.views.textview.autofit.LAutoFitTextView
+import com.loitpcore.views.textView.autoFit.LAutoFitTextView
 import kotlinx.android.synthetic.main.l_frm_find_number_play.*
 
 @LogTag("FrmFindNumberPlay")

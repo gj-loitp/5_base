@@ -12,9 +12,9 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.layout.floatdraglayout.DisplayUtil
-import com.loitpcore.views.layout.floatdraglayout.FloatDragLayout
-import com.loitpcore.views.layout.floatdraglayout.FloatDragPopupWindow
+import com.loitpcore.views.layout.floatDrag.DisplayUtil
+import com.loitpcore.views.layout.floatDrag.FloatDragLayout
+import com.loitpcore.views.layout.floatDrag.FloatDragPopupWindow
 import kotlinx.android.synthetic.main.activity_float_drag_layout.*
 import vn.loitp.app.R
 

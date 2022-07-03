@@ -7,7 +7,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.layout.draggablepanel.DraggableListener
+import com.loitpcore.views.layout.draggablePanel.DraggableListener
 import kotlinx.android.synthetic.main.activity_draggable_panel.*
 import vn.loitp.app.R
 

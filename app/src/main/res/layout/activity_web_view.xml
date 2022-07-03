@@ -18,7 +18,7 @@
             android:orientation="horizontal"
             android:padding="@dimen/margin_padding_medium">
 
-            <com.loitpcore.views.switchtoggle.appcompatswitch.LColorSwitchCompat
+            <com.loitpcore.views.switchToggle.appcompatSwitch.LColorSwitchCompat
                 android:id="@+id/swEnableCopyContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
                 app:toggleOffColor="@color/vip3"
                 app:toggleOnColor="@color/vip4" />
 
-            <com.loitpcore.views.switchtoggle.appcompatswitch.LColorSwitchCompat
+            <com.loitpcore.views.switchToggle.appcompatSwitch.LColorSwitchCompat
                 android:id="@+id/swEnableDarkMode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

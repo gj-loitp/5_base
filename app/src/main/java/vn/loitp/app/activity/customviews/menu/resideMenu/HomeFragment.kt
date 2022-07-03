@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
-import com.loitpcore.views.menu.residemenu.ResideMenu
+import com.loitpcore.views.menu.resideMenu.ResideMenu
 import kotlinx.android.synthetic.main.frm_reside_menu_home.*
 import vn.loitp.app.R
 

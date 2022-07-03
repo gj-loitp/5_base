@@ -16,7 +16,7 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LValidateUtil
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
-import com.loitpcore.views.layout.swipeback.SwipeBackLayout
+import com.loitpcore.views.layout.swipeBack.SwipeBackLayout
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.l_activity_flickr_member_detail.*
 

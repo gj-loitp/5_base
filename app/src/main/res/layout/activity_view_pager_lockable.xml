@@ -17,7 +17,7 @@
         app:tabSelectedTextColor="@color/blue"
         app:tabTextColor="@color/darkCyan" />
 
-    <com.loitpcore.views.viewpager.lockable.LockableViewPager
+    <com.loitpcore.views.viewPager.lockable.LockableViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

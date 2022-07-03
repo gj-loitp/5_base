@@ -76,7 +76,7 @@
             android:theme="@style/SwipeTheme" />
 
         <service
-            android:name=".views.ldebugview.LDebugViewService"
+            android:name=".views.lDebugView.LDebugViewService"
             android:enabled="true"
             android:exported="false" />
 

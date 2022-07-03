@@ -5,7 +5,7 @@ import androidx.appcompat.app.AlertDialog
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.views.recyclerview.fitgridview.FitGridView
+import com.loitpcore.views.recyclerView.fitGridView.FitGridView
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_fit_grid_view.*
 import vn.loitp.app.R

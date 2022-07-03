@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <com.loitpcore.views.scratchview.LScratchImageView
+    <com.loitpcore.views.scratchView.LScratchImageView
         android:id="@+id/scratchImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

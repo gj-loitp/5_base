@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.views.scratchview.LScratchImageView
+import com.loitpcore.views.scratchView.LScratchImageView
 import kotlinx.android.synthetic.main.activity_scratch_view_image.*
 import vn.loitp.app.R
 

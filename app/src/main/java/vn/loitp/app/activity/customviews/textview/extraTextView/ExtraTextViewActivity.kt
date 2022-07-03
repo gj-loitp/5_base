@@ -5,7 +5,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.views.setSafeOnClickListener
-import com.loitpcore.views.textview.extra.LToggleLExtraTextView
+import com.loitpcore.views.textView.extra.LToggleLExtraTextView
 import kotlinx.android.synthetic.main.activity_text_view_extra.*
 import vn.loitp.app.R
 

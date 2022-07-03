@@ -12,7 +12,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LStoreUtil
-import com.loitpcore.views.viewpager.parrallax.ParallaxMode
+import com.loitpcore.views.viewPager.parrallax.ParallaxMode
 import kotlinx.android.synthetic.main.activity_view_pager_parallax.*
 import vn.loitp.app.R
 
