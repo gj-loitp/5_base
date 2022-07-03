@@ -12,25 +12,25 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_recycler_view_menu.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity
-import vn.loitp.app.activity.customviews.recyclerview.concatadapter.ConcatAdapterActivity
-import vn.loitp.app.activity.customviews.recyclerview.diffutil.DiffUtilActivity
-import vn.loitp.app.activity.customviews.recyclerview.dragdropswipe.DragDropSwipeGridRecyclerviewActivity
-import vn.loitp.app.activity.customviews.recyclerview.dragdropswipe.DragDropSwipeListHorizontalRecyclerviewActivity
-import vn.loitp.app.activity.customviews.recyclerview.dragdropswipe.DragDropSwipeListVerticalRecyclerviewActivity
-import vn.loitp.app.activity.customviews.recyclerview.fastscroll.FastScrollMenuActivity
-import vn.loitp.app.activity.customviews.recyclerview.fastscrollseekbar.RecyclerViewFastScrollSeekbarActivity
-import vn.loitp.app.activity.customviews.recyclerview.fitgridview.FitGridViewActivity
+import vn.loitp.app.activity.customviews.recyclerview.book.BookViewActivity
+import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.ConcatAdapterActivity
+import vn.loitp.app.activity.customviews.recyclerview.diffUtil.DiffUtilActivity
+import vn.loitp.app.activity.customviews.recyclerview.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity
+import vn.loitp.app.activity.customviews.recyclerview.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivity
+import vn.loitp.app.activity.customviews.recyclerview.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivity
+import vn.loitp.app.activity.customviews.recyclerview.fastScroll.FastScrollMenuActivity
+import vn.loitp.app.activity.customviews.recyclerview.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivity
+import vn.loitp.app.activity.customviews.recyclerview.fitGridView.FitGridViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.footer.RecyclerViewFooterActivity
 import vn.loitp.app.activity.customviews.recyclerview.footer2.RecyclerViewFooter2Activity
-import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerHorizontalActivity
-import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerVerticalActivity
-import vn.loitp.app.activity.customviews.recyclerview.netview.NetViewActivity
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.RecyclerViewActivity
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.RecyclerViewWithSingletonDataActivity
-import vn.loitp.app.activity.customviews.recyclerview.normalwithspansize.RecyclerViewWithSpanSizeActivity
-import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity
-import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.RecyclerTabLayoutMenuActivity
+import vn.loitp.app.activity.customviews.recyclerview.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity
+import vn.loitp.app.activity.customviews.recyclerview.galleryLayoutManager.GalleryLayoutManagerVerticalActivity
+import vn.loitp.app.activity.customviews.recyclerview.netView.NetViewActivity
+import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.RecyclerViewActivity
+import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerViewWithSingletonData.RecyclerViewWithSingletonDataActivity
+import vn.loitp.app.activity.customviews.recyclerview.normalWithSpanSize.RecyclerViewWithSpanSizeActivity
+import vn.loitp.app.activity.customviews.recyclerview.parallaxRecyclerView.ParallaxRecyclerViewActivity
+import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.RecyclerTabLayoutMenuActivity
 
 @LogTag("RecyclerViewMenuActivity")
 @IsFullScreen(false)

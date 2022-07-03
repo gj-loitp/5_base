@@ -12,8 +12,8 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_swipe_refresh_recycler_view_layout.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
+import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
+import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.MoviesAdapter
 import vn.loitp.app.common.Constants.Companion.URL_IMG
 
 @LogTag("SwipeRefreshLayoutRecyclerViewActivity")

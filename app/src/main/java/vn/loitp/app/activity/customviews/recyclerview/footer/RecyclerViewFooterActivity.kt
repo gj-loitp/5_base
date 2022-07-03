@@ -17,9 +17,9 @@ import com.loitpcore.views.setSafeOnClickListener
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view_footer.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
+import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
+import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.MoviesAdapter
+import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerViewWithSingletonData.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
 
 @LogTag("RecyclerViewFooterActivity")

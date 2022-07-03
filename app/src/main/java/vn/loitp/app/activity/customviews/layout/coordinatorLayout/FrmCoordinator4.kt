@@ -9,7 +9,7 @@ import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.frm_coordinator_4.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
+import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 import vn.loitp.app.common.Constants
 
 @LogTag("FrmCoordinator4")

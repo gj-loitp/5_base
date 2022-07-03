@@ -8,7 +8,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
+import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 
 class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val moviesList = ArrayList<Movie>()
@@ -55,7 +55,7 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == TYPE_MOVIE) {
             val itemView =
-                LayoutInflater.from(parent.context).inflate(R.layout.row_movie_list, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.view_movie_list, parent, false)
             MovieViewHolder(itemView)
         } else {
             val itemView = LayoutInflater.from(parent.context)

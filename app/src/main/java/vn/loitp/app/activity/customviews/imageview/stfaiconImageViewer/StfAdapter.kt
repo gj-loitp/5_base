@@ -11,7 +11,7 @@ import com.loitpcore.core.adapter.BaseAdapter
 import com.loitpcore.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_item_stf.view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
+import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 
 @LogTag("BookAdapter")
 class StfAdapter(

@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:paddingTop="@dimen/w_65"
         tools:itemCount="69"
-        tools:listitem="@layout/view_row_item_book" />
+        tools:listitem="@layout/view_item_book" />
 
     <com.loitpcore.views.actionbar.LActionBar
         android:id="@+id/lActionBar"
