@@ -17,16 +17,22 @@ class UserViewModel(private val user: User) : Observer, BaseObservable() {
     // / Notify the UI when change event emitting from Model is received.
     override fun update(p0: Observable?, p1: Any?) {
         if (p1 is String) {
-            if (p1 == "age") {
-                notifyPropertyChanged(BR.age)
-            } else if (p1 == "firstName" || p1 == "lastName") {
-                notifyPropertyChanged(BR.name)
-            } else if (p1 == "imageUrl") {
-                notifyPropertyChanged(BR.imageUrl)
-            } else if (p1 == "tagline") {
-                notifyPropertyChanged(BR.tagline)
-            } else if (p1 == "female") {
-                notifyPropertyChanged(BR.gender)
+            when (p1) {
+                "age" -> {
+                    notifyPropertyChanged(BR.age)
+                }
+                "firstName", "lastName" -> {
+                    notifyPropertyChanged(BR.name)
+                }
+                "imageUrl" -> {
+                    notifyPropertyChanged(BR.imageUrl)
+                }
+                "tagline" -> {
+                    notifyPropertyChanged(BR.tagline)
+                }
+                "female" -> {
+                    notifyPropertyChanged(BR.gender)
+                }
             }
         }
     }

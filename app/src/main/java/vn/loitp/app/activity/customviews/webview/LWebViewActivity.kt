@@ -18,8 +18,8 @@ import vn.loitp.app.R
 @IsFullScreen(false)
 class LWebViewActivity : BaseFontActivity() {
 
-    var isDetectButtonClickAsset = false;
-    var isDetectButtonClickWeb = false;
+    private var isDetectButtonClickAsset = false
+    private var isDetectButtonClickWeb = false
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_web_view
@@ -139,7 +139,7 @@ class LWebViewActivity : BaseFontActivity() {
                 @JavascriptInterface
                 @Throws(java.lang.Exception::class)
                 fun performClick(id: String) {
-                    showLongInformation("Login print order id: $id");
+                    showLongInformation("Login print order id: $id")
                 }
             }, "handlePrintOrder")
         }
@@ -150,7 +150,7 @@ class LWebViewActivity : BaseFontActivity() {
                 @Throws(java.lang.Exception::class)
                 fun performClick(id: String) {
                     logE("isDetectButtonClickWeb order id: $id")
-                    showLongInformation("isDetectButtonClickWeb order id: $id");
+                    showLongInformation("isDetectButtonClickWeb order id: $id")
                 }
             }, "handlePrintOrder")
         }

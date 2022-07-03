@@ -11,18 +11,18 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_database_menu.*
+import kotlinx.android.synthetic.main.activity_menu_database.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity
+import vn.loitp.app.activity.database.readSqliteAsset.ReadSqliteAssetActivity
 import vn.loitp.app.activity.database.realm.RealmActivity
 import vn.loitp.app.activity.database.room.RoomActivity
-import vn.loitp.app.activity.database.sharedprefs.SharedPrefsActivity
-import vn.loitp.app.activity.database.sharedprefsencryption.EncryptionSharedPrefsActivity
+import vn.loitp.app.activity.database.sharedPrefs.SharedPrefsActivity
+import vn.loitp.app.activity.database.sharedPrefsEncryption.EncryptionSharedPrefsActivity
 import vn.loitp.app.activity.database.sqlite.SqliteActivity
-import vn.loitp.app.activity.database.sqliteencryption.SqliteEncryptionActivity
-import vn.loitp.app.activity.database.sqlitemultitable.SqliteMultiTableActivity
-import vn.loitp.app.activity.database.sqlitemultitableadvance.SqliteMultiTableAdvanceActivity
-import vn.loitp.app.activity.demo.architecturecomponent.room.WordActivity
+import vn.loitp.app.activity.database.sqliteEncryption.SqliteEncryptionActivity
+import vn.loitp.app.activity.database.sqliteMultiTable.SqliteMultiTableActivity
+import vn.loitp.app.activity.database.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity
+import vn.loitp.app.activity.demo.architectureComponent.room.WordActivity
 
 @LogTag("MenuDatabaseActivity")
 @IsFullScreen(false)
@@ -30,7 +30,7 @@ import vn.loitp.app.activity.demo.architecturecomponent.room.WordActivity
 class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_database_menu
+        return R.layout.activity_menu_database
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

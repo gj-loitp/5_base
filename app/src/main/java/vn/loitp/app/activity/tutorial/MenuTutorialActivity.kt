@@ -8,7 +8,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_tutorial_menu.*
+import kotlinx.android.synthetic.main.activity_menu_tutorial.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.tutorial.retrofit2.Retrofit2Activity
 import vn.loitp.app.activity.tutorial.rxjava2.MenuRxJava2Activity
@@ -19,7 +19,7 @@ import vn.loitp.app.activity.tutorial.rxjava2.MenuRxJava2Activity
 class MenuTutorialActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_tutorial_menu
+        return R.layout.activity_menu_tutorial
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -42,11 +42,11 @@ import vn.loitp.app.activity.customviews.switchToggle.MenuSwitchToggleActivity
 import vn.loitp.app.activity.customviews.textview.MenuTextViewActivity
 import vn.loitp.app.activity.customviews.treeView.TreeViewActivity
 import vn.loitp.app.activity.customviews.videoView.MenuVideoViewActivity
-import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity
+import vn.loitp.app.activity.customviews.viewPager.MenuViewPagerActivity
 import vn.loitp.app.activity.customviews.webview.LWebViewActivity
-import vn.loitp.app.activity.customviews.wheelspiner.WheelSpinnerActivity
-import vn.loitp.app.activity.customviews.wwlmusic.WWLActivityMusic
-import vn.loitp.app.activity.customviews.wwlvideo.WWLVideoActivity
+import vn.loitp.app.activity.customviews.wheelSpiner.WheelSpinnerActivity
+import vn.loitp.app.activity.customviews.wwlMusic.WWLActivityMusic
+import vn.loitp.app.activity.customviews.wwlVideo.WWLVideoActivity
 
 @LogTag("MenuCustomViewsActivity")
 @IsFullScreen(false)
@@ -113,7 +113,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun onClick(v: View) {
         val intent: Intent? = when (v) {
-            btViewPager -> Intent(this, ViewPagerMenuActivity::class.java)
+            btViewPager -> Intent(this, MenuViewPagerActivity::class.java)
             btButton -> Intent(this, MenuButtonActivity::class.java)
             btProgressLoading -> Intent(this, MenuProgressLoadingViewsActivity::class.java)
             btSwitch -> Intent(this, MenuSwitchToggleActivity::class.java)

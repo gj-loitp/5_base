@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperView
+    <vn.loitp.app.activity.function.viewDragHelperSimple.ViewDragHelperView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -45,5 +45,5 @@
             android:text="Edage to ctrl me"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_medium" />
-    </vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperView>
+    </vn.loitp.app.activity.function.viewDragHelperSimple.ViewDragHelperView>
 </RelativeLayout>

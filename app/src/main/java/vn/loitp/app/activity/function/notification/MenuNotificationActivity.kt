@@ -22,7 +22,7 @@ import com.loitpcore.function.notification.actions.NotificationAction
 import com.loitpcore.function.notification.config.LightSettings
 import com.loitpcore.function.notification.config.NottiConfig
 import com.loitpcore.function.notification.config.VibrationSettings
-import kotlinx.android.synthetic.main.activity_notification_menu.*
+import kotlinx.android.synthetic.main.activity_menu_notification.*
 import vn.loitp.app.R
 
 @LogTag("MenuNotificationActivity")
@@ -38,7 +38,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
     private val channelId = "my_package_channel"
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_notification_menu
+        return R.layout.activity_menu_notification
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

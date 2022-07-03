@@ -8,7 +8,7 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_security_menu.*
+import kotlinx.android.synthetic.main.activity_menu_security.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.security.simple.SimpleEncryptDecryptStringActivity
 
@@ -18,7 +18,7 @@ import vn.loitp.app.activity.security.simple.SimpleEncryptDecryptStringActivity
 class MenuSecurityActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_security_menu
+        return R.layout.activity_menu_security
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

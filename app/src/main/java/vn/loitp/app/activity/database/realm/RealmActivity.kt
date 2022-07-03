@@ -14,7 +14,7 @@ import com.loitpcore.views.setSafeOnClickListener
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_realm.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
+import vn.loitp.app.activity.demo.ebookWithRealm.EbookWithRealmActivity
 
 @LogTag("RealmActivity")
 @IsFullScreen(false)

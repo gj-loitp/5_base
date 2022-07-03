@@ -8,13 +8,13 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_picker_menu.*
+import kotlinx.android.synthetic.main.activity_menu_picker.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.picker.attachmentmanager.AttachmentManagerActivity
-import vn.loitp.app.activity.picker.numberpicker.NumberPickerActivity
-import vn.loitp.app.activity.picker.scopedmediapicker.ScopedMediaPickerActivity
-import vn.loitp.app.activity.picker.timepicker.TimePickerActivity
-import vn.loitp.app.activity.picker.unicornfilepicker.UnicornFilePickerActivity
+import vn.loitp.app.activity.picker.attachmentManager.AttachmentManagerActivity
+import vn.loitp.app.activity.picker.numberPicker.NumberPickerActivity
+import vn.loitp.app.activity.picker.scopedMediaPicker.ScopedMediaPickerActivity
+import vn.loitp.app.activity.picker.timePicker.TimePickerActivity
+import vn.loitp.app.activity.picker.unicornFilePicker.UnicornFilePickerActivity
 
 @LogTag("MenuPickerActivity")
 @IsFullScreen(false)
@@ -22,7 +22,7 @@ import vn.loitp.app.activity.picker.unicornfilepicker.UnicornFilePickerActivity
 class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_picker_menu
+        return R.layout.activity_menu_picker
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

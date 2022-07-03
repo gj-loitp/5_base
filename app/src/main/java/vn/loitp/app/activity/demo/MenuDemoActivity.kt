@@ -14,22 +14,22 @@ import com.loitpcore.core.helper.gallery.member.GalleryMemberActivity
 import com.loitpcore.core.helper.ttt.ui.a.TTTSplashActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.game.findnumber.ui.SplashActivity
-import kotlinx.android.synthetic.main.activity_demo_menu.*
+import kotlinx.android.synthetic.main.activity_menu_demo.*
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
-import vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity
-import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity
-import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity
-import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
-import vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity
-import vn.loitp.app.activity.demo.gallerycorealbumfrm.GalleryCoreAlbumFrmActivity
-import vn.loitp.app.activity.demo.maptracker.MapTrackerActivity
+import vn.loitp.app.activity.demo.architectureComponent.MenuAndroidArchitectureComponentActivity
+import vn.loitp.app.activity.demo.epubReader.EpubReaderMenuActivity
+import vn.loitp.app.activity.demo.floatingVideo.FloatingWidgetActivity
+import vn.loitp.app.activity.demo.fragmentFlow.FragmentFlowActivity
+import vn.loitp.app.activity.demo.fragmentNavigation.FragmentNavigationActivity
+import vn.loitp.app.activity.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity
+import vn.loitp.app.activity.demo.mapTracker.MapTrackerActivity
 import vn.loitp.app.activity.demo.nfc.NFCActivity
 import vn.loitp.app.activity.demo.pdf.PdfDemoActivity
 import vn.loitp.app.activity.demo.rss.RSSActivity
 import vn.loitp.app.activity.demo.sound.SoundActivity
-import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity
-import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1
+import vn.loitp.app.activity.demo.textToSpeech.TextToSpeechActivity
+import vn.loitp.app.activity.demo.twoInstanceActivity.Activity1
 
 @LogTag("MenuDemoActivity")
 @IsFullScreen(false)
@@ -37,7 +37,7 @@ import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1
 class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_menu
+        return R.layout.activity_menu_demo
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,7 +91,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btTextToSpeech -> intent = Intent(this, TextToSpeechActivity::class.java)
             btFloatingWidget -> intent = Intent(
                 this,
-                vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity::class.java
+                vn.loitp.app.activity.demo.floatingWidget.FloatingWidgetActivity::class.java
             )
             btFloatingVideo -> intent = Intent(this, FloatingWidgetActivity::class.java)
             btGalleryCore -> {
