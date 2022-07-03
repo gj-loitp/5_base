@@ -12,7 +12,7 @@ class ParallaxAdapter internal constructor(private val context: Context) : BaseA
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(context).inflate(R.layout.row_parallax, viewGroup, false)
+            LayoutInflater.from(context).inflate(R.layout.view_parallax, viewGroup, false)
         )
     }
 

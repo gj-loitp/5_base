@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.core.utilities.LImageUtil
-import kotlinx.android.synthetic.main.row_item_gallery.view.*
+import kotlinx.android.synthetic.main.view_item_gallery.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 
@@ -40,7 +40,7 @@ class GalleryAdapter internal constructor(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.row_item_gallery, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.view_item_gallery, parent, false)
         return MovieViewHolder(itemView)
     }
 

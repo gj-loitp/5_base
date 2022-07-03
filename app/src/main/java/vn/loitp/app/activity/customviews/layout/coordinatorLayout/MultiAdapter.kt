@@ -59,7 +59,7 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             MovieViewHolder(itemView)
         } else {
             val itemView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.row_movie_bottom, parent, false)
+                .inflate(R.layout.view_movie_bottom, parent, false)
             BottomView(itemView)
         }
     }

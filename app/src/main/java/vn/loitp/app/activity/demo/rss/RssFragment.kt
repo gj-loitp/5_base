@@ -10,7 +10,7 @@ import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.rss.RssConverterFactory
 import com.loitpcore.rss.RssFeed
 import com.loitpcore.rss.RssItem
-import kotlinx.android.synthetic.main.fragment_rss.*
+import kotlinx.android.synthetic.main.frm_rss.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,7 +44,7 @@ class RssFragment :
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.fragment_rss
+        return R.layout.frm_rss
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

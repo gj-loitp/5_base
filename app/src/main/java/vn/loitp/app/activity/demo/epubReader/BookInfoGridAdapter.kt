@@ -38,7 +38,7 @@ class BookInfoGridAdapter(
         if (view == null) {
             val inflater =
                 parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            view = inflater.inflate(R.layout.row_item_book_epub_reader, parent, false)
+            view = inflater.inflate(R.layout.view_item_book_epub_reader, parent, false)
             viewHolder = ViewHolder()
             viewHolder.tvBookTitle = view.findViewById(R.id.tvBookTitle)
             viewHolder.ivCover = view.findViewById(R.id.ivCover)
