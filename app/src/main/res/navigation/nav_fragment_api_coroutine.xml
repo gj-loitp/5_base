@@ -23,7 +23,6 @@
         android:id="@+id/frmUser"
         android:name="vn.loitp.app.activity.api.coroutine.activity.FrmUser"
         android:label="FrmUser"
-        tools:layout="@layout/frm_coroutine_user">
-    </fragment>
+        tools:layout="@layout/frm_coroutine_user" />
 
 </navigation>

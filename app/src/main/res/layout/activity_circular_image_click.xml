@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:src="@drawable/button_state" />
+                android:src="@drawable/bt_state" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/lActionBar"
-        spl:splitterBackground="@drawable/bkg_et"
+        spl:splitterBackground="@drawable/bg_et"
         spl:splitterDraggingBackground="#88000000"
         spl:splitterOrientation="vertical"
         spl:splitterPanelSizeMin="48dip"

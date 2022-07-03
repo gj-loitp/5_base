@@ -53,7 +53,7 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
             this.setHinTextColor(Color.BLUE)
             this.editText.setTextColor(Color.YELLOW)
             this.setColorProgressBar(Color.RED)
-            this.setBackgroundResource(R.drawable.bkg_et)
+            this.setBackgroundResource(R.drawable.bg_et)
             this.setImeiAction(
                 imeOptions = EditorInfo.IME_ACTION_SEARCH,
                 runnable = {

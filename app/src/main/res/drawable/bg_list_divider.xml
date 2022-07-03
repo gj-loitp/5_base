@@ -3,4 +3,3 @@
     <size android:height="@dimen/w_1" />
     <solid android:color="?attr/themeTextColor" />
 </shape>
-
