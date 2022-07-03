@@ -68,7 +68,7 @@ class SinglePlayActivity : BaseFontActivity() {
     private fun setupData() {
         val level = intent.getSerializableExtra(KEY_LEVEL)
         if (level == null || level !is Level) {
-            showShortInformation(getString(R.string.err_unknow_en))
+            showShortInformation(getString(R.string.err_unknown_en))
             return
         }
         currentLevel = level

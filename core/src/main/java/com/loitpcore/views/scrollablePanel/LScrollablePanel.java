@@ -169,7 +169,7 @@ public class LScrollablePanel extends FrameLayout {
         @Override
         public PanelLineAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             final PanelLineAdapter.ViewHolder viewHolder = new PanelLineAdapter.ViewHolder(LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.listitem_content_row, parent, false));
+                    .inflate(R.layout.view_item_content, parent, false));
             initRecyclerView(viewHolder.recyclerView);
             return viewHolder;
         }

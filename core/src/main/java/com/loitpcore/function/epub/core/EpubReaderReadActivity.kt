@@ -70,7 +70,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
         bookInfo = BookInfoData.instance.bookInfo
         if (bookInfo == null) {
-            showShortError(msg = getString(R.string.err_unknow))
+            showShortError(msg = getString(R.string.err_unknown))
             onBackPressed()
         }
 

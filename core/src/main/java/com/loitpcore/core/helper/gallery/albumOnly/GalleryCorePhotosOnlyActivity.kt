@@ -73,7 +73,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
         photoSetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
         if (photoSetID.isNullOrEmpty()) {
-            handleException(Exception(getString(R.string.err_unknow)))
+            handleException(Exception(getString(R.string.err_unknown)))
             return
         }
         photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)

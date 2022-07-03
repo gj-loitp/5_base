@@ -67,7 +67,7 @@ class GalleryCorePhotosOnlyFrm(
         PhotosDataCore.instance.clearData()
         photosetID = bundle.getString(Constants.SK_PHOTOSET_ID)
         if (photosetID.isNullOrEmpty()) {
-            handleException(Exception(getString(R.string.err_unknow)))
+            handleException(Exception(getString(R.string.err_unknown)))
             return
         }
 //        logD("photosetID $photosetID")

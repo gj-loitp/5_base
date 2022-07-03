@@ -73,7 +73,7 @@ class GalleryMemberActivity : BaseFontActivity() {
 
         photoSetID = Constants.FLICKR_ID_MEMBERS
         if (photoSetID?.isEmpty() == true) {
-            handleException(Exception(getString(R.string.err_unknow)))
+            handleException(Exception(getString(R.string.err_unknown)))
             return
         }
         photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)

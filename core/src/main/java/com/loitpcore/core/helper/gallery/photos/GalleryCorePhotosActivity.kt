@@ -52,11 +52,11 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
             photosSize?.toInt() ?: 0
         } catch (e: Exception) {
             e.printStackTrace()
-            showDialogError(getString(R.string.err_unknow))
+            showDialogError(getString(R.string.err_unknown))
             return
         }
         if (totalPhotos == 0) {
-            showDialogError(getString(R.string.err_unknow))
+            showDialogError(getString(R.string.err_unknown))
             return
         }
         totalPage = if (totalPhotos % Constants.PER_PAGE_SIZE == 0) {
