@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.utilities.LLog
 import com.loitpcore.service.RequestStatus
-import com.loitpcore.service.livedata.ActionData
+import com.loitpcore.service.liveData.ActionData
 import com.loitpcore.service.model.ApiResponse
 import com.loitpcore.service.model.ErrorResponse
 import kotlinx.coroutines.CoroutineScope

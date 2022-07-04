@@ -4,7 +4,6 @@ public abstract class Task implements Runnable {
     protected Thread currentThread;
     private volatile boolean isFinished = false;
 
-
     public void waitUntilFinished() {
         while (!isFinished) {
             try {

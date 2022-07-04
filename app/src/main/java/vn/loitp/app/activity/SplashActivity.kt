@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
@@ -21,8 +22,10 @@ import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 import java.io.IOException
 
+@SuppressLint("CustomSplashScreen")
 @LogTag("SplashActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(false)
 class SplashActivity : BaseFontActivity() {
 
     companion object {
@@ -194,8 +197,8 @@ class SplashActivity : BaseFontActivity() {
 
             @Throws(IOException::class)
             override fun onResponse(call: Call, response: Response) {
-                if (response.isSuccessful && response.body != null) {
-                    val versionServer = Integer.parseInt(response.body!!.string())
+                if (response.isSuccessful) {
+                    val versionServer = Integer.parseInt(response.body.string())
                     logD("onResponse $versionServer")
                     if (versionServer == 1) {
                         isCheckReadyDone = true

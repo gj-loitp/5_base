@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.IsSwipeActivity
@@ -17,19 +19,16 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.LValidateUtil
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
-import com.loitpcore.restapi.flickr.FlickrConst
-import com.loitpcore.restapi.flickr.model.photosetgetlist.Photoset
-import com.loitpcore.restapi.flickr.service.FlickrService
-import com.loitpcore.restapi.restclient.RestClient
-import com.loitpcore.views.layout.swipeback.SwipeBackLayout
+import com.loitpcore.restApi.flickr.FlickrConst
+import com.loitpcore.restApi.flickr.model.photoSetGetList.Photoset
+import com.loitpcore.restApi.flickr.service.FlickrService
+import com.loitpcore.restApi.restClient.RestClient
+import com.loitpcore.views.layout.swipeBack.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import jp.wasabeef.recyclerview.adapters.* // ktlint-disable no-wildcard-imports
+import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_album.*
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("GalleryCoreAlbumActivity")
 @IsFullScreen(false)
@@ -79,7 +78,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         }
 
         albumAdapter = AlbumAdapter(
-            photosetList = listPhotoSet,
+            listPhotoSet = listPhotoSet,
             callback = object : AlbumAdapter.Callback {
                 override fun onClick(pos: Int) {
                     val intent =
@@ -156,8 +155,8 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
             )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ wrapperPhotoSetGetlist ->
-                    wrapperPhotoSetGetlist?.photosets?.photoset?.let {
+                .subscribe({ wrapperPhotoSetGetList ->
+                    wrapperPhotoSetGetList?.photosets?.photoset?.let {
                         listPhotoSet.addAll(it)
                     }
                     listRemoveAlbum.let {

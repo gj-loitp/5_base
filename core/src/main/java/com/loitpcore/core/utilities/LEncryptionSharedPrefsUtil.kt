@@ -8,7 +8,8 @@ import com.loitpcore.utils.util.DeviceUtils
 import java.lang.reflect.Type
 
 class LEncryptionSharedPrefsUtil private constructor() {
-    private val mSharedPreferences: SharedPreferences
+    private val mSharedPreferences: SharedPreferences =
+        LAppResource.application.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
     companion object {
         private const val logTag = "EncryptionSharedPrefs"
@@ -24,104 +25,6 @@ class LEncryptionSharedPrefsUtil private constructor() {
                 return mInstance!!
             }
     }
-
-    init {
-        mSharedPreferences =
-            LAppResource.application.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-    }
-
-//    fun getString(key: String): String {
-//        return get(key = key, anonymousClass = String::class.java)
-//    }
-//
-//    fun getBoolean(key: String): Boolean {
-//        return get(key = key, anonymousClass = Boolean::class.java)
-//    }
-//
-//    fun getFloat(key: String): Float {
-//        return get(key = key, anonymousClass = Float::class.java)
-//    }
-//
-//    fun getInt(key: String): Int {
-//        return get(key = key, anonymousClass = Int::class.java)
-//    }
-//
-//    fun getLong(key: String): Long {
-//        return get(key = key, anonymousClass = Long::class.java)
-//    }
-
-//    @Suppress("UNCHECKED_CAST")
-//    private operator fun <T> get(key: String, anonymousClass: Class<T>): T {
-//        when (anonymousClass) {
-//            String::class.java -> {
-//                val value = mSharedPreferences.getString(key, "")
-//                if (value?.isEmpty() == true) {
-//                    return value as T
-//                }
-//                val originalValue = LEncryptionUtil.decrypt(cipherText = value, password = pw)
-//                return originalValue as T
-//            }
-//            Boolean::class.java -> {
-//                val value = mSharedPreferences.getString(key, "")
-//                val defaultValue = false
-//                if (value?.isEmpty() == true) {
-//                    return defaultValue as T
-//                }
-//                val originalValue = LEncryptionUtil.decrypt(cipherText = value, password = pw)
-//                if (originalValue.isNullOrEmpty()) {
-//                    return defaultValue as T
-//                }
-//                return originalValue.toBoolean() as T
-//            }
-//            Float::class.java -> {
-//                val value = mSharedPreferences.getString(key, "")
-//                val defaultValue = 0f
-//                if (value?.isEmpty() == true) {
-//                    return defaultValue as T
-//                }
-//                val originalValue = LEncryptionUtil.decrypt(cipherText = value, password = pw)
-//                if (originalValue.isNullOrEmpty()) {
-//                    return defaultValue as T
-//                }
-//                return originalValue.toFloat() as T
-//            }
-//            Int::class.java -> {
-//                val value = mSharedPreferences.getString(key, "")
-//                val defaultValue = 0
-//                if (value?.isEmpty() == true) {
-//                    return defaultValue as T
-//                }
-//                val originalValue = LEncryptionUtil.decrypt(cipherText = value, password = pw)
-//                if (originalValue.isNullOrEmpty()) {
-//                    return defaultValue as T
-//                }
-//                return originalValue.toInt() as T
-//            }
-//            Long::class.java -> {
-//                val value = mSharedPreferences.getString(key, "")
-//                val defaultValue = 0L
-//                if (value?.isEmpty() == true) {
-//                    return defaultValue as T
-//                }
-//                val originalValue = LEncryptionUtil.decrypt(cipherText = value, password = pw)
-//                if (originalValue.isNullOrEmpty()) {
-//                    return defaultValue as T
-//                }
-//                return originalValue.toLong() as T
-//            }
-//            else -> {
-//                val value = mSharedPreferences.getString(key, "")
-//                if (value?.isEmpty() == true) {
-//                    return null as T
-//                }
-//                val originalValue = LEncryptionUtil.decrypt(cipherText = value, password = pw)
-//                if (originalValue.isNullOrEmpty()) {
-//                    return null as T
-//                }
-//                return BaseApplication.gson.fromJson(originalValue, anonymousClass)
-//            }
-//        }
-//    }
 
     fun getString(
         key: String,

@@ -1,5 +1,6 @@
 package com.loitpcore.picker.crop;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.hardware.Camera;
 import android.view.SurfaceHolder;
@@ -7,10 +8,7 @@ import android.view.SurfaceView;
 
 import java.io.IOException;
 
-/**
- * Created by 김민정 on 2016-10-12.
- */
-
+@SuppressLint("ViewConstructor")
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
     private static final String TAG = CameraPreview.class.getSimpleName();
 

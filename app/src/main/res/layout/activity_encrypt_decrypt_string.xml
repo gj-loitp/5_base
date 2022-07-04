@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
-                android:background="@drawable/bkg_et"
+                android:background="@drawable/bg_et"
                 android:orientation="vertical"
                 android:padding="@dimen/margin_padding_medium">
 
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
-                android:background="@drawable/bkg_et"
+                android:background="@drawable/bg_et"
                 android:orientation="vertical"
                 android:padding="@dimen/margin_padding_medium">
 

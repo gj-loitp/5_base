@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="?attr/themeBackgroundColor">
+
+    <LinearLayout
+        android:id="@+id/layoutControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btGenLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Line"
+            android:textColor="@color/red" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/txt_medium"
+            tools:ignore="SpUsage" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layoutControl">
+
+        <LinearLayout
+            android:id="@+id/vg1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/lightCyan"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="Viewgroup 1"
+                android:textColor="@color/red" />
+        </LinearLayout>
+
+        <com.loitpcore.views.scrollView.LHorizontalScrollView
+            android:id="@+id/vg2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/vg1"
+            android:background="@color/lightPink"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/ll2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/lightCyan"
+                android:orientation="horizontal" />
+        </com.loitpcore.views.scrollView.LHorizontalScrollView>
+
+        <com.loitpcore.views.scrollView.LScrollView
+            android:id="@+id/vg3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/vg1"
+            android:background="@color/lightSeaGreen"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/ll3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </com.loitpcore.views.scrollView.LScrollView>
+
+        <com.loitpcore.views.scrollView.TwoDScrollView
+            android:id="@+id/vg4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/vg2"
+            android:layout_toEndOf="@+id/vg3"
+            android:background="@color/lightGrey">
+
+            <RelativeLayout
+                android:id="@+id/rl4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.loitpcore.views.scrollView.TwoDScrollView>
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/pb"
+        android:layout_width="@dimen/w_50"
+        android:layout_height="@dimen/w_50"
+        android:layout_centerInParent="true"
+        android:progressTint="?attr/themeTextColor" />
+</RelativeLayout>

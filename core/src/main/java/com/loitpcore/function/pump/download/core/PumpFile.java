@@ -263,8 +263,6 @@ public class PumpFile {
             }
             bufferedSink.flush();
             return true;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

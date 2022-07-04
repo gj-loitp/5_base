@@ -16,11 +16,11 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LValidateUtil
-import com.loitpcore.restapi.flickr.FlickrConst
-import com.loitpcore.restapi.flickr.model.photosetgetphotos.Photo
-import com.loitpcore.restapi.flickr.service.FlickrService
-import com.loitpcore.restapi.restclient.RestClient
-import com.loitpcore.views.layout.swipeback.SwipeBackLayout
+import com.loitpcore.restApi.flickr.FlickrConst
+import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
+import com.loitpcore.restApi.flickr.service.FlickrService
+import com.loitpcore.restApi.restClient.RestClient
+import com.loitpcore.views.layout.swipeBack.SwipeBackLayout
 import com.loitpcore.views.setSafeOnClickListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -34,7 +34,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
     private var totalPage = 1
     private var isLoading = false
     private var photosAdapter: PhotosAdapter? = null
-    private var photosetID: String? = null
+    private var photoSetID: String? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_flickr_gallery_core_photos
@@ -45,18 +45,18 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
 
         PhotosDataCore.instance.clearData()
 
-        photosetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
+        photoSetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
         val photosSize = intent.getStringExtra(Constants.SK_PHOTOSET_SIZE)
 
         val totalPhotos = try {
             photosSize?.toInt() ?: 0
         } catch (e: Exception) {
             e.printStackTrace()
-            showDialogError(getString(R.string.err_unknow))
+            showDialogError(getString(R.string.err_unknown))
             return
         }
         if (totalPhotos == 0) {
-            showDialogError(getString(R.string.err_unknow))
+            showDialogError(getString(R.string.err_unknown))
             return
         }
         totalPage = if (totalPhotos % Constants.PER_PAGE_SIZE == 0) {
@@ -68,7 +68,6 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
 
         val column = 2
         recyclerView.layoutManager = GridLayoutManager(this, column)
-//        recyclerView.setHasFixedSize(true)
         photosAdapter = PhotosAdapter(
             callback = object : PhotosAdapter.Callback {
                 override fun onClick(photo: Photo, pos: Int) {
@@ -99,14 +98,14 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         }
         // LUIUtil.setPullLikeIOSVertical(recyclerView)
 
-        photosetsGetPhotos(photosetID = photosetID)
+        photosetsGetPhotos(photosetID = photoSetID)
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
                         currentPage--
-                        photosetsGetPhotos(photosetID = photosetID)
+                        photosetsGetPhotos(photosetID = photoSetID)
                     }
                 }
             }
@@ -148,7 +147,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                 currentPage = totalPage - position
                 PhotosDataCore.instance.clearData()
                 updateAllViews()
-                photosetsGetPhotos(photosetID)
+                photosetsGetPhotos(photoSetID)
             }
         )
     }

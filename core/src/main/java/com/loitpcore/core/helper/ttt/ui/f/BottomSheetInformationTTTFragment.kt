@@ -4,14 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.loitpcore.R
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseBottomSheetFragment
 import com.loitpcore.core.common.Constants
-import com.loitpcore.core.helper.adhelper.AdHelperActivity
+import com.loitpcore.core.helper.adHelper.AdHelperActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LSocialUtil
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_information_fragment.*
 
 @LogTag("BottomSheetInformationTTTFragment")

@@ -10,10 +10,8 @@ import com.loitpcore.BuildConfig
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
-import java.util.* // ktlint-disable no-wildcard-imports
 
 object LToast {
-    private val logTag = LToast::class.java.simpleName
 
     private val toastList = ArrayList<Toast>()
 

@@ -4,5 +4,5 @@
         android:angle="0"
         android:endColor="?attr/themeBackgroundColor50"
         android:startColor="?attr/themeBackgroundColor50" />
-<!--    <corners android:radius="@dimen/round_medium" />-->
+    <!--    <corners android:radius="@dimen/round_medium" />-->
 </shape>

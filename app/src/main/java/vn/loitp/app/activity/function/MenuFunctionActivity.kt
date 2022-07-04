@@ -4,37 +4,39 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_function_menu.*
+import kotlinx.android.synthetic.main.activity_menu_function.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity
-import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity
-import vn.loitp.app.activity.function.fullscreen.FullScreenActivity
+import vn.loitp.app.activity.function.activityAndService.ActivityServiceComunicateActivity
+import vn.loitp.app.activity.function.dragDropSample.DragDropSampleActivity
+import vn.loitp.app.activity.function.fullScreen.FullScreenActivity
 import vn.loitp.app.activity.function.glide.GlideActivity
 import vn.loitp.app.activity.function.hashmap.HashMapActivity
 import vn.loitp.app.activity.function.keyboard.KeyboardActivity
-import vn.loitp.app.activity.function.keyboardheightprovider.KeyboardHeightProviderActivity
+import vn.loitp.app.activity.function.keyboardHeightProvider.KeyboardHeightProviderActivity
 import vn.loitp.app.activity.function.location.LocationActivity
 import vn.loitp.app.activity.function.notification.MenuNotificationActivity
 import vn.loitp.app.activity.function.pump.PumpActivity
 import vn.loitp.app.activity.function.recolor.RecolorActivity
 import vn.loitp.app.activity.function.sensor.SensorActivity
-import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity
+import vn.loitp.app.activity.function.simpleFingerGestures.SimpleFingerGesturesActivity
 import vn.loitp.app.activity.function.theme.ThemeActivity
-import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity
-import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity
-import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity1
+import vn.loitp.app.activity.function.viewDragHelper.ViewDragHelperActivity
+import vn.loitp.app.activity.function.viewDragHelperSimple.ViewDragHelperSimpleActivity
+import vn.loitp.app.activity.function.viewDragHelperSimple.ViewDragHelperSimpleActivity1
 
 @LogTag("MenuFunctionActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_function_menu
+        return R.layout.activity_menu_function
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

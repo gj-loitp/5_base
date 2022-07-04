@@ -51,12 +51,12 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.loitpcore.views.actionbar.LActionBar
+    <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.layout.draggablepanelfree.DraggablePanelFreeLayout
+    <com.loitpcore.views.layout.draggablePanelFree.DraggablePanelFreeLayout
         android:id="@+id/dpfl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -87,5 +87,5 @@
                 android:textColor="@color/red" />
         </ScrollView>
 
-    </com.loitpcore.views.layout.draggablepanelfree.DraggablePanelFreeLayout>
+    </com.loitpcore.views.layout.draggablePanelFree.DraggablePanelFreeLayout>
 </RelativeLayout>

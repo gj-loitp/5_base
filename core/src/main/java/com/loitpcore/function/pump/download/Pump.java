@@ -115,11 +115,6 @@ public class Pump {
         }
     }
 
-    /**
-     * subscribe {@link DownloadListener} to listen download progress.
-     *
-     * @param downloadListener
-     */
     public static void subscribe(DownloadListener downloadListener) {
         PumpFactory.getService(IMessageCenter.class).register(downloadListener);
     }
@@ -208,22 +203,10 @@ public class Pump {
         return PumpFactory.getService(IDownloadManager.class).getDownloadedList();
     }
 
-    /**
-     * Get download list filter by tag.
-     *
-     * @param tag tag
-     * @return
-     */
     public static List<DownloadInfo> getDownloadListByTag(String tag) {
         return PumpFactory.getService(IDownloadManager.class).getDownloadListByTag(tag);
     }
 
-    /**
-     * Get downloadInfo by unique download id.
-     *
-     * @param id unique download id,default is download url.
-     * @return
-     */
     public static DownloadInfo getDownloadInfoById(String id) {
         return PumpFactory.getService(IDownloadManager.class).getDownloadInfoById(id);
     }

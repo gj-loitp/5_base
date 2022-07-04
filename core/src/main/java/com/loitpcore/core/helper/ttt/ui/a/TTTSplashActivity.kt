@@ -1,10 +1,13 @@
 package com.loitpcore.core.helper.ttt.ui.a
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -14,11 +17,10 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LSharedPrefsUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.LValidateUtil
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.l_activity_ttt_comic_splash.*
 
+@SuppressLint("CustomSplashScreen")
 @LogTag("TTTSplashActivity")
 @IsFullScreen(false)
 class TTTSplashActivity : BaseFontActivity() {

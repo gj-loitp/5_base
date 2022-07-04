@@ -12,11 +12,10 @@ import android.view.*
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.viewpager.widget.ViewPager
-import com.loitpcore.R
 import com.daimajia.androidanimations.library.Techniques
-import com.loitpcore.views.dialog.slideimages.LSlideAdapter
-import com.loitpcore.views.progressloadingview.window.WP10ProgressBar
-import java.util.*
+import com.loitpcore.R
+import com.loitpcore.views.dialog.slideImages.LSlideAdapter
+import com.loitpcore.views.progressLoadingView.window.WP10ProgressBar
 
 class LDialogUtil {
     companion object {

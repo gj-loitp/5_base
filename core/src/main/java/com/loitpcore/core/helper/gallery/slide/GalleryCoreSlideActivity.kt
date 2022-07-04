@@ -72,36 +72,8 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
         }
     }
 
-//    fun toggleDisplayRlControl() {
-//        if (isRlControlShowing) {
-//            hideRlControl()
-//        } else {
-//            showRlControl()
-//        }
-//    }
-//
-//    private var isRlControlShowing = true
-//    private fun showRlControl() {
-//        rlControl.visibility = View.VISIBLE
-//        isRlControlShowing = true
-//        LAnimationUtil.play(view = rlControl, techniques = Techniques.SlideInUp)
-//    }
-//
-//    private fun hideRlControl() {
-//        LAnimationUtil.play(view = rlControl, techniques = Techniques.SlideOutDown, callbackAnimation = object : CallbackAnimation {
-//            override fun onCancel() {}
-//            override fun onEnd() {
-//                rlControl.visibility = View.INVISIBLE
-//                isRlControlShowing = false
-//            }
-//
-//            override fun onRepeat() {}
-//            override fun onStart() {}
-//        })
-//    }
-
     private fun save(url: String) {
-        Pump.newRequestToPicture(url, "/loitp/picture")
+        Pump.newRequestToPicture(url, "/roygroup/picture")
             .listener(object : DownloadListener() {
 
                 override fun onProgress(progress: Int) {

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.ads
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -11,11 +12,12 @@ import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_menu_ads.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.ads.admobbanner.AdMobBannerActivity
-import vn.loitp.app.activity.ads.admobinterstitial.AdMobInterstitialActivity
+import vn.loitp.app.activity.ads.banner.AdMobBannerActivity
+import vn.loitp.app.activity.ads.interstitial.AdMobInterstitialActivity
 
 @LogTag("MenuAdsActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class MenuAdsActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

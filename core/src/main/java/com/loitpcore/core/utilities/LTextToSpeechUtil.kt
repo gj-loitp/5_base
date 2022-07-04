@@ -3,11 +3,11 @@ package com.loitpcore.core.utilities
 import android.speech.tts.TextToSpeech
 import java.util.*
 
-/**
- * Created by Loitp on 5/6/2017.
- */
-
 class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
+    companion object {
+        val instance = LTextToSpeechUtil()
+    }
+
     private val logTag = javaClass.simpleName
     private var tts: TextToSpeech? = null
 
@@ -19,7 +19,7 @@ class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
         if (status == TextToSpeech.SUCCESS) {
             val result = tts?.setLanguage(Locale.US)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-//                Log.d(logTag, "This Language is not supported")
+                LLog.d(logTag, "This Language is not supported")
             } else {
                 // speakOut("Example");
             }
@@ -41,9 +41,5 @@ class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
             it.stop()
             it.shutdown()
         }
-    }
-
-    companion object {
-        val instance = LTextToSpeechUtil()
     }
 }

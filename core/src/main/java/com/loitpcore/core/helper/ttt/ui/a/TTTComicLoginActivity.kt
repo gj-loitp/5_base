@@ -3,6 +3,8 @@ package com.loitpcore.core.helper.ttt.ui.a
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -12,8 +14,6 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LSharedPrefsUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.LValidateUtil
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.l_activity_ttt_comic_login.*
 
 @LogTag("TTTComicLoginActivity")

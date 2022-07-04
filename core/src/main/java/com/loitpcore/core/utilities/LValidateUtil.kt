@@ -8,7 +8,6 @@ import java.util.regex.Pattern
 
 class LValidateUtil {
     companion object {
-        private val logTag = "LValidateUtil"
 
         const val MSG_0 = "pw_must_length_more_8_character"
         const val MSG_1 = "pw_must_contain_number"
@@ -66,7 +65,8 @@ class LValidateUtil {
             "loitp93.rss.vnexpress", // admob ban
             "loitp93.basemaster",
             "loitp.khotruyenvuive",
-            "loitp.khotruyenvuive",
+            "com.roygroup.base",
+            "com.roygroup.vnexpress",
         )
 
         fun isValidPackageName(): Boolean {

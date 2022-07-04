@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
-    tools:context="vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintLayoutDemoActivity">
+    tools:context="vn.loitp.app.activity.customviews.layout.constraintLayout.demo.ConstraintLayoutDemoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ll"
@@ -137,7 +137,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.loitpcore.views.actionbar.LActionBar
+    <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

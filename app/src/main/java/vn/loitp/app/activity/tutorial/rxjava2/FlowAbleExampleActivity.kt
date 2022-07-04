@@ -33,7 +33,7 @@ class FlowAbleExampleActivity : BaseFontActivity() {
      */
     private fun doSomeWork() {
         val observable = Flowable.just(1, 2, 3, 4, 1)
-        observable.reduce(50, { t1: Int, t2: Int -> t1 + t2 }).subscribe(observer)
+        observable.reduce(50) { t1: Int, t2: Int -> t1 + t2 }.subscribe(observer)
     }
 
     private val observer: SingleObserver<Int>

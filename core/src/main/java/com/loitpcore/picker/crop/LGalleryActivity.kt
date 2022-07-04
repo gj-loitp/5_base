@@ -20,7 +20,6 @@ import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.utils.util.ConvertUtils
 import kotlinx.android.synthetic.main.l_activity_l_gallery.*
 import java.io.File
-import java.util.*
 
 @LogTag("LGalleryActivity")
 @IsFullScreen(false)

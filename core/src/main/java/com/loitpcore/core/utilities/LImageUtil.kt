@@ -7,18 +7,18 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
 import androidx.exifinterface.media.ExifInterface
-import com.loitpcore.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.Transformation
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
+import com.loitpcore.R
 import com.loitpcore.core.common.Constants
-import com.ortiz.touchview.TouchImageView
 import com.loitpcore.utils.util.FileUtils
+import com.ortiz.touchview.TouchImageView
 import java.io.File
-import java.util.* // ktlint-disable no-wildcard-imports
+import java.util.*
 import kotlin.math.min
 
 // https://github.com/wasabeef/glide-transformations

@@ -18,10 +18,10 @@ import okio.Okio;
 public class OkHttpDownloadConnection implements DownloadConnection {
     private Response response;
     private Call call;
-    private OkHttpClient okHttpClient;
+    private final OkHttpClient okHttpClient;
     private BufferedSink bufferedSink;
     private BufferedSource bufferedSource;
-    private Request.Builder builder;
+    private final Request.Builder builder;
 
     public OkHttpDownloadConnection(OkHttpClient okHttpClient, Request.Builder builder) {
         this.okHttpClient = okHttpClient;
@@ -90,7 +90,7 @@ public class OkHttpDownloadConnection implements DownloadConnection {
     }
 
     public static class Factory implements DownloadConnection.Factory {
-        private OkHttpClient okHttpClient;
+        private final OkHttpClient okHttpClient;
 
         public Factory(OkHttpClient okHttpClient) {
             this.okHttpClient = okHttpClient;

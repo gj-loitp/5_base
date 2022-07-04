@@ -8,7 +8,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import com.loitpcore.R
 import com.loitpcore.core.common.Constants
-import com.loitpcore.core.helper.fbcomment.FbCommentActivity
+import com.loitpcore.core.helper.fbComment.FbCommentActivity
 import com.loitpcore.utils.util.AppUtils
 
 class LSocialUtil {
@@ -101,9 +101,6 @@ class LSocialUtil {
             }
         }
 
-        /*
-        get url fb fanpage
-         */
         private fun getFacebookPageURL(): String {
             val facebookUrl = "https://www.facebook.com/hoidammedocsach"
             val facebookPageId = "hoidammedocsach"

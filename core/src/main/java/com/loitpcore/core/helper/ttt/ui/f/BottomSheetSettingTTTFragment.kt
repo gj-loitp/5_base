@@ -4,12 +4,12 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.loitpcore.R
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseBottomSheetFragment
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_setting_fragment.*
 
 @LogTag("BottomSheetSettingTTTFragment")

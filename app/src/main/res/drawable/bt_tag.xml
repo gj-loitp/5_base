@@ -6,7 +6,7 @@
             <solid android:color="@color/lightGrey" />
             <stroke android:width="0.5dp" android:color="@color/lightGrey" />
             <corners android:radius="@dimen/round_larger" />
-<!--            <padding android:bottom="@dimen/padding_5" android:left="@dimen/padding_5" android:right="@dimen/padding_5" android:top="@dimen/padding_5" />-->
+            <!--            <padding android:bottom="@dimen/padding_5" android:left="@dimen/padding_5" android:right="@dimen/padding_5" android:top="@dimen/padding_5" />-->
         </shape>
     </item>
     <item>
@@ -14,7 +14,7 @@
             <gradient android:angle="270" android:endColor="@color/white" android:startColor="@color/white" />
             <stroke android:width="0.5dp" android:color="@color/lightGrey" />
             <corners android:radius="@dimen/round_larger" />
-<!--            <padding android:bottom="@dimen/padding_5" android:left="@dimen/padding_10" android:right="@dimen/padding_10" android:top="@dimen/padding_5" />-->
+            <!--            <padding android:bottom="@dimen/padding_5" android:left="@dimen/padding_10" android:right="@dimen/padding_10" android:top="@dimen/padding_5" />-->
         </shape>
     </item>
 

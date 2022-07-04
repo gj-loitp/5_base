@@ -37,7 +37,7 @@ class AnswersAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
-        val postView = inflater.inflate(R.layout.view_row_test_retrofit, parent, false)
+        val postView = inflater.inflate(R.layout.view_item_test_retrofit, parent, false)
         return ViewHolder(postView, mItemListener)
     }
 

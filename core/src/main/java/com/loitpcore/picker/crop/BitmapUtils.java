@@ -28,6 +28,8 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 
+import timber.log.Timber;
+
 /**
  * Utility class that deals with operations with an ImageView.
  */
@@ -315,7 +317,7 @@ final class BitmapUtils {
                 }
             }
         } catch (Exception e) {
-            Log.w("AIC", "Failed to resize cropped image, return bitmap before resize", e);
+            Timber.tag("AIC").w(e, "Failed to resize cropped image, return bitmap before resize");
         }
         return bitmap;
     }

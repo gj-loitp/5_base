@@ -6,6 +6,8 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -16,11 +18,9 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.LValidateUtil
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
-import com.permissionx.guolindev.PermissionX
-import com.loitpcore.restapi.restclient.RestClient
+import com.loitpcore.restApi.restClient.RestClient
 import com.loitpcore.utils.util.AppUtils
+import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
 
 @SuppressLint("CustomSplashScreen")

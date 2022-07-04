@@ -11,6 +11,7 @@ import android.util.Base64
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebSettings
+import android.webkit.WebView
 import android.widget.FrameLayout
 import android.widget.ScrollView
 import android.widget.TextView
@@ -18,16 +19,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.daimajia.androidanimations.library.Techniques
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
-import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
-import com.loitpcore.core.utilities.* // ktlint-disable no-wildcard-imports
+import com.loitpcore.core.utilities.*
 import com.loitpcore.core.utilities.LReaderUtil.Companion.defaultCover
-import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.function.epub.BookSection
 import com.loitpcore.function.epub.Reader
 import com.loitpcore.function.epub.core.PageFragment.OnFragmentReadyListener
@@ -36,8 +38,6 @@ import com.loitpcore.function.epub.exception.ReadingException
 import com.loitpcore.function.epub.model.BookInfo
 import com.loitpcore.function.epub.model.BookInfoData
 import com.loitpcore.function.epub.viewmodels.EpubViewModel
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
 import com.loitpcore.utils.util.ConvertUtils
 import com.loitpcore.views.LWebViewAdblock
 import com.loitpcore.views.setSafeOnClickListener
@@ -70,7 +70,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
         bookInfo = BookInfoData.instance.bookInfo
         if (bookInfo == null) {
-            showShortError(msg = getString(R.string.err_unknow))
+            showShortError(msg = getString(R.string.err_unknown))
             onBackPressed()
         }
 
@@ -138,8 +138,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     private fun setupViewModels() {
         epubViewModel = getViewModel(EpubViewModel::class.java)
         epubViewModel?.let { vm ->
-            vm.loadDataActionLiveData.observe(this, { actionData ->
-                logD("loadDataActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+            vm.loadDataActionLiveData.observe(this) { actionData ->
+//                logD("loadDataActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
 
@@ -156,7 +156,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                     }
                     llGuide.visibility = View.VISIBLE
                 }
-            })
+            }
         }
     }
 
@@ -381,6 +381,9 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
                     override fun shouldOverrideUrlLoading(url: String) {
 //                    logD("shouldOverrideUrlLoading $url")
+                    }
+
+                    override fun onPageFinished(view: WebView?, url: String?) {
                     }
                 }
             }

@@ -11,7 +11,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
-import com.loitpcore.core.helper.adhelper.AdHelperActivity
+import com.loitpcore.core.helper.adHelper.AdHelperActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
@@ -29,7 +29,7 @@ import vn.loitp.app.activity.more.MoreActivity
 import vn.loitp.app.activity.network.NetworkActivity
 import vn.loitp.app.activity.pattern.MenuPatternActivity
 import vn.loitp.app.activity.picker.MenuPickerActivity
-import vn.loitp.app.activity.security.SecurityMenuActivity
+import vn.loitp.app.activity.security.MenuSecurityActivity
 import vn.loitp.app.activity.service.MenuServiceActivity
 import vn.loitp.app.activity.tutorial.MenuTutorialActivity
 import vn.loitp.app.activity.utils.UtilsActivity
@@ -156,7 +156,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                 btTutorial -> Intent(this, MenuTutorialActivity::class.java)
                 btPicker -> Intent(this, MenuPickerActivity::class.java)
                 btNetwork -> Intent(this, NetworkActivity::class.java)
-                btSecurity -> Intent(this, SecurityMenuActivity::class.java)
+                btSecurity -> Intent(this, MenuSecurityActivity::class.java)
                 btService -> Intent(this, MenuServiceActivity::class.java)
                 btUtils -> Intent(this, UtilsActivity::class.java)
                 else -> null

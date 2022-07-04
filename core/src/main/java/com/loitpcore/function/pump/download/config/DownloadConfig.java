@@ -49,7 +49,7 @@ public class DownloadConfig {
     }
 
     public static class Builder {
-        private DownloadConfig downloadConfig;
+        private final DownloadConfig downloadConfig;
 
         private Builder() {
             this.downloadConfig = new DownloadConfig();

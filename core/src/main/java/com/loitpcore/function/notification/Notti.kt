@@ -8,7 +8,6 @@ import androidx.core.app.NotificationCompat
 import com.loitpcore.function.notification.config.NottiConfig
 import com.loitpcore.function.notification.notifications.CustomNotification
 import com.loitpcore.utils.util.AppUtils
-import java.util.*
 
 class Notti(
     private val context: Context,

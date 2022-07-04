@@ -1,18 +1,5 @@
 package com.loitpcore.function.epub;
 
-/**
- * Provides Base64 encoding and decoding as defined by RFC 2045.
- * <p>
- * <p>This class implements section <cite>6.8. Base64 Content-Transfer-Encoding</cite>
- * from RFC 2045 <cite>Multipurpose Internet Mail Extensions (MIME) Part One:
- * Format of Internet Message Bodies</cite> by Freed and Borenstein.</p>
- *
- * @author Apache Software Foundation
- * @version $Id: Base64.java,v 1.20 2004/05/24 00:21:24 ggregory Exp $
- * @see <a href="http://www.ietf.org/rfc/rfc2045.txt">RFC 2045</a>
- * @since 1.0-dev
- */
-
 public class Base64 {
 
     /**
@@ -205,9 +192,6 @@ public class Base64 {
                     ((b3 & SIGN) == 0) ? (byte) (b3 >> 6) : (byte) ((b3) >> 6 ^ 0xfc);
 
             encodedData[encodedIndex] = lookUpBase64Alphabet[val1];
-            //log.debug( "val2 = " + val2 );
-            //log.debug( "k4   = " + (k<<4) );
-            //log.debug(  "vak  = " + (val2 | (k<<4)) );
             encodedData[encodedIndex + 1] =
                     lookUpBase64Alphabet[val2 | (k << 4)];
             encodedData[encodedIndex + 2] =
@@ -241,8 +225,6 @@ public class Base64 {
         if (fewerThan24bits == EIGHTBIT) {
             b1 = binaryData[dataIndex];
             k = (byte) (b1 & 0x03);
-            //log.debug("b1=" + b1);
-            //log.debug("b1<<2 = " + (b1>>2) );
             byte val1 =
                     ((b1 & SIGN) == 0) ? (byte) (b1 >> 2) : (byte) ((b1) >> 2 ^ 0xc0);
             encodedData[encodedIndex] = lookUpBase64Alphabet[val1];

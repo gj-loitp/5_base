@@ -33,10 +33,10 @@ public class DownloadDetailsInfo {
     private String speed;
     private ErrorCode errorCode;
     private File tempDir;
-    private List<File> downloadPartFiles = new ArrayList<>();
+    private final List<File> downloadPartFiles = new ArrayList<>();
     private PumpFile downloadFile;
     private DownloadTask downloadTask;
-    private SpeedMonitor speedMonitor;
+    private final SpeedMonitor speedMonitor;
 
     private DownloadProvider.CacheBean cacheBean;
     private int progress;
@@ -245,17 +245,14 @@ public class DownloadDetailsInfo {
     private void loadDownloadFiles() {
         if (getFilePath() == null) return;
         getTempDir();
-        tempDir.listFiles(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                if (name.startsWith(DOWNLOAD_PART)) {
-                    File file = new File(dir, name);
-                    downloadPartFiles.add(file);
-                    completedSize += file.length();
-                    return true;
-                }
-                return false;
+        tempDir.listFiles((dir, name) -> {
+            if (name.startsWith(DOWNLOAD_PART)) {
+                File file = new File(dir, name);
+                downloadPartFiles.add(file);
+                completedSize += file.length();
+                return true;
             }
+            return false;
         });
     }
 

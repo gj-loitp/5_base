@@ -1,5 +1,6 @@
 package com.loitpcore.picker.crop;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -26,6 +27,7 @@ final class BitmapLoadingWorkerTask extends AsyncTask<Void, Void, BitmapLoadingW
      */
     private final Uri mUri;
 
+    @SuppressLint("StaticFieldLeak")
     private final Context mContext;
 
     /**

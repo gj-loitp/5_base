@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -15,6 +16,7 @@ import vn.loitp.app.R
 
 @LogTag("UtilsActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(false)
 class UtilsActivity : BaseFontActivity() {
 
     private val listClass = ArrayList<String>()

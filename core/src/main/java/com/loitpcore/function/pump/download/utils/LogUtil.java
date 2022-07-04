@@ -1,32 +1,32 @@
 package com.loitpcore.function.pump.download.utils;
 
-import android.util.Log;
+import timber.log.Timber;
 
 public class LogUtil {
-    private static String TAG = "Pump";
+    private static final String TAG = "Pump";
     public static boolean mEnableLog = true;
 
     public static void e(String content) {
         if (mEnableLog) {
-            Log.e(TAG, "Pump " + content);
+            Timber.tag(TAG).e("Pump %s", content);
         }
     }
 
     public static void i(String content) {
         if (mEnableLog) {
-            Log.i(TAG, "Pump " + content);
+            Timber.tag(TAG).i("Pump %s", content);
         }
     }
 
     public static void d(String content) {
         if (mEnableLog) {
-            Log.d(TAG, "Pump " + content);
+            Timber.tag(TAG).d("Pump %s", content);
         }
     }
 
     public static void w(String content) {
         if (mEnableLog) {
-            Log.w(TAG, "Pump " + content);
+            Timber.tag(TAG).w("Pump %s", content);
         }
     }
 }

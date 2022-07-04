@@ -3,18 +3,20 @@ package com.loitpcore.core.helper.gallery.member
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
-import com.loitpcore.R
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsSwipeActivity
-import com.loitpcore.annotation.LogTag
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.loitpcore.R
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsSwipeActivity
+import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.*
-import com.loitpcore.restapi.flickr.model.photosetgetphotos.Photo
-import com.loitpcore.views.layout.swipeback.SwipeBackLayout
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.core.utilities.LValidateUtil
+import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
+import com.loitpcore.views.layout.swipeBack.SwipeBackLayout
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.l_activity_flickr_member_detail.*
 

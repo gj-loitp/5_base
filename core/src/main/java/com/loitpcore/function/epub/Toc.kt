@@ -8,7 +8,6 @@ import org.w3c.dom.DOMException
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import java.io.Serializable
-import java.util.*
 
 // toc.ncx
 @Keep

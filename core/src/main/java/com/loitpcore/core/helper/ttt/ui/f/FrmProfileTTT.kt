@@ -63,13 +63,5 @@ class FrmProfileTTT : BaseFragment() {
                 bottomSheetInformationTTTFragment.tag
             )
         }
-
-        btDonation.setSafeOnClickListener {
-            val bottomSheetDonationTTTFragment = BottomSheetDonationTTTFragment()
-            bottomSheetDonationTTTFragment.show(
-                childFragmentManager,
-                bottomSheetDonationTTTFragment.tag
-            )
-        }
     }
 }

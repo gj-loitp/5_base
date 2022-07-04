@@ -13,7 +13,6 @@ import java.util.* // ktlint-disable no-wildcard-imports
 class LDeviceUtil {
 
     companion object {
-        private val logTag = LDeviceUtil::class.java.simpleName
 
         val isNavigationBarAvailable: Boolean
             get() {
@@ -57,7 +56,7 @@ class LDeviceUtil {
             return r.nextInt(max)
         }
 
-        fun getRandomString(maxLeng: Int): String? {
+        fun getRandomString(maxLeng: Int): String {
             val generator = Random()
             val randomStringBuilder = StringBuilder()
             val randomLength = generator.nextInt(maxLeng)
@@ -71,23 +70,22 @@ class LDeviceUtil {
 
         fun isCanOverlay(): Boolean {
             return !(
-                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(
-                    LAppResource.application
-                )
-                )
+                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(
+                        LAppResource.application
+                    ))
         }
 
         fun isEmulator(): Boolean {
             return (
-                Build.FINGERPRINT.startsWith("generic") ||
-                    Build.FINGERPRINT.startsWith("unknown") ||
-                    Build.MODEL.contains("google_sdk") ||
-                    Build.MODEL.contains("Emulator") ||
-                    Build.MODEL.contains("Android SDK built for x86") ||
-                    Build.MANUFACTURER.contains("Genymotion") ||
-                    Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic") ||
-                    "google_sdk" == Build.PRODUCT
-                )
+                    Build.FINGERPRINT.startsWith("generic") ||
+                            Build.FINGERPRINT.startsWith("unknown") ||
+                            Build.MODEL.contains("google_sdk") ||
+                            Build.MODEL.contains("Emulator") ||
+                            Build.MODEL.contains("Android SDK built for x86") ||
+                            Build.MANUFACTURER.contains("Genymotion") ||
+                            Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic") ||
+                            "google_sdk" == Build.PRODUCT
+                    )
         }
     }
 }

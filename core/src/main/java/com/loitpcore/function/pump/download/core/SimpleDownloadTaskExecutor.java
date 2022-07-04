@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class SimpleDownloadTaskExecutor extends ThreadPoolExecutor implements DownloadTaskExecutor {
     private static final int DEFAULT_THREAD_COUNT = 3;
-    private ConcurrentHashMap<String, Long> countTimeMap = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Long> countTimeMap = new ConcurrentHashMap<>();
 
     public SimpleDownloadTaskExecutor() {
         super(DEFAULT_THREAD_COUNT, DEFAULT_THREAD_COUNT, 60, TimeUnit.SECONDS,
@@ -96,7 +96,7 @@ public class SimpleDownloadTaskExecutor extends ThreadPoolExecutor implements Do
     }
 
     private class DownloadDisPatcherThreadFactory implements ThreadFactory {
-        private AtomicInteger count = new AtomicInteger(0);
+        private final AtomicInteger count = new AtomicInteger(0);
 
         @Override
         public Thread newThread(Runnable r) {

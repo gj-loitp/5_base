@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -11,11 +12,12 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_menu.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.menu.drawerbehavior.DrawerBehaviorMainActivity
-import vn.loitp.app.activity.customviews.menu.residemenu.ResideMenuActivity
+import vn.loitp.app.activity.customviews.menu.drawerBehavior.DrawerBehaviorMainActivity
+import vn.loitp.app.activity.customviews.menu.resideMenu.ResideMenuActivity
 
 @LogTag("MenuMenuActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class MenuMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {

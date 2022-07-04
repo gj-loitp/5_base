@@ -3,6 +3,7 @@ package vn.loitp.app.activity
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
+import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -12,6 +13,7 @@ import vn.loitp.app.R
 
 @LogTag("EmptyActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class EmptyActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.database.room
 
 import com.loitpcore.core.base.BaseViewModel
-import com.loitpcore.service.livedata.ActionData
-import com.loitpcore.service.livedata.ActionLiveData
+import com.loitpcore.service.liveData.ActionData
+import com.loitpcore.service.liveData.ActionLiveData
 import kotlinx.coroutines.launch
 import vn.loitp.app.activity.database.room.db.FNBDatabase
 import vn.loitp.app.activity.database.room.model.Area

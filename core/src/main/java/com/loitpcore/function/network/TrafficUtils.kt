@@ -47,7 +47,7 @@ class TrafficUtils {
             downloadSpeedOutput = if (units != " KB" && mDownloadSpeedWithDecimals < 100) {
                 String.format(Locale.US, "%.1f", mDownloadSpeedWithDecimals)
             } else {
-                Integer.toString(mDownloadSpeedWithDecimals.toInt())
+                mDownloadSpeedWithDecimals.toInt().toString()
             }
 
             return (downloadSpeedOutput + units)
@@ -73,7 +73,7 @@ class TrafficUtils {
             val wifiMgr =
                 context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager?
 
-            return if (wifiMgr?.isWifiEnabled ==true) { // Wi-Fi adapter is ON
+            return if (wifiMgr?.isWifiEnabled == true) { // Wi-Fi adapter is ON
                 val wifiInfo = wifiMgr.connectionInfo
                 wifiInfo.networkId != -1
             } else {

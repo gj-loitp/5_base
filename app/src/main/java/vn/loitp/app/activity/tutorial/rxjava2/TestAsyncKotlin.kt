@@ -13,12 +13,12 @@ class TestAsyncKotlin(private val count: Int) {
     private val sourceProgression = PublishSubject.create<Int>()
     fun apply(
         onSuccess: ((isResult: Boolean) -> Unit),
-        onError: ((throwbale: Throwable) -> Unit),
+        onError: ((throwable: Throwable) -> Unit),
         onDispose: (() -> Unit),
         onFinished: (() -> Unit)
     ): Disposable {
         log("prev")
-        return Single.create<Boolean> {
+        return Single.create {
             doInBkg(it)
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

@@ -6,7 +6,7 @@
     </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        <item name="android:colorEdgeEffect" >@color/colorEdgeEffect
         </item>
     </style>
 
@@ -174,7 +174,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
-        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        <item name="android:colorEdgeEffect" >@color/colorEdgeEffect
         </item>
     </style>
 
@@ -191,7 +191,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
-        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        <item name="android:colorEdgeEffect" >@color/colorEdgeEffect
         </item>
     </style>
 
@@ -211,7 +211,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
-        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        <item name="android:colorEdgeEffect" >@color/colorEdgeEffect
         </item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>

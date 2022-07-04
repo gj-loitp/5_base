@@ -4,7 +4,7 @@
     <string name="facebook_app_id">256962811543023</string>
     <string name="google_maps_key">AIzaSyBIPIyBbvDxUHPyEi9Qy-phu9VuOzy7iUI</string>
 
-<!--    TODO add admob-->
+    <!--    TODO add admob-->
     <string name="str_b">-</string>
     <string name="str_f">-</string>
     <string name="str_reward">-</string>
@@ -243,13 +243,13 @@ Likewise may someone love you next.
     <string name="navigation_view_with_text">Navigation View With Text</string>
     <string name="get_photoset_list">Get Photoset List</string>
     <string name="get_photo_list_in_photoset">Get Photo List In Photoset</string>
-    <string name="fn1">FN1</string>
+    <string name="fn1" tools:ignore="Typos">FN1</string>
     <string name="go_to_fn2">Go to FN2</string>
     <string name="fn2">FN2</string>
     <string name="go_to_fn3">Go to FN3</string>
     <string name="go_to_fn4">Go to FN4</string>
     <string name="fn3">FN3</string>
-    <string name="back_to_fn1">Back to FN1</string>
+    <string name="back_to_fn1" tools:ignore="Typos">Back to FN1</string>
     <string name="animation_will_appear_after_1s">Animation will appear after 0.5s</string>
     <string name="animation_none">Animation: None</string>
     <string name="select_animation">Select Animation</string>
@@ -453,7 +453,7 @@ Likewise may someone love you next.
     <string name="facebook">Facebook</string>
     <string name="google">Google</string>
     <string name="auth_firebase">Auth Firebase</string>
-    <string name="welcome">Welcome...</string>
+    <string name="welcome">Welcome…</string>
     <string name="fetch_remote_welcome">fetch remote welcome</string>
     <string name="config_firebase">Config Firebase</string>
     <string name="invite">Invite</string>
@@ -463,7 +463,7 @@ Likewise may someone love you next.
     <string name="seekbar">Seekbar</string>
     <string name="vertical_seekbar">Vertical seekbar</string>
     <string name="seekbar_menu">Seekbar Menu</string>
-    <string name="set_progress_30_for_seekbar1">Set progress 30 for seekbar1</string>
+    <string name="set_progress_30_for_seekbar1" tools:ignore="Typos">Set progress 30 for seekbar1</string>
     <string name="appcompat_switch">Appcompat Switch</string>
     <string name="toggle">Toggle</string>
     <string name="toggle_button_group">Toggle Button Group</string>
@@ -537,4 +537,39 @@ Likewise may someone love you next.
     <string name="another_activity">Another activity</string>
     <string name="custom">Custom</string>
     <string name="wheel_spinner">Wheel spinner</string>
+    <string name="_import">Import</string>
+    <string name="gallery">Gallery</string>
+    <string name="slideshow">Slideshow</string>
+    <string name="tools">Tools</string>
+    <string name="communicate">Communicate</string>
+    <string name="share">Share</string>
+    <string name="send">Send</string>
+    <string name="right_drawer">Right Drawer</string>
+    <string name="about">About</string>
+    <string name="item_0">Item 0</string>
+    <string name="item_1">Item 1</string>
+    <string name="item_2">Item 2</string>
+    <string name="item_3">Item 3</string>
+    <string name="item_4">Item 4</string>
+    <string name="item_5">Item 5</string>
+    <string name="item_6">Item 6</string>
+    <string name="item_7">Item 7</string>
+    <string name="item_8">Item 8</string>
+    <string name="item_9">Item 9</string>
+    <string name="item_10">Item 10</string>
+    <string name="item_11">Item 11</string>
+    <string name="item_12">Item 12</string>
+    <string name="item_13">Item 13</string>
+    <string name="item_14">Item 14</string>
+    <string name="item_15">Item 15</string>
+    <string name="item_16">Item 16</string>
+    <string name="item_17">Item 17</string>
+    <string name="item_18">Item 18</string>
+    <string name="item_19">Item 19</string>
+    <string name="linearlayoutmanager_vertical">LinearLayoutManager vertical</string>
+    <string name="linearlayoutmanager_horizontal">LinearLayoutManager horizontal</string>
+    <string name="gridlayoutmanager_2">GridLayoutManager 2</string>
+    <string name="gridlayoutmanager_3">GridLayoutManager 3</string>
+    <string name="staggeredgridlayoutmanager_2_vertical">StaggeredGridLayoutManager 2 Vertical</string>
+    <string name="staggeredgridlayoutmanager_4_horizontal">StaggeredGridLayoutManager 4 Horizontal</string>
 </resources>

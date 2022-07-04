@@ -21,9 +21,9 @@ class LSMSUtil {
             if (defaultSmsPackageName != null)
             // Can be null in case that there is no default, then the user would be able to choose
             // any app that support this intent.
-                {
-                    sendIntent.setPackage(defaultSmsPackageName)
-                }
+            {
+                sendIntent.setPackage(defaultSmsPackageName)
+            }
             activity.startActivity(sendIntent)
             LActivityUtil.tranIn(activity)
         }

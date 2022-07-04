@@ -130,11 +130,13 @@ class SqliteActivity : BaseFontActivity(), View.OnClickListener {
     private fun updateContact(contact: Contact, button: Button) {
         contact.name = "Updated " + contact.name
         val result = databaseHandler?.updateContact(contact)
+        logD("updateContact $result")
         button.text = contact.id.toString() + " " + contact.name
     }
 
     private fun deleteContact(contact: Contact, button: Button) {
         val result = databaseHandler?.deleteContact(contact)
+        logD("deleteContact $result")
         ll.removeView(button)
     }
 

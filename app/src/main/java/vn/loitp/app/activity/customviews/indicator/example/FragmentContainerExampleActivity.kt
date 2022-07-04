@@ -17,7 +17,6 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTit
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView
 import vn.loitp.app.R
-import java.util.*
 
 @LogTag("FragmentContainerExampleActivity")
 @IsFullScreen(false)

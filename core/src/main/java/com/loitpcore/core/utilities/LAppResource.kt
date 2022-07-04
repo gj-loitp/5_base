@@ -10,9 +10,6 @@ import android.view.ViewGroup
 import androidx.annotation.*
 import androidx.core.content.ContextCompat
 
-/**
- * Provide app resources (application, color, drawable, ...)
- */
 object LAppResource {
 
     lateinit var application: Application

@@ -10,13 +10,13 @@ import android.net.Uri
 import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
-import com.loitpcore.core.base.BaseApplication
 import com.google.gson.reflect.TypeToken
+import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.model.App
 import com.loitpcore.model.GG
-import okhttp3.* // ktlint-disable no-wildcard-imports
-import java.io.* // ktlint-disable no-wildcard-imports
-import java.util.* // ktlint-disable no-wildcard-imports
+import okhttp3.*
+import java.io.*
+import java.util.*
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 
@@ -90,23 +90,6 @@ class LStoreUtil {
                 "Those who can't write programs, write help files.",
                 "The more I C, the less I see.  "
             )
-
-//        fun getFileNameComic(
-//            url: String
-//        ): String {
-//            var u = url
-//            u = u.replace(oldValue = "/", newValue = "")
-//            u = u.replace(oldValue = ".", newValue = "")
-//            u = u.replace(oldValue = ":", newValue = "")
-//            u = u.replace(oldValue = "-", newValue = "")
-//            return u + EXTENSION
-//        }
-
-//        fun createFileImage(
-//            i: Int
-//        ): String {
-//            return "p$i$EXTENSION"
-//        }
 
         // dung de bao hieu cho gallery load lai photo vi co anh moi
         fun sendBroadcastMediaScan(
@@ -235,7 +218,10 @@ class LStoreUtil {
             try {
                 val reader = BufferedReader(FileReader(txtFile))
                 var line: String? = null
-                while ({ line = reader.readLine(); line }() != null) {
+                while (run {
+                        line = reader.readLine()
+                        line
+                    } != null) {
                     text.append(line + '\n')
                 }
                 reader.close()
@@ -295,10 +281,6 @@ class LStoreUtil {
             val r = Random()
             return r.nextInt(length)
         }
-
-//        fun getPathOfFileNameMainComicsListHTMLCode(): String {
-//            return getFolderPath() + FOLDER_TRUYENTRANHTUAN + "/" + FILE_NAME_MAIN_COMICS_LIST_HTML_CODE
-//        }
 
         fun getFileFromAssets(
             fileName: String
@@ -482,8 +464,8 @@ class LStoreUtil {
                 val zipStream = ZipInputStream(inputStream)
                 var zipEntry: ZipEntry?
                 while (zipStream.nextEntry.also {
-                    zipEntry = it
-                } != null
+                        zipEntry = it
+                    } != null
                 ) {
                     log("Unzipping " + zipEntry?.name + " at " + destination)
                     zipEntry?.let { ze ->

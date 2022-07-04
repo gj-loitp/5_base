@@ -47,7 +47,7 @@ internal class XMLParser : DefaultHandler() {
         attributes: Attributes?
     ) {
         elementOn = true
-        when (localName.toLowerCase(Locale.getDefault())) {
+        when (localName.lowercase(Locale.getDefault())) {
             ITEM -> rssItem = RssItem()
             TITLE -> if (!qName.contains(MEDIA)) {
                 parsingTitle = true
@@ -79,24 +79,24 @@ internal class XMLParser : DefaultHandler() {
     ) {
         elementOn = false
         if (rssItem != null) {
-            when (localName.toLowerCase(Locale.getDefault())) {
+            when (localName.lowercase(Locale.getDefault())) {
                 ITEM -> {
                     rssItem = RssItem()
-                    rssItem?.let {
-                        it.title = title.trim { it <= ' ' }
-                        it.link = link
-                        it.image = image
-                        it.publishDate = date
-                        it.description = description
+                    rssItem?.let { item ->
+                        item.title = title.trim { it <= ' ' }
+                        item.link = link
+                        item.image = image
+                        item.publishDate = date
+                        item.description = description
                         if (image == null && description != null && getImageSourceFromDescription(
                                 description
                             ) != null
                         ) {
                             description?.let { d ->
-                                it.image = getImageSourceFromDescription(description = d)
+                                item.image = getImageSourceFromDescription(description = d)
                             }
                         }
-                        items.add(it)
+                        items.add(item)
                     }
                     link = EMPTY_STRING
                     image = null

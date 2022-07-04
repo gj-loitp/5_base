@@ -3,7 +3,6 @@ package com.loitpcore.function.epub
 import com.loitpcore.function.epub.exception.ReadingException
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
-import java.util.* // ktlint-disable no-wildcard-imports
 
 // Helper classes and methods used in Findings
 abstract class BaseFindings {

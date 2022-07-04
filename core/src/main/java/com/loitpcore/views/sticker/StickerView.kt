@@ -216,8 +216,8 @@ abstract class StickerView : FrameLayout {
                     }
                     val statusBarHeight = result.toDouble()
                     centerY = this@StickerView.y +
-                        (this@StickerView.parent as View).y +
-                        statusBarHeight + this@StickerView.height.toFloat() / 2
+                            (this@StickerView.parent as View).y +
+                            statusBarHeight + this@StickerView.height.toFloat() / 2
                 }
                 MotionEvent.ACTION_MOVE -> {
 //                    LLog.d(logTag, "iv_scale action move")
@@ -228,10 +228,10 @@ abstract class StickerView : FrameLayout {
                             y = (event.rawY - scaleOrgy).toDouble(),
                             x = (event.rawX - scaleOrgx).toDouble()
                         ) -
-                            atan2(
-                                y = scaleOrgy - centerY,
-                                x = scaleOrgx - centerX
-                            )
+                                atan2(
+                                    y = scaleOrgy - centerY,
+                                    x = scaleOrgx - centerX
+                                )
                     ) * 180 / Math.PI
 //                    LLog.d(logTag, "angle_diff: $angleDiff")
                     val length1 =

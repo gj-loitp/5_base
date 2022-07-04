@@ -19,7 +19,7 @@ public final class DownloadInfo {
     private final long createTime;
     private final int progress;
 
-    private DownloadDetailsInfo downloadDetailsInfo;
+    private final DownloadDetailsInfo downloadDetailsInfo;
 
     DownloadInfo(String url, PumpFile downloadFile, String tag, String id, long createTime,
                  String speed, long completedSize, long contentLength, ErrorCode errorCode,

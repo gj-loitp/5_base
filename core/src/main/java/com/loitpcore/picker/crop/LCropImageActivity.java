@@ -50,7 +50,6 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
         return R.layout.l_activity_l_crop_image;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,12 +84,10 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
     }
 
     private void changeSystembarColor() {
-        if (Build.VERSION.SDK_INT >= 21) {
-            Window window = getWindow();
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.parseColor("#F4B04F"));
-        }
+        Window window = getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(Color.parseColor("#F4B04F"));
     }
 
     @Override
