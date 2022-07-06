@@ -566,10 +566,22 @@ Likewise may someone love you next.
     <string name="item_17">Item 17</string>
     <string name="item_18">Item 18</string>
     <string name="item_19">Item 19</string>
-    <string name="linearlayoutmanager_vertical">LinearLayoutManager vertical</string>
-    <string name="linearlayoutmanager_horizontal">LinearLayoutManager horizontal</string>
-    <string name="gridlayoutmanager_2">GridLayoutManager 2</string>
-    <string name="gridlayoutmanager_3">GridLayoutManager 3</string>
-    <string name="staggeredgridlayoutmanager_2_vertical">StaggeredGridLayoutManager 2 Vertical</string>
-    <string name="staggeredgridlayoutmanager_4_horizontal">StaggeredGridLayoutManager 4 Horizontal</string>
+    <string name="linear_layout_manager_vertical">LinearLayoutManager vertical</string>
+    <string name="linear_layout_manager_horizontal">LinearLayoutManager horizontal</string>
+    <string name="grid_layout_manager_2">GridLayoutManager 2</string>
+    <string name="grid_layout_manager_3">GridLayoutManager 3</string>
+    <string name="staggered_grid_layout_manager_2_vertical">StaggeredGridLayoutManager 2 Vertical</string>
+    <string name="staggered_grid_layout_manager_4_horizontal">StaggeredGridLayoutManager 4 Horizontal</string>
+    <string name="activity1" tools:ignore="Typos">Activity1</string>
+    <string name="go_to_activity2">Go to Activity2</string>
+    <string name="go_to_activity3">Go to Activity3</string>
+    <string name="activity2">Activity2</string>
+    <string name="go_to_activity1" tools:ignore="Typos">go to Activity1</string>
+    <string name="activity3">Activity3</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_alarm">Add alarm</string>
+    <string name="_3_dots">…</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="_over_scroll_like_ios">Over Scroll like iOS</string>
 </resources>

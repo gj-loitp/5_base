@@ -15,7 +15,7 @@
         <androidx.appcompat.widget.AppCompatButton
             style="@style/ButtonMenu"
             android:onClick="onAddAlarmClick"
-            android:text="Add alarm" />
+            android:text="@string/add_alarm" />
 
         <ListView
             android:id="@+id/lv_alarm"
