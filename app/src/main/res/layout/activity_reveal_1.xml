@@ -57,6 +57,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:contentDescription="@string/app_name"
         app:backgroundTint="@color/red"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@android:drawable/ic_dialog_email"
+        tools:ignore="RelativeOverlap" />
 
 </RelativeLayout>
