@@ -129,6 +129,7 @@ class LUIUtil {
             val listTestDevice = ArrayList<String>()
             listTestDevice.add(AdRequest.DEVICE_ID_EMULATOR)
             listTestDevice.add(Constants.TEST_22)
+            listTestDevice.add(Constants.TEST_XIAOMI_REDMI_NOTE_8_PRO)
             return listTestDevice
         }
 

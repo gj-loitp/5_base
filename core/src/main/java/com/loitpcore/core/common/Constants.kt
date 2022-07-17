@@ -30,8 +30,7 @@ class Constants {
         const val MAIN_LINK_TRUYENTRANHTUAN = "http://truyentranhtuan.com/danh-sach-truyen"
 
         const val TEST_22 = "A2051BE3A7BDA5AAD02FE240F0543FE2"
-
-        const val LOITP = "LoitpDebug"
+        const val TEST_XIAOMI_REDMI_NOTE_8_PRO = "10215562B58D3745EA3CFF6AAA0037C9"
 
         //region activity transition
         var TYPE_ACTIVITY_TRANSITION_NO_ANIM = -1
