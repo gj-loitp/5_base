@@ -6,11 +6,11 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_retrofit2_test_api.*
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.activity_test_api_retrofit2.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,7 +26,7 @@ class TestAPIRetrofit2Activity : BaseFontActivity() {
     private var mAdapter: AnswersAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_retrofit2_test_api
+        return R.layout.activity_test_api_retrofit2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/w_65"
+            android:paddingBottom="@dimen/margin_padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAnimatedExpandableEditText"
+                style="@style/ButtonMenu"
+                android:text="@string/animated_expandable_edittext_activity" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAutoResizeEditText"
+                style="@style/ButtonMenu"
+                android:text="@string/autoresizeedittext" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAutoSuggestEditText"
+                style="@style/ButtonMenu"
+                android:text="@string/autosuggestedittext" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCurrencyEditText"
+                style="@style/ButtonMenu"
+                android:text="Currency EditText" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMaterialTextField"
+                style="@style/ButtonMenu"
+                android:text="@string/materialtextfield" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLEditText"
+                style="@style/ButtonMenu"
+                android:text="@string/ledittext" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btEditextTextWatcher"
+                style="@style/ButtonMenu"
+                android:text="Text Watcher" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

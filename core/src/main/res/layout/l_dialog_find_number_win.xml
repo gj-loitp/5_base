@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,7 +17,8 @@
         android:minWidth="256dp"
         android:minHeight="100dp"
         android:orientation="vertical"
-        android:transitionName="@string/transition_morph">
+        android:transitionName="@string/transition_morph"
+        tools:ignore="UselessParent">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"

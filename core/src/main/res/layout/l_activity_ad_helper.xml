@@ -8,7 +8,7 @@
     android:animateLayoutChanges="true"
     android:background="?attr/themeBackgroundColor">
 
-    <com.views.imageview.continuousscrollable.LContinuousScrollableImageView
+    <com.loitpcore.views.imageView.continuousScrollable.LContinuousScrollableImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/layoutControl"

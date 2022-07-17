@@ -13,15 +13,16 @@ import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LLocationUtil
-import com.core.utilities.LUIUtil
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LLocationUtil
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.views.setSafeOnClickListener
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_func_location.*
 import vn.loitp.app.BuildConfig
@@ -70,13 +71,17 @@ class LocationActivity : BaseFontActivity() {
 
         // restore the values from saved instance state
         restoreValuesFromBundle(savedInstanceState)
-        btStartLocationUpdates.setOnClickListener {
+        setupViews()
+    }
+
+    private fun setupViews() {
+        btStartLocationUpdates.setSafeOnClickListener {
             startLocationButtonClick()
         }
-        btStopLocationUpdates.setOnClickListener {
+        btStopLocationUpdates.setSafeOnClickListener {
             stopLocationButtonClick()
         }
-        btGetLastLocation.setOnClickListener {
+        btGetLastLocation.setSafeOnClickListener {
             showLastKnownLocation()
         }
     }
@@ -189,9 +194,9 @@ class LocationActivity : BaseFontActivity() {
                                 Manifest.permission.ACCESS_FINE_LOCATION
                             ) == PackageManager.PERMISSION_GRANTED &&
                             ActivityCompat.checkSelfPermission(
-                                    this,
-                                    Manifest.permission.ACCESS_COARSE_LOCATION
-                                ) == PackageManager.PERMISSION_GRANTED
+                                this,
+                                Manifest.permission.ACCESS_COARSE_LOCATION
+                            ) == PackageManager.PERMISSION_GRANTED
                         ) {
                             mLocationRequest?.let { lr ->
                                 mLocationCallback?.let { lc ->
@@ -247,20 +252,20 @@ class LocationActivity : BaseFontActivity() {
             )
             .setDialogTintColor(color, color)
             .onExplainRequestReason { scope, deniedList, _ ->
-                val message = getString(com.R.string.app_name) + getString(com.R.string.needs_per)
+                val message = getString(R.string.app_name) + getString(R.string.needs_per)
                 scope.showRequestReasonDialog(
                     permissions = deniedList,
                     message = message,
-                    positiveText = getString(com.R.string.allow),
-                    negativeText = getString(com.R.string.deny)
+                    positiveText = getString(R.string.allow),
+                    negativeText = getString(R.string.deny)
                 )
             }
             .onForwardToSettings { scope, deniedList ->
                 scope.showForwardToSettingsDialog(
                     permissions = deniedList,
-                    message = getString(com.R.string.per_manually_msg),
-                    positiveText = getString(com.R.string.ok),
-                    negativeText = getString(com.R.string.cancel)
+                    message = getString(R.string.per_manually_msg),
+                    positiveText = getString(R.string.ok),
+                    negativeText = getString(R.string.cancel)
                 )
             }
             .request { allGranted, _, _ ->
@@ -298,6 +303,7 @@ class LocationActivity : BaseFontActivity() {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {

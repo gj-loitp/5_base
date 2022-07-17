@@ -3,7 +3,7 @@ package vn.loitp.app.activity.tutorial.rxjava2
 import android.annotation.SuppressLint
 import android.os.SystemClock
 import android.widget.TextView
-import com.core.utilities.LLog
+import com.loitpcore.core.utilities.LLog
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 
 class MyRxTask2(val tv: TextView?) {
-    val logTag = javaClass.simpleName
+    val logTag: String = javaClass.simpleName
 
     @SuppressLint("CheckResult", "SetTextI18n")
     fun execute(): Disposable {
@@ -21,9 +21,9 @@ class MyRxTask2(val tv: TextView?) {
         }
         tv?.text = "\nonPreExecute"
         return Observable.just(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
-            .doOnNext {
+            .doOnNext { it ->
                 it.forEach {
-                    LLog.d(logTag, "doInBackground " + it)
+                    LLog.d(logTag, "doInBackground $it")
                     publishSubject.onNext(it)
                     SystemClock.sleep(1000)
                 }

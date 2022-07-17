@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.api.coroutine.service
 
-import com.service.model.ApiResponse
-import com.service.model.UserTest
+import com.loitpcore.service.model.ApiResponse
+import com.loitpcore.service.model.UserTest
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
@@ -22,5 +22,5 @@ interface ApiService {
 
     @GET("users/")
     fun getUserTestAsync(@Query("page") page: Int):
-        Deferred<Response<ApiResponse<ArrayList<UserTest>>>>
+            Deferred<Response<ApiResponse<ArrayList<UserTest>>>>
 }

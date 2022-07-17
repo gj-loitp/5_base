@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.tutorial.rxjava2.model
 
 import androidx.annotation.Keep
-import com.core.base.BaseModel
+import com.loitpcore.core.base.BaseModel
 
 @Keep
 class ApiUser : BaseModel() {
@@ -16,9 +16,9 @@ class ApiUser : BaseModel() {
 
     override fun toString(): String {
         return "ApiUser{" +
-            "id=" + id +
-            ", firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
-            '}'
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}'
     }
 }

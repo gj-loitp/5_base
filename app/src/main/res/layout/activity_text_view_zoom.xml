@@ -5,7 +5,7 @@
     android:background="?attr/themeBackgroundColor"
     android:padding="@dimen/margin_padding_medium">
 
-    <com.views.textview.zoom.LZoomTextView
+    <com.loitpcore.views.textView.zoom.LZoomTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"

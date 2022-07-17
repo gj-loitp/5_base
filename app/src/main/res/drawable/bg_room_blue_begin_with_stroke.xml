@@ -5,7 +5,7 @@
         <inset
             android:insetLeft="-10px"
             android:insetRight="-10px">
-            <shape xmlns:android="http://schemas.android.com/apk/res/android">
+            <shape>
                 <stroke
                     android:width="1px"
                     android:color="#E7E7E7" />

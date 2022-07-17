@@ -4,17 +4,18 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LUIUtil
-import com.restapi.flickr.FlickrConst
-import com.restapi.flickr.model.photosetgetlist.Photoset
-import com.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist
-import com.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos
-import com.restapi.flickr.service.FlickrService
-import com.restapi.restclient.RestClient
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LDialogUtil
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.restApi.flickr.FlickrConst
+import com.loitpcore.restApi.flickr.model.photoSetGetList.Photoset
+import com.loitpcore.restApi.flickr.model.photoSetGetList.WrapperPhotosetGetlist
+import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.WrapperPhotosetGetPhotos
+import com.loitpcore.restApi.flickr.service.FlickrService
+import com.loitpcore.restApi.restClient.RestClient
+import com.loitpcore.views.setSafeOnClickListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_api_gallery.*
@@ -23,7 +24,7 @@ import vn.loitp.app.R
 @LogTag("GalleryAPIActivity")
 @IsFullScreen(false)
 class GalleryAPIActivity : BaseFontActivity() {
-    private var mWrapperPhotosetGetlist: WrapperPhotosetGetlist? = null
+    private var mWrapperPhotoSetGetList: WrapperPhotosetGetlist? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_api_gallery
@@ -37,15 +38,15 @@ class GalleryAPIActivity : BaseFontActivity() {
 
     private fun setupViews() {
         LDialogUtil.hideProgress(progressBar)
-        bt1.setOnClickListener {
-            getPhotosets()
+        bt1.setSafeOnClickListener {
+            getPhotoSets()
         }
-        bt2.setOnClickListener {
+        bt2.setSafeOnClickListener {
             showDialogSelectPhotoset()
         }
     }
 
-    private fun getPhotosets() {
+    private fun getPhotoSets() {
         LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
@@ -71,7 +72,7 @@ class GalleryAPIActivity : BaseFontActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist: WrapperPhotosetGetlist? ->
-                    mWrapperPhotosetGetlist = wrapperPhotosetGetlist
+                    mWrapperPhotoSetGetList = wrapperPhotosetGetlist
                     wrapperPhotosetGetlist?.let {
                         LUIUtil.printBeautyJson(it, textView)
                     }
@@ -89,7 +90,7 @@ class GalleryAPIActivity : BaseFontActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Choose:")
         val listPhotoset = ArrayList<Photoset>()
-        mWrapperPhotosetGetlist?.photosets?.photoset?.let {
+        mWrapperPhotoSetGetList?.photosets?.photoset?.let {
             listPhotoset.addAll(it)
         }
         val items = arrayOfNulls<String>(listPhotoset.size)

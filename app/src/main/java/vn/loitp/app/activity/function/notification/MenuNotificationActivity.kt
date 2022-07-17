@@ -10,22 +10,24 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LNotification
-import com.function.notification.Notti
-import com.function.notification.NottiFactory
-import com.function.notification.actions.ContentAction
-import com.function.notification.actions.NotificationAction
-import com.function.notification.config.LightSettings
-import com.function.notification.config.NottiConfig
-import com.function.notification.config.VibrationSettings
-import kotlinx.android.synthetic.main.activity_notification_menu.*
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LNotification
+import com.loitpcore.function.notification.Notti
+import com.loitpcore.function.notification.NottiFactory
+import com.loitpcore.function.notification.actions.ContentAction
+import com.loitpcore.function.notification.actions.NotificationAction
+import com.loitpcore.function.notification.config.LightSettings
+import com.loitpcore.function.notification.config.NottiConfig
+import com.loitpcore.function.notification.config.VibrationSettings
+import kotlinx.android.synthetic.main.activity_menu_notification.*
 import vn.loitp.app.R
 
 @LogTag("MenuNotificationActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
 
     companion object {
@@ -36,7 +38,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
     private val channelId = "my_package_channel"
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_notification_menu
+        return R.layout.activity_menu_notification
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -154,7 +156,8 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
                 )
             }
             btBigPictureNotification -> {
-                val icon = BitmapFactory.decodeResource(this.resources, R.drawable.ic_launcher_loitp)
+                val icon =
+                    BitmapFactory.decodeResource(this.resources, R.drawable.ic_launcher_loitp)
                 val iconBig = BitmapFactory.decodeResource(this.resources, R.drawable.iv)
                 notti?.show(
                     NottiFactory[NottiFactory.TYPE.BIG_PICTURE, "some text", "some " + "content"]

@@ -4,22 +4,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.annotation.LogTag
-import com.core.base.BaseFragment
-import com.core.utilities.LSocialUtil
-import com.rss.RssConverterFactory
-import com.rss.RssFeed
-import com.rss.RssItem
-import kotlinx.android.synthetic.main.fragment_rss.*
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFragment
+import com.loitpcore.core.utilities.LSocialUtil
+import com.loitpcore.rss.RssConverterFactory
+import com.loitpcore.rss.RssFeed
+import com.loitpcore.rss.RssItem
+import kotlinx.android.synthetic.main.frm_rss.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import vn.loitp.app.R
 
-/**
- * Fragment for listing fetched [RssItem] list
- */
 @LogTag("RssFragment")
 class RssFragment :
     BaseFragment(),
@@ -47,7 +44,7 @@ class RssFragment :
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.fragment_rss
+        return R.layout.frm_rss
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

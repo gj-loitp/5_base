@@ -1,6 +1,6 @@
 package vn.loitp.app.activity.pattern.mvp
 
-import com.core.utilities.LUIUtil
+import com.loitpcore.core.utilities.LUIUtil
 
 class DemoPresenter(var view: View?) {
     private val user: User = User()
@@ -19,7 +19,7 @@ class DemoPresenter(var view: View?) {
         view?.showProgressBar()
         LUIUtil.setDelay(
             mls = 5000,
-            runnable = Runnable {
+            runnable = {
                 view?.let {
                     it.hideProgressBar()
                     it.onDoALongTask("Finish do a long task (5000mls) ${System.currentTimeMillis()}")

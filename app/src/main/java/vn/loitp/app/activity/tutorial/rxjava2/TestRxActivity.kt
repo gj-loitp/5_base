@@ -3,12 +3,12 @@ package vn.loitp.app.activity.tutorial.rxjava2
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.base.BaseFontActivity
-import com.core.utilities.LThreadUtil.Companion.isUIThread
 import com.google.gson.reflect.TypeToken
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LThreadUtil.Companion.isUIThread
 import io.reactivex.Observable
 import io.reactivex.ObservableEmitter
 import io.reactivex.Observer
@@ -19,7 +19,6 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_test_rx.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike
-import java.util.*
 import java.util.concurrent.TimeUnit
 
 // https://viblo.asia/p/cung-hoc-rxjava-phan-1-gioi-thieu-aRBeXWqgGWE
@@ -163,7 +162,7 @@ class TestRxActivity : BaseFontActivity(), View.OnClickListener {
     @SuppressLint("SetTextI18n")
     private fun test4() {
         textView.text = "test4\n"
-        val disposable: Disposable = Observable.create { emitter: ObservableEmitter<Bike?> ->
+        Observable.create { emitter: ObservableEmitter<Bike?> ->
             val bikeList = bikeList
             for (bike in bikeList) {
                 emitter.onNext(bike)

@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.annotation.LogTag
-import com.core.adapter.BaseAdapter
-import com.core.utilities.LImageUtil
-import com.rss.RssItem
-import kotlinx.android.synthetic.main.row_rss_item.view.*
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.adapter.BaseAdapter
+import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.rss.RssItem
+import kotlinx.android.synthetic.main.view_rss.view.*
 import vn.loitp.app.R
-import java.util.*
 
 @LogTag("RssItemsAdapter")
 class RssItemsAdapter(
@@ -29,7 +28,7 @@ class RssItemsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RSSViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.row_rss_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.view_rss, parent, false)
         return RSSViewHolder(itemView)
     }
 

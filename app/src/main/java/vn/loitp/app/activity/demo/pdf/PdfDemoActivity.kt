@@ -2,17 +2,17 @@ package vn.loitp.app.activity.demo.pdf
 
 import android.os.Bundle
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LStoreUtil
-import com.function.pump.download.Pump
-import com.function.pump.download.core.DownloadListener
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.github.barteksc.pdfviewer.util.FitPolicy
-import com.task.AsyncTaskDownloadPdfStream
-import com.task.GetPdfCoroutine
-import com.views.setSafeOnClickListener
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LStoreUtil
+import com.loitpcore.function.pump.download.Pump
+import com.loitpcore.function.pump.download.core.DownloadListener
+import com.loitpcore.task.AsyncTaskDownloadPdfStream
+import com.loitpcore.task.GetPdfCoroutine
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_demo_pdf.*
 import vn.loitp.app.R
 import java.io.File
@@ -43,7 +43,7 @@ class PdfDemoActivity : BaseFontActivity() {
             callCoroutineFile()
         }
         btStreamAsyncTask.setSafeOnClickListener {
-            callAysnctaskStream()
+            callAsyncTaskStream()
         }
         btStreamCoroutine.setSafeOnClickListener {
             callCoroutineStream()
@@ -60,8 +60,8 @@ class PdfDemoActivity : BaseFontActivity() {
         super.onDestroy()
     }
 
-    private fun updateUIProgress(isLoadding: Boolean) {
-        if (isLoadding) {
+    private fun updateUIProgress(isLoading: Boolean) {
+        if (isLoading) {
             pb.visibility = View.VISIBLE
             pb.progress = 0
             pdfView.visibility = View.GONE
@@ -79,7 +79,7 @@ class PdfDemoActivity : BaseFontActivity() {
     }
 
     private fun callAysncTaskFile() {
-        updateUIProgress(isLoadding = true)
+        updateUIProgress(isLoading = true)
         Pump.newRequestToDownload(
             "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf",
             "/loitp/pdf"
@@ -98,12 +98,12 @@ class PdfDemoActivity : BaseFontActivity() {
                     filePath?.let {
                         showPDF(file = filePath)
                     }
-                    updateUIProgress(isLoadding = false)
+                    updateUIProgress(isLoading = false)
                 }
 
                 override fun onFailed() {
                     showShortError("Download failed")
-                    updateUIProgress(isLoadding = false)
+                    updateUIProgress(isLoading = false)
                 }
             })
             // Optionally,Set whether to repeatedly download the downloaded file,default false.
@@ -114,26 +114,26 @@ class PdfDemoActivity : BaseFontActivity() {
             .submit()
     }
 
-    private fun callAysnctaskStream() {
+    private fun callAsyncTaskStream() {
         asyncTaskDownloadPdfStream?.cancel(true)
         // val url = "http://www.pdf995.com/samples/pdf.pdf";
         // val url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
         // val url = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
-        updateUIProgress(isLoadding = true)
+        updateUIProgress(isLoading = true)
         btStreamCoroutine.visibility = View.GONE
         asyncTaskDownloadPdfStream = AsyncTaskDownloadPdfStream(result = { inputStream ->
             pdfView?.let {
                 it.visibility = View.VISIBLE
                 it.fromStream(inputStream).load()
             }
-            updateUIProgress(isLoadding = false)
+            updateUIProgress(isLoading = false)
         })
         asyncTaskDownloadPdfStream?.execute("http://www.pdf995.com/samples/pdf.pdf")
         // asyncTaskDownloadPdfStream?.execute("http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf")
     }
 
     private fun callCoroutineFile() {
-        updateUIProgress(isLoadding = true)
+        updateUIProgress(isLoading = true)
         val urlPdf = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf"
         // val urlPdf = "http://www.pdf995.com/samples/pdf.pdf";
         // val urlPdf = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
@@ -156,20 +156,20 @@ class PdfDemoActivity : BaseFontActivity() {
                 file?.let { f ->
                     showPDF(f)
                 }
-                updateUIProgress(isLoadding = false)
+                updateUIProgress(isLoading = false)
             }
         )
     }
 
     private fun callCoroutineStream() {
-        updateUIProgress(isLoadding = true)
+        updateUIProgress(isLoading = true)
         pdfStreamCoroutine = PdfStreamCoroutine()
         pdfStreamCoroutine?.startTask(
             urlPdf = "http://www.pdf995.com/samples/pdf.pdf",
             result = { inputStream ->
                 pdfView.visibility = View.VISIBLE
                 pdfView.fromStream(inputStream).load()
-                updateUIProgress(isLoadding = false)
+                updateUIProgress(isLoading = false)
             }
         )
     }

@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <com.views.layout.flowlayout.FlowLayout
+        <com.loitpcore.views.layout.flow.FlowLayout
             android:id="@+id/flowLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,10 +82,10 @@
                 android:text="55555555555555555555555555555555"
                 android:textColor="@color/red"
                 android:textSize="@dimen/txt_medium" />
-        </com.views.layout.flowlayout.FlowLayout>
+        </com.loitpcore.views.layout.flow.FlowLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.views.actionbar.LActionBar
+    <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -7,10 +7,10 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "loitp93.basemaster"
+        applicationId "com.roygroup.base"
         minSdkVersion 24
         targetSdk 32
-        versionCode 1
+        versionCode 20220522
         versionName "1.0.1"
         multiDexEnabled true
 
@@ -18,17 +18,25 @@ android {
         renderscriptSupportModeEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        javaCompileOptions {
-            annotationProcessorOptions {
-                includeCompileClasspath true
-            }
-        }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                includeCompileClasspath true
+//            }
+//        }
 
-        kapt {
-            arguments {
-                arg("room.schemaLocation", "$projectDir/schemas")
-            }
-        }
+//        kapt {
+//            arguments {
+//                arg("room.schemaLocation", "$projectDir/schemas")
+//            }
+//        }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments += [
+//                        "room.schemaLocation":"$projectDir/schemas".toString(),
+//                        "room.incremental":"true",
+//                        "room.expandProjection":"true"]
+//            }
+//        }
 
         buildConfigField("String", "RECAPTCHA_KEY", '"6LcposQUAAAAAB7X6uNt4cmmdMgGEIaOJfAkCVvy"')
 
@@ -65,13 +73,13 @@ android {
         release {
             debuggable false
             minifyEnabled true
-            useProguard true //used android.enableR8=true in gradle.properties
+            //used android.enableR8=true in gradle.properties
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
         debug {
             minifyEnabled false
-            useProguard false //used android.enableR8=true in gradle.properties
+            //used android.enableR8=true in gradle.properties
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -82,10 +90,10 @@ android {
         }
     }
 
-    dexOptions {
-        jumboMode true
-        javaMaxHeapSize "4g"
-    }
+//    dexOptions {
+//        jumboMode true
+//        javaMaxHeapSize "4g"
+//    }
 }
 
 repositories {
@@ -95,7 +103,7 @@ repositories {
 
 dependencies {
     api project(':core')
-//    api 'com.github.tplloi:basemaster:4.4.70'
+//    api 'com.github.tplloi:base:4.4.75'
 
     //https://github.com/square/retrofit/tree/master/retrofit-converters/moshi
     api 'com.squareup.retrofit2:converter-moshi:2.9.0'
@@ -113,7 +121,9 @@ dependencies {
     //https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
 
-    kapt "androidx.room:room-compiler:2.4.2"
+    kapt "androidx.room:room-compiler:2.5.0-alpha02"
+//    annotationProcessor "androidx.room:room-compiler:2.5.0-alpha02"
+//    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
 
     //https://github.com/nex3z/ToggleButtonGroup
     api 'com.nex3z:toggle-button-group:1.2.3'
@@ -129,7 +139,7 @@ dependencies {
     api 'com.thedeanda:lorem:2.1'
 
     //https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
-    api 'com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:1.1.0'
+    api 'com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:1.1.1'
 
     //https://github.com/tuanhav95/DragView
     api 'com.github.tuanhav95:DragView:1.1.0'
@@ -138,7 +148,7 @@ dependencies {
     api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'
 
     //https://github.com/Crysis21/PulsingView
-    api 'ro.holdone:pulseview:1.0.1'
+    api 'ro.holdone:pulseview:1.0.2'
 
     //https://github.com/abhishekti7/UnicornFilePicker
     api 'com.github.abhishekti7:UnicornFilePicker:1.0.2'
@@ -147,7 +157,7 @@ dependencies {
     api 'com.github.yusufonderd:BasketLayout:1.0'
 
     //https://github.com/amilcar-sr/JustifiedTextView
-    api 'com.codesgood:justifiedtextview:1.1.0'
+    api 'com.codesgood:justifiedtextview:2.0.1'
 
     //https://github.com/transferwise/sequence-layout
     api 'com.github.transferwise:sequence-layout:1.1.1'
@@ -157,6 +167,9 @@ dependencies {
 
     //https://github.com/Zaid-Mirza/AttachmentManager
     api 'com.github.Zaid-Mirza:AttachmentManager:2.0.1'
+
+    //animation
+    api 'com.daimajia.androidanimations:library:2.4@aar'
 
 }
 //apply plugin: 'com.google.gms.google-services'

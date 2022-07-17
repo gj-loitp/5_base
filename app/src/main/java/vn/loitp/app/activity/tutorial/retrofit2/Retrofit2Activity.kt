@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseApplication
-import com.core.base.BaseFontActivity
-import com.restapi.restclient.RestClient2
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.restApi.restClient.RestClient2
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_retrofit_2.*
@@ -21,7 +21,7 @@ import vn.loitp.app.R
 class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
     private var retrofit2Adapter: Retrofit2Adapter? = null
     private var retroCryptoArrayList = ArrayList<RetroCrypto>()
-    private val BASE_URL = "https://api.nomics.com/v1/"
+    private val baseURL = "https://api.nomics.com/v1/"
     private lateinit var sampleService: SampleService
 
     override fun setLayoutResourceId(): Int {
@@ -31,7 +31,7 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        RestClient2.init(BASE_URL)
+        RestClient2.init(baseURL)
         sampleService = RestClient2.createService(SampleService::class.java)
         initRecyclerView()
         loadData()

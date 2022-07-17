@@ -2,9 +2,9 @@ package vn.loitp.app.activity.customviews.indicator.example
 
 import android.graphics.Color
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_custom_navigator_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.circlenavigator.CircleNavigator
@@ -41,6 +41,10 @@ class CustomNavigatorExampleActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         viewPager.adapter = mExamplePagerAdapter
         initMagicIndicator1()
         initMagicIndicator2()
@@ -76,11 +80,11 @@ class CustomNavigatorExampleActivity : BaseFontActivity() {
         scaleCircleNavigator.setNormalCircleColor(Color.LTGRAY)
         scaleCircleNavigator.setSelectedCircleColor(Color.DKGRAY)
         scaleCircleNavigator.setCircleClickListener(object :
-                ScaleCircleNavigator.OnCircleClickListener {
-                override fun onClick(index: Int) {
-                    viewPager.currentItem = index
-                }
-            })
+            ScaleCircleNavigator.OnCircleClickListener {
+            override fun onClick(index: Int) {
+                viewPager.currentItem = index
+            }
+        })
         magicIndicator3.navigator = scaleCircleNavigator
         ViewPagerHelper.bind(magicIndicator3, viewPager)
     }

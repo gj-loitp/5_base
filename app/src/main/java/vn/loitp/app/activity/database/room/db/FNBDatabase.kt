@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 import vn.loitp.app.activity.database.room.converter.AreaConverter
 import vn.loitp.app.activity.database.room.model.FloorPlan
 
-@Database(entities = [FloorPlan::class], version = 1)
+@Database(entities = [FloorPlan::class], version = 2)
 abstract class FNBDatabase : RoomDatabase() {
 
     // @TypeConverters(DateTypeConverter::class, AreaConverter::class)

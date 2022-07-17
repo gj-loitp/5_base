@@ -6,23 +6,22 @@ import android.content.Intent
 import android.nfc.NdefMessage
 import android.nfc.NfcAdapter
 import android.nfc.Tag
-import android.nfc.tech.* // ktlint-disable no-wildcard-imports
+import android.nfc.tech.*
 import android.os.Bundle
 import android.provider.Settings
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LDateUtil
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LUIUtil
-import com.core.utilities.nfc.LNFCUtil
-import com.core.utilities.nfc.TagWrapper
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LDateUtil
+import com.loitpcore.core.utilities.LDialogUtil
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.core.utilities.nfc.LNFCUtil
+import com.loitpcore.core.utilities.nfc.TagWrapper
 import kotlinx.android.synthetic.main.activity_demo_nfc.*
 import vn.loitp.app.R
 import java.io.UnsupportedEncodingException
 import java.nio.charset.Charset
-import java.util.* // ktlint-disable no-wildcard-imports
 import kotlin.experimental.and
 
 @LogTag("NFCActivity")
@@ -41,6 +40,10 @@ class NFCActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         currentTagView.text = "Loading..."
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
     }

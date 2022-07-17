@@ -3,8 +3,6 @@
     <item name="tv_title" type="id" />
     <item name="view_header" type="id" />
     <item name="view_desc" type="id" />
-
-<!--    for bottom bar girl activivty-->
     <item name="menuHome" type="id" />
     <item name="menuFavourite" type="id" />
     <item name="menuInformation" type="id" />

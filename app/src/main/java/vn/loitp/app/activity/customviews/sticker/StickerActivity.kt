@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.customviews.sticker
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.views.sticker.StickerImageView
-import com.views.sticker.StickerTextView
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.sticker.StickerImageView
+import com.loitpcore.views.sticker.StickerTextView
 import kotlinx.android.synthetic.main.activity_sticker.*
 import vn.loitp.app.R
 
@@ -20,6 +20,10 @@ class StickerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         // add a stickerImage to canvas
         val ivSticker = StickerImageView(this)
         ivSticker.setBackgroundResource(R.drawable.logo)

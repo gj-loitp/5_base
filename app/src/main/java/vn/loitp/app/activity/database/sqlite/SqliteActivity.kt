@@ -4,10 +4,10 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseApplication.Companion.gson
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseApplication.Companion.gson
+import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_sqlite.*
 import vn.loitp.app.R
 
@@ -130,11 +130,13 @@ class SqliteActivity : BaseFontActivity(), View.OnClickListener {
     private fun updateContact(contact: Contact, button: Button) {
         contact.name = "Updated " + contact.name
         val result = databaseHandler?.updateContact(contact)
+        logD("updateContact $result")
         button.text = contact.id.toString() + " " + contact.name
     }
 
     private fun deleteContact(contact: Contact, button: Button) {
         val result = databaseHandler?.deleteContact(contact)
+        logD("deleteContact $result")
         ll.removeView(button)
     }
 

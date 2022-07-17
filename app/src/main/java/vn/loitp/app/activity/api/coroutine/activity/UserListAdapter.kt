@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.core.utilities.LImageUtil
-import com.service.model.UserTest
-import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.item_user_1.view.*
+import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.service.model.UserTest
+import com.loitpcore.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.view_item_user_1.view.*
 import vn.loitp.app.R
 
 class UserListAdapter(
@@ -39,7 +39,7 @@ class UserListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserTestViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_user_1, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.view_item_user_1, parent, false)
         return UserTestViewHolder(itemView)
     }
 

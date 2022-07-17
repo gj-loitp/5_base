@@ -7,7 +7,7 @@ import io.realm.Realm
 import io.realm.RealmResults
 import java.util.*
 
-class RealmController(application: Application) {
+class RealmController {
     val realm: Realm = Realm.getDefaultInstance()
 
     val myBookList: RealmResults<MyBook>
@@ -73,28 +73,28 @@ class RealmController(application: Application) {
 
         fun getInstance(activity: Activity): RealmController {
             if (ins == null) {
-                ins = RealmController(activity.application)
+                ins = RealmController()
             }
             return ins!!
         }
 
         fun with(fragment: Fragment): RealmController {
             if (ins == null) {
-                ins = RealmController(fragment.requireActivity().application)
+                ins = RealmController()
             }
             return ins!!
         }
 
         fun with(activity: Activity): RealmController {
             if (ins == null) {
-                ins = RealmController(activity.application)
+                ins = RealmController()
             }
             return ins!!
         }
 
         fun with(application: Application): RealmController {
             if (ins == null) {
-                ins = RealmController(application)
+                ins = RealmController()
             }
             return ins!!
         }

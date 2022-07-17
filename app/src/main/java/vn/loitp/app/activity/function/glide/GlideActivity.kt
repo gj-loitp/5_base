@@ -2,10 +2,10 @@ package vn.loitp.app.activity.function.glide
 
 import android.os.Bundle
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LImageUtil
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_func_glide.*
 import vn.loitp.app.R
 
@@ -20,6 +20,10 @@ class GlideActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         bt0.setOnClickListener(this)
         bt1.setOnClickListener(this)
         bt2.setOnClickListener(this)

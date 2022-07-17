@@ -5,7 +5,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.Simple
 
 class ColorFlipPagerTitleView(context: Context) : SimplePagerTitleView(context) {
 
-    var changePercent = 0.5f
+    private var changePercent = 0.5f
 
     override fun onLeave(index: Int, totalCount: Int, leavePercent: Float, leftToRight: Boolean) {
         if (leavePercent >= changePercent) {

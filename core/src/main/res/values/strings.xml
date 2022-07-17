@@ -7,8 +7,8 @@
     <string name="download_failed">Download failed!</string>
     <string name="cannot_find_messenger_app">Cannot find Messenger App!</string>
     <string name="err">Error</string>
-    <string name="err_unknow">Lỗi không xác định, xin vui lòng thử lại sau.</string>
-    <string name="err_unknow_en">Unknown error, please try again later.</string>
+    <string name="err_unknown">Lỗi không xác định, xin vui lòng thử lại sau.</string>
+    <string name="err_unknown_en">Unknown error, please try again later.</string>
     <string name="allow">Allow</string>
     <string name="deny">Deny</string>
     <string name="needs_per">needs following permissions to continue</string>
@@ -32,7 +32,7 @@
     <string name="why_u_see_ad_en">Why did you see ad?</string>
     <string name="share_app">Chia sẻ ứng dụng</string>
     <string name="share_app_en">Share app</string>
-    <string name="like_facebook_fanpage">Like Facebook Fanpage</string>
+    <string name="like_facebook_fan_page">Like Facebook Fanpage</string>
     <string name="support_24_7">Hỗ trợ trực tiếp 24/7</string>
     <string name="support_24_7_en">Support 24/7</string>
     <string name="loading">Loading…</string>

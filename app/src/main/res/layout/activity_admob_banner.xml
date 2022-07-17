@@ -19,7 +19,7 @@
             android:orientation="vertical"
             android:paddingTop="@dimen/w_65">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             ads:adUnitId="@string/str_b" />
     </LinearLayout>
 
-    <com.views.actionbar.LActionBar
+    <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

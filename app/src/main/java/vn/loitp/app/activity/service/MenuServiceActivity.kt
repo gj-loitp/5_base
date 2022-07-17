@@ -3,21 +3,23 @@ package vn.loitp.app.activity.service
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_service_menu.*
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_menu_service.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.service.demoservice.DemoServiceActivity
-import vn.loitp.app.activity.service.endlessservice.EndlessServiceActivity
+import vn.loitp.app.activity.service.demoService.DemoServiceActivity
+import vn.loitp.app.activity.service.endlessService.EndlessServiceActivity
 
 @LogTag("MenuServiceActivity")
 @IsFullScreen(false)
+@IsAutoAnimation(true)
 class MenuServiceActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_service_menu
+        return R.layout.activity_menu_service
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

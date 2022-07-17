@@ -1,9 +1,9 @@
 package vn.loitp.app.activity.tutorial.rxjava2
 
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import io.reactivex.Flowable
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
@@ -33,7 +33,7 @@ class FlowAbleExampleActivity : BaseFontActivity() {
      */
     private fun doSomeWork() {
         val observable = Flowable.just(1, 2, 3, 4, 1)
-        observable.reduce(50, { t1: Int, t2: Int -> t1 + t2 }).subscribe(observer)
+        observable.reduce(50) { t1: Int, t2: Int -> t1 + t2 }.subscribe(observer)
     }
 
     private val observer: SingleObserver<Int>

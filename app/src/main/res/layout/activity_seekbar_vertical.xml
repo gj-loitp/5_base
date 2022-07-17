@@ -39,33 +39,33 @@
             android:paddingBottom="10dp">
 
             <!-- Clock wise - 90 -->
-            <com.views.seekbar.vertical.LVerticalSeekBarWrapper
+            <com.loitpcore.views.seekBar.vertical.LVerticalSeekBarWrapper
                 android:id="@+id/seekBarContainer1"
                 android:layout_width="wrap_content"
                 android:layout_height="150dp">
 
-                <com.views.seekbar.vertical.LVerticalSeekBar
+                <com.loitpcore.views.seekBar.vertical.LVerticalSeekBar
                     android:id="@+id/seekBar1"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:splitTrack="false"
                     app:VSseekBarRotation="CW90" />
-            </com.views.seekbar.vertical.LVerticalSeekBarWrapper>
+            </com.loitpcore.views.seekBar.vertical.LVerticalSeekBarWrapper>
 
             <!-- Clock wise - 270 -->
-            <com.views.seekbar.vertical.LVerticalSeekBarWrapper
+            <com.loitpcore.views.seekBar.vertical.LVerticalSeekBarWrapper
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:layout_marginStart="50dp"
                 android:layout_toEndOf="@+id/seekBarContainer1"
                 android:minWidth="10dp">
 
-                <com.views.seekbar.vertical.LVerticalSeekBar
+                <com.loitpcore.views.seekBar.vertical.LVerticalSeekBar
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:splitTrack="false"
                     app:VSseekBarRotation="CW270" />
-            </com.views.seekbar.vertical.LVerticalSeekBarWrapper>
+            </com.loitpcore.views.seekBar.vertical.LVerticalSeekBarWrapper>
 
         </RelativeLayout>
 
@@ -94,31 +94,31 @@
                 android:paddingBottom="100dp">
 
                 <!-- Clock wise - 90 -->
-                <com.views.seekbar.vertical.LVerticalSeekBarWrapper
+                <com.loitpcore.views.seekBar.vertical.LVerticalSeekBarWrapper
                     android:id="@+id/seekBarContainer3"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp">
 
-                    <com.views.seekbar.vertical.LVerticalSeekBar
+                    <com.loitpcore.views.seekBar.vertical.LVerticalSeekBar
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:splitTrack="false"
                         app:VSseekBarRotation="CW90" />
-                </com.views.seekbar.vertical.LVerticalSeekBarWrapper>
+                </com.loitpcore.views.seekBar.vertical.LVerticalSeekBarWrapper>
 
                 <!-- Clock wise - 270 -->
-                <com.views.seekbar.vertical.LVerticalSeekBarWrapper
+                <com.loitpcore.views.seekBar.vertical.LVerticalSeekBarWrapper
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
                     android:layout_marginStart="50dp"
                     android:layout_toEndOf="@+id/seekBarContainer3">
 
-                    <com.views.seekbar.vertical.LVerticalSeekBar
+                    <com.loitpcore.views.seekBar.vertical.LVerticalSeekBar
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:splitTrack="false"
                         app:VSseekBarRotation="CW270" />
-                </com.views.seekbar.vertical.LVerticalSeekBarWrapper>
+                </com.loitpcore.views.seekBar.vertical.LVerticalSeekBarWrapper>
 
             </RelativeLayout>
         </ScrollView>

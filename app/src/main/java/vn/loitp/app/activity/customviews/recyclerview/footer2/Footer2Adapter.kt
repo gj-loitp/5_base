@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.annotation.LogTag
-import com.core.adapter.BaseAdapter
-import kotlinx.android.synthetic.main.row_movie_list.view.*
-import kotlinx.android.synthetic.main.view_row_item_about_me.view.*
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.adapter.BaseAdapter
+import kotlinx.android.synthetic.main.view_item_about_me.view.*
+import kotlinx.android.synthetic.main.view_movie_list.view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
+import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 
 @LogTag("Footer2Adapter")
 class Footer2Adapter(private val moviesList: List<Movie>, private val callback: Callback?) :
@@ -59,14 +59,14 @@ class Footer2Adapter(private val moviesList: List<Movie>, private val callback: 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == TYPE_BANNER) {
+        return if (viewType == TYPE_BANNER) {
             val itemView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.view_row_item_about_me, parent, false)
-            return BannerViewHolder(itemView)
+                .inflate(R.layout.view_item_about_me, parent, false)
+            BannerViewHolder(itemView)
         } else {
             val itemView =
-                LayoutInflater.from(parent.context).inflate(R.layout.row_movie_list, parent, false)
-            return MovieViewHolder(itemView)
+                LayoutInflater.from(parent.context).inflate(R.layout.view_movie_list, parent, false)
+            MovieViewHolder(itemView)
         }
     }
 

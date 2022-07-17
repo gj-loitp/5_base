@@ -2,12 +2,12 @@ package vn.loitp.app.activity.network
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.utilities.LConnectivityUtil
-import com.data.EventBusData
-import com.function.network.TrafficUtils
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LConnectivityUtil
+import com.loitpcore.data.EventBusData
+import com.loitpcore.function.network.TrafficUtils
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
@@ -27,6 +27,10 @@ class NetworkActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         showStatus(LConnectivityUtil.isConnected())
         btn.setOnClickListener {
             doSomeWork()

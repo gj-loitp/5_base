@@ -156,7 +156,7 @@
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
-    <vn.loitp.app.activity.function.viewdraghelpersimple.VDHView
+    <vn.loitp.app.activity.function.viewDragHelperSimple.VDHView
         android:id="@+id/vdhv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -184,5 +184,5 @@
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
         </androidx.core.widget.NestedScrollView>
-    </vn.loitp.app.activity.function.viewdraghelpersimple.VDHView>
+    </vn.loitp.app.activity.function.viewDragHelperSimple.VDHView>
 </RelativeLayout>

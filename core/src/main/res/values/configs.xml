@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--<string name="webService_URL">http://api.livestar.vn/api/v1/</string>-->
-    <!--<string name="webService_URL">http://35.187.255.95:1337/api/</string>-->
     <string name="flickr_URL">https://api.flickr.com/services/</string>
     <string name="girl_URL">http://docbao247.org/api/</string>
 </resources>

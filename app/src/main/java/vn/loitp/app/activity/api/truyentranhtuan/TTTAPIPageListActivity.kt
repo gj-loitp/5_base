@@ -3,14 +3,13 @@ package vn.loitp.app.activity.api.truyentranhtuan
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.annotation.IsFullScreen
-import com.annotation.LogTag
-import com.core.base.BaseFontActivity
-import com.core.helper.ttt.viewmodel.TTTViewModel
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_api_ttt_page_list.*
-import kotlinx.android.synthetic.main.activity_api_ttt_page_list.textView
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.helper.ttt.viewmodel.TTTViewModel
+import com.loitpcore.core.utilities.LDialogUtil
+import com.loitpcore.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.activity_ttt_api_page_list.*
 import vn.loitp.app.R
 
 @LogTag("TTTAPIPageListActivity")
@@ -20,7 +19,7 @@ class TTTAPIPageListActivity : BaseFontActivity() {
     private var tttViewModel: TTTViewModel? = null
 
     override fun setLayoutResourceId(): Int {
-        return (R.layout.activity_api_ttt_page_list)
+        return (R.layout.activity_ttt_api_page_list)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

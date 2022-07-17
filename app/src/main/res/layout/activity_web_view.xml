@@ -18,7 +18,7 @@
             android:orientation="horizontal"
             android:padding="@dimen/margin_padding_medium">
 
-            <com.views.switchtoggle.appcompatswitch.LColorSwitchCompat
+            <com.loitpcore.views.switchToggle.appcompatSwitch.LColorSwitchCompat
                 android:id="@+id/swEnableCopyContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
                 app:toggleOffColor="@color/vip3"
                 app:toggleOnColor="@color/vip4" />
 
-            <com.views.switchtoggle.appcompatswitch.LColorSwitchCompat
+            <com.loitpcore.views.switchToggle.appcompatSwitch.LColorSwitchCompat
                 android:id="@+id/swEnableDarkMode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,6 +78,24 @@
                 android:background="?attr/themeBackgroundColor"
                 android:text="Load Url From Asset"
                 android:textColor="?attr/themeTextColor" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLoadDataFromAssetAndClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_medium"
+                android:background="?attr/themeBackgroundColor"
+                android:text="Load Url From Asset And Click"
+                android:textColor="?attr/themeTextColor" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLoadDataFromWebAndClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_medium"
+                android:background="?attr/themeBackgroundColor"
+                android:text="Load Url From Web And Click"
+                android:textColor="?attr/themeTextColor" />
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -89,9 +107,8 @@
         android:indeterminateOnly="false"
         android:progressTint="?attr/themeTextColor" />
 
-    <com.views.LWebView
-        android:id="@+id/webView"
+    <com.loitpcore.views.LWebViewAdblock
+        android:id="@+id/lWebView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
-

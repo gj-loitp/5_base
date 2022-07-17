@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import java.util.*
 
 class DatabaseHandler(context: Context) : SQLiteOpenHelper(
     context,
@@ -34,10 +33,10 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(
     // Creating Tables
     override fun onCreate(db: SQLiteDatabase) {
         val sql = (
-            "CREATE TABLE " + TABLE_CONTACTS + "(" +
-                KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT," +
-                KEY_PHONE_NUMBER + " TEXT" + ")"
-            )
+                "CREATE TABLE " + TABLE_CONTACTS + "(" +
+                        KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT," +
+                        KEY_PHONE_NUMBER + " TEXT" + ")"
+                )
         db.execSQL(sql)
     }
 

@@ -17,7 +17,6 @@ import net.lucode.hackware.magicindicator.NavigatorHelper.OnNavigatorScrollListe
 import net.lucode.hackware.magicindicator.abs.IPagerNavigator
 import net.lucode.hackware.magicindicator.buildins.ArgbEvaluatorHolder
 import net.lucode.hackware.magicindicator.buildins.UIUtil
-import java.util.* // ktlint-disable no-wildcard-imports
 import kotlin.math.abs
 
 class ScaleCircleNavigator(context: Context) :

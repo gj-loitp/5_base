@@ -30,5 +30,5 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Over Scroll like iOS" />
+        android:text="@string/_over_scroll_like_ios" />
 </RelativeLayout>
