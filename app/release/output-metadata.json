@@ -1,18 +1,20 @@
 {
-  "version": 2,
+  "version": 3,
   "artifactType": {
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "loitp93.basemaster",
+  "applicationId": "com.roygroup.base",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 1,
+      "attributes": [],
+      "versionCode": 20220522,
       "versionName": "1.0.1",
-      "outputFile": "BaseMaster_release_1.0.1_1.apk"
+      "outputFile": "BaseMaster_release_1.0.1_20220522.apk"
     }
-  ]
+  ],
+  "elementType": "File"
 }
