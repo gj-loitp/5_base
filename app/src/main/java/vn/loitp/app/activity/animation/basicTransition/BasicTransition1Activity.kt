@@ -2,11 +2,13 @@ package vn.loitp.app.activity.animation.basicTransition
 
 import android.os.Bundle
 import androidx.core.view.ViewCompat
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_animation_basic_transition_1.*
 import vn.loitp.app.R
 
@@ -30,6 +32,17 @@ class BasicTransition1Activity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = BasicTransition1Activity::class.java.simpleName
+        }
         LImageUtil.load(
             context = this,
             any = Constants.URL_IMG_2,

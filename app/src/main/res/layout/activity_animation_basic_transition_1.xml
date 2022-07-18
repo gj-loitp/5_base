@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightBlue">
+    android:background="@color/lightBlue"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -50,4 +56,4 @@
                 android:textColor="@color/black" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
