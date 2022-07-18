@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -38,7 +44,6 @@ TransitionManager is used to specify custom transitions for particular scene cha
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-</RelativeLayout>
-
+</androidx.appcompat.widget.LinearLayoutCompat>
