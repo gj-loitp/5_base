@@ -59,9 +59,6 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
         ActivityCompat.startActivity(this, intent, activityOptions.toBundle())
     }
 
-    /**
-     * [android.widget.BaseAdapter] which displays items.
-     */
     private inner class GridAdapter : BaseAdapter() {
 
         override fun getCount(): Int {
@@ -91,7 +88,6 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
                 imageView = imageViewItem
             )
 
-            // Set the TextView's contents
             val textViewName = view?.findViewById<TextView>(R.id.textViewName)
             textViewName?.text = item.name
 
