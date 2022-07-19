@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/lActionBar" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/themeBackgroundColorMedium"
-            android:text="Pause"
+            android:text="@string/pause"
             android:textColor="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_padding_medium"
             android:background="?attr/themeBackgroundColorMedium"
-            android:text="Resume"
+            android:text="@string/_resume"
             android:textColor="?attr/themeTextColor" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </RelativeLayout>
