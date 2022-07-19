@@ -617,4 +617,6 @@ Likewise may someone love you next.
     <string name="multiple">multiple</string>
     <string name="range">range</string>
     <string name="none">none</string>
+    <string name="custom_dialog">Custom dialog</string>
+    <string name="_default">Default</string>
 </resources>

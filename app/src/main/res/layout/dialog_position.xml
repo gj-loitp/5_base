@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/red">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="@dimen/w_250"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -29,7 +29,7 @@
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_padding_medium"
@@ -52,7 +52,7 @@
                 android:background="?selectableItemBackground"
                 android:text="@string/cancel"
                 android:textColor="?attr/themeTextColor" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </RelativeLayout>
