@@ -619,4 +619,6 @@ Likewise may someone love you next.
     <string name="none">none</string>
     <string name="custom_dialog">Custom dialog</string>
     <string name="_default">Default</string>
+    <string name="text_watcher">Text Watcher</string>
+    <string name="currency_edittext">Currency EditText</string>
 </resources>
