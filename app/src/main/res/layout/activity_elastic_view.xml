@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvMenu">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -98,7 +103,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="This is"
+                    android:text="@string/this_is"
                     android:textColor="@color/blue"
                     android:textSize="@dimen/txt_large" />
 
@@ -107,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_gravity="bottom"
-                    android:text="ElasticLayout"
+                    android:text="@string/elastic_layout"
                     android:textColor="@color/red"
                     android:textSize="@dimen/txt_large" />
             </com.skydoves.elasticviews.ElasticLayout>
@@ -115,22 +120,17 @@
             <View
                 android:id="@+id/anyView"
                 android:layout_width="@dimen/w_100"
+                android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_padding_medium"
-                android:background="@color/cyan"
-                android:layout_height="@dimen/w_100" />
+                android:background="@color/cyan" />
 
             <View
                 android:id="@+id/anyView2"
                 android:layout_width="@dimen/w_100"
+                android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_padding_medium"
-                android:background="@color/deepSkyBlue"
-                android:layout_height="@dimen/w_100" />
+                android:background="@color/deepSkyBlue" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <TextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Elastic view" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
