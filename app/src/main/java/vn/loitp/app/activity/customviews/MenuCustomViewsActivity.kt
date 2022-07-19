@@ -7,6 +7,7 @@ import android.view.View.OnClickListener
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
@@ -20,15 +21,15 @@ import vn.loitp.app.activity.customviews.bottomSheet.MenuBottomSheetActivity
 import vn.loitp.app.activity.customviews.button.MenuButtonActivity
 import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
 import vn.loitp.app.activity.customviews.dialog.MenuDialogActivity
-import vn.loitp.app.activity.customviews.draggableFlipView.DraggableFlipViewActivity
 import vn.loitp.app.activity.customviews.dragView.MenuDragViewActivity
+import vn.loitp.app.activity.customviews.draggableFlipView.DraggableFlipViewActivity
 import vn.loitp.app.activity.customviews.edittext.MenuEditTextActivity
 import vn.loitp.app.activity.customviews.facebookComment.FacebookCommentActivity
 import vn.loitp.app.activity.customviews.imageview.MenuImageViewActivity
 import vn.loitp.app.activity.customviews.indicator.example.MenuMagicIndicatorActivity
-import vn.loitp.app.activity.customviews.layout.MenuLayoutActivity
 import vn.loitp.app.activity.customviews.lCardView.LCardViewActivity
 import vn.loitp.app.activity.customviews.lDebugView.LDebugViewActivity
+import vn.loitp.app.activity.customviews.layout.MenuLayoutActivity
 import vn.loitp.app.activity.customviews.menu.MenuMenuActivity
 import vn.loitp.app.activity.customviews.navigation.MenuNavigationActivity
 import vn.loitp.app.activity.customviews.popupMenu.PopupMenuActivity
@@ -51,6 +52,7 @@ import vn.loitp.app.activity.customviews.wwlVideo.WWLVideoActivity
 @LogTag("MenuCustomViewsActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
+@IsShowAdWhenExit(value = true)
 class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
