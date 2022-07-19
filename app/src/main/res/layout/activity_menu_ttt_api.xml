@@ -20,22 +20,22 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btComicList"
                 style="@style/ButtonMenu"
-                android:text="Lấy danh sách truyện" />
+                android:text="@string/get_list_comic" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btChapList"
                 style="@style/ButtonMenu"
-                android:text="Danh sách chương ONEPIECE" />
+                android:text="@string/get_chap_one_piece" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPageList"
                 style="@style/ButtonMenu"
-                android:text="Danh sách trang ONEPIECE - Chap 69" />
+                android:text="@string/get_list_page_one_piece" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFavList"
                 style="@style/ButtonMenu"
-                android:text="Danh sách truyện yêu thích" />
+                android:text="@string/get_list_comic_fav" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

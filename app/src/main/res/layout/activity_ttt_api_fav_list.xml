@@ -22,12 +22,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAdd"
                 style="@style/ButtonMenu"
-                android:text="Add" />
+                android:text="@string/add" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRemove"
                 style="@style/ButtonMenu"
-                android:text="Remove" />
+                android:text="@string/remove" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"
