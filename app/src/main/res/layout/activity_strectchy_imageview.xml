@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="@dimen/margin_padding_medium"
-                android:text="Try to scroll this image (540 x 1952)"
+                android:text="@string/try_to_scroll_this_image_540_x_1952"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
@@ -34,7 +34,7 @@
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/app_name"
                 tools:src="@drawable/loitp" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
     <com.loitpcore.views.actionBar.LActionBar

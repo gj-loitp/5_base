@@ -628,4 +628,6 @@ Likewise may someone love you next.
     <string name="msg_scrollabe_image_view">Library for animating images with continuous scrolling effects Simple android view to display images with continuous scrolling effects efficiently. You can set image source, scaleType, duration and direction. Example usages can be found in sample project.</string>
     <string name="pause">Pause</string>
     <string name="_resume">Resume</string>
+    <string name="msg_scroll_parallax_image_view">ScrollParallaxImageView extends ImageView, and provides parallax effects when it scrolls in the screen.It can be use in any view which can scroll its content, like ListView, RecyclerView, ScrollView, etc.</string>
+    <string name="try_to_scroll_this_image_540_x_1952">Try to scroll this image (540 x 1952)</string>
 </resources>
