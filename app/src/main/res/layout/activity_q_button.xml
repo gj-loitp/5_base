@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -147,7 +147,7 @@
                 android:textColor="@android:color/white"
                 app:qb_backgroundColor="@color/colorAccent"
                 app:qb_radius="45" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
     <com.loitpcore.views.actionBar.LActionBar

@@ -608,4 +608,13 @@ Likewise may someone love you next.
     <string name="get_link">Get link</string>
     <string name="make_a_copy">Make a Copy</string>
     <string name="email_a_copy">Email a Copy</string>
+    <string name="cosmo_calendar">Cosmo Calendar</string>
+    <string name="show_flbottomselectionbar">Show FlBottomSelectionBar</string>
+    <string name="hide_flbottomselectionbar">Hide FlBottomSelectionBar</string>
+    <string name="horizontal">horizontal</string>
+    <string name="vertical">vertical</string>
+    <string name="single">single</string>
+    <string name="multiple">multiple</string>
+    <string name="range">range</string>
+    <string name="none">none</string>
 </resources>

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
@@ -15,6 +16,7 @@ import vn.loitp.app.activity.customviews.calendar.cosmoCalendar.CosmoCalendarAct
 
 @LogTag("MenuCalendarActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(value = true)
 class MenuCalendarActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
