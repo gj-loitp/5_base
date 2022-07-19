@@ -589,4 +589,5 @@ Likewise may someone love you next.
     <string name="this_is">This is</string>
     <string name="elastic_layout">Elastic Layout</string>
     <string name="shadowview_helper">ShadowView Helper</string>
+    <string name="coroutine_api">Coroutine API</string>
 </resources>
