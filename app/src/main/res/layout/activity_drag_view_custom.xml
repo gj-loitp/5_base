@@ -12,6 +12,11 @@
         android:orientation="vertical"
         tools:ignore="MissingConstraints">
 
+        <com.loitpcore.views.actionBar.LActionBar
+            android:id="@+id/lActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnMax"
             android:layout_width="match_parent"

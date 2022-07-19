@@ -1,9 +1,11 @@
 package vn.loitp.app.activity.customviews.dragView
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import com.tuanhav95.drag.DragView
 import com.tuanhav95.drag.utils.toPx
@@ -15,7 +17,7 @@ import vn.loitp.app.activity.customviews.dragView.fragment.NormalTopFragment
 import kotlin.math.max
 import kotlin.math.min
 
-@LogTag("CustomActivity")
+@LogTag("DragViewCustomActivity")
 @IsFullScreen(false)
 class DragViewCustomActivity : BaseFontActivity() {
 
@@ -30,6 +32,18 @@ class DragViewCustomActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = DragViewCustomActivity::class.java.simpleName
+        }
+
         dragView.setDragListener(object : DragView.DragListener {
             override fun onChangeState(state: DragView.State) {
             }
