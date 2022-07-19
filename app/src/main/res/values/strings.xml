@@ -596,4 +596,16 @@ Likewise may someone love you next.
     <string name="get_list_comic_fav">Danh sách truyện yêu thích</string>
     <string name="add">Add</string>
     <string name="remove">Remove</string>
+    <string name="bottom_bar_blur">Bottom Bar (Blur)</string>
+    <string name="_1">1</string>
+    <string name="_3">3</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_1_option">1 option</string>
+    <string name="_2_option">2 option</string>
+    <string name="_3_option">3 option</string>
+    <string name="preview">Preview</string>
+    <string name="get_link">Get link</string>
+    <string name="make_a_copy">Make a Copy</string>
+    <string name="email_a_copy">Email a Copy</string>
 </resources>

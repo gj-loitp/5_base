@@ -10,13 +10,13 @@
         android:layout_height="wrap_content"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingTop="@dimen/w_65">
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -36,9 +36,9 @@
                     android:background="?attr/themeBackgroundColor"
                     android:text="@string/blur_view_green"
                     android:textColor="?attr/themeTextColor" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -48,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="?attr/themeBackgroundColor"
-                    android:text="1"
+                    android:text="@string/_1"
                     android:textColor="?attr/themeTextColor" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -56,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="?attr/themeBackgroundColor"
-                    android:text="3"
+                    android:text="@string/_3"
                     android:textColor="?attr/themeTextColor" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -64,7 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="?attr/themeBackgroundColor"
-                    android:text="5"
+                    android:text="@string/_5"
                     android:textColor="?attr/themeTextColor" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -72,11 +72,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="?attr/themeBackgroundColor"
-                    android:text="6"
+                    android:text="@string/_6"
                     android:textColor="?attr/themeTextColor" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -96,7 +96,7 @@
                     android:background="?attr/themeBackgroundColor"
                     android:text="@string/always_hide_text"
                     android:textColor="?attr/themeTextColor" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -124,7 +124,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_70" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
     <com.loitpcore.views.bottomBar.LBottomBar
