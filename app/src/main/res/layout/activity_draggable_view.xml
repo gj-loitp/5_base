@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -22,8 +22,8 @@
                 android:text="@string/large_text"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
-        </LinearLayout>
-    </ScrollView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
 
     <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
@@ -41,14 +41,14 @@
         draggable_view:top_view_x_scale_factor="@dimen/x_scale_factor"
         draggable_view:top_view_y_scale_factor="@dimen/y_scale_factor">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/lvEpisodes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/ivFanArt"
             android:background="?attr/themeBackgroundColorMedium">
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -60,8 +60,8 @@
                     android:text="@string/hello_world"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
-        </ScrollView>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivFanArt"

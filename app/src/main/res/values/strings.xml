@@ -680,4 +680,7 @@ Likewise may someone love you next.
     <string name="app_bar_scrolling_with_tabs">App bar scrolling with tabs</string>
     <string name="app_bar_scrolling_with_flexible_space">App bar scrolling with Flexible space</string>
     <string name="app_bar_scrolling_with_overlapping_content_in_flexible_space">App bar scrolling with overlapping content in Flexible space</string>
+    <string name="maximize">Maximize</string>
+    <string name="minimize">Minimize</string>
+    <string name="view_header">view_header</string>
 </resources>
