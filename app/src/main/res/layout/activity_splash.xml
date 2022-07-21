@@ -21,12 +21,13 @@
         app:realtimeOverlayColor="?attr/themeBackgroundColor50" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="@dimen/w_250"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
+        android:alpha="0.5"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/logo" />
+        android:src="@drawable/loitp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
