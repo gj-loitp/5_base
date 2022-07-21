@@ -27,11 +27,11 @@
     <style name="ButtonMenu">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/w_70</item>
-        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:gravity">center</item>
         <item name="android:background">?attr/themeBackgroundColorMedium</item>
         <item name="android:textSize">@dimen/txt_medium</item>
         <item name="android:layout_marginStart">@dimen/margin_padding_medium</item>
-        <item name="android:textAllCaps">true</item>
+        <item name="android:textAllCaps">false</item>
         <item name="android:textColor">?attr/themeTextColor</item>
         <item name="android:layout_marginEnd">@dimen/margin_padding_medium</item>
         <item name="android:paddingStart">@dimen/margin_padding_medium</item>
@@ -39,7 +39,8 @@
         <item name="android:layout_marginTop">@dimen/margin_padding_small</item>
         <item name="android:layout_marginBottom">@dimen/margin_padding_small</item>
         <item name="android:foreground">?selectableItemBackground</item>
-        <item name="android:drawableEnd">@drawable/ic_keyboard_arrow_right_black_24dp</item>
+        <item name="android:drawableEnd">@drawable/ic_baseline_arrow_back_ios_24</item>
+        <item name="android:drawableStart">@drawable/ic_baseline_arrow_forward_ios_24</item>
         <item name="android:drawableTint">?attr/themeTextColor</item>
 
     </style>

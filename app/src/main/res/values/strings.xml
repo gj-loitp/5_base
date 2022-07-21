@@ -675,4 +675,9 @@ Likewise may someone love you next.
     <string name="_2">2</string>
     <string name="_4">4</string>
     <string name="show_snackbar">Show snackbar</string>
+    <string name="with_imageview">With ImageView</string>
+    <string name="standard_app_bar_scrolling_with_only_toolbar">Standard App bar scrolling with only Toolbar</string>
+    <string name="app_bar_scrolling_with_tabs">App bar scrolling with tabs</string>
+    <string name="app_bar_scrolling_with_flexible_space">App bar scrolling with Flexible space</string>
+    <string name="app_bar_scrolling_with_overlapping_content_in_flexible_space">App bar scrolling with overlapping content in Flexible space</string>
 </resources>
