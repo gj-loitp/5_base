@@ -22,7 +22,7 @@ import vn.loitp.app.activity.customviews.layout.coordinatorLayout.MenuCoordinato
 import vn.loitp.app.activity.customviews.layout.draggablePanel.DraggablePanelActivity
 import vn.loitp.app.activity.customviews.layout.draggablePanelFree.DraggablePanelFreeActivity
 import vn.loitp.app.activity.customviews.layout.draggableView.DraggableViewActivity
-import vn.loitp.app.activity.customviews.layout.expansionPanel.ExpansionLayoutMenuActivity
+import vn.loitp.app.activity.customviews.layout.expansionPanel.MenuExpansionLayoutActivity
 import vn.loitp.app.activity.customviews.layout.floatDragLayout.FloatDragLayoutActivity
 import vn.loitp.app.activity.customviews.layout.flowLayout.FlowLayoutActivity
 import vn.loitp.app.activity.customviews.layout.heartLayout.HeartLayoutActivity
@@ -123,7 +123,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
             btCoordinatorLayout -> Intent(this, MenuCoordinatorLayoutActivity::class.java)
             btSquareLayout -> Intent(this, SquareLayoutActivity::class.java)
             btRelativePopupWindow -> Intent(this, RelativePopupWindowActivity::class.java)
-            btExpansionPanel -> Intent(this, ExpansionLayoutMenuActivity::class.java)
+            btExpansionPanel -> Intent(this, MenuExpansionLayoutActivity::class.java)
             btScrollView2d -> Intent(this, ScrollView2DActivity::class.java)
             btScrollView2dAdvance -> Intent(this, ScrollView2DAdvanceActivity::class.java)
             btSwipeRevealLayout -> Intent(this, SwipeRevealLayoutActivity::class.java)

@@ -885,7 +885,7 @@
             android:name=".activity.customviews.edittext.textWatcher.EditTextTextWatcherActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.layout.expansionPanel.ExpansionLayoutMenuActivity"
+            android:name=".activity.customviews.layout.expansionPanel.MenuExpansionLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.expansionPanel.ExpansionPanelSampleActivity"

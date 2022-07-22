@@ -15,6 +15,7 @@ import com.github.florent37.expansionpanel.ExpansionHeader
 import com.github.florent37.expansionpanel.ExpansionLayout
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
 import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_expansion_panel_sample_programmatically.*
@@ -23,6 +24,7 @@ import vn.loitp.app.activity.customviews.layout.expansionPanel.Utils.dpToPx
 
 @LogTag("ExpansionPanelSampleActivityProgrammatically")
 @IsFullScreen(false)
+@IsShowAdWhenExit(true)
 class ExpansionPanelSampleActivityProgrammatically : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

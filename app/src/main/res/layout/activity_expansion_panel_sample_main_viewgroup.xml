@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColorMedium">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -44,5 +44,5 @@
 
             </com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout>
         </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.core.widget.NestedScrollView>

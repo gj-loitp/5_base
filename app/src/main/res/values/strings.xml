@@ -683,4 +683,10 @@ Likewise may someone love you next.
     <string name="maximize">Maximize</string>
     <string name="minimize">Minimize</string>
     <string name="view_header">view_header</string>
+    <string name="sample">Sample</string>
+    <string name="sample_viewgroup">Sample ViewGroup</string>
+    <string name="programmatically">Programmatically</string>
+    <string name="trip_name">Trip name</string>
+    <string name="carribean_cruise">Carribean cruise</string>
+    <string name="content">content</string>
 </resources>

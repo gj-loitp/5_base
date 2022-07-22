@@ -6,6 +6,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
@@ -14,10 +15,11 @@ import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_expansion_panel.*
 import vn.loitp.app.R
 
-@LogTag("ExpansionLayoutMenuActivity")
+@LogTag("MenuExpansionLayoutActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class ExpansionLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
+@IsShowAdWhenExit(true)
+class MenuExpansionLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_menu_expansion_panel
@@ -51,7 +53,7 @@ class ExpansionLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = ExpansionLayoutMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuExpansionLayoutActivity::class.java.simpleName
         }
         btSample.setOnClickListener(this)
         btSampleViewgroup.setOnClickListener(this)
