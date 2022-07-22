@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
     <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
@@ -16,14 +17,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/lActionBar">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/scrollView"
             style="@style/ScrollVertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true">
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -49,10 +50,7 @@
                     android:text="@string/swiperefreshlayout_scrollview"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
-
-        </ScrollView>
-
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
