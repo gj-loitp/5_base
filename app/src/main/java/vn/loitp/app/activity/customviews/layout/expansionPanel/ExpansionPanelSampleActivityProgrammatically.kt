@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.view.isVisible
 import com.github.florent37.expansionpanel.ExpansionHeader
 import com.github.florent37.expansionpanel.ExpansionLayout
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
@@ -18,6 +19,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_expansion_panel_sample_programmatically.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.expansionPanel.Utils.dpToPx
@@ -38,6 +40,18 @@ class ExpansionPanelSampleActivityProgrammatically : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ExpansionPanelSampleActivityProgrammatically::class.java.simpleName
+        }
+
         val ex1 = addDynamicLayout()
         val ex2 = addDynamicLayout()
 
