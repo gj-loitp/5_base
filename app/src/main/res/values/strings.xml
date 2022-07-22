@@ -689,4 +689,16 @@ Likewise may someone love you next.
     <string name="trip_name">Trip name</string>
     <string name="carribean_cruise">Carribean cruise</string>
     <string name="content">content</string>
+    <string name="_11111111111111111111111">11111111111111111111111</string>
+    <string name="_2222222222222222222222222222">2222222222222222222222222222</string>
+    <string name="_3333">3333</string>
+    <string name="_4444444444444444444444444444444444444444444444444">4444444444444444444444444444444444444444444444444</string>
+    <string name="_55555555555555555555555555555555">55555555555555555555555555555555</string>
+    <string name="vertical_position">VERTICAL POSITION</string>
+    <string name="horizontal_position">HORIZONTAL POSITION</string>
+    <string name="width">WIDTH</string>
+    <string name="height">HEIGHT</string>
+    <string name="fit_in_screen">Fit In Screen</string>
+    <string name="line">Line</string>
+    <string name="viewgroup_1">Viewgroup 1</string>
 </resources>

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -30,7 +36,7 @@
 
         </FrameLayout>
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/themeBackgroundColorMedium"
@@ -40,7 +46,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VERTICAL POSITION"
+                android:text="@string/vertical_position"
                 android:textColor="@color/red" />
 
             <androidx.appcompat.widget.AppCompatSpinner
@@ -53,7 +59,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="HORIZONTAL POSITION"
+                android:text="@string/horizontal_position"
                 android:textColor="@color/red" />
 
             <androidx.appcompat.widget.AppCompatSpinner
@@ -66,7 +72,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="WIDTH"
+                android:text="@string/width"
                 android:textColor="@color/red" />
 
             <androidx.appcompat.widget.AppCompatSpinner
@@ -79,7 +85,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="HEIGHT"
+                android:text="@string/height"
                 android:textColor="@color/red" />
 
             <androidx.appcompat.widget.AppCompatSpinner
@@ -95,15 +101,11 @@
                 android:layout_height="wrap_content"
                 android:buttonTint="?themeTextColor"
                 android:checked="true"
-                android:text="Fit In Screen"
+                android:text="@string/fit_in_screen"
                 android:textColor="?attr/themeTextColor" />
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <com.loitpcore.views.actionBar.LActionBar
-        android:id="@+id/lActionBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

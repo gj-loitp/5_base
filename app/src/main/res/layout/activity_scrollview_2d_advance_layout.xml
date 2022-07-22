@@ -6,7 +6,7 @@
     android:animateLayoutChanges="true"
     android:background="?attr/themeBackgroundColor">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
             android:id="@+id/btGenLine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Line"
+            android:text="@string/line"
             android:textColor="@color/red" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -29,14 +29,14 @@
             android:textColor="@color/blue"
             android:textSize="@dimen/txt_medium"
             tools:ignore="SpUsage" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/layoutControl">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/vg1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,9 +49,9 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="Viewgroup 1"
+                android:text="@string/viewgroup_1"
                 android:textColor="@color/red" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <com.loitpcore.views.scrollView.LHorizontalScrollView
             android:id="@+id/vg2"
@@ -62,7 +62,7 @@
             android:overScrollMode="never"
             android:scrollbars="none">
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/ll2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -79,7 +79,7 @@
             android:overScrollMode="never"
             android:scrollbars="none">
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/ll3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
