@@ -6,11 +6,12 @@ import android.view.View
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_recycler_view_menu.*
+import kotlinx.android.synthetic.main.activity_menu_recycler_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.book.BookViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.ConcatAdapterActivity
@@ -35,10 +36,11 @@ import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.Recycler
 @LogTag("RecyclerViewMenuActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
+@IsShowAdWhenExit(true)
 class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_menu
+        return R.layout.activity_menu_recycler_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

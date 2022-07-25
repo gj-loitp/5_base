@@ -26,7 +26,7 @@
         android:background="@color/yellow"
         android:scrollbars="none">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/red"
                 android:foreground="?selectableItemBackground"
-                android:text="Clear All"
+                android:text="@string/clear_all"
                 android:textAllCaps="false"
                 android:textColor="?attr/themeTextColor"
                 tools:ignore="UnusedAttribute" />
@@ -51,7 +51,7 @@
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="@color/blue"
                 android:foreground="?selectableItemBackground"
-                android:text="Gen About Me"
+                android:text="@string/gen_about_me"
                 android:textAllCaps="false"
                 android:textColor="?attr/themeTextColor"
                 tools:ignore="UnusedAttribute" />
@@ -63,7 +63,7 @@
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="@color/gray"
                 android:foreground="?selectableItemBackground"
-                android:text="Gen List User"
+                android:text="@string/gen_list_user"
                 android:textAllCaps="false"
                 android:textColor="?attr/themeTextColor"
                 tools:ignore="UnusedAttribute" />
@@ -75,7 +75,7 @@
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="@color/pineGreen"
                 android:foreground="?selectableItemBackground"
-                android:text="Gen Banner"
+                android:text="@string/gen_banner"
                 android:textAllCaps="false"
                 android:textColor="?attr/themeTextColor"
                 tools:ignore="UnusedAttribute" />
@@ -87,7 +87,7 @@
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="@color/lightGreen"
                 android:foreground="?selectableItemBackground"
-                android:text="Add Banner at 0"
+                android:text="@string/add_banner_at_0"
                 android:textAllCaps="false"
                 android:textColor="?attr/themeTextColor"
                 tools:ignore="UnusedAttribute" />
@@ -99,7 +99,7 @@
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="@color/deepPink"
                 android:foreground="?selectableItemBackground"
-                android:text="Add About Me at last"
+                android:text="@string/add_about_me_at_last"
                 android:textAllCaps="false"
                 android:textColor="?attr/themeTextColor"
                 tools:ignore="UnusedAttribute" />
@@ -111,10 +111,10 @@
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="@color/cyan"
                 android:foreground="?selectableItemBackground"
-                android:text="Remove adapter list user"
+                android:text="@string/remove_adapter_list_user"
                 android:textAllCaps="false"
                 android:textColor="?attr/themeTextColor"
                 tools:ignore="UnusedAttribute" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </HorizontalScrollView>
 </RelativeLayout>
