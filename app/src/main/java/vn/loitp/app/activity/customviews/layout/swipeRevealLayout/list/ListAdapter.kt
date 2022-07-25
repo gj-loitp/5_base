@@ -30,7 +30,8 @@ class ListAdapter(
         val holder: ViewHolder
 
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.view_item_swipe_reveal_layout_list, parent, false)
+            convertView =
+                mInflater.inflate(R.layout.view_item_swipe_reveal_layout_list, parent, false)
             holder = ViewHolder()
             holder.swipeLayout = convertView.findViewById(R.id.swipeLayout)
             holder.layoutFront = convertView.findViewById(R.id.layoutFront)
