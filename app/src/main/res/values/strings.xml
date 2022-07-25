@@ -711,4 +711,13 @@ Likewise may someone love you next.
     <string name="zoom_layout_textview">Zoom Layout Textview</string>
     <string name="view_hierarchy">View hierarchy</string>
     <string name="image_view">Image View</string>
+    <string name="drawer_behavior">Drawer Behavior</string>
+    <string name="advance_1">Advance 1</string>
+    <string name="advance_2">Advance 2</string>
+    <string name="advance_3">Advance 3</string>
+    <string name="advance_4">Advance 4</string>
+    <string name="advance_5_card">Advance 5 (Card)</string>
+    <string name="advance_6_rtl">Advance 6 (RTL)</string>
+    <string name="advance_3d">Advance 3D</string>
+    <string name="profile">Profile</string>
 </resources>

@@ -12,10 +12,10 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_drawer_behavior_advance6.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.app.R
-import java.util.*
 
 @LogTag("AdvanceDrawer6Activity")
 @IsFullScreen(false)
@@ -33,7 +33,7 @@ class AdvanceDrawer6Activity : BaseFontActivity(), NavigationView.OnNavigationIt
 
     private fun setupViews() {
         setSupportActionBar(toolbar)
-        fab.setOnClickListener { view ->
+        fab.setSafeOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
@@ -58,13 +58,13 @@ class AdvanceDrawer6Activity : BaseFontActivity(), NavigationView.OnNavigationIt
         }
     }
 
-    private fun setLocale(locale: Locale) {
-        val resources = resources
-        val configuration = resources.configuration
-        val displayMetrics = resources.displayMetrics
-        configuration.setLocale(locale)
-        applicationContext.createConfigurationContext(configuration)
-    }
+//    private fun setLocale(locale: Locale) {
+//        val resources = resources
+//        val configuration = resources.configuration
+//        val displayMetrics = resources.displayMetrics
+//        configuration.setLocale(locale)
+//        applicationContext.createConfigurationContext(configuration)
+//    }
 
     override fun onBackPressed() {
         if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {

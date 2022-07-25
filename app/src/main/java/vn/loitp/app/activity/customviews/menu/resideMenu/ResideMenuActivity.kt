@@ -11,7 +11,6 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.views.menu.resideMenu.ResideMenu
-import com.loitpcore.views.menu.resideMenu.ResideMenu.OnMenuListener
 import com.loitpcore.views.menu.resideMenu.ResideMenuItem
 import kotlinx.android.synthetic.main.activity_reside_menu.*
 import vn.loitp.app.R
@@ -122,15 +121,15 @@ class ResideMenuActivity : BaseFontActivity(), View.OnClickListener {
         resideMenu?.closeMenu()
     }
 
-    private val menuListener: OnMenuListener = object : OnMenuListener {
-        override fun openMenu() {
-            showShortInformation("Menu is opened!", true)
-        }
-
-        override fun closeMenu() {
-            showShortInformation("Menu is closed!", true)
-        }
-    }
+//    private val menuListener: OnMenuListener = object : OnMenuListener {
+//        override fun openMenu() {
+//            showShortInformation("Menu is opened!", true)
+//        }
+//
+//        override fun closeMenu() {
+//            showShortInformation("Menu is closed!", true)
+//        }
+//    }
 
     private fun changeFragment(targetFragment: Fragment) {
         resideMenu?.clearIgnoredViewList()
