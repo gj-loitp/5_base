@@ -171,5 +171,8 @@ dependencies {
     //animation
     api 'com.daimajia.androidanimations:library:2.4@aar'
 
+    //https://jitpack.io/private#com.gitlab.g1-data/onetarget-android
+    implementation 'com.gitlab.g1-data:onetarget-android:1.0.0'
+
 }
 //apply plugin: 'com.google.gms.google-services'

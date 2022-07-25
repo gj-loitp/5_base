@@ -98,6 +98,11 @@
                 android:text="@string/text_to_speech" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTrackingG1"
+                style="@style/ButtonMenu"
+                android:text="Tracking G1" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt2InstanceActivity"
                 style="@style/ButtonMenu"
                 android:text="@string/_2_instance_activity_parallel" />

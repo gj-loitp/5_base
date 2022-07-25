@@ -723,4 +723,5 @@ Likewise may someone love you next.
     <string name="arc_navigation">Arc Navigation</string>
     <string name="touch">Touch</string>
     <string name="window_progress">Window progress</string>
+    <string name="test_tracking">Test tracking</string>
 </resources>

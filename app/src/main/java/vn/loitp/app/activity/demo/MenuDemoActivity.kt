@@ -29,6 +29,7 @@ import vn.loitp.app.activity.demo.pdf.PdfDemoActivity
 import vn.loitp.app.activity.demo.rss.RSSActivity
 import vn.loitp.app.activity.demo.sound.SoundActivity
 import vn.loitp.app.activity.demo.textToSpeech.TextToSpeechActivity
+import vn.loitp.app.activity.demo.trackingG1.TrackingG1Activity
 import vn.loitp.app.activity.demo.twoInstanceActivity.Activity1
 
 @LogTag("MenuDemoActivity")
@@ -82,6 +83,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btFindNumber.setOnClickListener(this)
         btTTT.setOnClickListener(this)
         btRSS.setOnClickListener(this)
+        btTrackingG1.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -146,6 +148,9 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             }
             btRSS -> {
                 intent = Intent(this, RSSActivity::class.java)
+            }
+            btTrackingG1 -> {
+                intent = Intent(this, TrackingG1Activity::class.java)
             }
         }
         intent?.let {

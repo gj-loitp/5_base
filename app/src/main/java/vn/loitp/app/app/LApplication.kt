@@ -1,5 +1,7 @@
 package vn.loitp.app.app
 
+import com.g1.onetargetsdk.Analytics
+import com.g1.onetargetsdk.AnalyticsConfiguration
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.common.Constants
@@ -11,6 +13,7 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.app.R
 import vn.loitp.app.activity.database.room.db.FNBDatabase
+import vn.loitp.app.activity.service.endlessService.log
 
 // build release de check
 // TODO service -> ko stop service dc
@@ -50,5 +53,20 @@ class LApplication : BaseApplication() {
 
         // ttt database
         TTTDatabase.getInstance(this)
+
+        setupTracking()
+    }
+
+    private fun setupTracking() {
+        val configuration = AnalyticsConfiguration()
+        configuration.setEnvironmentDev()
+//        configuration.setEnvironmentProd()
+        configuration.writeKey = "ab44219f-dc9e-4080-943c-a127bd071da3"
+        configuration.email = "example@gmail.com"
+        configuration.phone = "039889981"
+        configuration.deviceId = Analytics.getDeviceId(this)
+
+        val result = Analytics.setup(configuration)
+        log("setup result $result")
     }
 }
