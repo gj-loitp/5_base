@@ -720,4 +720,7 @@ Likewise may someone love you next.
     <string name="advance_6_rtl">Advance 6 (RTL)</string>
     <string name="advance_3d">Advance 3D</string>
     <string name="profile">Profile</string>
+    <string name="arc_navigation">Arc Navigation</string>
+    <string name="touch">Touch</string>
+    <string name="window_progress">Window progress</string>
 </resources>
