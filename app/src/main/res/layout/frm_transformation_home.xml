@@ -59,7 +59,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/themeBackgroundColor"
@@ -73,7 +73,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/view_item_transformation_poster_menu" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="?attr/themeBackgroundColor"
@@ -91,9 +91,9 @@
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     app:drawableTint="?attr/themeTextColor" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </com.google.android.material.card.MaterialCardView>
 

@@ -32,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="?attr/themeTextColor"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/ic_add_black_48dp"
             app:borderWidth="0dp"
             app:tint="?attr/themeBackgroundColor" />

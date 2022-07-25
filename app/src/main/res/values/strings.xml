@@ -708,4 +708,7 @@ Likewise may someone love you next.
     <string name="bottom">Bottom</string>
     <string name="swipe_refresh_layout_with_scrollview">Swipe Refresh Layout with ScrollView</string>
     <string name="swipe_refresh_layout_with_recyclerview">Swipe Refresh Layout with RecyclerView</string>
+    <string name="zoom_layout_textview">Zoom Layout Textview</string>
+    <string name="view_hierarchy">View hierarchy</string>
+    <string name="image_view">Image View</string>
 </resources>
