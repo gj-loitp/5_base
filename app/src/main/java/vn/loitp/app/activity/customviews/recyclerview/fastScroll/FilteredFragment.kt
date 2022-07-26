@@ -27,6 +27,10 @@ class FilteredFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         val data = listOf(
             ListItem.DataItem(
                 "Every other indicator will be hidden!",

@@ -29,6 +29,10 @@ class CustomScrollFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         val data = listOf(
             ListItem.DataItem(
                 "Items will be scrolled to the top!",

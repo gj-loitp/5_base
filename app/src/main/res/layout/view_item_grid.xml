@@ -14,4 +14,3 @@
         android:padding="@dimen/margin_padding_medium"
         android:src="@drawable/face_1" />
 </FrameLayout>
-

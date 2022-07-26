@@ -10,12 +10,12 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.views.setSafeOnClickListener
 import com.thedeanda.lorem.LoremIpsum
-import kotlinx.android.synthetic.main.layout_fast_scroll_menu.*
+import kotlinx.android.synthetic.main.layout_menu_fast_scroll.*
 import vn.loitp.app.R
 
-@LogTag("SampleActivity")
+@LogTag("FastScrollMenuActivity")
 @IsFullScreen(false)
-class FastScrollMenuActivity : BaseFontActivity() {
+class MenuFastScrollActivity : BaseFontActivity() {
 
     enum class Samples(
         val title: String,
@@ -29,12 +29,16 @@ class FastScrollMenuActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.layout_fast_scroll_menu
+        return R.layout.layout_menu_fast_scroll
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         toolbar.setNavigationOnClickListener {
             supportFragmentManager.popBackStack()
         }
@@ -51,7 +55,7 @@ class FastScrollMenuActivity : BaseFontActivity() {
                                 .replace(
                                     R.id.layoutContainer,
                                     Fragment.instantiate(
-                                        this@FastScrollMenuActivity,
+                                        this@MenuFastScrollActivity,
                                         sample.fragmentClass.name
                                     )
                                 )
