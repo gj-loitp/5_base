@@ -1,7 +1,7 @@
 package vn.loitp.app.app
 
 import com.g1.onetargetsdk.Analytics
-import com.g1.onetargetsdk.AnalyticsConfiguration
+import com.g1.onetargetsdk.Configuration
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.common.Constants
@@ -54,18 +54,14 @@ class LApplication : BaseApplication() {
         // ttt database
         TTTDatabase.getInstance(this)
 
-        setupTracking()
+        setupTrackingG1()
     }
 
-    private fun setupTracking() {
-        val configuration = AnalyticsConfiguration()
+    private fun setupTrackingG1() {
+        val configuration = Configuration()
         configuration.setEnvironmentDev()
 //        configuration.setEnvironmentProd()
         configuration.writeKey = "ab44219f-dc9e-4080-943c-a127bd071da3"
-        configuration.email = "example@gmail.com"
-        configuration.phone = "039889981"
-        configuration.deviceId = Analytics.getDeviceId(this)
-
         val result = Analytics.setup(configuration)
         log("setup result $result")
     }

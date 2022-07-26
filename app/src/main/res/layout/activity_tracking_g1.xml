@@ -24,14 +24,26 @@
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btTestTracking"
+                android:id="@+id/btTestTrackingByParams"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:layout_marginTop="@dimen/margin_padding_medium"
                 android:layout_marginEnd="@dimen/margin_padding_medium"
                 android:text="@string/test_tracking"
-                android:textColor="?attr/themeTextColor" />
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_small" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTestTrackingByObjects"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
+                android:layout_marginEnd="@dimen/margin_padding_medium"
+                android:text="@string/test_tracking"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_small" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvInput"
