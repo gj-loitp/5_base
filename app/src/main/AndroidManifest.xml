@@ -185,7 +185,7 @@
             android:name=".activity.customviews.layout.rippleLayout.RippleLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.recyclerview.RecyclerViewMenuActivity"
+            android:name=".activity.customviews.recyclerview.MenuRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity

@@ -33,11 +33,11 @@ import vn.loitp.app.activity.customviews.recyclerview.normalWithSpanSize.Recycle
 import vn.loitp.app.activity.customviews.recyclerview.parallaxRecyclerView.ParallaxRecyclerViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.MenuRecyclerTabLayoutActivity
 
-@LogTag("RecyclerViewMenuActivity")
+@LogTag("MenuRecyclerViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 @IsShowAdWhenExit(true)
-class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
+class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_menu_recycler_view
@@ -59,7 +59,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
             )
             this.ivIconRight?.isVisible = false
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = RecyclerViewMenuActivity::class.java.simpleName
+            this.tvTitle?.text = MenuRecyclerViewActivity::class.java.simpleName
         }
         btParallaxRecyclerView.setOnClickListener(this)
         btNormalRecyclerView.setOnClickListener(this)
