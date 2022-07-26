@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.normalWithSpanSize
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import com.loitpcore.annotation.IsFullScreen
@@ -34,6 +35,17 @@ class RecyclerViewWithSpanSizeActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = RecyclerViewWithSpanSizeActivity::class.java.simpleName
+        }
         moviesAdapter =
             MoviesAdapter(
                 moviesList = movieList,

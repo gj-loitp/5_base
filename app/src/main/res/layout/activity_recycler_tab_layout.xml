@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/layoutHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             app:rtl_tabIndicatorColor="@color/green"
             app:rtl_tabMaxWidth="@dimen/tab_width"
             app:rtl_tabSelectedTextColor="@color/deepPink" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"

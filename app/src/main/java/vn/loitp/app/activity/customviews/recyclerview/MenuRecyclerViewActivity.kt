@@ -31,7 +31,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Recycle
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerViewWithSingletonData.RecyclerViewWithSingletonDataActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalWithSpanSize.RecyclerViewWithSpanSizeActivity
 import vn.loitp.app.activity.customviews.recyclerview.parallaxRecyclerView.ParallaxRecyclerViewActivity
-import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.RecyclerTabLayoutMenuActivity
+import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.MenuRecyclerTabLayoutActivity
 
 @LogTag("RecyclerViewMenuActivity")
 @IsFullScreen(false)
@@ -103,7 +103,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
                     Intent(this, GalleryLayoutManagerVerticalActivity::class.java)
             btBookView -> intent = Intent(this, BookViewActivity::class.java)
             btDiffUtil -> intent = Intent(this, DiffUtilActivity::class.java)
-            btRecyclerTabLayout -> intent = Intent(this, RecyclerTabLayoutMenuActivity::class.java)
+            btRecyclerTabLayout -> intent = Intent(this, MenuRecyclerTabLayoutActivity::class.java)
             btConcatAdapter -> intent = Intent(this, ConcatAdapterActivity::class.java)
             btFooter -> intent = Intent(this, RecyclerViewFooterActivity::class.java)
             btFooter2 -> intent = Intent(this, RecyclerViewFooter2Activity::class.java)

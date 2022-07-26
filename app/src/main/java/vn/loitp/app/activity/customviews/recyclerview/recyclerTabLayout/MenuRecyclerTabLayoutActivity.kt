@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_recycler_tablayout_menu.*
+import com.loitpcore.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.activity_menu_recycler_tablayout.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.autoSelect.RvTabAutoSelectActivityRvTab
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.basic.RvTabDemoBasicActivity
@@ -19,12 +21,12 @@ import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.tabOnScr
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.tabScrollDisabled.RvTabScrollDisabledActivity
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.years.RvTabYearsActivity
 
-@LogTag("RecyclerTabLayoutMenuActivity")
+@LogTag("MenuRecyclerTabLayoutActivity")
 @IsFullScreen(false)
-class RecyclerTabLayoutMenuActivity : BaseFontActivity(), AdapterView.OnItemClickListener {
+class MenuRecyclerTabLayoutActivity : BaseFontActivity(), AdapterView.OnItemClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_tablayout_menu
+        return R.layout.activity_menu_recycler_tablayout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +36,18 @@ class RecyclerTabLayoutMenuActivity : BaseFontActivity(), AdapterView.OnItemClic
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = MenuRecyclerTabLayoutActivity::class.java.simpleName
+        }
         listView.onItemClickListener = this
-//        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
         val adapter = ArrayAdapter<String>(this, R.layout.view_item_test_retrofit)
 
         for (demo in Demo.values()) {
