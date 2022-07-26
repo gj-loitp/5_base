@@ -791,4 +791,15 @@ Likewise may someone love you next.
     <string name="b">B</string>
     <string name="c">C</string>
     <string name="d">D</string>
+    <string name="you_can_get_500_credits_after_connect_and_share_the_wifi">You can get 500 credits after connect and share the WIFI</string>
+    <string name="tint_n_position_top_n_fix_size">tint \n+ position(top) \n+ fix size</string>
+    <string name="tint_n_position_left_n_fix_size">tint \n+ position(left) \n+ fix size</string>
+    <string name="tint_n_position_right_n_corner_border_only_n_fix_size">tint \n+ position(right) \n+ corner(border only) \n+ fix size</string>
+    <string name="tint_n_position_right_n_corner_bg_only_n_fix_size">tint \n+ position(right) \n+ corner(bg only) \n+ fix size</string>
+    <string name="tint_n_position_bottom_n_fix_size">tint \n+ position(bottom) \n+ fix size</string>
+    <string name="tint_n_position_top_n_auto_resizing">tint \n+ position(top) \n+ auto resizing</string>
+    <string name="wait">wait</string>
+    <string name="act">act</string>
+    <string name="fit_icon">fit icon</string>
+    <string name="_fit_icon">fit icon</string>
 </resources>

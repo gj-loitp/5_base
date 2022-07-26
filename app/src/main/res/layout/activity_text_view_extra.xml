@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/ScrollVertical"
     android:layout_width="match_parent"
@@ -9,7 +9,7 @@
     android:padding="@dimen/margin_padding_medium"
     android:scrollbarStyle="outsideOverlay">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -49,7 +49,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="tint \n+ position(top) \n+ fix size"
+                    android:text="@string/tint_n_position_top_n_fix_size"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </TableRow>
@@ -84,7 +84,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="tint \n+ position(left) \n+ fix size"
+                    android:text="@string/tint_n_position_left_n_fix_size"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </TableRow>
@@ -123,7 +123,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="tint \n+ position(right) \n+ corner(border only) \n+ fix size"
+                    android:text="@string/tint_n_position_right_n_corner_border_only_n_fix_size"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </TableRow>
@@ -161,7 +161,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="tint \n+ position(right) \n+ corner(bg only) \n+ fix size"
+                    android:text="@string/tint_n_position_right_n_corner_bg_only_n_fix_size"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </TableRow>
@@ -197,7 +197,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="tint \n+ position(bottom) \n+ fix size"
+                    android:text="@string/tint_n_position_bottom_n_fix_size"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </TableRow>
@@ -230,7 +230,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="tint \n+ position(top) \n+ auto resizing"
+                    android:text="@string/tint_n_position_top_n_auto_resizing"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </TableRow>
@@ -280,7 +280,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/deepPink"
                         android:minWidth="0dp"
-                        android:text="wait"
+                        android:text="@string/wait"
                         android:textColor="?attr/themeTextColor" />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -289,7 +289,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/yellow"
                         android:minWidth="0dp"
-                        android:text="act"
+                        android:text="@string/act"
                         android:textColor="?attr/themeTextColor" />
                 </LinearLayout>
             </TableRow>
@@ -301,7 +301,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:padding="2dp"
-            android:text="fit icon"
+            android:text="@string/fit_icon"
             android:textColor="?attr/themeTextColor"
             android:textSize="12sp"
             app:ext_txt_cornerBorderColor="?attr/themeTextColor"
@@ -328,7 +328,7 @@
                 android:focusable="true"
                 android:gravity="center"
                 android:padding="2dp"
-                android:text="fit icon"
+                android:text="@string/_fit_icon"
                 android:textSize="12sp"
                 app:ext_txt_cornerBorderColor="@color/blue"
                 app:ext_txt_cornerBorderSize="1dp"
@@ -347,7 +347,7 @@
                 android:focusable="true"
                 android:gravity="center"
                 android:padding="2dp"
-                android:text="fit icon"
+                android:text="@string/_fit_icon"
                 android:textSize="12sp"
                 app:ext_txt_cornerBorderColor="@color/deepPink"
                 app:ext_txt_cornerBorderSize="1dp"
@@ -359,5 +359,5 @@
                 app:ext_txt_idleTint="@color/deepPink" />
 
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.core.widget.NestedScrollView>
