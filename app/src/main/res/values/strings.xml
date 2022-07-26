@@ -758,4 +758,6 @@ Likewise may someone love you next.
     <string name="this_is_recyclerview_not_viewpager_ncan_use_vertical_or_horizontal">This is recyclerview, not viewpager\nCan use vertical or horizontal</string>
     <string name="add_to_position_3">Add to position 3</string>
     <string name="remove_position_1">Remove position 1</string>
+    <string name="scratchview_image">ScratchView Image</string>
+    <string name="scratchview_text">ScratchView Text</string>
 </resources>
