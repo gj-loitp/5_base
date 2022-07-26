@@ -29,7 +29,6 @@ class Footer2Adapter(private val moviesList: List<Movie>, private val callback: 
 
     inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(movie: Movie) {
-//            logD("bind MovieViewHolder: $bindingAdapterPosition")
             itemView.title.text = movie.title
             itemView.genre.text = movie.genre
             itemView.year.text = movie.year
@@ -40,9 +39,6 @@ class Footer2Adapter(private val moviesList: List<Movie>, private val callback: 
                 callback?.onLongClick(movie = movie, position = bindingAdapterPosition)
                 true
             }
-//            if (bindingAdapterPosition == moviesList.size - 1) {
-//                callback?.onLoadMore()
-//            }
         }
     }
 

@@ -48,7 +48,7 @@ class AutoSizeButtonActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            btRotate -> LActivityUtil.toggleScreenOritation(this)
+            btRotate -> LActivityUtil.toggleScreenOrientation(this)
             bt0, bt1, bt2 -> showShortInformation("Click")
         }
     }

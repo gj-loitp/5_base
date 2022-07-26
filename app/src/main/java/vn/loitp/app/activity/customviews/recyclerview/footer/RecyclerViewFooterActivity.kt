@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.footer
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,6 +40,18 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = RecyclerViewFooterActivity::class.java.simpleName
+        }
+
         moviesAdapter = MoviesAdapter(
             moviesList = instance.movieList,
             callback = object : MoviesAdapter.Callback {
@@ -150,7 +163,7 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
         if (instance.movieList.isEmpty()) {
             for (i in 0..3) {
                 val movie = Movie(
-                    title = "Loitp $i",
+                    title = "${javaClass.simpleName} $i",
                     genre = "Action & Adventure $i",
                     year = "Year: $i",
                     cover = Constants.URL_IMG

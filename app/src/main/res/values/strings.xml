@@ -751,4 +751,8 @@ Likewise may someone love you next.
     <string name="remove_adapter_list_user">Remove adapter list user</string>
     <string name="shuffle">Shuffle</string>
     <string name="update">Update</string>
+    <string name="linearlayoutmanager_vertical">LinearLayoutManager vertical</string>
+    <string name="setting">Setting</string>
+    <string name="add_more">Add more</string>
+    <string name="this_is_recyclerview_not_viewpager_ncan_use_vertical_or_horizontal">This is recyclerview, not viewpager\nCan use vertical or horizontal</string>
 </resources>
