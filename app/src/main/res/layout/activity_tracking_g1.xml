@@ -28,11 +28,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_padding_medium"
-                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:layout_marginEnd="@dimen/margin_padding_medium"
-                android:text="@string/test_tracking"
-                android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/txt_small" />
+                android:text="@string/test_tracking_params"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTestTrackingByObjects"
@@ -41,9 +39,8 @@
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:layout_marginTop="@dimen/margin_padding_medium"
                 android:layout_marginEnd="@dimen/margin_padding_medium"
-                android:text="@string/test_tracking"
-                android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/txt_small" />
+                android:text="@string/test_tracking_objects"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvInput"
@@ -53,6 +50,7 @@
                 android:layout_marginTop="@dimen/margin_padding_medium"
                 android:layout_marginEnd="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_small"
                 tools:text="@string/app_name" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -63,6 +61,7 @@
                 android:layout_marginTop="@dimen/margin_padding_medium"
                 android:layout_marginEnd="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_small"
                 tools:text="@string/app_name" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
