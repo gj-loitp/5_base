@@ -37,7 +37,7 @@ import vn.loitp.app.activity.customviews.progressLoadingView.MenuProgressLoading
 import vn.loitp.app.activity.customviews.recyclerview.MenuRecyclerViewActivity
 import vn.loitp.app.activity.customviews.scratchView.MenuScratchViewActivity
 import vn.loitp.app.activity.customviews.scrollablePanel.ScrollablePanelActivity
-import vn.loitp.app.activity.customviews.seekBar.SeekbarMenuActivity
+import vn.loitp.app.activity.customviews.seekBar.MenuSeekbarActivity
 import vn.loitp.app.activity.customviews.sticker.StickerActivity
 import vn.loitp.app.activity.customviews.switchToggle.MenuSwitchToggleActivity
 import vn.loitp.app.activity.customviews.textview.MenuTextViewActivity
@@ -127,7 +127,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btEditText -> Intent(this, MenuEditTextActivity::class.java)
             btLayout -> Intent(this, MenuLayoutActivity::class.java)
             btVideoView -> Intent(this, MenuVideoViewActivity::class.java)
-            btSeekBar -> Intent(this, SeekbarMenuActivity::class.java)
+            btSeekBar -> Intent(this, MenuSeekbarActivity::class.java)
             btRecyclerView -> Intent(this, MenuRecyclerViewActivity::class.java)
             btDialog -> Intent(this, MenuDialogActivity::class.java)
             btPopupMenu -> Intent(this, PopupMenuActivity::class.java)

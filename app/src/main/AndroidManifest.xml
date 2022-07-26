@@ -278,7 +278,7 @@
             android:name=".activity.customviews.dialog.prettyDialog.PrettyDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.seekBar.SeekbarMenuActivity"
+            android:name=".activity.customviews.seekBar.MenuSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- FOR ALARM DEMO APP -->
         <activity
@@ -915,7 +915,7 @@
             android:name=".activity.customviews.switchToggle.toggleButtonGroup.TBGFlowLabelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.switchToggle.toggleButtonGroup.TBGMenuActivity"
+            android:name=".activity.customviews.switchToggle.toggleButtonGroup.MenuTBGActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.switchToggle.toggleButtonGroup.TBGMultiSelectActivity"

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Menu Toggle Button Group" />
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
         android:id="@+id/groupWeekdays"
@@ -23,43 +23,43 @@
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="SUN"
+            android:text="@string/sun"
             android:textColor="?attr/themeTextColor" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="MON"
+            android:text="@string/mon"
             android:textColor="?attr/themeTextColor" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="TUE"
+            android:text="@string/tue"
             android:textColor="?attr/themeTextColor" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="WED"
+            android:text="@string/wed"
             android:textColor="?attr/themeTextColor" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="THU"
+            android:text="@string/thu"
             android:textColor="?attr/themeTextColor" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="FRI"
+            android:text="@string/fri"
             android:textColor="?attr/themeTextColor" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="SAT"
+            android:text="@string/sat"
             android:textColor="?attr/themeTextColor" />
 
     </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
@@ -76,4 +76,4 @@
 
     </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

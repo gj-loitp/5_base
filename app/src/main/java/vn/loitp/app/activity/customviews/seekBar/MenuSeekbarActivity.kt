@@ -3,24 +3,26 @@ package vn.loitp.app.activity.customviews.seekBar
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_seekbar_menu.*
+import com.loitpcore.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.activity_menu_seekbar.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.seekBar.boxedVerticalSeekBar.BoxedVerticalSeekBarActivity
 import vn.loitp.app.activity.customviews.seekBar.seekBar.SeekbarActivity
 import vn.loitp.app.activity.customviews.seekBar.verticalSeekBar.VerticalSeekbarActivity
 
-@LogTag("SeekbarMenuActivity")
+@LogTag("MenuSeekbarActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class SeekbarMenuActivity : BaseFontActivity(), View.OnClickListener {
+class MenuSeekbarActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_seekbar_menu
+        return R.layout.activity_menu_seekbar
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +32,17 @@ class SeekbarMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = MenuSeekbarActivity::class.java.simpleName
+        }
         btBoxedVerticalSeekbar.setOnClickListener(this)
         btVerticalSeekBar.setOnClickListener(this)
         btSeekBar.setOnClickListener(this)

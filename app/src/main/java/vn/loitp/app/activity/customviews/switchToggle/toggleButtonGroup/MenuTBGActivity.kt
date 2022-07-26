@@ -2,21 +2,23 @@ package vn.loitp.app.activity.customviews.switchToggle.toggleButtonGroup
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_switch_tbg_menu.*
+import kotlinx.android.synthetic.main.activity_menu_switch_tbg.*
 import vn.loitp.app.R
 
 // https://github.com/nex3z/ToggleButtonGroup
 @LogTag("TBGMenuActivity")
 @IsFullScreen(false)
-class TBGMenuActivity : BaseFontActivity() {
+class MenuTBGActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_switch_tbg_menu
+        return R.layout.activity_menu_switch_tbg
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +28,18 @@ class TBGMenuActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = MenuTBGActivity::class.java.simpleName
+        }
+
         btnMultiSelectSample.setSafeOnClickListener {
             val intent = Intent(this, TBGMultiSelectActivity::class.java)
             startActivity(intent)

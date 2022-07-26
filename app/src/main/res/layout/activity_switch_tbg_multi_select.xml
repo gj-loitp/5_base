@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Menu Toggle Button Group" />
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
         android:id="@+id/groupWeekdays"
@@ -21,52 +21,52 @@
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="S"
+            android:text="@string/s"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="M"
+            android:text="@string/m"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="T"
+            android:text="@string/t"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="W"
+            android:text="@string/w"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="T"
+            android:text="@string/t"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="F"
+            android:text="@string/f"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="S"
+            android:text="@string/s"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
     </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
