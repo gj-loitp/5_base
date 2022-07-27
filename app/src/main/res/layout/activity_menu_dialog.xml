@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -20,7 +20,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCustomDialog"
                 style="@style/ButtonMenu"
-                android:text="Custom dialog" />
+                android:text="@string/custom_dialog" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCustomProgressDialog"
@@ -41,7 +41,7 @@
                 android:id="@+id/btSlideImages"
                 style="@style/ButtonMenu"
                 android:text="@string/slide_images" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
     <com.loitpcore.views.actionBar.LActionBar

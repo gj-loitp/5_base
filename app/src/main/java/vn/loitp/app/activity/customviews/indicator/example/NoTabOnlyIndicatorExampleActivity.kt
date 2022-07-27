@@ -3,9 +3,11 @@ package vn.loitp.app.activity.customviews.indicator.example
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_no_tab_only_indicator_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
@@ -29,6 +31,7 @@ class NoTabOnlyIndicatorExampleActivity : BaseFontActivity() {
 
     private val mDataList = mutableListOf(*CHANNELS)
     private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
+
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_no_tab_only_indicator_example_layout
     }
@@ -36,6 +39,21 @@ class NoTabOnlyIndicatorExampleActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = NoTabOnlyIndicatorExampleActivity::class.java.simpleName
+        }
         viewPager.adapter = mExamplePagerAdapter
         initMagicIndicator1()
         initMagicIndicator2()

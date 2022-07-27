@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
-    <com.loitpcore.views.textView.countDown.LCountDownView
-        android:id="@+id/countDownView"
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btStart"
-        style="@style/ButtonMenu"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/margin_padding_medium"
-        android:text="@string/start" />
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.loitpcore.views.textView.countDown.LCountDownView
+            android:id="@+id/countDownView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btStart"
+            style="@style/ButtonMenu"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/margin_padding_medium"
+            android:text="@string/start" />
+    </RelativeLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

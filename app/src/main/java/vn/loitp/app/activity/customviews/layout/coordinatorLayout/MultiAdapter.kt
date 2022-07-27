@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
@@ -35,7 +35,7 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         var title: TextView = view.findViewById(R.id.title)
         var year: TextView = view.findViewById(R.id.year)
         var genre: TextView = view.findViewById(R.id.genre)
-        var rootView: LinearLayout = view.findViewById(R.id.rootView)
+        var rootView: LinearLayoutCompat = view.findViewById(R.id.rootView)
 
         fun bind(movie: Movie) {
             title.text = movie.title

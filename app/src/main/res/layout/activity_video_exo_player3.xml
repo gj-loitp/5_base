@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/darkCyan">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -15,18 +15,18 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt0To1"
             style="@style/ButtonMenu"
-            android:text="Switch 0-1" />
+            android:text="@string/switch_0_1" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt1To0"
             style="@style/ButtonMenu"
-            android:text="Switch 1_0" />
+            android:text="@string/switch_1_0" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/margin_padding_medium"
-            android:text="PlayerView 0"
+            android:text="@string/playerview_0"
             android:textColor="@color/white" />
 
         <com.google.android.exoplayer2.ui.PlayerView
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/margin_padding_medium"
-            android:text="PlayerView 1"
+            android:text="@string/playerview_1"
             android:textColor="?attr/themeTextColor" />
 
         <com.google.android.exoplayer2.ui.PlayerView
@@ -49,5 +49,5 @@
             android:layout_height="wrap_content"
             android:keepScreenOn="true"
             app:auto_show="false" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </RelativeLayout>

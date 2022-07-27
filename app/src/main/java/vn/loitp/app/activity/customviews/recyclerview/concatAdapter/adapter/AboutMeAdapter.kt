@@ -45,6 +45,7 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : BaseAdapter(
         )
 
     override fun getItemCount(): Int = listAboutMe.size
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is DataViewHolder) {
             holder.bind(aboutMe = listAboutMe[position])

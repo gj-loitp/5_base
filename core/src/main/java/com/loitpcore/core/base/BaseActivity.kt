@@ -148,7 +148,9 @@ abstract class BaseActivity : AppCompatActivity() {
         if (isAutoAnimation) {
             SwitchAnimationUtil().startAnimation(
                 root = window.decorView,
-                type = SwitchAnimationUtil.AnimationType.SCALE
+                type = SwitchAnimationUtil.AnimationType.ALPHA
+//                type = SwitchAnimationUtil.AnimationType.SCALE
+//                type = SwitchAnimationUtil.AnimationType.FLIP_VERTICAL
             )
         }
 

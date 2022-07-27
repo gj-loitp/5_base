@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.layout.chess
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -29,7 +28,6 @@ class ChessLayoutActivity : BaseFontActivity() {
     private var mCols = 10
     private val listData = ArrayList<String>()
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

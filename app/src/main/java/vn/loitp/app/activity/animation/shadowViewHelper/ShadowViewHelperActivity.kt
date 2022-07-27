@@ -3,10 +3,13 @@ package vn.loitp.app.activity.animation.shadowViewHelper
 import android.graphics.Color
 import android.os.Bundle
 import androidx.core.view.ViewCompat
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LDisplayUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.shadowViewHelper.ShadowProperty
 import com.loitpcore.views.shadowViewHelper.ShadowViewDrawable
 import kotlinx.android.synthetic.main.activity_animation_shadow_view_helper.*
@@ -15,6 +18,7 @@ import vn.loitp.app.R
 // https://github.com/wangjiegulu/ShadowViewHelper?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=1884
 @LogTag("ShadowViewHelperActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(value = false)
 class ShadowViewHelperActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
@@ -23,6 +27,22 @@ class ShadowViewHelperActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ShadowViewHelperActivity::class.java.simpleName
+        }
 
         setAllSide()
         setCustomSide()

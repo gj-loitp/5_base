@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
     <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/lActionBar"
@@ -23,7 +24,7 @@
             android:layout_height="wrap_content"
             android:background="@color/red"
             android:gravity="center"
-            android:text="This is recyclerview, not viewpager\nCan use vertical or horizontal"
+            android:text="@string/this_is_recyclerview_not_viewpager_ncan_use_vertical_or_horizontal"
             android:textColor="?attr/themeTextColor"
             android:textStyle="bold" />
 
@@ -50,6 +51,6 @@
             android:layout_weight="1"
             android:visibility="gone"
             tools:visibility="visible" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

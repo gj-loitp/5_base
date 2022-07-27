@@ -1,9 +1,11 @@
 package vn.loitp.app.activity.customviews.viewPager.vertical
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_view_pager_vertical.*
 import vn.loitp.app.R
 
@@ -21,15 +23,30 @@ class ViewPagerVerticalActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         addData()
-        viewPager.adapter = VerticalAdapter(
-            supportFragmentManager,
-            stringList
-        )
+        setupViews()
     }
 
     private fun addData() {
         for (i in 0..7) {
             stringList.add(i.toString())
         }
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ViewPagerVerticalActivity::class.java.simpleName
+        }
+        viewPager.adapter = VerticalAdapter(
+            supportFragmentManager,
+            stringList
+        )
     }
 }

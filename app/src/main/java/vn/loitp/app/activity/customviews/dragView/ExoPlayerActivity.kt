@@ -1,7 +1,11 @@
 package vn.loitp.app.activity.customviews.dragView
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import com.tuanhav95.drag.DragView
 import com.tuanhav95.drag.utils.toPx
@@ -13,16 +17,32 @@ import vn.loitp.app.activity.customviews.dragView.fragment.ExoPlayerTopFragment
 import kotlin.math.max
 import kotlin.math.min
 
-class ExoPlayerActivity : AppCompatActivity() {
+@LogTag("ExoPlayerActivity")
+@IsFullScreen(false)
+class ExoPlayerActivity : BaseFontActivity() {
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_drag_view_custom
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_drag_view_custom)
 
         setupViews()
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ExoPlayerActivity::class.java.simpleName
+        }
+
         dragView.setDragListener(object : DragView.DragListener {
             override fun onChangeState(state: DragView.State) {
             }

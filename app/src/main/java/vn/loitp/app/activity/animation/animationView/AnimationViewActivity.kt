@@ -3,6 +3,7 @@ package vn.loitp.app.activity.animation.animationView
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -30,6 +31,17 @@ class AnimationViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = AnimationViewActivity::class.java.simpleName
+        }
         setupAnimList()
         btSelectAnim.setOnClickListener {
             showDialogSelectAnim()

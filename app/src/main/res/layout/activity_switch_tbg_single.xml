@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Single click" />
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
         android:id="@+id/groupChoices"
@@ -22,31 +22,31 @@
             android:id="@+id/choiceA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A"
+            android:text="@string/a"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="B"
+            android:text="@string/b"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="C"
+            android:text="@string/c"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="D"
+            android:text="@string/d"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
     </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

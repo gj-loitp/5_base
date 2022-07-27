@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -43,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bt_tag"
-                android:text="11111111111111111111111"
+                android:text="@string/_11111111111111111111111"
                 android:textColor="@color/red"
                 android:textSize="@dimen/txt_medium" />
 
@@ -52,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bt_tag"
-                android:text="2222222222222222222222222222"
+                android:text="@string/_2222222222222222222222222222"
                 android:textColor="@color/blue"
                 android:textSize="@dimen/txt_medium" />
 
@@ -61,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bt_tag"
-                android:text="3333"
+                android:text="@string/_3333"
                 android:textColor="@color/green"
                 android:textSize="@dimen/txt_large" />
 
@@ -70,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bt_tag"
-                android:text="4444444444444444444444444444444444444444444444444"
+                android:text="@string/_4444444444444444444444444444444444444444444444444"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/txt_largest" />
 
@@ -79,15 +85,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@drawable/bt_tag"
-                android:text="55555555555555555555555555555555"
+                android:text="@string/_55555555555555555555555555555555"
                 android:textColor="@color/red"
                 android:textSize="@dimen/txt_medium" />
         </com.loitpcore.views.layout.flow.FlowLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.loitpcore.views.actionBar.LActionBar
-        android:id="@+id/lActionBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
-
+</androidx.appcompat.widget.LinearLayoutCompat>

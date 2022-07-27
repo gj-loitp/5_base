@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -34,7 +34,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="@dimen/margin_padding_medium"
-                    android:text="16 : 9"
+                    android:text="@string/_16_9"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -57,12 +57,12 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="@dimen/margin_padding_medium"
-                    android:text="4 : 3"
+                    android:text="@string/_4_3"
                     android:textColor="@color/black"
                     android:textSize="@dimen/txt_medium" />
 
             </com.loitpcore.views.layout.aspectRatio.LAspectRatioLayout>
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
     <com.loitpcore.views.actionBar.LActionBar

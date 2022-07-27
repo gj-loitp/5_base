@@ -11,10 +11,12 @@ import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_animation_scene_transition_basic.*
 import vn.loitp.app.R
 
@@ -33,6 +35,17 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = SceneTransitionBasicActivity::class.java.simpleName
+        }
         gridView.onItemClickListener = this
         val gridAdapter = GridAdapter()
         gridView.adapter = gridAdapter
@@ -59,9 +72,6 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
         ActivityCompat.startActivity(this, intent, activityOptions.toBundle())
     }
 
-    /**
-     * [android.widget.BaseAdapter] which displays items.
-     */
     private inner class GridAdapter : BaseAdapter() {
 
         override fun getCount(): Int {
@@ -91,7 +101,6 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
                 imageView = imageViewItem
             )
 
-            // Set the TextView's contents
             val textViewName = view?.findViewById<TextView>(R.id.textViewName)
             textViewName?.text = item.name
 

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Menu Toggle Button Group" />
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_padding_medium"
-        android:text="SingleSelectToggleGroup with RadioButton"
+        android:text="@string/singleselecttogglegroup_with_radiobutton"
         android:textColor="?attr/themeTextColor" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
@@ -31,7 +31,7 @@
             android:background="@drawable/selector_bg_radio_button"
             android:button="@null"
             android:gravity="center"
-            android:text="lorem"
+            android:text="@string/_lorem"
             android:textColor="@color/selector_text_radio_button" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
@@ -41,7 +41,7 @@
             android:background="@drawable/selector_bg_radio_button"
             android:button="@null"
             android:gravity="center"
-            android:text="ipsum"
+            android:text="@string/ipsum"
             android:textColor="@color/selector_text_radio_button" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
@@ -51,7 +51,7 @@
             android:background="@drawable/selector_bg_radio_button"
             android:button="@null"
             android:gravity="center"
-            android:text="dolor"
+            android:text="@string/dolor"
             android:textColor="@color/selector_text_radio_button" />
 
     </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_padding_medium"
-        android:text="MultiSelectToggleGroup with CustomCompoundButton extending CompoundButton"
+        android:text="@string/multiselecttogglegroup_with_customcompoundbutton_extending_compoundbutton"
         android:textColor="?attr/themeTextColor" />
 
     <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:gravity="center"
-            android:text="lorem"
+            android:text="@string/_lorem"
             android:textColor="?attr/themeTextColor" />
 
         <vn.loitp.app.activity.customviews.switchToggle.toggleButtonGroup.button.CustomCompoundButton
@@ -82,7 +82,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin_padding_medium"
             android:gravity="center"
-            android:text="ipsum"
+            android:text="@string/ipsum"
             android:textColor="?attr/themeTextColor" />
 
         <vn.loitp.app.activity.customviews.switchToggle.toggleButtonGroup.button.CustomCompoundButton
@@ -90,7 +90,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin_padding_medium"
             android:gravity="center"
-            android:text="dolor"
+            android:text="@string/dolor"
             android:textColor="?attr/themeTextColor" />
 
     </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
@@ -99,7 +99,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_padding_medium"
-        android:text="MultiSelectToggleGroup with CustomToggleButton implementing ToggleButton"
+        android:text="@string/multiselecttogglegroup_with_customtogglebutton_implementing_togglebutton"
         android:textColor="?attr/themeTextColor" />
 
     <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
@@ -114,7 +114,7 @@
             android:layout_height="40dp"
             android:background="@drawable/selector_bg_radio_button"
             android:gravity="center"
-            android:text="lorem"
+            android:text="@string/_lorem"
             android:textColor="@color/selector_text_radio_button" />
 
         <vn.loitp.app.activity.customviews.switchToggle.toggleButtonGroup.button.CustomToggleButton
@@ -123,7 +123,7 @@
             android:layout_marginStart="@dimen/margin_padding_medium"
             android:background="@drawable/selector_bg_radio_button"
             android:gravity="center"
-            android:text="ipsum"
+            android:text="@string/ipsum"
             android:textColor="@color/selector_text_radio_button" />
 
         <vn.loitp.app.activity.customviews.switchToggle.toggleButtonGroup.button.CustomToggleButton
@@ -132,7 +132,7 @@
             android:layout_marginStart="@dimen/margin_padding_medium"
             android:background="@drawable/selector_bg_radio_button"
             android:gravity="center"
-            android:text="dolor"
+            android:text="@string/dolor"
             android:textColor="@color/selector_text_radio_button" />
 
     </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
@@ -141,7 +141,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_padding_medium"
-        android:text="SingleSelectToggleGroup with CustomCompoundToggleButton extending CompoundToggleButton"
+        android:text="@string/singleselecttogglegroup_with_customcompoundtogglebutton_extending_compoundtogglebutton"
         android:textColor="?attr/themeTextColor" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
@@ -178,4 +178,4 @@
 
     </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

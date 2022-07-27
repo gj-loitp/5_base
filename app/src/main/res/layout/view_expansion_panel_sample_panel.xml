@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -23,18 +24,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="Trip name"
+                android:text="@string/trip_name"
                 android:textColor="@color/red"
-                android:textSize="@dimen/txt_medium" />
+                android:textSize="@dimen/txt_medium"
+                tools:ignore="RelativeOverlap" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="120dp"
-                android:text="Carribean cruise"
+                android:text="@string/carribean_cruise"
                 android:textColor="@color/blue"
-                android:textSize="@dimen/txt_medium" />
+                android:textSize="@dimen/txt_medium"
+                tools:ignore="RelativeOverlap" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/headerIndicator"
@@ -56,7 +59,7 @@
         android:layout_height="wrap_content"
         app:expansion_expanded="false">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,10 +70,10 @@
                 android:layout_height="100dp"
                 android:background="@color/gray"
                 android:gravity="center"
-                android:text="content"
+                android:text="@string/content"
                 android:textSize="@dimen/txt_medium" />
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </com.github.florent37.expansionpanel.ExpansionLayout>
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

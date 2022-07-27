@@ -22,7 +22,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCoroutineAPI"
                 style="@style/ButtonMenu"
-                android:text="Coroutine API" />
+                android:text="@string/coroutine_api" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGalleryAPI"

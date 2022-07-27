@@ -2,20 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menuLinearVertical"
-        android:title="@string/linearlayoutmanager_vertical" />
+        android:title="@string/linear_layout_manager_vertical" />
     <item
         android:id="@+id/menuLinearHorizontal"
-        android:title="@string/linearlayoutmanager_horizontal" />
+        android:title="@string/linear_layout_manager_horizontal" />
     <item
         android:id="@+id/menuGridLayoutManager2"
-        android:title="@string/gridlayoutmanager_2" />
+        android:title="@string/grid_layout_manager_2" />
     <item
         android:id="@+id/menuGridLayoutManager3"
-        android:title="@string/gridlayoutmanager_3" />
+        android:title="@string/grid_layout_manager_3" />
     <item
         android:id="@+id/menuStaggeredGridLayoutManager2"
-        android:title="@string/staggeredgridlayoutmanager_2_vertical" />
+        android:title="@string/staggered_grid_layout_manager_2_vertical" />
     <item
         android:id="@+id/menuStaggeredGridLayoutManager4"
-        android:title="@string/staggeredgridlayoutmanager_4_horizontal" />
+        android:title="@string/staggered_grid_layout_manager_4_horizontal" />
 </menu>

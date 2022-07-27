@@ -27,7 +27,7 @@ class HomeFragment : BaseFragment() {
         val parentActivity = activity as ResideMenuActivity
         resideMenu = parentActivity.resideMenu
 
-        btOpenMenu.setOnClickListener { view: View? ->
+        btOpenMenu.setOnClickListener {
             resideMenu?.openMenu(ResideMenu.DIRECTION_LEFT)
         }
 

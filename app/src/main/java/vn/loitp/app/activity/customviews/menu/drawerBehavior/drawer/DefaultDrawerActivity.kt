@@ -10,6 +10,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_drawer_behavior_default.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.app.R
@@ -30,7 +31,7 @@ class DefaultDrawerActivity : BaseFontActivity(), NavigationView.OnNavigationIte
 
     private fun setupViews() {
         setSupportActionBar(toolbar)
-        fab.setOnClickListener { view ->
+        fab.setSafeOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }

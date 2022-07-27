@@ -2,10 +2,12 @@ package vn.loitp.app.activity.customviews.imageview.bigImageView
 
 import android.net.Uri
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.github.piasy.biv.view.GlideImageViewFactory
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_big_image_view_with_scroll_view.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
@@ -26,6 +28,18 @@ class BigImageViewWithScrollViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = BigImageViewWithScrollViewActivity::class.java.simpleName
+        }
+
         biv0.setImageViewFactory(GlideImageViewFactory())
         biv1.setImageViewFactory(GlideImageViewFactory())
         biv2.setImageViewFactory(GlideImageViewFactory())

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
-    android:padding="@dimen/margin_padding_medium">
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <com.loitpcore.views.textView.zoom.LZoomTextView
         android:layout_width="match_parent"
@@ -14,4 +19,4 @@
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />
 
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

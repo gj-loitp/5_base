@@ -1,65 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
-        style="@style/ScrollVertical"
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/layoutControl" />
+        android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:id="@+id/ll"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/themeBackgroundColorMedium"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvType"
-            android:layout_width="0dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            style="@style/ScrollVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layoutControl" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="LinearLayoutManager vertical"
-            android:textColor="?attr/themeTextColor"
-            android:textStyle="bold" />
+            android:background="?attr/themeBackgroundColorMedium"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btSetting"
-            android:layout_width="wrap_content"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/linearlayoutmanager_vertical"
+                android:textColor="?attr/themeTextColor"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSetting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:text="@string/setting"
+                android:textColor="?attr/themeTextColor" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layoutControl"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/red"
-            android:text="Setting"
-            android:textColor="?attr/themeTextColor" />
-    </LinearLayout>
+            android:layout_below="@+id/ll"
+            android:background="?attr/themeBackgroundColorMedium"
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:id="@+id/layoutControl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ll"
-        android:background="?attr/themeBackgroundColorMedium"
-        android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAdd3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/green"
+                android:text="@string/add_to_position_3"
+                android:textColor="?attr/themeTextColor" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btAdd3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/green"
-            android:text="Add to position 3"
-            android:textColor="?attr/themeTextColor" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRemove1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/deepPink"
+                android:text="@string/remove_position_1"
+                android:textColor="?attr/themeTextColor" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </RelativeLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btRemove1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/deepPink"
-            android:text="Remove position 1"
-            android:textColor="?attr/themeTextColor" />
-    </LinearLayout>
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

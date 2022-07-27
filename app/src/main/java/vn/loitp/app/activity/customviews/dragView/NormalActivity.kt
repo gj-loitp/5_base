@@ -1,9 +1,11 @@
 package vn.loitp.app.activity.customviews.dragView
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import com.tuanhav95.drag.DragView
 import kotlinx.android.synthetic.main.activity_drag_view_normal.*
@@ -11,7 +13,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.dragView.fragment.BottomFragment
 import vn.loitp.app.activity.customviews.dragView.fragment.NormalTopFragment
 
-@LogTag("MenuCustomViewsActivity")
+@LogTag("NormalActivity")
 @IsFullScreen(false)
 class NormalActivity : BaseFontActivity() {
 
@@ -26,6 +28,17 @@ class NormalActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = NormalActivity::class.java.simpleName
+        }
         dragView.setDragListener(object : DragView.DragListener {
             override fun onChangeState(state: DragView.State) {
             }

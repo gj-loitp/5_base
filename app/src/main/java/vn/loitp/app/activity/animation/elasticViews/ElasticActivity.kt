@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.animation.elasticViews
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -9,7 +10,7 @@ import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_elastic_view.*
 import vn.loitp.app.R
 
-@LogTag("MenuAnimationActivity")
+@LogTag("ElasticActivity")
 @IsFullScreen(false)
 class ElasticActivity : BaseFontActivity() {
 
@@ -24,6 +25,18 @@ class ElasticActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ElasticActivity::class.java.simpleName
+        }
+
         // don't remove this code below
         elasticButton.setSafeOnClickListener {
         }

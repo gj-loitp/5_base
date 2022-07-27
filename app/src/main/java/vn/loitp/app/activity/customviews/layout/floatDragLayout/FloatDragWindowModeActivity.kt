@@ -3,9 +3,11 @@ package vn.loitp.app.activity.customviews.layout.floatDragLayout
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.FrameLayout
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.layout.floatDrag.DisplayUtil
 import com.loitpcore.views.layout.floatDrag.FloatDragLayout
 import kotlinx.android.synthetic.main.activity_0.*
@@ -26,6 +28,18 @@ class FloatDragWindowModeActivity : BaseActivity() {
     }
 
     fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = FloatDragWindowModeActivity::class.java.simpleName
+        }
+
         val floatDragLayout = FloatDragLayout(this)
         floatDragLayout.setBackgroundResource(R.drawable.ic_launcher_loitp)
         val size = DisplayUtil.dp2px(this, 45)

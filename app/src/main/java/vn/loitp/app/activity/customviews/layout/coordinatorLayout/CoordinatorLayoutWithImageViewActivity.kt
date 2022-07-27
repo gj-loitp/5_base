@@ -22,6 +22,10 @@ class CoordinatorLayoutWithImageViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         appBarLayout.addOnOffsetChangedListener { _: AppBarLayout?, verticalOffset: Int ->
             val matrix = Matrix(imgCover.imageMatrix)
 

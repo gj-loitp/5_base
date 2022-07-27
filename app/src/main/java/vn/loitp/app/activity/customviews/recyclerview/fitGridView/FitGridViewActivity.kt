@@ -2,9 +2,11 @@ package vn.loitp.app.activity.customviews.recyclerview.fitGridView
 
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.recyclerView.fitGridView.FitGridView
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_fit_grid_view.*
@@ -25,6 +27,17 @@ class FitGridViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = FitGridViewActivity::class.java.simpleName
+        }
         gridView.setFitGridAdapter(
             Adapter(this) { pos ->
                 showShortInformation("Click $pos")

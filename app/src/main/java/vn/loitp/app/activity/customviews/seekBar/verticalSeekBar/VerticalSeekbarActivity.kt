@@ -2,9 +2,11 @@ package vn.loitp.app.activity.customviews.seekBar.verticalSeekBar
 
 import android.os.Bundle
 import android.widget.SeekBar
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_seekbar_vertical.*
 import vn.loitp.app.R
 
@@ -25,6 +27,18 @@ class VerticalSeekbarActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = VerticalSeekbarActivity::class.java.simpleName
+        }
+
         seekBar1.max = 100
         seekBar1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {

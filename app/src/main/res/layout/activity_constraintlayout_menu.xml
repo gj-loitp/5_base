@@ -5,14 +5,14 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -22,30 +22,30 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btConstraintSet"
                 style="@style/ButtonMenu"
-                android:text="ConstraintSet" />
+                android:text="@string/constraintset" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCustomBehavior"
                 style="@style/ButtonMenu"
-                android:text="Custom Behavior" />
+                android:text="@string/custom_behavior" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDemo"
                 style="@style/ButtonMenu"
-                android:text="Demo" />
+                android:text="@string/demo" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFabAndSnackBar"
                 style="@style/ButtonMenu"
-                android:text="FabAndSnackbarActivity" />
+                android:text="@string/fab_and_snackbar_activity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFabFollowWidget"
                 style="@style/ButtonMenu"
-                android:text="Fab follow widget" />
+                android:text="@string/fab_follow_widget" />
 
-        </LinearLayout>
-    </ScrollView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
 
     <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"

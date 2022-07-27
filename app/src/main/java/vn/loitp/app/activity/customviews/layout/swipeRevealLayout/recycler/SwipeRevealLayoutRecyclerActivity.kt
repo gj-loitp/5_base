@@ -43,13 +43,13 @@ class SwipeRevealLayoutRecyclerActivity : BaseFontActivity() {
 
     private fun setupList() {
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerAdapter = RecyclerAdapter(this, createList(20))
+        recyclerAdapter = RecyclerAdapter(this, createList())
         recyclerView.adapter = recyclerAdapter
     }
 
-    private fun createList(n: Int): List<String> {
+    private fun createList(): List<String> {
         val list: MutableList<String> = ArrayList()
-        for (i in 0 until n) {
+        for (i in 0 until 20) {
             list.add("View $i")
         }
         return list

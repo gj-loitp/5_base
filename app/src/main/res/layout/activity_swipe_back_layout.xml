@@ -31,7 +31,7 @@
                 android:layout_marginBottom="16dp"
                 android:buttonTint="?attr/themeTextColor"
                 android:checked="true"
-                android:text="Left"
+                android:text="@string/left"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatRadioButton
@@ -43,7 +43,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
                 android:buttonTint="?attr/themeTextColor"
-                android:text="Top"
+                android:text="@string/top"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatRadioButton
@@ -55,7 +55,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
                 android:buttonTint="?attr/themeTextColor"
-                android:text="Right"
+                android:text="@string/right"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatRadioButton
@@ -67,7 +67,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
                 android:buttonTint="?attr/themeTextColor"
-                android:text="Bottom"
+                android:text="@string/bottom"
                 android:textColor="?attr/themeTextColor" />
         </RadioGroup>
 

@@ -129,6 +129,8 @@ class LUIUtil {
             val listTestDevice = ArrayList<String>()
             listTestDevice.add(AdRequest.DEVICE_ID_EMULATOR)
             listTestDevice.add(Constants.TEST_22)
+            listTestDevice.add(Constants.TEST_XIAOMI_REDMI_NOTE_8_PRO)
+            listTestDevice.add(Constants.TEST_SAMSUNG_A50S)
             return listTestDevice
         }
 
@@ -195,9 +197,6 @@ class LUIUtil {
             }
         }
 
-        /*
-         * set text marquee
-         */
         fun setMarquee(tv: TextView?, text: String?) {
             tv?.let { t ->
                 t.text = text
@@ -303,12 +302,6 @@ class LUIUtil {
                     FrameLayout.LayoutParams.MATCH_PARENT
                 )
             }
-            // settext allcap = false
-            /*for (int tabIndex = 0; tabIndex < tabLayout.getTabCount(); tabIndex++) {
-                TextView tabTextView = (TextView) (((LinearLayout) ((LinearLayout) tabLayout.getChildAt(0)).getChildAt(tabIndex)).getChildAt(1));
-                tabTextView.setAllCaps(false);
-                setTextAppearance(context, tabTextView, android.R.style.TextAppearance_Medium);
-            }*/
         }
 
         @Suppress("DEPRECATION")

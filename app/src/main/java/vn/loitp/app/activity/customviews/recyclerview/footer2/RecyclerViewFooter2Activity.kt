@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.footer2
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,6 +40,17 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = RecyclerViewFooter2Activity::class.java.simpleName
+        }
         footer2Adapter = Footer2Adapter(
             moviesList = instance.movieList,
             callback = object : Footer2Adapter.Callback {

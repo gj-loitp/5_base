@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.netView
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.animation.OvershootInterpolator
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.SimpleOnItemTouchListener
@@ -10,6 +11,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LScreenUtil
+import com.loitpcore.core.utilities.LUIUtil
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_net_view.*
 import vn.loitp.app.R
@@ -36,6 +38,17 @@ class NetViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = NetViewActivity::class.java.simpleName
+        }
         netAdapter.onClickRootView = { net ->
             showShortInformation(net.name)
         }

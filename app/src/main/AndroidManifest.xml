@@ -21,7 +21,7 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/LightTheme"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:replace="android:name,android:allowBackup">
+        tools:replace="android:name,android:allowBackup,android:theme">
 
         <activity
             android:name=".activity.SplashActivity"
@@ -185,7 +185,7 @@
             android:name=".activity.customviews.layout.rippleLayout.RippleLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.recyclerview.RecyclerViewMenuActivity"
+            android:name=".activity.customviews.recyclerview.MenuRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -278,7 +278,7 @@
             android:name=".activity.customviews.dialog.prettyDialog.PrettyDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.seekBar.SeekbarMenuActivity"
+            android:name=".activity.customviews.seekBar.MenuSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- FOR ALARM DEMO APP -->
         <activity
@@ -779,7 +779,7 @@
             android:name=".activity.customviews.imageview.kenburnView.KenburnViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.recyclerview.recyclerTabLayout.RecyclerTabLayoutMenuActivity"
+            android:name=".activity.customviews.recyclerview.recyclerTabLayout.MenuRecyclerTabLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.recyclerview.recyclerTabLayout.autoSelect.RvTabAutoSelectActivityRvTab"
@@ -885,7 +885,7 @@
             android:name=".activity.customviews.edittext.textWatcher.EditTextTextWatcherActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.layout.expansionPanel.ExpansionLayoutMenuActivity"
+            android:name=".activity.customviews.layout.expansionPanel.MenuExpansionLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.expansionPanel.ExpansionPanelSampleActivity"
@@ -915,7 +915,7 @@
             android:name=".activity.customviews.switchToggle.toggleButtonGroup.TBGFlowLabelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.switchToggle.toggleButtonGroup.TBGMenuActivity"
+            android:name=".activity.customviews.switchToggle.toggleButtonGroup.MenuTBGActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.switchToggle.toggleButtonGroup.TBGMultiSelectActivity"
@@ -1072,7 +1072,7 @@
             android:name=".activity.customviews.recyclerview.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.recyclerview.fastScroll.FastScrollMenuActivity"
+            android:name=".activity.customviews.recyclerview.fastScroll.MenuFastScrollActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.function.pump.PumpActivity"
@@ -1136,6 +1136,10 @@
             android:name=".activity.function.keyboardHeightProvider.KeyboardHeightProviderActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".activity.demo.trackingG1.TrackingG1Activity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
     </application>
     <queries>
         <intent>

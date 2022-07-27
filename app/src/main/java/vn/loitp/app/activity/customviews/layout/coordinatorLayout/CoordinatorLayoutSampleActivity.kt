@@ -1,14 +1,16 @@
 package vn.loitp.app.activity.customviews.layout.coordinatorLayout
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LScreenUtil
+import com.loitpcore.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.activity_coordinator_layout_sample.*
 import vn.loitp.app.R
 
 // http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
-
 @LogTag("CoordinatorLayoutSampleActivity")
 @IsFullScreen(false)
 class CoordinatorLayoutSampleActivity : BaseFontActivity() {
@@ -29,6 +31,7 @@ class CoordinatorLayoutSampleActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
         when (intent.getStringExtra(KEY)) {
             VALUE_0 -> LScreenUtil.addFragment(
                 activity = this,
@@ -60,6 +63,20 @@ class CoordinatorLayoutSampleActivity : BaseFontActivity() {
                 fragment = FrmCoordinator4(),
                 isAddToBackStack = false
             )
+        }
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = CoordinatorLayoutSampleActivity::class.java.simpleName
         }
     }
 }

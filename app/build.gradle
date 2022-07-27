@@ -63,9 +63,9 @@ android {
     signingConfigs {
         release {
             storeFile file("keystore.jks")
-            storePassword "04021993"
-            keyAlias "loi"
-            keyPassword "04021993"
+            storePassword KS_PW
+            keyAlias KS_ALIAS
+            keyPassword KS_PW
         }
     }
 
@@ -170,6 +170,9 @@ dependencies {
 
     //animation
     api 'com.daimajia.androidanimations:library:2.4@aar'
+
+    //https://jitpack.io/private#com.gitlab.g1-data/onetarget-android
+    implementation 'com.gitlab.g1-data:onetarget-android:1.0.1'
 
 }
 //apply plugin: 'com.google.gms.google-services'

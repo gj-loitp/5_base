@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
@@ -14,6 +15,7 @@ import vn.loitp.app.R
 
 @LogTag("MenuDragViewActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(true)
 class MenuDragViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

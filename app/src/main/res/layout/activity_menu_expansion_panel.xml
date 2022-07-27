@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -11,38 +17,33 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="@dimen/w_65"
+            android:paddingTop="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSample"
                 style="@style/ButtonMenu"
-                android:text="Sample" />
+                android:text="@string/sample" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSampleViewgroup"
                 style="@style/ButtonMenu"
-                android:text="Sample ViewGroup" />
+                android:text="@string/sample_viewgroup" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btProgrammatically"
                 style="@style/ButtonMenu"
-                android:text="Programmatically" />
+                android:text="@string/programmatically" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRecyclerView"
                 style="@style/ButtonMenu"
-                android:text="RecyclerView" />
-        </LinearLayout>
+                android:text="@string/recyclerview" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
-    <com.loitpcore.views.actionBar.LActionBar
-        android:id="@+id/lActionBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
-
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.viewPager.detectViewPagerSwipeOut2
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -28,6 +29,17 @@ class ViewPagerSwipeOut2Activity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ViewPagerSwipeOut2Activity::class.java.simpleName
+        }
         vp.adapter = SamplePagerAdapter(supportFragmentManager)
         vp.setOnSwipeOutListener(object : LSwipeOutViewPager.OnSwipeOutListener {
             override fun onSwipeOutAtStart() {

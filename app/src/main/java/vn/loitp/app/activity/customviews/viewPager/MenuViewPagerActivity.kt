@@ -3,11 +3,13 @@ package vn.loitp.app.activity.customviews.viewPager
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_view_pager.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewPager.autoViewPager.ViewPagerAutoActivity
@@ -20,7 +22,7 @@ import vn.loitp.app.activity.customviews.viewPager.vertical.ViewPagerVerticalAct
 import vn.loitp.app.activity.customviews.viewPager.viewPager2.ViewPager2Activity
 import vn.loitp.app.activity.customviews.viewPager.viewPagerWithTabLayout.ViewPagerWithTabLayoutActivity
 
-@LogTag("ViewPagerMenuActivity")
+@LogTag("MenuViewPagerActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class MenuViewPagerActivity : BaseFontActivity(), View.OnClickListener {
@@ -36,6 +38,17 @@ class MenuViewPagerActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = MenuViewPagerActivity::class.java.simpleName
+        }
         btAutoViewPager.setOnClickListener(this)
         btParallaxViewPager.setOnClickListener(this)
         btDetectViewPagerSwipeOut.setOnClickListener(this)

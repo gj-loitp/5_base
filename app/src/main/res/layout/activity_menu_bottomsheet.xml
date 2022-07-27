@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -35,18 +35,18 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt1Option"
                 style="@style/ButtonMenu"
-                android:text="1 option" />
+                android:text="@string/_1_option" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt2Option"
                 style="@style/ButtonMenu"
-                android:text="2 option" />
+                android:text="@string/_2_option" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt3Option"
                 style="@style/ButtonMenu"
-                android:text="3 option" />
-        </LinearLayout>
+                android:text="@string/_3_option" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
     <!-- Adding bottom sheet after main content -->

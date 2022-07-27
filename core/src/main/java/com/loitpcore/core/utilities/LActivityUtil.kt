@@ -211,7 +211,7 @@ class LActivityUtil {
         }
 
         @JvmStatic
-        fun toggleScreenOritation(activity: Activity) {
+        fun toggleScreenOrientation(activity: Activity) {
             val s = getScreenOrientation(activity)
             if (s == Configuration.ORIENTATION_LANDSCAPE) {
                 activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT

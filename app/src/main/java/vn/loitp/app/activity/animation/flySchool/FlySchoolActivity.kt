@@ -1,17 +1,21 @@
 package vn.loitp.app.activity.animation.flySchool
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.animation.flySchool.ImgObject
 import com.loitpcore.animation.flySchool.PATHS
 import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_animation_fly_school.*
 import vn.loitp.app.R
 
 // https://github.com/cipherthinkers/shapeflyer?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5370
 @LogTag("FlySchoolActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(true)
 class FlySchoolActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
@@ -25,6 +29,18 @@ class FlySchoolActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = FlySchoolActivity::class.java.simpleName
+        }
+
         floatingContainer.addPath(PATHS.S_INVERTED_BOTTOM_RIGHT)
         // mShapeFlyer.addPath(PATHS.S_BOTTOM_LEFT)
         btPlay1.setOnClickListener {

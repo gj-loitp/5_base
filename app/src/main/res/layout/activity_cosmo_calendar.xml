@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -41,7 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="?attr/themeTextColor"
-                    android:text="Show FlBottomSelectionBar"
+                    android:text="@string/show_flbottomselectionbar"
                     android:textColor="?attr/themeTextColor"
                     tools:ignore="UnusedAttribute" />
 
@@ -50,7 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="?attr/themeTextColor"
-                    android:text="Hide FlBottomSelectionBar"
+                    android:text="@string/hide_flbottomselectionbar"
                     android:textColor="?attr/themeTextColor"
                     tools:ignore="UnusedAttribute" />
             </RadioGroup>
@@ -66,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="?attr/themeTextColor"
-                    android:text="horizontal"
+                    android:text="@string/horizontal"
                     android:textColor="?attr/themeTextColor"
                     tools:ignore="UnusedAttribute" />
 
@@ -75,7 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="?attr/themeTextColor"
-                    android:text="vertical"
+                    android:text="@string/vertical"
                     android:textColor="?attr/themeTextColor"
                     tools:ignore="UnusedAttribute" />
 
@@ -92,7 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="?attr/themeTextColor"
-                    android:text="single"
+                    android:text="@string/single"
                     android:textColor="?attr/themeTextColor"
                     tools:ignore="UnusedAttribute" />
 
@@ -101,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="?attr/themeTextColor"
-                    android:text="multiple"
+                    android:text="@string/multiple"
                     android:textColor="?attr/themeTextColor"
                     tools:ignore="UnusedAttribute" />
 
@@ -110,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="?attr/themeTextColor"
-                    android:text="range"
+                    android:text="@string/range"
                     android:textColor="?attr/themeTextColor"
                     tools:ignore="UnusedAttribute" />
 
@@ -119,10 +119,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="?attr/themeTextColor"
-                    android:text="none"
+                    android:text="@string/none"
                     android:textColor="?attr/themeTextColor"
                     tools:ignore="UnusedAttribute" />
             </RadioGroup>
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </HorizontalScrollView>
 </RelativeLayout>

@@ -30,12 +30,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBasketLayoutActivity"
                 style="@style/ButtonMenu"
-                android:text="BasketLayoutActivity" />
+                android:text="@string/basketlayout_activity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btChessLayout"
                 style="@style/ButtonMenu"
-                android:text="Chess layout" />
+                android:text="@string/chess_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCircularView"
@@ -70,7 +70,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btExpansionPanel"
                 style="@style/ButtonMenu"
-                android:text="Expansion Panel" />
+                android:text="@string/expansion_panel" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFloatDragLayout"
@@ -80,7 +80,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFlowLayout"
                 style="@style/ButtonMenu"
-                android:text="Flow layout" />
+                android:text="@string/flow_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btHeartLayout"
@@ -120,7 +120,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSequenceLayoutActivity"
                 style="@style/ButtonMenu"
-                android:text="SequenceLayoutActivity" />
+                android:text="@string/sequence_layout_activity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShadowLayout"
@@ -130,12 +130,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShapeOfView"
                 style="@style/ButtonMenu"
-                android:text="Shape Of View" />
+                android:text="@string/shape_of_view" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSplitPanelLayout"
                 style="@style/ButtonMenu"
-                android:text="Split Panel Layout" />
+                android:text="@string/split_panel_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSquareLayout"

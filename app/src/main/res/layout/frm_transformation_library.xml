@@ -34,12 +34,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="?attr/themeTextColor"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/ic_play_arrow_black_48dp"
             app:borderWidth="0dp"
             app:tint="?attr/themeBackgroundColor" />
     </com.skydoves.transformationlayout.TransformationLayout>
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/layoutMenuCard"
         android:layout_width="match_parent"
         android:layout_height="64dp"
@@ -75,6 +76,6 @@
             android:src="@drawable/ic_home_black_48dp"
             app:tint="?attr/themeBackgroundColor" />
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

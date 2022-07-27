@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <LinearLayout
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/navigator_margin_top"
@@ -18,7 +23,7 @@
             android:layout_height="@dimen/common_navigator_height"
             android:layout_gravity="center_horizontal" />
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <net.lucode.hackware.magicindicator.MagicIndicator
         android:id="@+id/magicIndicator2"
@@ -26,7 +31,7 @@
         android:layout_height="@dimen/common_navigator_height"
         android:layout_marginTop="@dimen/navigator_margin_top" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/navigator_margin_top"
@@ -38,9 +43,9 @@
             android:layout_height="@dimen/common_navigator_height"
             android:layout_gravity="center_horizontal" />
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/navigator_margin_top"
@@ -53,7 +58,7 @@
             android:layout_height="@dimen/common_navigator_height"
             android:layout_gravity="center_horizontal" />
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
@@ -61,4 +66,4 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/loitp" />
+        android:src="@drawable/iv" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv"
@@ -21,7 +21,7 @@
         android:textSize="@dimen/txt_medium"
         tools:text="@string/app_name" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

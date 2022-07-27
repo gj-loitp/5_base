@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.viewpager.widget.PagerAdapter
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LStoreUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.viewPager.parrallax.ParallaxMode
 import kotlinx.android.synthetic.main.activity_view_pager_parallax.*
 import vn.loitp.app.R
@@ -32,6 +34,17 @@ class ParallaxViewPagerActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ParallaxViewPagerActivity::class.java.simpleName
+        }
         for (i in 0..19) {
             resList.add(LStoreUtil.randomColor)
         }

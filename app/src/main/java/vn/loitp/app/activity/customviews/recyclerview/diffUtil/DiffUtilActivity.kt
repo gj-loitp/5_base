@@ -43,6 +43,11 @@ class DiffUtilActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
         rv.layoutManager = GridLayoutManager(this, 3)
 
 //        rv.adapter = adapter

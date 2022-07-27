@@ -10,7 +10,7 @@
     <FrameLayout
         android:id="@+id/layoutDelete"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/w_70"
+        android:layout_height="wrap_content"
         android:background="#ffcc0000">
 
         <androidx.appcompat.widget.AppCompatTextView

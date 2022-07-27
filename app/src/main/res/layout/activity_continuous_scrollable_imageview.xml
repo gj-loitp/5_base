@@ -45,9 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/margin_padding_medium"
-                android:text="Library for animating images with continuous scrolling effects
-
-Simple android view to display images with continuous scrolling effects efficiently. You can set image source, scaleType, duration and direction. Example usages can be found in sample project."
+                android:text="@string/msg_scrollabe_image_view"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
         </RelativeLayout>

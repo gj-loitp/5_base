@@ -1,12 +1,16 @@
 package vn.loitp.app.activity.customviews.scrollablePanel;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 
 import com.loitpcore.annotation.IsFullScreen;
 import com.loitpcore.annotation.LogTag;
 import com.loitpcore.core.base.BaseFontActivity;
+import com.loitpcore.core.utilities.LUIUtil;
+import com.loitpcore.views.actionBar.LActionBar;
 import com.loitpcore.views.scrollablePanel.LScrollablePanel;
 
 import java.text.SimpleDateFormat;
@@ -23,6 +27,7 @@ import vn.loitp.app.R;
 @LogTag("ScrollablePanelActivity")
 @IsFullScreen(false)
 public class ScrollablePanelActivity extends BaseFontActivity {
+    @SuppressLint("SimpleDateFormat")
     public static final SimpleDateFormat DAY_UI_MONTH_DAY_FORMAT = new SimpleDateFormat("MM-dd");
     public static final SimpleDateFormat WEEK_FORMAT = new SimpleDateFormat("EEE", Locale.US);
 
@@ -39,6 +44,25 @@ public class ScrollablePanelActivity extends BaseFontActivity {
     }
 
     private void setupViews() {
+        final LActionBar lActionBar = findViewById(R.id.lActionBar);
+        if (lActionBar != null) {
+            if (lActionBar.getIvIconRight() != null) {
+                lActionBar.getIvIconRight().setImageResource(R.color.transparent);
+            }
+            if (lActionBar.getViewShadow() != null) {
+                lActionBar.getViewShadow().setVisibility(View.GONE);
+            }
+            if (lActionBar.getTvTitle() != null) {
+                lActionBar.getTvTitle().setText(getClass().getSimpleName());
+            }
+            LUIUtil.Companion.setSafeOnClickListenerElastic(
+                    lActionBar.getIvIconLeft(),
+                    0.8f,
+                    0.8f,
+                    100,
+                    this::onBackPressed
+            );
+        }
         final LScrollablePanel LScrollablePanel = findViewById(R.id.scrollablePanel);
         final ScrollablePanelAdapter scrollablePanelAdapter = new ScrollablePanelAdapter();
         generateTestData(scrollablePanelAdapter);

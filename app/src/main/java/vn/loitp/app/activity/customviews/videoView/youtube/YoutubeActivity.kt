@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.videoView.youtube
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -24,6 +25,17 @@ class YoutubeActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = YoutubeActivity::class.java.simpleName
+        }
         bt0.setSafeOnClickListener {
             LUIUtil.playYoutube(
                 activity = this,

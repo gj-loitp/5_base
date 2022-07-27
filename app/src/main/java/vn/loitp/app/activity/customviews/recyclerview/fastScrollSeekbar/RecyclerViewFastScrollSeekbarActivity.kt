@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.fastScrollSeekbar
 import abak.tr.com.boxedverticalseekbar.BoxedVertical
 import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.annotation.IsFullScreen
@@ -36,6 +37,17 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = RecyclerViewFastScrollSeekbarActivity::class.java.simpleName
+        }
         moviesAdapter = MoviesAdapter(
             moviesList = movieList,
             callback = object : MoviesAdapter.Callback {
@@ -120,7 +132,7 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
     private fun prepareMovieData() {
         for (i in 0..49) {
             val movie = Movie(
-                title = "Loitp $i",
+                title = "${javaClass.simpleName} $i",
                 genre = "Action & Adventure",
                 year = "Year: 2021",
                 cover = Constants.URL_IMG

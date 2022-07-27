@@ -6,11 +6,16 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_padding_medium"
-        android:text="You can use this layout by using Java/Kotlin or XML"
+        android:text="@string/you_can_use_this_layout_by_using_java_kotlin_or_xml"
         android:textColor="@color/red"
         android:textSize="@dimen/txt_medium" />
 

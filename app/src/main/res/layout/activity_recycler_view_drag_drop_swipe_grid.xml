@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -34,4 +34,4 @@
         app:divider="@drawable/bg_list_divider"
         app:item_layout="@layout/view_row_item_drag_drop_recycler_detail_view"
         app:swiped_item_opacity_fades_on_swiping="true" />
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

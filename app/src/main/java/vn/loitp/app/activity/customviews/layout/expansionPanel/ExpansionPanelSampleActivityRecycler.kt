@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.florent37.expansionpanel.ExpansionLayout
@@ -12,6 +13,7 @@ import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_expansion_panel_sample_recycler.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.expansionPanel.ExpansionPanelSampleActivityRecycler.RecyclerAdapter.RecyclerHolder
@@ -31,6 +33,18 @@ class ExpansionPanelSampleActivityRecycler : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ExpansionPanelSampleActivityRecycler::class.java.simpleName
+        }
+
         recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = RecyclerAdapter()
         recyclerView.adapter = adapter

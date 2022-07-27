@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <com.loitpcore.views.textView.stroked.LStrokedTextView
         android:id="@+id/stv"
@@ -32,4 +38,4 @@
             app:strokeColor="@color/darkCyan"
             app:strokeThickness="1dp" />
     </androidx.core.widget.NestedScrollView>
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

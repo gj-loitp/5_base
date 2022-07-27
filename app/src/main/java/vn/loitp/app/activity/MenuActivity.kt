@@ -98,6 +98,8 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         btSecurity.setOnClickListener(this)
         btService.setOnClickListener(this)
         btUtils.setOnClickListener(this)
+
+        btGithub.isVisible = false
     }
 
     private var doubleBackToExitPressedOnce = false
@@ -140,7 +142,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                 btGithub -> {
                     LSocialUtil.openUrlInBrowser(
                         context = this,
-                        url = "https://github.com/tplloi/basemaster"
+                        url = "https://github.com/tplloi/base"
                     )
                     null
                 }

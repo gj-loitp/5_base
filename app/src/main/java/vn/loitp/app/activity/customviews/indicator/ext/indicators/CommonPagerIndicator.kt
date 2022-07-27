@@ -23,7 +23,6 @@ class CommonPagerIndicator(context: Context?) : View(context), IPagerIndicator {
         0
     private var indicatorDrawable: Drawable? = null
 
-    // 控制动画
     private var startInterpolator: Interpolator = LinearInterpolator()
     private var endInterpolator: Interpolator = LinearInterpolator()
     private var drawableHeight = 0f

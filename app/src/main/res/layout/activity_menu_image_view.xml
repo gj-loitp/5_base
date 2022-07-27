@@ -12,7 +12,7 @@
         android:fillViewport="true"
         tools:ignore="UselessParent">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -52,7 +52,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btKenburnView"
                 style="@style/ButtonMenu"
-                android:text="Kenburn view" />
+                android:text="@string/kenburn_view" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPanoramaImageView"
@@ -67,7 +67,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btStfalconImageViewer"
                 style="@style/ButtonMenu"
-                android:text="Stfalcon ImageViewer" />
+                android:text="@string/stfalcon_imageviewer" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTouchImageView"
@@ -77,7 +77,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTouchImageViewWithViewPager"
                 style="@style/ButtonMenu"
-                android:text="Touch Image View with ViewPager" />
+                android:text="@string/touch_image_view_with_viewpager" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btStretchyImageView"
@@ -88,7 +88,7 @@
                 android:id="@+id/btZoomImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/zoomimageview" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
     <com.loitpcore.views.actionBar.LActionBar
@@ -96,4 +96,3 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>
-

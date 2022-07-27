@@ -25,7 +25,7 @@
         android:clipChildren="false"
         app:wpIndicatorColor="@color/red" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/wp7Ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,9 +51,9 @@
             android:text="Hide WP7 bar"
             android:textColor="?attr/themeTextColor"
             tools:ignore="HardcodedText" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/wp7Ll"
@@ -79,5 +79,5 @@
             android:text="Hide WP10 bar"
             android:textColor="?attr/themeTextColor"
             tools:ignore="HardcodedText" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </RelativeLayout>

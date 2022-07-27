@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/themeBackgroundColor"
-                android:text="Maximize"
+                android:text="@string/maximize"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/themeBackgroundColor"
-                android:text="Minimize"
+                android:text="@string/minimize"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
@@ -48,8 +48,8 @@
                 android:padding="@dimen/margin_padding_medium"
                 android:text="@string/large_text"
                 android:textColor="?attr/themeTextColor" />
-        </LinearLayout>
-    </ScrollView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
 
     <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
@@ -68,10 +68,10 @@
             android:layout_height="@dimen/w_250"
             android:background="@color/red50"
             android:gravity="center"
-            android:text="view_header"
+            android:text="@string/view_header"
             android:textColor="?attr/themeTextColor" />
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/view_desc"
             style="@style/ScrollVertical"
             android:layout_width="match_parent"
@@ -85,7 +85,7 @@
                 android:padding="@dimen/margin_padding_medium"
                 android:text="@string/large_text"
                 android:textColor="@color/red" />
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
     </com.loitpcore.views.layout.draggablePanelFree.DraggablePanelFreeLayout>
 </RelativeLayout>

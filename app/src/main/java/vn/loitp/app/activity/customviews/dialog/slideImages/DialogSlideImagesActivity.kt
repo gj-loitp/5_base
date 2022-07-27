@@ -1,12 +1,14 @@
 package vn.loitp.app.activity.customviews.dialog.slideImages
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_dialog_slide_images.*
 import vn.loitp.app.R
@@ -26,6 +28,18 @@ class DialogSlideImagesActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = DialogSlideImagesActivity::class.java.simpleName
+        }
+
         val url0 = Constants.URL_IMG_1
         val url1 = Constants.URL_IMG_2
         val url2 = Constants.URL_IMG_3

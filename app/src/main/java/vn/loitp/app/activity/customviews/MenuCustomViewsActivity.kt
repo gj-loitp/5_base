@@ -7,6 +7,7 @@ import android.view.View.OnClickListener
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
@@ -20,23 +21,23 @@ import vn.loitp.app.activity.customviews.bottomSheet.MenuBottomSheetActivity
 import vn.loitp.app.activity.customviews.button.MenuButtonActivity
 import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
 import vn.loitp.app.activity.customviews.dialog.MenuDialogActivity
-import vn.loitp.app.activity.customviews.draggableFlipView.DraggableFlipViewActivity
 import vn.loitp.app.activity.customviews.dragView.MenuDragViewActivity
+import vn.loitp.app.activity.customviews.draggableFlipView.DraggableFlipViewActivity
 import vn.loitp.app.activity.customviews.edittext.MenuEditTextActivity
 import vn.loitp.app.activity.customviews.facebookComment.FacebookCommentActivity
 import vn.loitp.app.activity.customviews.imageview.MenuImageViewActivity
 import vn.loitp.app.activity.customviews.indicator.example.MenuMagicIndicatorActivity
-import vn.loitp.app.activity.customviews.layout.MenuLayoutActivity
 import vn.loitp.app.activity.customviews.lCardView.LCardViewActivity
 import vn.loitp.app.activity.customviews.lDebugView.LDebugViewActivity
+import vn.loitp.app.activity.customviews.layout.MenuLayoutActivity
 import vn.loitp.app.activity.customviews.menu.MenuMenuActivity
 import vn.loitp.app.activity.customviews.navigation.MenuNavigationActivity
 import vn.loitp.app.activity.customviews.popupMenu.PopupMenuActivity
 import vn.loitp.app.activity.customviews.progressLoadingView.MenuProgressLoadingViewsActivity
-import vn.loitp.app.activity.customviews.recyclerview.RecyclerViewMenuActivity
+import vn.loitp.app.activity.customviews.recyclerview.MenuRecyclerViewActivity
 import vn.loitp.app.activity.customviews.scratchView.MenuScratchViewActivity
 import vn.loitp.app.activity.customviews.scrollablePanel.ScrollablePanelActivity
-import vn.loitp.app.activity.customviews.seekBar.SeekbarMenuActivity
+import vn.loitp.app.activity.customviews.seekBar.MenuSeekbarActivity
 import vn.loitp.app.activity.customviews.sticker.StickerActivity
 import vn.loitp.app.activity.customviews.switchToggle.MenuSwitchToggleActivity
 import vn.loitp.app.activity.customviews.textview.MenuTextViewActivity
@@ -51,6 +52,7 @@ import vn.loitp.app.activity.customviews.wwlVideo.WWLVideoActivity
 @LogTag("MenuCustomViewsActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
+@IsShowAdWhenExit(value = true)
 class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
@@ -125,8 +127,8 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btEditText -> Intent(this, MenuEditTextActivity::class.java)
             btLayout -> Intent(this, MenuLayoutActivity::class.java)
             btVideoView -> Intent(this, MenuVideoViewActivity::class.java)
-            btSeekBar -> Intent(this, SeekbarMenuActivity::class.java)
-            btRecyclerView -> Intent(this, RecyclerViewMenuActivity::class.java)
+            btSeekBar -> Intent(this, MenuSeekbarActivity::class.java)
+            btRecyclerView -> Intent(this, MenuRecyclerViewActivity::class.java)
             btDialog -> Intent(this, MenuDialogActivity::class.java)
             btPopupMenu -> Intent(this, PopupMenuActivity::class.java)
             btScratchView -> Intent(this, MenuScratchViewActivity::class.java)

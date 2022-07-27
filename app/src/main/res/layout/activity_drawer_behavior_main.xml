@@ -1,67 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingTop="@dimen/w_65"
+            android:paddingTop="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonDefault"
                 style="@style/ButtonMenu"
-                android:text="default" />
+                android:text="@string/_default" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonAdvance1"
                 style="@style/ButtonMenu"
-                android:text="Advance 1" />
+                android:text="@string/advance_1" />
 
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonAdvance2"
                 style="@style/ButtonMenu"
-                android:text="Advance 2" />
+                android:text="@string/advance_2" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonAdvance3"
                 style="@style/ButtonMenu"
-                android:text="Advance 3" />
+                android:text="@string/advance_3" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonAdvance4"
                 style="@style/ButtonMenu"
-                android:text="Advance 4" />
+                android:text="@string/advance_4" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonAdvance5"
                 style="@style/ButtonMenu"
-                android:text="Advance 5 (Card)" />
+                android:text="@string/advance_5_card" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonAdvance6"
                 style="@style/ButtonMenu"
-                android:text="Advance 6 (RTL)" />
+                android:text="@string/advance_6_rtl" />
 
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonAdvance3d_1"
                 style="@style/ButtonMenu"
-                android:text="Advance 3D" />
-        </LinearLayout>
+                android:text="@string/advance_3d" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
-    <com.loitpcore.views.actionBar.LActionBar
-        android:id="@+id/lActionBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

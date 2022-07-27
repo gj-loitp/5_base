@@ -27,6 +27,10 @@ class TextWithIconFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         val data = SAMPLE_DATA_TEXT_AND_HEADERS
 
         recyclerView.apply {

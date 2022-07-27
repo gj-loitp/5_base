@@ -74,7 +74,6 @@ class GridAdapter(
     }
 
     init {
-
         // uncomment if you want to open only one row at a time
         binderHelper.setOpenOnlyOne(true)
     }

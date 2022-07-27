@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +20,6 @@ import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 
 // https://github.com/wasabeef/recyclerview-animators
-
 @LogTag("RecyclerViewActivity")
 @IsFullScreen(false)
 class RecyclerViewActivity : BaseFontActivity() {
@@ -38,6 +38,18 @@ class RecyclerViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = RecyclerViewActivity::class.java.simpleName
+        }
+
         val animator = SlideInRightAnimator(OvershootInterpolator(1f))
         animator.addDuration = 300
         rv.itemAnimator = animator

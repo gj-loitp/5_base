@@ -7,16 +7,16 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         style="@style/TextMenu"
-        android:text="Activity1" />
+        android:text="@string/activity1" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btGoTo2"
         style="@style/ButtonMenu"
         android:layout_marginTop="@dimen/margin_padding_medium"
-        android:text="Go to Activity2" />
+        android:text="@string/go_to_activity2" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btGoTo3"
         style="@style/ButtonMenu"
-        android:text="Go to Activity3" />
+        android:text="@string/go_to_activity3" />
 </LinearLayout>

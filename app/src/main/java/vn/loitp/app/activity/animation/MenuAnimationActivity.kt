@@ -6,6 +6,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
@@ -30,6 +31,7 @@ import vn.loitp.app.activity.animation.valueAnimator.ValueAnimatorActivity
 @LogTag("MenuAnimationActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
+@IsShowAdWhenExit(true)
 class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
