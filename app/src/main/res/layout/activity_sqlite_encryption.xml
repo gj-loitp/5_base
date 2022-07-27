@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/llButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,27 +23,26 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btClearAll"
             style="@style/ButtonMenu"
-            android:text="Clear all bike" />
+            android:text="@string/clear_all_bike" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btAddBike"
             style="@style/ButtonMenu"
-            android:text="Add Dummy Bike" />
+            android:text="@string/add_dummy_bike" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btGetBikeWithId"
             style="@style/ButtonMenu"
-            android:text="Get bike With ID=2" />
-    </LinearLayout>
+            android:text="@string/get_bike_with_id_2" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/llButtons"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -57,12 +62,12 @@
                 android:layout_gravity="center"
                 android:indeterminateTint="?attr/themeTextColor" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/ll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical" />
-        </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>
 

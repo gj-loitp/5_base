@@ -2,12 +2,14 @@ package vn.loitp.app.activity.database.room
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_database_room2.*
 import vn.loitp.app.R
@@ -31,6 +33,18 @@ class RoomActivity : BaseFontActivity() {
     }
 
     private fun setupView() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = RoomActivity::class.java.simpleName
+        }
+
         floorPlanAdapter = FloorPlanAdapter()
         floorPlanAdapter?.apply {
             onClickRootView = {

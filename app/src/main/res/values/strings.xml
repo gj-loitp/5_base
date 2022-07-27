@@ -825,4 +825,38 @@ Likewise may someone love you next.
     <string name="load_url_from_asset">Load Url From Asset</string>
     <string name="load_url_from_asset_and_click">Load Url From Asset And Click</string>
     <string name="load_url_from_web_and_click">Load Url From Web And Click</string>
+    <string name="room">Room</string>
+    <string name="room_2">Room 2</string>
+    <string name="save_list_id_0_10"><![CDATA[Save List id 0 -> 10]]></string>
+    <string name="save_list_id_10_20"><![CDATA[Save List id 10 -> 20]]></string>
+    <string name="insert">Insert</string>
+    <string name="get_list">Get List</string>
+    <string name="get_list_from_3_to_5">Get List From 3 To 5</string>
+    <string name="find_id_1">Find id=1</string>
+    <string name="delete_all">Delete All</string>
+    <string name="put_string">Put String</string>
+    <string name="get_string">Get String</string>
+    <string name="put_string_withdefaultvalue">Put String WithDefaultValue</string>
+    <string name="get_string_withdefaultvalue">Get String WithDefaultValue</string>
+    <string name="put_boolean">Put Boolean</string>
+    <string name="get_boolean">Get Boolean</string>
+    <string name="put_float">Put Float</string>
+    <string name="get_float">Get Float</string>
+    <string name="put_int">Put Int</string>
+    <string name="get_int">Get Int</string>
+    <string name="put_long">Put Long</string>
+    <string name="get_long">Get Long</string>
+    <string name="put_number">Put Number</string>
+    <string name="get_number">Get Number</string>
+    <string name="put_object">Put Object</string>
+    <string name="get_object">Get Object</string>
+    <string name="put_list_object">Put List Object</string>
+    <string name="get_list_object">Get List Object</string>
+    <string name="add_dummy_contact">Add Dummy Contact</string>
+    <string name="add_100_dummy_contact">Add 100 Dummy Contact</string>
+    <string name="get_contact_with_id_2">Get Contact With ID=2</string>
+    <string name="get_contact_list_page_1">Get Contact List Page 1</string>
+    <string name="clear_all_bike">Clear all bike</string>
+    <string name="add_dummy_bike">Add Dummy Bike</string>
+    <string name="get_bike_with_id_2">Get bike With ID=2</string>
 </resources>

@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.database.sharedPrefs
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.google.gson.reflect.TypeToken
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -8,6 +9,7 @@ import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LConvertUtil
 import com.loitpcore.core.utilities.LSharedPrefsUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_shared_prefs.*
 import vn.loitp.app.R
@@ -40,6 +42,18 @@ class SharedPrefsActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = SharedPrefsActivity::class.java.simpleName
+        }
+
         btPutString.setSafeOnClickListener {
             LSharedPrefsUtil.instance.putString(
                 KEY_STRING,
