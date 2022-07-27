@@ -7,8 +7,7 @@ import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
-import android.view.* // ktlint-disable no-wildcard-imports
-import android.view.View.OnTouchListener
+import android.view.*
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
@@ -27,6 +26,10 @@ class FloatingViewService : Service() {
     override fun onCreate() {
         super.onCreate()
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         mFloatingView =
             LayoutInflater.from(this).inflate(R.layout.layout_demo_floating_widget, null)
 
@@ -104,7 +107,7 @@ class FloatingViewService : Service() {
         }
 
         // Drag and move floating view using user's touch action.
-        rlRootContainer.setOnTouchListener(object : OnTouchListener {
+        rlRootContainer.setOnTouchListener(object : View.OnTouchListener {
             private var initialX = 0
             private var initialY = 0
             private var initialTouchX = 0f

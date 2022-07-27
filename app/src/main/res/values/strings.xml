@@ -892,4 +892,15 @@ Likewise may someone love you next.
     <string name="view_model">View model</string>
     <string name="change_color">Change color</string>
     <string name="change_user">Change user</string>
+    <string name="edge">Edge</string>
+    <string name="notify_me">Notify me</string>
+    <string name="add_frmflow0">Add FrmFlow0</string>
+    <string name="clear_all_frm">Clear All Frm</string>
+    <string name="screen_0">Screen 0</string>
+    <string name="go_to_screen_1">Go to Screen 1</string>
+    <string name="screen_1">Screen 1</string>
+    <string name="go_to_screen_2">Go to Screen 2</string>
+    <string name="screen_2">Screen 2</string>
+    <string name="pop_this_fragment">Pop this fragment</string>
+    <string name="fn_4">fn 4</string>
 </resources>

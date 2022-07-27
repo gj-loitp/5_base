@@ -38,7 +38,7 @@
         </RelativeLayout>
 
         <!--View while view is expanded-->
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/llExpanded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,6 +105,6 @@
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_open" />
             </RelativeLayout>
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </RelativeLayout>
 </FrameLayout>

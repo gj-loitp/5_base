@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/bt"
         android:gravity="center"
-        android:text="Screen 0"
+        android:text="@string/screen_0"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_largest" />
 
@@ -20,7 +20,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/red"
         android:padding="@dimen/margin_padding_medium"
-        android:text="Go to Screen 1"
+        android:text="@string/go_to_screen_1"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_medium" />
 

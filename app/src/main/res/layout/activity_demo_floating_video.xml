@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvMenu"
         android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="vertical"
@@ -17,16 +22,12 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btShow"
             style="@style/ButtonMenu"
-            android:text="Show" />
+            android:text="@string/show" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btEdge"
             style="@style/ButtonMenu"
-            android:text="Edge" />
-    </LinearLayout>
+            android:text="@string/edge" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Floating video" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
