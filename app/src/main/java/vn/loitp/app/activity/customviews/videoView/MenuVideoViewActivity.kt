@@ -3,12 +3,14 @@ package vn.loitp.app.activity.customviews.videoView
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_video.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.videoView.exo.ExoPlayerActivity
@@ -32,6 +34,18 @@ class MenuVideoViewActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = MenuVideoViewActivity::class.java.simpleName
+        }
+
         btExoPlayer2.setOnClickListener(this)
         btExoPlayer2IMA.setOnClickListener(this)
         bt2.setOnClickListener(this)

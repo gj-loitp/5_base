@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.viewPager.lockable
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -29,6 +30,17 @@ class LockableViewPagerActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = LockableViewPagerActivity::class.java.simpleName
+        }
         vp.adapter = SamplePagerAdapter(supportFragmentManager)
         tabLayout.setupWithViewPager(vp)
         LUIUtil.changeTabsFont(tabLayout = tabLayout, fontName = Constants.FONT_PATH)

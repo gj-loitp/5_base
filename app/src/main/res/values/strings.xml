@@ -803,4 +803,18 @@ Likewise may someone love you next.
     <string name="fit_icon">fit icon</string>
     <string name="_fit_icon">fit icon</string>
     <string name="start_animation">Start Animation</string>
+    <string name="exoplayer2">ExoPlayer2</string>
+    <string name="exoplayer2_ima_ad">ExoPlayer2 IMA Ad</string>
+    <string name="place_controller_under_the_video_without_overlapping_the_video">Place controller under the video without overlapping the video</string>
+    <string name="switch_target_view">Switch target view</string>
+    <string name="youtube">Youtube</string>
+    <string name="switch_0_1">Switch 0-1</string>
+    <string name="switch_1_0">Switch 1_0</string>
+    <string name="playerview_0">PlayerView 0</string>
+    <string name="playerview_1">PlayerView 1</string>
+    <string name="url">URL</string>
+    <string name="id">ID</string>
+    <string name="enable">Enable</string>
+    <string name="disable">Disable</string>
+    <string name="choose_one_mode_right_overlay_left_overlay">Choose one: Mode.RIGHT_OVERLAY|LEFT_OVERLAY</string>
 </resources>

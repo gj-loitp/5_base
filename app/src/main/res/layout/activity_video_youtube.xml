@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -10,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvMenu">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -20,17 +26,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt0"
                 style="@style/ButtonMenu"
-                android:text="URL" />
+                android:text="@string/url" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt1"
                 style="@style/ButtonMenu"
-                android:text="ID" />
-        </LinearLayout>
+                android:text="@string/id" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Menu Video View" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

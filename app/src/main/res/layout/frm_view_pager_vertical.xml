@@ -6,7 +6,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         android:src="@drawable/loitp" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -16,6 +16,6 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="@color/red"
-        android:textSize="90dp" />
+        android:textSize="90sp" />
 
 </FrameLayout>
