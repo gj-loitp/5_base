@@ -817,4 +817,12 @@ Likewise may someone love you next.
     <string name="enable">Enable</string>
     <string name="disable">Disable</string>
     <string name="choose_one_mode_right_overlay_left_overlay">Choose one: Mode.RIGHT_OVERLAY|LEFT_OVERLAY</string>
+    <string name="copy_content">Copy content</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="load_url">Load Url</string>
+    <string name="load_data">Load Data</string>
+    <string name="load_data_custom">Load Data Custom</string>
+    <string name="load_url_from_asset">Load Url From Asset</string>
+    <string name="load_url_from_asset_and_click">Load Url From Asset And Click</string>
+    <string name="load_url_from_web_and_click">Load Url From Web And Click</string>
 </resources>

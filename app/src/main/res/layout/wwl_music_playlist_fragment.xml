@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
     android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary60"
@@ -40,13 +40,13 @@
                 android:layout_centerVertical="true"
                 android:layout_toStartOf="@+id/ivOverflowMenu">
 
-                <LinearLayout
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     tools:ignore="UselessParent">
 
-                    <LinearLayout
+                    <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="0.0dip"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start|center"
@@ -75,7 +75,7 @@
                             android:text="@string/subtitle"
                             android:textColor="@color/white"
                             android:textSize="@dimen/small_font_size" />
-                    </LinearLayout>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
 
                     <androidx.appcompat.widget.AppCompatImageView
                         style="@style/MusicImageView"
@@ -85,10 +85,10 @@
                         android:src="@drawable/ic_tune_black_48dp"
                         android:tint="@color/white"
                         android:visibility="visible" />
-                </LinearLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
             </FrameLayout>
         </RelativeLayout>
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -96,4 +96,4 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimaryDark" />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
