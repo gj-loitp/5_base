@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
@@ -33,6 +34,18 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = SqliteMultiTableAdvanceActivity::class.java.simpleName
+        }
+
         btClearUI.setOnClickListener(this)
         btDeleteAllDatabase.setOnClickListener(this)
         btGetInspectionList.setOnClickListener(this)

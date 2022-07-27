@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <ScrollView
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -19,7 +24,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btClearUI"
                 style="@style/ButtonMenu"
-                android:text="Clear UI" />
+                android:text="@string/clear_ui" />
 
             <View
                 android:layout_width="match_parent"
@@ -31,37 +36,37 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDeleteAllDatabase"
                 style="@style/ButtonMenu"
-                android:text="DeleteAllDatabase" />
+                android:text="@string/deletealldatabase" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetInspectionList"
                 style="@style/ButtonMenu"
-                android:text="GetInspectionList" />
+                android:text="@string/getinspectionlist" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetInspectionCount"
                 style="@style/ButtonMenu"
-                android:text="GetInspectionCount" />
+                android:text="@string/getinspectioncount" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCreateInspection"
                 style="@style/ButtonMenu"
-                android:text="CreateInspection" />
+                android:text="@string/createinspection" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetInspection"
                 style="@style/ButtonMenu"
-                android:text="GetInspection with id = 2" />
+                android:text="@string/getinspection_with_id_2" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btUpdateInspection"
                 style="@style/ButtonMenu"
-                android:text="UpdateInspection with id = 1" />
+                android:text="@string/updateinspection_with_id_1" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDeleteInspection"
                 style="@style/ButtonMenu"
-                android:text="DeleteInspection with id =1" />
+                android:text="@string/deleteinspection_with_id_1" />
 
             <View
                 android:layout_width="match_parent"
@@ -73,48 +78,48 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetActionList"
                 style="@style/ButtonMenu"
-                android:text="GetActionList" />
+                android:text="@string/getactionlist" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCreateAction"
                 style="@style/ButtonMenu"
-                android:text="CreateAction" />
+                android:text="@string/createaction" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetAction"
                 style="@style/ButtonMenu"
-                android:text="GetAction with id = 1" />
+                android:text="@string/getaction_with_id_1" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btUpdateAction"
                 style="@style/ButtonMenu"
-                android:text="UpdateAction with id = 1" />
+                android:text="@string/updateaction_with_id_1" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDeleteAction"
                 style="@style/ButtonMenu"
-                android:text="DeleteAction with id = 1" />
+                android:text="@string/deleteaction_with_id_1" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetActionListByPage"
                 style="@style/ButtonMenu"
-                android:text="Get action list by page (pageSize=5)" />
-        </LinearLayout>
-    </ScrollView>
+                android:text="@string/get_action_list_by_page_pagesize_5" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/lightCyan">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/margin_padding_medium" />
-    </ScrollView>
-</LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>
 

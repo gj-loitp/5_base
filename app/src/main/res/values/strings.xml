@@ -859,4 +859,18 @@ Likewise may someone love you next.
     <string name="clear_all_bike">Clear all bike</string>
     <string name="add_dummy_bike">Add Dummy Bike</string>
     <string name="get_bike_with_id_2">Get bike With ID=2</string>
+    <string name="clear_ui">Clear UI</string>
+    <string name="deletealldatabase">DeleteAllDatabase</string>
+    <string name="getinspectionlist">GetInspectionList</string>
+    <string name="getinspectioncount">GetInspectionCount</string>
+    <string name="createinspection">CreateInspection</string>
+    <string name="getinspection_with_id_2">GetInspection with id = 2</string>
+    <string name="updateinspection_with_id_1">UpdateInspection with id = 1</string>
+    <string name="deleteinspection_with_id_1">DeleteInspection with id =1</string>
+    <string name="getactionlist">GetActionList</string>
+    <string name="createaction">CreateAction</string>
+    <string name="getaction_with_id_1">GetAction with id = 1</string>
+    <string name="updateaction_with_id_1">UpdateAction with id = 1</string>
+    <string name="deleteaction_with_id_1">DeleteAction with id = 1</string>
+    <string name="get_action_list_by_page_pagesize_5">Get action list by page (pageSize=5)</string>
 </resources>
