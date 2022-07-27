@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_text_view_score.*
 import vn.loitp.app.R
@@ -17,7 +19,7 @@ class ScoreTextViewActivity : BaseFontActivity() {
 
     companion object {
         const val KEY_UPDATE_SCORE = 1
-        const val DELTA_T = 20 // msecond
+        const val DELTA_T = 20 // mls
     }
 
     private val maxScore = 200
@@ -33,6 +35,17 @@ class ScoreTextViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ScoreTextViewActivity::class.java.simpleName
+        }
         textView.text = "$currentScore"
         bt.setSafeOnClickListener {
             currentScore = 0

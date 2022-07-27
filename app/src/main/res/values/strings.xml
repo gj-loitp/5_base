@@ -802,4 +802,5 @@ Likewise may someone love you next.
     <string name="act">act</string>
     <string name="fit_icon">fit icon</string>
     <string name="_fit_icon">fit icon</string>
+    <string name="start_animation">Start Animation</string>
 </resources>

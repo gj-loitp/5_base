@@ -2,9 +2,11 @@ package vn.loitp.app.activity.customviews.textview.selectableTextView
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.textView.selectable.SelectableListener
 import kotlinx.android.synthetic.main.activity_text_view_selectable.*
 import vn.loitp.app.R
@@ -24,6 +26,18 @@ class SelectableTextViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = SelectableTextViewActivity::class.java.simpleName
+        }
+
         selectableView.setActivity(this)
         selectableView.setText(getString(R.string.i_love_you))
         selectableView.addOnSaveClickListener(object : SelectableListener {
