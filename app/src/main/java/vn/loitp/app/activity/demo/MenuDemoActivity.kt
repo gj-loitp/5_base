@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -13,12 +14,13 @@ import com.loitpcore.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity
 import com.loitpcore.core.helper.gallery.member.GalleryMemberActivity
 import com.loitpcore.core.helper.ttt.ui.a.TTTSplashActivity
 import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_menu_demo.*
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architectureComponent.MenuAndroidArchitectureComponentActivity
-import vn.loitp.app.activity.demo.epubReader.EpubReaderMenuActivity
+import vn.loitp.app.activity.demo.epubReader.MenuEpubReaderActivity
 import vn.loitp.app.activity.demo.floatingVideo.FloatingWidgetActivity
 import vn.loitp.app.activity.demo.fragmentFlow.FragmentFlowActivity
 import vn.loitp.app.activity.demo.fragmentNavigation.FragmentNavigationActivity
@@ -48,6 +50,17 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = MenuDemoActivity::class.java.simpleName
+        }
         if (BuildConfig.DEBUG) {
             btGalleryCore.visibility = View.VISIBLE
             btGalleryCoreAlbum.visibility = View.VISIBLE
@@ -130,7 +143,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
 //                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_primary_black)
             }
-            btEpubReader -> intent = Intent(this, EpubReaderMenuActivity::class.java)
+            btEpubReader -> intent = Intent(this, MenuEpubReaderActivity::class.java)
             bt2InstanceActivity -> intent = Intent(this, Activity1::class.java)
             btFragmentNavigation -> intent = Intent(this, FragmentNavigationActivity::class.java)
             btPdf -> intent = Intent(this, PdfDemoActivity::class.java)

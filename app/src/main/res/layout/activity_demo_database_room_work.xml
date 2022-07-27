@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Room" />
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/themeBackgroundColorMedium"
-                android:text="Add"
+                android:text="@string/add"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
-                android:text="Delete All"
+                android:text="@string/delete_all"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -43,9 +43,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
-                android:text="Find work with id = 1"
+                android:text="@string/find_work_with_id_1"
                 android:textColor="?attr/themeTextColor" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </HorizontalScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -53,4 +53,4 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

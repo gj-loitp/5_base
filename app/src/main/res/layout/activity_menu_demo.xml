@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -10,7 +16,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/tvMenu">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -20,7 +26,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btArchitectureComponent"
                 style="@style/ButtonMenu"
-                android:text="Architecture Component" />
+                android:text="@string/architecture_component" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btEpubReader"
@@ -70,12 +76,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMapTracker"
                 style="@style/ButtonMenu"
-                android:text="Map tracker" />
+                android:text="@string/map_tracker" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNFC"
                 style="@style/ButtonMenu"
-                android:text="NFC" />
+                android:text="@string/nfc" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPdf"
@@ -85,7 +91,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRSS"
                 style="@style/ButtonMenu"
-                android:text="RSS" />
+                android:text="@string/rss" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSound"
@@ -100,7 +106,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTrackingG1"
                 style="@style/ButtonMenu"
-                android:text="Tracking G1" />
+                android:text="@string/tracking_g1" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt2InstanceActivity"
@@ -110,18 +116,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTTT"
                 style="@style/ButtonMenu"
-                android:text="TruyenTranhTuan" />
+                android:text="@string/truyentranhtuan" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFindNumber"
                 style="@style/ButtonMenu"
                 android:text="@string/find_number" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="@string/menu_demo" />
-</RelativeLayout>
-
+</androidx.appcompat.widget.LinearLayoutCompat>

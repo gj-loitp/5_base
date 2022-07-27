@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.demo.architectureComponent.coroutine
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -33,6 +34,17 @@ class CoroutineActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = CoroutineActivity::class.java.simpleName
+        }
         btTestBlocking.setSafeOnClickListener {
             testBlocking()
         }

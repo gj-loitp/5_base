@@ -30,7 +30,7 @@ public class AlarmListAdapter extends BaseAdapter {
 
     public AlarmListAdapter(Context context) {
         mContext = context;
-        DataSource mDataSource = DataSource.getInstance(context);
+//        DataSource mDataSource = DataSource.getInstance(context);
 
         mInflater = LayoutInflater.from(context);
         mDateTime = new DateTime(context);

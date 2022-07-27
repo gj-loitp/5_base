@@ -3,12 +3,14 @@ package vn.loitp.app.activity.demo.architectureComponent.viewmodel
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LDateUtil
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_demo_view_model.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
@@ -30,6 +32,22 @@ class ViewModelActivity : BaseFontActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ViewModelActivity::class.java.simpleName
+        }
 
         colorChangerViewModel = ViewModelProvider(this)[ColorChangerViewModel::class.java]
         colorChangerViewModel.colorResource.observe(

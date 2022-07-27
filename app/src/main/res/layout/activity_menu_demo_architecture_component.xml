@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -11,7 +17,7 @@
         android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -21,23 +27,19 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCoroutine"
                 style="@style/ButtonMenu"
-                android:text="Coroutine" />
+                android:text="@string/coroutine" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRoom"
                 style="@style/ButtonMenu"
-                android:text="Room" />
+                android:text="@string/room" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btViewModel"
                 style="@style/ButtonMenu"
-                android:text="View model - Live Data" />
+                android:text="@string/view_model_live_data" />
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Menu Architecture Component" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

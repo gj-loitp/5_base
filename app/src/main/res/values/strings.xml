@@ -873,4 +873,23 @@ Likewise may someone love you next.
     <string name="updateaction_with_id_1">UpdateAction with id = 1</string>
     <string name="deleteaction_with_id_1">DeleteAction with id = 1</string>
     <string name="get_action_list_by_page_pagesize_5">Get action list by page (pageSize=5)</string>
+    <string name="architecture_component">Architecture Component</string>
+    <string name="map_tracker">Map tracker</string>
+    <string name="nfc">NFC</string>
+    <string name="rss">RSS</string>
+    <string name="tracking_g1">Tracking G1</string>
+    <string name="truyentranhtuan">TruyenTranhTuan</string>
+    <string name="coroutine">Coroutine</string>
+    <string name="view_model_live_data">View model - Live Data</string>
+    <string name="test_blocking">Test Blocking</string>
+    <string name="test_withcontext">Test withContext</string>
+    <string name="test_join">Test Join</string>
+    <string name="test_cancel">Test Cancel</string>
+    <string name="test_compose">Test Compose</string>
+    <string name="test_timeout">Test TimeOut</string>
+    <string name="convert_asynctask_to_coroutine">Convert AsyncTask To Coroutine</string>
+    <string name="find_work_with_id_1">Find work with id = 1</string>
+    <string name="view_model">View model</string>
+    <string name="change_color">Change color</string>
+    <string name="change_user">Change user</string>
 </resources>
