@@ -10,11 +10,13 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LNotification
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.function.notification.Notti
 import com.loitpcore.function.notification.NottiFactory
 import com.loitpcore.function.notification.actions.ContentAction
@@ -48,6 +50,17 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = MenuNotificationActivity::class.java.simpleName
+        }
         val notiData = intent.getStringExtra(KEY_NOTI_DATA_INTENT)
         notiData?.let { d ->
             tvMenu.text = d

@@ -440,7 +440,7 @@
             android:name=".activity.customviews.recyclerview.book.BookViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.function.activityAndService.ActivityServiceComunicateActivity"
+            android:name=".activity.function.activityAndService.ActivityServiceCommunicateActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.swipeBackLayout.SwipeBackLayoutActivity"

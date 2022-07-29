@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -12,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -22,17 +28,17 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAdd"
                 style="@style/ButtonMenu"
-                android:text="Add" />
+                android:text="@string/add" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetKey0"
                 style="@style/ButtonMenu"
-                android:text="Get key=0" />
+                android:text="@string/get_key_0" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRemoveKey0"
                 style="@style/ButtonMenu"
-                android:text="Remove key=0" />
+                android:text="@string/remove_key_0" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"
@@ -42,7 +48,7 @@
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium"
                 tools:text="@string/app_name" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

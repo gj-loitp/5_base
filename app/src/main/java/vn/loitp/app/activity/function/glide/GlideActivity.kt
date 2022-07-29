@@ -2,10 +2,12 @@ package vn.loitp.app.activity.function.glide
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LImageUtil
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_func_glide.*
 import vn.loitp.app.R
 
@@ -24,6 +26,17 @@ class GlideActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = GlideActivity::class.java.simpleName
+        }
         bt0.setOnClickListener(this)
         bt1.setOnClickListener(this)
         bt2.setOnClickListener(this)

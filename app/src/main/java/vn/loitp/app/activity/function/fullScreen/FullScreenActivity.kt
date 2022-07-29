@@ -2,10 +2,12 @@ package vn.loitp.app.activity.function.fullScreen
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LScreenUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.dialog.imersiveDialog.ImmersiveDialogFragment
 import kotlinx.android.synthetic.main.activity_func_fullscreen.*
 import vn.loitp.app.R
@@ -27,6 +29,17 @@ class FullScreenActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = FullScreenActivity::class.java.simpleName
+        }
         btToggleFullScreen.setOnClickListener(this)
         btShowDialog.setOnClickListener(this)
     }

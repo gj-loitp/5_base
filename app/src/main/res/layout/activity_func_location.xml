@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -13,7 +19,7 @@
         android:layout_below="@+id/tvMenu"
         android:fillViewport="false">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -42,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:padding="@dimen/margin_padding_medium"
-                android:text="Location updates will be received only when app is foreground"
+                android:text="@string/location_updates_will_be_received_only_when_app_is_foreground"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
@@ -62,11 +68,7 @@
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Location Demo" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

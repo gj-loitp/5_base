@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/loitp" />
+        android:src="@drawable/iv" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/svChat"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
@@ -79,7 +79,7 @@
                 android:id="@+id/layoutKeyboardFake"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
 

@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="@string/notification_menu" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -13,7 +24,7 @@
         android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -23,38 +34,34 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSimpleNotification"
                 style="@style/ButtonMenu"
-                android:text="simple notification" />
+                android:text="@string/simple_notification" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSimpleNotificationActions"
                 style="@style/ButtonMenu"
-                android:text="simple notification with actions" />
+                android:text="@string/simple_notification_with_actions" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBigTextNotification"
                 style="@style/ButtonMenu"
-                android:text="big text notification" />
+                android:text="@string/big_text_notification" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btInboxNotification"
                 style="@style/ButtonMenu"
-                android:text="inbox notification" />
+                android:text="@string/inbox_notification" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBigPictureNotification"
                 style="@style/ButtonMenu"
-                android:text="big picture notification" />
+                android:text="@string/big_picture_notification" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNotificationHeadsup"
                 style="@style/ButtonMenu"
-                android:text="Notifcation headsup" />
+                android:text="@string/notifcation_headsup" />
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Notification Menu" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -7,7 +7,7 @@ import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
-import android.view.* // ktlint-disable no-wildcard-imports
+import android.view.*
 import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.TextView
@@ -30,6 +30,10 @@ class TestService : Service() {
     override fun onCreate() {
         super.onCreate()
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         EventBus.getDefault().register(this)
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_floating_test, null)
 

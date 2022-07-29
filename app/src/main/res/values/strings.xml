@@ -914,4 +914,21 @@ Likewise may someone love you next.
     <string name="_i_love_you">I love you</string>
     <string name="input_an_english_sentence">Input an english sentence</string>
     <string name="speak">Speak</string>
+    <string name="click_to_service">Click to Service</string>
+    <string name="send_service_dummy_test_0">Send Service Dummy Test 0</string>
+    <string name="send_msg_to_activity">Send msg to activity</string>
+    <string name="low">Low</string>
+    <string name="medium">Medium</string>
+    <string name="high">High</string>
+    <string name="get_key_0">Get key=0</string>
+    <string name="remove_key_0">Remove key=0</string>
+    <string name="hide">Hide</string>
+    <string name="location_updates_will_be_received_only_when_app_is_foreground">Location updates will be received only when app is foreground</string>
+    <string name="simple_notification">simple notification</string>
+    <string name="simple_notification_with_actions">simple notification with actions</string>
+    <string name="big_text_notification">big text notification</string>
+    <string name="inbox_notification">inbox notification</string>
+    <string name="big_picture_notification">big picture notification</string>
+    <string name="notifcation_headsup">Notifcation headsup</string>
+    <string name="notification_menu">Notification Menu</string>
 </resources>
