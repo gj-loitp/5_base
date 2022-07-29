@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.huxq17.download.Pump
+import com.huxq17.download.core.DownloadListener
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.IsShowAdWhenExit
@@ -13,8 +15,6 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LValidateUtil
-import com.loitpcore.function.pump.download.Pump
-import com.loitpcore.function.pump.download.core.DownloadListener
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_slide.*
 
 @LogTag("GalleryCoreSlideActivity")

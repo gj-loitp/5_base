@@ -7,6 +7,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.huxq17.download.Pump
+import com.huxq17.download.core.DownloadListener
 import com.loitpcore.R
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
@@ -17,8 +19,6 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.function.pump.download.Pump
-import com.loitpcore.function.pump.download.core.DownloadListener
 import com.loitpcore.restApi.flickr.FlickrConst
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitpcore.restApi.flickr.service.FlickrService

@@ -5,13 +5,13 @@ import android.view.View
 import androidx.core.view.isVisible
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.github.barteksc.pdfviewer.util.FitPolicy
+import com.huxq17.download.Pump
+import com.huxq17.download.core.DownloadListener
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.function.pump.download.Pump
-import com.loitpcore.function.pump.download.core.DownloadListener
 import com.loitpcore.task.AsyncTaskDownloadPdfStream
 import com.loitpcore.task.GetPdfCoroutine
 import com.loitpcore.views.setSafeOnClickListener
@@ -53,6 +53,7 @@ class PdfDemoActivity : BaseFontActivity() {
             callAysncTaskFile()
         }
         btFileCoroutine.setSafeOnClickListener {
+            //TODO deo chay :((
             callCoroutineFile()
         }
         btStreamAsyncTask.setSafeOnClickListener {
