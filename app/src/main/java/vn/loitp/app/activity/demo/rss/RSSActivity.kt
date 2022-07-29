@@ -17,6 +17,10 @@ class RSSActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         LScreenUtil.addFragment(
             activity = this,
             containerFrameLayoutIdRes = R.id.rlContainer,

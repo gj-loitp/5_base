@@ -2,12 +2,14 @@ package vn.loitp.app.activity.demo.pdf
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.github.barteksc.pdfviewer.util.FitPolicy
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LStoreUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.function.pump.download.Pump
 import com.loitpcore.function.pump.download.core.DownloadListener
 import com.loitpcore.task.AsyncTaskDownloadPdfStream
@@ -36,6 +38,17 @@ class PdfDemoActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = PdfDemoActivity::class.java.simpleName
+        }
         btFileAsyncTask.setSafeOnClickListener {
             callAysncTaskFile()
         }

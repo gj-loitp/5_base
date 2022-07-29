@@ -903,4 +903,15 @@ Likewise may someone love you next.
     <string name="screen_2">Screen 2</string>
     <string name="pop_this_fragment">Pop this fragment</string>
     <string name="fn_4">fn 4</string>
+    <string name="add_marker">Add marker</string>
+    <string name="router">Router</string>
+    <string name="router_anim">Router Anim</string>
+    <string name="distance">Distance</string>
+    <string name="scan_a_tag">Scan a tag</string>
+    <string name="result">Result</string>
+    <string name="play">Play</string>
+    <string name="you_love_me">You love me</string>
+    <string name="_i_love_you">I love you</string>
+    <string name="input_an_english_sentence">Input an english sentence</string>
+    <string name="speak">Speak</string>
 </resources>
