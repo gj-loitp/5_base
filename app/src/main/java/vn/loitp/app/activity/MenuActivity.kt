@@ -13,6 +13,7 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.adHelper.AdHelperActivity
 import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LPrefUtil
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
@@ -47,6 +48,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
 
         setupViews()
+        setupConfigGoogle()
     }
 
     private fun setupViews() {
@@ -100,6 +102,58 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         btUtils.setOnClickListener(this)
 
         btGithub.isVisible = false
+    }
+
+    private fun setupConfigGoogle() {
+        val app = LPrefUtil.getGGAppSetting()
+//        logD(">>>setupConfigGoogle " + BaseApplication.gson.toJson(app))
+        val isFullData = app.config?.isFullData == true
+//        logD(">>>setupConfigGoogle isFullData $isFullData")
+        if (isFullData) {
+            btApi.isVisible = true
+            btAnimation.isVisible = true
+            btCustomView.isVisible = true
+            btDemo.isVisible = true
+            btFunction.isVisible = true
+            btAds.isVisible = true
+            btRateApp.isVisible = true
+            btMoreApp.isVisible = true
+            btDatabase.isVisible = true
+            btPattern.isVisible = true
+            btChat.isVisible = true
+            btGithub.isVisible = true
+            btAdHelper.isVisible = true
+            btFbFanpage.isVisible = true
+            btFrmMore.isVisible = true
+            btTutorial.isVisible = true
+            btPicker.isVisible = true
+            btNetwork.isVisible = true
+            btSecurity.isVisible = true
+            btService.isVisible = true
+            btUtils.isVisible = true
+        } else {
+            btApi.isVisible = true
+            btAnimation.isVisible = false
+            btCustomView.isVisible = false
+            btDemo.isVisible = false
+            btFunction.isVisible = false
+            btAds.isVisible = true
+            btRateApp.isVisible = true
+            btMoreApp.isVisible = true
+            btDatabase.isVisible = false
+            btPattern.isVisible = false
+            btChat.isVisible = false
+            btGithub.isVisible = false
+            btAdHelper.isVisible = false
+            btFbFanpage.isVisible = false
+            btFrmMore.isVisible = false
+            btTutorial.isVisible = false
+            btPicker.isVisible = false
+            btNetwork.isVisible = true
+            btSecurity.isVisible = false
+            btService.isVisible = false
+            btUtils.isVisible = false
+        }
     }
 
     private var doubleBackToExitPressedOnce = false
