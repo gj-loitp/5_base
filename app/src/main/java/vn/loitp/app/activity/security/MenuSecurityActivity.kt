@@ -2,11 +2,13 @@ package vn.loitp.app.activity.security
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_menu_security.*
 import vn.loitp.app.R
@@ -28,6 +30,17 @@ class MenuSecurityActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = MenuSecurityActivity::class.java.simpleName
+        }
         bt0.setSafeOnClickListener {
             val intent = Intent(this, SimpleEncryptDecryptStringActivity::class.java)
             startActivity(intent)

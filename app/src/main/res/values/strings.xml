@@ -968,4 +968,15 @@ Likewise may someone love you next.
     <string name="max">Max</string>
     <string name="reset">Reset</string>
     <string name="photo">Photo</string>
+    <string name="simple_encrypt_decrypt_string">Simple Encrypt/Decrypt string</string>
+    <string name="encodebase64">encodeBase64</string>
+    <string name="decodebase64">decodeBase64</string>
+    <string name="encrypt">Encrypt</string>
+    <string name="decrypt">Decrypt</string>
+    <string name="demo_service">Demo service</string>
+    <string name="endless_service">Endless service</string>
+    <string name="start_service">Start service</string>
+    <string name="stop_service">Stop service</string>
+    <string name="start_foreground_service">Start Foreground Service</string>
+    <string name="stop_foreground_service">Stop Foreground Service</string>
 </resources>

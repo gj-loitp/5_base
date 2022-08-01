@@ -2,11 +2,13 @@ package vn.loitp.app.activity.security.simple
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LEncryptionUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_encrypt_decrypt_string.*
 import vn.loitp.app.R
@@ -25,13 +27,29 @@ class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = SimpleEncryptDecryptStringActivity::class.java.simpleName
+        }
+
         val user = User()
         user.fullName = "Name " + System.currentTimeMillis()
         user.email = "Mail " + System.currentTimeMillis()
         tv0.text = BaseApplication.gson.toJson(user)
 
-        bt0.setOnClickListener { encrypt() }
-        bt1.setOnClickListener { decrypt() }
+        bt0.setSafeOnClickListener { encrypt() }
+        bt1.setSafeOnClickListener { decrypt() }
 
         btEncodeBase64.setSafeOnClickListener {
             val str = tvBase64.text.toString()

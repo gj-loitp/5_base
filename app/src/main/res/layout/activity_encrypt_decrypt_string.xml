@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -14,13 +20,13 @@
         android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
             android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
@@ -41,7 +47,7 @@
                     android:id="@+id/btEncodeBase64"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="encodeBase64"
+                    android:text="@string/encodebase64"
                     android:textColor="@color/blue"
                     android:textSize="@dimen/txt_medium" />
 
@@ -49,15 +55,15 @@
                     android:id="@+id/btDecodeBase64"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="decodeBase64"
+                    android:text="@string/decodebase64"
                     android:textColor="@color/deepPink"
                     android:textSize="@dimen/txt_medium"
                     android:visibility="gone"
                     tools:visibility="visible" />
 
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
@@ -78,7 +84,7 @@
                     android:id="@+id/bt0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Encrypt"
+                    android:text="@string/encrypt"
                     android:textColor="@color/blue"
                     android:textSize="@dimen/txt_medium" />
 
@@ -95,14 +101,10 @@
                     android:id="@+id/bt1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Decrypt"
+                    android:text="@string/decrypt"
                     android:textColor="@color/darkBlue" />
-            </LinearLayout>
-        </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Simple Encrypt/Decrypt string" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
