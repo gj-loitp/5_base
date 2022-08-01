@@ -12,12 +12,11 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.* // ktlint-disable no-wildcard-imports
+import com.loitpcore.core.utilities.*
 import com.loitpcore.model.App
-import com.loitpcore.model.GG
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_splash.*
-import okhttp3.* // ktlint-disable no-wildcard-imports
+import okhttp3.Call
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 import java.io.IOException
@@ -27,11 +26,6 @@ import java.io.IOException
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class SplashActivity : BaseFontActivity() {
-
-    companion object {
-        const val LINK_GG_DRIVE_CHECK_READY =
-            "https://drive.google.com/uc?export=download&id=1LHnBs4LG1EORS3FtdXpTVwQW2xONvtHo"
-    }
 
     private var isAnimDone = false
     private var isCheckReadyDone = false
@@ -59,9 +53,6 @@ class SplashActivity : BaseFontActivity() {
         tvPolicy.setOnClickListener {
             LSocialUtil.openBrowserPolicy(context = this)
         }
-
-        getSettingFromGGDrive()
-        getGG()
 
         startIdleTimeHandler(10 * 1000)
         // val getAddressLog = DebugDB.getAddressLog()
@@ -114,7 +105,7 @@ class SplashActivity : BaseFontActivity() {
                 }
                 .request { allGranted, _, _ ->
                     if (allGranted) {
-                        val isNeedCheckReady = false
+                        val isNeedCheckReady = true
                         if (isNeedCheckReady) {
                             checkReady()
                         } else {
@@ -191,61 +182,24 @@ class SplashActivity : BaseFontActivity() {
             goToHome()
             return
         }
-        val request = Request.Builder().url(url = LINK_GG_DRIVE_CHECK_READY).build()
-        val okHttpClient = OkHttpClient()
-        okHttpClient.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                logE("onFailure $e")
-                showDialogNotReady()
-            }
-
-            @Throws(IOException::class)
-            override fun onResponse(call: Call, response: Response) {
-                if (response.isSuccessful) {
-                    val versionServer = Integer.parseInt(response.body.string())
-                    logD("onResponse $versionServer")
-                    if (versionServer == 1) {
-                        isCheckReadyDone = true
-                        LPrefUtil.setCheckAppReady(true)
-                        goToHome()
-                    } else {
-                        showDialogNotReady()
-                    }
-                } else {
-                    logD("onResponse !isSuccessful: $response")
-                    showDialogNotReady()
-                }
-            }
-        })
-    }
-
-    private fun getSettingFromGGDrive() {
+        //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
         val linkGGDriveConfigSetting =
-            "https://drive.google.com/uc?export=download&id=1xqNJBQMzCPzAiAcm673B6ErRRRANCmQT"
+            "https://drive.google.com/uc?export=download&id=16pwq28ZTeP5p1ZeJmgwjHsOofE12XRIf"
         LStoreUtil.getSettingFromGGDrive(
             linkGGDriveSetting = linkGGDriveConfigSetting,
             onGGFailure = { _: Call, _: IOException ->
+                showDialogNotReady()
             },
-            onGGResponse = { app: App?, isNeedToShowMsg: Boolean ->
-                logD(
-                    "getSettingFromGGDrive setting $isNeedToShowMsg -> " + BaseApplication.gson.toJson(
-                        app
-                    )
-                )
-            }
-        )
-    }
-
-    private fun getGG() {
-        val linkGGDrive =
-            "https://drive.google.com/uc?export=download&id=1femuL17MUTz7t0yqUkMWB5yCea1W6kqI"
-        LStoreUtil.getTextFromGGDrive(
-            linkGGDrive = linkGGDrive,
-            onGGFailure = { _: Call, e: Exception ->
-                e.printStackTrace()
-            },
-            onGGResponse = { listGG: ArrayList<GG> ->
-                logD("getGG listGG: -> " + BaseApplication.gson.toJson(listGG))
+            onGGResponse = { app: App? ->
+                logD(">>>checkReady " + BaseApplication.gson.toJson(app))
+                if (app == null || app.config?.isReady == false) {
+                    showDialogNotReady()
+                } else {
+                    LPrefUtil.setCheckAppReady(true)
+                    LPrefUtil.setGGAppSetting(app)
+                    isCheckReadyDone = true
+                    goToHome()
+                }
             }
         )
     }

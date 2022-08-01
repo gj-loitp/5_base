@@ -9,15 +9,11 @@ import com.loitpcore.core.base.BaseModel
 class Config : BaseModel() {
     @SerializedName("isReady")
     @Expose
-    var isIsReady: Boolean = false
+    var isReady: Boolean = false
 
     @SerializedName("isFullData")
     @Expose
     var isFullData: Boolean = false
-
-    @SerializedName("bkgSplash")
-    @Expose
-    var bkgSplash: String? = null
 
     @SerializedName("msg")
     @Expose

@@ -10,10 +10,8 @@ import android.net.Uri
 import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
-import com.google.gson.reflect.TypeToken
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.model.App
-import com.loitpcore.model.GG
 import okhttp3.*
 import java.io.*
 import java.util.*
@@ -327,7 +325,7 @@ class LStoreUtil {
         fun getSettingFromGGDrive(
             linkGGDriveSetting: String? = null,
             onGGFailure: ((call: Call, e: IOException) -> Unit)? = null,
-            onGGResponse: ((app: App?, isNeedToShowMsg: Boolean) -> Unit)? = null
+            onGGResponse: ((app: App?) -> Unit)? = null
         ) {
             if (linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
                 return
@@ -345,63 +343,9 @@ class LStoreUtil {
                         val responseBody = response.body
                         val json = responseBody.string()
                         val app = BaseApplication.gson.fromJson(json, App::class.java)
-                        if (app == null) {
-                            onGGResponse?.invoke(null, false)
-                        } else {
-                            val localMsg = LPrefUtil.getGGAppMsg()
-                            val serverMsg = app.config?.msg
-                            LPrefUtil.setGGAppMsg(serverMsg)
-                            val isNeedToShowMsg: Boolean = if (serverMsg.isNullOrEmpty()) {
-                                false
-                            } else {
-                                !localMsg?.trim { it <= ' ' }.equals(serverMsg, ignoreCase = true)
-                            }
-                            onGGResponse?.invoke(app, isNeedToShowMsg)
-                        }
+                        onGGResponse?.invoke(app)
                     } else {
-                        onGGResponse?.invoke(null, false)
-                    }
-                }
-            })
-        }
-
-        fun getTextFromGGDrive(
-            linkGGDrive: String? = null,
-            onGGFailure: ((call: Call, e: Exception) -> Unit)? = null,
-            onGGResponse: ((listGG: ArrayList<GG>) -> Unit)? = null
-        ) {
-            if (linkGGDrive.isNullOrEmpty()) {
-                return
-            }
-            val request = Request.Builder().url(linkGGDrive).build()
-            val okHttpClient = OkHttpClient()
-            okHttpClient.newCall(request).enqueue(object : Callback {
-                override fun onFailure(call: Call, e: IOException) {
-                    onGGFailure?.invoke(call, e)
-                }
-
-                @Throws(IOException::class)
-                override fun onResponse(call: Call, response: Response) {
-                    if (response.isSuccessful) {
-                        val responseBody = response.body
-                        val json = responseBody.string()
-                        if (json.isEmpty()) {
-                            onGGFailure?.invoke(
-                                call,
-                                NullPointerException("responseBody isNullOrEmpty")
-                            )
-                        } else {
-                            val listGG: ArrayList<GG> = BaseApplication.gson.fromJson(
-                                json,
-                                object : TypeToken<List<GG?>?>() {}.type
-                            )
-                            onGGResponse?.invoke(listGG)
-                        }
-                    } else {
-                        onGGFailure?.invoke(
-                            call,
-                            NullPointerException("responseBody !isSuccessful")
-                        )
+                        onGGResponse?.invoke(null)
                     }
                 }
             })
