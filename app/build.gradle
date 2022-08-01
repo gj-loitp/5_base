@@ -10,7 +10,7 @@ android {
         applicationId "com.roygroup.base"
         minSdkVersion 24
         targetSdk 32
-        versionCode 20220522
+        versionCode 20220801
         versionName "1.0.1"
         multiDexEnabled true
 

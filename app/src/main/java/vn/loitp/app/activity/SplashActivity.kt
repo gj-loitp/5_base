@@ -178,9 +178,15 @@ class SplashActivity : BaseFontActivity() {
 
     private fun checkReady() {
         if (LPrefUtil.getCheckAppReady()) {
-            isCheckReadyDone = true
-            goToHome()
-            return
+            val app = LPrefUtil.getGGAppSetting()
+            val isFullData = app.config?.isFullData == true
+            if (isFullData) {
+                isCheckReadyDone = true
+                goToHome()
+                return
+            } else {
+                //continue to download config from drive
+            }
         }
         //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
         val linkGGDriveConfigSetting =
