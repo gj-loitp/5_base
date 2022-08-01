@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
-    <ScrollView
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -22,47 +27,43 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTestRx"
                 style="@style/ButtonMenu"
-                android:text="Test RX" />
+                android:text="@string/test_rx" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAsyncTaskAndRx"
                 style="@style/ButtonMenu"
-                android:text="AsyncTask and Rx" />
+                android:text="@string/asynctask_and_rx" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDisposableExampleActivity"
                 style="@style/ButtonMenu"
-                android:text="DisposableExampleActivity" />
+                android:text="@string/disposableexampleactivity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFlowableExampleActivity"
                 style="@style/ButtonMenu"
-                android:text="FlowableExampleActivity" />
+                android:text="@string/flowableexampleactivity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btIntervalExampleActivity"
                 style="@style/ButtonMenu"
-                android:text="IntervalExampleActivity " />
+                android:text="@string/intervalexampleactivity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSingleObserverExampleActivity"
                 style="@style/ButtonMenu"
-                android:text="SingleObserverExampleActivity " />
+                android:text="@string/singleobserverexampleactivity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt4"
                 style="@style/ButtonMenu"
-                android:text="CompletableObserverExampleActivity " />
+                android:text="@string/completableobserverexampleactivity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMapExampleActivity"
                 style="@style/ButtonMenu"
-                android:text="MapExampleActivity  " />
-        </LinearLayout>
-    </ScrollView>
+                android:text="@string/mapexampleactivity" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Menu RxJava2" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

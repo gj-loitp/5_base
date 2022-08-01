@@ -979,4 +979,24 @@ Likewise may someone love you next.
     <string name="stop_service">Stop service</string>
     <string name="start_foreground_service">Start Foreground Service</string>
     <string name="stop_foreground_service">Stop Foreground Service</string>
+    <string name="async">Async</string>
+    <string name="rx1">Rx1</string>
+    <string name="rx2">Rx2</string>
+    <string name="rx3">Rx3</string>
+    <string name="rx_with_progress">Rx with progress</string>
+    <string name="dosomework">doSomeWork</string>
+    <string name="test_rx">Test RX</string>
+    <string name="asynctask_and_rx">AsyncTask and Rx</string>
+    <string name="disposableexampleactivity">DisposableExampleActivity</string>
+    <string name="flowableexampleactivity">FlowableExampleActivity</string>
+    <string name="intervalexampleactivity">IntervalExampleActivity</string>
+    <string name="singleobserverexampleactivity">SingleObserverExampleActivity</string>
+    <string name="completableobserverexampleactivity">CompletableObserverExampleActivity</string>
+    <string name="mapexampleactivity">MapExampleActivity</string>
+    <string name="test_from">Test From</string>
+    <string name="test_just">Test Just</string>
+    <string name="test_defer">Test Defer</string>
+    <string name="test_interval">Test Interval</string>
+    <string name="test_create">Test Create</string>
+    <string name="test_map">Test Map</string>
 </resources>
