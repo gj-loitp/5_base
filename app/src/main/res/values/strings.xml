@@ -963,4 +963,9 @@ Likewise may someone love you next.
     <string name="name">name</string>
     <string name="age">age</string>
     <string name="gender">gender</string>
+    <string name="set">Set</string>
+    <string name="min">Min</string>
+    <string name="max">Max</string>
+    <string name="reset">Reset</string>
+    <string name="photo">Photo</string>
 </resources>
