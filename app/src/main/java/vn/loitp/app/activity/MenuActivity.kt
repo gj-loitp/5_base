@@ -147,8 +147,9 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                     null
                 }
                 btAdHelper -> {
-                    Intent(this, AdHelperActivity::class.java)
-                    intent.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
+                    Intent(this, AdHelperActivity::class.java).apply {
+                        putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
+                    }
                 }
                 btFbFanpage -> {
                     LSocialUtil.likeFacebookFanpage(this)
