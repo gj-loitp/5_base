@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
-    android:orientation="vertical"
-    android:padding="@dimen/margin_padding_medium">
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/margin_padding_medium"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"
         tools:text="@string/app_name" />
@@ -18,15 +23,17 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn"
         style="@style/ButtonMenu"
-        android:layout_marginTop="@dimen/margin_padding_large"
-        android:text="Test network" />
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:text="@string/test_network" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/margin_padding_medium"
         android:text="-"
         android:textColor="@color/red"
-        android:textSize="@dimen/txt_medium" />
+        android:textSize="@dimen/txt_medium"
+        tools:ignore="HardcodedText" />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

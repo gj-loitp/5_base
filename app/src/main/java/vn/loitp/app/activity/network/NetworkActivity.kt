@@ -2,12 +2,15 @@ package vn.loitp.app.activity.network
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LConnectivityUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.data.EventBusData
 import com.loitpcore.function.network.TrafficUtils
+import com.loitpcore.views.setSafeOnClickListener
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
@@ -30,9 +33,20 @@ class NetworkActivity : BaseFontActivity() {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = NetworkActivity::class.java.simpleName
+        }
         showStatus(LConnectivityUtil.isConnected())
-        btn.setOnClickListener {
+        btn.setSafeOnClickListener {
             doSomeWork()
         }
     }

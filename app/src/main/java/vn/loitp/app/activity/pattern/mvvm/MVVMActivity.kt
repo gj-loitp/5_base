@@ -21,6 +21,10 @@ class MVVMActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         // / Create the model with initial data
         val user = vn.loitp.app.activity.pattern.mvvm.model.User()
         user.age = 20

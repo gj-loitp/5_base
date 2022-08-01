@@ -956,4 +956,11 @@ Likewise may someone love you next.
     <string name="show_hide_header">Show/Hide header</string>
     <string name="show_hide_body">Show/Hide body</string>
     <string name="appear">Appear</string>
+    <string name="test_network">Test network</string>
+    <string name="email">Email</string>
+    <string name="user_name">User Name</string>
+    <string name="do_a_long_task">Do A Long Task</string>
+    <string name="name">name</string>
+    <string name="age">age</string>
+    <string name="gender">gender</string>
 </resources>
