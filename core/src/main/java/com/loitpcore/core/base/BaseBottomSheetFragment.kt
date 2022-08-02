@@ -51,7 +51,7 @@ open class BaseBottomSheetFragment(
         }
     }
 
-    fun showSnackBarInfor(
+    fun showSnackBarInformation(
         msg: String,
         view: View? = dialog?.window?.findViewById(android.R.id.content),
         isFullWidth: Boolean = false

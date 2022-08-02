@@ -18,6 +18,7 @@ import vn.loitp.app.activity.function.dragDropSample.DragDropSampleActivity
 import vn.loitp.app.activity.function.fullScreen.FullScreenActivity
 import vn.loitp.app.activity.function.glide.GlideActivity
 import vn.loitp.app.activity.function.hashmap.HashMapActivity
+import vn.loitp.app.activity.function.idleTime.IdleTimeActivity
 import vn.loitp.app.activity.function.keyboard.KeyboardActivity
 import vn.loitp.app.activity.function.keyboardHeightProvider.KeyboardHeightProviderActivity
 import vn.loitp.app.activity.function.location.LocationActivity
@@ -61,6 +62,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         }
         btSimpleFingerGesture.setOnClickListener(this)
         btHashMap.setOnClickListener(this)
+        btIdleTime.setOnClickListener(this)
         btDragDropSample.setOnClickListener(this)
         btToggleFullScreen.setOnClickListener(this)
         btViewDragHelper.setOnClickListener(this)
@@ -82,6 +84,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         val intent = when (v) {
             btSimpleFingerGesture -> Intent(this, SimpleFingerGesturesActivity::class.java)
             btHashMap -> Intent(this, HashMapActivity::class.java)
+            btIdleTime -> Intent(this, IdleTimeActivity::class.java)
             btDragDropSample -> Intent(this, DragDropSampleActivity::class.java)
             btToggleFullScreen -> Intent(this, FullScreenActivity::class.java)
             btViewDragHelper -> Intent(this, ViewDragHelperActivity::class.java)

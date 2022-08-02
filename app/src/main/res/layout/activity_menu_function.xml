@@ -52,6 +52,11 @@
                 android:text="@string/hashmap" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btIdleTime"
+                style="@style/ButtonMenu"
+                android:text="@string/idle_time" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btKeyboard"
                 style="@style/ButtonMenu"
                 android:text="@string/keyboard" />

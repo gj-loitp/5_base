@@ -999,4 +999,5 @@ Likewise may someone love you next.
     <string name="test_interval">Test Interval</string>
     <string name="test_create">Test Create</string>
     <string name="test_map">Test Map</string>
+    <string name="idle_time">Idle time</string>
 </resources>

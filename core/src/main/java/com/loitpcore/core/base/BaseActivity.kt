@@ -38,10 +38,10 @@ abstract class BaseActivity : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
     protected var logTag: String? = null
 
-    var delayMlsIdleTime: Long = 60 * 1000 // 60s
+    private var delayMlsIdleTime: Long = 60 * 1000 // 60s
     private var handlerIdleTime: Handler? = null
     private var runnableIdleTime: Runnable? = null
-    var isIdleTime = false
+    private var isIdleTime = false
 
     private var interstitialAd: InterstitialAd? = null
     private var isShowAdWhenExit = false
