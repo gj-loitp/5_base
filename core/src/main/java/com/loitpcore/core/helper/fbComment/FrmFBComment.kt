@@ -10,7 +10,7 @@ import android.os.Looper
 import android.os.Message
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.* // ktlint-disable no-wildcard-imports
+import android.webkit.*
 import android.widget.FrameLayout
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
@@ -21,6 +21,13 @@ import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_frm_fb_cmt.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("FrmFBComment")
 class FrmFBComment : BaseFragment() {
 
@@ -41,6 +48,10 @@ class FrmFBComment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         commentsWebView.setBackgroundColor(Color.TRANSPARENT)
         commentsWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
 

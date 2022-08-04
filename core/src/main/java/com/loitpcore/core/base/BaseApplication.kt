@@ -12,11 +12,17 @@ import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.db.FindNumberDatabase
 import com.loitpcore.utils.util.Utils
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 // GIT
 // combine 2 commit gan nhat lam 1, co thay doi tren github
 /*git reset --soft HEAD~2
 git push -f*/
-
 open class BaseApplication : MultiDexApplication() {
 
     private var logTag: String? = null

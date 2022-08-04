@@ -182,4 +182,5 @@
     <string name="click">Click</string>
     <string name="transition_morph">morph_transition</string>
     <string name="select_type">Chọn thể loại</string>
+    <string name="fb_comment">Facebook Comment</string>
 </resources>

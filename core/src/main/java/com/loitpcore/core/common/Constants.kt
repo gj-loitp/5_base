@@ -2,6 +2,13 @@ package com.loitpcore.core.common
 
 import com.loitpcore.R
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class Constants {
     companion object {
 

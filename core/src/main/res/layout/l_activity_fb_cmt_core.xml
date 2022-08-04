@@ -38,7 +38,7 @@
                 android:layout_centerInParent="true"
                 android:progressTint="?attr/themeTextColor" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/lnAdView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
