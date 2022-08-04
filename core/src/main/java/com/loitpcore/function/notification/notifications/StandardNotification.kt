@@ -2,6 +2,13 @@ package com.loitpcore.function.notification.notifications
 
 import androidx.core.app.NotificationCompat
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class StandardNotification(
     val title: String?,
     val content: String?

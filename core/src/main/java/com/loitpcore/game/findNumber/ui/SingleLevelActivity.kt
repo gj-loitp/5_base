@@ -21,6 +21,13 @@ import com.loitpcore.game.findNumber.viewModel.FindNumberViewModel
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_activity_find_number_single_level.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("SingleLevelActivity")
 @IsFullScreen(true)
 @IsSwipeActivity(true)

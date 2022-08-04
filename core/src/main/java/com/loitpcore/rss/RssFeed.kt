@@ -3,8 +3,11 @@ package com.loitpcore.rss
 import androidx.annotation.Keep
 
 /**
- * RSS Feed response model
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
-
 @Keep
 data class RssFeed(var items: List<RssItem>? = null)

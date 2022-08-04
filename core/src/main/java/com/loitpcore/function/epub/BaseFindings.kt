@@ -4,6 +4,13 @@ import com.loitpcore.function.epub.exception.ReadingException
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 // Helper classes and methods used in Findings
 abstract class BaseFindings {
     @Throws(ReadingException::class)

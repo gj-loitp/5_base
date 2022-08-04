@@ -2,6 +2,13 @@ package com.loitpcore.function.notification.config
 
 import androidx.annotation.Keep
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @Keep
 class NottiConfig {
     var defaultActionImage: Int

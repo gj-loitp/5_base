@@ -15,6 +15,13 @@ import com.loitpcore.game.findNumber.db.Db.Companion.STATUS_LEVEL_WIN
 import com.loitpcore.game.findNumber.model.Level
 import kotlinx.android.synthetic.main.view_row_item_find_number_level.view.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("LevelAdapter")
 class LevelAdapter : BaseAdapter() {
 

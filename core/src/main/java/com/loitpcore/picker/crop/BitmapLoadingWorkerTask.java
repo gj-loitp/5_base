@@ -10,9 +10,13 @@ import android.util.DisplayMetrics;
 import java.lang.ref.WeakReference;
 
 /**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  * Task to load bitmap asynchronously from the UI thread.
  */
-
 final class BitmapLoadingWorkerTask extends AsyncTask<Void, Void, BitmapLoadingWorkerTask.Result> {
 
     //region: Fields and Consts

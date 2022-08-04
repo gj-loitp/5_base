@@ -11,6 +11,13 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.l_dialog_find_number_win.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("DialogActivity")
 @IsFullScreen(true)
 @IsSwipeActivity(true)

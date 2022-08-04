@@ -17,6 +17,13 @@ import android.view.View;
 
 import java.util.Arrays;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class LCropOverlayView extends View {
 
     //region: Fields and Consts

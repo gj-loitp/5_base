@@ -10,6 +10,13 @@ import com.loitpcore.service.liveData.ActionData
 import com.loitpcore.service.liveData.ActionLiveData
 import kotlinx.coroutines.launch
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("FindNumberViewModel")
 class FindNumberViewModel : BaseViewModel() {
     val listLevelActionLiveData: ActionLiveData<ActionData<ArrayList<Level>>> = ActionLiveData()

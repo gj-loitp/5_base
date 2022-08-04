@@ -7,7 +7,11 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 /**
- * @author loitp
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 interface GirlService {
     @GET("rest/")

@@ -5,6 +5,13 @@ import org.xml.sax.InputSource
 import retrofit2.Converter
 import javax.xml.parsers.SAXParserFactory
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 internal class RssResponseBodyConverter : Converter<ResponseBody, RssFeed> {
 
     override fun convert(value: ResponseBody): RssFeed {

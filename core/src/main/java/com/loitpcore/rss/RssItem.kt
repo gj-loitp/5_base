@@ -4,7 +4,11 @@ import androidx.annotation.Keep
 import java.io.Serializable
 
 /**
- * Model for Rss Item
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 @Keep
 class RssItem : Serializable {
