@@ -16,6 +16,13 @@ import androidx.fragment.app.Fragment
 import com.loitpcore.core.base.BaseActivity
 import com.loitpcore.utils.util.FragmentUtils
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LScreenUtil {
 
     companion object {

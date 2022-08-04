@@ -1,5 +1,12 @@
 package com.loitpcore.core.helper.ttt.model.comictype
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class ComicType(var type: String, var url: String) {
 
     @Suppress("SpellCheckingInspection")

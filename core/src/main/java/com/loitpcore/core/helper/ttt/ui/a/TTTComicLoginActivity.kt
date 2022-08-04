@@ -16,6 +16,13 @@ import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.LValidateUtil
 import kotlinx.android.synthetic.main.l_activity_ttt_comic_login.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("TTTComicLoginActivity")
 @IsFullScreen(false)
 class TTTComicLoginActivity : BaseFontActivity() {

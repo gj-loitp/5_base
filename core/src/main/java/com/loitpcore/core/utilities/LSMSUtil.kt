@@ -4,6 +4,13 @@ import android.app.Activity
 import android.content.Intent
 import android.provider.Telephony
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LSMSUtil {
     companion object {
         // https://gist.github.com/mustafasevgi/8c6b638ffd5fca90d45d

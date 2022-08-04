@@ -2,6 +2,13 @@ package com.loitpcore.core.utilities
 
 import java.math.BigDecimal
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LMathUtil {
     companion object {
         fun roundBigDecimal(value: BigDecimal, newScale: Int = 0): BigDecimal {

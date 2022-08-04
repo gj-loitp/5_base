@@ -13,6 +13,13 @@ import com.loitpcore.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.l_frm_ttt_comic_profile.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("FrmProfileTTT")
 class FrmProfileTTT : BaseFragment() {
 

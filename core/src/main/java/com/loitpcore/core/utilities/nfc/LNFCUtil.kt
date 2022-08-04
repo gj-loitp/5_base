@@ -2,6 +2,13 @@ package com.loitpcore.core.utilities.nfc
 
 import kotlin.experimental.and
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LNFCUtil {
     companion object {
         private val hexArray = "0123456789ABCDEF".toCharArray()

@@ -18,9 +18,15 @@ import java.util.*
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 // https://gist.github.com/lopspower/76421751b21594c69eb2
 // https://github.com/lopspower/BestAndroidGists
-
 class LStoreUtil {
     companion object {
         internal var logTag = LStoreUtil::class.java.simpleName

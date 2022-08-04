@@ -3,6 +3,13 @@ package com.loitpcore.core.utilities
 import android.media.MediaPlayer
 import java.io.IOException
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LSoundUtil {
     companion object {
         fun startMusicFromAsset(fileName: String) {

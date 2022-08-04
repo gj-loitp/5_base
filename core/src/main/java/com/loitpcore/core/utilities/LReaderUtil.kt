@@ -10,6 +10,13 @@ import com.loitpcore.function.epub.core.EpubReaderReadActivity
 import com.loitpcore.function.epub.model.BookInfo
 import com.loitpcore.function.epub.model.BookInfoData
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LReaderUtil {
 
     companion object {

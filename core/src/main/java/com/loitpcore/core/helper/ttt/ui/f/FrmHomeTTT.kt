@@ -14,6 +14,13 @@ import com.loitpcore.core.helper.ttt.viewmodel.TTTViewModel
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_ttt_comic_home.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("FrmHomeTTT")
 class FrmHomeTTT : BaseFragment() {
 

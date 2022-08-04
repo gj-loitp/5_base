@@ -49,6 +49,13 @@ import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 import java.io.InputStream
 import java.util.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LUIUtil {
     companion object {
         private val logTag = LUIUtil::class.java.simpleName

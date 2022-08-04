@@ -12,6 +12,13 @@ import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_setting_fragment.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("BottomSheetSettingTTTFragment")
 class BottomSheetSettingTTTFragment : BaseBottomSheetFragment(
     layoutId = R.layout.l_bottom_sheet_ttt_setting_fragment,

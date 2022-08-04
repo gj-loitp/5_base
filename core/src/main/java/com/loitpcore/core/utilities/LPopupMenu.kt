@@ -5,6 +5,13 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LPopupMenu {
 
     companion object {

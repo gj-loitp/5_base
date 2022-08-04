@@ -6,6 +6,13 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.model.App
 import com.loitpcore.utils.util.AppUtils
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LPrefUtil {
     companion object {
         private val logTag = LPrefUtil::class.java.simpleName
