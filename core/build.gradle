@@ -82,7 +82,7 @@ dependencies {
     api 'androidx.webkit:webkit:1.4.0'
 
     //fragment navigation
-    api 'androidx.navigation:navigation-fragment-ktx:2.4.2'
+    api 'androidx.navigation:navigation-fragment-ktx:2.5.1'
 
     //jsoup
     api 'org.jsoup:jsoup:1.15.1'
@@ -127,8 +127,8 @@ dependencies {
     //google service https://developers.google.com/android/guides/setup
     //compile 'com.google.android.gms:play-services-plus:15.0.1'
     //api 'com.google.android.gms:play-services-cast-framework:16.1.0'
-    api 'com.google.android.gms:play-services-maps:18.0.2'
-    api 'com.google.android.gms:play-services-ads:21.0.0'
+    api 'com.google.android.gms:play-services-maps:18.1.0'
+    api 'com.google.android.gms:play-services-ads:21.1.0'
     api 'com.google.android.gms:play-services-location:20.0.0'
 
     //https://github.com/JakeWharton/NineOldAndroids
@@ -165,7 +165,7 @@ dependencies {
 
     api "androidx.lifecycle:lifecycle-extensions:2.2.0"
     //noinspection LifecycleAnnotationProcessorWithJava8
-    kapt "androidx.lifecycle:lifecycle-compiler:2.5.0-rc02"
+    kapt "androidx.lifecycle:lifecycle-compiler:2.6.0-alpha01"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
     //Room components
