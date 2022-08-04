@@ -178,7 +178,7 @@ dependencies {
 //    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
 
     //ViewModel Kotlin support
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     //Coroutines
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3'
 

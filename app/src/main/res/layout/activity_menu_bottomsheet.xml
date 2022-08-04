@@ -46,6 +46,11 @@
                 android:id="@+id/bt3Option"
                 style="@style/ButtonMenu"
                 android:text="@string/_3_option" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btBaseBottomSheet"
+                style="@style/ButtonMenu"
+                android:text="@string/base_bottom_sheet" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

@@ -1,18 +1,18 @@
-package com.loitpcore.core.helper.ttt.ui.f
+package vn.loitp.app.activity.customviews.bottomSheet
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.loitpcore.R
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseBottomSheetFragment
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.adHelper.AdHelperActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LSocialUtil
-import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_information_fragment.*
+import kotlinx.android.synthetic.main.layout_bottom_sheet_sample.*
+import vn.loitp.app.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -21,10 +21,10 @@ import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_information_fragment.*
  * +840766040293
  * freuss47@gmail.com
  */
-@LogTag("BottomSheetInformationTTTFragment")
-class BottomSheetInformationTTTFragment :
+@LogTag("SampleBaseBottomSheet")
+class SampleBaseBottomSheet :
     BaseBottomSheetFragment(
-        layoutId = R.layout.l_bottom_sheet_ttt_information_fragment,
+        layoutId = R.layout.layout_bottom_sheet_sample,
         height = WindowManager.LayoutParams.WRAP_CONTENT,
         isDraggable = true,
         firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED

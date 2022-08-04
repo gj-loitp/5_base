@@ -18,6 +18,13 @@ import com.loitpcore.core.utilities.LLog
 import com.loitpcore.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.loitpcore.core.utilities.LUIUtil.Companion.withBackground
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 open class BaseBottomSheetFragment(
     private val layoutId: Int,
     private val height: Int = WindowManager.LayoutParams.MATCH_PARENT,
