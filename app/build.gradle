@@ -1,3 +1,10 @@
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
@@ -10,7 +17,7 @@ android {
         applicationId "com.roygroup.base"
         minSdkVersion 24
         targetSdk 32
-        versionCode 20220801
+        versionCode 20220804
         versionName "1.0.1"
         multiDexEnabled true
 
@@ -18,25 +25,6 @@ android {
         renderscriptSupportModeEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                includeCompileClasspath true
-//            }
-//        }
-
-//        kapt {
-//            arguments {
-//                arg("room.schemaLocation", "$projectDir/schemas")
-//            }
-//        }
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                arguments += [
-//                        "room.schemaLocation":"$projectDir/schemas".toString(),
-//                        "room.incremental":"true",
-//                        "room.expandProjection":"true"]
-//            }
-//        }
 
         buildConfigField("String", "RECAPTCHA_KEY", '"6LcposQUAAAAAB7X6uNt4cmmdMgGEIaOJfAkCVvy"')
 
@@ -89,11 +77,6 @@ android {
             outputFileName = "BaseMaster_" + buildType.name + "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk"
         }
     }
-
-//    dexOptions {
-//        jumboMode true
-//        javaMaxHeapSize "4g"
-//    }
 }
 
 repositories {
