@@ -4,12 +4,11 @@ import android.annotation.SuppressLint
 import android.content.Context
 
 /**
- * <pre>
- * author: Blankj
- * blog  : http://blankj.com
- * time  : 16/12/08
- * desc  : Utils初始化相关
-</pre> *
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 class Utils {
     companion object {

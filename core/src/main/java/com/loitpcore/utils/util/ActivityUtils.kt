@@ -6,12 +6,11 @@ import android.content.Intent
 import android.util.ArrayMap
 
 /**
- * <pre>
- * author: Blankj
- * blog  : http://blankj.com
- * time  : 2016/09/23
- * desc  : Activity相关工具类
-</pre> *
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 class ActivityUtils private constructor() {
     companion object {

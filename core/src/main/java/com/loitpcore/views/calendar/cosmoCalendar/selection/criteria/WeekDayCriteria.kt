@@ -3,6 +3,13 @@ package com.loitpcore.views.calendar.cosmoCalendar.selection.criteria
 import com.loitpcore.views.calendar.cosmoCalendar.model.Day
 import java.util.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class WeekDayCriteria(
     weekDay: Int
 ) : BaseCriteria() {
@@ -20,10 +27,10 @@ class WeekDayCriteria(
         return day.calendar[Calendar.DAY_OF_WEEK] == weekDay
     }
 
-    override fun equals(any: Any?): Boolean {
-        if (this === any) return true
-        if (any == null || javaClass != any.javaClass) return false
-        val that = any as WeekDayCriteria
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || javaClass != other.javaClass) return false
+        val that = other as WeekDayCriteria
         return weekDay == that.weekDay
     }
 

@@ -10,6 +10,13 @@ import androidx.webkit.WebViewFeature
 import com.loitpcore.core.utilities.LLog
 import org.adblockplus.libadblockplus.android.webview.AdblockWebView
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @SuppressLint("SetJavaScriptEnabled", "RequiresFeature")
 class LWebViewAdblock : AdblockWebView {
 

@@ -11,6 +11,13 @@ import com.loitpcore.views.calendar.cosmoCalendar.model.Month
 import com.loitpcore.views.calendar.cosmoCalendar.settings.SettingsManager
 import com.loitpcore.views.calendar.cosmoCalendar.view.MonthView
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class MonthHolder(
     itemView: View,
     private val appearanceModel: SettingsManager

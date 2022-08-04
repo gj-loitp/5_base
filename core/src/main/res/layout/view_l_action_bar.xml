@@ -17,7 +17,7 @@
             app:realtimeBlurRadius="@dimen/round_largest"
             app:realtimeOverlayColor="@color/white85" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
@@ -51,7 +51,7 @@
                 android:visibility="gone"
                 tools:ignore="UnusedAttribute"
                 tools:visibility="visible" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </FrameLayout>
 
     <View

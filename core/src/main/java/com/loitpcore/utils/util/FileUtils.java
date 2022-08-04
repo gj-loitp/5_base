@@ -28,12 +28,11 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2016/08/11
- *     desc  : 文件相关工具类
- * </pre>
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 public final class FileUtils {
 

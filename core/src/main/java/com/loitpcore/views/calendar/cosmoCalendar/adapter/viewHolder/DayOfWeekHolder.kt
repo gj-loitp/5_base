@@ -8,6 +8,13 @@ import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView
 import java.text.SimpleDateFormat
 import java.util.* // ktlint-disable no-wildcard-imports
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class DayOfWeekHolder(
     itemView: View,
     calendarView: CalendarView?

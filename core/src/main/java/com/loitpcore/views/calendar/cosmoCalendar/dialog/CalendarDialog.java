@@ -31,6 +31,13 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class CalendarDialog extends Dialog implements View.OnClickListener,
         AppearanceInterface, DateInterface, CalendarListsInterface, SelectionInterface {
 

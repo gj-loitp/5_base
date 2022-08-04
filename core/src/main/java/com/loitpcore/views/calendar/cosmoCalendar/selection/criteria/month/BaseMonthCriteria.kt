@@ -4,6 +4,13 @@ import com.loitpcore.views.calendar.cosmoCalendar.model.Day
 import com.loitpcore.views.calendar.cosmoCalendar.selection.criteria.BaseCriteria
 import java.util.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 abstract class BaseMonthCriteria : BaseCriteria() {
 
     protected abstract fun getMonth(): Int

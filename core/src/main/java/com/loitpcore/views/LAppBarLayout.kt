@@ -6,6 +6,13 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.appbar.AppBarLayout
 import kotlin.math.abs
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LAppBarLayout : AppBarLayout, AppBarLayout.OnOffsetChangedListener {
     private var state: State? = null
     private var onStateChangeListener: OnStateChangeListener? = null

@@ -8,10 +8,18 @@ import java.net.HttpURLConnection
 import java.net.MalformedURLException
 import java.net.URL
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class AsyncTaskDownloadPdfStream(val result: (InputStream?) -> Unit) :
     AsyncTask<String, Void, InputStream>() {
     private val logTag = javaClass.simpleName
 
+    @Deprecated("Deprecated in Java")
     override fun doInBackground(vararg strings: String): InputStream? {
         var inputStream: InputStream? = null
         var url: URL? = null
@@ -38,6 +46,7 @@ class AsyncTaskDownloadPdfStream(val result: (InputStream?) -> Unit) :
         return inputStream
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onPostExecute(inputStream: InputStream) {
 //        Log.d(logTag, "onPostExecute")
         result.invoke(inputStream)
