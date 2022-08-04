@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/themeBackgroundColor"
@@ -27,12 +28,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/btAdHelper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,14 +57,14 @@
                     android:text="@string/why_u_see_ad"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_1"
                 android:background="@color/gray" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/btRateApp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,14 +88,14 @@
                     android:text="@string/rate_app"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_1"
                 android:background="@color/gray" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/btMoreApp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -118,14 +119,14 @@
                     android:text="@string/more_app"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_1"
                 android:background="@color/gray" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/btShareApp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -149,14 +150,14 @@
                     android:text="@string/share_app"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_1"
                 android:background="@color/gray" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/btLikeFbFanpage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -180,14 +181,14 @@
                     android:text="@string/like_facebook_fan_page"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_1"
                 android:background="@color/gray" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/btSupport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -211,9 +212,66 @@
                     android:text="@string/support_24_7"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_1"
+                android:background="@color/gray" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/btShowDialogProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="@dimen/margin_padding_medium">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/w_40"
+                    android:layout_height="@dimen/w_40"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_android_black_48dp"
+                    app:tint="?attr/themeTextColor" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
+                    android:text="@string/showDialogProgress"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/btHideDialogProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="@dimen/margin_padding_medium">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/w_40"
+                    android:layout_height="@dimen/w_40"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_android_black_48dp"
+                    app:tint="?attr/themeTextColor" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
+                    android:text="@string/hidedialogprogress"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -11,6 +11,7 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.adHelper.AdHelperActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LSocialUtil
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.layout_bottom_sheet_sample.*
 import vn.loitp.app.R
 
@@ -44,6 +45,8 @@ class SampleBaseBottomSheet :
         btLikeFbFanpage.setOnClickListener(this)
         btSupport.setOnClickListener(this)
         btAdHelper.setOnClickListener(this)
+        btShowDialogProgress.setOnClickListener(this)
+        btHideDialogProgress.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -60,7 +63,17 @@ class SampleBaseBottomSheet :
                     startActivity(intent)
                     LActivityUtil.tranIn(it)
                 }
+                btShowDialogProgress -> {
+                    showDialogProgress()
+                    LUIUtil.setDelay(2000) {
+                        hideDialogProgress()
+                    }
+                }
+                btHideDialogProgress -> {
+                    hideDialogProgress()
+                }
             }
         }
+//        dismiss()
     }
 }

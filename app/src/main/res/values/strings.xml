@@ -1001,4 +1001,8 @@ Likewise may someone love you next.
     <string name="test_map">Test Map</string>
     <string name="idle_time">Idle time</string>
     <string name="base_bottom_sheet">Base bottom sheet</string>
+    <string name="showSnackBarInformation">showSnackBarInformation</string>
+    <string name="showSnackBarWarning">showSnackBarWarning</string>
+    <string name="showDialogProgress">showDialogProgress</string>
+    <string name="hidedialogprogress">hideDialogProgress</string>
 </resources>
