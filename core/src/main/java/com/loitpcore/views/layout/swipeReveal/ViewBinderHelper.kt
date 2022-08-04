@@ -3,6 +3,13 @@ package com.loitpcore.views.layout.swipeReveal
 import android.os.Bundle
 import java.util.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class ViewBinderHelper {
 
     companion object {

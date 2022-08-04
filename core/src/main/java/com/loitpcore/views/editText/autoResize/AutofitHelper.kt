@@ -12,7 +12,11 @@ import com.loitpcore.R
 import com.loitpcore.core.utilities.LLog
 
 /**
- * Created by www.muathu@gmail.com on 1/4/2018.
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 class AutofitHelper private constructor(view: TextView) {
 

@@ -8,6 +8,13 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 //21.12.2020 try to convert kotlin but failed
 public class CalendarListsModel implements CalendarListsInterface {
 

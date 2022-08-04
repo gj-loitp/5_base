@@ -7,6 +7,13 @@ import com.loitpcore.views.calendar.cosmoCalendar.adapter.viewHolder.OtherDayHol
 import com.loitpcore.views.calendar.cosmoCalendar.model.Day
 import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class OtherDayDelegate(private val calendarView: CalendarView) {
     fun onCreateDayHolder(parent: ViewGroup, viewType: Int): OtherDayHolder {
 

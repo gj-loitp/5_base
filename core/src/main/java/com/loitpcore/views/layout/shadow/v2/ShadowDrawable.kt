@@ -5,11 +5,11 @@ import android.graphics.drawable.Drawable
 import kotlin.math.min
 
 /**
- * ShadowDrawable
- *
- *
- * Created by lijiankun on 2018/9/28
- * Email: lijiankun03@meituan.com
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 class ShadowDrawable(
     private val mShape: Int,

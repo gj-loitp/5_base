@@ -14,11 +14,11 @@ import android.view.*
 import com.loitpcore.R
 
 /**
- * A layout that splits the available space between two child views.
- *
- *
- * An optionally movable bar exists between the children which allows the user
- * to redistribute the space allocated to each view.
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 class SplitPaneLayout : ViewGroup {
 

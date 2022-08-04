@@ -12,8 +12,15 @@ import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LUIUtil
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LAutoSuggestEditText : RelativeLayout {
-    private val logTag = javaClass.simpleName
+//    private val logTag = javaClass.simpleName
 
     lateinit var editText: EditText
     lateinit var progressBar: ProgressBar

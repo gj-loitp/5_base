@@ -2,6 +2,13 @@ package com.loitpcore.views.layout.circularView;
 
 import android.database.DataSetObserver;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public interface BaseCircularViewAdapter {
     /**
      * Get the count of how many markers will show around the circular view. This number should be zero or positive.

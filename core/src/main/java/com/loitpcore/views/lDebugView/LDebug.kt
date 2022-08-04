@@ -7,6 +7,13 @@ import android.provider.Settings
 import com.loitpcore.utils.util.ServiceUtils
 import com.loitpcore.views.lDebugView.LComunicateDebug.postFromActivity
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 object LDebug {
     private const val CODE = 1993
 

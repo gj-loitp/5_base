@@ -13,6 +13,13 @@ import com.loitpcore.R
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.utils.util.ConvertUtils
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LEditText : RelativeLayout {
     lateinit var mcv: MaterialCardView
     lateinit var editText: EditText
@@ -141,11 +148,7 @@ class LEditText : RelativeLayout {
 
     fun setMaxLines(maxLines: Int) {
         editText.maxLines = maxLines
-        if (maxLines == 1) {
-            editText.isSingleLine = true
-        } else {
-            editText.isSingleLine = false
-        }
+        editText.isSingleLine = maxLines == 1
     }
 
     fun setWidthRootView(width: Int) {

@@ -21,6 +21,13 @@ import androidx.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class FloatDragPopupWindow implements PopupWindow.OnDismissListener, View.OnTouchListener {
 
     @IntDef({Edge.TOP,

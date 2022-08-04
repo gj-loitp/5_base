@@ -3,6 +3,13 @@ package com.loitpcore.views.draggableFlipView
 import android.animation.ValueAnimator
 import android.view.View
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class FlipListener(
     private var mFrontView: View?,
     private var mBackView: View?,

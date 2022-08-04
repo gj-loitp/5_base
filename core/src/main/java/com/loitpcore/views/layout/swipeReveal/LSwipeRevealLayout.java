@@ -20,6 +20,13 @@ import com.loitpcore.R;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 //17/12/2020 try convert to kotlin but failed
 @SuppressLint("RtlHardcoded")
 public class LSwipeRevealLayout extends ViewGroup {

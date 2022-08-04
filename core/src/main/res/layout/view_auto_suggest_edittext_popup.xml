@@ -7,13 +7,13 @@
     app:cardElevation="@dimen/w_3"
     app:cardUseCompatPadding="true">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/sv"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
                 android:textColor="@color/Black"
                 android:textSize="@dimen/txt_18" />-->
 
-        </LinearLayout>
-    </ScrollView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.cardview.widget.CardView>

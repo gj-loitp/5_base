@@ -5,7 +5,11 @@ import android.app.Application.ActivityLifecycleCallbacks
 import android.os.Bundle
 
 /**
- * Created by GongWen on 17/9/4.
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 open class ActivityLifecycleCallbacksAdapter : ActivityLifecycleCallbacks {
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}

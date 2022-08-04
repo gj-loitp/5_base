@@ -4,6 +4,13 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class DynamicHeightImageView : AppCompatImageView {
 
     private var mAspectRatio = 1.5f

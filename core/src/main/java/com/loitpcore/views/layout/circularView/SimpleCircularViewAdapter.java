@@ -3,6 +3,13 @@ package com.loitpcore.views.layout.circularView;
 import android.database.DataSetObservable;
 import android.database.DataSetObserver;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public abstract class SimpleCircularViewAdapter implements BaseCircularViewAdapter {
     private final DataSetObservable mDataSetObservable = new DataSetObservable();
 

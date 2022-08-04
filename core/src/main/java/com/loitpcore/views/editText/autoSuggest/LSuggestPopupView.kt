@@ -17,8 +17,19 @@ import com.loitpcore.utils.util.ConvertUtils
 import kotlin.math.hypot
 import kotlin.math.max
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @SuppressLint("InflateParams")
-class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callback: Callback?) :
+class LSuggestPopupView(
+    val context: Context,
+    val withEffect: Boolean,
+    val callback: Callback?,
+) :
     RelativePopupWindow() {
     private var ll: LinearLayout
     private var sv: ScrollView

@@ -8,6 +8,13 @@ import com.loitpcore.views.calendar.cosmoCalendar.adapter.viewHolder.MonthHolder
 import com.loitpcore.views.calendar.cosmoCalendar.model.Month
 import com.loitpcore.views.calendar.cosmoCalendar.settings.SettingsManager
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class MonthDelegate(
     private val appearanceModel: SettingsManager
 ) {

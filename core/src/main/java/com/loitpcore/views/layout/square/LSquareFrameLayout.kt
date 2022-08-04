@@ -7,7 +7,11 @@ import kotlin.math.max
 import kotlin.math.min
 
 /**
- * [android.widget.FrameLayout] which forces itself to be laid out as square.
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 class LSquareFrameLayout : FrameLayout {
     constructor(context: Context) : super(context)

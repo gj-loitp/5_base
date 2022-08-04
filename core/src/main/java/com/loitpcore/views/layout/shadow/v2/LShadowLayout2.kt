@@ -10,6 +10,13 @@ import androidx.core.view.ViewCompat
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LShadowLayout2 @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,

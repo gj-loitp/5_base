@@ -6,6 +6,13 @@ import android.widget.RelativeLayout
 import com.loitpcore.R
 import com.loitpcore.views.layout.heart.AbstractPathAnimator.Config.Companion.fromTypeArray
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LHeartLayout : RelativeLayout {
     private var abstractPathAnimator: AbstractPathAnimator? = null
 

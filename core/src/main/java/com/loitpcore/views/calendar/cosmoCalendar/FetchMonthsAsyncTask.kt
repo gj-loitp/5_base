@@ -8,6 +8,13 @@ import com.loitpcore.views.calendar.cosmoCalendar.settings.SettingsManager
 import com.loitpcore.views.calendar.cosmoCalendar.utils.CalendarUtils
 import java.util.* // ktlint-disable no-wildcard-imports
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class FetchMonthsAsyncTask : AsyncTask<FetchParams, Void, List<Month>>() {
 
     class FetchParams(
@@ -22,6 +29,7 @@ class FetchMonthsAsyncTask : AsyncTask<FetchParams, Void, List<Month>>() {
     private var monthAdapter: MonthAdapter? = null
     private var defaultMonthCount = 0
 
+    @Deprecated("Deprecated in Java")
     override fun doInBackground(vararg fetchParams: FetchParams): List<Month> {
         val params = fetchParams[0]
         val month = params.month
@@ -48,6 +56,7 @@ class FetchMonthsAsyncTask : AsyncTask<FetchParams, Void, List<Month>>() {
         return result
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onPostExecute(months: List<Month>) {
         monthAdapter?.let { adapter ->
             if (months.isNotEmpty()) {

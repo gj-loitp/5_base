@@ -22,6 +22,13 @@ import com.loitpcore.R;
 
 import java.util.ArrayList;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class CircularView extends View {
     private static final String TAG = CircularView.class.getSimpleName();
     private String mText; //check add customization for the text (style, color, etc)

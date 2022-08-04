@@ -6,7 +6,11 @@ import android.os.Bundle
 import java.util.*
 
 /**
- * Created by GongWen on 17/9/4.
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 class WxSwipeBackActivityManager private constructor() : ActivityLifecycleCallbacksAdapter() {
 

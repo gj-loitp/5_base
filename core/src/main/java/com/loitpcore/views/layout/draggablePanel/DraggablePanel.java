@@ -10,6 +10,13 @@ import androidx.fragment.app.FragmentManager;
 
 import com.loitpcore.R;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class DraggablePanel extends FrameLayout {
 
     private static final int DEFAULT_TOP_FRAGMENT_HEIGHT = 200;

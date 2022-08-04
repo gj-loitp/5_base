@@ -16,6 +16,13 @@ import com.loitpcore.core.utilities.LLog;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class DraggablePanelFreeLayout extends ViewGroup {
     private final String logTag = getClass().getSimpleName();
     private final ViewDragHelper mDragHelper;
@@ -200,20 +207,6 @@ public class DraggablePanelFreeLayout extends ViewGroup {
                 break;
             }
             case MotionEvent.ACTION_UP: {
-//                Log.d(logTag, "onTouchEvent ACTION_UP");
-                /*final float dx = x - mInitialMotionX;
-                final float dy = y - mInitialMotionY;
-                final int slop = mDragHelper.getTouchSlop();
-                if (dx * dx + dy * dy < slop * slop && isHeaderViewUnder) {
-                    if (mDragOffset == 0) {
-                        smoothSlideTo(1f);
-                    } else {
-                        smoothSlideTo(0f);
-                    }
-                }else{
-                    Log.d(TAG, "ACTION_UP else");
-                }*/
-                //Log.d(TAG, "mDragOffset " + mDragOffset);
                 if (isPositionBottom()) {
                     LLog.d(logTag, "onTouchEvent ACTION_UP no slide");
                 } else {

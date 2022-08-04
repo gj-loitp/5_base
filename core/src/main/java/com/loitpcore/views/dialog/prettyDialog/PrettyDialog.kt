@@ -23,16 +23,23 @@ import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
-    internal var defaultIconTint: Int = R.color.colorPrimary
+    private var defaultIconTint: Int = R.color.colorPrimary
     internal var resources: Resources
-    internal var llContent: LinearLayout? = null
-    internal var llButtons: LinearLayout? = null
-    internal var ivIcon: ImageView? = null
-    internal var closeRotationAnimation: RotateAnimation? = null
-    internal var iconAnimation = true
+    private var llContent: LinearLayout? = null
+    private var llButtons: LinearLayout? = null
+    private var ivIcon: ImageView? = null
+    private var closeRotationAnimation: RotateAnimation? = null
+    private var iconAnimation = true
     internal var tvTitle: TextView? = null
-    internal var tvMessage: TextView? = null
+    private var tvMessage: TextView? = null
     internal var typeface: Typeface? = null
     internal var thisDialog: PrettyDialog
 
