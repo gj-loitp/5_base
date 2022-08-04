@@ -16,12 +16,7 @@
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop" />
 
-    <!--    <View-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:background="@drawable/l_bkg_shadow_white_black_dark" />-->
-
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -51,7 +46,7 @@
             android:textStyle="bold"
             android:visibility="visible"
             tools:text="@string/app_name" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvNumber"

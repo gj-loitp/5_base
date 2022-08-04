@@ -17,6 +17,13 @@ import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LValidateUtil
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_slide.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("GalleryCoreSlideActivity")
 @IsFullScreen(false)
 @IsShowAdWhenExit(true)
@@ -29,6 +36,11 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+        LValidateUtil.isValidPackageName()
+    }
+
+    private fun setupViews() {
         val slidePagerAdapter = SlidePagerAdapter(supportFragmentManager)
         viewPager.adapter = slidePagerAdapter
 //        LUIUtil.setPullLikeIOSHorizontal(viewPager)
@@ -51,8 +63,6 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
         btReport.setOnClickListener {
             LSocialUtil.sendEmail(context = this)
         }
-
-        LValidateUtil.isValidPackageName()
     }
 
     private inner class SlidePagerAdapter(fm: FragmentManager) :

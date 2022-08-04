@@ -23,6 +23,13 @@ import com.loitpcore.utils.util.AppUtils
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @SuppressLint("CustomSplashScreen")
 @LogTag("GalleryCoreSplashActivity")
 @IsFullScreen(false)
@@ -36,6 +43,12 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+        checkPermission()
+    }
+
+    private fun setupViews() {
 
 //        setTransparentStatusNavigationBar()
         RestClient.init(getString(R.string.flickr_URL))
@@ -68,8 +81,6 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         LUIUtil.setTextShadow(textView = tvName, color = null)
 
         LValidateUtil.isValidPackageName()
-
-        checkPermission()
     }
 
     private fun goToHome() {

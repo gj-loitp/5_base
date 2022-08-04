@@ -21,6 +21,13 @@ import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_member.view.*
 import java.util.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("MemberAdapter")
 class MemberAdapter(
     private val callback: Callback?

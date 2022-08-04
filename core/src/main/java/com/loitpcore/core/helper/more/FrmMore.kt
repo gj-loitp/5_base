@@ -12,6 +12,13 @@ import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_frm_more.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("FrmMore")
 class FrmMore : BaseFragment(), View.OnClickListener {
 

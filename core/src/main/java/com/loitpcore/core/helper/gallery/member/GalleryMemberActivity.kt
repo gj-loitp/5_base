@@ -32,6 +32,13 @@ import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("GalleryMemberActivity")
 @IsSwipeActivity(true)
 class GalleryMemberActivity : BaseFontActivity() {
@@ -50,6 +57,11 @@ class GalleryMemberActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+        checkPermission()
+    }
+
+    private fun setupViews() {
         RestClient.init(getString(R.string.flickr_URL))
         PhotosDataCore.instance.clearData()
 
@@ -137,7 +149,6 @@ class GalleryMemberActivity : BaseFontActivity() {
                 }
             }
         })
-        checkPermission()
     }
 
     private fun goToHome() {
