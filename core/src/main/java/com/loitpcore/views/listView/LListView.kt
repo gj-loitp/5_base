@@ -5,17 +5,24 @@ import android.util.AttributeSet
 import android.widget.AbsListView
 import android.widget.ListView
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 open class LListView : ListView {
 
     private var onScrollListener: OnScrollListener? = null
     private var onDetectScrollListener: OnDetectScrollListener? = null
 
     constructor(context: Context) : super(context) {
-        onCreate(context, null, null)
+        onCreate()
     }
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        onCreate(context, attrs, null)
+        onCreate()
     }
 
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
@@ -23,10 +30,10 @@ open class LListView : ListView {
         attrs,
         defStyle
     ) {
-        onCreate(context, attrs, defStyle)
+        onCreate()
     }
 
-    private fun onCreate(context: Context, attrs: AttributeSet?, defStyle: Int?) {
+    private fun onCreate() {
         setListeners()
     }
 

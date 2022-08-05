@@ -5,6 +5,13 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.ScrollView
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LScrollView : ScrollView {
 
     interface ScrollListener {

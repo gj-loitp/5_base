@@ -18,6 +18,13 @@ import com.loitpcore.R;
 import java.util.HashSet;
 import java.util.Objects;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class LScrollablePanel extends FrameLayout {
     protected RecyclerView recyclerView;
     protected RecyclerView headerRecyclerView;

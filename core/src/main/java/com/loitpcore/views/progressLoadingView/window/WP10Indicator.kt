@@ -9,6 +9,13 @@ import android.view.Gravity
 import android.widget.RelativeLayout
 import com.loitpcore.views.progressLoadingView.window.Utils.px2dp
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @SuppressLint("ViewConstructor")
 class WP10Indicator(
     context: Context,

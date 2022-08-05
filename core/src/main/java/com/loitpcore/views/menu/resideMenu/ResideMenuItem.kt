@@ -10,6 +10,13 @@ import com.loitpcore.core.utilities.LUIUtil.Companion.setTextShadow
 import com.loitpcore.core.utilities.LUIUtil.Companion.setTextSize
 import com.loitpcore.utils.util.ConvertUtils
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class ResideMenuItem : LinearLayout {
     var ivIcon: ImageView? = null
     var tvTitle: TextView? = null

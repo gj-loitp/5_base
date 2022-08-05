@@ -11,6 +11,13 @@ import com.loitpcore.R
 import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LUIUtil
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LTextNavigationView : RelativeLayout, View.OnClickListener {
     var tvPrev: TextView? = null
     var tvNext: TextView? = null

@@ -18,6 +18,13 @@ import android.widget.Scroller;
 
 import java.util.List;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class TwoDScrollView extends FrameLayout {
 
     static final int ANIMATED_SCROLL_GAP = 250;

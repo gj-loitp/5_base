@@ -2,9 +2,8 @@ package com.loitpcore.views.navigation.arc
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.* // ktlint-disable no-wildcard-imports
+import android.graphics.*
 import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Gravity
@@ -12,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewOutlineProvider
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.core.view.ViewCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.internal.NavigationMenuView
@@ -21,6 +19,13 @@ import com.google.android.material.navigation.NavigationView
 import com.loitpcore.views.navigation.arc.LArcViewSettings.Companion.dpToPx
 import kotlin.math.roundToInt
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LArcNavigationView : NavigationView {
 
     companion object {
@@ -197,14 +202,11 @@ class LArcNavigationView : NavigationView {
             if (mWidth > 0 && mHeight > 0) {
                 clipPath = createClipPath()
                 ViewCompat.setElevation(this, s.elevation)
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    outlineProvider = object : ViewOutlineProvider() {
-                        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-                        override fun getOutline(view: View, outline: Outline) {
-                            clipPath?.let {
-                                if (it.isConvex) {
-                                    outline.setConvexPath(it)
-                                }
+                outlineProvider = object : ViewOutlineProvider() {
+                    override fun getOutline(view: View, outline: Outline) {
+                        clipPath?.let {
+                            if (it.isConvex) {
+                                outline.setConvexPath(it)
                             }
                         }
                     }
