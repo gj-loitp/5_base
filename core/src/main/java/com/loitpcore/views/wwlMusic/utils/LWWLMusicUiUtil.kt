@@ -12,6 +12,13 @@ import com.loitpcore.R
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ * Created by Loitp on 05,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 object LWWLMusicUiUtil {
 
     @JvmStatic

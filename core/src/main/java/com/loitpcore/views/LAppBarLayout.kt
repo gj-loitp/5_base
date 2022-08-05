@@ -7,7 +7,7 @@ import com.google.android.material.appbar.AppBarLayout
 import kotlin.math.abs
 
 /**
- * Created by Loitp on 04,August,2022
+ * Created by Loitp on 05,August,2022
  * Galaxy One company,
  * Vietnam
  * +840766040293

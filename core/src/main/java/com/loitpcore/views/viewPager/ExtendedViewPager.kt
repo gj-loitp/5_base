@@ -6,6 +6,13 @@ import android.view.View
 import androidx.viewpager.widget.ViewPager
 import com.ortiz.touchview.TouchImageView
 
+/**
+ * Created by Loitp on 05,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class ExtendedViewPager : ViewPager {
 
     constructor(context: Context) : super(context)

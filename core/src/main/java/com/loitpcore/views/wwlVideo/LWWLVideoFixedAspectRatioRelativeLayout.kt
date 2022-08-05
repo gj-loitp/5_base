@@ -6,6 +6,13 @@ import android.util.AttributeSet
 import android.widget.RelativeLayout
 import com.loitpcore.R
 
+/**
+ * Created by Loitp on 05,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LWWLVideoFixedAspectRatioRelativeLayout : RelativeLayout {
     var mAspectRatio: Float
 
