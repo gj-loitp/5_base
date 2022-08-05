@@ -5,6 +5,13 @@ import android.graphics.Color
 import android.util.AttributeSet
 import com.loitpcore.R
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LToggleLExtraTextView : LExtraTextView {
     private lateinit var state: State
     private var activeDrawableResourceId: Int = 0

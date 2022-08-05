@@ -6,6 +6,13 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class ObservableScrollView : ScrollView {
     private var mOnScrollChangedListeners: ArrayList<OnScrollChangedListener>? = null
 

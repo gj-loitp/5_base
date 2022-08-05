@@ -8,6 +8,13 @@ import androidx.appcompat.widget.AppCompatTextView
 import com.loitpcore.R
 import kotlin.math.min
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LColorTextView : AppCompatTextView {
     private val mColorTexts: MutableList<String> = ArrayList()
     private val mColors: MutableList<String> = ArrayList()

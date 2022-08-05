@@ -7,6 +7,13 @@ import com.loitpcore.BuildConfig
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class CustomInfo {
 
     override fun toString(): String {

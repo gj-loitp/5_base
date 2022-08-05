@@ -7,6 +7,13 @@ import android.view.MotionEvent
 import androidx.core.view.MotionEventCompat
 import androidx.viewpager.widget.ViewPager
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LSwipeOutViewPager : ViewPager {
     private var mStartDragX: Float = 0.toFloat()
     private var mOnSwipeOutListener: OnSwipeOutListener? = null

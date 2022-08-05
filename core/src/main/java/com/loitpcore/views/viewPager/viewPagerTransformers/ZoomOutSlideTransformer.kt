@@ -4,6 +4,13 @@ import android.view.View
 import kotlin.math.abs
 import kotlin.math.max
 
+/**
+ * Created by Loitp on 05,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class ZoomOutSlideTransformer : BaseTransformer() {
 
     override fun onTransform(view: View, position: Float) {

@@ -9,6 +9,13 @@ import com.loitpcore.views.smoothTransition.ViewUtils.screenWidth
 import com.nineoldandroids.animation.AnimatorSet
 import com.nineoldandroids.animation.ObjectAnimator
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 // https://github.com/dkmeteor/SmoothTransition
 class SwitchAnimationUtil {
 

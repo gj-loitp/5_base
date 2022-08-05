@@ -13,6 +13,13 @@ import android.widget.TextView;
 
 import com.loitpcore.R;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 //try to convert kotlin 4/12/2020 but failed
 public class LVerticalMarqueeTextView extends ScrollView {
     private static final String TAG = LVerticalMarqueeTextView.class.getName();

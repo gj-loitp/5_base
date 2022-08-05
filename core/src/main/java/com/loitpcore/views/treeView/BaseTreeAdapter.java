@@ -13,6 +13,13 @@ import androidx.annotation.NonNull;
 
 import java.util.Objects;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public abstract class BaseTreeAdapter<VH> implements TreeAdapter<VH> {
     private final int mLayoutRes;
     private TreeNode mRootNode;

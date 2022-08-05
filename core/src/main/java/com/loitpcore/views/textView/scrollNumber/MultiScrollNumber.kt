@@ -15,6 +15,13 @@ import androidx.annotation.IntRange
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource.getColor
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 // guide https://github.com/a-voyager/ScrollNumber?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3973
 class MultiScrollNumber @JvmOverloads constructor(
     private val mContext: Context,
