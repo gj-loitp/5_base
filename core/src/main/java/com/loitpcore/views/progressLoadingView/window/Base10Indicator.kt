@@ -7,6 +7,13 @@ import android.view.View
 import android.widget.LinearLayout
 import com.loitpcore.views.progressLoadingView.window.Utils.px2dp
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @SuppressLint("ViewConstructor")
 class Base10Indicator(
     context: Context,

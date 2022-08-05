@@ -4,6 +4,18 @@ import android.os.Handler
 import android.os.Looper
 
 class UserDataRepository private constructor() : Subject {
+    companion object {
+        private var instance: UserDataRepository? = null
+
+        // Creates a Singleton of the class
+        fun getInstance(): UserDataRepository? {
+            if (instance == null) {
+                instance = UserDataRepository()
+            }
+            return instance
+        }
+    }
+
     private var mFullName: String = ""
     private var mAge: Int = 0 // ktlint-disable no-wildcard-imports
     private val mObservers: ArrayList<RepositoryObserver> = ArrayList()
@@ -35,21 +47,9 @@ class UserDataRepository private constructor() : Subject {
         }
     }
 
-    fun setUserData(fullName: String, age: Int) {
+    private fun setUserData(fullName: String, age: Int) {
         mFullName = fullName
         mAge = age
         notifyObservers()
-    }
-
-    companion object {
-        private var instance: UserDataRepository? = null
-
-        // Creates a Singleton of the class
-        fun getInstance(): UserDataRepository? {
-            if (instance == null) {
-                instance = UserDataRepository()
-            }
-            return instance
-        }
     }
 }

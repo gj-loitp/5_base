@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
@@ -44,7 +44,7 @@
                     android:id="@+id/btToast"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Show toast"
+                    android:text="@string/show_toast"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -52,7 +52,7 @@
                     android:id="@+id/btAlpha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Enable/Disable alpha"
+                    android:text="@string/enable_disable_alpha"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -60,7 +60,7 @@
                     android:id="@+id/btRevertMax"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Enable/Disable isEnableRevertMaxSize"
+                    android:text="@string/enable_disable_isenablerevertmaxsize"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -68,7 +68,7 @@
                     android:id="@+id/btMaximize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Maximize"
+                    android:text="@string/maximize"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -76,7 +76,7 @@
                     android:id="@+id/btMinimizeBottomLeft"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Minimize Bottom Left"
+                    android:text="@string/minimize_bottom_left"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -84,7 +84,7 @@
                     android:id="@+id/btMinimizeBottomRight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Minimize Bottom Right"
+                    android:text="@string/minimize_bottom_right"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -92,7 +92,7 @@
                     android:id="@+id/btMinimizeTopRight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Minimize Top Right"
+                    android:text="@string/minimize_top_right"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     android:visibility="gone" />
@@ -101,7 +101,7 @@
                     android:id="@+id/btMinimizeTopLeft"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Minimize Top Left"
+                    android:text="@string/minimize_top_left"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     android:visibility="gone" />
@@ -110,7 +110,7 @@
                     android:id="@+id/btSlideToPosition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Slide to position"
+                    android:text="@string/slide_to_position"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -118,7 +118,7 @@
                     android:id="@+id/btShowHideHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Show/Hide header"
+                    android:text="@string/show_hide_header"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -126,7 +126,7 @@
                     android:id="@+id/btShowHideBody"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Show/Hide body"
+                    android:text="@string/show_hide_body"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -134,7 +134,7 @@
                     android:id="@+id/btAppear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Appear"
+                    android:text="@string/appear"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
@@ -152,9 +152,9 @@
                     android:padding="@dimen/margin_padding_medium"
                     android:text="@string/large_text"
                     android:textColor="?attr/themeTextColor" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.core.widget.NestedScrollView>
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <vn.loitp.app.activity.function.viewDragHelperSimple.VDHView
         android:id="@+id/vdhv"

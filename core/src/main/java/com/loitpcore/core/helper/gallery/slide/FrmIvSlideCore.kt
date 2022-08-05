@@ -17,6 +17,13 @@ import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_item_flickr_photo_slide_iv_core.*
 import java.io.File
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class FrmIvSlideCore : Fragment() {
 
     override fun onCreateView(

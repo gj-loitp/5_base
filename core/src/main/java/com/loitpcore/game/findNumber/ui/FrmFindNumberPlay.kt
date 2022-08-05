@@ -23,6 +23,13 @@ import com.loitpcore.game.findNumber.model.Level
 import com.loitpcore.views.textView.autoFit.LAutoFitTextView
 import kotlinx.android.synthetic.main.l_frm_find_number_play.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("FrmFindNumberPlay")
 class FrmFindNumberPlay(
     val level: Level

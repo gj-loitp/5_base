@@ -11,6 +11,13 @@ import android.view.View
 import android.widget.FrameLayout
 import kotlin.math.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LRippleLayout : FrameLayout {
     // 图片横向、纵向的格数
     private val MESH_WIDTH = 20

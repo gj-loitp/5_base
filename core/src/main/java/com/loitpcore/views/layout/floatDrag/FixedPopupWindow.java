@@ -13,12 +13,12 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * FixedPopupWindow
- * 修复 Android 7.0 上系统 API 问题的 PopupWindow
- *
- * @author baishixian
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
-
 //17.12.2020 try to revert kotlin but failed
 
 public class FixedPopupWindow extends PopupWindow {

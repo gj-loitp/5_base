@@ -43,6 +43,13 @@ import com.loitpcore.views.LWebViewAdblock
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("EpubReaderReadActivity")
 @IsFullScreen(false)
 @IsShowAdWhenExit(true)

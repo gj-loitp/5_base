@@ -15,6 +15,13 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.loitpcore.R;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class LabeledSwitch extends View {
     private int width;
     private int height;

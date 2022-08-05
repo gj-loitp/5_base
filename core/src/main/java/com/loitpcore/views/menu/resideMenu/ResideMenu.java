@@ -29,6 +29,13 @@ import com.nineoldandroids.view.ViewHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class ResideMenu extends FrameLayout {
     public static final int DIRECTION_LEFT = 0;
     public static final int DIRECTION_RIGHT = 1;
@@ -155,11 +162,6 @@ public class ResideMenu extends FrameLayout {
 
         // This is added to fix soft navigationBar's overlapping to content above LOLLIPOP
         int bottomPadding = viewActivity.getPaddingBottom() + insets.bottom;
-        /*boolean hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
-        boolean hasHomeKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME);
-        if (!hasBackKey || !hasHomeKey) {//there's a navigation bar
-            bottomPadding += getNavigationBarHeight();
-        }*/
 
         bottomPadding += DisplayUtil.getNavigationBarHeight(getContext());
 

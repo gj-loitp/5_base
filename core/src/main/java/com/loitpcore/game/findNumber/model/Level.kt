@@ -8,6 +8,13 @@ import com.google.gson.annotations.SerializedName
 import com.loitpcore.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import java.io.Serializable
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @Keep
 @Entity(tableName = "Level")
 data class Level(

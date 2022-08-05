@@ -1,5 +1,12 @@
 package com.loitpcore.views.calendar.cosmoCalendar.settings.appearance
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class AppearanceModel : AppearanceInterface {
     // Background color of whole calendar
     override var calendarBackgroundColor = 0

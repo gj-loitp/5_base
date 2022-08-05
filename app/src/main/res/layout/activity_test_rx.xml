@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColorMedium"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -20,32 +26,32 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt0"
                 style="@style/ButtonMenu"
-                android:text="Test From" />
+                android:text="@string/test_from" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt1"
                 style="@style/ButtonMenu"
-                android:text="Test Just" />
+                android:text="@string/test_just" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt2"
                 style="@style/ButtonMenu"
-                android:text="Test Defer" />
+                android:text="@string/test_defer" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt3"
                 style="@style/ButtonMenu"
-                android:text="Test Interval" />
+                android:text="@string/test_interval" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt4"
                 style="@style/ButtonMenu"
-                android:text="Test Create" />
+                android:text="@string/test_create" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt5"
                 style="@style/ButtonMenu"
-                android:text="Test Map" />
+                android:text="@string/test_map" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"
@@ -53,6 +59,6 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

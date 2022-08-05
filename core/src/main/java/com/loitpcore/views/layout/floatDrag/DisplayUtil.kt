@@ -10,6 +10,13 @@ import android.util.TypedValue
 import android.view.ViewConfiguration
 import kotlin.math.roundToInt
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 object DisplayUtil {
     @JvmStatic
     fun getScreenContentWidth(context: Context): Int {

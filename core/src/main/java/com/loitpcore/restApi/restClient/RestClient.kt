@@ -12,6 +12,13 @@ import java.security.InvalidParameterException
 import java.util.* // ktlint-disable no-wildcard-imports
 import java.util.concurrent.TimeUnit
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 object RestClient {
     private const val TIMEOUT_TIME = 1
     private const val CONNECT_TIMEOUT_TIME = 20L

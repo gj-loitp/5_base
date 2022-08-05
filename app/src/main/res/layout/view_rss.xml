@@ -11,7 +11,7 @@
     app:cardElevation="@dimen/w_1"
     app:cardUseCompatPadding="true">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -23,7 +23,7 @@
             android:scaleType="centerCrop"
             tools:src="@drawable/loitp" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/llTextContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,6 +48,6 @@
                 android:textSize="@dimen/txt_small"
                 tools:text="@string/app_name" />
 
-        </LinearLayout>
-    </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </com.google.android.material.card.MaterialCardView>

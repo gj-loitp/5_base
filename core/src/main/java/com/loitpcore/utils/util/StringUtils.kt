@@ -1,12 +1,11 @@
 package com.loitpcore.utils.util
 
 /**
- * <pre>
- * author: Blankj
- * blog  : http://blankj.com
- * time  : 2016/08/16
- * desc  : 字符串相关工具类
-</pre> *
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 class StringUtils {
     companion object {

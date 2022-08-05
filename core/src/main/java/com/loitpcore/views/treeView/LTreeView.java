@@ -23,6 +23,13 @@ import androidx.annotation.RequiresApi;
 
 import com.loitpcore.R;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetector.OnGestureListener {
 
     private static final int DEFAULT_LINE_LENGTH = 100;

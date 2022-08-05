@@ -24,6 +24,13 @@ import androidx.annotation.StyleRes;
 
 import com.loitpcore.R;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class LCircularProgressBar extends View {
     private static final float DEFAULT_MAXIMUM = 100f;
     private static final float DEFAULT_PROGRESS = 0f;

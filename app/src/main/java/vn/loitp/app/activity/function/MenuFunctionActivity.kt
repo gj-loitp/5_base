@@ -6,17 +6,19 @@ import android.view.View
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_function.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.function.activityAndService.ActivityServiceComunicateActivity
+import vn.loitp.app.activity.function.activityAndService.ActivityServiceCommunicateActivity
 import vn.loitp.app.activity.function.dragDropSample.DragDropSampleActivity
 import vn.loitp.app.activity.function.fullScreen.FullScreenActivity
 import vn.loitp.app.activity.function.glide.GlideActivity
 import vn.loitp.app.activity.function.hashmap.HashMapActivity
+import vn.loitp.app.activity.function.idleTime.IdleTimeActivity
 import vn.loitp.app.activity.function.keyboard.KeyboardActivity
 import vn.loitp.app.activity.function.keyboardHeightProvider.KeyboardHeightProviderActivity
 import vn.loitp.app.activity.function.location.LocationActivity
@@ -33,6 +35,7 @@ import vn.loitp.app.activity.function.viewDragHelperSimple.ViewDragHelperSimpleA
 @LogTag("MenuFunctionActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
+@IsShowAdWhenExit(true)
 class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
@@ -59,6 +62,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         }
         btSimpleFingerGesture.setOnClickListener(this)
         btHashMap.setOnClickListener(this)
+        btIdleTime.setOnClickListener(this)
         btDragDropSample.setOnClickListener(this)
         btToggleFullScreen.setOnClickListener(this)
         btViewDragHelper.setOnClickListener(this)
@@ -80,13 +84,14 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         val intent = when (v) {
             btSimpleFingerGesture -> Intent(this, SimpleFingerGesturesActivity::class.java)
             btHashMap -> Intent(this, HashMapActivity::class.java)
+            btIdleTime -> Intent(this, IdleTimeActivity::class.java)
             btDragDropSample -> Intent(this, DragDropSampleActivity::class.java)
             btToggleFullScreen -> Intent(this, FullScreenActivity::class.java)
             btViewDragHelper -> Intent(this, ViewDragHelperActivity::class.java)
             btRecolor -> Intent(this, RecolorActivity::class.java)
             btActivityServiceComunicate -> Intent(
                 this,
-                ActivityServiceComunicateActivity::class.java
+                ActivityServiceCommunicateActivity::class.java
             )
             btLocation -> Intent(this, LocationActivity::class.java)
             btNotification -> Intent(this, MenuNotificationActivity::class.java)

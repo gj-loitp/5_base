@@ -13,6 +13,13 @@ import androidx.core.graphics.drawable.DrawableCompat
 import com.loitpcore.R
 import kotlin.math.roundToInt
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 open class LExtraTextView : AppCompatTextView {
     private var drawableResourceId = 0
     private var drawableWidth = 0

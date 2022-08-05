@@ -11,6 +11,13 @@ import android.view.animation.LinearInterpolator
 import android.view.animation.Transformation
 import java.util.concurrent.atomic.AtomicInteger
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class PathAnimator(config: Config) : AbstractPathAnimator(config) {
 
     companion object {

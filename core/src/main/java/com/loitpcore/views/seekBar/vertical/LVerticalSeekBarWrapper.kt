@@ -8,6 +8,13 @@ import android.widget.FrameLayout
 import androidx.core.view.ViewCompat
 import kotlin.math.max
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LVerticalSeekBarWrapper
 @JvmOverloads constructor(
     context: Context,

@@ -13,6 +13,13 @@ import com.loitpcore.R
 import com.loitpcore.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.loitpcore.core.utilities.LUIUtil.Companion.withBackground
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 open class BaseDialogFragment : DialogFragment() {
 
     fun <T : ViewModel> getViewModel(className: Class<T>): T? {
@@ -61,7 +68,7 @@ open class BaseDialogFragment : DialogFragment() {
         }
     }
 
-    fun showSnackBarInfor(
+    fun showSnackBarInformation(
         msg: String,
         view: View? = dialog?.window?.findViewById(android.R.id.content),
         isFullWidth: Boolean = false

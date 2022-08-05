@@ -5,8 +5,14 @@ import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
 import com.loitpcore.utils.util.Utils.Companion.getContext
-import java.util.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class ServiceUtils {
     companion object {
 

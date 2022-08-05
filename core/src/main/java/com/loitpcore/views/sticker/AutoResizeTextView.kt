@@ -13,6 +13,13 @@ import android.util.SparseIntArray
 import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatTextView
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class AutoResizeTextView : AppCompatTextView {
 
     companion object {

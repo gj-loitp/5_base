@@ -9,6 +9,13 @@ import com.loitpcore.function.notification.config.NottiConfig
 import com.loitpcore.function.notification.notifications.CustomNotification
 import com.loitpcore.utils.util.AppUtils
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class Notti(
     private val context: Context,
     private val nottiConfig: NottiConfig

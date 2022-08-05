@@ -33,15 +33,22 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 // animation https://github.com/dkmeteor/SmoothTransition
 abstract class BaseActivity : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
     protected var logTag: String? = null
 
-    var delayMlsIdleTime: Long = 60 * 1000 // 60s
+    private var delayMlsIdleTime: Long = 60 * 1000 // 60s
     private var handlerIdleTime: Handler? = null
     private var runnableIdleTime: Runnable? = null
-    var isIdleTime = false
+    private var isIdleTime = false
 
     private var interstitialAd: InterstitialAd? = null
     private var isShowAdWhenExit = false

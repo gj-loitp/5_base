@@ -3,6 +3,13 @@ package com.loitpcore.views.progressLoadingView.window
 import android.view.animation.Interpolator
 import kotlin.math.pow
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class WPInterpolator : Interpolator {
 
     override fun getInterpolation(v: Float): Float {

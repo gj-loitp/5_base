@@ -14,6 +14,13 @@ import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_l_bottom_bar.view.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LBottomBar : RelativeLayout, View.OnClickListener {
 
     companion object {

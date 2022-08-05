@@ -16,6 +16,13 @@ import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.views.textView.selectable.CommonUtil.dpTpPx
 import com.loitpcore.views.textView.selectable.CustomTextView.OnCursorStateChangedListener
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LSelectableView : FrameLayout {
     private var scrollView: ObservableScrollView? = null
     private var saveBtn: TextView? = null

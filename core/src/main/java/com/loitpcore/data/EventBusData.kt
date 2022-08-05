@@ -3,6 +3,13 @@ package com.loitpcore.data
 import com.loitpcore.core.base.BaseModel
 import org.greenrobot.eventbus.EventBus
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class EventBusData private constructor() {
 
     companion object {

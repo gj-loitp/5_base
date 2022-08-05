@@ -5,6 +5,13 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.HorizontalScrollView
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LHorizontalScrollView : HorizontalScrollView {
 
     interface ScrollListener {
@@ -13,16 +20,15 @@ class LHorizontalScrollView : HorizontalScrollView {
 
     private var mScrollListener: LScrollView.ScrollListener? = null
 
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr
-    ) {
-    }
+    )
 
     fun setOnScrollListener(scrollListener: LScrollView.ScrollListener) {
         this.mScrollListener = scrollListener

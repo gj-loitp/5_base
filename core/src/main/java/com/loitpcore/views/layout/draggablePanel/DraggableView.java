@@ -20,6 +20,13 @@ import com.loitpcore.views.layout.draggablePanel.transformer.Transformer;
 import com.loitpcore.views.layout.draggablePanel.transformer.TransformerFactory;
 import com.nineoldandroids.view.ViewHelper;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 //https://github.com/pedrovgs/DraggablePanel
 public class DraggableView extends RelativeLayout {
 

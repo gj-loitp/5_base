@@ -56,7 +56,7 @@ class ScopedMediaPickerActivity : BaseFontActivity() {
                 it.isVisible = true
             }
             this.viewShadow?.isVisible = true
-            this.tvTitle?.text = javaClass.simpleName
+            this.tvTitle?.text = ScopedMediaPickerActivity::class.java.simpleName
         }
         btnCapture.setOnClickListener {
             pickCapture()

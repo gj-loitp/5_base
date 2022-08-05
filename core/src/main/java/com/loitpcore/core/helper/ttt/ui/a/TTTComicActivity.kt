@@ -24,6 +24,13 @@ import com.loitpcore.views.viewPager.viewPagerTransformers.ZoomOutSlideTransform
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem
 import kotlinx.android.synthetic.main.l_activity_ttt_comic.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("TTTComicActivity")
 @IsFullScreen(false)
 @IsShowAdWhenExit(false)

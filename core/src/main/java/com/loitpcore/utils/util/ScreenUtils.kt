@@ -12,12 +12,11 @@ import com.loitpcore.utils.util.BarUtils.Companion.getStatusBarHeight
 import com.loitpcore.utils.util.Utils.Companion.getContext
 
 /**
- * <pre>
- * author: Blankj
- * blog  : http://blankj.com
- * time  : 2016/08/02
- * desc  : 屏幕相关工具类
-</pre> *
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 class ScreenUtils {
     companion object {

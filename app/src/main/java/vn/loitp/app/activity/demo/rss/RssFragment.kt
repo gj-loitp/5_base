@@ -50,6 +50,10 @@ class RssFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         mAdapter = RssItemsAdapter { rssItem ->
             LSocialUtil.openUrlInBrowser(context = context, url = rssItem.link)
         }

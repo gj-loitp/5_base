@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical"
     android:padding="@dimen/margin_padding_medium">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <ProgressBar
         android:id="@+id/pb"
@@ -13,7 +18,7 @@
         android:layout_gravity="center"
         android:indeterminateTint="?attr/themeTextColor" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -32,7 +37,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/email"
             android:textColor="?attr/themeTextColor"
             android:textColorHint="?attr/themeTextColor"
             android:textCursorDrawable="?attr/themeTextColor"
@@ -42,14 +47,14 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="User Name"
+            android:hint="@string/user_name"
             android:textColor="?attr/themeTextColor"
             android:textColorHint="?attr/themeTextColor"
             android:textCursorDrawable="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -60,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/themeBackgroundColorMedium"
-            android:text="Do A Long Task"
+            android:text="@string/do_a_long_task"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
@@ -70,6 +75,6 @@
             android:layout_height="wrap_content"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

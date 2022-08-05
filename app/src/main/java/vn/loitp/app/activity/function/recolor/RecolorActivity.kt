@@ -1,9 +1,11 @@
 package vn.loitp.app.activity.function.recolor
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.simmorsal.recolor_project.ReColor
 import kotlinx.android.synthetic.main.activity_fun_recolor.*
 import vn.loitp.app.R
@@ -27,7 +29,7 @@ class RecolorActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        onClicks()
+        setupViews()
         logAListOfColors()
     }
 
@@ -38,7 +40,19 @@ class RecolorActivity : BaseFontActivity() {
         }
     }
 
-    private fun onClicks() {
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = RecolorActivity::class.java.simpleName
+        }
+
         // changing space_invaders' color
         imageView.setOnClickListener {
             when (imageViewColorSetNumber) {

@@ -6,6 +6,13 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.model.App
 import com.loitpcore.utils.util.AppUtils
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LPrefUtil {
     companion object {
         private val logTag = LPrefUtil::class.java.simpleName
@@ -24,7 +31,8 @@ class LPrefUtil {
         private const val INDEX = "INDEX"
         private const val PASS_CODE = "PASS_CODE"
         private const val GG_APP_SETTING = "GG_APP_SETTING"
-        private const val GG_APP_MSG = "GG_APP_MSG"
+
+        //        private const val GG_APP_MSG = "GG_APP_MSG"
         private const val IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER =
             "IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER"
 
@@ -46,17 +54,17 @@ class LPrefUtil {
         //endregion
 
         //region string
-        fun getGGAppMsg(): String? {
-            val pref = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-            return pref.getString(GG_APP_MSG, "")
-        }
-
-        fun setGGAppMsg(value: String?) {
-            val editor =
-                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
-            editor.putString(GG_APP_MSG, value)
-            editor.apply()
-        }
+//        fun getGGAppMsg(): String? {
+//            val pref = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
+//            return pref.getString(GG_APP_MSG, "")
+//        }
+//
+//        fun setGGAppMsg(value: String?) {
+//            val editor =
+//                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+//            editor.putString(GG_APP_MSG, value)
+//            editor.apply()
+//        }
         //endregion
 
         //region boolean

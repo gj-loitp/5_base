@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutRoot"
@@ -30,7 +30,7 @@
         android:contentDescription="@string/app_name"
         tools:src="@drawable/logo" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -119,7 +119,7 @@
                 app:fabSize="mini" />
         </FrameLayout>
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <View
         android:id="@+id/viewLine"
@@ -129,4 +129,4 @@
         android:background="?attr/themeTextColor"
         android:visibility="invisible"
         tools:visibility="visible" />
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

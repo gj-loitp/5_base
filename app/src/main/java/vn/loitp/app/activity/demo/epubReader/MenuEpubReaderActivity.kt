@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo.epubReader
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
@@ -15,9 +16,9 @@ import com.loitpcore.function.epub.viewmodels.EpubViewModel
 import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
 import vn.loitp.app.R
 
-@LogTag("EpubReaderMenuActivity")
+@LogTag("MenuEpubReaderActivity")
 @IsFullScreen(false)
-class EpubReaderMenuActivity : BaseFontActivity() {
+class MenuEpubReaderActivity : BaseFontActivity() {
 
     companion object {
         private const val MAX_BOOK_ASSET = 1
@@ -41,6 +42,17 @@ class EpubReaderMenuActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = MenuEpubReaderActivity::class.java.simpleName
+        }
         gridBookInfo.onItemClickListener =
             AdapterView.OnItemClickListener { adapterView: AdapterView<*>, _: View?, i: Int, _: Long ->
                 val bookInfo = adapterView.adapter.getItem(i) as BookInfo

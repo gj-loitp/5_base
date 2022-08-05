@@ -4,6 +4,13 @@ import android.graphics.Bitmap
 import androidx.annotation.Keep
 import com.loitpcore.core.base.BaseModel
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @Keep
 class BookInfo : BaseModel() {
 

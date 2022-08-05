@@ -66,6 +66,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class CalendarView extends RelativeLayout implements OnDaySelectedListener,
         AppearanceInterface, DateInterface, CalendarListsInterface, SelectionInterface,
         MultipleSelectionBarAdapter.ListItemClickListener, GravitySnapHelper.SnapListener {

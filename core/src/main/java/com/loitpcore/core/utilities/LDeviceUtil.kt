@@ -10,6 +10,13 @@ import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import java.util.* // ktlint-disable no-wildcard-imports
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LDeviceUtil {
 
     companion object {
@@ -69,10 +76,7 @@ class LDeviceUtil {
         }
 
         fun isCanOverlay(): Boolean {
-            return !(
-                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(
-                        LAppResource.application
-                    ))
+            return Settings.canDrawOverlays(LAppResource.application)
         }
 
         fun isEmulator(): Boolean {

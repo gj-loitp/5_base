@@ -19,6 +19,13 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import java.util.* // ktlint-disable no-wildcard-imports
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("TTTViewModel")
 class TTTViewModel : BaseViewModel() {
     val comicTypeLiveEvent: SingleLiveEvent<ComicType> = SingleLiveEvent()

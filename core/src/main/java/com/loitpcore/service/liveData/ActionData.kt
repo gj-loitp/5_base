@@ -2,6 +2,13 @@ package com.loitpcore.service.liveData
 
 import com.loitpcore.service.model.ErrorResponse
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 data class ActionData<T>(
     var isDoing: Boolean? = null,
     var isSuccess: Boolean? = null,

@@ -30,6 +30,13 @@ import com.loitpcore.views.wwlMusic.utils.LWWLMusicIllegal;
 
 import java.util.LinkedList;
 
+/**
+ * Created by Loitp on 05,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class LWWLMusic extends ViewGroup {
     public static final int STATE_HIDED = 0;
     public static final int STATE_MAXIMIZED = 1;

@@ -13,6 +13,13 @@ import com.loitpcore.views.calendar.cosmoCalendar.utils.CalendarUtils;
 import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView;
 import com.loitpcore.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 //21.12.2020 try to convert kotlin but failed
 public class DayHolder extends BaseDayHolder {
 

@@ -32,6 +32,13 @@ import com.loitpcore.views.wwlMusic.utils.LWWLMusicViewHelper;
 
 import java.util.LinkedList;
 
+/**
+ * Created by Loitp on 05,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 //14.12.2020 try to convert to kotlin but failed
 public class LWWLVideo extends ViewGroup {
     public static final int STATE_HIDED = 0;

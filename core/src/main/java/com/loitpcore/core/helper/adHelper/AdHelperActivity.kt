@@ -22,6 +22,13 @@ import com.loitpcore.views.setSafeOnClickListener
 import com.manojbhadane.QButton
 import kotlinx.android.synthetic.main.l_activity_ad_helper.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("AdHelperActivity")
 @IsFullScreen(false)
 class AdHelperActivity : BaseFontActivity() {

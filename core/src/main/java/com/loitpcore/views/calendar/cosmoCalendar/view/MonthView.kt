@@ -14,6 +14,13 @@ import com.loitpcore.views.calendar.cosmoCalendar.adapter.DaysAdapter
 import com.loitpcore.views.calendar.cosmoCalendar.model.Month
 import com.loitpcore.views.calendar.cosmoCalendar.utils.Constants
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class MonthView : FrameLayout {
     private var rvDays: RecyclerView? = null
 

@@ -4,10 +4,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LDialogUtil
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_demo_floating_widget.*
 import vn.loitp.app.R
 
@@ -30,7 +33,18 @@ class FloatingWidgetActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        btNotifyMe.setOnClickListener {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = FloatingWidgetActivity::class.java.simpleName
+        }
+        btNotifyMe.setSafeOnClickListener {
             startService()
         }
     }

@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.os.Handler
+import android.os.Looper
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.animation.LinearInterpolator
@@ -11,6 +12,13 @@ import android.widget.LinearLayout
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource.getColor
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class WP7ProgressBar : LinearLayout {
 
     companion object {
@@ -51,7 +59,7 @@ class WP7ProgressBar : LinearLayout {
     private fun initialize(attrs: AttributeSet?) {
         this.gravity = Gravity.CENTER
         this.orientation = HORIZONTAL
-        mHandler = Handler()
+        mHandler = Handler(Looper.getMainLooper())
         setAttributes(attrs)
         initializeIndicators()
     }

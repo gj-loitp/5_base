@@ -20,11 +20,12 @@ import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 
 /**
- * DragLayout 自适应多种模式下的悬浮按钮支持，并且支持位置状态恢复
- *
- * @author baishixian
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
-
 public class FloatDragLayout extends FrameLayout {
 
     public static final String TAG = "FloatDragLayout";

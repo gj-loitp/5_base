@@ -1,11 +1,9 @@
 package com.loitpcore.core.utilities.statusbar
 
 import android.animation.ValueAnimator
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
-import android.os.Build
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
@@ -16,7 +14,13 @@ import androidx.core.view.ViewCompat
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 
-@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 internal class StatusBarCompatLollipop {
 
     companion object {

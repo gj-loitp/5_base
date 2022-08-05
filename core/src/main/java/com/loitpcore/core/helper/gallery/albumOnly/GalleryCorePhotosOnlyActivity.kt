@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.huxq17.download.Pump
+import com.huxq17.download.core.DownloadListener
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.IsSwipeActivity
@@ -17,8 +19,6 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.gallery.photos.PhotosDataCore
 import com.loitpcore.core.utilities.*
-import com.loitpcore.function.pump.download.Pump
-import com.loitpcore.function.pump.download.core.DownloadListener
 import com.loitpcore.restApi.flickr.FlickrConst
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitpcore.restApi.flickr.service.FlickrService
@@ -30,6 +30,13 @@ import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("GalleryCorePhotosOnlyActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)
@@ -53,6 +60,12 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+        LValidateUtil.isValidPackageName()
+        checkPermission()
+    }
+
+    private fun setupViews() {
         RestClient.init(getString(R.string.flickr_URL))
         PhotosDataCore.instance.clearData()
 
@@ -157,8 +170,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 }
             }
         })
-        LValidateUtil.isValidPackageName()
-        checkPermission()
     }
 
     private fun showListPage() {

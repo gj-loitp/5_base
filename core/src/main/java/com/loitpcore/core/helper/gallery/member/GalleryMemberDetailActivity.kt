@@ -20,6 +20,13 @@ import com.loitpcore.views.layout.swipeBack.SwipeBackLayout
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.l_activity_flickr_member_detail.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("GalleryMemberDetailActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)

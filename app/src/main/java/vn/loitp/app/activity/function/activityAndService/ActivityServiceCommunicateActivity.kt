@@ -4,9 +4,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_func_service_communicate.*
 import org.greenrobot.eventbus.Subscribe
@@ -14,9 +16,9 @@ import org.greenrobot.eventbus.ThreadMode
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.floatingWidget.CommunicateMng
 
-@LogTag("ActivityServiceComunicateActivity")
+@LogTag("ActivityServiceCommunicateActivity")
 @IsFullScreen(false)
-class ActivityServiceComunicateActivity : BaseFontActivity() {
+class ActivityServiceCommunicateActivity : BaseFontActivity() {
 
     companion object {
         private const val CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084
@@ -33,6 +35,18 @@ class ActivityServiceComunicateActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ActivityServiceCommunicateActivity::class.java.simpleName
+        }
+
         btNotifyMe.setSafeOnClickListener {
             handleNotify()
         }

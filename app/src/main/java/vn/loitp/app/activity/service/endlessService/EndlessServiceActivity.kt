@@ -3,9 +3,12 @@ package vn.loitp.app.activity.service.endlessService
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_service_endless.*
 import vn.loitp.app.R
 
@@ -20,11 +23,26 @@ class EndlessServiceActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btnStartService.setOnClickListener {
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = EndlessServiceActivity::class.java.simpleName
+        }
+        btnStartService.setSafeOnClickListener {
             log("START THE FOREGROUND SERVICE ON DEMAND")
             actionOnService(Actions.START)
         }
-        btnStopService.setOnClickListener {
+        btnStopService.setSafeOnClickListener {
             log("STOP THE FOREGROUND SERVICE ON DEMAND")
             actionOnService(Actions.STOP)
         }

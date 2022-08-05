@@ -25,6 +25,15 @@ import com.loitpcore.R;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public class RecyclerTabLayout extends RecyclerView {
 
     protected static final long DEFAULT_SCROLL_DURATION = 200;
@@ -223,6 +232,7 @@ public class RecyclerTabLayout extends RecyclerView {
         animator.start();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     protected void scrollToTab(int position) {
         scrollToTab(position, 0, false);
         mAdapter.setCurrentIndicatorPosition(position);
@@ -294,6 +304,7 @@ public class RecyclerTabLayout extends RecyclerView {
         mOldPositionOffset = positionOffset;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     protected void updateCurrentIndicatorPosition(int position, float dx, float positionOffset) {
         if (mAdapter == null) {
             return;
@@ -396,6 +407,7 @@ public class RecyclerTabLayout extends RecyclerView {
             int center = mRecyclerTabLayout.getWidth() / 2;
             for (int position = last; position >= first; position--) {
                 View view = mLinearLayoutManager.findViewByPosition(position);
+                assert view != null;
                 if (view.getLeft() <= center) {
                     mRecyclerTabLayout.setCurrentItem(position, false);
                     break;
@@ -478,7 +490,6 @@ public class RecyclerTabLayout extends RecyclerView {
         }
 
         @NotNull
-        @SuppressWarnings("deprecation")
         @Override
         public DefaultAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             TabTextView tabTextView = new TabTextView(parent.getContext());
@@ -522,14 +533,14 @@ public class RecyclerTabLayout extends RecyclerView {
 
         @Override
         public void onBindViewHolder(DefaultAdapter.ViewHolder holder, int position) {
-            CharSequence title = getViewPager().getAdapter().getPageTitle(position);
+            CharSequence title = Objects.requireNonNull(getViewPager().getAdapter()).getPageTitle(position);
             holder.title.setText(title);
             holder.title.setSelected(getCurrentIndicatorPosition() == position);
         }
 
         @Override
         public int getItemCount() {
-            return getViewPager().getAdapter().getCount();
+            return Objects.requireNonNull(getViewPager().getAdapter()).getCount();
         }
 
         public void setTabPadding(int tabPaddingStart, int tabPaddingTop, int tabPaddingEnd,

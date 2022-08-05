@@ -12,7 +12,6 @@ import android.graphics.RectF;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.util.Pair;
 
 import java.io.Closeable;
@@ -31,9 +30,13 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import timber.log.Timber;
 
 /**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  * Utility class that deals with operations with an ImageView.
  */
-
 final class BitmapUtils {
 
     static final Rect EMPTY_RECT = new Rect();

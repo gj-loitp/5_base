@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView"
-            android:text="Send msg to activity" />
+            android:text="@string/send_msg_to_activity" />
 
     </RelativeLayout>
 </FrameLayout>

@@ -1,6 +1,5 @@
 package com.loitpcore.views.layout.autoLinear
 
-import android.annotation.TargetApi
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
@@ -11,6 +10,13 @@ import com.loitpcore.R
 import java.util.*
 import kotlin.math.max
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LAutoLinearLayout : FrameLayout {
 
     companion object {
@@ -38,7 +44,6 @@ class LAutoLinearLayout : FrameLayout {
         init(context, attrs, defStyleAttr, 0)
     }
 
-    @TargetApi(21)
     constructor(
         context: Context,
         attrs: AttributeSet?,

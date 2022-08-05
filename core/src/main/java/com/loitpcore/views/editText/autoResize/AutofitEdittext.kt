@@ -7,12 +7,11 @@ import androidx.appcompat.widget.AppCompatEditText
 import com.loitpcore.views.editText.autoResize.AutofitHelper.Companion.create
 
 /**
- *
- * A [AppCompatEditText] that resizes its text to be no larger than the width of the display.
- *
- * @attr ref R.styleable.AutofitTextView_sizeToFit
- * @attr ref R.styleable.AutofitTextView_minTextSize
- * @attr ref R.styleable.AutofitTextView_precision
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListener {
     /**

@@ -14,13 +14,20 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class YoutubeLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyle: Int = 0
 ) : ViewGroup(context, attrs, defStyle) {
 
-    private val logTag = javaClass.simpleName
+//    private val logTag = javaClass.simpleName
     private val mDragHelper: ViewDragHelper
     private var mHeaderView: View? = null
     private var mDescView: View? = null

@@ -11,6 +11,13 @@ import android.view.ViewOutlineProvider
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.loitpcore.R
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LRoundableLayout : ConstraintLayout {
 
     private var path: Path? = null

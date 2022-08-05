@@ -13,6 +13,13 @@ import com.loitpcore.core.helper.ttt.helper.ComicUtils
 import com.loitpcore.core.helper.ttt.viewmodel.TTTViewModel
 import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_select_type_fragment.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("BottomSheetSelectTypeTTTFragment")
 class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
     layoutId = R.layout.l_bottom_sheet_ttt_select_type_fragment,

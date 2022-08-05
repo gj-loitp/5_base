@@ -7,6 +7,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.huxq17.download.Pump
+import com.huxq17.download.core.DownloadListener
 import com.loitpcore.R
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
@@ -17,8 +19,6 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.function.pump.download.Pump
-import com.loitpcore.function.pump.download.core.DownloadListener
 import com.loitpcore.restApi.flickr.FlickrConst
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitpcore.restApi.flickr.service.FlickrService
@@ -29,8 +29,14 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
-import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.recyclerView
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("GalleryCorePhotosOnlyFrm")
 class GalleryCorePhotosOnlyFrm(
     private val onTop: ((Unit) -> Unit)? = null,
@@ -63,6 +69,11 @@ class GalleryCorePhotosOnlyFrm(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+        checkPermission()
+    }
+
+    private fun setupViews() {
         val bundle = arguments ?: return
         PhotosDataCore.instance.clearData()
         photosetID = bundle.getString(Constants.SK_PHOTOSET_ID)
@@ -141,7 +152,6 @@ class GalleryCorePhotosOnlyFrm(
         btPage.setSafeOnClickListener {
             showListPage()
         }
-        checkPermission()
     }
 
     private fun showListPage() {

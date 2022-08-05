@@ -54,32 +54,32 @@ class SensorActivity : BaseFontActivity() {
     }
 
     private inner class OrientationListener(context: Context?) : OrientationEventListener(context) {
-        val ROTATION_O = 1
-        val ROTATION_90 = 2
-        val ROTATION_180 = 3
-        val ROTATION_270 = 4
+        val rotation0 = 1
+        val rotation90 = 2
+        val rotation180 = 3
+        val rotation270 = 4
 
         private var rotation = 0
 
         override fun onOrientationChanged(orientation: Int) {
-            if ((orientation < 35 || orientation > 325) && rotation != ROTATION_O) { // PORTRAIT
-                rotation = ROTATION_O
+            if ((orientation < 35 || orientation > 325) && rotation != rotation0) { // PORTRAIT
+                rotation = rotation0
                 rotateLayout.setAngle(0)
                 val w = LScreenUtil.screenWidth
                 val h = w * 9 / 16
                 setSizeRelativeLayout(rotateLayout, w, h)
                 LScreenUtil.toggleFullscreen(activity = this@SensorActivity, isFullScreen = false)
-            } else if (orientation in 146..214 && rotation != ROTATION_180) { // REVERSE PORTRAIT
-                rotation = ROTATION_180
-            } else if (orientation in 56..124 && rotation != ROTATION_270) { // REVERSE LANDSCAPE
-                rotation = ROTATION_270
+            } else if (orientation in 146..214 && rotation != rotation180) { // REVERSE PORTRAIT
+                rotation = rotation180
+            } else if (orientation in 56..124 && rotation != rotation270) { // REVERSE LANDSCAPE
+                rotation = rotation270
                 rotateLayout.setAngle(90)
                 val w = LScreenUtil.screenWidth
                 val h = LScreenUtil.getScreenHeightIncludeNavigationBar()
                 setSizeRelativeLayout(view = rotateLayout, w = w, h = h)
                 LScreenUtil.toggleFullscreen(activity = this@SensorActivity, isFullScreen = true)
-            } else if (orientation in 236..304 && rotation != ROTATION_90) { // LANDSCAPE
-                rotation = ROTATION_90
+            } else if (orientation in 236..304 && rotation != rotation90) { // LANDSCAPE
+                rotation = rotation90
                 rotateLayout.setAngle(-90)
                 val w = LScreenUtil.screenWidth
                 val h = LScreenUtil.getScreenHeightIncludeNavigationBar()

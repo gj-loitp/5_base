@@ -5,10 +5,12 @@ import android.view.KeyEvent
 import android.view.View
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LAppResource
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.LWebViewAdblock
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_web_view.*
@@ -33,6 +35,17 @@ class LWebViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = LWebViewActivity::class.java.simpleName
+        }
         lWebView.callback = object : LWebViewAdblock.Callback {
             override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
             }

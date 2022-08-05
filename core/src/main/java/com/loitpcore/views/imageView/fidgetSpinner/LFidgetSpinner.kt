@@ -16,10 +16,16 @@ import kotlin.math.atan
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LFidgetSpinner : FrameLayout {
 
     companion object {
-        private const val TAG = "FidgetSpinner"
         private const val MAX_ACTION_UP_SPEED = 20
         private const val MIN_DURATION = 500
         private const val MAX_DURATION = 8000

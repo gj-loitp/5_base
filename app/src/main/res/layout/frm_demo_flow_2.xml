@@ -19,7 +19,7 @@
         android:layout_above="@+id/bt"
         android:layout_below="@+id/imageView"
         android:gravity="center"
-        android:text="Screen 2"
+        android:text="@string/screen_2"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_largest" />
 
@@ -29,6 +29,6 @@
         android:layout_alignParentBottom="true"
         android:background="@color/red"
         android:padding="@dimen/margin_padding_medium"
-        android:text="Pop this fragment" />
+        android:text="@string/pop_this_fragment" />
 
 </RelativeLayout>

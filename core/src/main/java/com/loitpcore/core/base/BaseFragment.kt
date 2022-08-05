@@ -22,6 +22,13 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 abstract class BaseFragment : Fragment() {
     protected var logTag: String? = null
     protected var compositeDisposable = CompositeDisposable()

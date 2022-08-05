@@ -28,7 +28,7 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(
         private const val KEY_PHONE_NUMBER = "phone_number"
     }
 
-    private val logTag = javaClass.simpleName
+//    private val logTag = javaClass.simpleName
 
     // Creating Tables
     override fun onCreate(db: SQLiteDatabase) {

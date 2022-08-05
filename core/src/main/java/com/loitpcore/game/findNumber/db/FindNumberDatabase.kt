@@ -6,6 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.loitpcore.game.findNumber.model.Level
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @Database(entities = [Level::class], version = 1)
 abstract class FindNumberDatabase : RoomDatabase() {
 

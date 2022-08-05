@@ -440,7 +440,7 @@
             android:name=".activity.customviews.recyclerview.book.BookViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.function.activityAndService.ActivityServiceComunicateActivity"
+            android:name=".activity.function.activityAndService.ActivityServiceCommunicateActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.swipeBackLayout.SwipeBackLayoutActivity"
@@ -557,7 +557,7 @@
             android:name=".activity.customviews.layout.relativePopupWindow.RelativePopupWindowActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.demo.epubReader.EpubReaderMenuActivity"
+            android:name=".activity.demo.epubReader.MenuEpubReaderActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.function.glide.GlideActivity"
@@ -1138,6 +1138,9 @@
             android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".activity.demo.trackingG1.TrackingG1Activity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.function.idleTime.IdleTimeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>

@@ -17,6 +17,13 @@ import com.loitpcore.R
 import com.loitpcore.views.dialog.slideImages.LSlideAdapter
 import com.loitpcore.views.progressLoadingView.window.WP10ProgressBar
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LDialogUtil {
     companion object {
         private const val logTag = "LDialogUtil"

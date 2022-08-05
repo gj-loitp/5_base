@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
-    <ScrollView
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/ll">
+        android:layout_height="0dp"
+        android:layout_above="@id/ll"
+        android:layout_weight="1">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView"
@@ -18,9 +25,9 @@
             android:padding="@dimen/margin_padding_medium"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Async"
+            android:text="@string/async"
             android:textColor="@color/darkBlue"
             android:textSize="@dimen/txt_medium" />
 
@@ -41,7 +48,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Rx1"
+            android:text="@string/rx1"
             android:textColor="@color/blue"
             android:textSize="@dimen/txt_medium" />
 
@@ -50,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Rx2"
+            android:text="@string/rx2"
             android:textColor="@color/red"
             android:textSize="@dimen/txt_medium" />
 
@@ -59,17 +66,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Rx3"
+            android:text="@string/rx3"
             android:textColor="@color/deepPink"
             android:textSize="@dimen/txt_medium" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btRx4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Rx with progress"
+        android:text="@string/rx_with_progress"
         android:textColor="@color/red"
         android:textSize="@dimen/txt_medium" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

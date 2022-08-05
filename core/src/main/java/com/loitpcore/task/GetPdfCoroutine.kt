@@ -10,10 +10,11 @@ import java.net.URL
 import kotlin.coroutines.CoroutineContext
 
 /**
- * Created by Loitp on 10,January,2020
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 class GetPdfCoroutine : CoroutineScope {
     private val logTag = javaClass.simpleName

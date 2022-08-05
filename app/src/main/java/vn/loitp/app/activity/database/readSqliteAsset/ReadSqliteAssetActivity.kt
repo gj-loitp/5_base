@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.database.readSqliteAsset
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -23,6 +24,18 @@ class ReadSqliteAssetActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = ReadSqliteAssetActivity::class.java.simpleName
+        }
+
         val vocabularyManager = VocabularyManager(this)
         try {
             vocabularyManager.createDatabase()

@@ -6,7 +6,11 @@ import org.xml.sax.helpers.DefaultHandler
 import java.util.*
 
 /**
- * RSS Feed XML parser
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
  */
 internal class XMLParser : DefaultHandler() {
 

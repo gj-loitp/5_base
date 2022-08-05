@@ -7,9 +7,11 @@ import android.view.View
 import android.view.View.DragShadowBuilder
 import android.view.View.OnDragListener
 import android.widget.ImageView
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_func_drag_drop_sample.*
 import vn.loitp.app.R
@@ -29,6 +31,18 @@ class DragDropSampleActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = DragDropSampleActivity::class.java.simpleName
+        }
+
         ivPaper.tag = "paper"
         ivTrash.tag = "trash"
 

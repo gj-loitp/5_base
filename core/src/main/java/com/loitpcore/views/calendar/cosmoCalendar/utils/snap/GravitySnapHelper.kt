@@ -4,6 +4,13 @@ import android.view.View
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class GravitySnapHelper @JvmOverloads constructor(
     gravity: Int,
     enableSnapLastItem: Boolean = false,

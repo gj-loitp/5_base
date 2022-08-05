@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <vn.loitp.app.activity.function.viewDragHelperSimple.ViewDragHelperView
         android:layout_width="match_parent"
@@ -18,7 +24,7 @@
             android:background="#88ff0000"
             android:gravity="center"
             android:padding="@dimen/margin_padding_medium"
-            android:text="I can be dragged !"
+            android:text="@string/i_can_be_dragged"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_medium" />
 
@@ -30,7 +36,7 @@
             android:background="#8800ff00"
             android:gravity="center"
             android:padding="@dimen/margin_padding_medium"
-            android:text="I will back to original loc!"
+            android:text="@string/i_will_back_to_original_loc"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_medium" />
 
@@ -42,8 +48,8 @@
             android:background="#880000ff"
             android:gravity="center"
             android:padding="@dimen/margin_padding_medium"
-            android:text="Edage to ctrl me"
+            android:text="@string/edage_to_ctrl_me"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_medium" />
     </vn.loitp.app.activity.function.viewDragHelperSimple.ViewDragHelperView>
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

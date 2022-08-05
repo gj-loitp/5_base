@@ -2,12 +2,14 @@ package vn.loitp.app.activity.tutorial.retrofit2
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.restApi.restClient.RestClient2
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -33,11 +35,22 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
 
         RestClient2.init(baseURL)
         sampleService = RestClient2.createService(SampleService::class.java)
-        initRecyclerView()
+        setupViews()
         loadData()
     }
 
-    private fun initRecyclerView() {
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = Retrofit2Activity::class.java.simpleName
+        }
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = layoutManager
     }

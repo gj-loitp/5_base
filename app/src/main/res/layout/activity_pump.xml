@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btPicture"
         style="@style/ButtonMenu"
-        android:text="Download Picture" />
+        android:text="@string/download_picture" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btPdf"
         style="@style/ButtonMenu"
-        android:text="Download Pdf" />
+        android:text="@string/download_pdf" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvStatus"
@@ -24,4 +29,4 @@
         android:textColor="@color/red"
         android:textSize="@dimen/txt_large" />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -7,6 +7,13 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import com.loitpcore.utils.util.Utils.Companion.getContext
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class KeyboardUtils {
 
     companion object {

@@ -12,6 +12,13 @@ import android.widget.RelativeLayout
 import com.loitpcore.R
 import kotlin.math.abs
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class DraggableFlipView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,

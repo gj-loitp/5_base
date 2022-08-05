@@ -21,6 +21,13 @@ import com.loitpcore.utils.util.ConvertUtils
 import kotlinx.android.synthetic.main.l_activity_l_gallery.*
 import java.io.File
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("LGalleryActivity")
 @IsFullScreen(false)
 class LGalleryActivity : BaseFontActivity(), View.OnClickListener {

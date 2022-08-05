@@ -3,6 +3,13 @@ package com.loitpcore.function.epub
 import androidx.annotation.Keep
 import java.io.Serializable
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @Keep
 class NavPoint : Serializable {
 

@@ -3,9 +3,11 @@ package vn.loitp.app.activity.picker.timePicker
 import android.annotation.SuppressLint
 import android.app.TimePickerDialog
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_time_picker.*
 import vn.loitp.app.R
@@ -30,6 +32,17 @@ class TimePickerActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = TimePickerActivity::class.java.simpleName
+        }
         timePickerSpiner.setIs24HourView(true)
 
         timePickerClock.setOnTimeChangedListener { _, hourOfDay, minute ->

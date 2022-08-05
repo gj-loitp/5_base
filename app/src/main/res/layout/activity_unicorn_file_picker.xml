@@ -5,15 +5,20 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btPhoto"
         style="@style/ButtonMenu"
-        android:text="Photo" />
+        android:text="@string/photo" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btVideo"
         style="@style/ButtonMenu"
-        android:text="Video" />
+        android:text="@string/video" />
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"

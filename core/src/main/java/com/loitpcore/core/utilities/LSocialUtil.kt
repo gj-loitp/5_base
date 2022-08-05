@@ -11,6 +11,13 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.fbComment.FbCommentActivity
 import com.loitpcore.utils.util.AppUtils
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LSocialUtil {
     companion object {
         private val logTag = LSocialUtil::class.java.simpleName
@@ -40,10 +47,9 @@ class LSocialUtil {
             }
         }
 
-        // NgonTinh KangKang
         fun moreApp(
             activity: Activity,
-            nameOfDeveloper: String = "Toi Yeu Viet Nam"
+            nameOfDeveloper: String = "Roy93Group"
         ) {
             val uri = "https://play.google.com/store/apps/developer?id=$nameOfDeveloper"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))

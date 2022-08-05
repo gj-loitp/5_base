@@ -19,6 +19,13 @@ import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.restApi.flickr.model.photoSetGetList.Photoset
 import kotlinx.android.synthetic.main.l_item_flickr_album_core.view.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("AlbumAdapter")
 class AlbumAdapter(
     private val listPhotoSet: List<Photoset>,
@@ -45,17 +52,17 @@ class AlbumAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ViewHolder) {
             val photoSet = listPhotoSet[position]
-            holder.bind(photoset = photoSet)
+            holder.bind(p = photoSet)
         }
     }
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        fun bind(photoset: Photoset) {
+        fun bind(p: Photoset) {
 
             val color = LUIUtil.getRandomColorLight()
             LImageUtil.load(
                 context = itemView.imageView.context,
-                any = photoset.flickrLinkO(),
+                any = p.flickrLinkO(),
                 imageView = itemView.imageView,
                 resPlaceHolder = color,
                 resError = color,
@@ -81,14 +88,14 @@ class AlbumAdapter(
                 }
             )
 
-            itemView.tvLabel.text = photoset.title?.content
+            itemView.tvLabel.text = p.title?.content
 
             val update = LDateUtil.getDateCurrentTimeZone(
-                timestamp = photoset.dateUpdate,
+                timestamp = p.dateUpdate,
                 format = "dd-MM-yyyy HH:mm:ss"
             )
             itemView.tvUpdate.text = update
-            itemView.tvNumber.text = photoset.photos
+            itemView.tvNumber.text = p.photos
 
             LUIUtil.setTextShadow(textView = itemView.tvLabel, color = Color.BLACK)
             LUIUtil.setTextShadow(textView = itemView.tvUpdate, color = Color.BLACK)

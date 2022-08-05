@@ -24,7 +24,7 @@
         android:layout_marginBottom="@dimen/margin_padding_medium"
         android:indeterminateTint="?attr/themeTextColor" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/lnAdView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

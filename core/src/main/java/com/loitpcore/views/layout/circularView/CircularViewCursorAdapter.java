@@ -7,6 +7,13 @@ import android.database.DataSetObserver;
 import android.os.Handler;
 import android.widget.CursorAdapter;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapter {
     private static final String TAG = CircularViewCursorAdapter.class.getSimpleName();
     private final DataSetObservable mDataSetObservable = new DataSetObservable();

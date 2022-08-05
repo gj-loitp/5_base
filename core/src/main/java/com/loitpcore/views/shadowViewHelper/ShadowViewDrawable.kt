@@ -3,6 +3,13 @@ package com.loitpcore.views.shadowViewHelper
 import android.graphics.* // ktlint-disable no-wildcard-imports
 import android.graphics.drawable.Drawable
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class ShadowViewDrawable(
     private val shadowProperty: ShadowProperty,
     color: Int,

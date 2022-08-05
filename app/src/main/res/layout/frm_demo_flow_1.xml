@@ -19,7 +19,7 @@
         android:layout_above="@+id/bt"
         android:layout_below="@+id/imageView"
         android:gravity="center"
-        android:text="Screen 1"
+        android:text="@string/screen_1"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_largest" />
 
@@ -27,6 +27,6 @@
         android:id="@+id/bt"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"
-        android:text="Go to Screen 2" />
+        android:text="@string/go_to_screen_2" />
 
 </RelativeLayout>

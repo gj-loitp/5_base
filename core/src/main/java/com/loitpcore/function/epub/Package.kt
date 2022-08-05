@@ -6,6 +6,13 @@ import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import java.lang.reflect.Field
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 // package.opf
 class Package : BaseFindings() {
     val metadata: Metadata

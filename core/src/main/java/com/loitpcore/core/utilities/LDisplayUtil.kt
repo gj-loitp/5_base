@@ -4,6 +4,13 @@ import android.app.Activity
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LDisplayUtil {
     companion object {
         fun dip2px(dpValue: Float): Int {

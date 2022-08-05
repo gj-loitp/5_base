@@ -27,13 +27,20 @@ import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*
 import kotlinx.android.synthetic.main.view_l_edittext.view.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("FbCommentActivity")
 @IsSwipeActivity(true)
 class FbCommentActivity : BaseFontActivity() {
     internal var isLoading: Boolean = false
     private var postUrl: String? = null
     private var adView: AdView? = null
-    private var mWebviewPop: WebView? = null
+    private var mWebViewPop: WebView? = null
 
     companion object {
         // the default number of comments should be visible
@@ -48,6 +55,12 @@ class FbCommentActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+        setLoading(isLoading = true)
+        loadComments()
+    }
+
+    private fun setupViews() {
         setupActionBar()
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         logD("adUnitId $adUnitId")
@@ -83,9 +96,6 @@ class FbCommentActivity : BaseFontActivity() {
             onBackPressed()
             return
         }
-
-        setLoading(isLoading = true)
-        loadComments()
     }
 
     private fun setupActionBar() {
@@ -95,7 +105,7 @@ class FbCommentActivity : BaseFontActivity() {
             }
             this.ivRight.isVisible = false
             this.realtimeBlurView?.isVisible = false
-            this.tvTitle?.text = "Facebook Comment"
+            this.tvTitle?.text = LAppResource.getString(R.string.fb_comment)
         }
     }
 
@@ -159,7 +169,7 @@ class FbCommentActivity : BaseFontActivity() {
             if (url.contains(other = "/plugins/close_popup.php?reload")) {
                 val handler = Handler(Looper.getMainLooper())
                 handler.postDelayed({
-                    rlWebview.removeView(mWebviewPop)
+                    rlWebview.removeView(mWebViewPop)
                     loadComments()
                 }, 600)
             }
@@ -179,8 +189,8 @@ class FbCommentActivity : BaseFontActivity() {
             isUserGesture: Boolean,
             resultMsg: Message
         ): Boolean {
-            mWebviewPop = WebView(applicationContext)
-            mWebviewPop?.let {
+            mWebViewPop = WebView(applicationContext)
+            mWebViewPop?.let {
                 it.isVerticalScrollBarEnabled = false
                 it.isHorizontalScrollBarEnabled = false
                 it.webViewClient = UriWebViewClient()
@@ -197,7 +207,7 @@ class FbCommentActivity : BaseFontActivity() {
                 rlWebview.addView(it)
             }
             val transport = resultMsg.obj as WebView.WebViewTransport
-            transport.webView = mWebviewPop
+            transport.webView = mWebViewPop
             resultMsg.sendToTarget()
             return true
         }

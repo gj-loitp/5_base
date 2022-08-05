@@ -38,7 +38,7 @@
             android:layout_above="@+id/lnAdView"
             android:layout_below="@+id/tvTitle" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/lnAdView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

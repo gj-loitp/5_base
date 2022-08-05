@@ -28,6 +28,10 @@ class FrmUtils : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         arguments?.let {
             when (it.getString(KEY_CLASS)) {
                 ActivityUtils::class.java.simpleName -> {

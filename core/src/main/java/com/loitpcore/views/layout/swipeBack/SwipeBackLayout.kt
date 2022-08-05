@@ -26,6 +26,13 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 open class SwipeBackLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,

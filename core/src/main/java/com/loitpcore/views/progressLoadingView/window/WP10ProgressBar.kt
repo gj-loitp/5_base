@@ -8,6 +8,13 @@ import android.widget.RelativeLayout
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource.getColor
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class WP10ProgressBar : RelativeLayout {
 
     companion object {

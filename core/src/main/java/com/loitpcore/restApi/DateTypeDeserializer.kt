@@ -9,10 +9,16 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.* // ktlint-disable no-wildcard-imports
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class DateTypeDeserializer : JsonDeserializer<Date> {
 
     companion object {
-        private val TAG = DateTypeDeserializer::class.java.name
         private val DATE_FORMATS = arrayOf(
             "dd-MM-yyyy hh:mm",
             "dd/MM/yyyy",

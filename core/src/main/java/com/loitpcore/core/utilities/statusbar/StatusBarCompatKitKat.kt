@@ -1,9 +1,7 @@
 package com.loitpcore.core.utilities.statusbar
 
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
-import android.os.Build
 import android.view.*
 import android.widget.FrameLayout
 import androidx.appcompat.widget.Toolbar
@@ -13,7 +11,13 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import kotlin.math.abs
 
-@TargetApi(Build.VERSION_CODES.KITKAT)
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 internal class StatusBarCompatKitKat {
 
     companion object {

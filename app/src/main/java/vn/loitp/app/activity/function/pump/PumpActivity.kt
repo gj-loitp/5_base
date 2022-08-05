@@ -1,12 +1,14 @@
 package vn.loitp.app.activity.function.pump
 
 import android.os.Bundle
+import androidx.core.view.isVisible
+import com.huxq17.download.Pump
+import com.huxq17.download.config.DownloadConfig
+import com.huxq17.download.core.DownloadListener
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.function.pump.download.Pump
-import com.loitpcore.function.pump.download.config.DownloadConfig
-import com.loitpcore.function.pump.download.core.DownloadListener
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_pump.*
 import vn.loitp.app.R
@@ -27,6 +29,17 @@ class PumpActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = PumpActivity::class.java.simpleName
+        }
         DownloadConfig.newBuilder()
             // Optional,set the maximum number of tasks to run, default 3.
             .setMaxRunningTaskNum(2)
@@ -49,7 +62,8 @@ class PumpActivity : BaseFontActivity() {
     }
 
     private fun handleDownloadPicture() {
-        Pump.newRequestToPicture(Constants.URL_IMG, "/loitp/picture")
+        //TODO deo chay :((
+        Pump.newRequestToPicture(Constants.URL_IMG_1, "/loitp/pictures")
             .listener(object : DownloadListener() {
 
                 override fun onProgress(progress: Int) {

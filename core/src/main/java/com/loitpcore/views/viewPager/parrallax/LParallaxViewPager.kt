@@ -15,6 +15,13 @@ import android.view.animation.LinearInterpolator
 import androidx.viewpager.widget.ViewPager
 import com.loitpcore.R
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     ViewPager(context, attrs) {
     private var mParrallaxMode: ParallaxMode? = null

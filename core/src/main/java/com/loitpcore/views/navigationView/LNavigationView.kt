@@ -11,6 +11,13 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAnimationUtil
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LNavigationView : RelativeLayout, View.OnClickListener {
     var ivPrev: ImageView? = null
     var ivNext: ImageView? = null

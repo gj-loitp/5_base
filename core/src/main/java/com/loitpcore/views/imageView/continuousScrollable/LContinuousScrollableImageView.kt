@@ -4,13 +4,19 @@ import android.animation.ValueAnimator
 import android.app.Activity
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.IntDef
 import com.loitpcore.R
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LContinuousScrollableImageView : LinearLayout {
 
     companion object {
@@ -238,10 +244,6 @@ class LContinuousScrollableImageView : LinearLayout {
 
     private fun setImages() {
         if (resourceId == -1) {
-            Log.e(
-                TAG,
-                "image must be initialized before it can be used. You can use in XML like this: (app:imageSrc=\"@drawable/yourImage\") "
-            )
             return
         }
         firstImage = findViewById(R.id.first_image)

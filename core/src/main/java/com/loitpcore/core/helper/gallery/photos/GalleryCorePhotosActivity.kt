@@ -27,6 +27,13 @@ import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("GalleryCorePhotosActivity")
 @IsSwipeActivity(true)
 class GalleryCorePhotosActivity : BaseFontActivity() {
@@ -43,6 +50,11 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+        LValidateUtil.isValidPackageName()
+    }
+
+    private fun setupViews() {
         PhotosDataCore.instance.clearData()
 
         photoSetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
@@ -129,8 +141,6 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                 }
             }
         })
-
-        LValidateUtil.isValidPackageName()
     }
 
     private fun showListPage() {

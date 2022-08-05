@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
-    <ScrollView
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
@@ -13,7 +19,7 @@
         android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -23,105 +29,101 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutString"
                 style="@style/ButtonMenu"
-                android:text="Put String" />
+                android:text="@string/put_string" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetString"
                 style="@style/ButtonMenu"
-                android:text="Get String" />
+                android:text="@string/get_string" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutStringWithDefaultValue"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/w_35"
-                android:text="Put String WithDefaultValue" />
+                android:text="@string/put_string_withdefaultvalue" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetStringWithDefaultValue"
                 style="@style/ButtonMenu"
-                android:text="Get String WithDefaultValue" />
+                android:text="@string/get_string_withdefaultvalue" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutBoolean"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/w_35"
-                android:text="Put Boolean" />
+                android:text="@string/put_boolean" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetBoolean"
                 style="@style/ButtonMenu"
-                android:text="Get Boolean" />
+                android:text="@string/get_boolean" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutFloat"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/w_35"
-                android:text="Put Float" />
+                android:text="@string/put_float" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetFloat"
                 style="@style/ButtonMenu"
-                android:text="Get Float" />
+                android:text="@string/get_float" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutInt"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/w_35"
-                android:text="Put Int" />
+                android:text="@string/put_int" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetInt"
                 style="@style/ButtonMenu"
-                android:text="Get Int" />
+                android:text="@string/get_int" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutLong"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/w_35"
-                android:text="Put Long" />
+                android:text="@string/put_long" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetLong"
                 style="@style/ButtonMenu"
-                android:text="Get Long" />
+                android:text="@string/get_long" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutNumber"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/w_35"
-                android:text="Put Number" />
+                android:text="@string/put_number" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetNumber"
                 style="@style/ButtonMenu"
-                android:text="Get Number" />
+                android:text="@string/get_number" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutObject"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/w_35"
-                android:text="Put Object" />
+                android:text="@string/put_object" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetObject"
                 style="@style/ButtonMenu"
-                android:text="Get Object" />
+                android:text="@string/get_object" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutListObject"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/w_35"
-                android:text="Put List Object" />
+                android:text="@string/put_list_object" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetListObject"
                 style="@style/ButtonMenu"
-                android:text="Get List Object" />
-        </LinearLayout>
-    </ScrollView>
+                android:text="@string/get_list_object" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="SharedPrefs" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

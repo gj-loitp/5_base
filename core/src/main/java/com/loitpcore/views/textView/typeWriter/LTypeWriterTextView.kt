@@ -5,6 +5,13 @@ import android.os.Handler
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LTypeWriterTextView : AppCompatTextView {
     private var mText: CharSequence? = null
     private var mIndex: Int = 0

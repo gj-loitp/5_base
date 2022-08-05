@@ -1,9 +1,14 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -29,7 +34,7 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -38,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/blue"
-            android:text="Add FrmFlow0"
+            android:text="@string/add_frmflow0"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
@@ -48,8 +53,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_padding_medium"
             android:background="@color/red"
-            android:text="Clear All Frm"
+            android:text="@string/clear_all_frm"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
-    </LinearLayout>
-</LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>

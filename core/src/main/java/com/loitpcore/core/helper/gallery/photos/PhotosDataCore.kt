@@ -2,6 +2,13 @@ package com.loitpcore.core.helper.gallery.photos
 
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class PhotosDataCore private constructor() {
     private var photoList = ArrayList<Photo>()
 
@@ -13,7 +20,7 @@ class PhotosDataCore private constructor() {
         return photoList
     }
 
-    fun setPhotoList(photoList: ArrayList<Photo>) {
+    private fun setPhotoList(photoList: ArrayList<Photo>) {
         this.photoList = photoList
     }
 

@@ -5,6 +5,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class BuchheimWalkerAlgorithm implements Algorithm {
 
     private static final int DEFAULT_SIBLING_SEPARATION = 100;

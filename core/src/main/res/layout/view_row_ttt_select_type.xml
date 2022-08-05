@@ -13,7 +13,7 @@
     app:cardUseCompatPadding="true"
     tools:ignore="UnusedAttribute">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -38,6 +38,6 @@
             android:visibility="gone"
             app:tint="?themeTextColor"
             tools:visibility="visible" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </com.google.android.material.card.MaterialCardView>

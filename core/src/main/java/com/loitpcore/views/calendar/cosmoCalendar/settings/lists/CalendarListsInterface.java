@@ -6,6 +6,13 @@ import com.loitpcore.views.calendar.cosmoCalendar.settings.lists.connectedDays.C
 import java.util.Calendar;
 import java.util.Set;
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 //21.12.2020 try to convert kotlin but failed
 public interface CalendarListsInterface {
 

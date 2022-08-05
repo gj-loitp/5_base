@@ -3,6 +3,13 @@ package com.loitpcore.views.calendar.cosmoCalendar.selection.criteria.month
 import com.loitpcore.views.calendar.cosmoCalendar.utils.DateUtils.getCalendar
 import java.util.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class CurrentMonthCriteria : BaseMonthCriteria() {
 
     private val currentTimeInMillis: Long = System.currentTimeMillis()

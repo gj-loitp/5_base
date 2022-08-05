@@ -4,6 +4,13 @@ import android.view.View
 import androidx.viewpager.widget.ViewPager
 import kotlin.math.abs
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class VerticalPageTransformer : ViewPager.PageTransformer {
     override fun transformPage(view: View, position: Float) {
 

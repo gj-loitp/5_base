@@ -5,6 +5,13 @@ import java.io.* // ktlint-disable no-wildcard-imports
 import java.net.URLDecoder
 import java.net.URLEncoder
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 internal object ContextHelper {
 
     @JvmStatic

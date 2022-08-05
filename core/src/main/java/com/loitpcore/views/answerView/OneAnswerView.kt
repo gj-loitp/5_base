@@ -8,6 +8,13 @@ import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource
 import kotlinx.android.synthetic.main.l_answer_view.view.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class OneAnswerView : LinearLayout {
 
     constructor(context: Context?) : super(context) {

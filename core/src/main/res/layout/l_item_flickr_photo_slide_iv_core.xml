@@ -17,7 +17,7 @@
         app:optimizeDisplay="true"
         app:thumbnailScaleType="fitCenter" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -38,5 +38,5 @@
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"
             tools:text="tvProgress" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </RelativeLayout>

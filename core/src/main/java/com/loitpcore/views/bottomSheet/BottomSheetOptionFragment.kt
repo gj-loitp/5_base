@@ -11,6 +11,13 @@ import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_bottom_sheet_dialog_option.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class BottomSheetOptionFragment(
     private val isCancelableFragment: Boolean = true,
     private val isShowIvClose: Boolean = true,

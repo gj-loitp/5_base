@@ -15,6 +15,13 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import com.loitpcore.core.utilities.LAppResource
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LTextDecorator private constructor(
     private val textView: TextView,
     private val content: String

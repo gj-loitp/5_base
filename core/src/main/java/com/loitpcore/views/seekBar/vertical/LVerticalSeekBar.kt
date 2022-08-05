@@ -15,6 +15,13 @@ import com.loitpcore.R
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LVerticalSeekBar : AppCompatSeekBar {
 
     companion object {

@@ -13,6 +13,13 @@ import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_ttt_comic.view.*
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("TTTListComicAdapter")
 class TTTListComicAdapter : BaseAdapter() {
 

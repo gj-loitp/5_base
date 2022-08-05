@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scrollbars="none">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -23,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Copy content"
+                android:text="@string/copy_content"
                 android:textColor="?attr/themeTextColor"
                 app:bgOffColor="@color/vip1"
                 app:bgOnColor="@color/vip2"
@@ -36,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/margin_padding_medium"
-                android:text="Dark mode"
+                android:text="@string/dark_mode"
                 android:textColor="?attr/themeTextColor"
                 app:bgOffColor="@color/vip1"
                 app:bgOnColor="@color/vip2"
@@ -49,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColor"
-                android:text="Load Url"
+                android:text="@string/load_url"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -58,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColor"
-                android:text="Load Data"
+                android:text="@string/load_data"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -67,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColor"
-                android:text="Load Data Custom"
+                android:text="@string/load_data_custom"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -76,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColor"
-                android:text="Load Url From Asset"
+                android:text="@string/load_url_from_asset"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -85,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColor"
-                android:text="Load Url From Asset And Click"
+                android:text="@string/load_url_from_asset_and_click"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -94,9 +99,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColor"
-                android:text="Load Url From Web And Click"
+                android:text="@string/load_url_from_web_and_click"
                 android:textColor="?attr/themeTextColor" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </HorizontalScrollView>
 
     <ProgressBar
@@ -111,4 +116,4 @@
         android:id="@+id/lWebView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

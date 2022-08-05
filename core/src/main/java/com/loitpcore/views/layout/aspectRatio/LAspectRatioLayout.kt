@@ -1,15 +1,20 @@
 package com.loitpcore.views.layout.aspectRatio
 
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
-import androidx.annotation.RequiresApi
 import androidx.annotation.StyleRes
 import com.loitpcore.R
 import kotlin.math.roundToInt
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LAspectRatioLayout : FrameLayout {
 
     companion object {
@@ -34,7 +39,6 @@ class LAspectRatioLayout : FrameLayout {
         init(context, attrs, defStyleAttr, 0)
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     constructor(
         context: Context,
         attrs: AttributeSet?,

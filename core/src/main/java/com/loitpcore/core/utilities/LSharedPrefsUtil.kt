@@ -6,6 +6,13 @@ import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.utils.util.AppUtils
 import java.lang.reflect.Type
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 class LSharedPrefsUtil private constructor() {
     private val mSharedPreferences: SharedPreferences =
         LAppResource.application.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)

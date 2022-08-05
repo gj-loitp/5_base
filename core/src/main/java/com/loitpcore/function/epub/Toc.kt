@@ -9,6 +9,13 @@ import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import java.io.Serializable
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 // toc.ncx
 @Keep
 class Toc : BaseFindings(), Serializable {

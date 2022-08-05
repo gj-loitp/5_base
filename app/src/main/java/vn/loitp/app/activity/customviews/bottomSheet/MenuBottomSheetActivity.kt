@@ -17,6 +17,13 @@ import kotlinx.android.synthetic.main.activity_menu_bottomsheet.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
 import vn.loitp.app.R
 
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
 @LogTag("MenuBottomSheetActivity")
 @IsFullScreen(false)
 class MenuBottomSheetActivity : BaseFontActivity() {
@@ -165,6 +172,13 @@ class MenuBottomSheetActivity : BaseFontActivity() {
                     showShortInformation("onDismiss")
                     logD("onDismiss")
                 }
+            )
+        }
+        btBaseBottomSheet.setSafeOnClickListener {
+            val bottomSheet = SampleBaseBottomSheet()
+            bottomSheet.show(
+                supportFragmentManager,
+                bottomSheet.tag
             )
         }
     }
