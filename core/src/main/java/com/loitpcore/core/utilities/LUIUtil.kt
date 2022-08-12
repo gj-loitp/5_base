@@ -138,6 +138,7 @@ class LUIUtil {
             listTestDevice.add(Constants.TEST_22)
             listTestDevice.add(Constants.TEST_XIAOMI_REDMI_NOTE_8_PRO)
             listTestDevice.add(Constants.TEST_SAMSUNG_A50S)
+            listTestDevice.add(Constants.TEST_SAMSUNG_S20_FE_GALAXY_ONE)
             return listTestDevice
         }
 
