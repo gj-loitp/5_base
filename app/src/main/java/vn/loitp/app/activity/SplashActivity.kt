@@ -42,6 +42,7 @@ class SplashActivity : BaseFontActivity() {
         setupViews()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupViews() {
         LUIUtil.setDelay(mls = 2500, runnable = {
             isAnimDone = true

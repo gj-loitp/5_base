@@ -11,9 +11,9 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 20220522,
+      "versionCode": 20220804,
       "versionName": "1.0.1",
-      "outputFile": "BaseMaster_release_1.0.1_20220522.apk"
+      "outputFile": "BaseMaster_release_1.0.1_20220804.apk"
     }
   ],
   "elementType": "File"
