@@ -85,7 +85,7 @@ dependencies {
     api 'androidx.navigation:navigation-fragment-ktx:2.5.1'
 
     //jsoup
-    api 'org.jsoup:jsoup:1.15.1'
+    api 'org.jsoup:jsoup:1.15.2'
 
     //https://github.com/adblockplus/libadblockplus-android
     api 'org.adblockplus:adblock-android-webview:4.4.0'
@@ -122,7 +122,7 @@ dependencies {
     api 'com.github.tombayley:ActivityCircularReveal:1.0.2'
 
     //https://github.com/google/gson
-    api 'com.google.code.gson:gson:2.9.0'
+    api 'com.google.code.gson:gson:2.9.1'
 
     //google service https://developers.google.com/android/guides/setup
     //compile 'com.google.android.gms:play-services-plus:15.0.1'
@@ -180,7 +180,7 @@ dependencies {
     //ViewModel Kotlin support
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     //Coroutines
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
     //https://github.com/florent37/ExpansionPanel
     api 'com.github.florent37:expansionpanel:1.2.4'
