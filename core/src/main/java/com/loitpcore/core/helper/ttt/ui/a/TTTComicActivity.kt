@@ -10,7 +10,6 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.helper.ttt.model.MenuComicTTT
@@ -33,7 +32,6 @@ import kotlinx.android.synthetic.main.l_activity_ttt_comic.*
  */
 @LogTag("TTTComicActivity")
 @IsFullScreen(false)
-@IsShowAdWhenExit(false)
 class TTTComicActivity : BaseFontActivity() {
 
     val listMenuComicTTT = ArrayList<MenuComicTTT>()

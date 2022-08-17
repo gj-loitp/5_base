@@ -35,17 +35,7 @@
             style="@style/ScrollVertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/lnAdView"
             android:layout_below="@+id/tvTitle" />
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/lnAdView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@color/transparent"
-            android:gravity="center"
-            android:orientation="vertical" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -58,7 +48,6 @@
             android:id="@+id/btPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/lnAdView"
             android:layout_alignParentEnd="true"
             android:layout_margin="@dimen/margin_padding_medium"
             android:contentDescription="@string/app_name"

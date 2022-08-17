@@ -12,9 +12,9 @@ annotation class LogTag(val value: String)
 @Retention(AnnotationRetention.RUNTIME)
 annotation class IsFullScreen(val value: Boolean)
 
-@Target(AnnotationTarget.CLASS, AnnotationTarget.FILE)
-@Retention(AnnotationRetention.RUNTIME)
-annotation class IsShowAdWhenExit(val value: Boolean)
+//@Target(AnnotationTarget.CLASS, AnnotationTarget.FILE)
+//@Retention(AnnotationRetention.RUNTIME)
+//annotation class IsShowAdWhenExit(val value: Boolean)
 
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FILE)
 @Retention(AnnotationRetention.RUNTIME)

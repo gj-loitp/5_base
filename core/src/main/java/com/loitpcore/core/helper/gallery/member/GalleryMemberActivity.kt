@@ -10,8 +10,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
 import com.loitpcore.R
 import com.loitpcore.annotation.IsSwipeActivity
 import com.loitpcore.annotation.LogTag
@@ -46,7 +44,6 @@ class GalleryMemberActivity : BaseFontActivity() {
     private var totalPage = 1
     private var isLoading: Boolean = false
     private var memberAdapter: MemberAdapter? = null
-    private var adView: AdView? = null
     private var photoSetID: String? = null
     private var photosSize: Int = 0
 
@@ -68,19 +65,6 @@ class GalleryMemberActivity : BaseFontActivity() {
         val resBkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
         if (resBkgRootView != Constants.NOT_FOUND) {
             rootView.setBackgroundResource(resBkgRootView)
-        }
-
-        val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-        if (adUnitId.isNullOrEmpty()) {
-            lnAdView.visibility = View.GONE
-        } else {
-            adView = AdView(this)
-            adView?.let {
-                it.setAdSize(AdSize.BANNER)
-                it.adUnitId = adUnitId
-                LUIUtil.createAdBanner(adView = it)
-                lnAdView.addView(it)
-            }
         }
 
         photoSetID = Constants.FLICKR_ID_MEMBERS
@@ -279,21 +263,6 @@ class GalleryMemberActivity : BaseFontActivity() {
     @SuppressLint("NotifyDataSetChanged")
     private fun updateAllViews() {
         memberAdapter?.notifyDataSetChanged()
-    }
-
-    public override fun onPause() {
-        adView?.pause()
-        super.onPause()
-    }
-
-    public override fun onResume() {
-        adView?.resume()
-        super.onResume()
-    }
-
-    public override fun onDestroy() {
-        adView?.destroy()
-        super.onDestroy()
     }
 
     private fun checkPermission() {

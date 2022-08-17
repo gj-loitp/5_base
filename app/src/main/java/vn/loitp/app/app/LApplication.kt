@@ -8,10 +8,8 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.ttt.db.TTTDatabase
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.data.ActivityData
-import com.loitpcore.data.AdmobData
 import io.realm.Realm
 import io.realm.RealmConfiguration
-import vn.loitp.app.R
 import vn.loitp.app.activity.database.room.db.FNBDatabase
 import vn.loitp.app.activity.service.endlessService.log
 
@@ -30,9 +28,6 @@ class LApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
-
-        // config admob id
-        AdmobData.instance.idAdmobFull = getString(R.string.str_f)
 
         // config activity transition default
         ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT

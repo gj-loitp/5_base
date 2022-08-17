@@ -7,8 +7,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
 import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
 import com.loitpcore.R
@@ -49,7 +47,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     private var totalPage = 1
     private var isLoading: Boolean = false
     private var photosOnlyAdapter: PhotosOnlyAdapter? = null
-    private var adView: AdView? = null
     private var photoSetID: String? = null
     private var photosSize: Int = 0
 
@@ -68,21 +65,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     private fun setupViews() {
         RestClient.init(getString(R.string.flickr_URL))
         PhotosDataCore.instance.clearData()
-
-        val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-//        logD("adUnitId $adUnitId")
-
-        if (adUnitId.isNullOrEmpty()) {
-            lnAdView.visibility = View.GONE
-        } else {
-            adView = AdView(this)
-            adView?.let {
-                it.setAdSize(AdSize.BANNER)
-                it.adUnitId = adUnitId
-                LUIUtil.createAdBanner(it)
-                lnAdView.addView(it)
-            }
-        }
 
         photoSetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
         if (photoSetID.isNullOrEmpty()) {
@@ -118,7 +100,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                     LSocialUtil.openFacebookComment(
                         context = this@GalleryCorePhotosOnlyActivity,
                         url = photo.urlO,
-                        adUnitId = adUnitId
                     )
                 }
             }
@@ -316,21 +297,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     @SuppressLint("NotifyDataSetChanged")
     private fun updateAllViews() {
         photosOnlyAdapter?.notifyDataSetChanged()
-    }
-
-    public override fun onPause() {
-        adView?.pause()
-        super.onPause()
-    }
-
-    public override fun onResume() {
-        adView?.resume()
-        super.onResume()
-    }
-
-    public override fun onDestroy() {
-        adView?.destroy()
-        super.onDestroy()
     }
 
     private fun checkPermission() {

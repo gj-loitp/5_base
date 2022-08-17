@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.IsSwipeActivity
@@ -17,7 +15,6 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.gallery.photos.GalleryCorePhotosActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
-import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.LValidateUtil
 import com.loitpcore.restApi.flickr.FlickrConst
 import com.loitpcore.restApi.flickr.model.photoSetGetList.Photoset
@@ -44,7 +41,6 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     private var albumAdapter: AlbumAdapter? = null
     private val listPhotoSet = ArrayList<Photoset>()
     private var listRemoveAlbum = ArrayList<String>()
-    private var adView: AdView? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_flickr_gallery_core_album
@@ -60,19 +56,6 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
 
         intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)?.let {
             listRemoveAlbum.addAll(it)
-        }
-        val admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-//        logD("admobBannerUnitId $admobBannerUnitId")
-        if (admobBannerUnitId.isNullOrEmpty()) {
-            lnAdView.visibility = View.GONE
-        } else {
-            adView = AdView(this)
-            adView?.let {
-                it.setAdSize(AdSize.BANNER)
-                it.adUnitId = admobBannerUnitId
-                LUIUtil.createAdBanner(adView = it)
-                lnAdView.addView(it)
-            }
         }
 
         val animator = SlideInRightAnimator(OvershootInterpolator(1f))
@@ -197,18 +180,4 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         albumAdapter?.notifyDataSetChanged()
     }
 
-    override fun onResume() {
-        adView?.resume()
-        super.onResume()
-    }
-
-    public override fun onPause() {
-        adView?.pause()
-        super.onPause()
-    }
-
-    public override fun onDestroy() {
-        adView?.destroy()
-        super.onDestroy()
-    }
 }

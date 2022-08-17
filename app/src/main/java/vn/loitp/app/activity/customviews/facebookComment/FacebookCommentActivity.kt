@@ -41,7 +41,6 @@ class FacebookCommentActivity : BaseFontActivity() {
             LSocialUtil.openFacebookComment(
                 context = this,
                 url = "http://truyentranhtuan.com/one-piece-chuong-907/",
-                adUnitId = getString(R.string.str_b)
             )
         }
     }

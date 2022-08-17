@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import com.loitpcore.R
-import com.loitpcore.core.common.Constants
 import com.loitpcore.function.epub.core.EpubReaderReadActivity
 import com.loitpcore.function.epub.model.BookInfo
 import com.loitpcore.function.epub.model.BookInfoData
@@ -41,7 +40,7 @@ class LReaderUtil {
             return BitmapFactory.decodeByteArray(coverImage, 0, coverImage.size, options)
         }
 
-        fun calculateInSampleSize(
+        private fun calculateInSampleSize(
             options: BitmapFactory.Options,
             reqWidth: Int,
             reqHeight: Int
@@ -64,13 +63,12 @@ class LReaderUtil {
             return inSampleSize
         }
 
-        fun readEpub(activity: Activity?, bookInfo: BookInfo?, admobAdIdBanner: String) {
+        fun readEpub(activity: Activity?, bookInfo: BookInfo?) {
             if (activity == null || bookInfo == null) {
                 throw NullPointerException("activity == null || bookInfo == null")
             }
             val intent = Intent(activity, EpubReaderReadActivity::class.java)
             BookInfoData.instance.bookInfo = bookInfo
-            intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobAdIdBanner)
             activity.startActivity(intent)
             LActivityUtil.tranIn(activity)
         }

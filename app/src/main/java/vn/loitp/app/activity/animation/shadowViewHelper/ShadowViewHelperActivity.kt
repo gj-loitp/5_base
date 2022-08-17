@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LDisplayUtil
@@ -18,7 +17,6 @@ import vn.loitp.app.R
 // https://github.com/wangjiegulu/ShadowViewHelper?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=1884
 @LogTag("ShadowViewHelperActivity")
 @IsFullScreen(false)
-@IsShowAdWhenExit(value = false)
 class ShadowViewHelperActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

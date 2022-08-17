@@ -3,7 +3,6 @@ package vn.loitp.app.activity.animation.overScroll
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LStoreUtil
@@ -13,7 +12,6 @@ import vn.loitp.app.R
 
 @LogTag("OverScrollActivity")
 @IsFullScreen(false)
-@IsShowAdWhenExit(value = true)
 class OverScrollActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

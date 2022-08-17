@@ -7,7 +7,7 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_admob_banner.*
+import kotlinx.android.synthetic.main.activity_draggable_flipview.*
 import vn.loitp.app.R
 
 @LogTag("DraggableFlipViewActivity")

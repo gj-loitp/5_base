@@ -5,20 +5,14 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LActivityUtil
-import com.loitpcore.core.utilities.LSharedPrefsUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.LValidateUtil
 import com.permissionx.guolindev.PermissionX
-import kotlinx.android.synthetic.main.l_activity_ttt_comic_splash.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -32,9 +26,6 @@ import kotlinx.android.synthetic.main.l_activity_ttt_comic_splash.*
 @IsFullScreen(false)
 class TTTSplashActivity : BaseFontActivity() {
 
-    private var adView: AdView? = null
-    private var admobBannerUnitId: String? = null
-
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_ttt_comic_splash
     }
@@ -47,25 +38,6 @@ class TTTSplashActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        admobBannerUnitId = intent.getStringExtra(Constants.COMIC_ADMOB_ID_BANNER)
-
-        admobBannerUnitId?.let { id ->
-            LSharedPrefsUtil.instance.putString(Constants.COMIC_ADMOB_ID_BANNER, id)
-        }
-
-        if (admobBannerUnitId.isNullOrEmpty()) {
-            lnAdView.visibility = View.GONE
-        } else {
-            adView = AdView(this)
-            adView?.let {
-                it.setAdSize(AdSize.BANNER)
-                admobBannerUnitId?.let { id ->
-                    it.adUnitId = id
-                }
-                LUIUtil.createAdBanner(it)
-                lnAdView.addView(it)
-            }
-        }
         LValidateUtil.isValidPackageName()
     }
 
@@ -77,21 +49,6 @@ class TTTSplashActivity : BaseFontActivity() {
             LActivityUtil.tranIn(this)
             finish()
         })
-    }
-
-    override fun onResume() {
-        adView?.resume()
-        super.onResume()
-    }
-
-    public override fun onPause() {
-        adView?.pause()
-        super.onPause()
-    }
-
-    public override fun onDestroy() {
-        adView?.destroy()
-        super.onDestroy()
     }
 
     private fun checkPermission() {

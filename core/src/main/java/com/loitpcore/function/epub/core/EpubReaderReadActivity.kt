@@ -20,14 +20,10 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.daimajia.androidanimations.library.Techniques
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.*
 import com.loitpcore.core.utilities.LReaderUtil.Companion.defaultCover
 import com.loitpcore.function.epub.BookSection
@@ -52,7 +48,6 @@ import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
  */
 @LogTag("EpubReaderReadActivity")
 @IsFullScreen(false)
-@IsShowAdWhenExit(true)
 class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
     companion object {
@@ -65,7 +60,6 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     private var pageCount = Int.MAX_VALUE
     private val pxScreenWidth = LScreenUtil.screenWidth
     private var bookInfo: BookInfo? = null
-    private var adView: AdView? = null
     private var epubViewModel: EpubViewModel? = null
 
     override fun setLayoutResourceId(): Int {
@@ -115,19 +109,6 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             })
         }
 
-        val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-        if (adUnitId.isNullOrEmpty() || !LConnectivityUtil.isConnected()) {
-            lnAdView.visibility = View.GONE
-        } else {
-            adView = AdView(this)
-            adView?.let { av ->
-                av.setAdSize(AdSize.BANNER)
-                av.adUnitId = adUnitId
-                LUIUtil.createAdBanner(av)
-                lnAdView.addView(av)
-                lnAdView.requestLayout()
-            }
-        }
         btBack.setSafeOnClickListener {
             onBackPressed()
         }
@@ -282,18 +263,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         }
     }
 
-    public override fun onPause() {
-        adView?.pause()
-        super.onPause()
-    }
-
-    public override fun onResume() {
-        adView?.resume()
-        super.onResume()
-    }
-
     override fun onDestroy() {
-        adView?.destroy()
         BookInfoData.instance.bookInfo = null
         super.onDestroy()
     }

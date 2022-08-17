@@ -6,7 +6,6 @@ import android.view.View
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
@@ -24,7 +23,6 @@ import vn.loitp.app.activity.customviews.edittext.textWatcher.EditTextTextWatche
 @LogTag("EditTextMenuActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-@IsShowAdWhenExit(true)
 class MenuEditTextActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {

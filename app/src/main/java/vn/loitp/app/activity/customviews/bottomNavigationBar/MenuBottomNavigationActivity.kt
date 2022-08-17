@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
@@ -18,7 +17,6 @@ import vn.loitp.app.activity.customviews.bottomNavigationBar.bottombar.BottomBar
 @LogTag("BottomNavigationMenuActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-@IsShowAdWhenExit(true)
 class MenuBottomNavigationActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

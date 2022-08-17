@@ -13,8 +13,6 @@ import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
 import com.loitpcore.annotation.IsSwipeActivity
@@ -39,7 +37,6 @@ import kotlinx.android.synthetic.main.view_l_edittext.view.*
 class FbCommentActivity : BaseFontActivity() {
     internal var isLoading: Boolean = false
     private var postUrl: String? = null
-    private var adView: AdView? = null
     private var mWebViewPop: WebView? = null
 
     companion object {
@@ -62,22 +59,6 @@ class FbCommentActivity : BaseFontActivity() {
 
     private fun setupViews() {
         setupActionBar()
-        val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-        logD("adUnitId $adUnitId")
-        if (adUnitId.isNullOrEmpty()) {
-            lnAdView.visibility = View.GONE
-        } else {
-            adView = AdView(this)
-            adView?.apply {
-                setAdSize(AdSize.BANNER)
-                setAdUnitId(adUnitId)
-                LUIUtil.createAdBanner(this)
-                lnAdView.addView(this)
-                lnAdView.requestLayout()
-                // int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
-                // LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
-            }
-        }
 
         LUIUtil.setColorProgressBar(
             progressBar = progressBar,
@@ -218,20 +199,5 @@ class FbCommentActivity : BaseFontActivity() {
         }
 
         override fun onCloseWindow(window: WebView) {}
-    }
-
-    public override fun onPause() {
-        adView?.pause()
-        super.onPause()
-    }
-
-    public override fun onResume() {
-        adView?.resume()
-        super.onResume()
-    }
-
-    public override fun onDestroy() {
-        adView?.destroy()
-        super.onDestroy()
     }
 }
