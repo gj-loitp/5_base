@@ -701,4 +701,11 @@
         <attr name="fabColor" format="color" />
         <attr name="fabIcon" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="FingerPaintImageView">
+        <attr name="strokeColorFPIV" format="color" />
+        <attr name="strokeWidthFPIV" format="dimension" />
+        <attr name="inEditModeFPIV" format="boolean" />
+        <attr name="touchToleranceFPIV" format="float" />
+    </declare-styleable>
 </resources>
