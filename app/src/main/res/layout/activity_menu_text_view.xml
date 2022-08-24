@@ -52,6 +52,11 @@
                 android:text="@string/extra_textview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFadingTextView"
+                style="@style/ButtonMenu"
+                android:text="FadingTextViewActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btJustifiedTextViewActivity"
                 style="@style/ButtonMenu"
                 android:text="JustifiedTextViewActivity" />
