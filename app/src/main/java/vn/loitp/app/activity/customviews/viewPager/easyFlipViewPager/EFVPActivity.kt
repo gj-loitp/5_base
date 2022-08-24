@@ -2,8 +2,6 @@ package vn.loitp.app.activity.customviews.viewPager.easyFlipViewPager
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.CheckBox
-import android.widget.RadioGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -27,10 +25,8 @@ import vn.loitp.app.R
 class EFVPActivity : BaseFontActivity() {
     private lateinit var mPager: ViewPager
     private var mPagerAdapter: PagerAdapter? = null
-    lateinit var radioGroupFlipAnimation: RadioGroup
-    lateinit var checkEnableScale: CheckBox
 
-    var bookFlipTransformer = BookFlipPageTransformer()
+    private var bookFlipTransformer = BookFlipPageTransformer()
     var cardFlipTransformer = CardFlipPageTransformer()
 
     override fun setLayoutResourceId(): Int {
@@ -68,8 +64,6 @@ class EFVPActivity : BaseFontActivity() {
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = EFVPActivity::class.java.simpleName
         }
-        radioGroupFlipAnimation = findViewById(R.id.rgFlipAnimation)
-        checkEnableScale = findViewById(R.id.checkEnableScale)
 
         // Book Flip Transformer
         bookFlipTransformer.isEnableScale = true
@@ -81,23 +75,23 @@ class EFVPActivity : BaseFontActivity() {
 
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = findViewById(R.id.pager)
-        mPagerAdapter = EFVPActivity.DemoPagerAdapter(supportFragmentManager)
+        mPagerAdapter = DemoPagerAdapter(supportFragmentManager)
         mPager.adapter = mPagerAdapter
         mPager.clipToPadding = false
 
         updatePagerConfigs()
 
-        radioGroupFlipAnimation.setOnCheckedChangeListener { radioGroup, id ->
+        rgFlipAnimation.setOnCheckedChangeListener { _, _ ->
             updatePagerConfigs()
         }
 
-        checkEnableScale.setOnCheckedChangeListener { compoundButton, value ->
+        checkEnableScale.setOnCheckedChangeListener { _, _ ->
             updatePagerConfigs()
         }
     }
 
-    fun updatePagerConfigs() {
-        when (radioGroupFlipAnimation.checkedRadioButtonId) {
+    private fun updatePagerConfigs() {
+        when (rgFlipAnimation.checkedRadioButtonId) {
             R.id.radioBookFlip -> {
                 bookFlipTransformer.isEnableScale = checkEnableScale.isChecked
                 mPager.setPageTransformer(true, bookFlipTransformer)
@@ -109,26 +103,24 @@ class EFVPActivity : BaseFontActivity() {
         }
     }
 
-    class DemoPagerAdapter : FragmentPagerAdapter {
+    class DemoPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         var fragmentsList = arrayListOf<GalleryImageFragment>()
 
-        constructor(fm: FragmentManager) : super(fm) {
+        init {
             val titles = arrayOf(
                 "Book Onboarding",
                 "Poker Card",
                 "Pakistan Gallery",
                 "ViewPager2 Demo"
             )
-
             val imageIds = intArrayOf(
                 R.drawable.books_snap,
                 R.drawable.poker_snap,
                 R.drawable.gallery_snap,
                 R.drawable.viewpager2_snap
             )
-
-            for (i in 0 until imageIds.size) {
-                var frag = GalleryImageFragment.newInstance(titles[i], null, imageIds[i])
+            for (i in imageIds.indices) {
+                val frag = GalleryImageFragment.newInstance(titles[i], null, imageIds[i])
                 fragmentsList.add(frag)
             }
         }

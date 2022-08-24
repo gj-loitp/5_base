@@ -999,4 +999,7 @@ Likewise may someone love you next.
     <string name="showSnackBarWarning">showSnackBarWarning</string>
     <string name="showDialogProgress">showDialogProgress</string>
     <string name="hidedialogprogress">hideDialogProgress</string>
+    <string name="card_flip_animation">Card Flip Animation</string>
+    <string name="book_flip_animation">Book Flip Animation</string>
+    <string name="enable_scale">Enable Scale</string>
 </resources>
