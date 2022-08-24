@@ -1140,7 +1140,7 @@
             android:name=".activity.customviews.textview.fadingTextView.FadingTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.viewPager.easyFlipViewPager.MainActivity"
+            android:name=".activity.customviews.viewPager.easyFlipViewPager.EFVPActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.viewPager.easyFlipViewPager.BookOnboardingActivity"
