@@ -15,6 +15,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewPager.autoViewPager.ViewPagerAutoActivity
 import vn.loitp.app.activity.customviews.viewPager.detectViewPagerSwipeOut.DetectViewPagerSwipeOutActivity
 import vn.loitp.app.activity.customviews.viewPager.detectViewPagerSwipeOut2.ViewPagerSwipeOut2Activity
+import vn.loitp.app.activity.customviews.viewPager.easyFlipViewPager.MainActivity
 import vn.loitp.app.activity.customviews.viewPager.lockable.LockableViewPagerActivity
 import vn.loitp.app.activity.customviews.viewPager.parrallax.ParallaxViewPagerActivity
 import vn.loitp.app.activity.customviews.viewPager.refresh.RefreshViewPagerActivity
@@ -58,6 +59,7 @@ class MenuViewPagerActivity : BaseFontActivity(), View.OnClickListener {
         btVerticalViewPager.setOnClickListener(this)
         btViewPager2.setOnClickListener(this)
         btRefreshViewPager.setOnClickListener(this)
+        btEasyFlipViewPager.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -78,6 +80,7 @@ class MenuViewPagerActivity : BaseFontActivity(), View.OnClickListener {
             btVerticalViewPager -> intent = Intent(this, ViewPagerVerticalActivity::class.java)
             btViewPager2 -> intent = Intent(this, ViewPager2Activity::class.java)
             btRefreshViewPager -> intent = Intent(this, RefreshViewPagerActivity::class.java)
+            btEasyFlipViewPager -> intent = Intent(this, MainActivity::class.java)
         }
         intent?.let {
             startActivity(it)

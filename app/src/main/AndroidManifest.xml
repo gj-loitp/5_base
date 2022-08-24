@@ -1139,6 +1139,22 @@
         <activity
             android:name=".activity.customviews.textview.fadingTextView.FadingTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.customviews.viewPager.easyFlipViewPager.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.customviews.viewPager.easyFlipViewPager.BookOnboardingActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.customviews.viewPager.easyFlipViewPager.PokerCardDemoActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.customviews.viewPager.easyFlipViewPager.PictureGalleryDemoActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.customviews.viewPager.easyFlipViewPager.ViewPager2DemoActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
     </application>
     <queries>
         <intent>
