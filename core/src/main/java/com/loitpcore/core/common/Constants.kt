@@ -157,7 +157,7 @@ class Constants {
         // end region
 
         const val AD_HELPER_IS_ENGLISH_LANGUAGE = "AD_HELPER_IS_ENGLISH_LANGUAGE"
-        const val AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER"
+//        const val AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER"
         const val SHOW_DONATION = "SHOW_DONATION"
 
         const val BKG_ROOT_VIEW = "BKG_ROOT_VIEW"
@@ -191,7 +191,6 @@ class Constants {
         const val PER_PAGE_SIZE = 50
 
         // start comic
-        const val COMIC_ADMOB_ID_BANNER = "COMIC_ADMOB_ID_BANNER"
         const val COMIC_SHOW_DONATION = "COMIC_SHOW_DONATION"
         const val COMIC_TOKEN = "COMIC_TOKEN"
         // end comic

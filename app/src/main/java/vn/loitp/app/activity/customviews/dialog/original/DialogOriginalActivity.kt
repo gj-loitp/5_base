@@ -10,7 +10,6 @@ import android.view.View.OnClickListener
 import android.widget.EditText
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LDialogUtil
@@ -20,7 +19,6 @@ import vn.loitp.app.R
 
 @LogTag("DialogOriginalActivity")
 @IsFullScreen(false)
-@IsShowAdWhenExit(true)
 class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     private var testRun: TestRun? = null
 

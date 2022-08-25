@@ -3,7 +3,6 @@ package vn.loitp.app.activity.animation.pulsingView
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
@@ -12,7 +11,6 @@ import vn.loitp.app.R
 
 @LogTag("PulsingViewActivity")
 @IsFullScreen(false)
-@IsShowAdWhenExit(value = true)
 class PulsingViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

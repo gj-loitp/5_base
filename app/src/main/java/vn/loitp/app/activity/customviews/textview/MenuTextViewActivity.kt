@@ -18,6 +18,7 @@ import vn.loitp.app.activity.customviews.textview.autoFit.AutoFitTextViewActivit
 import vn.loitp.app.activity.customviews.textview.colorTextView.ColorTextViewActivity
 import vn.loitp.app.activity.customviews.textview.countDown.CountDownActivity
 import vn.loitp.app.activity.customviews.textview.extraTextView.ExtraTextViewActivity
+import vn.loitp.app.activity.customviews.textview.fadingTextView.FadingTextViewActivity
 import vn.loitp.app.activity.customviews.textview.justified.JustifiedTextViewActivity
 import vn.loitp.app.activity.customviews.textview.scoreText.ScoreTextViewActivity
 import vn.loitp.app.activity.customviews.textview.scrollNumber.ScrollNumberActivity
@@ -69,6 +70,7 @@ class MenuTextViewActivity : BaseFontActivity(), OnClickListener {
         btExtraTextview.setOnClickListener(this)
         btStrokedTextView.setOnClickListener(this)
         btJustifiedTextViewActivity.setOnClickListener(this)
+        btFadingTextView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -87,6 +89,7 @@ class MenuTextViewActivity : BaseFontActivity(), OnClickListener {
             btExtraTextview -> Intent(this, ExtraTextViewActivity::class.java)
             btStrokedTextView -> Intent(this, StrokedTextViewActivity::class.java)
             btJustifiedTextViewActivity -> Intent(this, JustifiedTextViewActivity::class.java)
+            btFadingTextView -> Intent(this, FadingTextViewActivity::class.java)
             else -> {
                 null
             }

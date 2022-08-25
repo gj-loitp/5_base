@@ -59,7 +59,6 @@ class MenuEpubReaderActivity : BaseFontActivity() {
                 LReaderUtil.readEpub(
                     activity = this,
                     bookInfo = bookInfo,
-                    admobAdIdBanner = getString(R.string.str_b)
                 )
             }
     }

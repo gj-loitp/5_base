@@ -28,8 +28,7 @@
                 android:id="@+id/commentsWebView"
                 style="@style/ScrollVertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@+id/lnAdView" />
+                android:layout_height="match_parent" />
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -38,14 +37,6 @@
                 android:layout_centerInParent="true"
                 android:progressTint="?attr/themeTextColor" />
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/lnAdView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:background="@color/transparent"
-                android:gravity="center"
-                android:orientation="vertical" />
         </RelativeLayout>
 
     </RelativeLayout>

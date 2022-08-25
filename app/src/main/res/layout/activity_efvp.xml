@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutFooter"
+        android:layout_below="@id/lActionBar" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layoutFooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <RadioGroup
+            android:id="@+id/rgFlipAnimation"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:checkedButton="@id/radioCardFlip"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioCardFlip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Card Flip Animation" />
+
+            <RadioButton
+                android:id="@+id/radioBookFlip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Book Flip Animation" />
+
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/checkEnableScale"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Enable Scale" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>

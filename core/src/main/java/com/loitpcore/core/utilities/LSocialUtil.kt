@@ -20,7 +20,7 @@ import com.loitpcore.utils.util.AppUtils
  */
 class LSocialUtil {
     companion object {
-        private val logTag = LSocialUtil::class.java.simpleName
+//        private val logTag = LSocialUtil::class.java.simpleName
 
         fun rateApp(
             activity: Activity,
@@ -183,12 +183,6 @@ class LSocialUtil {
             openUrlInBrowser(context = context, url = Constants.URL_POLICY)
         }
 
-        fun openBrowserGirl(
-            context: Context
-        ) {
-            openUrlInBrowser(context = context, url = Constants.URL_GIRL)
-        }
-
         fun openUrlInBrowser(
             context: Context?,
             url: String?
@@ -219,18 +213,12 @@ class LSocialUtil {
         fun openFacebookComment(
             context: Context? = null,
             url: String? = null,
-            adUnitId: String? = null
         ) {
             if (context == null || url.isNullOrEmpty()) {
                 return
             }
             val intent = Intent(context, FbCommentActivity::class.java)
             intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
-            if (adUnitId.isNullOrEmpty()) {
-                LLog.d(logTag, "openFacebookComment adUnitId isNullOrEmpty")
-            } else {
-                intent.putExtra(Constants.AD_UNIT_ID_BANNER, adUnitId)
-            }
             context.startActivity(intent)
             LActivityUtil.tranIn(context)
         }

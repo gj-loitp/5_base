@@ -2,7 +2,6 @@ package com.loitpcore.core.utilities
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.*
@@ -16,7 +15,6 @@ import android.text.Editable
 import android.text.Html
 import android.text.TextUtils
 import android.text.TextWatcher
-import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
@@ -28,16 +26,12 @@ import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager.widget.ViewPager
-import com.google.android.gms.ads.*
-import com.google.android.gms.ads.interstitial.InterstitialAd
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
 import com.loitpcore.R
 import com.loitpcore.core.common.Constants
-import com.loitpcore.data.AdmobData
 import com.loitpcore.utils.util.ConvertUtils
 import com.loitpcore.views.setSafeOnClickListener
 import com.skydoves.elasticviews.elasticAnimation
@@ -131,79 +125,6 @@ class LUIUtil {
                         .build()
                 )
             }
-
-        private fun getListTestDevice(): ArrayList<String> {
-            val listTestDevice = ArrayList<String>()
-            listTestDevice.add(AdRequest.DEVICE_ID_EMULATOR)
-            listTestDevice.add(Constants.TEST_22)
-            listTestDevice.add(Constants.TEST_XIAOMI_REDMI_NOTE_8_PRO)
-            listTestDevice.add(Constants.TEST_SAMSUNG_A50S)
-            listTestDevice.add(Constants.TEST_SAMSUNG_S20_FE_GALAXY_ONE)
-            return listTestDevice
-        }
-
-        fun createAdBanner(adView: AdView): AdView {
-            val requestConfiguration = RequestConfiguration.Builder()
-                .setTestDeviceIds(getListTestDevice())
-                .build()
-            MobileAds.setRequestConfiguration(requestConfiguration)
-
-            adView.loadAd(AdRequest.Builder().build())
-            return adView
-        }
-
-        fun createAdFull(
-            context: Context,
-            onAdLoaded: ((InterstitialAd) -> Unit),
-            onAdFailedToLoad: ((LoadAdError) -> Unit)? = null,
-        ) {
-            val requestConfiguration = RequestConfiguration.Builder()
-                .setTestDeviceIds(getListTestDevice())
-                .build()
-            MobileAds.setRequestConfiguration(requestConfiguration)
-
-            InterstitialAd.load(
-                context,
-                AdmobData.instance.idAdmobFull ?: "",
-                AdRequest.Builder().build(),
-                object : InterstitialAdLoadCallback() {
-                    override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                        interstitialAd.fullScreenContentCallback =
-                            object : FullScreenContentCallback() {
-                                override fun onAdDismissedFullScreenContent() {
-                                    // do sth
-                                }
-                            }
-                        interstitialAd.setOnPaidEventListener {
-                            // do sth
-                        }
-                        onAdLoaded.invoke(interstitialAd)
-                    }
-
-                    override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                        onAdFailedToLoad?.invoke(loadAdError)
-                    }
-                }
-            )
-        }
-
-        @JvmOverloads
-        fun displayInterstitial(
-            activity: Activity,
-            interstitial: InterstitialAd?,
-            maxNumber: Int = 100
-        ) {
-            interstitial?.let { i ->
-                val r = Random()
-                val x = r.nextInt(100)
-                if (x < maxNumber) {
-                    i.show(activity)
-                } else {
-                    // don't use LLog here
-                    Log.d("interstitial", "displayInterstitial but $x > $maxNumber")
-                }
-            }
-        }
 
         fun setMarquee(tv: TextView?, text: String?) {
             tv?.let { t ->

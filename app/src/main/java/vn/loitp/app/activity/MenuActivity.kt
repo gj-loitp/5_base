@@ -19,7 +19,6 @@ import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_menu.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.ads.MenuAdsActivity
 import vn.loitp.app.activity.animation.MenuAnimationActivity
 import vn.loitp.app.activity.api.MenuAPIActivity
 import vn.loitp.app.activity.customviews.MenuCustomViewsActivity
@@ -84,7 +83,6 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         btCustomView.setOnClickListener(this)
         btDemo.setOnClickListener(this)
         btFunction.setOnClickListener(this)
-        btAds.setOnClickListener(this)
         btRateApp.setOnClickListener(this)
         btMoreApp.setOnClickListener(this)
         btDatabase.setOnClickListener(this)
@@ -115,7 +113,6 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             btCustomView.isVisible = true
             btDemo.isVisible = true
             btFunction.isVisible = true
-            btAds.isVisible = true
             btRateApp.isVisible = true
             btMoreApp.isVisible = true
             btDatabase.isVisible = true
@@ -137,7 +134,6 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             btCustomView.isVisible = false
             btDemo.isVisible = false
             btFunction.isVisible = false
-            btAds.isVisible = true
             btRateApp.isVisible = true
             btMoreApp.isVisible = true
             btDatabase.isVisible = false
@@ -177,7 +173,6 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                 btAnimation -> Intent(this, MenuAnimationActivity::class.java)
                 btCustomView -> Intent(this, MenuCustomViewsActivity::class.java)
                 btDemo -> Intent(this, MenuDemoActivity::class.java)
-                btAds -> Intent(this, MenuAdsActivity::class.java)
                 btRateApp -> {
                     LSocialUtil.rateApp(this, packageName)
                     null

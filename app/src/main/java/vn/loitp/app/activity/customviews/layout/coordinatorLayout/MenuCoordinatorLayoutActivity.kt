@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
@@ -16,7 +15,6 @@ import vn.loitp.app.R
 // http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
 @LogTag("MenuCoordinatorLayoutActivity")
 @IsFullScreen(false)
-@IsShowAdWhenExit(true)
 class MenuCoordinatorLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {

@@ -51,11 +51,6 @@
                 tools:ignore="UnusedAttribute" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btAds"
-                style="@style/ButtonMenu"
-                android:text="@string/ads" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAnimation"
                 style="@style/ButtonMenu"
                 android:text="@string/animation" />

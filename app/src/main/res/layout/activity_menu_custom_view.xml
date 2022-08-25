@@ -77,6 +77,11 @@
                 android:text="@string/facebook_comment" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFingerPaintView"
+                style="@style/ButtonMenu"
+                android:text="FingerPaintView" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/imageview" />

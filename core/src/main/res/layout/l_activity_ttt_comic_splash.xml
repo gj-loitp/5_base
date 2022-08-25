@@ -40,17 +40,9 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/lnAdView"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/margin_padding_medium"
         android:indeterminateTint="?attr/themeTextColor" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/lnAdView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:orientation="vertical" />
 </RelativeLayout>

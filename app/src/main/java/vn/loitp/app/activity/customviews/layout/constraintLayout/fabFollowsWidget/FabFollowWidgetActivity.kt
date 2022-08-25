@@ -6,7 +6,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_admob_banner.*
+import kotlinx.android.synthetic.main.activity_fab_follow_widget.*
 import vn.loitp.app.R
 
 @LogTag("FabFollowWidgetActivity")

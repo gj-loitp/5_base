@@ -5,9 +5,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -34,8 +31,6 @@ import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
 @LogTag("GalleryCoreSplashActivity")
 @IsFullScreen(false)
 class GalleryCoreSplashActivity : BaseFontActivity() {
-    private var adView: AdView? = null
-    private var adMobBannerUnitId: String? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_flickr_gallery_core_splash
@@ -52,24 +47,6 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
 
 //        setTransparentStatusNavigationBar()
         RestClient.init(getString(R.string.flickr_URL))
-        adMobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-//        logD("admobBannerUnitId $admobBannerUnitId")
-
-        if (adMobBannerUnitId.isNullOrEmpty()) {
-            lnAdView.visibility = View.GONE
-        } else {
-            adView = AdView(this)
-            adView?.let {
-                it.setAdSize(AdSize.BANNER)
-                adMobBannerUnitId?.let { id ->
-                    it.adUnitId = id
-                }
-                LUIUtil.createAdBanner(it)
-                lnAdView.addView(it)
-//                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
-//                LUIUtil.setMargins(view = it, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
-            }
-        }
 
         var urlCoverSplashScreen: String? = intent.getStringExtra(Constants.BKG_SPLASH_SCREEN)
         if (urlCoverSplashScreen.isNullOrEmpty()) {
@@ -87,7 +64,6 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         val removeAlbumList = intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)
         LUIUtil.setDelay(mls = 2000, runnable = {
             val intent = Intent(this, GalleryCoreAlbumActivity::class.java)
-            intent.putExtra(Constants.AD_UNIT_ID_BANNER, adMobBannerUnitId)
             intent.putStringArrayListExtra(
                 Constants.KEY_REMOVE_ALBUM_FLICKR_LIST,
                 removeAlbumList
@@ -97,21 +73,6 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
             LActivityUtil.tranIn(this)
             finish()
         })
-    }
-
-    override fun onResume() {
-        adView?.resume()
-        super.onResume()
-    }
-
-    public override fun onPause() {
-        adView?.pause()
-        super.onPause()
-    }
-
-    public override fun onDestroy() {
-        adView?.destroy()
-        super.onDestroy()
     }
 
     private fun checkPermission() {

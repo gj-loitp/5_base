@@ -8,7 +8,6 @@ import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
 import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
@@ -26,7 +25,6 @@ import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_slide.*
  */
 @LogTag("GalleryCoreSlideActivity")
 @IsFullScreen(false)
-@IsShowAdWhenExit(true)
 class GalleryCoreSlideActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

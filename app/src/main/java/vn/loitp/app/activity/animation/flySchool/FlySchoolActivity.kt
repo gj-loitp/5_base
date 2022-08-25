@@ -5,7 +5,6 @@ import androidx.core.view.isVisible
 import com.loitpcore.animation.flySchool.ImgObject
 import com.loitpcore.animation.flySchool.PATHS
 import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsShowAdWhenExit
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
@@ -15,7 +14,6 @@ import vn.loitp.app.R
 // https://github.com/cipherthinkers/shapeflyer?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5370
 @LogTag("FlySchoolActivity")
 @IsFullScreen(false)
-@IsShowAdWhenExit(true)
 class FlySchoolActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

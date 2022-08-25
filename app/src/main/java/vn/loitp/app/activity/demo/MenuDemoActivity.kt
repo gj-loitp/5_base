@@ -111,7 +111,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btFloatingVideo -> intent = Intent(this, FloatingWidgetActivity::class.java)
             btGalleryCore -> {
                 intent = Intent(this, GalleryCoreSplashActivity::class.java)
-                intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
                 intent.putExtra(Constants.BKG_SPLASH_SCREEN, Constants.URL_IMG_11)
                 // neu muon remove albumn nao thi cu pass id cua albumn do
                 val removeAlbumFlickrList = ArrayList<String>()
@@ -126,7 +125,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             }
             btGalleryCoreAlbum -> {
                 intent = Intent(this, GalleryCorePhotosOnlyActivity::class.java)
-                intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
                 // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_FAMOUSMANGA);
                 // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_TRUYENBUA);
                 // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_BANCOBIET);
@@ -140,7 +138,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             }
             btGalleryMember -> {
                 intent = Intent(this, GalleryMemberActivity::class.java)
-                intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
 //                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_primary_black)
             }
             btEpubReader -> intent = Intent(this, MenuEpubReaderActivity::class.java)
@@ -157,7 +154,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btFindNumber -> intent = Intent(this, SplashActivity::class.java)
             btTTT -> {
                 intent = Intent(this, TTTSplashActivity::class.java)
-                intent.putExtra(Constants.COMIC_ADMOB_ID_BANNER, getString(R.string.str_b))
             }
             btRSS -> {
                 intent = Intent(this, RSSActivity::class.java)

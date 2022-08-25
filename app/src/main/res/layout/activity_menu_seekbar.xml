@@ -39,6 +39,11 @@
                 style="@style/ButtonMenu"
                 android:text="@string/vertical_seekbar" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btVerticalSeekBar2"
+                style="@style/ButtonMenu"
+                android:text="VerticalSeekBar 2" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

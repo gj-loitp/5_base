@@ -5,7 +5,6 @@ import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
@@ -13,7 +12,6 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.material.snackbar.Snackbar
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
@@ -49,9 +47,6 @@ abstract class BaseActivity : AppCompatActivity() {
     private var handlerIdleTime: Handler? = null
     private var runnableIdleTime: Runnable? = null
     private var isIdleTime = false
-
-    private var interstitialAd: InterstitialAd? = null
-    private var isShowAdWhenExit = false
     private var isShowAnimWhenExit = true
 
     private var alertDialogProgress: Dialog? = null
@@ -160,19 +155,6 @@ abstract class BaseActivity : AppCompatActivity() {
 //                type = SwitchAnimationUtil.AnimationType.FLIP_VERTICAL
             )
         }
-
-        isShowAdWhenExit = javaClass.getAnnotation(IsShowAdWhenExit::class.java)?.value ?: false
-        if (isShowAdWhenExit) {
-            LUIUtil.createAdFull(
-                context = this,
-                onAdLoaded = {
-                    interstitialAd = it
-                },
-                onAdFailedToLoad = {
-                    logE("createAdFull onAdFailedToLoad ${it.message}")
-                }
-            )
-        }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
     }
 
@@ -274,17 +256,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
         if (isShowAnimWhenExit) {
             LActivityUtil.tranOut(this)
-        }
-        if (isShowAdWhenExit) {
-            interstitialAd?.let {
-                LUIUtil.displayInterstitial(activity = this, interstitial = it, maxNumber = 50)
-            }
-        } else {
-            // don't use LLog here
-            Log.e(
-                logTag,
-                "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit"
-            )
         }
     }
 
