@@ -93,12 +93,20 @@ class UtilsCoreActivity : BaseFontActivity() {
         }
         btLDateUtil.setSafeOnClickListener {
             val msg =
-                "${LDateUtil.currentDate}\n${LDateUtil.currentYearMonth}\n${LDateUtil.currentMonth}" +
-                        "\n${
+                "currentDate: ${LDateUtil.currentDate}" +
+                        "\ncurrentYearMonth: ${LDateUtil.currentYearMonth}" +
+                        "\ncurrentMonth: ${LDateUtil.currentMonth}" +
+                        "\nconvertFormatDate: ${
                             LDateUtil.convertFormatDate(
                                 "12/03/2022 01:02:03",
                                 "dd/MM/yyyy Hh:mm:ss",
                                 "yyyy/MM/dd"
+                            )
+                        }" +
+                        "\nstringToDate: ${
+                            LDateUtil.stringToDate(
+                                "12/03/2022 01:02:03",
+                                "dd/MM/yyyy Hh:mm:ss"
                             )
                         }"
             showDialogMsg(msg)
