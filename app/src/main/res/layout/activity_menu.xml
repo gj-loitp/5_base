@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
-    android:orientation="vertical"
-    tools:ignore="HardcodedText">
+    android:orientation="vertical">
 
     <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
@@ -119,6 +118,11 @@
                 android:id="@+id/btUtils"
                 style="@style/ButtonMenu"
                 android:text="Utils" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btUtilsCore"
+                style="@style/ButtonMenu"
+                android:text="Utils Core" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRateApp"

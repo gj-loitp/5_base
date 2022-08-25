@@ -32,6 +32,7 @@ import vn.loitp.app.activity.picker.MenuPickerActivity
 import vn.loitp.app.activity.security.MenuSecurityActivity
 import vn.loitp.app.activity.service.MenuServiceActivity
 import vn.loitp.app.activity.tutorial.MenuTutorialActivity
+import vn.loitp.app.activity.utillsCore.UtilsCoreActivity
 import vn.loitp.app.activity.utils.UtilsActivity
 
 @LogTag("MenuActivity")
@@ -98,6 +99,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         btSecurity.setOnClickListener(this)
         btService.setOnClickListener(this)
         btUtils.setOnClickListener(this)
+        btUtilsCore.setOnClickListener(this)
 
         btGithub.isVisible = false
     }
@@ -211,6 +213,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                 btSecurity -> Intent(this, MenuSecurityActivity::class.java)
                 btService -> Intent(this, MenuServiceActivity::class.java)
                 btUtils -> Intent(this, UtilsActivity::class.java)
+                btUtilsCore -> Intent(this, UtilsCoreActivity::class.java)
                 else -> null
             }
         intent?.let {
