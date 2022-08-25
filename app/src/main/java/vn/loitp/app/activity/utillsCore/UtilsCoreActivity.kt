@@ -8,6 +8,7 @@ import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.statusbar.StatusBarCompat
 import com.loitpcore.views.setSafeOnClickListener
@@ -51,6 +52,12 @@ class UtilsCoreActivity : BaseFontActivity() {
         }
         btTranslucentStatusBar.setSafeOnClickListener {
             StatusBarCompat.translucentStatusBar(this, true)
+        }
+        btHideSystemUI.setSafeOnClickListener {
+            LActivityUtil.hideSystemUI(layoutRootView)
+        }
+        btShowSystemUI.setSafeOnClickListener {
+            LActivityUtil.showSystemUI(layoutRootView)
         }
     }
 }
