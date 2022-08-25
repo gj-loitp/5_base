@@ -10,12 +10,14 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LAnimationUtil
+import com.loitpcore.core.utilities.LConvertUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.statusbar.StatusBarCompat
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_utils_core.*
 import vn.loitp.app.R
+import java.math.BigDecimal
 
 @LogTag("UtilsCoreActivity")
 @IsFullScreen(false)
@@ -71,6 +73,26 @@ class UtilsCoreActivity : BaseFontActivity() {
         }
         btPlayAnimRandomDuration.setSafeOnClickListener {
             LAnimationUtil.playAnimRandomDuration(it)
+        }
+        btConvertNumberToStringFormat.setSafeOnClickListener {
+            showShortInformation(LConvertUtil.convertNumberToStringFormat(System.currentTimeMillis()))
+        }
+        btConvertNumberToString.setSafeOnClickListener {
+            showShortInformation(LConvertUtil.convertNumberToString(System.currentTimeMillis()))
+        }
+        btConvertNumberToPercent.setSafeOnClickListener {
+            showShortInformation(LConvertUtil.convertNumberToPercent(System.currentTimeMillis()))
+        }
+        btRoundBigDecimal.setSafeOnClickListener {
+            showShortInformation(
+                "roundBigDecimal: ${
+                    LConvertUtil.roundBigDecimal(
+                        BigDecimal(
+                            60.123456
+                        ), 3
+                    )
+                }"
+            )
         }
     }
 }

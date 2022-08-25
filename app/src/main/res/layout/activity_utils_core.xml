@@ -67,6 +67,26 @@
                 android:id="@+id/btPlayAnimRandomDuration"
                 style="@style/ButtonMenu"
                 android:text="playAnimRandomDuration" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btConvertNumberToStringFormat"
+                style="@style/ButtonMenu"
+                android:text="convertNumberToStringFormat" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btConvertNumberToString"
+                style="@style/ButtonMenu"
+                android:text="convertNumberToString" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btConvertNumberToPercent"
+                style="@style/ButtonMenu"
+                android:text="convertNumberToPercent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRoundBigDecimal"
+                style="@style/ButtonMenu"
+                android:text="roundBigDecimal" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
