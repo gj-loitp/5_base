@@ -3,46 +3,53 @@ package vn.loitp.app.activity.customviews.viewPager.easyFlipViewPager
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.RadioGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer2
+import kotlinx.android.synthetic.main.activity_view_pager_2_demo.*
 import vn.loitp.app.R
 
-class ViewPager2DemoActivity : AppCompatActivity() {
+@LogTag("ViewPager2DemoActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+class ViewPager2DemoActivity : BaseFontActivity() {
 
-    lateinit var viewPager: ViewPager2
     lateinit var rgOrientation: RadioGroup
-    val itemsList = arrayListOf<Int>()
-    var sliderAdapter = ScreenSlideRecyclerAdapter(itemsList)
+    private val itemsList = arrayListOf<Int>()
+    private var sliderAdapter = ScreenSlideRecyclerAdapter(itemsList)
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_view_pager_2_demo
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_view_pager_2_demo)
 
         setupViews()
     }
 
-    fun setupViews()
-    {
+    fun setupViews() {
         // Items
         val colors = intArrayOf(Color.RED, Color.BLUE, Color.GREEN, Color.CYAN)
         sliderAdapter.setItems(colors.toList())
 
         // ViewPager
-        viewPager = findViewById(R.id.viewPager2)
-        viewPager.adapter = sliderAdapter
+        viewPager2.adapter = sliderAdapter
 
-        var bookTransformer = BookFlipPageTransformer2()
-        viewPager.setPageTransformer(bookTransformer)
-        viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        val bookTransformer = BookFlipPageTransformer2()
+        viewPager2.setPageTransformer(bookTransformer)
+        viewPager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
         // RadioGroup
         rgOrientation = findViewById(R.id.rgOrientation)
-        rgOrientation.setOnCheckedChangeListener { group, checkedId ->
+        rgOrientation.setOnCheckedChangeListener { _, checkedId ->
             if (checkedId == R.id.radioHorizontal)
-                viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+                viewPager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
             else
-                viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
+                viewPager2.orientation = ViewPager2.ORIENTATION_VERTICAL
         }
     }
 }

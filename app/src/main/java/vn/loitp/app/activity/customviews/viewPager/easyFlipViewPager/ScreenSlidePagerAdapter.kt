@@ -1,10 +1,9 @@
-package com.wajahatkarim3.easyflipviewpager.demo
+package vn.loitp.app.activity.customviews.viewPager.easyFlipViewPager
 
 import android.graphics.Color
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import vn.loitp.app.activity.customviews.viewPager.easyFlipViewPager.MyFragment
 
 /**
  * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
