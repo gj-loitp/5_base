@@ -126,10 +126,13 @@ dependencies {
 //    https://github.com/rehmanmuradali/wheel-spinner
     api 'com.github.rehmanmuradali:wheel-spinner:1.0.0'
 
-    //https://github.com/abhishekti7/UnicornFilePicker
+//    https://github.com/abhishekti7/UnicornFilePicker
     api 'com.github.abhishekti7:UnicornFilePicker:1.0.2'
 
-    //https://github.com/amilcar-sr/JustifiedTextView
+//    https://github.com/lukelorusso/VerticalSeekBar
+    api 'com.github.lukelorusso:VerticalSeekBar:1.2.7'
+
+//    https://github.com/amilcar-sr/JustifiedTextView
     api 'com.codesgood:justifiedtextview:2.0.1'
 
 //    https://github.com/transferwise/sequence-layout
@@ -137,7 +140,7 @@ dependencies {
 //    https://github.com/bhoomit11/ScopedMediaPicker
     api 'com.github.bhoomit11:ScopedMediaPicker:1.0.3'
 
-    //https://jitpack.io/private#com.gitlab.g1-data/onetarget-android
+//    https://jitpack.io/private#com.gitlab.g1-data/onetarget-android
     api 'com.gitlab.g1-data:onetarget-android:1.0.3'
 
 }

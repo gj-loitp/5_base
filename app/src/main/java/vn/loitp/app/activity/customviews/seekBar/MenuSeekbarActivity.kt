@@ -15,6 +15,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.seekBar.boxedVerticalSeekBar.BoxedVerticalSeekBarActivity
 import vn.loitp.app.activity.customviews.seekBar.seekBar.SeekbarActivity
 import vn.loitp.app.activity.customviews.seekBar.verticalSeekBar.VerticalSeekbarActivity
+import vn.loitp.app.activity.customviews.seekBar.verticalSeekBar2.VerticalSeekBar2Activity
 
 @LogTag("MenuSeekbarActivity")
 @IsFullScreen(false)
@@ -46,6 +47,7 @@ class MenuSeekbarActivity : BaseFontActivity(), View.OnClickListener {
         btBoxedVerticalSeekbar.setOnClickListener(this)
         btVerticalSeekBar.setOnClickListener(this)
         btSeekBar.setOnClickListener(this)
+        btVerticalSeekBar2.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -56,6 +58,7 @@ class MenuSeekbarActivity : BaseFontActivity(), View.OnClickListener {
                     Intent(this, BoxedVerticalSeekBarActivity::class.java)
             btVerticalSeekBar -> intent = Intent(this, VerticalSeekbarActivity::class.java)
             btSeekBar -> intent = Intent(this, SeekbarActivity::class.java)
+            btVerticalSeekBar2 -> intent = Intent(this, VerticalSeekBar2Activity::class.java)
         }
         intent?.let {
             startActivity(it)
