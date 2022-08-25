@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.viewpager.widget.PagerAdapter;
@@ -20,7 +21,6 @@ import vn.loitp.app.R;
 public class PokerCardDemoActivity extends AppCompatActivity {
 
     ViewPager pokerViewPager;
-    private PokerPagerAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class PokerCardDemoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_poker_card_demo);
 
         pokerViewPager = findViewById(R.id.pokerViewPager);
-        pagerAdapter = new PokerPagerAdapter(this);
+        PokerPagerAdapter pagerAdapter = new PokerPagerAdapter(this);
         pokerViewPager.setAdapter(pagerAdapter);
 
         CardFlipPageTransformer cardFlipPageTransformer = new CardFlipPageTransformer();
@@ -38,11 +38,10 @@ public class PokerCardDemoActivity extends AppCompatActivity {
 
     }
 
-    public class PokerPagerAdapter extends PagerAdapter
-    {
+    public class PokerPagerAdapter extends PagerAdapter {
         Context context;
         LayoutInflater mLayoutInflater;
-        ArrayList pages = new ArrayList<>();
+        ArrayList<Object> pages = new ArrayList<>();
 
         public PokerPagerAdapter(Context context) {
             this.context = context;
@@ -58,39 +57,33 @@ public class PokerCardDemoActivity extends AppCompatActivity {
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object) {
+        public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
             return view == object;
         }
 
         // This method should create the page for the given position passed to it as an argument.
+        @NonNull
         @Override
-        public Object instantiateItem(ViewGroup container, final int position) {
+        public Object instantiateItem(@NonNull ViewGroup container, final int position) {
 
             View rootView = mLayoutInflater.inflate(R.layout.card_image_layout, container, false);
             AppCompatImageView imgCardSide = rootView.findViewById(R.id.imgCardSide);
-            imgCardSide.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (position == 0)
-                    {
-                        pokerViewPager.setCurrentItem(1, true);
-                    }
-                    else
-                    {
-                        pokerViewPager.setCurrentItem(0, true);
-                    }
+            imgCardSide.setOnClickListener(view -> {
+                if (position == 0) {
+                    pokerViewPager.setCurrentItem(1, true);
+                } else {
+                    pokerViewPager.setCurrentItem(0, true);
                 }
             });
             int[] sides = {R.drawable.poker_card_front, R.drawable.poker_card_back};
             imgCardSide.setImageResource(sides[position]);
             container.addView(rootView);
             return rootView;
-
         }
 
         // Removes the page from the container for the given position.
         @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
+        public void destroyItem(ViewGroup container, int position, @NonNull Object object) {
             container.removeView((View) object);
         }
     }
