@@ -49,5 +49,8 @@ class UtilsCoreActivity : BaseFontActivity() {
         btSetStatusBarColor.setSafeOnClickListener {
             StatusBarCompat.setStatusBarColor(this, Color.RED)
         }
+        btTranslucentStatusBar.setSafeOnClickListener {
+            StatusBarCompat.translucentStatusBar(this, true)
+        }
     }
 }
