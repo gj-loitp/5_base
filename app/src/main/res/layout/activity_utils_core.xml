@@ -23,6 +23,11 @@
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSetStatusBarColorAlpha"
+                style="@style/ButtonMenu"
+                android:text="setStatusBarColor Alpha" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSetStatusBarColor"
                 style="@style/ButtonMenu"
                 android:text="setStatusBarColor" />

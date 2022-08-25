@@ -43,6 +43,9 @@ class UtilsCoreActivity : BaseFontActivity() {
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = UtilsCoreActivity::class.java.simpleName
         }
+        btSetStatusBarColorAlpha.setSafeOnClickListener {
+            StatusBarCompat.setStatusBarColor(this, Color.RED, 50)
+        }
         btSetStatusBarColor.setSafeOnClickListener {
             StatusBarCompat.setStatusBarColor(this, Color.RED)
         }
