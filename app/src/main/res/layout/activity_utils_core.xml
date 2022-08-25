@@ -87,6 +87,11 @@
                 android:id="@+id/btRoundBigDecimal"
                 style="@style/ButtonMenu"
                 android:text="roundBigDecimal" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLDateUtil"
+                style="@style/ButtonMenu"
+                android:text="LDateUtil" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>

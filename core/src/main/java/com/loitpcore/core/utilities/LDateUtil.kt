@@ -45,7 +45,11 @@ class LDateUtil {
             return df.format(Date())
         }
 
-        fun convertFormatDate(strDate: String?, fromFormat: String, toFormat: String): String? {
+        fun convertFormatDate(
+            strDate: String?,
+            fromFormat: String,
+            toFormat: String,
+        ): String? {
             if (strDate.isNullOrEmpty()) {
                 return null
             }

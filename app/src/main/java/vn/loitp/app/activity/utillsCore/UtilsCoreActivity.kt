@@ -8,10 +8,7 @@ import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LActivityUtil
-import com.loitpcore.core.utilities.LAnimationUtil
-import com.loitpcore.core.utilities.LConvertUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.core.utilities.*
 import com.loitpcore.core.utilities.statusbar.StatusBarCompat
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_0.lActionBar
@@ -93,6 +90,18 @@ class UtilsCoreActivity : BaseFontActivity() {
                     )
                 }"
             )
+        }
+        btLDateUtil.setSafeOnClickListener {
+            val msg =
+                "${LDateUtil.currentDate}\n${LDateUtil.currentYearMonth}\n${LDateUtil.currentMonth}" +
+                        "\n${
+                            LDateUtil.convertFormatDate(
+                                "12/03/2022 01:02:03",
+                                "dd/MM/yyyy Hh:mm:ss",
+                                "yyyy/MM/dd"
+                            )
+                        }"
+            showDialogMsg(msg)
         }
     }
 }
