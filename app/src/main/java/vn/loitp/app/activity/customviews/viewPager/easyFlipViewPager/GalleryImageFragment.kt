@@ -12,10 +12,21 @@ import androidx.fragment.app.Fragment
 import vn.loitp.app.R
 
 class GalleryImageFragment : Fragment() {
+    companion object {
+        fun newInstance(title: String, subtitle: String?, imageId: Int): GalleryImageFragment {
+            val fragment = GalleryImageFragment()
+            val args = Bundle()
+            args.putString("title", title)
+            subtitle?.let { args.putString("description", subtitle) }
+            args.putInt("imageId", imageId)
+            fragment.arguments = args
+            return fragment
+        }
+    }
 
     internal var title = ""
     internal var description: String? = null
-    internal var imageId: Int = 0
+    private var imageId: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +36,6 @@ class GalleryImageFragment : Fragment() {
             title = it.getString("title", "")
             description = it.getString("description", null)
         }
-
     }
 
     override fun onCreateView(
@@ -86,18 +96,4 @@ class GalleryImageFragment : Fragment() {
             return rootView
         }
     }
-
-    companion object {
-        fun newInstance(title: String, subtitle: String?, imageId: Int): GalleryImageFragment {
-            val fragment = GalleryImageFragment()
-            val args = Bundle()
-            args.putString("title", title)
-            subtitle?.let { args.putString("description", subtitle) }
-            args.putInt("imageId", imageId)
-            fragment.arguments = args
-            return fragment
-        }
-    }
-
-
 }

@@ -51,10 +51,11 @@ public class BookPageIntroFragment extends Fragment {
         txtSubTitle.setText(subtitle);
         imageView.setImageResource(imageId);
 
-        if (imageId == R.drawable.all_about_reading)
+        if (imageId == R.drawable.all_about_reading) {
             rootView.setTag(21);
-        else
+        } else {
             rootView.setTag(40);
+        }
 
         return rootView;
     }

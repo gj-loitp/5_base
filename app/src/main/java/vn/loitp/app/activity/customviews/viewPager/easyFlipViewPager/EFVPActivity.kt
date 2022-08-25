@@ -21,7 +21,7 @@ import vn.loitp.app.R
 
 @LogTag("EFVPActivity")
 @IsFullScreen(false)
-@IsAutoAnimation(true)
+@IsAutoAnimation(false)
 class EFVPActivity : BaseFontActivity() {
     private lateinit var mPager: ViewPager
     private var mPagerAdapter: PagerAdapter? = null

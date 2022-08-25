@@ -30,8 +30,7 @@ public class MyFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-    {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_dummy_layout, container, false);
         rootView.findViewById(R.id.textView).setBackgroundColor(color);
         rootView.setTag(position);
@@ -41,7 +40,11 @@ public class MyFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        color = getArguments().getInt("color", Color.BLACK);
-        position = getArguments().getInt("pos", 0);
+
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            color = bundle.getInt("color", Color.BLACK);
+            position = bundle.getInt("pos", 0);
+        }
     }
 }
