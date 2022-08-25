@@ -1,37 +1,43 @@
 package vn.loitp.app.activity.customviews.viewPager.easyFlipViewPager
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.ViewPager
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import com.wajahatkarim3.easyflipviewpager.CardFlipPageTransformer
+import kotlinx.android.synthetic.main.activity_picture_gallery_demo.*
 import vn.loitp.app.R
 
-class PictureGalleryDemoActivity : AppCompatActivity() {
+@LogTag("BookOnboardingActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+class PictureGalleryDemoActivity : BaseFontActivity() {
 
-    lateinit var galleryViewPager: ViewPager
     lateinit var pagerAdapter: GalleryPagerAdapter
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_picture_gallery_demo
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_picture_gallery_demo)
 
-        galleryViewPager = findViewById(R.id.galleryViewPager)
         pagerAdapter = GalleryPagerAdapter(supportFragmentManager)
         galleryViewPager.adapter = pagerAdapter
 
-        var pageTransformer = CardFlipPageTransformer()
+        val pageTransformer = CardFlipPageTransformer()
         pageTransformer.flipOrientation = CardFlipPageTransformer.VERTICAL
         pageTransformer.isScalable = true
         galleryViewPager.setPageTransformer(true, pageTransformer)
     }
 
-    class GalleryPagerAdapter : FragmentPagerAdapter {
+    class GalleryPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         var fragmentsList = arrayListOf<GalleryImageFragment>()
 
-        constructor(fm: FragmentManager) : super(fm) {
+        init {
             val titles = arrayOf(
                 "Naltar valley, Gilgit",
                 "Neelum Valley, Azad Kashmir",
@@ -44,7 +50,6 @@ class PictureGalleryDemoActivity : AppCompatActivity() {
                 "Ranikot Fort",
                 "Gorak Hill"
             )
-
             val subtitles = arrayOf(
                 // Naltar
                 "Naltar is famous for its colourful lakes, it is situated at a drive of 2.5 hours from Gilgit. World’s tastiest potatoes are cultivated here. Covered with pine trees, this valley doesn’t seem to be a part of this world.\n" +
@@ -100,7 +105,6 @@ class PictureGalleryDemoActivity : AppCompatActivity() {
                         "\n" +
                         "Gorakh is a scenic plateau situated at a height of over 5,688 feet and is part of the Kirthar Mountain Range that covers the entire Sindh’s border with Balochistan in the west."
             )
-
             val imageIds = intArrayOf(
                 R.drawable.img_naltar_valley,
                 R.drawable.img_neelum_valley,
@@ -113,9 +117,8 @@ class PictureGalleryDemoActivity : AppCompatActivity() {
                 R.drawable.img_ranikot,
                 R.drawable.img_gorakh_hill
             )
-
-            for (i in 0 until imageIds.size) {
-                var frag = GalleryImageFragment.newInstance(titles[i], subtitles[i], imageIds[i])
+            for (i in imageIds.indices) {
+                val frag = GalleryImageFragment.newInstance(titles[i], subtitles[i], imageIds[i])
                 fragmentsList.add(frag)
             }
         }
