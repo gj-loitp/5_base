@@ -9,6 +9,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.statusbar.StatusBarCompat
 import com.loitpcore.views.setSafeOnClickListener
@@ -58,6 +59,18 @@ class UtilsCoreActivity : BaseFontActivity() {
         }
         btShowSystemUI.setSafeOnClickListener {
             LActivityUtil.showSystemUI(layoutRootView)
+        }
+        btPlayRotate.setSafeOnClickListener {
+            LAnimationUtil.playRotate(it, null)
+        }
+        btSlideInDown.setSafeOnClickListener {
+            LAnimationUtil.slideInDown(it)
+        }
+        btSlideInUp.setSafeOnClickListener {
+            LAnimationUtil.slideInUp(it)
+        }
+        btPlayAnimRandomDuration.setSafeOnClickListener {
+            LAnimationUtil.playAnimRandomDuration(it)
         }
     }
 }

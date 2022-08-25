@@ -47,6 +47,26 @@
                 android:id="@+id/btShowSystemUI"
                 style="@style/ButtonMenu"
                 android:text="showSystemUI" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPlayRotate"
+                style="@style/ButtonMenu"
+                android:text="playRotate" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSlideInDown"
+                style="@style/ButtonMenu"
+                android:text="slideInDown" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSlideInUp"
+                style="@style/ButtonMenu"
+                android:text="slideInUp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPlayAnimRandomDuration"
+                style="@style/ButtonMenu"
+                android:text="playAnimRandomDuration" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
