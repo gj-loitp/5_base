@@ -226,6 +226,7 @@ class UtilsCoreActivity : BaseFontActivity() {
                     "Pro No1</p>"
         )
         LUIUtil.setImageFromAsset("ic_gift.png", iv)
+        LUIUtil.setProgressViewOffset(srl, 200)
     }
 
     private fun onClickBtLStoreUtil() {
