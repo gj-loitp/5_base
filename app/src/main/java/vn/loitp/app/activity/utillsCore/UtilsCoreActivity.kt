@@ -129,6 +129,14 @@ class UtilsCoreActivity : BaseFontActivity() {
                                     day = 4
                                 )
                             )
+                        }" +
+                        "\nconvertDateToTimeStamp: ${LDateUtil.convertDateToTimeStamp("1993-02-04'T'11:22:33")}" +
+                        "\nconvertStringToCalendar: ${LDateUtil.convertStringToCalendar("1993-02-04")}" +
+                        "\nconvertStringDate: ${
+                            LDateUtil.convertStringDate(
+                                "02/04/1993",
+                                "MM/dd/yyyy"
+                            )
                         }"
             showDialogMsg(msg)
         }
