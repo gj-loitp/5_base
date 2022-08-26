@@ -108,6 +108,16 @@ class UtilsCoreActivity : BaseFontActivity() {
                                 "12/03/2022 01:02:03",
                                 "dd/MM/yyyy Hh:mm:ss"
                             )
+                        }" +
+                        "\ndateToString: ${
+                            LDateUtil.dateToString(
+                                LDateUtil.getDate(year = 1993, month = 2, day = 4), "yyyy/MM/dd"
+                            )
+                        }" +
+                        "\nformatDatePicker: ${
+                            LDateUtil.formatDatePicker(
+                                year = 1993, month = 2, day = 4, format = "yyyy/MM/dd"
+                            )
                         }"
             showDialogMsg(msg)
         }
