@@ -241,6 +241,7 @@ class UtilsCoreActivity : BaseFontActivity() {
         btScrollToBottom.setSafeOnClickListener {
             sv.scrollToBottom()
         }
+        LUIUtil.setDrawableTintColor(tv1, Color.CYAN)
     }
 
     private fun onClickBtLStoreUtil() {
