@@ -204,5 +204,18 @@ class UtilsCoreActivity : BaseFontActivity() {
         btSendSMS.setSafeOnClickListener {
             LSMSUtil.sendSMS(this, "sendSMS from Loitp ${System.currentTimeMillis()}")
         }
+        btLStoreUtil.setSafeOnClickListener {
+            onClickBtLStoreUtil()
+        }
+    }
+
+    private fun onClickBtLStoreUtil() {
+        showShortInformation("Check logcat")
+        logD("isSdPresent ${LStoreUtil.isSdPresent}")
+        logD("randomColorLight ${LStoreUtil.randomColorLight}")
+        val file = LStoreUtil.writeToFile(folder = "test", fileName = "test1.txt", body = "loitp")
+        logD("writeToFile file ${file?.path}")
+        val text = LStoreUtil.readTxtFromFolder(folderName = "test", fileName = "test1.txt")
+        logD("readTxtFromFolder text $text")
     }
 }

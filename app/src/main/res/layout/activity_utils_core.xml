@@ -162,6 +162,11 @@
                 android:id="@+id/btSendSMS"
                 style="@style/ButtonMenu"
                 android:text="sendSMS" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLStoreUtil"
+                style="@style/ButtonMenu"
+                android:text="LStoreUtil" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>

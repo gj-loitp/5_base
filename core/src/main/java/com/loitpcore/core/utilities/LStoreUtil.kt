@@ -5,7 +5,6 @@ import android.content.ContentUris
 import android.content.Context
 import android.database.Cursor
 import android.graphics.Color
-import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Environment
 import android.provider.DocumentsContract
@@ -96,23 +95,23 @@ class LStoreUtil {
             )
 
         // dung de bao hieu cho gallery load lai photo vi co anh moi
-        fun sendBroadcastMediaScan(
-            file: File? = null
-        ) {
-            file?.let {
-//                val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
-//                val contentUri = Uri.fromFile(file)
-//                mediaScanIntent.data = contentUri
-//                LAppResource.application.sendBroadcast(mediaScanIntent)
-
-                MediaScannerConnection.scanFile(
-                    LAppResource.application,
-                    arrayOf(file.toString()),
-                    arrayOf(it.name),
-                    null
-                )
-            }
-        }
+//        fun sendBroadcastMediaScan(
+//            file: File? = null
+//        ) {
+//            file?.let {
+////                val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+////                val contentUri = Uri.fromFile(file)
+////                mediaScanIntent.data = contentUri
+////                LAppResource.application.sendBroadcast(mediaScanIntent)
+//
+//                MediaScannerConnection.scanFile(
+//                    LAppResource.application,
+//                    arrayOf(file.toString()),
+//                    arrayOf(it.name),
+//                    null
+//                )
+//            }
+//        }
 
         @JvmOverloads
         fun getFolderPath(
