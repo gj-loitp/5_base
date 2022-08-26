@@ -177,6 +177,21 @@
                 android:id="@+id/btLValidateUtil"
                 style="@style/ButtonMenu"
                 android:text="LValidateUtil" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/v1"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <View
+                android:id="@+id/v2"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>

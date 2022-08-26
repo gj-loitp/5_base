@@ -213,6 +213,10 @@ class UtilsCoreActivity : BaseFontActivity() {
         btLValidateUtil.setSafeOnClickListener {
             onClickBtLValidateUtil()
         }
+
+        LUIUtil.setMarquee(tv, getString(R.string.large_dummy_text))
+        v1.setBackgroundDrawable(LUIUtil.createGradientDrawableWithRandomColor())
+        v2.setBackgroundDrawable(LUIUtil.createGradientDrawableWithColor(Color.RED, Color.GREEN))
     }
 
     private fun onClickBtLStoreUtil() {

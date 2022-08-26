@@ -128,12 +128,14 @@ class LUIUtil {
 
         fun setMarquee(tv: TextView?, text: String?) {
             tv?.let { t ->
-                t.text = text
+                text?.let {
+                    t.text = it
+                }
                 setMarquee(t)
             }
         }
 
-        fun setMarquee(tv: TextView?) {
+        private fun setMarquee(tv: TextView?) {
             tv?.let {
                 it.isSelected = true
                 it.ellipsize = TextUtils.TruncateAt.MARQUEE
