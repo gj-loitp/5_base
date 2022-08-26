@@ -1,7 +1,6 @@
 package com.loitpcore.core.utilities
 
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -132,7 +131,6 @@ class LScreenUtil {
             }*/
         }
 
-        @TargetApi(Build.VERSION_CODES.KITKAT)
         fun toggleFullscreen(
             activity: Activity,
             isFullScreen: Boolean
@@ -149,7 +147,6 @@ class LScreenUtil {
             }
         }
 
-        @TargetApi(Build.VERSION_CODES.KITKAT)
         fun hideNavigationBar(
             activity: Activity
         ) {
@@ -175,7 +172,6 @@ class LScreenUtil {
             }
         }
 
-        @TargetApi(Build.VERSION_CODES.KITKAT)
         fun showNavigationBar(
             activity: Activity
         ) {
@@ -422,11 +418,7 @@ class LScreenUtil {
         }
 
         fun checkSystemWritePermission(): Boolean {
-            var retVal = true
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                retVal = Settings.System.canWrite(LAppResource.application)
-            }
-            return retVal
+            return Settings.System.canWrite(LAppResource.application)
         }
     }
 }

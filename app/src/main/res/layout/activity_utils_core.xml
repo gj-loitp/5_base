@@ -122,6 +122,26 @@
                 android:id="@+id/btLMathUtil"
                 style="@style/ButtonMenu"
                 android:text="LMathUtil" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShowStatusBar"
+                style="@style/ButtonMenu"
+                android:text="showStatusBar" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btHideStatusBar"
+                style="@style/ButtonMenu"
+                android:text="hideStatusBar" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btHideNavigationBar"
+                style="@style/ButtonMenu"
+                android:text="hideNavigationBar" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShowNavigationBar"
+                style="@style/ButtonMenu"
+                android:text="showNavigationBar" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>

@@ -179,5 +179,17 @@ class UtilsCoreActivity : BaseFontActivity() {
                         "\ngetBSCNN: ${LMathUtil.getBSCNN(6, 9)}"
             )
         }
+        btShowStatusBar.setSafeOnClickListener {
+            LScreenUtil.showStatusBar(this)
+        }
+        btHideStatusBar.setSafeOnClickListener {
+            LScreenUtil.hideStatusBar(this)
+        }
+        btHideNavigationBar.setSafeOnClickListener {
+            LScreenUtil.hideNavigationBar(this)
+        }
+        btShowNavigationBar.setSafeOnClickListener {
+            LScreenUtil.showNavigationBar(this)
+        }
     }
 }

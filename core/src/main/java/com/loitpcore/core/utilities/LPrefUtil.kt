@@ -2,7 +2,6 @@ package com.loitpcore.core.utilities
 
 import android.content.Context
 import com.loitpcore.core.base.BaseApplication
-import com.loitpcore.core.common.Constants
 import com.loitpcore.model.App
 import com.loitpcore.utils.util.AppUtils
 
@@ -20,12 +19,12 @@ class LPrefUtil {
         private const val PREFERENCES_FILE_NAME = "roygroup"
         private val CHECK_APP_READY = "CHECK_APP_READY" + AppUtils.appVersionCode
         private const val PRE_LOAD = "PRE_LOAD"
-        const val JSON_LIST_DATA = "JSON_LIST_DATA"
-        const val JSON_FAV_DATA = "JSON_FAV_DATA"
-        const val JSON_AD_DATA = "JSON_AD_DATA"
-        const val FIRST_RUN_APP = "FIRST_RUN_APP"
-        const val SAVED_NUMBER_VERSION = "saved.number.version"
-        const val NOT_READY_USE_APPLICATION = "not.ready.use.application"
+//        const val JSON_LIST_DATA = "JSON_LIST_DATA"
+//        const val JSON_FAV_DATA = "JSON_FAV_DATA"
+//        const val JSON_AD_DATA = "JSON_AD_DATA"
+//        const val FIRST_RUN_APP = "FIRST_RUN_APP"
+//        const val SAVED_NUMBER_VERSION = "saved.number.version"
+//        const val NOT_READY_USE_APPLICATION = "not.ready.use.application"
         private const val TEXT_SIZE_EPUB_PERCENT = "TEXT_SIZE_EPUB"
         var JSON_BOOK_ASSET = "JSON_BOOK_ASSET"
         private const val INDEX = "INDEX"
@@ -92,31 +91,31 @@ class LPrefUtil {
             editor.apply()
         }
 
-        fun getIsShowedDlgWarningYoutubeParser(): Boolean {
-            val prefs = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-            return prefs.getBoolean(IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER, false)
-        }
-
-        fun setIsShowedDlgWarningYoutubeParser(value: Boolean) {
-            val editor =
-                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
-            editor.putBoolean(IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER, value)
-            editor.apply()
-        }
+//        fun getIsShowedDlgWarningYoutubeParser(): Boolean {
+//            val prefs = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
+//            return prefs.getBoolean(IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER, false)
+//        }
+//
+//        fun setIsShowedDlgWarningYoutubeParser(value: Boolean) {
+//            val editor =
+//                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+//            editor.putBoolean(IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER, value)
+//            editor.apply()
+//        }
         //endregion
 
         //region int
-        fun getIndex(): Int {
-            val prefs = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-            return prefs.getInt(INDEX, Constants.NOT_FOUND)
-        }
-
-        fun setIndex(value: Int) {
-            val editor =
-                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
-            editor.putInt(INDEX, value)
-            editor.apply()
-        }
+//        fun getIndex(): Int {
+//            val prefs = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
+//            return prefs.getInt(INDEX, Constants.NOT_FOUND)
+//        }
+//
+//        fun setIndex(value: Int) {
+//            val editor =
+//                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+//            editor.putInt(INDEX, value)
+//            editor.apply()
+//        }
 
         fun getTextSizePercentEpub(): Int {
             val prefs = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
