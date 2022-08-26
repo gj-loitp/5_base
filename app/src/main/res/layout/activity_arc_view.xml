@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <com.loitpcore.views.actionBar.LActionBar
@@ -11,35 +11,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:orientation="vertical"
+        android:paddingTop="@dimen/margin_padding_medium"
+        android:paddingBottom="@dimen/margin_padding_medium">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btKickMe"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/margin_padding_medium"
-            android:paddingBottom="@dimen/margin_padding_medium">
+            android:text="@string/kick_me" />
 
-            <Button
-                android:id="@+id/kick_me"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/kick_me" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btKickSwapped"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kick_swapped_view" />
 
-            <Button
-                android:id="@+id/kick_swapped"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/kick_swapped_view" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-            <include
-                layout="@layout/include_arc_button"
-                tools:ignore="IncludeLayoutParam" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-    </androidx.core.widget.NestedScrollView>
+        <include
+            layout="@layout/layout_include_arc_button"
+            tools:ignore="IncludeLayoutParam" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
