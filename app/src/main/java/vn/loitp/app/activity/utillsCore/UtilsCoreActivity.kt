@@ -217,5 +217,9 @@ class UtilsCoreActivity : BaseFontActivity() {
         logD("writeToFile file ${file?.path}")
         val text = LStoreUtil.readTxtFromFolder(folderName = "test", fileName = "test1.txt")
         logD("readTxtFromFolder text $text")
+        val textAsset = LStoreUtil.readTxtFromAsset("txt.txt")
+        logD("textAsset $textAsset")
+        logD("getAvailableSpaceInMb ${LStoreUtil.getAvailableSpaceInMb()}")
+        logD("getAvailableRAM ${LStoreUtil.getAvailableRAM()}")
     }
 }
