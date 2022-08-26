@@ -235,11 +235,6 @@ class LUIUtil {
             }
         }
 
-        @Suppress("DEPRECATION")
-        fun setTextAppearance(textView: TextView, resId: Int) {
-            textView.setTextAppearance(resId)
-        }
-
         fun setDelay(mls: Int, runnable: Runnable) {
             val handler = Handler(Looper.getMainLooper())
             handler.postDelayed({ runnable.run() }, mls.toLong())

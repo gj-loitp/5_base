@@ -225,6 +225,7 @@ class UtilsCoreActivity : BaseFontActivity() {
                     "Vip<br />\n" +
                     "Pro No1</p>"
         )
+        LUIUtil.setImageFromAsset("ic_gift.png", iv)
     }
 
     private fun onClickBtLStoreUtil() {
