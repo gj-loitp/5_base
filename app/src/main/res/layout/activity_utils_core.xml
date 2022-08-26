@@ -16,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.core.widget.NestedScrollView
+        <ScrollView
+            android:id="@+id/sv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true">
@@ -28,6 +29,11 @@
                 android:orientation="vertical"
                 android:paddingTop="@dimen/margin_padding_medium"
                 android:paddingBottom="@dimen/margin_padding_medium">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btScrollToBottom"
+                    style="@style/ButtonMenu"
+                    android:text="scrollToBottom" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btSetStatusBarColorAlpha"
@@ -233,9 +239,10 @@
                     android:id="@+id/cb1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </androidx.core.widget.NestedScrollView>
+        </ScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

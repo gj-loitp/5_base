@@ -9,6 +9,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.*
+import com.loitpcore.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.loitpcore.core.utilities.statusbar.StatusBarCompat
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_0.lActionBar
@@ -236,7 +237,10 @@ class UtilsCoreActivity : BaseFontActivity() {
             logD(">>>getAllChildren ${it.id}")
         }
         LUIUtil.setCheckBoxColor(cb1, Color.GREEN, Color.CYAN)
-        LUIUtil.setChangeStatusBarTintToDark(window, true)
+        LUIUtil.setChangeStatusBarTintToDark(window, false)
+        btScrollToBottom.setSafeOnClickListener {
+            sv.scrollToBottom()
+        }
     }
 
     private fun onClickBtLStoreUtil() {
