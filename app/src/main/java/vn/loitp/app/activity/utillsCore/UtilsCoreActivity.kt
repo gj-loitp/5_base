@@ -217,6 +217,14 @@ class UtilsCoreActivity : BaseFontActivity() {
         LUIUtil.setMarquee(tv, getString(R.string.large_dummy_text))
         v1.setBackgroundDrawable(LUIUtil.createGradientDrawableWithRandomColor())
         v2.setBackgroundDrawable(LUIUtil.createGradientDrawableWithColor(Color.RED, Color.GREEN))
+        LUIUtil.setCircleViewWithColor(v3, Color.GREEN, Color.CYAN)
+        LUIUtil.setGradientBackground(v4)
+        LUIUtil.setTextFromHTML(
+            tv1, "<p>This is Loitp<br />\n" +
+                    "Dep Trai<br />\n" +
+                    "Vip<br />\n" +
+                    "Pro No1</p>"
+        )
     }
 
     private fun onClickBtLStoreUtil() {
