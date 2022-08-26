@@ -167,5 +167,17 @@ class UtilsCoreActivity : BaseFontActivity() {
         btLImageUtil.setSafeOnClickListener {
             showDialogMsg("randomUrlFlickr: ${LImageUtil.randomUrlFlickr}")
         }
+        btLMathUtil.setSafeOnClickListener {
+            showDialogMsg(
+                "roundBigDecimal ${
+                    LMathUtil.roundBigDecimal(
+                        value = BigDecimal(6.123456),
+                        newScale = 3
+                    )
+                }" +
+                        "\ngetUSCLN: ${LMathUtil.getUSCLN(6, 9)}" +
+                        "\ngetBSCNN: ${LMathUtil.getBSCNN(6, 9)}"
+            )
+        }
     }
 }

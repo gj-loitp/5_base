@@ -117,6 +117,11 @@
                 android:id="@+id/btLImageUtil"
                 style="@style/ButtonMenu"
                 android:text="LImageUtil" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLMathUtil"
+                style="@style/ButtonMenu"
+                android:text="LMathUtil" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
