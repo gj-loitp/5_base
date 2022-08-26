@@ -151,5 +151,18 @@ class UtilsCoreActivity : BaseFontActivity() {
         btSetClipboard.setSafeOnClickListener {
             showShortInformation(LDeviceUtil.setClipboard("setClipboard ${System.currentTimeMillis()}"))
         }
+        btLDisplayUtil.setSafeOnClickListener {
+            showDialogMsg(
+                "px2dip: ${LDisplayUtil.px2dip(6.9f)}" +
+                        "\npx2sp: ${LDisplayUtil.px2sp(6.9f)}" +
+                        "\nsp2px: ${LDisplayUtil.sp2px(6.9f)}" +
+                        "\ngetDialogW: ${LDisplayUtil.getDialogW(this)}" +
+                        "\ngetScreenW: ${LDisplayUtil.getScreenW(this)}" +
+                        "\ngetScreenH: ${LDisplayUtil.getScreenH(this)}"
+            )
+        }
+        btToggleKeyboard.setSafeOnClickListener {
+            LDisplayUtil.toggleKeyboard()
+        }
     }
 }

@@ -102,6 +102,16 @@
                 android:id="@+id/btSetClipboard"
                 style="@style/ButtonMenu"
                 android:text="setClipboard" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLDisplayUtil"
+                style="@style/ButtonMenu"
+                android:text="LDisplayUtil" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btToggleKeyboard"
+                style="@style/ButtonMenu"
+                android:text="toggleKeyboard" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
