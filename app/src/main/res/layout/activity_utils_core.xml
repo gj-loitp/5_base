@@ -112,6 +112,11 @@
                 android:id="@+id/btToggleKeyboard"
                 style="@style/ButtonMenu"
                 android:text="toggleKeyboard" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLImageUtil"
+                style="@style/ButtonMenu"
+                android:text="LImageUtil" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>

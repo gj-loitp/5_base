@@ -164,5 +164,8 @@ class UtilsCoreActivity : BaseFontActivity() {
         btToggleKeyboard.setSafeOnClickListener {
             LDisplayUtil.toggleKeyboard()
         }
+        btLImageUtil.setSafeOnClickListener {
+            showDialogMsg("randomUrlFlickr: ${LImageUtil.randomUrlFlickr}")
+        }
     }
 }
