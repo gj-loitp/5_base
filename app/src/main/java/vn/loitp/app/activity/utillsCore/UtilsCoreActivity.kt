@@ -118,6 +118,17 @@ class UtilsCoreActivity : BaseFontActivity() {
                             LDateUtil.formatDatePicker(
                                 year = 1993, month = 2, day = 4, format = "yyyy/MM/dd"
                             )
+                        }" +
+                        "\ngetDateWithoutTime: ${LDateUtil.getDateWithoutTime("04/02/1993")}" +
+                        "\nconvertDateToTimestamp: ${LDateUtil.convertDateToTimestamp("14-09-2017")}" +
+                        "\nzeroTime: ${
+                            LDateUtil.zeroTime(
+                                LDateUtil.getDate(
+                                    year = 1993,
+                                    month = 2,
+                                    day = 4
+                                )
+                            )
                         }"
             showDialogMsg(msg)
         }
