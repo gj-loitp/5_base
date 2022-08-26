@@ -191,5 +191,15 @@ class UtilsCoreActivity : BaseFontActivity() {
         btShowNavigationBar.setSafeOnClickListener {
             LScreenUtil.showNavigationBar(this)
         }
+        btHideDefaultControls.setSafeOnClickListener {
+            LScreenUtil.hideDefaultControls(this)
+        }
+        btShowDefaultControls.setSafeOnClickListener {
+            LScreenUtil.showDefaultControls(this)
+        }
+        btSetBrightness.setSafeOnClickListener {
+            LScreenUtil.setBrightness(this, 99)
+            showShortInformation("getCurrentBrightness: ${LScreenUtil.getCurrentBrightness()}")
+        }
     }
 }

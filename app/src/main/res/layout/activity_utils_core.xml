@@ -142,6 +142,21 @@
                 android:id="@+id/btShowNavigationBar"
                 style="@style/ButtonMenu"
                 android:text="showNavigationBar" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btHideDefaultControls"
+                style="@style/ButtonMenu"
+                android:text="hideDefaultControls" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShowDefaultControls"
+                style="@style/ButtonMenu"
+                android:text="showDefaultControls" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSetBrightness"
+                style="@style/ButtonMenu"
+                android:text="setBrightness" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
