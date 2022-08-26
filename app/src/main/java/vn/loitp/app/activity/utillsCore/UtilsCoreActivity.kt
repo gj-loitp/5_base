@@ -210,6 +210,9 @@ class UtilsCoreActivity : BaseFontActivity() {
         btLStringUtil.setSafeOnClickListener {
             onClickBtLStringUtil()
         }
+        btLValidateUtil.setSafeOnClickListener {
+            onClickBtLValidateUtil()
+        }
     }
 
     private fun onClickBtLStoreUtil() {
@@ -228,10 +231,21 @@ class UtilsCoreActivity : BaseFontActivity() {
 
     private fun onClickBtLStringUtil() {
         showShortInformation("Check logcat")
-        val s = LStringUtil.convertHTMLTextToPlainText("<p>This is Loitp<br />\n" +
-                "Dep Trai<br />\n" +
-                "Vip<br />\n" +
-                "Pro No1</p>")
+        val s = LStringUtil.convertHTMLTextToPlainText(
+            "<p>This is Loitp<br />\n" +
+                    "Dep Trai<br />\n" +
+                    "Vip<br />\n" +
+                    "Pro No1</p>"
+        )
         logD("s $s")
+    }
+
+    private fun onClickBtLValidateUtil() {
+        showShortInformation("Check logcat")
+        logD("isValidEmail freuss47: ${LValidateUtil.isValidEmail("freuss47")}")
+        logD("isValidEmail freuss47@gmail.com: ${LValidateUtil.isValidEmail("freuss47@gmail.com")}")
+        logD("isValidPassword 123456: ${LValidateUtil.isValidPassword("123456")}")
+        logD("isValidPassword 123456abcd: ${LValidateUtil.isValidPassword("123456abcd")}")
+        logD("isValidPassword 123456abcdA@: ${LValidateUtil.isValidPassword("123456abcdA@")}")
     }
 }

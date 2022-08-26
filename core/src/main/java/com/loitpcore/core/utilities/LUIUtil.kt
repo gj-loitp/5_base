@@ -52,7 +52,7 @@ import java.util.*
  */
 class LUIUtil {
     companion object {
-        private val logTag = LUIUtil::class.java.simpleName
+//        private val logTag = LUIUtil::class.java.simpleName
 
         private var lastOffset = 0.0f
         private var isUp = false
