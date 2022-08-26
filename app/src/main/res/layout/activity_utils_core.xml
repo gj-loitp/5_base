@@ -19,6 +19,7 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
             android:paddingTop="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
