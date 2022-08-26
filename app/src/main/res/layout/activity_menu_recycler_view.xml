@@ -26,6 +26,11 @@
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btArcViewActivity"
+                style="@style/ButtonMenu"
+                android:text="ArcViewActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBookView"
                 style="@style/ButtonMenu"
                 android:text="@string/bookview" />

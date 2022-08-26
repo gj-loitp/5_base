@@ -91,6 +91,8 @@ dependencies {
     api 'com.daimajia.androidanimations:library:2.4@aar'
 //    https://github.com/barteksc/AndroidPdfViewer
     api 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+//    https://github.com/amir5121/arcView
+    api 'com.github.amir5121:arcView:1.0.1'
 //    https://github.com/Zaid-Mirza/AttachmentManager
     api 'com.github.Zaid-Mirza:AttachmentManager:2.0.1'
 //    https://github.com/yusufonderd/BasketLayout

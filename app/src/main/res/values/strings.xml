@@ -1002,4 +1002,9 @@ Likewise may someone love you next.
     <string name="card_flip_animation">Card Flip Animation</string>
     <string name="book_flip_animation">Book Flip Animation</string>
     <string name="enable_scale">Enable Scale</string>
+    <string name="y">y</string>
+    <string name="x">x</string>
+    <string name="kick_me">Kick me!</string>
+    <string name="kick_swapped_view">Kick swapped view!</string>
+    <string name="text">Text</string>
 </resources>

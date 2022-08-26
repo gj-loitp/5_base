@@ -12,6 +12,7 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_recycler_view.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.recyclerview.arcView.ArcViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.book.BookViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.ConcatAdapterActivity
 import vn.loitp.app.activity.customviews.recyclerview.diffUtil.DiffUtilActivity
@@ -59,6 +60,7 @@ class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuRecyclerViewActivity::class.java.simpleName
         }
+        btArcViewActivity.setOnClickListener(this)
         btParallaxRecyclerView.setOnClickListener(this)
         btNormalRecyclerView.setOnClickListener(this)
         btNormalRecyclerViewWithSpanSize.setOnClickListener(this)
@@ -83,9 +85,11 @@ class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
+            btArcViewActivity -> {
+                intent = Intent(this, ArcViewActivity::class.java)
+            }
             btParallaxRecyclerView ->
-                intent =
-                    Intent(this, ParallaxRecyclerViewActivity::class.java)
+                intent = Intent(this, ParallaxRecyclerViewActivity::class.java)
             btNormalRecyclerView -> intent = Intent(this, RecyclerViewActivity::class.java)
             btNormalRecyclerViewWithSpanSize ->
                 intent =
