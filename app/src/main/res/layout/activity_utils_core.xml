@@ -228,6 +228,11 @@
                     android:id="@+id/sb1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.core.widget.NestedScrollView>

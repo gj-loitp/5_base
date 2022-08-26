@@ -232,6 +232,11 @@ class UtilsCoreActivity : BaseFontActivity() {
         LUIUtil.setColorSeekBar(sb1, Color.RED)
         LUIUtil.setMarginsDp(sb1, 16, 16, 16, 16)
         LUIUtil.setRandomBackground(layoutRootView)
+        LUIUtil.getAllChildren(layoutRootView).forEach {
+            logD(">>>getAllChildren ${it.id}")
+        }
+        LUIUtil.setCheckBoxColor(cb1, Color.GREEN, Color.CYAN)
+        LUIUtil.setChangeStatusBarTintToDark(window, true)
     }
 
     private fun onClickBtLStoreUtil() {
