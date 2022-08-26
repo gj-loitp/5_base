@@ -140,5 +140,16 @@ class UtilsCoreActivity : BaseFontActivity() {
                         }"
             showDialogMsg(msg)
         }
+        btLDeviceUtil.setSafeOnClickListener {
+            showDialogMsg(
+                "isNavigationBarAvailable:${LDeviceUtil.isNavigationBarAvailable}" +
+                        "\nisTablet: ${LDeviceUtil.isTablet()}" +
+                        "\nisCanOverlay: ${LDeviceUtil.isCanOverlay()}" +
+                        "\nisEmulator: ${LDeviceUtil.isEmulator()}"
+            )
+        }
+        btSetClipboard.setSafeOnClickListener {
+            showShortInformation(LDeviceUtil.setClipboard("setClipboard ${System.currentTimeMillis()}"))
+        }
     }
 }

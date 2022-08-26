@@ -39,7 +39,7 @@ class FlowLayoutActivity : BaseFontActivity() {
         }
         for (i in 0..20) {
             val tv = TextView(this)
-            tv.text = LDeviceUtil.getRandomString(maxLeng = 15)
+            tv.text = LDeviceUtil.getRandomString(maxLength = 15)
             tv.setBackgroundResource(R.drawable.bt_tag)
             flowLayout.addView(tv)
         }
