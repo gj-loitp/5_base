@@ -225,8 +225,13 @@ class UtilsCoreActivity : BaseFontActivity() {
                     "Vip<br />\n" +
                     "Pro No1</p>"
         )
+        LUIUtil.setTextBold(tv1)
         LUIUtil.setImageFromAsset("ic_gift.png", iv)
         LUIUtil.setProgressViewOffset(srl, 200)
+        LUIUtil.setImeiActionSearch(et1) { }
+        LUIUtil.setColorSeekBar(sb1, Color.RED)
+        LUIUtil.setMarginsDp(sb1, 16, 16, 16, 16)
+        LUIUtil.setRandomBackground(layoutRootView)
     }
 
     private fun onClickBtLStoreUtil() {
