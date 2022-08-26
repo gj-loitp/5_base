@@ -207,6 +207,9 @@ class UtilsCoreActivity : BaseFontActivity() {
         btLStoreUtil.setSafeOnClickListener {
             onClickBtLStoreUtil()
         }
+        btLStringUtil.setSafeOnClickListener {
+            onClickBtLStringUtil()
+        }
     }
 
     private fun onClickBtLStoreUtil() {
@@ -221,5 +224,14 @@ class UtilsCoreActivity : BaseFontActivity() {
         logD("textAsset $textAsset")
         logD("getAvailableSpaceInMb ${LStoreUtil.getAvailableSpaceInMb()}")
         logD("getAvailableRAM ${LStoreUtil.getAvailableRAM()}")
+    }
+
+    private fun onClickBtLStringUtil() {
+        showShortInformation("Check logcat")
+        val s = LStringUtil.convertHTMLTextToPlainText("<p>This is Loitp<br />\n" +
+                "Dep Trai<br />\n" +
+                "Vip<br />\n" +
+                "Pro No1</p>")
+        logD("s $s")
     }
 }

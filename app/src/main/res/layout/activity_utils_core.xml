@@ -167,6 +167,11 @@
                 android:id="@+id/btLStoreUtil"
                 style="@style/ButtonMenu"
                 android:text="LStoreUtil" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLStringUtil"
+                style="@style/ButtonMenu"
+                android:text="LStringUtil" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
