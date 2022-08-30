@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor"
-    tools:ignore="HardcodedText">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -27,6 +25,11 @@
                 android:id="@+id/btActivityTransitionReveal"
                 style="@style/ButtonMenu"
                 android:text="@string/activity_transition_reveal" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAndroidParticlesActivity"
+                style="@style/ButtonMenu"
+                android:text="AndroidParticlesActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAnimationView"

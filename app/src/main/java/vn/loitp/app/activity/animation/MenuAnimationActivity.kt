@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_menu_animation.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.animation.activityTransition.Animation1Activity
 import vn.loitp.app.activity.animation.activityTransitionReveal.RevealActivity1
+import vn.loitp.app.activity.animation.androidParticles.AndroidParticlesActivity
 import vn.loitp.app.activity.animation.animationView.AnimationViewActivity
 import vn.loitp.app.activity.animation.basicTransition.BasicTransition0Activity
 import vn.loitp.app.activity.animation.basicTransitionActivity.SceneTransitionBasicActivity
@@ -68,27 +69,57 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
         btMorphTransitions.setOnClickListener(this)
         btActivityTransitionReveal.setOnClickListener(this)
         btPulsingView.setOnClickListener(this)
+        btAndroidParticlesActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btAnimationView -> intent = Intent(this, AnimationViewActivity::class.java)
-            btOverScroll -> intent = Intent(this, OverScrollActivity::class.java)
-            btFlySchool -> intent = Intent(this, FlySchoolActivity::class.java)
-            btActivityTransition -> intent = Intent(this, Animation1Activity::class.java)
-            btShadowViewHelper -> intent = Intent(this, ShadowViewHelperActivity::class.java)
-            btBasicTransitionFrm -> intent = Intent(this, BasicTransitionActivity::class.java)
-            btBasicTransitionActivity ->
-                intent =
-                    Intent(this, SceneTransitionBasicActivity::class.java)
-            btBasicTransition -> intent = Intent(this, BasicTransition0Activity::class.java)
-            btLottie -> intent = Intent(this, MenuLottieActivity::class.java)
-            btValueAnimator -> intent = Intent(this, ValueAnimatorActivity::class.java)
-            btElasticView -> intent = Intent(this, ElasticActivity::class.java)
-            btMorphTransitions -> intent = Intent(this, MorphTransitionsMainActivity::class.java)
-            btActivityTransitionReveal -> intent = Intent(this, RevealActivity1::class.java)
-            btPulsingView -> intent = Intent(this, PulsingViewActivity::class.java)
+            btAnimationView -> {
+                intent = Intent(this, AnimationViewActivity::class.java)
+            }
+            btOverScroll -> {
+                intent = Intent(this, OverScrollActivity::class.java)
+            }
+            btFlySchool -> {
+                intent = Intent(this, FlySchoolActivity::class.java)
+            }
+            btActivityTransition -> {
+                intent = Intent(this, Animation1Activity::class.java)
+            }
+            btShadowViewHelper -> {
+                intent = Intent(this, ShadowViewHelperActivity::class.java)
+            }
+            btBasicTransitionFrm -> {
+                intent = Intent(this, BasicTransitionActivity::class.java)
+            }
+            btBasicTransitionActivity -> {
+                intent = Intent(this, SceneTransitionBasicActivity::class.java)
+            }
+            btBasicTransition -> {
+                intent = Intent(this, BasicTransition0Activity::class.java)
+            }
+            btLottie -> {
+                intent = Intent(this, MenuLottieActivity::class.java)
+            }
+            btValueAnimator -> {
+                intent = Intent(this, ValueAnimatorActivity::class.java)
+            }
+            btElasticView -> {
+                intent = Intent(this, ElasticActivity::class.java)
+            }
+            btMorphTransitions -> {
+                intent = Intent(this, MorphTransitionsMainActivity::class.java)
+            }
+            btActivityTransitionReveal -> {
+                intent = Intent(this, RevealActivity1::class.java)
+            }
+            btPulsingView -> {
+                intent = Intent(this, PulsingViewActivity::class.java)
+            }
+            btAndroidParticlesActivity -> {
+                intent = Intent(this, AndroidParticlesActivity::class.java)
+            }
         }
         intent?.let {
             startActivity(it)

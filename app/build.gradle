@@ -89,6 +89,8 @@ dependencies {
 //    https://github.com/tplloi/base
 //    api 'com.github.tplloi:base:4.4.77'
     api 'com.daimajia.androidanimations:library:2.4@aar'
+//    https://github.com/ibrahimsn98/android-particles
+    api 'com.github.ibrahimsn98:android-particles:2.0'
 //    https://github.com/barteksc/AndroidPdfViewer
     api 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
 //    https://github.com/amir5121/arcView
