@@ -4,16 +4,17 @@ import dev.bandb.graphview.decoration.edge.ArrowEdgeDecoration
 import dev.bandb.graphview.graph.Graph
 import dev.bandb.graphview.graph.Node
 import dev.bandb.graphview.layouts.energy.FruchtermanReingoldLayoutManager
+import kotlinx.android.synthetic.main.activity_graph.*
 import vn.loitp.app.activity.customviews.graphView.GraphActivity
 
 class FruchtermanReingoldActivity : GraphActivity() {
 
     public override fun setLayoutManager() {
-        recyclerView.layoutManager = FruchtermanReingoldLayoutManager(this, 1000)
+        recycler.layoutManager = FruchtermanReingoldLayoutManager(this, 1000)
     }
 
     public override fun setEdgeDecoration() {
-        recyclerView.addItemDecoration(ArrowEdgeDecoration())
+        recycler.addItemDecoration(ArrowEdgeDecoration())
     }
 
     public override fun createGraph(): Graph {

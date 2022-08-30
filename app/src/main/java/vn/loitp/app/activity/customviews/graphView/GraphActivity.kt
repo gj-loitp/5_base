@@ -5,21 +5,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import dev.bandb.graphview.AbstractGraphAdapter
 import dev.bandb.graphview.graph.Graph
 import dev.bandb.graphview.graph.Node
+import kotlinx.android.synthetic.main.activity_graph.*
 import vn.loitp.app.R
 import java.util.*
 
-abstract class GraphActivity : AppCompatActivity() {
-    protected lateinit var recyclerView: RecyclerView
+@LogTag("GraphActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+abstract class GraphActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_graph
+    }
+
     protected lateinit var adapter: AbstractGraphAdapter<NodeViewHolder>
-    private lateinit var fab: FloatingActionButton
     private var currentNode: Node? = null
     private var nodeCount = 1
 
@@ -29,10 +37,8 @@ abstract class GraphActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_graph)
 
         val graph = createGraph()
-        recyclerView = findViewById(R.id.recycler)
         setLayoutManager()
         setEdgeDecoration()
         setupGraphView(graph)
@@ -54,13 +60,12 @@ abstract class GraphActivity : AppCompatActivity() {
             }
         }.apply {
             this.submitGraph(graph)
-            recyclerView.adapter = this
+            recycler.adapter = this
         }
     }
 
     private fun setupFab(graph: Graph) {
-        fab = findViewById(R.id.addNode)
-        fab.setOnClickListener {
+        addNode.setOnClickListener {
             val newNode = Node(nodeText)
             if (currentNode != null) {
                 graph.addEdge(currentNode!!, newNode)
@@ -69,25 +74,21 @@ abstract class GraphActivity : AppCompatActivity() {
             }
             adapter.notifyDataSetChanged()
         }
-        fab.setOnLongClickListener {
-            if (currentNode != null) {
-                graph.removeNode(currentNode!!)
+        addNode.setOnLongClickListener {
+            currentNode?.let { n ->
+                graph.removeNode(n)
                 currentNode = null
                 adapter.notifyDataSetChanged()
-                fab.hide()
+                addNode.hide()
             }
             true
         }
     }
 
     private fun setupToolbar() {
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        val ab = supportActionBar
-        if (ab != null) {
-            ab.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
-            ab.setDisplayHomeAsUpEnabled(true)
-        }
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -101,8 +102,8 @@ abstract class GraphActivity : AppCompatActivity() {
 
         init {
             itemView.setOnClickListener {
-                if (!fab.isShown) {
-                    fab.show()
+                if (!addNode.isShown) {
+                    addNode.show()
                 }
                 currentNode = adapter.getNode(bindingAdapterPosition)
                 Snackbar.make(

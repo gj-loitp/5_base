@@ -5,16 +5,18 @@ import dev.bandb.graphview.graph.Node
 import dev.bandb.graphview.layouts.layered.SugiyamaArrowEdgeDecoration
 import dev.bandb.graphview.layouts.layered.SugiyamaConfiguration
 import dev.bandb.graphview.layouts.layered.SugiyamaLayoutManager
+import kotlinx.android.synthetic.main.activity_graph.*
 import vn.loitp.app.activity.customviews.graphView.GraphActivity
 
 class SugiyamaActivity : GraphActivity() {
 
     public override fun setLayoutManager() {
-        recyclerView.layoutManager = SugiyamaLayoutManager(this, SugiyamaConfiguration.Builder().build())
+        recycler.layoutManager =
+            SugiyamaLayoutManager(this, SugiyamaConfiguration.Builder().build())
     }
 
     public override fun setEdgeDecoration() {
-        recyclerView.addItemDecoration(SugiyamaArrowEdgeDecoration())
+        recycler.addItemDecoration(SugiyamaArrowEdgeDecoration())
     }
 
     public override fun createGraph(): Graph {

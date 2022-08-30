@@ -7,6 +7,7 @@ import dev.bandb.graphview.graph.Node
 import dev.bandb.graphview.layouts.tree.BuchheimWalkerConfiguration
 import dev.bandb.graphview.layouts.tree.BuchheimWalkerLayoutManager
 import dev.bandb.graphview.layouts.tree.TreeEdgeDecoration
+import kotlinx.android.synthetic.main.activity_graph.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.graphView.GraphActivity
 
@@ -19,11 +20,11 @@ class BuchheimWalkerActivity : GraphActivity() {
             .setSubtreeSeparation(100)
             .setOrientation(BuchheimWalkerConfiguration.ORIENTATION_TOP_BOTTOM)
             .build()
-        recyclerView.layoutManager = BuchheimWalkerLayoutManager(this, configuration)
+        recycler.layoutManager = BuchheimWalkerLayoutManager(this, configuration)
     }
 
     public override fun setEdgeDecoration() {
-        recyclerView.addItemDecoration(TreeEdgeDecoration())
+        recycler.addItemDecoration(TreeEdgeDecoration())
     }
 
     public override fun createGraph(): Graph {
@@ -66,19 +67,25 @@ class BuchheimWalkerActivity : GraphActivity() {
             .setLevelSeparation(300)
             .setSubtreeSeparation(300)
         val itemId = item.itemId
-        if (itemId == R.id.topToBottom) {
-            builder.setOrientation(BuchheimWalkerConfiguration.ORIENTATION_TOP_BOTTOM)
-        } else if (itemId == R.id.bottomToTop) {
-            builder.setOrientation(BuchheimWalkerConfiguration.ORIENTATION_BOTTOM_TOP)
-        } else if (itemId == R.id.leftToRight) {
-            builder.setOrientation(BuchheimWalkerConfiguration.ORIENTATION_LEFT_RIGHT)
-        } else if (itemId == R.id.rightToLeft) {
-            builder.setOrientation(BuchheimWalkerConfiguration.ORIENTATION_RIGHT_LEFT)
-        } else {
-            return super.onOptionsItemSelected(item)
+        when (itemId) {
+            R.id.topToBottom -> {
+                builder.setOrientation(BuchheimWalkerConfiguration.ORIENTATION_TOP_BOTTOM)
+            }
+            R.id.bottomToTop -> {
+                builder.setOrientation(BuchheimWalkerConfiguration.ORIENTATION_BOTTOM_TOP)
+            }
+            R.id.leftToRight -> {
+                builder.setOrientation(BuchheimWalkerConfiguration.ORIENTATION_LEFT_RIGHT)
+            }
+            R.id.rightToLeft -> {
+                builder.setOrientation(BuchheimWalkerConfiguration.ORIENTATION_RIGHT_LEFT)
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
         }
-        recyclerView.layoutManager = BuchheimWalkerLayoutManager(this, builder.build())
-        recyclerView.adapter = adapter
+        recycler.layoutManager = BuchheimWalkerLayoutManager(this, builder.build())
+        recycler.adapter = adapter
         return true
     }
 }
