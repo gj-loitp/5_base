@@ -6,42 +6,50 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_menu_graph_view.*
 import vn.loitp.app.R
 
-class MenuGraphViewActivity : AppCompatActivity() {
+@LogTag("MenuGraphViewActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+class MenuGraphViewActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_menu_graph_view
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
         setupToolbar()
         setupRecyclerView()
     }
 
     private fun setupRecyclerView() {
-        findViewById<RecyclerView>(R.id.graphs).apply {
+        graphs.apply {
             layoutManager = LinearLayoutManager(this@MenuGraphViewActivity)
             adapter = GraphListAdapter()
-            val decoration =
-                DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL)
+            val decoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
             addItemDecoration(decoration)
         }
     }
 
     private fun setupToolbar() {
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        val ab = supportActionBar
-        ab?.setDisplayHomeAsUpEnabled(false)
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 
     private inner class GraphListAdapter : RecyclerView.Adapter<GraphViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GraphViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.main_item, parent, false)
+                .inflate(R.layout.layout_main_item, parent, false)
             return GraphViewHolder(view)
         }
 

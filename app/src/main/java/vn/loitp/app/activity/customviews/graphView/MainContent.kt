@@ -7,7 +7,11 @@ import vn.loitp.app.activity.customviews.graphView.algorithms.SugiyamaActivity
 object MainContent {
     val ITEMS: MutableList<GraphItem> = ArrayList()
 
-    class GraphItem(val title: String, val description: String, val clazz: Class<*>) {
+    class GraphItem(
+        val title: String,
+        val description: String,
+        val clazz: Class<*>,
+    ) {
         override fun toString(): String {
             return title
         }
