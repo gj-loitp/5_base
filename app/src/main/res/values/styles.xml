@@ -68,4 +68,8 @@
         <item name="android:paddingEnd">7dp</item>
         <item name="android:layout_gravity">center_horizontal</item>
     </style>
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 </resources>

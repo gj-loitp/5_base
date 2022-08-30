@@ -25,6 +25,7 @@ import vn.loitp.app.activity.customviews.draggableFlipView.DraggableFlipViewActi
 import vn.loitp.app.activity.customviews.edittext.MenuEditTextActivity
 import vn.loitp.app.activity.customviews.facebookComment.FacebookCommentActivity
 import vn.loitp.app.activity.customviews.fingerPaintView.FingerPaintActivity
+import vn.loitp.app.activity.customviews.graphView.MenuGraphViewActivity
 import vn.loitp.app.activity.customviews.imageview.MenuImageViewActivity
 import vn.loitp.app.activity.customviews.indicator.example.MenuMagicIndicatorActivity
 import vn.loitp.app.activity.customviews.lCardView.LCardViewActivity
@@ -113,6 +114,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btWheelSpinner.setOnClickListener(this)
         btFingerPaintView.setOnClickListener(this)
         btStackExpandableViewActivity.setOnClickListener(this)
+        btMenuGraphViewActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -153,6 +155,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btWheelSpinner -> Intent(this, WheelSpinnerActivity::class.java)
             btFingerPaintView -> Intent(this, FingerPaintActivity::class.java)
             btStackExpandableViewActivity -> Intent(this, StackExpandableViewActivity::class.java)
+            btMenuGraphViewActivity -> Intent(this, MenuGraphViewActivity::class.java)
             else -> null
         }
         intent?.let {

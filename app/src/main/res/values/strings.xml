@@ -1007,4 +1007,8 @@ Likewise may someone love you next.
     <string name="kick_me">Kick me!</string>
     <string name="kick_swapped_view">Kick swapped view!</string>
     <string name="text">Text</string>
+    <string name="top_to_bottom">Top to Bottom</string>
+    <string name="bottom_to_top">Bottom to Top</string>
+    <string name="left_to_right">Left to Right</string>
+    <string name="right_to_left">Right to Left</string>
 </resources>
