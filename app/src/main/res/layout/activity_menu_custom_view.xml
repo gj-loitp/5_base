@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor"
-    tools:ignore="HardcodedText">
+    android:background="?attr/themeBackgroundColor">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -147,6 +145,11 @@
                 android:text="@string/seek_bar" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btStackExpandableViewActivity"
+                style="@style/ButtonMenu"
+                android:text="StackExpandableViewActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSticker"
                 style="@style/ButtonMenu"
                 android:text="@string/sticker" />
@@ -196,8 +199,8 @@
                 style="@style/ButtonMenu"
                 android:text="@string/wwl_video" />
 
-        </LinearLayout>
-    </ScrollView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
 
     <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"

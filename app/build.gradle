@@ -118,6 +118,12 @@ dependencies {
     api 'io.realm:realm-android:0.82.1'
 //    https://github.com/Crysis21/PulsingView
     api 'ro.holdone:pulseview:1.0.2'
+//    https://github.com/bhoomit11/ScopedMediaPicker
+    api 'com.github.bhoomit11:ScopedMediaPicker:1.0.3'
+//    https://github.com/transferwise/sequence-layout
+    api 'com.github.transferwise:sequence-layout:1.2.0'
+//    https://github.com/fabiosassu/StackExpandableView
+    api 'com.github.fabiosassu:StackExpandableView:1.0.2'
 //    https://github.com/ParkSangGwon/TedImagePicker
 //    api 'io.github.ParkSangGwon:tedimagepicker:1.2.7'
 //    https://github.com/ParkSangGwon/TedKeyboardObserver
@@ -136,11 +142,6 @@ dependencies {
 
 //    https://github.com/amilcar-sr/JustifiedTextView
     api 'com.codesgood:justifiedtextview:2.0.1'
-
-//    https://github.com/transferwise/sequence-layout
-    api 'com.github.transferwise:sequence-layout:1.2.0'
-//    https://github.com/bhoomit11/ScopedMediaPicker
-    api 'com.github.bhoomit11:ScopedMediaPicker:1.0.3'
 
 //    https://jitpack.io/private#com.gitlab.g1-data/onetarget-android
     api 'com.gitlab.g1-data:onetarget-android:1.0.3'
