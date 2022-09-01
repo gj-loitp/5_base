@@ -15,7 +15,6 @@ import com.loitpcore.core.helper.gallery.slide.GalleryCoreSlideActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LSocialUtil
-import com.loitpcore.core.utilities.LValidateUtil
 import com.loitpcore.restApi.flickr.FlickrConst
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitpcore.restApi.flickr.service.FlickrService
@@ -51,7 +50,6 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         setupViews()
-        LValidateUtil.isValidPackageName()
     }
 
     private fun setupViews() {

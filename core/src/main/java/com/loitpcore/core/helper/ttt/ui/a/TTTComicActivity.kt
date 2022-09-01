@@ -17,7 +17,6 @@ import com.loitpcore.core.helper.ttt.ui.f.FrmFavTTT
 import com.loitpcore.core.helper.ttt.ui.f.FrmHomeTTT
 import com.loitpcore.core.helper.ttt.ui.f.FrmProfileTTT
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.core.utilities.LValidateUtil
 import com.loitpcore.utils.util.KeyboardUtils
 import com.loitpcore.views.viewPager.viewPagerTransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem
@@ -45,8 +44,6 @@ class TTTComicActivity : BaseFontActivity() {
 
         setupData()
         setupViews()
-
-        LValidateUtil.isValidPackageName()
     }
 
     private fun setupData() {

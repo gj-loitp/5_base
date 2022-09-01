@@ -14,7 +14,6 @@ import com.loitpcore.core.helper.gallery.album.GalleryCoreAlbumActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.core.utilities.LValidateUtil
 import com.loitpcore.restApi.restClient.RestClient
 import com.loitpcore.utils.util.AppUtils
 import com.permissionx.guolindev.PermissionX
@@ -56,8 +55,6 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         LUIUtil.setTextShadow(textView = tvCopyright, color = null)
         tvName.text = AppUtils.appName
         LUIUtil.setTextShadow(textView = tvName, color = null)
-
-        LValidateUtil.isValidPackageName()
     }
 
     private fun goToHome() {

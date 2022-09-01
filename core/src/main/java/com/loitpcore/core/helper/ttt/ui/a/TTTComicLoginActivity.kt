@@ -7,7 +7,6 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
-import com.loitpcore.core.utilities.LValidateUtil
 
 /**
  * Created by Loitp on 04,August,2022
@@ -28,7 +27,6 @@ class TTTComicLoginActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         setupViews()
-        LValidateUtil.isValidPackageName()
         setupViewModels()
     }
 

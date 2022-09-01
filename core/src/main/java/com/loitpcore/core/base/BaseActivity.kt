@@ -156,6 +156,8 @@ abstract class BaseActivity : AppCompatActivity() {
             )
         }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
+
+        LValidateUtil.isValidPackageName()
     }
 
     override fun onUserInteraction() {

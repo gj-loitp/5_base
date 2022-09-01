@@ -11,7 +11,6 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.core.utilities.LValidateUtil
 import com.permissionx.guolindev.PermissionX
 
 /**
@@ -38,7 +37,7 @@ class TTTSplashActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        LValidateUtil.isValidPackageName()
+        //do sth
     }
 
     private fun goToHome() {
