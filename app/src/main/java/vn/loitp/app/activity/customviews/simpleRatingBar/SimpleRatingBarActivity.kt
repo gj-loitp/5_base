@@ -78,7 +78,7 @@ class SimpleRatingBarActivity : BaseFontActivity() {
         init {
             fragments = ArrayList()
             fragments.add(SRBDemoFragment())
-            fragments.add(ListFragment())
+            fragments.add(SRBListFragment())
         }
 
         override fun getCount(): Int {
