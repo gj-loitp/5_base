@@ -124,6 +124,8 @@ dependencies {
     api 'ro.holdone:pulseview:1.0.2'
 //    https://github.com/bhoomit11/ScopedMediaPicker
     api 'com.github.bhoomit11:ScopedMediaPicker:1.0.3'
+//    https://github.com/williamyyu/SimpleRatingBar
+    api 'com.github.ome450901:SimpleRatingBar:1.5.1'
 //    https://github.com/transferwise/sequence-layout
     api 'com.github.transferwise:sequence-layout:1.2.0'
 //    https://github.com/fabiosassu/StackExpandableView
@@ -132,7 +134,7 @@ dependencies {
 //    api 'io.github.ParkSangGwon:tedimagepicker:1.2.7'
 //    https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
-    kapt "androidx.room:room-compiler:2.5.0-alpha02"
+    kapt "androidx.room:room-compiler:2.5.0-alpha03"
 //    https://github.com/nex3z/ToggleButtonGroup
     api 'com.nex3z:toggle-button-group:1.2.3'
 //    https://github.com/rehmanmuradali/wheel-spinner

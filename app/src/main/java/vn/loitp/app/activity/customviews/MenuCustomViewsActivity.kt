@@ -39,6 +39,7 @@ import vn.loitp.app.activity.customviews.recyclerview.MenuRecyclerViewActivity
 import vn.loitp.app.activity.customviews.scratchView.MenuScratchViewActivity
 import vn.loitp.app.activity.customviews.scrollablePanel.ScrollablePanelActivity
 import vn.loitp.app.activity.customviews.seekBar.MenuSeekbarActivity
+import vn.loitp.app.activity.customviews.simpleRatingBar.EntryActivity
 import vn.loitp.app.activity.customviews.stackExpandableView.StackExpandableViewActivity
 import vn.loitp.app.activity.customviews.sticker.StickerActivity
 import vn.loitp.app.activity.customviews.switchToggle.MenuSwitchToggleActivity
@@ -115,6 +116,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btFingerPaintView.setOnClickListener(this)
         btStackExpandableViewActivity.setOnClickListener(this)
         btMenuGraphViewActivity.setOnClickListener(this)
+        btSimpleRatingBar.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -156,6 +158,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btFingerPaintView -> Intent(this, FingerPaintActivity::class.java)
             btStackExpandableViewActivity -> Intent(this, StackExpandableViewActivity::class.java)
             btMenuGraphViewActivity -> Intent(this, MenuGraphViewActivity::class.java)
+            btSimpleRatingBar -> Intent(this, EntryActivity::class.java)
             else -> null
         }
         intent?.let {
