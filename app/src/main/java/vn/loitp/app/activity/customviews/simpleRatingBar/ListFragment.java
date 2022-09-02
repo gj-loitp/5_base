@@ -26,6 +26,6 @@ public class ListFragment
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setAdapter(new MyAdapter(getContext()));
+        recyclerView.setAdapter(new SRBAdapter(getContext()));
     }
 }
