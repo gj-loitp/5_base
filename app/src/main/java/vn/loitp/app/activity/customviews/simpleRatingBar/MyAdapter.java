@@ -15,12 +15,7 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
-/**
- * Created by willy on 2017/10/3.
- */
-
-public class MyAdapter
-        extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private Context mContext;
     private List<Float> list;

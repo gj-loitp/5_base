@@ -39,7 +39,7 @@ import vn.loitp.app.activity.customviews.recyclerview.MenuRecyclerViewActivity
 import vn.loitp.app.activity.customviews.scratchView.MenuScratchViewActivity
 import vn.loitp.app.activity.customviews.scrollablePanel.ScrollablePanelActivity
 import vn.loitp.app.activity.customviews.seekBar.MenuSeekbarActivity
-import vn.loitp.app.activity.customviews.simpleRatingBar.EntryActivity
+import vn.loitp.app.activity.customviews.simpleRatingBar.SimpleRatingBarActivity
 import vn.loitp.app.activity.customviews.stackExpandableView.StackExpandableViewActivity
 import vn.loitp.app.activity.customviews.sticker.StickerActivity
 import vn.loitp.app.activity.customviews.switchToggle.MenuSwitchToggleActivity
@@ -54,7 +54,7 @@ import vn.loitp.app.activity.customviews.wwlVideo.WWLVideoActivity
 
 @LogTag("MenuCustomViewsActivity")
 @IsFullScreen(false)
-@IsAutoAnimation(true)
+@IsAutoAnimation(false)
 class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
@@ -158,7 +158,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btFingerPaintView -> Intent(this, FingerPaintActivity::class.java)
             btStackExpandableViewActivity -> Intent(this, StackExpandableViewActivity::class.java)
             btMenuGraphViewActivity -> Intent(this, MenuGraphViewActivity::class.java)
-            btSimpleRatingBar -> Intent(this, EntryActivity::class.java)
+            btSimpleRatingBar -> Intent(this, SimpleRatingBarActivity::class.java)
             else -> null
         }
         intent?.let {
