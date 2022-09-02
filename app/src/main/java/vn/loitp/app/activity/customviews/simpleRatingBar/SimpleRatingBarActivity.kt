@@ -77,7 +77,7 @@ class SimpleRatingBarActivity : BaseFontActivity() {
 
         init {
             fragments = ArrayList()
-            fragments.add(DemoFragment())
+            fragments.add(SRBDemoFragment())
             fragments.add(ListFragment())
         }
 
