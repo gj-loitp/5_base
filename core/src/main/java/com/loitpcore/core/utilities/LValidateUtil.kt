@@ -75,6 +75,7 @@ class LValidateUtil {
             "com.roygroup.base",
             "com.roygroup.vnexpress",
             "com.roygroup.base.demo",
+            "com.roy93group.todo",
         )
 
         fun isValidPackageName(): Boolean {
