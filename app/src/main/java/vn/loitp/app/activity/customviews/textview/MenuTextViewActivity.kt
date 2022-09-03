@@ -26,12 +26,13 @@ import vn.loitp.app.activity.customviews.textview.selectableTextView.SelectableT
 import vn.loitp.app.activity.customviews.textview.strokedTextView.StrokedTextViewActivity
 import vn.loitp.app.activity.customviews.textview.textDecorator.TextDecoratorActivity
 import vn.loitp.app.activity.customviews.textview.typeWriterTextView.TypeWriterTextViewActivity
+import vn.loitp.app.activity.customviews.textview.typedTextView.TypedTextViewActivity
 import vn.loitp.app.activity.customviews.textview.verticalMarquee.VerticalMarqueeTextViewActivity
 import vn.loitp.app.activity.customviews.textview.zoom.ZoomTextViewActivity
 
 @LogTag("TextViewMenuActivity")
 @IsFullScreen(false)
-@IsAutoAnimation(true)
+@IsAutoAnimation(false)
 class MenuTextViewActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
@@ -71,6 +72,7 @@ class MenuTextViewActivity : BaseFontActivity(), OnClickListener {
         btStrokedTextView.setOnClickListener(this)
         btJustifiedTextViewActivity.setOnClickListener(this)
         btFadingTextView.setOnClickListener(this)
+        btTypedTextView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -90,6 +92,7 @@ class MenuTextViewActivity : BaseFontActivity(), OnClickListener {
             btStrokedTextView -> Intent(this, StrokedTextViewActivity::class.java)
             btJustifiedTextViewActivity -> Intent(this, JustifiedTextViewActivity::class.java)
             btFadingTextView -> Intent(this, FadingTextViewActivity::class.java)
+            btTypedTextView -> Intent(this, TypedTextViewActivity::class.java)
             else -> {
                 null
             }

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
-    android:orientation="vertical"
-    tools:ignore="HardcodedText">
+    android:orientation="vertical">
 
     <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
@@ -85,6 +83,11 @@
                 android:id="@+id/btTextDecorator"
                 style="@style/ButtonMenu"
                 android:text="@string/text_decorator" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTypedTextView"
+                style="@style/ButtonMenu"
+                android:text="TypedTextViewActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTypeWriterTextView"
