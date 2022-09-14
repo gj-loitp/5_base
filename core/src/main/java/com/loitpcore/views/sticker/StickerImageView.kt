@@ -17,7 +17,7 @@ import android.widget.ImageView
  */
 class StickerImageView : StickerView {
 
-    var ownerId: String? = null
+//    var ownerId: String? = null
     private var ivMain: ImageView? = null
 
     constructor(context: Context) : super(context)

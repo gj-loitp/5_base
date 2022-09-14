@@ -87,11 +87,7 @@ public class LabeledSwitch extends View {
         this.enabled = true;
         this.textSize = (int) (12f * getResources().getDisplayMetrics().scaledDensity);
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            colorBorder = colorOn = getResources().getColor(R.color.colorAccent, getContext().getTheme());
-        } else {
-            colorBorder = colorOn = getResources().getColor(R.color.colorAccent);
-        }
+        colorBorder = colorOn = getResources().getColor(R.color.colorAccent, getContext().getTheme());
 
         paint = new Paint();
         paint.setAntiAlias(true);
@@ -118,19 +114,11 @@ public class LabeledSwitch extends View {
                 colorOff = tarr.getColor(R.styleable.Toggle_colorOff, Color.parseColor("#FFFFFF"));
             } else if (attr == R.styleable.Toggle_colorBorder) {
                 int accentColor;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                    accentColor = getResources().getColor(R.color.colorAccent, getContext().getTheme());
-                } else {
-                    accentColor = getResources().getColor(R.color.colorAccent);
-                }
+                accentColor = getResources().getColor(R.color.colorAccent, getContext().getTheme());
                 colorBorder = tarr.getColor(R.styleable.Toggle_colorBorder, accentColor);
             } else if (attr == R.styleable.Toggle_colorOn) {
                 int accentColor;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                    accentColor = getResources().getColor(R.color.colorAccent, getContext().getTheme());
-                } else {
-                    accentColor = getResources().getColor(R.color.colorAccent);
-                }
+                accentColor = getResources().getColor(R.color.colorAccent, getContext().getTheme());
                 colorOn = tarr.getColor(R.styleable.Toggle_colorOn, accentColor);
             } else if (attr == R.styleable.Toggle_colorDisabled) {
                 colorDisabled = tarr.getColor(R.styleable.Toggle_colorOff, Color.parseColor("#D3D3D3"));
