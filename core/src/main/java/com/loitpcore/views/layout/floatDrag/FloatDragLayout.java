@@ -9,7 +9,6 @@ import android.content.res.Configuration;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -18,6 +17,8 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
+
+import timber.log.Timber;
 
 /**
  * Created by Loitp on 04,August,2022
@@ -84,7 +85,7 @@ public class FloatDragLayout extends FrameLayout {
         int mNavigationBarHeight = DisplayUtil.getNavigationBarHeight(context);
         mScreenHardHeight = DisplayUtil.getScreenHardwareHeight(context);
         int mScreenHardWidth = DisplayUtil.getScreenHardwareWidth(context);
-        Log.d(TAG, "FloatDragLayout init mScreenContentWidth=" + mScreenContentWidth + ", mScreenContentHeight=" + mScreenContentHeight + ", mScreenHardWidth=" + mScreenHardWidth + ",mScreenHardHeight=" + mScreenHardHeight + ",StatusHeight=" + mStatusHeight + ",mNavigationBarHeight" + mNavigationBarHeight);
+        Timber.tag(TAG).d("FloatDragLayout init mScreenContentWidth=" + mScreenContentWidth + ", mScreenContentHeight=" + mScreenContentHeight + ", mScreenHardWidth=" + mScreenHardWidth + ",mScreenHardHeight=" + mScreenHardHeight + ",StatusHeight=" + mStatusHeight + ",mNavigationBarHeight" + mNavigationBarHeight);
     }
 
     @Override

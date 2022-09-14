@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.core.view.GravityCompat
 import com.loitpcore.R
-import java.util.*
 import kotlin.math.max
 
 /**
@@ -464,7 +463,7 @@ class LAutoLinearLayout : FrameLayout {
     /**
      * Should the layout be a column or a row.
      *
-     * @param orientation Pass HORIZONTAL or VERTICAL. Default
+     * param orientation Pass HORIZONTAL or VERTICAL. Default
      * value is HORIZONTAL.
      */
     var orientation: Int

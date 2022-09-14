@@ -5,6 +5,8 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+
 import java.util.Objects;
 
 /**
@@ -146,21 +148,19 @@ public class Marker extends CircularViewObject {
 
         if (Float.compare(marker.sectionMax, sectionMax) != 0) return false;
         if (Float.compare(marker.sectionMin, sectionMin) != 0) return false;
-        if (!Objects.equals(animatorSet, marker.animatorSet))
-            return false;
-
-        return true;
+        return Objects.equals(animatorSet, marker.animatorSet);
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + (sectionMin != +0.0f ? Float.floatToIntBits(sectionMin) : 0);
-        result = 31 * result + (sectionMax != +0.0f ? Float.floatToIntBits(sectionMax) : 0);
+        result = 31 * result + (sectionMin != 0.0f ? Float.floatToIntBits(sectionMin) : 0);
+        result = 31 * result + (sectionMax != 0.0f ? Float.floatToIntBits(sectionMax) : 0);
         result = 31 * result + (animatorSet != null ? animatorSet.hashCode() : 0);
         return result;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Marker{" +

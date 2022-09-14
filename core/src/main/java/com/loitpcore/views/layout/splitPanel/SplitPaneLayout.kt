@@ -62,7 +62,7 @@ class SplitPaneLayout : ViewGroup {
     /**
      * Sets whether the splitter is movable by the user.
      *
-     * @param splitterMovable whether the splitter is movable
+     * splitterMovable whether the splitter is movable
      */
     var isSplitterMovable = true
     private var mSplitterPosition = Int.MIN_VALUE
@@ -82,7 +82,7 @@ class SplitPaneLayout : ViewGroup {
     /**
      * Sets the OnSplitterPositionChangedListener to receive callbacks when the splitter position is changed
      *
-     * @param l the OnSplitterPositionChangedListener to receive callbacks when the splitter position is changed
+     * l the OnSplitterPositionChangedListener to receive callbacks when the splitter position is changed
      */
     var onSplitterPositionChangedListener: OnSplitterPositionChangedListener? = null
     private var lastTouchX = 0
@@ -460,7 +460,7 @@ class SplitPaneLayout : ViewGroup {
             return 0
         }
 
-    public override fun onSaveInstanceState(): Parcelable? {
+    public override fun onSaveInstanceState(): Parcelable {
         val superState = super.onSaveInstanceState()
         val ss = SavedState(superState)
         ss.mSplitterPositionPercent = mSplitterPositionPercent
@@ -523,7 +523,7 @@ class SplitPaneLayout : ViewGroup {
     /**
      * Sets the drawable used for the splitter.
      *
-     * @param splitterDrawable the desired orientation of the layout
+     * splitterDrawable the desired orientation of the layout
      */
     var splitterDrawable: Drawable?
         get() = mSplitterDrawable
@@ -541,7 +541,7 @@ class SplitPaneLayout : ViewGroup {
     /**
      * Sets the drawable used for the splitter dragging overlay.
      *
-     * @param splitterDraggingDrawable the drawable to use while dragging the splitter
+     * param splitterDraggingDrawable the drawable to use while dragging the splitter
      */
     var splitterDraggingDrawable: Drawable?
         get() = mSplitterDraggingDrawable
@@ -559,7 +559,7 @@ class SplitPaneLayout : ViewGroup {
     /**
      * Sets the orientation of the layout.
      *
-     * @param orientation the desired orientation of the layout
+     * param orientation the desired orientation of the layout
      */
     var orientation: Int
         get() = mOrientation
@@ -579,7 +579,7 @@ class SplitPaneLayout : ViewGroup {
     /**
      * Sets the current size of the splitter in pixels.
      *
-     * @param splitterSize the desired size of the splitter
+     * param splitterSize the desired size of the splitter
      */
     var splitterSize: Int
         get() = mSplitterSize
@@ -597,7 +597,7 @@ class SplitPaneLayout : ViewGroup {
     /**
      * Sets the current position of the splitter in pixels.
      *
-     * @param position the desired position of the splitter
+     * param position the desired position of the splitter
      */
     var splitterPosition: Int
         get() = mSplitterPosition
@@ -615,7 +615,7 @@ class SplitPaneLayout : ViewGroup {
     /**
      * Sets the current position of the splitter as a percentage of the layout.
      *
-     * @param position the desired position of the splitter
+     * param position the desired position of the splitter
      */
     var splitterPositionPercent: Float
         get() = mSplitterPositionPercent
@@ -635,7 +635,7 @@ class SplitPaneLayout : ViewGroup {
      * Sets the current "touch slop" which is used to extends the grab size of the splitter
      * and requires the splitter to be dragged at least this far to be considered a move.
      *
-     * @param splitterTouchSlop the desired "touch slop" of the splitter
+     * param splitterTouchSlop the desired "touch slop" of the splitter
      */
     var splitterTouchSlop: Int
         get() = mSplitterTouchSlop
@@ -651,7 +651,7 @@ class SplitPaneLayout : ViewGroup {
     /**
      * Sets the minimum size of panes, in pixels.
      *
-     * @param paneSizeMin the minimum size of panes, in pixels
+     * param paneSizeMin the minimum size of panes, in pixels
      */
     var paneSizeMin: Int
         get() = minSplitterPosition

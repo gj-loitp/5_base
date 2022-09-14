@@ -17,10 +17,6 @@ import kotlin.math.roundToInt
  */
 class LAspectRatioLayout : FrameLayout {
 
-    companion object {
-        private const val TAG = "LAspectRatioLayout"
-    }
-
     private var widthRatio = 0f
     private var heightRatio = 0f
 

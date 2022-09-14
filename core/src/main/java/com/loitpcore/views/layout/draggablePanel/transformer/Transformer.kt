@@ -34,7 +34,7 @@ abstract class Transformer(
     /**
      * Change view height using the LayoutParams of the view.
      *
-     * @param newHeight to change..
+     * param newHeight to change..
      */
     var mOriginalHeight = 0
         get() {

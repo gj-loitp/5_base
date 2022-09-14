@@ -19,10 +19,6 @@ class WxSwipeBackLayout @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : SwipeBackLayout(context, attrs, defStyleAttr) {
 
-    companion object {
-        private val TAG = WxSwipeBackLayout::class.java.simpleName
-    }
-
     override var directionMode: Int
         get() = super.directionMode
         set(direction) {

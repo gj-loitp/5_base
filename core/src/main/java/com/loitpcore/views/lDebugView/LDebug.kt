@@ -28,6 +28,7 @@ object LDebug {
 
     @JvmStatic
     fun checkPermission(activity: Activity, requestCode: Int, resultCode: Int) {
+        log("resultCode $resultCode")
         if (requestCode == CODE) {
             init(activity)
         }
