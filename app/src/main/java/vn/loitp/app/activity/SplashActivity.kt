@@ -139,7 +139,7 @@ class SplashActivity : BaseFontActivity() {
                     LActivityUtil.tranIn(this@SplashActivity)
                 },
                 onClickButton2 = {
-                    onBackPressed()
+                    finish()
                 }
             )
             alertDialog.setCancelable(false)
@@ -170,7 +170,7 @@ class SplashActivity : BaseFontActivity() {
                 msg = title,
                 button1 = "Ok",
                 onClickButton1 = {
-                    onBackPressed()
+                    finish()
                 }
             )
             alertDial.setCancelable(false)

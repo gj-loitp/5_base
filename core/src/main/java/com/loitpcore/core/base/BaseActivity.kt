@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -158,7 +159,26 @@ abstract class BaseActivity : AppCompatActivity() {
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
 
         LValidateUtil.isValidPackageName()
+
+        onBackPressedDispatcher.addCallback(this) {
+            onBaseBackPressed()
+        }
+
     }
+
+    open fun onBaseBackPressed() {
+        if (isShowAnimWhenExit) {
+            LActivityUtil.tranOut(this)
+        }
+    }
+
+//    override fun onBackPressed() {
+//        super.onBackPressed()
+//
+//        if (isShowAnimWhenExit) {
+//            LActivityUtil.tranOut(this)
+//        }
+//    }
 
     override fun onUserInteraction() {
         super.onUserInteraction()
@@ -251,14 +271,6 @@ abstract class BaseActivity : AppCompatActivity() {
                 runnable?.run()
             }
         )
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-
-        if (isShowAnimWhenExit) {
-            LActivityUtil.tranOut(this)
-        }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

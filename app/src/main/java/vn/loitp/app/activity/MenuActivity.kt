@@ -56,7 +56,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    finish()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -155,9 +155,11 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private var doubleBackToExitPressedOnce = false
-    override fun onBackPressed() {
+
+    override fun onBaseBackPressed() {
+        super.onBaseBackPressed()
         if (doubleBackToExitPressedOnce) {
-            super.onBackPressed()
+            finish()
             return
         }
         this.doubleBackToExitPressedOnce = true
