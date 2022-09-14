@@ -74,7 +74,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      * If true, the text will automatically be re-sized to fit its constraints; if false, it will
      * act like a normal TextView.
      *
-     * @param sizeToFit
+     * param sizeToFit
      */
     var isSizeToFit: Boolean?
         get() = autofitHelper?.isEnabled
@@ -96,7 +96,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      * Set the maximum text size to the given value, interpreted as "scaled pixel" units. This size
      * is adjusted based on the current density and user font size preference.
      *
-     * @param size The scaled pixel size.
+     * param size The scaled pixel size.
      * @attr ref android.R.styleable#TextView_textSize
      */
     var maxTextSize: Float?
@@ -155,7 +155,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      * Set the amount of precision used to calculate the correct text size to fit within its
      * bounds. Lower precision is more precise and takes more time.
      *
-     * @param precision The amount of precision.
+     * param precision The amount of precision.
      */
     var precision: Float?
         get() = autofitHelper?.precision

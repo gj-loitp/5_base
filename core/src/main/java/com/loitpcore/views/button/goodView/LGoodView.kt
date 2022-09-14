@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Handler
+import android.os.Looper
 import android.text.TextUtils
 import android.util.TypedValue
 import android.view.View
@@ -197,7 +198,7 @@ class LGoodView(
                 override fun onAnimationStart(animation: Animation) {}
                 override fun onAnimationEnd(animation: Animation) {
                     if (isShowing) {
-                        Handler().post { dismiss() }
+                        Handler(Looper.getMainLooper()).post { dismiss() }
                     }
                 }
 

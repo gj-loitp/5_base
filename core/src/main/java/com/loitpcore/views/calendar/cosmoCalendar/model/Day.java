@@ -1,6 +1,7 @@
 package com.loitpcore.views.calendar.cosmoCalendar.model;
 
 import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 
 import com.loitpcore.views.calendar.cosmoCalendar.selection.SelectionState;
 import com.loitpcore.views.calendar.cosmoCalendar.utils.DateUtils;
@@ -146,6 +147,7 @@ public class Day {
         return calendar.get(Calendar.DAY_OF_MONTH);
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Day{day=" + calendar.getTime() + "}";

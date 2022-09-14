@@ -165,7 +165,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setMessage(text: String): PrettyDialog {
-        if (text.trim { it <= ' ' }.length > 0) {
+        if (text.trim { it <= ' ' }.isNotEmpty()) {
             tvMessage?.visibility = View.VISIBLE
             tvMessage?.text = text
         } else {

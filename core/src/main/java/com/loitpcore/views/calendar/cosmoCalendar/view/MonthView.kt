@@ -1,8 +1,6 @@
 package com.loitpcore.views.calendar.cosmoCalendar.view
 
-import android.annotation.TargetApi
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -45,7 +43,6 @@ class MonthView : FrameLayout {
         init()
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     constructor(
         context: Context,
         attrs: AttributeSet?,

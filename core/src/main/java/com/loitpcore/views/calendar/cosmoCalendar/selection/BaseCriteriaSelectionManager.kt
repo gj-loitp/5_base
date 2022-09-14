@@ -35,7 +35,7 @@ abstract class BaseCriteriaSelectionManager : BaseSelectionManager() {
     }
 
     fun removeCriteriaList(listToDelete: List<BaseCriteria>) {
-        criteriaList.removeAll(listToDelete)
+        criteriaList.removeAll(listToDelete.toSet())
         notifyCriteriaUpdates()
     }
 
