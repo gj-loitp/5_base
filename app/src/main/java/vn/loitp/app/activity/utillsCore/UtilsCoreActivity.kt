@@ -38,7 +38,7 @@ class UtilsCoreActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
@@ -216,6 +216,7 @@ class UtilsCoreActivity : BaseFontActivity() {
         }
 
         LUIUtil.setMarquee(tv, getString(R.string.large_dummy_text))
+        //TODO fix setBackgroundDrawable
         v1.setBackgroundDrawable(LUIUtil.createGradientDrawableWithRandomColor())
         v2.setBackgroundDrawable(LUIUtil.createGradientDrawableWithColor(Color.RED, Color.GREEN))
         LUIUtil.setCircleViewWithColor(v3, Color.GREEN, Color.CYAN)

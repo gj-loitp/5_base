@@ -38,6 +38,6 @@ class TTTComicLoginActivity : BaseFontActivity() {
         val intent = Intent(this, TTTComicActivity::class.java)
         startActivity(intent)
         LActivityUtil.tranIn(context = this)
-        finish()
+        finish()//correct
     }
 }

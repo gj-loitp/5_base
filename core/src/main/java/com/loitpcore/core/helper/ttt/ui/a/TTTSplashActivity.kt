@@ -46,7 +46,7 @@ class TTTSplashActivity : BaseFontActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             LActivityUtil.tranIn(this)
-            finish()
+            finish()//correct
         })
     }
 
@@ -84,8 +84,7 @@ class TTTSplashActivity : BaseFontActivity() {
                 if (allGranted) {
                     goToHome()
                 } else {
-                    finish()
-                    LActivityUtil.tranOut(this)
+                    onBaseBackPressed()
                 }
             }
     }

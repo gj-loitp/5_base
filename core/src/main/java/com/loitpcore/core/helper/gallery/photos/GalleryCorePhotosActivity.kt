@@ -134,7 +134,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
-                    finish()
+                    finish()//correct
                     LActivityUtil.transActivityNoAnimation(this@GalleryCorePhotosActivity)
                 }
             }

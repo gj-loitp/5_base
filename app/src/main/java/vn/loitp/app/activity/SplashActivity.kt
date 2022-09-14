@@ -114,7 +114,7 @@ class SplashActivity : BaseFontActivity() {
                             goToHome()
                         }
                     } else {
-                        finish()
+                        finish()//correct
                         LActivityUtil.tranOut(this)
                     }
                     isShowDialogCheck = false
@@ -139,7 +139,7 @@ class SplashActivity : BaseFontActivity() {
                     LActivityUtil.tranIn(this@SplashActivity)
                 },
                 onClickButton2 = {
-                    finish()
+                    onBaseBackPressed()
                 }
             )
             alertDialog.setCancelable(false)
@@ -153,7 +153,7 @@ class SplashActivity : BaseFontActivity() {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
-            finish()
+            finish()//correct
         }
     }
 
@@ -170,7 +170,7 @@ class SplashActivity : BaseFontActivity() {
                 msg = title,
                 button1 = "Ok",
                 onClickButton1 = {
-                    finish()
+                    onBaseBackPressed()
                 }
             )
             alertDial.setCancelable(false)

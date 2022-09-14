@@ -55,7 +55,7 @@ class SwipeBackLayoutActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 logD("onViewSwipeFinished")
                 if (isEnd) {
-                    finish()
+                    finish()//correct
                     LActivityUtil.transActivityNoAnimation(this@SwipeBackLayoutActivity)
                 }
             }

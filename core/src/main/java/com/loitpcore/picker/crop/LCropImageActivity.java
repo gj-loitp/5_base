@@ -197,7 +197,7 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
     protected void setResult(Uri uri, Exception error, int sampleSize) {
         final int resultCode = error == null ? RESULT_OK : CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE;
         setResult(resultCode, getResultIntent(uri, error, sampleSize));
-        finish();
+        finish();//correct
     }
 
     /**
@@ -205,7 +205,7 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
      */
     protected void setResultCancel() {
         setResult(RESULT_CANCELED);
-        finish();
+        finish();//correct
     }
 
     /**

@@ -32,7 +32,7 @@ class EmptyActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    finish()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.let {

@@ -60,7 +60,7 @@ open class RvTabImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChan
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            finish()
+            onBaseBackPressed()
             return true
         }
         return super.onOptionsItemSelected(item)

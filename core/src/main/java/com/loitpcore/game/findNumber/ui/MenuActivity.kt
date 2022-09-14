@@ -60,8 +60,7 @@ class MenuActivity : BaseFontActivity() {
         LUIUtil.setSafeOnClickListenerElastic(
             view = ivBack,
             runnable = {
-//                onBackPressed()
-                finish()
+                onBaseBackPressed()
             }
         )
         LUIUtil.setSafeOnClickListenerElastic(

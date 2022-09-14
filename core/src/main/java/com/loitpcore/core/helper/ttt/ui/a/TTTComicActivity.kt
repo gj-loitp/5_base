@@ -181,7 +181,7 @@ class TTTComicActivity : BaseFontActivity() {
     override fun onBaseBackPressed() {
         super.onBaseBackPressed()
         if (doubleBackToExitPressedOnce) {
-            finish()
+            finish()//correct
             return
         }
         this.doubleBackToExitPressedOnce = true

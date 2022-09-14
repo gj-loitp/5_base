@@ -142,7 +142,7 @@ class MapTrackerActivity :
                 if (allGranted) {
                     buildClient()
                 } else {
-                    finish()
+                    finish()//correct
                     LActivityUtil.tranOut(this)
                 }
             }

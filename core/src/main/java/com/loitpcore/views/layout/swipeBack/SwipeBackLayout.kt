@@ -321,7 +321,7 @@ open class SwipeBackLayout @JvmOverloads constructor(
     }
 
     fun finish() {
-        (context as Activity).finish()
+        (context as Activity).finish()//correct
     }
 
     private val isSwipeEnabled: Boolean
@@ -412,7 +412,7 @@ open class SwipeBackLayout @JvmOverloads constructor(
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
-                    finish()
+                    finish()//correct
                 }
             }
         }

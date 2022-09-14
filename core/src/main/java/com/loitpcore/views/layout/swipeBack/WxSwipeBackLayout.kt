@@ -39,7 +39,7 @@ class WxSwipeBackLayout @JvmOverloads constructor(
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
-                    finish()
+                    finish()//correct
                 }
                 onPanelReset()
             }

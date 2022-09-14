@@ -286,7 +286,7 @@ class LocationActivity : BaseFontActivity() {
                     mRequestingLocationUpdates = true
                     startLocationUpdates()
                 } else {
-                    finish()
+                    finish()//correct
                     LActivityUtil.tranOut(this)
                 }
             }

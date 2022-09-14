@@ -14,7 +14,6 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
-import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.utils.util.AppUtils
@@ -107,14 +106,12 @@ class AdHelperActivity : BaseFontActivity() {
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
         btBack.setSafeOnClickListener {
-            finish()
-            LActivityUtil.tranOut(this)
+            onBaseBackPressed()
         }
         btPrevScreen.setSafeOnClickListener { viewPager.currentItem = viewPager.currentItem - 1 }
         btNextScreen.setSafeOnClickListener {
             if (viewPager.currentItem == adPageList.size - 1) {
-                finish()
-                LActivityUtil.tranOut(this)
+                onBaseBackPressed()
             } else {
                 viewPager.currentItem = viewPager.currentItem + 1
             }
@@ -182,8 +179,7 @@ class AdHelperActivity : BaseFontActivity() {
                 btOkay.visibility = View.GONE
             }
             btOkay.setSafeOnClickListener {
-                finish()
-                LActivityUtil.tranOut(this@AdHelperActivity)
+                onBaseBackPressed()
             }
 
             collection.addView(layout)
@@ -214,7 +210,7 @@ class AdHelperActivity : BaseFontActivity() {
     override fun onBaseBackPressed() {
         super.onBaseBackPressed()
         if (viewPager.currentItem == 0) {
-            finish()
+            finish()//correct
         } else {
             viewPager.currentItem = viewPager.currentItem - 1
         }

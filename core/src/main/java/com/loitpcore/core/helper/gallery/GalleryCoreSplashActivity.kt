@@ -68,7 +68,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
             )
             startActivity(intent)
             LActivityUtil.tranIn(this)
-            finish()
+            finish()//correct
         })
     }
 
@@ -106,7 +106,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
                 if (allGranted) {
                     goToHome()
                 } else {
-                    finish()
+                    finish()//correct
                     LActivityUtil.tranOut(this)
                 }
             }

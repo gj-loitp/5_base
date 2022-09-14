@@ -83,7 +83,7 @@ class SplashActivity : BaseFontActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            finish()
+            onBaseBackPressed()
         }
     }
 }

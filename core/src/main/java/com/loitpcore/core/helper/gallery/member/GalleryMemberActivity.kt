@@ -128,7 +128,7 @@ class GalleryMemberActivity : BaseFontActivity() {
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
-                    finish()
+                    finish()//correct
                     LActivityUtil.transActivityNoAnimation(this@GalleryMemberActivity)
                 }
             }
@@ -299,8 +299,7 @@ class GalleryMemberActivity : BaseFontActivity() {
                 if (allGranted) {
                     goToHome()
                 } else {
-                    finish()
-                    LActivityUtil.tranOut(this)
+                    onBaseBackPressed()
                 }
             }
     }

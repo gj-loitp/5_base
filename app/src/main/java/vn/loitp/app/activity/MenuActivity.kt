@@ -56,7 +56,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    finish()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -74,7 +74,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             } else {
                 LUIUtil.setDarkTheme(isDarkTheme = false)
             }
-            finish()
+            finish()//correct
             startActivity(Intent(this, MenuActivity::class.java))
             overridePendingTransition(0, 0)
         }
@@ -159,7 +159,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onBaseBackPressed() {
         super.onBaseBackPressed()
         if (doubleBackToExitPressedOnce) {
-            finish()
+            onBaseBackPressed()
             return
         }
         this.doubleBackToExitPressedOnce = true

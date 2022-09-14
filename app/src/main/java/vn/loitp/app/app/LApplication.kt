@@ -15,6 +15,7 @@ import vn.loitp.app.activity.service.endlessService.log
 
 // build release de check
 // TODO service -> ko stop service dc
+//TODO fix ko chay dc o android 13
 
 // GIT
 // combine 2 commit gan nhat lam 1, co thay doi tren github

@@ -106,7 +106,7 @@ class SingleLevelActivity : BaseFontActivity() {
         LUIUtil.setSafeOnClickListenerElastic(
             view = ivBack,
             runnable = {
-                finish()
+                onBaseBackPressed()
             }
         )
         LUIUtil.setSafeOnClickListenerElastic(
