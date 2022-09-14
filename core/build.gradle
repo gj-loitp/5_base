@@ -60,8 +60,8 @@ dependencies {
     api 'androidx.legacy:legacy-support-v4:1.0.0'
     api 'androidx.dynamicanimation:dynamicanimation:1.1.0-alpha03'
 
-    api 'androidx.appcompat:appcompat:1.6.0-beta01'
-    api 'com.google.android.material:material:1.7.0-beta01'
+    api 'androidx.appcompat:appcompat:1.6.0-rc01'
+    api 'com.google.android.material:material:1.8.0-alpha01'
     api 'androidx.recyclerview:recyclerview:1.2.1'
     api 'androidx.cardview:cardview:1.0.0'
     api 'androidx.constraintlayout:constraintlayout:2.2.0-alpha03'
@@ -79,13 +79,13 @@ dependencies {
     api "com.github.skydoves:transformationlayout:1.1.1"
     //https://github.com/hackware1993/MagicIndicator
     api 'com.github.hackware1993:MagicIndicator:1.7.0'
-    api 'androidx.webkit:webkit:1.4.0'
+    api 'androidx.webkit:webkit:1.5.0'
 
     //fragment navigation
-    api 'androidx.navigation:navigation-fragment-ktx:2.5.1'
+    api 'androidx.navigation:navigation-fragment-ktx:2.5.2'
 
     //jsoup
-    api 'org.jsoup:jsoup:1.15.2'
+    api 'org.jsoup:jsoup:1.15.3'
 
     //https://github.com/adblockplus/libadblockplus-android
     api 'org.adblockplus:adblock-android-webview:4.4.0'

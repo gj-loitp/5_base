@@ -16,9 +16,9 @@ android {
     defaultConfig {
         applicationId "com.roygroup.base"
         minSdkVersion 24
-        targetSdk 33
-        versionCode 20220827
-        versionName "1.0.20220827"
+        targetSdk 3233
+        versionCode 20220914
+        versionName "1.0.20220914"
         multiDexEnabled true
 
         renderscriptTargetApi 19
@@ -141,18 +141,13 @@ dependencies {
     api 'com.github.iamporus:TypedTextView:1.1.2'
 //    https://github.com/rehmanmuradali/wheel-spinner
     api 'com.github.rehmanmuradali:wheel-spinner:1.0.0'
-
 //    https://github.com/abhishekti7/UnicornFilePicker
     api 'com.github.abhishekti7:UnicornFilePicker:1.0.2'
-
 //    https://github.com/lukelorusso/VerticalSeekBar
     api 'com.github.lukelorusso:VerticalSeekBar:1.2.7'
-
 //    https://github.com/amilcar-sr/JustifiedTextView
     api 'com.codesgood:justifiedtextview:2.0.1'
-
 //    https://jitpack.io/private#com.gitlab.g1-data/onetarget-android
     api 'com.gitlab.g1-data:onetarget-android:1.0.3'
-
 }
 //apply plugin: 'com.google.gms.google-services'
