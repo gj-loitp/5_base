@@ -58,7 +58,7 @@ class UnicornFilePickerActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -123,7 +123,7 @@ class UnicornFilePickerActivity : BaseFontActivity() {
         return true
     }
 
-    @Deprecated("Deprecated in Java")
+    //TODO onActivityResult
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 

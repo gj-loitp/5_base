@@ -40,7 +40,7 @@ class ScopedMediaPickerActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.let {
@@ -144,7 +144,7 @@ class ScopedMediaPickerActivity : BaseFontActivity() {
         scopedMediaPicker.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
-    @Deprecated("Deprecated in Java")
+    //TODO onActivityResult
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         scopedMediaPicker.onActivityResult(requestCode, resultCode, data)

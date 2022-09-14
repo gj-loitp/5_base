@@ -58,7 +58,7 @@ class AttachmentManagerActivity : BaseFontActivity() {
         "image/*",
         "video/*"
     )
-    var files = arrayOf(
+    private var files = arrayOf(
         "application/msword",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document", // .ppt & .pptx
         "application/pdf",
@@ -95,7 +95,7 @@ class AttachmentManagerActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.let {
