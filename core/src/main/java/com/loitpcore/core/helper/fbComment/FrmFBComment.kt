@@ -80,7 +80,7 @@ class FrmFBComment : BaseFragment() {
             webViewClient = UriWebViewClient()
             webChromeClient = UriChromeClient()
             settings.javaScriptEnabled = true
-            settings.setAppCacheEnabled(true)
+            settings.cacheMode = WebSettings.LOAD_NO_CACHE
             settings.domStorageEnabled = true
             settings.javaScriptCanOpenWindowsAutomatically = true
             settings.setSupportMultipleWindows(true)

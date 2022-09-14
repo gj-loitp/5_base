@@ -151,6 +151,7 @@ class LocationActivity : BaseFontActivity() {
 
             var moreInfor = ""
             LLocationUtil.getCityByLatLon(
+                this,
                 it.latitude,
                 it.longitude
             ) { address: String?, city: String?, state: String?, country: String? ->

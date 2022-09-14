@@ -84,7 +84,7 @@ class FbCommentActivity : BaseFontActivity() {
             this.ivIconLeft?.setSafeOnClickListener {
                 onBackPressed()
             }
-            this.ivRight.isVisible = false
+            this.ivRight?.isVisible = false
             this.realtimeBlurView?.isVisible = false
             this.tvTitle?.text = LAppResource.getString(R.string.fb_comment)
         }
@@ -96,7 +96,7 @@ class FbCommentActivity : BaseFontActivity() {
             webViewClient = UriWebViewClient()
             webChromeClient = UriChromeClient()
             settings.javaScriptEnabled = true
-            settings.setAppCacheEnabled(true)
+            settings.cacheMode = WebSettings.LOAD_NO_CACHE
             settings.domStorageEnabled = true
             settings.javaScriptCanOpenWindowsAutomatically = true
             settings.setSupportMultipleWindows(true)
