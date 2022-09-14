@@ -1,6 +1,5 @@
 package com.loitpcore.core.base
 
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
@@ -12,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.loitpcore.core.utilities.LUIUtil.Companion.withBackground
+import timber.log.Timber
 
 /**
  * Created by Loitp on 04,August,2022
@@ -47,11 +47,11 @@ open class BaseDialogFragment : DialogFragment() {
     }
 
     fun logD(tag: String, msg: String) {
-        Log.d(tag, msg)
+        Timber.tag(tag).d(msg)
     }
 
     fun logE(tag: String, msg: String) {
-        Log.e(tag, msg)
+        Timber.tag(tag).e(msg)
     }
 
     /**

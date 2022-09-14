@@ -136,11 +136,12 @@ public class ShapeFlyer extends RelativeLayout {
     private void startAnimation(int drawable, Path path) {
         initPaths();
         View shapeView;
-        if (Utils.INSTANCE.isLowerThanLollipop()) {
-            shapeView = new AppCompatShapeView(getContext());
-        } else {
-            shapeView = new ShapeView(getContext());
-        }
+//        if (Utils.INSTANCE.isLowerThanLollipop()) {
+//            shapeView = new AppCompatShapeView(getContext());
+//        } else {
+//            shapeView = new ShapeView(getContext());
+//        }
+        shapeView = new ShapeView(getContext());
 
         LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.height = mShapeHeight;

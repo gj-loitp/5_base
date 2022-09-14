@@ -14,7 +14,7 @@ import com.loitpcore.utils.util.AppUtils
  */
 class LPrefUtil {
     companion object {
-        private val logTag = LPrefUtil::class.java.simpleName
+//        private val logTag = LPrefUtil::class.java.simpleName
 
         private const val PREFERENCES_FILE_NAME = "roygroup"
         private val CHECK_APP_READY = "CHECK_APP_READY" + AppUtils.appVersionCode
@@ -27,13 +27,12 @@ class LPrefUtil {
 //        const val NOT_READY_USE_APPLICATION = "not.ready.use.application"
         private const val TEXT_SIZE_EPUB_PERCENT = "TEXT_SIZE_EPUB"
         var JSON_BOOK_ASSET = "JSON_BOOK_ASSET"
-        private const val INDEX = "INDEX"
+//        private const val INDEX = "INDEX"
         private const val PASS_CODE = "PASS_CODE"
         private const val GG_APP_SETTING = "GG_APP_SETTING"
 
         //        private const val GG_APP_MSG = "GG_APP_MSG"
-        private const val IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER =
-            "IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER"
+//        private const val IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER = "IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER"
 
         //region object
         fun getGGAppSetting(): App {

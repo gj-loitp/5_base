@@ -360,13 +360,11 @@ class LScreenUtil {
                     msg = "Ứng dụng cần bạn cần cấp quyền điều chỉnh độ sáng màn hình",
                     button1 = "Cấp phép",
                     onClickButton1 = {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                            val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
-                            intent.data = Uri.parse("package:" + context.packageName)
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            context.startActivity(intent)
-                            LActivityUtil.tranIn(context)
-                        }
+                        val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
+                        intent.data = Uri.parse("package:" + context.packageName)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        context.startActivity(intent)
+                        LActivityUtil.tranIn(context)
                     }
                 )
                 return

@@ -46,6 +46,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        //TODO fix getSerializableExtra
         val photo = intent.getSerializableExtra(PHOTO) as Photo
         loadItem(photo = photo)
 

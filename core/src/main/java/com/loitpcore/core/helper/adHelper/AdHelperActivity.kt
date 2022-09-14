@@ -203,9 +203,18 @@ class AdHelperActivity : BaseFontActivity() {
         }
     }
 
-    override fun onBackPressed() {
+//    override fun onBackPressed() {
+//        if (viewPager.currentItem == 0) {
+//            super.onBackPressed()
+//        } else {
+//            viewPager.currentItem = viewPager.currentItem - 1
+//        }
+//    }
+
+    override fun onBaseBackPressed() {
+        super.onBaseBackPressed()
         if (viewPager.currentItem == 0) {
-            super.onBackPressed()
+            finish()
         } else {
             viewPager.currentItem = viewPager.currentItem - 1
         }

@@ -74,7 +74,8 @@ class FbCommentActivity : BaseFontActivity() {
         // finish the activity in case of empty url
         if (TextUtils.isEmpty(postUrl)) {
             showShortError("The web url shouldn't be empty")
-            onBackPressed()
+//            onBackPressed()
+            finish()
             return
         }
     }
@@ -82,7 +83,8 @@ class FbCommentActivity : BaseFontActivity() {
     private fun setupActionBar() {
         lActionBar.apply {
             this.ivIconLeft?.setSafeOnClickListener {
-                onBackPressed()
+//                onBackPressed()
+                finish()
             }
             this.ivRight?.isVisible = false
             this.realtimeBlurView?.isVisible = false

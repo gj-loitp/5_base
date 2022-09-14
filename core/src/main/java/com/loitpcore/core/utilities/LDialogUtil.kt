@@ -29,9 +29,9 @@ class LDialogUtil {
         private const val logTag = "LDialogUtil"
         private val alertDialogList = ArrayList<AlertDialog>()
 
-        private fun logD(msg: String) {
-            LLog.d(logTag, msg)
-        }
+//        private fun logD(msg: String) {
+//            LLog.d(logTag, msg)
+//        }
 
         fun clearAll() {
 //            logD("clearAll")
@@ -231,6 +231,7 @@ class LDialogUtil {
         }
 
         // style ex ProgressDialog.STYLE_HORIZONTAL
+        @Suppress("DEPRECATION")
         fun showProgressDialog(
             context: Context,
             max: Int,

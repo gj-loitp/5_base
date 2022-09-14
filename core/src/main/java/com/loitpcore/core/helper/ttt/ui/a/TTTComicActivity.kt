@@ -166,9 +166,22 @@ class TTTComicActivity : BaseFontActivity() {
     }
 
     private var doubleBackToExitPressedOnce = false
-    override fun onBackPressed() {
+//    override fun onBackPressed() {
+//        if (doubleBackToExitPressedOnce) {
+//            super.onBackPressed()
+//            return
+//        }
+//        this.doubleBackToExitPressedOnce = true
+//        showShortInformation(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            doubleBackToExitPressedOnce = false
+//        }, 2000)
+//    }
+
+    override fun onBaseBackPressed() {
+        super.onBaseBackPressed()
         if (doubleBackToExitPressedOnce) {
-            super.onBackPressed()
+            finish()
             return
         }
         this.doubleBackToExitPressedOnce = true
