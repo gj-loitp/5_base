@@ -23,7 +23,6 @@ class LCountDownView : RelativeLayout {
         fun onEnd()
     }
 
-    private val logTag = javaClass.simpleName
     private var number = 0
     private var callback: Callback? = null
 

@@ -323,9 +323,6 @@ class AutofitHelper private constructor(textView: TextView) {
     }
 
     companion object {
-        private const val TAG = "AutoFitTextHelper"
-        private const val SPEW = false
-
         // Minimum size of the text in pixels
         private const val DEFAULT_MIN_TEXT_SIZE = 8 // sp
 

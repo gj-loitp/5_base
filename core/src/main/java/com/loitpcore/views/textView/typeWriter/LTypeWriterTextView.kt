@@ -2,6 +2,7 @@ package com.loitpcore.views.textView.typeWriter
 
 import android.content.Context
 import android.os.Handler
+import android.os.Looper
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 
@@ -17,7 +18,7 @@ class LTypeWriterTextView : AppCompatTextView {
     private var mIndex: Int = 0
     private var mDelay: Long = 150 // in ms
 
-    private val mHandler = Handler()
+    private val mHandler = Handler(Looper.getMainLooper())
 
     private val characterAdder: Runnable = run {
         Runnable {

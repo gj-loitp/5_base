@@ -19,10 +19,6 @@ import kotlin.math.min
  */
 class LZoomTextView : AppCompatTextView {
 
-    companion object {
-        private const val TAG = "LZoomTextView"
-    }
-
     private var mScaleDetector: ScaleGestureDetector? = null
     private var mScaleFactor = 1f
     private var defaultSize: Float = 0.toFloat()
