@@ -11,6 +11,7 @@ import android.view.*
 import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.TextView
+import com.loitpcore.views.setSafeOnClickListener
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -33,6 +34,7 @@ class TestService : Service() {
         setupViews()
     }
 
+    @SuppressLint("InflateParams", "SetTextI18n")
     private fun setupViews() {
         EventBus.getDefault().register(this)
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_floating_test, null)
@@ -64,7 +66,7 @@ class TestService : Service() {
         textView = mFloatingView.findViewById(R.id.textView)
         val ivClose = mFloatingView.findViewById<ImageView>(R.id.ivClose)
 
-        ivClose.setOnClickListener {
+        ivClose.setSafeOnClickListener {
             CommunicateMng.postFromService(CommunicateMng.MsgFromService(msg = "User clicks close button -> stop service"))
             // close the service and remove the from from the window
             stopSelf()

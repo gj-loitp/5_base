@@ -35,7 +35,7 @@ class IdleTimeActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
@@ -50,6 +50,7 @@ class IdleTimeActivity : BaseFontActivity() {
         updateText(delayMlsIdleTime = delayMlsIdleTime, isIdleTime = isIdleTime)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateText(delayMlsIdleTime: Long?, isIdleTime: Boolean?) {
         logE("onActivityUserIdleAfterTime delayMlsIdleTime $delayMlsIdleTime, isIdleTime $isIdleTime")
         val tv = AppCompatTextView(this)
