@@ -42,7 +42,12 @@ class FindNumberWinActivity : BaseFontActivity() {
         FabTransform.setup(this, container)
     }
 
-    override fun onBackPressed() {
+//    override fun onBackPressed() {
+//        exit()
+//    }
+
+    override fun onBaseBackPressed() {
+        super.onBaseBackPressed()
         exit()
     }
 

@@ -17,7 +17,6 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.provider.MediaStore;
@@ -241,11 +240,8 @@ public final class CropImage {
      * question</a>.
      */
     public static boolean isExplicitCameraPermissionRequired(@NonNull Context context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            return hasPermissionInManifest(context, "android.permission.CAMERA") &&
-                    context.checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED;
-        }
-        return false;
+        return hasPermissionInManifest(context, "android.permission.CAMERA") &&
+                context.checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED;
     }
 
     /**

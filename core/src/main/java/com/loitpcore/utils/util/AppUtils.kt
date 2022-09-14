@@ -123,7 +123,7 @@ class AppUtils private constructor() {
             if (!FileUtils.isFileExists(file)) return false
             val command = "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm install $filePath"
             val commandResult = ShellUtils.execCmd(command, !isSystemApp, true)
-            return commandResult.successMsg != null && commandResult.successMsg.toLowerCase(Locale.getDefault())
+            return commandResult.successMsg != null && commandResult.successMsg.lowercase(Locale.getDefault())
                 .contains("success")
         }
 
@@ -154,7 +154,7 @@ class AppUtils private constructor() {
             val command =
                 "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm uninstall " + (if (isKeepData) "-k " else "") + packageName
             val commandResult = ShellUtils.execCmd(command, !isSystemApp, true)
-            return commandResult.successMsg != null && commandResult.successMsg.toLowerCase(Locale.getDefault())
+            return commandResult.successMsg != null && commandResult.successMsg.lowercase(Locale.getDefault())
                 .contains("success")
         }
 

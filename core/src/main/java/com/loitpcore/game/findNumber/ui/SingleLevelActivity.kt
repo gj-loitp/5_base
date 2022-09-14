@@ -54,7 +54,12 @@ class SingleLevelActivity : BaseFontActivity() {
         findNumberViewModel?.getListLevelSingle()
     }
 
-    override fun onBackPressed() {
+//    override fun onBackPressed() {
+//        activityCircularReveal?.unRevealActivity(this)
+//    }
+
+    override fun onBaseBackPressed() {
+        super.onBaseBackPressed()
         activityCircularReveal?.unRevealActivity(this)
     }
 
@@ -101,7 +106,7 @@ class SingleLevelActivity : BaseFontActivity() {
         LUIUtil.setSafeOnClickListenerElastic(
             view = ivBack,
             runnable = {
-                onBackPressed()
+                finish()
             }
         )
         LUIUtil.setSafeOnClickListenerElastic(

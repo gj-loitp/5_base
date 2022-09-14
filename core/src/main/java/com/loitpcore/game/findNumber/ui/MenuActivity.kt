@@ -43,7 +43,14 @@ class MenuActivity : BaseFontActivity() {
         setupViews()
     }
 
-    override fun onBackPressed() {
+//    override fun onBackPressed() {
+//        val intent = Intent()
+//        setResult(Activity.RESULT_OK, intent)
+//        activityCircularReveal?.unRevealActivity(this)
+//    }
+
+    override fun onBaseBackPressed() {
+        super.onBaseBackPressed()
         val intent = Intent()
         setResult(Activity.RESULT_OK, intent)
         activityCircularReveal?.unRevealActivity(this)
@@ -53,7 +60,8 @@ class MenuActivity : BaseFontActivity() {
         LUIUtil.setSafeOnClickListenerElastic(
             view = ivBack,
             runnable = {
-                onBackPressed()
+//                onBackPressed()
+                finish()
             }
         )
         LUIUtil.setSafeOnClickListenerElastic(

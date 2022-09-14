@@ -56,7 +56,7 @@ class LGalleryActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         if (view == btClose) {
-            onBackPressed()
+            finish()
         }
     }
 

@@ -34,14 +34,14 @@ class LStoreUtil {
             LLog.d(logTag, msg)
         }
 
-        const val FOLDER_TRANSLATE = ".Loitp"
-        const val FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
-        private const val EXTENSION = ".txt"
-        const val FOLDER_TRUYENTRANHTUAN = "zloitpbestcomic"
-        const val FILE_NAME_MAIN_COMICS_LIST_HTML_CODE = "filenamemaincomicslisthtmlcode$EXTENSION"
-        const val FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist$EXTENSION"
-        const val FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite$EXTENSION"
-        const val FILE_NAME_TRUYENTRANHTUAN_DOWNLOADED_COMIC = "filenamedownloadedcomic$EXTENSION"
+//        const val FOLDER_TRANSLATE = ".Loitp"
+//        const val FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
+//        private const val EXTENSION = ".txt"
+//        const val FOLDER_TRUYENTRANHTUAN = "zloitpbestcomic"
+//        const val FILE_NAME_MAIN_COMICS_LIST_HTML_CODE = "filenamemaincomicslisthtmlcode$EXTENSION"
+//        const val FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist$EXTENSION"
+//        const val FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite$EXTENSION"
+//        const val FILE_NAME_TRUYENTRANHTUAN_DOWNLOADED_COMIC = "filenamedownloadedcomic$EXTENSION"
 
         val isSdPresent: Boolean
             get() = Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
@@ -220,7 +220,7 @@ class LStoreUtil {
             val text = StringBuilder()
             try {
                 val reader = BufferedReader(FileReader(txtFile))
-                var line: String? = null
+                var line: String?
                 while (run {
                         line = reader.readLine()
                         line

@@ -17,7 +17,7 @@ import kotlin.coroutines.CoroutineContext
  * freuss47@gmail.com
  */
 class GetPdfCoroutine : CoroutineScope {
-    private val logTag = javaClass.simpleName
+//    private val logTag = javaClass.simpleName
     private var job: Job = Job()
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job // to run code in Main(UI) Thread

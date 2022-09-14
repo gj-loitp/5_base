@@ -1,6 +1,5 @@
 package com.loitpcore.picker.crop;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -10,12 +9,13 @@ import android.graphics.RectF;
 import android.graphics.Region;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 
 import java.util.Arrays;
+
+import timber.log.Timber;
 
 /**
  * Created by Loitp on 04,August,2022
@@ -1007,7 +1007,7 @@ public class LCropOverlayView extends View {
                 mCropWindowChangeListener.onCropWindowChanged(inProgress);
             }
         } catch (Exception e) {
-            Log.e("AIC", "Exception in crop window changed", e);
+            Timber.tag("AIC").e(e, "Exception in crop window changed");
         }
     }
     //endregion
@@ -1036,7 +1036,6 @@ public class LCropOverlayView extends View {
     private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
 
         @Override
-        @TargetApi(Build.VERSION_CODES.HONEYCOMB)
         public boolean onScale(ScaleGestureDetector detector) {
             final RectF rect = mCropWindowHandler.getRect();
 

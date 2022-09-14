@@ -17,7 +17,7 @@ import java.io.IOException;
  */
 @SuppressLint("ViewConstructor")
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
-    private static final String TAG = CameraPreview.class.getSimpleName();
+//    private static final String TAG = CameraPreview.class.getSimpleName();
 
     private final SurfaceHolder mHolder;
     private Camera mCamera;

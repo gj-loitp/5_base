@@ -1,6 +1,5 @@
 package com.loitpcore.utils.util;
 
-import android.annotation.TargetApi;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
@@ -23,7 +22,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.media.ExifInterface;
-import android.os.Build;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
@@ -403,7 +401,6 @@ public final class ImageUtils {
         return ret;
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public static Bitmap renderScriptBlur(Bitmap src, @FloatRange(from = 0, to = 25, fromInclusive = false) float radius) {
         if (isEmptyBitmap(src)) return null;
         RenderScript rs = null;

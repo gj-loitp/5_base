@@ -97,7 +97,7 @@ public class LCropImageView extends FrameLayout {
      * if auto-zoom functionality is enabled.<br>
      * default: true.
      */
-    private boolean mAutoZoomEnabled = true;
+    private boolean mAutoZoomEnabled;
 
     /**
      * The max zoom allowed during cropping

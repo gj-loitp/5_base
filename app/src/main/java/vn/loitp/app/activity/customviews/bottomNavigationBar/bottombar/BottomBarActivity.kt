@@ -78,10 +78,10 @@ class BottomBarActivity : BaseFontActivity() {
             bottomBar.setCount(6)
         }
         btShowText.setOnClickListener {
-            bottomBar.isAlwayShowText = true
+            bottomBar.isAlwaysShowText = true
         }
         btHideText.setOnClickListener {
-            bottomBar.isAlwayShowText = false
+            bottomBar.isAlwaysShowText = false
         }
         LUIUtil.setDelay(5000) {
             bottomBar?.setPerformItemClick(4)

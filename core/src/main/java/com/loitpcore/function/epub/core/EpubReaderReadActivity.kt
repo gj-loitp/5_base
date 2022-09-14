@@ -72,7 +72,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         bookInfo = BookInfoData.instance.bookInfo
         if (bookInfo == null) {
             showShortError(msg = getString(R.string.err_unknown))
-            onBackPressed()
+//            onBackPressed()
+            finish()
         }
 
         setupViews()
@@ -110,7 +111,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         }
 
         btBack.setSafeOnClickListener {
-            onBackPressed()
+//            onBackPressed()
+            finish()
         }
         btZoomIn.setSafeOnClickListener {
             handleZoomIn()

@@ -78,11 +78,12 @@ class SplashActivity : BaseFontActivity() {
         }
     }
 
+    //TODO fix onActivityResult
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            onBackPressed()
+            finish()
         }
     }
 }

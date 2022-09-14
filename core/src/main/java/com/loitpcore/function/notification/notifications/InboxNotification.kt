@@ -26,13 +26,13 @@ class InboxNotification(
         return builder
     }
 
-    fun setBuilderIcon(builder: NotificationCompat.Builder) {
+    private fun setBuilderIcon(builder: NotificationCompat.Builder) {
         icon?.let {
             builder.setSmallIcon(it)
         }
     }
 
-    fun setInboxStyle(builder: NotificationCompat.Builder) {
+    private fun setInboxStyle(builder: NotificationCompat.Builder) {
         val style = NotificationCompat.InboxStyle()
         for (item in inboxItems) {
             style.addLine(item)

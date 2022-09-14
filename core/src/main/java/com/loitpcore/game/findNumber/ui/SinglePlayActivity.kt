@@ -49,7 +49,12 @@ class SinglePlayActivity : BaseFontActivity() {
         setupViewModels()
     }
 
-    override fun onBackPressed() {
+//    override fun onBackPressed() {
+//        activityCircularReveal?.unRevealActivity(this)
+//    }
+
+    override fun onBaseBackPressed() {
+        super.onBaseBackPressed()
         activityCircularReveal?.unRevealActivity(this)
     }
 
@@ -73,6 +78,7 @@ class SinglePlayActivity : BaseFontActivity() {
     }
 
     private fun setupData() {
+        //TODO fix getSerializableExtra
         val level = intent.getSerializableExtra(KEY_LEVEL)
         if (level == null || level !is Level) {
             showShortInformation(getString(R.string.err_unknown_en))
