@@ -6,6 +6,7 @@ import static android.view.MotionEvent.ACTION_MOVE;
 import static android.view.MotionEvent.ACTION_POINTER_UP;
 import static android.view.MotionEvent.ACTION_UP;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -13,7 +14,6 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -71,8 +71,6 @@ public class LWWLMusic extends ViewGroup {
     private LinkedList mViews;
     private int mCurrentY;
     private boolean mIsHScroll;
-    private int mOffsetH;
-    private final int mStart = 0;
 
     public LWWLMusic(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -200,8 +198,8 @@ public class LWWLMusic extends ViewGroup {
     }
 
     public void updateSizeChanged(int width, int height) {
-        int fullPlayerInnerHeight = 0;
-        int miniPlayerInnerHeight = 0;
+        int fullPlayerInnerHeight;
+        int miniPlayerInnerHeight;
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
         int innerWidth = (width - paddingLeft) - getPaddingRight();
@@ -226,8 +224,8 @@ public class LWWLMusic extends ViewGroup {
             this.mTracker.fraction = 0.0f;
             this.mMaxY = innerHeight - ((miniPlayerInnerHeight + fullPlayerInnerHeight) / 2);
         } else {
-            this.mTracker.fraction = (float) Math.atan2((double) cenY, (double) cenX);
-            this.mMaxY = (int) Math.sqrt((double) ((cenX * cenX) + (cenY * cenY)));
+            this.mTracker.fraction = (float) Math.atan2(cenY, cenX);
+            this.mMaxY = (int) Math.sqrt((cenX * cenX) + (cenY * cenY));
         }
         if (!this.mVScroller.isFinished()) {
             this.mCurrentY = (int) (this.mCurrentAlpha * ((float) this.mMaxY));
@@ -326,10 +324,7 @@ public class LWWLMusic extends ViewGroup {
                         float tEY = this.mTracker.eY;
                         int mx = this.mTracker.getMX(motionEvent);
                         int my = this.mTracker.getMY(motionEvent);
-                        boolean minimized = false;
-                        if (this.mState == STATE_MINIMIZED && this.mCurrentY == this.mMaxY) {
-                            minimized = true;
-                        }
+                        boolean minimized = this.mState == STATE_MINIMIZED && this.mCurrentY == this.mMaxY;
                         int direction = this.mTracker.calc(mx, my);
                         if (minimized) {
                             if (Math.abs(mx) > this.mTracker.scaledPagingTouchSlop * 2 && (this.mTracker.fraction == 0.0f || Math.abs(my) < this.mTracker.scaledPagingTouchSlop)) {
@@ -359,6 +354,7 @@ public class LWWLMusic extends ViewGroup {
         return isDragging();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean smooth = false;
         this.mTracker.track(motionEvent);
@@ -498,7 +494,6 @@ public class LWWLMusic extends ViewGroup {
             }
             reset();
             this.mIsHScroll = true;
-            this.mOffsetH = this.mOffsetX;
             this.mHScroller.startScroll(this.mOffsetX, 0, this.mOffsetX < 0 ? -this.mDismissAnimationDistance : this.mDismissAnimationDistance, 0, duration);
             invalidate();
         }
@@ -675,7 +670,8 @@ public class LWWLMusic extends ViewGroup {
             } else {
                 this.mCurrentAlpha = 1.0f;
                 this.mPlayerRect.set(this.mMiniPlayerRect);
-                int i = this.mStart;
+                int mStart = 0;
+                int i = mStart;
                 if (i <= this.mMiniPlayerRect.left) {
                     i = 0;
                 } else {
@@ -861,10 +857,7 @@ public class LWWLMusic extends ViewGroup {
 
     static class DrawableHelper {
         public static Drawable get(Context context, int i) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return context.getDrawable(i);
-            }
-            return context.getResources().getDrawable(i);
+            return context.getDrawable(i);
         }
     }
 
@@ -1032,7 +1025,7 @@ public class LWWLMusic extends ViewGroup {
 
         public final int calc(int x, int y) {
             if (this.fraction != 0.0f) {
-                return (int) ((((double) x) * Math.cos((double) this.fraction)) + (((double) y) * Math.sin((double) this.fraction)));
+                return (int) ((((double) x) * Math.cos(this.fraction)) + (((double) y) * Math.sin(this.fraction)));
             }
             return y;
         }

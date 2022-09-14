@@ -312,7 +312,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showLongDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
-            LToast.showLongInformation(msg)
+            LToast.showLongDebug(msg)
         }
     }
 
