@@ -20,7 +20,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         getAlphabetizedWords()
     }
 
-    fun getAlphabetizedWords() {
+    private fun getAlphabetizedWords() {
         listWord = repository.getAlphabetizedWords()
     }
 

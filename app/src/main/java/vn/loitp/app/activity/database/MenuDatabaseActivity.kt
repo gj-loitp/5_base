@@ -24,6 +24,14 @@ import vn.loitp.app.activity.database.sqliteMultiTable.SqliteMultiTableActivity
 import vn.loitp.app.activity.database.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity
 import vn.loitp.app.activity.demo.architectureComponent.room.WordActivity
 
+/**
+ * Created by Loitp on 15.09.2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
+
 @LogTag("MenuDatabaseActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
@@ -44,7 +52,7 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)

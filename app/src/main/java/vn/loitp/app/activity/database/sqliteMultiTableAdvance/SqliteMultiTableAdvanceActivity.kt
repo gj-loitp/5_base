@@ -16,6 +16,14 @@ import vn.loitp.app.activity.database.sqliteMultiTableAdvance.helper.InspectionD
 import vn.loitp.app.activity.database.sqliteMultiTableAdvance.model.Action
 import vn.loitp.app.activity.database.sqliteMultiTableAdvance.model.Inspection
 
+/**
+ * Created by Loitp on 15.09.2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
+
 @LogTag("SqliteMultiTableAdvanceActivity")
 @IsFullScreen(false)
 class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener {
@@ -38,7 +46,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)

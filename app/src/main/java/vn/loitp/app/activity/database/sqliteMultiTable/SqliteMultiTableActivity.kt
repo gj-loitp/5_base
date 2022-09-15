@@ -16,6 +16,14 @@ import vn.loitp.app.activity.database.sqliteMultiTable.model.Tag
 
 // https://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
 
+/**
+ * Created by Loitp on 15.09.2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
+
 @LogTag("SqliteMultiTableActivity")
 @IsFullScreen(false)
 class SqliteMultiTableActivity : BaseFontActivity() {
@@ -37,7 +45,7 @@ class SqliteMultiTableActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)

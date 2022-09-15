@@ -7,6 +7,14 @@ import android.database.sqlite.SQLiteOpenHelper
 import com.loitpcore.core.utilities.LEncryptionUtil
 import com.loitpcore.utils.util.DeviceUtils
 
+/**
+ * Created by Loitp on 15.09.2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
+
 class BikeDatabase(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 

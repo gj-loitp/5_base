@@ -14,6 +14,14 @@ import kotlinx.android.synthetic.main.activity_shared_prefs_encryption.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 
+/**
+ * Created by Loitp on 15.09.2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
+
 @LogTag("EncryptionSharedPrefsActivity")
 @IsFullScreen(false)
 class EncryptionSharedPrefsActivity : BaseFontActivity() {
@@ -44,7 +52,7 @@ class EncryptionSharedPrefsActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)

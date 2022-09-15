@@ -29,6 +29,7 @@ class FloatingViewService : Service() {
         setupViews()
     }
 
+    @SuppressLint("InflateParams")
     private fun setupViews() {
         mFloatingView =
             LayoutInflater.from(this).inflate(R.layout.layout_demo_floating_widget, null)

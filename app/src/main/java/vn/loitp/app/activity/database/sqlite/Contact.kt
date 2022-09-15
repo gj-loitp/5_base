@@ -3,6 +3,14 @@ package vn.loitp.app.activity.database.sqlite
 import androidx.annotation.Keep
 import com.loitpcore.core.base.BaseModel
 
+/**
+ * Created by Loitp on 15.09.2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
+
 @Keep
 class Contact : BaseModel {
     var id: Int = 0

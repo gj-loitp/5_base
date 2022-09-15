@@ -10,6 +10,14 @@ import vn.loitp.app.activity.database.sqliteMultiTable.model.Tag
 import java.text.SimpleDateFormat
 import java.util.* // ktlint-disable no-wildcard-imports
 
+/**
+ * Created by Loitp on 15.09.2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
+
 class DatabaseHelper(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
