@@ -54,7 +54,7 @@ class LApplication : BaseApplication() {
     }
 
     private fun setupTrackingG1() {
-        val configuration = Configuration()
+        val configuration = Configuration(this)
         configuration.setEnvironmentDev()
 //        configuration.setEnvironmentProd()
         configuration.writeKey = "ab44219f-dc9e-4080-943c-a127bd071da3"

@@ -53,13 +53,12 @@ class TrackingG1Activity : BaseFontActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun trackEventByParams() {
-        val workSpaceId = "490bf1f1-2e88-4d6d-8ec4-2bb7de74f9a8"
+        val workSpaceId = C.workSpaceId
         val identityId = hashMapOf<String, Any>(
-            "user_id" to "Params${System.currentTimeMillis()}",
-            "phone" to "0123456789",
+            "phone" to "0766040293",
             "email" to "loitp@galaxy.one",
-            "deviceId" to Analytics.getDeviceId(this)
         )
+        val profile = hashMapOf<String, Any>()
         val eventName = "event_name"
         val eventDate = System.currentTimeMillis()
         val eventData = hashMapOf<String, Any>(
@@ -70,6 +69,7 @@ class TrackingG1Activity : BaseFontActivity() {
         Analytics.trackEvent(
             workSpaceId = workSpaceId,
             identityId = identityId,
+            profile = profile,
             eventName = eventName,
             eventDate = eventDate,
             eventData = eventData,
@@ -93,13 +93,12 @@ class TrackingG1Activity : BaseFontActivity() {
     @SuppressLint("SetTextI18n")
     private fun trackEventByObject() {
         val monitorEvent = MonitorEvent()
-        monitorEvent.workspaceId = "490bf1f1-2e88-4d6d-8ec4-2bb7de74f9a8"
+        monitorEvent.workspaceId = C.workSpaceId
         monitorEvent.identityId = hashMapOf(
-            "user_id" to "Object${System.currentTimeMillis()}",
-            "phone" to "0123456789",
+            "phone" to "0766040293",
             "email" to "loitp@galaxy.one",
-            "deviceId" to Analytics.getDeviceId(this)
         )
+        monitorEvent.profile = hashMapOf()
         monitorEvent.eventName = "track_now_event"
         monitorEvent.eventDate = System.currentTimeMillis()
         monitorEvent.eventData = hashMapOf(
