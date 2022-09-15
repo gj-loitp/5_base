@@ -157,9 +157,10 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
     private var doubleBackToExitPressedOnce = false
 
     override fun onBaseBackPressed() {
-        super.onBaseBackPressed()
+//        super.onBaseBackPressed()
         if (doubleBackToExitPressedOnce) {
-            onBaseBackPressed()
+//            onBaseBackPressed()
+            super.onBaseBackPressed()//correct
             return
         }
         this.doubleBackToExitPressedOnce = true

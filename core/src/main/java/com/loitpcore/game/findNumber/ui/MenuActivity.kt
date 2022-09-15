@@ -50,7 +50,7 @@ class MenuActivity : BaseFontActivity() {
 //    }
 
     override fun onBaseBackPressed() {
-        super.onBaseBackPressed()
+        super.onBaseBackPressed()//correct
         val intent = Intent()
         setResult(Activity.RESULT_OK, intent)
         activityCircularReveal?.unRevealActivity(this)

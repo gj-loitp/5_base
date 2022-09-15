@@ -36,7 +36,7 @@ class TrackingG1Activity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false

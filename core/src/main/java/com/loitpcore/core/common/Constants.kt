@@ -44,23 +44,20 @@ class Constants {
         //region activity transition
         var TYPE_ACTIVITY_TRANSITION_NO_ANIM = -1
         var TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT = 0
-        var TYPE_ACTIVITY_TRANSITION_SLIDELEFT = 1
-        var TYPE_ACTIVITY_TRANSITION_SLIDERIGHT = 2
-        var TYPE_ACTIVITY_TRANSITION_SLIDEDOWN = 3
-        var TYPE_ACTIVITY_TRANSITION_SLIDEUP = 4
+        var TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT = 1
+        var TYPE_ACTIVITY_TRANSITION_SLIDE_RIGHT = 2
+        var TYPE_ACTIVITY_TRANSITION_SLIDE_DOWN = 3
+        var TYPE_ACTIVITY_TRANSITION_SLIDE_UP = 4
         var TYPE_ACTIVITY_TRANSITION_FADE = 5
-        var TYPE_ACTIVITY_TRANSITION_ZOOM = 6
+        var TYPE_ACTIVITY_TRANSITION_ZOOM = 6 //xau
         var TYPE_ACTIVITY_TRANSITION_WINDMILL = 7
         var TYPE_ACTIVITY_TRANSITION_DIAGONAL = 8 //xau
         var TYPE_ACTIVITY_TRANSITION_SPIN = 9
         //endregion
 
-//        const val PREFIXS = "https://"
-//        const val PREFIXS_SHORT = "https:"
         const val FCM_TOPIC = "/topics/loitp"
         const val URL_POLICY =
             "https://loitp.wordpress.com/2018/06/10/dieu-khoan-su-dung-chinh-sach-bao-mat-va-quyen-rieng-tu/"
-        const val URL_GIRL = "https://www.facebook.com/freuss1/posts/3399843230131155"
 
         //region flickr
         const val SK_PHOTOSET_ID = "SK_PHOTOSET_ID"
@@ -162,7 +159,8 @@ class Constants {
 
         const val BKG_ROOT_VIEW = "BKG_ROOT_VIEW"
         const val BKG_SPLASH_SCREEN = "BKG_SPLASH_SCREEN"
-//        const val IS_HIDE_SPACE_VIEW = "IS_HIDE_SPACE_VIEW"
+
+        //        const val IS_HIDE_SPACE_VIEW = "IS_HIDE_SPACE_VIEW"
         val ARR_RANDOM_BKG = intArrayOf(
             R.drawable.l_bkg_gradient_man_of_steel,
             R.drawable.l_bkg_shadow_black_white,
@@ -185,7 +183,8 @@ class Constants {
             URL_IMG_11,
             URL_IMG_12
         )
-//        const val KEY_VIDEO_CURRENT_POSITION = "KEY_VIDEO_CURRENT_POSITION"
+
+        //        const val KEY_VIDEO_CURRENT_POSITION = "KEY_VIDEO_CURRENT_POSITION"
         const val KEY_VIDEO_LINK_PLAY = "KEY_VIDEO_LINK_PLAY"
         const val KEY_VIDEO_LINK_IMA_AD = "KEY_VIDEO_LINK_IMA_AD"
         const val PER_PAGE_SIZE = 50

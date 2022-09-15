@@ -208,9 +208,10 @@ class AdHelperActivity : BaseFontActivity() {
 //    }
 
     override fun onBaseBackPressed() {
-        super.onBaseBackPressed()
+//        super.onBaseBackPressed()
         if (viewPager.currentItem == 0) {
-            finish()//correct
+//            finish()//correct
+            super.onBaseBackPressed()//correct
         } else {
             viewPager.currentItem = viewPager.currentItem - 1
         }

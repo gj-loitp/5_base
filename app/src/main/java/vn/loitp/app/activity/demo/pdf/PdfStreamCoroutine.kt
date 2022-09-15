@@ -10,7 +10,6 @@ import java.net.URL
 import kotlin.coroutines.CoroutineContext
 
 class PdfStreamCoroutine : CoroutineScope {
-    private val logTag = javaClass.simpleName
     private var job: Job = Job()
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job // to run code in Main(UI) Thread

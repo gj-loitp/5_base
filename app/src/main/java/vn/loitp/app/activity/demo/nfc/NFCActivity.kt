@@ -49,14 +49,14 @@ class NFCActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = NFCActivity::class.java.simpleName
         }
-        currentTagView.text = "Loading..."
+        currentTagView.text = getString(R.string.loading)
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
     }
 
@@ -81,7 +81,9 @@ class NFCActivity : BaseFontActivity() {
         if (pendingIntent == null) {
             pendingIntent = PendingIntent.getActivity(
                 this, 0,
-                Intent(this, javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0
+                Intent(this, javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),
+//                0
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
             currentTagView.text = "Scan a tag"
         }
@@ -96,6 +98,7 @@ class NFCActivity : BaseFontActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
 
+        //TODO fix getParcelableExtra
         val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
         logD("buildMACAddressString " + LNFCUtil.buildMACAddressString(tag?.id))
 

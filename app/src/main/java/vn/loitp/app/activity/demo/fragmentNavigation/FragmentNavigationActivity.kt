@@ -40,7 +40,7 @@ class FragmentNavigationActivity :
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -54,21 +54,32 @@ class FragmentNavigationActivity :
         return true
     }
 
-    override fun onBackPressed() {
+    override fun onBaseBackPressed() {
+//        super.onBaseBackPressed()
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment?
         if (navHostFragment == null) {
-            super.onBackPressed()
+            super.onBaseBackPressed()//correct
             return
         }
         val currentFragment = navHostFragment.childFragmentManager.fragments[0]
         if (currentFragment is OnBackPressedListener) {
             (currentFragment as OnBackPressedListener).onBackPressed()
         }
-        /*else if (!getNavController().popBackStack()) {
-            super.onBackPressed();
-        }*/
     }
+
+//    override fun onBackPressed() {
+//        val navHostFragment =
+//            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment?
+//        if (navHostFragment == null) {
+//            super.onBackPressed()
+//            return
+//        }
+//        val currentFragment = navHostFragment.childFragmentManager.fragments[0]
+//        if (currentFragment is OnBackPressedListener) {
+//            (currentFragment as OnBackPressedListener).onBackPressed()
+//        }
+//    }
 
     fun popThisFragment() {
         if (!navController.popBackStack()) {

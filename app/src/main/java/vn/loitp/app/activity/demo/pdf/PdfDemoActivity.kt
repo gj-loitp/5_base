@@ -42,7 +42,7 @@ class PdfDemoActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)

@@ -31,7 +31,7 @@ class LApplication : BaseApplication() {
         super.onCreate()
 
         // config activity transition default
-        ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL
+        ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
 
         // config realm
         val realmConfiguration = RealmConfiguration.Builder(this)

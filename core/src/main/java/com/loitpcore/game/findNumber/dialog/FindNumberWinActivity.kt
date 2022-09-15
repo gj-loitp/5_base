@@ -47,7 +47,7 @@ class FindNumberWinActivity : BaseFontActivity() {
 //    }
 
     override fun onBaseBackPressed() {
-        super.onBaseBackPressed()
+        super.onBaseBackPressed()//correct
         exit()
     }
 

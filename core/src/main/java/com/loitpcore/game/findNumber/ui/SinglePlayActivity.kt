@@ -54,7 +54,7 @@ class SinglePlayActivity : BaseFontActivity() {
 //    }
 
     override fun onBaseBackPressed() {
-        super.onBaseBackPressed()
+        super.onBaseBackPressed()//correct
         activityCircularReveal?.unRevealActivity(this)
     }
 
