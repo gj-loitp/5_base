@@ -27,6 +27,7 @@ android {
     dataBinding {
         enabled = true
     }
+    namespace 'com.loitpcore'
 }
 
 dependencies {

@@ -16,7 +16,7 @@ android {
     defaultConfig {
         applicationId "com.roygroup.base"
         minSdkVersion 24
-        targetSdk 3233
+        targetSdk 33
         versionCode 20220914
         versionName "1.0.20220914"
         multiDexEnabled true
@@ -71,6 +71,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'vn.loitp.app'
 
     android.applicationVariants.all { variant ->
         variant.outputs.all {
