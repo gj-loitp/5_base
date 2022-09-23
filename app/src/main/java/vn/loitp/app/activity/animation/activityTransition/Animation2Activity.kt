@@ -29,7 +29,7 @@ class Animation2Activity : BaseFontActivity(), OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            tvExit -> onBackPressed()
+            tvExit -> onBaseBackPressed()
         }
     }
 }
