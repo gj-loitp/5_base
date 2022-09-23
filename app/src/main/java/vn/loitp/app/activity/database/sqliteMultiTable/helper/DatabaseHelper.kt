@@ -2,13 +2,14 @@ package vn.loitp.app.activity.database.sqliteMultiTable.helper
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.loitpcore.utils.util.AppUtils
 import vn.loitp.app.activity.database.sqliteMultiTable.model.Note
 import vn.loitp.app.activity.database.sqliteMultiTable.model.Tag
 import java.text.SimpleDateFormat
-import java.util.* // ktlint-disable no-wildcard-imports
+import java.util.*
 
 /**
  * Created by Loitp on 15.09.2022
@@ -62,9 +63,16 @@ class DatabaseHelper(context: Context) :
         if (c.moveToFirst()) {
             do {
                 val note = Note()
-                note.id = c.getInt(c.getColumnIndex(KEY_ID))
-                note.note = c.getString(c.getColumnIndex(KEY_NOTE))
-                note.createdAt = c.getString(c.getColumnIndex(KEY_CREATED_AT))
+
+                getColumnIndexInt(c, KEY_ID)?.let {
+                    note.id = it
+                }
+                getColumnIndexString(c, KEY_NOTE)?.let {
+                    note.note = it
+                }
+                getColumnIndexString(c, KEY_CREATED_AT)?.let {
+                    note.createdAt = it
+                }
                 noteList.add(note)
             } while (c.moveToNext())
         }
@@ -96,13 +104,33 @@ class DatabaseHelper(context: Context) :
         if (c.moveToFirst()) {
             do {
                 val tag = Tag()
-                tag.id = c.getInt(c.getColumnIndex(KEY_ID))
-                tag.tagName = c.getString(c.getColumnIndex(KEY_TAG_NAME))
+                getColumnIndexInt(c, KEY_ID)?.let {
+                    tag.id = it
+                }
+                getColumnIndexString(c, KEY_TAG_NAME)?.let {
+                    tag.tagName = it
+                }
                 tagList.add(tag)
             } while (c.moveToNext())
         }
         c.close()
         return tagList
+    }
+
+    private fun getColumnIndexInt(cursor: Cursor, key: String): Int? {
+        val i = cursor.getColumnIndex(key)
+        if (i >= 0) {
+            return cursor.getInt(i)
+        }
+        return null
+    }
+
+    private fun getColumnIndexString(cursor: Cursor, key: String): String? {
+        val i = cursor.getColumnIndex(key)
+        if (i >= 0) {
+            return cursor.getString(i)
+        }
+        return null
     }
 
     /**
@@ -199,9 +227,15 @@ class DatabaseHelper(context: Context) :
         c?.moveToFirst() ?: return null
 
         val note = Note()
-        note.id = c.getInt(c.getColumnIndex(KEY_ID))
-        note.note = c.getString(c.getColumnIndex(KEY_NOTE))
-        note.createdAt = c.getString(c.getColumnIndex(KEY_CREATED_AT))
+        getColumnIndexInt(c, KEY_ID)?.let {
+            note.id = it
+        }
+        getColumnIndexString(c, KEY_NOTE)?.let {
+            note.note = it
+        }
+        getColumnIndexString(c, KEY_CREATED_AT)?.let {
+            note.createdAt = it
+        }
 
         c.close()
         return note
@@ -226,9 +260,15 @@ class DatabaseHelper(context: Context) :
         if (c.moveToFirst()) {
             do {
                 val td = Note()
-                td.id = c.getInt(c.getColumnIndex(KEY_ID))
-                td.note = c.getString(c.getColumnIndex(KEY_NOTE))
-                td.createdAt = c.getString(c.getColumnIndex(KEY_CREATED_AT))
+                getColumnIndexInt(c, KEY_ID)?.let {
+                    td.id = it
+                }
+                getColumnIndexString(c, KEY_NOTE)?.let {
+                    td.note = it
+                }
+                getColumnIndexString(c, KEY_CREATED_AT)?.let {
+                    td.createdAt = it
+                }
                 noteList.add(td)
             } while (c.moveToNext())
         }
