@@ -33,6 +33,7 @@ public class BookPageIntroFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        assert getArguments() != null;
         imageId = getArguments().getInt("imageId", R.drawable.ic_launcher_background);
         title = getArguments().getString("title", "");
         subtitle = getArguments().getString("subtitle", "");
