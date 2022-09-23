@@ -57,7 +57,7 @@ class SwipeRevealLayoutGridActivity : BaseFontActivity() {
             it.setDisplayHomeAsUpEnabled(true)
             it.setDisplayShowHomeEnabled(true)
             toolbar.setNavigationOnClickListener {
-                onBackPressed()
+                onBaseBackPressed()
             }
         }
     }
