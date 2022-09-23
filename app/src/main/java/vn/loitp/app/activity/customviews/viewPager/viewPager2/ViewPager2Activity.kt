@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.customviews.viewPager.viewPager2
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -9,21 +8,25 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_view_pager_2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewPager.viewPager2.FrmViewPager2.Companion.getInstance
 
-class ViewPager2Activity : AppCompatActivity() {
+class ViewPager2Activity : BaseFontActivity() {
 
     companion object {
         val tabName = arrayOf("1", "2", "3", "4", "5", "6", "7", "8", "9")
     }
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_view_pager_2
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_view_pager_2)
 
         setupViews()
     }
@@ -33,7 +36,7 @@ class ViewPager2Activity : AppCompatActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
