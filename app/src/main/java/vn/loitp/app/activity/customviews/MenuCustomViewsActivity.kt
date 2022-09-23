@@ -25,6 +25,7 @@ import vn.loitp.app.activity.customviews.draggableFlipView.DraggableFlipViewActi
 import vn.loitp.app.activity.customviews.edittext.MenuEditTextActivity
 import vn.loitp.app.activity.customviews.facebookComment.FacebookCommentActivity
 import vn.loitp.app.activity.customviews.fingerPaintView.FingerPaintActivity
+import vn.loitp.app.activity.customviews.graphView.MenuGraphViewActivity
 import vn.loitp.app.activity.customviews.imageview.MenuImageViewActivity
 import vn.loitp.app.activity.customviews.indicator.example.MenuMagicIndicatorActivity
 import vn.loitp.app.activity.customviews.lCardView.LCardViewActivity
@@ -38,6 +39,8 @@ import vn.loitp.app.activity.customviews.recyclerview.MenuRecyclerViewActivity
 import vn.loitp.app.activity.customviews.scratchView.MenuScratchViewActivity
 import vn.loitp.app.activity.customviews.scrollablePanel.ScrollablePanelActivity
 import vn.loitp.app.activity.customviews.seekBar.MenuSeekbarActivity
+import vn.loitp.app.activity.customviews.simpleRatingBar.SimpleRatingBarActivity
+import vn.loitp.app.activity.customviews.stackExpandableView.StackExpandableViewActivity
 import vn.loitp.app.activity.customviews.sticker.StickerActivity
 import vn.loitp.app.activity.customviews.switchToggle.MenuSwitchToggleActivity
 import vn.loitp.app.activity.customviews.textview.MenuTextViewActivity
@@ -51,7 +54,7 @@ import vn.loitp.app.activity.customviews.wwlVideo.WWLVideoActivity
 
 @LogTag("MenuCustomViewsActivity")
 @IsFullScreen(false)
-@IsAutoAnimation(true)
+@IsAutoAnimation(false)
 class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
@@ -69,7 +72,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
@@ -111,6 +114,9 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btIndicator.setOnClickListener(this)
         btWheelSpinner.setOnClickListener(this)
         btFingerPaintView.setOnClickListener(this)
+        btStackExpandableViewActivity.setOnClickListener(this)
+        btMenuGraphViewActivity.setOnClickListener(this)
+        btSimpleRatingBar.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -150,6 +156,9 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btIndicator -> Intent(this, MenuMagicIndicatorActivity::class.java)
             btWheelSpinner -> Intent(this, WheelSpinnerActivity::class.java)
             btFingerPaintView -> Intent(this, FingerPaintActivity::class.java)
+            btStackExpandableViewActivity -> Intent(this, StackExpandableViewActivity::class.java)
+            btMenuGraphViewActivity -> Intent(this, MenuGraphViewActivity::class.java)
+            btSimpleRatingBar -> Intent(this, SimpleRatingBarActivity::class.java)
             else -> null
         }
         intent?.let {

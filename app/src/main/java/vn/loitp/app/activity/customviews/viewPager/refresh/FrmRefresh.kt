@@ -42,7 +42,7 @@ class FrmRefresh : Fragment() {
     private var isLoaded = false
     private var isVisibleToUser = false
 
-    @Deprecated("Deprecated in Java")
+    //TODO fix setUserVisibleHint
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
 

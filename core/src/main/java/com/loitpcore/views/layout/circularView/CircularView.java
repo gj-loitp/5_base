@@ -2,6 +2,7 @@ package com.loitpcore.views.layout.circularView;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -30,7 +31,6 @@ import java.util.ArrayList;
  * freuss47@gmail.com
  */
 public class CircularView extends View {
-    private static final String TAG = CircularView.class.getSimpleName();
     private String mText; //check add customization for the text (style, color, etc)
 
     private TextPaint mTextPaint;
@@ -185,8 +185,8 @@ public class CircularView extends View {
 
         // init circle dimens
         final int shortDimension = Math.min(
-                mWidth = super.getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),
-                mHeight = super.getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));
+                mWidth = View.getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),
+                mHeight = View.getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));
         final float actualDimension = Math.round(shortDimension * CIRCLE_WEIGHT_LONG_ORIENTATION);
         final float circleRadius = (actualDimension - BASE_MARKER_RADIUS * 4f - CIRCLE_TO_MARKER_PADDING * 2f) / 2f;
         final float circleCenterX = mWidth / 2f;
@@ -250,7 +250,7 @@ public class CircularView extends View {
             final int markerCount = mAdapter.getCount();
             assert (markerCount >= 0);
             if (mMarkerList == null) {
-                mMarkerList = new ArrayList<Marker>(markerCount);
+                mMarkerList = new ArrayList<>(markerCount);
             }
             int markerViewListSize = mMarkerList.size();
             final float degreeInterval = 360.0f / markerCount;
@@ -610,6 +610,7 @@ public class CircularView extends View {
     private Marker mTouchEventMarker = null;
     private Integer mTouchEventMarkerPos = null;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         boolean handled = false;
@@ -671,7 +672,6 @@ public class CircularView extends View {
         if (!handled && mCircle != null) {
             final int status = mCircle.onTouchEvent(event);
             if (status >= 0) {
-                handled = true;
                 mTouchEventMarker = null;
                 mTouchEventMarkerPos = -1;
                 if (status == MotionEvent.ACTION_UP && mOnCircularViewObjectClickListener != null) {
@@ -688,7 +688,7 @@ public class CircularView extends View {
         return super.onTouchEvent(event);
     }
 
-    private OnLongClickListener mOnLongClickListener = new OnLongClickListener() {
+    private final OnLongClickListener mOnLongClickListener = new OnLongClickListener() {
         @Override
         public boolean onLongClick(View v) {
             if (mOnCircularViewObjectClickListener != null && isLongClickable()) {
@@ -854,7 +854,7 @@ public class CircularView extends View {
          * @param view        The circular view that was clicked.
          * @param isLongClick True if this click is coming from a long click, false if not.
          */
-        public void onClick(CircularView view, boolean isLongClick);
+        void onClick(CircularView view, boolean isLongClick);
 
         /**
          * Called when a marker is clicked.
@@ -864,7 +864,7 @@ public class CircularView extends View {
          * @param position    The position of the marker in the adapter
          * @param isLongClick True if this click is coming from a long click, false if not.
          */
-        public void onMarkerClick(CircularView view, Marker marker, int position, boolean isLongClick);
+        void onMarkerClick(CircularView view, Marker marker, int position, boolean isLongClick);
     }
 
     /**
@@ -878,6 +878,6 @@ public class CircularView extends View {
          * @param marker   The circular view object that the animation ended on.
          * @param position The position of the marker in the adapter.
          */
-        public void onHighlightAnimationEnd(CircularView view, Marker marker, int position);
+        void onHighlightAnimationEnd(CircularView view, Marker marker, int position);
     }
 }

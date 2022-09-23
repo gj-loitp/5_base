@@ -74,7 +74,7 @@ class FbCommentActivity : BaseFontActivity() {
         // finish the activity in case of empty url
         if (TextUtils.isEmpty(postUrl)) {
             showShortError("The web url shouldn't be empty")
-            onBackPressed()
+            onBaseBackPressed()
             return
         }
     }
@@ -82,9 +82,9 @@ class FbCommentActivity : BaseFontActivity() {
     private fun setupActionBar() {
         lActionBar.apply {
             this.ivIconLeft?.setSafeOnClickListener {
-                onBackPressed()
+                onBaseBackPressed()
             }
-            this.ivRight.isVisible = false
+            this.ivRight?.isVisible = false
             this.realtimeBlurView?.isVisible = false
             this.tvTitle?.text = LAppResource.getString(R.string.fb_comment)
         }
@@ -96,7 +96,7 @@ class FbCommentActivity : BaseFontActivity() {
             webViewClient = UriWebViewClient()
             webChromeClient = UriChromeClient()
             settings.javaScriptEnabled = true
-            settings.setAppCacheEnabled(true)
+            settings.cacheMode = WebSettings.LOAD_NO_CACHE
             settings.domStorageEnabled = true
             settings.javaScriptCanOpenWindowsAutomatically = true
             settings.setSupportMultipleWindows(true)

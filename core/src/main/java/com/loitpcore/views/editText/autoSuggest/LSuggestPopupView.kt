@@ -1,11 +1,9 @@
 package com.loitpcore.views.editText.autoSuggest
 
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.view.*
 import android.widget.Button
 import android.widget.LinearLayout
@@ -70,7 +68,6 @@ class LSuggestPopupView(
         circularReveal(anchor)
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private fun circularReveal(anchor: View) {
         val contentView = contentView
         contentView.post {

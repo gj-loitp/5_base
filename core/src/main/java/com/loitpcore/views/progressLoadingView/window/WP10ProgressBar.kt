@@ -2,6 +2,7 @@ package com.loitpcore.views.progressLoadingView.window
 
 import android.content.Context
 import android.os.Handler
+import android.os.Looper
 import android.util.AttributeSet
 import android.view.Gravity
 import android.widget.RelativeLayout
@@ -53,7 +54,7 @@ class WP10ProgressBar : RelativeLayout {
 
     private fun initialize(attrs: AttributeSet?) {
         this.gravity = Gravity.CENTER
-        mHandler = Handler()
+        mHandler = Handler(Looper.getMainLooper())
         this.rotation = -25f
         setAttributes(attrs)
         initializeIndicators()

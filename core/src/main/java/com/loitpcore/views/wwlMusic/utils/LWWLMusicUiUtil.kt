@@ -3,7 +3,6 @@ package com.loitpcore.views.wwlMusic.utils
 import android.app.Activity
 import android.content.res.Resources
 import android.graphics.Color
-import android.os.Build
 import android.view.View
 import android.view.ViewConfiguration
 import android.view.WindowManager
@@ -54,12 +53,10 @@ object LWWLMusicUiUtil {
 
     @JvmStatic
     fun updateStatusBarAlpha(activity: Activity, alpha: Float) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            val color = ContextCompat.getColor(activity, R.color.colorPrimaryDark)
-            val color2 = Color.BLACK
-            val color3 =
-                LWWLMusicViewHelper.evaluateColorAlpha(max(0.0f, min(1.0f, alpha)), color, color2)
-            activity.window.statusBarColor = color3
-        }
+        val color = ContextCompat.getColor(activity, R.color.colorPrimaryDark)
+        val color2 = Color.BLACK
+        val color3 =
+            LWWLMusicViewHelper.evaluateColorAlpha(max(0.0f, min(1.0f, alpha)), color, color2)
+        activity.window.statusBarColor = color3
     }
 }

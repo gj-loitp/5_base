@@ -1,4 +1,4 @@
-package com.loitpcore.views.imageView
+package com.loitpcore.views.imageView.dynamic
 
 import android.content.Context
 import android.util.AttributeSet

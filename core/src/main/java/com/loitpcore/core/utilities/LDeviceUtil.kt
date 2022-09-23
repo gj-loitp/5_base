@@ -34,7 +34,7 @@ class LDeviceUtil {
 
         @Suppress("DEPRECATION")
         @SuppressLint("ObsoleteSdkInt")
-        fun setClipboard(text: String) {
+        fun setClipboard(text: String): String {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
                 val clipboard =
                     LAppResource.application.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
@@ -45,6 +45,7 @@ class LDeviceUtil {
                 val clip = android.content.ClipData.newPlainText("Copy", text)
                 clipboard.setPrimaryClip(clip)
             }
+            return text
         }
 
         @JvmStatic
@@ -63,10 +64,10 @@ class LDeviceUtil {
             return r.nextInt(max)
         }
 
-        fun getRandomString(maxLeng: Int): String {
+        fun getRandomString(maxLength: Int): String {
             val generator = Random()
             val randomStringBuilder = StringBuilder()
-            val randomLength = generator.nextInt(maxLeng)
+            val randomLength = generator.nextInt(maxLength)
             var tempChar: Char
             for (i in 0 until randomLength) {
                 tempChar = (generator.nextInt(96) + 32).toChar()

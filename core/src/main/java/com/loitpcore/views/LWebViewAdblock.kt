@@ -184,6 +184,7 @@ body {
         logD("isFeatureSupported $isFeatureSupported")
         if (isFeatureSupported) {
             if (isDarkMode) {
+                //TODO setForceDark android 13 not work
                 WebSettingsCompat.setForceDark(this.settings, WebSettingsCompat.FORCE_DARK_ON)
             } else {
                 WebSettingsCompat.setForceDark(this.settings, WebSettingsCompat.FORCE_DARK_OFF)

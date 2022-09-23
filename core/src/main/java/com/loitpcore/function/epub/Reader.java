@@ -139,7 +139,7 @@ public class Reader {
     public void saveProgress() throws ReadingException {
 
         ZipFile epubFile = null;
-        ZipOutputStream zipOutputStream = null;
+        ZipOutputStream zipOutputStream;
         ObjectOutputStream objectOutputStream = null;
 
         String newFilePath = null;
@@ -232,7 +232,7 @@ public class Reader {
             throw new ReadingException("No save files are found. Loading progress is unavailable.");
 
         ZipFile epubFile = null;
-        InputStream saveFileInputStream = null;
+        InputStream saveFileInputStream;
         ObjectInputStream oiStream = null;
 
         try {
@@ -299,7 +299,7 @@ public class Reader {
             Enumeration<? extends ZipEntry> files = epubFile.entries();
 
             while (files.hasMoreElements()) {
-                ZipEntry entry = (ZipEntry) files.nextElement();
+                ZipEntry entry = files.nextElement();
                 if (!entry.isDirectory()) {
                     String entryName = entry.getName();
 

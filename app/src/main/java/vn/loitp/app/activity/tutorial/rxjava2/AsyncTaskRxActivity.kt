@@ -39,7 +39,7 @@ class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -53,6 +53,7 @@ class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
         btRx4.setOnClickListener(this)
     }
 
+    @Suppress("DEPRECATION")
     override fun onClick(view: View) {
         when (view) {
             btAsyncTask -> {
@@ -90,6 +91,7 @@ class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
         compositeDisposable.clear()
     }
 
+    @Suppress("DEPRECATION")
     @SuppressLint("StaticFieldLeak")
     private inner class TaskTest1 : AsyncTask<Void, Bike, List<Bike>>() {
         @Deprecated("Deprecated in Java")

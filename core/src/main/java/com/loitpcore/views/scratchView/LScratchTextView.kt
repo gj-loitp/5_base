@@ -285,6 +285,7 @@ class LScratchTextView : AppCompatTextView {
 
             object : AsyncTask<Int, Void, Float>() {
 
+                @Deprecated("Deprecated in Java")
                 @Suppress("NAME_SHADOWING")
                 override fun doInBackground(vararg params: Int?): Float {
                     return try {
@@ -300,6 +301,7 @@ class LScratchTextView : AppCompatTextView {
                     }
                 }
 
+                @Deprecated("Deprecated in Java")
                 public override fun onPostExecute(percentRevealed: Float) {
                     // check if not revealed before.
                     if (!isRevealed) {

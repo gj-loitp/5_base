@@ -49,7 +49,7 @@ class FragmentFlowActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -64,12 +64,13 @@ class FragmentFlowActivity : BaseFontActivity() {
         }
     }
 
-    override fun onBackPressed() {
+    override fun onBaseBackPressed() {
+//        super.onBaseBackPressed()
         if (onBackClickListener != null && onBackClickListener!!.onBackClick()) {
             return
         }
         if (doubleBackToExitPressedOnce) {
-            super.onBackPressed()
+            super.onBaseBackPressed()
             return
         }
         this.doubleBackToExitPressedOnce = true
@@ -78,6 +79,20 @@ class FragmentFlowActivity : BaseFontActivity() {
             doubleBackToExitPressedOnce = false
         }, 2000)
     }
+//    override fun onBackPressed() {
+//        if (onBackClickListener != null && onBackClickListener!!.onBackClick()) {
+//            return
+//        }
+//        if (doubleBackToExitPressedOnce) {
+//            super.onBackPressed()
+//            return
+//        }
+//        this.doubleBackToExitPressedOnce = true
+//        showShortInformation(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            doubleBackToExitPressedOnce = false
+//        }, 2000)
+//    }
 
     fun showFragment(baseFragment: BaseFragment) {
         LScreenUtil.addFragment(

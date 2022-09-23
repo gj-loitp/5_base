@@ -113,7 +113,7 @@ public class AlarmNotification extends BaseFontActivity {
     }
 
     public void onDismissClick(View view) {
-        finish();
+        finishAfterTransition();
         LActivityUtil.tranIn(this);
     }
 
@@ -161,7 +161,7 @@ public class AlarmNotification extends BaseFontActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
+        finish();//correct
         LActivityUtil.tranIn(this);
     }
 
@@ -170,7 +170,7 @@ public class AlarmNotification extends BaseFontActivity {
         public void run() {
             logD("AlarmNotification.PalyTimerTask.run()");
             addNotification(mAlarm);
-            finish();
+            finish();//correct
             LActivityUtil.tranIn(AlarmNotification.this);
         }
     }

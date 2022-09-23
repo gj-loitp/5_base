@@ -18,7 +18,7 @@ class Package : BaseFindings() {
     val metadata: Metadata
     val manifest: Manifest
     val spine: Spine
-    val guide: Guide
+    private val guide: Guide
 
     private var isMetadataFound = false
     private var isManifestFound = false
@@ -35,7 +35,7 @@ class Package : BaseFindings() {
     inner class Metadata {
         // Required Terms
         val title: String? = null
-        val language: String? = null
+        private val language: String? = null
         private val identifier: String? = null
 
         // Optional Terms

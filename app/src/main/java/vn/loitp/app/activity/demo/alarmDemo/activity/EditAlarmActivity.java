@@ -127,13 +127,13 @@ public class EditAlarmActivity extends BaseFontActivity {
 
         mAlarm.toIntent(intent);
         setResult(RESULT_OK, intent);
-        finish();
+        finish();//correct
         LActivityUtil.tranIn(this);
     }
 
     public void onCancelClick(View view) {
         setResult(RESULT_CANCELED, null);
-        finish();
+        finish();//correct
         LActivityUtil.tranIn(this);
     }
 

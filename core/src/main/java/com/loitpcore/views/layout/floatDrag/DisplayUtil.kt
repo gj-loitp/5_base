@@ -1,11 +1,9 @@
 package com.loitpcore.views.layout.floatDrag
 
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.os.Build
 import android.util.TypedValue
 import android.view.ViewConfiguration
 import kotlin.math.roundToInt
@@ -61,7 +59,7 @@ object DisplayUtil {
         try {
             @SuppressLint("PrivateApi") val clazz = Class.forName("com.android.internal.R\$dimen")
             val obj = clazz.newInstance()
-            val height = clazz.getField("status_bar_height")[obj].toString().toInt()
+            val height = clazz.getField("status_bar_height")[obj]?.toString()?.toInt() ?: 0
             statusHeight = resources.getDimensionPixelSize(height)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -86,7 +84,6 @@ object DisplayUtil {
         return result
     }
 
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     fun hasNavBar(context: Context): Boolean {
         val res = context.resources
         val resourceId = res.getIdentifier("config_showNavigationBar", "bool", "android")

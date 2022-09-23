@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.demo.architectureComponent.coroutine
 
-import android.util.Log
-import kotlinx.coroutines.* // ktlint-disable no-wildcard-imports
+import com.loitpcore.core.utilities.LLog
+import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 class CoroutineTask : CoroutineScope {
@@ -30,6 +30,6 @@ class CoroutineTask : CoroutineScope {
 
     // Runs in Main(UI) Thread
     private fun doUiStuff(result: String) {
-        Log.d(logTag, "doUiStuff result: $result")
+        LLog.d(logTag, "doUiStuff result: $result")
     }
 }

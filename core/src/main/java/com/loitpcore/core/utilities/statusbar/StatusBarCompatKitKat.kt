@@ -214,23 +214,21 @@ internal class StatusBarCompatKitKat {
                 statusView.alpha = 0f
             }
 
-            appBarLayout.addOnOffsetChangedListener(
-                AppBarLayout.OnOffsetChangedListener { _, verticalOffset ->
-                    if (abs(verticalOffset) > appBarLayout.height - collapsingToolbarLayout.scrimVisibleHeightTrigger) {
-                        if (statusView.alpha == 0f) {
-                            statusView.animate().cancel()
-                            statusView.animate().alpha(1f)
-                                .setDuration(collapsingToolbarLayout.scrimAnimationDuration).start()
-                        }
-                    } else {
-                        if (statusView.alpha == 1f) {
-                            statusView.animate().cancel()
-                            statusView.animate().alpha(0f)
-                                .setDuration(collapsingToolbarLayout.scrimAnimationDuration).start()
-                        }
+            appBarLayout.addOnOffsetChangedListener { _, verticalOffset ->
+                if (abs(verticalOffset) > appBarLayout.height - collapsingToolbarLayout.scrimVisibleHeightTrigger) {
+                    if (statusView.alpha == 0f) {
+                        statusView.animate().cancel()
+                        statusView.animate().alpha(1f)
+                            .setDuration(collapsingToolbarLayout.scrimAnimationDuration).start()
+                    }
+                } else {
+                    if (statusView.alpha == 1f) {
+                        statusView.animate().cancel()
+                        statusView.animate().alpha(0f)
+                            .setDuration(collapsingToolbarLayout.scrimAnimationDuration).start()
                     }
                 }
-            )
+            }
         }
     }
 }

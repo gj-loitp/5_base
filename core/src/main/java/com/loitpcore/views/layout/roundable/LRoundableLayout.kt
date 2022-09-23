@@ -1,10 +1,8 @@
 package com.loitpcore.views.layout.roundable
 
-import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.GradientDrawable
-import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewOutlineProvider
@@ -241,7 +239,6 @@ class LRoundableLayout : ConstraintLayout {
         super.setTranslationZ(translationZ)
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     override fun getOutlineProvider(): ViewOutlineProvider {
         return object : ViewOutlineProvider() {
             override fun getOutline(view: View, outline: Outline) {

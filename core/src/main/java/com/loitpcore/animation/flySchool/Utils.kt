@@ -2,7 +2,6 @@ package com.loitpcore.animation.flySchool
 
 import android.content.res.Resources
 import android.graphics.PorterDuff
-import android.os.Build
 import android.widget.ImageView
 import com.loitpcore.core.utilities.LDeviceUtil.Companion.getRandomNumber
 import com.loitpcore.core.utilities.LStoreUtil.Companion.randomColor
@@ -23,8 +22,8 @@ object Utils {
     /**
      * Checks and tell us whether the android phone is on version < LOLLIPOP or not
      */
-    val isLowerThanLollipop: Boolean
-        get() = Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP
+//    val isLowerThanLollipop: Boolean
+//        get() = false
 
     @JvmStatic
     fun setHeart(imageView: ImageView) {

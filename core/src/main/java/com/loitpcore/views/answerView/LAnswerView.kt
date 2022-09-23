@@ -140,7 +140,7 @@ class LAnswerView : LinearLayout, View.OnClickListener {
     }
 
     var activeChar: Char
-        get() = ('A'.toInt() + activeIndex).toChar()
+        get() = ('A'.code + activeIndex).toChar()
         set(index) {
             activeIndex = index - 'A'
         }

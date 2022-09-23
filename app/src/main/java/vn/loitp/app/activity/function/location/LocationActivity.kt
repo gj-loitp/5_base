@@ -80,7 +80,7 @@ class LocationActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -132,6 +132,7 @@ class LocationActivity : BaseFontActivity() {
                 mRequestingLocationUpdates = savedInstanceState.getBoolean("is_requesting_updates")
             }
             if (savedInstanceState.containsKey("last_known_location")) {
+                //TODO fix getParcelable
                 mCurrentLocation = savedInstanceState.getParcelable("last_known_location")
             }
             if (savedInstanceState.containsKey("last_updated_on")) {
@@ -151,6 +152,7 @@ class LocationActivity : BaseFontActivity() {
 
             var moreInfor = ""
             LLocationUtil.getCityByLatLon(
+                this,
                 it.latitude,
                 it.longitude
             ) { address: String?, city: String?, state: String?, country: String? ->
@@ -285,7 +287,7 @@ class LocationActivity : BaseFontActivity() {
                     mRequestingLocationUpdates = true
                     startLocationUpdates()
                 } else {
-                    finish()
+                    finish()//correct
                     LActivityUtil.tranOut(this)
                 }
             }
@@ -315,7 +317,7 @@ class LocationActivity : BaseFontActivity() {
         }
     }
 
-    @Deprecated("Deprecated in Java")
+    //TODO onActivityResult
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {

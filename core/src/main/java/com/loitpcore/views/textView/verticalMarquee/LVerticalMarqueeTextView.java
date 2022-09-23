@@ -22,7 +22,6 @@ import com.loitpcore.R;
  */
 //try to convert kotlin 4/12/2020 but failed
 public class LVerticalMarqueeTextView extends ScrollView {
-    private static final String TAG = LVerticalMarqueeTextView.class.getName();
 
     private static final int MIN_MARQUEE_SPEED = 1;
     private static final int MAX_MARQUEE_SPEED = 1000;

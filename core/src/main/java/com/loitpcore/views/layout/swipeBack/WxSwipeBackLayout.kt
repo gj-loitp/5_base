@@ -19,10 +19,6 @@ class WxSwipeBackLayout @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : SwipeBackLayout(context, attrs, defStyleAttr) {
 
-    companion object {
-        private val TAG = WxSwipeBackLayout::class.java.simpleName
-    }
-
     override var directionMode: Int
         get() = super.directionMode
         set(direction) {
@@ -43,7 +39,7 @@ class WxSwipeBackLayout @JvmOverloads constructor(
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
-                    finish()
+                    finish()//correct
                 }
                 onPanelReset()
             }

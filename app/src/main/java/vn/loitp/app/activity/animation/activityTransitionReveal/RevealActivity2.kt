@@ -33,7 +33,8 @@ class RevealActivity2 : BaseFontActivity() {
         activityCircularReveal?.onActivityCreate(intent)
     }
 
-    override fun onBackPressed() {
+    override fun onBaseBackPressed() {
+//        super.onBaseBackPressed()
         val intent = Intent()
         intent.putExtra(KEY_DATA_RETURN, "data " + System.currentTimeMillis())
         setResult(Activity.RESULT_OK, intent)

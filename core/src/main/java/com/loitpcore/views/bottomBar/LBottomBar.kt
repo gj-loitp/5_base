@@ -33,10 +33,9 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         const val PAGE_5 = 5
     }
 
-    private val logTag = javaClass.simpleName
     private var previousPos: Int = 0
     private var currentPos: Int = 0
-    var isAlwayShowText = true
+    var isAlwaysShowText = true
         set(value) {
             field = value
             refreshUI()
@@ -263,7 +262,7 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         tvIcon5.setTextColor(LAppResource.getColor(this.colorIvOff))
         textView.setTextColor(LAppResource.getColor(this.colorIvOn))
 
-        if (isAlwayShowText) {
+        if (isAlwaysShowText) {
             tvIcon0.visibility = View.VISIBLE
             tvIcon1.visibility = View.VISIBLE
             tvIcon2.visibility = View.VISIBLE

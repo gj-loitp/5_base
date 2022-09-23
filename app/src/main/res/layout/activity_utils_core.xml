@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutRootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/sv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/margin_padding_medium"
+                android:paddingBottom="@dimen/margin_padding_medium">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btScrollToBottom"
+                    style="@style/ButtonMenu"
+                    android:text="scrollToBottom" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btSetStatusBarColorAlpha"
+                    style="@style/ButtonMenu"
+                    android:text="setStatusBarColor Alpha" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btSetStatusBarColor"
+                    style="@style/ButtonMenu"
+                    android:text="setStatusBarColor" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btTranslucentStatusBar"
+                    style="@style/ButtonMenu"
+                    android:text="translucentStatusBar" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btHideSystemUI"
+                    style="@style/ButtonMenu"
+                    android:text="hideSystemUI" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btShowSystemUI"
+                    style="@style/ButtonMenu"
+                    android:text="showSystemUI" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btPlayRotate"
+                    style="@style/ButtonMenu"
+                    android:text="playRotate" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btSlideInDown"
+                    style="@style/ButtonMenu"
+                    android:text="slideInDown" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btSlideInUp"
+                    style="@style/ButtonMenu"
+                    android:text="slideInUp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btPlayAnimRandomDuration"
+                    style="@style/ButtonMenu"
+                    android:text="playAnimRandomDuration" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btConvertNumberToStringFormat"
+                    style="@style/ButtonMenu"
+                    android:text="convertNumberToStringFormat" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btConvertNumberToString"
+                    style="@style/ButtonMenu"
+                    android:text="convertNumberToString" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btConvertNumberToPercent"
+                    style="@style/ButtonMenu"
+                    android:text="convertNumberToPercent" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btRoundBigDecimal"
+                    style="@style/ButtonMenu"
+                    android:text="roundBigDecimal" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btLDateUtil"
+                    style="@style/ButtonMenu"
+                    android:text="LDateUtil" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btLDeviceUtil"
+                    style="@style/ButtonMenu"
+                    android:text="LDeviceUtil" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btSetClipboard"
+                    style="@style/ButtonMenu"
+                    android:text="setClipboard" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btLDisplayUtil"
+                    style="@style/ButtonMenu"
+                    android:text="LDisplayUtil" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btToggleKeyboard"
+                    style="@style/ButtonMenu"
+                    android:text="toggleKeyboard" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btLImageUtil"
+                    style="@style/ButtonMenu"
+                    android:text="LImageUtil" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btLMathUtil"
+                    style="@style/ButtonMenu"
+                    android:text="LMathUtil" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btShowStatusBar"
+                    style="@style/ButtonMenu"
+                    android:text="showStatusBar" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btHideStatusBar"
+                    style="@style/ButtonMenu"
+                    android:text="hideStatusBar" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btHideNavigationBar"
+                    style="@style/ButtonMenu"
+                    android:text="hideNavigationBar" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btShowNavigationBar"
+                    style="@style/ButtonMenu"
+                    android:text="showNavigationBar" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btHideDefaultControls"
+                    style="@style/ButtonMenu"
+                    android:text="hideDefaultControls" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btShowDefaultControls"
+                    style="@style/ButtonMenu"
+                    android:text="showDefaultControls" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btSetBrightness"
+                    style="@style/ButtonMenu"
+                    android:text="setBrightness" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btSendSMS"
+                    style="@style/ButtonMenu"
+                    android:text="sendSMS" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btLStoreUtil"
+                    style="@style/ButtonMenu"
+                    android:text="LStoreUtil" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btLStringUtil"
+                    style="@style/ButtonMenu"
+                    android:text="LStringUtil" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btLValidateUtil"
+                    style="@style/ButtonMenu"
+                    android:text="LValidateUtil" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:id="@+id/v1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+
+                <View
+                    android:id="@+id/v2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+
+                <View
+                    android:id="@+id/v3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+
+                <View
+                    android:id="@+id/v4"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:drawableStartCompat="@drawable/ic_launcher" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <androidx.appcompat.widget.AppCompatSeekBar
+                    android:id="@+id/sb1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

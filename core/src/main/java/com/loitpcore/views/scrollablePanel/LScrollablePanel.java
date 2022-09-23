@@ -66,6 +66,7 @@ public class LScrollablePanel extends FrameLayout {
     private void setUpFirstItemView(PanelAdapter panelAdapter) {
         final RecyclerView.ViewHolder viewHolder = panelAdapter.onCreateViewHolder(firstItemView, panelAdapter.getItemViewType(0, 0));
         panelAdapter.onBindViewHolder(viewHolder, 0, 0);
+        assert viewHolder != null;
         firstItemView.addView(viewHolder.itemView);
     }
 
@@ -98,7 +99,7 @@ public class LScrollablePanel extends FrameLayout {
      */
     private static class PanelLineItemAdapter extends RecyclerView.Adapter {
 
-        private PanelAdapter panelAdapter;
+        private final PanelAdapter panelAdapter;
         private int row;
 
         public PanelLineItemAdapter(int row, PanelAdapter panelAdapter) {
@@ -195,6 +196,7 @@ public class LScrollablePanel extends FrameLayout {
                 RecyclerView.ViewHolder viewHolder = panelAdapter.onCreateViewHolder(holder.firstColumnItemView, panelAdapter.getItemViewType(position + 1, 0));
                 holder.firstColumnItemVH = viewHolder;
                 panelAdapter.onBindViewHolder(holder.firstColumnItemVH, position + 1, 0);
+                assert viewHolder != null;
                 holder.firstColumnItemView.addView(viewHolder.itemView);
             } else {
                 panelAdapter.onBindViewHolder(holder.firstColumnItemVH, position + 1, 0);

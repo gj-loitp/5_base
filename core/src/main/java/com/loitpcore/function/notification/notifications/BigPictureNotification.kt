@@ -26,13 +26,13 @@ class BigPictureNotification(
         return builder
     }
 
-    fun setBuilderIcon(builder: NotificationCompat.Builder) {
+    private fun setBuilderIcon(builder: NotificationCompat.Builder) {
         icon?.let {
             builder.setSmallIcon(it)
         }
     }
 
-    fun setBigPictureStyle(builder: NotificationCompat.Builder) {
+    private fun setBigPictureStyle(builder: NotificationCompat.Builder) {
         val style = NotificationCompat.BigPictureStyle()
         bigPicture?.let {
             style.bigPicture(it)

@@ -121,6 +121,7 @@ class BuchheimWalkerAlgorithm implements Algorithm {
             double sim = getModifier(vim);
             double som = getModifier(vom);
 
+            assert vim != null;
             TreeNode nextRight = nextRight(vim);
             TreeNode nextLeft = nextLeft(vip);
 

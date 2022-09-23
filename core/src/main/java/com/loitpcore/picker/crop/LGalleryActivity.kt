@@ -56,7 +56,7 @@ class LGalleryActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         if (view == btClose) {
-            onBackPressed()
+            onBaseBackPressed()
         }
     }
 
@@ -159,7 +159,7 @@ class LGalleryActivity : BaseFontActivity(), View.OnClickListener {
                 val intent = Intent()
                 intent.putExtra(RETURN_VALUE, file.path)
                 setResult(RESULT_OK, intent)
-                finish()
+                finish()//correct
                 tranOut(this@LGalleryActivity)
             }
         }

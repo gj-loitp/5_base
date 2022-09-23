@@ -15,7 +15,7 @@ import com.loitpcore.utils.util.ScreenUtils
  * freuss47@gmail.com
  */
 class ImageButtonWithSize : AppCompatImageButton {
-    private val logTag = javaClass.simpleName
+//    private val logTag = javaClass.simpleName
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)

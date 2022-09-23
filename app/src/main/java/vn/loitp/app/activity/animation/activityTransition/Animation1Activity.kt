@@ -34,7 +34,7 @@ class Animation1Activity : BaseFontActivity(), OnClickListener {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -66,19 +66,19 @@ class Animation1Activity : BaseFontActivity(), OnClickListener {
                 ActivityData.instance.type =
                     Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
             btSlideLeft -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT
+                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
                 LActivityUtil.slideLeft(this)
             }
             btSlideRight -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT
+                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_RIGHT
                 LActivityUtil.slideRight(this)
             }
             btSlideDown -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN
+                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_DOWN
                 LActivityUtil.slideDown(this)
             }
             btSlideUp -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP
+                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_UP
                 LActivityUtil.slideUp(this)
             }
             btFade -> {

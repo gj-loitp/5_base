@@ -10,7 +10,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -19,7 +18,6 @@ import android.widget.AdapterView;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.Px;
-import androidx.annotation.RequiresApi;
 
 import com.loitpcore.R;
 
@@ -68,7 +66,6 @@ public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetect
         init(context, attrs);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public LTreeView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs);
@@ -117,7 +114,9 @@ public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetect
             TreeNode node = mAdapter.getNode(index);
 
             // calculate the size and position of this child
+            assert screenPosition != null;
             final int left = screenPosition.x;
+            assert node != null;
             final int top = screenPosition.y + (node.getLevel() * mLevelSeparation);
             final int right = left + width;
             final int bottom = top + height;

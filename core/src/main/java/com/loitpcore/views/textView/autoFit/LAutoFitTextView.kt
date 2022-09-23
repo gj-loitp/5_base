@@ -73,7 +73,7 @@ class LAutoFitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
      * Set the maximum text size to the given value, interpreted as "scaled pixel" units. This size
      * is adjusted based on the current density and user font size preference.
      *
-     * @param size The scaled pixel size.
+     * size The scaled pixel size.
      * @attr ref android.R.styleable#TextView_textSize
      */
     var maxTextSize: Float
@@ -130,7 +130,7 @@ class LAutoFitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
      * Set the amount of precision used to calculate the correct text size to fit within its
      * bounds. Lower precision is more precise and takes more time.
      *
-     * @param precision The amount of precision.
+     * precision The amount of precision.
      */
     var precision: Float?
         get() = autoFitHelper?.precision

@@ -14,7 +14,7 @@ import com.loitpcore.R
  * freuss47@gmail.com
  */
 class LWWLVideoFixedAspectRatioRelativeLayout : RelativeLayout {
-    var mAspectRatio: Float
+    private var mAspectRatio: Float
 
     constructor(context: Context?) : super(context) {
         mAspectRatio = 1.0f

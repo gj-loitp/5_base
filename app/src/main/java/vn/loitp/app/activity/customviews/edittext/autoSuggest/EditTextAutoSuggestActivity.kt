@@ -38,7 +38,7 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
@@ -97,6 +97,7 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
             try {
                 Thread.sleep(2000)
             } catch (e: InterruptedException) {
+                e.printStackTrace()
             }
             val stringList = ArrayList<String>()
             for (i in 0..10) {
@@ -127,6 +128,7 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
             try {
                 Thread.sleep(2000)
             } catch (e: InterruptedException) {
+                e.printStackTrace()
             }
             val stringList = ArrayList<String>()
             for (i in 0..50) {

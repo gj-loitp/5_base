@@ -38,7 +38,7 @@ class UtilsActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -65,6 +65,7 @@ class UtilsActivity : BaseFontActivity() {
         viewPager.adapter?.notifyDataSetChanged()
     }
 
+    //TODO use view pager 2
     private inner class SlidePagerAdapter(fm: FragmentManager) :
         FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
@@ -80,7 +81,7 @@ class UtilsActivity : BaseFontActivity() {
             return listClass.size
         }
 
-        override fun getPageTitle(position: Int): CharSequence? {
+        override fun getPageTitle(position: Int): CharSequence {
             return listClass[position]
         }
     }

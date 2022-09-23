@@ -1,5 +1,6 @@
 package com.loitpcore.views.textView.selectable
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
@@ -26,11 +27,6 @@ import kotlin.math.min
  * freuss47@gmail.com
  */
 class CustomTextView : AppCompatTextView {
-
-    companion object {
-        private const val TAG = "CustomTextView"
-    }
-
     private var mDefaultSelectionColor = 0
     var cursorSelection: CustomInfo? = null
     private val mTempCoords = IntArray(2)
@@ -492,6 +488,7 @@ class CustomTextView : AppCompatTextView {
             mDrawable?.draw(canvas)
         }
 
+        @SuppressLint("ClickableViewAccessibility")
         override fun onTouchEvent(event: MotionEvent): Boolean {
             val rawX = event.rawX.toInt()
             val rawY = event.rawY.toInt()

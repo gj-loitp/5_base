@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,8 +14,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-
-import androidx.annotation.RequiresApi;
 
 import com.loitpcore.R;
 import com.loitpcore.annotation.IsFullScreen;
@@ -200,7 +197,7 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
     protected void setResult(Uri uri, Exception error, int sampleSize) {
         final int resultCode = error == null ? RESULT_OK : CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE;
         setResult(resultCode, getResultIntent(uri, error, sampleSize));
-        finish();
+        finish();//correct
     }
 
     /**
@@ -208,7 +205,7 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
      */
     protected void setResultCancel() {
         setResult(RESULT_CANCELED);
-        finish();
+        finish();//correct
     }
 
     /**

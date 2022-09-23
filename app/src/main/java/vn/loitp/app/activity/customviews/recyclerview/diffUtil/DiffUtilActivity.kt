@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.diffUtil
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
@@ -24,6 +25,7 @@ class DiffUtilActivity : BaseFontActivity() {
         return items.filter { rand.nextBoolean() }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun add(): List<Content> {
         items.add(Content(1, "Loitp ${System.currentTimeMillis()}", Constants.URL_IMG_ANDROID))
         adapter.notifyDataSetChanged()

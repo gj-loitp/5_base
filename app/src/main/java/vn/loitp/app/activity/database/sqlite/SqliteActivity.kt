@@ -13,6 +13,14 @@ import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite.*
 import vn.loitp.app.R
 
+/**
+ * Created by Loitp on 15.09.2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
+
 @LogTag("SqliteActivity")
 @IsFullScreen(false)
 class SqliteActivity : BaseFontActivity(), View.OnClickListener {
@@ -34,7 +42,7 @@ class SqliteActivity : BaseFontActivity(), View.OnClickListener {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)

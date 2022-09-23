@@ -28,21 +28,20 @@ class ScratchViewImageActivity : BaseFontActivity() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
-                runnable = {
-                    onBackPressed()
-                }
-            )
+            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = ScratchViewImageActivity::class.java.simpleName
         }
         scratchImageView.setRevealListener(object : LScratchImageView.IRevealListener {
+            @SuppressLint("SetTextI18n")
             override fun onRevealed(iv: LScratchImageView) {
                 textView.text = "onRevealed"
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onRevealPercentChangedListener(siv: LScratchImageView, percent: Float) {
                 textView.text = "onRevealPercentChangedListener percent: $percent"
             }

@@ -30,12 +30,13 @@ class KeyboardActivity : BaseFontActivity() {
         setupViews()
     }
 
+    @SuppressLint("CheckResult", "SetTextI18n")
     private fun setupViews() {
         lActionBar.apply {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)

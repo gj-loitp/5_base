@@ -2,6 +2,7 @@ package vn.loitp.app.activity.pattern.observerPattern
 
 import android.os.Handler
 import android.os.Looper
+import com.loitpcore.core.utilities.LDeviceUtil
 
 class UserDataRepository private constructor() : Subject {
     companion object {
@@ -24,7 +25,12 @@ class UserDataRepository private constructor() : Subject {
     fun getNewDataFromRemote() {
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed(
-            { setUserData("Loitp ^^! +${System.currentTimeMillis()}", 101) },
+            {
+                setUserData(
+                    "Loitp ^^! +${System.currentTimeMillis()}",
+                    LDeviceUtil.getRandomNumber(100)
+                )
+            },
             2000
         )
     }

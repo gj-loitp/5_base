@@ -31,7 +31,7 @@ class RvTabDemoRtlActivity : BaseFontActivity() {
     private fun setupViews() {
         val keyDemo = intent.getStringExtra(RvTabDemoBasicActivity.KEY_DEMO)
         if (keyDemo.isNullOrEmpty()) {
-            onBackPressed()
+            onBaseBackPressed()
             return
         }
         val demo = Demo.valueOf(keyDemo)

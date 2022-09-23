@@ -5,6 +5,14 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
+/**
+ * Created by Loitp on 15.09.2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
+
 class DatabaseHandler(context: Context) : SQLiteOpenHelper(
     context,
     DATABASE_NAME,

@@ -50,7 +50,7 @@ abstract class BaseTransformer : PageTransformer {
      * @param view
      * @param position
      */
-    protected fun onPreTransform(view: View, position: Float) {
+    private fun onPreTransform(view: View, position: Float) {
         val width = view.width.toFloat()
 
         view.rotationX = 0f
@@ -76,5 +76,5 @@ abstract class BaseTransformer : PageTransformer {
      * @param view
      * @param position
      */
-    protected fun onPostTransform(view: View, position: Float) {}
+    private fun onPostTransform(view: View, position: Float) {}
 }

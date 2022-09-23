@@ -17,7 +17,7 @@ import vn.loitp.app.R
 @IsAutoAnimation(false)
 class ViewPager2DemoActivity : BaseFontActivity() {
 
-    lateinit var rgOrientation: RadioGroup
+    private lateinit var rgOrientation: RadioGroup
     private val itemsList = arrayListOf<Int>()
     private var sliderAdapter = ScreenSlideRecyclerAdapter(itemsList)
 

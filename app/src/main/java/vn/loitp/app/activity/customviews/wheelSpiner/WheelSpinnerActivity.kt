@@ -6,6 +6,7 @@ import android.view.View
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_wheel_spinner.*
 import vn.loitp.app.R
 
@@ -39,7 +40,7 @@ class WheelSpinnerActivity : BaseFontActivity() {
             ivSelectedTattoo.visibility = View.VISIBLE
         }
 
-        btnSpin.setOnClickListener {
+        btnSpin.setSafeOnClickListener {
             ivSelectedTattoo.visibility = View.GONE
             wheelSpinner.rotateWheel()
         }

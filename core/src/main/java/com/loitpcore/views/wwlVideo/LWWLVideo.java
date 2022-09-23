@@ -14,7 +14,6 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -272,8 +271,8 @@ public class LWWLVideo extends ViewGroup {
             this.mTracker.fraction = 0.0f;
             this.mMaxY = (innerHeight - this.mMiniPlayerPadding) - ((miniPlayerInnerHeight + fullPlayerInnerHeight) / 2);
         } else {
-            this.mTracker.fraction = (float) Math.atan2((double) cenY, (double) cenX);
-            this.mMaxY = (int) Math.sqrt((double) ((cenX * cenX) + (cenY * cenY)));
+            this.mTracker.fraction = (float) Math.atan2(cenY, cenX);
+            this.mMaxY = (int) Math.sqrt((cenX * cenX) + (cenY * cenY));
         }
         if (!this.mVScroller.isFinished()) {
             this.mCurrentY = (int) (this.mCurrentAlpha * ((float) this.mMaxY));
@@ -372,10 +371,7 @@ public class LWWLVideo extends ViewGroup {
                         float tEY = this.mTracker.eY;
                         int mx = this.mTracker.getMX(motionEvent);
                         int my = this.mTracker.getMY(motionEvent);
-                        boolean minimized = false;
-                        if (this.mState == STATE_MINIMIZED && this.mCurrentY == this.mMaxY) {
-                            minimized = true;
-                        }
+                        boolean minimized = this.mState == STATE_MINIMIZED && this.mCurrentY == this.mMaxY;
                         int direction = this.mTracker.calc(mx, my);
                         if (minimized) {
                             if (Math.abs(mx) > this.mTracker.scaledPagingTouchSlop * 2 && (this.mTracker.fraction == 0.0f || Math.abs(my) < this.mTracker.scaledPagingTouchSlop)) {
@@ -416,7 +412,7 @@ public class LWWLVideo extends ViewGroup {
                 break;
             case ACTION_UP:
                 if (this.mDragState == DragOrientation.DRAGGING_HORIZONTAL) {
-                    int direction = this.mTracker.calcDirection(motionEvent, DragOrientation.DRAGGING_HORIZONTAL, true);
+                    int direction = this.mTracker.calcDirection(motionEvent, DragOrientation.DRAGGING_HORIZONTAL);
                     boolean isPositive = direction == Sign.SIGN_POSITIVE;
                     boolean isNegative = direction == Sign.SIGN_NEGATIVE;
                     boolean isZero = direction == Sign.SIGN_ZERO;
@@ -444,7 +440,7 @@ public class LWWLVideo extends ViewGroup {
                         slideHorizontal(true);
                     } else slideHorizontalRollBack(!isZero);
                 } else if (this.mDragState == DragOrientation.DRAGGING_VERTICAL) {
-                    int direction = this.mTracker.calcDirection(motionEvent, DragOrientation.DRAGGING_VERTICAL, true);
+                    int direction = this.mTracker.calcDirection(motionEvent, DragOrientation.DRAGGING_VERTICAL);
                     if (direction == Sign.SIGN_NEGATIVE && this.mState == STATE_MAXIMIZED) {
                         minimize(true);
                     } else if (direction == Sign.SIGN_POSITIVE && this.mState == STATE_MINIMIZED && this.mCurrentY < this.mMaxY) {
@@ -1003,10 +999,7 @@ public class LWWLVideo extends ViewGroup {
 
     static class DrawableHelper {
         public static Drawable get(Context context, int i) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return context.getDrawable(i);
-            }
-            return context.getResources().getDrawable(i);
+            return context.getDrawable(i);
         }
     }
 
@@ -1126,7 +1119,7 @@ public class LWWLVideo extends ViewGroup {
             return findPointerIndex;
         }
 
-        public final int calcDirection(MotionEvent motionEvent, int orientation, boolean z) {
+        public final int calcDirection(MotionEvent motionEvent, int orientation) {
             int findPointerIndex = motionEvent.findPointerIndex(this.pointerId);
 
             if (findPointerIndex < 0) {
@@ -1174,7 +1167,7 @@ public class LWWLVideo extends ViewGroup {
 
         public final int calc(int x, int y) {
             if (this.fraction != 0.0f) {
-                return (int) ((((double) x) * Math.cos((double) this.fraction)) + (((double) y) * Math.sin((double) this.fraction)));
+                return (int) ((((double) x) * Math.cos(this.fraction)) + (((double) y) * Math.sin(this.fraction)));
             }
             return y;
         }

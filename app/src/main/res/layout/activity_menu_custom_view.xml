@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
-    tools:ignore="HardcodedText">
+    android:orientation="vertical">
 
-    <ScrollView
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="@dimen/w_65"
+            android:paddingTop="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
@@ -80,6 +83,11 @@
                 android:id="@+id/btFingerPaintView"
                 style="@style/ButtonMenu"
                 android:text="FingerPaintView" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMenuGraphViewActivity"
+                style="@style/ButtonMenu"
+                android:text="MenuGraphViewActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btImageView"
@@ -147,6 +155,16 @@
                 android:text="@string/seek_bar" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSimpleRatingBar"
+                style="@style/ButtonMenu"
+                android:text="SimpleRatingBar" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btStackExpandableViewActivity"
+                style="@style/ButtonMenu"
+                android:text="StackExpandableViewActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSticker"
                 style="@style/ButtonMenu"
                 android:text="@string/sticker" />
@@ -196,11 +214,7 @@
                 style="@style/ButtonMenu"
                 android:text="@string/wwl_video" />
 
-        </LinearLayout>
-    </ScrollView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
 
-    <com.loitpcore.views.actionBar.LActionBar
-        android:id="@+id/lActionBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

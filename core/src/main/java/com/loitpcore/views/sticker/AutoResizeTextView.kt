@@ -1,10 +1,8 @@
 package com.loitpcore.views.sticker
 
-import android.annotation.TargetApi
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.RectF
-import android.os.Build
 import android.text.Layout
 import android.text.StaticLayout
 import android.text.TextPaint
@@ -226,7 +224,6 @@ class AutoResizeTextView : AppCompatTextView {
     }
 
     private val mSizeTester: SizeTester = object : SizeTester {
-        @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
         override fun onTestSize(suggestedSize: Int, availableSPace: RectF?): Int {
             mPaint?.textSize = suggestedSize.toFloat()
             val text = text.toString()

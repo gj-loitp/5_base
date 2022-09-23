@@ -59,16 +59,16 @@ class LActivityUtil {
                 Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT -> {
                     // do nothing
                 }
-                Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT -> {
+                Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT -> {
                     slideLeft(context)
                 }
-                Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT -> {
+                Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_RIGHT -> {
                     slideRight(context)
                 }
-                Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN -> {
+                Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_DOWN -> {
                     slideDown(context)
                 }
-                Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP -> {
+                Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_UP -> {
                     slideUp(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_FADE -> {
@@ -101,16 +101,16 @@ class LActivityUtil {
                 Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT -> {
                     // do nothing
                 }
-                Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT -> {
+                Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT -> {
                     slideRight(context)
                 }
-                Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT -> {
+                Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_RIGHT -> {
                     slideLeft(context)
                 }
-                Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN -> {
+                Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_DOWN -> {
                     slideUp(context)
                 }
-                Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP -> {
+                Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_UP -> {
                     slideDown(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_FADE -> {

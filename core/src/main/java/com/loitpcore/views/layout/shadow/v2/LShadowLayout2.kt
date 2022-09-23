@@ -124,16 +124,16 @@ class LShadowLayout2 @JvmOverloads constructor(
         // NO OP
     }
 
-    private fun dp2Px(dpValue: Float): Float {
-        val dm = context.resources.displayMetrics
-        val scale = dm.density
-        return dpValue * scale + 0.5f
-    }
+//    private fun dp2Px(dpValue: Float): Float {
+//        val dm = context.resources.displayMetrics
+//        val scale = dm.density
+//        return dpValue * scale + 0.5f
+//    }
 
-    private fun px2dip(pxValue: Float): Int {
-        val scale = context.resources.displayMetrics.density
-        return (pxValue / scale + 0.5f).toInt()
-    }
+//    private fun px2dip(pxValue: Float): Int {
+//        val scale = context.resources.displayMetrics.density
+//        return (pxValue / scale + 0.5f).toInt()
+//    }
 
     init {
         initialize(attrs)

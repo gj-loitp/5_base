@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.amir.arcview.VerticalArcContainer xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/includeButtonsScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true">
+
+    <com.amir.arcview.ArcScrollView
+        android:id="@+id/includeArcButtonsTempArc"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#2196F3"
+        android:elevation="3dp"
+        android:visibility="gone"
+        app:findBestWidth="true"
+        app:radius="550dp"
+        app:stroke_width="50dp" />
+
+    <com.amir.arcview.ArcScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="#b71c1c"
+        android:elevation="5dp"
+        app:findBestWidth="true"
+        app:radius="400dp"
+        app:stroke_width="50dp">
+
+        <com.amir.arcview.ArcLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:itemsOffset="7dp"
+            app:useMinPadding="true">
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="0dp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/includeButtonsStroke"
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_stroke" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/includeButtonsShadow"
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_shadow" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_size" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_font" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_color" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_rotate_right" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_background_color" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_copy" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_close_white" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_stroke" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_shadow" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_size" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_font" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_color" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_rotate_right" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_background_color" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_copy" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_close_white" />
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="0dp" />
+
+        </com.amir.arcview.ArcLinearLayout>
+
+    </com.amir.arcview.ArcScrollView>
+
+    <com.amir.arcview.ArcScrollView
+        android:id="@+id/activityEditImageMoveContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#673AB7"
+        android:elevation="6dp"
+        app:findBestWidth="true"
+        app:radius="300dp"
+        app:stroke_width="40dp">
+
+        <com.amir.arcview.ArcLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:itemsOffset="7dp"
+            app:useMinPadding="true">
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="0dp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/activityEditImageMoveAlignTop"
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_align_top" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/activityEditImageMoveAlignLeft"
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_align_left" />
+
+            <ImageView
+                android:id="@+id/activityEditImageMoveCenterHorizontal"
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_center_horizontal" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/activityEditImageMoveUpButton"
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_up_arrow" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/activityEditImageMoveDownButton"
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_down_arrow" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/activityEditImageMoveLeftButton"
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_left_arrow" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/activityEditImageMoveRightButton"
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_right_arrow" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/activityEditImageMoveCenterVertical"
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_center_vertical" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/activityEditImageMoveAlignRight"
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_align_right" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/activityEditImageMoveAlignBottom"
+                style="@style/EditActivityImageView"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_align_bottom" />
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="0dp" />
+
+        </com.amir.arcview.ArcLinearLayout>
+
+    </com.amir.arcview.ArcScrollView>
+
+    <com.amir.arcview.ArcScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="#0088ff"
+        android:elevation="9dp"
+        app:findBestWidth="true"
+        app:radius="100dp"
+        app:stroke_width="50dp">
+
+        <com.amir.arcview.ArcLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:itemsOffset="7dp"
+            app:useMinPadding="true">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/includeButtonsTextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="5dp"
+                android:text="@string/text"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+        </com.amir.arcview.ArcLinearLayout>
+
+    </com.amir.arcview.ArcScrollView>
+
+</com.amir.arcview.VerticalArcContainer>

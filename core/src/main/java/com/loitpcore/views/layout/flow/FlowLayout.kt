@@ -360,7 +360,7 @@ class FlowLayout @JvmOverloads constructor(
     /**
      * Sets whether to allow child views flow to next row when there is no enough space.
      *
-     * @param flow true to allow flow. false to restrict all child views in one row.
+     * param flow true to allow flow. false to restrict all child views in one row.
      */
     var isFlow: Boolean
         get() = mFlow
@@ -376,7 +376,7 @@ class FlowLayout @JvmOverloads constructor(
     /**
      * Sets the horizontal spacing between child views.
      *
-     * @param childSpacing The spacing, either [FlowLayout.SPACING_AUTO], or a fixed size in
+     * param childSpacing The spacing, either [FlowLayout.SPACING_AUTO], or a fixed size in
      * pixels.
      */
     var childSpacing: Int
@@ -394,7 +394,7 @@ class FlowLayout @JvmOverloads constructor(
     /**
      * Sets the horizontal spacing between child views of the last row.
      *
-     * @param childSpacingForLastRow The spacing, either [FlowLayout.SPACING_AUTO],
+     * param childSpacingForLastRow The spacing, either [FlowLayout.SPACING_AUTO],
      * [FlowLayout.SPACING_ALIGN], or a fixed size in pixels
      */
     var childSpacingForLastRow: Int
@@ -412,7 +412,7 @@ class FlowLayout @JvmOverloads constructor(
      * Sets the vertical spacing between rows in pixels. Use SPACING_AUTO to evenly place all rows
      * in vertical.
      *
-     * @param rowSpacing The spacing, either [FlowLayout.SPACING_AUTO], or a fixed size in
+     * param rowSpacing The spacing, either [FlowLayout.SPACING_AUTO], or a fixed size in
      * pixels.
      */
     var rowSpacing: Float
@@ -429,7 +429,7 @@ class FlowLayout @JvmOverloads constructor(
     /**
      * Sets the height of the FlowLayout to be at most maxRows tall.
      *
-     * @param maxRows The maximum number of rows.
+     * param maxRows The maximum number of rows.
      */
     var maxRows: Int
         get() = mMaxRows
@@ -533,6 +533,7 @@ class FlowLayout @JvmOverloads constructor(
             }
             mMaxRows = typedArray.getInt(R.styleable.FlowLayout_flMaxRows, DEFAULT_MAX_ROWS)
             mRtl = typedArray.getBoolean(R.styleable.FlowLayout_flRtl, DEFAULT_RTL)
+            //TODO fix style
             mGravity =
                 typedArray.getInt(R.styleable.FlowLayout_android_gravity, UNSPECIFIED_GRAVITY)
             mRowVerticalGravity = typedArray.getInt(

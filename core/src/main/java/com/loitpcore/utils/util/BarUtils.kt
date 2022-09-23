@@ -45,13 +45,10 @@ class BarUtils private constructor() {
             @ColorInt color: Int,
             @IntRange(from = 0, to = 255) statusBarAlpha: Int
         ) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                activity.window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-                activity.window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-                activity.window.statusBarColor =
-                    calculateStatusColor(color = color, alpha = statusBarAlpha)
-            } else
-                activity.window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            activity.window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            activity.window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            activity.window.statusBarColor =
+                calculateStatusColor(color = color, alpha = statusBarAlpha)
             val decorView = activity.window.decorView as ViewGroup
             val fakeStatusBarView = decorView.findViewWithTag<View>(FAKE_STATUS_BAR_VIEW_TAG)
             if (fakeStatusBarView != null) {
@@ -196,13 +193,9 @@ class BarUtils private constructor() {
             @ColorInt color: Int,
             @IntRange(from = 0, to = 255) statusBarAlpha: Int
         ) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                activity.window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-                activity.window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-                activity.window.statusBarColor = Color.TRANSPARENT
-            } else {
-                activity.window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            }
+            activity.window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            activity.window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            activity.window.statusBarColor = Color.TRANSPARENT
             val contentLayout = drawerLayout.getChildAt(0) as ViewGroup
             val fakeStatusBarView = contentLayout.findViewWithTag<View>(FAKE_STATUS_BAR_VIEW_TAG)
             if (fakeStatusBarView != null) {
@@ -296,13 +289,9 @@ class BarUtils private constructor() {
             activity: Activity,
             drawerLayout: DrawerLayout
         ) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                activity.window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-                activity.window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-                activity.window.statusBarColor = Color.TRANSPARENT
-            } else {
-                activity.window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            }
+            activity.window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            activity.window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            activity.window.statusBarColor = Color.TRANSPARENT
             val contentLayout = drawerLayout.getChildAt(0) as ViewGroup
             if (contentLayout !is LinearLayout && contentLayout.getChildAt(1) != null) {
                 contentLayout.getChildAt(1).setPadding(0, getStatusBarHeight(activity), 0, 0)
@@ -418,7 +407,6 @@ class BarUtils private constructor() {
             fakeTranslucentView?.visibility = View.GONE
         }
 
-        @TargetApi(Build.VERSION_CODES.KITKAT)
         private fun clearPreviousSetting(
             activity: Activity
         ) {
@@ -483,29 +471,18 @@ class BarUtils private constructor() {
         private fun setTransparentForWindow(
             activity: Activity
         ) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                activity.window.statusBarColor = Color.TRANSPARENT
-                activity.window.decorView.systemUiVisibility =
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            } else
-                activity.window.setFlags(
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
-                )
+            activity.window.statusBarColor = Color.TRANSPARENT
+            activity.window.decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         }
 
-        @TargetApi(Build.VERSION_CODES.KITKAT)
         private fun transparentStatusBar(
             activity: Activity
         ) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                activity.window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-                activity.window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-                activity.window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
-                activity.window.statusBarColor = Color.TRANSPARENT
-            } else {
-                activity.window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            }
+            activity.window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            activity.window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            activity.window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
+            activity.window.statusBarColor = Color.TRANSPARENT
         }
 
         private fun createTranslucentStatusBarView(

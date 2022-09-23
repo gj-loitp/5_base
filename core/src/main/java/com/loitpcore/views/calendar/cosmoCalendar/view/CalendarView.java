@@ -1,10 +1,8 @@
 package com.loitpcore.views.calendar.cosmoCalendar.view;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.Gravity;
@@ -41,7 +39,6 @@ import com.loitpcore.views.calendar.cosmoCalendar.selection.OnDaySelectedListene
 import com.loitpcore.views.calendar.cosmoCalendar.selection.RangeSelectionManager;
 import com.loitpcore.views.calendar.cosmoCalendar.selection.SingleSelectionManager;
 import com.loitpcore.views.calendar.cosmoCalendar.selection.selectionBar.MultipleSelectionBarAdapter;
-import com.loitpcore.views.calendar.cosmoCalendar.selection.selectionBar.SelectionBarItem;
 import com.loitpcore.views.calendar.cosmoCalendar.settings.SettingsManager;
 import com.loitpcore.views.calendar.cosmoCalendar.settings.appearance.AppearanceInterface;
 import com.loitpcore.views.calendar.cosmoCalendar.settings.date.DateInterface;
@@ -126,7 +123,6 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         handleAttributes(attrs, defStyle, 0);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public CalendarView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         handleAttributes(attrs, defStyleAttr, defStyleRes);
@@ -157,7 +153,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
      * Handles custom attributes and sets them to settings manager
      */
     private void handleAttributes(TypedArray typedArray) {
-        int orientation = typedArray.getInteger(R.styleable.CalendarView_orientation, SettingsManager.DEFAULT_ORIENTATION);
+        int orientation = typedArray.getInteger(R.styleable.CalendarView_cvOrientation, SettingsManager.DEFAULT_ORIENTATION);
         int firstDayOfWeek = typedArray.getInteger(R.styleable.CalendarView_firstDayOfTheWeek, SettingsManager.DEFAULT_FIRST_DAY_OF_WEEK);
         int selectionType = typedArray.getInteger(R.styleable.CalendarView_selectionType, SettingsManager.DEFAULT_SELECTION_TYPE);
         boolean showDaysOfWeekTitle = orientation != LinearLayoutManager.HORIZONTAL;
@@ -585,7 +581,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         if (selectionManager instanceof MultipleSelectionManager) {
             ((MultipleSelectionManager) selectionManager).clearCriteriaList();
         }
-        multipleSelectionBarAdapter.setData(new ArrayList<SelectionBarItem>());
+        multipleSelectionBarAdapter.setData(new ArrayList<>());
         setSelectionBarVisibility();
         update();
     }
@@ -1078,7 +1074,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
      * Removes selected day by click in bottom selection bar
      */
     @Override
-    public void onMultipleSelectionListItemClick(final Day day) {
+    public void onMultipleSelectionListItemClick(@NonNull final Day day) {
         if (getSelectionManager() instanceof MultipleSelectionManager) {
             ((MultipleSelectionManager) getSelectionManager()).removeDay(day);
             monthAdapter.notifyDataSetChanged();

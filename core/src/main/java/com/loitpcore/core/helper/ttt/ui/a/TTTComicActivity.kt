@@ -17,7 +17,6 @@ import com.loitpcore.core.helper.ttt.ui.f.FrmFavTTT
 import com.loitpcore.core.helper.ttt.ui.f.FrmHomeTTT
 import com.loitpcore.core.helper.ttt.ui.f.FrmProfileTTT
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.core.utilities.LValidateUtil
 import com.loitpcore.utils.util.KeyboardUtils
 import com.loitpcore.views.viewPager.viewPagerTransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem
@@ -45,8 +44,6 @@ class TTTComicActivity : BaseFontActivity() {
 
         setupData()
         setupViews()
-
-        LValidateUtil.isValidPackageName()
     }
 
     private fun setupData() {
@@ -169,9 +166,23 @@ class TTTComicActivity : BaseFontActivity() {
     }
 
     private var doubleBackToExitPressedOnce = false
-    override fun onBackPressed() {
+//    override fun onBackPressed() {
+//        if (doubleBackToExitPressedOnce) {
+//            super.onBackPressed()
+//            return
+//        }
+//        this.doubleBackToExitPressedOnce = true
+//        showShortInformation(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            doubleBackToExitPressedOnce = false
+//        }, 2000)
+//    }
+
+    override fun onBaseBackPressed() {
+//        super.onBaseBackPressed()
         if (doubleBackToExitPressedOnce) {
-            super.onBackPressed()
+//            finish()//correct
+            super.onBaseBackPressed()//correct
             return
         }
         this.doubleBackToExitPressedOnce = true

@@ -15,6 +15,7 @@ import vn.loitp.app.activity.service.endlessService.log
 
 // build release de check
 // TODO service -> ko stop service dc
+//TODO fix ko chay dc o android 13
 
 // GIT
 // combine 2 commit gan nhat lam 1, co thay doi tren github
@@ -30,7 +31,7 @@ class LApplication : BaseApplication() {
         super.onCreate()
 
         // config activity transition default
-        ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT
+        ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
 
         // config realm
         val realmConfiguration = RealmConfiguration.Builder(this)
@@ -53,7 +54,7 @@ class LApplication : BaseApplication() {
     }
 
     private fun setupTrackingG1() {
-        val configuration = Configuration()
+        val configuration = Configuration(this)
         configuration.setEnvironmentDev()
 //        configuration.setEnvironmentProd()
         configuration.writeKey = "ab44219f-dc9e-4080-943c-a127bd071da3"

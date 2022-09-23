@@ -28,6 +28,7 @@ class ColorPickerDialogFragment : BottomSheetDialogFragment() {
 
         val mode = PorterDuff.Mode.SRC_ATOP
 
+        //TODO fix setColorFilter
         sbRed.progressDrawable.setColorFilter(Color.rgb(sbRed.progress, 0, 0), mode)
         sbGreen.progressDrawable.setColorFilter(Color.rgb(0, sbGreen.progress, 0), mode)
         sbBlue.progressDrawable.setColorFilter(Color.rgb(0, 0, sbBlue.progress), mode)

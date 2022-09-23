@@ -3,7 +3,6 @@ package com.loitpcore.utils.util
 import android.content.ComponentName
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
@@ -34,13 +33,9 @@ class IntentUtils {
             val intent = Intent(Intent.ACTION_VIEW)
             var data: Uri? = null
             val type = "application/vnd.android.package-archive"
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-                data = Uri.fromFile(file)
-            } else {
-                intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-                getContext()?.let {
-                    data = FileProvider.getUriForFile(it, authority, file)
-                }
+            intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+            getContext()?.let {
+                data = FileProvider.getUriForFile(it, authority, file)
             }
             data?.let {
                 intent.setDataAndType(it, type)

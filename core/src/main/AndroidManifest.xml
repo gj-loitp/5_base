@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.loitpcore">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.REBOOT" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -42,11 +43,11 @@
         android:theme="@style/LightTheme"
         android:usesCleartextTraffic="true">
 
-<!--        <provider-->
-<!--            android:name=".function.pump.download.DownloadProvider"-->
-<!--            android:authorities="${applicationId}.function.pump.download.DownloadProvider"-->
-<!--            android:exported="false"-->
-<!--            android:multiprocess="true" />-->
+        <!--        <provider-->
+        <!--            android:name=".function.pump.download.DownloadProvider"-->
+        <!--            android:authorities="${applicationId}.function.pump.download.DownloadProvider"-->
+        <!--            android:exported="false"-->
+        <!--            android:multiprocess="true" />-->
 
         <!-- support 18:9 -->
         <meta-data

@@ -15,8 +15,6 @@ import androidx.recyclerview.widget.RecyclerView.ItemDecoration
  */
 class StickyFooterItemDecoration : ItemDecoration() {
 
-    private val logTag = javaClass.simpleName
-
     override fun getItemOffsets(
         outRect: Rect,
         view: View,

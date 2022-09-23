@@ -1002,4 +1002,17 @@ Likewise may someone love you next.
     <string name="card_flip_animation">Card Flip Animation</string>
     <string name="book_flip_animation">Book Flip Animation</string>
     <string name="enable_scale">Enable Scale</string>
+    <string name="y">y</string>
+    <string name="x">x</string>
+    <string name="kick_me">Kick me!</string>
+    <string name="kick_swapped_view">Kick swapped view!</string>
+    <string name="text">Text</string>
+    <string name="top_to_bottom">Top to Bottom</string>
+    <string name="bottom_to_top">Bottom to Top</string>
+    <string name="left_to_right">Left to Right</string>
+    <string name="right_to_left">Right to Left</string>
+    <string name="all_baseratingbar_title">BaseRatingBar</string>
+    <string name="all_scaleratingbar_title">ScaleRatingBar</string>
+    <string name="all_rotationratingbar_title">RotationRatingBar</string>
+    <string name="all_add_rating_title">Add rating</string>
 </resources>

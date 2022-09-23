@@ -38,7 +38,7 @@ class RevealActivity1 : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -79,7 +79,7 @@ class RevealActivity1 : BaseFontActivity() {
         CircularReveal.presentActivity(builder)
     }
 
-    @Deprecated("Deprecated in Java")
+    //TODO fix onActivityResult
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 

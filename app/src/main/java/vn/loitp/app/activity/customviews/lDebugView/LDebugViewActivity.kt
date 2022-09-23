@@ -42,7 +42,7 @@ class LDebugViewActivity : BaseFontActivity(), View.OnClickListener {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
@@ -57,7 +57,7 @@ class LDebugViewActivity : BaseFontActivity(), View.OnClickListener {
         btSendObjectD.setOnClickListener(this)
     }
 
-    @Deprecated("Deprecated in Java")
+    //TODO fix onActivityResult
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 

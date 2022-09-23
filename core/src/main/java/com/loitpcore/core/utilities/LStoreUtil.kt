@@ -5,7 +5,6 @@ import android.content.ContentUris
 import android.content.Context
 import android.database.Cursor
 import android.graphics.Color
-import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Environment
 import android.provider.DocumentsContract
@@ -35,14 +34,14 @@ class LStoreUtil {
             LLog.d(logTag, msg)
         }
 
-        const val FOLDER_TRANSLATE = ".Loitp"
-        const val FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
-        private const val EXTENSION = ".txt"
-        const val FOLDER_TRUYENTRANHTUAN = "zloitpbestcomic"
-        const val FILE_NAME_MAIN_COMICS_LIST_HTML_CODE = "filenamemaincomicslisthtmlcode$EXTENSION"
-        const val FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist$EXTENSION"
-        const val FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite$EXTENSION"
-        const val FILE_NAME_TRUYENTRANHTUAN_DOWNLOADED_COMIC = "filenamedownloadedcomic$EXTENSION"
+//        const val FOLDER_TRANSLATE = ".Loitp"
+//        const val FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
+//        private const val EXTENSION = ".txt"
+//        const val FOLDER_TRUYENTRANHTUAN = "zloitpbestcomic"
+//        const val FILE_NAME_MAIN_COMICS_LIST_HTML_CODE = "filenamemaincomicslisthtmlcode$EXTENSION"
+//        const val FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist$EXTENSION"
+//        const val FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite$EXTENSION"
+//        const val FILE_NAME_TRUYENTRANHTUAN_DOWNLOADED_COMIC = "filenamedownloadedcomic$EXTENSION"
 
         val isSdPresent: Boolean
             get() = Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
@@ -96,23 +95,23 @@ class LStoreUtil {
             )
 
         // dung de bao hieu cho gallery load lai photo vi co anh moi
-        fun sendBroadcastMediaScan(
-            file: File? = null
-        ) {
-            file?.let {
-//                val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
-//                val contentUri = Uri.fromFile(file)
-//                mediaScanIntent.data = contentUri
-//                LAppResource.application.sendBroadcast(mediaScanIntent)
-
-                MediaScannerConnection.scanFile(
-                    LAppResource.application,
-                    arrayOf(file.toString()),
-                    arrayOf(it.name),
-                    null
-                )
-            }
-        }
+//        fun sendBroadcastMediaScan(
+//            file: File? = null
+//        ) {
+//            file?.let {
+////                val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+////                val contentUri = Uri.fromFile(file)
+////                mediaScanIntent.data = contentUri
+////                LAppResource.application.sendBroadcast(mediaScanIntent)
+//
+//                MediaScannerConnection.scanFile(
+//                    LAppResource.application,
+//                    arrayOf(file.toString()),
+//                    arrayOf(it.name),
+//                    null
+//                )
+//            }
+//        }
 
         @JvmOverloads
         fun getFolderPath(
@@ -221,7 +220,7 @@ class LStoreUtil {
             val text = StringBuilder()
             try {
                 val reader = BufferedReader(FileReader(txtFile))
-                var line: String? = null
+                var line: String?
                 while (run {
                         line = reader.readLine()
                         line

@@ -26,13 +26,13 @@ class BIgTextNotification(
         return builder
     }
 
-    fun setBuilderIcon(builder: NotificationCompat.Builder) {
+    private fun setBuilderIcon(builder: NotificationCompat.Builder) {
         icon?.let {
             builder.setSmallIcon(it)
         }
     }
 
-    fun setBigTextStyle(builder: NotificationCompat.Builder) {
+    private fun setBigTextStyle(builder: NotificationCompat.Builder) {
         bigText?.let {
             builder.setStyle(NotificationCompat.BigTextStyle().bigText(it))
         }

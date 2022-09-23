@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.function.pump
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.huxq17.download.Pump
@@ -33,7 +34,7 @@ class PumpActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -61,8 +62,9 @@ class PumpActivity : BaseFontActivity() {
         Pump.shutdown()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun handleDownloadPicture() {
-        //TODO deo chay :((
+        //TODO fix pump deo chay :((
         Pump.newRequestToPicture(Constants.URL_IMG_1, "/loitp/pictures")
             .listener(object : DownloadListener() {
 
@@ -89,6 +91,7 @@ class PumpActivity : BaseFontActivity() {
             .submit()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun handleDownloadPdf() {
         Pump.newRequestToDownload("http://www.pdf995.com/samples/pdf.pdf", "/loitp/pdf")
             .listener(object : DownloadListener() {

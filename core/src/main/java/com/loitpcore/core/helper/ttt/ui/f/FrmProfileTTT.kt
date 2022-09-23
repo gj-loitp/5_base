@@ -55,7 +55,7 @@ class FrmProfileTTT : BaseFragment() {
                     val intent = Intent(it, TTTComicActivity::class.java)
                     startActivity(intent)
                     LActivityUtil.tranIn(context = it)
-                    it.finish()
+                    it.finish()//correct
                 }
             }
             bottomSheetSettingTTTFragment.show(

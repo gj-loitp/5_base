@@ -14,7 +14,6 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.core.utilities.LValidateUtil
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_activity_find_number_splash.*
 
@@ -47,7 +46,7 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        LValidateUtil.isValidPackageName()
+        //do sth
     }
 
     private fun goToHome() {
@@ -79,11 +78,12 @@ class SplashActivity : BaseFontActivity() {
         }
     }
 
+    //TODO fix onActivityResult
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            onBackPressed()
+            onBaseBackPressed()
         }
     }
 }

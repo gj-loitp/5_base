@@ -37,7 +37,7 @@ class FloatingWidgetActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -61,6 +61,7 @@ class FloatingWidgetActivity : BaseFontActivity() {
                     Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:$packageName")
                 )
+                //TODO startActivityForResult
                 startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION)
             },
             onClickButton2 = {
@@ -68,7 +69,6 @@ class FloatingWidgetActivity : BaseFontActivity() {
         )
     }
 
-    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {

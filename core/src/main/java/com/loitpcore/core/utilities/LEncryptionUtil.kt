@@ -41,17 +41,10 @@ class LEncryptionUtil {
                 cipher.init(Cipher.ENCRYPT_MODE, key, ivParams)
                 val cipherText = cipher.doFinal(plaintext.toByteArray(StandardCharsets.UTF_8))
 
-                return if (salt != null) {
-                    String.format(
-                        "%s%s%s%s%s",
-                        toBase64(salt),
-                        DELIMITER,
-                        toBase64(iv),
-                        DELIMITER,
-                        toBase64(cipherText)
-                    )
-                } else String.format(
-                    "%s%s%s",
+                return String.format(
+                    "%s%s%s%s%s",
+                    toBase64(salt),
+                    DELIMITER,
                     toBase64(iv),
                     DELIMITER,
                     toBase64(cipherText)

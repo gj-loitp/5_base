@@ -15,6 +15,7 @@ import com.google.android.exoplayer2.ui.PlayerView
 import com.loitpcore.views.exo.PlayerManager
 import com.loitpcore.views.setSafeOnClickListener
 import vn.loitp.app.R
+import vn.loitp.app.activity.service.endlessService.log
 
 class FloatingViewVideoService : Service() {
 
@@ -36,6 +37,7 @@ class FloatingViewVideoService : Service() {
         setupViews()
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupViews() {
         val layoutFlag: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
@@ -98,6 +100,7 @@ class FloatingViewVideoService : Service() {
                     MotionEvent.ACTION_UP -> {
                         val xDiff = (event.rawX - initialTouchX).toInt()
                         val yDiff = (event.rawY - initialTouchY).toInt()
+                        log("xDiff $xDiff yDiff $yDiff")
                         return true
                     }
                     MotionEvent.ACTION_MOVE -> {

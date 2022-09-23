@@ -43,7 +43,7 @@ class TestRxActivity : BaseFontActivity(), View.OnClickListener {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -176,7 +176,7 @@ class TestRxActivity : BaseFontActivity(), View.OnClickListener {
             )
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "CheckResult")
     private fun test4() {
         textView.text = "test4\n"
         Observable.create { emitter: ObservableEmitter<Bike?> ->

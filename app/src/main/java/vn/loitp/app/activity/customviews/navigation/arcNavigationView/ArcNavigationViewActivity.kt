@@ -53,7 +53,21 @@ class ArcNavigationViewActivity :
         navView.setNavigationItemSelectedListener(this)
     }
 
-    override fun onBackPressed() {
+//    override fun onBackPressed() {
+//        when {
+//            drawerLayout.isDrawerOpen(GravityCompat.START) -> {
+//                drawerLayout.closeDrawer(GravityCompat.START)
+//            }
+//            drawerLayout.isDrawerOpen(GravityCompat.END) -> {
+//                drawerLayout.closeDrawer(GravityCompat.END)
+//            }
+//            else -> {
+//                super.onBackPressed()
+//            }
+//        }
+//    }
+
+    override fun onBaseBackPressed() {
         when {
             drawerLayout.isDrawerOpen(GravityCompat.START) -> {
                 drawerLayout.closeDrawer(GravityCompat.START)
@@ -62,7 +76,7 @@ class ArcNavigationViewActivity :
                 drawerLayout.closeDrawer(GravityCompat.END)
             }
             else -> {
-                super.onBackPressed()
+                super.onBaseBackPressed()
             }
         }
     }

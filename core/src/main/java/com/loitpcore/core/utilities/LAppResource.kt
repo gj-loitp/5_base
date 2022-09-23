@@ -50,7 +50,6 @@ object LAppResource {
 
     fun getViewInflater(@LayoutRes layoutRes: Int, container: ViewGroup?): View =
         application.let {
-
             val inflater =
                 application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             inflater.inflate(layoutRes, container, false)

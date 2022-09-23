@@ -14,7 +14,6 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LImageUtil
-import com.loitpcore.core.utilities.LValidateUtil
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitpcore.views.layout.swipeBack.SwipeBackLayout
 import jp.wasabeef.glide.transformations.BlurTransformation
@@ -47,6 +46,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        //TODO fix getSerializableExtra
         val photo = intent.getSerializableExtra(PHOTO) as Photo
         loadItem(photo = photo)
 
@@ -60,13 +60,11 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
-                    finish()
+                    finish()//correct
                     LActivityUtil.transActivityNoAnimation(this@GalleryMemberDetailActivity)
                 }
             }
         })
-
-        LValidateUtil.isValidPackageName()
     }
 
     private fun loadItem(photo: Photo) {

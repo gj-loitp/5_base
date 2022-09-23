@@ -31,7 +31,7 @@ class RvTabScrollDisabledActivity : BaseFontActivity() {
     private fun setupViews() {
         val keyDemo = intent.getStringExtra(KEY_DEMO)
         if (keyDemo.isNullOrEmpty()) {
-            onBackPressed()
+            onBaseBackPressed()
             return
         }
         val demo = Demo.valueOf(keyDemo)
@@ -52,7 +52,7 @@ class RvTabScrollDisabledActivity : BaseFontActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            finish()
+            onBaseBackPressed()
             return true
         }
         return super.onOptionsItemSelected(item)

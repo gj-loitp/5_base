@@ -147,6 +147,7 @@ class Content extends BaseModel {
             for (int i = 0; i < getEntryNames().size(); i++) {
                 String fileName = ContextHelper.encodeToUtf8(ContextHelper.getTextAfterCharacter(getEntryNames().get(i), Constants.SLASH));
 
+                assert href != null;
                 if (href.equals(fileName) || (href.startsWith(fileName) && href.replace(fileName, "").startsWith("%23"))) {
 
                     isSourceFileFound = true;
@@ -417,6 +418,7 @@ class Content extends BaseModel {
 
         List<Tag> tagList = this.entryTagPositions.get(entryName);
 
+        assert tagList != null;
         int index = tagList.size();
         while (index > 0 && tagList.get(index - 1).getOpeningTagStartPosition() > openingPosition) {
             index--;

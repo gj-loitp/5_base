@@ -70,7 +70,7 @@ class OneAnswerView : LinearLayout {
     }
 
     fun setIndex(index: Int) {
-        chooice.text = (('A'.toInt() + index).toChar()).toString()
+        chooice.text = (('A'.code + index).toChar()).toString()
 //        chooice.text = "$index"
     }
 }

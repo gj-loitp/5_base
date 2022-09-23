@@ -9,6 +9,14 @@ import com.loitpcore.utils.util.AppUtils
 import vn.loitp.app.activity.database.sqliteMultiTableAdvance.model.Action
 import vn.loitp.app.activity.database.sqliteMultiTableAdvance.model.Inspection
 
+/**
+ * Created by Loitp on 15.09.2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
+
 class InspectionDatabaseHelper(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 

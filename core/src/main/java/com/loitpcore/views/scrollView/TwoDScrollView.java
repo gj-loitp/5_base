@@ -115,7 +115,7 @@ public class TwoDScrollView extends FrameLayout {
      * Indicates whether this ScrollView's content is stretched to fill the viewport.
      *
      * @return True if the content fills the viewport, false otherwise.
-     * @attr ref android.R.styleable#ScrollView_fillViewport
+     * attr ref android.R.styleable#ScrollView_fillViewport
      */
     public boolean isFillViewport() {
         return fillViewport;
@@ -125,7 +125,7 @@ public class TwoDScrollView extends FrameLayout {
      * Indicates this ScrollView whether it should stretch its content height to fill the viewport or not.
      *
      * @param fillViewport True to stretch the content's height to the viewport's boundaries, false otherwise.
-     * @attr ref android.R.styleable#ScrollView_fillViewport
+     * attr ref android.R.styleable#ScrollView_fillViewport
      */
     public void setFillViewport(boolean fillViewport) {
         if (fillViewport != this.fillViewport) {

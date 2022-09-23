@@ -32,6 +32,7 @@ import vn.loitp.app.activity.picker.MenuPickerActivity
 import vn.loitp.app.activity.security.MenuSecurityActivity
 import vn.loitp.app.activity.service.MenuServiceActivity
 import vn.loitp.app.activity.tutorial.MenuTutorialActivity
+import vn.loitp.app.activity.utillsCore.UtilsCoreActivity
 import vn.loitp.app.activity.utils.UtilsActivity
 
 @LogTag("MenuActivity")
@@ -55,7 +56,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -73,7 +74,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             } else {
                 LUIUtil.setDarkTheme(isDarkTheme = false)
             }
-            finish()
+            finish()//correct
             startActivity(Intent(this, MenuActivity::class.java))
             overridePendingTransition(0, 0)
         }
@@ -98,6 +99,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         btSecurity.setOnClickListener(this)
         btService.setOnClickListener(this)
         btUtils.setOnClickListener(this)
+        btUtilsCore.setOnClickListener(this)
 
         btGithub.isVisible = false
     }
@@ -153,9 +155,12 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private var doubleBackToExitPressedOnce = false
-    override fun onBackPressed() {
+
+    override fun onBaseBackPressed() {
+//        super.onBaseBackPressed()
         if (doubleBackToExitPressedOnce) {
-            super.onBackPressed()
+//            onBaseBackPressed()
+            super.onBaseBackPressed()//correct
             return
         }
         this.doubleBackToExitPressedOnce = true
@@ -211,6 +216,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                 btSecurity -> Intent(this, MenuSecurityActivity::class.java)
                 btService -> Intent(this, MenuServiceActivity::class.java)
                 btUtils -> Intent(this, UtilsActivity::class.java)
+                btUtilsCore -> Intent(this, UtilsCoreActivity::class.java)
                 else -> null
             }
         intent?.let {

@@ -26,6 +26,7 @@ class TransformationSingleDetailFragment : BaseFragment() {
         super.onCreate(savedInstanceState)
 
         // [Step1]: apply onTransformationEndContainer using TransformationLayout.Params.
+        //TODO getParcelable
         val params = arguments?.getParcelable<TransformationLayout.Params>(paramsKey)
         onTransformationEndContainer(params)
     }

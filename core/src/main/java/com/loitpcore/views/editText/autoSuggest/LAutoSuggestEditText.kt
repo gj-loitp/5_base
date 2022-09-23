@@ -136,9 +136,9 @@ class LAutoSuggestEditText : RelativeLayout {
         }
         popupSuggestPopupView?.let {
             it.setStringList(this.resultList)
-            if (!it.isShowing) {
-                // it.showOnAnchor(this, vertPos, horizPos, true)
-            }
+//            if (!it.isShowing) {
+//                 it.showOnAnchor(this, vertPos, horizPos, true)
+//            }
         }
     }
 

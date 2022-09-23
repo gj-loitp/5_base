@@ -6,7 +6,6 @@ import android.content.Context;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +14,11 @@ import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import org.jetbrains.annotations.NotNull;
 
-/**
- * A custom LayoutManager to build a {@link android.widget.Gallery} or a {@link ViewPager}like {@link RecyclerView} and
- * support both {@link GalleryLayoutManager#HORIZONTAL} and {@link GalleryLayoutManager#VERTICAL} scroll.
- * Created by chensuilun on 2016/11/18.
- */
+import timber.log.Timber;
+
 public class GalleryLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider {
     private static final String logTag = "GalleryLayoutManager";
     final static int LAYOUT_START = -1;
@@ -421,6 +416,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
                 int fixIndex = 0;
                 for (int i = 0; i < getChildCount(); i++) {
                     child = getChildAt(i + fixIndex);
+                    assert child != null;
                     if (getDecoratedBottom(child) - dy < topEdge) {
                         //Log.v(TAG, "fillWithVertical: removeAndRecycleView:" + getPosition(child) + ",bottom:" + getDecoratedBottom(child));
                         removeAndRecycleView(child, recycler);
@@ -435,6 +431,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
                 //remove and recycle the bottom off screen view
                 for (int i = getChildCount() - 1; i >= 0; i--) {
                     child = getChildAt(i);
+                    assert child != null;
                     if (getDecoratedTop(child) - dy > bottomEdge) {
                         //Log.v(TAG, "fillWithVertical: removeAndRecycleView:" + getPosition(child));
                         removeAndRecycleView(child, recycler);
@@ -523,6 +520,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
                 int fixIndex = 0;
                 for (int i = 0; i < getChildCount(); i++) {
                     child = getChildAt(i + fixIndex);
+                    assert child != null;
                     if (getDecoratedRight(child) - dx < leftEdge) {
                         removeAndRecycleView(child, recycler);
                         mFirstVisiblePosition++;
@@ -536,6 +534,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
                 //remove and recycle the right off screen view
                 for (int i = getChildCount() - 1; i >= 0; i--) {
                     child = getChildAt(i);
+                    assert child != null;
                     if (getDecoratedLeft(child) - dx > rightEdge) {
                         removeAndRecycleView(child, recycler);
                         mLastVisiblePos--;
@@ -556,6 +555,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
         if (dx >= 0) {
             if (getChildCount() != 0) {
                 View lastView = getChildAt(getChildCount() - 1);
+                assert lastView != null;
                 startPosition = getPosition(lastView) + 1; //start layout from next position item
                 startOffset = getDecoratedRight(lastView);
                 //Log.d(TAG, "fillWithHorizontal:to right startPosition:" + startPosition + ",startOffset:" + startOffset + ",rightEdge:" + rightEdge);
@@ -588,6 +588,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
             //dx<0
             if (getChildCount() > 0) {
                 View firstView = getChildAt(0);
+                assert firstView != null;
                 startPosition = getPosition(firstView) - 1; //start layout from previous position item
                 startOffset = getDecoratedLeft(firstView);
                 //Log.d(TAG, "fillWithHorizontal:to left startPosition:" + startPosition + ",startOffset:" + startOffset + ",leftEdge:" + leftEdge + ",child count:" + getChildCount());
@@ -698,6 +699,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
             //If we've reached the last item, enforce limits
             if (getPosition(getChildAt(getChildCount() - 1)) == getItemCount() - 1) {
                 child = getChildAt(getChildCount() - 1);
+                assert child != null;
                 delta = -Math.max(0, Math.min(dx, (child.getRight() - child.getLeft()) / 2 + child.getLeft() - parentCenter));
             }
         } else {
@@ -726,12 +728,14 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
             //If we've reached the last item, enforce limits
             if (getPosition(getChildAt(getChildCount() - 1)) == getItemCount() - 1) {
                 child = getChildAt(getChildCount() - 1);
+                assert child != null;
                 delta = -Math.max(0, Math.min(dy, (getDecoratedBottom(child) - getDecoratedTop(child)) / 2 + getDecoratedTop(child) - parentCenter));
             }
         } else {
             //If we've reached the first item, enforce limits
             if (mFirstVisiblePosition == 0) {
                 child = getChildAt(0);
+                assert child != null;
                 delta = -Math.min(0, Math.max(dy, (getDecoratedBottom(child) - getDecoratedTop(child)) / 2 + getDecoratedTop(child) - parentCenter));
             }
         }
@@ -910,7 +914,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
                         mOnItemSelectedListener.onItemSelected(recyclerView, snap, mCurSelectedPosition);
                     }
                 } else {
-                    Log.e(logTag, "onScrollStateChanged: snap null");
+                    Timber.tag(logTag).e("onScrollStateChanged: snap null");
                 }
             }
         }

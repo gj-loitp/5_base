@@ -352,6 +352,7 @@ public class DraggableView extends RelativeLayout {
      * @param ev captured.
      * @return true if the touch event is realized over the drag or second view.
      */
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         int actionMasked = MotionEventCompat.getActionMasked(ev);

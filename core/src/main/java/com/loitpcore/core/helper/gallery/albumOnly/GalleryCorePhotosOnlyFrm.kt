@@ -351,7 +351,7 @@ class GalleryCorePhotosOnlyFrm(
                     goToHome()
                 } else {
                     activity?.let {
-                        it.finish()
+                        it.finish()//correct
                         LActivityUtil.tranOut(it)
                     }
                 }

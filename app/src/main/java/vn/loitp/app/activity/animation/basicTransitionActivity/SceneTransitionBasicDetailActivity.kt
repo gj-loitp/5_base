@@ -1,7 +1,5 @@
 package vn.loitp.app.activity.animation.basicTransitionActivity
 
-import android.annotation.TargetApi
-import android.os.Build
 import android.os.Bundle
 import android.transition.Transition
 import android.widget.ImageView
@@ -89,7 +87,6 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
         if (transition != null) {
             // There is an entering shared element transition so add a listener to it
             transition.addListener(
-                @TargetApi(Build.VERSION_CODES.KITKAT)
                 object : Transition.TransitionListener {
                     override fun onTransitionEnd(transition: Transition) {
                         // As the transition has ended, we can now load the full-size image

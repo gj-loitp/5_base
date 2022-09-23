@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.concatAdapter.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +20,7 @@ class NewsAdapter(
 
     var onClickRootListener: ((News, Int) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun addData(listNews: ArrayList<News>) {
         this.listNews.addAll(listNews)
         notifyDataSetChanged()

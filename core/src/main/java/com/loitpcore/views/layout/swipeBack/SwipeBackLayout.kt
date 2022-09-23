@@ -40,7 +40,6 @@ open class SwipeBackLayout @JvmOverloads constructor(
 ) : ViewGroup(context, attrs, defStyleAttr) {
 
     companion object {
-        private val TAG = SwipeBackLayout::class.java.simpleName
         const val FROM_LEFT = 1
         const val FROM_RIGHT = 1 shl 1
         const val FROM_TOP = 1 shl 2
@@ -322,7 +321,7 @@ open class SwipeBackLayout @JvmOverloads constructor(
     }
 
     fun finish() {
-        (context as Activity).finish()
+        (context as Activity).finish()//correct
     }
 
     private val isSwipeEnabled: Boolean
@@ -413,7 +412,7 @@ open class SwipeBackLayout @JvmOverloads constructor(
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
-                    finish()
+                    finish()//correct
                 }
             }
         }

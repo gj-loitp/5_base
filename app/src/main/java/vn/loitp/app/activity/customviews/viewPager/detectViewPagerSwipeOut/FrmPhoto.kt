@@ -18,6 +18,7 @@ class FrmPhoto : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let { bundle ->
+            //TODO fix getSerializable
             val vpPhoto = bundle.getSerializable("vpphoto") as VPPhoto?
             vpPhoto?.let {
                 relativeLayoutParent.setBackgroundColor(it.color)

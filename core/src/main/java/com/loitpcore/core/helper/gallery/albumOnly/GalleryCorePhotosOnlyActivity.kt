@@ -16,7 +16,10 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.gallery.photos.PhotosDataCore
-import com.loitpcore.core.utilities.*
+import com.loitpcore.core.utilities.LActivityUtil
+import com.loitpcore.core.utilities.LDialogUtil
+import com.loitpcore.core.utilities.LSocialUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.restApi.flickr.FlickrConst
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitpcore.restApi.flickr.service.FlickrService
@@ -58,7 +61,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         setupViews()
-        LValidateUtil.isValidPackageName()
         checkPermission()
     }
 
@@ -146,7 +148,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
-                    finish()
+                    finish()//correct
                     LActivityUtil.transActivityNoAnimation(this@GalleryCorePhotosOnlyActivity)
                 }
             }
@@ -333,8 +335,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 if (allGranted) {
                     goToHome()
                 } else {
-                    finish()
-                    LActivityUtil.tranOut(this)
+                    onBaseBackPressed()
                 }
             }
     }

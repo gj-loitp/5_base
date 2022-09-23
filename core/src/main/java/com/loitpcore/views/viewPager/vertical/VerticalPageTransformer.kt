@@ -14,7 +14,7 @@ import kotlin.math.abs
 class VerticalPageTransformer : ViewPager.PageTransformer {
     override fun transformPage(view: View, position: Float) {
 
-        val pageWidth = view.width
+        view.width
         when {
             position < -1 -> { // [-Infinity,-1)
                 // This page is way off-screen to the left.

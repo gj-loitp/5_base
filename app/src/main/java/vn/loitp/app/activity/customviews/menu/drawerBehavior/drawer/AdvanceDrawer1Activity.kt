@@ -51,11 +51,19 @@ class AdvanceDrawer1Activity : BaseFontActivity(), NavigationView.OnNavigationIt
         drawerLayout?.useCustomBehavior(Gravity.END)
     }
 
-    override fun onBackPressed() {
+//    override fun onBackPressed() {
+//        if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
+//            drawerLayout?.closeDrawer(GravityCompat.START)
+//        } else {
+//            super.onBackPressed()
+//        }
+//    }
+
+    override fun onBaseBackPressed() {
         if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
             drawerLayout?.closeDrawer(GravityCompat.START)
         } else {
-            super.onBackPressed()
+            super.onBaseBackPressed()
         }
     }
 

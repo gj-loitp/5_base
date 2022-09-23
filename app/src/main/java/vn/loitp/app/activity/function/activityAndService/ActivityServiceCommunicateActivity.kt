@@ -39,7 +39,7 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -63,10 +63,11 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
         // to grant the permission.
         val intent =
             Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
+        //TODO startActivityForResult
         startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION)
     }
 
-    @Deprecated("Deprecated in Java")
+    //TODO onActivityResult
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {
             handleNotify()

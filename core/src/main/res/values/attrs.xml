@@ -321,18 +321,6 @@
         </attr>
     </declare-styleable>
 
-    <!--    <declare-styleable name="LCompass">-->
-    <!--        <attr name="degree_color" format="color" />-->
-    <!--        <attr name="show_orientation_labels" format="boolean" />-->
-    <!--        <attr name="orientation_labels_color" format="color" />-->
-    <!--        <attr name="show_degree_value" format="boolean" />-->
-    <!--        <attr name="degree_value_color" format="color" />-->
-    <!--        <attr name="needle" format="integer" />-->
-    <!--        <attr name="degrees_step" format="integer" />-->
-    <!--        <attr name="show_border" format="boolean" />-->
-    <!--        <attr name="border_color_compass" format="color" />-->
-    <!--    </declare-styleable>-->
-
     <declare-styleable name="LHeartLayout">
         <attr name="initX" format="dimension" />
         <attr name="initY" format="dimension" />
@@ -558,7 +546,7 @@
 
     <declare-styleable name="CalendarView">
 
-        <attr name="orientation">
+        <attr name="cvOrientation">
             <enum name="horizontal" value="0" />
             <enum name="vertical" value="1" />
         </attr>

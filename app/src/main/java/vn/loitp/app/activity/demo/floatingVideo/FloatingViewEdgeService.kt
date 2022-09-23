@@ -47,6 +47,7 @@ class FloatingViewEdgeService : Service() {
         dragAndMove()
     }
 
+    @SuppressLint("InflateParams")
     private fun setupViews() {
         // Inflate the floating view layout we created
         mFloatingView =

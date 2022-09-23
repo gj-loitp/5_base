@@ -16,15 +16,15 @@ import android.view.ViewGroup
  */
 class StickerTextView : StickerView {
 
-    companion object {
-        fun pixelsToSp(
-            context: Context,
-            px: Float
-        ): Float {
-            val scaledDensity = context.resources.displayMetrics.scaledDensity
-            return px / scaledDensity
-        }
-    }
+//    companion object {
+//        fun pixelsToSp(
+//            context: Context,
+//            px: Float
+//        ): Float {
+//            val scaledDensity = context.resources.displayMetrics.scaledDensity
+//            return px / scaledDensity
+//        }
+//    }
 
     private var tvMain: AutoResizeTextView? = null
 

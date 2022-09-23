@@ -33,7 +33,7 @@ class Activity2 : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -64,7 +64,7 @@ class Activity2 : BaseFontActivity() {
 
     private var mIsRestoredToTop = false
     override fun finish() {
-        super.finish()
+        super.finish()//correct
         // 4.4.2 platform issues for FLAG_ACTIVITY_REORDER_TO_FRONT,
         // reordered activity back press will go to home unexpectly,
         // Workaround: move reordered activity current task to front when it's finished.

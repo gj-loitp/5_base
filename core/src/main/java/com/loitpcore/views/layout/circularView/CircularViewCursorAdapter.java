@@ -15,7 +15,6 @@ import android.widget.CursorAdapter;
  * freuss47@gmail.com
  */
 public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapter {
-    private static final String TAG = CircularViewCursorAdapter.class.getSimpleName();
     private final DataSetObservable mDataSetObservable = new DataSetObservable();
     protected boolean mDataValid;
     protected boolean mAutoRequery;

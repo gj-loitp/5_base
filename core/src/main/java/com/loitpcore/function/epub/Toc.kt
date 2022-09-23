@@ -137,12 +137,16 @@ class Toc : BaseFindings(), Serializable {
                     val nodeMap = possiblyNavPoints.item(i).attributes
                     for (j in 0 until nodeMap.length) {
                         val attribute = nodeMap.item(j)
-                        if (attribute.nodeName == "id") {
-                            navPoint.id = attribute.nodeValue
-                        } else if (attribute.nodeName == "playOrder") {
-                            navPoint.playOrder = attribute.nodeValue.toInt()
-                        } else if (attribute.nodeName == "type") {
-                            navPoint.type = attribute.nodeValue
+                        when (attribute.nodeName) {
+                            "id" -> {
+                                navPoint.id = attribute.nodeValue
+                            }
+                            "playOrder" -> {
+                                navPoint.playOrder = attribute.nodeValue.toInt()
+                            }
+                            "type" -> {
+                                navPoint.type = attribute.nodeValue
+                            }
                         }
                     }
                     var hasNestedNavPoints = false

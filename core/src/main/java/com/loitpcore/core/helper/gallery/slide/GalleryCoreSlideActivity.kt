@@ -13,7 +13,6 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitpcore.core.utilities.LSocialUtil
-import com.loitpcore.core.utilities.LValidateUtil
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_slide.*
 
 /**
@@ -35,7 +34,6 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         setupViews()
-        LValidateUtil.isValidPackageName()
     }
 
     private fun setupViews() {

@@ -15,7 +15,6 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.gallery.photos.GalleryCorePhotosActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
-import com.loitpcore.core.utilities.LValidateUtil
 import com.loitpcore.restApi.flickr.FlickrConst
 import com.loitpcore.restApi.flickr.model.photoSetGetList.Photoset
 import com.loitpcore.restApi.flickr.service.FlickrService
@@ -111,12 +110,11 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
-                    finish()
+                    finish()//correct
                     LActivityUtil.transActivityNoAnimation(this@GalleryCoreAlbumActivity)
                 }
             }
         })
-        LValidateUtil.isValidPackageName()
         getListPhotosets()
     }
 

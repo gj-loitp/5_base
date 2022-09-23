@@ -42,6 +42,7 @@ class TransformationActivity : BaseFontActivity() {
             )
         }
 
+        //TODO setOnNavigationItemSelectedListener
         mainBottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.actionHome -> {

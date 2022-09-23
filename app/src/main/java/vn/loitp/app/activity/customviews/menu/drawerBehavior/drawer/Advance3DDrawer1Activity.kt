@@ -59,11 +59,19 @@ class Advance3DDrawer1Activity :
         }
     }
 
-    override fun onBackPressed() {
+//    override fun onBackPressed() {
+//        if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
+//            drawerLayout?.closeDrawer(GravityCompat.START)
+//        } else {
+//            super.onBackPressed()
+//        }
+//    }
+
+    override fun onBaseBackPressed() {
         if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
             drawerLayout?.closeDrawer(GravityCompat.START)
         } else {
-            super.onBackPressed()
+            super.onBaseBackPressed()
         }
     }
 

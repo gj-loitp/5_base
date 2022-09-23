@@ -10,6 +10,8 @@ import android.util.StateSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -445,19 +447,17 @@ public class CircularViewObject {
             return false;
         if (!Objects.equals(mAdapterDataSetObserver, object.mAdapterDataSetObserver))
             return false;
-        if (!Objects.equals(paint, object.paint)) return false;
-
-        return true;
+        return Objects.equals(paint, object.paint);
     }
 
     @Override
     public int hashCode() {
         int result = mCombinedState;
         result = 31 * result + id;
-        result = 31 * result + (radius != +0.0f ? Float.floatToIntBits(radius) : 0);
-        result = 31 * result + (radiusPadding != +0.0f ? Float.floatToIntBits(radiusPadding) : 0);
-        result = 31 * result + (x != +0.0f ? Float.floatToIntBits(x) : 0);
-        result = 31 * result + (y != +0.0f ? Float.floatToIntBits(y) : 0);
+        result = 31 * result + (radius != 0.0f ? Float.floatToIntBits(radius) : 0);
+        result = 31 * result + (radiusPadding != 0.0f ? Float.floatToIntBits(radiusPadding) : 0);
+        result = 31 * result + (x != 0.0f ? Float.floatToIntBits(x) : 0);
+        result = 31 * result + (y != 0.0f ? Float.floatToIntBits(y) : 0);
         result = 31 * result + (paint != null ? paint.hashCode() : 0);
         result = 31 * result + (context != null ? context.hashCode() : 0);
         result = 31 * result + (drawable != null ? drawable.hashCode() : 0);
@@ -467,6 +467,7 @@ public class CircularViewObject {
         return result;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "CircularViewObject{" +

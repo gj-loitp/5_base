@@ -6,11 +6,11 @@ import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.os.AsyncTask
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatImageView
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource.getColor
+import timber.log.Timber
 import kotlin.math.abs
 
 /**
@@ -296,13 +296,14 @@ class LScratchImageView : AppCompatImageView {
 
             // Do not create multiple calls to compare.
             if (mThreadCount > 1) {
-                Log.d("Captcha", "Count greater than 1")
+                Timber.tag("Captcha").d("Count greater than 1")
                 return
             }
             mThreadCount++
 
             object : AsyncTask<Int, Void, Float>() {
 
+                @Deprecated("Deprecated in Java")
                 @Suppress("NAME_SHADOWING")
                 override fun doInBackground(vararg params: Int?): Float {
                     return try {
@@ -318,6 +319,7 @@ class LScratchImageView : AppCompatImageView {
                     }
                 }
 
+                @Deprecated("Deprecated in Java")
                 public override fun onPostExecute(percentRevealed: Float) {
 
                     // check if not revealed before.
