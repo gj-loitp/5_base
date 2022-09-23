@@ -38,7 +38,7 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
 
         toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
         toolbar.setNavigationOnClickListener {
-            onBackPressed()
+            onBaseBackPressed()
         }
 
         appBarLayout.setOnStateChangeListener(object : LAppBarLayout.OnStateChangeListener {

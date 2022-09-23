@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
+import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.setSafeOnClickListener
@@ -72,7 +73,9 @@ class FrmGetListUser : BaseFragment() {
 
         btBack.setSafeOnClickListener {
             logD("popBackStack")
-            activity?.onBackPressed()
+            (activity as? BaseFontActivity)?.apply {
+                onBaseBackPressed()
+            }
             // findNavController().popBackStack()
         }
 

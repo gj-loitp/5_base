@@ -44,7 +44,9 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
         setSupportActionBar(toolbar)
 
         toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
-        toolbar.setNavigationOnClickListener { onBackPressed() }
+        toolbar.setNavigationOnClickListener {
+            onBaseBackPressed()
+        }
 
         fab.setOnClickListener(this)
 
@@ -102,6 +104,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
         }
     }
 
+    //TODO fix FragmentPagerAdapter
     inner class SectionsPagerAdapter internal constructor(fm: FragmentManager) :
         FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 

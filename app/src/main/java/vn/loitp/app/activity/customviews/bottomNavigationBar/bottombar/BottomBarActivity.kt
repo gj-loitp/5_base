@@ -2,13 +2,13 @@ package vn.loitp.app.activity.customviews.bottomNavigationBar.bottombar
 
 import android.os.Bundle
 import androidx.core.view.isVisible
+import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.views.bottomBar.LBottomBar
 import kotlinx.android.synthetic.main.activity_bottom_bar_blur.*
 import vn.loitp.app.R
@@ -32,7 +32,7 @@ class BottomBarActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false

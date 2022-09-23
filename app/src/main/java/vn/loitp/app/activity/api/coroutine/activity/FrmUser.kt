@@ -40,6 +40,7 @@ class FrmUser : BaseFragment() {
 
         val bundle = arguments
         bundle?.let { b ->
+            //TODO fix getSerializable
             val userTest = b.getSerializable(KEY_USER)
             if (userTest is UserTest) {
                 LUIUtil.printBeautyJson(o = userTest, textView = textView)
