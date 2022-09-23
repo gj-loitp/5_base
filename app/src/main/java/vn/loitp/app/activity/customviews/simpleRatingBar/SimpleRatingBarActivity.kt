@@ -38,7 +38,7 @@ class SimpleRatingBarActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.let {
@@ -71,6 +71,7 @@ class SimpleRatingBarActivity : BaseFontActivity() {
         viewPager.addOnPageChangeListener(TabLayoutOnPageChangeListener(tabLayout))
     }
 
+    //TODO convert viewpager 2
     inner class SamplePagerAdapter(fm: FragmentManager) :
         FragmentStatePagerAdapter(fm) {
         private val fragments: MutableList<Fragment>

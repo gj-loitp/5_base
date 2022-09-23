@@ -37,12 +37,13 @@ class GalleryLayoutManagerHorizontalActivity : BaseFontActivity() {
         setupViews()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupViews() {
         lActionBar.apply {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.let {

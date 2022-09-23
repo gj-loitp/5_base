@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.customviews.simpleRatingBar
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.loitpcore.core.utilities.LLog
 import com.loitpcore.views.setSafeOnClickListener
 import com.willy.ratingbar.BaseRatingBar
 import kotlinx.android.synthetic.main.fragment_srb_demo.*
@@ -33,13 +33,13 @@ class SRBDemoFragment : Fragment() {
     private fun setupViews() {
         baseRatingBarMain.isClearRatingEnabled = false
         baseRatingBarMain.setOnRatingChangeListener { _: BaseRatingBar?, rating: Float, _: Boolean ->
-            Log.d(TAG, "BaseRatingBar onRatingChange: $rating")
+            LLog.d(TAG, "BaseRatingBar onRatingChange: $rating")
         }
         scaleRatingBar.setOnRatingChangeListener { _: BaseRatingBar?, rating: Float, _: Boolean ->
-            Log.d(TAG, "ScaleRatingBar onRatingChange: $rating")
+            LLog.d(TAG, "ScaleRatingBar onRatingChange: $rating")
         }
         rotationRatingBarMain.setOnRatingChangeListener { _: BaseRatingBar?, rating: Float, _: Boolean ->
-            Log.d(TAG, "RotationRatingBar onRatingChange: $rating")
+            LLog.d(TAG, "RotationRatingBar onRatingChange: $rating")
         }
         buttonMainAddRating.setSafeOnClickListener {
             var currentRating = baseRatingBarMain.rating

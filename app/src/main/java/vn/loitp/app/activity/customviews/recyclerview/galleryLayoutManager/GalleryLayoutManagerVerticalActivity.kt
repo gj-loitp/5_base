@@ -42,7 +42,7 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.let {
@@ -90,7 +90,9 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
         // setup adapter for your RecycleView
         rv.adapter = galleryAdapterVertical
         layoutManager.setCallbackInFling(true) // should receive callback when flinging, default is false
+
         layoutManager.setOnItemSelectedListener { _: RecyclerView?, _: View?, position: Int ->
+            @SuppressLint("SetTextI18n")
             textView.text = position.toString() + "/" + galleryAdapterVertical?.itemCount
         }
 
