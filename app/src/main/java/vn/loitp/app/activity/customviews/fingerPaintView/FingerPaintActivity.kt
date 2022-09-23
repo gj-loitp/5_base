@@ -38,7 +38,7 @@ class FingerPaintActivity : BaseFontActivity(), SeekBar.OnSeekBarChangeListener,
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-                    onBackPressed()
+                    onBaseBackPressed()
                 }
             )
             this.ivIconRight?.let {

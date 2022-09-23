@@ -92,7 +92,7 @@ abstract class GraphActivity : BaseFontActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        onBaseBackPressed()
         return true
     }
 

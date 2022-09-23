@@ -66,8 +66,7 @@ class BuchheimWalkerActivity : GraphActivity() {
             .setSiblingSeparation(100)
             .setLevelSeparation(300)
             .setSubtreeSeparation(300)
-        val itemId = item.itemId
-        when (itemId) {
+        when (item.itemId) {
             R.id.topToBottom -> {
                 builder.setOrientation(BuchheimWalkerConfiguration.ORIENTATION_TOP_BOTTOM)
             }
