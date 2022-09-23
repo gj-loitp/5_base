@@ -67,11 +67,19 @@ class ExoPlayerActivity3 : BaseFontActivity() {
         super.onDestroy()
     }
 
-    override fun onBackPressed() {
+//    override fun onBackPressed() {
+//        if (LScreenUtil.isLandscape()) {
+//            playerManager?.toggleFullscreen(activity = this)
+//        } else {
+//            super.onBackPressed()
+//        }
+//    }
+
+    override fun onBaseBackPressed() {
         if (LScreenUtil.isLandscape()) {
             playerManager?.toggleFullscreen(activity = this)
         } else {
-            super.onBackPressed()
+            super.onBaseBackPressed()
         }
     }
 }
