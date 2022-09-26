@@ -5,10 +5,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_web_view_wrap_content.*
 import vn.loitp.app.R
 
@@ -30,26 +32,16 @@ class WebViewWrapContentActivity : BaseFontActivity() {
 
     @SuppressLint("SetTextI18n", "SetJavaScriptEnabled")
     private fun setupViews() {
-//        lActionBar.apply {
-//            LUIUtil.setSafeOnClickListenerElastic(
-//                view = this.ivIconLeft,
-//                runnable = {
-//                    onBaseBackPressed()
-//                }
-//            )
-//            this.ivIconRight?.let {
-//                LUIUtil.setSafeOnClickListenerElastic(
-//                    view = it,
-//                    runnable = {
-//                        showShortInformation(msg = "onClickMenu", isTopAnchor = false)
-//                    }
-//                )
-//                it.isVisible = true
-//                it.setImageResource(R.drawable.ic_baseline_code_48)
-//            }
-//            this.viewShadow?.isVisible = true
-//            this.tvTitle?.text = WebViewWrapContentActivity::class.java.simpleName
-//        }
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBaseBackPressed()
+                }
+            )
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = WebViewWrapContentActivity::class.java.simpleName
+        }
 
 
         wv.setBackgroundColor(Color.RED)
