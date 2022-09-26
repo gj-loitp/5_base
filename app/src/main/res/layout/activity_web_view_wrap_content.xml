@@ -10,6 +10,16 @@
     <!--        android:layout_width="match_parent"-->
     <!--        android:layout_height="wrap_content" />-->
 
+    <!--    <androidx.core.widget.NestedScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+
+    <!--        <WebView-->
+    <!--            android:id="@+id/wv"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content" />-->
+    <!--    </androidx.core.widget.NestedScrollView>-->
+
     <WebView
         android:id="@+id/wv"
         android:layout_width="match_parent"
