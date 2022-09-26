@@ -53,7 +53,9 @@ class WebViewWrapContentActivity : BaseFontActivity() {
 
 
         wv.setBackgroundColor(Color.RED)
-        wv.loadDataWithBaseURL(null, HtmlContent.body, "text/html", "UTF-8", null)
+//        val content = HtmlContent.body
+        val content = HtmlContent.body.replace("height:", "height_:")
+        wv.loadDataWithBaseURL(null, content, "text/html", "UTF-8", null)
 
         wv.settings.javaScriptEnabled = true
         wv.webViewClient = object : WebViewClient() {
