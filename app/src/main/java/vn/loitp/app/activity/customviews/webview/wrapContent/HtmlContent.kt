@@ -8,6 +8,8 @@ package vn.loitp.app.activity.customviews.webview.wrapContent
  * freuss47@gmail.com
  */
 object HtmlContent {
+
+    //phai bo het cac height thi moi work
     const val body = "\n" +
             "  <html>\n" +
             "      <head>\n" +
@@ -21,13 +23,11 @@ object HtmlContent {
             "            box-sizing:border-box;\n" +
             "          }\n" +
             "          html {\n" +
-            "            height: 100%;\n" +
             "            widht: 100%;\n" +
             "          }\n" +
             "          body {\n" +
             "            font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;\n" +
             "            width: 100%;\n" +
-            "            height: 100%;\n" +
             "            display: flex;\n" +
             "            align-items: center;\n" +
             "            justify-content: center;\n" +
@@ -40,30 +40,24 @@ object HtmlContent {
             "            justify-content: center;\n" +
             "            align-items: center;\n" +
             "            width:90%;\n" +
-            "            height:100%;\n" +
             "          }\n" +
             "           .pmp-message-container{\n" +
-            "            max-height:90%;\n" +
             "            position:relative;\n" +
             "            border-radius:8px;\n" +
             "            overflow:auto;\n" +
             "          }\n" +
             "          .pmp-message-close-icon{\n" +
             "            color:#9ca3af;\n" +
-            "            height:24px;\n" +
             "            width:24px;\n" +
             "          }\n" +
             "          .pmp-message-content-label {\n" +
             "            font-size: 14px;;\n" +
-            "            line-height: 20px;;\n" +
             "          }\n" +
             "          .pmp-message-content-content {\n" +
             "            font-size: 24px;\n" +
-            "            line-height: 32px;\n" +
             "          } \n" +
             "          .pmp-message-close-icon {\n" +
             "        color: #ffffff;\n" +
-            "        height: 24px;\n" +
             "        width: 24px;\n" +
             "      }\n" +
             "      .pmp-message-container{\n" +
