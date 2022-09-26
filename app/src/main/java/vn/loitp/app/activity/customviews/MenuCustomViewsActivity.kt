@@ -47,7 +47,7 @@ import vn.loitp.app.activity.customviews.textview.MenuTextViewActivity
 import vn.loitp.app.activity.customviews.treeView.TreeViewActivity
 import vn.loitp.app.activity.customviews.videoView.MenuVideoViewActivity
 import vn.loitp.app.activity.customviews.viewPager.MenuViewPagerActivity
-import vn.loitp.app.activity.customviews.webview.LWebViewActivity
+import vn.loitp.app.activity.customviews.webview.MenuWebViewActivity
 import vn.loitp.app.activity.customviews.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.app.activity.customviews.wwlMusic.WWLActivityMusic
 import vn.loitp.app.activity.customviews.wwlVideo.WWLVideoActivity
@@ -152,7 +152,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btMenu -> Intent(this, MenuMenuActivity::class.java)
             btLCardView -> Intent(this, LCardViewActivity::class.java)
             btCalendar -> Intent(this, MenuCalendarActivity::class.java)
-            btWebView -> Intent(this, LWebViewActivity::class.java)
+            btWebView -> Intent(this, MenuWebViewActivity::class.java)
             btIndicator -> Intent(this, MenuMagicIndicatorActivity::class.java)
             btWheelSpinner -> Intent(this, WheelSpinnerActivity::class.java)
             btFingerPaintView -> Intent(this, FingerPaintActivity::class.java)
