@@ -8,7 +8,7 @@ package vn.loitp.app.activity.customviews.webview.wrapContent
  * freuss47@gmail.com
  */
 object HtmlContent {
-    val body = "\n" +
+    const val body = "\n" +
             "  <html>\n" +
             "      <head>\n" +
             "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n" +

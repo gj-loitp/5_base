@@ -10,6 +10,7 @@ import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_web_view_wrap_content.*
 import vn.loitp.app.R
 
+
 @LogTag("WebViewWrapContentActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
@@ -48,7 +49,34 @@ class WebViewWrapContentActivity : BaseFontActivity() {
 //            this.tvTitle?.text = WebViewWrapContentActivity::class.java.simpleName
 //        }
 
+
         wv.setBackgroundColor(Color.RED)
         wv.loadDataWithBaseURL(null, HtmlContent.body, "text/html", "UTF-8", null)
+//        wv.webViewClient = object : WebViewClient() {
+//            override fun onPageFinished(view: WebView, url: String) {
+//            }
+//        }
+//        val viewTreeObserver: ViewTreeObserver = wv.viewTreeObserver
+//        viewTreeObserver.addOnGlobalLayoutListener(object :
+//            ViewTreeObserver.OnGlobalLayoutListener {
+//            override fun onGlobalLayout() {
+//                if (wv.measuredHeight > 0) {
+//                    wv.viewTreeObserver.removeGlobalOnLayoutListener(this)
+//                    runOnUiThread {
+//                        wv.layoutParams = LinearLayoutCompat.LayoutParams(
+//                            LinearLayoutCompat.LayoutParams.MATCH_PARENT,
+//                            0
+//                        )
+//                        wv.visibility = View.GONE
+//                        wv.layoutParams = LinearLayoutCompat.LayoutParams(
+//                            LinearLayoutCompat.LayoutParams.MATCH_PARENT,
+//                            LinearLayoutCompat.LayoutParams.WRAP_CONTENT
+//                        )
+//                        wv.visibility = View.VISIBLE
+//                    }
+//                }
+//            }
+//        })
+
     }
 }
