@@ -11,7 +11,6 @@ import com.loitpcore.data.ActivityData
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.app.activity.database.room.db.FNBDatabase
-import vn.loitp.app.activity.service.endlessService.log
 
 // build release de check
 // TODO service -> ko stop service dc
@@ -59,6 +58,16 @@ class LApplication : BaseApplication() {
 //        configuration.setEnvironmentProd()
         configuration.writeKey = "ab44219f-dc9e-4080-943c-a127bd071da3"
         val result = Analytics.setup(configuration)
-        log("setup result $result")
+        logE("setup result $result")
+    }
+
+    override fun onAppInBackground() {
+        super.onAppInBackground()
+        logE("onAppInBackground")
+    }
+
+    override fun onAppInForeground() {
+        super.onAppInForeground()
+        logE("onAppInForeground")
     }
 }

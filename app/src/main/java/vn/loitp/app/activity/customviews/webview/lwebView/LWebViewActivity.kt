@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.webview
+package vn.loitp.app.activity.customviews.webview.lwebView
 
 import android.os.Bundle
 import android.view.KeyEvent

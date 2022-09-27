@@ -89,6 +89,11 @@
                 android:text="@string/pdf" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPiano"
+                style="@style/ButtonMenu"
+                android:text="Piano" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRSS"
                 style="@style/ButtonMenu"
                 android:text="@string/rss" />

@@ -149,6 +149,6 @@ dependencies {
 //    https://github.com/amilcar-sr/JustifiedTextView
     api 'com.codesgood:justifiedtextview:2.0.1'
 //    https://jitpack.io/private#com.gitlab.g1-data/onetarget-android
-    api 'com.github.g1mobile:onetargetsdk:1.0.2'
+    api 'com.github.g1mobile:onetargetsdk:1.0.5'
 }
 //apply plugin: 'com.google.gms.google-services'
