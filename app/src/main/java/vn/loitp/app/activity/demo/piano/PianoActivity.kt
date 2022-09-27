@@ -4,8 +4,6 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import com.loitpcore.annotation.IsAutoAnimation
@@ -43,11 +41,11 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+//        requestWindowFeature(Window.FEATURE_NO_TITLE)
+//        window.setFlags(
+//            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//            WindowManager.LayoutParams.FLAG_FULLSCREEN
+//        )
         super.onCreate(savedInstanceState)
 
         setupViews()
@@ -61,9 +59,9 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
         pv.setAutoPlayListener(this)
         pv.setLoadAudioListener(this)
         sb.setOnSeekBarChangeListener(this)
-        iv_right_arrow.setOnClickListener(this)
-        iv_left_arrow.setOnClickListener(this)
-        iv_music.setOnClickListener(this)
+        ivRightArrow.setOnClickListener(this)
+        ivLeftArrow.setOnClickListener(this)
+        ivMusic.setOnClickListener(this)
 
         if (useConfigFile) {
             val assetManager = assets
@@ -468,7 +466,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
         }
         var progress: Int
         when (view.id) {
-            R.id.iv_left_arrow -> {
+            R.id.ivLeftArrow -> {
                 if (scrollProgress == 0) {
                     progress = 0
                 } else {
@@ -479,7 +477,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 }
                 sb!!.progress = progress
             }
-            R.id.iv_right_arrow -> {
+            R.id.ivRightArrow -> {
                 if (scrollProgress == 0) {
                     progress = 100
                 } else {
@@ -490,7 +488,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 }
                 sb!!.progress = progress
             }
-            R.id.iv_music -> if (!isPlay) {
+            R.id.ivMusic -> if (!isPlay) {
                 pv!!.autoPlay(litterStarList)
             }
         }

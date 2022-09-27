@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="@dimen/margin_padding_medium">
 
-        <Button
-            android:id="@+id/iv_left_arrow"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ivLeftArrow"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="0dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="@dimen/margin_padding_medium"
             android:background="@drawable/left_arrow" />
 
-        <SeekBar
+        <androidx.appcompat.widget.AppCompatSeekBar
             android:id="@+id/sb"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -31,20 +30,20 @@
             android:progressDrawable="@null"
             android:thumb="@drawable/seekbar_thumb" />
 
-        <Button
-            android:id="@+id/iv_right_arrow"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ivRightArrow"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/right_arrow" />
 
-        <Button
-            android:id="@+id/iv_music"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ivMusic"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/music" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.loitpcore.views.piano.view.PianoView
         android:id="@+id/pv"
@@ -52,4 +51,4 @@
         android:layout_height="match_parent">
 
     </com.loitpcore.views.piano.view.PianoView>
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
