@@ -3,8 +3,7 @@ package vn.loitp.app.activity.customviews.webview.wrapContent
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.JavascriptInterface
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
@@ -50,9 +49,23 @@ class WebViewWrapContentActivity : BaseFontActivity() {
         wv.loadDataWithBaseURL(null, content, "text/html", "UTF-8", null)
 
         wv.settings.javaScriptEnabled = true
-        wv.webViewClient = object : WebViewClient() {
-            override fun onPageFinished(view: WebView, url: String) {
+//        wv.webViewClient = object : WebViewClient() {
+//            override fun onPageFinished(view: WebView, url: String) {
+//            }
+//        }
+
+        wv.addJavascriptInterface(object : Any() {
+            @JavascriptInterface
+            fun performClick(string: String?) {
+                showLongWarning("click button close")
             }
-        }
+        }, "onClickClose")
+
+        wv.addJavascriptInterface(object : Any() {
+            @JavascriptInterface
+            fun performClick(string: String?) {
+                showLongWarning("click body")
+            }
+        }, "onClickBody")
     }
 }
