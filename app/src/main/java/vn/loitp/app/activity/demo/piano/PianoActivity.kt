@@ -21,8 +21,8 @@ import vn.loitp.app.R
 import java.io.IOException
 
 @LogTag("PianoActivity")
-@IsFullScreen(false)
-@IsAutoAnimation(true)
+@IsFullScreen(true)
+@IsAutoAnimation(false)
 class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
     OnSeekBarChangeListener,
     View.OnClickListener, OnPianoAutoPlayListener {
@@ -41,11 +41,6 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        requestWindowFeature(Window.FEATURE_NO_TITLE)
-//        window.setFlags(
-//            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//            WindowManager.LayoutParams.FLAG_FULLSCREEN
-//        )
         super.onCreate(savedInstanceState)
 
         setupViews()
