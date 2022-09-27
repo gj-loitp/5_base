@@ -79,7 +79,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
 
     private fun initLitterStarList() {
         litterStarList = java.util.ArrayList()
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -87,7 +87,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -95,7 +95,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -103,7 +103,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -111,7 +111,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -119,7 +119,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -127,7 +127,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -135,7 +135,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakLongTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -143,7 +143,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -151,7 +151,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -159,7 +159,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -167,7 +167,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -175,7 +175,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -183,7 +183,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -191,7 +191,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakLongTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -199,7 +199,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -207,15 +207,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
-            AutoPlayEntity(
-                Piano.PianoKeyType.WHITE,
-                4,
-                3,
-                litterStartBreakShortTime
-            )
-        )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -223,7 +215,15 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
+            AutoPlayEntity(
+                Piano.PianoKeyType.WHITE,
+                4,
+                3,
+                litterStartBreakShortTime
+            )
+        )
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -231,7 +231,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -239,7 +239,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -247,7 +247,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakLongTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -255,7 +255,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -263,15 +263,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
-            AutoPlayEntity(
-                Piano.PianoKeyType.WHITE,
-                4,
-                3,
-                litterStartBreakShortTime
-            )
-        )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -279,7 +271,15 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
+            AutoPlayEntity(
+                Piano.PianoKeyType.WHITE,
+                4,
+                3,
+                litterStartBreakShortTime
+            )
+        )
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -287,7 +287,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -295,7 +295,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -303,7 +303,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakLongTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -311,7 +311,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -319,7 +319,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -327,7 +327,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -335,7 +335,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -343,7 +343,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -351,7 +351,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -359,7 +359,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakLongTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -367,7 +367,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -375,7 +375,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -383,7 +383,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -391,7 +391,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -399,7 +399,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -407,7 +407,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 litterStartBreakShortTime
             )
         )
-        litterStarList!!.add(
+        litterStarList?.add(
             AutoPlayEntity(
                 Piano.PianoKeyType.WHITE,
                 4,
@@ -442,7 +442,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
     }
 
     override fun onProgressChanged(seekBar: SeekBar?, i: Int, b: Boolean) {
-        pv!!.scroll(i)
+        pv?.scroll(i)
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -459,7 +459,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
     override fun onClick(view: View) {
         if (scrollProgress == 0) {
             try {
-                scrollProgress = pv!!.layoutWidth * 100 / pv!!.pianoWidth
+                scrollProgress = pv.layoutWidth * 100 / pv.pianoWidth
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -470,26 +470,26 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
                 if (scrollProgress == 0) {
                     progress = 0
                 } else {
-                    progress = sb!!.progress - scrollProgress
+                    progress = sb.progress - scrollProgress
                     if (progress < 0) {
                         progress = 0
                     }
                 }
-                sb!!.progress = progress
+                sb.progress = progress
             }
             R.id.ivRightArrow -> {
                 if (scrollProgress == 0) {
                     progress = 100
                 } else {
-                    progress = sb!!.progress + scrollProgress
+                    progress = sb.progress + scrollProgress
                     if (progress > 100) {
                         progress = 100
                     }
                 }
-                sb!!.progress = progress
+                sb.progress = progress
             }
             R.id.ivMusic -> if (!isPlay) {
-                pv!!.autoPlay(litterStarList)
+                pv.autoPlay(litterStarList)
             }
         }
     }
@@ -511,8 +511,6 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
 
     override fun onDestroy() {
         super.onDestroy()
-        if (pv != null) {
-            pv!!.releaseAutoPlay()
-        }
+        pv.releaseAutoPlay()
     }
 }
