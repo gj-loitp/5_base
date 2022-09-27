@@ -28,6 +28,7 @@ import vn.loitp.app.activity.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivit
 import vn.loitp.app.activity.demo.mapTracker.MapTrackerActivity
 import vn.loitp.app.activity.demo.nfc.NFCActivity
 import vn.loitp.app.activity.demo.pdf.PdfDemoActivity
+import vn.loitp.app.activity.demo.piano.PianoActivity
 import vn.loitp.app.activity.demo.rss.RSSActivity
 import vn.loitp.app.activity.demo.sound.SoundActivity
 import vn.loitp.app.activity.demo.textToSpeech.TextToSpeechActivity
@@ -89,6 +90,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         bt2InstanceActivity.setOnClickListener(this)
         btFragmentNavigation.setOnClickListener(this)
         btPdf.setOnClickListener(this)
+        btPiano.setOnClickListener(this)
         btFragmentFlow.setOnClickListener(this)
         btArchitectureComponent.setOnClickListener(this)
         btNFC.setOnClickListener(this)
@@ -144,6 +146,9 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             bt2InstanceActivity -> intent = Intent(this, Activity1::class.java)
             btFragmentNavigation -> intent = Intent(this, FragmentNavigationActivity::class.java)
             btPdf -> intent = Intent(this, PdfDemoActivity::class.java)
+            btPiano -> {
+                intent = Intent(this, PianoActivity::class.java)
+            }
             btFragmentFlow -> intent = Intent(this, FragmentFlowActivity::class.java)
             btGalleryCoreAlbumFrm -> intent = Intent(this, GalleryCoreAlbumFrmActivity::class.java)
             btArchitectureComponent ->
