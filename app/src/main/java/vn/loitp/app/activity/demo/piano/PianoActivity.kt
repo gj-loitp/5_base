@@ -10,6 +10,7 @@ import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.views.piano.entity.AutoPlayEntity
 import com.loitpcore.views.piano.entity.Piano
 import com.loitpcore.views.piano.listener.OnLoadAudioListener
@@ -43,6 +44,8 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        LScreenUtil.hideDefaultControls(this)
+//        LScreenUtil.hideNavigationBar(this)
         setupViews()
     }
 
