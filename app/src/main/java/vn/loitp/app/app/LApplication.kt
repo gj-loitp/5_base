@@ -50,6 +50,8 @@ class LApplication : BaseApplication() {
         TTTDatabase.getInstance(this)
 
         setupTrackingG1()
+
+        logE("currentActivity() ${currentActivity()}")
     }
 
     private fun setupTrackingG1() {
@@ -70,4 +72,5 @@ class LApplication : BaseApplication() {
         super.onAppInForeground()
         logE("onAppInForeground")
     }
+
 }
