@@ -2,7 +2,10 @@ package com.loitpcore.restApi.restClient
 
 import android.text.TextUtils
 import com.google.gson.GsonBuilder
+import com.loitpcore.core.utilities.LLog
 import com.loitpcore.restApi.DateTypeDeserializer
+import com.moczul.ok2curl.CurlInterceptor
+import com.moczul.ok2curl.logger.Logger
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -39,6 +42,11 @@ object RestClient {
             .readTimeout(CONNECT_TIMEOUT_TIME, TimeUnit.SECONDS)
             .connectTimeout(CONNECT_TIMEOUT_TIME, TimeUnit.SECONDS)
             .addInterceptor(restRequestInterceptor)
+            .addInterceptor(CurlInterceptor(object : Logger {
+                override fun log(message: String) {
+                    LLog.e("Ok2Curl", message)
+                }
+            }))
             .retryOnConnectionFailure(true)
             .addInterceptor(logging) // <-- this is the important line!
             .build()
