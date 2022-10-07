@@ -1,7 +1,7 @@
 package vn.loitp.app.app
 
-import com.g1.onetargetsdk.Analytics
-import com.g1.onetargetsdk.Configuration
+import com.g1.onetargetsdk.core.Analytics
+import com.g1.onetargetsdk.core.Configuration
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.common.Constants
@@ -50,6 +50,8 @@ class LApplication : BaseApplication() {
         TTTDatabase.getInstance(this)
 
         setupTrackingG1()
+
+        logE("currentActivity() ${currentActivity()}")
     }
 
     private fun setupTrackingG1() {
@@ -70,4 +72,5 @@ class LApplication : BaseApplication() {
         super.onAppInForeground()
         logE("onAppInForeground")
     }
+
 }

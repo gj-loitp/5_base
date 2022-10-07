@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.g1.onetargetsdk.Analytics
+import com.g1.onetargetsdk.core.Analytics
 import com.g1.onetargetsdk.model.MonitorEvent
 import com.google.gson.Gson
 import com.loitpcore.annotation.IsAutoAnimation

@@ -2,12 +2,15 @@ package vn.loitp.app.activity.api.coroutine.service
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.loitpcore.core.utilities.LLog
 import com.loitpcore.restApi.DateTypeDeserializer
 import com.loitpcore.restApi.restClient.RestRequestInterceptor
+import com.moczul.ok2curl.CurlInterceptor
+import com.moczul.ok2curl.logger.Logger
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.* // ktlint-disable no-wildcard-imports
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 object TestApiClient {
@@ -28,7 +31,11 @@ object TestApiClient {
             connectTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
             readTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
             writeTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
-            // addInterceptor(AuthenticationInterceptor())
+                .addInterceptor(CurlInterceptor(object : Logger {
+                    override fun log(message: String) {
+                        LLog.e("Ok2Curl", message)
+                    }
+                }))
             restRequestInterceptor?.let { rri ->
                 addInterceptor(rri)
             }

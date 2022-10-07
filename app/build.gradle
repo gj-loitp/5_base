@@ -88,7 +88,7 @@ repositories {
 dependencies {
     api project(':core')
 //    https://github.com/tplloi/base
-//    api 'com.github.tplloi:base:4.4.78'
+//    api 'com.github.tplloi:base:4.4.91'
     api 'com.daimajia.androidanimations:library:2.4@aar'
 //    https://github.com/ibrahimsn98/android-particles
     api 'com.github.ibrahimsn98:android-particles:2.0'
@@ -149,6 +149,6 @@ dependencies {
 //    https://github.com/amilcar-sr/JustifiedTextView
     api 'com.codesgood:justifiedtextview:2.0.1'
 //    https://jitpack.io/private#com.gitlab.g1-data/onetarget-android
-    api 'com.github.g1mobile:onetargetsdk:1.0.5'
+    api 'com.github.g1mobile:onetargetsdk:1.2.3'
 }
 //apply plugin: 'com.google.gms.google-services'

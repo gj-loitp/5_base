@@ -1,5 +1,6 @@
 package com.loitpcore.core.base
 
+import android.app.Activity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleObserver
@@ -31,15 +32,26 @@ git push -f*/
 open class BaseApplication : MultiDexApplication(), LifecycleObserver {
 
     private var logTag: String? = null
+    private val mFTActivityLifecycleCallbacks = FTActivityLifecycleCallbacks()
 
     companion object {
         val gson: Gson = Gson()
+        private var instance: BaseApplication? = null
+
+        fun currentActivity(): Activity? {
+            return instance?.mFTActivityLifecycleCallbacks?.currentActivity
+        }
+    }
+
+    init {
+        instance = this@BaseApplication
     }
 
     override fun onCreate() {
         super.onCreate()
 
         ProcessLifecycleOwner.get().lifecycle.addObserver(lifecycleEventObserver)
+        registerActivityLifecycleCallbacks(mFTActivityLifecycleCallbacks)
 
         logTag = javaClass.getAnnotation(LogTag::class.java)?.value
         LAppResource.init(this)
