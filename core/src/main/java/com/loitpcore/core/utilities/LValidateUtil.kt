@@ -77,7 +77,8 @@ class LValidateUtil {
             "com.roygroup.base.demo",
             "com.roy93group.todo",
             "com.roy93group.vocabulary",
-            "com.roy93group.tictactoe"
+            "com.roy93group.tictactoe",
+            "com.roy93group.pianokiss",
         )
 
         fun isValidPackageName(): Boolean {
