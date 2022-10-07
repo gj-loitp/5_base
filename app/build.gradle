@@ -88,7 +88,7 @@ repositories {
 dependencies {
     api project(':core')
 //    https://github.com/tplloi/base
-//    api 'com.github.tplloi:base:4.4.91'
+//    api 'com.github.tplloi:base:4.4.92'
     api 'com.daimajia.androidanimations:library:2.4@aar'
 //    https://github.com/ibrahimsn98/android-particles
     api 'com.github.ibrahimsn98:android-particles:2.0'
