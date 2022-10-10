@@ -21,6 +21,7 @@ import vn.loitp.app.activity.animation.basicTransitionActivity.SceneTransitionBa
 import vn.loitp.app.activity.animation.basicTransitionFrm.BasicTransitionActivity
 import vn.loitp.app.activity.animation.elasticViews.ElasticActivity
 import vn.loitp.app.activity.animation.flySchool.FlySchoolActivity
+import vn.loitp.app.activity.animation.konfetti.KonfettiActivity
 import vn.loitp.app.activity.animation.lottie.MenuLottieActivity
 import vn.loitp.app.activity.animation.morphTransitions.MorphTransitionsMainActivity
 import vn.loitp.app.activity.animation.overScroll.OverScrollActivity
@@ -70,6 +71,7 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
         btActivityTransitionReveal.setOnClickListener(this)
         btPulsingView.setOnClickListener(this)
         btAndroidParticlesActivity.setOnClickListener(this)
+        btKonfetti.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -119,6 +121,9 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
             }
             btAndroidParticlesActivity -> {
                 intent = Intent(this, AndroidParticlesActivity::class.java)
+            }
+            btKonfetti -> {
+                intent = Intent(this, KonfettiActivity::class.java)
             }
         }
         intent?.let {

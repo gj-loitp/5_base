@@ -89,6 +89,7 @@ dependencies {
     api project(':core')
 //    https://github.com/tplloi/base
 //    api 'com.github.tplloi:base:4.4.92'
+
     api 'com.daimajia.androidanimations:library:2.4@aar'
 //    https://github.com/ibrahimsn98/android-particles
     api 'com.github.ibrahimsn98:android-particles:2.0'
@@ -148,7 +149,10 @@ dependencies {
     api 'com.github.lukelorusso:VerticalSeekBar:1.2.7'
 //    https://github.com/amilcar-sr/JustifiedTextView
     api 'com.codesgood:justifiedtextview:2.0.1'
-//    https://jitpack.io/private#com.gitlab.g1-data/onetarget-android
-    api 'com.github.g1mobile:onetargetsdk:1.2.3'
+    api 'com.github.g1mobile:onetargetsdk:1.2.6'
+
+//    https://github.com/DanielMartinus/konfetti
+//    api 'nl.dionsegijn:konfetti-compose:2.0.2'
+    api 'nl.dionsegijn:konfetti-xml:2.0.2'
 }
 //apply plugin: 'com.google.gms.google-services'
