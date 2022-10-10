@@ -27,8 +27,8 @@ class UnicornFilePickerActivity : BaseFontActivity() {
         private const val REQUEST_CODE = 1
         private val PERMISSIONS = arrayOf(
             Manifest.permission.CAMERA,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE
+//            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//            Manifest.permission.READ_EXTERNAL_STORAGE
         )
     }
 
