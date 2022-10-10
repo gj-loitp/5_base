@@ -81,8 +81,8 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         PermissionX.init(this)
             .permissions(
                 Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//                Manifest.permission.READ_EXTERNAL_STORAGE,
+//                Manifest.permission.WRITE_EXTERNAL_STORAGE,
             )
             .setDialogTintColor(color, color)
             .onExplainRequestReason { scope, deniedList, _ ->
