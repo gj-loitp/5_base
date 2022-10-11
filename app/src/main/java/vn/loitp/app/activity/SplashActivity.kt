@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_splash.*
 import okhttp3.Call
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
+import vn.loitp.app.activity.animation.konfetti.Presets
 import java.io.IOException
 
 @SuppressLint("CustomSplashScreen")
@@ -44,6 +45,7 @@ class SplashActivity : BaseFontActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
+        konfettiView.start(Presets.festive())
         LUIUtil.setDelay(mls = 2500, runnable = {
             isAnimDone = true
             goToHome()
