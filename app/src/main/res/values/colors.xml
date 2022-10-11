@@ -2,14 +2,14 @@
 <resources>
     <color name="colorPrimary">#009688</color>
     <color name="colorPrimaryLight">#009688</color>
-    <color name="colorPrimaryDark">#ff0000</color>
+    <color name="colorPrimaryDark">#01201D</color>
 
-    <color name="colorPrimary2">#000000</color>
-    <color name="colorEdgeEffect">#000000</color>
-    <color name="colorPrimaryTrans">#ff000000</color>
-    <color name="colorPrimary_600">#55000000</color>
-    <color name="colorAccent">#000000</color>
-    <color name="tintImage">#41000000</color>
+    <color name="colorPrimary2">#009688</color>
+    <color name="colorEdgeEffect">#009688</color>
+    <color name="colorPrimaryTrans">#ff009688</color>
+    <color name="colorPrimary_600">#99009688</color>
+    <color name="colorAccent">#009688</color>
+    <color name="tintImage">#41009688</color>
     <color name="text">#ffffff</color>
 
     <!--region cosmocalendar-->
