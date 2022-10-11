@@ -59,17 +59,6 @@ class LValidateUtil {
         }
 
         private val listPkg = listOf(
-            "loitp.basemaster", // admob ban
-            "loitp93.basemaster.demo", // admob ban
-            "loitp93.anhseyeuemtucainhindautien", // admob ban
-            "com.mup.comic", // admob ban
-            "loitp93.game.findnumber", // admob ban
-            "com.loitp.igallery", // admob ban
-            "com.loitp.haivl", // admob ban
-            "com.loitp.biker", // admob ban
-            "com.loitp.icomic", // admob ban
-            "loitp93.truyenvn.cute.girl", // admob ban
-            "loitp93.rss.vnexpress", // admob ban
             "loitp93.basemaster",
             "loitp.khotruyenvuive",
             "com.roygroup.base",
@@ -79,6 +68,7 @@ class LValidateUtil {
             "com.roy93group.vocabulary",
             "com.roy93group.tictactoe",
             "com.roy93group.pianokiss",
+            "com.roy93group.asyetcndt",
         )
 
         fun isValidPackageName(): Boolean {
