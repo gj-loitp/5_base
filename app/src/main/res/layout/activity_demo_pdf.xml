@@ -6,7 +6,6 @@
     android:animateLayoutChanges="true"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical"
-    android:paddingTop="@dimen/margin_padding_medium"
     android:paddingBottom="@dimen/margin_padding_medium">
 
     <com.loitpcore.views.actionBar.LActionBar

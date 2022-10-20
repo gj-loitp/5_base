@@ -89,10 +89,10 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         }
 
-        setCustomStatusBar(
-            colorStatusBar = LAppResource.getColor(R.color.colorPrimary),
-            colorNavigationBar = LAppResource.getColor(R.color.colorPrimary)
-        )
+//        setCustomStatusBar(
+//            colorStatusBar = LAppResource.getColor(R.color.colorPrimary),
+//            colorNavigationBar = LAppResource.getColor(R.color.colorPrimary)
+//        )
 
         super.onCreate(savedInstanceState)
         EventBus.getDefault().register(this)

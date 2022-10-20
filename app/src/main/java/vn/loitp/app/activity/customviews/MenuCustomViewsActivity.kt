@@ -19,6 +19,7 @@ import vn.loitp.app.activity.customviews.bottomNavigationBar.MenuBottomNavigatio
 import vn.loitp.app.activity.customviews.bottomSheet.MenuBottomSheetActivity
 import vn.loitp.app.activity.customviews.button.MenuButtonActivity
 import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
+import vn.loitp.app.activity.customviews.codeView.CodeViewActivity
 import vn.loitp.app.activity.customviews.dialog.MenuDialogActivity
 import vn.loitp.app.activity.customviews.dragView.MenuDragViewActivity
 import vn.loitp.app.activity.customviews.draggableFlipView.DraggableFlipViewActivity
@@ -117,6 +118,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btStackExpandableViewActivity.setOnClickListener(this)
         btMenuGraphViewActivity.setOnClickListener(this)
         btSimpleRatingBar.setOnClickListener(this)
+        btCodeView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -159,6 +161,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btStackExpandableViewActivity -> Intent(this, StackExpandableViewActivity::class.java)
             btMenuGraphViewActivity -> Intent(this, MenuGraphViewActivity::class.java)
             btSimpleRatingBar -> Intent(this, SimpleRatingBarActivity::class.java)
+            btCodeView -> Intent(this, CodeViewActivity::class.java)
             else -> null
         }
         intent?.let {

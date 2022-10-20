@@ -661,6 +661,7 @@
     <attr name="themeBackgroundColor" format="color" />
     <attr name="themeBackgroundColor50" format="color" />
     <attr name="themeTextColor" format="color" />
+    <attr name="themePrimaryColor" format="color" />
 
     <declare-styleable name="LAspectRatioLayout">
         <attr name="arl_widthRatio" format="float" />

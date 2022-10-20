@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themePrimaryColor">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
@@ -19,6 +19,11 @@
         android:layout_height="match_parent"
         app:realtimeBlurRadius="@dimen/round_medium"
         app:realtimeOverlayColor="?attr/themeBackgroundColor50" />
+
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"

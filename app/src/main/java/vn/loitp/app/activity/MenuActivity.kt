@@ -25,6 +25,7 @@ import vn.loitp.app.activity.customviews.MenuCustomViewsActivity
 import vn.loitp.app.activity.database.MenuDatabaseActivity
 import vn.loitp.app.activity.demo.MenuDemoActivity
 import vn.loitp.app.activity.function.MenuFunctionActivity
+import vn.loitp.app.activity.game.MenuGameActivity
 import vn.loitp.app.activity.more.MoreActivity
 import vn.loitp.app.activity.network.NetworkActivity
 import vn.loitp.app.activity.pattern.MenuPatternActivity
@@ -100,8 +101,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         btService.setOnClickListener(this)
         btUtils.setOnClickListener(this)
         btUtilsCore.setOnClickListener(this)
-
-        btGithub.isVisible = false
+        btGame.setOnClickListener(this)
     }
 
     private fun setupConfigGoogle() {
@@ -187,6 +187,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                     null
                 }
                 btFunction -> Intent(this, MenuFunctionActivity::class.java)
+                btGame -> Intent(this, MenuGameActivity::class.java)
                 btDatabase -> Intent(this, MenuDatabaseActivity::class.java)
                 btPattern -> Intent(this, MenuPatternActivity::class.java)
                 btChat -> {

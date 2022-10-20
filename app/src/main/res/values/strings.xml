@@ -633,7 +633,7 @@ Likewise may someone love you next.
     <string name="split_panel_layout">Split Panel Layout</string>
     <string name="_16_9">16 : 9</string>
     <string name="_4_3">4 : 3</string>
-    <string name="child1">child1</string>
+    <string name="child1" tools:ignore="Typos">child1</string>
     <string name="child2">child2</string>
     <string name="child3">child3</string>
     <string name="child4">child4</string>
@@ -642,7 +642,7 @@ Likewise may someone love you next.
     <string name="child7">child7</string>
     <string name="child8">child8</string>
     <string name="child9">child9</string>
-    <string name="child11">child11</string>
+    <string name="child11" tools:ignore="Typos">child11</string>
     <string name="child12">child12</string>
     <string name="child13">child13</string>
     <string name="child14">child14</string>
@@ -681,7 +681,7 @@ Likewise may someone love you next.
     <string name="sample_viewgroup">Sample ViewGroup</string>
     <string name="programmatically">Programmatically</string>
     <string name="trip_name">Trip name</string>
-    <string name="carribean_cruise">Carribean cruise</string>
+    <string name="carribean_cruise" tools:ignore="Typos">Carribean cruise</string>
     <string name="content">content</string>
     <string name="_11111111111111111111111">11111111111111111111111</string>
     <string name="_2222222222222222222222222222">2222222222222222222222222222</string>
@@ -802,7 +802,7 @@ Likewise may someone love you next.
     <string name="place_controller_under_the_video_without_overlapping_the_video">Place controller under the video without overlapping the video</string>
     <string name="switch_target_view">Switch target view</string>
     <string name="youtube">Youtube</string>
-    <string name="switch_0_1">Switch 0-1</string>
+    <string name="switch_0_1" tools:ignore="TypographyDashes">Switch 0-1</string>
     <string name="switch_1_0">Switch 1_0</string>
     <string name="playerview_0">PlayerView 0</string>
     <string name="playerview_1">PlayerView 1</string>
@@ -974,7 +974,7 @@ Likewise may someone love you next.
     <string name="start_foreground_service">Start Foreground Service</string>
     <string name="stop_foreground_service">Stop Foreground Service</string>
     <string name="async">Async</string>
-    <string name="rx1">Rx1</string>
+    <string name="rx1" tools:ignore="Typos">Rx1</string>
     <string name="rx2">Rx2</string>
     <string name="rx3">Rx3</string>
     <string name="rx_with_progress">Rx with progress</string>
@@ -1015,4 +1015,38 @@ Likewise may someone love you next.
     <string name="all_scaleratingbar_title">ScaleRatingBar</string>
     <string name="all_rotationratingbar_title">RotationRatingBar</string>
     <string name="all_add_rating_title">Add rating</string>
+
+    <!-- Actions -->
+    <string name="find_and_replace">Find And Replace</string>
+    <string name="search_keyword">Search keyword</string>
+    <string name="find_previous_match">Find previous Match</string>
+    <string name="find_next_match">Find Next Match</string>
+    <string name="replacement">Replacement</string>
+    <string name="replace_all">Replace all</string>
+    <string name="clear_text">Clear Text</string>
+    <string name="comment">Comment</string>
+    <string name="uncomment">UnComment</string>
+    <string name="undo">Undo</string>
+    <string name="redo">Redo</string>
+
+    <!-- Programming Languages -->
+    <string name="languages">Languages</string>
+    <string name="java"> Java </string>
+    <string name="python"> Python </string>
+    <string name="go"> Go </string>
+
+    <!-- Themes -->
+    <string name="themes">Themes</string>
+    <string name="monokia">Monokia</string>
+    <string name="noctics_white">Noctics White</string>
+    <string name="five_color_dark">Five Color Dark</string>
+    <string name="orange_box">Orange Box</string>
+
+    <string name="source_position">%1$d:%2$d</string>
+
+    <string name="textGameCurrentPlayer">It\'s %1$s\'s turn.</string>
+    <string name="textGameWinner">Black %1$d and White %2$d win %3$s.</string>
+    <string name="textTopModeManualButton">manual mode</string>
+    <string name="textTopModeAIWeakButton">Against AI: Weak</string>
+    <string name="textTopModeAIStrongButton">Against AI: Strong</string>
 </resources>

@@ -91,6 +91,7 @@ dependencies {
 //    api 'com.github.tplloi:base:4.4.92'
 
     api 'com.daimajia.androidanimations:library:2.4@aar'
+
 //    https://github.com/ibrahimsn98/android-particles
     api 'com.github.ibrahimsn98:android-particles:2.0'
 //    https://github.com/barteksc/AndroidPdfViewer
@@ -99,31 +100,46 @@ dependencies {
     api 'com.github.amir5121:arcView:1.0.1'
 //    https://github.com/Zaid-Mirza/AttachmentManager
     api 'com.github.Zaid-Mirza:AttachmentManager:2.0.1'
+
 //    https://github.com/yusufonderd/BasketLayout
     api 'com.github.yusufonderd:BasketLayout:1.0'
 //    https://github.com/alpbak/BoxedVerticalSeekBar
     api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'
+
+//    https://github.com/AmrDeveloper/CodeView
+    api 'com.github.AmrDeveloper:CodeView:1.3.5'
 //    https://github.com/square/retrofit/tree/master/retrofit-converters/moshi
     api 'com.squareup.retrofit2:converter-moshi:2.9.0'
+
 //    https://github.com/shiburagi/Drawer-Behavior
     api 'com.infideap.drawerbehavior:drawer-behavior:1.0.1'
 //    https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
     api 'com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:1.1.1'
 //    https://github.com/tuanhav95/DragView
     api 'com.github.tuanhav95:DragView:1.1.0'
+
 //    https://github.com/wajahatkarim3/EasyFlipViewPager
-    implementation 'com.wajahatkarim:easyflipviewpager:2.0.1'
+    api 'com.wajahatkarim:easyflipviewpager:2.0.1'
+
 //    https://github.com/rosenpin/fading-text-view
     api 'com.github.rosenpin:fading-text-view:3.0'
+
 //    https://github.com/reddit/IndicatorFastScroll
     api 'com.reddit:indicator-fast-scroll:1.3.0'
+
 //    https://github.com/oss-bandb/GraphView
     api 'dev.bandb.graphview:graphview:0.8.1'
+
     api 'com.thedeanda:lorem:2.1'
+
+    api 'com.github.g1-onetarget:onetargetsdk:1.2.9'
+
 //    noinspection AnnotationProcessorOnCompilePath
     api 'io.realm:realm-android:0.82.1'
+    kapt "androidx.room:room-compiler:2.5.0-beta01"
 //    https://github.com/Crysis21/PulsingView
     api 'ro.holdone:pulseview:1.0.2'
+
 //    https://github.com/bhoomit11/ScopedMediaPicker
     api 'com.github.bhoomit11:ScopedMediaPicker:1.0.3'
 //    https://github.com/williamyyu/SimpleRatingBar
@@ -132,24 +148,28 @@ dependencies {
     api 'com.github.transferwise:sequence-layout:1.2.0'
 //    https://github.com/fabiosassu/StackExpandableView
     api 'com.github.fabiosassu:StackExpandableView:1.0.2'
+
 //    https://github.com/ParkSangGwon/TedImagePicker
 //    api 'io.github.ParkSangGwon:tedimagepicker:1.2.7'
 //    https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
-    kapt "androidx.room:room-compiler:2.5.0-alpha03"
+
 //    https://github.com/nex3z/ToggleButtonGroup
     api 'com.nex3z:toggle-button-group:1.2.3'
 //    https://github.com/iamporus/TypedTextView
     api 'com.github.iamporus:TypedTextView:1.1.2'
+
 //    https://github.com/rehmanmuradali/wheel-spinner
     api 'com.github.rehmanmuradali:wheel-spinner:1.0.0'
+
 //    https://github.com/abhishekti7/UnicornFilePicker
     api 'com.github.abhishekti7:UnicornFilePicker:1.0.2'
+
 //    https://github.com/lukelorusso/VerticalSeekBar
     api 'com.github.lukelorusso:VerticalSeekBar:1.2.7'
+
 //    https://github.com/amilcar-sr/JustifiedTextView
     api 'com.codesgood:justifiedtextview:2.0.1'
-    api 'com.github.g1mobile:onetargetsdk:1.2.6'
 
 //    https://github.com/DanielMartinus/konfetti
 //    api 'nl.dionsegijn:konfetti-compose:2.0.2'

@@ -80,6 +80,11 @@
                 android:text="@string/function" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGame"
+                style="@style/ButtonMenu"
+                android:text="Game" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMoreApp"
                 style="@style/ButtonMenu"
                 android:text="@string/more_app" />

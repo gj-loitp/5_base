@@ -64,7 +64,7 @@ dependencies {
     api 'androidx.legacy:legacy-support-v4:1.0.0'
     api 'androidx.dynamicanimation:dynamicanimation:1.1.0-alpha03'
 
-    api 'androidx.appcompat:appcompat:1.6.0-rc01'
+    api 'androidx.appcompat:appcompat:1.7.0-alpha01'
     api 'com.google.android.material:material:1.8.0-alpha01'
     api 'androidx.recyclerview:recyclerview:1.2.1'
     api 'androidx.cardview:cardview:1.0.0'
@@ -133,7 +133,7 @@ dependencies {
     //api 'com.google.android.gms:play-services-cast-framework:16.1.0'
     api 'com.google.android.gms:play-services-maps:18.1.0'
 //    api 'com.google.android.gms:play-services-ads:21.1.0'
-    api 'com.google.android.gms:play-services-location:20.0.0'
+    api 'com.google.android.gms:play-services-location:21.0.0'
 
     //https://github.com/JakeWharton/NineOldAndroids
     api 'com.nineoldandroids:library:2.4.0' //for draggable view
@@ -173,10 +173,10 @@ dependencies {
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
     //Room components
-    api "androidx.room:room-runtime:2.5.0-alpha03"
-    api "androidx.room:room-ktx:2.5.0-alpha03"
-    kapt "androidx.room:room-compiler:2.5.0-alpha03"
-    androidTestImplementation "androidx.room:room-testing:2.5.0-alpha03"
+    api "androidx.room:room-runtime:2.5.0-beta01"
+    api "androidx.room:room-ktx:2.5.0-beta01"
+    kapt "androidx.room:room-compiler:2.5.0-beta01"
+    androidTestImplementation "androidx.room:room-testing:2.5.0-beta01"
 
     //ViewModel Kotlin support
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"

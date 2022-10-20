@@ -6,7 +6,7 @@
     </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:colorEdgeEffect" >@color/colorEdgeEffect
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect
         </item>
     </style>
 
@@ -162,6 +162,7 @@
     </style>
 
     <style name="LightTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="themePrimaryColor">@color/colorPrimaryLight</item>
         <item name="themeTextColor">@color/black</item>
         <item name="themeBackgroundColorMedium">@color/whiteSmoke</item>
         <item name="themeBackgroundColor">@color/white</item>
@@ -174,11 +175,13 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
-        <item name="android:colorEdgeEffect" >@color/colorEdgeEffect
-        </item>
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+        <item name="android:statusBarColor">@color/colorPrimaryLight</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryLight</item>
     </style>
 
     <style name="DarkTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="themePrimaryColor">@color/colorPrimaryDark</item>
         <item name="themeTextColor">@color/white</item>
         <item name="themeBackgroundColorMedium">@color/dark900</item>
         <item name="themeBackgroundColor">@color/black</item>
@@ -191,8 +194,9 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
-        <item name="android:colorEdgeEffect" >@color/colorEdgeEffect
-        </item>
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
     </style>
 
     <style name="TranslucentActivity" parent="DarkTheme">
@@ -211,7 +215,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
-        <item name="android:colorEdgeEffect" >@color/colorEdgeEffect
+        <item name="android:colorEdgeEffect">@color/colorEdgeEffect
         </item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
@@ -225,6 +229,8 @@
         <item name="themeBackgroundColorMedium">@color/whiteSmoke</item>
         <item name="themeBackgroundColor">@color/white</item>
         <item name="themeBackgroundColor50">@color/white50</item>
+        <item name="android:statusBarColor">@color/colorPrimaryLight</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryLight</item>
     </style>
 
     <style name="DarkSwipeTheme" parent="SwipeTheme">
@@ -232,6 +238,8 @@
         <item name="themeBackgroundColorMedium">@color/dark900</item>
         <item name="themeBackgroundColor">@color/black</item>
         <item name="themeBackgroundColor50">@color/black50</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
     </style>
 
 </resources>

@@ -55,6 +55,11 @@
                 android:text="@string/calendar" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCodeView"
+                style="@style/ButtonMenu"
+                android:text="CodeView" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDialog"
                 style="@style/ButtonMenu"
                 android:text="@string/dialog" />
