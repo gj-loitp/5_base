@@ -8,14 +8,13 @@ import vn.loitp.app.activity.game.osero.model.ai.AINone
 import vn.loitp.app.activity.game.osero.model.ai.OseroAI
 
 class GamePresenter {
-
     private val game: OseroGame = OseroGame()
     private lateinit var ai: OseroAI
     private var view: GameView? = null
-    val boardSize = game.BOARD_SIZE
+    val boardSize = OseroGame.BOARD_SIZE
 
     /** 現在どちらのターンか **/
-    var currentPlayer = Stone.BLACK
+    private var currentPlayer = Stone.BLACK
 
     fun onCreate(view: GameView, ai: OseroAI = AINone()) {
         this.view = view
@@ -40,9 +39,7 @@ class GamePresenter {
             val blackCount = game.countStones(Stone.BLACK)
             val whiteCount = game.countStones(Stone.WHITE)
             view.showWinner(
-                if (blackCount > whiteCount) Stone.BLACK else Stone.WHITE,
-                blackCount,
-                whiteCount
+                if (blackCount > whiteCount) Stone.BLACK else Stone.WHITE, blackCount, whiteCount
             )
             view.finishGame()
         }

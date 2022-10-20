@@ -9,7 +9,7 @@ import vn.loitp.app.activity.game.osero.model.Stone
  */
 class AIStrong : OseroAI {
 
-    val boardRatings = arrayOf(
+    private val boardRatings = arrayOf(
         arrayOf(30, -12, 0, -1, -1, 0, -12, 30),
         arrayOf(-12, -15, -3, -3, -3, -3, -15, -12),
         arrayOf(0, -3, 0, -1, -1, 0, -3, -1),
@@ -21,9 +21,9 @@ class AIStrong : OseroAI {
     )
 
     override fun computeNext(game: OseroGame, color: Stone): Place {
-        return game.boardStatus.flatMap { it }
+        return game.boardStatus.flatten()
             .filter { game.canPut(Place(it.x, it.y, color)) }
-            .maxBy { checkScore(it) + game.getCanChangePlaces(it).map { checkScore(it) }.sum() }!!
+            .maxBy { checkScore(it) + game.getCanChangePlaces(it).sumOf { checkScore(it) } }
     }
 
     private fun checkScore(place: Place) = boardRatings[place.x][place.y]

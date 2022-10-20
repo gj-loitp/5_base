@@ -13,7 +13,7 @@ import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu.lActionBar
 import kotlinx.android.synthetic.main.activity_menu_game.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.game.osero.TopActivity
+import vn.loitp.app.activity.game.osero.TopOseroActivity
 
 @LogTag("MenuGameActivity")
 @IsFullScreen(false)
@@ -51,7 +51,7 @@ class MenuGameActivity : BaseFontActivity(), View.OnClickListener {
         val intent: Intent? =
             when (v) {
                 btOsero ->
-                    Intent(this, TopActivity::class.java)
+                    Intent(this, TopOseroActivity::class.java)
                 else -> null
             }
         intent?.let {

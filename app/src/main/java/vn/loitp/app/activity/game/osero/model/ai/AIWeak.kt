@@ -9,8 +9,8 @@ import vn.loitp.app.activity.game.osero.model.Stone
  */
 class AIWeak : OseroAI {
     override fun computeNext(game: OseroGame, color: Stone): Place {
-        return game.boardStatus.flatMap { it }
+        return game.boardStatus.flatten()
             .filter { game.canPut(Place(it.x, it.y, color)) }
-            .maxBy { game.getCanChangePlaces(it).count() }!!
+            .maxBy { game.getCanChangePlaces(it).count() }
     }
 }

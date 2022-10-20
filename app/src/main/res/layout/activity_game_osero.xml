@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    android:orientation="vertical">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_padding_medium">
 
     <GridLayout
         android:id="@+id/gamePlacesGrid"
@@ -16,13 +17,14 @@
 
     </GridLayout>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/gameCurrentPlayerText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:gravity="center"
         android:text="@string/textGameCurrentPlayer"
         android:textColor="@android:color/black"
-        android:textSize="16sp" />
+        android:textSize="@dimen/txt_medium" />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1044,9 +1044,9 @@ Likewise may someone love you next.
 
     <string name="source_position">%1$d:%2$d</string>
 
-    <string name="textGameCurrentPlayer">%1$sのターンです。</string>
-    <string name="textGameWinner">黒%1$d、白%2$dで%3$sの勝ちです。</string>
-    <string name="textTopModeManualButton">手動モード</string>
-    <string name="textTopModeAIWeakButton">対AI:よわい</string>
-    <string name="textTopModeAIStrongButton">対AI:つよい</string>
+    <string name="textGameCurrentPlayer">It\'s %1$s\'s turn.</string>
+    <string name="textGameWinner">Black %1$d and White %2$d win %3$s.</string>
+    <string name="textTopModeManualButton">manual mode</string>
+    <string name="textTopModeAIWeakButton">Against AI: Weak</string>
+    <string name="textTopModeAIStrongButton">Against AI: Strong</string>
 </resources>
