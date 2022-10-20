@@ -136,7 +136,7 @@ dependencies {
 //    api 'io.github.ParkSangGwon:tedimagepicker:1.2.7'
 //    https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
-    kapt "androidx.room:room-compiler:2.5.0-alpha03"
+    kapt "androidx.room:room-compiler:2.5.0-beta01"
 //    https://github.com/nex3z/ToggleButtonGroup
     api 'com.nex3z:toggle-button-group:1.2.3'
 //    https://github.com/iamporus/TypedTextView
