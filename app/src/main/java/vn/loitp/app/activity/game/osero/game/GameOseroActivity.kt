@@ -7,10 +7,12 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_game_osero.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.game.osero.model.Place
@@ -45,6 +47,21 @@ class GameOseroActivity : BaseFontActivity(), GameView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBaseBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = GameOseroActivity::class.java.simpleName
+        }
         // 二次元配列にマッピングしながらGridLayoutにマスを設定
         placeList = arrayOfNulls<List<ImageView>>(boardSize)
             .mapIndexed { x, _ ->
