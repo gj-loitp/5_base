@@ -54,7 +54,6 @@ class TrackingG1Activity : BaseFontActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun trackEventByParams() {
-        val workSpaceId = C.workSpaceId
         val identityId = hashMapOf<String, Any>(
             "phone" to "0766040293",
             "email" to "loitp@galaxy.one",
@@ -75,18 +74,15 @@ class TrackingG1Activity : BaseFontActivity() {
             )
         )
         val eventName = "event_name"
-        val eventDate = System.currentTimeMillis()
         val eventData = hashMapOf<String, Any>(
             "pageTitle" to "Passenger Information",
             "pagePath" to "/home"
         )
 
         Analytics.trackEvent(
-            workSpaceId = workSpaceId,
             identityId = identityId,
             profile = profile,
             eventName = eventName,
-            eventDate = eventDate,
             eventData = eventData,
             onPreExecute = { input ->
                 printBeautyJson(input, tvInput)
