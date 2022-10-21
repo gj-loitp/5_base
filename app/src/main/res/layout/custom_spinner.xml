@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:textColor="@color/colorAccent"
+          android:padding="10dp"
+          android:background="@drawable/custom_button"
+          android:textSize="25sp"
+          android:fontFamily="@font/bungee"
+          android:includeFontPadding="false"
+          android:textAlignment="center"/>

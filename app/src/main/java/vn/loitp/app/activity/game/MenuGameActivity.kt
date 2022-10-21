@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_menu.lActionBar
 import kotlinx.android.synthetic.main.activity_menu_game.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.game.osero.TopOseroActivity
+import vn.loitp.app.activity.game.pong.activity.MainActivity
 
 @LogTag("MenuGameActivity")
 @IsFullScreen(false)
@@ -44,14 +45,19 @@ class MenuGameActivity : BaseFontActivity(), View.OnClickListener {
         }
 
         btOsero.setOnClickListener(this)
+        btPong.setOnClickListener(this)
 
     }
 
     override fun onClick(v: View) {
         val intent: Intent? =
             when (v) {
-                btOsero ->
+                btOsero -> {
                     Intent(this, TopOseroActivity::class.java)
+                }
+                btPong -> {
+                    Intent(this, MainActivity::class.java)
+                }
                 else -> null
             }
         intent?.let {
