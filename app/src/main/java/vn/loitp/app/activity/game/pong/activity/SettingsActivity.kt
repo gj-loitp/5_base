@@ -9,6 +9,7 @@ import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.dialog_settings.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.game.pong.pong.Difficulty
@@ -17,7 +18,7 @@ import vn.loitp.app.activity.game.pong.pong.Settings
 import java.util.*
 
 @LogTag("SettingsActivity")
-@IsFullScreen(true)
+@IsFullScreen(false)
 @IsAutoAnimation(false)
 class SettingsActivity : BaseFontActivity() {
 
@@ -29,6 +30,10 @@ class SettingsActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+//        LScreenUtil.setScreenOrientation(this, false)
+        LScreenUtil.hideDefaultControls(this)
+//        setCustomStatusBar(Color.BLACK, Color.BLACK)
 
         ArrayAdapter.createFromResource(this, R.array.modeTypes, R.layout.custom_spinner)
             .also { adapter ->

@@ -7,11 +7,12 @@ import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LScreenUtil
 import vn.loitp.app.R
 import vn.loitp.app.activity.game.pong.pong.Settings
 
 @LogTag("PongMainActivity")
-@IsFullScreen(true)
+@IsFullScreen(false)
 @IsAutoAnimation(false)
 class PongMainActivity : BaseFontActivity() {
 
@@ -23,6 +24,10 @@ class PongMainActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+//        LScreenUtil.setScreenOrientation(this, false)
+        LScreenUtil.hideDefaultControls(this)
+//        setCustomStatusBar(Color.BLACK, Color.BLACK)
     }
 
     fun settingsActivity(view: View) {
