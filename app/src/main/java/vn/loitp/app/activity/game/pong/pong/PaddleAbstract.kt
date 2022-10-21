@@ -51,4 +51,3 @@ enum class Side {
     A,
     B
 }
-

@@ -1212,7 +1212,7 @@
             android:name=".activity.game.osero.game.GameOseroActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.game.pong.activity.MainActivity"
+            android:name=".activity.game.pong.activity.PongMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity

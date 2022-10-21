@@ -5,6 +5,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import androidx.core.content.ContextCompat
 import vn.loitp.app.R
+import kotlin.math.pow
 import kotlin.random.Random
 
 class Ball(var initX: Float, private var initY: Float, difficulty: Difficulty) {
@@ -100,7 +101,7 @@ class Ball(var initX: Float, private var initY: Float, difficulty: Difficulty) {
     }
 
     private fun randomNegativity(): Int {
-        return Math.pow((-1).toDouble(), Random.nextInt(2).toDouble()).toInt()
+        return (-1).toDouble().pow(Random.nextInt(2).toDouble()).toInt()
     }
 
     enum class SpeedComponent {

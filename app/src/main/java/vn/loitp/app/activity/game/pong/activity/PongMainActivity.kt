@@ -3,17 +3,26 @@ package vn.loitp.app.activity.game.pong.activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import vn.loitp.app.R
 import vn.loitp.app.activity.game.pong.pong.Settings
 
-class MainActivity : AppCompatActivity() {
+@LogTag("PongMainActivity")
+@IsFullScreen(true)
+@IsAutoAnimation(false)
+class PongMainActivity : BaseFontActivity() {
 
     private var settings = Settings()
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_pong_main
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
     }
 
     fun settingsActivity(view: View) {

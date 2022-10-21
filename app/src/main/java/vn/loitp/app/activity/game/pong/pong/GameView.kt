@@ -13,6 +13,7 @@ import android.view.MotionEvent
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import androidx.core.content.res.ResourcesCompat
+import com.loitpcore.core.utilities.LAppResource
 import vn.loitp.app.R
 import vn.loitp.app.activity.game.pong.activity.GameActivity
 import java.util.*
@@ -64,9 +65,9 @@ class GameView(context: Context, attrs: AttributeSet) : SurfaceView(context, att
         ball.setUpGameView(this)
 
         // Set up the game.
-        when (settings.pvp) {
+        game = when (settings.pvp) {
             Mode.ONE_PLAYER -> {
-                game = OnePlayerGame(
+                OnePlayerGame(
                     paddleA,
                     paddleB,
                     ball,
@@ -75,7 +76,7 @@ class GameView(context: Context, attrs: AttributeSet) : SurfaceView(context, att
                 )
             }
             Mode.TWO_PLAYERS -> {
-                game = TwoPlayersGame(paddleA, paddleB, ball, settings.difficulty)
+                TwoPlayersGame(paddleA, paddleB, ball, settings.difficulty)
             }
         }
 
@@ -123,7 +124,8 @@ class GameView(context: Context, attrs: AttributeSet) : SurfaceView(context, att
     override fun draw(canvas: Canvas?) {
         super.draw(canvas)
         canvas?.also {
-            it.drawColor(resources.getColor(R.color.colorPrimaryDark))
+//            it.drawColor(resources.getColor(R.color.colorPrimaryDark))
+            it.drawColor(LAppResource.getColor(R.color.colorPrimaryDark))
             paddleA.draw(it)
             paddleB.draw(it)
             updateScore(it)

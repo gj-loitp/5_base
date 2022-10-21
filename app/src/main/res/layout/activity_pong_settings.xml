@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:context=".activity.MainActivity">
 
-        <Spinner
+        <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/pvpSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:textAlignment="center"
             android:textColor="@color/colorAccent" />
 
-        <Spinner
+        <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/difficultySpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             android:textAlignment="center"
             android:textColor="@color/colorAccent" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/playButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,9 +52,7 @@
             android:onClick="play"
             android:text="@string/play"
             android:textColor="@color/colorAccent"
-            android:textSize="25sp"
+            android:textSize="25sp" />
 
-            />
-
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.constraintlayout.widget.ConstraintLayout>

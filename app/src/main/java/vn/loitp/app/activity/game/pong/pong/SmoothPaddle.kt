@@ -45,4 +45,3 @@ class SmoothPaddle(side: Side, x: Float, y: Float, difficulty: Difficulty) :
         MOVING_NOT
     }
 }
-

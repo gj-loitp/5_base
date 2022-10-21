@@ -28,6 +28,7 @@ class GameThread(
             try {
                 sleep(targetTime - (System.nanoTime() - startTime) / 1000000)
             } catch (ignored: Exception) {
+                ignored.printStackTrace()
             }
         }
     }
