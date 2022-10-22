@@ -14,6 +14,7 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 
 // build release de check
 // TODO service -> ko stop service dc
+//TODO why see ad khi nhan vao button Understand dang sai behaviour
 
 // GIT
 // combine 2 commit gan nhat lam 1, co thay doi tren github
