@@ -69,6 +69,7 @@ class LValidateUtil {
             "com.roy93group.tictactoe",
             "com.roy93group.pianokiss",
             "com.roy93group.asyetcndt",
+            "com.roy93group.reversi",
         )
 
         fun isValidPackageName(): Boolean {
