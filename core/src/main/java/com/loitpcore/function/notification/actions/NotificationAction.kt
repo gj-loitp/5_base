@@ -51,6 +51,12 @@ open class NotificationAction {
         pendingIntent?.let {
             return it
         }
-        return PendingIntent.getActivity(context, requestCode, intent, 0)
+//        return PendingIntent.getActivity(context, requestCode, intent, 0)
+        return PendingIntent.getActivity(
+            context,
+            requestCode,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
     }
 }
