@@ -47,7 +47,8 @@ open class SwipeBackLayout @JvmOverloads constructor(
     }
 
     @IntDef(FROM_LEFT, FROM_TOP, FROM_RIGHT, FROM_BOTTOM)
-    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
+    @Retention(AnnotationRetention.SOURCE)
+    @Suppress("unused")
     annotation class DirectionMode
 
     private var mDirectionMode = FROM_LEFT
@@ -83,6 +84,7 @@ open class SwipeBackLayout @JvmOverloads constructor(
         typedArray.recycle()
     }
 
+    @Suppress("unused")
     fun attachToActivity(activity: Activity) {
         val decorView = activity.window.decorView as ViewGroup
         val decorChild = decorView.getChildAt(0) as ViewGroup
@@ -358,6 +360,7 @@ open class SwipeBackLayout @JvmOverloads constructor(
         this.swipeBackFactor = swipeBackFactor
     }
 
+    @Suppress("unused")
     fun getSwipeBackFactor(): Float {
         return swipeBackFactor
     }
@@ -373,6 +376,7 @@ open class SwipeBackLayout @JvmOverloads constructor(
         this.maskAlpha = maskAlpha
     }
 
+    @Suppress("unused")
     fun getMaskAlpha(): Int {
         return maskAlpha
     }

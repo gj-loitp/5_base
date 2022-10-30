@@ -84,6 +84,7 @@ open class LListView : ListView {
         this.onScrollListener = onScrollListener
     }
 
+    @Suppress("unused")
     fun setOnDetectScrollListener(onDetectScrollListener: OnDetectScrollListener?) {
         this.onDetectScrollListener = onDetectScrollListener
     }

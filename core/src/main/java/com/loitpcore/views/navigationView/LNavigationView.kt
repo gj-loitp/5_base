@@ -19,14 +19,18 @@ import com.loitpcore.core.utilities.LAnimationUtil
  * freuss47@gmail.com
  */
 class LNavigationView : RelativeLayout, View.OnClickListener {
+    @Suppress("unused")
     var ivPrev: ImageView? = null
+    @Suppress("unused")
     var ivNext: ImageView? = null
+    @Suppress("unused")
     var tv: TextView? = null
 
     private var stringList = ArrayList<String>()
     private var currentIndex = 0
     var colorOn = Color.BLACK
     var colorOff = Color.GRAY
+    @Suppress("unused")
     var isEnableAnimation = true
 
     private var nvCallback: NVCallback? = null
@@ -146,10 +150,12 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
         }
     }
 
+    @Suppress("unused")
     fun getStringList(): ArrayList<String> {
         return stringList
     }
 
+    @Suppress("unused")
     fun getCurrentIndex(): Int {
         return currentIndex
     }

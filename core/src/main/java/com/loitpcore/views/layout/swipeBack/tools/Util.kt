@@ -102,6 +102,7 @@ internal object Util {
         return null
     }
 
+    @Suppress("unused")
     fun isScrollableView(
         mView: View?
     ): Boolean {

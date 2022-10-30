@@ -20,6 +20,8 @@ import com.loitpcore.R;
 
 import org.jetbrains.annotations.NotNull;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -147,6 +149,7 @@ public class LSwipeRevealLayout extends ViewGroup {
      * No-op stub for {@link SwipeListener}. If you only want ot implement a subset
      * of the listener methods, you can extend this instead of implement the full interface.
      */
+    @Suppress(names = "unused")
     public static class SimpleSwipeListener implements SwipeListener {
         @Override
         public void onClosed(LSwipeRevealLayout view) {
@@ -501,6 +504,7 @@ public class LSwipeRevealLayout extends ViewGroup {
      *
      * @param velocity dp per second
      */
+    @Suppress(names = "unused")
     public void setMinFlingVelocity(int velocity) {
         mMinFlingVelocity = velocity;
     }
@@ -510,6 +514,7 @@ public class LSwipeRevealLayout extends ViewGroup {
      *
      * @return dp per second
      */
+    @Suppress(names = "unused")
     public int getMinFlingVelocity() {
         return mMinFlingVelocity;
     }
@@ -544,6 +549,7 @@ public class LSwipeRevealLayout extends ViewGroup {
         return mDragEdge;
     }
 
+    @Suppress(names = "unused")
     public void setSwipeListener(SwipeListener listener) {
         mSwipeListener = listener;
     }
@@ -565,6 +571,7 @@ public class LSwipeRevealLayout extends ViewGroup {
     /**
      * @return true if layout is fully opened, false otherwise.
      */
+    @Suppress(names = "unused")
     public boolean isOpened() {
         return (mState == STATE_OPEN);
     }
@@ -757,6 +764,7 @@ public class LSwipeRevealLayout extends ViewGroup {
         mDragHelper = ViewDragHelper.create(this, 1.0f, mDragHelperCallback);
         mDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_ALL);
 
+        assert context != null;
         mGestureDetector = new GestureDetectorCompat(context, mGestureListener);
     }
 
@@ -1083,6 +1091,7 @@ public class LSwipeRevealLayout extends ViewGroup {
         }
     };
 
+    @Suppress(names = "unused")
     public static String getStateString(int state) {
         switch (state) {
             case STATE_CLOSE:
@@ -1111,6 +1120,7 @@ public class LSwipeRevealLayout extends ViewGroup {
         return (int) (px / ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT));
     }
 
+    @Suppress(names = "unused")
     private int dpToPx(int dp) {
         Resources resources = getContext().getResources();
         DisplayMetrics metrics = resources.getDisplayMetrics();

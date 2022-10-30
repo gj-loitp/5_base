@@ -25,6 +25,8 @@ class SplitPaneLayout : ViewGroup {
     companion object {
         const val ORIENTATION_HORIZONTAL = 0
         const val ORIENTATION_VERTICAL = 1
+
+        @Suppress("unused")
         private fun clamp(value: Float, min: Float, max: Float): Float {
             if (value < min) {
                 return min
@@ -525,6 +527,7 @@ class SplitPaneLayout : ViewGroup {
      *
      * splitterDrawable the desired orientation of the layout
      */
+    @Suppress("unused")
     var splitterDrawable: Drawable?
         get() = mSplitterDrawable
         set(splitterDrawable) {
@@ -543,6 +546,7 @@ class SplitPaneLayout : ViewGroup {
      *
      * param splitterDraggingDrawable the drawable to use while dragging the splitter
      */
+    @Suppress("unused")
     var splitterDraggingDrawable: Drawable?
         get() = mSplitterDraggingDrawable
         set(splitterDraggingDrawable) {
@@ -581,6 +585,7 @@ class SplitPaneLayout : ViewGroup {
      *
      * param splitterSize the desired size of the splitter
      */
+    @Suppress("unused")
     var splitterSize: Int
         get() = mSplitterSize
         set(splitterSize) {
@@ -637,6 +642,7 @@ class SplitPaneLayout : ViewGroup {
      *
      * param splitterTouchSlop the desired "touch slop" of the splitter
      */
+    @Suppress("unused")
     var splitterTouchSlop: Int
         get() = mSplitterTouchSlop
         set(splitterTouchSlop) {
@@ -653,6 +659,7 @@ class SplitPaneLayout : ViewGroup {
      *
      * param paneSizeMin the minimum size of panes, in pixels
      */
+    @Suppress("unused")
     var paneSizeMin: Int
         get() = minSplitterPosition
         set(paneSizeMin) {
@@ -678,6 +685,7 @@ class SplitPaneLayout : ViewGroup {
 
         internal constructor(superState: Parcelable?) : super(superState)
 
+        @Suppress("unused")
         private constructor(parcel: Parcel) : super(parcel) {
             mSplitterPositionPercent = parcel.readFloat()
         }
