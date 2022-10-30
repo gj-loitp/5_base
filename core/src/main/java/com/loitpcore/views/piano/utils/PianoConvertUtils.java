@@ -1,7 +1,6 @@
 package com.loitpcore.views.piano.utils;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -16,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+
+import kotlin.Suppress;
 
 /**
  * Created by Loitp on 27.09.2022
@@ -111,6 +112,7 @@ public class PianoConvertUtils {
         }
     }
 
+    @Suppress(names = "unused")
     public static Object[] convertByFilePath(String configFilePath) throws Throwable {
         File file = new File(configFilePath);
         if (file.exists()) {
@@ -237,8 +239,8 @@ public class PianoConvertUtils {
         }
         result[0] = name;
         result[1] = configString;
-        Log.e("TAG", "convert(PianoConvertUtils.java:" + Thread.currentThread()
-                .getStackTrace()[2].getLineNumber() + ")" + "configString:" + configString);
+//        Log.e("TAG", "convert(PianoConvertUtils.java:" + Thread.currentThread()
+//                .getStackTrace()[2].getLineNumber() + ")" + "configString:" + configString);
         // 音符配置
         String musicConfigString = configString.substring(musicNoteConfigStartIndex);
         HashSet<Integer> highSet = new HashSet<>();
