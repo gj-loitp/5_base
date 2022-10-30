@@ -12,6 +12,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.loitpcore.R;
+import com.loitpcore.core.utilities.LAppResource;
+
+import kotlin.Suppress;
 
 /**
  * Created by Loitp on 04,August,2022
@@ -80,6 +83,7 @@ public class LVerticalMarqueeTextView extends ScrollView {
      *
      * @return The speed of the marquee effect animation.
      */
+    @Suppress(names = "unused")
     public int getMarqueeSpeed() {
         return this.marqueeSpeed;
     }
@@ -110,6 +114,7 @@ public class LVerticalMarqueeTextView extends ScrollView {
     /**
      * Stops the marquee effect animation.
      */
+    @Suppress(names = "unused")
     public void stopMarquee() {
         this.marqueeStarted = false;
     }
@@ -173,11 +178,13 @@ public class LVerticalMarqueeTextView extends ScrollView {
                 this.textView.setText(array.getText(textRes));
             }
 
-            this.textView.setTextColor(array.getColor(R.styleable.LVerticalMarqueeTextView_textColor, context.getResources().getColor(android.R.color.primary_text_light)));
+            this.textView.setTextColor(
+                    array.getColor(R.styleable.LVerticalMarqueeTextView_textColor,
+                            LAppResource.INSTANCE.getColor(android.R.color.primary_text_light)));
 
             final int textColorRes = array.getResourceId(R.styleable.LVerticalMarqueeTextView_textColor, 0);
             if (textColorRes > 0) {
-                this.textView.setTextColor(context.getResources().getColor(textColorRes));
+                this.textView.setTextColor(LAppResource.INSTANCE.getColor(textColorRes));
             }
 
             final float textSize = array.getDimension(R.styleable.LVerticalMarqueeTextView_textSize, 0);

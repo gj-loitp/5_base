@@ -204,11 +204,13 @@ internal class ScrollNumber @JvmOverloads constructor(
         )
     }
 
+    @Suppress("unused")
     fun setTargetNumber(nextNum: Int) {
         mTargetNum = nextNum
         invalidate()
     }
 
+    @Suppress("unused")
     private fun dp2px(dpVal: Float): Int {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,

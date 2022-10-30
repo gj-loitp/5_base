@@ -1,10 +1,13 @@
 package com.loitpcore.views.treeView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import kotlin.Suppress;
 
 /**
  * Created by Loitp on 04,August,2022
@@ -23,6 +26,7 @@ public class TreeNode {
     private final List<TreeNode> mChildren = new ArrayList<>();
     private final List<TreeNodeObserver> mTreeNodeObservers = new ArrayList<>();
 
+    @Suppress(names = "unused")
     public TreeNode() {
         this(null);
     }
@@ -67,6 +71,7 @@ public class TreeNode {
         }
     }
 
+    @Suppress(names = "unused")
     public boolean hasData() {
         return mData != null;
     }
@@ -121,6 +126,7 @@ public class TreeNode {
         }
     }
 
+    @Suppress(names = "unused")
     public void addChildren(TreeNode... children) {
         addChildren(Arrays.asList(children));
     }
@@ -131,6 +137,7 @@ public class TreeNode {
         }
     }
 
+    @Suppress(names = "unused")
     public void removeChild(TreeNode child) {
         child.setParent(null);
         mChildren.remove(child);
@@ -182,6 +189,7 @@ public class TreeNode {
         return observers;
     }
 
+    @NonNull
     @Override
     public String toString() {
         String indent = "\t";

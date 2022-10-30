@@ -21,6 +21,8 @@ import androidx.annotation.Px;
 
 import com.loitpcore.R;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -66,6 +68,7 @@ public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetect
         init(context, attrs);
     }
 
+    @Suppress(names = "unused")
     public LTreeView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs);
@@ -224,6 +227,7 @@ public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetect
     /**
      * @return Returns the value of how thick the lines between the nodes are.
      */
+    @Suppress(names = "unused")
     public int getLineThickness() {
         return mLineThickness;
     }
@@ -233,6 +237,7 @@ public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetect
      *
      * @param lineThickness new value for the thickness
      */
+    @Suppress(names = "unused")
     public void setLineThickness(int lineThickness) {
         mLineThickness = lineThickness;
         initPaint();
@@ -242,6 +247,7 @@ public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetect
     /**
      * @return Returns the color of the lines between the nodes.
      */
+    @Suppress(names = "unused")
     @ColorInt
     public int getLineColor() {
         return mLineColor;
@@ -253,6 +259,7 @@ public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetect
      *
      * @param lineColor the new color
      */
+    @Suppress(names = "unused")
     public void setLineColor(@ColorInt int lineColor) {
         mLineColor = lineColor;
         initPaint();
@@ -265,6 +272,7 @@ public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetect
      * @return level separation value
      */
     @Px
+    @Suppress(names = "unused")
     public int getLevelSeparation() {
         return mLevelSeparation;
     }
@@ -275,6 +283,7 @@ public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetect
      *
      * @param levelSeparation new value for the level separation
      */
+    @Suppress(names = "unused")
     public void setLevelSeparation(@Px int levelSeparation) {
         mLevelSeparation = levelSeparation;
         invalidate();

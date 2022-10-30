@@ -33,12 +33,14 @@ class LTextDecorator private constructor(
         this.flags = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
     }
 
+    @Suppress("unused")
     fun setFlags(flags: Int): LTextDecorator {
         this.flags = flags
 
         return this
     }
 
+    @Suppress("unused")
     fun underline(start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(UnderlineSpan(), start, end, flags)
@@ -119,6 +121,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun insertBullet(start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(BulletSpan(), start, end, flags)
@@ -126,6 +129,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun insertBullet(gapWidth: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(BulletSpan(gapWidth), start, end, flags)
@@ -133,6 +137,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun insertBullet(
         gapWidth: Int,
         @ColorRes colorResId: Int,
@@ -148,6 +153,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun makeTextClickable(
         listener: OnTextClickListener,
         start: Int,
@@ -205,6 +211,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun makeTextClickable(clickableSpan: ClickableSpan, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(clickableSpan, start, end, flags)
@@ -213,6 +220,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun makeTextClickable(clickableSpan: ClickableSpan, vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -228,6 +236,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun insertImage(@DrawableRes resId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(ImageSpan(textView.context, resId), start, end, flags)
@@ -235,6 +244,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun quote(start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(QuoteSpan(), start, end, flags)
@@ -242,6 +252,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun quote(vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -255,6 +266,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun quote(@ColorRes colorResId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(
@@ -265,6 +277,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun quote(@ColorRes colorResId: Int, vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -283,6 +296,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun strikethrough(start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(StrikethroughSpan(), start, end, flags)
@@ -303,6 +317,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setTextStyle(style: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(StyleSpan(style), start, end, flags)
@@ -310,6 +325,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setTextStyle(style: Int, vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -323,6 +339,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun alignText(alignment: Layout.Alignment, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(AlignmentSpan.Standard(alignment), start, end, flags)
@@ -330,6 +347,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun alignText(alignment: Layout.Alignment, vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -348,6 +366,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setSubscript(start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(SubscriptSpan(), start, end, flags)
@@ -368,6 +387,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setSuperscript(start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(SuperscriptSpan(), start, end, flags)
@@ -375,6 +395,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setSuperscript(vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -388,6 +409,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setTypeface(family: String, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(TypefaceSpan(family), start, end, flags)
@@ -395,6 +417,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setTypeface(family: String, vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -408,6 +431,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setTextAppearance(appearance: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(
@@ -418,6 +442,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setTextAppearance(appearance: Int, vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -436,6 +461,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setTextAppearance(appearance: Int, colorList: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(
@@ -446,6 +472,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setTextAppearance(appearance: Int, colorList: Int, vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -466,6 +493,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setTextAppearance(
         family: String,
         style: Int,
@@ -484,6 +512,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setTextAppearance(
         family: String,
         style: Int,
@@ -509,6 +538,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setAbsoluteSize(size: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(AbsoluteSizeSpan(size), start, end, flags)
@@ -516,6 +546,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setAbsoluteSize(size: Int, vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -529,6 +560,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setAbsoluteSize(size: Int, dip: Boolean, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(AbsoluteSizeSpan(size, dip), start, end, flags)
@@ -536,6 +568,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setAbsoluteSize(size: Int, dip: Boolean, vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -554,6 +587,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setRelativeSize(proportion: Float, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(RelativeSizeSpan(proportion), start, end, flags)
@@ -561,6 +595,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun setRelativeSize(proportion: Float, vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -599,6 +634,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun blur(radius: Float, style: BlurMaskFilter.Blur, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(MaskFilterSpan(BlurMaskFilter(radius, style)), start, end, flags)
@@ -606,6 +642,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun blur(radius: Float, style: BlurMaskFilter.Blur, vararg texts: String): LTextDecorator {
         var index: Int
 
@@ -624,6 +661,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun emboss(
         direction: FloatArray,
         ambient: Float,
@@ -641,6 +679,7 @@ class LTextDecorator private constructor(
         return this
     }
 
+    @Suppress("unused")
     fun emboss(
         direction: FloatArray,
         ambient: Float,

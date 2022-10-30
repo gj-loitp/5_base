@@ -224,6 +224,7 @@ open class LExtraTextView : AppCompatTextView {
         invalidate()
     }
 
+    @Suppress("unused")
     fun setRoundedCornerBackgroundColor(backgroundColor: Int) {
         roundedCornerBackgroundColor = backgroundColor
         invalidate()

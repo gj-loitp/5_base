@@ -16,6 +16,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
 import com.loitpcore.core.utilities.LAppResource
+import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
@@ -83,10 +84,12 @@ class CustomTextView : AppCompatTextView {
         }
     }
 
+    @Suppress("unused")
     fun setDefaultSelectionColor(color: Int) {
         mDefaultSelectionColor = color
     }
 
+    @Suppress("unused")
     fun setSelection(color: Int, start: Int, length: Int, duration: Int) {
         val end = if (start + length >= text.length) {
             text.length
@@ -106,6 +109,7 @@ class CustomTextView : AppCompatTextView {
         removeSelection(duration)
     }
 
+    @Suppress("unused")
     fun setSelection(start: Int, length: Int, duration: Int) {
         setSelection(
             color = mDefaultSelectionColor,
@@ -130,6 +134,7 @@ class CustomTextView : AppCompatTextView {
         cursorSelection?.remove()
     }
 
+    @Suppress("unused")
     fun removeSelection(delay: Int) {
         removeSelection(
             selection = cursorSelection,
@@ -137,6 +142,7 @@ class CustomTextView : AppCompatTextView {
         )
     }
 
+    @Suppress("unused")
     fun removeSelection(selection: CustomInfo?, delay: Int) {
         if (delay >= 0) {
             val runnable = Runnable {
@@ -198,6 +204,7 @@ class CustomTextView : AppCompatTextView {
             return x
         }
 
+    @Suppress("unused")
     fun getOffset(x: Int, y: Int): Int {
         val layout = layout
         var offset = -1
@@ -208,6 +215,7 @@ class CustomTextView : AppCompatTextView {
         return offset
     }
 
+    @Suppress("unused")
     fun getPreciseOffset(x: Int, y: Int): Int {
         val layout = layout
         if (layout != null) {
@@ -454,7 +462,7 @@ class CustomTextView : AppCompatTextView {
         }
 
         private fun select(start: Int, end: Int) {
-            this@CustomTextView.setSelection(Math.min(start, end), Math.abs(end - start))
+            this@CustomTextView.setSelection(min(start, end), abs(end - start))
         }
 
         override fun onTouchModeChanged(isInTouchMode: Boolean) {

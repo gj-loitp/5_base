@@ -84,6 +84,7 @@ class LColorTextView : AppCompatTextView {
         }
     }
 
+    @Suppress("unused")
     fun findAndSetStrColor(str: String, color: String): LColorTextView {
         try {
             if (!TextUtils.isEmpty(mCurrentText)) {

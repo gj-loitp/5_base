@@ -49,7 +49,7 @@ class LZoomTextView : AppCompatTextView {
      * @param zoomLimit
      * Default value is 3, 3 means text can zoom 3 times the default size
      */
-
+    @Suppress("unused")
     fun setZoomLimit(zoomLimit: Float) {
         this.zoomLimit = zoomLimit
     }

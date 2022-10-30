@@ -17,7 +17,7 @@ import com.loitpcore.R
  * +840766040293
  * freuss47@gmail.com
  */
-class AutofitHelper private constructor(textView: TextView) {
+class LAutoFitHelper private constructor(textView: TextView) {
 
     // Attributes
     private val mTextView: TextView
@@ -75,7 +75,7 @@ class AutofitHelper private constructor(textView: TextView) {
      * Adds an [OnTextSizeChangeListener] to the list of those whose methods are called
      * whenever the [TextView]'s `textSize` changes.
      */
-    fun addOnTextSizeChangeListener(listener: OnTextSizeChangeListener): AutofitHelper {
+    fun addOnTextSizeChangeListener(listener: OnTextSizeChangeListener): LAutoFitHelper {
         if (mListeners == null) {
             mListeners = ArrayList()
         }
@@ -87,7 +87,8 @@ class AutofitHelper private constructor(textView: TextView) {
      * Removes the specified [OnTextSizeChangeListener] from the list of those whose methods
      * are called whenever the [TextView]'s `textSize` changes.
      */
-    fun removeOnTextSizeChangeListener(listener: OnTextSizeChangeListener): AutofitHelper {
+    @Suppress("unused")
+    fun removeOnTextSizeChangeListener(listener: OnTextSizeChangeListener): LAutoFitHelper {
         mListeners?.remove(listener)
         return this
     }
@@ -98,7 +99,7 @@ class AutofitHelper private constructor(textView: TextView) {
      *
      * @param precision The amount of precision.
      */
-    fun setPrecision(precision: Float): AutofitHelper {
+    fun setPrecision(precision: Float): LAutoFitHelper {
         if (this.precision != precision) {
             this.precision = precision
             autofit()
@@ -113,7 +114,8 @@ class AutofitHelper private constructor(textView: TextView) {
      * @param size The scaled pixel size.
      * @attr ref me.grantland.R.styleable#AutofitTextView_minTextSize
      */
-    fun setMinTextSize(size: Float): AutofitHelper {
+    @Suppress("unused")
+    fun setMinTextSize(size: Float): LAutoFitHelper {
         return setMinTextSize(TypedValue.COMPLEX_UNIT_SP, size)
     }
 
@@ -125,7 +127,7 @@ class AutofitHelper private constructor(textView: TextView) {
      * @param size The desired size in the given units.
      * @attr ref me.grantland.R.styleable#AutofitTextView_minTextSize
      */
-    fun setMinTextSize(unit: Int, size: Float): AutofitHelper {
+    fun setMinTextSize(unit: Int, size: Float): LAutoFitHelper {
         val context = mTextView.context
         var r = Resources.getSystem()
         if (context != null) {
@@ -149,7 +151,8 @@ class AutofitHelper private constructor(textView: TextView) {
      * @param size The scaled pixel size.
      * @attr ref android.R.styleable#TextView_textSize
      */
-    fun setMaxTextSize(size: Float): AutofitHelper {
+    @Suppress("unused")
+    fun setMaxTextSize(size: Float): LAutoFitHelper {
         return setMaxTextSize(TypedValue.COMPLEX_UNIT_SP, size)
     }
 
@@ -161,7 +164,7 @@ class AutofitHelper private constructor(textView: TextView) {
      * @param size The desired size in the given units.
      * @attr ref android.R.styleable#TextView_textSize
      */
-    fun setMaxTextSize(unit: Int, size: Float): AutofitHelper {
+    fun setMaxTextSize(unit: Int, size: Float): LAutoFitHelper {
         val context = mTextView.context
         var r = Resources.getSystem()
         if (context != null) {
@@ -181,7 +184,8 @@ class AutofitHelper private constructor(textView: TextView) {
     /**
      * @see TextView.setMaxLines
      */
-    fun setMaxLines(lines: Int): AutofitHelper {
+    @Suppress("unused")
+    fun setMaxLines(lines: Int): LAutoFitHelper {
         if (maxLines != lines) {
             maxLines = lines
             autofit()
@@ -192,7 +196,7 @@ class AutofitHelper private constructor(textView: TextView) {
     /**
      * Set the enabled state of automatically resizing text.
      */
-    fun setEnabled(enabled: Boolean): AutofitHelper {
+    fun setEnabled(enabled: Boolean): LAutoFitHelper {
         if (isEnabled != enabled) {
             isEnabled = enabled
             if (enabled) {
@@ -341,8 +345,8 @@ class AutofitHelper private constructor(textView: TextView) {
          * automatically sizing the text to fit.
          */
         @JvmOverloads
-        fun create(view: TextView, attrs: AttributeSet? = null, defStyle: Int = 0): AutofitHelper {
-            val helper = AutofitHelper(view)
+        fun create(view: TextView, attrs: AttributeSet? = null, defStyle: Int = 0): LAutoFitHelper {
+            val helper = LAutoFitHelper(view)
             var sizeToFit = true
             if (attrs != null) {
                 val context = view.context
