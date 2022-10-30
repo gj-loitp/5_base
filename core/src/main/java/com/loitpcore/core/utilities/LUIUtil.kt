@@ -32,8 +32,8 @@ import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
 import com.loitpcore.R
 import com.loitpcore.core.common.Constants
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.utils.util.ConvertUtils
-import com.loitpcore.views.setSafeOnClickListener
 import com.skydoves.elasticviews.elasticAnimation
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor

@@ -5,10 +5,10 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.service.model.UserTest
-import com.loitpcore.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.frm_coroutine_user.*
 import vn.loitp.app.R

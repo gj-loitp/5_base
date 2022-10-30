@@ -11,7 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.views.setSafeOnClickListener
+import com.loitpcore.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_drawer_behavior_advance4.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.app.R

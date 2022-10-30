@@ -22,7 +22,7 @@ import com.loitpcore.core.utilities.*
 import com.loitpcore.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.loitpcore.core.utilities.LUIUtil.Companion.withBackground
 import com.loitpcore.data.EventBusData
-import com.loitpcore.views.LToast
+import com.loitpcore.views.toast.LToast
 import com.loitpcore.views.bottomSheet.BottomSheetOptionFragment
 import com.loitpcore.views.smoothTransition.SwitchAnimationUtil
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper

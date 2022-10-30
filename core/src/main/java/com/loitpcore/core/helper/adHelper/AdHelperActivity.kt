@@ -14,10 +14,10 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.utils.util.AppUtils
-import com.loitpcore.views.setSafeOnClickListener
 import com.manojbhadane.QButton
 import kotlinx.android.synthetic.main.l_activity_ad_helper.*
 

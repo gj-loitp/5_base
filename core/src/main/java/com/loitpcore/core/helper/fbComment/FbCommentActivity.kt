@@ -19,9 +19,9 @@ import com.loitpcore.annotation.IsSwipeActivity
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*
 import kotlinx.android.synthetic.main.view_l_edittext.view.*
 

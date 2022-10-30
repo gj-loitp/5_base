@@ -7,9 +7,9 @@ import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_menu_bottom_navigation_bar.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.bottomNavigationBar.bottombar.BottomBarActivity

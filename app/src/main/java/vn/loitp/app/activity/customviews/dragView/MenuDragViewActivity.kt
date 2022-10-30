@@ -6,9 +6,9 @@ import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_menu_drag_view.*
 import vn.loitp.app.R
 

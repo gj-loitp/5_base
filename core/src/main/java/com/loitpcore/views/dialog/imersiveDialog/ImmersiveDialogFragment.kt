@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import com.loitpcore.core.base.BaseActivity
 import com.loitpcore.core.base.BaseDialogFragment
-import com.loitpcore.views.LToast
+import com.loitpcore.views.toast.LToast
 
 /**
  * Created by Loitp on 04,August,2022

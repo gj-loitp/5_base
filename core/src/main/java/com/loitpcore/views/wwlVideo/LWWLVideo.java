@@ -26,10 +26,13 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 
 import com.loitpcore.R;
+import com.loitpcore.core.utilities.LAppResource;
 import com.loitpcore.views.wwlMusic.utils.LWWLMusicIllegal;
 import com.loitpcore.views.wwlMusic.utils.LWWLMusicViewHelper;
 
 import java.util.LinkedList;
+
+import kotlin.Suppress;
 
 /**
  * Created by Loitp on 05,August,2022
@@ -170,7 +173,8 @@ public class LWWLVideo extends ViewGroup {
         LWWLMusicIllegal.INSTANCE.check(this.mViews.size() > 0, "contentViews cannot be empty");
         this.mPlayerView.setOnClickListener(new PlayerViewClickListener(this));
         this.mBgView = new View(getContext());
-        this.mBgView.setBackgroundColor(getResources().getColor(android.R.color.black));
+//        this.mBgView.setBackgroundColor(getResources().getColor(android.R.color.black));
+        this.mBgView.setBackgroundColor(LAppResource.INSTANCE.getColor(R.color.black));
         addView(this.mBgView);
         bringChildToFront(this.mBgView);
         if (this.mMetadataPanelView != null) {
@@ -1063,6 +1067,7 @@ public class LWWLVideo extends ViewGroup {
         private float lEX;
         private float lEY;
 
+        @Suppress(names = "unused")
         public Tracker(Context context) {
             this(context, 200);
         }
@@ -1180,6 +1185,7 @@ public class LWWLVideo extends ViewGroup {
             this.mLayout = layout;
         }
 
+        @Suppress(names = "unused")
         public final void onClick(View view) {
             if (this.mLayout.mListener != null) {
                 this.mLayout.mListener.WWL_onClicked();

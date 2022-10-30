@@ -10,9 +10,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.LToast.show
-import com.loitpcore.views.setSafeOnClickListener
+import com.loitpcore.views.toast.LToast.show
 import kotlinx.android.synthetic.main.activity_menu_bottomsheet.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
 import vn.loitp.app.R

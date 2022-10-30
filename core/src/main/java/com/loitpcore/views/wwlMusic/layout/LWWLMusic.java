@@ -26,9 +26,12 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 
 import com.loitpcore.R;
+import com.loitpcore.core.utilities.LAppResource;
 import com.loitpcore.views.wwlMusic.utils.LWWLMusicIllegal;
 
 import java.util.LinkedList;
+
+import kotlin.Suppress;
 
 /**
  * Created by Loitp on 05,August,2022
@@ -138,7 +141,8 @@ public class LWWLMusic extends ViewGroup {
         LWWLMusicIllegal.INSTANCE.check(this.mViews.size() > 0, "contentViews cannot be empty");
         this.mPlayerView.setOnClickListener(new PlayerViewClickListener(this));
         this.mBgView = new View(getContext());
-        this.mBgView.setBackgroundColor(getResources().getColor(android.R.color.black));
+//        this.mBgView.setBackgroundColor(getResources().getColor(android.R.color.black));
+        this.mBgView.setBackgroundColor(LAppResource.INSTANCE.getColor(android.R.color.black));
         addView(this.mBgView);
         bringChildToFront(this.mBgView);
         bringChildToFront(this.mMetadataView);
@@ -785,6 +789,7 @@ public class LWWLMusic extends ViewGroup {
         return STATE_MAXIMIZED;
     }
 
+    @Suppress(names = "unused")
     private void autoState(boolean smooth) {
         switch (getState()) {
             case STATE_HIDED:
@@ -833,6 +838,7 @@ public class LWWLMusic extends ViewGroup {
         void WWL_maximized();
     }
 
+    @Suppress(names = "unused")
     static final class Orientation {
         public static final int LANDSCAPE;
         public static final int PORTRAIT;
@@ -855,6 +861,7 @@ public class LWWLMusic extends ViewGroup {
         }
     }
 
+    @Suppress(names = "unused")
     static class DrawableHelper {
         public static Drawable get(Context context, int i) {
             return context.getDrawable(i);
@@ -921,6 +928,7 @@ public class LWWLMusic extends ViewGroup {
         private float lEX;
         private float lEY;
 
+        @Suppress(names = "unused")
         public Tracker(Context context) {
             this(context, 200);
         }
@@ -977,6 +985,7 @@ public class LWWLMusic extends ViewGroup {
             return findPointerIndex;
         }
 
+        @Suppress(names = "unused")
         public final int calcDirection(MotionEvent motionEvent, int orientation, boolean z) {
             int findPointerIndex = motionEvent.findPointerIndex(this.pointerId);
 
@@ -1038,6 +1047,7 @@ public class LWWLMusic extends ViewGroup {
             this.mLayout = layout;
         }
 
+        @Suppress(names = "unused")
         public final void onClick(View view) {
             if (this.mLayout.mListener != null) {
                 this.mLayout.mListener.WWL_onClicked();

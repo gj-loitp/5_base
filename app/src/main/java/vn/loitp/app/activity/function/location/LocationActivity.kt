@@ -20,10 +20,10 @@ import com.google.android.gms.location.*
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LLocationUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.setSafeOnClickListener
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_func_location.*
 import vn.loitp.app.BuildConfig

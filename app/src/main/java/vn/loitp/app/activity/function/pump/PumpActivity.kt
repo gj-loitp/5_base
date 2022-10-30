@@ -9,8 +9,8 @@ import com.huxq17.download.core.DownloadListener
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_pump.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants

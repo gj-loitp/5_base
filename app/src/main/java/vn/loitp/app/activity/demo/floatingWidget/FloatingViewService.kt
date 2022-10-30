@@ -11,7 +11,7 @@ import android.view.*
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import com.loitpcore.views.LToast
+import com.loitpcore.views.toast.LToast
 import vn.loitp.app.R
 
 class FloatingViewService : Service() {

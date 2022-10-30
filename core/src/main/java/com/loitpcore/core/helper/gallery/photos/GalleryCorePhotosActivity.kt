@@ -11,6 +11,7 @@ import com.loitpcore.annotation.IsSwipeActivity
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.gallery.slide.GalleryCoreSlideActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
@@ -20,7 +21,6 @@ import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitpcore.restApi.flickr.service.FlickrService
 import com.loitpcore.restApi.restClient.RestClient
 import com.loitpcore.views.layout.swipeBack.SwipeBackLayout
-import com.loitpcore.views.setSafeOnClickListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter

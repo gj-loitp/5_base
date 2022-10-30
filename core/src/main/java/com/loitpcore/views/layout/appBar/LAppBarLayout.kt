@@ -1,4 +1,4 @@
-package com.loitpcore.views
+package com.loitpcore.views.layout.appBar
 
 import android.content.Context
 import android.util.AttributeSet

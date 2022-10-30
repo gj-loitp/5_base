@@ -11,12 +11,12 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.adHelper.AdHelperActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LPrefUtil
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.animation.MenuAnimationActivity

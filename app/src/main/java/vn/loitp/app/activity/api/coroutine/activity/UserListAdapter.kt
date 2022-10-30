@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.service.model.UserTest
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_item_user_1.view.*
 import vn.loitp.app.R
 

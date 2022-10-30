@@ -1,4 +1,4 @@
-package com.loitpcore.views
+package com.loitpcore.views.toast
 
 import android.annotation.SuppressLint
 import android.content.Context
