@@ -1,4 +1,4 @@
-package com.loitpcore.views.piano.listener;
+package com.loitpcore.views.piano.listener
 
 /**
  * Created by Loitp on 27.09.2022
@@ -7,12 +7,9 @@ package com.loitpcore.views.piano.listener;
  * +840766040293
  * freuss47@gmail.com
  */
-public interface LoadAudioMessage {
-    void sendStartMessage();
-
-    void sendFinishMessage();
-
-    void sendErrorMessage(Exception e);
-
-    void sendProgressMessage(int progress);
+interface LoadAudioMessage {
+    fun sendStartMessage()
+    fun sendFinishMessage()
+    fun sendErrorMessage(e: Exception?)
+    fun sendProgressMessage(progress: Int)
 }

@@ -1,4 +1,4 @@
-package com.loitpcore.views.piano.listener;
+package com.loitpcore.views.piano.listener
 
 /**
  * Created by Loitp on 27.09.2022
@@ -7,8 +7,7 @@ package com.loitpcore.views.piano.listener;
  * +840766040293
  * freuss47@gmail.com
  */
-public interface OnPianoAutoPlayListener {
-    void onPianoAutoPlayStart();
-
-    void onPianoAutoPlayEnd();
+interface OnPianoAutoPlayListener {
+    fun onPianoAutoPlayStart()
+    fun onPianoAutoPlayEnd()
 }
