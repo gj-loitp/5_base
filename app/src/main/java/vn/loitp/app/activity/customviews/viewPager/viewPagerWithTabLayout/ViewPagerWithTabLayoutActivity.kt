@@ -16,7 +16,7 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.viewPager.viewPagerTransformers.*
+import com.loitpcore.views.viewPager.vpTransformers.*
 import kotlinx.android.synthetic.main.activity_view_pager_with_tablayout.*
 import vn.loitp.app.R
 
@@ -152,7 +152,7 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
                         true,
                         ZoomOutSlideTransformer()
                     )
-                    ZoomOutTranformer -> viewPager.setPageTransformer(true, ZoomOutTranformer())
+                    ZoomOutTranformer -> viewPager.setPageTransformer(true, ZoomOutTransformer())
                 }
             }
         )

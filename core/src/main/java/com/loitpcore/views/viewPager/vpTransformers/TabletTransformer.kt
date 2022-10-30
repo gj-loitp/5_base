@@ -1,4 +1,4 @@
-package com.loitpcore.views.viewPager.viewPagerTransformers
+package com.loitpcore.views.viewPager.vpTransformers
 
 import android.graphics.Camera
 import android.graphics.Matrix
@@ -12,7 +12,7 @@ import kotlin.math.abs
  * +840766040293
  * freuss47@gmail.com
  */
-class TabletTransformer : BaseTransformer() {
+open class TabletTransformer : BaseTransformer() {
 
     override fun onTransform(view: View, position: Float) {
         val rotation = (if (position < 0) 30f else -30f) * abs(position)

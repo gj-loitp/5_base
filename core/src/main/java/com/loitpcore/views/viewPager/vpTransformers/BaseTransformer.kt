@@ -1,4 +1,4 @@
-package com.loitpcore.views.viewPager.viewPagerTransformers
+package com.loitpcore.views.viewPager.vpTransformers
 
 import android.view.View
 import androidx.viewpager.widget.ViewPager.PageTransformer
@@ -76,5 +76,6 @@ abstract class BaseTransformer : PageTransformer {
      * @param view
      * @param position
      */
+    @Suppress("unused")
     private fun onPostTransform(view: View, position: Float) {}
 }

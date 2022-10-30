@@ -1,4 +1,4 @@
-package com.loitpcore.views.viewPager
+package com.loitpcore.views.viewPager.extended
 
 import android.content.Context
 import android.util.AttributeSet

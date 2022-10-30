@@ -1,4 +1,4 @@
-package com.loitpcore.views.viewPager.viewPagerTransformers
+package com.loitpcore.views.viewPager.vpTransformers
 
 import android.view.View
 
@@ -9,6 +9,7 @@ import android.view.View
  * +840766040293
  * freuss47@gmail.com
  */
+@Suppress("unused")
 class ParallaxPageTransformer(private val viewToParallax: Int) : BaseTransformer() {
 
     override fun onTransform(view: View, position: Float) {
