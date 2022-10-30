@@ -39,6 +39,8 @@ import org.jetbrains.annotations.NotNull;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -106,7 +108,6 @@ public class CircularProgressIndicator extends View {
 
     private ValueAnimator progressAnimator;
 
-    @NonNull
     private ProgressTextAdapter progressTextAdapter;
 
     @Nullable
@@ -130,6 +131,7 @@ public class CircularProgressIndicator extends View {
         init(context, attrs);
     }
 
+    @Suppress(names = "unused")
     public CircularProgressIndicator(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs);
@@ -570,25 +572,30 @@ public class CircularProgressIndicator extends View {
         invalidateEverything();
     }
 
+    @Suppress(names = "unused")
     @NonNull
     public ProgressTextAdapter getProgressTextAdapter() {
         return progressTextAdapter;
     }
 
+    @Suppress(names = "unused")
     @ColorInt
     public int getProgressColor() {
         return progressPaint.getColor();
     }
 
+    @Suppress(names = "unused")
     @ColorInt
     public int getProgressBackgroundColor() {
         return progressBackgroundPaint.getColor();
     }
 
+    @Suppress(names = "unused")
     public float getProgressStrokeWidth() {
         return progressPaint.getStrokeWidth();
     }
 
+    @Suppress(names = "unused")
     public float getProgressBackgroundStrokeWidth() {
         return progressBackgroundPaint.getStrokeWidth();
     }
@@ -603,24 +610,27 @@ public class CircularProgressIndicator extends View {
     }
 
 
+    @Suppress(names = "unused")
     public boolean isDotEnabled() {
         return shouldDrawDot;
     }
 
+    @Suppress(names = "unused")
     @ColorInt
     public int getDotColor() {
         return dotPaint.getColor();
     }
 
+    @Suppress(names = "unused")
     public float getDotWidth() {
         return dotPaint.getStrokeWidth();
     }
-
 
     public double getProgress() {
         return progressValue;
     }
 
+    @Suppress(names = "unused")
     public double getMaxProgress() {
         return maxProgressValue;
     }
@@ -645,6 +655,7 @@ public class CircularProgressIndicator extends View {
     }
 
     @Cap
+    @Suppress(names = "unused")
     public int getProgressStrokeCap() {
         return (progressPaint.getStrokeCap() == Paint.Cap.ROUND) ? CAP_ROUND : CAP_BUTT;
     }
@@ -662,6 +673,7 @@ public class CircularProgressIndicator extends View {
     }
 
     @Nullable
+    @Suppress(names = "unused")
     public OnProgressChangeListener getOnProgressChangeListener() {
         return onProgressChangeListener;
     }
@@ -672,6 +684,7 @@ public class CircularProgressIndicator extends View {
         if (!enableAnimation) stopProgressAnimation();
     }
 
+    @Suppress(names = "unused")
     public boolean isAnimationEnabled() {
         return isAnimationEnabled;
     }
@@ -687,6 +700,7 @@ public class CircularProgressIndicator extends View {
         invalidate();
     }
 
+    @Suppress(names = "unused")
     public boolean isFillBackgroundEnabled() {
         return isFillBackgroundEnabled;
     }
@@ -731,6 +745,7 @@ public class CircularProgressIndicator extends View {
         invalidate();
     }
 
+    @Suppress(names = "unused")
     @GradientType
     public int getGradientType() {
         Shader shader = progressPaint.getShader();

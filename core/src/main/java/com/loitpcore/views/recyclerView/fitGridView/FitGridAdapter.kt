@@ -29,12 +29,14 @@ abstract class FitGridAdapter : BaseAdapter {
         this.layoutRes = itemId
     }
 
+    @Suppress("unused")
     constructor(context: Context, itemId: Int, size: Int) {
         this.context = context
         this.layoutRes = itemId
         this.size = size
     }
 
+    @Suppress("unused")
     constructor(context: Context, itemId: Int, row: Int, column: Int) {
         this.context = context
         this.layoutRes = itemId

@@ -394,6 +394,7 @@ public class RecyclerTabLayout extends RecyclerView {
             int center = mRecyclerTabLayout.getWidth() / 2;
             for (int position = first; position <= last; position++) {
                 View view = mLinearLayoutManager.findViewByPosition(position);
+                assert view != null;
                 if (view.getLeft() + view.getWidth() >= center) {
                     mRecyclerTabLayout.setCurrentItem(position, false);
                     break;

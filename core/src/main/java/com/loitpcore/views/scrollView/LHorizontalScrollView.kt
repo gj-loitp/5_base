@@ -14,6 +14,7 @@ import android.widget.HorizontalScrollView
  */
 class LHorizontalScrollView : HorizontalScrollView {
 
+    @Suppress("unused")
     interface ScrollListener {
         fun onScrollChange(view: View, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int)
     }

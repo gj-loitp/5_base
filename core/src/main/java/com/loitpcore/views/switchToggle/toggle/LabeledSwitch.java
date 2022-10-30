@@ -15,6 +15,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.loitpcore.R;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -366,13 +368,10 @@ public class LabeledSwitch extends View {
                         } else {
                             // MOVE SWITCH TO LEFT
                             ValueAnimator switchColor = ValueAnimator.ofFloat((x < padding ? padding : x), padding);
-                            switchColor.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                                @Override
-                                public void onAnimationUpdate(ValueAnimator animation) {
-                                    float value = (float) animation.getAnimatedValue();
-                                    thumbBounds.set(value, thumbBounds.top, value + thumbRadii, thumbBounds.bottom);
-                                    invalidate();
-                                }
+                            switchColor.addUpdateListener(animation -> {
+                                float value = (float) animation.getAnimatedValue();
+                                thumbBounds.set(value, thumbBounds.top, value + thumbRadii, thumbBounds.bottom);
+                                invalidate();
                             });
                             switchColor.setInterpolator(new AccelerateDecelerateInterpolator());
                             switchColor.setDuration(250);
@@ -400,37 +399,46 @@ public class LabeledSwitch extends View {
         this.onToggledListener = onToggledListener;
     }
 
+    @Suppress(names = "unused")
     public int getColorOn() {
         return colorOn;
     }
+
+    @Suppress(names = "unused")
 
     public void setColorOn(int colorOn) {
         this.colorOn = colorOn;
         invalidate();
     }
 
+    @Suppress(names = "unused")
     public int getColorOff() {
         return colorOff;
     }
 
+    @Suppress(names = "unused")
     public void setColorOff(int colorOff) {
         this.colorOff = colorOff;
         invalidate();
     }
 
+    @Suppress(names = "unused")
     public String getLabelOn() {
         return labelOn;
     }
 
+    @Suppress(names = "unused")
     public void setLabelOn(String labelOn) {
         this.labelOn = labelOn;
         invalidate();
     }
 
+    @Suppress(names = "unused")
     public String getLabelOff() {
         return labelOff;
     }
 
+    @Suppress(names = "unused")
     public void setLabelOff(String labelOff) {
         this.labelOff = labelOff;
         invalidate();
@@ -460,10 +468,12 @@ public class LabeledSwitch extends View {
         invalidate();
     }
 
+    @Suppress(names = "unused")
     public int getColorDisabled() {
         return colorDisabled;
     }
 
+    @Suppress(names = "unused")
     public void setColorDisabled(int colorDisabled) {
         this.colorDisabled = colorDisabled;
         invalidate();

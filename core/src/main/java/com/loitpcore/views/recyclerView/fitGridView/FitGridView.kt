@@ -89,6 +89,7 @@ class FitGridView : GridView {
      * @param displayWidth  sets max available width for grid view
      * @param displayHeight sets max available height for grid view
      */
+    @Suppress("unused")
     fun setDimension(
         displayWidth: Float,
         displayHeight: Float

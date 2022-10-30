@@ -1,5 +1,6 @@
 package com.loitpcore.views.scrollView;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
@@ -17,6 +18,8 @@ import android.widget.FrameLayout;
 import android.widget.Scroller;
 
 import java.util.List;
+
+import kotlin.Suppress;
 
 /**
  * Created by Loitp on 04,August,2022
@@ -185,6 +188,7 @@ public class TwoDScrollView extends FrameLayout {
         return (int) (MAX_SCROLL_FACTOR * getWidth());
     }
 
+    @Suppress(names = "unused")
     private void initTwoDScrollView(Context context, AttributeSet attrs) {
         scroller = new Scroller(getContext());
         setFocusable(true);
@@ -268,6 +272,7 @@ public class TwoDScrollView extends FrameLayout {
         return handled;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
 
@@ -698,7 +703,6 @@ public class TwoDScrollView extends FrameLayout {
             doScroll(deltaX, deltaY);
         }
         if (newFocused != findFocus() && newFocused.requestFocus(directionY)) {
-            twoDScrollViewMovedFocus = true;
             twoDScrollViewMovedFocus = false;
         }
         return handled;
@@ -1108,7 +1112,6 @@ public class TwoDScrollView extends FrameLayout {
 
             if (newFocused != findFocus()
                     && newFocused.requestFocus(movingDown ? View.FOCUS_DOWN : View.FOCUS_UP)) {
-                twoDScrollViewMovedFocus = true;
                 twoDScrollViewMovedFocus = false;
             }
 

@@ -86,6 +86,7 @@ class LVerticalSeekBar : AppCompatSeekBar {
         initialize(context, attrs, defStyle, 0)
     }
 
+    @Suppress("unused")
     private fun initialize(
         context: Context,
         attrs: AttributeSet?,
@@ -286,6 +287,7 @@ class LVerticalSeekBar : AppCompatSeekBar {
     }
 
     @Synchronized
+    @Suppress("unused")
     private fun setProgressFromUser(progress: Int, fromUser: Boolean) {
         if (mMethodSetProgressFromUser == null) {
             try {
@@ -297,6 +299,7 @@ class LVerticalSeekBar : AppCompatSeekBar {
                 m.isAccessible = true
                 mMethodSetProgressFromUser = m
             } catch (e: NoSuchMethodException) {
+                e.printStackTrace()
             }
 
         }

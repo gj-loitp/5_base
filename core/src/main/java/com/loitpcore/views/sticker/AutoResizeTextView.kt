@@ -192,6 +192,7 @@ class AutoResizeTextView : AppCompatTextView {
      *
      * @param minTextSize
      */
+    @Suppress("unused")
     fun setMinTextSize(
         minTextSize: Float
     ) {
@@ -203,6 +204,7 @@ class AutoResizeTextView : AppCompatTextView {
         adjustTextSize(text.toString())
     }
 
+    @Suppress("unused")
     private fun adjustTextSize(string: String) {
         if (!mInitiallized) {
             return
@@ -224,7 +226,7 @@ class AutoResizeTextView : AppCompatTextView {
     }
 
     private val mSizeTester: SizeTester = object : SizeTester {
-        override fun onTestSize(suggestedSize: Int, availableSPace: RectF?): Int {
+        override fun onTestSize(suggestedSize: Int, availableSpace: RectF?): Int {
             mPaint?.textSize = suggestedSize.toFloat()
             val text = text.toString()
             val singleline = maxLines == 1
@@ -258,7 +260,7 @@ class AutoResizeTextView : AppCompatTextView {
                 mTextRect.right = maxWidth.toFloat()
             }
             mTextRect.offsetTo(0f, 0f)
-            return if (availableSPace?.contains(mTextRect) == true) {
+            return if (availableSpace?.contains(mTextRect) == true) {
                 // may be too small, don't worry we will find the best match
                 -1
             } else {
@@ -276,6 +278,7 @@ class AutoResizeTextView : AppCompatTextView {
      *
      * @param enable enable font size caching
      */
+    @Suppress("unused")
     fun enableSizeCache(enable: Boolean) {
         mEnableSizeCache = enable
         mTextCachedSizes?.clear()

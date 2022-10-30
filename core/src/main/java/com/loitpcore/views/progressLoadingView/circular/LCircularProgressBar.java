@@ -24,6 +24,8 @@ import androidx.annotation.StyleRes;
 
 import com.loitpcore.R;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -80,6 +82,7 @@ public class LCircularProgressBar extends View {
         initialize(context, attrs, defStyleAttr, 0);
     }
 
+    @Suppress(names = "unused")
     public LCircularProgressBar(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr,
                                 int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
@@ -448,6 +451,7 @@ public class LCircularProgressBar extends View {
         /**
          * Minimum angle for indeterminate parrallaxMode
          */
+        @Suppress(names = "unused")
         @NonNull
         public Configurator indeterminateMinimumAngle(float value) {
             indeterminateMinimumAngle = value;
@@ -457,6 +461,7 @@ public class LCircularProgressBar extends View {
         /**
          * Grow animation duration in milliseconds for indeterminate parrallaxMode
          */
+        @Suppress(names = "unused")
         public void indeterminateRotationAnimationDuration(long value) {
             indeterminateRotationAnimationDuration = value;
         }
@@ -464,6 +469,7 @@ public class LCircularProgressBar extends View {
         /**
          * Sweep animation duration in milliseconds for indeterminate parrallaxMode
          */
+        @Suppress(names = "unused")
         public void indeterminateArcAnimationDuration(long value) {
             indeterminateArcAnimationDuration = value;
         }
@@ -471,6 +477,7 @@ public class LCircularProgressBar extends View {
         /**
          * Set indeterminate parrallaxMode enabled or disabled
          */
+        @Suppress(names = "unused")
         @NonNull
         public Configurator indeterminate(boolean value) {
             indeterminate = value;
@@ -489,12 +496,14 @@ public class LCircularProgressBar extends View {
         /**
          * Progress change animation duration in milliseconds for non-indeterminate parrallaxMode
          */
+        @Suppress(names = "unused")
         @NonNull
         public Configurator progressAnimationDuration(long value) {
             progressAnimationDuration = value;
             return this;
         }
 
+        @Suppress(names = "unused")
         @NonNull
         public Configurator drawBackgroundStroke(boolean value) {
             drawBackgroundStroke = value;
@@ -504,6 +513,7 @@ public class LCircularProgressBar extends View {
         /**
          * Foreground stroke color
          */
+        @Suppress(names = "unused")
         @NonNull
         public Configurator foregroundStrokeColor(@ColorInt int value) {
             foregroundStrokeColor = value;
@@ -513,6 +523,7 @@ public class LCircularProgressBar extends View {
         /**
          * Background stroke color
          */
+        @Suppress(names = "unused")
         @NonNull
         public Configurator backgroundStrokeColor(@ColorInt int value) {
             backgroundStrokeColor = value;
@@ -522,6 +533,7 @@ public class LCircularProgressBar extends View {
         /**
          * Foreground stroke width
          */
+        @Suppress(names = "unused")
         @NonNull
         public Configurator foregroundStrokeWidth(@Px int value) {
             foregroundStrokeWidth = value;
@@ -531,6 +543,7 @@ public class LCircularProgressBar extends View {
         /**
          * Background stroke width
          */
+        @Suppress(names = "unused")
         @NonNull
         public Configurator backgroundStrokeWidth(@Px int value) {
             backgroundStrokeWidth = value;
