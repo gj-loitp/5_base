@@ -23,6 +23,7 @@ import java.util.concurrent.TimeUnit
  * freuss47@gmail.com
  */
 object RestClient2 {
+    @Suppress("unused")
     private const val TIMEOUT_TIME = 1
     private const val CONNECT_TIMEOUT_TIME = 20L
     private const val AUTHORIZATION = "Authorization"
@@ -74,24 +75,29 @@ object RestClient2 {
         return retrofit!!.create(serviceClass)
     }
 
+    @Suppress("unused")
     fun addHeader(name: String, value: String) {
         restRequestInterceptor.addHeader(name, value)
     }
 
+    @Suppress("unused")
     fun addAuthorization(token: String?) {
         token?.let {
             addHeader(AUTHORIZATION, it)
         }
     }
 
+    @Suppress("unused")
     fun removeAuthorization() {
         removeHeader(AUTHORIZATION)
     }
 
+    @Suppress("unused")
     fun removeHeader(name: String) {
         restRequestInterceptor.removeHeader(name)
     }
 
+    @Suppress("unused")
     fun hasHeader(name: String): Boolean {
         return restRequestInterceptor.hasHeader(name)
     }

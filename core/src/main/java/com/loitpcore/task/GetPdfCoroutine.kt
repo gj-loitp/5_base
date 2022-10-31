@@ -51,7 +51,7 @@ class GetPdfCoroutine : CoroutineScope {
         folderName: String,
         resultPercent: (Float?) -> Unit
     ): File? = withContext(Dispatchers.IO) {
-        val startTime = System.currentTimeMillis()
+//        val startTime = System.currentTimeMillis()
         val fileName = try {
             val arr: Array<String> = urlPdf.split("/").toTypedArray()
             arr[arr.size - 1]

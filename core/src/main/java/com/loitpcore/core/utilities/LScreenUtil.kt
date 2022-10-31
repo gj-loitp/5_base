@@ -312,6 +312,7 @@ class LScreenUtil {
             return null
         }
 
+        @Suppress("unused")
         fun removeFragmentByTag(
             activity: Activity,
             tag: String
@@ -325,6 +326,7 @@ class LScreenUtil {
             }
         }
 
+        @Suppress("unused")
         fun removeAllFragments(
             activity: Activity
         ) {

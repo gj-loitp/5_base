@@ -25,14 +25,17 @@ class Photoset : BaseModel() {
 
     @SerializedName("secret")
     @Expose
+    @Suppress("unused")
     var secret: String? = null
 
     @SerializedName("server")
     @Expose
+    @Suppress("unused")
     var server: String? = null
 
     @SerializedName("farm")
     @Expose
+    @Suppress("unused")
     var farm = 0.0
 
     @SerializedName("photos")
@@ -41,6 +44,7 @@ class Photoset : BaseModel() {
 
     @SerializedName("videos")
     @Expose
+    @Suppress("unused")
     var videos = 0.0
 
     @SerializedName("title")
@@ -53,26 +57,32 @@ class Photoset : BaseModel() {
 
     @SerializedName("needs_interstitial")
     @Expose
+    @Suppress("unused")
     var needsInterstitial = 0.0
 
     @SerializedName("visibility_can_see_set")
     @Expose
+    @Suppress("unused")
     var visibilityCanSeeSet = 0.0
 
     @SerializedName("count_views")
     @Expose
+    @Suppress("unused")
     var countViews: String? = null
 
     @SerializedName("count_comments")
     @Expose
+    @Suppress("unused")
     var countComments: String? = null
 
     @SerializedName("can_comment")
     @Expose
+    @Suppress("unused")
     var canComment = 0.0
 
     @SerializedName("date_create")
     @Expose
+    @Suppress("unused")
     var dateCreate: Long = 0
 
     @SerializedName("date_update")
@@ -83,6 +93,7 @@ class Photoset : BaseModel() {
     @Expose
     var primaryPhotoExtras: PrimaryPhotoExtras? = null
 
+    @Suppress("unused")
     // gif extension have no link large
     fun flickrLinkM(): String {
         return if (primaryPhotoExtras?.urlO?.contains(".gif") == true) {

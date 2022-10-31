@@ -61,6 +61,7 @@ class TrafficUtils {
 
         }
 
+        @Suppress("unused")
         fun convertToBytes(value: Float, unit: String): Long {
             return when (unit) {
                 "KB" -> {
@@ -88,6 +89,7 @@ class TrafficUtils {
             }
         }
 
+        @Suppress("unused")
         fun getMetricData(bytes: Long): String {
             val dataWithDecimals: Float
             val units: String
@@ -116,8 +118,9 @@ class TrafficUtils {
             return output + units
         }
 
+        @Suppress("unused")
         fun getMonthlyWifiUsage(listDailyConsumption: List<DailyConsumption>): Long {
-            var total: Long = 0L
+            var total = 0L
             for (dailyConsumption in listDailyConsumption) {
                 total += dailyConsumption.wifi
             }
@@ -125,8 +128,9 @@ class TrafficUtils {
             return total
         }
 
+        @Suppress("unused")
         fun getMonthlyMobileUsage(listDailyConsumption: List<DailyConsumption>): Long {
-            var total: Long = 0L
+            var total = 0L
             for (dailyConsumption in listDailyConsumption) {
                 total += dailyConsumption.mobile
             }
@@ -134,8 +138,9 @@ class TrafficUtils {
             return total
         }
 
+        @Suppress("unused")
         fun getMonthlyTotalUsage(listDailyConsumption: List<DailyConsumption>): Long {
-            var total: Long = 0L
+            var total = 0L
             for (dailyConsumption in listDailyConsumption) {
                 total += dailyConsumption.total
             }

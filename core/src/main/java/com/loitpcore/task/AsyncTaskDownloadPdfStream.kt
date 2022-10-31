@@ -40,13 +40,14 @@ class AsyncTaskDownloadPdfStream(val result: (InputStream?) -> Unit) :
             }
         } catch (e: IOException) {
 //            Log.e(logTag, "doInBackground IOException $e")
+            e.printStackTrace()
             return null
         }
 
         return inputStream
     }
 
-    @Deprecated("Deprecated in Java")
+    @Deprecated("Deprecated in Java", ReplaceWith("result.invoke(inputStream)"))
     override fun onPostExecute(inputStream: InputStream) {
 //        Log.d(logTag, "onPostExecute")
         result.invoke(inputStream)

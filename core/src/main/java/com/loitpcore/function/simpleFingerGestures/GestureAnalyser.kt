@@ -50,16 +50,27 @@ class GestureAnalyser @JvmOverloads constructor(
         const val PINCH_4 = 45
         const val UNPINCH_4 = 46
         const val DOUBLE_TAP_1 = 107
+        @Suppress("unused")
         const val SWIPING_1_UP = 101
+        @Suppress("unused")
         const val SWIPING_1_DOWN = 102
+        @Suppress("unused")
         const val SWIPING_1_LEFT = 103
+        @Suppress("unused")
         const val SWIPING_1_RIGHT = 104
+        @Suppress("unused")
         const val SWIPING_2_UP = 201
+        @Suppress("unused")
         const val SWIPING_2_DOWN = 202
+        @Suppress("unused")
         const val SWIPING_2_LEFT = 203
+        @Suppress("unused")
         const val SWIPING_2_RIGHT = 204
+        @Suppress("unused")
         const val PINCHING = 205
+        @Suppress("unused")
         const val UNPINCHING = 206
+        @Suppress("unused")
         private const val TAG = "GestureAnalyser"
     }
 
@@ -126,6 +137,7 @@ class GestureAnalyser @JvmOverloads constructor(
         return gestureType
     }
 
+    @Suppress("unused")
     fun getOngoingGesture(motionEvent: MotionEvent): Int {
         for (i in 0 until numFingers) {
             currentX[i] = motionEvent.getX(i).toDouble()

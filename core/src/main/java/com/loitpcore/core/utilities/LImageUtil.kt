@@ -159,6 +159,7 @@ class LImageUtil {
             return linkUrlM
         }
 
+        @Suppress("unused")
         fun resizeImage(
             context: Context?,
             file: File?,
@@ -262,6 +263,7 @@ class LImageUtil {
                 .into(imageView)
         }
 
+        @Suppress("unused")
         fun loadHighQuality(
             any: Any?,
             imageView: ImageView,

@@ -17,6 +17,7 @@ class App : BaseModel() {
 
     @SerializedName("pkg")
     @Expose
+    @Suppress("unused")
     var pkg: String? = null
 
     @SerializedName("config")

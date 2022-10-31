@@ -12,6 +12,7 @@ import android.net.Uri
  * +840766040293
  * freuss47@gmail.com
  */
+@Suppress("unused")
 class LPickerUtil {
 
     companion object {

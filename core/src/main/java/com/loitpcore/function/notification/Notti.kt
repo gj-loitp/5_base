@@ -23,6 +23,7 @@ class Notti(
 
     private val notificationManager: NotificationManager =
         context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    @Suppress("unused")
     private val ids: MutableMap<String, Int> = HashMap()
     private var currentID = 0
 

@@ -14,6 +14,7 @@ class VibrationSettings {
 
     companion object {
         var STD_VIBRATION = longArrayOf(300, 200, 300, 200)
+        @Suppress("unused")
         var FAST_VIBRATION = longArrayOf(100, 100, 100, 100, 100, 100)
     }
 
@@ -24,11 +25,13 @@ class VibrationSettings {
         pattern = arg
     }
 
+    @Suppress("unused")
     constructor(pattern: LongArray, vibrate: Boolean) {
         this.pattern = pattern
         isVibrate = vibrate
     }
 
+    @Suppress("unused")
     constructor(vibrate: Boolean) {
         isVibrate = vibrate
     }

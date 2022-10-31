@@ -24,10 +24,12 @@ class Photoset : BaseModel() {
 
     @SerializedName("owner")
     @Expose
+    @Suppress("unused")
     var owner: String? = null
 
     @SerializedName("ownername")
     @Expose
+    @Suppress("unused")
     var ownername: String? = null
 
     @SerializedName("photo")

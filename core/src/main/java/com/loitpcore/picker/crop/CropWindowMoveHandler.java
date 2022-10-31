@@ -4,6 +4,8 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.graphics.RectF;
 
+import kotlin.Suppress;
+
 /**
  * Handler to update crop window edges by the move type - Horizontal, Vertical, Corner or Center.<br/>
  */
@@ -15,6 +17,7 @@ final class CropWindowMoveHandler {
     /**
      * Matrix used for rectangle rotation handling
      */
+    @Suppress(names = "unused")
     private static final Matrix MATRIX = new Matrix();
 
     /**

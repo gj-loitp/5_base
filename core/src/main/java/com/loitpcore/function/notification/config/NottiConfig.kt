@@ -16,12 +16,14 @@ class NottiConfig {
     var lightSettings: LightSettings? = null
     var vibrationSettings: VibrationSettings? = null
 
+    @Suppress("unused")
     constructor(
         defaultActionImage: Int
     ) {
         this.defaultActionImage = defaultActionImage
     }
 
+    @Suppress("unused")
     constructor(
         defaultActionImage: Int,
         vibrationSettings: VibrationSettings?
@@ -40,6 +42,7 @@ class NottiConfig {
         this.lightSettings = lightSettings
     }
 
+    @Suppress("unused")
     fun setSameID(sameID: Boolean): NottiConfig {
         isSameID = sameID
         return this

@@ -29,6 +29,8 @@ import java.util.zip.ZipFile;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -63,6 +65,7 @@ class Content extends BaseModel {
     }
 
     // Debug
+    @Suppress(names = "unused")
     void print() {
         System.out.println("Printing zipEntryNames...\n");
 
@@ -1441,6 +1444,7 @@ class Content extends BaseModel {
         }
     }
 
+    @Suppress(names = "unused")
     private void markTableTags(String entryName, String htmlBody, int trimStartPosition, int trimEndPosition, List<Tag> tableTagPositions) {
 
         List<Tag> tagStartEndPositions = getTagStartEndPositions(entryName, htmlBody);

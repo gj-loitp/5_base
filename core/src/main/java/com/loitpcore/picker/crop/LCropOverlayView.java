@@ -1,5 +1,6 @@
 package com.loitpcore.picker.crop;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -15,6 +16,7 @@ import android.view.View;
 
 import java.util.Arrays;
 
+import kotlin.Suppress;
 import timber.log.Timber;
 
 /**
@@ -773,6 +775,7 @@ public class LCropOverlayView extends View {
     /**
      * Draw the corner of crop overlay.
      */
+    @Suppress(names = "unused")
     private void drawCorners(Canvas canvas) {
         if (mBorderCornerPaint != null) {
 
@@ -839,6 +842,7 @@ public class LCropOverlayView extends View {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         // If this View is not enabled, don't allow for touch interactions.

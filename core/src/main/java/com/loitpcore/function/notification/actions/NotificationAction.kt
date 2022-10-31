@@ -30,6 +30,7 @@ open class NotificationAction {
         this.context = context
     }
 
+    @Suppress("unused")
     constructor(text: String?, intent: Intent?, image: Int, context: Context?) {
         this.text = text
         this.intent = intent
@@ -37,6 +38,7 @@ open class NotificationAction {
         this.context = context
     }
 
+    @Suppress("unused")
     constructor(text: String?, pendingIntent: PendingIntent?, image: Int) {
         this.text = text
         this.pendingIntent = pendingIntent
