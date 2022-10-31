@@ -14,6 +14,7 @@ import com.loitpcore.views.imageView.scrollParallax.LScrollParallaxImageView.Par
  *
  * Created by gjz on 25/11/2016.
  */
+@Suppress("unused")
 class VerticalAlphaStyle : ParallaxStyle {
     private var finalAlpha = 0.3f
 

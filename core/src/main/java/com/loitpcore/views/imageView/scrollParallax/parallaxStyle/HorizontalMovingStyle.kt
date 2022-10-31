@@ -19,6 +19,7 @@ import kotlin.math.abs
  *
  * Created by gjz on 26/11/2016.
  */
+@Suppress("unused")
 class HorizontalMovingStyle : ParallaxStyle {
 
     override fun onAttachedToImageView(view: LScrollParallaxImageView) {

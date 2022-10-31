@@ -11,6 +11,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.AttrRes
+import com.loitpcore.core.utilities.LAppResource
 import kotlin.math.abs
 import kotlin.math.atan
 import kotlin.math.max
@@ -72,7 +73,8 @@ class LFidgetSpinner : FrameLayout {
     }
 
     fun setImageDrawable(id: Int) {
-        fidgetSpinnerImageView?.setImageDrawable(context.resources.getDrawable(id))
+//        fidgetSpinnerImageView?.setImageDrawable(context.resources.getDrawable(id))
+        fidgetSpinnerImageView?.setImageDrawable(LAppResource.getDrawable(id))
     }
 
     private fun onActionMove(x: Float, y: Float) {
@@ -104,6 +106,7 @@ class LFidgetSpinner : FrameLayout {
         return currentAngle
     }
 
+    @Suppress("unused")
     private fun adjustAlpha(alpha: Double, x: Float, y: Float): Double {
         if (y > 0) return -alpha // Top
         return if (y < 0) 180 - alpha else alpha // Bottom
@@ -174,6 +177,7 @@ class LFidgetSpinner : FrameLayout {
         setOnTouchListener(onTouchListener)
     }
 
+    @Suppress("unused")
     fun calcActionUpSpeed(): Double {
         val angleTimeDiff = currentAngleTime - lastAngleTime.toFloat()
         val angleDiff = currentAngle - lastAngle

@@ -66,6 +66,7 @@ class LScrollParallaxImageView
         parallaxStyles?.onAttachedToImageView(this)
     }
 
+    @Suppress("unused")
     fun setEnableScrollParallax(enableScrollParallax: Boolean) {
         this.enableScrollParallax = enableScrollParallax
     }

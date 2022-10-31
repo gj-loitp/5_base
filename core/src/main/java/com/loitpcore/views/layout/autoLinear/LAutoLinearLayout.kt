@@ -43,6 +43,7 @@ class LAutoLinearLayout : FrameLayout {
         init(context, attrs, defStyleAttr, 0)
     }
 
+    @Suppress("unused")
     constructor(
         context: Context,
         attrs: AttributeSet?,
@@ -426,6 +427,7 @@ class LAutoLinearLayout : FrameLayout {
      *
      * @param gravity See [Gravity]
      */
+    @Suppress("unused")
     fun setGravity(gravity: Int) {
         var gravity = gravity
         if (mGravity != gravity) {
@@ -440,6 +442,7 @@ class LAutoLinearLayout : FrameLayout {
         }
     }
 
+    @Suppress("unused")
     fun setHorizontalGravity(horizontalGravity: Int) {
         val gravity = horizontalGravity and GravityCompat.RELATIVE_HORIZONTAL_GRAVITY_MASK
         if (mGravity and Gravity.RELATIVE_HORIZONTAL_GRAVITY_MASK != gravity) {
@@ -448,6 +451,7 @@ class LAutoLinearLayout : FrameLayout {
         }
     }
 
+    @Suppress("unused")
     fun setVerticalGravity(verticalGravity: Int) {
         val gravity = verticalGravity and Gravity.VERTICAL_GRAVITY_MASK
         if (mGravity and Gravity.VERTICAL_GRAVITY_MASK != gravity) {
