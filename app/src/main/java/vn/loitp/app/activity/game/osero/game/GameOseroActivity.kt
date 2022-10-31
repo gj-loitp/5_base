@@ -72,6 +72,7 @@ class GameOseroActivity : BaseFontActivity(), GameView {
                     place.findViewById(R.id.gamePlaceImageView) as ImageView
                 }
             }
+        //TODO fix
         val ai = intent.getSerializableExtra(EXTRA_NAME_AI) as? OseroAI ?: AINone()
         presenter.onCreate(this, ai)
     }

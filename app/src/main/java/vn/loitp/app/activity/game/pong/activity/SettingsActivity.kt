@@ -55,6 +55,7 @@ class SettingsActivity : BaseFontActivity() {
         difficultySpinner.onItemSelectedListener = this.DifficultySpinnerHandler()
     }
 
+    @Suppress("unused")
     fun play(view: View) {
         val intent = Intent(this, GameActivity::class.java)
         intent.putExtra("settings", settings)

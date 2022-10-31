@@ -14,6 +14,7 @@ class Bike : BaseModel {
         model = m
     }
 
+    @Suppress("unused")
     constructor(n: String?, m: String?, p: Int) {
         name = n
         model = m

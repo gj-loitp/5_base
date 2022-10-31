@@ -5,6 +5,7 @@ import vn.loitp.app.activity.tutorial.rxjava2.model.User
 
 class RxJavaUtils {
     companion object {
+        @Suppress("unused")
         val userList: List<User>
             get() {
                 val userList: MutableList<User> = ArrayList()
@@ -61,10 +62,12 @@ class RxJavaUtils {
             return userList
         }
 
+        @Suppress("unused")
         fun convertApiUserListToApiUserList(apiUserList: List<ApiUser>): List<ApiUser> {
             return apiUserList
         }
 
+        @Suppress("unused")
         val userListWhoLovesCricket: List<User>
             get() {
                 val userList: MutableList<User> = ArrayList()
@@ -84,6 +87,7 @@ class RxJavaUtils {
                 return userList
             }
 
+        @Suppress("unused")
         val userListWhoLovesFootball: List<User>
             get() {
                 val userList: MutableList<User> = ArrayList()
@@ -103,6 +107,7 @@ class RxJavaUtils {
                 return userList
             }
 
+        @Suppress("unused")
         fun filterUserWhoLovesBoth(cricketFans: List<User>, footballFans: List<User>): List<User> {
             val userWhoLovesBoth: MutableList<User> = ArrayList()
             for (cricketFan in cricketFans) {

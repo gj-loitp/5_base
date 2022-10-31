@@ -30,6 +30,7 @@ class PongMainActivity : BaseFontActivity() {
 //        setCustomStatusBar(Color.BLACK, Color.BLACK)
     }
 
+    @Suppress("unused")
     fun settingsActivity(view: View) {
         Intent(this, SettingsActivity::class.java).also {
             it.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
@@ -37,6 +38,7 @@ class PongMainActivity : BaseFontActivity() {
         }
     }
 
+    @Suppress("unused")
     fun play(view: View) {
         val intent = Intent(this, GameActivity::class.java)
         intent.putExtra("settings", settings)
