@@ -48,7 +48,7 @@ class LEditTextActivity : BaseFontActivity() {
         }
         lEditTextId.apply {
             colorFocus = LAppResource.getColor(R.color.black)
-            colorUnfocus = LAppResource.getColor(R.color.blue)
+            colorUnFocus = LAppResource.getColor(R.color.blue)
             colorError = LAppResource.getColor(R.color.red)
             ivLeft.setImageResource(R.drawable.ic_launcher_loitp)
             ivRight.setImageResource(R.drawable.ic_close_black_48dp)
@@ -91,7 +91,7 @@ class LEditTextActivity : BaseFontActivity() {
         var isShowPw = false
         lEditTextPw.apply {
             colorFocus = LAppResource.getColor(R.color.black)
-            colorUnfocus = LAppResource.getColor(R.color.blue)
+            colorUnFocus = LAppResource.getColor(R.color.blue)
             colorError = LAppResource.getColor(R.color.red)
             ivLeft.setImageResource(R.drawable.ic_launcher_loitp)
             ivRight.setImageResource(R.drawable.ic_visibility_black_48dp)

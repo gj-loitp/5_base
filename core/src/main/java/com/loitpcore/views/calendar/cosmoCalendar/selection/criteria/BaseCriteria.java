@@ -4,6 +4,8 @@ import com.loitpcore.views.calendar.cosmoCalendar.model.Day;
 
 import java.util.Set;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -16,13 +18,14 @@ public abstract class BaseCriteria {
 
     protected Set<Integer> weekendDays;
     protected Set<Integer> disabledDays;
-
     public abstract boolean isCriteriaPassed(Day day);
 
+    @Suppress(names = "unused")
     public void setWeekendDays(Set<Integer> weekendDays) {
         this.weekendDays = weekendDays;
     }
 
+    @Suppress(names = "unused")
     public void setDisabledDays(Set<Integer> disabledDays) {
         this.disabledDays = disabledDays;
     }

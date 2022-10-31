@@ -2,6 +2,8 @@ package com.loitpcore.views.calendar.cosmoCalendar.settings.lists.connectedDays;
 
 import java.util.Set;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -25,10 +27,12 @@ public class ConnectedDays {
         this.disabledTextColor = disabledTextColor;
     }
 
+    @Suppress(names = "unused")
     public ConnectedDays(Set<Long> days, int textColor, int selectedTextColor) {
         this(days, textColor, selectedTextColor, textColor);
     }
 
+    @Suppress(names = "unused")
     public ConnectedDays(Set<Long> days, int textColor) {
         this(days, textColor, textColor, textColor);
     }
@@ -53,6 +57,7 @@ public class ConnectedDays {
         return selectedTextColor;
     }
 
+    @Suppress(names = "unused")
     public void setSelectedTextColor(int selectedTextColor) {
         this.selectedTextColor = selectedTextColor;
     }
@@ -61,6 +66,7 @@ public class ConnectedDays {
         return disabledTextColor;
     }
 
+    @Suppress(names = "unused")
     public void setDisabledTextColor(int disabledTextColor) {
         this.disabledTextColor = disabledTextColor;
     }

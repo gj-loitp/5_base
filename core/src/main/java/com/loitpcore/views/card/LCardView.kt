@@ -95,6 +95,7 @@ class LCardView : RelativeLayout {
         cardView.radius = px
     }
 
+    @Suppress("unused")
     fun setCardBackground(color: Int) {
         cardView.setCardBackgroundColor(color)
     }

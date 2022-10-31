@@ -1,5 +1,6 @@
 package com.loitpcore.views.answerView
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -33,6 +34,7 @@ class OneAnswerView : LinearLayout {
         init()
     }
 
+    @Suppress("unused")
     constructor(
         context: Context?,
         attrs: AttributeSet?,
@@ -69,6 +71,7 @@ class OneAnswerView : LinearLayout {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     fun setIndex(index: Int) {
         chooice.text = (('A'.code + index).toChar()).toString()
 //        chooice.text = "$index"

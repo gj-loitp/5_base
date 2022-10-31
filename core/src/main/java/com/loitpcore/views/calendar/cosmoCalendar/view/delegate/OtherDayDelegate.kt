@@ -15,6 +15,8 @@ import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView
  * freuss47@gmail.com
  */
 class OtherDayDelegate(private val calendarView: CalendarView) {
+
+    @Suppress("unused")
     fun onCreateDayHolder(parent: ViewGroup, viewType: Int): OtherDayHolder {
 
         val view = LayoutInflater.from(parent.context)
@@ -22,6 +24,7 @@ class OtherDayDelegate(private val calendarView: CalendarView) {
         return OtherDayHolder(view, calendarView)
     }
 
+    @Suppress("unused")
     fun onBindDayHolder(day: Day, holder: OtherDayHolder, position: Int) {
         holder.bind(day)
     }

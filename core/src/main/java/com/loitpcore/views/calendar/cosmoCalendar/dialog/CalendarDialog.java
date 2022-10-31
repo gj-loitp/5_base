@@ -31,6 +31,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -38,6 +40,7 @@ import java.util.Set;
  * +840766040293
  * freuss47@gmail.com
  */
+@Suppress(names = "unused")
 public class CalendarDialog extends Dialog implements View.OnClickListener,
         AppearanceInterface, DateInterface, CalendarListsInterface, SelectionInterface {
 
@@ -45,10 +48,12 @@ public class CalendarDialog extends Dialog implements View.OnClickListener,
 
     private OnDaysSelectionListener onDaysSelectionListener;
 
+    @Suppress(names = "unused")
     public CalendarDialog(@NonNull Context context) {
         super(context);
     }
 
+    @Suppress(names = "unused")
     public CalendarDialog(@NonNull Context context, OnDaysSelectionListener onDaysSelectionListener) {
         super(context);
         this.onDaysSelectionListener = onDaysSelectionListener;
@@ -90,6 +95,7 @@ public class CalendarDialog extends Dialog implements View.OnClickListener,
 
     }
 
+    @Suppress(names = "unused")
     public void setOnDaysSelectionListener(OnDaysSelectionListener onDaysSelectionListener) {
         this.onDaysSelectionListener = onDaysSelectionListener;
     }

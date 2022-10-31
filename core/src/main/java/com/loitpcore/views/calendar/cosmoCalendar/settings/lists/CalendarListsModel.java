@@ -91,6 +91,7 @@ public class CalendarListsModel implements CalendarListsInterface {
 
     @Override
     public void addConnectedDays(ConnectedDays connectedDays) {
+        assert connectedDaysManager != null;
         connectedDaysManager.addConnectedDays(connectedDays);
     }
 }

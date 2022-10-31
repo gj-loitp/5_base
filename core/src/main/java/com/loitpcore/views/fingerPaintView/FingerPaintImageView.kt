@@ -9,6 +9,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatImageView
 import com.loitpcore.R
+import kotlin.math.abs
 
 class FingerPaintImageView @JvmOverloads constructor(
     context: Context,
@@ -200,8 +201,8 @@ class FingerPaintImageView @JvmOverloads constructor(
         val yPos =
             event.y.coerceIn(yTranslation, yTranslation + sourceBitmap.intrinsicHeight * scale)
 
-        val dx = Math.abs(xPos - currentX)
-        val dy = Math.abs(yPos - currentY)
+        val dx = abs(xPos - currentX)
+        val dy = abs(yPos - currentY)
 
         if (dx >= touchTolerance || dy >= touchTolerance) {
             getCurrentPath()?.quadTo(

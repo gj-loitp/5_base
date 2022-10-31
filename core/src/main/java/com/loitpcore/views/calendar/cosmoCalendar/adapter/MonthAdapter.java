@@ -1,5 +1,6 @@
 package com.loitpcore.views.calendar.cosmoCalendar.adapter;
 
+import android.annotation.SuppressLint;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +24,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
+
+import kotlin.Suppress;
 
 /**
  * Created by Loitp on 04,August,2022
@@ -136,6 +139,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthHolder> {
         setDaysAccordingToSet(weekendDays, DayFlag.WEEKEND);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setMinDate(Calendar minDate) {
         for (Month month : months) {
             for (Day day : month.getDays()) {
@@ -147,6 +151,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthHolder> {
         notifyDataSetChanged();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setMaxDate(Calendar maxDate) {
         for (Month month : months) {
             for (Day day : month.getDays()) {
@@ -162,10 +167,12 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthHolder> {
         setDaysAccordingToSet(disabledDays, DayFlag.DISABLED);
     }
 
+    @Suppress(names = "unused")
     public void setConnectedCalendarDays(Set<Long> connectedCalendarDays) {
         setDaysAccordingToSet(connectedCalendarDays, DayFlag.FROM_CONNECTED_CALENDAR);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setDisabledDaysCriteria(DisabledDaysCriteria criteria) {
         for (Month month : months) {
             for (Day day : month.getDays()) {
@@ -177,6 +184,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthHolder> {
         notifyDataSetChanged();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void setDaysAccordingToSet(Set<Long> days, DayFlag dayFlag) {
         if (days != null && !days.isEmpty()) {
             for (Month month : months) {

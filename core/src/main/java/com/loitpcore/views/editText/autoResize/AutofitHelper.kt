@@ -323,6 +323,7 @@ class AutofitHelper private constructor(view: TextView) {
      * Removes the specified [OnTextSizeChangeListener] from the list of those whose methods
      * are called whenever the [TextView]'s `textSize` changes.
      */
+    @Suppress("unused")
     fun removeOnTextSizeChangeListener(listener: OnTextSizeChangeListener): AutofitHelper {
         mListeners?.remove(listener)
         return this
@@ -349,6 +350,7 @@ class AutofitHelper private constructor(view: TextView) {
      * @param size The scaled pixel size.
      * @attr ref me.grantland.R.styleable#AutofitEditText_minTextSize
      */
+    @Suppress("unused")
     fun setMinTextSize(size: Float): AutofitHelper {
         return setMinTextSize(TypedValue.COMPLEX_UNIT_SP, size)
     }

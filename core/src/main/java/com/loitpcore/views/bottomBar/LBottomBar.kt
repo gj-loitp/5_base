@@ -24,6 +24,7 @@ import kotlinx.android.synthetic.main.view_l_bottom_bar.view.*
 class LBottomBar : RelativeLayout, View.OnClickListener {
 
     companion object {
+        @Suppress("unused")
         const val PAGE_NONE = -1
         const val PAGE_0 = 0
         const val PAGE_1 = 1
@@ -373,6 +374,7 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         LUIUtil.setMargins(view = tvIcon5, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
     }
 
+    @Suppress("unused")
     fun getCurrentPos(): Int {
         return currentPos
     }

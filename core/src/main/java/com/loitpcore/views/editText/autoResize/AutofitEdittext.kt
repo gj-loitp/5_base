@@ -36,6 +36,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
         init(context, attrs, defStyle)
     }
 
+    @Suppress("unused")
     private fun init(context: Context, attrs: AttributeSet?, defStyle: Int) {
         autofitHelper = create(this, attrs, defStyle)
             .addOnTextSizeChangeListener(this)
@@ -86,6 +87,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      * Sets the property of this field (sizeToFit), to automatically resize the text to fit its
      * constraints.
      */
+    @Suppress("unused")
     fun setSizeToFit() {
         isSizeToFit = true
     }
@@ -99,6 +101,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      * param size The scaled pixel size.
      * @attr ref android.R.styleable#TextView_textSize
      */
+    @Suppress("unused")
     var maxTextSize: Float?
         get() = autofitHelper?.maxTextSize
         set(size) {
@@ -115,6 +118,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      * @param size The desired size in the given units.
      * @attr ref android.R.styleable#TextView_textSize
      */
+    @Suppress("unused")
     fun setMaxTextSize(unit: Int, size: Float) {
         autofitHelper?.setMaxTextSize(unit = unit, size = size)
     }
@@ -132,6 +136,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      * @param minSize The scaled pixel size.
      * @attr ref me.grantland.R.styleable#AutofitTextView_minTextSize
      */
+    @Suppress("unused")
     fun setMinTextSize(minSize: Int) {
         autofitHelper?.setMinTextSize(unit = TypedValue.COMPLEX_UNIT_SP, size = minSize.toFloat())
     }
@@ -144,6 +149,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      * @param minSize The desired size in the given units.
      * @attr ref me.grantland.R.styleable#AutofitTextView_minTextSize
      */
+    @Suppress("unused")
     fun setMinTextSize(unit: Int, minSize: Float) {
         autofitHelper?.setMinTextSize(unit = unit, size = minSize)
     }
@@ -157,6 +163,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      *
      * param precision The amount of precision.
      */
+    @Suppress("unused")
     var precision: Float?
         get() = autofitHelper?.precision
         set(precision) {

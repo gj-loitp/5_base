@@ -1,5 +1,6 @@
 package com.loitpcore.views.calendar.cosmoCalendar.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.AsyncTask;
@@ -62,6 +63,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+
+import kotlin.Suppress;
 
 /**
  * Created by Loitp on 04,August,2022
@@ -333,6 +336,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         flBottomSelectionBar.addView(rvMultipleSelectedList);
     }
 
+    @SuppressLint("InflateParams")
     private void createRangeSelectionLayout() {
         llRangeSelection = (LinearLayout) ((LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.view_cosmo_calendar_selection_bar_range, null);
         llRangeSelection.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -378,6 +382,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         return selectionManager;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void update() {
         if (monthAdapter != null) {
             monthAdapter.notifyDataSetChanged();
@@ -473,6 +478,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
             super.onScrolled(recyclerView, dx, dy);
             final RecyclerView.LayoutManager manager = rvMonths.getLayoutManager();
 
+            assert manager != null;
             int totalItemCount = manager.getItemCount();
             int firstVisibleItemPosition = getFirstVisiblePosition(manager);
             lastVisibleMonthPosition = firstVisibleItemPosition;
@@ -604,6 +610,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
     /**
      * Returns all selected dates
      */
+    @Suppress(names = "unused")
     public List<Calendar> getSelectedDates() {
         List<Calendar> selectedDays = new ArrayList<>();
         for (Day day : getSelectedDays()) {
@@ -632,6 +639,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         }
     }
 
+    @Suppress(names = "unused")
     public SettingsManager getSettingsManager() {
         return settingsManager;
     }
@@ -1073,6 +1081,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
     /*
      * Removes selected day by click in bottom selection bar
      */
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onMultipleSelectionListItemClick(@NonNull final Day day) {
         if (getSelectionManager() instanceof MultipleSelectionManager) {
@@ -1081,6 +1090,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         }
     }
 
+    @Suppress(names = "unused")
     public void setOnMonthChangeListener(OnMonthChangeListener onMonthChangeListener) {
         this.onMonthChangeListener = onMonthChangeListener;
     }

@@ -11,6 +11,7 @@ class MultipleSelectionManager : BaseCriteriaSelectionManager {
         this.onDaySelectedListener = onDaySelectedListener
     }
 
+    @Suppress("unused")
     constructor(criteria: BaseCriteria?, onDaySelectedListener: OnDaySelectedListener?) : this(
         ArrayList<BaseCriteria>(setOf(criteria)),
         onDaySelectedListener

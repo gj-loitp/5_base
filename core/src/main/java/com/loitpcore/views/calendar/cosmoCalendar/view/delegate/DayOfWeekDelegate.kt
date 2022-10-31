@@ -22,12 +22,14 @@ class DayOfWeekDelegate(
         this.calendarView = calendarView
     }
 
+    @Suppress("unused")
     fun onCreateDayHolder(parent: ViewGroup, viewType: Int): DayOfWeekHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.view_cosmo_calendar_day_of_week, parent, false)
         return DayOfWeekHolder(view, calendarView)
     }
 
+    @Suppress("unused")
     fun onBindDayHolder(day: Day, holder: DayOfWeekHolder, position: Int) {
         holder.bind(day)
     }

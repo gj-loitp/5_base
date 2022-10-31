@@ -19,6 +19,7 @@ class MonthDelegate(
     private val appearanceModel: SettingsManager
 ) {
 
+    @Suppress("unused")
     fun onCreateMonthHolder(adapter: DaysAdapter?, parent: ViewGroup, viewType: Int): MonthHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.view_cosmo_calendar_month, parent, false)
@@ -27,6 +28,7 @@ class MonthDelegate(
         return holder
     }
 
+    @Suppress("unused")
     fun onBindMonthHolder(month: Month, holder: MonthHolder, position: Int) {
         holder.bind(month)
     }

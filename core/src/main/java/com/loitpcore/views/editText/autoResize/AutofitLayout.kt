@@ -79,6 +79,7 @@ class AutofitLayout : FrameLayout {
     /**
      * Returns the [AutofitHelper] for this child View.
      */
+    @Suppress("unused")
     fun getAutofitHelper(textView: TextView): AutofitHelper? {
         return mHelpers[textView]
     }
@@ -86,6 +87,7 @@ class AutofitLayout : FrameLayout {
     /**
      * Returns the [AutofitHelper] for this child View.
      */
+    @Suppress("unused")
     fun getAutofitHelper(index: Int): AutofitHelper? {
         return mHelpers[getChildAt(index)]
     }

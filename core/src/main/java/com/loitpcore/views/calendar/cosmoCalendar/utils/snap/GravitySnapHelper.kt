@@ -50,6 +50,7 @@ class GravitySnapHelper @JvmOverloads constructor(
      *
      * @param snap true if you want to enable snapping of the last snappable item
      */
+    @Suppress("unused")
     fun enableLastItemSnap(snap: Boolean) {
         delegate.enableLastItemSnap(snap)
     }

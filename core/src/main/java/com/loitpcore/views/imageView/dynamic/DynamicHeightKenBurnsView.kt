@@ -22,8 +22,8 @@ class DynamicHeightKenBurnsView : KenBurnsView {
         defStyle
     )
 
+    @Suppress("unused")
     fun setAspectRatio(aspectRatio: Float) {
-
         mAspectRatio = aspectRatio
         requestLayout()
     }
