@@ -18,6 +18,8 @@ import com.loitpcore.R;
 import java.util.HashSet;
 import java.util.Objects;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -32,6 +34,7 @@ public class LScrollablePanel extends FrameLayout {
     protected PanelAdapter panelAdapter;
     protected FrameLayout firstItemView;
 
+    @Suppress(names = "unused")
     public LScrollablePanel(Context context, PanelAdapter panelAdapter) {
         super(context);
         this.panelAdapter = panelAdapter;
@@ -182,6 +185,7 @@ public class LScrollablePanel extends FrameLayout {
             return viewHolder;
         }
 
+        @SuppressLint("NotifyDataSetChanged")
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             PanelLineItemAdapter lineItemAdapter = (PanelLineItemAdapter) holder.recyclerView.getAdapter();
@@ -270,6 +274,7 @@ public class LScrollablePanel extends FrameLayout {
             });
         }
 
+        @Suppress(names = "unused")
         private HashSet<RecyclerView> getRecyclerViews() {
             final HashSet<RecyclerView> recyclerViewHashSet = new HashSet<>();
             recyclerViewHashSet.add(headerRecyclerView);

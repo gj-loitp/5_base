@@ -139,6 +139,7 @@ class SqliteActivity : BaseFontActivity(), View.OnClickListener {
         allContact
     }
 
+    @Suppress("unused")
     private fun getContactWithId(id: Int) {
         val contact = databaseHandler?.getContact(id)
         if (contact == null) {
@@ -165,6 +166,7 @@ class SqliteActivity : BaseFontActivity(), View.OnClickListener {
         ll.removeView(button)
     }
 
+    @Suppress("unused")
     private fun getContactListPage(page: Int) {
         val contactList = databaseHandler?.getContactListWithPage(page, 5)
         showDialogMsg("getContactListPage page: $page ${gson.toJson(contactList)}")

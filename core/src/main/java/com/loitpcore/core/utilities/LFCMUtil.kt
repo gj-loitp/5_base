@@ -19,6 +19,7 @@ import org.json.JSONObject
  * +840766040293
  * freuss47@gmail.com
  */
+@Suppress("unused")
 class LFCMUtil {
     companion object {
         private val logTag = LFCMUtil::class.java.simpleName

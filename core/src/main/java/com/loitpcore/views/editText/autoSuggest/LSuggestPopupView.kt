@@ -25,7 +25,7 @@ import kotlin.math.max
 @SuppressLint("InflateParams")
 class LSuggestPopupView(
     val context: Context,
-    val withEffect: Boolean,
+    withEffect: Boolean,
     val callback: Callback?,
 ) :
     RelativePopupWindow() {

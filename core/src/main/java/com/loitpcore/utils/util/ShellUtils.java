@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -24,10 +26,12 @@ public final class ShellUtils {
         return execCmd(new String[]{command}, isRoot, true);
     }
 
+    @Suppress(names = "unused")
     public static CommandResult execCmd(List<String> commands, boolean isRoot) {
         return execCmd(commands == null ? null : commands.toArray(new String[]{}), isRoot, true);
     }
 
+    @Suppress(names = "unused")
     public static CommandResult execCmd(String[] commands, boolean isRoot) {
         return execCmd(commands, isRoot, true);
     }
@@ -36,6 +40,7 @@ public final class ShellUtils {
         return execCmd(new String[]{command}, isRoot, isNeedResultMsg);
     }
 
+    @Suppress(names = "unused")
     public static CommandResult execCmd(List<String> commands, boolean isRoot, boolean isNeedResultMsg) {
         return execCmd(commands == null ? null : commands.toArray(new String[]{}), isRoot, isNeedResultMsg);
     }

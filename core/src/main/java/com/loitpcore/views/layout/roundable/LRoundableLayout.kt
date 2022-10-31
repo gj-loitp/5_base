@@ -115,56 +115,67 @@ class LRoundableLayout : ConstraintLayout {
         }
     }
 
+    @Suppress("unused")
     fun setCornerLeftTop(value: Float) {
         cornerLeftTop = value
         postInvalidate()
     }
 
+    @Suppress("unused")
     fun setCornerLeftBottom(value: Float) {
         cornerLeftBottom = value
         postInvalidate()
     }
 
+    @Suppress("unused")
     fun setCornerRightTop(value: Float) {
         cornerRightTop = value
         postInvalidate()
     }
 
+    @Suppress("unused")
     fun setCornerRightBottom(value: Float) {
         cornerRightBottom = value
         postInvalidate()
     }
 
+    @Suppress("unused")
     fun setCornerLeftSide(value: Float) {
         cornerLeftSide = value
         postInvalidate()
     }
 
+    @Suppress("unused")
     fun setCornerRightSide(value: Float) {
         cornerRightSide = value
         postInvalidate()
     }
 
+    @Suppress("unused")
     fun setStrokeLineWidth(value: Int) {
         strokeWidth = value
         postInvalidate()
     }
 
+    @Suppress("unused")
     fun setStrokeLineColor(value: Int) {
         strokeColor = value
         postInvalidate()
     }
 
+    @Suppress("unused")
     fun setDashLineWidth(value: Float) {
         dashWidth = value
         postInvalidate()
     }
 
+    @Suppress("unused")
     fun setDashLineGap(value: Float) {
         dashGap = value
         postInvalidate()
     }
 
+    @Suppress("unused")
     override fun setBackgroundColor(value: Int) {
         backgroundColor = value
         postInvalidate()
@@ -230,11 +241,13 @@ class LRoundableLayout : ConstraintLayout {
     }
 
     /** For not showing red underline */
+    @Suppress("unused")
     override fun setElevation(elevation: Float) {
         super.setElevation(elevation)
     }
 
     /** For not showing red underline */
+    @Suppress("unused")
     override fun setTranslationZ(translationZ: Float) {
         super.setTranslationZ(translationZ)
     }

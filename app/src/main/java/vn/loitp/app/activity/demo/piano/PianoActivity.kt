@@ -492,6 +492,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
         }
     }
 
+    @Suppress("unused")
     private fun convertDpToPixel(dp: Float): Float {
         val resources = this.resources
         val metrics = resources.displayMetrics

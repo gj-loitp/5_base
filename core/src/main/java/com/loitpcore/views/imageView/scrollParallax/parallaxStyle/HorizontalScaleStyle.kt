@@ -19,10 +19,12 @@ class HorizontalScaleStyle : ParallaxStyle {
 
     constructor()
 
+    @Suppress("unused")
     constructor(finalScaleRatio: Float) {
         this.finalScaleRatio = finalScaleRatio
     }
 
+    @Suppress("unused")
     fun setFinalScaleRatio(scale: Float) {
         finalScaleRatio = scale
     }

@@ -16,6 +16,8 @@ import com.loitpcore.core.utilities.LLog;
 
 import org.jetbrains.annotations.NotNull;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -254,6 +256,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
 
     private State mState;
 
+    @Suppress(names = "unused")
     private boolean isPositionTop() {
         return mState == State.TOP;
     }
@@ -262,6 +265,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
         return mState == State.BOTTOM;
     }
 
+    @Suppress(names = "unused")
     private boolean isPositionMid() {
         return mState == State.MID;
     }

@@ -166,6 +166,7 @@ class LPanoramaImageView @JvmOverloads constructor(
         }
     }
 
+    @Suppress("unused")
     private fun dp2px(dp: Float): Float {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
@@ -174,10 +175,12 @@ class LPanoramaImageView @JvmOverloads constructor(
         )
     }
 
+    @Suppress("unused")
     fun setEnablePanoramaMode(enable: Boolean) {
         isPanoramaModeEnabled = enable
     }
 
+    @Suppress("unused")
     var isInvertScrollDirection: Boolean
         get() = mInvertScrollDirection
         set(invert) {
@@ -186,6 +189,7 @@ class LPanoramaImageView @JvmOverloads constructor(
             }
         }
 
+    @Suppress("unused")
     fun setEnableScrollbar(enable: Boolean) {
         if (isScrollbarEnabled != enable) {
             isScrollbarEnabled = enable
@@ -200,7 +204,7 @@ class LPanoramaImageView @JvmOverloads constructor(
     override fun setScaleType(scaleType: ScaleType) {
         /**
          * Do nothing because PanoramaImageView only
-         * supports [scaleType.CENTER_CROP]
+         * supports [scaleType CENTER_CROP]
          */
     }
 

@@ -44,6 +44,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
     var videoW = 0
     var videoH = 0
 
+    @Suppress("unused")
     val contentPosition: Long
         get() = player?.contentPosition ?: 0
 
@@ -238,6 +239,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
         player?.playWhenReady = true
     }
 
+    @Suppress("unused")
     fun seekTo(mls: Long) {
         player?.seekTo(mls)
     }

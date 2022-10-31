@@ -5,9 +5,9 @@ import com.google.android.exoplayer2.ui.PlayerView
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.views.exo.PlayerManager
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_video_exo_player3.*
 import vn.loitp.app.R
 

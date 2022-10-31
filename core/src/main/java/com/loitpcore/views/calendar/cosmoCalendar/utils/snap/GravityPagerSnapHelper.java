@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -16,14 +18,17 @@ import androidx.recyclerview.widget.RecyclerView;
  * +840766040293
  * freuss47@gmail.com
  */
+@Suppress(names = "unused")
 public class GravityPagerSnapHelper extends PagerSnapHelper {
 
     private final GravityDelegate delegate;
 
+    @Suppress(names = "unused")
     public GravityPagerSnapHelper(int gravity) {
         this(gravity, false, null);
     }
 
+    @Suppress(names = "unused")
     public GravityPagerSnapHelper(int gravity, boolean enableSnapLastItem) {
         this(gravity, enableSnapLastItem, null);
     }
@@ -71,6 +76,7 @@ public class GravityPagerSnapHelper extends PagerSnapHelper {
      *
      * @param snap true if you want to enable snapping of the last snappable item
      */
+    @Suppress(names = "unused")
     public void enableLastItemSnap(boolean snap) {
         delegate.enableLastItemSnap(snap);
     }

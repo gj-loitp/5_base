@@ -37,7 +37,7 @@ class TimeConstants {
         const val DAY = 86400000
 
         @IntDef(MSEC, SEC, MIN, HOUR, DAY)
-        @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
+        @Retention(AnnotationRetention.SOURCE)
         annotation class Unit
     }
 }

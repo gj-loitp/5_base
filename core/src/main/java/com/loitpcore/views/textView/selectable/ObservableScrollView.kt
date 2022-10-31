@@ -63,6 +63,7 @@ class ObservableScrollView : ScrollView {
         mOnScrollChangedListeners?.add(onScrollChangedListener)
     }
 
+    @Suppress("unused")
     fun removeOnScrollChangedListener(onScrollChangedListener: OnScrollChangedListener) {
         mOnScrollChangedListeners?.remove(onScrollChangedListener)
     }

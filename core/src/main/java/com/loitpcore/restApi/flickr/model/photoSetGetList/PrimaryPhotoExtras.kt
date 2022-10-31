@@ -20,10 +20,12 @@ class PrimaryPhotoExtras : BaseModel() {
 
     @SerializedName("height_o")
     @Expose
+    @Suppress("unused")
     var heightO = 0
 
     @SerializedName("width_o")
     @Expose
+    @Suppress("unused")
     var widthO = 0
 
     @SerializedName("url_m")
@@ -32,9 +34,11 @@ class PrimaryPhotoExtras : BaseModel() {
 
     @SerializedName("height_m")
     @Expose
+    @Suppress("unused")
     var heightM = 0
 
     @SerializedName("width_m")
     @Expose
+    @Suppress("unused")
     var widthM = 0
 }

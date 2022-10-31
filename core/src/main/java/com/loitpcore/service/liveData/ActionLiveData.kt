@@ -42,6 +42,7 @@ open class ActionLiveData<T> : MutableLiveData<T>() {
 
     // Just a nicely named method that wraps setting the status
     @MainThread
+    @Suppress("unused")
     fun sendAction(data: T) {
         value = data
     }

@@ -9,8 +9,8 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_view_pager_lockable.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewPager.autoViewPager.FrmIv

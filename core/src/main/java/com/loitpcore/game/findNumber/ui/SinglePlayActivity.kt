@@ -7,10 +7,10 @@ import com.loitpcore.annotation.IsSwipeActivity
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.game.findNumber.model.Level
-import com.loitpcore.views.setSafeOnClickListener
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_activity_find_number_single_play.*
 

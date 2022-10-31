@@ -165,10 +165,12 @@ open class LMaterialTextField : FrameLayout {
         this.backgroundColor = color
     }
 
+    @Suppress("unused")
     fun getBackgroundColor(): Int {
         return this.backgroundColor
     }
 
+    @Suppress("unused")
     fun setHasFocus(hasFocus: Boolean) {
         this.hasFocus = hasFocus
 

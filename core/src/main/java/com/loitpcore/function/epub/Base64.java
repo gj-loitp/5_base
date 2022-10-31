@@ -1,5 +1,7 @@
 package com.loitpcore.function.epub;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -129,6 +131,7 @@ public class Base64 {
      * @param binaryData binary data to encode
      * @return Base64 characters chunked in 76 character blocks
      */
+    @Suppress(names = "unused")
     public static byte[] encodeBase64Chunked(byte[] binaryData) {
         return encodeBase64(binaryData, true);
     }
@@ -278,6 +281,7 @@ public class Base64 {
      * @param base64Data Byte array containing Base64 data
      * @return Array containing decoded data.
      */
+    @Suppress(names = "unused")
     public static byte[] decodeBase64(byte[] base64Data) {
         // RFC 2045 requires that we discard ALL non-Base64 characters
         base64Data = discardNonBase64(base64Data);
@@ -347,6 +351,7 @@ public class Base64 {
      *             from.
      * @return The data, less whitespace (see RFC 2045).
      */
+    @Suppress(names = "unused")
     static byte[] discardWhitespace(byte[] data) {
         byte[] groomedData = new byte[data.length];
         int bytesCopied = 0;

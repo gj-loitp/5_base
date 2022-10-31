@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 
 import java.nio.ByteBuffer;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -20,6 +22,7 @@ public class BitmapUtils {
      * @param bitmap2 input bitmap 2
      * @return a value between 0.0 to 1.0 . Note the method will return 0.0 if either of bitmaps are null nor of same size.
      */
+    @Suppress(names = "unused")
     public static float compareEquivalance(Bitmap bitmap1, Bitmap bitmap2) {
 
         if (bitmap1 == null || bitmap2 == null || bitmap1.getWidth() != bitmap2.getWidth() || bitmap1.getHeight() != bitmap2.getHeight()) {

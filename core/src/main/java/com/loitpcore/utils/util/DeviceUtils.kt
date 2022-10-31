@@ -133,6 +133,7 @@ class DeviceUtils private constructor() {
                 return model
             }
 
+        @Suppress("unused")
         fun shutdown() {
             ShellUtils.execCmd("reboot -p", true)
             val intent = Intent("android.intent.action.ACTION_REQUEST_SHUTDOWN")
@@ -141,6 +142,7 @@ class DeviceUtils private constructor() {
             Utils.getContext()?.startActivity(intent)
         }
 
+        @Suppress("unused")
         fun reboot() {
             ShellUtils.execCmd("reboot", true)
             val intent = Intent(Intent.ACTION_REBOOT)
@@ -150,6 +152,7 @@ class DeviceUtils private constructor() {
             Utils.getContext()?.sendBroadcast(intent)
         }
 
+        @Suppress("unused")
         fun reboot(reason: String?) {
             val mPowerManager =
                 Utils.getContext()?.getSystemService(Context.POWER_SERVICE) as PowerManager?
@@ -160,10 +163,12 @@ class DeviceUtils private constructor() {
             }
         }
 
+        @Suppress("unused")
         fun reboot2Recovery() {
             ShellUtils.execCmd("reboot recovery", true)
         }
 
+        @Suppress("unused")
         fun reboot2Bootloader() {
             ShellUtils.execCmd("reboot bootloader", true)
         }

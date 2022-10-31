@@ -141,21 +141,25 @@ class WP10ProgressBar : RelativeLayout {
         }, 50)
     }
 
+    @Suppress("unused")
     fun setInterval(interval: Int) {
         this.interval = interval
         initializeIndicators()
     }
 
+    @Suppress("unused")
     fun setAnimationDuration(animationDuration: Int) {
         this.animationDuration = animationDuration
         initializeIndicators()
     }
 
+    @Suppress("unused")
     fun setIndicatorHeight(indicatorHeight: Int) {
         this.indicatorHeight = indicatorHeight
         initializeIndicators()
     }
 
+    @Suppress("unused")
     fun setIndicatorColor(indicatorColor: Int) {
         this.indicatorColor = indicatorColor
         initializeIndicators()

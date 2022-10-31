@@ -8,10 +8,10 @@ import com.loitpcore.R
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFragment
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.ttt.adapter.TTTListComicAdapter
 import com.loitpcore.core.helper.ttt.helper.ComicUtils
 import com.loitpcore.core.helper.ttt.viewmodel.TTTViewModel
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_ttt_comic_home.*
 
 /**

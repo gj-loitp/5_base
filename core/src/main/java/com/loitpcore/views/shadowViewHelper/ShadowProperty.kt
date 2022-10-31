@@ -1,6 +1,7 @@
 package com.loitpcore.views.shadowViewHelper
 
 import java.io.Serializable
+import kotlin.math.max
 
 /**
  * Created by Loitp on 04,August,2022
@@ -39,8 +40,8 @@ class ShadowProperty : Serializable {
     val shadowOffset: Int
         get() = shadowOffsetHalf * 2
 
-    val shadowOffsetHalf: Int
-        get() = if (0 >= shadowRadius) 0 else Math.max(shadowDx, shadowDy) + shadowRadius
+    private val shadowOffsetHalf: Int
+        get() = if (0 >= shadowRadius) 0 else max(shadowDx, shadowDy) + shadowRadius
 
     fun getShadowSide(): Int {
         return shadowSide
@@ -73,6 +74,7 @@ class ShadowProperty : Serializable {
         return shadowDx
     }
 
+    @Suppress("unused")
     fun setShadowDx(shadowDx: Int): ShadowProperty {
         this.shadowDx = shadowDx
         return this

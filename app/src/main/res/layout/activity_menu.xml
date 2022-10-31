@@ -158,6 +158,11 @@
                 android:id="@+id/btGithub"
                 style="@style/ButtonMenu"
                 android:text="@string/github" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFeedback"
+                style="@style/ButtonMenu"
+                android:text="Feedback" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

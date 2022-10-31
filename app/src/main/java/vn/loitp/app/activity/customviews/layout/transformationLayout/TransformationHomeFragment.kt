@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.os.SystemClock
 import android.view.View
 import com.loitpcore.core.base.BaseFragment
-import com.loitpcore.views.setSafeOnClickListener
+import com.loitpcore.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_transformation_home.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationLayout.TransformationMockUtil.getMockPosters

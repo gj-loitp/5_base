@@ -362,6 +362,7 @@ class FlowLayout @JvmOverloads constructor(
      *
      * param flow true to allow flow. false to restrict all child views in one row.
      */
+    @Suppress("unused")
     var isFlow: Boolean
         get() = mFlow
         set(flow) {
@@ -379,6 +380,7 @@ class FlowLayout @JvmOverloads constructor(
      * param childSpacing The spacing, either [FlowLayout.SPACING_AUTO], or a fixed size in
      * pixels.
      */
+    @Suppress("unused")
     var childSpacing: Int
         get() = mChildSpacing
         set(childSpacing) {
@@ -397,6 +399,7 @@ class FlowLayout @JvmOverloads constructor(
      * param childSpacingForLastRow The spacing, either [FlowLayout.SPACING_AUTO],
      * [FlowLayout.SPACING_ALIGN], or a fixed size in pixels
      */
+    @Suppress("unused")
     var childSpacingForLastRow: Int
         get() = mChildSpacingForLastRow
         set(childSpacingForLastRow) {
@@ -415,6 +418,7 @@ class FlowLayout @JvmOverloads constructor(
      * param rowSpacing The spacing, either [FlowLayout.SPACING_AUTO], or a fixed size in
      * pixels.
      */
+    @Suppress("unused")
     var rowSpacing: Float
         get() = mRowSpacing
         set(rowSpacing) {
@@ -431,6 +435,7 @@ class FlowLayout @JvmOverloads constructor(
      *
      * param maxRows The maximum number of rows.
      */
+    @Suppress("unused")
     var maxRows: Int
         get() = mMaxRows
         set(maxRows) {
@@ -438,6 +443,7 @@ class FlowLayout @JvmOverloads constructor(
             requestLayout()
         }
 
+    @Suppress("unused")
     fun setGravity(gravity: Int) {
         if (mGravity != gravity) {
             mGravity = gravity
@@ -445,6 +451,7 @@ class FlowLayout @JvmOverloads constructor(
         }
     }
 
+    @Suppress("unused")
     fun setRowVerticalGravity(rowVerticalGravity: Int) {
         if (mRowVerticalGravity != rowVerticalGravity) {
             mRowVerticalGravity = rowVerticalGravity
@@ -452,18 +459,23 @@ class FlowLayout @JvmOverloads constructor(
         }
     }
 
+    @Suppress("unused")
     var isRtl: Boolean
         get() = mRtl
         set(rtl) {
             mRtl = rtl
             requestLayout()
         }
+
+    @Suppress("unused")
     var minChildSpacing: Int
         get() = mMinChildSpacing
         set(minChildSpacing) {
             mMinChildSpacing = minChildSpacing
             requestLayout()
         }
+
+    @Suppress("unused")
     val rowsCount: Int
         get() = mChildNumForRow.size
 

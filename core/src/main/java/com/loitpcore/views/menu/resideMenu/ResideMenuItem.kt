@@ -18,6 +18,7 @@ import com.loitpcore.utils.util.ConvertUtils
  * freuss47@gmail.com
  */
 class ResideMenuItem : LinearLayout {
+    @Suppress("unused")
     var ivIcon: ImageView? = null
     var tvTitle: TextView? = null
 
@@ -25,6 +26,7 @@ class ResideMenuItem : LinearLayout {
         initViews(context)
     }
 
+    @Suppress("unused")
     constructor(context: Context, icon: Int, title: Int) : super(context) {
         initViews(context)
 
@@ -84,6 +86,7 @@ class ResideMenuItem : LinearLayout {
         setTextShadow(textView = tvTitle, color = color)
     }
 
+    @Suppress("unused")
     fun setIvIconSizePx(sizeInPx: Int) {
         ivIcon?.apply {
             layoutParams.width = sizeInPx

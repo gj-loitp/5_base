@@ -43,6 +43,7 @@ object ViewUtils {
      * @param context
      * @return
      */
+    @Suppress("unused")
     fun getPixels(
         dipValue: Int,
         context: Context
@@ -63,6 +64,7 @@ object ViewUtils {
      * @param v
      * @return
      */
+    @Suppress("unused")
     fun loadBitmapFromView(
         v: View?
     ): Bitmap? {
@@ -84,6 +86,7 @@ object ViewUtils {
      * @param maxNumOfPixels
      * @return
      */
+    @Suppress("unused")
     fun computeSampleSize(
         options: BitmapFactory.Options,
         minSideLength: Int,

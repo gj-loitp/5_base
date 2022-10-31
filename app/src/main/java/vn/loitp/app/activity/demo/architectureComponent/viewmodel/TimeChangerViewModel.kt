@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.demo.architectureComponent.viewmodel
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
@@ -13,6 +14,7 @@ class TimeChangerViewModel : ViewModel() {
         startTimer()
     }
 
+    @SuppressLint("CheckResult")
     private fun startTimer() {
         Observable.interval(1, 1, TimeUnit.SECONDS)
             .subscribe({

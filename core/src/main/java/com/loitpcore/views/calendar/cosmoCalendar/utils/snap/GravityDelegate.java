@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -45,10 +47,12 @@ class GravityDelegate {
         }
     };
 
+    @Suppress(names = "unused")
     public GravityDelegate(int gravity) {
         this(gravity, false, null);
     }
 
+    @Suppress(names = "unused")
     public GravityDelegate(int gravity, GravitySnapHelper.SnapListener listener) {
         this(gravity, false, listener);
     }

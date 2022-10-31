@@ -13,12 +13,12 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.adapter.BaseAdapter
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.gallery.photos.PhotosDataCore
 import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_item_flickr_photos_core_only.view.*
 import java.util.*
 

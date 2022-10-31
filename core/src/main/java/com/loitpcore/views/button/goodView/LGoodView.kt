@@ -16,6 +16,7 @@ import android.view.animation.TranslateAnimation
 import android.widget.PopupWindow
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.loitpcore.core.utilities.LAppResource
 
 /**
  * Created by Loitp on 04,August,2022
@@ -114,6 +115,7 @@ class LGoodView(
         mGood?.setTextSize(TypedValue.COMPLEX_UNIT_DIP, textSize.toFloat())
     }
 
+    @Suppress("unused")
     fun setTextInfo(text: String?, textColor: Int, textSize: Int) {
         setTextColor(textColor)
         setTextSize(textSize)
@@ -121,7 +123,8 @@ class LGoodView(
     }
 
     fun setImage(resId: Int) {
-        setImage(mContext?.resources?.getDrawable(resId))
+//        setImage(mContext?.resources?.getDrawable(resId))
+        setImage(LAppResource.getDrawable(resId))
     }
 
     fun setImage(drawable: Drawable?) {
@@ -143,6 +146,7 @@ class LGoodView(
         }
     }
 
+    @Suppress("unused")
     fun setTranslateY(fromY: Int, toY: Int) {
         mFromY = fromY
         mToY = toY

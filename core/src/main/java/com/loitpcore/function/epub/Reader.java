@@ -27,6 +27,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -62,6 +64,7 @@ public class Reader {
      *
      * @return saved page index. 0 if no progress is found.
      */
+    @Suppress(names = "unused")
     public int setFullContentWithProgress(String filePath) throws ReadingException {
         fillContent(filePath, true, true);
 
@@ -103,10 +106,12 @@ public class Reader {
         return content.getPackage();
     }
 
+    @Suppress(names = "unused")
     public Toc getToc() {
         return content.getToc();
     }
 
+    @Suppress(names = "unused")
     public String getCoverImageFileName() throws ReadingException {
 
         if (content != null) {

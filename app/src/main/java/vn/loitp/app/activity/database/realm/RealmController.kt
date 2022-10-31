@@ -53,10 +53,12 @@ class RealmController {
         }
     }
 
+    @Suppress("unused")
     fun hasMyBook(): Boolean {
         return !realm.allObjects(MyBook::class.java).isEmpty()
     }
 
+    @Suppress("unused")
     fun hasMyBooks(): RealmResults<MyBook> {
         return realm.where(MyBook::class.java)
             .contains(FIELD_AUTHOR, "Author 0")

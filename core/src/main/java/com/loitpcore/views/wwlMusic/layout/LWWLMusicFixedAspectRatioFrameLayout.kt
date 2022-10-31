@@ -15,7 +15,7 @@ import com.loitpcore.R
  */
 class LWWLMusicFixedAspectRatioFrameLayout : FrameLayout {
 
-    var mAspectRatio: Float
+    private var mAspectRatio: Float
 
     constructor(context: Context) : super(context) {
         mAspectRatio = 1.0f

@@ -1,5 +1,6 @@
 package com.loitpcore.views.calendar.cosmoCalendar.adapter;
 
+import android.annotation.SuppressLint;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -97,6 +98,7 @@ public class DaysAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return month == null ? 0 : month.getDays().size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setMonth(Month month) {
         this.month = month;
         notifyDataSetChanged();

@@ -7,12 +7,12 @@ import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.ttt.helper.ComicUtils
 import com.loitpcore.core.helper.ttt.model.comictype.ComicType
 import com.loitpcore.core.helper.ttt.viewmodel.TTTViewModel
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_ttt_api_comic_list.*
 import vn.loitp.app.R
 

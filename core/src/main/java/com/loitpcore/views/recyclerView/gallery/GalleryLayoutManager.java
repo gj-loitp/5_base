@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
+import kotlin.Suppress;
 import timber.log.Timber;
 
 public class GalleryLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider {
@@ -30,6 +31,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
     public static final int VERTICAL = OrientationHelper.VERTICAL;
 
     private int mFirstVisiblePosition = 0;
+    @Suppress(names = "unused")
     private int mLastVisiblePos = 0;
     private int mInitialSelectedPosition = 0;
 
@@ -63,6 +65,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
         return mOrientation;
     }
 
+    @Suppress(names = "unused")
     public int getCurSelectedPosition() {
         return mCurSelectedPosition;
     }
@@ -143,7 +146,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
         }
     }
 
-
+    @Suppress(names = "unused")
     private void firstFillCover(RecyclerView.Recycler recycler, RecyclerView.State state, int scrollDelta) {
         if (mOrientation == HORIZONTAL) {
             firstFillWithHorizontal(recycler, state);
@@ -166,6 +169,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
     /**
      * Layout the item view witch position specified by {@link GalleryLayoutManager#mInitialSelectedPosition} first and then layout the other
      */
+    @Suppress(names = "unused")
     private void firstFillWithHorizontal(RecyclerView.Recycler recycler, RecyclerView.State state) {
         detachAndScrapAttachedViews(recycler);
         int leftEdge = getOrientationHelper().getStartAfterPadding();
@@ -207,6 +211,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
     /**
      * Layout the item view witch position special by {@link GalleryLayoutManager#mInitialSelectedPosition} first and then layout the other
      */
+    @Suppress(names = "unused")
     private void firstFillWithVertical(RecyclerView.Recycler recycler, RecyclerView.State state) {
         detachAndScrapAttachedViews(recycler);
         int topEdge = getOrientationHelper().getStartAfterPadding();
@@ -403,6 +408,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
 
     }
 
+    @Suppress(names = "unused")
     private void fillWithVertical(RecyclerView.Recycler recycler, RecyclerView.State state, int dy) {
 //        Log.d(logTag, "fillWithVertical: dy:" + dy);
         int topEdge = getOrientationHelper().getStartAfterPadding();
@@ -454,6 +460,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
         if (dy >= 0) {
             if (getChildCount() != 0) {
                 View lastView = getChildAt(getChildCount() - 1);
+                assert lastView != null;
                 startPosition = getPosition(lastView) + 1;
                 startOffset = getDecoratedBottom(lastView);
             }
@@ -485,6 +492,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
             //dy<0
             if (getChildCount() > 0) {
                 View firstView = getChildAt(0);
+                assert firstView != null;
                 startPosition = getPosition(firstView) - 1; //前一个View的position
                 startOffset = getDecoratedTop(firstView);
             }
@@ -508,6 +516,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
         }
     }
 
+    @Suppress(names = "unused")
     private void fillWithHorizontal(RecyclerView.Recycler recycler, RecyclerView.State state, int dx) {
         int leftEdge = getOrientationHelper().getStartAfterPadding();
         int rightEdge = getOrientationHelper().getEndAfterPadding();
@@ -706,6 +715,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
             //If we've reached the first item, enforce limits
             if (mFirstVisiblePosition == 0) {
                 child = getChildAt(0);
+                assert child != null;
                 delta = -Math.min(0, Math.max(dx, ((child.getRight() - child.getLeft()) / 2 + child.getLeft()) - parentCenter));
             }
         }

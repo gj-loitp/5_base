@@ -122,6 +122,7 @@ class WP7ProgressBar : LinearLayout {
         isShowing = false
     }
 
+    @Suppress("unused")
     private fun startWholeViewAnimation() {
         objectAnimator = ObjectAnimator.ofFloat(this, "translationX", -200f, 200f)
         objectAnimator?.apply {
@@ -133,6 +134,7 @@ class WP7ProgressBar : LinearLayout {
         }
     }
 
+    @Suppress("unused")
     private fun hideWholeViewAnimation() {
         objectAnimator?.apply {
             removeAllListeners()
@@ -165,26 +167,31 @@ class WP7ProgressBar : LinearLayout {
         }, 50)
     }
 
+    @Suppress("unused")
     fun setInterval(interval: Int) {
         this.interval = interval
         initializeIndicators()
     }
 
+    @Suppress("unused")
     fun setAnimationDuration(animationDuration: Int) {
         this.animationDuration = animationDuration
         initializeIndicators()
     }
 
+    @Suppress("unused")
     fun setIndicatorHeight(indicatorHeight: Int) {
         this.indicatorHeight = indicatorHeight
         initializeIndicators()
     }
 
+    @Suppress("unused")
     fun setIndicatorColor(indicatorColor: Int) {
         this.indicatorColor = indicatorColor
         initializeIndicators()
     }
 
+    @Suppress("unused")
     fun setIndicatorRadius(indicatorRadius: Int) {
         this.indicatorRadius = indicatorRadius
         initializeIndicators()

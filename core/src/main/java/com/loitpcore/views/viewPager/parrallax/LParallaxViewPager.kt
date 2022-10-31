@@ -24,7 +24,7 @@ import com.loitpcore.R
  */
 class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     ViewPager(context, attrs) {
-    private var mParrallaxMode: ParallaxMode? = null
+    private var mParallaxMode: ParallaxMode? = null
     private val mShadowStart = Color.parseColor("#33000000")
     private val mShadowMid = Color.parseColor("#11000000")
     private val mShadowEnd = Color.parseColor("#00000000")
@@ -38,7 +38,7 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
     private var mOutset: Int = 0
     private var mOutsetFraction = 0.5f
 
-    var outset: Int
+    private var outset: Int
         get() = mOutset
         set(outset) {
             this.mOutset = outset
@@ -46,7 +46,7 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
             mParallaxTransformer?.outset = mOutset
         }
 
-    var outsetFraction: Float
+    private var outsetFraction: Float
         get() = mOutsetFraction
         set(outsetFraction) {
             this.mOutsetFraction = outsetFraction
@@ -62,9 +62,9 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
         }
 
     var parrallaxMode: ParallaxMode?
-        get() = mParrallaxMode
+        get() = mParallaxMode
         set(mode) {
-            mParrallaxMode = mode
+            mParallaxMode = mode
             mParallaxTransformer?.parallaxMode = mode
             if (mode === ParallaxMode.LEFT_OVERLAY) {
                 setPageTransformer(true, mParallaxTransformer)
@@ -79,13 +79,13 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
             attrs, R.styleable.LParallaxViewPager, 0,
             0
         )
-        mParrallaxMode = ParallaxMode.values()[
+        mParallaxMode = ParallaxMode.values()[
                 a.getInt(
                     R.styleable.LParallaxViewPager_modeParallaxViewPager,
                     0
                 )
         ]
-        parrallaxMode = mParrallaxMode
+        parrallaxMode = mParallaxMode
 
         if (a.hasValue(R.styleable.LParallaxViewPager_right_shadow)) {
             mRightShadow = a.getDrawable(R.styleable.LParallaxViewPager_right_shadow)
@@ -116,10 +116,12 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
         a.recycle()
     }
 
+    @Suppress("unused")
     fun setRightShadow(rightShadow: GradientDrawable) {
         this.mRightShadow = rightShadow
     }
 
+    @Suppress("unused")
     fun setLeftShadow(leftShadow: GradientDrawable) {
         this.mLeftShadow = leftShadow
     }
@@ -141,13 +143,13 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
     }
 
     private fun drawShadow(canvas: Canvas) {
-        if (mParrallaxMode === ParallaxMode.NONE) {
+        if (mParallaxMode === ParallaxMode.NONE) {
             return
         }
         if (scrollX % width == 0) {
             return
         }
-        when (mParrallaxMode) {
+        when (mParallaxMode) {
             ParallaxMode.LEFT_OVERLAY -> drawRightShadow(canvas)
             ParallaxMode.RIGHT_OVERLAY -> drawLeftShadow(canvas)
             else -> {
@@ -177,6 +179,7 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
         super.setPageMargin(0)
     }
 
+    @Suppress("unused")
     private fun dp2px(dip: Int, context: Context): Float {
         val scale = context.resources.displayMetrics.density
         return dip * scale + 0.5f

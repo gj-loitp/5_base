@@ -22,14 +22,17 @@ class DisabledDaysCriteria {
     var days: Set<Int>? = null
         private set
 
+    @Suppress("unused")
     constructor(startRange: Int, endRange: Int, criteriaType: DisabledDaysCriteriaType) {
         setDays(startRange, endRange, criteriaType)
     }
 
+    @Suppress("unused")
     constructor(days: Set<Int>, criteriaType: DisabledDaysCriteriaType) {
         setDays(days, criteriaType)
     }
 
+    @Suppress("unused")
     fun setDays(days: Set<Int>, criteriaType: DisabledDaysCriteriaType) {
         this.criteriaType = criteriaType
         validateDays(days)
@@ -39,6 +42,7 @@ class DisabledDaysCriteria {
     /**
      * Sets range of disabled days
      */
+    @Suppress("unused")
     fun setDays(
         startRange: Int,
         endRange: Int,

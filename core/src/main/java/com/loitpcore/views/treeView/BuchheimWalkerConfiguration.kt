@@ -7,4 +7,5 @@ package com.loitpcore.views.treeView
  * +840766040293
  * freuss47@gmail.com
  */
+@Suppress("unused")
 class BuchheimWalkerConfiguration(val siblingSeparation: Int, val subtreeSeparation: Int)

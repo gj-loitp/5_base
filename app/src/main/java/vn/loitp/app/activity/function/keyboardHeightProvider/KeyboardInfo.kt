@@ -1,7 +1,9 @@
 package vn.loitp.app.activity.function.keyboardHeightProvider
 
 object KeyboardInfo {
+    @Suppress("unused")
     const val HEIGHT_NOT_COMPUTED = -1
+    @Suppress("unused")
     const val STATE_UNKNOWN = -1
     const val STATE_CLOSED = 0
     const val STATE_OPENED = 1

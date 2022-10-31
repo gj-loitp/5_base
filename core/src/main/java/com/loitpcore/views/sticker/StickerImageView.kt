@@ -46,6 +46,7 @@ class StickerImageView : StickerView {
         ivMain?.setImageDrawable(drawable)
     }
 
+    @Suppress("unused")
     var imageBitmap: Bitmap?
         get() = (ivMain?.drawable as BitmapDrawable).bitmap
         set(bmp) {

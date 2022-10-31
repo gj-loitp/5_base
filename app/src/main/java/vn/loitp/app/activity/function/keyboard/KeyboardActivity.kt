@@ -6,9 +6,9 @@ import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LKeyBoardUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.setSafeOnClickListener
 import gun0912.tedkeyboardobserver.TedRxKeyboardObserver
 import kotlinx.android.synthetic.main.activity_func_keyboard.*
 import vn.loitp.app.R

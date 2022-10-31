@@ -32,8 +32,8 @@ import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
 import com.loitpcore.R
 import com.loitpcore.core.common.Constants
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.utils.util.ConvertUtils
-import com.loitpcore.views.setSafeOnClickListener
 import com.skydoves.elasticviews.elasticAnimation
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor
@@ -223,6 +223,7 @@ class LUIUtil {
             }
         }
 
+        @Suppress("unused")
         fun fixSizeTabLayout(tabLayout: TabLayout, titleList: Array<String>) {
             if (titleList.size > 3) {
                 tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
@@ -240,6 +241,7 @@ class LUIUtil {
             handler.postDelayed({ runnable.run() }, mls.toLong())
         }
 
+        @Suppress("unused")
         fun setSoftInputMode(activity: Activity, mode: Int) {
             // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
             // activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
@@ -603,6 +605,7 @@ class LUIUtil {
             }
         }
 
+        @Suppress("unused")
         fun setNavMenuItemThemeColors(
             navigationView: NavigationView,
             colorDefault: Int,
@@ -926,6 +929,7 @@ class LUIUtil {
             }
         }
 
+        @Suppress("unused")
         fun setTypeface(textView: TextView, pathFontAsset: String) {
             val type = Typeface.createFromAsset(textView.context.assets, pathFontAsset)
             textView.typeface = type

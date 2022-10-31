@@ -1049,4 +1049,15 @@ Likewise may someone love you next.
     <string name="textTopModeManualButton">manual mode</string>
     <string name="textTopModeAIWeakButton">Against AI: Weak</string>
     <string name="textTopModeAIStrongButton">Against AI: Strong</string>
+
+    <string name="logo">logo</string>
+    <string-array name="modeTypes">
+        <item>One player</item>
+        <item>Two players</item>
+    </string-array>
+    <string-array name="difficulty_types">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+    </string-array>
 </resources>

@@ -13,6 +13,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.ViewCompat
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import kotlin.math.abs
 
 /**
  * Created by Loitp on 04,August,2022
@@ -149,7 +150,7 @@ internal class StatusBarCompatLollipop {
             val behavior = (appBarLayout.layoutParams as CoordinatorLayout.LayoutParams).behavior
             if (behavior != null && behavior is AppBarLayout.Behavior) {
                 val verticalOffset = behavior.topAndBottomOffset
-                if (Math.abs(verticalOffset) > appBarLayout.height - collapsingToolbarLayout.scrimVisibleHeightTrigger) {
+                if (abs(verticalOffset) > appBarLayout.height - collapsingToolbarLayout.scrimVisibleHeightTrigger) {
                     window.statusBarColor = statusColor
                 } else {
                     window.statusBarColor = Color.TRANSPARENT
@@ -159,29 +160,27 @@ internal class StatusBarCompatLollipop {
             }
 
             collapsingToolbarLayout.fitsSystemWindows = false
-            appBarLayout.addOnOffsetChangedListener(
-                AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
-                    if (Math.abs(verticalOffset) > appBarLayout.height - collapsingToolbarLayout.scrimVisibleHeightTrigger) {
-                        if (window.statusBarColor != statusColor) {
-                            startColorAnimation(
-                                window.statusBarColor,
-                                statusColor,
-                                collapsingToolbarLayout.scrimAnimationDuration,
-                                window
-                            )
-                        }
-                    } else {
-                        if (window.statusBarColor != Color.TRANSPARENT) {
-                            startColorAnimation(
-                                window.statusBarColor,
-                                Color.TRANSPARENT,
-                                collapsingToolbarLayout.scrimAnimationDuration,
-                                window
-                            )
-                        }
+            appBarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
+                if (abs(verticalOffset) > appBarLayout.height - collapsingToolbarLayout.scrimVisibleHeightTrigger) {
+                    if (window.statusBarColor != statusColor) {
+                        startColorAnimation(
+                            window.statusBarColor,
+                            statusColor,
+                            collapsingToolbarLayout.scrimAnimationDuration,
+                            window
+                        )
+                    }
+                } else {
+                    if (window.statusBarColor != Color.TRANSPARENT) {
+                        startColorAnimation(
+                            window.statusBarColor,
+                            Color.TRANSPARENT,
+                            collapsingToolbarLayout.scrimAnimationDuration,
+                            window
+                        )
                     }
                 }
-            )
+            }
             collapsingToolbarLayout.getChildAt(0).fitsSystemWindows = false
             collapsingToolbarLayout.setStatusBarScrimColor(statusColor)
         }
@@ -189,6 +188,7 @@ internal class StatusBarCompatLollipop {
         /**
          * use ValueAnimator to change statusBarColor when using collapsingToolbarLayout
          */
+        @Suppress("unused")
         fun startColorAnimation(startColor: Int, endColor: Int, duration: Long, window: Window?) {
             sAnimator?.cancel()
             sAnimator = ValueAnimator.ofArgb(startColor, endColor)

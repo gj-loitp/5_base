@@ -16,7 +16,7 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.viewPager.viewPagerTransformers.*
+import com.loitpcore.views.viewPager.vpTransformers.*
 import kotlinx.android.synthetic.main.activity_view_pager_with_tablayout.*
 import vn.loitp.app.R
 
@@ -37,6 +37,7 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
         private const val FlipHorizontalTransformer = "FlipHorizontalTransformer"
         private const val FlipVerticalTransformer = "FlipVerticalTransformer"
         private const val ForegroundToBackgroundTransformer = "ForegroundToBackgroundTransformer"
+        @Suppress("unused")
         private const val ParallaxPageTransformer = "ParallaxPageTransformer"
         private const val RotateUpTransformer = "RotateUpTransformer"
         private const val RotateDownTransformer = "RotateDownTransformer"
@@ -152,7 +153,7 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
                         true,
                         ZoomOutSlideTransformer()
                     )
-                    ZoomOutTranformer -> viewPager.setPageTransformer(true, ZoomOutTranformer())
+                    ZoomOutTranformer -> viewPager.setPageTransformer(true, ZoomOutTransformer())
                 }
             }
         )

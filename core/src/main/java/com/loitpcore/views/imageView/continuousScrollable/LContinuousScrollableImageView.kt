@@ -45,21 +45,21 @@ class LContinuousScrollableImageView : LinearLayout {
     }
 
     @IntDef(UP, RIGHT, DOWN, LEFT)
-    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
+    @Retention(AnnotationRetention.SOURCE)
     internal annotation class Directions
 
     @Directions
     var DEFAULT_DIRECTION = LEFT
 
     @IntDef(HORIZONTAL, VERTICAL)
-    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
+    @Retention(AnnotationRetention.SOURCE)
     internal annotation class Asymptote
 
     @Asymptote
     var DEFAULT_ASYMPTOTE = HORIZONTAL
 
     @IntDef(MATRIX, FIT_XY, FIT_START, FIT_CENTER, FIT_END, CENTER, CENTER_CROP, CENTER_INSIDE)
-    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
+    @Retention(AnnotationRetention.SOURCE)
     internal annotation class ScaleType
 
     @ScaleType

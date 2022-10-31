@@ -6,10 +6,10 @@ import android.view.View
 import com.loitpcore.R
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.ttt.ui.a.TTTComicActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LImageUtil
-import com.loitpcore.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.l_frm_ttt_comic_profile.*
 

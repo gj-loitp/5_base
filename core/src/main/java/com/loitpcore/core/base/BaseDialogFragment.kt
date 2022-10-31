@@ -27,11 +27,13 @@ open class BaseDialogFragment : DialogFragment() {
         return activity?.let { ViewModelProvider(it)[className] }
     }
 
+    @Suppress("unused")
     fun <T : ViewModel> getSelfViewModel(className: Class<T>): T {
 
         return ViewModelProvider(this)[className]
     }
 
+    @Suppress("unused")
     fun lockScreen(isLock: Boolean) {
         if (isLock) {
             activity?.window?.setFlags(
@@ -68,6 +70,7 @@ open class BaseDialogFragment : DialogFragment() {
         }
     }
 
+    @Suppress("unused")
     fun showSnackBarInformation(
         msg: String,
         view: View? = dialog?.window?.findViewById(android.R.id.content),
@@ -85,6 +88,7 @@ open class BaseDialogFragment : DialogFragment() {
         }
     }
 
+    @Suppress("unused")
     fun showSnackBarWarning(
         msg: String,
         view: View? = dialog?.window?.findViewById(android.R.id.content),
@@ -102,6 +106,7 @@ open class BaseDialogFragment : DialogFragment() {
         }
     }
 
+    @Suppress("unused")
     fun showSnackBarError(
         msg: String,
         view: View? = dialog?.window?.findViewById(android.R.id.content),

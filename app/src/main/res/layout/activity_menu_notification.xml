@@ -13,8 +13,11 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="@string/notification_menu" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/notification_menu"
+        android:textColor="@color/red"
+        android:textSize="@dimen/txt_medium" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"

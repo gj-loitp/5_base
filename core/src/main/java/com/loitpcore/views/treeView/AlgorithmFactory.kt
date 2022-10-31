@@ -9,6 +9,7 @@ package com.loitpcore.views.treeView
  */
 object AlgorithmFactory {
 
+    @Suppress("unused")
     fun createBuchheimWalker(configuration: BuchheimWalkerConfiguration?): Algorithm {
         return BuchheimWalkerAlgorithm(configuration)
     }

@@ -21,6 +21,8 @@ import androidx.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -181,10 +183,12 @@ public class FloatDragPopupWindow implements PopupWindow.OnDismissListener, View
         return mContentView;
     }
 
+    @Suppress(names = "unused")
     public int getCurrentWindowX() {
         return mCurrentPopupWindowPositionX;
     }
 
+    @Suppress(names = "unused")
     public int getCurrentWindowY() {
         return mCurrentPopupWindowPositionY;
     }
@@ -307,6 +311,7 @@ public class FloatDragPopupWindow implements PopupWindow.OnDismissListener, View
         return false;
     }
 
+    @Suppress(names = "unused")
     private void updateContentLayoutParams(int left, int top, int right, int bottom) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(mContentView.getWidth(), mContentView.getHeight());
         layoutParams.setMargins(left, top, right, bottom);
@@ -341,6 +346,7 @@ public class FloatDragPopupWindow implements PopupWindow.OnDismissListener, View
             return this;
         }
 
+        @Suppress(names = "unused")
         public Builder setWindowSize(int width, int height) {
             this.windowWidth = width;
             this.windowHeight = height;

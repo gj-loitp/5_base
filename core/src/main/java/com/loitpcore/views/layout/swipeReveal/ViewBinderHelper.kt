@@ -101,6 +101,7 @@ class ViewBinderHelper {
      *
      * @param id a string that uniquely defines the data object.
      */
+    @Suppress("unused")
     fun lockSwipe(vararg id: String) {
         setLockSwipe(true, *id)
     }
@@ -110,6 +111,7 @@ class ViewBinderHelper {
      *
      * @param id a string that uniquely defines the data object.
      */
+    @Suppress("unused")
     fun unlockSwipe(vararg id: String) {
         setLockSwipe(false, *id)
     }
@@ -126,6 +128,7 @@ class ViewBinderHelper {
      *
      * @param id unique id which identifies the data object which is bind to the layout.
      */
+    @Suppress("unused")
     fun openLayout(id: String) {
         synchronized(stateChangeLock) {
             mapStates[id] = LSwipeRevealLayout.STATE_OPEN
@@ -148,6 +151,7 @@ class ViewBinderHelper {
      *
      * @param id unique id which identifies the data object which is bind to the layout.
      */
+    @Suppress("unused")
     fun closeLayout(id: String) {
         synchronized(stateChangeLock) {
             mapStates[id] = LSwipeRevealLayout.STATE_CLOSE

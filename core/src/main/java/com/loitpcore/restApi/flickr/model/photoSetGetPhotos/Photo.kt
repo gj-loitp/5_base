@@ -21,14 +21,17 @@ class Photo : BaseModel() {
 
     @SerializedName("secret")
     @Expose
+    @Suppress("unused")
     var secret: String? = null
 
     @SerializedName("server")
     @Expose
+    @Suppress("unused")
     var server: String? = null
 
     @SerializedName("farm")
     @Expose
+    @Suppress("unused")
     var farm = 0.0
 
     @SerializedName("title")
@@ -37,18 +40,22 @@ class Photo : BaseModel() {
 
     @SerializedName("isprimary")
     @Expose
+    @Suppress("unused")
     var isprimary: String? = null
 
     @SerializedName("ispublic")
     @Expose
+    @Suppress("unused")
     var ispublic = 0.0
 
     @SerializedName("isfriend")
     @Expose
+    @Suppress("unused")
     var isfriend = 0.0
 
     @SerializedName("isfamily")
     @Expose
+    @Suppress("unused")
     var isfamily = 0.0
 
     @SerializedName("url_o")
@@ -69,10 +76,12 @@ class Photo : BaseModel() {
 
     @SerializedName("height_s")
     @Expose
+    @Suppress("unused")
     var heightS = 0
 
     @SerializedName("width_s")
     @Expose
+    @Suppress("unused")
     var widthS = 0
 
     @SerializedName("url_m")
@@ -81,12 +90,15 @@ class Photo : BaseModel() {
 
     @SerializedName("height_m")
     @Expose
+    @Suppress("unused")
     var heightM = 0
 
     @SerializedName("width_m")
     @Expose
+    @Suppress("unused")
     var widthM = 0
 
+    @Suppress("unused")
     // gif extension have no link large
     val flickrLink100: String
         get() = if (urlO.contains(".gif")) {
@@ -96,6 +108,7 @@ class Photo : BaseModel() {
             LImageUtil.getFlickrLink100(urlM)
         }
 
+    @Suppress("unused")
     // gif extension have no link large
     val flickrLink640: String
         get() = if (urlO.contains(".gif")) {
@@ -114,6 +127,7 @@ class Photo : BaseModel() {
             LImageUtil.getFlickrLink1024(urlM)
         }
 
+    @Suppress("unused")
     // gif extension have no link large
     val flickrLink320: String
         get() = if (urlO.contains(".gif")) {

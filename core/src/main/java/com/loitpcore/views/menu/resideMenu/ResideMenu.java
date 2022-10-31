@@ -29,6 +29,8 @@ import com.nineoldandroids.view.ViewHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -96,6 +98,7 @@ public class ResideMenu extends FrameLayout {
      * layouts, but if you use custom menu then do not call addMenuItem because
      * it will not be able to find default views
      */
+    @Suppress(names = "unused")
     public ResideMenu(
             Context context,
             int customLeftMenuId,
@@ -141,6 +144,7 @@ public class ResideMenu extends FrameLayout {
     /**
      * Returns left menu view so you can findViews and do whatever you want with
      */
+    @Suppress(names = "unused")
     public View getLeftMenuView() {
         return scrollViewLeftMenu;
     }
@@ -148,6 +152,7 @@ public class ResideMenu extends FrameLayout {
     /**
      * Returns right menu view so you can findViews and do whatever you want with
      */
+    @Suppress(names = "unused")
     public View getRightMenuView() {
         return scrollViewRightMenu;
     }
@@ -173,6 +178,7 @@ public class ResideMenu extends FrameLayout {
         return true;
     }
 
+    @Suppress(names = "unused")
     private int getNavigationBarHeight() {
         Resources resources = getResources();
         int resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
@@ -227,6 +233,7 @@ public class ResideMenu extends FrameLayout {
     /**
      * The visibility of the shadow under the activity;
      */
+    @Suppress(names = "unused")
     public void setShadowVisible(boolean isVisible) {
         if (isVisible) {
             imageViewShadow.setBackgroundResource(R.drawable.shadow);
@@ -271,6 +278,7 @@ public class ResideMenu extends FrameLayout {
     /**
      * Set menu items by a array;
      */
+    @Suppress(names = "unused")
     public void setMenuItems(List<ResideMenuItem> menuItems, int direction) {
         if (direction == DIRECTION_LEFT) {
             this.leftMenuItems = menuItems;
@@ -307,6 +315,7 @@ public class ResideMenu extends FrameLayout {
     /**
      * Return instances of menu items;
      */
+    @Suppress(names = "unused")
     public List<ResideMenuItem> getMenuItems(int direction) {
         if (direction == DIRECTION_LEFT) {
             return leftMenuItems;
@@ -365,6 +374,7 @@ public class ResideMenu extends FrameLayout {
         disabledSwipeDirection.add(direction);
     }
 
+    @Suppress(names = "unused")
     public void setSwipeDirectionDisable(int direction) {
         disabledSwipeDirection.add(direction);
     }
@@ -466,6 +476,7 @@ public class ResideMenu extends FrameLayout {
     /**
      * A helper method to build scale up animation;
      */
+    @Suppress(names = "unused")
     private AnimatorSet buildScaleUpAnimation(View target, float targetScaleX, float targetScaleY) {
 
         AnimatorSet scaleUp = new AnimatorSet();
@@ -505,6 +516,7 @@ public class ResideMenu extends FrameLayout {
     /**
      * Remove a view from ignored views;
      */
+    @Suppress(names = "unused")
     public void removeIgnoredView(View v) {
         ignoredViews.remove(v);
     }
@@ -683,10 +695,12 @@ public class ResideMenu extends FrameLayout {
         return realtimeBlurView;
     }
 
+    @Suppress(names = "unused")
     public void showBlurView() {
         realtimeBlurView.setVisibility(VISIBLE);
     }
 
+    @Suppress(names = "unused")
     public void hideBlurView() {
         realtimeBlurView.setVisibility(GONE);
     }

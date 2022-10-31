@@ -38,6 +38,7 @@ open class BaseBottomSheetFragment(
         }
     }
 
+    @Suppress("unused")
     protected fun <T : ViewModel> getSelfViewModel(className: Class<T>): T {
         return ViewModelProvider(this)[className]
     }

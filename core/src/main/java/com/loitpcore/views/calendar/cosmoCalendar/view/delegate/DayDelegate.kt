@@ -30,6 +30,7 @@ class DayDelegate(
         this.monthAdapter = monthAdapter
     }
 
+    @Suppress("unused")
     fun onCreateDayHolder(parent: ViewGroup, viewType: Int): DayHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.view_cosmo_calendar_day, parent, false)

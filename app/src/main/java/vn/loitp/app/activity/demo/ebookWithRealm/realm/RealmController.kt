@@ -16,6 +16,7 @@ class RealmController private constructor() {
     }
 
     // clear all objects from Book.class
+    @Suppress("unused")
     fun clearAll() {
         realm.beginTransaction()
         realm.clear(Book::class.java)
@@ -27,16 +28,19 @@ class RealmController private constructor() {
         get() = realm.where(Book::class.java).findAll()
 
     // query a single item with the given id
+    @Suppress("unused")
     fun getBook(id: String?): Book {
         return realm.where(Book::class.java).equalTo("id", id).findFirst()
     }
 
     // check if Book.class is empty
+    @Suppress("unused")
     fun hasBooks(): Boolean {
         return !realm.allObjects(Book::class.java).isEmpty()
     }
 
     // query example
+    @Suppress("unused")
     fun queryedBooks(): RealmResults<Book> {
         return realm.where(Book::class.java)
             .contains("author", "Author 0")

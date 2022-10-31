@@ -22,9 +22,9 @@ class LAnswerView : LinearLayout, View.OnClickListener {
     }
 
     var awShowTextWhenActive = false
-    var awChangeOnClick = false
-    var awCanCancelAnswer = false
-    var numberTextView: TextView? = null
+    private var awChangeOnClick = false
+    private var awCanCancelAnswer = false
+    private var numberTextView: TextView? = null
     private lateinit var viewler: Array<OneAnswerView?>
     var change: OnAnswerChange? = null
 
@@ -145,7 +145,7 @@ class LAnswerView : LinearLayout, View.OnClickListener {
             activeIndex = index - 'A'
         }
 
-    var activeIndex: Int
+    private var activeIndex: Int
         get() {
             for (i in 0 until childCount) {
                 if (viewler[i]?.active == true) return i

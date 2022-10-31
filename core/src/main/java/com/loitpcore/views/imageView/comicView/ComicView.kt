@@ -71,7 +71,7 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
     var normalScale: Float = 0.toFloat()
     var zoomScale: Float = 0.toFloat()
 
-    var zoomToSmallTimes: Int = 0
+    private var zoomToSmallTimes: Int = 0
     var zoomScaleDuration: Int = 0
     private var mZoomToSmallScaleDuration: Int = 0
 
@@ -465,6 +465,7 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         return pointF
     }
 
+    @Suppress("unused")
     fun addOnScaleGestureListener(listener: ScaleGestureDetector.SimpleOnScaleGestureListener?) {
         if (listener != null) {
             if (!mOnScaleGestureListeners.contains(listener)) {
@@ -473,6 +474,7 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         }
     }
 
+    @Suppress("unused")
     fun removeOnScaleGestureListener(listener: ScaleGestureDetector.SimpleOnScaleGestureListener?) {
         if (listener != null) {
             if (mOnScaleGestureListeners.contains(listener)) {
@@ -481,12 +483,14 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         }
     }
 
+    @Suppress("unused")
     fun removeOnScaleGestureListeners() {
         while (mOnScaleGestureListeners.isNotEmpty()) {
             mOnScaleGestureListeners.removeAt(0)
         }
     }
 
+    @Suppress("unused")
     fun setSimpleOnGestureListener(listener: GestureDetector.SimpleOnGestureListener?) {
         if (listener != null) {
             if (!mSimpleOnGestureListeners.contains(listener)) {
@@ -495,6 +499,7 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         }
     }
 
+    @Suppress("unused")
     fun removeOnSimpleOnGestureListener(listener: GestureDetector.SimpleOnGestureListener?) {
         if (listener != null) {
             if (mSimpleOnGestureListeners.contains(listener)) {
@@ -503,12 +508,14 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         }
     }
 
+    @Suppress("unused")
     fun removeOnSimpleOnGestureListeners() {
         while (mSimpleOnGestureListeners.isNotEmpty()) {
             mSimpleOnGestureListeners.removeAt(0)
         }
     }
 
+    @Suppress("unused")
     fun setOnListViewZoomListener(listener: OnListViewZoomListener?) {
         if (listener != null) {
             if (!mOnListViewZoomListeners.contains(listener)) {
@@ -517,6 +524,7 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         }
     }
 
+    @Suppress("unused")
     fun removeOnListViewZoomListener(listener: OnListViewZoomListener?) {
         if (listener != null) {
             if (mOnListViewZoomListeners.contains(listener)) {
@@ -525,6 +533,7 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         }
     }
 
+    @Suppress("unused")
     fun removeOnListViewZoomListeners() {
         while (mOnListViewZoomListeners.isNotEmpty()) {
             mOnListViewZoomListeners.removeAt(0)

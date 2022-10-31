@@ -24,6 +24,7 @@ import com.loitpcore.R
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.*
 import com.loitpcore.core.utilities.LReaderUtil.Companion.defaultCover
 import com.loitpcore.function.epub.BookSection
@@ -35,8 +36,7 @@ import com.loitpcore.function.epub.model.BookInfo
 import com.loitpcore.function.epub.model.BookInfoData
 import com.loitpcore.function.epub.viewmodels.EpubViewModel
 import com.loitpcore.utils.util.ConvertUtils
-import com.loitpcore.views.LWebViewAdblock
-import com.loitpcore.views.setSafeOnClickListener
+import com.loitpcore.views.wv.LWebViewAdblock
 import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
 
 /**

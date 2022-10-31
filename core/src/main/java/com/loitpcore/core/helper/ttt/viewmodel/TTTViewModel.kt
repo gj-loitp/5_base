@@ -41,7 +41,7 @@ class TTTViewModel : BaseViewModel() {
     val unfavComicLiveData: ActionLiveData<ActionData<Comic>> = ActionLiveData()
 
     fun setComicType(comicType: ComicType) {
-        logD("setComicType ${comicType.url}")
+//        logD("setComicType ${comicType.url}")
 //        comicTypeLiveEvent.set(comicType)
         ioScope.launch {
             comicTypeLiveEvent.postValue(comicType)
@@ -49,7 +49,7 @@ class TTTViewModel : BaseViewModel() {
     }
 
     fun setStringQueued(s: String) {
-        logD("loitpp setStringQueued $s")
+//        logD("setStringQueued $s")
         ioScope.launch {
             testStringQueuedMutableLiveData.postValue(s)
         }

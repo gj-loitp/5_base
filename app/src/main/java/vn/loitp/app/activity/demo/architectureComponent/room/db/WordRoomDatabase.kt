@@ -37,8 +37,9 @@ abstract class WordRoomDatabase : RoomDatabase() {
                 }
         }
 
+        @Suppress("unused")
         private class WordDatabaseCallback(
             private val scope: CoroutineScope
-        ) : RoomDatabase.Callback()
+        ) : Callback()
     }
 }

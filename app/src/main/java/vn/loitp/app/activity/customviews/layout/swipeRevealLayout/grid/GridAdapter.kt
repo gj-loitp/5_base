@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import com.loitpcore.views.LToast.showShortInformation
+import com.loitpcore.views.toast.LToast.showShortInformation
 import com.loitpcore.views.layout.swipeReveal.LSwipeRevealLayout
 import com.loitpcore.views.layout.swipeReveal.ViewBinderHelper
 import vn.loitp.app.R

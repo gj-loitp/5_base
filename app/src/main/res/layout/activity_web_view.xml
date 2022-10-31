@@ -112,7 +112,7 @@
         android:indeterminateOnly="false"
         android:progressTint="?attr/themeTextColor" />
 
-    <com.loitpcore.views.LWebViewAdblock
+    <com.loitpcore.views.wv.LWebViewAdblock
         android:id="@+id/lWebView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

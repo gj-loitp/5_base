@@ -28,6 +28,11 @@
                 style="@style/ButtonMenu"
                 android:text="Osero" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPong"
+                style="@style/ButtonMenu"
+                android:text="Pong" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

@@ -19,12 +19,16 @@ import com.loitpcore.core.utilities.LUIUtil
  * freuss47@gmail.com
  */
 class LTextNavigationView : RelativeLayout, View.OnClickListener {
+    @Suppress("unused")
     var tvPrev: TextView? = null
+    @Suppress("unused")
     var tvNext: TextView? = null
+    @Suppress("unused")
     var tv: TextView? = null
 
     private var stringList = ArrayList<String>()
     private var currentIndex = 0
+    @Suppress("unused")
     var isEnableAnimation = true
     var colorOn = Color.BLACK
     var colorOff = Color.GRAY
@@ -143,10 +147,12 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
         }
     }
 
+    @Suppress("unused")
     fun getStringList(): ArrayList<String> {
         return stringList
     }
 
+    @Suppress("unused")
     fun getCurrentIndex(): Int {
         return currentIndex
     }

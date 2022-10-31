@@ -14,6 +14,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 27.09.2022
  * Galaxy One company,
@@ -25,6 +27,7 @@ import java.util.List;
 public class AutoPlayUtils {
     public static final Gson gson = new GsonBuilder().create();
 
+    @Suppress(names = "unused")
     public static ArrayList<AutoPlayEntity> getAutoPlayEntityListByJsonString(String configJsonString) {
         if (!TextUtils.isEmpty(configJsonString)) {
             try {
@@ -37,6 +40,7 @@ public class AutoPlayUtils {
         return null;
     }
 
+    @Suppress(names = "unused")
     public static ArrayList<AutoPlayEntity> getAutoPlayEntityListJsonStream(InputStream configJsonStream) {
         if (configJsonStream != null) {
             try {
@@ -52,6 +56,7 @@ public class AutoPlayUtils {
         return null;
     }
 
+    @Suppress(names = "unused")
     public static ArrayList<AutoPlayEntity> getAutoPlayEntityListByCustomConfigString(String customConfigString) {
         try {
             Object[] result = PianoConvertUtils.convertByConfigString(customConfigString);

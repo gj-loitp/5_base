@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:orientation="vertical" android:paddingHorizontal="20dp"
+              android:paddingVertical="20dp"
+              android:gravity="center">
+
+    <Spinner android:id="@+id/pvpSpinner"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:paddingBottom="20dp"/>
+
+    <Spinner android:id="@+id/difficultySpinner"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:paddingBottom="20dp"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/play"
+            android:onClick="play"/>
+
+</LinearLayout>

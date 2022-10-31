@@ -16,6 +16,7 @@ import com.loitpcore.utils.util.Utils.Companion.getContext
 class ServiceUtils {
     companion object {
 
+        @Suppress("unused")
         val allRunningService: Set<*>?
             get() {
                 val activityManager =
@@ -29,6 +30,7 @@ class ServiceUtils {
                 return names
             }
 
+        @Suppress("unused")
         fun startService(className: String) {
             try {
                 startService(Class.forName(className))
@@ -37,6 +39,7 @@ class ServiceUtils {
             }
         }
 
+        @Suppress("unused")
         fun startService(cls: Class<*>?) {
             val intent = Intent(getContext(), cls)
             getContext()?.startService(intent)
@@ -51,20 +54,24 @@ class ServiceUtils {
             }
         }
 
+        @Suppress("unused")
         fun stopService(cls: Class<*>?): Boolean? {
             val intent = Intent(getContext(), cls)
             return getContext()?.stopService(intent)
         }
 
+        @Suppress("unused")
         fun bindService(cls: Class<*>?, serviceConnection: ServiceConnection, flags: Int) {
             val intent = Intent(getContext(), cls)
             getContext()?.bindService(intent, serviceConnection, flags)
         }
 
+        @Suppress("unused")
         fun unbindService(conn: ServiceConnection) {
             getContext()?.unbindService(conn)
         }
 
+        @Suppress("unused")
         fun isServiceRunning(className: String): Boolean {
             val activityManager =
                 getContext()?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager?

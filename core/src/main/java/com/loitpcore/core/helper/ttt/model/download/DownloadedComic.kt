@@ -24,5 +24,6 @@ class DownloadedComic : BaseModel() {
 
     @SerializedName("chaps")
     @Expose
+    @Suppress("unused")
     var chaps = ArrayList<Chap>()
 }

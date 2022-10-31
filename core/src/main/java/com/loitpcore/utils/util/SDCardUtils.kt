@@ -46,7 +46,7 @@ class SDCardUtils {
             return Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()
         }
 
-        fun sDCardPath(): String? {
+        private fun sDCardPath(): String? {
             if (!isSDCardEnable()) {
                 return null
             }
@@ -77,6 +77,7 @@ class SDCardUtils {
             return Environment.getExternalStorageDirectory().path + File.separator
         }
 
+        @Suppress("unused")
         fun dataPath(): String? {
             return if (!isSDCardEnable()) {
                 null
@@ -85,6 +86,7 @@ class SDCardUtils {
             }
         }
 
+        @Suppress("unused")
         fun freeSpace(): String? {
             if (!isSDCardEnable()) {
                 return null
@@ -95,6 +97,7 @@ class SDCardUtils {
             return ConvertUtils.byte2FitMemorySize(availableBlocks * blockSize)
         }
 
+        @Suppress("unused")
         fun sDCardInfo(): String? {
             if (!isSDCardEnable()) {
                 return null

@@ -242,6 +242,7 @@ class ComicUtils {
         }
 
         @JvmStatic
+        @Suppress("unused")
         fun isComicExistIn(comic: Comic?, comicList: List<Comic>?): Boolean {
             if (comic == null || comicList == null) {
                 throw NullPointerException("isComicExistIn comic == null || comicList == null")
@@ -255,6 +256,7 @@ class ComicUtils {
         }
 
         @JvmStatic
+        @Suppress("unused")
         fun isComicExistAt(comic: Comic?, comicList: List<Comic>?): Int {
             if (comic == null || comicList == null) {
                 throw NullPointerException("isComicExistIn comic == null || comicList == null")

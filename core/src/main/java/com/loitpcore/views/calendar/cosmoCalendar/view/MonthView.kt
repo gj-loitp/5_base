@@ -43,6 +43,7 @@ class MonthView : FrameLayout {
         init()
     }
 
+    @Suppress("unused")
     constructor(
         context: Context,
         attrs: AttributeSet?,

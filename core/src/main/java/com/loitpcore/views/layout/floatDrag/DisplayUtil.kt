@@ -84,6 +84,7 @@ object DisplayUtil {
         return result
     }
 
+    @Suppress("unused")
     fun hasNavBar(context: Context): Boolean {
         val res = context.resources
         val resourceId = res.getIdentifier("config_showNavigationBar", "bool", "android")
@@ -121,6 +122,7 @@ object DisplayUtil {
         return (dps.toFloat() * getDensityDpiScale(context)).roundToInt()
     }
 
+    @Suppress("unused")
     fun px2dp(context: Context, pixels: Int): Int {
         return (pixels.toFloat() / getDensityDpiScale(context)).roundToInt()
     }

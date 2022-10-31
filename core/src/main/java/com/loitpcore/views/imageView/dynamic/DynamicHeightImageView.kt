@@ -23,6 +23,7 @@ class DynamicHeightImageView : AppCompatImageView {
         defStyle
     )
 
+    @Suppress("unused")
     fun setAspectRatio(aspectRatio: Float) {
         mAspectRatio = aspectRatio
         requestLayout()

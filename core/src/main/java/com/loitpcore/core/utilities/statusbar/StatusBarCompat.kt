@@ -52,6 +52,7 @@ class StatusBarCompat {
             StatusBarCompatLollipop.translucentStatusBar(activity, hideStatusBarBackground)
         }
 
+        @Suppress("unused")
         fun setStatusBarColorForCollapsingToolbar(
             activity: Activity,
             appBarLayout: AppBarLayout,

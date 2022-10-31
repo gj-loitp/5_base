@@ -12,7 +12,7 @@ import com.wajahatkarim3.easyflipviewpager.CardFlipPageTransformer
 import kotlinx.android.synthetic.main.activity_picture_gallery_demo.*
 import vn.loitp.app.R
 
-@LogTag("BookOnboardingActivity")
+@LogTag("PictureGalleryDemoActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class PictureGalleryDemoActivity : BaseFontActivity() {

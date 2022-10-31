@@ -35,6 +35,7 @@ class LAspectRatioLayout : FrameLayout {
         init(context, attrs, defStyleAttr, 0)
     }
 
+    @Suppress("unused")
     constructor(
         context: Context,
         attrs: AttributeSet?,
@@ -87,6 +88,7 @@ class LAspectRatioLayout : FrameLayout {
     val aspectRatio: Float
         get() = widthRatio / heightRatio
 
+    @Suppress("unused")
     fun setAspectRatio(widthRatio: Float, heightRatio: Float) {
         this.widthRatio = widthRatio
         this.heightRatio = heightRatio

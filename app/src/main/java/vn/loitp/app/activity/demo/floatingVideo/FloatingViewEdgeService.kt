@@ -387,6 +387,7 @@ class FloatingViewEdgeService : Service() {
     }
 
     // click vo se larger, click lan nua de smaller
+    @Suppress("unused")
     private fun setSizeMoveView(isFirstSizeInit: Boolean, isLarger: Boolean) {
         var w = 0
         var h = 0

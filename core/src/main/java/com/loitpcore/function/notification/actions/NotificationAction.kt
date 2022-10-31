@@ -30,6 +30,7 @@ open class NotificationAction {
         this.context = context
     }
 
+    @Suppress("unused")
     constructor(text: String?, intent: Intent?, image: Int, context: Context?) {
         this.text = text
         this.intent = intent
@@ -37,6 +38,7 @@ open class NotificationAction {
         this.context = context
     }
 
+    @Suppress("unused")
     constructor(text: String?, pendingIntent: PendingIntent?, image: Int) {
         this.text = text
         this.pendingIntent = pendingIntent
@@ -51,6 +53,12 @@ open class NotificationAction {
         pendingIntent?.let {
             return it
         }
-        return PendingIntent.getActivity(context, requestCode, intent, 0)
+//        return PendingIntent.getActivity(context, requestCode, intent, 0)
+        return PendingIntent.getActivity(
+            context,
+            requestCode,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
     }
 }

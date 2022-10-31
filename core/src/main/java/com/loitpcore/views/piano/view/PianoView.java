@@ -14,7 +14,6 @@ import android.os.Message;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -33,6 +32,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 27.09.2022
  * Galaxy One company,
@@ -41,7 +42,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * freuss47@gmail.com
  */
 public class PianoView extends View {
-    private final static String TAG = "PianoView";
     private Piano piano = null;
     private ArrayList<PianoKey[]> whitePianoKeys;
     private ArrayList<PianoKey[]> blackPianoKeys;
@@ -135,7 +135,7 @@ public class PianoView extends View {
                 try {
                     utils.loadMusic(piano);
                 } catch (Exception e) {
-                    Log.e(TAG, e.getMessage());
+                    e.printStackTrace();
                 }
             }
         }
@@ -390,6 +390,7 @@ public class PianoView extends View {
         return layoutWidth;
     }
 
+    @Suppress(names = "unused")
     public void setPianoColors(String[] pianoColors) {
         if (pianoColors.length == 9) {
             this.pianoColors = pianoColors;
@@ -435,6 +436,7 @@ public class PianoView extends View {
         this.autoPlayListener = autoPlayListener;
     }
 
+    @Suppress(names = "unused")
     private int dpToPx(int dp) {
         DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
         return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));

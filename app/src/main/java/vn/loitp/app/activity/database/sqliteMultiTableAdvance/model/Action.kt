@@ -15,9 +15,13 @@ class Action : BaseModel() {
     companion object {
         const val ACTION_CREATE = 0
         const val ACTION_EDIT = 1
+        @Suppress("unused")
         const val ACTION_SEND_TO_VENDOR = 2
+        @Suppress("unused")
         const val ACTION_DELETE = 3
+        @Suppress("unused")
         const val ACTION_CONFIRM = 4
+        @Suppress("unused")
         const val ACTION_DENY = 5
     }
 

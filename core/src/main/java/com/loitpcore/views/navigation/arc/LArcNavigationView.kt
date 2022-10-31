@@ -57,6 +57,7 @@ class LArcNavigationView : NavigationView {
         ).roundToInt() //some threshold for child views while remeasuring them
     }
 
+    @Suppress("unused")
     private fun setInsetsColor(color: Int) {
         try {
             val insetForegroundField =
@@ -226,6 +227,7 @@ class LArcNavigationView : NavigationView {
     }
 
     @SuppressLint("RtlHardcoded")
+    @Suppress("unused")
     private fun adjustChildViews(container: ViewGroup) {
         val containerChildCount = container.childCount
         val pathMeasure = PathMeasure(arcPath, false)

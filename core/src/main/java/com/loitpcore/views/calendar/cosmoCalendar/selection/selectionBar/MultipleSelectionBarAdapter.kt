@@ -1,5 +1,6 @@
 package com.loitpcore.views.calendar.cosmoCalendar.selection.selectionBar
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,11 +42,13 @@ class MultipleSelectionBarAdapter(
         this.listItemClickListener = listItemClickListener
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(items: List<SelectionBarItem>) {
         this.items = items
         notifyDataSetChanged()
     }
 
+    @Suppress("unused")
     fun setListItemClickListener(listItemClickListener: ListItemClickListener?) {
         this.listItemClickListener = listItemClickListener
     }

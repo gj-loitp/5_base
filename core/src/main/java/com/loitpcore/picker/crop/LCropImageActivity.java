@@ -23,6 +23,8 @@ import com.loitpcore.core.base.BaseFontActivity;
 import java.io.File;
 import java.io.IOException;
 
+import kotlin.Suppress;
+
 /**
  * Built-in activity for image cropping.<br>
  */
@@ -227,6 +229,7 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
     /**
      * Update the color of a specific menu item to the given color.
      */
+    @Suppress(names = "unused")
     private void updateMenuItemIconColor(Menu menu, int itemId, int color) {
         final MenuItem menuItem = menu.findItem(itemId);
         if (menuItem != null) {

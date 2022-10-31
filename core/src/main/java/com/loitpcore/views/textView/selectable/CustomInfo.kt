@@ -89,6 +89,7 @@ class CustomInfo {
             return text
         }
 
+    @Suppress("unused")
     fun setSpan(span: CharacterStyle?) {
         this.span = span
     }
@@ -110,6 +111,7 @@ class CustomInfo {
             mEnd = end
         }
 
+    @Suppress("unused")
     fun offsetInSelection(offset: Int): Boolean {
         return offset in mStart..mEnd || offset in mEnd..mStart
     }

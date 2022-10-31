@@ -26,7 +26,6 @@ import com.loitpcore.views.progressLoadingView.window.WP10ProgressBar
  */
 class LDialogUtil {
     companion object {
-        private const val logTag = "LDialogUtil"
         private val alertDialogList = ArrayList<AlertDialog>()
 
 //        private fun logD(msg: String) {

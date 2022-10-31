@@ -14,10 +14,10 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.utils.util.AppUtils
-import com.loitpcore.views.setSafeOnClickListener
 import com.manojbhadane.QButton
 import kotlinx.android.synthetic.main.l_activity_ad_helper.*
 
@@ -106,10 +106,10 @@ class AdHelperActivity : BaseFontActivity() {
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
         btBack.setSafeOnClickListener {
-            onBaseBackPressed()
+            super.onBaseBackPressed()
         }
-        btPrevScreen.setSafeOnClickListener { viewPager.currentItem = viewPager.currentItem - 1 }
-        btNextScreen.setSafeOnClickListener {
+        btPrevScreen.setOnClickListener { viewPager.currentItem = viewPager.currentItem - 1 }
+        btNextScreen.setOnClickListener {
             if (viewPager.currentItem == adPageList.size - 1) {
                 onBaseBackPressed()
             } else {
@@ -196,24 +196,6 @@ class AdHelperActivity : BaseFontActivity() {
 
         override fun isViewFromObject(view: View, any: Any): Boolean {
             return view === any
-        }
-    }
-
-//    override fun onBackPressed() {
-//        if (viewPager.currentItem == 0) {
-//            super.onBackPressed()
-//        } else {
-//            viewPager.currentItem = viewPager.currentItem - 1
-//        }
-//    }
-
-    override fun onBaseBackPressed() {
-//        super.onBaseBackPressed()
-        if (viewPager.currentItem == 0) {
-//            finish()//correct
-            super.onBaseBackPressed()//correct
-        } else {
-            viewPager.currentItem = viewPager.currentItem - 1
         }
     }
 }

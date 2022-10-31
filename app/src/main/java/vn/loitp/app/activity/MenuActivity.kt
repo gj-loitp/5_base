@@ -11,12 +11,12 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.adHelper.AdHelperActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LPrefUtil
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.animation.MenuAnimationActivity
@@ -102,6 +102,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         btUtils.setOnClickListener(this)
         btUtilsCore.setOnClickListener(this)
         btGame.setOnClickListener(this)
+        btFeedback.setOnClickListener(this)
     }
 
     private fun setupConfigGoogle() {
@@ -218,6 +219,17 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                 btService -> Intent(this, MenuServiceActivity::class.java)
                 btUtils -> Intent(this, UtilsActivity::class.java)
                 btUtilsCore -> Intent(this, UtilsCoreActivity::class.java)
+                btFeedback -> {
+                    LSocialUtil.sendEmail(
+                        activity = this,
+                        to = "roy93group@gmail.com",
+                        cc = "roy93group@gmail.com",
+                        bcc = "roy93group@gmail.com",
+                        subject = "Feedback",
+                        body = "..."
+                    )
+                    null
+                }
                 else -> null
             }
         intent?.let {

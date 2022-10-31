@@ -11,6 +11,7 @@ import com.loitpcore.core.base.BaseModel
  * freuss47@gmail.com
  */
 @Keep
+@Suppress("unused")
 class FindNumberItem : BaseModel() {
 
     companion object {

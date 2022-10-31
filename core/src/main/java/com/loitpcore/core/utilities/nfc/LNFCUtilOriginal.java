@@ -1,5 +1,7 @@
 package com.loitpcore.core.utilities.nfc;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -22,6 +24,7 @@ public class LNFCUtilOriginal {
         return "0x" + new String(hexChars);
     }
 
+    @Suppress(names = "unused")
     public static String buildMACAddressString(byte[] macAddress) {
         char[] buffer = new char[macAddress.length * 3];
         char[] intToHex = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -41,6 +44,7 @@ public class LNFCUtilOriginal {
         return String.valueOf(buffer, 0, destIndex);
     }
 
+    @Suppress(names = "unused")
     public static String bytesToHexAndString(byte[] bytes) {
         if (bytes == null) return null;
 

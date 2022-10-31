@@ -9,10 +9,10 @@ import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.LWebViewAdblock
-import com.loitpcore.views.setSafeOnClickListener
+import com.loitpcore.views.wv.LWebViewAdblock
 import kotlinx.android.synthetic.main.activity_web_view.*
 import vn.loitp.app.R
 
@@ -151,6 +151,7 @@ class LWebViewActivity : BaseFontActivity() {
             lWebView.addJavascriptInterface(object : Any() {
                 @JavascriptInterface
                 @Throws(java.lang.Exception::class)
+                @Suppress("unused")
                 fun performClick(id: String) {
                     showLongInformation("Login print order id: $id")
                 }
@@ -161,6 +162,7 @@ class LWebViewActivity : BaseFontActivity() {
             lWebView.addJavascriptInterface(object : Any() {
                 @JavascriptInterface
                 @Throws(java.lang.Exception::class)
+                @Suppress("unused")
                 fun performClick(id: String) {
                     logE("isDetectButtonClickWeb order id: $id")
                     showLongInformation("isDetectButtonClickWeb order id: $id")

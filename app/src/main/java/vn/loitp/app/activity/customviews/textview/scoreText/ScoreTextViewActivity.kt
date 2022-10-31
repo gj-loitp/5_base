@@ -8,8 +8,8 @@ import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_text_view_score.*
 import vn.loitp.app.R
 
@@ -70,6 +70,7 @@ class ScoreTextViewActivity : BaseFontActivity() {
         }
     }
 
+    @Suppress("unused")
     private fun updateScore(totalScore: Int) {
         for (i in currentScore..totalScore) {
             handler.sendMessageDelayed(

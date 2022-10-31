@@ -175,6 +175,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         getAllBike()
     }
 
+    @Suppress("unused")
     private fun getBikeWithId(id: Long) {
         showProgress()
         compositeDisposable.add(

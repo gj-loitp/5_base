@@ -19,6 +19,7 @@ import java.io.File
 class IntentUtils {
     companion object {
 
+        @Suppress("unused")
         fun getInstallAppIntent(filePath: String, authority: String): Intent {
             return getInstallAppIntent(
                 file = FileUtils.getFileByPath(filePath),
@@ -59,6 +60,7 @@ class IntentUtils {
             return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
+        @Suppress("unused")
         fun getShareTextIntent(content: String?): Intent {
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = "text/plain"
@@ -66,6 +68,7 @@ class IntentUtils {
             return intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
+        @Suppress("unused")
         fun getShareImageIntent(content: String?, imagePath: String?): Intent? {
             return getShareImageIntent(
                 content = content,
@@ -73,6 +76,7 @@ class IntentUtils {
             )
         }
 
+        @Suppress("unused")
         fun getShareImageIntent(content: String?, image: File?): Intent? {
             return if (!FileUtils.isFileExists(image)) null else getShareImageIntent(
                 content,
@@ -80,6 +84,7 @@ class IntentUtils {
             )
         }
 
+        @Suppress("unused")
         fun getShareImageIntent(content: String?, uri: Uri?): Intent {
             val intent = Intent(Intent.ACTION_SEND)
             intent.putExtra(Intent.EXTRA_TEXT, content)
@@ -88,10 +93,12 @@ class IntentUtils {
             return intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
+        @Suppress("unused")
         fun getComponentIntent(packageName: String, className: String): Intent {
             return getComponentIntent(packageName, className, null)
         }
 
+        @Suppress("unused")
         fun getComponentIntent(packageName: String, className: String, bundle: Bundle?): Intent {
             val intent = Intent(Intent.ACTION_VIEW)
             if (bundle != null) {
@@ -102,22 +109,26 @@ class IntentUtils {
             return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
+        @Suppress("unused")
         val shutdownIntent: Intent
             get() {
                 val intent = Intent(Intent.ACTION_SHUTDOWN)
                 return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
 
+        @Suppress("unused")
         fun getDialIntent(phoneNumber: String): Intent {
             val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
             return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
+        @Suppress("unused")
         fun getCallIntent(phoneNumber: String): Intent {
             val intent = Intent("android.intent.action.CALL", Uri.parse("tel:$phoneNumber"))
             return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
+        @Suppress("unused")
         fun getSendSmsIntent(phoneNumber: String, content: String?): Intent {
             val uri = Uri.parse("smsto:$phoneNumber")
             val intent = Intent(Intent.ACTION_SENDTO, uri)
@@ -125,6 +136,7 @@ class IntentUtils {
             return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
+        @Suppress("unused")
         fun getCaptureIntent(outUri: Uri?): Intent {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             intent.putExtra(MediaStore.EXTRA_OUTPUT, outUri)

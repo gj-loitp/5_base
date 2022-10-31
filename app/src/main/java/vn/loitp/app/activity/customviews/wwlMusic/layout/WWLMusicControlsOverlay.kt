@@ -26,6 +26,7 @@ class WWLMusicControlsOverlay(context: Context) : FrameLayout(context), View.OnC
         }
     }
 
+    @Suppress("unused")
     fun showControls() {
         layoutControls.visibility = VISIBLE
         isHide = false

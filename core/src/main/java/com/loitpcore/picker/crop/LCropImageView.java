@@ -27,6 +27,8 @@ import com.loitpcore.R;
 import java.lang.ref.WeakReference;
 import java.util.UUID;
 
+import kotlin.Suppress;
+
 /**
  * Custom view that provides cropping capabilities to an image.
  */
@@ -280,6 +282,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * The shape of the cropping area - rectangle/circular.
      */
+    @Suppress(names = "unused")
     public CropShape getCropShape() {
         return mLCropOverlayView.getCropShape();
     }
@@ -288,6 +291,7 @@ public class LCropImageView extends FrameLayout {
      * The shape of the cropping area - rectangle/circular.<br>
      * To set square/circle crop shape set aspect ratio to 1:1.
      */
+    @Suppress(names = "unused")
     public void setCropShape(CropShape cropShape) {
         mLCropOverlayView.setCropShape(cropShape);
     }
@@ -295,6 +299,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * if auto-zoom functionality is enabled. default: true.
      */
+    @Suppress(names = "unused")
     public boolean isAutoZoomEnabled() {
         return mAutoZoomEnabled;
     }
@@ -302,6 +307,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * Set auto-zoom functionality to enabled/disabled.
      */
+    @Suppress(names = "unused")
     public void setAutoZoomEnabled(final boolean autoZoomEnabled) {
         if (mAutoZoomEnabled != autoZoomEnabled) {
             mAutoZoomEnabled = autoZoomEnabled;
@@ -313,6 +319,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * Set multi touch functionality to enabled/disabled.
      */
+    @Suppress(names = "unused")
     public void setMultiTouchEnabled(final boolean multiTouchEnabled) {
         if (mLCropOverlayView.setMultiTouchEnabled(multiTouchEnabled)) {
             handleCropWindowChanged(false, false);
@@ -323,6 +330,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * The max zoom allowed during cropping.
      */
+    @Suppress(names = "unused")
     public int getMaxZoom() {
         return mMaxZoom;
     }
@@ -330,6 +338,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * The max zoom allowed during cropping.
      */
+    @Suppress(names = "unused")
     public void setMaxZoom(final int maxZoom) {
         if (mMaxZoom != maxZoom && maxZoom > 0) {
             mMaxZoom = maxZoom;
@@ -342,6 +351,7 @@ public class LCropImageView extends FrameLayout {
      * the min size the resulting cropping image is allowed to be, affects the cropping window limits
      * (in pixels).<br>
      */
+    @Suppress(names = "unused")
     public void setMinCropResultSize(final int minCropResultWidth, final int minCropResultHeight) {
         mLCropOverlayView.setMinCropResultSize(minCropResultWidth, minCropResultHeight);
 
@@ -351,6 +361,7 @@ public class LCropImageView extends FrameLayout {
      * the max size the resulting cropping image is allowed to be, affects the cropping window limits
      * (in pixels).<br>
      */
+    @Suppress(names = "unused")
     public void setMaxCropResultSize(final int maxCropResultWidth, final int maxCropResultHeight) {
         mLCropOverlayView.setMaxCropResultSize(maxCropResultWidth, maxCropResultHeight);
     }
@@ -378,6 +389,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * whether the aspect ratio is fixed or not; true fixes the aspect ratio, while false allows it to be changed.
      */
+    @Suppress(names = "unused")
     public boolean isFixAspectRatio() {
         return mLCropOverlayView.isFixAspectRatio();
     }
@@ -392,6 +404,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * Get the current guidelines option set.
      */
+    @Suppress(names = "unused")
     public Guidelines getGuidelines() {
         return mLCropOverlayView.getGuidelines();
     }
@@ -399,6 +412,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * Sets the guidelines for the CropOverlayView to be either on, off, or to show when resizing the application.
      */
+    @Suppress(names = "unused")
     public void setGuidelines(final Guidelines guidelines) {
         mLCropOverlayView.setGuidelines(guidelines);
     }
@@ -417,6 +431,7 @@ public class LCropImageView extends FrameLayout {
      * @param aspectRatioX int that specifies the new X value of the aspect ratio
      * @param aspectRatioY int that specifies the new Y value of the aspect ratio
      */
+    @Suppress(names = "unused")
     public void setAspectRatio(final int aspectRatioX, final int aspectRatioY) {
         mLCropOverlayView.setAspectRatioX(aspectRatioX);
         mLCropOverlayView.setAspectRatioY(aspectRatioY);
@@ -426,6 +441,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * Clears set aspect ratio values and sets fixed aspect ratio to FALSE.
      */
+    @Suppress(names = "unused")
     public void clearAspectRatio() {
         mLCropOverlayView.setAspectRatioX(1);
         mLCropOverlayView.setAspectRatioY(1);
@@ -437,6 +453,7 @@ public class LCropImageView extends FrameLayout {
      * specified bounding box when the crop window edge is less than or equal to
      * this distance (in pixels) away from the bounding box edge. (default: 3dp)
      */
+    @Suppress(names = "unused")
     public void setSnapRadius(float snapRadius) {
         if (snapRadius >= 0) {
             mLCropOverlayView.setSnapRadius(snapRadius);
@@ -483,6 +500,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * Get the URI of an image that was set by URI, null otherwise.
      */
+    @Suppress(names = "unused")
     public Uri getImageUri() {
         return mLoadedImageUri;
     }
@@ -556,6 +574,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * Reset crop window to initial rectangle.
      */
+    @Suppress(names = "unused")
     public void resetCropRect() {
         mZoom = 1;
         mZoomOffsetX = 0;
@@ -570,6 +589,7 @@ public class LCropImageView extends FrameLayout {
      *
      * @return a new Bitmap representing the cropped image
      */
+    @Suppress(names = "unused")
     public Bitmap getCroppedImage() {
         return getCroppedImage(0, 0, RequestSizeOptions.NONE);
     }
@@ -582,6 +602,7 @@ public class LCropImageView extends FrameLayout {
      * @param reqHeight the height to resize the cropped image to
      * @return a new Bitmap representing the cropped image
      */
+    @Suppress(names = "unused")
     public Bitmap getCroppedImage(final int reqWidth, final int reqHeight) {
         return getCroppedImage(0, 0, RequestSizeOptions.RESIZE_INSIDE);
     }
@@ -626,10 +647,12 @@ public class LCropImageView extends FrameLayout {
      * Gets the cropped image based on the current crop window.<br>
      * The result will be invoked to listener set by {@link #setOnGetCroppedImageCompleteListener(OnGetCroppedImageCompleteListener)}.
      */
+    @Suppress(names = "unused")
     public void getCroppedImageAsync() {
         getCroppedImageAsync(0, 0, RequestSizeOptions.NONE);
     }
 
+    @Suppress(names = "unused")
     public void getCroppedImageAsync(final int reqWidth, final int reqHeight) {
         getCroppedImageAsync(reqWidth, reqHeight, RequestSizeOptions.RESIZE_INSIDE);
     }
@@ -641,14 +664,17 @@ public class LCropImageView extends FrameLayout {
         startCropWorkerTask(reqWidth, reqHeight, options, null, null, 0);
     }
 
+    @Suppress(names = "unused")
     public void saveCroppedImageAsync(Uri saveUri) {
         saveCroppedImageAsync(saveUri, Bitmap.CompressFormat.JPEG, 90, 0, 0, RequestSizeOptions.NONE);
     }
 
+    @Suppress(names = "unused")
     public void saveCroppedImageAsync(Uri saveUri, Bitmap.CompressFormat saveCompressFormat, int saveCompressQuality) {
         saveCroppedImageAsync(saveUri, saveCompressFormat, saveCompressQuality, 0, 0, RequestSizeOptions.NONE);
     }
 
+    @Suppress(names = "unused")
     public void saveCroppedImageAsync(Uri saveUri, Bitmap.CompressFormat saveCompressFormat, int saveCompressQuality, int reqWidth, int reqHeight) {
         saveCroppedImageAsync(saveUri, saveCompressFormat, saveCompressQuality, reqWidth, reqHeight, RequestSizeOptions.RESIZE_INSIDE);
     }
@@ -703,6 +729,7 @@ public class LCropImageView extends FrameLayout {
      *
      * @param bitmap the Bitmap to set
      */
+    @Suppress(names = "unused")
     public void setImageBitmap(final Bitmap bitmap) {
         mLCropOverlayView.setInitialCropWindowRect(null);
         setBitmap(bitmap);
@@ -717,6 +744,7 @@ public class LCropImageView extends FrameLayout {
      * @param bitmap the original bitmap to set; if null, this
      * @param exif   the EXIF information about this bitmap; may be null
      */
+    @Suppress(names = "unused")
     public void setImageBitmap(final Bitmap bitmap, final ExifInterface exif) {
         Bitmap setBitmap;
         if (bitmap != null && exif != null) {
@@ -770,6 +798,7 @@ public class LCropImageView extends FrameLayout {
     /**
      * Clear the current image set for cropping.
      */
+    @Suppress(names = "unused")
     public void clearImage() {
         clearImageInt();
         mLCropOverlayView.setInitialCropWindowRect(null);
@@ -1646,6 +1675,7 @@ public class LCropImageView extends FrameLayout {
         /**
          * Is the result is success or error.
          */
+        @Suppress(names = "unused")
         public boolean isSuccessful() {
             return mError == null;
         }

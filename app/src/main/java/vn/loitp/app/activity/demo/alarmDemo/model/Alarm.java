@@ -9,6 +9,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
 
+import kotlin.Suppress;
+
 @Keep
 public class Alarm implements Comparable<Alarm> {
     private long mId;
@@ -97,8 +99,10 @@ public class Alarm implements Comparable<Alarm> {
     public int compareTo(Alarm aThat) {
         final long thisNext = getNextOccurence();
         final long thatNext = aThat.getNextOccurence();
+        @Suppress(names = "unused")
         final int BEFORE = -1;
         final int EQUAL = 0;
+        @Suppress(names = "unused")
         final int AFTER = 1;
 
         if (this == aThat)

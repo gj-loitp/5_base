@@ -56,11 +56,11 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
         window?.setLayout((pxWidth * 0.75).toInt(), ViewGroup.LayoutParams.WRAP_CONTENT)
         window?.attributes?.windowAnimations = R.style.pdlg_default_animation
         thisDialog = this
-        setupviewsBase()
+        setUpViewsBase()
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun setupviewsBase() {
+    private fun setUpViewsBase() {
         llContent = findViewById(R.id.llContent)
         llButtons = findViewById(R.id.llButtons)
         ivIcon = findViewById(R.id.ivIcon)

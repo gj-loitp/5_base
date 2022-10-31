@@ -13,9 +13,9 @@ import androidx.appcompat.widget.AppCompatTextView
  * @attr ref R.styleable.AutofitTextView_minTextSize
  * @attr ref R.styleable.AutofitTextView_precision
  */
-class LAutoFitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListener {
+class LAutoFitTextView : AppCompatTextView, LAutoFitHelper.OnTextSizeChangeListener {
 
-    private var autoFitHelper: AutofitHelper? = null
+    private var autoFitHelper: LAutoFitHelper? = null
 
     constructor(context: Context) : super(context) {
         init(context, null, 0)
@@ -33,8 +33,9 @@ class LAutoFitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
         init(context, attrs, defStyle)
     }
 
+    @Suppress("unused")
     private fun init(context: Context, attrs: AttributeSet?, defStyle: Int) {
-        autoFitHelper = AutofitHelper.create(this, attrs, defStyle)
+        autoFitHelper = LAutoFitHelper.create(this, attrs, defStyle)
             .addOnTextSizeChangeListener(this)
     }
 
@@ -63,6 +64,7 @@ class LAutoFitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
      * Sets the property of this field (sizeToFit), to automatically resize the text to fit its
      * constraints.
      */
+    @Suppress("unused")
     fun setSizeToFit() {
         isSizeToFit = true
     }
@@ -76,6 +78,7 @@ class LAutoFitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
      * size The scaled pixel size.
      * @attr ref android.R.styleable#TextView_textSize
      */
+    @Suppress("unused")
     var maxTextSize: Float
         get() = autoFitHelper?.maxTextSize ?: 0f
         set(size) {
@@ -119,6 +122,7 @@ class LAutoFitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
      * @param minSize The desired size in the given units.
      * @attr ref me.grantland.R.styleable#AutofitTextView_minTextSize
      */
+    @Suppress("unused")
     fun setMinTextSize(unit: Int, minSize: Float) {
         autoFitHelper?.setMinTextSize(unit, minSize)
     }
@@ -132,6 +136,7 @@ class LAutoFitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
      *
      * precision The amount of precision.
      */
+    @Suppress("unused")
     var precision: Float?
         get() = autoFitHelper?.precision
         set(precision) {

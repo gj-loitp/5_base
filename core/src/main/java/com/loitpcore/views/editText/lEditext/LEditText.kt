@@ -25,13 +25,14 @@ class LEditText : RelativeLayout {
     lateinit var editText: EditText
     lateinit var ivLeft: ImageView
     lateinit var ivRight: ImageView
+    @Suppress("unused")
     lateinit var tvMessage: TextView
     lateinit var ll: LinearLayout
     lateinit var rootView: ConstraintLayout
 
     var callback: Callback? = null
     var colorFocus = Color.BLACK
-    var colorUnfocus = Color.GRAY
+    var colorUnFocus = Color.GRAY
         set(value) {
             if (editText.isFocused) {
                 mcv.strokeColor = colorFocus
@@ -71,7 +72,7 @@ class LEditText : RelativeLayout {
             if (isFocus) {
                 mcv.strokeColor = colorFocus
             } else {
-                mcv.strokeColor = colorUnfocus
+                mcv.strokeColor = colorUnFocus
             }
             callback?.setOnFocusChangeListener(isFocus)
         }
@@ -87,7 +88,7 @@ class LEditText : RelativeLayout {
                 if (editText.isFocused) {
                     mcv.strokeColor = colorFocus
                 } else {
-                    mcv.strokeColor = colorUnfocus
+                    mcv.strokeColor = colorUnFocus
                 }
                 hideMessage()
                 callback?.onTextChanged(p0.toString())

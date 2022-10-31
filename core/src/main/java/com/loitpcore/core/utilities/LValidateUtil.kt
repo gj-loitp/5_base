@@ -16,10 +16,15 @@ import java.util.regex.Pattern
 class LValidateUtil {
     companion object {
 
+        @Suppress("unused")
         const val MSG_0 = "pw_must_length_more_8_character"
+        @Suppress("unused")
         const val MSG_1 = "pw_must_contain_number"
+        @Suppress("unused")
         const val MSG_2 = "pw_must_have_lower_case"
+        @Suppress("unused")
         const val MSG_3 = "pw_must_have_upper_case"
+        @Suppress("unused")
         const val MSG_4 = "pw_must_have_special_character"
 
         fun isValidEmail(target: CharSequence): Boolean {
@@ -61,6 +66,7 @@ class LValidateUtil {
         private val listPkg = listOf(
             "loitp93.basemaster",
             "loitp.khotruyenvuive",
+            "com.bizman.bizman_dikauri",
             "com.roygroup.base",
             "com.roygroup.vnexpress",
             "com.roygroup.base.demo",
@@ -69,6 +75,7 @@ class LValidateUtil {
             "com.roy93group.tictactoe",
             "com.roy93group.pianokiss",
             "com.roy93group.asyetcndt",
+            "com.roy93group.reversi",
         )
 
         fun isValidPackageName(): Boolean {

@@ -78,6 +78,7 @@ class MultiScrollNumber @JvmOverloads constructor(
         }
     }
 
+    @Suppress("unused")
     fun setNumber(no: Int) {
         resetView()
         var number = no
@@ -107,6 +108,7 @@ class MultiScrollNumber @JvmOverloads constructor(
         removeAllViews()
     }
 
+    @Suppress("unused")
     fun setNumber(from: Int, to: Int) {
         if (to < from) throw UnsupportedOperationException("'to' value must > 'from' value")
         resetView()
@@ -163,6 +165,7 @@ class MultiScrollNumber @JvmOverloads constructor(
         }
     }
 
+    @Suppress("unused")
     fun setTextFont(fileName: String?) {
         require(!TextUtils.isEmpty(fileName)) { "file name is null" }
         mFontFileName = fileName
@@ -178,6 +181,7 @@ class MultiScrollNumber @JvmOverloads constructor(
         }
     }
 
+    @Suppress("unused")
     private fun dp2px(dpVal: Float): Int {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
@@ -185,6 +189,7 @@ class MultiScrollNumber @JvmOverloads constructor(
         ).toInt()
     }
 
+    @Suppress("unused")
     private fun sp2px(dpVal: Float): Int {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_SP,

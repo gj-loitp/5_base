@@ -24,6 +24,7 @@ class CloseUtils private constructor() {
             }
         }
 
+        @Suppress("unused")
         fun closeIOQuietly(vararg closeables: Closeable?) {
             for (closeable in closeables) {
                 try {

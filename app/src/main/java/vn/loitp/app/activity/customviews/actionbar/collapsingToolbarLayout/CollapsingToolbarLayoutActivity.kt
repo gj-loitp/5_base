@@ -10,7 +10,7 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LPopupMenu
-import com.loitpcore.views.LAppBarLayout
+import com.loitpcore.views.layout.appBar.LAppBarLayout
 import kotlinx.android.synthetic.main.activity_collapsing_toolbar_layout_with_tab_layout.*
 import vn.loitp.app.R
 

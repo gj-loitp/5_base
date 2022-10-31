@@ -1,10 +1,8 @@
 package com.loitpcore.utils.util
 
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
-import android.os.Build
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
@@ -62,6 +60,7 @@ class BarUtils private constructor() {
             setRootView(activity)
         }
 
+        @Suppress("unused")
         fun setColorForSwipeBack(
             activity: Activity,
             color: Int
@@ -73,6 +72,7 @@ class BarUtils private constructor() {
             )
         }
 
+        @Suppress("unused")
         fun setColorForSwipeBack(
             activity: Activity,
             @ColorInt color: Int,
@@ -100,6 +100,7 @@ class BarUtils private constructor() {
             setTransparentForWindow(activity = activity)
         }
 
+        @Suppress("unused")
         fun setColorNoTranslucent(
             activity: Activity,
             @ColorInt color: Int
@@ -126,12 +127,14 @@ class BarUtils private constructor() {
             setRootView(activity = activity)
         }
 
+        @Suppress("unused")
         fun setTranslucent(
             activity: Activity
         ) {
             setTranslucent(activity = activity, statusBarAlpha = DEFAULT_STATUS_BAR_ALPHA)
         }
 
+        @Suppress("unused")
         fun setTranslucent(
             activity: Activity,
             @IntRange(from = 0, to = 255) statusBarAlpha: Int
@@ -140,6 +143,7 @@ class BarUtils private constructor() {
             addTranslucentView(activity = activity, statusBarAlpha = statusBarAlpha)
         }
 
+        @Suppress("unused")
         fun setTranslucentForCoordinatorLayout(
             activity: Activity,
             @IntRange(from = 0, to = 255) statusBarAlpha: Int
@@ -148,6 +152,7 @@ class BarUtils private constructor() {
             addTranslucentView(activity = activity, statusBarAlpha = statusBarAlpha)
         }
 
+        @Suppress("unused")
         fun setTransparent(
             activity: Activity
         ) {
@@ -161,6 +166,7 @@ class BarUtils private constructor() {
             setRootView(activity)
         }
 
+        @Suppress("unused")
         fun setColorForDrawerLayout(
             activity: Activity,
             drawerLayout: DrawerLayout,
@@ -174,6 +180,7 @@ class BarUtils private constructor() {
             )
         }
 
+        @Suppress("unused")
         fun setColorNoTranslucentForDrawerLayout(
             activity: Activity,
             drawerLayout: DrawerLayout,
@@ -187,6 +194,7 @@ class BarUtils private constructor() {
             )
         }
 
+        @Suppress("unused")
         fun setColorForDrawerLayout(
             activity: Activity,
             drawerLayout: DrawerLayout,
@@ -265,6 +273,7 @@ class BarUtils private constructor() {
             )
         }
 
+        @Suppress("unused")
         fun setTranslucentForDrawerLayout(
             activity: Activity,
             drawerLayout: DrawerLayout
@@ -276,6 +285,7 @@ class BarUtils private constructor() {
             )
         }
 
+        @Suppress("unused")
         fun setTranslucentForDrawerLayout(
             activity: Activity,
             drawerLayout: DrawerLayout,
@@ -285,6 +295,7 @@ class BarUtils private constructor() {
             addTranslucentView(activity = activity, statusBarAlpha = statusBarAlpha)
         }
 
+        @Suppress("unused")
         fun setTransparentForDrawerLayout(
             activity: Activity,
             drawerLayout: DrawerLayout
@@ -317,6 +328,7 @@ class BarUtils private constructor() {
             drawerLayout.fitsSystemWindows = false
         }
 
+        @Suppress("unused")
         fun setTransparentForImageView(
             activity: Activity,
             needOffsetView: View?
@@ -328,6 +340,7 @@ class BarUtils private constructor() {
             )
         }
 
+        @Suppress("unused")
         fun setTranslucentForImageView(
             activity: Activity,
             needOffsetView: View?
@@ -339,6 +352,7 @@ class BarUtils private constructor() {
             )
         }
 
+        @Suppress("unused")
         fun setTranslucentForImageView(
             activity: Activity,
             @IntRange(from = 0, to = 255) statusBarAlpha: Int,
@@ -362,6 +376,7 @@ class BarUtils private constructor() {
             }
         }
 
+        @Suppress("unused")
         fun setTranslucentForImageViewInFragment(
             activity: Activity,
             needOffsetView: View?
@@ -373,6 +388,7 @@ class BarUtils private constructor() {
             )
         }
 
+        @Suppress("unused")
         fun setTransparentForImageViewInFragment(
             activity: Activity,
             needOffsetView: View?
@@ -384,6 +400,7 @@ class BarUtils private constructor() {
             )
         }
 
+        @Suppress("unused")
         fun setTranslucentForImageViewInFragment(
             activity: Activity,
             @IntRange(from = 0, to = 255) statusBarAlpha: Int,
@@ -397,6 +414,7 @@ class BarUtils private constructor() {
             clearPreviousSetting(activity = activity)
         }
 
+        @Suppress("unused")
         fun hideFakeStatusBarView(
             activity: Activity
         ) {
@@ -526,6 +544,7 @@ class BarUtils private constructor() {
             return 0xff shl 24 or (red shl 16) or (green shl 8) or blue
         }
 
+        @Suppress("unused")
         fun setTransparentStatusBar(
             activity: Activity
         ) {
@@ -533,6 +552,7 @@ class BarUtils private constructor() {
             activity.window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
         }
 
+        @Suppress("unused")
         fun hideStatusBar(
             activity: Activity
         ) {
@@ -567,6 +587,7 @@ class BarUtils private constructor() {
             }
         }
 
+        @Suppress("unused")
         fun showNotificationBar(
             context: Context,
             isSettingPanel: Boolean
@@ -576,6 +597,7 @@ class BarUtils private constructor() {
             invokePanels(context, methodName)
         }
 
+        @Suppress("unused")
         fun hideNotificationBar(
             context: Context
         ) {

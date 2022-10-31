@@ -91,16 +91,19 @@ class KeyboardHeightProvider(private val activity: Activity) : PopupWindow(activ
         keyboardListeners.add(listener)
     }
 
+    @Suppress("unused")
     fun removeKeyboardListener(listener: KeyboardListener) {
         keyboardListeners.remove(listener)
     }
 
+    @Suppress("unused")
     private fun notifyKeyboardHeightChanged(height: Int, orientation: Int) {
         keyboardListeners.forEach {
             it.onHeightChanged(height)
         }
     }
 
+    @Suppress("unused")
     fun hideKeyboard() {
         val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(parentView?.windowToken, 0)

@@ -7,6 +7,7 @@ package com.loitpcore.utils.constant
  * +840766040293
  * freuss47@gmail.com
  */
+@Suppress("unused")
 class RegexConstants {
     companion object {
         /**

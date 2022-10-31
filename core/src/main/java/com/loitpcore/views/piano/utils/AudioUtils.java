@@ -4,7 +4,6 @@ import android.content.Context;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -53,16 +52,12 @@ public class AudioUtils implements LoadAudioMessage {
         this.context = context;
         this.loadAudioListener = loadAudioListener;
         handler = new AudioStatusHandler(context.getMainLooper());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            pool = new SoundPool.Builder().setMaxStreams(maxStream)
-                    .setAudioAttributes(
-                            new AudioAttributes.Builder().setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                                    .setUsage(AudioAttributes.USAGE_MEDIA)
-                                    .build())
-                    .build();
-        } else {
-            pool = new SoundPool(maxStream, AudioManager.STREAM_MUSIC, 1);
-        }
+        pool = new SoundPool.Builder().setMaxStreams(maxStream)
+                .setAudioAttributes(
+                        new AudioAttributes.Builder().setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                                .setUsage(AudioAttributes.USAGE_MEDIA)
+                                .build())
+                .build();
         audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
     }
 

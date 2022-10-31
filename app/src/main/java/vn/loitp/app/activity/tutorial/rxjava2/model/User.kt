@@ -13,7 +13,7 @@ class User : BaseModel {
 
     @JvmField
     var lastname: String? = null
-    var isFollowing = false
+    private var isFollowing = false
 
     constructor()
 

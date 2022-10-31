@@ -170,6 +170,7 @@ class FrmUtils : Fragment() {
         textView.text = text
     }
 
+    @Suppress("unused")
     private fun handleEncodeUtils() {
         var text = ""
 

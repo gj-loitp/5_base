@@ -87,6 +87,7 @@ class LAutoSuggestEditText : RelativeLayout {
         LUIUtil.setColorProgressBar(progressBar, color)
     }
 
+    @Suppress("unused")
     fun setLastCursorEditText() {
         LUIUtil.setLastCursorEditText(editText)
     }
@@ -113,6 +114,7 @@ class LAutoSuggestEditText : RelativeLayout {
         showSuggestPopup()
     }
 
+    @Suppress("unused")
     fun showSuggestPopup() {
         hideProgress()
         if (popupSuggestPopupView == null) {
@@ -134,12 +136,7 @@ class LAutoSuggestEditText : RelativeLayout {
                 it.height = popupHeight
             }
         }
-        popupSuggestPopupView?.let {
-            it.setStringList(this.resultList)
-//            if (!it.isShowing) {
-//                 it.showOnAnchor(this, vertPos, horizPos, true)
-//            }
-        }
+        popupSuggestPopupView?.setStringList(this.resultList)
     }
 
     fun hideSuggestPopup() {

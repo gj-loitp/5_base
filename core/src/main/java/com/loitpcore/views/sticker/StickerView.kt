@@ -174,6 +174,7 @@ abstract class StickerView : FrameLayout {
         }
     }
 
+    @Suppress("unused")
     val isFlip: Boolean
         get() = mainView.rotationY == -180f
 
@@ -263,7 +264,7 @@ abstract class StickerView : FrameLayout {
                         val offsetX = abs(event.rawX - scaleOrgx).toDouble()
                         val offsetY = abs(event.rawY - scaleOrgy).toDouble()
                         var offset = max(offsetX, offsetY)
-                        offset = offset.toDouble()
+                        offset = offset
                         this@StickerView.layoutParams.width -= offset.toInt()
                         this@StickerView.layoutParams.height -= offset.toInt()
                         onScaling(scaleUp = false)
@@ -299,6 +300,7 @@ abstract class StickerView : FrameLayout {
         return sqrt((y2 - y1).pow(2.0) + (x2 - x1).pow(2.0))
     }
 
+    @Suppress("unused")
     private fun getRelativePos(absX: Float, absY: Float): FloatArray {
 //        LLog.d("ken", "getRelativePos getX:" + (this.parent as View).x)
 //        LLog.d("ken", "getRelativePos getY:" + (this.parent as View).y)
@@ -311,6 +313,7 @@ abstract class StickerView : FrameLayout {
         return pos
     }
 
+    @Suppress("unused")
     fun setControlItemsHidden(isHidden: Boolean) {
         if (isHidden) {
             ivBorder?.visibility = INVISIBLE
@@ -328,6 +331,7 @@ abstract class StickerView : FrameLayout {
     protected val imageViewFlip: View?
         get() = ivFlip
 
+    @Suppress("unused")
     private fun onScaling(scaleUp: Boolean) {}
     private fun onRotating() {}
 
@@ -362,6 +366,7 @@ abstract class StickerView : FrameLayout {
         }
     }
 
+    @Suppress("unused")
     fun setControlsVisibility(isVisible: Boolean) {
         if (!isVisible) {
             ivBorder?.visibility = GONE

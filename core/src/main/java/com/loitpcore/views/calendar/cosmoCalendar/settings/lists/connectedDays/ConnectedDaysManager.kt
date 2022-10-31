@@ -16,7 +16,7 @@ class ConnectedDaysManager private constructor() {
     companion object {
         private var mInstance: ConnectedDaysManager? = null
 
-        @kotlin.jvm.JvmStatic
+        @JvmStatic
         val instance: ConnectedDaysManager?
             get() {
                 if (mInstance == null) {
@@ -28,10 +28,12 @@ class ConnectedDaysManager private constructor() {
 
     private var connectedDaysList: MutableList<ConnectedDays>? = null
 
+    @Suppress("unused")
     fun getConnectedDaysList(): List<ConnectedDays>? {
         return connectedDaysList
     }
 
+    @Suppress("unused")
     fun setConnectedDaysList(connectedDaysList: MutableList<ConnectedDays>?) {
         this.connectedDaysList = connectedDaysList
     }

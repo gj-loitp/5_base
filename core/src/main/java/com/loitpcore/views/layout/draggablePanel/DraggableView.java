@@ -20,6 +20,8 @@ import com.loitpcore.views.layout.draggablePanel.transformer.Transformer;
 import com.loitpcore.views.layout.draggablePanel.transformer.TransformerFactory;
 import com.nineoldandroids.view.ViewHelper;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -39,6 +41,8 @@ public class DraggableView extends RelativeLayout {
     private static final boolean DEFAULT_ENABLE_HORIZONTAL_ALPHA_EFFECT = true;
     private static final boolean DEFAULT_ENABLE_CLICK_TO_MAXIMIZE = false;
     private static final boolean DEFAULT_ENABLE_CLICK_TO_MINIMIZE = false;
+
+    @Suppress(names = "unused")
     private static final boolean DEFAULT_ENABLE_TOUCH_LISTENER = true;
     private static final int MIN_SLIDING_DISTANCE_ON_CLICK = 10;
     private static final int ONE_HUNDRED = 100;
@@ -121,6 +125,7 @@ public class DraggableView extends RelativeLayout {
     /**
      * Return if touch listener is enable or disable
      */
+    @Suppress(names = "unused")
     private boolean isTouchEnabled() {
         return this.touchEnabled;
     }
@@ -701,6 +706,7 @@ public class DraggableView extends RelativeLayout {
     /**
      * @return configured dragged view margin right configured.
      */
+    @Suppress(names = "unused")
     private int getDragViewMarginRight() {
         return transformer.getMMarginRight();
     }
@@ -708,6 +714,7 @@ public class DraggableView extends RelativeLayout {
     /**
      * @return configured dragged view margin bottom.
      */
+    @Suppress(names = "unused")
     private int getDragViewMarginBottom() {
         return transformer.getMMarginBottom();
     }

@@ -22,6 +22,7 @@ class Tag : BaseModel {
         this.tagName = tagName
     }
 
+    @Suppress("unused")
     constructor(id: Int, tagName: String) {
         this.id = id
         this.tagName = tagName

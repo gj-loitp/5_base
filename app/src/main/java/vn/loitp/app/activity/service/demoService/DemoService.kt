@@ -3,7 +3,7 @@ package vn.loitp.app.activity.service.demoService
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import com.loitpcore.views.LToast
+import com.loitpcore.views.toast.LToast
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

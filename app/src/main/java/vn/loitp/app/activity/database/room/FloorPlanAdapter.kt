@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.loitpcore.views.setSafeOnClickListener
+import com.loitpcore.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_item_floor_plan.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.database.room.model.FloorPlan
@@ -18,6 +18,7 @@ class FloorPlanAdapter : RecyclerView.Adapter<FloorPlanAdapter.ViewHolder>() {
     var onClickUpDate: ((FloorPlan) -> Unit)? = null
     var onClickDelete: ((FloorPlan) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setListFloorPlan(listFloorPlan: List<FloorPlan>) {
         this.listFloorPlan.clear()
         this.listFloorPlan.addAll(listFloorPlan)

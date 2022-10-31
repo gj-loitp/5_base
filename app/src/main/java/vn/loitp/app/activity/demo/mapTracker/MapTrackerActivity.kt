@@ -24,11 +24,11 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LMathUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.core.utilities.LUIUtil.Companion.scrollToBottom
-import com.loitpcore.views.setSafeOnClickListener
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_map_tracker.*
 import vn.loitp.app.R

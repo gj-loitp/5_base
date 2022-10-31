@@ -19,6 +19,7 @@ class LArcViewSettings(context: Context, attrs: AttributeSet?) {
 
     companion object {
         const val CROP_INSIDE = 0
+        @Suppress("unused")
         const val CROP_OUTSIDE = 1
 
         @JvmStatic

@@ -32,7 +32,7 @@ class MemoryConstants {
         const val GB = 1073741824
 
         @IntDef(BYTE, KB, MB, GB)
-        @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
+        @Retention(AnnotationRetention.SOURCE)
         annotation class Unit
     }
 }
