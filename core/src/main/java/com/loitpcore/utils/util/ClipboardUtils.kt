@@ -16,6 +16,7 @@ import android.net.Uri
 class ClipboardUtils private constructor() {
     companion object {
 
+        @Suppress("unused")
         fun copyText(text: CharSequence?) {
             val clipboard =
                 Utils.getContext()?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
@@ -34,6 +35,7 @@ class ClipboardUtils private constructor() {
                 }
             }
 
+        @Suppress("unused")
         fun copyUri(
             uri: Uri?
         ) {
@@ -60,6 +62,7 @@ class ClipboardUtils private constructor() {
                 }
             }
 
+        @Suppress("unused")
         fun copyIntent(intent: Intent?) {
             val clipboard =
                 Utils.getContext()?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?

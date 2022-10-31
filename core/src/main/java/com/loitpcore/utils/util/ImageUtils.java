@@ -43,6 +43,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -50,6 +52,7 @@ import java.io.OutputStream;
  * +840766040293
  * freuss47@gmail.com
  */
+@Suppress(names = "unused")
 public final class ImageUtils {
 
     private ImageUtils() {
@@ -88,14 +91,17 @@ public final class ImageUtils {
         return bitmap == null ? null : new BitmapDrawable(res, bitmap);
     }
 
+    @Suppress(names = "unused")
     public static byte[] drawable2Bytes(Drawable drawable, CompressFormat format) {
         return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), format);
     }
 
+    @Suppress(names = "unused")
     public static Drawable bytes2Drawable(Resources res, byte[] bytes) {
         return res == null ? null : bitmap2Drawable(res, bytes2Bitmap(bytes));
     }
 
+    @Suppress(names = "unused")
     public static Bitmap view2Bitmap(View view) {
         if (view == null) return null;
         Bitmap ret = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
@@ -121,6 +127,7 @@ public final class ImageUtils {
         return inSampleSize;
     }
 
+    @Suppress(names = "unused")
     public static Bitmap getBitmap(File file) {
         if (file == null) return null;
         InputStream is = null;
@@ -135,6 +142,7 @@ public final class ImageUtils {
         }
     }
 
+    @Suppress(names = "unused")
     public static Bitmap getBitmap(File file, int maxWidth, int maxHeight) {
         if (file == null) return null;
         InputStream is = null;
@@ -154,11 +162,13 @@ public final class ImageUtils {
         }
     }
 
+    @Suppress(names = "unused")
     public static Bitmap getBitmap(String filePath) {
         if (isSpace(filePath)) return null;
         return BitmapFactory.decodeFile(filePath);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap getBitmap(String filePath, int maxWidth, int maxHeight) {
         if (isSpace(filePath)) return null;
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -169,11 +179,13 @@ public final class ImageUtils {
         return BitmapFactory.decodeFile(filePath, options);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap getBitmap(InputStream is) {
         if (is == null) return null;
         return BitmapFactory.decodeStream(is);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap getBitmap(InputStream is, int maxWidth, int maxHeight) {
         if (is == null) return null;
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -184,11 +196,13 @@ public final class ImageUtils {
         return BitmapFactory.decodeStream(is, null, options);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap getBitmap(byte[] data, int offset) {
         if (data.length == 0) return null;
         return BitmapFactory.decodeByteArray(data, offset, data.length);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap getBitmap(byte[] data, int offset, int maxWidth, int maxHeight) {
         if (data.length == 0) return null;
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -199,11 +213,13 @@ public final class ImageUtils {
         return BitmapFactory.decodeByteArray(data, offset, data.length, options);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap getBitmap(Resources res, int id) {
         if (res == null) return null;
         return BitmapFactory.decodeResource(res, id);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap getBitmap(Resources res, int id, int maxWidth, int maxHeight) {
         if (res == null) return null;
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -214,11 +230,13 @@ public final class ImageUtils {
         return BitmapFactory.decodeResource(res, id, options);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap getBitmap(FileDescriptor fd) {
         if (fd == null) return null;
         return BitmapFactory.decodeFileDescriptor(fd);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap getBitmap(FileDescriptor fd, int maxWidth, int maxHeight) {
         if (fd == null) return null;
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -264,14 +282,17 @@ public final class ImageUtils {
         return ret;
     }
 
+    @Suppress(names = "unused")
     public static Bitmap skew(Bitmap src, float kx, float ky) {
         return skew(src, kx, ky, 0, 0, false);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap skew(Bitmap src, float kx, float ky, boolean recycle) {
         return skew(src, kx, ky, 0, 0, recycle);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap skew(Bitmap src, float kx, float ky, float px, float py) {
         return skew(src, kx, ky, px, py, false);
     }
@@ -299,6 +320,7 @@ public final class ImageUtils {
         return ret;
     }
 
+    @Suppress(names = "unused")
     public static int getRotateDegree(String filePath) {
         int degree = 0;
         try {
@@ -324,6 +346,7 @@ public final class ImageUtils {
         return degree;
     }
 
+    @Suppress(names = "unused")
     public static Bitmap toRound(Bitmap src) {
         return toRound(src, false);
     }
@@ -346,6 +369,7 @@ public final class ImageUtils {
         return ret;
     }
 
+    @Suppress(names = "unused")
     public static Bitmap toRoundCorner(Bitmap src, float radius) {
         return toRoundCorner(src, radius, false);
     }
@@ -366,6 +390,7 @@ public final class ImageUtils {
         return ret;
     }
 
+    @Suppress(names = "unused")
     public static Bitmap fastBlur(Bitmap src,
                                   @FloatRange(from = 0, to = 1, fromInclusive = false) float scale,
                                   @FloatRange(from = 0, to = 25, fromInclusive = false) float radius) {
@@ -396,6 +421,7 @@ public final class ImageUtils {
         if (scaleBitmap != null) {
             ret = Bitmap.createScaledBitmap(scaleBitmap, width, height, true);
         }
+        assert scaleBitmap != null;
         if (!scaleBitmap.isRecycled()) scaleBitmap.recycle();
         if (recycle && !src.isRecycled()) src.recycle();
         return ret;
@@ -423,6 +449,7 @@ public final class ImageUtils {
         return src;
     }
 
+    @Suppress(names = "unused")
     public static Bitmap stackBlur(Bitmap src, int radius, boolean recycle) {
         Bitmap ret;
         if (recycle) {
@@ -627,6 +654,7 @@ public final class ImageUtils {
         return ret;
     }
 
+    @Suppress(names = "unused")
     public static Bitmap addFrame(Bitmap src, int borderWidth, int color) {
         return addFrame(src, borderWidth, color, false);
     }
@@ -651,6 +679,7 @@ public final class ImageUtils {
         return ret;
     }
 
+    @Suppress(names = "unused")
     public static Bitmap addReflection(Bitmap src, int reflectionHeight) {
         return addReflection(src, reflectionHeight, false);
     }
@@ -683,6 +712,7 @@ public final class ImageUtils {
         return ret;
     }
 
+    @Suppress(names = "unused")
     public static Bitmap addTextWatermark(Bitmap src, String content, int textSize, int color, float x,
                                           float y) {
         return addTextWatermark(src, content, textSize, color, x, y, false);
@@ -703,6 +733,7 @@ public final class ImageUtils {
         return ret;
     }
 
+    @Suppress(names = "unused")
     public static Bitmap addImageWatermark(Bitmap src, Bitmap watermark, int x, int y, int alpha) {
         return addImageWatermark(src, watermark, x, y, alpha, false);
     }
@@ -731,6 +762,7 @@ public final class ImageUtils {
         return ret;
     }
 
+    @Suppress(names = "unused")
     public static Bitmap toGray(Bitmap src) {
         return toGray(src, false);
     }
@@ -790,6 +822,7 @@ public final class ImageUtils {
                 || path.endsWith(".GIF");
     }
 
+    @Suppress(names = "unused")
     public static String getImageType(String filePath) {
         return getImageType(FileUtils.getFileByPath(filePath));
     }
@@ -856,22 +889,27 @@ public final class ImageUtils {
         return src == null || src.getWidth() == 0 || src.getHeight() == 0;
     }
 
+    @Suppress(names = "unused")
     public static Bitmap compressByScale(Bitmap src, int newWidth, int newHeight) {
         return scale(src, newWidth, newHeight, false);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap compressByScale(Bitmap src, int newWidth, int newHeight, boolean recycle) {
         return scale(src, newWidth, newHeight, recycle);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap compressByScale(Bitmap src, float scaleWidth, float scaleHeight) {
         return scale(src, scaleWidth, scaleHeight, false);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap compressByScale(Bitmap src, float scaleWidth, float scaleHeight, boolean recycle) {
         return scale(src, scaleWidth, scaleHeight, recycle);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap compressByQuality(Bitmap src, @IntRange(from = 0, to = 100) int quality) {
         return compressByQuality(src, quality, false);
     }
@@ -885,6 +923,7 @@ public final class ImageUtils {
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap compressByQuality(Bitmap src, long maxByteSize) {
         return compressByQuality(src, maxByteSize, false);
     }
@@ -904,6 +943,7 @@ public final class ImageUtils {
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
+    @Suppress(names = "unused")
     public static Bitmap compressBySampleSize(Bitmap src, int sampleSize) {
         return compressBySampleSize(src, sampleSize, false);
     }

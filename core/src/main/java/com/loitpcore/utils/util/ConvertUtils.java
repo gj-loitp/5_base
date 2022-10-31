@@ -19,6 +19,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.Objects;
+
+import kotlin.Suppress;
 
 /**
  * Created by Loitp on 04,August,2022
@@ -43,6 +46,7 @@ public final class ConvertUtils {
      * @param bytes 字节数组
      * @return 16进制大写字符串
      */
+    @Suppress(names = "unused")
     public static String bytes2HexString(byte[] bytes) {
         if (bytes == null) return null;
         int len = bytes.length;
@@ -63,6 +67,7 @@ public final class ConvertUtils {
      * @param hexString 十六进制字符串
      * @return 字节数组
      */
+    @Suppress(names = "unused")
     public static byte[] hexString2Bytes(String hexString) {
         if (isSpace(hexString)) return null;
         int len = hexString.length();
@@ -100,6 +105,7 @@ public final class ConvertUtils {
      * @param chars 字符数组
      * @return 字节数组
      */
+    @Suppress(names = "unused")
     public static byte[] chars2Bytes(char[] chars) {
         if (chars == null || chars.length <= 0) return null;
         int len = chars.length;
@@ -116,6 +122,7 @@ public final class ConvertUtils {
      * @param bytes 字节数组
      * @return 字符数组
      */
+    @Suppress(names = "unused")
     public static char[] bytes2Chars(byte[] bytes) {
         if (bytes == null) return null;
         int len = bytes.length;
@@ -140,6 +147,7 @@ public final class ConvertUtils {
      *                   </ul>
      * @return 字节数
      */
+    @Suppress(names = "unused")
     public static long memorySize2Byte(long memorySize, @MemoryConstants.Companion.Unit int unit) {
         if (memorySize < 0) return -1;
         return memorySize * unit;
@@ -158,6 +166,7 @@ public final class ConvertUtils {
      *                </ul>
      * @return 以unit为单位的size
      */
+    @Suppress(names = "unused")
     public static double byte2MemorySize(long byteNum, @MemoryConstants.Companion.Unit int unit) {
         if (byteNum < 0) return -1;
         return (double) byteNum / unit;
@@ -199,6 +208,7 @@ public final class ConvertUtils {
      *                 </ul>
      * @return 毫秒时间戳
      */
+    @Suppress(names = "unused")
     public static long timeSpan2Millis(long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return timeSpan * unit;
     }
@@ -217,6 +227,7 @@ public final class ConvertUtils {
      *               </ul>
      * @return 以unit为单位的时间长度
      */
+    @Suppress(names = "unused")
     public static long millis2TimeSpan(long millis, @TimeConstants.Companion.Unit int unit) {
         return millis / unit;
     }
@@ -238,6 +249,7 @@ public final class ConvertUtils {
      * @return 合适时间长度
      */
     @SuppressLint("DefaultLocale")
+    @Suppress(names = "unused")
     public static String millis2FitTimeSpan(long millis, int precision) {
         if (millis <= 0 || precision <= 0) return null;
         StringBuilder sb = new StringBuilder();
@@ -260,6 +272,7 @@ public final class ConvertUtils {
      * @param bytes 字节数组
      * @return bits
      */
+    @Suppress(names = "unused")
     public static String bytes2Bits(byte[] bytes) {
         StringBuilder sb = new StringBuilder();
         for (byte aByte : bytes) {
@@ -276,6 +289,7 @@ public final class ConvertUtils {
      * @param bits 二进制
      * @return bytes
      */
+    @Suppress(names = "unused")
     public static byte[] bits2Bytes(String bits) {
         int lenMod = bits.length() % 8;
         int byteLen = bits.length() / 8;
@@ -326,6 +340,7 @@ public final class ConvertUtils {
      * @param out 输出流
      * @return inputStream子类
      */
+    @Suppress(names = "unused")
     public ByteArrayInputStream output2InputStream(OutputStream out) {
         if (out == null) return null;
         return new ByteArrayInputStream(((ByteArrayOutputStream) out).toByteArray());
@@ -348,6 +363,7 @@ public final class ConvertUtils {
      * @param bytes 字节数组
      * @return 输入流
      */
+    @Suppress(names = "unused")
     public static InputStream bytes2InputStream(byte[] bytes) {
         if (bytes == null || bytes.length <= 0) return null;
         return new ByteArrayInputStream(bytes);
@@ -392,6 +408,7 @@ public final class ConvertUtils {
      * @param charsetName 编码格式
      * @return 字符串
      */
+    @Suppress(names = "unused")
     public static String inputStream2String(InputStream is, String charsetName) {
         if (is == null || isSpace(charsetName)) return null;
         try {
@@ -409,6 +426,7 @@ public final class ConvertUtils {
      * @param charsetName 编码格式
      * @return 输入流
      */
+    @Suppress(names = "unused")
     public static InputStream string2InputStream(String string, String charsetName) {
         if (string == null || isSpace(charsetName)) return null;
         try {
@@ -426,6 +444,7 @@ public final class ConvertUtils {
      * @param charsetName 编码格式
      * @return 字符串
      */
+    @Suppress(names = "unused")
     public static String outputStream2String(OutputStream out, String charsetName) {
         if (out == null || isSpace(charsetName)) return null;
         try {
@@ -443,6 +462,7 @@ public final class ConvertUtils {
      * @param charsetName 编码格式
      * @return 输入流
      */
+    @Suppress(names = "unused")
     public static OutputStream string2OutputStream(String string, String charsetName) {
         if (string == null || isSpace(charsetName)) return null;
         try {
@@ -505,6 +525,7 @@ public final class ConvertUtils {
      * @param format   格式
      * @return 字节数组
      */
+    @Suppress(names = "unused")
     public static byte[] drawable2Bytes(Drawable drawable, Bitmap.CompressFormat format) {
         return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), format);
     }
@@ -516,6 +537,7 @@ public final class ConvertUtils {
      * @param bytes 字节数组
      * @return drawable
      */
+    @Suppress(names = "unused")
     public static Drawable bytes2Drawable(Resources res, byte[] bytes) {
         return res == null ? null : bitmap2Drawable(res, bytes2Bitmap(bytes));
     }
@@ -526,6 +548,7 @@ public final class ConvertUtils {
      * @param view 视图
      * @return bitmap
      */
+    @Suppress(names = "unused")
     public static Bitmap view2Bitmap(View view) {
         if (view == null) return null;
         Bitmap ret = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
@@ -547,7 +570,7 @@ public final class ConvertUtils {
      * @return px值
      */
     public static int dp2px(float dpValue) {
-        final float scale = Utils.getContext().getResources().getDisplayMetrics().density;
+        final float scale = Objects.requireNonNull(Utils.getContext()).getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
 
@@ -558,7 +581,7 @@ public final class ConvertUtils {
      * @return dp值
      */
     public static int px2dp(float pxValue) {
-        final float scale = Utils.getContext().getResources().getDisplayMetrics().density;
+        final float scale = Objects.requireNonNull(Utils.getContext()).getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }
 
@@ -569,7 +592,7 @@ public final class ConvertUtils {
      * @return px值
      */
     public static int sp2px(float spValue) {
-        final float fontScale = Utils.getContext().getResources().getDisplayMetrics().scaledDensity;
+        final float fontScale = Objects.requireNonNull(Utils.getContext()).getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
     }
 
@@ -580,7 +603,7 @@ public final class ConvertUtils {
      * @return sp值
      */
     public static int px2sp(float pxValue) {
-        final float fontScale = Utils.getContext().getResources().getDisplayMetrics().scaledDensity;
+        final float fontScale = Objects.requireNonNull(Utils.getContext()).getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
     }
 

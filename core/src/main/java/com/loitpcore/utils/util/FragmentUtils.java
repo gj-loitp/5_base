@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -42,6 +44,7 @@ public final class FragmentUtils {
     private static final String ARGS_IS_HIDE = "args_is_hide";
     private static final String ARGS_IS_ADD_STACK = "args_is_add_stack";
 
+    @Suppress(names = "unused")
     public static Fragment addFragment(@NonNull FragmentManager fragmentManager,
                                        @NonNull Fragment fragment,
                                        @IdRes int containerId) {
@@ -64,6 +67,7 @@ public final class FragmentUtils {
         return operateFragment(fragmentManager, null, fragment, TYPE_ADD_FRAGMENT);
     }
 
+    @Suppress(names = "unused")
     public static Fragment addFragment(@NonNull FragmentManager fragmentManager,
                                        @NonNull Fragment fragment,
                                        @IdRes int containerId,
@@ -74,6 +78,7 @@ public final class FragmentUtils {
         return operateFragment(fragmentManager, null, fragment, TYPE_ADD_FRAGMENT, sharedElement);
     }
 
+    @Suppress(names = "unused")
     public static Fragment hideAddFragment(@NonNull FragmentManager fragmentManager,
                                            @NonNull Fragment hideFragment,
                                            @NonNull Fragment addFragment,
@@ -85,6 +90,7 @@ public final class FragmentUtils {
         return operateFragment(fragmentManager, hideFragment, addFragment, TYPE_ADD_FRAGMENT, sharedElement);
     }
 
+    @Suppress(names = "unused")
     public static Fragment addFragments(@NonNull FragmentManager fragmentManager,
                                         @NonNull List<Fragment> fragments,
                                         @IdRes int containerId,
@@ -117,13 +123,17 @@ public final class FragmentUtils {
     }
 
     public static void removeFragment(@NonNull Fragment fragment) {
+        assert fragment.getFragmentManager() != null;
         operateFragment(fragment.getFragmentManager(), null, fragment, TYPE_REMOVE_FRAGMENT);
     }
 
+    @Suppress(names = "unused")
     public static void removeToFragment(@NonNull Fragment fragment, boolean isIncludeSelf) {
+        assert fragment.getFragmentManager() != null;
         operateFragment(fragment.getFragmentManager(), isIncludeSelf ? fragment : null, fragment, TYPE_REMOVE_TO_FRAGMENT);
     }
 
+    @Suppress(names = "unused")
     public static void removeFragments(@NonNull FragmentManager fragmentManager) {
         List<Fragment> fragments = getFragments(fragmentManager);
         if (fragments.isEmpty()) return;
@@ -145,15 +155,18 @@ public final class FragmentUtils {
         }
     }
 
+    @Suppress(names = "unused")
     public static Fragment replaceFragment(@NonNull Fragment srcFragment,
                                            @NonNull Fragment destFragment,
                                            boolean isAddStack) {
         if (srcFragment.getArguments() == null) return null;
         int containerId = srcFragment.getArguments().getInt(ARGS_ID);
         if (containerId == 0) return null;
+        assert srcFragment.getFragmentManager() != null;
         return replaceFragment(srcFragment.getFragmentManager(), destFragment, containerId, isAddStack);
     }
 
+    @Suppress(names = "unused")
     public static Fragment replaceFragment(@NonNull Fragment srcFragment,
                                            @NonNull Fragment destFragment,
                                            boolean isAddStack,
@@ -161,6 +174,7 @@ public final class FragmentUtils {
         if (srcFragment.getArguments() == null) return null;
         int containerId = srcFragment.getArguments().getInt(ARGS_ID);
         if (containerId == 0) return null;
+        assert srcFragment.getFragmentManager() != null;
         return replaceFragment(srcFragment.getFragmentManager(), destFragment, containerId, isAddStack, sharedElement);
     }
 
@@ -185,18 +199,21 @@ public final class FragmentUtils {
         return fragmentManager.popBackStackImmediate();
     }
 
+    @Suppress(names = "unused")
     public static boolean popToFragment(@NonNull FragmentManager fragmentManager,
                                         Class<? extends Fragment> fragmentClass,
                                         boolean isIncludeSelf) {
         return fragmentManager.popBackStackImmediate(fragmentClass.getName(), isIncludeSelf ? FragmentManager.POP_BACK_STACK_INCLUSIVE : 0);
     }
 
+    @Suppress(names = "unused")
     public static void popFragments(@NonNull FragmentManager fragmentManager) {
         while (fragmentManager.getBackStackEntryCount() > 0) {
             fragmentManager.popBackStackImmediate();
         }
     }
 
+    @Suppress(names = "unused")
     public static void popAllFragments(@NonNull FragmentManager fragmentManager) {
         List<Fragment> fragments = getFragments(fragmentManager);
         if (fragments.isEmpty()) return;
@@ -209,6 +226,7 @@ public final class FragmentUtils {
         }
     }
 
+    @Suppress(names = "unused")
     public static Fragment popAddFragment(@NonNull FragmentManager fragmentManager,
                                           @NonNull Fragment fragment,
                                           @IdRes int containerId,
@@ -217,6 +235,7 @@ public final class FragmentUtils {
         return operateFragment(fragmentManager, null, fragment, TYPE_POP_ADD_FRAGMENT);
     }
 
+    @Suppress(names = "unused")
     public static Fragment popAddFragment(@NonNull FragmentManager fragmentManager,
                                           @NonNull Fragment fragment,
                                           @IdRes int containerId,
@@ -231,6 +250,7 @@ public final class FragmentUtils {
         if (args != null) {
             putArgs(fragment, new Args(args.id, true, args.isAddStack));
         }
+        assert fragment.getFragmentManager() != null;
         return operateFragment(fragment.getFragmentManager(), null, fragment, TYPE_HIDE_FRAGMENT);
     }
 
@@ -243,19 +263,24 @@ public final class FragmentUtils {
         }
     }
 
+    @Suppress(names = "unused")
     public static Fragment showFragment(@NonNull Fragment fragment) {
         Args args = getArgs(fragment);
         if (args != null) {
             putArgs(fragment, new Args(args.id, false, args.isAddStack));
         }
+        assert fragment.getFragmentManager() != null;
         return operateFragment(fragment.getFragmentManager(), null, fragment, TYPE_SHOW_FRAGMENT);
     }
 
+    @Suppress(names = "unused")
     public static Fragment hideAllShowFragment(@NonNull Fragment fragment) {
+        assert fragment.getFragmentManager() != null;
         hideFragments(fragment.getFragmentManager());
         return operateFragment(fragment.getFragmentManager(), null, fragment, TYPE_SHOW_FRAGMENT);
     }
 
+    @Suppress(names = "unused")
     public static Fragment hideShowFragment(@NonNull Fragment hideFragment,
                                             @NonNull Fragment showFragment) {
         Args args = getArgs(hideFragment);
@@ -266,6 +291,7 @@ public final class FragmentUtils {
         if (args != null) {
             putArgs(showFragment, new Args(args.id, false, args.isAddStack));
         }
+        assert showFragment.getFragmentManager() != null;
         return operateFragment(showFragment.getFragmentManager(), hideFragment, showFragment, TYPE_HIDE_SHOW_FRAGMENT);
     }
 
@@ -309,6 +335,7 @@ public final class FragmentUtils {
         switch (type) {
             case TYPE_ADD_FRAGMENT:
                 if (srcFragment != null) ft.hide(srcFragment);
+                assert args != null;
                 ft.add(args.getInt(ARGS_ID), destFragment, name);
                 if (args.getBoolean(ARGS_IS_HIDE)) ft.hide(destFragment);
                 if (args.getBoolean(ARGS_IS_ADD_STACK)) ft.addToBackStack(name);
@@ -343,6 +370,7 @@ public final class FragmentUtils {
                 ft.show(destFragment);
                 break;
             case TYPE_HIDE_SHOW_FRAGMENT:
+                assert srcFragment != null;
                 ft.hide(srcFragment).show(destFragment);
                 break;
         }
@@ -350,10 +378,12 @@ public final class FragmentUtils {
         return destFragment;
     }
 
+    @Suppress(names = "unused")
     public static Fragment getLastAddFragment(@NonNull FragmentManager fragmentManager) {
         return getLastAddFragmentIsInStack(fragmentManager, false);
     }
 
+    @Suppress(names = "unused")
     public static Fragment getLastAddFragmentInStack(@NonNull FragmentManager fragmentManager) {
         return getLastAddFragmentIsInStack(fragmentManager, true);
     }
@@ -366,6 +396,7 @@ public final class FragmentUtils {
             Fragment fragment = fragments.get(i);
             if (fragment != null) {
                 if (isInStack) {
+                    assert fragment.getArguments() != null;
                     if (fragment.getArguments().getBoolean(ARGS_IS_ADD_STACK)) {
                         return fragment;
                     }
@@ -377,10 +408,12 @@ public final class FragmentUtils {
         return null;
     }
 
+    @Suppress(names = "unused")
     public static Fragment getTopShowFragment(@NonNull FragmentManager fragmentManager) {
         return getTopShowFragmentIsInStack(fragmentManager, null, false);
     }
 
+    @Suppress(names = "unused")
     public static Fragment getTopShowFragmentInStack(@NonNull FragmentManager fragmentManager) {
         return getTopShowFragmentIsInStack(fragmentManager, null, true);
     }
@@ -394,6 +427,7 @@ public final class FragmentUtils {
             Fragment fragment = fragments.get(i);
             if (fragment != null && fragment.isResumed() && fragment.isVisible() && fragment.getUserVisibleHint()) {
                 if (isInStack) {
+                    assert fragment.getArguments() != null;
                     if (fragment.getArguments().getBoolean(ARGS_IS_ADD_STACK)) {
                         return getTopShowFragmentIsInStack(fragment.getChildFragmentManager(), fragment, true);
                     }
@@ -409,6 +443,7 @@ public final class FragmentUtils {
         return getFragmentsIsInStack(fragmentManager, false);
     }
 
+    @Suppress(names = "unused")
     public static List<Fragment> getFragmentsInStack(@NonNull FragmentManager fragmentManager) {
         return getFragmentsIsInStack(fragmentManager, true);
     }
@@ -421,6 +456,7 @@ public final class FragmentUtils {
             Fragment fragment = fragments.get(i);
             if (fragment != null) {
                 if (isInStack) {
+                    assert fragment.getArguments() != null;
                     if (fragment.getArguments().getBoolean(ARGS_IS_ADD_STACK)) {
                         result.add(fragment);
                     }
@@ -432,10 +468,12 @@ public final class FragmentUtils {
         return result;
     }
 
+    @Suppress(names = "unused")
     public static List<FragmentNode> getAllFragments(@NonNull FragmentManager fragmentManager) {
         return getAllFragmentsIsInStack(fragmentManager, new ArrayList<FragmentNode>(), false);
     }
 
+    @Suppress(names = "unused")
     public static List<FragmentNode> getAllFragmentsInStack(@NonNull FragmentManager fragmentManager) {
         return getAllFragmentsIsInStack(fragmentManager, new ArrayList<FragmentNode>(), true);
     }
@@ -449,6 +487,7 @@ public final class FragmentUtils {
             Fragment fragment = fragments.get(i);
             if (fragment != null) {
                 if (isInStack) {
+                    assert fragment.getArguments() != null;
                     if (fragment.getArguments().getBoolean(ARGS_IS_ADD_STACK)) {
                         result.add(new FragmentNode(fragment, getAllFragmentsIsInStack(fragment.getChildFragmentManager(), new ArrayList<FragmentNode>(), true)));
                     }
@@ -460,6 +499,7 @@ public final class FragmentUtils {
         return result;
     }
 
+    @Suppress(names = "unused")
     public static Fragment getPreFragment(@NonNull Fragment destFragment) {
         FragmentManager fragmentManager = destFragment.getFragmentManager();
         if (fragmentManager == null) return null;
@@ -477,13 +517,16 @@ public final class FragmentUtils {
         return null;
     }
 
+    @Suppress(names = "unused")
     public static Fragment findFragment(@NonNull FragmentManager fragmentManager, Class<? extends Fragment> fragmentClass) {
         List<Fragment> fragments = getFragments(fragmentManager);
         if (fragments.isEmpty()) return null;
         return fragmentManager.findFragmentByTag(fragmentClass.getName());
     }
 
+    @Suppress(names = "unused")
     public static boolean dispatchBackPress(@NonNull Fragment fragment) {
+        assert fragment.getFragmentManager() != null;
         return dispatchBackPress(fragment.getFragmentManager());
     }
 
@@ -556,6 +599,7 @@ public final class FragmentUtils {
             this.next = next;
         }
 
+        @NonNull
         @Override
         public String toString() {
             return fragment.getClass().getSimpleName() + "->" + ((next == null || next.isEmpty()) ? "no child" : next.toString());

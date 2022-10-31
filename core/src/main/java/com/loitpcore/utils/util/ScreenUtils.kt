@@ -39,10 +39,12 @@ class ScreenUtils {
                 return dm.heightPixels
             }
 
+        @Suppress("unused")
         fun setLandscape(activity: Activity) {
             activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         }
 
+        @Suppress("unused")
         fun setPortrait(activity: Activity) {
             activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
@@ -53,6 +55,7 @@ class ScreenUtils {
         val isPortrait: Boolean
             get() = getContext()?.resources?.configuration?.orientation == Configuration.ORIENTATION_PORTRAIT
 
+        @Suppress("unused")
         fun getScreenRotation(activity: Activity): Int {
             return when (activity.windowManager.defaultDisplay.rotation) {
                 Surface.ROTATION_0 -> 0
@@ -63,6 +66,7 @@ class ScreenUtils {
             }
         }
 
+        @Suppress("unused")
         fun captureWithStatusBar(activity: Activity): Bitmap {
             val view = activity.window.decorView
             view.isDrawingCacheEnabled = true
@@ -75,6 +79,7 @@ class ScreenUtils {
             return ret
         }
 
+        @Suppress("unused")
         fun captureWithoutStatusBar(activity: Activity): Bitmap {
             val view = activity.window.decorView
             view.isDrawingCacheEnabled = true

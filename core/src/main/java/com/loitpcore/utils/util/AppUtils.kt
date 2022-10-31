@@ -70,6 +70,7 @@ class AppUtils private constructor() {
             return !isSpace(packageName) && IntentUtils.getLaunchAppIntent(packageName) != null
         }
 
+        @Suppress("unused")
         fun installApp(
             filePath: String,
             authority: String
@@ -77,6 +78,7 @@ class AppUtils private constructor() {
             installApp(file = FileUtils.getFileByPath(filePath), authority = authority)
         }
 
+        @Suppress("unused")
         fun installApp(
             file: File,
             authority: String
@@ -86,6 +88,7 @@ class AppUtils private constructor() {
                 ?.startActivity(IntentUtils.getInstallAppIntent(file = file, authority = authority))
         }
 
+        @Suppress("unused")
         fun installApp(
             activity: Activity,
             filePath: String,
@@ -100,6 +103,7 @@ class AppUtils private constructor() {
             )
         }
 
+        @Suppress("unused")
         fun installApp(
             activity: Activity,
             file: File,
@@ -116,6 +120,7 @@ class AppUtils private constructor() {
             )
         }
 
+        @Suppress("unused")
         fun installAppSilent(
             filePath: String
         ): Boolean {
@@ -127,6 +132,7 @@ class AppUtils private constructor() {
                 .contains("success")
         }
 
+        @Suppress("unused")
         fun uninstallApp(
             packageName: String
         ) {
@@ -134,6 +140,7 @@ class AppUtils private constructor() {
             Utils.getContext()?.startActivity(IntentUtils.getUninstallAppIntent(packageName))
         }
 
+        @Suppress("unused")
         fun uninstallApp(
             activity: Activity,
             packageName: String,
@@ -146,6 +153,7 @@ class AppUtils private constructor() {
             )
         }
 
+        @Suppress("unused")
         fun uninstallAppSilent(
             packageName: String,
             isKeepData: Boolean
@@ -170,6 +178,7 @@ class AppUtils private constructor() {
                 return false
             }
 
+        @Suppress("unused")
         fun launchApp(
             packageName: String
         ) {
@@ -177,6 +186,7 @@ class AppUtils private constructor() {
             Utils.getContext()?.startActivity(IntentUtils.getLaunchAppIntent(packageName))
         }
 
+        @Suppress("unused")
         fun launchApp(
             activity: Activity,
             packageName: String,
@@ -193,6 +203,7 @@ class AppUtils private constructor() {
         val appPackageName: String
             get() = Utils.getContext()?.packageName ?: ""
 
+        @Suppress("unused")
         val appDetailsSettings: Unit
             get() {
                 Utils.getContext()?.packageName?.let {
@@ -200,6 +211,7 @@ class AppUtils private constructor() {
                 }
             }
 
+        @Suppress("unused")
         fun getAppDetailsSettings(
             packageName: String
         ) {
@@ -225,9 +237,11 @@ class AppUtils private constructor() {
             }
         }
 
+        @Suppress("unused")
         val appIcon: Drawable?
             get() = getAppIcon(Utils.getContext()?.packageName)
 
+        @Suppress("unused")
         fun getAppIcon(
             packageName: String?
         ): Drawable? {
@@ -296,6 +310,7 @@ class AppUtils private constructor() {
             }
         }
 
+        @Suppress("unused")
         val isSystemApp: Boolean
             get() = isSystemApp(Utils.getContext()?.packageName)
 
@@ -316,6 +331,7 @@ class AppUtils private constructor() {
             }
         }
 
+        @Suppress("unused")
         val isAppDebug: Boolean
             get() = isAppDebug(Utils.getContext()?.packageName)
 
@@ -336,6 +352,7 @@ class AppUtils private constructor() {
             }
         }
 
+        @Suppress("unused")
         val appSignature: Array<Signature>?
             get() = getAppSignature(Utils.getContext()?.packageName)
 
@@ -356,6 +373,7 @@ class AppUtils private constructor() {
             }
         }
 
+        @Suppress("unused")
         val appSignatureSHA1: String?
             get() = getAppSignatureSHA1(Utils.getContext()?.packageName)
 
@@ -365,6 +383,7 @@ class AppUtils private constructor() {
                 .replace("(?<=[0-9A-F]{2})[0-9A-F]{2}".toRegex(), ":$0")
         }
 
+        @Suppress("unused")
         val isAppForeground: Boolean
             get() {
                 val manager = Utils.getContext()
@@ -383,6 +402,7 @@ class AppUtils private constructor() {
             return !isSpace(packageName) && packageName == ProcessUtils.foregroundProcessName
         }
 
+        @Suppress("unused")
         val appInfo: AppInfo?
             get() = getAppInfo(Utils.getContext()?.packageName)
 
@@ -437,6 +457,7 @@ class AppUtils private constructor() {
                 return list
             }
 
+        @Suppress("unused")
         fun cleanAppData(vararg dirPaths: String?): Boolean {
             val dirs = arrayOfNulls<File>(dirPaths.size)
             var i = 0
@@ -448,6 +469,7 @@ class AppUtils private constructor() {
             return cleanAppData(*dirs)
         }
 
+        @Suppress("unused")
         fun cleanAppData(vararg dirs: File?): Boolean {
             var isSuccess = CleanUtils.cleanInternalCache()
             isSuccess = isSuccess and CleanUtils.cleanInternalDbs()

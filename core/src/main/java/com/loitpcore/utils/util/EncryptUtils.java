@@ -15,6 +15,8 @@ import javax.crypto.Cipher;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -79,6 +81,7 @@ public final class EncryptUtils {
      * @param salt 盐
      * @return 16进制加盐密文
      */
+    @Suppress(names = "unused")
     public static String encryptMD5ToString(String data, String salt) {
         return bytes2HexString(encryptMD5((data + salt).getBytes()));
     }
@@ -100,6 +103,7 @@ public final class EncryptUtils {
      * @param salt 盐字节数组
      * @return 16进制加盐密文
      */
+    @Suppress(names = "unused")
     public static String encryptMD5ToString(byte[] data, byte[] salt) {
         if (data == null || salt == null) return null;
         byte[] dataSalt = new byte[data.length + salt.length];
@@ -124,6 +128,7 @@ public final class EncryptUtils {
      * @param filePath 文件路径
      * @return 文件的16进制密文
      */
+    @Suppress(names = "unused")
     public static String encryptMD5File2String(String filePath) {
         File file = isSpace(filePath) ? null : new File(filePath);
         return encryptMD5File2String(file);
@@ -135,6 +140,7 @@ public final class EncryptUtils {
      * @param filePath 文件路径
      * @return 文件的MD5校验码
      */
+    @Suppress(names = "unused")
     public static byte[] encryptMD5File(String filePath) {
         File file = isSpace(filePath) ? null : new File(filePath);
         return encryptMD5File(file);
@@ -586,6 +592,7 @@ public final class EncryptUtils {
      * @param key  8字节秘钥
      * @return Base64密文
      */
+    @Suppress(names = "unused")
     public static byte[] encryptDES2Base64(byte[] data, byte[] key) {
         return base64Encode(encryptDES(data, key));
     }
@@ -597,6 +604,7 @@ public final class EncryptUtils {
      * @param key  8字节秘钥
      * @return 16进制密文
      */
+    @Suppress(names = "unused")
     public static String encryptDES2HexString(byte[] data, byte[] key) {
         return bytes2HexString(encryptDES(data, key));
     }
@@ -619,6 +627,7 @@ public final class EncryptUtils {
      * @param key  8字节秘钥
      * @return 明文
      */
+    @Suppress(names = "unused")
     public static byte[] decryptBase64DES(byte[] data, byte[] key) {
         return decryptDES(base64Decode(data), key);
     }
@@ -630,6 +639,7 @@ public final class EncryptUtils {
      * @param key  8字节秘钥
      * @return 明文
      */
+    @Suppress(names = "unused")
     public static byte[] decryptHexStringDES(String data, byte[] key) {
         return decryptDES(hexString2Bytes(data), key);
     }
@@ -666,6 +676,7 @@ public final class EncryptUtils {
      * @param key  24字节秘钥
      * @return Base64密文
      */
+    @Suppress(names = "unused")
     public static byte[] encrypt3DES2Base64(byte[] data, byte[] key) {
         return base64Encode(encrypt3DES(data, key));
     }
@@ -677,6 +688,7 @@ public final class EncryptUtils {
      * @param key  24字节秘钥
      * @return 16进制密文
      */
+    @Suppress(names = "unused")
     public static String encrypt3DES2HexString(byte[] data, byte[] key) {
         return bytes2HexString(encrypt3DES(data, key));
     }
@@ -699,6 +711,7 @@ public final class EncryptUtils {
      * @param key  24字节秘钥
      * @return 明文
      */
+    @Suppress(names = "unused")
     public static byte[] decryptBase64_3DES(byte[] data, byte[] key) {
         return decrypt3DES(base64Decode(data), key);
     }
@@ -710,6 +723,7 @@ public final class EncryptUtils {
      * @param key  24字节秘钥
      * @return 明文
      */
+    @Suppress(names = "unused")
     public static byte[] decryptHexString3DES(String data, byte[] key) {
         return decrypt3DES(hexString2Bytes(data), key);
     }
@@ -746,6 +760,7 @@ public final class EncryptUtils {
      * @param key  16、24、32字节秘钥
      * @return Base64密文
      */
+    @Suppress(names = "unused")
     public static byte[] encryptAES2Base64(byte[] data, byte[] key) {
         return base64Encode(encryptAES(data, key));
     }
@@ -757,6 +772,7 @@ public final class EncryptUtils {
      * @param key  16、24、32字节秘钥
      * @return 16进制密文
      */
+    @Suppress(names = "unused")
     public static String encryptAES2HexString(byte[] data, byte[] key) {
         return bytes2HexString(encryptAES(data, key));
     }
@@ -779,6 +795,7 @@ public final class EncryptUtils {
      * @param key  16、24、32字节秘钥
      * @return 明文
      */
+    @Suppress(names = "unused")
     public static byte[] decryptBase64AES(byte[] data, byte[] key) {
         return decryptAES(base64Decode(data), key);
     }
@@ -790,6 +807,7 @@ public final class EncryptUtils {
      * @param key  16、24、32字节秘钥
      * @return 明文
      */
+    @Suppress(names = "unused")
     public static byte[] decryptHexStringAES(String data, byte[] key) {
         return decryptAES(hexString2Bytes(data), key);
     }

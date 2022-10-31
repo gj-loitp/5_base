@@ -23,6 +23,7 @@ class CleanUtils private constructor() {
             return FileUtils.deleteFilesInDir(Utils.getContext()?.filesDir?.parent + File.separator + "databases")
         }
 
+        @Suppress("unused")
         fun cleanInternalDbByName(
             dbName: String?
         ): Boolean? {
@@ -37,6 +38,7 @@ class CleanUtils private constructor() {
             return SDCardUtils.isSDCardEnable() && FileUtils.deleteFilesInDir(Utils.getContext()?.externalCacheDir)
         }
 
+        @Suppress("unused")
         fun cleanCustomCache(dirPath: String?): Boolean {
             return FileUtils.deleteFilesInDir(dirPath)
         }

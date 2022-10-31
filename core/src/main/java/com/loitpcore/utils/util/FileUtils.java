@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -56,6 +58,7 @@ public final class FileUtils {
      * @param filePath 文件路径
      * @return {@code true}: 存在<br>{@code false}: 不存在
      */
+    @Suppress(names = "unused")
     public static boolean isFileExists(String filePath) {
         return isFileExists(getFileByPath(filePath));
     }
@@ -109,6 +112,7 @@ public final class FileUtils {
      * @param dirPath 目录路径
      * @return {@code true}: 是<br>{@code false}: 否
      */
+    @Suppress(names = "unused")
     public static boolean isDir(String dirPath) {
         return isDir(getFileByPath(dirPath));
     }
@@ -129,6 +133,7 @@ public final class FileUtils {
      * @param filePath 文件路径
      * @return {@code true}: 是<br>{@code false}: 否
      */
+    @Suppress(names = "unused")
     public static boolean isFile(String filePath) {
         return isFile(getFileByPath(filePath));
     }
@@ -149,6 +154,7 @@ public final class FileUtils {
      * @param dirPath 目录路径
      * @return {@code true}: 存在或创建成功<br>{@code false}: 不存在或创建失败
      */
+    @Suppress(names = "unused")
     public static boolean createOrExistsDir(String dirPath) {
         return createOrExistsDir(getFileByPath(dirPath));
     }
@@ -170,6 +176,7 @@ public final class FileUtils {
      * @param filePath 文件路径
      * @return {@code true}: 存在或创建成功<br>{@code false}: 不存在或创建失败
      */
+    @Suppress(names = "unused")
     public static boolean createOrExistsFile(String filePath) {
         return createOrExistsFile(getFileByPath(filePath));
     }
@@ -199,6 +206,7 @@ public final class FileUtils {
      * @param filePath 文件路径
      * @return {@code true}: 创建成功<br>{@code false}: 创建失败
      */
+    @Suppress(names = "unused")
     public static boolean createFileByDeleteOldFile(String filePath) {
         return createFileByDeleteOldFile(getFileByPath(filePath));
     }
@@ -231,6 +239,7 @@ public final class FileUtils {
      * @param isMove      是否移动
      * @return {@code true}: 复制或移动成功<br>{@code false}: 复制或移动失败
      */
+    @Suppress(names = "unused")
     private static boolean copyOrMoveDir(String srcDirPath, String destDirPath, boolean isMove) {
         return copyOrMoveDir(getFileByPath(srcDirPath), getFileByPath(destDirPath), isMove);
     }
@@ -257,6 +266,7 @@ public final class FileUtils {
         // 目标目录不存在返回false
         if (!createOrExistsDir(destDir)) return false;
         File[] files = srcDir.listFiles();
+        assert files != null;
         for (File file : files) {
             File oneDestFile = new File(destPath + file.getName());
             if (file.isFile()) {
@@ -278,6 +288,7 @@ public final class FileUtils {
      * @param isMove       是否移动
      * @return {@code true}: 复制或移动成功<br>{@code false}: 复制或移动失败
      */
+    @Suppress(names = "unused")
     private static boolean copyOrMoveFile(String srcFilePath, String destFilePath, boolean isMove) {
         return copyOrMoveFile(getFileByPath(srcFilePath), getFileByPath(destFilePath), isMove);
     }
@@ -314,6 +325,7 @@ public final class FileUtils {
      * @param destDirPath 目标目录路径
      * @return {@code true}: 复制成功<br>{@code false}: 复制失败
      */
+    @Suppress(names = "unused")
     public static boolean copyDir(String srcDirPath, String destDirPath) {
         return copyDir(getFileByPath(srcDirPath), getFileByPath(destDirPath));
     }
@@ -358,6 +370,7 @@ public final class FileUtils {
      * @param destDirPath 目标目录路径
      * @return {@code true}: 移动成功<br>{@code false}: 移动失败
      */
+    @Suppress(names = "unused")
     public static boolean moveDir(String srcDirPath, String destDirPath) {
         return moveDir(getFileByPath(srcDirPath), getFileByPath(destDirPath));
     }
@@ -380,6 +393,7 @@ public final class FileUtils {
      * @param destFilePath 目标文件路径
      * @return {@code true}: 移动成功<br>{@code false}: 移动失败
      */
+    @Suppress(names = "unused")
     public static boolean moveFile(String srcFilePath, String destFilePath) {
         return moveFile(getFileByPath(srcFilePath), getFileByPath(destFilePath));
     }
@@ -401,6 +415,7 @@ public final class FileUtils {
      * @param dirPath 目录路径
      * @return {@code true}: 删除成功<br>{@code false}: 删除失败
      */
+    @Suppress(names = "unused")
     public static boolean deleteDir(String dirPath) {
         return deleteDir(getFileByPath(dirPath));
     }
@@ -437,6 +452,7 @@ public final class FileUtils {
      * @param srcFilePath 文件路径
      * @return {@code true}: 删除成功<br>{@code false}: 删除失败
      */
+    @Suppress(names = "unused")
     public static boolean deleteFile(String srcFilePath) {
         return deleteFile(getFileByPath(srcFilePath));
     }
@@ -494,6 +510,7 @@ public final class FileUtils {
      * @param isRecursive 是否递归进子目录
      * @return 文件链表
      */
+    @Suppress(names = "unused")
     public static List<File> listFilesInDir(String dirPath, boolean isRecursive) {
         return listFilesInDir(getFileByPath(dirPath), isRecursive);
     }
@@ -522,6 +539,7 @@ public final class FileUtils {
      * @param dirPath 目录路径
      * @return 文件链表
      */
+    @Suppress(names = "unused")
     public static List<File> listFilesInDir(String dirPath) {
         return listFilesInDir(getFileByPath(dirPath));
     }
@@ -559,6 +577,7 @@ public final class FileUtils {
      * @param isRecursive 是否递归进子目录
      * @return 文件链表
      */
+    @Suppress(names = "unused")
     public static List<File> listFilesInDirWithFilter(String dirPath, String suffix, boolean isRecursive) {
         return listFilesInDirWithFilter(getFileByPath(dirPath), suffix, isRecursive);
     }
@@ -595,6 +614,7 @@ public final class FileUtils {
      * @param suffix  后缀名
      * @return 文件链表
      */
+    @Suppress(names = "unused")
     public static List<File> listFilesInDirWithFilter(String dirPath, String suffix) {
         return listFilesInDirWithFilter(getFileByPath(dirPath), suffix);
     }
@@ -632,6 +652,7 @@ public final class FileUtils {
      * @param isRecursive 是否递归进子目录
      * @return 文件链表
      */
+    @Suppress(names = "unused")
     public static List<File> listFilesInDirWithFilter(String dirPath, FilenameFilter filter, boolean isRecursive) {
         return listFilesInDirWithFilter(getFileByPath(dirPath), filter, isRecursive);
     }
@@ -666,6 +687,7 @@ public final class FileUtils {
      * @param filter  过滤器
      * @return 文件链表
      */
+    @Suppress(names = "unused")
     public static List<File> listFilesInDirWithFilter(String dirPath, FilenameFilter filter) {
         return listFilesInDirWithFilter(getFileByPath(dirPath), filter);
     }
@@ -702,6 +724,7 @@ public final class FileUtils {
      * @param fileName 文件名
      * @return 文件链表
      */
+    @Suppress(names = "unused")
     public static List<File> searchFileInDir(String dirPath, String fileName) {
         return searchFileInDir(getFileByPath(dirPath), fileName);
     }
@@ -739,6 +762,7 @@ public final class FileUtils {
      * @param append   是否追加在文件末
      * @return {@code true}: 写入成功<br>{@code false}: 写入失败
      */
+    @Suppress(names = "unused")
     public static boolean writeFileFromIS(String filePath, InputStream is, boolean append) {
         return writeFileFromIS(getFileByPath(filePath), is, append);
     }
@@ -779,6 +803,7 @@ public final class FileUtils {
      * @param append   是否追加在文件末
      * @return {@code true}: 写入成功<br>{@code false}: 写入失败
      */
+    @Suppress(names = "unused")
     public static boolean writeFileFromString(String filePath, String content, boolean append) {
         return writeFileFromString(getFileByPath(filePath), content, append);
     }
@@ -814,6 +839,7 @@ public final class FileUtils {
      * @param charsetName 编码格式
      * @return 文件行链表
      */
+    @Suppress(names = "unused")
     public static List<String> readFile2List(String filePath, String charsetName) {
         return readFile2List(getFileByPath(filePath), charsetName);
     }
@@ -838,6 +864,7 @@ public final class FileUtils {
      * @param charsetName 编码格式
      * @return 包含制定行的list
      */
+    @Suppress(names = "unused")
     public static List<String> readFile2List(String filePath, int st, int end, String
             charsetName) {
         return readFile2List(getFileByPath(filePath), st, end, charsetName);
@@ -886,6 +913,7 @@ public final class FileUtils {
      * @param charsetName 编码格式
      * @return 字符串
      */
+    @Suppress(names = "unused")
     public static String readFile2String(String filePath, String charsetName) {
         return readFile2String(getFileByPath(filePath), charsetName);
     }
@@ -927,6 +955,7 @@ public final class FileUtils {
      * @param filePath 文件路径
      * @return 字符数组
      */
+    @Suppress(names = "unused")
     public static byte[] readFile2Bytes(String filePath) {
         return readFile2Bytes(getFileByPath(filePath));
     }
@@ -953,6 +982,7 @@ public final class FileUtils {
      * @param filePath 文件路径
      * @return 文件最后修改的毫秒时间戳
      */
+    @Suppress(names = "unused")
     public static long getFileLastModified(String filePath) {
         return getFileLastModified(getFileByPath(filePath));
     }
@@ -974,6 +1004,7 @@ public final class FileUtils {
      * @param filePath 文件路径
      * @return 文件编码
      */
+    @Suppress(names = "unused")
     public static String getFileCharsetSimple(String filePath) {
         return getFileCharsetSimple(getFileByPath(filePath));
     }
@@ -1013,6 +1044,7 @@ public final class FileUtils {
      * @param filePath 文件路径
      * @return 文件行数
      */
+    @Suppress(names = "unused")
     public static int getFileLines(String filePath) {
         return getFileLines(getFileByPath(filePath));
     }
@@ -1049,6 +1081,7 @@ public final class FileUtils {
      * @param dirPath 目录路径
      * @return 文件大小
      */
+    @Suppress(names = "unused")
     public static String getDirSize(String dirPath) {
         return getDirSize(getFileByPath(dirPath));
     }
@@ -1070,6 +1103,7 @@ public final class FileUtils {
      * @param filePath 文件路径
      * @return 文件大小
      */
+    @Suppress(names = "unused")
     public static String getFileSize(String filePath) {
         return getFileSize(getFileByPath(filePath));
     }
@@ -1091,6 +1125,7 @@ public final class FileUtils {
      * @param dirPath 目录路径
      * @return 目录长度
      */
+    @Suppress(names = "unused")
     public static long getDirLength(String dirPath) {
         return getDirLength(getFileByPath(dirPath));
     }
@@ -1123,6 +1158,7 @@ public final class FileUtils {
      * @param filePath 文件路径
      * @return 文件长度
      */
+    @Suppress(names = "unused")
     public static long getFileLength(String filePath) {
         return getFileLength(getFileByPath(filePath));
     }
@@ -1144,6 +1180,7 @@ public final class FileUtils {
      * @param filePath 文件路径
      * @return 文件的MD5校验码
      */
+    @Suppress(names = "unused")
     public static String getFileMD5ToString(String filePath) {
         File file = isSpace(filePath) ? null : new File(filePath);
         return getFileMD5ToString(file);
@@ -1155,6 +1192,7 @@ public final class FileUtils {
      * @param filePath 文件路径
      * @return 文件的MD5校验码
      */
+    @Suppress(names = "unused")
     public static byte[] getFileMD5(String filePath) {
         File file = isSpace(filePath) ? null : new File(filePath);
         return getFileMD5(file);
@@ -1203,6 +1241,7 @@ public final class FileUtils {
      * @param file 文件
      * @return filePath最长目录
      */
+    @Suppress(names = "unused")
     public static String getDirName(File file) {
         if (file == null) return null;
         return getDirName(file.getPath());
@@ -1226,6 +1265,7 @@ public final class FileUtils {
      * @param file 文件
      * @return 文件名
      */
+    @Suppress(names = "unused")
     public static String getFileName(File file) {
         if (file == null) return null;
         return getFileName(file.getPath());
@@ -1249,6 +1289,7 @@ public final class FileUtils {
      * @param file 文件
      * @return 不带拓展名的文件名
      */
+    @Suppress(names = "unused")
     public static String getFileNameNoExtension(File file) {
         if (file == null) return null;
         return getFileNameNoExtension(file.getPath());
@@ -1279,6 +1320,7 @@ public final class FileUtils {
      * @param file 文件
      * @return 文件拓展名
      */
+    @Suppress(names = "unused")
     public static String getFileExtension(File file) {
         if (file == null) return null;
         return getFileExtension(file.getPath());

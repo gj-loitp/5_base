@@ -26,6 +26,7 @@ class KeyboardUtils {
             }
         }
 
+        @Suppress("unused")
         fun hideSoftInput(context: Context?, view: View) {
             context?.let {
                 val imm = it.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -33,6 +34,7 @@ class KeyboardUtils {
             }
         }
 
+        @Suppress("unused")
         fun showSoftInput(edit: EditText) {
             edit.isFocusable = true
             edit.isFocusableInTouchMode = true
@@ -42,6 +44,7 @@ class KeyboardUtils {
             imm?.showSoftInput(edit, 0)
         }
 
+        @Suppress("unused")
         fun toggleSoftInput() {
             val imm =
                 getContext()?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
