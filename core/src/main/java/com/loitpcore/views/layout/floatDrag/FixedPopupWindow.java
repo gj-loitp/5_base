@@ -12,6 +12,8 @@ import android.widget.PopupWindow;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -22,34 +24,43 @@ import java.lang.reflect.Method;
 //17.12.2020 try to revert kotlin but failed
 
 public class FixedPopupWindow extends PopupWindow {
+
+    @Suppress(names = "unused")
     public FixedPopupWindow(Context context) {
         super(context);
     }
 
+    @Suppress(names = "unused")
     public FixedPopupWindow(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+    @Suppress(names = "unused")
     public FixedPopupWindow(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
+    @Suppress(names = "unused")
     public FixedPopupWindow(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+    @Suppress(names = "unused")
     public FixedPopupWindow(View contentView) {
         super(contentView);
     }
 
+    @Suppress(names = "unused")
     public FixedPopupWindow() {
         super();
     }
 
+    @Suppress(names = "unused")
     public FixedPopupWindow(int width, int height) {
         super(width, height);
     }
 
+    @Suppress(names = "unused")
     public FixedPopupWindow(View contentView, int width, int height, boolean focusable) {
         super(contentView, width, height, focusable);
     }
@@ -93,6 +104,7 @@ public class FixedPopupWindow extends PopupWindow {
             mDecorView = (View) obj;
         }
 
+        assert mDecorView != null;
         final WindowManager.LayoutParams p = (WindowManager.LayoutParams) mDecorView.getLayoutParams();
         boolean update = force;
         obj = getParam("mWidthMode");
@@ -199,7 +211,7 @@ public class FixedPopupWindow extends PopupWindow {
         return null;
     }
 
-    private Method getMethod(Class clazz, String methodName, final Class[] classes) throws Exception {
+    private Method getMethod(Class clazz, String methodName, final Class[] classes) {
         Method method = null;
         try {
             method = clazz.getDeclaredMethod(methodName, classes);

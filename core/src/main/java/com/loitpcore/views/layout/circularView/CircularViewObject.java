@@ -12,8 +12,12 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import com.loitpcore.core.utilities.LAppResource;
+
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import kotlin.Suppress;
 
 /**
  * Created by Loitp on 04,August,2022
@@ -185,7 +189,8 @@ public class CircularViewObject {
      */
     public void setSrc(final int resId) {
 //        setSrc(BitmapFactory.decodeResource(context.getResources(), resId));
-        setSrc(context.getResources().getDrawable(resId));
+//        setSrc(context.getResources().getDrawable(resId));
+        setSrc(LAppResource.INSTANCE.getDrawable(resId));
     }
 
     /**
@@ -304,6 +309,7 @@ public class CircularViewObject {
      *
      * @return The object's visual padding from the radius.
      */
+    @Suppress(names = "unused")
     public float getRadiusPadding() {
         return radiusPadding;
     }
@@ -318,6 +324,7 @@ public class CircularViewObject {
         invalidate();
     }
 
+    @Suppress(names = "unused")
     public int getCenterBackgroundColor() {
         return paint.getColor();
     }
@@ -327,10 +334,12 @@ public class CircularViewObject {
         invalidate();
     }
 
+    @Suppress(names = "unused")
     CircularView.AdapterDataSetObserver getAdapterDataSetObserver() {
         return mAdapterDataSetObserver;
     }
 
+    @Suppress(names = "unused")
     void setAdapterDataSetObserver(CircularView.AdapterDataSetObserver adapterDataSetObserver) {
         this.mAdapterDataSetObserver = adapterDataSetObserver;
     }
@@ -340,6 +349,7 @@ public class CircularViewObject {
      *
      * @return True if the object's drawable should fit inside the center circle. False if it will not.
      */
+    @Suppress(names = "unused")
     public boolean isFitToCircle() {
         return fitToCircle;
     }

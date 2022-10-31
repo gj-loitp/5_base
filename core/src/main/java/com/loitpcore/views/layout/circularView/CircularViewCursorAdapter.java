@@ -7,6 +7,8 @@ import android.database.DataSetObserver;
 import android.os.Handler;
 import android.widget.CursorAdapter;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -28,10 +30,12 @@ public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapt
         init(c, CursorAdapter.FLAG_AUTO_REQUERY);
     }
 
+    @Suppress(names = "unused")
     public CircularViewCursorAdapter(Cursor c, boolean autoRequery) {
         init(c, autoRequery ? CursorAdapter.FLAG_AUTO_REQUERY : CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
     }
 
+    @Suppress(names = "unused")
     public CircularViewCursorAdapter(Cursor c, int flags) {
         init(c, flags);
     }
@@ -147,6 +151,7 @@ public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapt
         return oldCursor;
     }
 
+    @Suppress(names = "unused")
     public void changeCursor(Cursor cursor) {
         Cursor old = swapCursor(cursor);
         if (old != null) {

@@ -59,6 +59,7 @@ class LHeartLayout : RelativeLayout {
         abstractPathAnimator?.start(heartView, this)
     }
 
+    @Suppress("unused")
     fun addHeart(color: Int, heartResId: Int, heartBorderResId: Int) {
         val heartView = HeartView(context)
         heartView.setColorAndDrawables(

@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentManager;
 
 import com.loitpcore.R;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -26,6 +28,7 @@ public class DraggablePanel extends FrameLayout {
     private static final boolean DEFAULT_ENABLE_CLICK_TO_MAXIMIZE = false;
     private static final boolean DEFAULT_ENABLE_CLICK_TO_MINIMIZE = false;
     private static final boolean DEFAULT_ENABLE_TOUCH_LISTENER = true;
+    @Suppress(names = "unused")
     private static final boolean DEFAULT_TOP_FRAGMENT_RESIZE = false;
 
     private DraggableView draggableView;
@@ -97,6 +100,7 @@ public class DraggablePanel extends FrameLayout {
     /**
      * Return if user can maximize minimized view on click.
      */
+    @Suppress(names = "unused")
     public boolean isClickToMaximizeEnabled() {
         return enableClickToMaximize;
     }
@@ -115,6 +119,7 @@ public class DraggablePanel extends FrameLayout {
     /**
      * Return if user can minimize maximized view on click.
      */
+    @Suppress(names = "unused")
     public boolean isClickToMinimizeEnabled() {
         return enableClickToMinimize;
     }
@@ -141,6 +146,7 @@ public class DraggablePanel extends FrameLayout {
      * @param drawerPosition Represent the position of nav drawer on X axis.
      * @param width          Width of nav drawer
      */
+    @Suppress(names = "unused")
     public void slideHorizontally(float slideOffset, float drawerPosition, int width) {
         draggableView.slideHorizontally(slideOffset, drawerPosition, width);
     }
@@ -149,6 +155,7 @@ public class DraggablePanel extends FrameLayout {
      * Configure the horizontal scale factor applied when the top fragment is dragged to the bottom
      * of the custom view.
      */
+    @Suppress(names = "unused")
     public void setXScaleFactor(float xScaleFactor) {
         this.xScaleFactor = xScaleFactor;
     }
@@ -157,6 +164,7 @@ public class DraggablePanel extends FrameLayout {
      * Configure the vertical scale factor applied when the top fragment is dragged to the bottom of
      * the custom view.
      */
+    @Suppress(names = "unused")
     public void setYScaleFactor(float yScaleFactor) {
         this.yScaleFactor = yScaleFactor;
     }
@@ -166,6 +174,7 @@ public class DraggablePanel extends FrameLayout {
      *
      * @param topFragmentMarginRight in pixels.
      */
+    @Suppress(names = "unused")
     public void setTopFragmentMarginRight(int topFragmentMarginRight) {
         this.topFragmentMarginRight = topFragmentMarginRight;
     }
@@ -175,6 +184,7 @@ public class DraggablePanel extends FrameLayout {
      *
      * @param topFragmentMarginBottom in pixels.
      */
+    @Suppress(names = "unused")
     public void setTopFragmentMarginBottom(int topFragmentMarginBottom) {
         this.topFragmentMarginBottom = topFragmentMarginBottom;
     }
@@ -193,6 +203,7 @@ public class DraggablePanel extends FrameLayout {
      *
      * @param enableHorizontalAlphaEffect to enable or disable the effect.
      */
+    @Suppress(names = "unused")
     public void setEnableHorizontalAlphaEffect(boolean enableHorizontalAlphaEffect) {
         this.enableHorizontalAlphaEffect = enableHorizontalAlphaEffect;
     }
@@ -200,6 +211,7 @@ public class DraggablePanel extends FrameLayout {
     /**
      * Configure the top Fragment to resize instead of scale it.
      */
+    @Suppress(names = "unused")
     public void setTopFragmentResize(boolean topViewResize) {
         draggableView.setTopViewResize(topViewResize);
     }
@@ -207,6 +219,7 @@ public class DraggablePanel extends FrameLayout {
     /**
      * Close the custom view applying an animation to close the view to the left side of the screen.
      */
+    @Suppress(names = "unused")
     public void closeToLeft() {
         draggableView.closeToLeft();
     }
@@ -214,6 +227,7 @@ public class DraggablePanel extends FrameLayout {
     /**
      * Close the custom view applying an animation to close the view to the right side of the screen.
      */
+    @Suppress(names = "unused")
     public void closeToRight() {
         draggableView.closeToRight();
     }
@@ -266,6 +280,7 @@ public class DraggablePanel extends FrameLayout {
      *
      * @return true if the view is maximized.
      */
+    @Suppress(names = "unused")
     public boolean isMaximized() {
         return draggableView.isMaximized();
     }
@@ -275,6 +290,7 @@ public class DraggablePanel extends FrameLayout {
      *
      * @return true if the view is minimized.
      */
+    @Suppress(names = "unused")
     public boolean isMinimized() {
         return draggableView.isMinimized();
     }
@@ -284,6 +300,7 @@ public class DraggablePanel extends FrameLayout {
      *
      * @return true if the view is closed at right.
      */
+    @Suppress(names = "unused")
     public boolean isClosedAtRight() {
         return draggableView.isClosedAtRight();
     }
@@ -293,6 +310,7 @@ public class DraggablePanel extends FrameLayout {
      *
      * @return true if the view is closed at left.
      */
+    @Suppress(names = "unused")
     public boolean isClosedAtLeft() {
         return draggableView.isClosedAtLeft();
     }

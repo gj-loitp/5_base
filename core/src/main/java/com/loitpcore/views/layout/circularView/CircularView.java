@@ -20,8 +20,11 @@ import android.view.SoundEffectConstants;
 import android.view.View;
 
 import com.loitpcore.R;
+import com.loitpcore.core.utilities.LAppResource;
 
 import java.util.ArrayList;
+
+import kotlin.Suppress;
 
 /**
  * Created by Loitp on 04,August,2022
@@ -170,7 +173,8 @@ public class CircularView extends View {
                 @Override
                 public void setupMarker(int position, Marker marker) {
                     marker.setRadius(mEditModeMarkerRadius);
-                    marker.setCenterBackgroundColor(getResources().getColor(android.R.color.black));
+//                    marker.setCenterBackgroundColor(getResources().getColor(android.R.color.black));
+                    marker.setCenterBackgroundColor(LAppResource.INSTANCE.getColor(android.R.color.black));
                 }
             };
         }
@@ -323,7 +327,9 @@ public class CircularView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        @Suppress(names = "unused")
         int contentWidth = mWidth - paddingLeft - paddingRight;
+        @Suppress(names = "unused")
         int contentHeight = mHeight - paddingTop - paddingBottom;
 
         mCirclePaint.setStyle(Paint.Style.FILL);
@@ -546,6 +552,7 @@ public class CircularView extends View {
      * @return True if a marker should animate when it is highlighted, false if not.
      * @see #setHighlightedDegree(float)
      */
+    @Suppress(names = "unused")
     public boolean isAnimateMarkerOnStillHighlight() {
         return mAnimateMarkersOnStillHighlight;
     }
@@ -557,6 +564,7 @@ public class CircularView extends View {
      *
      * @param animateMarkerOnHighlight True to continuously animate, false to turn it off.
      */
+    @Suppress(names = "unused")
     public void setAnimateMarkerOnStillHighlight(boolean animateMarkerOnHighlight) {
         this.mAnimateMarkersOnStillHighlight = animateMarkerOnHighlight;
         if (mMarkerList != null) {
@@ -572,6 +580,7 @@ public class CircularView extends View {
      *
      * @return The center circle object.
      */
+    @Suppress(names = "unused")
     public CircularViewObject getCenterCircle() {
         return mCircle;
     }
@@ -581,6 +590,7 @@ public class CircularView extends View {
      *
      * @return The marker that is currently highlighted.
      */
+    @Suppress(names = "unused")
     public Marker getHighlightedMarker() {
         return mHighlightedMarker;
     }
@@ -591,6 +601,7 @@ public class CircularView extends View {
      *
      * @return True if the highlighted marker will draw on top of other markers, false if they're all drawn in order.
      */
+    @Suppress(names = "unused")
     public boolean isDrawHighlightedMarkerOnTop() {
         return mDrawHighlightedMarkerOnTop;
     }
@@ -602,6 +613,7 @@ public class CircularView extends View {
      *
      * @param drawHighlightedMarkerOnTop the flag that determines if the highlighted marker will draw on top of other markers.
      */
+    @Suppress(names = "unused")
     public void setDrawHighlightedMarkerOnTop(boolean drawHighlightedMarkerOnTop) {
         this.mDrawHighlightedMarkerOnTop = drawHighlightedMarkerOnTop;
     }
@@ -724,6 +736,7 @@ public class CircularView extends View {
      * @param l Listener to receive callbacks.
      * @see #animateHighlightedDegree(float, float, long)
      */
+    @Suppress(names = "unused")
     public void setOnHighlightAnimationEndListener(final OnHighlightAnimationEndListener l) {
         mOnHighlightAnimationEndListener = l;
     }
@@ -737,6 +750,7 @@ public class CircularView extends View {
      * @param endDegree   Degree to end the animation at.
      * @param duration    Duration the animation should be.
      */
+    @Suppress(names = "unused")
     public void animateHighlightedDegree(final float startDegree, final float endDegree, final long duration) {
         animateHighlightedDegree(startDegree, endDegree, duration, true);
     }
@@ -796,6 +810,7 @@ public class CircularView extends View {
      *
      * @return The starting point for the markers.
      */
+    @Suppress(names = "unused")
     public float getMarkerStartingPoint() {
         return mMarkerStartingPoint;
     }
@@ -806,6 +821,7 @@ public class CircularView extends View {
      *
      * @param startingPoint Starting point for the markers
      */
+    @Suppress(names = "unused")
     public void setMarkerStartingPoint(final float startingPoint) {
         mMarkerStartingPoint = startingPoint;
         requestLayout();

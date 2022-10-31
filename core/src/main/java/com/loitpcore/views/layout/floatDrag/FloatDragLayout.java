@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 
+import kotlin.Suppress;
 import timber.log.Timber;
 
 /**
@@ -222,6 +223,7 @@ public class FloatDragLayout extends FrameLayout {
         setLayoutParams(layoutParams);
     }
 
+    @Suppress(names = "unused")
     public void setNearScreenEdge(boolean nearScreenEdge) {
         isNearScreenEdge = nearScreenEdge;
     }

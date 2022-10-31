@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 
 import java.util.Objects;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -102,6 +104,7 @@ public class Marker extends CircularViewObject {
      *
      * @return Flag that determines if this marker is highlighted.
      */
+    @Suppress(names = "unused")
     public boolean isHighlighted() {
         return isHighlighted;
     }
@@ -119,6 +122,7 @@ public class Marker extends CircularViewObject {
         invalidate();
     }
 
+    @Suppress(names = "unused")
     boolean isShouldAnimateWhenHighlighted() {
         return shouldAnimateWhenHighlighted;
     }
