@@ -83,7 +83,8 @@ class FragmentNavigationActivity :
 
     fun popThisFragment() {
         if (!navController.popBackStack()) {
-            super.onBackPressed()
+//            super.onBackPressed()
+            super.onBaseBackPressed()
         }
     }
 }

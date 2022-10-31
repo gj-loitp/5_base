@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
  * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
  * sequence.
  */
+@Suppress("unused")
 class ScreenSlidePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {

@@ -70,6 +70,7 @@ class ScoreTextViewActivity : BaseFontActivity() {
         }
     }
 
+    @Suppress("unused")
     private fun updateScore(totalScore: Int) {
         for (i in currentScore..totalScore) {
             handler.sendMessageDelayed(

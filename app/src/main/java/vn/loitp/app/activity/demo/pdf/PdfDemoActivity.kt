@@ -50,7 +50,7 @@ class PdfDemoActivity : BaseFontActivity() {
             this.tvTitle?.text = PdfDemoActivity::class.java.simpleName
         }
         btFileAsyncTask.setSafeOnClickListener {
-            callAysncTaskFile()
+            callAsyncTaskFile()
         }
         btFileCoroutine.setSafeOnClickListener {
             //TODO deo chay :((
@@ -92,7 +92,7 @@ class PdfDemoActivity : BaseFontActivity() {
         }
     }
 
-    private fun callAysncTaskFile() {
+    private fun callAsyncTaskFile() {
         updateUIProgress(isLoading = true)
         Pump.newRequestToDownload(
             "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf",

@@ -151,6 +151,7 @@ class LWebViewActivity : BaseFontActivity() {
             lWebView.addJavascriptInterface(object : Any() {
                 @JavascriptInterface
                 @Throws(java.lang.Exception::class)
+                @Suppress("unused")
                 fun performClick(id: String) {
                     showLongInformation("Login print order id: $id")
                 }
@@ -161,6 +162,7 @@ class LWebViewActivity : BaseFontActivity() {
             lWebView.addJavascriptInterface(object : Any() {
                 @JavascriptInterface
                 @Throws(java.lang.Exception::class)
+                @Suppress("unused")
                 fun performClick(id: String) {
                     logE("isDetectButtonClickWeb order id: $id")
                     showLongInformation("isDetectButtonClickWeb order id: $id")

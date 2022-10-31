@@ -333,6 +333,7 @@ class LocationActivity : BaseFontActivity() {
         }
     }
 
+    @Suppress("unused")
     private fun openSettings() {
         val intent = Intent()
         intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS

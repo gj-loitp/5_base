@@ -27,11 +27,17 @@ class VocabularyManager(
         private const val DB_NAME = "vocabulary.sqlite"
         private val DATABASE_VERSION = appVersionCode
         private const val TABLE_NAME = "word"
+        @Suppress("unused")
         private const val KEY_ID = "_id"
+        @Suppress("unused")
         private const val KEY_SWORD = "sword"
+        @Suppress("unused")
         private const val KEY_SPHONETIC = "sphonetic"
+        @Suppress("unused")
         private const val KEY_SMEANINGS = "smeanings"
+        @Suppress("unused")
         private const val KEY_SSUMMARY = "ssummary"
+        @Suppress("unused")
         private const val KEY_SISOXFORDLIST = "sisoxfordlist"
     }
 
@@ -40,6 +46,7 @@ class VocabularyManager(
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {}
 
     @Throws(SQLException::class)
+    @Suppress("unused")
     fun openDatabase() {
         val myPath = DB_PATH + DB_NAME
         sqLiteDatabase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY)
@@ -117,6 +124,7 @@ class VocabularyManager(
             return vocabularyList
         }
 
+    @Suppress("unused")
     fun getNRandomVocabulary(first: Int, last: Int): List<Vocabulary> {
         val vocabularyList: MutableList<Vocabulary> = ArrayList()
         val limit = "$first,$last"

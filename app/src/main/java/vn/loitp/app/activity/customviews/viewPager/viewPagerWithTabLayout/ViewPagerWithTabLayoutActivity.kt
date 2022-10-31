@@ -37,6 +37,7 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
         private const val FlipHorizontalTransformer = "FlipHorizontalTransformer"
         private const val FlipVerticalTransformer = "FlipVerticalTransformer"
         private const val ForegroundToBackgroundTransformer = "ForegroundToBackgroundTransformer"
+        @Suppress("unused")
         private const val ParallaxPageTransformer = "ParallaxPageTransformer"
         private const val RotateUpTransformer = "RotateUpTransformer"
         private const val RotateDownTransformer = "RotateDownTransformer"

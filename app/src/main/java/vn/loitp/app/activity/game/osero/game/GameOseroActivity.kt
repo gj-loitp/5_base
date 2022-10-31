@@ -50,6 +50,7 @@ class GameOseroActivity : BaseFontActivity(), GameView {
         setupViews()
     }
 
+    @SuppressLint("InflateParams")
     private fun setupViews() {
         lActionBar.apply {
             LUIUtil.setSafeOnClickListenerElastic(

@@ -117,6 +117,7 @@ class DatabaseHelper(context: Context) :
         return tagList
     }
 
+    @Suppress("unused")
     private fun getColumnIndexInt(cursor: Cursor, key: String): Int? {
         val i = cursor.getColumnIndex(key)
         if (i >= 0) {
@@ -215,6 +216,7 @@ class DatabaseHelper(context: Context) :
     /**
      * get single note
      */
+    @Suppress("unused")
     fun getNote(noteId: Long): Note? {
         val db = this.readableDatabase
 
@@ -280,6 +282,7 @@ class DatabaseHelper(context: Context) :
     /**
      * Updating a note
      */
+    @Suppress("unused")
     fun updateNote(note: Note): Int {
         val db = this.writableDatabase
 
@@ -372,6 +375,7 @@ class DatabaseHelper(context: Context) :
         return id
     }
 
+    @Suppress("unused")
     fun updateNoteTag(id: Long, tagId: Long): Int {
         val db = this.writableDatabase
         val values = ContentValues()
@@ -383,6 +387,7 @@ class DatabaseHelper(context: Context) :
         )
     }
 
+    @Suppress("unused")
     fun deleteNoteTag(id: Long) {
         val db = this.writableDatabase
         db.delete(

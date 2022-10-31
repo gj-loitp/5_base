@@ -18,6 +18,7 @@ class FloorPlanAdapter : RecyclerView.Adapter<FloorPlanAdapter.ViewHolder>() {
     var onClickUpDate: ((FloorPlan) -> Unit)? = null
     var onClickDelete: ((FloorPlan) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setListFloorPlan(listFloorPlan: List<FloorPlan>) {
         this.listFloorPlan.clear()
         this.listFloorPlan.addAll(listFloorPlan)

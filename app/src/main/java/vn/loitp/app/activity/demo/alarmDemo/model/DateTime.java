@@ -14,6 +14,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
+import kotlin.Suppress;
+
 @Keep
 public class DateTime extends BaseModel {
     private final Context mContext;
@@ -127,6 +129,7 @@ public class DateTime extends BaseModel {
         return mFullDayNames;
     }
 
+    @Suppress(names = "unused")
     public String[] getShortDayNames() {
         return mShortDayNames;
     }

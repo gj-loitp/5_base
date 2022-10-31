@@ -32,6 +32,7 @@ class BikeDatabase(context: Context) :
         private const val KEY_IMG_PATH_0 = "imgPath0"
         private const val KEY_IMG_PATH_1 = "imgPath1"
         private const val KEY_IMG_PATH_2 = "imgPath2"
+        @Suppress("unused")
         const val RESULT_SUCCESS: Long = 1
         const val RESULT_FAILED: Long = -1
     }
@@ -233,6 +234,7 @@ class BikeDatabase(context: Context) :
     }
 
     // Deleting single bike
+    @Suppress("unused")
     fun deleteBike(id: Long): Long {
         val db = this.writableDatabase
         val result = db.delete(TABLE_BIKE, "$KEY_ID = ?", arrayOf(id.toString()))

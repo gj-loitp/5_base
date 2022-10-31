@@ -19,6 +19,7 @@ import com.loitpcore.core.base.BaseFontActivity;
 import com.loitpcore.core.utilities.LActivityUtil;
 import com.loitpcore.core.utilities.LUIUtil;
 
+import kotlin.Suppress;
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmDemo.adapter.AlarmListAdapter;
 import vn.loitp.app.activity.demo.alarmDemo.model.Alarm;
@@ -33,6 +34,7 @@ public class AlarmMeActivity extends BaseFontActivity {
     private final int NEW_ALARM_ACTIVITY = 0;
     private final int EDIT_ALARM_ACTIVITY = 1;
     private final int PREFERENCES_ACTIVITY = 2;
+    @Suppress(names = "unused")
     private final int ABOUT_ACTIVITY = 3;
 
     private final int CONTEXT_MENU_EDIT = 0;

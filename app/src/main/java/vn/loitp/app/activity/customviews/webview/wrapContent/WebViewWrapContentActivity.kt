@@ -56,6 +56,7 @@ class WebViewWrapContentActivity : BaseFontActivity() {
 
         wv.addJavascriptInterface(object : Any() {
             @JavascriptInterface
+            @Suppress("unused")
             fun performClick(string: String?) {
                 showLongWarning("click button close")
             }
@@ -63,6 +64,7 @@ class WebViewWrapContentActivity : BaseFontActivity() {
 
         wv.addJavascriptInterface(object : Any() {
             @JavascriptInterface
+            @Suppress("unused")
             fun performClick(string: String?) {
                 showLongWarning("click body")
             }
