@@ -11,6 +11,7 @@ import com.loitpcore.core.base.BaseModel
  * freuss47@gmail.com
  */
 @Keep
+@Suppress("unused")
 class DownloadObject : BaseModel() {
     var url: String = ""
     var tit: String = ""

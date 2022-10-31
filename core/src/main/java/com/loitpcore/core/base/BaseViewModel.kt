@@ -33,20 +33,28 @@ open class BaseViewModel : ViewModel() {
     }
 
     // coroutines
+    @Suppress("unused")
     protected var viewModelJob = Job()
+    @Suppress("unused")
     protected val ioContext = viewModelJob + Dispatchers.IO // background context
+    @Suppress("unused")
     protected val uiContext = viewModelJob + Dispatchers.Main // ui context
     protected val ioScope = CoroutineScope(ioContext)
+    @Suppress("unused")
     protected val uiScope = CoroutineScope(uiContext)
 
     // event
+    @Suppress("unused")
     val eventLoading = MutableLiveData<Boolean>()
+    @Suppress("unused")
     val eventErrorMessage = MutableLiveData<String?>()
 
+    @Suppress("unused")
     fun showLoading(value: Boolean) {
         eventLoading.post(value)
     }
 
+    @Suppress("unused")
     fun setErrorMessage(error: String?) {
         if (error?.isNotEmpty() == true) {
             eventErrorMessage.post(error)

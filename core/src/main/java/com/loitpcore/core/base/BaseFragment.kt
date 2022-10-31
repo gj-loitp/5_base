@@ -124,6 +124,7 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
+    @Suppress("unused")
     private fun getNextAnimationDuration(fragment: Fragment, defValue: Long): Long {
         try {
             // Attempt to get the resource ID of the next animation that

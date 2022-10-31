@@ -57,7 +57,7 @@ class LNFCUtil {
                 // Inject spacer
                 if (i < macAddress.size - 1) buffer[destIndex++] = ':'
             }
-            return String(buffer, 0, destIndex)
+            return String(chars = buffer, offset = 0, length = destIndex)
         }
 
         fun bytesToHexAndString(bytes: ByteArray?): String? {

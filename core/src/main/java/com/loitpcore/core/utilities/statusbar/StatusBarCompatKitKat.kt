@@ -18,6 +18,7 @@ import kotlin.math.abs
  * +840766040293
  * freuss47@gmail.com
  */
+@Suppress("unused")
 internal class StatusBarCompatKitKat {
 
     companion object {

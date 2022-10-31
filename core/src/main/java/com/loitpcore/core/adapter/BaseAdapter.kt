@@ -44,6 +44,7 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
+    @Suppress("unused")
     protected fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
@@ -52,24 +53,29 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         LToast.showShortError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
+    @Suppress("unused")
     protected fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
+    @Suppress("unused")
     protected fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
+    @Suppress("unused")
     protected fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showLongError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
+    @Suppress("unused")
     protected fun showShortDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
             LToast.showShortDebug(msg)
         }
     }
 
+    @Suppress("unused")
     protected fun showLongDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
             LToast.showLongInformation(msg)

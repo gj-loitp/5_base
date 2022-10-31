@@ -169,6 +169,7 @@ class LDateUtil {
             }
         }
 
+        @Suppress("unused")
         fun getDateFromDateTime(datetime: String): String {
             val date = datetime.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
             return date[0]
@@ -241,6 +242,7 @@ class LDateUtil {
             }
         }
 
+        @Suppress("unused")
         fun convertDate(dateInMilliseconds: String, dateFormat: String): String? {
             return try {
                 val timeStamp = java.lang.Long.parseLong(dateInMilliseconds)
@@ -257,6 +259,7 @@ class LDateUtil {
             }
         }
 
+        @Suppress("unused")
         fun convertSToFormat(second: Long, format: String): String? {
             val d = Date(second * 1000L)
             val df = SimpleDateFormat(format, Locale.getDefault())

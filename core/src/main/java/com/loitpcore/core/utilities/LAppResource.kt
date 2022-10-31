@@ -43,11 +43,13 @@ object LAppResource {
         return application.resources.getDimensionPixelSize(dimenRes)
     }
 
+    @Suppress("unused")
     fun getArrayString(@ArrayRes arrayRes: Int): Array<String> =
         application.let {
             application.resources.getStringArray(arrayRes)
         }
 
+    @Suppress("unused")
     fun getViewInflater(@LayoutRes layoutRes: Int, container: ViewGroup?): View =
         application.let {
             val inflater =
@@ -55,6 +57,7 @@ object LAppResource {
             inflater.inflate(layoutRes, container, false)
         }
 
+    @Suppress("unused")
     fun getViewInflater(@LayoutRes layoutRes: Int, parent: View?, container: ViewGroup?): View =
         application.let {
             val inflater = LayoutInflater.from(parent?.context)
