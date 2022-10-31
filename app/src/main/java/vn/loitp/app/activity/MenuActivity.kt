@@ -102,6 +102,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         btUtils.setOnClickListener(this)
         btUtilsCore.setOnClickListener(this)
         btGame.setOnClickListener(this)
+        btFeedback.setOnClickListener(this)
     }
 
     private fun setupConfigGoogle() {
@@ -218,6 +219,17 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                 btService -> Intent(this, MenuServiceActivity::class.java)
                 btUtils -> Intent(this, UtilsActivity::class.java)
                 btUtilsCore -> Intent(this, UtilsCoreActivity::class.java)
+                btFeedback -> {
+                    LSocialUtil.sendEmail(
+                        activity = this,
+                        to = "roy93group@gmail.com",
+                        cc = "roy93group@gmail.com",
+                        bcc = "roy93group@gmail.com",
+                        subject = "Feedback",
+                        body = "..."
+                    )
+                    null
+                }
                 else -> null
             }
         intent?.let {

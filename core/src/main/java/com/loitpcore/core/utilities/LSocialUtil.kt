@@ -10,6 +10,7 @@ import com.loitpcore.R
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.fbComment.FbCommentActivity
 import com.loitpcore.utils.util.AppUtils
+import de.cketti.mailto.EmailIntentBuilder
 
 /**
  * Created by Loitp on 04,August,2022
@@ -221,6 +222,31 @@ class LSocialUtil {
             intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
             context.startActivity(intent)
             LActivityUtil.tranIn(context)
+        }
+
+        fun sendEmail(
+            activity: Activity,
+            to: String,
+            cc: String? = null,
+            bcc: String? = null,
+            subject: String? = null,
+            body: String? = null,
+        ) {
+            val i = EmailIntentBuilder.from(activity)
+            i.to(to)
+            cc?.let {
+                i.cc(it)
+            }
+            bcc?.let {
+                i.bcc(it)
+            }
+            subject?.let {
+                i.subject(it)
+            }
+            body?.let {
+                i.body(it)
+            }
+            i.start()
         }
     }
 }
