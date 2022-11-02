@@ -37,7 +37,7 @@ class FacebookCommentActivity : BaseFontActivity() {
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = FacebookCommentActivity::class.java.simpleName
         }
-        bt.setSafeOnClickListener { _ ->
+        bt.setSafeOnClickListener {
             LSocialUtil.openFacebookComment(
                 context = this,
                 url = "http://truyentranhtuan.com/one-piece-chuong-907/",
