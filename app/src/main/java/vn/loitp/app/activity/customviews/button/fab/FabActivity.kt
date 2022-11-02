@@ -3,10 +3,12 @@ package vn.loitp.app.activity.customviews.button.fab
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_fab.*
 import vn.loitp.app.R
@@ -38,6 +40,17 @@ class FabActivity : BaseFontActivity() {
             this.ivIconRight?.isVisible = false
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = FabActivity::class.java.simpleName
+        }
+        btAiNone.setSafeOnClickListener {
+            btAiNone.shrink(object : ExtendedFloatingActionButton.OnChangedCallback() {
+                override fun onShrunken(extendedFab: ExtendedFloatingActionButton?) {
+                    super.onShrunken(extendedFab)
+                }
+
+                override fun onExtended(extendedFab: ExtendedFloatingActionButton?) {
+                    super.onExtended(extendedFab)
+                }
+            })
         }
     }
 }
