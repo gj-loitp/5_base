@@ -104,7 +104,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
         }
     }
 
-    //TODO fix FragmentPagerAdapter
+    //TODO upgrade vp 2
     inner class SectionsPagerAdapter internal constructor(fm: FragmentManager) :
         FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 

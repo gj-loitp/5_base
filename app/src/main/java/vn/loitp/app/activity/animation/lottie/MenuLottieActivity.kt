@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieDrawable
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -120,7 +121,8 @@ class MenuLottieActivity : BaseFontActivity() {
             // lottieAnimationView.setScale(0.3f);
 
             // lottieAnimationView.playAnimation();
-            animationView.loop(true)
+//            animationView.loop(true)
+            animationView.repeatCount = LottieDrawable.INFINITE
             rl.setOnClickListener {
                 animationView.playAnimation()
             }
