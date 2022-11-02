@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import java.util.LinkedList;
 
+import kotlin.Suppress;
+
 public class UndoRedoManager {
 
     private final TextView textView;
@@ -63,22 +65,27 @@ public class UndoRedoManager {
         textView.addTextChangedListener(textChangeWatcher);
     }
 
+    @Suppress(names = "unused")
     public void disconnect() {
         textView.removeTextChangedListener(textChangeWatcher);
     }
 
+    @Suppress(names = "unused")
     public void setMaxHistorySize(int maxSize) {
         editHistory.setMaxHistorySize(maxSize);
     }
 
+    @Suppress(names = "unused")
     public void clearHistory() {
         editHistory.clear();
     }
 
+    @Suppress(names = "unused")
     public boolean canUndo() {
         return editHistory.position > 0;
     }
 
+    @Suppress(names = "unused")
     public boolean canRedo() {
         return editHistory.position < editHistory.historyList.size();
     }
@@ -149,7 +156,7 @@ public class UndoRedoManager {
     }
 
     private enum ActionType {
-        INSERT, DELETE, PASTE, NOT_DEF;
+        INSERT, DELETE, PASTE, NOT_DEF
     }
 
     private final class TextChangeWatcher implements TextWatcher {

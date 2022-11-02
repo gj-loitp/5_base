@@ -3,6 +3,8 @@ package vn.loitp.app.activity.customviews.codeView.plugin;
 import android.text.Editable;
 import android.widget.EditText;
 
+import kotlin.Suppress;
+
 public class CommentManager {
 
     private final EditText textView;
@@ -23,6 +25,7 @@ public class CommentManager {
         this.commendEndLength = 0;
     }
 
+    @Suppress(names = "unused")
     public CommentManager(EditText textView, String commentStart, String commentEnd) {
         this.textView = textView;
         this.editable = textView.getText();
