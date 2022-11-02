@@ -177,12 +177,14 @@ class ScaleCircleNavigator(context: Context) :
 
     override fun onDetachFromMagicIndicator() {}
 
+    @Suppress("unused")
     fun setMinRadius(minRadius: Int) {
         mMinRadius = minRadius
         prepareCirclePoints()
         invalidate()
     }
 
+    @Suppress("unused")
     fun setMaxRadius(maxRadius: Int) {
         mMaxRadius = maxRadius
         prepareCirclePoints()
@@ -199,12 +201,14 @@ class ScaleCircleNavigator(context: Context) :
         invalidate()
     }
 
+    @Suppress("unused")
     fun setCircleSpacing(circleSpacing: Int) {
         mCircleSpacing = circleSpacing
         prepareCirclePoints()
         invalidate()
     }
 
+    @Suppress("unused")
     fun setStartInterpolator(startInterpolator: Interpolator) {
         if (startInterpolator is LinearInterpolator) {
             mStartInterpolator = startInterpolator
@@ -216,14 +220,17 @@ class ScaleCircleNavigator(context: Context) :
         mNavigatorHelper.totalCount = mCircleCount
     }
 
+    @Suppress("unused")
     fun setTouchable(touchable: Boolean) {
         mTouchable = touchable
     }
 
+    @Suppress("unused")
     fun setFollowTouch(followTouch: Boolean) {
         mFollowTouch = followTouch
     }
 
+    @Suppress("unused")
     fun setSkimOver(skimOver: Boolean) {
         mNavigatorHelper.setSkimOver(skimOver)
     }

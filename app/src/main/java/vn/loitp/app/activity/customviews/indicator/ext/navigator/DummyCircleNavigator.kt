@@ -82,6 +82,7 @@ class DummyCircleNavigator(context: Context) : View(context), IPagerNavigator {
         invalidate()
     }
 
+    @Suppress("unused")
     var circleColor: Int
         get() = mCircleColor
         set(circleColor) {
@@ -101,6 +102,8 @@ class DummyCircleNavigator(context: Context) : View(context), IPagerNavigator {
             prepareCirclePoints()
             invalidate()
         }
+
+    @Suppress("unused")
     var circleSpacing: Int
         get() = mCircleSpacing
         set(circleSpacing) {
