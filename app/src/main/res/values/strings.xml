@@ -1051,6 +1051,7 @@ Likewise may someone love you next.
     <string name="textTopModeAIStrongButton">Against AI: Strong</string>
 
     <string name="logo">logo</string>
+    <string name="fab">FloatingActionButton</string>
     <string-array name="modeTypes">
         <item>One player</item>
         <item>Two players</item>

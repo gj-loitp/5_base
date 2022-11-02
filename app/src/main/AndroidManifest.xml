@@ -1223,6 +1223,9 @@
             android:name=".activity.game.pong.activity.GameActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.customviews.button.fab.FabActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
     <queries>
