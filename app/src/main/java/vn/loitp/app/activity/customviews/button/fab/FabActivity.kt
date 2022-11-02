@@ -52,5 +52,9 @@ class FabActivity : BaseFontActivity() {
                 }
             })
         }
+        btAiNone2.shrink()
+        btAiNone2.setSafeOnClickListener {
+            btAiNone2.extend()
+        }
     }
 }

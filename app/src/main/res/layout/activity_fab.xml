@@ -57,6 +57,27 @@
                 app:tint="@color/white"
                 app:useCompatPadding="true"
                 tools:ignore="TextContrastCheck" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/btAiNone2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_medium"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:minHeight="@dimen/design_fab_size_normal"
+                android:text="@string/app_name"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_medium"
+                app:backgroundTint="?attr/themePrimaryColor"
+                app:elevation="@dimen/w_3"
+                app:fabSize="auto"
+                app:icon="@drawable/ic_add_white_24dp"
+                app:iconTint="@color/white"
+                app:tint="@color/white"
+                app:useCompatPadding="true"
+                tools:ignore="TextContrastCheck" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
