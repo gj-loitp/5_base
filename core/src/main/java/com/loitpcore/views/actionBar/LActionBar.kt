@@ -47,16 +47,18 @@ class LActionBar : RelativeLayout {
         this.realtimeBlurView = findViewById(R.id.realtimeBlurView)
         this.viewShadow = findViewById(R.id.viewShadow)
 
-        if (LUIUtil.isDarkTheme()) {
-            ivIconLeft?.setColorFilter(Color.WHITE)
-            ivIconRight?.setColorFilter(Color.WHITE)
-            tvTitle?.setTextColor(Color.WHITE)
-            realtimeBlurView?.setOverlayColor(LAppResource.getColor(R.color.colorPrimaryDark))
-        } else {
-            ivIconLeft?.setColorFilter(Color.BLACK)
-            ivIconRight?.setColorFilter(Color.BLACK)
-            tvTitle?.setTextColor(Color.BLACK)
-            realtimeBlurView?.setOverlayColor(LAppResource.getColor(R.color.colorPrimaryLight))
+        if (!isInEditMode) {
+            if (LUIUtil.isDarkTheme()) {
+                ivIconLeft?.setColorFilter(Color.WHITE)
+                ivIconRight?.setColorFilter(Color.WHITE)
+                tvTitle?.setTextColor(Color.WHITE)
+                realtimeBlurView?.setOverlayColor(LAppResource.getColor(R.color.colorPrimaryDark))
+            } else {
+                ivIconLeft?.setColorFilter(Color.BLACK)
+                ivIconRight?.setColorFilter(Color.BLACK)
+                tvTitle?.setTextColor(Color.BLACK)
+                realtimeBlurView?.setOverlayColor(LAppResource.getColor(R.color.colorPrimaryLight))
+            }
         }
     }
 }
