@@ -2,6 +2,7 @@ package vn.loitp.app.app
 
 import com.g1.onetargetsdk.core.Analytics
 import com.g1.onetargetsdk.core.Configuration
+import com.g1.onetargetsdk.core.IAM
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.common.Constants
@@ -10,7 +11,10 @@ import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.data.ActivityData
 import io.realm.Realm
 import io.realm.RealmConfiguration
+import vn.loitp.app.BuildConfig
 import vn.loitp.app.activity.database.room.db.FNBDatabase
+
+//TODO one signal
 
 // build release de check
 // TODO service -> ko stop service dc
@@ -59,10 +63,15 @@ class LApplication : BaseApplication() {
     private fun setupTrackingG1() {
         val configuration = Configuration(this)
         configuration.setEnvironmentDev()
-//        configuration.setEnvironmentProd()
-        configuration.writeKey = "ab44219f-dc9e-4080-943c-a127bd071da3"
-        val result = Analytics.setup(configuration)
-        logE("setup result $result")
+        configuration.writeKey = "490bf1f1-2e88-4d6d-8ec4-2bb7de74f9a8"
+        configuration.isShowLog = BuildConfig.DEBUG
+        configuration.isEnableIAM = true
+        configuration.oneTargetAppPushID = "d355f0df-6d85-4258-a871-82aaa4031b53"
+        configuration.onShowIAM = { htmlContent, iamData ->
+            IAM.showIAMActivity(this, htmlContent, iamData)
+            //or IAM.showIAMDialog(this, htmlContent, iamData)
+        }
+        Analytics.setup(configuration = configuration, context = this)
     }
 
     override fun onAppInBackground() {

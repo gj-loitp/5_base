@@ -132,7 +132,7 @@ dependencies {
 
     api 'com.thedeanda:lorem:2.1'
 
-    api 'com.github.g1-onetarget:onetargetsdk:1.2.9'
+    api 'com.github.g1-onetarget:onetargetsdk:1.3.2'
 
 //    noinspection AnnotationProcessorOnCompilePath
     api 'io.realm:realm-android:0.82.1'
