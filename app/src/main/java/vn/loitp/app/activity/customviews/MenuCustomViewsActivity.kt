@@ -50,6 +50,7 @@ import vn.loitp.app.activity.customviews.videoView.MenuVideoViewActivity
 import vn.loitp.app.activity.customviews.viewPager.MenuViewPagerActivity
 import vn.loitp.app.activity.customviews.webview.MenuWebViewActivity
 import vn.loitp.app.activity.customviews.wheelSpiner.WheelSpinnerActivity
+import vn.loitp.app.activity.customviews.wheelView.WheelViewActivity
 import vn.loitp.app.activity.customviews.wwlMusic.WWLActivityMusic
 import vn.loitp.app.activity.customviews.wwlVideo.WWLVideoActivity
 
@@ -119,6 +120,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btMenuGraphViewActivity.setOnClickListener(this)
         btSimpleRatingBar.setOnClickListener(this)
         btCodeView.setOnClickListener(this)
+        btWheelView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -162,6 +164,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btMenuGraphViewActivity -> Intent(this, MenuGraphViewActivity::class.java)
             btSimpleRatingBar -> Intent(this, SimpleRatingBarActivity::class.java)
             btCodeView -> Intent(this, CodeViewActivity::class.java)
+            btWheelView -> Intent(this, WheelViewActivity::class.java)
             else -> null
         }
         intent?.let {

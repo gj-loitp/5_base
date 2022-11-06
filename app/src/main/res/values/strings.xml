@@ -1052,6 +1052,14 @@ Likewise may someone love you next.
 
     <string name="logo">logo</string>
     <string name="fab">FloatingActionButton</string>
+    <string name="codeview">CodeView</string>
+    <string name="drag_view">DragView</string>
+    <string name="finger_paint_view">FingerPaintView</string>
+    <string name="menu_graph_view_activity">MenuGraphViewActivity</string>
+    <string name="simple_rating_bar">SimpleRatingBar</string>
+    <string name="stack_expandable_view_activity">StackExpandableViewActivity</string>
+    <string name="web_view">Web View</string>
+    <string name="wheel_view_activity">WheelViewActivity</string>
     <string-array name="modeTypes">
         <item>One player</item>
         <item>Two players</item>
