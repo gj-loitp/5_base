@@ -14,7 +14,7 @@ import vn.loitp.app.R
 
 @LogTag("WheelViewActivity")
 @IsFullScreen(false)
-@IsAutoAnimation(true)
+@IsAutoAnimation(false)
 class WheelViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

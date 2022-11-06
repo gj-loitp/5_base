@@ -30,7 +30,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/wheel_view_activity"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="?attr/themeTextColor" />
 
             <me.sujanpoudel.wheelview.WheelView
                 android:id="@+id/wheelView"
@@ -58,7 +59,7 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/type"
                 android:textAlignment="center"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:visibility="gone"
