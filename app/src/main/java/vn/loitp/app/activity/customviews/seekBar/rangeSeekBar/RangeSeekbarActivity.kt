@@ -178,7 +178,7 @@ class RangeSeekbarActivity : BaseFontActivity() {
         }
     }
 
-    fun getValues() {
+    private fun getValues() {
         showShortInformation("1->${rangeSeekbar1.currentValue}\n" + "2->${rangeSeekbar2.currentValue}\n" + "3->${rangeSeekbar3.currentValue}\n" + "4->${rangeSeekbar4.currentValue}\n" + "min->${rangeSeekbar.currentMinValue} max->${rangeSeekbar.currentMaxValue}")
     }
 }

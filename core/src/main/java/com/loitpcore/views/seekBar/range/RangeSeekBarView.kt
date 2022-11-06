@@ -11,6 +11,8 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.ColorInt
 import com.loitpcore.R
+import kotlin.math.abs
+import kotlin.math.max
 import kotlin.math.roundToInt
 
 @SuppressLint("AppCompatCustomView")
@@ -38,7 +40,6 @@ class RangeSeekBarView : View {
 
     private var valueToDraw: Float = 0f
 
-
     private var barHeight: Int = 0
     private var circleRadius: Int = 0
     private var circleTextSize: Int = 0
@@ -63,19 +64,24 @@ class RangeSeekBarView : View {
             invalidate()
             requestLayout()
         }
+
+    @Suppress("unused")
     var maxValue: Int = DEFAULT_MAX_VALUE
-        set(value: Int) {
+        set(value) {
             field = value
             invalidate()
             requestLayout()
         }
 
+    @Suppress("unused")
     var minValue: Int = DEFAULT_MIN_VALUE
-        set(value: Int) {
+        set(value) {
             field = value
             invalidate()
             requestLayout()
         }
+
+    @Suppress("unused")
     var baseColor: Int = DEFAULT_BASE_COLOR
         set(@ColorInt color) {
             field = color
@@ -88,6 +94,8 @@ class RangeSeekBarView : View {
             barFillPaint.color = color
             invalidate()
         }
+
+    @Suppress("unused")
     var circleTextColor: Int = DEFAULT_TEXT_COLOR
         set(@ColorInt color) {
             field = color
@@ -95,6 +103,7 @@ class RangeSeekBarView : View {
             invalidate()
         }
 
+    @Suppress("unused")
     var circleFillColor: Int = DEFAULT_CIRCLE_COLOR
         set(@ColorInt color) {
             field = color
@@ -102,9 +111,7 @@ class RangeSeekBarView : View {
             invalidate()
         }
 
-
     private var isTouchListenerEnabled = true
-
 
     var currentValue: Int = DEFAULT_VALUE
         set(value) {
@@ -120,21 +127,17 @@ class RangeSeekBarView : View {
                 field = newValue
             }
 
-
             animation?.cancel()
 
             if (animated) {
                 animation = ValueAnimator.ofFloat(previousValue.toFloat(), currentValue.toFloat())
-                val changeInValue = Math.abs(currentValue - previousValue)
+                val changeInValue = abs(currentValue - previousValue)
 
-                val durationToUse: Long
-                if (direction == Direction.BOTTOM_TO_TOP || direction == Direction.RIGHT_TO_LEFT) {
-                    durationToUse =
+                val durationToUse: Long = if (direction == Direction.BOTTOM_TO_TOP || direction == Direction.RIGHT_TO_LEFT) {
                         (animationDuration * (changeInValue.toFloat() / minValue.toFloat())).toLong()
-                } else {
-                    durationToUse =
+                    } else {
                         (animationDuration * (changeInValue.toFloat() / maxValue.toFloat())).toLong()
-                }
+                    }
                 animation?.duration = durationToUse
 
                 animation?.addUpdateListener { valueAnimator ->
@@ -246,7 +249,10 @@ class RangeSeekBarView : View {
         }
         if (typedArray.hasValue(R.styleable.RangeSeekBarView_orientationRangeSeekBarView)) {
             direction =
-                Direction.values()[typedArray.getInt(R.styleable.RangeSeekBarView_orientationRangeSeekBarView, 1)]
+                Direction.values()[typedArray.getInt(
+                    R.styleable.RangeSeekBarView_orientationRangeSeekBarView,
+                    1
+                )]
         }
 
         setPadding(defaultPadding, defaultPadding, defaultPadding, defaultPadding)
@@ -278,7 +284,7 @@ class RangeSeekBarView : View {
 
     private fun measureHeight(measureSpec: Int): Int {
         var size = paddingTop + paddingBottom
-        size += Math.max(barHeight, circleRadius)
+        size += max(barHeight, circleRadius)
         return resolveSizeAndState(size, measureSpec, 0)
     }
 
@@ -351,7 +357,7 @@ class RangeSeekBarView : View {
         canvas.drawCircle(barCenter, fillPosition, circleRadius.toFloat(), circlePaint)
 
         val bounds = Rect()
-        val valueString = Math.round(valueToDraw).toString()
+        val valueString = valueToDraw.roundToInt().toString()
         valuePaint.getTextBounds(valueString, 0, valueString.length, bounds)
         val y = fillPosition + bounds.height() / 2
         canvas.drawText(valueString, barCenter, y, valuePaint)
@@ -376,8 +382,7 @@ class RangeSeekBarView : View {
             calculateProgress(valueToDraw.toInt(), minValue, maxValue).toFloat() / DEFAULT_MAX_VALUE
         val fillLength = barLength * percentFilled
         val fillPosition = left + fillLength
-        val fillRect: RectF
-        fillRect = when (direction) {
+        val fillRect: RectF = when (direction) {
             Direction.LEFT_TO_RIGHT -> {
                 RectF(left, top, fillPosition, bottom)
             }
@@ -390,7 +395,7 @@ class RangeSeekBarView : View {
         canvas.drawCircle(fillPosition, barCenter, circleRadius.toFloat(), circlePaint)
 
         val bounds = Rect()
-        val valueString = Math.round(valueToDraw).toString()
+        val valueString = valueToDraw.roundToInt().toString()
         valuePaint.getTextBounds(valueString, 0, valueString.length, bounds)
         val y = barCenter + bounds.height() / 2
 
@@ -501,6 +506,7 @@ class RangeSeekBarView : View {
 
         companion object {
             @JvmField
+            @Suppress("unused")
             val CREATOR: Parcelable.Creator<SavedState> = object : Parcelable.Creator<SavedState> {
                 override fun createFromParcel(`in`: Parcel): SavedState {
                     return SavedState(`in`)

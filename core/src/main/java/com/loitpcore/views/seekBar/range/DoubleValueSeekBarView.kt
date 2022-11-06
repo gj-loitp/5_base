@@ -11,11 +11,12 @@ import android.view.MotionEvent.*
 import android.view.View
 import androidx.annotation.ColorInt
 import com.loitpcore.R
+import kotlin.math.abs
+import kotlin.math.max
 import kotlin.math.roundToInt
 
 @SuppressLint("AppCompatCustomView")
 open class DoubleValueSeekBarView : View {
-
 
     constructor(context: Context) : super(context)
 
@@ -60,31 +61,35 @@ open class DoubleValueSeekBarView : View {
 
 
     var minStep: Int = DEFAULT_MIN_STEP_VALUE
-        set(value: Int) {
+        set(value) {
             field = value
             invalidate()
             requestLayout()
         }
     var maxStep: Int = DEFAULT_MAX_STEP_VALUE
-        set(value: Int) {
+        set(value) {
             field = value
             invalidate()
             requestLayout()
         }
+
+    @Suppress("unused")
     var maxValue: Int = DEFAULT_MAX_VALUE
-        set(value: Int) {
+        set(value) {
             field = value
             invalidate()
             requestLayout()
         }
 
+    @Suppress("unused")
     var minValue: Int = DEFAULT_MIN_VALUE
-        set(value: Int) {
+        set(value) {
             field = value
             invalidate()
             requestLayout()
         }
 
+    @Suppress("unused")
     var baseColor: Int = DEFAULT_BASE_COLOR
         set(@ColorInt color) {
             field = color
@@ -97,6 +102,8 @@ open class DoubleValueSeekBarView : View {
             barFillPaint.color = color
             invalidate()
         }
+
+    @Suppress("unused")
     var circleTextColor: Int = DEFAULT_TEXT_COLOR
         set(@ColorInt color) {
             field = color
@@ -105,6 +112,7 @@ open class DoubleValueSeekBarView : View {
             invalidate()
         }
 
+    @Suppress("unused")
     var circleFillColor: Int = DEFAULT_CIRCLE_COLOR
         set(@ColorInt color) {
             field = color
@@ -129,7 +137,6 @@ open class DoubleValueSeekBarView : View {
             }
             minValueToDraw = currentMinValue
             invalidate()
-
 
         }
 
@@ -267,7 +274,7 @@ open class DoubleValueSeekBarView : View {
 
     private fun measureHeight(measureSpec: Int): Int {
         var size = paddingTop + paddingBottom
-        size += Math.max(barHeight, circleRadius)
+        size += max(barHeight, circleRadius)
         return resolveSizeAndState(size, measureSpec, 0)
     }
 
@@ -313,25 +320,23 @@ open class DoubleValueSeekBarView : View {
 
         canvas.drawRoundRect(fillRect, barCenter, barCenter, barFillPaint)
 
-
         canvas.drawCircle(fillPositionMin, barCenter, circleRadius.toFloat(), minCirclePaint)
         canvas.drawCircle(fillPositionMax, barCenter, circleRadius.toFloat(), maxCirclePaint)
 
         val boundsMin = Rect()
-        val minValueString = Math.round(minValueToDraw.toDouble()).toString()
+        val minValueString = minValueToDraw.toDouble().roundToInt().toString()
         minValuePaint.getTextBounds(minValueString, 0, minValueString.length, boundsMin)
 
         val boundsMax = Rect()
-        val maxValueString = Math.round(maxValueToDraw.toDouble()).toString()
+        val maxValueString = maxValueToDraw.toDouble().roundToInt().toString()
         maxValuePaint.getTextBounds(maxValueString, 0, maxValueString.length, boundsMax)
 
         val y = barCenter + boundsMin.height() / 2
 
-        canvas.drawText(minValueString, fillPositionMin.toFloat(), y, minValuePaint)
-        canvas.drawText(maxValueString, fillPositionMax.toFloat(), y, maxValuePaint)
+        canvas.drawText(minValueString, fillPositionMin, y, minValuePaint)
+        canvas.drawText(maxValueString, fillPositionMax, y, maxValuePaint)
 
     }
-
 
     private fun upDatePositionMax(value: Int) {
         val calcValue = (value * (maxValue - minValue) / 100).toFloat().roundToInt().toDouble()
@@ -356,7 +361,7 @@ open class DoubleValueSeekBarView : View {
     }
 
     private fun isInThumbRange(touchX: Float, normalizedThumbValue: Int): Boolean {
-        return Math.abs(touchX - normalizedToScreen(normalizedThumbValue)) <= getThumbWidth()
+        return abs(touchX - normalizedToScreen(normalizedThumbValue)) <= getThumbWidth()
     }
 
     private fun getThumbWidth(): Float {
@@ -382,7 +387,7 @@ open class DoubleValueSeekBarView : View {
     }
 
 
-    private fun findClosestThumb(touchX: Float): Thumb? {
+    private fun findClosestThumb(touchX: Float): Thumb {
         val screenMinX = normalizedToScreen(currentMinValue)
         val screenMaxX = normalizedToScreen(currentMaxValue)
         if (touchX >= screenMaxX) {
@@ -390,8 +395,8 @@ open class DoubleValueSeekBarView : View {
         } else if (touchX <= screenMinX) {
             return Thumb.MIN
         }
-        val minDiff = Math.abs(screenMinX - touchX.toDouble())
-        val maxDiff = Math.abs(screenMaxX - touchX.toDouble())
+        val minDiff = abs(screenMinX - touchX.toDouble())
+        val maxDiff = abs(screenMaxX - touchX.toDouble())
         return if (minDiff < maxDiff) Thumb.MIN else Thumb.MAX
     }
 
@@ -424,23 +429,23 @@ open class DoubleValueSeekBarView : View {
         }
     }
 
+    @Suppress("unused")
     private fun normalize(screenCoord: Float): Int {
         val width = width.toDouble()
         var coordinate: Float = screenCoord
-        val canvasSize: Double = (width - paddingStart - paddingEnd).toDouble()
+        val canvasSize: Double = (width - paddingStart - paddingEnd)
         if (coordinate < 0) {
             coordinate = 0.0F
         } else if (screenCoord > canvasSize) {
             coordinate = canvasSize.toFloat()
         }
-        val value = (coordinate / canvasSize * 100).toInt()
-        return value
+        return (coordinate / canvasSize * 100).toInt()
     }
 
     private fun screenToNormalized(screenCoord: Float, thumb: Thumb) {
         val width = width.toDouble()
         var coordinate: Float = screenCoord
-        val canvasSize: Double = (width - paddingStart - paddingEnd).toDouble()
+        val canvasSize: Double = (width - paddingStart - paddingEnd)
         if (coordinate < 0) {
             coordinate = 0.0F
         } else if (screenCoord > canvasSize) {
@@ -459,11 +464,17 @@ open class DoubleValueSeekBarView : View {
         MIN, MAX
     }
 
-    protected fun touchDown(x: Float, y: Float) {}
+    @Suppress("unused")
+    protected fun touchDown(x: Float, y: Float) {
+    }
 
-    protected fun touchMove(x: Float, y: Float) {}
+    @Suppress("unused")
+    protected fun touchMove(x: Float, y: Float) {
+    }
 
-    protected fun touchUp(x: Float, y: Float) {}
+    @Suppress("unused")
+    protected fun touchUp(x: Float, y: Float) {
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -587,6 +598,7 @@ open class DoubleValueSeekBarView : View {
 
         companion object {
             @JvmField
+            @Suppress("unused")
             val CREATOR: Parcelable.Creator<SavedState> = object : Parcelable.Creator<SavedState> {
                 override fun createFromParcel(`in`: Parcel): SavedState {
                     return SavedState(`in`)
