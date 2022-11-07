@@ -3,6 +3,10 @@ package vn.loitp.app.activity.demo.firebase
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.remoteconfig.ktx.get
+import com.google.firebase.remoteconfig.ktx.remoteConfig
+import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -47,5 +51,29 @@ class FirebaseActivity : BaseFontActivity() {
         btTestCrashFirebase.setSafeOnClickListener {
             LFCMUtil.testCrash()
         }
+
+        btRemoteConfig.setSafeOnClickListener {
+            testRemoteConfig()
+        }
+    }
+
+    private fun testRemoteConfig() {
+        val remoteConfig = Firebase.remoteConfig
+        val configSettings = remoteConfigSettings {
+            minimumFetchIntervalInSeconds = 3600
+        }
+        remoteConfig.setConfigSettingsAsync(configSettings)
+        remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
+
+        remoteConfig.fetchAndActivate()
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val updated = task.result
+                    showShortInformation("Fetch and activate succeeded updated $updated")
+                    btRemoteConfig.text = remoteConfig["key_test"].asString()
+                } else {
+                    showShortError("Fetch failed")
+                }
+            }
     }
 }

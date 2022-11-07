@@ -29,6 +29,11 @@
                 android:text="Test crash Firebase"
                 android:visibility="gone"
                 tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRemoteConfig"
+                style="@style/ButtonMenu"
+                android:text="Remote Config" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
