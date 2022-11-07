@@ -13,11 +13,9 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.adHelper.AdHelperActivity
-import com.loitpcore.core.utilities.LActivityUtil
-import com.loitpcore.core.utilities.LPrefUtil
-import com.loitpcore.core.utilities.LSocialUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.core.utilities.*
 import kotlinx.android.synthetic.main.activity_menu.*
+import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 import vn.loitp.app.activity.animation.MenuAnimationActivity
 import vn.loitp.app.activity.api.MenuAPIActivity
@@ -103,6 +101,9 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         btUtilsCore.setOnClickListener(this)
         btGame.setOnClickListener(this)
         btFeedback.setOnClickListener(this)
+        btTestCrashFirebase.setOnClickListener(this)
+
+        btTestCrashFirebase.isVisible = BuildConfig.DEBUG
     }
 
     private fun setupConfigGoogle() {
@@ -230,11 +231,19 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                     )
                     null
                 }
+                btTestCrashFirebase -> {
+                    testCrashFirebase()
+                    null
+                }
                 else -> null
             }
         intent?.let {
             startActivity(it)
             LActivityUtil.tranIn(this)
         }
+    }
+
+    private fun testCrashFirebase() {
+        LFCMUtil.testCrash()
     }
 }

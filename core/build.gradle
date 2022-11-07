@@ -172,6 +172,8 @@ dependencies {
     kapt "androidx.lifecycle:lifecycle-compiler:2.6.0-alpha03"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
+
+
     //Room components
     api "androidx.room:room-runtime:2.5.0-beta01"
     api "androidx.room:room-ktx:2.5.0-beta01"

@@ -14,8 +14,6 @@ import io.realm.RealmConfiguration
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.activity.database.room.db.FNBDatabase
 
-//TODO one signal
-
 // build release de check
 // TODO service -> ko stop service dc
 //TODO why see ad khi nhan vao button Understand dang sai behaviour
@@ -29,6 +27,7 @@ git push -f*/
 
 // activity transaction reveal khi finish screen co cai effect sai
 
+//https://console.firebase.google.com/u/0/project/com-roygroup-base/overview
 @LogTag("LApplication")
 class LApplication : BaseApplication() {
 
