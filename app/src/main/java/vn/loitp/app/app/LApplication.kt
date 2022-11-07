@@ -62,6 +62,7 @@ class LApplication : BaseApplication() {
         logE("currentActivity() ${currentActivity()}")
     }
 
+    @Suppress("unused")
     private fun setupTrackingG1() {
         val configuration = Configuration(this)
         configuration.setEnvironmentDev()
