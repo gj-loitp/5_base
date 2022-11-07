@@ -9,6 +9,7 @@ import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.ttt.db.TTTDatabase
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.data.ActivityData
+import com.onesignal.OneSignal
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.app.BuildConfig
@@ -28,6 +29,7 @@ git push -f*/
 // activity transaction reveal khi finish screen co cai effect sai
 
 //https://console.firebase.google.com/u/0/project/com-roygroup-base/overview
+//https://app.onesignal.com/apps/f26cbe23-125a-4fe7-86d4-9353b4f7d2b0
 @LogTag("LApplication")
 class LApplication : BaseApplication() {
 
@@ -54,7 +56,8 @@ class LApplication : BaseApplication() {
         // ttt database
         TTTDatabase.getInstance(this)
 
-        setupTrackingG1()
+        setupOneSignal()
+//        setupTrackingG1()
 
         logE("currentActivity() ${currentActivity()}")
     }
@@ -81,6 +84,13 @@ class LApplication : BaseApplication() {
     override fun onAppInForeground() {
         super.onAppInForeground()
         logE("onAppInForeground")
+    }
+
+    private fun setupOneSignal() {
+        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE)
+        OneSignal.initWithContext(this)
+        OneSignal.setAppId(vn.loitp.app.common.Constants.ONE_SIGNAL_KEY)
+        OneSignal.promptForPushNotifications()
     }
 
 }
