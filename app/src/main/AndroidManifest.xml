@@ -1232,6 +1232,9 @@
         <activity
             android:name=".activity.customviews.seekBar.rangeSeekBar.RangeSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.demo.firebase.FirebaseActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
     <queries>
