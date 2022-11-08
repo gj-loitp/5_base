@@ -14,9 +14,13 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LFCMUtil
 import com.loitpcore.core.utilities.LUIUtil
+import com.onesignal.OneSignal
+import com.onesignal.OneSignal.PostNotificationResponseHandler
 import kotlinx.android.synthetic.main.activity_firebase.*
+import org.json.JSONObject
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
+
 
 @LogTag("FirebaseActivity")
 @IsFullScreen(false)
@@ -24,7 +28,7 @@ import vn.loitp.app.R
 class FirebaseActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_firebase
+        return vn.loitp.app.R.layout.activity_firebase
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +59,10 @@ class FirebaseActivity : BaseFontActivity() {
         btRemoteConfig.setSafeOnClickListener {
             testRemoteConfig()
         }
+
+        btPushOneSignal.setSafeOnClickListener {
+            pushNotiByOneSignal()
+        }
     }
 
     private fun testRemoteConfig() {
@@ -63,7 +71,7 @@ class FirebaseActivity : BaseFontActivity() {
             minimumFetchIntervalInSeconds = 3600
         }
         remoteConfig.setConfigSettingsAsync(configSettings)
-        remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
+        remoteConfig.setDefaultsAsync(vn.loitp.app.R.xml.remote_config_defaults)
 
         remoteConfig.fetchAndActivate()
             .addOnCompleteListener(this) { task ->
@@ -75,5 +83,33 @@ class FirebaseActivity : BaseFontActivity() {
                     showShortError("Fetch failed")
                 }
             }
+    }
+
+    private fun pushNotiByOneSignal() {
+        if (!BuildConfig.DEBUG) {
+            showShortError("This feature only available for @Roy93Group")
+            return
+        }
+        val msg = "${getString(R.string.app_name)} miss you!!!"
+        try {
+            val userId = OneSignal.getDeviceState()?.userId
+            if (userId.isNullOrEmpty()) {
+                logE("userId isNullOrEmpty -> return")
+                return
+            }
+            OneSignal.postNotification(
+                JSONObject("{'contents': {'en': '$msg'}, 'include_player_ids': ['$userId']}"),
+                object : PostNotificationResponseHandler {
+                    override fun onSuccess(response: JSONObject) {
+                        logD("postNotification Success: $response")
+                    }
+
+                    override fun onFailure(response: JSONObject) {
+                        logD("postNotification Failure: $response")
+                    }
+                })
+        } catch (e: Exception) {
+            logE("$e")
+        }
     }
 }

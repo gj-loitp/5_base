@@ -34,6 +34,11 @@
                 android:id="@+id/btRemoteConfig"
                 style="@style/ButtonMenu"
                 android:text="Remote Config" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPushOneSignal"
+                style="@style/ButtonMenu"
+                android:text="Push OneSignal" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
