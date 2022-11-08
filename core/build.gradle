@@ -46,6 +46,9 @@ dependencies {
     //https://github.com/wasabeef/glide-transformations
     api 'jp.wasabeef:glide-transformations:4.3.0'
 
+//    https://github.com/hakobast/DropdownTextView
+    api 'com.github.hakobast:DropdownTextView:0.3.1'
+
     //retrofit
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
@@ -133,7 +136,7 @@ dependencies {
     //api 'com.google.android.gms:play-services-cast-framework:16.1.0'
     api 'com.google.android.gms:play-services-maps:18.1.0'
 //    api 'com.google.android.gms:play-services-ads:21.1.0'
-    api 'com.google.android.gms:play-services-location:21.0.0'
+    api 'com.google.android.gms:play-services-location:21.0.1'
 
     //https://github.com/JakeWharton/NineOldAndroids
     api 'com.nineoldandroids:library:2.4.0' //for draggable view
@@ -171,8 +174,6 @@ dependencies {
     //noinspection LifecycleAnnotationProcessorWithJava8
     kapt "androidx.lifecycle:lifecycle-compiler:2.6.0-alpha03"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
-
-
 
     //Room components
     api "androidx.room:room-runtime:2.5.0-beta01"
