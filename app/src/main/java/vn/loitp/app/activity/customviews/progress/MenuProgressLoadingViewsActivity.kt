@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.progressLoadingView
+package vn.loitp.app.activity.customviews.progress
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,9 +11,9 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_progress_loading.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.progressLoadingView.circularProgressBar.CircularProgressBarActivity
-import vn.loitp.app.activity.customviews.progressLoadingView.circularProgressIndicator.CircularProgressIndicatorActivity
-import vn.loitp.app.activity.customviews.progressLoadingView.window.WindowProgressActivity
+import vn.loitp.app.activity.customviews.progress.circularProgressBar.CircularProgressBarActivity
+import vn.loitp.app.activity.customviews.progress.circularProgressIndicator.CircularProgressIndicatorActivity
+import vn.loitp.app.activity.customviews.progress.window.WindowProgressActivity
 
 @LogTag("MenuProgressLoadingViewsActivity")
 @IsFullScreen(false)

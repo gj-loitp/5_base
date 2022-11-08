@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.progressLoadingView.circularProgressIndicator
+package vn.loitp.app.activity.customviews.progress.circularProgressIndicator
 
 import android.graphics.Color
 import android.graphics.PorterDuff

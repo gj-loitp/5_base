@@ -35,7 +35,7 @@ import vn.loitp.app.activity.customviews.layout.MenuLayoutActivity
 import vn.loitp.app.activity.customviews.menu.MenuMenuActivity
 import vn.loitp.app.activity.customviews.navigation.MenuNavigationActivity
 import vn.loitp.app.activity.customviews.popupMenu.PopupMenuActivity
-import vn.loitp.app.activity.customviews.progressLoadingView.MenuProgressLoadingViewsActivity
+import vn.loitp.app.activity.customviews.progress.MenuProgressLoadingViewsActivity
 import vn.loitp.app.activity.customviews.recyclerview.MenuRecyclerViewActivity
 import vn.loitp.app.activity.customviews.scratchView.MenuScratchViewActivity
 import vn.loitp.app.activity.customviews.scrollablePanel.ScrollablePanelActivity

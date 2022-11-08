@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.progressLoadingView.window
+package vn.loitp.app.activity.customviews.progress.window
 
 import android.os.Bundle
 import com.loitpcore.annotation.IsFullScreen

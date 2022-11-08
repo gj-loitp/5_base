@@ -67,7 +67,7 @@
             android:name=".activity.animation.animationView.AnimationViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.progressLoadingView.MenuProgressLoadingViewsActivity"
+            android:name=".activity.customviews.progress.MenuProgressLoadingViewsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.animation.overScroll.OverScrollActivity"
@@ -185,7 +185,7 @@
             android:name=".activity.customviews.recyclerview.parallaxRecyclerView.ParallaxRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.progressLoadingView.circularProgressBar.CircularProgressBarActivity"
+            android:name=".activity.customviews.progress.circularProgressBar.CircularProgressBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.demo.sound.SoundActivity"
@@ -751,7 +751,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".activity.customviews.progressLoadingView.circularProgressIndicator.CircularProgressIndicatorActivity"
+            android:name=".activity.customviews.progress.circularProgressIndicator.CircularProgressIndicatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.imageview.pinchToZoom.PinchToZoomViewPagerActivity"
@@ -760,7 +760,7 @@
             android:name=".activity.customviews.dialog.customDialog.CustomDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.progressLoadingView.window.WindowProgressActivity"
+            android:name=".activity.customviews.progress.window.WindowProgressActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity"

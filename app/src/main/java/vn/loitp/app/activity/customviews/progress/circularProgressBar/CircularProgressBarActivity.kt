@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.progressLoadingView.circularProgressBar
+package vn.loitp.app.activity.customviews.progress.circularProgressBar
 
 import android.os.Bundle
 import androidx.core.view.isVisible
