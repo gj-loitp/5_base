@@ -1236,7 +1236,7 @@
             android:name=".activity.customviews.textview.dropdownTextview.DropdownTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.picker.ssImagePicker.ui.MainActivity"
+            android:name=".activity.picker.ssImagePicker.ui.MainActivitySSImagePicker"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>

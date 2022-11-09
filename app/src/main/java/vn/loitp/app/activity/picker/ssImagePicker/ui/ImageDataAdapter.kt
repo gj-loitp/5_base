@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.loitpcore.picker.ssImagePicker.loadImage
 import vn.loitp.app.R
-import vn.loitp.app.activity.picker.ssImagePicker.loadImage
-import vn.loitp.app.databinding.ListItemImageDataBinding
+import vn.loitp.app.databinding.PickerSsImageListItemImageDataBinding
 
 /**
  * ImageDataAdapter class to display list of picked images from the picker.
@@ -15,8 +15,11 @@ import vn.loitp.app.databinding.ListItemImageDataBinding
 class ImageDataAdapter(private val imageList: List<Uri>) :
     RecyclerView.Adapter<ImageDataAdapter.ImageDataViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageDataViewHolder {
-        val binding: ListItemImageDataBinding = DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context), R.layout.list_item_image_data, parent, false
+        val binding: PickerSsImageListItemImageDataBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            R.layout.picker_ss_image_list_item_image_data,
+            parent,
+            false
         )
         return ImageDataViewHolder(binding)
     }
@@ -29,6 +32,6 @@ class ImageDataAdapter(private val imageList: List<Uri>) :
         return imageList.size
     }
 
-    inner class ImageDataViewHolder(val binding: ListItemImageDataBinding) :
+    inner class ImageDataViewHolder(val binding: PickerSsImageListItemImageDataBinding) :
         RecyclerView.ViewHolder(binding.root)
 }

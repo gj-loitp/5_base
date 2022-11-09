@@ -1,6 +1,7 @@
-package vn.loitp.app.activity.picker.ssImagePicker
+package com.loitpcore.picker.ssImagePicker
 
 import android.os.Parcelable
+import androidx.annotation.Keep
 import com.app.imagepickerlibrary.model.PickExtension
 import com.app.imagepickerlibrary.model.PickerType
 import kotlinx.android.parcel.Parcelize
@@ -8,6 +9,7 @@ import kotlinx.android.parcel.Parcelize
 /**
  * Data class to manage the picker options from bottom sheet to main activity.
  */
+@Keep
 @Parcelize
 data class PickerOptions(
     val pickerType: PickerType,

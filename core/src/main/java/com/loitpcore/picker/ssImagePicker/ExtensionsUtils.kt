@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.picker.ssImagePicker
+package com.loitpcore.picker.ssImagePicker
 
 import android.os.Build
 import androidx.appcompat.widget.AppCompatImageView
