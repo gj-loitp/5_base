@@ -112,6 +112,8 @@ dependencies {
     api 'com.github.AmrDeveloper:CodeView:1.3.5'
 //    https://github.com/square/retrofit/tree/master/retrofit-converters/moshi
     api 'com.squareup.retrofit2:converter-moshi:2.9.0'
+//    https://github.com/cliffgr/ComparingPerformanceBar
+    api 'com.github.cliffgr:ComparingPerformanceBar:1.1.3'
 
 //    https://github.com/shiburagi/Drawer-Behavior
     api 'com.infideap.drawerbehavior:drawer-behavior:1.0.1'
