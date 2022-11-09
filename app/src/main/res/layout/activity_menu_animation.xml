@@ -63,6 +63,11 @@
                 android:text="Elastic view" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFadeOutParticleActivity"
+                style="@style/ButtonMenu"
+                android:text="FadeOutParticleActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFlySchool"
                 style="@style/ButtonMenu"
                 android:text="@string/fly_school" />

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.textview.fadeOutParticle
+package vn.loitp.app.activity.animation.fadeOutParticle
 
 import android.annotation.SuppressLint
 import android.os.Bundle
