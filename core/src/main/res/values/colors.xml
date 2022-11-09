@@ -196,4 +196,6 @@
     <color name="default_selection_bar_month_title_text_color">@color/brown</color>
     <!--endregion cosmocalendar-->
 
+    <color name="color_bottom_sheet_bg">#FFFFFF</color>
+
 </resources>

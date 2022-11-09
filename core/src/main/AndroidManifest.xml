@@ -135,6 +135,10 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name="com.app.imagepickerlibrary.ui.activity.ImagePickerActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/SSImagePicker" />
     </application>
 
 </manifest>

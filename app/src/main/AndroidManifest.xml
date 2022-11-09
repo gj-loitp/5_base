@@ -1101,9 +1101,6 @@
             android:name=".activity.customviews.layout.sequenceLayout.SequenceLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.picker.scopedMediaPicker.ScopedMediaPickerActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name=".activity.picker.attachmentManager.AttachmentManagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
@@ -1237,6 +1234,9 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.textview.dropdownTextview.DropdownTextViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.picker.ssImagePicker.ui.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
