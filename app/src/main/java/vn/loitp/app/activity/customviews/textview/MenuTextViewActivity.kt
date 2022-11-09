@@ -19,6 +19,7 @@ import vn.loitp.app.activity.customviews.textview.colorTextView.ColorTextViewAct
 import vn.loitp.app.activity.customviews.textview.countDown.CountDownActivity
 import vn.loitp.app.activity.customviews.textview.dropdownTextview.DropdownTextViewActivity
 import vn.loitp.app.activity.customviews.textview.extraTextView.ExtraTextViewActivity
+import vn.loitp.app.activity.customviews.textview.fadeOutParticle.FadeOutParticleActivity
 import vn.loitp.app.activity.customviews.textview.fadingTextView.FadingTextViewActivity
 import vn.loitp.app.activity.customviews.textview.justified.JustifiedTextViewActivity
 import vn.loitp.app.activity.customviews.textview.scoreText.ScoreTextViewActivity
@@ -75,6 +76,7 @@ class MenuTextViewActivity : BaseFontActivity(), OnClickListener {
         btFadingTextView.setOnClickListener(this)
         btTypedTextView.setOnClickListener(this)
         btDropdownTextView.setOnClickListener(this)
+        btFadeOutParticleActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -96,6 +98,7 @@ class MenuTextViewActivity : BaseFontActivity(), OnClickListener {
             btFadingTextView -> Intent(this, FadingTextViewActivity::class.java)
             btTypedTextView -> Intent(this, TypedTextViewActivity::class.java)
             btDropdownTextView -> Intent(this, DropdownTextViewActivity::class.java)
+            btFadeOutParticleActivity -> Intent(this, FadeOutParticleActivity::class.java)
             else -> {
                 null
             }
