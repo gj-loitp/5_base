@@ -12,15 +12,15 @@ import com.app.imagepickerlibrary.listener.ImagePickerResultListener
 import com.app.imagepickerlibrary.model.ImageProvider
 import com.app.imagepickerlibrary.model.PickerType
 import com.app.imagepickerlibrary.ui.bottomsheet.SSPickerOptionsBottomSheet
+import com.loitpcore.picker.ssImagePicker.PickerOptions
+import com.loitpcore.picker.ssImagePicker.isAtLeast11
 import vn.loitp.app.R
-import vn.loitp.app.activity.picker.ssImagePicker.PickerOptions
-import vn.loitp.app.activity.picker.ssImagePicker.isAtLeast11
-import vn.loitp.app.databinding.ActivityMainBinding
+import vn.loitp.app.databinding.ActivityMainSsImagePickerBinding
 
 /**
  * MainActivity which displays all the functionality of the ImagePicker library. All the attributes are modified with the ui.
  */
-class MainActivity : AppCompatActivity(), View.OnClickListener,
+class MainActivitySSImagePicker : AppCompatActivity(), View.OnClickListener,
     SSPickerOptionsBottomSheet.ImagePickerClickListener,
     ImagePickerResultListener, PickerOptionsBottomSheet.PickerOptionsListener {
 
@@ -28,15 +28,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         private const val IMAGE_LIST = "IMAGE_LIST"
     }
 
-    private lateinit var binding: ActivityMainBinding
-    private val imagePicker: ImagePicker = registerImagePicker(this@MainActivity)
+    private lateinit var binding: ActivityMainSsImagePickerBinding
+    private val imagePicker: ImagePicker = registerImagePicker(this@MainActivitySSImagePicker)
     private val imageList = mutableListOf<Uri>()
     private val imageDataAdapter = ImageDataAdapter(imageList)
     private var pickerOptions = PickerOptions.default()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main_ss_image_picker)
         binding.clickHandler = this
         setUI(savedInstanceState)
     }
