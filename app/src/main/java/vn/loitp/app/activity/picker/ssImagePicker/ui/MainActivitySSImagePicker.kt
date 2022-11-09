@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.app.imagepickerlibrary.ImagePicker
 import com.app.imagepickerlibrary.ImagePicker.Companion.registerImagePicker
@@ -12,15 +12,26 @@ import com.app.imagepickerlibrary.listener.ImagePickerResultListener
 import com.app.imagepickerlibrary.model.ImageProvider
 import com.app.imagepickerlibrary.model.PickerType
 import com.app.imagepickerlibrary.ui.bottomsheet.SSPickerOptionsBottomSheet
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LSocialUtil
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.picker.ssImagePicker.PickerOptions
 import com.loitpcore.picker.ssImagePicker.isAtLeast11
+import kotlinx.android.synthetic.main.activity_menu.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.MenuActivity
 import vn.loitp.app.databinding.ActivityMainSsImagePickerBinding
 
 /**
  * MainActivity which displays all the functionality of the ImagePicker library. All the attributes are modified with the ui.
  */
-class MainActivitySSImagePicker : AppCompatActivity(), View.OnClickListener,
+@LogTag("EmptyActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(true)
+class MainActivitySSImagePicker : BaseFontActivity(), View.OnClickListener,
     SSPickerOptionsBottomSheet.ImagePickerClickListener,
     ImagePickerResultListener, PickerOptionsBottomSheet.PickerOptionsListener {
 
@@ -34,11 +45,43 @@ class MainActivitySSImagePicker : AppCompatActivity(), View.OnClickListener,
     private val imageDataAdapter = ImageDataAdapter(imageList)
     private var pickerOptions = PickerOptions.default()
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_main_ss_image_picker
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main_ss_image_picker)
         binding.clickHandler = this
         setUI(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    super.onBaseBackPressed()
+                }
+            )
+            this.ivIconRight?.let {
+                LUIUtil.setSafeOnClickListenerElastic(
+                    view = it,
+                    runnable = {
+                        LSocialUtil.openUrlInBrowser(
+                            context = context,
+                            url = "https://github.com/SimformSolutionsPvtLtd/SSImagePicker"
+                        )
+                    }
+                )
+                it.isVisible = true
+                it.setImageResource(R.drawable.ic_baseline_code_48)
+            }
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = MenuActivity::class.java.simpleName
+        }
     }
 
     private fun setUI(savedInstanceState: Bundle?) {
