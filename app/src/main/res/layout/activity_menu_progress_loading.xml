@@ -37,6 +37,11 @@
                 android:text="@string/circularprogressindicator" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSegmentedProgressBar"
+                style="@style/ButtonMenu"
+                android:text="SegmentedProgressBar" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btWindow"
                 style="@style/ButtonMenu"
                 android:text="@string/window_progress" />

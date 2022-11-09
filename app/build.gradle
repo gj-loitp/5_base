@@ -158,6 +158,8 @@ dependencies {
     api 'com.github.ome450901:SimpleRatingBar:1.5.1'
 //    https://github.com/transferwise/sequence-layout
     api 'com.github.transferwise:sequence-layout:1.2.0'
+//    https://github.com/TOrnelas/SegmentedProgressBar
+    api 'com.github.TOrnelas:SegmentedProgressBar:0.0.3'
 //    https://github.com/fabiosassu/StackExpandableView
     api 'com.github.fabiosassu:StackExpandableView:1.0.2'
 

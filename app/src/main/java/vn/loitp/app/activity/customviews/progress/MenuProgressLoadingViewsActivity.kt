@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_menu_progress_loading.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.progress.circularProgressBar.CircularProgressBarActivity
 import vn.loitp.app.activity.customviews.progress.circularProgressIndicator.CircularProgressIndicatorActivity
+import vn.loitp.app.activity.customviews.progress.segmentedProgressBar.StandardExampleActivity
 import vn.loitp.app.activity.customviews.progress.window.WindowProgressActivity
 
 @LogTag("MenuProgressLoadingViewsActivity")
@@ -44,6 +45,7 @@ class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListene
         btCircularProgressBar.setOnClickListener(this)
         btCircularProgressIndicator.setOnClickListener(this)
         btWindow.setOnClickListener(this)
+        btSegmentedProgressBar.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -54,6 +56,7 @@ class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListene
                 intent =
                     Intent(this, CircularProgressIndicatorActivity::class.java)
             btWindow -> intent = Intent(this, WindowProgressActivity::class.java)
+            btSegmentedProgressBar -> intent = Intent(this, StandardExampleActivity::class.java)
         }
         intent?.let {
             startActivity(it)
