@@ -76,6 +76,7 @@ class LValidateUtil {
             "com.roy93group.pianokiss",
             "com.roy93group.asyetcndt",
             "com.roy93group.reversi",
+            "com.roy93group.cintalauncher",
         )
 
         fun isValidPackageName(): Boolean {
