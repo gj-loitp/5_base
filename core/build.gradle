@@ -31,7 +31,7 @@ android {
 }
 
 dependencies {
-    api 'org.jetbrains.kotlin:kotlin-stdlib:1.7.20'
+    api 'org.jetbrains.kotlin:kotlin-stdlib:1.7.21'
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     //glide
@@ -177,13 +177,13 @@ dependencies {
     api "androidx.lifecycle:lifecycle-extensions:2.2.0"
     //noinspection LifecycleAnnotationProcessorWithJava8
     kapt "androidx.lifecycle:lifecycle-compiler:2.6.0-alpha03"
-    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+//    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
     //Room components
     api "androidx.room:room-runtime:2.5.0-beta02"
     api "androidx.room:room-ktx:2.5.0-beta02"
     kapt "androidx.room:room-compiler:2.5.0-beta02"
-    androidTestImplementation "androidx.room:room-testing:2.5.0-beta02"
+//    androidTestImplementation "androidx.room:room-testing:2.5.0-beta02"
 
     //ViewModel Kotlin support
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
