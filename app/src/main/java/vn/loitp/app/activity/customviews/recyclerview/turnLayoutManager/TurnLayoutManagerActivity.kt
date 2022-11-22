@@ -72,8 +72,8 @@ class TurnLayoutManagerActivity : BaseFontActivity() {
             /* peekDistance = */ peek,
             /* rotate = */ rotate.isChecked
         )
-        recycler_view.layoutManager = layoutManager
-        recycler_view.adapter = adapter
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
         adapter.notifyDataSetChanged()
         seek_radius.setOnSeekBarChangeListener(radiusListener)
         seek_peek.setOnSeekBarChangeListener(peekListener)
@@ -84,7 +84,7 @@ class TurnLayoutManagerActivity : BaseFontActivity() {
         gravity.adapter = GravityAdapter(this, R.layout.view_spinner_item_tlm)
         orientation.adapter = OrientationAdapter(this, R.layout.view_spinner_item_tlm)
         rotate.setOnCheckedChangeListener(rotateListener)
-        control_handle.setOnClickListener(controlsHandleClickListener)
+        tvControlHandle.setOnClickListener(controlsHandleClickListener)
     }
 
     private val radiusListener: OnSeekBarChangeListener = object : OnSeekBarChangeListener {
@@ -167,7 +167,7 @@ class TurnLayoutManagerActivity : BaseFontActivity() {
         val translationY =
             if (control_panel.translationY == 0f) control_panel.height.toFloat() else 0f
         control_panel.animate().translationY(translationY).start()
-        control_handle.animate().translationY(translationY).start()
+        tvControlHandle.animate().translationY(translationY).start()
     }
 
     private class OrientationAdapter(
