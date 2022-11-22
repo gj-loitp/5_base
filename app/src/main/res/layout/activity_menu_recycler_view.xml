@@ -124,6 +124,11 @@
                 android:id="@+id/btRecyclerTabLayout"
                 style="@style/ButtonMenu"
                 android:text="@string/recycler_tab_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTurnLayoutManagerActivity"
+                style="@style/ButtonMenu"
+                android:text="TurnLayoutManagerActivity" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

@@ -169,11 +169,12 @@ dependencies {
 //    api 'io.github.ParkSangGwon:tedimagepicker:1.2.7'
 //    https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
-
 //    https://github.com/nex3z/ToggleButtonGroup
     api 'com.nex3z:toggle-button-group:1.2.3'
 //    https://github.com/iamporus/TypedTextView
     api 'com.github.iamporus:TypedTextView:1.1.2'
+//    https://github.com/tplloi/turn-layout-manager
+    api 'com.github.cdflynn:turn-layout-manager:v1.3.1'
 
 //    https://github.com/rehmanmuradali/wheel-spinner
     api 'com.github.rehmanmuradali:wheel-spinner:1.0.0'
