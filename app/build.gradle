@@ -167,6 +167,8 @@ dependencies {
 //    https://github.com/fabiosassu/StackExpandableView
     api 'com.github.fabiosassu:StackExpandableView:1.0.2'
 
+//    https://github.com/AndroidLab/textarc
+    api 'io.github.a.lab.develop:textarc:1.0.4'
 //    https://github.com/ParkSangGwon/TedImagePicker
 //    api 'io.github.ParkSangGwon:tedimagepicker:1.2.7'
 //    https://github.com/ParkSangGwon/TedKeyboardObserver

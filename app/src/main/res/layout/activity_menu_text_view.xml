@@ -85,6 +85,11 @@
                 android:text="@string/stroked_text_view" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTextArcActivity"
+                style="@style/ButtonMenu"
+                android:text="TextArcActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTextDecorator"
                 style="@style/ButtonMenu"
                 android:text="@string/text_decorator" />
