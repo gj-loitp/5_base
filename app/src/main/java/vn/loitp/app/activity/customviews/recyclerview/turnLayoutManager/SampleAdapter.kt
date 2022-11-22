@@ -27,7 +27,7 @@ class SampleAdapter(context: Context) : RecyclerView.Adapter<SampleViewHolder>()
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: SampleViewHolder, position: Int) {
-        holder.tv.text = "\$position"
+        holder.tv.text = "$position"
     }
 
     override fun getItemCount(): Int {

@@ -164,8 +164,9 @@ class TurnLayoutManagerActivity : BaseFontActivity() {
     }
 
     private val controlsHandleClickListener = View.OnClickListener {
-        val translationY = if (controls.translationY == 0f) controls.height.toFloat() else 0f
-        controls.animate().translationY(translationY).start()
+        val translationY =
+            if (control_panel.translationY == 0f) control_panel.height.toFloat() else 0f
+        control_panel.animate().translationY(translationY).start()
         control_handle.animate().translationY(translationY).start()
     }
 
