@@ -141,6 +141,8 @@ dependencies {
     api 'dev.bandb.graphview:graphview:0.8.1'
 
     api 'com.thedeanda:lorem:2.1'
+//    https://github.com/mmoamenn/LuckyWheel_Android
+    api 'com.github.mmoamenn:LuckyWheel_Android:0.3.0'
 
     api 'com.github.g1-onetarget:onetargetsdk:1.3.5'
 

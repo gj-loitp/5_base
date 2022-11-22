@@ -1250,6 +1250,9 @@
         <activity
             android:name=".activity.customviews.recyclerview.turnLayoutManager.TurnLayoutManagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.customviews.luckyWheel.LuckyWheelActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
     <queries>

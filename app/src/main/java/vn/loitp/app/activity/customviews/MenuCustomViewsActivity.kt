@@ -32,6 +32,7 @@ import vn.loitp.app.activity.customviews.indicator.example.MenuMagicIndicatorAct
 import vn.loitp.app.activity.customviews.lCardView.LCardViewActivity
 import vn.loitp.app.activity.customviews.lDebugView.LDebugViewActivity
 import vn.loitp.app.activity.customviews.layout.MenuLayoutActivity
+import vn.loitp.app.activity.customviews.luckyWheel.LuckyWheelActivity
 import vn.loitp.app.activity.customviews.menu.MenuMenuActivity
 import vn.loitp.app.activity.customviews.navigation.MenuNavigationActivity
 import vn.loitp.app.activity.customviews.popupMenu.PopupMenuActivity
@@ -121,6 +122,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btSimpleRatingBar.setOnClickListener(this)
         btCodeView.setOnClickListener(this)
         btWheelView.setOnClickListener(this)
+        btLuckyWheelActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -165,6 +167,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btSimpleRatingBar -> Intent(this, SimpleRatingBarActivity::class.java)
             btCodeView -> Intent(this, CodeViewActivity::class.java)
             btWheelView -> Intent(this, WheelViewActivity::class.java)
+            btLuckyWheelActivity -> Intent(this, LuckyWheelActivity::class.java)
             else -> null
         }
         intent?.let {

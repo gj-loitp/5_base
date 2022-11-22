@@ -120,6 +120,11 @@
                 android:text="@string/ldebugview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLuckyWheelActivity"
+                style="@style/ButtonMenu"
+                android:text="LuckyWheelActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMenu"
                 style="@style/ButtonMenu"
                 android:text="@string/menu" />
