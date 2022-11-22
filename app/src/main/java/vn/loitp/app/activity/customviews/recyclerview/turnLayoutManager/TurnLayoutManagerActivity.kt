@@ -75,10 +75,10 @@ class TurnLayoutManagerActivity : BaseFontActivity() {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
         adapter.notifyDataSetChanged()
-        seek_radius.setOnSeekBarChangeListener(radiusListener)
-        seek_peek.setOnSeekBarChangeListener(peekListener)
-        seek_radius.progress = radius
-        seek_peek.progress = peek
+        seekRadius.setOnSeekBarChangeListener(radiusListener)
+        seekPeek.setOnSeekBarChangeListener(peekListener)
+        seekRadius.progress = radius
+        seekPeek.progress = peek
         gravity.onItemSelectedListener = gravityOptionsClickListener
         orientation.onItemSelectedListener = orientationOptionsClickListener
         gravity.adapter = GravityAdapter(this, R.layout.view_spinner_item_tlm)
@@ -89,7 +89,7 @@ class TurnLayoutManagerActivity : BaseFontActivity() {
 
     private val radiusListener: OnSeekBarChangeListener = object : OnSeekBarChangeListener {
         override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-            radius_text.text = resources.getString(R.string.radius_format, progress)
+            tvRadius.text = resources.getString(R.string.radius_format, progress)
             if (fromUser) {
                 layoutManager?.setRadius(progress)
             }
@@ -106,7 +106,7 @@ class TurnLayoutManagerActivity : BaseFontActivity() {
 
     private val peekListener: OnSeekBarChangeListener = object : OnSeekBarChangeListener {
         override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-            peek_text.text = resources.getString(R.string.peek_format, progress)
+            tvPeekText.text = resources.getString(R.string.peek_format, progress)
             if (fromUser) {
                 layoutManager?.setPeekDistance(progress)
             }
