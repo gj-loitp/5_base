@@ -51,6 +51,7 @@ class ListActivity : BaseFontActivity() {
             context = this,
             moviesList = movieList,
             callback = object : StfAdapter.Callback {
+                @SuppressLint("InflateParams")
                 override fun onClick(
                     iv: ImageView,
                     movie: Movie,

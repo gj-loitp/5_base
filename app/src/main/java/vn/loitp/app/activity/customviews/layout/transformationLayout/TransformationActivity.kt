@@ -42,7 +42,7 @@ class TransformationActivity : BaseFontActivity() {
             )
         }
 
-        //TODO setOnNavigationItemSelectedListener
+        //TODO fix deprecated
         mainBottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.actionHome -> {

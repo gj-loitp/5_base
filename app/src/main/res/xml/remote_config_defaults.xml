@@ -12,4 +12,8 @@
         <key>welcome_message</key>
         <value>Welcome to my awesome app!</value>
     </entry>
+    <entry>
+        <key>key_test</key>
+        <value>Loitp Dep Trai</value>
+    </entry>
 </defaultsMap>

@@ -2,14 +2,17 @@ package vn.loitp.app.app
 
 import com.g1.onetargetsdk.core.Analytics
 import com.g1.onetargetsdk.core.Configuration
+import com.g1.onetargetsdk.core.IAM
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.ttt.db.TTTDatabase
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.data.ActivityData
+import com.onesignal.OneSignal
 import io.realm.Realm
 import io.realm.RealmConfiguration
+import vn.loitp.app.BuildConfig
 import vn.loitp.app.activity.database.room.db.FNBDatabase
 
 // build release de check
@@ -25,6 +28,8 @@ git push -f*/
 
 // activity transaction reveal khi finish screen co cai effect sai
 
+//https://console.firebase.google.com/u/0/project/com-roygroup-base/overview
+//https://app.onesignal.com/apps/f26cbe23-125a-4fe7-86d4-9353b4f7d2b0
 @LogTag("LApplication")
 class LApplication : BaseApplication() {
 
@@ -51,18 +56,25 @@ class LApplication : BaseApplication() {
         // ttt database
         TTTDatabase.getInstance(this)
 
-        setupTrackingG1()
+        setupOneSignal()
+//        setupTrackingG1()
 
         logE("currentActivity() ${currentActivity()}")
     }
 
+    @Suppress("unused")
     private fun setupTrackingG1() {
         val configuration = Configuration(this)
         configuration.setEnvironmentDev()
-//        configuration.setEnvironmentProd()
-        configuration.writeKey = "ab44219f-dc9e-4080-943c-a127bd071da3"
-        val result = Analytics.setup(configuration)
-        logE("setup result $result")
+        configuration.writeKey = "490bf1f1-2e88-4d6d-8ec4-2bb7de74f9a8"
+        configuration.isShowLog = BuildConfig.DEBUG
+        configuration.isEnableIAM = true
+        configuration.oneTargetAppPushID = "d355f0df-6d85-4258-a871-82aaa4031b53"
+        configuration.onShowIAM = { htmlContent, iamData ->
+            IAM.showIAMActivity(this, htmlContent, iamData)
+            //or IAM.showIAMDialog(this, htmlContent, iamData)
+        }
+        Analytics.setup(configuration = configuration, context = this)
     }
 
     override fun onAppInBackground() {
@@ -73,6 +85,13 @@ class LApplication : BaseApplication() {
     override fun onAppInForeground() {
         super.onAppInForeground()
         logE("onAppInForeground")
+    }
+
+    private fun setupOneSignal() {
+        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE)
+        OneSignal.initWithContext(this)
+        OneSignal.setAppId(vn.loitp.app.common.Constants.ONE_SIGNAL_KEY)
+        OneSignal.promptForPushNotifications()
     }
 
 }

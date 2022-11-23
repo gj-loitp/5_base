@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "512606658856",
+    "project_id": "com-roygroup-base",
+    "storage_bucket": "com-roygroup-base.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512606658856:android:f1a8f4e8b2645eef50301d",
+        "android_client_info": {
+          "package_name": "com.roygroup.base"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512606658856-qqcqvngk1uu79klabrc27i4mrtpgkq1p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7EpUbeMBZHg3kNQqVEkpRKyp8Gtsg-2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512606658856-qqcqvngk1uu79klabrc27i4mrtpgkq1p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

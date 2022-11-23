@@ -15,6 +15,7 @@ import vn.loitp.app.R
 @SuppressLint("InflateParams")
 class ExampleCardPopup internal constructor(context: Context?) : RelativePopupWindow() {
 
+    @Suppress("unused")
     override fun showOnAnchor(
         anchor: View,
         vertPos: Int,

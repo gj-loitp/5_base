@@ -1051,6 +1051,15 @@ Likewise may someone love you next.
     <string name="textTopModeAIStrongButton">Against AI: Strong</string>
 
     <string name="logo">logo</string>
+    <string name="fab">FloatingActionButton</string>
+    <string name="codeview">CodeView</string>
+    <string name="drag_view">DragView</string>
+    <string name="finger_paint_view">FingerPaintView</string>
+    <string name="menu_graph_view_activity">MenuGraphViewActivity</string>
+    <string name="simple_rating_bar">SimpleRatingBar</string>
+    <string name="stack_expandable_view_activity">StackExpandableViewActivity</string>
+    <string name="web_view">Web View</string>
+    <string name="wheel_view_activity">WheelViewActivity</string>
     <string-array name="modeTypes">
         <item>One player</item>
         <item>Two players</item>
@@ -1060,4 +1069,13 @@ Likewise may someone love you next.
         <item>Medium</item>
         <item>Hard</item>
     </string-array>
+    <string name="dropdown_title_text">Far away from behind</string>
+    <string name="dropdown_content_text">Buying the right telescope to take your love of astronomy to the next level is a big next step in the development of your passion for the stars. In many ways, it is a big step from someone who is just fooling around with astronomy to a serious student of the science.</string>
+
+    <string name="radius_format">Radius: %1$d</string>
+    <string name="peek_format">Peek: %1$d</string>
+    <string name="gravity">Gravity</string>
+    <string name="orientation">Orientation</string>
+    <string name="rotate">Rotate</string>
+    <string name="controls">Controls</string>
 </resources>

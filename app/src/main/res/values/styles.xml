@@ -72,4 +72,12 @@
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="SupportDropdownTextView">
+        <item name="arrow_drawable">@drawable/ic_arrow</item>
+        <item name="bg_drawable_expanded">@drawable/bg_second_dropdown_text_view_expanded</item>
+        <item name="bg_drawable_regular">@drawable/bg_first_dropdown_text_view_regular</item>
+        <item name="content_text_color">#ffffff</item>
+        <item name="title_text_color">#ff00ff</item>
+    </style>
 </resources>

@@ -7,6 +7,7 @@ import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_0.*
 import vn.loitp.app.R
@@ -39,7 +40,10 @@ class EmptyActivity : BaseFontActivity() {
                 LUIUtil.setSafeOnClickListenerElastic(
                     view = it,
                     runnable = {
-                        showShortInformation(msg = "onClickMenu", isTopAnchor = false)
+                        LSocialUtil.openUrlInBrowser(
+                            context = context,
+                            url = "https://github.com/tplloi/base"
+                        )
                     }
                 )
                 it.isVisible = true

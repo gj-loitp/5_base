@@ -19,4 +19,7 @@
     <dimen name="large_navigator_height">65dp</dimen>
     <dimen name="header_middle_top_margin">16dp</dimen>
     <dimen name="list_with_headers_start_padding">56dp</dimen>
+    <dimen name="list_size">300dp</dimen>
+    <dimen name="list_peek">100dp</dimen>
+    <dimen name="list_radius">400dp</dimen>
 </resources>

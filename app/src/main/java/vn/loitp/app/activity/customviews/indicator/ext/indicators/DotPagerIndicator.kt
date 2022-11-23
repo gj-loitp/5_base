@@ -49,12 +49,16 @@ class DotPagerIndicator(context: Context) : View(context), IPagerIndicator {
             mRadius = radius
             invalidate()
         }
+
+    @Suppress("unused")
     var yOffset: Float
         get() = mYOffset
         set(yOffset) {
             mYOffset = yOffset
             invalidate()
         }
+
+    @Suppress("unused")
     var dotColor: Int
         get() = mDotColor
         set(dotColor) {

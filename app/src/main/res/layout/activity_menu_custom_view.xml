@@ -57,7 +57,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCodeView"
                 style="@style/ButtonMenu"
-                android:text="CodeView" />
+                android:text="@string/codeview" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDialog"
@@ -72,7 +72,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDragView"
                 style="@style/ButtonMenu"
-                android:text="DragView" />
+                android:text="@string/drag_view" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btEditText"
@@ -87,12 +87,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFingerPaintView"
                 style="@style/ButtonMenu"
-                android:text="FingerPaintView" />
+                android:text="@string/finger_paint_view" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMenuGraphViewActivity"
                 style="@style/ButtonMenu"
-                android:text="MenuGraphViewActivity" />
+                android:text="@string/menu_graph_view_activity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btImageView"
@@ -118,6 +118,11 @@
                 android:id="@+id/btLDebugView"
                 style="@style/ButtonMenu"
                 android:text="@string/ldebugview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLuckyWheelActivity"
+                style="@style/ButtonMenu"
+                android:text="LuckyWheelActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMenu"
@@ -162,12 +167,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSimpleRatingBar"
                 style="@style/ButtonMenu"
-                android:text="SimpleRatingBar" />
+                android:text="@string/simple_rating_bar" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btStackExpandableViewActivity"
                 style="@style/ButtonMenu"
-                android:text="StackExpandableViewActivity" />
+                android:text="@string/stack_expandable_view_activity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSticker"
@@ -202,12 +207,17 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btWebView"
                 style="@style/ButtonMenu"
-                android:text="Web View" />
+                android:text="@string/web_view" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btWheelSpinner"
                 style="@style/ButtonMenu"
-                android:text="Wheel spinner" />
+                android:text="@string/wheel_spinner" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btWheelView"
+                style="@style/ButtonMenu"
+                android:text="@string/wheel_view_activity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btWwlMusic"

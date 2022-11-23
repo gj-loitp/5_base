@@ -131,7 +131,7 @@ class LStoreUtil {
 
 //                    C3
                     val path =
-                        LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")
+                        LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Android")
                             ?.get(0)
                             ?: ""
                     val file = File("$path/$folderName")
@@ -345,10 +345,11 @@ class LStoreUtil {
                 @Throws(IOException::class)
                 override fun onResponse(call: Call, response: Response) {
                     if (response.isSuccessful) {
-                        val responseBody = response.body
-                        val json = responseBody.string()
-                        val app = BaseApplication.gson.fromJson(json, App::class.java)
-                        onGGResponse?.invoke(app)
+                        response.body?.let { responseBody ->
+                            val json = responseBody.string()
+                            val app = BaseApplication.gson.fromJson(json, App::class.java)
+                            onGGResponse?.invoke(app)
+                        }
                     } else {
                         onGGResponse?.invoke(null)
                     }

@@ -163,6 +163,7 @@
                 android:id="@+id/btFeedback"
                 style="@style/ButtonMenu"
                 android:text="Feedback" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

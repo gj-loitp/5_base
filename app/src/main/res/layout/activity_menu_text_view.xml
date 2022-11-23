@@ -45,6 +45,11 @@
                 android:text="@string/countdown_textview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDropdownTextView"
+                style="@style/ButtonMenu"
+                android:text="DropdownTextViewActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btExtraTextview"
                 style="@style/ButtonMenu"
                 android:text="@string/extra_textview" />
@@ -78,6 +83,11 @@
                 android:id="@+id/btStrokedTextView"
                 style="@style/ButtonMenu"
                 android:text="@string/stroked_text_view" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTextArcActivity"
+                style="@style/ButtonMenu"
+                android:text="TextArcActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTextDecorator"

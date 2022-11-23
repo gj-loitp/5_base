@@ -40,6 +40,7 @@
     <color name="scratchStartGradient">#e5e5e5</color>
     <color name="scratchEndGradient">#cccccc</color>
 
+    <color name="egg">#e1e1e1e1</color>
     <color name="transparent">#00000000</color>
     <color name="ivory">#FFFFF0</color>
     <color name="lightYellow">#FFFFE0</color>
@@ -195,5 +196,7 @@
     <color name="default_border_color">@color/lightGrey</color>
     <color name="default_selection_bar_month_title_text_color">@color/brown</color>
     <!--endregion cosmocalendar-->
+
+    <color name="color_bottom_sheet_bg">#FFFFFF</color>
 
 </resources>

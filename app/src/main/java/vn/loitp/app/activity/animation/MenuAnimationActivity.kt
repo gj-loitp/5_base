@@ -20,6 +20,7 @@ import vn.loitp.app.activity.animation.basicTransition.BasicTransition0Activity
 import vn.loitp.app.activity.animation.basicTransitionActivity.SceneTransitionBasicActivity
 import vn.loitp.app.activity.animation.basicTransitionFrm.BasicTransitionActivity
 import vn.loitp.app.activity.animation.elasticViews.ElasticActivity
+import vn.loitp.app.activity.animation.fadeOutParticle.FadeOutParticleActivity
 import vn.loitp.app.activity.animation.flySchool.FlySchoolActivity
 import vn.loitp.app.activity.animation.konfetti.KonfettiActivity
 import vn.loitp.app.activity.animation.lottie.MenuLottieActivity
@@ -72,6 +73,7 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
         btPulsingView.setOnClickListener(this)
         btAndroidParticlesActivity.setOnClickListener(this)
         btKonfetti.setOnClickListener(this)
+        btFadeOutParticleActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -124,6 +126,9 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
             }
             btKonfetti -> {
                 intent = Intent(this, KonfettiActivity::class.java)
+            }
+            btFadeOutParticleActivity -> {
+                intent = Intent(this, FadeOutParticleActivity::class.java)
             }
         }
         intent?.let {

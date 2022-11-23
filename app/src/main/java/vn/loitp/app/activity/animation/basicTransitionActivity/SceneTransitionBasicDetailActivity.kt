@@ -82,6 +82,7 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
      *
      * @return true if we were successful in adding a listener to the enter transition
      */
+    @Suppress("unused")
     private fun addTransitionListener(): Boolean {
         val transition = window.sharedElementEnterTransition
         if (transition != null) {

@@ -53,7 +53,7 @@ class PinchToZoomViewPagerActivity : BaseFontActivity() {
         LUIUtil.setPullLikeIOSHorizontal(vp)
     }
 
-    //TODO fix FragmentStatePagerAdapter
+    //TODO update to vp 2
     private inner class SamplePagerAdapter(fm: FragmentManager) :
         FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 

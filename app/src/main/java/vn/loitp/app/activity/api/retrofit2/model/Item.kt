@@ -13,6 +13,7 @@ class Item : BaseModel() {
 
     @SerializedName("is_accepted")
     @Expose
+    @Suppress("unused")
     var isAccepted: Boolean? = null
 
     @SerializedName("score")
@@ -21,10 +22,12 @@ class Item : BaseModel() {
 
     @SerializedName("last_activity_date")
     @Expose
+    @Suppress("unused")
     var lastActivityDate: Int? = null
 
     @SerializedName("creation_date")
     @Expose
+    @Suppress("unused")
     var creationDate: Int? = null
 
     @SerializedName("answer_id")
@@ -33,9 +36,11 @@ class Item : BaseModel() {
 
     @SerializedName("question_id")
     @Expose
+    @Suppress("unused")
     var questionId: Int? = null
 
     @SerializedName("last_edit_date")
     @Expose
+    @Suppress("unused")
     var lastEditDate: Int? = null
 }

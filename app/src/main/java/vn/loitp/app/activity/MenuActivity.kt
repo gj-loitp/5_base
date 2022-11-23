@@ -13,11 +13,10 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.adHelper.AdHelperActivity
-import com.loitpcore.core.utilities.LActivityUtil
-import com.loitpcore.core.utilities.LPrefUtil
-import com.loitpcore.core.utilities.LSocialUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.core.utilities.*
+import kotlinx.android.synthetic.main.activity_firebase.*
 import kotlinx.android.synthetic.main.activity_menu.*
+import kotlinx.android.synthetic.main.activity_menu.lActionBar
 import vn.loitp.app.R
 import vn.loitp.app.activity.animation.MenuAnimationActivity
 import vn.loitp.app.activity.api.MenuAPIActivity

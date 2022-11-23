@@ -60,22 +60,27 @@ object TestApiClient {
 
     val apiService = getClient(getBaseUrl()).create(ApiService::class.java)
 
+    @Suppress("unused")
     fun addHeader(name: String, value: String) {
         restRequestInterceptor?.addHeader(name, value)
     }
 
+    @Suppress("unused")
     fun addAuthorization(token: String) {
         addHeader(ApiConfiguration.AUTHORIZATION_HEADER, token)
     }
 
+    @Suppress("unused")
     fun removeAuthorization() {
         removeHeader(ApiConfiguration.AUTHORIZATION_HEADER)
     }
 
+    @Suppress("unused")
     fun removeHeader(name: String) {
         restRequestInterceptor?.removeHeader(name)
     }
 
+    @Suppress("unused")
     fun hasHeader(name: String): Boolean {
         val hasHeader = restRequestInterceptor?.hasHeader(name)
         return hasHeader == true

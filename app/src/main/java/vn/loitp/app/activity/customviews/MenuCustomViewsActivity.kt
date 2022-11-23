@@ -32,10 +32,11 @@ import vn.loitp.app.activity.customviews.indicator.example.MenuMagicIndicatorAct
 import vn.loitp.app.activity.customviews.lCardView.LCardViewActivity
 import vn.loitp.app.activity.customviews.lDebugView.LDebugViewActivity
 import vn.loitp.app.activity.customviews.layout.MenuLayoutActivity
+import vn.loitp.app.activity.customviews.luckyWheel.LuckyWheelActivity
 import vn.loitp.app.activity.customviews.menu.MenuMenuActivity
 import vn.loitp.app.activity.customviews.navigation.MenuNavigationActivity
 import vn.loitp.app.activity.customviews.popupMenu.PopupMenuActivity
-import vn.loitp.app.activity.customviews.progressLoadingView.MenuProgressLoadingViewsActivity
+import vn.loitp.app.activity.customviews.progress.MenuProgressLoadingViewsActivity
 import vn.loitp.app.activity.customviews.recyclerview.MenuRecyclerViewActivity
 import vn.loitp.app.activity.customviews.scratchView.MenuScratchViewActivity
 import vn.loitp.app.activity.customviews.scrollablePanel.ScrollablePanelActivity
@@ -50,6 +51,7 @@ import vn.loitp.app.activity.customviews.videoView.MenuVideoViewActivity
 import vn.loitp.app.activity.customviews.viewPager.MenuViewPagerActivity
 import vn.loitp.app.activity.customviews.webview.MenuWebViewActivity
 import vn.loitp.app.activity.customviews.wheelSpiner.WheelSpinnerActivity
+import vn.loitp.app.activity.customviews.wheelView.WheelViewActivity
 import vn.loitp.app.activity.customviews.wwlMusic.WWLActivityMusic
 import vn.loitp.app.activity.customviews.wwlVideo.WWLVideoActivity
 
@@ -119,6 +121,8 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btMenuGraphViewActivity.setOnClickListener(this)
         btSimpleRatingBar.setOnClickListener(this)
         btCodeView.setOnClickListener(this)
+        btWheelView.setOnClickListener(this)
+        btLuckyWheelActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -162,6 +166,8 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btMenuGraphViewActivity -> Intent(this, MenuGraphViewActivity::class.java)
             btSimpleRatingBar -> Intent(this, SimpleRatingBarActivity::class.java)
             btCodeView -> Intent(this, CodeViewActivity::class.java)
+            btWheelView -> Intent(this, WheelViewActivity::class.java)
+            btLuckyWheelActivity -> Intent(this, LuckyWheelActivity::class.java)
             else -> null
         }
         intent?.let {

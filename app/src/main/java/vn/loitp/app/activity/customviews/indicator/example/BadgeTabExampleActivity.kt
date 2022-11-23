@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.indicator.example
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -80,6 +81,7 @@ class BadgeTabExampleActivity : BaseFontActivity() {
                 return mDataList.size
             }
 
+            @SuppressLint("InflateParams")
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
                 val badgePagerTitleView = BadgePagerTitleView(context)
                 val simplePagerTitleView: SimplePagerTitleView =
@@ -153,6 +155,7 @@ class BadgeTabExampleActivity : BaseFontActivity() {
                 return mDataList.size
             }
 
+            @SuppressLint("InflateParams")
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
                 val badgePagerTitleView = BadgePagerTitleView(context)
                 val simplePagerTitleView: SimplePagerTitleView =

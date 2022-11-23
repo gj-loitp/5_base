@@ -17,6 +17,7 @@ import vn.loitp.app.activity.customviews.textview.autoComplete.AutoCompleteTextV
 import vn.loitp.app.activity.customviews.textview.autoFit.AutoFitTextViewActivity
 import vn.loitp.app.activity.customviews.textview.colorTextView.ColorTextViewActivity
 import vn.loitp.app.activity.customviews.textview.countDown.CountDownActivity
+import vn.loitp.app.activity.customviews.textview.dropdownTextview.DropdownTextViewActivity
 import vn.loitp.app.activity.customviews.textview.extraTextView.ExtraTextViewActivity
 import vn.loitp.app.activity.customviews.textview.fadingTextView.FadingTextViewActivity
 import vn.loitp.app.activity.customviews.textview.justified.JustifiedTextViewActivity
@@ -25,6 +26,7 @@ import vn.loitp.app.activity.customviews.textview.scrollNumber.ScrollNumberActiv
 import vn.loitp.app.activity.customviews.textview.selectableTextView.SelectableTextViewActivity
 import vn.loitp.app.activity.customviews.textview.strokedTextView.StrokedTextViewActivity
 import vn.loitp.app.activity.customviews.textview.textDecorator.TextDecoratorActivity
+import vn.loitp.app.activity.customviews.textview.textarc.TextArcActivity
 import vn.loitp.app.activity.customviews.textview.typeWriterTextView.TypeWriterTextViewActivity
 import vn.loitp.app.activity.customviews.textview.typedTextView.TypedTextViewActivity
 import vn.loitp.app.activity.customviews.textview.verticalMarquee.VerticalMarqueeTextViewActivity
@@ -73,6 +75,8 @@ class MenuTextViewActivity : BaseFontActivity(), OnClickListener {
         btJustifiedTextViewActivity.setOnClickListener(this)
         btFadingTextView.setOnClickListener(this)
         btTypedTextView.setOnClickListener(this)
+        btDropdownTextView.setOnClickListener(this)
+        btTextArcActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -93,6 +97,8 @@ class MenuTextViewActivity : BaseFontActivity(), OnClickListener {
             btJustifiedTextViewActivity -> Intent(this, JustifiedTextViewActivity::class.java)
             btFadingTextView -> Intent(this, FadingTextViewActivity::class.java)
             btTypedTextView -> Intent(this, TypedTextViewActivity::class.java)
+            btDropdownTextView -> Intent(this, DropdownTextViewActivity::class.java)
+            btTextArcActivity -> Intent(this, TextArcActivity::class.java)
             else -> {
                 null
             }

@@ -21,6 +21,7 @@ import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architectureComponent.MenuAndroidArchitectureComponentActivity
 import vn.loitp.app.activity.demo.epubReader.MenuEpubReaderActivity
+import vn.loitp.app.activity.demo.firebase.FirebaseActivity
 import vn.loitp.app.activity.demo.floatingVideo.FloatingWidgetActivity
 import vn.loitp.app.activity.demo.fragmentFlow.FragmentFlowActivity
 import vn.loitp.app.activity.demo.fragmentNavigation.FragmentNavigationActivity
@@ -99,6 +100,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btTTT.setOnClickListener(this)
         btRSS.setOnClickListener(this)
         btTrackingG1.setOnClickListener(this)
+        btFirebase.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -165,6 +167,9 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             }
             btTrackingG1 -> {
                 intent = Intent(this, TrackingG1Activity::class.java)
+            }
+            btFirebase -> {
+                intent = Intent(this, FirebaseActivity::class.java)
             }
         }
         intent?.let {

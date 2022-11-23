@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.graphView
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -64,6 +65,7 @@ abstract class GraphActivity : BaseFontActivity() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupFab(graph: Graph) {
         addNode.setOnClickListener {
             val newNode = Node(nodeText)

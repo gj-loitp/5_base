@@ -11,6 +11,8 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
+import java.text.DateFormat
+import java.util.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -24,6 +26,12 @@ class LFCMUtil {
     companion object {
         private val logTag = LFCMUtil::class.java.simpleName
         private val JSON = "application/json; charset=utf-8".toMediaTypeOrNull()
+
+        fun testCrash() {
+            throw RuntimeException(
+                "FIREBASE CRASHLYTICS TEST::" + DateFormat.getDateTimeInstance().format(Date())
+            )
+        }
 
         @SuppressLint("CheckResult")
         fun sendNotification(

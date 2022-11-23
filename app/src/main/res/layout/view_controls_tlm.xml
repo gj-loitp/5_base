@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlControlPanel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/egg"
+    android:padding="@dimen/margin_padding_medium">
+
+    <SeekBar
+        android:id="@+id/seekRadius"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="4000"
+        android:thumbTint="@color/red" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRadius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seekRadius"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:layout_marginBottom="@dimen/margin_padding_medium"
+        android:textColor="@color/red"
+        android:textSize="@dimen/txt_medium"
+        tools:text="Radius: 125" />
+
+    <SeekBar
+        android:id="@+id/seekPeek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvRadius"
+        android:max="1000"
+        android:thumbTint="@color/red" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPeekText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seekPeek"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:layout_marginBottom="@dimen/margin_padding_medium"
+        android:textColor="@color/red"
+        android:textSize="@dimen/txt_medium"
+        tools:text="Peek: 75" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvGravityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_below="@id/tvPeekText"
+        android:gravity="center_vertical"
+        android:text="@string/gravity"
+        android:textColor="@color/red" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/gravity"
+        android:layout_width="140dp"
+        android:layout_height="52dp"
+        android:layout_below="@id/tvPeekText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/margin_padding_medium"
+        android:backgroundTint="@color/red" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_alignTop="@+id/orientation"
+        android:gravity="center_vertical"
+        android:text="@string/orientation"
+        android:textColor="@color/red" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/orientation"
+        android:layout_width="140dp"
+        android:layout_height="52dp"
+        android:layout_below="@id/gravity"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/margin_padding_medium"
+        android:backgroundTint="@color/red" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_alignTop="@+id/rotate"
+        android:gravity="center_vertical"
+        android:text="@string/rotate"
+        android:textColor="@color/red" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/rotate"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_below="@+id/orientation"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_padding_medium"
+        android:buttonTint="@color/red"
+        android:checked="false" />
+</RelativeLayout>

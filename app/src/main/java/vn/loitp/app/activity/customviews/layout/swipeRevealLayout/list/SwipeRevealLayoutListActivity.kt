@@ -45,6 +45,7 @@ class SwipeRevealLayoutListActivity : BaseFontActivity() {
         listView.adapter = listAdapter
     }
 
+    @Suppress("unused")
     private fun createList(n: Int): List<String> {
         val list: MutableList<String> = ArrayList()
         for (i in 0 until n) {

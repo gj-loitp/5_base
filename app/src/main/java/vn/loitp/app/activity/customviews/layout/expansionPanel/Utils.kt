@@ -9,6 +9,7 @@ object Utils {
         return (dp * (context.resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)).toInt()
     }
 
+    @Suppress("unused")
     fun pxToDp(context: Context, px: Float): Float {
         return px / (context.resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
     }

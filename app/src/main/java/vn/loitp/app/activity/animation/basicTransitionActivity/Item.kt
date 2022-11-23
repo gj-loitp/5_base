@@ -15,6 +15,7 @@ class Item internal constructor(
     val photoUrl: String
         get() = LARGE_BASE_URL + mFileName
 
+    @Suppress("unused")
     val thumbnailUrl: String
         get() = THUMB_BASE_URL + mFileName
 

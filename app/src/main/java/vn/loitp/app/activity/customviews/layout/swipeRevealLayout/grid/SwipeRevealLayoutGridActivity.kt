@@ -43,6 +43,7 @@ class SwipeRevealLayoutGridActivity : BaseFontActivity() {
         gridView.adapter = gridAdapter
     }
 
+    @Suppress("unused")
     private fun createList(n: Int): List<String> {
         val list: MutableList<String> = ArrayList()
         for (i in 0 until n) {

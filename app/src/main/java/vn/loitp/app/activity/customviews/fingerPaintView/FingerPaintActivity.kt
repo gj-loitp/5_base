@@ -117,11 +117,12 @@ class FingerPaintActivity : BaseFontActivity(), SeekBar.OnSeekBarChangeListener,
     override fun onStopTrackingTouch(seekBar: SeekBar?) {
     }
 
-    override fun onBackPressed() {
+    override fun onBaseBackPressed() {
         if (previewContainer.visibility == View.VISIBLE) {
             hidePreview()
         } else {
-            super.onBackPressed()
+            super.onBaseBackPressed()
         }
+
     }
 }

@@ -25,6 +25,7 @@ import vn.loitp.app.activity.customviews.layout.expansionPanel.MenuExpansionLayo
 import vn.loitp.app.activity.customviews.layout.floatDragLayout.FloatDragLayoutActivity
 import vn.loitp.app.activity.customviews.layout.flowLayout.FlowLayoutActivity
 import vn.loitp.app.activity.customviews.layout.heartLayout.HeartLayoutActivity
+import vn.loitp.app.activity.customviews.layout.reflection.ReflectionLayoutActivity
 import vn.loitp.app.activity.customviews.layout.relativePopupWindow.RelativePopupWindowActivity
 import vn.loitp.app.activity.customviews.layout.rippleLayout.RippleLayoutActivity
 import vn.loitp.app.activity.customviews.layout.rotateLayout.RotateLayoutActivity
@@ -100,6 +101,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
         btChessLayout.setOnClickListener(this)
         btBasketLayoutActivity.setOnClickListener(this)
         btSequenceLayoutActivity.setOnClickListener(this)
+        btReflectionLayoutActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -135,6 +137,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
             btChessLayout -> Intent(this, ChessLayoutActivity::class.java)
             btBasketLayoutActivity -> Intent(this, BasketLayoutActivity::class.java)
             btSequenceLayoutActivity -> Intent(this, SequenceLayoutActivity::class.java)
+            btReflectionLayoutActivity -> Intent(this, ReflectionLayoutActivity::class.java)
             else -> null
         }
         intent?.let {

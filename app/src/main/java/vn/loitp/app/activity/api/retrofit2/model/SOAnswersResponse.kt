@@ -13,17 +13,21 @@ class SOAnswersResponse : BaseModel() {
 
     @SerializedName("has_more")
     @Expose
+    @Suppress("unused")
     var hasMore: Boolean? = null
 
     @SerializedName("backoff")
     @Expose
+    @Suppress("unused")
     var backoff: Int? = null
 
     @SerializedName("quota_max")
     @Expose
+    @Suppress("unused")
     var quotaMax: Int? = null
 
     @SerializedName("quota_remaining")
     @Expose
+    @Suppress("unused")
     var quotaRemaining: Int? = null
 }

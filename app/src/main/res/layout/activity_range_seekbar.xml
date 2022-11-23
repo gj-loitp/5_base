@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.loitpcore.views.seekBar.range.RangeSeekBarView
+            android:id="@+id/rangeSeekbar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:barHeight="15dp"
+            app:baseColor="@color/navy"
+            app:circleFillColor="@color/green"
+            app:circleRadius="15dp"
+            app:circleTextColor="@color/white"
+            app:circleTextSize="@dimen/value_bar_circleTextSize"
+            app:currentValue="60"
+            app:fillColor="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:maxValue="150"
+            app:minValue="15"
+            app:orientationRangeSeekBarView="LEFT_TO_RIGHT"
+            app:stepValue="5" />
+
+
+        <com.loitpcore.views.seekBar.range.RangeSeekBarView
+            android:id="@+id/rangeSeekbar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:barHeight="15dp"
+            app:baseColor="@color/navy"
+            app:circleFillColor="@color/green"
+            app:circleRadius="15dp"
+            app:circleTextColor="@color/white"
+            app:circleTextSize="@dimen/value_bar_circleTextSize"
+            app:currentValue="60"
+            app:fillColor="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rangeSeekbar1"
+            app:maxValue="150"
+            app:minValue="15"
+            app:orientationRangeSeekBarView="RIGHT_TO_LEFT"
+            app:stepValue="5" />
+
+        <com.loitpcore.views.seekBar.range.RangeSeekBarView
+            android:id="@+id/rangeSeekbar3"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_marginTop="16dp"
+            app:barHeight="15dp"
+            app:baseColor="@color/navy"
+            app:circleFillColor="@color/green"
+            app:circleRadius="15dp"
+            app:circleTextColor="@color/white"
+            app:circleTextSize="@dimen/value_bar_circleTextSize"
+            app:currentValue="60"
+            app:fillColor="@color/red"
+            app:layout_constraintEnd_toStartOf="@id/rangeSeekbar4"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rangeSeekbar2"
+            app:maxValue="150"
+            app:minValue="15"
+            app:orientationRangeSeekBarView="TOP_TO_BOTTOM"
+            app:stepValue="5" />
+
+
+        <com.loitpcore.views.seekBar.range.RangeSeekBarView
+            android:id="@+id/rangeSeekbar4"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            app:barHeight="15dp"
+            app:baseColor="@color/navy"
+            app:circleFillColor="@color/green"
+            app:circleRadius="15dp"
+            app:circleTextColor="@color/white"
+            app:circleTextSize="@dimen/value_bar_circleTextSize"
+            app:currentValue="60"
+            app:fillColor="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rangeSeekbar3"
+            app:layout_constraintTop_toTopOf="@id/rangeSeekbar3"
+            app:maxValue="150"
+            app:minValue="15"
+            app:orientationRangeSeekBarView="BOTTOM_TO_TOP"
+            app:stepValue="5" />
+
+        <Button
+            android:id="@+id/btnValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Values"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rangeSeekbar3" />
+
+        <com.loitpcore.views.seekBar.range.DoubleValueSeekBarView
+            android:id="@+id/rangeSeekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnValue"
+            app:r2CurrentMaxValue="140"
+            app:r2CurrentMinValue="30"
+            app:r2barHeight="15dp"
+            app:r2baseColor="@color/navy"
+            app:r2circleFillColor="@color/green"
+            app:r2circleRadius="15dp"
+            app:r2circleTextColor="@color/white"
+            app:r2circleTextSize="@dimen/value_bar_circleTextSize"
+            app:r2fillColor="@color/red"
+            app:r2maxValue="150"
+            app:r2maxValueStep="10"
+            app:r2minValue="15"
+            app:r2minValueStep="5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
