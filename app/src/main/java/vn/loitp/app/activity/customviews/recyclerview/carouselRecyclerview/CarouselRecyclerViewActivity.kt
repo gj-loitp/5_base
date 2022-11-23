@@ -66,6 +66,8 @@ class CarouselRecyclerViewActivity : BaseFontActivity() {
             this.adapter = adapter
             set3DItem(true)
             setAlpha(true)
+            setInfinite(true)
+            setIsScrollingEnabled(true)
         }
 
         button.setSafeOnClickListener {
