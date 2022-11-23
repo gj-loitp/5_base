@@ -21,6 +21,7 @@ import vn.loitp.app.activity.customviews.imageview.fidgetSpinner.FidgetSpinnerIm
 import vn.loitp.app.activity.customviews.imageview.kenburnView.KenburnViewActivity
 import vn.loitp.app.activity.customviews.imageview.panorama.PanoramaImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.pinchToZoom.PinchToZoomViewPagerActivity
+import vn.loitp.app.activity.customviews.imageview.reflection.ReflectionActivity
 import vn.loitp.app.activity.customviews.imageview.scrollParallax.ScrollParallaxImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.stfaiconImageViewer.ListActivity
 import vn.loitp.app.activity.customviews.imageview.strectchy.StrectchyImageViewActivity
@@ -67,33 +68,31 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
         btKenburnView.setOnClickListener(this)
         btComicView.setOnClickListener(this)
         btStfalconImageViewer.setOnClickListener(this)
+        btReflection.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        var intent: Intent? = null
-        when (v) {
-            btCirleImageView -> intent = Intent(this, CircleImageViewActivity::class.java)
-            btStretchyImageView -> intent = Intent(this, StrectchyImageViewActivity::class.java)
-            btTouchImageView -> intent = Intent(this, TouchImageViewActivity::class.java)
-            btZoomImageView -> intent = Intent(this, ZoomImageViewActivity::class.java)
-            btFidgetSpinner -> intent = Intent(this, FidgetSpinnerImageViewActivity::class.java)
+        val intent = when (v) {
+            btCirleImageView -> Intent(this, CircleImageViewActivity::class.java)
+            btStretchyImageView -> Intent(this, StrectchyImageViewActivity::class.java)
+            btTouchImageView -> Intent(this, TouchImageViewActivity::class.java)
+            btZoomImageView -> Intent(this, ZoomImageViewActivity::class.java)
+            btFidgetSpinner -> Intent(this, FidgetSpinnerImageViewActivity::class.java)
             btContinuousScrollableImageView ->
-                intent =
-                    Intent(this, ContinuousScrollableImageViewActivity::class.java)
+                Intent(this, ContinuousScrollableImageViewActivity::class.java)
             btScrollParallaxImageView ->
-                intent =
-                    Intent(this, ScrollParallaxImageViewActivity::class.java)
-            btPanoramaImageView -> intent = Intent(this, PanoramaImageViewActivity::class.java)
-            btBigImageView -> intent = Intent(this, BigImageViewActivity::class.java)
+                Intent(this, ScrollParallaxImageViewActivity::class.java)
+            btPanoramaImageView -> Intent(this, PanoramaImageViewActivity::class.java)
+            btBigImageView -> Intent(this, BigImageViewActivity::class.java)
             btBigImageViewWithScrollView ->
-                intent =
-                    Intent(this, BigImageViewWithScrollViewActivity::class.java)
+                Intent(this, BigImageViewWithScrollViewActivity::class.java)
             btTouchImageViewWithViewPager ->
-                intent =
-                    Intent(this, PinchToZoomViewPagerActivity::class.java)
-            btKenburnView -> intent = Intent(this, KenburnViewActivity::class.java)
-            btComicView -> intent = Intent(this, ComicViewActivity::class.java)
-            btStfalconImageViewer -> intent = Intent(this, ListActivity::class.java)
+                Intent(this, PinchToZoomViewPagerActivity::class.java)
+            btKenburnView -> Intent(this, KenburnViewActivity::class.java)
+            btComicView -> Intent(this, ComicViewActivity::class.java)
+            btStfalconImageViewer -> Intent(this, ListActivity::class.java)
+            btReflection -> Intent(this, ReflectionActivity::class.java)
+            else -> null
         }
         intent?.let { i ->
             startActivity(i)
