@@ -1262,6 +1262,9 @@
         <activity
             android:name=".activity.customviews.imageview.reflection.ReflectionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.customviews.layout.reflection.ReflectionLayoutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
     <queries>

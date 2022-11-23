@@ -94,6 +94,11 @@
                 android:text="@string/heart_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btReflectionLayoutActivity"
+                style="@style/ButtonMenu"
+                android:text="ReflectionLayoutActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRelativePopupWindow"
                 style="@style/ButtonMenu"
                 android:text="@string/relative_popup_window" />
