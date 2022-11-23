@@ -108,6 +108,8 @@ dependencies {
 //    https://github.com/alpbak/BoxedVerticalSeekBar
     api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'
 
+//    https://github.com/sparrow007/CarouselRecyclerview
+    api 'com.github.sparrow007:carouselrecyclerview:1.2.5'
 //    https://github.com/AmrDeveloper/CodeView
     api 'com.github.AmrDeveloper:CodeView:1.3.5'
 //    https://github.com/square/retrofit/tree/master/retrofit-converters/moshi

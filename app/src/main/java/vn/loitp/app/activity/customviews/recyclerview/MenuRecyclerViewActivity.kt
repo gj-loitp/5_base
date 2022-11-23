@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_menu_recycler_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.arcView.ArcViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.book.BookViewActivity
+import vn.loitp.app.activity.customviews.recyclerview.carouselRecyclerview.CarouselRecyclerViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.ConcatAdapterActivity
 import vn.loitp.app.activity.customviews.recyclerview.diffUtil.DiffUtilActivity
 import vn.loitp.app.activity.customviews.recyclerview.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity
@@ -82,64 +83,60 @@ class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
         btFastScroll.setOnClickListener(this)
         btFastScrollSeekBar.setOnClickListener(this)
         btTurnLayoutManagerActivity.setOnClickListener(this)
+        btCarouselRecyclerViewActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        var i: Intent? = null
-        when (v) {
+        val i = when (v) {
             btArcViewActivity -> {
-                i = Intent(this, ArcViewActivity::class.java)
+                Intent(this, ArcViewActivity::class.java)
             }
             btParallaxRecyclerView -> {
-                i = Intent(this, ParallaxRecyclerViewActivity::class.java)
+                Intent(this, ParallaxRecyclerViewActivity::class.java)
             }
-            btNormalRecyclerView -> i = Intent(this, RecyclerViewActivity::class.java)
+            btNormalRecyclerView -> Intent(this, RecyclerViewActivity::class.java)
             btNormalRecyclerViewWithSpanSize -> {
-                i =
-                    Intent(this, RecyclerViewWithSpanSizeActivity::class.java)
+                Intent(this, RecyclerViewWithSpanSizeActivity::class.java)
             }
             btNormalRecyclerViewWithSingletonData -> {
-                i =
-                    Intent(this, RecyclerViewWithSingletonDataActivity::class.java)
+                Intent(this, RecyclerViewWithSingletonDataActivity::class.java)
             }
             btGalleryLayoutManager -> {
-                i =
-                    Intent(this, GalleryLayoutManagerHorizontalActivity::class.java)
+                Intent(this, GalleryLayoutManagerHorizontalActivity::class.java)
             }
             btGalleryLayoutManagerVertical -> {
-                i =
-                    Intent(this, GalleryLayoutManagerVerticalActivity::class.java)
+                Intent(this, GalleryLayoutManagerVerticalActivity::class.java)
             }
-            btBookView -> i = Intent(this, BookViewActivity::class.java)
-            btDiffUtil -> i = Intent(this, DiffUtilActivity::class.java)
-            btRecyclerTabLayout -> i = Intent(this, MenuRecyclerTabLayoutActivity::class.java)
-            btConcatAdapter -> i = Intent(this, ConcatAdapterActivity::class.java)
-            btFooter -> i = Intent(this, RecyclerViewFooterActivity::class.java)
-            btFooter2 -> i = Intent(this, RecyclerViewFooter2Activity::class.java)
-            btNetView -> i = Intent(this, NetViewActivity::class.java)
-            btFitGridView -> i = Intent(this, FitGridViewActivity::class.java)
+            btBookView -> Intent(this, BookViewActivity::class.java)
+            btDiffUtil -> Intent(this, DiffUtilActivity::class.java)
+            btRecyclerTabLayout -> Intent(this, MenuRecyclerTabLayoutActivity::class.java)
+            btConcatAdapter -> Intent(this, ConcatAdapterActivity::class.java)
+            btFooter -> Intent(this, RecyclerViewFooterActivity::class.java)
+            btFooter2 -> Intent(this, RecyclerViewFooter2Activity::class.java)
+            btNetView -> Intent(this, NetViewActivity::class.java)
+            btFitGridView -> Intent(this, FitGridViewActivity::class.java)
             btDragDropSwipeRecyclerviewListVertical -> {
-                i =
-                    Intent(this, DragDropSwipeListVerticalRecyclerviewActivity::class.java)
+                Intent(this, DragDropSwipeListVerticalRecyclerviewActivity::class.java)
             }
             btDragDropSwipeRecyclerviewListHorizontal -> {
-                i =
-                    Intent(this, DragDropSwipeListHorizontalRecyclerviewActivity::class.java)
+                Intent(this, DragDropSwipeListHorizontalRecyclerviewActivity::class.java)
             }
             btDragDropSwipeRecyclerviewGrid -> {
-                i =
-                    Intent(this, DragDropSwipeGridRecyclerviewActivity::class.java)
+                Intent(this, DragDropSwipeGridRecyclerviewActivity::class.java)
             }
             btFastScroll -> {
-                i = Intent(this, MenuFastScrollActivity::class.java)
+                Intent(this, MenuFastScrollActivity::class.java)
             }
             btFastScrollSeekBar -> {
-                i =
-                    Intent(this, RecyclerViewFastScrollSeekbarActivity::class.java)
+                Intent(this, RecyclerViewFastScrollSeekbarActivity::class.java)
             }
             btTurnLayoutManagerActivity -> {
-                i = Intent(this, TurnLayoutManagerActivity::class.java)
+                Intent(this, TurnLayoutManagerActivity::class.java)
             }
+            btCarouselRecyclerViewActivity -> {
+                Intent(this, CarouselRecyclerViewActivity::class.java)
+            }
+            else -> null
         }
         i?.let {
             startActivity(it)

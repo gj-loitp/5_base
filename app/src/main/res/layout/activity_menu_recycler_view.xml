@@ -36,6 +36,11 @@
                 android:text="@string/bookview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCarouselRecyclerViewActivity"
+                style="@style/ButtonMenu"
+                android:text="CarouselRecyclerViewActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btConcatAdapter"
                 style="@style/ButtonMenu"
                 android:text="@string/merge_adapter" />
