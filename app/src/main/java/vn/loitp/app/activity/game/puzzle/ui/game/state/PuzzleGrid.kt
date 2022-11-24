@@ -7,14 +7,21 @@ import vn.loitp.app.activity.game.puzzle.ui.game.utils.BitmapTile
 
 typealias Puzzle2DArray = Array<Array<PuzzleDescriptor?>>
 
-enum class Direction(val offsetX: Int, val offsetY: Int) {
+enum class Direction(
+    val offsetX: Int,
+    val offsetY: Int
+) {
     TOP(0, -1),
     BOTTOM(0, 1),
     LEFT(-1, 0),
     RIGHT(1, 0)
 }
 
-class PuzzleGrid(val sourceImage: Bitmap?, var size: Size, private val missingSlides: Int = 1) {
+class PuzzleGrid(
+    private val sourceImage: Bitmap?,
+    var size: Size,
+    private val missingSlides: Int = 1
+) {
     lateinit var puzzles: Puzzle2DArray
         private set
 
@@ -22,13 +29,17 @@ class PuzzleGrid(val sourceImage: Bitmap?, var size: Size, private val missingSl
 
     init {
         sourceImage?.let {
-            regenerate(size, sourceImage)
+            regenerate(newSize = size, newImage = sourceImage)
         }
     }
 
-    fun regenerate(newSize: Size, newImage: Bitmap? = null, shuffle: Boolean = false) {
+    fun regenerate(
+        newSize: Size,
+        newImage: Bitmap? = null,
+        shuffle: Boolean = false
+    ) {
         size = newSize
-        bitmapTile = BitmapTile(newImage ?: sourceImage!!, newSize)
+        bitmapTile = BitmapTile(image = newImage ?: sourceImage!!, size = newSize)
         puzzles = genRandomSlides(shuffle)
     }
 

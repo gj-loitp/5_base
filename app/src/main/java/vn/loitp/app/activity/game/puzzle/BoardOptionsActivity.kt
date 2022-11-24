@@ -9,11 +9,10 @@ class BoardOptionsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.board_options_activity)
+        setContentView(R.layout.activity_puzzle_board_options)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, BoardOptionsFragment.newInstance())
-                .commitNow()
+                .replace(R.id.container, BoardOptionsFragment.newInstance()).commitNow()
         }
     }
 

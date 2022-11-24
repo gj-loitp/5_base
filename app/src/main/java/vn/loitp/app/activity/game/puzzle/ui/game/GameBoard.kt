@@ -3,6 +3,7 @@ package vn.loitp.app.activity.game.puzzle.ui.game
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
@@ -11,7 +12,9 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import vn.loitp.app.R
 import vn.loitp.app.activity.game.puzzle.ui.game.state.PuzzleGrid
+import kotlin.math.ceil
 
+@SuppressLint("ClickableViewAccessibility")
 class GameBoard(
     context: Context,
     attrs: AttributeSet
@@ -29,8 +32,8 @@ class GameBoard(
     private lateinit var activeSlide: Point
 
     private var grid = PuzzleGrid(
-        null,
-        Size(4, 4)
+        sourceImage = null,
+        size = Size(/* width = */ 4, /* height = */ 4)
     )
 
     init {
@@ -52,12 +55,16 @@ class GameBoard(
 
     private fun getSlideCoordinates(p: PointF): Point {
         return Point(
-            (p.x / width * grid.size.width).toInt(),
-            (p.y / height * grid.size.height).toInt()
+            /* x = */ (p.x / width * grid.size.width).toInt(),
+            /* y = */ (p.y / height * grid.size.height).toInt()
         )
     }
 
-    fun resize(size: Size, image: Bitmap? = null, shuffle: Boolean = true) {
+    fun resize(
+        size: Size,
+        image: Bitmap? = null,
+        shuffle: Boolean = true
+    ) {
         grid.regenerate(size, image, shuffle)
         requestLayout()
     }
@@ -107,16 +114,23 @@ class GameBoard(
 
         grid.let {
             tileSize.set(
+                /* left = */ 0,
+                /* top = */
                 0,
-                0,
-                Math.ceil(MeasureSpec.getSize(widthMeasureSpec).toDouble() / it.size.width).toInt(),
-                Math.ceil(MeasureSpec.getSize(heightMeasureSpec).toDouble() / it.size.height)
+                /* right = */
+                ceil(MeasureSpec.getSize(widthMeasureSpec).toDouble() / it.size.width).toInt(),
+                /* bottom = */
+                ceil(MeasureSpec.getSize(heightMeasureSpec).toDouble() / it.size.height)
                     .toInt()
             )
         }
     }
 
-    private fun drawSlideTitle(canvas: Canvas, offset: Rect, text: String) {
+    private fun drawSlideTitle(
+        canvas: Canvas,
+        offset: Rect,
+        text: String
+    ) {
         // fill
         paint.strokeWidth = 4.0f
         paint.style = Paint.Style.STROKE

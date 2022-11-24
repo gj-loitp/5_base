@@ -45,7 +45,7 @@ class ImageCardsAdapterGridView(
         if (newView == null) {
             val vi =
                 parentContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            newView = vi.inflate(R.layout.titled_image_card_fragment, null)
+            newView = vi.inflate(R.layout.frm_titled_image_card, null)
             newView.tag = cards[position]
         }
 
@@ -89,7 +89,7 @@ class BoardOptionsFragment : androidx.fragment.app.Fragment() {
         if (context != null && board != null) {
             val layoutInflater = LayoutInflater.from(view?.context)
             board.addHeaderView(
-                layoutInflater.inflate(R.layout.board_options_grid_header, null)
+                layoutInflater.inflate(R.layout.view_puzzle_board_options_grid_header, null)
             )
 
             board.adapter = ImageCardsAdapterGridView(

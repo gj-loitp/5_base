@@ -8,17 +8,17 @@ data class BitmapTile(
     val size: Size
 ) {
     private val tileSize = Size(
-        image.width / size.width,
-        image.height / size.height
+        /* width = */ image.width / size.width,
+        /* height = */ image.height / size.height
     )
 
     val tiles = Array(size.height) { y ->
         Array(size.width) { x ->
             Bitmap.createBitmap(
-                image,
-                x * tileSize.width,
-                y * tileSize.height,
-                tileSize.width, tileSize.height
+                /* source = */ image,
+                /* x = */ x * tileSize.width,
+                /* y = */ y * tileSize.height,
+                /* width = */ tileSize.width, /* height = */ tileSize.height
             )
         }
     }

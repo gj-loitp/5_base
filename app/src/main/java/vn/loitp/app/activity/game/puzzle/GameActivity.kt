@@ -6,7 +6,6 @@ import android.util.Size
 import android.view.MenuItem
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import vn.loitp.app.R
 import vn.loitp.app.activity.game.puzzle.ui.boardoptions.BoardOptionsViewModel
@@ -21,20 +20,20 @@ class GameActivity : AppCompatActivity() {
     }
 
     private val viewModel: BoardOptionsViewModel by lazy {
-        ViewModelProviders.of(this).get(BoardOptionsViewModel::class.java)
+        ViewModelProviders.of(this)[BoardOptionsViewModel::class.java]
     }
 
     private fun mountBoard() {
         val board = findViewById<GameBoard>(R.id.boardView)
 
-        viewModel.boardSize.observe(this, Observer {
+        viewModel.boardSize.observe(this) {
             it?.let {
                 board.resize(
                     Size(it.width, it.height),
                     viewModel.boardImage.value
                 )
             }
-        })
+        }
 
         findViewById<Button>(R.id.shuffle).setOnClickListener {
             board.shuffle()
@@ -53,7 +52,7 @@ class GameActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.game_activity)
+        setContentView(R.layout.activity_game_puzzle)
         setSupportActionBar(findViewById(R.id.tbBoardOptions))
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
