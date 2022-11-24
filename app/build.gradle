@@ -148,6 +148,8 @@ dependencies {
 
 //    https://github.com/oss-bandb/GraphView
     api 'dev.bandb.graphview:graphview:0.8.1'
+//    https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter
+    api 'in.srain.cube:grid-view-with-header-footer:1.0.12'
 
     api 'com.thedeanda:lorem:2.1'
 //    https://github.com/mmoamenn/LuckyWheel_Android

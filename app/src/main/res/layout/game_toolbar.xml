@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/board_options_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/AppToolbarTheme"
+    android:titleTextColor="@color/white">
+
+    <fragment
+        android:name="vn.loitp.app.activity.game.puzzle.ui.boardoptions.BoardSizeSpinnerFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end" />
+</androidx.appcompat.widget.Toolbar>

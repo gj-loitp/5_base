@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <include layout="@layout/game_toolbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <vn.loitp.app.activity.game.puzzle.ui.game.GameBoard
+            android:id="@+id/boardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/board_shape"
+            android:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|center_horizontal">
+
+        <android.widget.Button
+            android:id="@+id/shuffle"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="@string/shuffle" />
+
+        <android.widget.Button
+            android:id="@+id/reset"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="@string/reset" />
+    </LinearLayout>
+</FrameLayout>

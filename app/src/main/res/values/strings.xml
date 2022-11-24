@@ -1080,4 +1080,6 @@ Likewise may someone love you next.
     <string name="controls">Controls</string>
 
     <string name="corner_drawer_header">Support</string>
+    <string name="or">Or</string>
+    <string name="choose_image">Choose image:</string>
 </resources>
