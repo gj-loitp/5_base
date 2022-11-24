@@ -1082,4 +1082,9 @@ Likewise may someone love you next.
     <string name="corner_drawer_header">Support</string>
     <string name="or">Or</string>
     <string name="choose_image">Choose image:</string>
+
+    <string name="action_hide">Hide Panel</string>
+    <string name="action_show">Show Panel</string>
+    <string name="action_anchor_enable">Enable Anchor Point</string>
+    <string name="action_anchor_disable">Disable Anchor Point</string>
 </resources>
