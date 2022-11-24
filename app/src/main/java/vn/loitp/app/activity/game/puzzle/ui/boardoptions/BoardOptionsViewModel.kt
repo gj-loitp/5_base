@@ -8,7 +8,10 @@ import java.io.Serializable
 
 typealias TitledResourcePair = Pair<Int, String>
 
-data class BoardTitledSize(val width: Int, val height: Int) : Serializable {
+data class BoardTitledSize(
+    val width: Int,
+    val height: Int
+) : Serializable {
     override fun toString(): String {
         return "$width x $height"
     }

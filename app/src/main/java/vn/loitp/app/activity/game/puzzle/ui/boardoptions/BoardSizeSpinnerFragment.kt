@@ -16,7 +16,7 @@ typealias BoardSizeAdapter = ArrayAdapter<BoardTitledSize>
 class BoardSizeSpinnerFragment : androidx.fragment.app.Fragment() {
     private val viewModel: BoardOptionsViewModel? by lazy {
         activity?.let {
-            ViewModelProviders.of(it).get(BoardOptionsViewModel::class.java)
+            ViewModelProviders.of(it)[BoardOptionsViewModel::class.java]
         }
     }
 
@@ -24,7 +24,7 @@ class BoardSizeSpinnerFragment : androidx.fragment.app.Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.board_size_spinner_fragment, container, false)
+        val view = inflater.inflate(R.layout.frm_puzzel_board_size_spinner, container, false)
         val sizeSpinner = view.findViewById<Spinner>(R.id.board_size_spinner)
         val arrayAdapter = BoardSizeAdapter(
             activity as Context,

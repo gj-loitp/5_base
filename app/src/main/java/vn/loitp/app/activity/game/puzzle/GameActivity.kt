@@ -54,7 +54,7 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.game_activity)
-        setSupportActionBar(findViewById(R.id.board_options_toolbar))
+        setSupportActionBar(findViewById(R.id.tbBoardOptions))
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mountBoard()

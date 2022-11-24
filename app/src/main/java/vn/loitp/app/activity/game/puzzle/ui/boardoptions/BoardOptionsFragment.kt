@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.game.puzzle.ui.boardoptions
 
 import `in`.srain.cube.views.GridViewWithHeaderAndFooter
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -13,6 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
+import com.loitpcore.core.utilities.LActivityUtil
 import vn.loitp.app.R
 import vn.loitp.app.activity.game.puzzle.BoardActivityParams
 import vn.loitp.app.activity.game.puzzle.GameActivity
@@ -33,7 +35,12 @@ class ImageCardsAdapterGridView(
         return cards[position]
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
+    @SuppressLint("InflateParams")
+    override fun getView(
+        position: Int,
+        convertView: View?,
+        parent: ViewGroup
+    ): View {
         var newView: View? = convertView
         if (newView == null) {
             val vi =
@@ -57,7 +64,7 @@ class BoardOptionsFragment : androidx.fragment.app.Fragment() {
 
     private val viewModel: BoardOptionsViewModel? by lazy {
         activity?.let {
-            ViewModelProviders.of(it).get(BoardOptionsViewModel::class.java)
+            ViewModelProviders.of(it)[BoardOptionsViewModel::class.java]
         }
     }
 
@@ -65,18 +72,19 @@ class BoardOptionsFragment : androidx.fragment.app.Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.board_options_fragment, container, false)
+        val view = inflater.inflate(R.layout.frm_puzzle_board_options, container, false)
         (activity as AppCompatActivity).setSupportActionBar(
-            view.findViewById(R.id.board_options_toolbar)
+            view.findViewById(R.id.tbBoardOptions)
         )
         return view
     }
 
+    @SuppressLint("InflateParams")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         val context = this.context
-        val board = view?.findViewById<GridViewWithHeaderAndFooter>(R.id.images_grid)
+        val board = view?.findViewById<GridViewWithHeaderAndFooter>(R.id.gvImages)
 
         if (context != null && board != null) {
             val layoutInflater = LayoutInflater.from(view?.context)
@@ -85,8 +93,8 @@ class BoardOptionsFragment : androidx.fragment.app.Fragment() {
             )
 
             board.adapter = ImageCardsAdapterGridView(
-                context,
-                BoardOptionsViewModel.PREDEFINED_IMAGES.map { (id, name) ->
+                parentContext = context,
+                cards = BoardOptionsViewModel.PREDEFINED_IMAGES.map { (id, name) ->
                     TitledCardInfo(
                         BitmapFactory.decodeResource(resources, id),
                         name
@@ -99,12 +107,11 @@ class BoardOptionsFragment : androidx.fragment.app.Fragment() {
                     it.boardImage.value = (view.tag as TitledCardInfo).image
 
                     GameActivity.initialConfig = BoardActivityParams(
-                        it.boardImage.value!!,
-                        it.boardSize.value!!
+                        bitmap = it.boardImage.value!!,
+                        size = it.boardSize.value!!
                     )
-                    startActivity(
-                        Intent(this.activity, GameActivity::class.java)
-                    )
+                    startActivity(Intent(this.activity, GameActivity::class.java))
+                    LActivityUtil.tranIn(this.activity)
                 }
             }
         }
