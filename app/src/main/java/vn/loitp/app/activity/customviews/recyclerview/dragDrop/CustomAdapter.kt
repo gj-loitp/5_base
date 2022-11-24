@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.customviews.recyclerview.dragDrop
 
+import android.annotation.SuppressLint
 import android.content.ClipData
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -12,13 +12,23 @@ import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.app.R
 
 interface CustomListener {
-    fun setEmptyList(visibility: Int, recyclerView: Int, emptyTextView: Int)
+    fun setEmptyList(
+        visibility: Int,
+        recyclerView: Int,
+        emptyTextView: Int
+    )
 }
 
-class CustomAdapter(private var list: List<String>, private val listener: CustomListener?) :
+class CustomAdapter(
+    private var list: List<String>,
+    private val listener: CustomListener?
+) :
     RecyclerView.Adapter<CustomAdapter.CustomViewHolder?>(), View.OnTouchListener {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): CustomViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return CustomViewHolder(inflater, parent)
     }
@@ -31,6 +41,7 @@ class CustomAdapter(private var list: List<String>, private val listener: Custom
 
     fun getList(): MutableList<String> = this.list.toMutableList()
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouch(v: View?, event: MotionEvent?): Boolean {
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
@@ -47,10 +58,10 @@ class CustomAdapter(private var list: List<String>, private val listener: Custom
         get() = if (listener != null) {
             DragListener(listener)
         } else {
-            Log.e(javaClass::class.simpleName, "Listener not initialized")
             null
         }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         holder.text?.text = list[position]
         holder.frameLayout?.tag = position

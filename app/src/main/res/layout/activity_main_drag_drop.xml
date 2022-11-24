@@ -1,52 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.customviews.recyclerview.dragDrop.MainActivityDragDrop">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/empty_list_text_view_1"
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#E4E4E4"
-        android:gravity="center"
-        android:text="List1 is Empty!"
-        android:textSize="17sp"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        android:layout_height="wrap_content" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_1"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/empty_list_text_view_1" />
+        android:layout_height="match_parent"
+        tools:context=".activity.customviews.recyclerview.dragDrop.MainActivityDragDrop">
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#cccccc"
-        app:layout_constraintTop_toBottomOf="@id/recycler_view_1" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEmptyList1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#E4E4E4"
+            android:gravity="center"
+            android:text="List1 is Empty!"
+            android:textColor="@color/red"
+            android:textSize="@dimen/txt_medium"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvEmptyList1"
+            tools:listitem="@layout/list_item_drag_drop" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/empty_list_text_view_2"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#E4E4E4"
-        android:gravity="center"
-        android:text="List2 is Empty!"
-        android:textSize="17sp"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/recycler_view_2"
-        tools:visibility="visible" />
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/themeTextColor"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView1" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            tools:listitem="@layout/list_item_drag_drop" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEmptyList2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#E4E4E4"
+            android:gravity="center"
+            android:text="List2 is Empty!"
+            android:textColor="@color/red"
+            android:textSize="@dimen/txt_medium"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView2"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

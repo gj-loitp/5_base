@@ -7,12 +7,12 @@
     android:layout_margin="5dp"
     android:background="#00BCD4">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:textSize="35sp"
         android:textStyle="bold"
-        android:layout_gravity="center"
         tools:text="A" />
 </FrameLayout>

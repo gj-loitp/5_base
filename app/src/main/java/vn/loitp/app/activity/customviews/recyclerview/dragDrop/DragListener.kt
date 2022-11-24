@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.dragDrop
 
+import android.annotation.SuppressLint
 import android.view.DragEvent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -8,6 +9,8 @@ import vn.loitp.app.R
 class DragListener internal constructor(private val listener: CustomListener) :
     View.OnDragListener {
     private var isDropped = false
+
+    @SuppressLint("NotifyDataSetChanged")
     override fun onDrag(v: View, event: DragEvent): Boolean {
         when (event.action) {
             DragEvent.ACTION_DROP -> {
@@ -16,10 +19,10 @@ class DragListener internal constructor(private val listener: CustomListener) :
                 val viewSource = event.localState as View?
                 val viewId = v.id
                 val frameLayoutItem = R.id.frame_layout_item
-                val emptyTextView1 = R.id.empty_list_text_view_1
-                val emptyTextView2 = R.id.empty_list_text_view_2
-                val recyclerView1 = R.id.recycler_view_1
-                val recyclerView2 = R.id.recycler_view_2
+                val emptyTextView1 = R.id.tvEmptyList1
+                val emptyTextView2 = R.id.tvEmptyList2
+                val recyclerView1 = R.id.recyclerView1
+                val recyclerView2 = R.id.recyclerView2
                 when (viewId) {
                     frameLayoutItem, emptyTextView1, emptyTextView2, recyclerView1, recyclerView2 -> {
                         val target: RecyclerView
@@ -52,17 +55,33 @@ class DragListener internal constructor(private val listener: CustomListener) :
                             }
                             customListTarget?.let { adapterTarget.updateList(it) }
                             adapterTarget?.notifyDataSetChanged()
-                            if (source.id == recyclerView2 && adapterSource?.itemCount ?: 0 < 1) {
-                                listener.setEmptyList(View.VISIBLE, recyclerView2, emptyTextView2)
+                            if (source.id == recyclerView2 && (adapterSource?.itemCount ?: 0) < 1) {
+                                listener.setEmptyList(
+                                    visibility = View.VISIBLE,
+                                    recyclerView = recyclerView2,
+                                    emptyTextView = emptyTextView2
+                                )
                             }
                             if (viewId == emptyTextView2) {
-                                listener.setEmptyList(View.GONE, recyclerView2, emptyTextView2)
+                                listener.setEmptyList(
+                                    visibility = View.GONE,
+                                    recyclerView = recyclerView2,
+                                    emptyTextView = emptyTextView2
+                                )
                             }
-                            if (source.id == recyclerView1 && adapterSource?.itemCount ?: 0 < 1) {
-                                listener.setEmptyList(View.VISIBLE, recyclerView1, emptyTextView1)
+                            if (source.id == recyclerView1 && (adapterSource?.itemCount ?: 0) < 1) {
+                                listener.setEmptyList(
+                                    visibility = View.VISIBLE,
+                                    recyclerView = recyclerView1,
+                                    emptyTextView = emptyTextView1
+                                )
                             }
                             if (viewId == emptyTextView1) {
-                                listener.setEmptyList(View.GONE, recyclerView1, emptyTextView1)
+                                listener.setEmptyList(
+                                    visibility = View.GONE,
+                                    recyclerView = recyclerView1,
+                                    emptyTextView = emptyTextView1
+                                )
                             }
                         }
                     }
