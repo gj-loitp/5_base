@@ -20,6 +20,7 @@ import vn.loitp.app.activity.customviews.bottomSheet.MenuBottomSheetActivity
 import vn.loitp.app.activity.customviews.button.MenuButtonActivity
 import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
 import vn.loitp.app.activity.customviews.codeView.CodeViewActivity
+import vn.loitp.app.activity.customviews.cornerSheet.ExampleActivity
 import vn.loitp.app.activity.customviews.dialog.MenuDialogActivity
 import vn.loitp.app.activity.customviews.dragView.MenuDragViewActivity
 import vn.loitp.app.activity.customviews.draggableFlipView.DraggableFlipViewActivity
@@ -123,6 +124,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btCodeView.setOnClickListener(this)
         btWheelView.setOnClickListener(this)
         btLuckyWheelActivity.setOnClickListener(this)
+        btCornerSheet.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -168,6 +170,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btCodeView -> Intent(this, CodeViewActivity::class.java)
             btWheelView -> Intent(this, WheelViewActivity::class.java)
             btLuckyWheelActivity -> Intent(this, LuckyWheelActivity::class.java)
+            btCornerSheet -> Intent(this, ExampleActivity::class.java)
             else -> null
         }
         intent?.let {

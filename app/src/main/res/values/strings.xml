@@ -1078,4 +1078,6 @@ Likewise may someone love you next.
     <string name="orientation">Orientation</string>
     <string name="rotate">Rotate</string>
     <string name="controls">Controls</string>
+
+    <string name="corner_drawer_header">Support</string>
 </resources>

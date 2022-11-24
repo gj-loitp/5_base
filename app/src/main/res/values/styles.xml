@@ -80,4 +80,9 @@
         <item name="content_text_color">#ffffff</item>
         <item name="title_text_color">#ff00ff</item>
     </style>
+
+    <style name="ShapeAppearanceOverlay.CornerShape" parent="">
+        <item name="cornerSizeTopLeft">34dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
 </resources>
