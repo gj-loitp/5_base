@@ -17,6 +17,7 @@ import vn.loitp.app.activity.customviews.recyclerview.book.BookViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.carouselRecyclerview.CarouselRecyclerViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.ConcatAdapterActivity
 import vn.loitp.app.activity.customviews.recyclerview.diffUtil.DiffUtilActivity
+import vn.loitp.app.activity.customviews.recyclerview.dragDrop.MainActivityDragDrop
 import vn.loitp.app.activity.customviews.recyclerview.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity
 import vn.loitp.app.activity.customviews.recyclerview.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivity
 import vn.loitp.app.activity.customviews.recyclerview.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivity
@@ -84,6 +85,7 @@ class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
         btFastScrollSeekBar.setOnClickListener(this)
         btTurnLayoutManagerActivity.setOnClickListener(this)
         btCarouselRecyclerViewActivity.setOnClickListener(this)
+        btDragDrop.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -135,6 +137,9 @@ class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
             }
             btCarouselRecyclerViewActivity -> {
                 Intent(this, CarouselRecyclerViewActivity::class.java)
+            }
+            btDragDrop -> {
+                Intent(this, MainActivityDragDrop::class.java)
             }
             else -> null
         }

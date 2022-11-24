@@ -50,6 +50,10 @@ android {
         enabled = true
     }
 
+//    buildFeatures {
+//        viewBinding true
+//    }
+
     signingConfigs {
         release {
             storeFile file("keystore.jks")
