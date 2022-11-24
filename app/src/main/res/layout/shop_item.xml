@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="14dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/margin_padding_medium">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/shop_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,12 +15,13 @@
         android:scaleType="fitStart"
         tools:src="@drawable/logo" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/shop_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/margin_padding_small"
         android:text="MMMMMMMMMMMMM"
-        android:textSize="16sp" />
+        android:textColor="@color/deepPink"
+        android:textSize="@dimen/txt_medium" />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

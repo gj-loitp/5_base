@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+        android:text="BEHAVIOR" />
 
-        <Button
-            android:id="@+id/main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BEHAVIOR" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/support_sample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUPPORT SAMPLE" />
 
-        <Button
-            android:id="@+id/support_sample"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SUPPORT SAMPLE" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btGithub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Github" />
 
-
-    </LinearLayout>
-
-</FrameLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

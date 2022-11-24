@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.cornerSheet.support
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -45,10 +44,8 @@ class SupportFragment : Fragment() {
             }
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            view.support_toolbar.setNavigationOnClickListener {
-                backPressedCallback.handleOnBackPressed()
-            }
+        view.support_toolbar.setNavigationOnClickListener {
+            backPressedCallback.handleOnBackPressed()
         }
 
         changeStatusBarIconColor(behavior.state == BottomSheetBehavior.STATE_EXPANDED)
@@ -76,16 +73,14 @@ class SupportFragment : Fragment() {
     }
 
     fun changeStatusBarIconColor(isLight: Boolean) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            activity?.window?.let {
-                var flags = it.decorView.systemUiVisibility
-                flags = if (isLight) {
-                    flags xor View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-                } else {
-                    flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-                }
-                it.decorView.systemUiVisibility = flags
+        activity?.window?.let {
+            var flags = it.decorView.systemUiVisibility
+            flags = if (isLight) {
+                flags xor View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            } else {
+                flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             }
+            it.decorView.systemUiVisibility = flags
         }
     }
 }

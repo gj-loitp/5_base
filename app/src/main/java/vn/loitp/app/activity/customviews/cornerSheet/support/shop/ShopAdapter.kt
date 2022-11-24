@@ -35,7 +35,11 @@ class ShopAdapter(val clickHandler: ShopItemClickListener) :
             itemView.shop_name.transitionName = item.name + item.id.toString()
 
             itemView.root.setOnClickListener {
-                callbackHandler.onClick(itemView.shop_image, itemView.shop_name, item.id)
+                callbackHandler.onClick(
+                    image = itemView.shop_image,
+                    text = itemView.shop_name,
+                    shopItemId = item.id
+                )
             }
         }
     }
@@ -50,5 +54,9 @@ fun ImageView.load(
 }
 
 interface ShopItemClickListener {
-    fun onClick(image: View, text: View, shopItemId: Long)
+    fun onClick(
+        image: View,
+        text: View,
+        shopItemId: Long
+    )
 }

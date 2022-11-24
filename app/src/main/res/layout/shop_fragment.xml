@@ -17,11 +17,11 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
+            android:background="?attr/themePrimaryColor"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:title="Home"
-            app:titleTextColor="#5A5A5A" />
+            app:titleTextColor="?attr/themeTextColor" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -30,8 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingHorizontal="12dp"
-        android:paddingBottom="8dp"
+        android:paddingHorizontal="@dimen/margin_padding_medium"
+        android:paddingBottom="@dimen/margin_padding_medium"
         android:scrollbarStyle="outsideOverlay"
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"

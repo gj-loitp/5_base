@@ -4,88 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="140dp"
             android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            android:paddingLeft="@dimen/margin_padding_medium"
+            android:paddingRight="@dimen/margin_padding_medium">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:layout_marginTop="100dp"
-                android:layout_marginBottom="10dp"
-                android:text="Horizontal Peek Height: " />
+                android:layout_marginBottom="@dimen/margin_padding_medium"
+                android:text="Horizontal Peek Height: "
+                android:textColor="@color/red"
+                android:textSize="@dimen/txt_medium" />
 
             <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/seek_peek_height"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:thumbTint="@color/red" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="@dimen/margin_padding_large"
                 android:orientation="horizontal">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="@dimen/margin_padding_medium"
                     android:text="Current CornerSheetBehavior state: "
-                    android:textSize="14sp"
+                    android:textColor="@color/deepPink"
+                    android:textSize="@dimen/txt_medium"
                     android:textStyle="bold" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/behavior_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
+                    android:layout_marginBottom="@dimen/margin_padding_medium"
                     android:text="COLLAPSED"
-                    android:textSize="18sp"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/txt_medium"
                     android:textStyle="bold" />
 
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <LinearLayout
-
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/margin_padding_large"
                 android:orientation="horizontal">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/expand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="EXPAND" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/collapsed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="COLLAPSE" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/hidden"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="HIDE" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <FrameLayout
             android:id="@+id/corner_behavior_container"
@@ -106,12 +110,12 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="@android:color/transparent"
                 app:title="Corner  Sample"
                 app:titleTextColor="@android:color/white" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/expandedValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -119,7 +123,7 @@
                 android:paddingTop="90dp"
                 android:text="SLIDE OFFSET"
                 android:textColor="@android:color/white"
-                android:textSize="20sp" />
+                android:textSize="@dimen/txt_medium" />
 
         </FrameLayout>
 

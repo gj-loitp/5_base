@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.cornerSheet.support.shop
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,11 +33,9 @@ class ShopFragment : Fragment() {
         behavior =
             (activity as ShopActivity).supportFragment.behavior as CornerSheetHeaderBehavior<CornerDrawer>
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
-            toolbar.setOnApplyWindowInsetsListener { v, insets ->
-                v.updatePadding(top = insets.systemWindowInsetTop)
-                insets
-            }
+        toolbar.setOnApplyWindowInsetsListener { v, insets ->
+            v.updatePadding(top = insets.systemWindowInsetTop)
+            insets
         }
 
         toolbar.setNavigationOnClickListener {
@@ -54,17 +51,15 @@ class ShopFragment : Fragment() {
                     val currentFragment: Fragment = manager.findFragmentByTag("shop")!!
                     val intoContainerId = currentFragment.id
 
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        manager.beginTransaction()
-                            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                            .addToBackStack("shared")
-                            .add(
-                                intoContainerId,
-                                DetailShopFragment.newInstance(shopItemId),
-                                "detail"
-                            )
-                            .commit()
-                    }
+                    manager.beginTransaction()
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                        .addToBackStack("shared")
+                        .add(
+                            intoContainerId,
+                            DetailShopFragment.newInstance(shopItemId),
+                            "detail"
+                        )
+                        .commit()
                 }
             }).also {
                 it.submitList(items)
@@ -72,24 +67,23 @@ class ShopFragment : Fragment() {
             clipToPadding = false
 
             setPadding(
-                0,
-                0,
-                0,
-                behavior.peekHeight
+                /* left = */ 0,
+                /* top = */ 0,
+                /* right = */ 0,
+                /* bottom = */ behavior.peekHeight
             )
 
             behavior.peekHeightListener = object : CornerSheetHeaderBehavior.OnPeekHeightListener {
                 override fun onPeekHeightChanged(newPeekHeight: Int) {
                     setPadding(
-                        0,
-                        0,
-                        0,
-                        newPeekHeight
+                        /* left = */ 0,
+                        /* top = */ 0,
+                        /* right = */ 0,
+                        /* bottom = */ newPeekHeight
                     )
                 }
             }
         }
     }
-
 
 }

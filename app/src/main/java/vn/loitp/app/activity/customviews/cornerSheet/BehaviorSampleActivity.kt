@@ -1,23 +1,33 @@
 package vn.loitp.app.activity.customviews.cornerSheet
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.SeekBar
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatSeekBar
 import androidx.appcompat.widget.Toolbar
 import com.github.heyalex.cornersheet.behavior.CornerSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.CornerMaterialSheetBehavior
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_main_cs.*
 import vn.loitp.app.R
 import java.math.RoundingMode
 
-class BehaviorSampleActivity : AppCompatActivity() {
+@LogTag("BehaviorSampleActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+class BehaviorSampleActivity : BaseFontActivity() {
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_main_cs
+    }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_cs)
 
         val cornerDrawer = findViewById<View>(R.id.corner_behavior_container)
         val behavior = BottomSheetBehavior.from(cornerDrawer) as CornerMaterialSheetBehavior
@@ -26,8 +36,8 @@ class BehaviorSampleActivity : AppCompatActivity() {
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
                 expandedValue.text = "Expanded value: ${
                     slideOffset.toBigDecimal().setScale(
-                        2,
-                        RoundingMode.UP
+                        /* newScale = */ 2,
+                        /* roundingMode = */ RoundingMode.UP
                     ).toDouble()
                 }"
             }
@@ -36,7 +46,6 @@ class BehaviorSampleActivity : AppCompatActivity() {
             }
 
         })
-
 
         behavior.halfExpandedRatio = 0.3f
 

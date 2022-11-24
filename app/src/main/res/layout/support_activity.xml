@@ -15,26 +15,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <fragment
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/support_fragment"
             android:name="vn.loitp.app.activity.customviews.cornerSheet.support.SupportFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/support_content" />
-
-        <!--        -->
-        <!--        <com.github.heyalex.CornerDrawer-->
-        <!--            android:id="@+id/corner_drawer"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            app:behavior_expanded_width="130dp"-->
-        <!--            app:behavior_horizontal_peekHeight="58dp"-->
-        <!--            app:content_color="@color/corner_drawer_header_color"-->
-        <!--            app:content_view="@layout/support_content"-->
-        <!--            app:header_color="@color/corner_drawer_header_color"-->
-        <!--            app:header_view="@layout/support_header"-->
-        <!--            app:layout_behavior="com.github.heyalex.cornersheet.behavior.CornerSheetHeaderBehavior"-->
-        <!--            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CornerShape" />-->
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </FrameLayout>

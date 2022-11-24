@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="?attr/themeBackgroundColor"
     android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/detail_shop_image"
             android:layout_width="match_parent"
             android:layout_height="280dp"
@@ -29,40 +30,41 @@
             android:background="@android:color/transparent"
             app:navigationIcon="?attr/homeAsUpIndicator" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/detail_shop_image"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="10dp"
+            android:layout_alignParentStart="true"
+            android:paddingStart="@dimen/margin_padding_medium"
+            android:paddingEnd="@dimen/margin_padding_medium"
             android:text="NAME"
-            android:textSize="28sp"
+            android:textColor="@color/red"
+            android:textSize="@dimen/txt_large"
             android:textStyle="bold" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/detail_shop_image"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:paddingRight="10dp"
+            android:layout_alignParentEnd="true"
+            android:paddingStart="@dimen/margin_padding_medium"
+            android:paddingEnd="@dimen/margin_padding_medium"
             android:text="$ 66"
-            android:textSize="22sp"
+            android:textColor="@color/green"
+            android:textSize="@dimen/txt_large"
             android:textStyle="bold" />
-
 
     </RelativeLayout>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:padding="10dp"
+        android:padding="@dimen/margin_padding_medium"
         android:text="DESCRIPTION"
-        android:textSize="16sp" />
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium" />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
