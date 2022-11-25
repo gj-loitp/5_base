@@ -38,6 +38,11 @@
                 android:text="AndroidParticlesActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAnimatedStarsView"
+                style="@style/ButtonMenu"
+                android:text="AnimatedStarsViewActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAnimationView"
                 style="@style/ButtonMenu"
                 android:text="@string/animation_view" />

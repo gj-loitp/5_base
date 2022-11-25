@@ -734,4 +734,16 @@
         <attr name="r2fillColor" format="color" />
         <attr name="r2circleFillColor" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="AnimatedStarsView">
+        <attr name="starsView_starCount" format="integer" />
+        <attr name="starsView_starColors" format="reference" />
+        <attr name="starsView_minStarSize" format="dimension" />
+        <attr name="starsView_maxStarSize" format="dimension" />
+        <attr name="starsView_bigStarThreshold" format="dimension" />
+        <attr name="starsView_meteoritesColors" format="reference" />
+        <attr name="starsView_meteoritesEnabled" format="boolean" />
+        <attr name="starsView_meteoritesInterval" format="integer" />
+    </declare-styleable>
+
 </resources>

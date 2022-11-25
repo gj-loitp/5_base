@@ -100,4 +100,19 @@
     <style name="ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
         <item name="android:displayOptions">homeAsUp</item>
     </style>
+
+    <integer-array name="star_colors">
+        <item>@color/red</item>
+        <item>@color/green</item>
+        <item>@color/blue</item>
+        <item>@color/deepPink</item>
+        <item>@color/white</item>
+        <item>@color/cyan</item>
+    </integer-array>
+
+    <integer-array name="meteorites_colors">
+        <item>@color/light_Cyan</item>
+        <item>@color/pineGreen</item>
+        <item>@color/pink</item>
+    </integer-array>
 </resources>
