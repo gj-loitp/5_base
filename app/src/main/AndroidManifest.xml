@@ -97,10 +97,10 @@
             android:name=".activity.customviews.textview.scoreText.ScoreTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomNavigationBar.MenuBottomNavigationActivity"
+            android:name=".activity.customviews.bottomBar.MenuBottomNavigationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomNavigationBar.bottombar.BottomBarActivity"
+            android:name=".activity.customviews.bottomBar.bottombar.BottomBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.textview.countDown.CountDownActivity"

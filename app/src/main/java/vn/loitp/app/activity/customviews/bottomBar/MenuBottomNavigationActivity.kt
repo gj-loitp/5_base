@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.bottomNavigationBar
+package vn.loitp.app.activity.customviews.bottomBar
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_bottom_navigation_bar.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.bottomNavigationBar.bottombar.BottomBarActivity
+import vn.loitp.app.activity.customviews.bottomBar.bottombar.BottomBarActivity
 
 @LogTag("BottomNavigationMenuActivity")
 @IsFullScreen(false)

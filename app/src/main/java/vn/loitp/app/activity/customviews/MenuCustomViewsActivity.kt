@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_menu_custom_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.actionbar.MenuActionBarActivity
 import vn.loitp.app.activity.customviews.answerView.AnswerViewActivity
-import vn.loitp.app.activity.customviews.bottomNavigationBar.MenuBottomNavigationActivity
+import vn.loitp.app.activity.customviews.bottomBar.MenuBottomNavigationActivity
 import vn.loitp.app.activity.customviews.bottomSheet.MenuBottomSheetActivity
 import vn.loitp.app.activity.customviews.button.MenuButtonActivity
 import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
