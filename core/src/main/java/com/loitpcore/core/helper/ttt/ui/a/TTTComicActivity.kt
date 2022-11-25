@@ -19,7 +19,7 @@ import com.loitpcore.core.helper.ttt.ui.f.FrmProfileTTT
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.utils.util.KeyboardUtils
 import com.loitpcore.views.viewPager.vpTransformers.ZoomOutSlideTransformer
-import github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem
+import github.com.st235.lib_expandablebottombar.MenuItemDescriptor
 import kotlinx.android.synthetic.main.l_activity_ttt_comic.*
 
 /**
@@ -93,42 +93,49 @@ class TTTComicActivity : BaseFontActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                expandableBottomBar.select(listMenuComicTTT[position].itemId)
+                expandableBottomBar.menu.select(listMenuComicTTT[position].itemId)
                 KeyboardUtils.hideSoftInput(this@TTTComicActivity)
             }
         })
-        expandableBottomBar.addItems(
-            ExpandableBottomBarMenuItem.Builder(context = this)
-                .addItem(
-                    itemId = listMenuComicTTT[0].itemId,
-                    iconId = listMenuComicTTT[0].iconId,
-                    textId = listMenuComicTTT[0].textId,
-                    activeColor = listMenuComicTTT[0].activeColor
-                )
-                .addItem(
-                    itemId = listMenuComicTTT[1].itemId,
-                    iconId = listMenuComicTTT[1].iconId,
-                    textId = listMenuComicTTT[1].textId,
-                    activeColor = listMenuComicTTT[1].activeColor
-                )
-                .addItem(
-                    itemId = listMenuComicTTT[2].itemId,
-                    iconId = listMenuComicTTT[2].iconId,
-                    textId = listMenuComicTTT[2].textId,
-                    activeColor = listMenuComicTTT[2].activeColor
-                )
-                .build()
+
+        expandableBottomBar.menu.add(
+            MenuItemDescriptor.Builder(
+                context = this,
+                itemId = listMenuComicTTT[0].itemId,
+                iconId = listMenuComicTTT[0].iconId,
+                textId = listMenuComicTTT[0].textId,
+                activeColor = listMenuComicTTT[0].activeColor
+            ).build()
         )
-        expandableBottomBar.onItemSelectedListener = { _, menuItem ->
-            logD("onItemSelectedListener " + menuItem.itemId)
-            val index = getIndexOfListMenuComic(itemId = menuItem.itemId)
+        expandableBottomBar.menu.add(
+            MenuItemDescriptor.Builder(
+                context = this,
+                itemId = listMenuComicTTT[1].itemId,
+                iconId = listMenuComicTTT[1].iconId,
+                textId = listMenuComicTTT[1].textId,
+                activeColor = listMenuComicTTT[1].activeColor
+            ).build()
+        )
+        expandableBottomBar.menu.add(
+            MenuItemDescriptor.Builder(
+                context = this,
+                itemId = listMenuComicTTT[2].itemId,
+                iconId = listMenuComicTTT[2].iconId,
+                textId = listMenuComicTTT[2].textId,
+                activeColor = listMenuComicTTT[2].activeColor
+            ).build()
+        )
+
+        expandableBottomBar.onItemSelectedListener = { _, menuItem, _ ->
+            logD("onItemSelectedListener " + menuItem.id)
+            val index = getIndexOfListMenuComic(itemId = menuItem.id)
             index?.let {
-                viewPager.setCurrentItem(it, true)
+                viewPager.setCurrentItem(/* item = */ it, /* smoothScroll = */ true)
             }
         }
 
-        expandableBottomBar.onItemReselectedListener = { _, menuItem ->
-            logD("onItemReselectedListener" + menuItem.itemId)
+        expandableBottomBar.onItemReselectedListener = { _, menuItem, _ ->
+            logD("onItemReselectedListener" + menuItem.id)
         }
     }
 
@@ -166,17 +173,6 @@ class TTTComicActivity : BaseFontActivity() {
     }
 
     private var doubleBackToExitPressedOnce = false
-//    override fun onBackPressed() {
-//        if (doubleBackToExitPressedOnce) {
-//            super.onBackPressed()
-//            return
-//        }
-//        this.doubleBackToExitPressedOnce = true
-//        showShortInformation(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            doubleBackToExitPressedOnce = false
-//        }, 2000)
-//    }
 
     override fun onBaseBackPressed() {
 //        super.onBaseBackPressed()
