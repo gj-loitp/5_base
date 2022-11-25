@@ -1,21 +1,27 @@
 package vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.navigation
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
-import github.com.st235.lib_expandablebottombar.ExpandableBottomBar
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import github.com.st235.lib_expandablebottombar.navigation.ExpandableBottomBarNavigationUI
+import kotlinx.android.synthetic.main.activiy_navigation.*
 import vn.loitp.app.R
 
-class NavigationComponentActivity : AppCompatActivity() {
+@LogTag("NavigationComponentActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(true)
+class NavigationComponentActivity : BaseFontActivity() {
 
-    private lateinit var bottomNavigation: ExpandableBottomBar
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activiy_navigation
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activiy_navigation)
 
-        bottomNavigation = findViewById(R.id.bottomNavigation)
         val navigationController = Navigation.findNavController(this, R.id.navigationHost)
 
         /**
@@ -23,8 +29,8 @@ class NavigationComponentActivity : AppCompatActivity() {
          * for native BottomNavigationView
          */
         ExpandableBottomBarNavigationUI.setupWithNavController(
-            bottomNavigation,
-            navigationController
+            expandableBottomBar = bottomNavigation,
+            navigationController = navigationController
         )
     }
 }
