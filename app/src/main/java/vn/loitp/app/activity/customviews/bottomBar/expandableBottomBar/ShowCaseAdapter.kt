@@ -15,13 +15,19 @@ class ShowCaseAdapter(
     private val onItemClickListener: OnItemClickListener
 ) : RecyclerView.Adapter<ShowCaseAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
         val context = parent.context
         val v = LayoutInflater.from(context).inflate(R.layout.content_showcase_item, parent, false)
         return ViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int
+    ) {
         holder.bind(items[position])
     }
 
@@ -46,7 +52,7 @@ class ShowCaseAdapter(
         }
 
         override fun onClick(v: View?) {
-            onItemClickListener(items[adapterPosition])
+            onItemClickListener(items[bindingAdapterPosition])
         }
     }
 }

@@ -2,17 +2,22 @@ package vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_showcase.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.*
 import vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.navigation.NavigationComponentActivity
 
-class ShowCaseActivity : AppCompatActivity() {
+@LogTag("ShowCaseActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+class ShowCaseActivity : BaseFontActivity() {
 
-    val showCaseInfos by lazy {
+    private val showCaseInfos by lazy {
         listOf(
             createShowCase<ProgrammaticallyCreatedDemoActivity>(
                 title = getString(R.string.programmatically_title),
@@ -49,15 +54,12 @@ class ShowCaseActivity : AppCompatActivity() {
         )
     }
 
-    private lateinit var toolbar: Toolbar
-    private lateinit var recyclerView: RecyclerView
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_showcase
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_showcase)
-
-        toolbar = findViewById(R.id.toolbar)
-        recyclerView = findViewById(R.id.recyclerView)
 
         setSupportActionBar(toolbar)
 
