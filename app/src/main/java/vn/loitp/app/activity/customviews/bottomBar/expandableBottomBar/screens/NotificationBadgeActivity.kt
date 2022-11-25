@@ -6,41 +6,40 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewAnimationUtils
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.graphics.ColorUtils
-import github.com.st235.lib_expandablebottombar.ExpandableBottomBar
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_notification_badge.*
 import vn.loitp.app.R
 
-class NotificationBadgeActivity : AppCompatActivity() {
+@LogTag("CoordinatorLayoutActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+class NotificationBadgeActivity : BaseFontActivity() {
 
-    private lateinit var toolbar: Toolbar
-    private lateinit var bottomBar: ExpandableBottomBar
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_notification_badge
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_notification_badge)
-
-        toolbar = findViewById(R.id.toolbar)
-
-        setSupportActionBar(toolbar)
-
-        val color: View = findViewById(R.id.color)
-        bottomBar = findViewById(R.id.expandable_bottom_bar)
 
         color.setBackgroundColor(ColorUtils.setAlphaComponent(Color.GRAY, 60))
-
-        bottomBar.onItemSelectedListener = { v, i, _ ->
-            val anim = ViewAnimationUtils.createCircularReveal(color,
-                    bottomBar.x.toInt() + v.x.toInt() + v.width / 2,
-                    bottomBar.y.toInt() + v.y.toInt() + v.height / 2, 0F,
-                    findViewById<View>(android.R.id.content).height.toFloat())
+        expandableBottomBar.onItemSelectedListener = { v, i, _ ->
+            val anim = ViewAnimationUtils.createCircularReveal(
+                color,
+                expandableBottomBar.x.toInt() + v.x.toInt() + v.width / 2,
+                expandableBottomBar.y.toInt() + v.y.toInt() + v.height / 2, 0F,
+                findViewById<View>(android.R.id.content).height.toFloat()
+            )
             color.setBackgroundColor(ColorUtils.setAlphaComponent(i.activeColor, 60))
             anim.duration = 420
             anim.start()
         }
 
-        bottomBar.onItemReselectedListener = { v, i, _ ->
+        expandableBottomBar.onItemReselectedListener = { v, i, _ ->
             val notification = i.notification()
 
             if (v.tag == null) {
@@ -62,7 +61,7 @@ class NotificationBadgeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.clear -> {
-                for (menuItem in bottomBar.menu) {
+                for (menuItem in expandableBottomBar.menu) {
                     menuItem.notification().clear()
                 }
             }

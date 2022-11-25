@@ -18,7 +18,7 @@ class ProgrammaticallyCreatedDemoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_programmatically_declared)
 
         val colorView: View = findViewById(R.id.color)
-        val bottomBar: ExpandableBottomBar = findViewById(R.id.expandable_bottom_bar)
+        val bottomBar: ExpandableBottomBar = findViewById(R.id.expandableBottomBar)
 
         colorView.setBackgroundColor(ColorUtils.setAlphaComponent(Color.GRAY, 60))
 

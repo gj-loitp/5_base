@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/themePrimaryColor"
     android:fitsSystemWindows="true"
-    android:orientation="vertical"
     android:gravity="bottom"
-    tools:context=".screens.StylesActivity">
+    android:orientation="vertical">
 
     <github.com.st235.lib_expandablebottombar.ExpandableBottomBar
         android:id="@+id/normal"
@@ -15,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:exb_itemInactiveColor="#CCCCCC"
-        app:exb_items="@menu/bottom_bar"
         app:exb_itemStyle="normal"
+        app:exb_items="@menu/bottom_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -26,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:exb_itemInactiveColor="#CCCCCC"
-        app:exb_items="@menu/bottom_bar"
         app:exb_itemStyle="outline"
+        app:exb_items="@menu/bottom_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -37,10 +36,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:exb_itemInactiveColor="#CCCCCC"
-        app:exb_items="@menu/bottom_bar"
         app:exb_itemStyle="stroked"
+        app:exb_items="@menu/bottom_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

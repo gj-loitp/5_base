@@ -7,28 +7,31 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.DrawableRes
 import androidx.annotation.WorkerThread
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LImageUtil
+import kotlinx.android.synthetic.main.activity_scrollable_coordinator_layout.*
 import vn.loitp.app.R
 
-class ScrollableCoordinatorLayoutActivity : AppCompatActivity() {
+@LogTag("ScrollableCoordinatorLayoutActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+class ScrollableCoordinatorLayoutActivity : BaseFontActivity() {
 
-    private lateinit var fab: FloatingActionButton
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_scrollable_coordinator_layout
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scrollable_coordinator_layout)
 
-        fab = findViewById(R.id.fab)
-
-        val rc = findViewById<RecyclerView>(R.id.recycler_view)
-
-        rc.apply {
+        recycler_view.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = Adapter()
         }
@@ -46,6 +49,7 @@ class ScrollableCoordinatorLayoutActivity : AppCompatActivity() {
         )
     }
 
+    @Suppress("unused")
     @WorkerThread
     private fun calculateInSampleSize(
         options: BitmapFactory.Options,
@@ -73,12 +77,11 @@ class ScrollableCoordinatorLayoutActivity : AppCompatActivity() {
 
     private inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private val image = itemView.findViewById<AppCompatImageView>(R.id.item_iv)
+        private val image = itemView.findViewById<AppCompatImageView>(R.id.ivItem)
 
         fun setResource(@DrawableRes id: Int) {
             loadBitmap(id, image)
         }
-
 
     }
 

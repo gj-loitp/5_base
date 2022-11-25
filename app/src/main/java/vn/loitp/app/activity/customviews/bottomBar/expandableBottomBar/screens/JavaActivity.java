@@ -2,26 +2,33 @@ package vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.loitpcore.annotation.IsAutoAnimation;
+import com.loitpcore.annotation.IsFullScreen;
+import com.loitpcore.annotation.LogTag;
+import com.loitpcore.core.base.BaseFontActivity;
 
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBar;
 import github.com.st235.lib_expandablebottombar.Menu;
 import github.com.st235.lib_expandablebottombar.MenuItemDescriptor;
 import vn.loitp.app.R;
 
-public class JavaActivity extends AppCompatActivity {
+@LogTag("CoordinatorLayoutActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+public class JavaActivity extends BaseFontActivity {
 
-    private static final String TAG = JavaActivity.class.getSimpleName();
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_java;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_java);
 
-        ExpandableBottomBar bottomBar = findViewById(R.id.expandable_bottom_bar);
-        Menu menu = bottomBar.getMenu();
+        ExpandableBottomBar expandableBottomBar = findViewById(R.id.expandableBottomBar);
+        Menu menu = expandableBottomBar.getMenu();
 
         menu.add(
                 new MenuItemDescriptor.Builder(this, R.id.icon_home, R.drawable.ic_home, R.string.text, Color.GRAY).build()
@@ -39,13 +46,11 @@ public class JavaActivity extends AppCompatActivity {
                 new MenuItemDescriptor.Builder(this, R.id.icon_settings, R.drawable.ic_settings, R.string.text4, 0xffbe9c91).build()
         );
 
-        bottomBar.setOnItemSelectedListener((view, item, byUser) -> {
-            Log.d(TAG, "selected: " + item.toString());
+        expandableBottomBar.setOnItemSelectedListener((view, item, byUser) -> {
             return null;
         });
 
-        bottomBar.setOnItemReselectedListener((view, item, byUser) -> {
-            Log.d(TAG, "reselected: " + item.toString());
+        expandableBottomBar.setOnItemReselectedListener((view, item, byUser) -> {
             return null;
         });
     }

@@ -5,34 +5,34 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.view.ViewAnimationUtils
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.graphics.ColorUtils
-import github.com.st235.lib_expandablebottombar.ExpandableBottomBar
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_xml_declared.*
 import vn.loitp.app.R
 
-class XmlDeclaredActivity : AppCompatActivity() {
+@LogTag("XmlDeclaredActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+class XmlDeclaredActivity : BaseFontActivity() {
 
-    private lateinit var toolbar: Toolbar
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_xml_declared
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_xml_declared)
-
-        toolbar = findViewById(R.id.toolbar)
 
         setSupportActionBar(toolbar)
-
-        val color: View = findViewById(R.id.color)
-        val bottomBar: ExpandableBottomBar = findViewById(R.id.expandable_bottom_bar)
-
         color.setBackgroundColor(ColorUtils.setAlphaComponent(Color.GRAY, 60))
 
-        bottomBar.onItemSelectedListener = { v, i, _ ->
+        expandableBottomBar.onItemSelectedListener = { v, i, _ ->
             val anim = ViewAnimationUtils.createCircularReveal(
                 color,
-                bottomBar.x.toInt() + v.x.toInt() + v.width / 2,
-                bottomBar.y.toInt() + v.y.toInt() + v.height / 2, 0F,
+                expandableBottomBar.x.toInt() + v.x.toInt() + v.width / 2,
+                expandableBottomBar.y.toInt() + v.y.toInt() + v.height / 2, 0F,
                 findViewById<View>(android.R.id.content).height.toFloat()
             )
             color.setBackgroundColor(ColorUtils.setAlphaComponent(i.activeColor, 60))

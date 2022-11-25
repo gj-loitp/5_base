@@ -1,13 +1,16 @@
 package vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
 import vn.loitp.app.R
 
-class StylesActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_styles)
+@LogTag("StylesActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+class StylesActivity : BaseFontActivity() {
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_styles
     }
 }
