@@ -2,13 +2,19 @@ package vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LSocialUtil
+import com.loitpcore.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_showcase.*
+import kotlinx.android.synthetic.main.activity_showcase.lActionBar
 import vn.loitp.app.R
+import vn.loitp.app.activity.EmptyActivity
 import vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.*
 import vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.navigation.NavigationComponentActivity
 
@@ -61,8 +67,29 @@ class ShowCaseActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setSupportActionBar(toolbar)
-
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBaseBackPressed()
+                }
+            )
+            this.ivIconRight?.let {
+                LUIUtil.setSafeOnClickListenerElastic(
+                    view = it,
+                    runnable = {
+                        LSocialUtil.openUrlInBrowser(
+                            context = context,
+                            url = "https://github.com/st235/ExpandableBottomBar"
+                        )
+                    }
+                )
+                it.isVisible = true
+                it.setImageResource(R.drawable.ic_baseline_code_48)
+            }
+            this.viewShadow?.isVisible = true
+            this.tvTitle?.text = EmptyActivity::class.java.simpleName
+        }
         val adapter = ShowCaseAdapter(showCaseInfos) { info ->
             val intent = Intent(this@ShowCaseActivity, info.toClass)
             intent.putExtra(ARGS_SCREEN_TITLE, title)
