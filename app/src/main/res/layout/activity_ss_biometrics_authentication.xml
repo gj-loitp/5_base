@@ -22,7 +22,10 @@
             android:paddingTop="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
-
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btUnlock"
+                style="@style/ButtonMenu"
+                android:text="Unlock" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
