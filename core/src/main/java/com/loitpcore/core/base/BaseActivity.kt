@@ -2,6 +2,7 @@ package com.loitpcore.core.base
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -22,9 +23,9 @@ import com.loitpcore.core.utilities.*
 import com.loitpcore.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.loitpcore.core.utilities.LUIUtil.Companion.withBackground
 import com.loitpcore.data.EventBusData
-import com.loitpcore.views.toast.LToast
 import com.loitpcore.views.bottomSheet.BottomSheetOptionFragment
 import com.loitpcore.views.smoothTransition.SwitchAnimationUtil
+import com.loitpcore.views.toast.LToast
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import io.reactivex.disposables.CompositeDisposable
@@ -174,14 +175,6 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-//    override fun onBackPressed() {
-//        super.onBackPressed()
-//
-//        if (isShowAnimWhenExit) {
-//            LActivityUtil.tranOut(this)
-//        }
-//    }
-
     override fun onUserInteraction() {
         super.onUserInteraction()
         stopIdleTimeHandler() // stop first and then start
@@ -196,7 +189,10 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    open fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long, isIdleTime: Boolean) {
+    open fun onActivityUserIdleAfterTime(
+        delayMlsIdleTime: Long,
+        isIdleTime: Boolean
+    ) {
         logD("onActivityUserIdleAfterTime delayMlsIdleTime: $delayMlsIdleTime, isIdleTime: $isIdleTime")
     }
 
@@ -215,7 +211,10 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    fun setCustomStatusBar(colorStatusBar: Int, colorNavigationBar: Int) {
+    fun setCustomStatusBar(
+        colorStatusBar: Int,
+        colorNavigationBar: Int
+    ) {
         window.statusBarColor = colorStatusBar
         window.navigationBarColor = colorNavigationBar
 
@@ -247,7 +246,10 @@ abstract class BaseActivity : AppCompatActivity() {
         showDialogError("Error: $throwable")
     }
 
-    protected fun showDialogError(errMsg: String?, runnable: Runnable? = null) {
+    protected fun showDialogError(
+        errMsg: String?,
+        runnable: Runnable? = null
+    ) {
         if (errMsg.isNullOrEmpty()) {
             return
         }
@@ -263,7 +265,10 @@ abstract class BaseActivity : AppCompatActivity() {
         alertDialog.setCancelable(false)
     }
 
-    protected fun showDialogMsg(errMsg: String, runnable: Runnable? = null) {
+    protected fun showDialogMsg(
+        errMsg: String,
+        runnable: Runnable? = null
+    ) {
         LDialogUtil.showDialog1(
             context = this,
             title = getString(R.string.app_name),
@@ -282,27 +287,45 @@ abstract class BaseActivity : AppCompatActivity() {
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
-    fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
+    fun showShortInformation(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
+    fun showShortWarning(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         LToast.showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
+    fun showShortError(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         LToast.showShortError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
+    fun showLongInformation(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         LToast.showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
+    fun showLongWarning(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         LToast.showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
+    fun showLongError(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         LToast.showLongError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
@@ -426,5 +449,18 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun hideDialogProgress() {
         LDialogUtil.hide(dialog = alertDialogProgress)
+    }
+
+    fun launchActivity(
+        cls: Class<*>,
+        withAnim: Boolean = true,
+        data: ((Intent) -> Unit)? = null
+    ) {
+        val intent = Intent(/* packageContext = */ this, /* cls = */ cls)
+        data?.invoke(intent)
+        startActivity(intent)
+        if (withAnim) {
+            LActivityUtil.tranIn(this)
+        }
     }
 }

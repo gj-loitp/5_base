@@ -44,7 +44,7 @@
                 android:foreground="?selectableItemBackground"
                 android:gravity="center"
                 android:padding="@dimen/margin_padding_medium"
-                android:text="@string/policy"
+                android:text="@string/policy_en"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium"
                 tools:ignore="UnusedAttribute" />
