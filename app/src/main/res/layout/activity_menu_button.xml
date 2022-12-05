@@ -38,6 +38,11 @@
                 android:text="@string/fab" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFitButtonActivity"
+                style="@style/ButtonMenu"
+                android:text="FitButtonActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGoodView"
                 style="@style/ButtonMenu"
                 android:text="@string/good_view" />

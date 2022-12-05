@@ -147,6 +147,8 @@ dependencies {
     api 'com.google.firebase:firebase-crashlytics-ktx'
     api 'com.google.firebase:firebase-config-ktx'
     api 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
+//    https://github.com/nikartm/FitButton
+    api 'io.github.nikartm:fit-button:2.0.0'
 //    https://github.com/google/flexbox-layout
     api 'com.google.android.flexbox:flexbox:3.0.0'
 
