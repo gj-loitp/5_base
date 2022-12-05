@@ -72,7 +72,11 @@ class DragAndDropDemoActivity : BaseFontActivity() {
         }
 
         rvSentence.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(
+                /* context = */ this,
+                /* orientation = */ LinearLayoutManager.HORIZONTAL,
+                /* reverseLayout = */ false
+            )
         rvSentence.adapter = sentenceAdapter
 
         rvSentence.setOnDragListener(
@@ -82,11 +86,14 @@ class DragAndDropDemoActivity : BaseFontActivity() {
             }
         )
 
-        rvWords.layoutManager =
-            FlexboxLayoutManager(this, FlexDirection.ROW, FlexWrap.WRAP).apply {
-                justifyContent = JustifyContent.SPACE_EVENLY
-                alignItems = AlignItems.CENTER
-            }
+        rvWords.layoutManager = FlexboxLayoutManager(
+            /* context = */ this,
+            /* flexDirection = */ FlexDirection.ROW,
+            /* flexWrap = */ FlexWrap.WRAP
+        ).apply {
+            justifyContent = JustifyContent.SPACE_EVENLY
+            alignItems = AlignItems.CENTER
+        }
 
         rvWords.adapter = wordsAdapter
     }

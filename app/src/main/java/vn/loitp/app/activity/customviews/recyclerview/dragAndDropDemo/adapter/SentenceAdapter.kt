@@ -13,13 +13,19 @@ import vn.loitp.app.activity.customviews.recyclerview.dragAndDropDemo.callback.W
  * A @androidx.recyclerview.widget.RecyclerView adapter to show dropped items
  * */
 class SentenceAdapter : ListAdapter<String, SentenceAdapter.WordsViewHolder>(WordsDiffCallback()) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordsViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): WordsViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_word_drag_n_drop, parent, false)
         return WordsViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: WordsViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: WordsViewHolder,
+        position: Int
+    ) {
         holder.bind(getItem(position))
     }
 

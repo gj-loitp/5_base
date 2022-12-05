@@ -12,7 +12,10 @@ import vn.loitp.app.R
  * Callback for the target view where dragged items will be dropped
  * */
 class DropListener(private val onDrop: () -> Unit) : View.OnDragListener {
-    override fun onDrag(view: View, dragEvent: DragEvent): Boolean {
+    override fun onDrag(
+        view: View,
+        dragEvent: DragEvent
+    ): Boolean {
         when (dragEvent.action) {
             // animate and highlight a background under the view to show the borders of the drop area
             DragEvent.ACTION_DRAG_ENTERED -> {
