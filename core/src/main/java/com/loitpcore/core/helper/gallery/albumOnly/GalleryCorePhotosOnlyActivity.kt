@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.huxq17.download.Pump
@@ -94,6 +95,16 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                     )
                 }
 
+                override fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView) {
+                    LUIUtil.setWallpaperAndLockScreen(
+                        activity = this@GalleryCorePhotosOnlyActivity,
+                        imageView = imageView,
+                        message = "Wallpaper Set",
+                        isSetWallpaper = true,
+                        isSetLockScreen = true,
+                    )
+                }
+
                 override fun onClickReport(photo: Photo, pos: Int) {
                     LSocialUtil.sendEmail(context = this@GalleryCorePhotosOnlyActivity)
                 }
@@ -122,7 +133,10 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         // LUIUtil.setPullLikeIOSVertical(recyclerView)
 
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+            override fun onScrollStateChanged(
+                recyclerView: RecyclerView,
+                newState: Int
+            ) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
@@ -146,7 +160,10 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             ) {
             }
 
-            override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
+            override fun onViewSwipeFinished(
+                mView: View?,
+                isEnd: Boolean
+            ) {
                 if (isEnd) {
                     finish()//correct
                     LActivityUtil.transActivityNoAnimation(this@GalleryCorePhotosOnlyActivity)
@@ -313,7 +330,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 //                Manifest.permission.READ_EXTERNAL_STORAGE,
 //                Manifest.permission.WRITE_EXTERNAL_STORAGE,
             )
-            .setDialogTintColor(color, color)
+            .setDialogTintColor(lightColor = color, darkColor = color)
             .onExplainRequestReason { scope, deniedList, _ ->
                 val message = getString(R.string.app_name) + getString(R.string.needs_per)
                 scope.showRequestReasonDialog(
@@ -341,7 +358,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     }
 
     private fun save(url: String) {
-        Pump.newRequestToPicture(url, "/loitp/picture")
+        Pump.newRequestToPicture(/* url = */ url, /* directory = */ "/loitp/picture")
             .listener(object : DownloadListener() {
 
                 override fun onProgress(progress: Int) {

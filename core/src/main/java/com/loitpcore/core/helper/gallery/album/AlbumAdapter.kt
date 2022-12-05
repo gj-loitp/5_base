@@ -38,7 +38,10 @@ class AlbumAdapter(
         fun onLongClick(pos: Int)
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        viewGroup: ViewGroup,
+        position: Int
+    ): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(viewGroup.context)
                 .inflate(R.layout.l_item_flickr_album_core, viewGroup, false)
@@ -49,7 +52,10 @@ class AlbumAdapter(
         return listPhotoSet.size
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is ViewHolder) {
             val photoSet = listPhotoSet[position]
             holder.bind(p = photoSet)

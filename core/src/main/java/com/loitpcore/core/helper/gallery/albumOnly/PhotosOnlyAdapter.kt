@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -32,24 +33,22 @@ import java.util.*
 @LogTag("PhotosOnlyAdapter")
 class PhotosOnlyAdapter(
     private val callback: Callback?
-) :
-    BaseAdapter() {
+) : BaseAdapter() {
 
     interface Callback {
         fun onClick(photo: Photo, pos: Int)
-
         fun onLongClick(photo: Photo, pos: Int)
-
         fun onClickDownload(photo: Photo, pos: Int)
-
         fun onClickShare(photo: Photo, pos: Int)
-
+        fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView)
         fun onClickReport(photo: Photo, pos: Int)
-
         fun onClickCmt(photo: Photo, pos: Int)
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        viewGroup: ViewGroup,
+        position: Int
+    ): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(viewGroup.context)
                 .inflate(R.layout.l_item_flickr_photos_core_only, viewGroup, false)
@@ -60,7 +59,10 @@ class PhotosOnlyAdapter(
         return PhotosDataCore.instance.getPhotoList().size
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is ViewHolder) {
             val photo = PhotosDataCore.instance.getPhotoList()[position]
             holder.bind(p = photo, position = position)
@@ -69,11 +71,13 @@ class PhotosOnlyAdapter(
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
-        internal fun bind(p: Photo, position: Int) {
+        internal fun bind(
+            p: Photo,
+            position: Int
+        ) {
 
             val color = LUIUtil.getRandomColorLight()
-            LImageUtil.load(
-                context = itemView.iv.context,
+            LImageUtil.load(context = itemView.iv.context,
                 any = p.urlO,
                 imageView = itemView.iv,
                 resPlaceHolder = color,
@@ -97,8 +101,7 @@ class PhotosOnlyAdapter(
                     ): Boolean {
                         return false
                     }
-                }
-            )
+                })
 
             if (p.title.lowercase(Locale.getDefault()).startsWith("null")) {
                 itemView.tvTitle.visibility = View.INVISIBLE
@@ -120,6 +123,10 @@ class PhotosOnlyAdapter(
             itemView.btShare.setSafeOnClickListener {
                 LAnimationUtil.play(view = it, techniques = Techniques.Flash)
                 callback?.onClickShare(photo = p, pos = position)
+            }
+            itemView.btSetWallpaper.setSafeOnClickListener {
+                LAnimationUtil.play(view = it, techniques = Techniques.Flash)
+                callback?.onClickSetWallpaper(photo = p, pos = position, imageView = itemView.iv)
             }
             itemView.btReport.setSafeOnClickListener {
                 LAnimationUtil.play(view = it, techniques = Techniques.Flash)

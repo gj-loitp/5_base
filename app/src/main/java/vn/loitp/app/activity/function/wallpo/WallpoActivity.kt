@@ -3,7 +3,6 @@ package vn.loitp.app.activity.function.wallpo
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.github.wallpoo.Wallpo
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -66,18 +65,22 @@ class WallpoActivity : BaseFontActivity() {
         }
 
         btSetWallpaper.setSafeOnClickListener {
-            Wallpo.setMainScreenWallpaper(
-                /* context = */ this,
-                /* imageView = */ ivPreview,
-                /* message = */ "Wallpaper Set"
+            LUIUtil.setWallpaperAndLockScreen(
+                activity = this,
+                imageView = ivPreview,
+                message = "Wallpaper Set",
+                isSetWallpaper = true,
+                isSetLockScreen = false,
             )
         }
 
         btSetLockscreen.setSafeOnClickListener {
-            Wallpo.setLockScreenWallpaper(
-                /* activity = */ this,
-                /* imageView = */ ivPreview,
-                /* message = */ "LockWallpaper Set"
+            LUIUtil.setWallpaperAndLockScreen(
+                activity = this,
+                imageView = ivPreview,
+                message = "LockWallpaper Set",
+                isSetWallpaper = false,
+                isSetLockScreen = true,
             )
         }
     }
