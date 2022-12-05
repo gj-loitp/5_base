@@ -8,7 +8,9 @@ import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.common.Constants
 import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_wallpo.*
@@ -55,10 +57,18 @@ class WallpoActivity : BaseFontActivity() {
             this.tvTitle?.text = WallpoActivity::class.java.simpleName
         }
 
+        btChangeImageNetwork.setSafeOnClickListener {
+            LImageUtil.load(
+                context = this,
+                any = Constants.URL_IMG_1,
+                imageView = ivPreview
+            )
+        }
+
         btSetWallpaper.setSafeOnClickListener {
             Wallpo.setMainScreenWallpaper(
                 /* context = */ this,
-                /* imageView = */ ivLocal,
+                /* imageView = */ ivPreview,
                 /* message = */ "Wallpaper Set"
             )
         }
@@ -66,7 +76,7 @@ class WallpoActivity : BaseFontActivity() {
         btSetLockscreen.setSafeOnClickListener {
             Wallpo.setLockScreenWallpaper(
                 /* activity = */ this,
-                /* imageView = */ ivLocal,
+                /* imageView = */ ivPreview,
                 /* message = */ "LockWallpaper Set"
             )
         }

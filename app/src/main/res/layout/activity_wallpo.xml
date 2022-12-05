@@ -23,11 +23,16 @@
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivLocal"
+                android:id="@+id/ivPreview"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_200"
                 android:scaleType="centerCrop"
                 android:src="@drawable/loitp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btChangeImageNetwork"
+                style="@style/ButtonMenu"
+                android:text="Change image on internet" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSetWallpaper"
