@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <com.loitpcore.views.actionBar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLocal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_200"
+                android:scaleType="centerCrop"
+                android:src="@drawable/loitp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSetWallpaper"
+                style="@style/ButtonMenu"
+                android:text="SET AS WALLPAPER" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSetLockscreen"
+                style="@style/ButtonMenu"
+                android:text="SET AS LOCKSCREEN WALLPAPER" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
