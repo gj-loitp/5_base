@@ -34,11 +34,23 @@ class MemberAdapter(
 ) : BaseAdapter() {
 
     interface Callback {
-        fun onClick(photo: Photo, pos: Int, imageView: ImageView, textView: TextView)
-        fun onLongClick(photo: Photo, pos: Int)
+        fun onClick(
+            photo: Photo,
+            pos: Int,
+            imageView: ImageView,
+            textView: TextView
+        )
+
+        fun onLongClick(
+            photo: Photo,
+            pos: Int
+        )
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        viewGroup: ViewGroup,
+        position: Int
+    ): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(viewGroup.context)
                 .inflate(R.layout.l_item_flickr_photos_member, viewGroup, false)
@@ -49,7 +61,10 @@ class MemberAdapter(
         return PhotosDataCore.instance.getPhotoList().size
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is ViewHolder) {
             val photo = PhotosDataCore.instance.getPhotoList()[position]
             holder.bind(photo)
