@@ -51,6 +51,11 @@
                 android:text="@string/diff_util" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDragAndDropDemoActivity"
+                style="@style/ButtonMenu"
+                android:text="DragAndDropDemoActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDragDrop"
                 style="@style/ButtonMenu"
                 android:text="Drag drop" />
