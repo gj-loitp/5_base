@@ -4,10 +4,10 @@
     android:id="@+id/tvWord"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_padding_small"
+    android:layout_margin="@dimen/margin_padding_tiny"
     android:background="@drawable/bg_word"
     android:elevation="@dimen/w_3"
-    android:padding="@dimen/margin_padding_medium"
-    android:textSize="@dimen/txt_medium"
+    android:padding="@dimen/margin_padding_small"
     android:textColor="@color/black"
+    android:textSize="@dimen/txt_medium"
     tools:text="Drag and Drop" />

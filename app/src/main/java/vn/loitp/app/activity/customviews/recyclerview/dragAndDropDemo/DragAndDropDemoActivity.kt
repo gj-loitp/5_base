@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.recyclerview.dragAndDropDemo
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.flexbox.*
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
@@ -71,12 +70,20 @@ class DragAndDropDemoActivity : BaseFontActivity() {
             submitList(words)
         }
 
-        rvSentence.layoutManager =
-            LinearLayoutManager(
-                /* context = */ this,
-                /* orientation = */ LinearLayoutManager.HORIZONTAL,
-                /* reverseLayout = */ false
-            )
+//        rvSentence.layoutManager =
+//            LinearLayoutManager(
+//                /* context = */ this,
+//                /* orientation = */ LinearLayoutManager.HORIZONTAL,
+//                /* reverseLayout = */ false
+//            )
+        rvSentence.layoutManager = FlexboxLayoutManager(
+            /* context = */ this,
+            /* flexDirection = */ FlexDirection.ROW,
+            /* flexWrap = */ FlexWrap.NOWRAP
+        ).apply {
+            justifyContent = JustifyContent.FLEX_START
+            alignItems = AlignItems.FLEX_START
+        }
         rvSentence.adapter = sentenceAdapter
 
         rvSentence.setOnDragListener(
