@@ -65,6 +65,11 @@
                 android:text="JustifiedTextViewActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btReadMoreOptionActivity"
+                style="@style/ButtonMenu"
+                android:text="ReadMoreOptionActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btScoreText"
                 style="@style/ButtonMenu"
                 android:text="@string/score_text" />

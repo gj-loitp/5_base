@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.textview
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
@@ -9,7 +8,6 @@ import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_text_view.*
 import vn.loitp.app.R
@@ -21,6 +19,7 @@ import vn.loitp.app.activity.customviews.textview.dropdownTextview.DropdownTextV
 import vn.loitp.app.activity.customviews.textview.extraTextView.ExtraTextViewActivity
 import vn.loitp.app.activity.customviews.textview.fadingTextView.FadingTextViewActivity
 import vn.loitp.app.activity.customviews.textview.justified.JustifiedTextViewActivity
+import vn.loitp.app.activity.customviews.textview.readMoreOption.ReadMoreOptionActivity
 import vn.loitp.app.activity.customviews.textview.scoreText.ScoreTextViewActivity
 import vn.loitp.app.activity.customviews.textview.scrollNumber.ScrollNumberActivity
 import vn.loitp.app.activity.customviews.textview.selectableTextView.SelectableTextViewActivity
@@ -77,35 +76,30 @@ class MenuTextViewActivity : BaseFontActivity(), OnClickListener {
         btTypedTextView.setOnClickListener(this)
         btDropdownTextView.setOnClickListener(this)
         btTextArcActivity.setOnClickListener(this)
+        btReadMoreOptionActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        val intent: Intent? = when (v) {
-            btAutoCompleteTextView -> Intent(this, AutoCompleteTextViewActivity::class.java)
-            btAutofitTextView -> Intent(this, AutoFitTextViewActivity::class.java)
-            btScoreText -> Intent(this, ScoreTextViewActivity::class.java)
-            btCountDown -> Intent(this, CountDownActivity::class.java)
-            btColorTextView -> Intent(this, ColorTextViewActivity::class.java)
-            btScrollNumber -> Intent(this, ScrollNumberActivity::class.java)
-            btSelectableTextView -> Intent(this, SelectableTextViewActivity::class.java)
-            btZoomTextView -> Intent(this, ZoomTextViewActivity::class.java)
-            btVerticalMarqueeTextView -> Intent(this, VerticalMarqueeTextViewActivity::class.java)
-            btTypeWriterTextView -> Intent(this, TypeWriterTextViewActivity::class.java)
-            btTextDecorator -> Intent(this, TextDecoratorActivity::class.java)
-            btExtraTextview -> Intent(this, ExtraTextViewActivity::class.java)
-            btStrokedTextView -> Intent(this, StrokedTextViewActivity::class.java)
-            btJustifiedTextViewActivity -> Intent(this, JustifiedTextViewActivity::class.java)
-            btFadingTextView -> Intent(this, FadingTextViewActivity::class.java)
-            btTypedTextView -> Intent(this, TypedTextViewActivity::class.java)
-            btDropdownTextView -> Intent(this, DropdownTextViewActivity::class.java)
-            btTextArcActivity -> Intent(this, TextArcActivity::class.java)
-            else -> {
-                null
-            }
-        }
-        intent.let {
-            startActivity(it)
-            LActivityUtil.tranIn(this)
+        when (v) {
+            btAutoCompleteTextView -> launchActivity(AutoCompleteTextViewActivity::class.java)
+            btAutofitTextView -> launchActivity(AutoFitTextViewActivity::class.java)
+            btScoreText -> launchActivity(ScoreTextViewActivity::class.java)
+            btCountDown -> launchActivity(CountDownActivity::class.java)
+            btColorTextView -> launchActivity(ColorTextViewActivity::class.java)
+            btScrollNumber -> launchActivity(ScrollNumberActivity::class.java)
+            btSelectableTextView -> launchActivity(SelectableTextViewActivity::class.java)
+            btZoomTextView -> launchActivity(ZoomTextViewActivity::class.java)
+            btVerticalMarqueeTextView -> launchActivity(VerticalMarqueeTextViewActivity::class.java)
+            btTypeWriterTextView -> launchActivity(TypeWriterTextViewActivity::class.java)
+            btTextDecorator -> launchActivity(TextDecoratorActivity::class.java)
+            btExtraTextview -> launchActivity(ExtraTextViewActivity::class.java)
+            btStrokedTextView -> launchActivity(StrokedTextViewActivity::class.java)
+            btJustifiedTextViewActivity -> launchActivity(JustifiedTextViewActivity::class.java)
+            btFadingTextView -> launchActivity(FadingTextViewActivity::class.java)
+            btTypedTextView -> launchActivity(TypedTextViewActivity::class.java)
+            btDropdownTextView -> launchActivity(DropdownTextViewActivity::class.java)
+            btTextArcActivity -> launchActivity(TextArcActivity::class.java)
+            btReadMoreOptionActivity -> launchActivity(ReadMoreOptionActivity::class.java)
         }
     }
 }
