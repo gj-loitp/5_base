@@ -171,69 +171,50 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        val intent: Intent? =
-            when (v) {
-                btApi ->
-                    Intent(this, MenuAPIActivity::class.java)
-                btAnimation -> Intent(this, MenuAnimationActivity::class.java)
-                btCustomView -> Intent(this, MenuCustomViewsActivity::class.java)
-                btDemo -> Intent(this, MenuDemoActivity::class.java)
-                btRateApp -> {
-                    LSocialUtil.rateApp(this, packageName)
-                    null
-                }
-                btMoreApp -> {
-                    LSocialUtil.moreApp(this)
-                    null
-                }
-                btFunction -> Intent(this, MenuFunctionActivity::class.java)
-                btGame -> Intent(this, MenuGameActivity::class.java)
-                btDatabase -> Intent(this, MenuDatabaseActivity::class.java)
-                btPattern -> Intent(this, MenuPatternActivity::class.java)
-                btChat -> {
-                    LSocialUtil.chatMessenger(this)
-                    null
-                }
-                btGithub -> {
-                    LSocialUtil.openUrlInBrowser(
-                        context = this,
-                        url = "https://github.com/tplloi/base"
-                    )
-                    null
-                }
-                btAdHelper -> {
-                    Intent(this, AdHelperActivity::class.java).apply {
-                        putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
-                    }
-                }
-                btFbFanpage -> {
-                    LSocialUtil.likeFacebookFanpage(this)
-                    null
-                }
-                btFrmMore -> Intent(this, MoreActivity::class.java)
-                btTutorial -> Intent(this, MenuTutorialActivity::class.java)
-                btPicker -> Intent(this, MenuPickerActivity::class.java)
-                btNetwork -> Intent(this, NetworkActivity::class.java)
-                btSecurity -> Intent(this, MenuSecurityActivity::class.java)
-                btService -> Intent(this, MenuServiceActivity::class.java)
-                btUtils -> Intent(this, UtilsActivity::class.java)
-                btUtilsCore -> Intent(this, UtilsCoreActivity::class.java)
-                btFeedback -> {
-                    LSocialUtil.sendEmail(
-                        activity = this,
-                        to = "roy93group@gmail.com",
-                        cc = "roy93group@gmail.com",
-                        bcc = "roy93group@gmail.com",
-                        subject = "Feedback",
-                        body = "..."
-                    )
-                    null
-                }
-                else -> null
+        when (v) {
+            btApi -> launchActivity(MenuAPIActivity::class.java)
+            btAnimation -> launchActivity(MenuAnimationActivity::class.java)
+            btCustomView -> launchActivity(MenuCustomViewsActivity::class.java)
+            btDemo -> launchActivity(MenuDemoActivity::class.java)
+            btRateApp -> LSocialUtil.rateApp(this, packageName)
+            btMoreApp -> LSocialUtil.moreApp(this)
+            btFunction -> launchActivity(MenuFunctionActivity::class.java)
+            btGame -> launchActivity(MenuGameActivity::class.java)
+            btDatabase -> launchActivity(MenuDatabaseActivity::class.java)
+            btPattern -> launchActivity(MenuPatternActivity::class.java)
+            btChat -> LSocialUtil.chatMessenger(this)
+            btGithub -> {
+                LSocialUtil.openUrlInBrowser(
+                    context = this,
+                    url = "https://github.com/tplloi/base"
+                )
             }
-        intent?.let {
-            startActivity(it)
-            LActivityUtil.tranIn(this)
+            btAdHelper -> {
+                launchActivity(
+                    cls = AdHelperActivity::class.java,
+                    data = {
+                        it.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
+                    })
+            }
+            btFbFanpage -> LSocialUtil.likeFacebookFanpage(this)
+            btFrmMore -> launchActivity(MoreActivity::class.java)
+            btTutorial -> launchActivity(MenuTutorialActivity::class.java)
+            btPicker -> launchActivity(MenuPickerActivity::class.java)
+            btNetwork -> launchActivity(NetworkActivity::class.java)
+            btSecurity -> launchActivity(MenuSecurityActivity::class.java)
+            btService -> launchActivity(MenuServiceActivity::class.java)
+            btUtils -> launchActivity(UtilsActivity::class.java)
+            btUtilsCore -> launchActivity(UtilsCoreActivity::class.java)
+            btFeedback -> {
+                LSocialUtil.sendEmail(
+                    activity = this,
+                    to = "roy93group@gmail.com",
+                    cc = "roy93group@gmail.com",
+                    bcc = "roy93group@gmail.com",
+                    subject = "Feedback",
+                    body = "..."
+                )
+            }
         }
     }
 }

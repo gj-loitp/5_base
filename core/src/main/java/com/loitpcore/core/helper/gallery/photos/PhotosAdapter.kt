@@ -32,11 +32,21 @@ class PhotosAdapter internal constructor(
 ) : BaseAdapter() {
 
     interface Callback {
-        fun onClick(photo: Photo, pos: Int)
-        fun onLongClick(photo: Photo, pos: Int)
+        fun onClick(
+            photo: Photo,
+            pos: Int
+        )
+
+        fun onLongClick(
+            photo: Photo,
+            pos: Int
+        )
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        viewGroup: ViewGroup,
+        position: Int
+    ): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(viewGroup.context)
                 .inflate(R.layout.l_item_flickr_photos_core, viewGroup, false)
@@ -47,7 +57,10 @@ class PhotosAdapter internal constructor(
         return instance.getPhotoList().size
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is ViewHolder) {
             val photo = instance.getPhotoList()[position]
             holder.bind(photo = photo)

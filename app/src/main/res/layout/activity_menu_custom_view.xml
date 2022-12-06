@@ -60,6 +60,11 @@
                 android:text="@string/codeview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCornerSheet"
+                style="@style/ButtonMenu"
+                android:text="CornerSheet" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDialog"
                 style="@style/ButtonMenu"
                 android:text="@string/dialog" />

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="140dp"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/margin_padding_medium"
+            android:paddingRight="@dimen/margin_padding_medium">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_medium"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="@dimen/margin_padding_medium"
+                android:text="Horizontal Peek Height: "
+                android:textColor="@color/red"
+                android:textSize="@dimen/txt_medium" />
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/seek_peek_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumbTint="@color/red" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_large"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_padding_medium"
+                    android:text="Current CornerSheetBehavior state: "
+                    android:textColor="@color/deepPink"
+                    android:textSize="@dimen/txt_medium"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/behavior_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
+                    android:layout_marginBottom="@dimen/margin_padding_medium"
+                    android:text="COLLAPSED"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/txt_medium"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_large"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/expand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EXPAND" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/collapsed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="COLLAPSE" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/hidden"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HIDE" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <FrameLayout
+            android:id="@+id/corner_behavior_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:backgroundTint="@color/colorPrimary"
+            app:behavior_expanded_width="175dp"
+            app:behavior_horizontalExpandingRatio="0.1"
+            app:behavior_horizontal_peekHeight="97dp"
+            app:behavior_peekHeight="60dp"
+            app:layout_behavior="com.github.heyalex.cornersheet.behavior.CornerSheetBehavior"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CornerShape"
+            tools:behavior_horizontal_peekHeight="97dp"
+            tools:ignore="MissingPrefix">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_medium"
+                android:background="@android:color/transparent"
+                app:title="Corner  Sample"
+                app:titleTextColor="@android:color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/expandedValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:paddingTop="90dp"
+                android:text="SLIDE OFFSET"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt_medium" />
+
+        </FrameLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>

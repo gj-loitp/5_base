@@ -15,6 +15,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.animation.activityTransition.Animation1Activity
 import vn.loitp.app.activity.animation.activityTransitionReveal.RevealActivity1
 import vn.loitp.app.activity.animation.androidParticles.AndroidParticlesActivity
+import vn.loitp.app.activity.animation.animatedStarsView.AnimatedStarsViewActivity
 import vn.loitp.app.activity.animation.animationView.AnimationViewActivity
 import vn.loitp.app.activity.animation.basicTransition.BasicTransition0Activity
 import vn.loitp.app.activity.animation.basicTransitionActivity.SceneTransitionBasicActivity
@@ -74,62 +75,66 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
         btAndroidParticlesActivity.setOnClickListener(this)
         btKonfetti.setOnClickListener(this)
         btFadeOutParticleActivity.setOnClickListener(this)
+        btAnimatedStarsView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        var intent: Intent? = null
-        when (v) {
+        val intent = when (v) {
             btAnimationView -> {
-                intent = Intent(this, AnimationViewActivity::class.java)
+                Intent(this, AnimationViewActivity::class.java)
             }
             btOverScroll -> {
-                intent = Intent(this, OverScrollActivity::class.java)
+                Intent(this, OverScrollActivity::class.java)
             }
             btFlySchool -> {
-                intent = Intent(this, FlySchoolActivity::class.java)
+                Intent(this, FlySchoolActivity::class.java)
             }
             btActivityTransition -> {
-                intent = Intent(this, Animation1Activity::class.java)
+                Intent(this, Animation1Activity::class.java)
             }
             btShadowViewHelper -> {
-                intent = Intent(this, ShadowViewHelperActivity::class.java)
+                Intent(this, ShadowViewHelperActivity::class.java)
             }
             btBasicTransitionFrm -> {
-                intent = Intent(this, BasicTransitionActivity::class.java)
+                Intent(this, BasicTransitionActivity::class.java)
             }
             btBasicTransitionActivity -> {
-                intent = Intent(this, SceneTransitionBasicActivity::class.java)
+                Intent(this, SceneTransitionBasicActivity::class.java)
             }
             btBasicTransition -> {
-                intent = Intent(this, BasicTransition0Activity::class.java)
+                Intent(this, BasicTransition0Activity::class.java)
             }
             btLottie -> {
-                intent = Intent(this, MenuLottieActivity::class.java)
+                Intent(this, MenuLottieActivity::class.java)
             }
             btValueAnimator -> {
-                intent = Intent(this, ValueAnimatorActivity::class.java)
+                Intent(this, ValueAnimatorActivity::class.java)
             }
             btElasticView -> {
-                intent = Intent(this, ElasticActivity::class.java)
+                Intent(this, ElasticActivity::class.java)
             }
             btMorphTransitions -> {
-                intent = Intent(this, MorphTransitionsMainActivity::class.java)
+                Intent(this, MorphTransitionsMainActivity::class.java)
             }
             btActivityTransitionReveal -> {
-                intent = Intent(this, RevealActivity1::class.java)
+                Intent(this, RevealActivity1::class.java)
             }
             btPulsingView -> {
-                intent = Intent(this, PulsingViewActivity::class.java)
+                Intent(this, PulsingViewActivity::class.java)
             }
             btAndroidParticlesActivity -> {
-                intent = Intent(this, AndroidParticlesActivity::class.java)
+                Intent(this, AndroidParticlesActivity::class.java)
             }
             btKonfetti -> {
-                intent = Intent(this, KonfettiActivity::class.java)
+                Intent(this, KonfettiActivity::class.java)
             }
             btFadeOutParticleActivity -> {
-                intent = Intent(this, FadeOutParticleActivity::class.java)
+                Intent(this, FadeOutParticleActivity::class.java)
             }
+            btAnimatedStarsView -> {
+                Intent(this, AnimatedStarsViewActivity::class.java)
+            }
+            else -> null
         }
         intent?.let {
             startActivity(it)

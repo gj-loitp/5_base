@@ -65,6 +65,26 @@
             android:layout_weight="1">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btSetWallpaper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/baseline_wallpaper_black_48"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:borderWidth="@dimen/w_3"
+                app:elevation="@dimen/w_3"
+                app:fabSize="mini" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btDownload"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

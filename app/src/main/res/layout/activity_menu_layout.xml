@@ -24,6 +24,11 @@
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAndroidSlidingUpPanel"
+                style="@style/ButtonMenu"
+                android:text="AndroidSlidingUpPanelActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAspectRatioLayout"
                 style="@style/ButtonMenu"
                 android:text="@string/aspect_ratio_layout" />

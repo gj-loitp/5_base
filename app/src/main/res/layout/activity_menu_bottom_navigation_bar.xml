@@ -21,6 +21,11 @@
                 style="@style/ButtonMenu"
                 android:text="@string/bottom_bar_blur" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btExpandableBottomBar"
+                style="@style/ButtonMenu"
+                android:text="ExpandableBottomBar" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

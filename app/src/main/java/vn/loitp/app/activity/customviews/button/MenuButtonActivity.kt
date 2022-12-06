@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.button
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
@@ -8,13 +7,13 @@ import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_button.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.button.autoSizeButton.AutoSizeButtonActivity
 import vn.loitp.app.activity.customviews.button.circularImageClick.CircularImageClickActivity
 import vn.loitp.app.activity.customviews.button.fab.FabActivity
+import vn.loitp.app.activity.customviews.button.fitButton.FitButtonActivity
 import vn.loitp.app.activity.customviews.button.goodView.GoodViewActivity
 import vn.loitp.app.activity.customviews.button.lButton.LButtonActivity
 import vn.loitp.app.activity.customviews.button.qButton.QButtonActivity
@@ -53,22 +52,19 @@ class MenuButtonActivity : BaseFontActivity(), OnClickListener {
         btAutoSizeButton.setOnClickListener(this)
         btQButton.setOnClickListener(this)
         btFab.setOnClickListener(this)
+        btFitButtonActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        var intent: Intent? = null
         when (v) {
-            btShineButton -> intent = Intent(this, ShineButtonActivity::class.java)
-            btCircularImageClick -> intent = Intent(this, CircularImageClickActivity::class.java)
-            btGoodView -> intent = Intent(this, GoodViewActivity::class.java)
-            btlButton -> intent = Intent(this, LButtonActivity::class.java)
-            btAutoSizeButton -> intent = Intent(this, AutoSizeButtonActivity::class.java)
-            btQButton -> intent = Intent(this, QButtonActivity::class.java)
-            btFab -> intent = Intent(this, FabActivity::class.java)
-        }
-        intent?.let {
-            startActivity(it)
-            LActivityUtil.tranIn(this)
+            btShineButton -> launchActivity(ShineButtonActivity::class.java)
+            btCircularImageClick -> launchActivity(CircularImageClickActivity::class.java)
+            btGoodView -> launchActivity(GoodViewActivity::class.java)
+            btlButton -> launchActivity(LButtonActivity::class.java)
+            btAutoSizeButton -> launchActivity(AutoSizeButtonActivity::class.java)
+            btQButton -> launchActivity(QButtonActivity::class.java)
+            btFab -> launchActivity(FabActivity::class.java)
+            btFitButtonActivity -> launchActivity(FitButtonActivity::class.java)
         }
     }
 }

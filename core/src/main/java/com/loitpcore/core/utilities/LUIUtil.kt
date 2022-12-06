@@ -26,6 +26,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager.widget.ViewPager
+import com.github.wallpoo.Wallpo
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
@@ -933,6 +934,29 @@ class LUIUtil {
         fun setTypeface(textView: TextView, pathFontAsset: String) {
             val type = Typeface.createFromAsset(textView.context.assets, pathFontAsset)
             textView.typeface = type
+        }
+
+        fun setWallpaperAndLockScreen(
+            activity: Activity,
+            imageView: ImageView,
+            message: String = "Wallpaper Set",
+            isSetWallpaper: Boolean = true,
+            isSetLockScreen: Boolean = true,
+        ) {
+            if (isSetWallpaper) {
+                Wallpo.setMainScreenWallpaper(
+                    /* context = */ activity,
+                    /* imageView = */ imageView,
+                    /* message = */ message
+                )
+            }
+            if (isSetLockScreen) {
+                Wallpo.setLockScreenWallpaper(
+                    /* activity = */ activity,
+                    /* imageView = */ imageView,
+                    /* message = */ message
+                )
+            }
         }
     }
 }

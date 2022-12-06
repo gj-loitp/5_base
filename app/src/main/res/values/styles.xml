@@ -80,4 +80,39 @@
         <item name="content_text_color">#ffffff</item>
         <item name="title_text_color">#ff00ff</item>
     </style>
+
+    <style name="ShapeAppearanceOverlay.CornerShape" parent="">
+        <item name="cornerSizeTopLeft">34dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <style name="AppToolbarTheme">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:displayOptions">homeAsUp</item>
+    </style>
+
+    <integer-array name="star_colors">
+        <item>@color/red</item>
+        <item>@color/green</item>
+        <item>@color/blue</item>
+        <item>@color/deepPink</item>
+        <item>@color/white</item>
+        <item>@color/cyan</item>
+    </integer-array>
+
+    <integer-array name="meteorites_colors">
+        <item>@color/light_Cyan</item>
+        <item>@color/pineGreen</item>
+        <item>@color/pink</item>
+    </integer-array>
 </resources>

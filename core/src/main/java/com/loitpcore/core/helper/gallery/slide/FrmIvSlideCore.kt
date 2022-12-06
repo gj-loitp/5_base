@@ -49,8 +49,18 @@ class FrmIvSlideCore : Fragment() {
         biv.setImageViewFactory(GlideImageViewFactory())
 
         biv.setImageLoaderCallback(object : ImageLoader.Callback {
-            override fun onCacheHit(imageType: Int, image: File) {}
-            override fun onCacheMiss(imageType: Int, image: File) {}
+            override fun onCacheHit(
+                imageType: Int,
+                image: File
+            ) {
+            }
+
+            override fun onCacheMiss(
+                imageType: Int,
+                image: File
+            ) {
+            }
+
             override fun onStart() {
                 LDialogUtil.showProgress(progressBar)
                 tvProgress.text = "0%"

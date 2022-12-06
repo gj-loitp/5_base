@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.bottomNavigationBar
+package vn.loitp.app.activity.customviews.bottomBar
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +12,8 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_bottom_navigation_bar.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.bottomNavigationBar.bottombar.BottomBarActivity
+import vn.loitp.app.activity.customviews.bottomBar.bottombar.BottomBarActivity
+import vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.ShowCaseActivity
 
 @LogTag("BottomNavigationMenuActivity")
 @IsFullScreen(false)
@@ -42,9 +43,16 @@ class MenuBottomNavigationActivity : BaseFontActivity() {
             this.tvTitle?.text = MenuBottomNavigationActivity::class.java.simpleName
         }
         btBottomBarBlur.setSafeOnClickListener {
-            val intent = Intent(this, BottomBarActivity::class.java)
-            startActivity(intent)
-            LActivityUtil.tranIn(this)
+            startActivity(BottomBarActivity::class.java)
         }
+        btExpandableBottomBar.setSafeOnClickListener {
+            startActivity(ShowCaseActivity::class.java)
+        }
+    }
+
+    private fun startActivity(cls: Class<*>) {
+        val intent = Intent(this, cls)
+        startActivity(intent)
+        LActivityUtil.tranIn(this)
     }
 }

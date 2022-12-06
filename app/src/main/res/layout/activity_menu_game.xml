@@ -33,6 +33,11 @@
                 style="@style/ButtonMenu"
                 android:text="Pong" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPuzzle"
+                style="@style/ButtonMenu"
+                android:text="Puzzle" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

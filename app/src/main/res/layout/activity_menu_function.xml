@@ -116,6 +116,11 @@
                 style="@style/ButtonMenu"
                 android:text="@string/view_drag_helper_simple_1" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btWallpoActivity"
+                style="@style/ButtonMenu"
+                android:text="WallpoActivity" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

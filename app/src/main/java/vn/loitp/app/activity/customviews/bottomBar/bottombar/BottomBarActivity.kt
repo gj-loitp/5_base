@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.bottomNavigationBar.bottombar
+package vn.loitp.app.activity.customviews.bottomBar.bottombar
 
 import android.os.Bundle
 import androidx.core.view.isVisible

@@ -6,6 +6,7 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
@@ -66,7 +67,10 @@ class GalleryCorePhotosOnlyFrm(
         return R.layout.l_frm_flickr_gallery_core_photos_only
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()
@@ -108,6 +112,16 @@ class GalleryCorePhotosOnlyFrm(
 
                     override fun onClickShare(photo: Photo, pos: Int) {
                         LSocialUtil.share(activity = a, msg = photo.urlO)
+                    }
+
+                    override fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView) {
+                        LUIUtil.setWallpaperAndLockScreen(
+                            activity = requireActivity(),
+                            imageView = imageView,
+                            message = "Wallpaper Set",
+                            isSetWallpaper = true,
+                            isSetLockScreen = true,
+                        )
                     }
 
                     override fun onClickReport(photo: Photo, pos: Int) {

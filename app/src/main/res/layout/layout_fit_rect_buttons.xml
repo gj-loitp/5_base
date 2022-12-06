@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/margin_padding_medium"
+    android:paddingBottom="@dimen/margin_padding_medium">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="horizontal">
+
+        <com.github.nikartm.button.FitButton
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            app:fb_backgroundColor="#37474F"
+            app:fb_cornerRadius="12dp"
+            app:fb_icon="@drawable/ic_keyboard_arrow_down_black_48dp"
+            app:fb_iconColor="#FFF"
+            app:fb_iconPosition="left"
+            app:fb_shape="rectangle"
+            app:fb_text="Get a Taxi"
+            app:fb_textColor="#FFF"
+            app:fb_textPaddingStart="8dp" />
+
+        <com.github.nikartm.button.FitButton
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:layout_margin="16dp"
+            android:gravity="center_vertical"
+            app:fb_backgroundColor="@android:color/transparent"
+            app:fb_borderColor="#1976D2"
+            app:fb_borderWidth="1dp"
+            app:fb_cornerRadius="30dp"
+            app:fb_divColor="#1976D2"
+            app:fb_divHeight="35dp"
+            app:fb_divWidth="1dp"
+            app:fb_icon="@drawable/ic_star"
+            app:fb_iconColor="#283593"
+            app:fb_iconMarginEnd="2dp"
+            app:fb_iconPosition="left"
+            app:fb_iconVisibility="invisible"
+            app:fb_rippleColor="#BBDEFB"
+            app:fb_shape="rectangle"
+            app:fb_text="First trip"
+            app:fb_textColor="#1976D2"
+            app:fb_textPaddingStart="10dp"
+            app:fb_textSize="16dp"
+            app:fb_textStyle="bold" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="horizontal">
+
+        <com.github.nikartm.button.FitButton
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            app:fb_backgroundColor="#e53935"
+            app:fb_cornerRadius="15dp"
+            app:fb_icon="@drawable/ic_attachment_black_48dp"
+            app:fb_iconColor="#F5F5F5"
+            app:fb_iconMarginStart="3dp"
+            app:fb_iconPosition="right"
+            app:fb_shape="rectangle"
+            app:fb_text="Mute"
+            app:fb_textColor="#F5F5F5" />
+
+        <com.github.nikartm.button.FitButton
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            app:fb_backgroundColor="#8BC34A"
+            app:fb_cornerRadius="15dp"
+            app:fb_icon="@drawable/ic_pause_black_48dp"
+            app:fb_iconColor="#F5F5F5"
+            app:fb_iconPosition="left"
+            app:fb_shape="rectangle"
+            app:fb_text="Play"
+            app:fb_textColor="#F5F5F5"
+            app:fb_textPaddingStart="7dp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.github.nikartm.button.FitButton
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        app:fb_backgroundColor="#4CAF50"
+        app:fb_cornerRadius="24dp"
+        app:fb_fontFamilyRes="@font/faster_one"
+        app:fb_rippleColor="#DCEDC8"
+        app:fb_shape="rectangle"
+        app:fb_text="Place order"
+        app:fb_textColor="#F5F5F5"
+        app:fb_textSize="18dp" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="horizontal">
+
+        <com.github.nikartm.button.FitButton
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            app:fb_backgroundColor="#FFB300"
+            app:fb_rippleColor="#42FFF9C4"
+            app:fb_shape="rectangle"
+            app:fb_text="Sign Up"
+            app:fb_textAllCaps="true"
+            app:fb_textColor="#F5F5F5"
+            app:fb_textStyle="bold" />
+
+        <com.github.nikartm.button.FitButton
+            android:layout_width="130dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:gravity="center_vertical"
+            app:fb_backgroundColor="#EEEEEE"
+            app:fb_icon="@drawable/ic_close_black_48dp"
+            app:fb_iconHeight="30dp"
+            app:fb_iconMarginStart="7dp"
+            app:fb_iconPosition="left"
+            app:fb_iconWidth="30dp"
+            app:fb_rippleColor="#42757575"
+            app:fb_shape="rectangle"
+            app:fb_text="Sign in"
+            app:fb_textColor="#222222"
+            app:fb_textPaddingStart="16dp"
+            app:fb_textStyle="bold" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

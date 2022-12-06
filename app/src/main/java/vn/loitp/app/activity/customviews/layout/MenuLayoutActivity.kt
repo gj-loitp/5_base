@@ -11,6 +11,7 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_layout.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity
 import vn.loitp.app.activity.customviews.layout.aspectratio.AspectRatioLayoutActivity
 import vn.loitp.app.activity.customviews.layout.autoLinearLayout.AutoLinearLayoutActivity
 import vn.loitp.app.activity.customviews.layout.basketLayout.BasketLayoutActivity
@@ -70,6 +71,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuLayoutActivity::class.java.simpleName
         }
+        btAndroidSlidingUpPanel.setOnClickListener(this)
         btAspectRatioLayout.setOnClickListener(this)
         btDraggablePanel.setOnClickListener(this)
         btDraggablePanelFree.setOnClickListener(this)
@@ -106,6 +108,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         val intent = when (v) {
+            btAndroidSlidingUpPanel -> Intent(this, AndroidSlidingUpPanelActivity::class.java)
             btAspectRatioLayout -> Intent(this, AspectRatioLayoutActivity::class.java)
             btDraggablePanel -> Intent(this, DraggablePanelActivity::class.java)
             btDraggablePanelFree -> Intent(this, DraggablePanelFreeActivity::class.java)
