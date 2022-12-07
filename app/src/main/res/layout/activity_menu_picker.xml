@@ -36,6 +36,11 @@
                 android:text="Number Picker" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShiftColorPickerActivity"
+                style="@style/ButtonMenu"
+                android:text="ShiftColorPickerActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSSImagePicker"
                 style="@style/ButtonMenu"
                 android:text="SSImagePicker (++)" />
