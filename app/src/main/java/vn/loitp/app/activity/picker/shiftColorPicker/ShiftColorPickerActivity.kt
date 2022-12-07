@@ -75,21 +75,22 @@ class ShiftColorPickerActivity : BaseFontActivity() {
             )
         }
 
-        colorPicker2.colors = intArrayOf(
-            Color.RED,
-            Color.GREEN,
-            Color.BLUE,
-            Color.YELLOW,
-            Color.CYAN,
-            Color.MAGENTA,
-        )
-        colorPicker2.setSelectedColor(Color.RED)
-
-        colorPicker2.setOnColorChangedListener(object : OnColorChangedListener {
-            override fun onColorChanged(c: Int) {
-                showShortInformation("Selected color " + Integer.toHexString(c))
-            }
-        })
+        colorPicker2.apply {
+            colors = intArrayOf(
+                Color.RED,
+                Color.GREEN,
+                Color.BLUE,
+                Color.YELLOW,
+                Color.CYAN,
+                Color.MAGENTA,
+            )
+            setSelectedColor(Color.RED)
+            setOnColorChangedListener(object : OnColorChangedListener {
+                override fun onColorChanged(c: Int) {
+                    showShortInformation("Selected color " + Integer.toHexString(c))
+                }
+            })
+        }
 
         btGetSelectedColor2.setSafeOnClickListener {
             showShortInformation(
