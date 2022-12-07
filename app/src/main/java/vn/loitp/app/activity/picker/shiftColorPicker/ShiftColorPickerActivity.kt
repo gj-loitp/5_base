@@ -10,6 +10,7 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
+import com.loitpcore.picker.shiftColorPicker.OnColorChangedListener
 import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_shift_color_picker.*
@@ -60,9 +61,11 @@ class ShiftColorPickerActivity : BaseFontActivity() {
 //        colorPicker.colors = intArrayOf(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW)
 //        colorPicker.setSelectedColor(Color.RED)
 
-        colorPicker.setOnColorChangedListener { c ->
-            showShortInformation("Selected color " + Integer.toHexString(c))
-        }
+        colorPicker.setOnColorChangedListener(object : OnColorChangedListener {
+            override fun onColorChanged(c: Int) {
+                showShortInformation("Selected color " + Integer.toHexString(c))
+            }
+        })
 
         btGetSelectedColor.setSafeOnClickListener {
             showShortInformation(
@@ -75,3 +78,4 @@ class ShiftColorPickerActivity : BaseFontActivity() {
         }
     }
 }
+

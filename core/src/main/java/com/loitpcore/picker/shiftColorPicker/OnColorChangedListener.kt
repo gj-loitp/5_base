@@ -1,5 +1,5 @@
-package com.loitpcore.picker.shiftColorPicker;
+package com.loitpcore.picker.shiftColorPicker
 
-public interface OnColorChangedListener {
-    void onColorChanged(int c);
+interface OnColorChangedListener {
+    fun onColorChanged(c: Int)
 }
