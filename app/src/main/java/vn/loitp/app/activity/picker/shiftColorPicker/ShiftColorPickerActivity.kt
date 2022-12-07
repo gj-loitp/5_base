@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.picker.shiftColorPicker
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
@@ -58,8 +59,13 @@ class ShiftColorPickerActivity : BaseFontActivity() {
             this.tvTitle?.text = ShiftColorPickerActivity::class.java.simpleName
         }
 
-//        colorPicker.colors = intArrayOf(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW)
-//        colorPicker.setSelectedColor(Color.RED)
+        colorPicker.colors = intArrayOf(
+            Color.RED,
+            Color.GREEN,
+            Color.BLUE,
+            Color.YELLOW
+        )
+        colorPicker.setSelectedColor(Color.RED)
 
         colorPicker.setOnColorChangedListener(object : OnColorChangedListener {
             override fun onColorChanged(c: Int) {
