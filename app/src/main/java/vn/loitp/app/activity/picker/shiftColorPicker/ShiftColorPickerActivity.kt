@@ -59,14 +59,6 @@ class ShiftColorPickerActivity : BaseFontActivity() {
             this.tvTitle?.text = ShiftColorPickerActivity::class.java.simpleName
         }
 
-        colorPicker.colors = intArrayOf(
-            Color.RED,
-            Color.GREEN,
-            Color.BLUE,
-            Color.YELLOW
-        )
-        colorPicker.setSelectedColor(Color.RED)
-
         colorPicker.setOnColorChangedListener(object : OnColorChangedListener {
             override fun onColorChanged(c: Int) {
                 showShortInformation("Selected color " + Integer.toHexString(c))
@@ -78,6 +70,32 @@ class ShiftColorPickerActivity : BaseFontActivity() {
                 msg = "Selected color: ${colorPicker.color} -> ${
                     Integer.toHexString(
                         colorPicker.color
+                    )
+                }"
+            )
+        }
+
+        colorPicker2.colors = intArrayOf(
+            Color.RED,
+            Color.GREEN,
+            Color.BLUE,
+            Color.YELLOW,
+            Color.CYAN,
+            Color.MAGENTA,
+        )
+        colorPicker2.setSelectedColor(Color.RED)
+
+        colorPicker2.setOnColorChangedListener(object : OnColorChangedListener {
+            override fun onColorChanged(c: Int) {
+                showShortInformation("Selected color " + Integer.toHexString(c))
+            }
+        })
+
+        btGetSelectedColor2.setSafeOnClickListener {
+            showShortInformation(
+                msg = "Selected color: ${colorPicker2.color} -> ${
+                    Integer.toHexString(
+                        colorPicker2.color
                     )
                 }"
             )

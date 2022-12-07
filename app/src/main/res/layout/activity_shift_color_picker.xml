@@ -11,33 +11,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:orientation="vertical"
+        android:paddingTop="@dimen/margin_padding_medium"
+        android:paddingBottom="@dimen/margin_padding_medium">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <com.loitpcore.picker.shiftColorPicker.LineColorPicker
+            android:id="@+id/colorPicker"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/margin_padding_medium"
-            android:paddingBottom="@dimen/margin_padding_medium">
+            android:layout_height="@dimen/w_55"
+            app:lcpColors="@array/sample_colors"
+            app:lcpOrientation="horizontal"
+            app:lcpSelectedColorIndex="0" />
 
-            <com.loitpcore.picker.shiftColorPicker.LineColorPicker
-                android:id="@+id/colorPicker"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/w_55"
-                app:lcpColors="@array/sample_colors"
-                app:lcpOrientation="horizontal"
-                app:lcpSelectedColorIndex="0" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btGetSelectedColor"
+            style="@style/ButtonMenu"
+            android:text="Get selected color" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btGetSelectedColor"
-                style="@style/ButtonMenu"
-                android:text="Get selected color" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        <com.loitpcore.picker.shiftColorPicker.LineColorPicker
+            android:id="@+id/colorPicker2"
+            android:layout_width="@dimen/w_55"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_padding_medium"
+            android:layout_weight="1"
+            app:lcpOrientation="vertical"
+            app:lcpSelectedColorIndex="0" />
 
-    </androidx.core.widget.NestedScrollView>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btGetSelectedColor2"
+            style="@style/ButtonMenu"
+            android:text="Get selected color 2" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
