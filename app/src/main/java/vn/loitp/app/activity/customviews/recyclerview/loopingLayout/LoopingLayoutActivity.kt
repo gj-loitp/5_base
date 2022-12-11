@@ -12,7 +12,7 @@ import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_0.lActionBar
-import kotlinx.android.synthetic.main.activity_recycler_view.*
+import kotlinx.android.synthetic.main.activity_looping_layout.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.MoviesAdapter
@@ -67,22 +67,41 @@ class LoopingLayoutActivity : BaseFontActivity() {
             MoviesAdapter(
                 moviesList = movieList,
                 callback = object : MoviesAdapter.Callback {
-                    override fun onClick(movie: Movie, position: Int) {
+                    override fun onClick(
+                        movie: Movie,
+                        position: Int
+                    ) {
                         showShortInformation("Click " + movie.title)
                     }
 
-                    override fun onLongClick(movie: Movie, position: Int) {}
+                    override fun onLongClick(
+                        movie: Movie,
+                        position: Int
+                    ) {
+                    }
+
                     override fun onLoadMore() {
                     }
                 }
             )
-        rv.layoutManager = LoopingLayoutManager(
-            context = this,
-            orientation = LoopingLayoutManager.VERTICAL,
-            reverseLayout = false
-        )
-        rv.adapter = moviesAdapter
-        rv.setHasFixedSize(true)
+        rvHorizontal.apply {
+            this.layoutManager = LoopingLayoutManager(
+                context = this@LoopingLayoutActivity,
+                orientation = LoopingLayoutManager.HORIZONTAL,
+                reverseLayout = false
+            )
+            this.adapter = moviesAdapter
+            this.setHasFixedSize(true)
+        }
+        rvVertical.apply {
+            this.layoutManager = LoopingLayoutManager(
+                context = this@LoopingLayoutActivity,
+                orientation = LoopingLayoutManager.VERTICAL,
+                reverseLayout = false
+            )
+            this.adapter = moviesAdapter
+            this.setHasFixedSize(true)
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")

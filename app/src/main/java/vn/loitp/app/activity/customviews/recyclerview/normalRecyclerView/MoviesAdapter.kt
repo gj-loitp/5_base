@@ -9,7 +9,10 @@ import kotlinx.android.synthetic.main.view_movie_list.view.*
 import vn.loitp.app.R
 
 @LogTag("MoviesAdapter")
-class MoviesAdapter(private val moviesList: List<Movie>, private val callback: Callback?) :
+class MoviesAdapter(
+    private val moviesList: List<Movie>,
+    private val callback: Callback?
+) :
     com.loitpcore.core.adapter.BaseAdapter() {
 
     interface Callback {
@@ -36,7 +39,10 @@ class MoviesAdapter(private val moviesList: List<Movie>, private val callback: C
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): MovieViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.view_movie_list, parent, false)
         return MovieViewHolder(itemView)
@@ -46,7 +52,10 @@ class MoviesAdapter(private val moviesList: List<Movie>, private val callback: C
         return moviesList.size
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is MovieViewHolder) {
             val movie = moviesList[position]
             holder.bind(movie)
