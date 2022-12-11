@@ -158,6 +158,8 @@ dependencies {
     api 'in.srain.cube:grid-view-with-header-footer:1.0.12'
 
     api 'com.thedeanda:lorem:2.1'
+//    https://github.com/BeksOmega/looping-layout
+    api 'com.github.beksomega:loopinglayout:0.4.1'
 //    https://github.com/mmoamenn/LuckyWheel_Android
     api 'com.github.mmoamenn:LuckyWheel_Android:0.3.0'
 

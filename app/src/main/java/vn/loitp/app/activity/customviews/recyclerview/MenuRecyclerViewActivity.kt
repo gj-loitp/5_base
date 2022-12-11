@@ -27,6 +27,7 @@ import vn.loitp.app.activity.customviews.recyclerview.footer.RecyclerViewFooterA
 import vn.loitp.app.activity.customviews.recyclerview.footer2.RecyclerViewFooter2Activity
 import vn.loitp.app.activity.customviews.recyclerview.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity
 import vn.loitp.app.activity.customviews.recyclerview.galleryLayoutManager.GalleryLayoutManagerVerticalActivity
+import vn.loitp.app.activity.customviews.recyclerview.loopingLayout.LoopingLayoutActivity
 import vn.loitp.app.activity.customviews.recyclerview.netView.NetViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.RecyclerViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerViewWithSingletonData.RecyclerViewWithSingletonDataActivity
@@ -83,6 +84,7 @@ class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
         btCarouselRecyclerViewActivity.setOnClickListener(this)
         btDragDrop.setOnClickListener(this)
         btDragAndDropDemoActivity.setOnClickListener(this)
+        btLoopingLayout.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -117,6 +119,7 @@ class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
             btCarouselRecyclerViewActivity -> launchActivity(CarouselRecyclerViewActivity::class.java)
             btDragDrop -> launchActivity(MainActivityDragDrop::class.java)
             btDragAndDropDemoActivity -> launchActivity(DragAndDropDemoActivity::class.java)
+            btLoopingLayout -> launchActivity(LoopingLayoutActivity::class.java)
         }
     }
 }

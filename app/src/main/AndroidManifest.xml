@@ -828,6 +828,9 @@
         <activity
             android:name=".activity.service.endlessService.EndlessServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.customviews.recyclerview.loopingLayout.LoopingLayoutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <service
             android:name=".activity.service.endlessService.EndlessService"

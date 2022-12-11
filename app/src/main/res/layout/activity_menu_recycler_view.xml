@@ -111,6 +111,11 @@
                 android:text="@string/gallerylayoutmanager_vertical" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLoopingLayout"
+                style="@style/ButtonMenu"
+                android:text="Looping Layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNetView"
                 style="@style/ButtonMenu"
                 android:text="@string/net_view" />
