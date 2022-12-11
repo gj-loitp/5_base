@@ -168,9 +168,11 @@ dependencies {
 
 //    noinspection AnnotationProcessorOnCompilePath
     api 'io.realm:realm-android:0.82.1'
-    kapt "androidx.room:room-compiler:2.5.0-beta02"
+    kapt "androidx.room:room-compiler:2.5.0-rc01"
 //    https://github.com/devendroid/ReadMoreOption
     api 'com.github.devendroid:ReadMoreOption:1.0.2'
+//    https://github.com/rishabh876/RoundedImageView
+    api 'com.rishabhharit.roundedimageview:RoundedImageView:0.8.4'
 
 //    https://github.com/Crysis21/PulsingView
     api 'ro.holdone:pulseview:1.0.2'
