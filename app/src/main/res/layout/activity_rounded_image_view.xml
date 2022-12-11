@@ -25,7 +25,7 @@
             android:padding="@dimen/margin_padding_medium">
 
             <com.rishabhharit.roundedimageview.RoundedImageView
-                android:id="@+id/circle_iv"
+                android:id="@+id/ivCircle"
                 android:layout_width="@dimen/w_170"
                 android:layout_height="@dimen/w_170"
                 android:layout_marginTop="@dimen/margin_padding_medium"
@@ -35,7 +35,7 @@
                 tools:src="@drawable/loitp" />
 
             <com.rishabhharit.roundedimageview.RoundedImageView
-                android:id="@+id/rounded_iv"
+                android:id="@+id/iv"
                 android:layout_width="@dimen/w_170"
                 android:layout_height="@dimen/w_170"
                 android:layout_marginTop="@dimen/margin_padding_medium"
@@ -46,7 +46,7 @@
                 tools:src="@drawable/loitp" />
 
             <com.rishabhharit.roundedimageview.RoundedImageView
-                android:id="@+id/rounded_iv_1"
+                android:id="@+id/iv1"
                 android:layout_width="@dimen/w_170"
                 android:layout_height="@dimen/w_170"
                 android:layout_marginTop="@dimen/margin_padding_medium"
@@ -57,7 +57,7 @@
                 tools:src="@drawable/loitp" />
 
             <com.rishabhharit.roundedimageview.RoundedImageView
-                android:id="@+id/rounded_iv_2"
+                android:id="@+id/iv2"
                 android:layout_width="@dimen/w_170"
                 android:layout_height="@dimen/w_170"
                 android:layout_marginTop="@dimen/margin_padding_medium"
@@ -68,7 +68,7 @@
                 tools:src="@drawable/loitp" />
 
             <com.rishabhharit.roundedimageview.RoundedImageView
-                android:id="@+id/rounded_iv_4"
+                android:id="@+id/iv4"
                 android:layout_width="@dimen/w_170"
                 android:layout_height="@dimen/w_170"
                 android:layout_marginTop="@dimen/margin_padding_medium"
@@ -79,7 +79,7 @@
                 tools:src="@drawable/loitp" />
 
             <com.rishabhharit.roundedimageview.RoundedImageView
-                android:id="@+id/rounded_iv_5"
+                android:id="@+id/iv5"
                 android:layout_width="@dimen/w_170"
                 android:layout_height="@dimen/w_170"
                 android:layout_marginTop="@dimen/margin_padding_medium"

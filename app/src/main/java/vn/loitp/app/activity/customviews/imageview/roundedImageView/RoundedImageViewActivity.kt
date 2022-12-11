@@ -55,32 +55,32 @@ class RoundedImageViewActivity : BaseFontActivity() {
         LImageUtil.load(
             context = this,
             any = Constants.URL_IMG_1,
-            imageView = circle_iv,
+            imageView = ivCircle,
         )
         LImageUtil.load(
             context = this,
             any = Constants.URL_IMG_1,
-            imageView = rounded_iv,
+            imageView = iv,
         )
         LImageUtil.load(
             context = this,
             any = Constants.URL_IMG_1,
-            imageView = rounded_iv_1,
+            imageView = iv1,
         )
         LImageUtil.load(
             context = this,
             any = Constants.URL_IMG_1,
-            imageView = rounded_iv_2,
+            imageView = iv2,
         )
         LImageUtil.load(
             context = this,
             any = Constants.URL_IMG_1,
-            imageView = rounded_iv_4,
+            imageView = iv4,
         )
         LImageUtil.load(
             context = this,
             any = Constants.URL_IMG_1,
-            imageView = rounded_iv_5,
+            imageView = iv5,
         )
     }
 }
