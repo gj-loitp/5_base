@@ -1358,7 +1358,7 @@
             android:name=".activity.customviews.layout.cornerCutLinearLayout.CornerCutLinearLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.button.circularProgressButton.MainActivity"
+            android:name=".activity.customviews.button.circularProgressButton.CPBActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.button.circularProgressButton.Sample1Activity"
