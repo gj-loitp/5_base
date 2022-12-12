@@ -127,6 +127,8 @@ dependencies {
     api 'com.github.heyalex.cornersheet:drawer:v1.0.1'
 //    https://github.com/cliffgr/ComparingPerformanceBar
     api 'com.github.cliffgr:ComparingPerformanceBar:1.1.3'
+//    https://github.com/dmytrodanylyk/circular-progress-button
+    api 'com.github.dmytrodanylyk:circular-progress-button:1.2'
 
 //    https://github.com/shiburagi/Drawer-Behavior
     api 'com.infideap.drawerbehavior:drawer-behavior:1.0.1'

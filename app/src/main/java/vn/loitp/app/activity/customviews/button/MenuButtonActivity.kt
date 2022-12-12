@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_menu_button.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.button.autoSizeButton.AutoSizeButtonActivity
 import vn.loitp.app.activity.customviews.button.circularImageClick.CircularImageClickActivity
+import vn.loitp.app.activity.customviews.button.circularProgressButton.MainActivity
 import vn.loitp.app.activity.customviews.button.fab.FabActivity
 import vn.loitp.app.activity.customviews.button.fitButton.FitButtonActivity
 import vn.loitp.app.activity.customviews.button.goodView.GoodViewActivity
@@ -53,6 +54,7 @@ class MenuButtonActivity : BaseFontActivity(), OnClickListener {
         btQButton.setOnClickListener(this)
         btFab.setOnClickListener(this)
         btFitButtonActivity.setOnClickListener(this)
+        btCircularProgressButton.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -65,6 +67,7 @@ class MenuButtonActivity : BaseFontActivity(), OnClickListener {
             btQButton -> launchActivity(QButtonActivity::class.java)
             btFab -> launchActivity(FabActivity::class.java)
             btFitButtonActivity -> launchActivity(FitButtonActivity::class.java)
+            btCircularProgressButton -> launchActivity(MainActivity::class.java)
         }
     }
 }

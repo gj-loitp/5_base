@@ -33,6 +33,11 @@
                 android:text="@string/circular_image_click" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCircularProgressButton"
+                style="@style/ButtonMenu"
+                android:text="Circular Progress Button" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFab"
                 style="@style/ButtonMenu"
                 android:text="@string/fab" />
