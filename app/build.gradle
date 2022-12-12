@@ -140,8 +140,12 @@ dependencies {
 
 //    https://github.com/rosenpin/fading-text-view
     api 'com.github.rosenpin:fading-text-view:3.0'
+
+//    https://github.com/nguyenhoanglam/ImagePicker
+    api 'com.github.nguyenhoanglam:ImagePicker:1.5.5'
 //    https://github.com/reddit/IndicatorFastScroll
     api 'com.reddit:indicator-fast-scroll:1.3.0'
+
     api platform('com.google.firebase:firebase-bom:31.0.2')
     api 'com.google.firebase:firebase-analytics-ktx'
     api 'com.google.firebase:firebase-crashlytics-ktx'

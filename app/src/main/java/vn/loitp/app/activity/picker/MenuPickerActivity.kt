@@ -11,6 +11,7 @@ import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_picker.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.picker.attachmentManager.AttachmentManagerActivity
+import vn.loitp.app.activity.picker.imagePicker.ImagePickerActivity
 import vn.loitp.app.activity.picker.numberPicker.NumberPickerActivity
 import vn.loitp.app.activity.picker.shiftColorPicker.ShiftColorPickerActivity
 import vn.loitp.app.activity.picker.ssImagePicker.ui.MainActivitySSImagePicker
@@ -50,6 +51,7 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
         btUnicornFilePickerActivity.setOnClickListener(this)
         btSSImagePicker.setOnClickListener(this)
         btShiftColorPickerActivity.setOnClickListener(this)
+        btImagePicker.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -60,6 +62,7 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
             btUnicornFilePickerActivity -> launchActivity(UnicornFilePickerActivity::class.java)
             btSSImagePicker -> launchActivity(MainActivitySSImagePicker::class.java)
             btShiftColorPickerActivity -> launchActivity(ShiftColorPickerActivity::class.java)
+            btImagePicker -> launchActivity(ImagePickerActivity::class.java)
         }
     }
 }
