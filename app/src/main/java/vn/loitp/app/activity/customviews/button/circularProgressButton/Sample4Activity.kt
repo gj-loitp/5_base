@@ -1,62 +1,48 @@
-package vn.loitp.app.activity.customviews.button.circularProgressButton;
+package vn.loitp.app.activity.customviews.button.circularProgressButton
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
+import android.os.Bundle
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.layout_cpb_sample_4.*
+import vn.loitp.app.R
 
-import com.dd.CircularProgressButton;
-
-import vn.loitp.app.R;
-
-/**
- * Progress Padding Sample
- */
-public class Sample4Activity extends Activity {
-
-    public static void startThisActivity(Activity activity) {
-        activity.startActivity(new Intent(activity, Sample4Activity.class));
+@LogTag("Sample4Activity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+class Sample4Activity : BaseFontActivity() {
+    override fun setLayoutResourceId(): Int {
+        return R.layout.layout_cpb_sample_4
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_sample_4);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-        ActionBar actionBar = getActionBar();
-        if (actionBar != null) {
-            actionBar.setTitle(R.string.ProgressPaddingSample);
+        circularButton1.isIndeterminateProgressMode = true
+        circularButton1.setOnClickListener {
+            when (circularButton1.progress) {
+                0 -> {
+                    circularButton1.progress = 50
+                }
+                100 -> {
+                    circularButton1.progress = 0
+                }
+                else -> {
+                    circularButton1.progress = 100
+                }
+            }
         }
-
-        final CircularProgressButton circularButton1 = findViewById(R.id.circularButton1);
-        circularButton1.setIndeterminateProgressMode(true);
-        circularButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (circularButton1.getProgress() == 0) {
-                    circularButton1.setProgress(50);
-                } else if (circularButton1.getProgress() == 100) {
-                    circularButton1.setProgress(0);
-                } else {
-                    circularButton1.setProgress(100);
-                }
+        circularButton2.isIndeterminateProgressMode = true
+        circularButton2.setOnClickListener {
+            if (circularButton2.progress == 0) {
+                circularButton2.progress = 50
+            } else if (circularButton2.progress == -1) {
+                circularButton2.progress = 0
+            } else {
+                circularButton2.progress = -1
             }
-        });
-
-        final CircularProgressButton circularButton2 = findViewById(R.id.circularButton2);
-        circularButton2.setIndeterminateProgressMode(true);
-        circularButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (circularButton2.getProgress() == 0) {
-                    circularButton2.setProgress(50);
-                } else if (circularButton2.getProgress() == -1) {
-                    circularButton2.setProgress(0);
-                } else {
-                    circularButton2.setProgress(-1);
-                }
-            }
-        });
+        }
     }
+
 }
