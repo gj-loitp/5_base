@@ -24,8 +24,6 @@ class Sample1Activity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        val actionBar = actionBar
-        actionBar?.setTitle(R.string.IndeterminateProgressSample)
         circularButton1.isIndeterminateProgressMode = true
         circularButton1.setOnClickListener {
             when (circularButton1.progress) {
