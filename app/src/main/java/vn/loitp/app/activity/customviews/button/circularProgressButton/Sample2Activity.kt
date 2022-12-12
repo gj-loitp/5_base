@@ -1,89 +1,67 @@
-package vn.loitp.app.activity.customviews.button.circularProgressButton;
+package vn.loitp.app.activity.customviews.button.circularProgressButton
 
-import android.animation.ValueAnimator;
-import android.app.ActionBar;
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
+import android.animation.ValueAnimator
+import android.os.Bundle
+import android.view.animation.AccelerateDecelerateInterpolator
+import com.dd.CircularProgressButton
+import com.loitpcore.annotation.IsAutoAnimation
+import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.LogTag
+import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.ext.setSafeOnClickListener
+import kotlinx.android.synthetic.main.layout_cpb_sample_2.*
+import vn.loitp.app.R
 
-import com.dd.CircularProgressButton;
+@LogTag("Sample2Activity")
+@IsFullScreen(false)
+@IsAutoAnimation(false)
+class Sample2Activity : BaseFontActivity() {
 
-import vn.loitp.app.R;
-
-/**
- * Integer Progress Sample
- */
-public class Sample2Activity extends Activity {
-
-    public static void startThisActivity(Activity activity) {
-        activity.startActivity(new Intent(activity, Sample2Activity.class));
+    override fun setLayoutResourceId(): Int {
+        return R.layout.layout_cpb_sample_2
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_sample_2);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-        ActionBar actionBar = getActionBar();
-        if (actionBar != null) {
-            actionBar.setTitle(R.string.IntegerProgressSample);
+        circularButton1.setSafeOnClickListener {
+            if (circularButton1.progress == 0) {
+                simulateSuccessProgress(circularButton1)
+            } else {
+                circularButton1.progress = 0
+            }
         }
-
-        final CircularProgressButton circularButton1 = findViewById(R.id.circularButton1);
-        circularButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (circularButton1.getProgress() == 0) {
-                    simulateSuccessProgress(circularButton1);
-                } else {
-                    circularButton1.setProgress(0);
-                }
+        circularButton2.setSafeOnClickListener {
+            if (circularButton2.progress == 0) {
+                simulateErrorProgress(circularButton2)
+            } else {
+                circularButton2.progress = 0
             }
-        });
-
-        final CircularProgressButton circularButton2 = findViewById(R.id.circularButton2);
-        circularButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (circularButton2.getProgress() == 0) {
-                    simulateErrorProgress(circularButton2);
-                } else {
-                    circularButton2.setProgress(0);
-                }
-            }
-        });
+        }
     }
 
-    private void simulateSuccessProgress(final CircularProgressButton button) {
-        ValueAnimator widthAnimation = ValueAnimator.ofInt(1, 100);
-        widthAnimation.setDuration(1500);
-        widthAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
-        widthAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                Integer value = (Integer) animation.getAnimatedValue();
-                button.setProgress(value);
-            }
-        });
-        widthAnimation.start();
+    private fun simulateSuccessProgress(button: CircularProgressButton) {
+        val widthAnimation = ValueAnimator.ofInt(1, 100)
+        widthAnimation.duration = 1500
+        widthAnimation.interpolator = AccelerateDecelerateInterpolator()
+        widthAnimation.addUpdateListener { animation ->
+            val value = animation.animatedValue as Int
+            button.progress = value
+        }
+        widthAnimation.start()
     }
 
-    private void simulateErrorProgress(final CircularProgressButton button) {
-        ValueAnimator widthAnimation = ValueAnimator.ofInt(1, 99);
-        widthAnimation.setDuration(1500);
-        widthAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
-        widthAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                Integer value = (Integer) animation.getAnimatedValue();
-                button.setProgress(value);
-                if (value == 99) {
-                    button.setProgress(-1);
-                }
+    private fun simulateErrorProgress(button: CircularProgressButton) {
+        val widthAnimation = ValueAnimator.ofInt(1, 99)
+        widthAnimation.duration = 1500
+        widthAnimation.interpolator = AccelerateDecelerateInterpolator()
+        widthAnimation.addUpdateListener { animation ->
+            val value = animation.animatedValue as Int
+            button.progress = value
+            if (value == 99) {
+                button.progress = -1
             }
-        });
-        widthAnimation.start();
+        }
+        widthAnimation.start()
     }
 }
