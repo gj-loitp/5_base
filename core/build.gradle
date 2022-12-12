@@ -27,9 +27,9 @@ android {
     dataBinding {
         enabled = true
     }
-//    buildFeatures {
-//        viewBinding true
-//    }
+    buildFeatures {
+        viewBinding true
+    }
     namespace 'com.loitpcore'
 }
 
@@ -48,6 +48,9 @@ dependencies {
 
     //https://github.com/wasabeef/glide-transformations
     api 'jp.wasabeef:glide-transformations:4.3.0'
+
+//    https://github.com/Devlight/CornerCutLinearLayout
+    api 'com.github.Devlight:CornerCutLinearLayout:1.0.5'
 
 //    https://github.com/hakobast/DropdownTextView
     api 'com.github.hakobast:DropdownTextView:0.3.1'

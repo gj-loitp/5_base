@@ -1354,6 +1354,9 @@
         <activity
             android:name=".activity.customviews.imageview.roundedImageView.RoundedImageViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.customviews.layout.cornerCutLinearLayout.CornerCutLinearLayoutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
     <queries>

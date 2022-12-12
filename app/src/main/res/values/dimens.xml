@@ -22,4 +22,18 @@
     <dimen name="list_size">300dp</dimen>
     <dimen name="list_peek">100dp</dimen>
     <dimen name="list_radius">400dp</dimen>
+    <dimen name="offset_2">2dp</dimen>
+    <dimen name="offset_4">4dp</dimen>
+    <dimen name="offset_6">6dp</dimen>
+    <dimen name="offset_8">8dp</dimen>
+    <dimen name="offset_12">12dp</dimen>
+    <dimen name="offset_16">16dp</dimen>
+    <dimen name="offset_24">24dp</dimen>
+    <dimen name="offset_32">32dp</dimen>
+    <dimen name="offset_48">48dp</dimen>
+    <dimen name="offset_56">56dp</dimen>
+    <dimen name="offset_72">72dp</dimen>
+    <dimen name="elevation_16">16dp</dimen>
+    <dimen name="child_item_height">40dp</dimen>
+    <dimen name="item_height">120dp</dimen>
 </resources>
