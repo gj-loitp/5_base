@@ -31,9 +31,19 @@
                 android:text="Attachment Manager (+)" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btImagePicker"
+                style="@style/ButtonMenu"
+                android:text="ImagePicker" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNumberPicker"
                 style="@style/ButtonMenu"
                 android:text="Number Picker" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShiftColorPickerActivity"
+                style="@style/ButtonMenu"
+                android:text="ShiftColorPickerActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSSImagePicker"

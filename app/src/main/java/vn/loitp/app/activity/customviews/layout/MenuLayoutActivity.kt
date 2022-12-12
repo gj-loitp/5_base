@@ -1,13 +1,11 @@
 package vn.loitp.app.activity.customviews.layout
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_layout.*
 import vn.loitp.app.R
@@ -19,6 +17,7 @@ import vn.loitp.app.activity.customviews.layout.chess.ChessLayoutActivity
 import vn.loitp.app.activity.customviews.layout.circularView.CircularViewActivity
 import vn.loitp.app.activity.customviews.layout.constraintLayout.MenuConstraintlayoutActivity
 import vn.loitp.app.activity.customviews.layout.coordinatorLayout.MenuCoordinatorLayoutActivity
+import vn.loitp.app.activity.customviews.layout.cornerCutLinearLayout.CornerCutLinearLayoutActivity
 import vn.loitp.app.activity.customviews.layout.draggablePanel.DraggablePanelActivity
 import vn.loitp.app.activity.customviews.layout.draggablePanelFree.DraggablePanelFreeActivity
 import vn.loitp.app.activity.customviews.layout.draggableView.DraggableViewActivity
@@ -104,48 +103,45 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
         btBasketLayoutActivity.setOnClickListener(this)
         btSequenceLayoutActivity.setOnClickListener(this)
         btReflectionLayoutActivity.setOnClickListener(this)
+        btCornerCutLinearLayout.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        val intent = when (v) {
-            btAndroidSlidingUpPanel -> Intent(this, AndroidSlidingUpPanelActivity::class.java)
-            btAspectRatioLayout -> Intent(this, AspectRatioLayoutActivity::class.java)
-            btDraggablePanel -> Intent(this, DraggablePanelActivity::class.java)
-            btDraggablePanelFree -> Intent(this, DraggablePanelFreeActivity::class.java)
-            btDraggableView -> Intent(this, DraggableViewActivity::class.java)
-            btZoomLayout -> Intent(this, ZoomLayoutActivity::class.java)
-            btRippleLayout -> Intent(this, RippleLayoutActivity::class.java)
-            btSwipeRefreshLayout -> Intent(this, MenuSwipeRefreshLayoutActivity::class.java)
-            btCircularView -> Intent(this, CircularViewActivity::class.java)
-            btAutoLinearLayout -> Intent(this, AutoLinearLayoutActivity::class.java)
-            btConstraintLayout -> Intent(this, MenuConstraintlayoutActivity::class.java)
-            btSwipebackLayout -> Intent(this, SwipeBackLayoutActivity::class.java)
-            btHeartLayout -> Intent(this, HeartLayoutActivity::class.java)
-            btFloatDragLayout -> Intent(this, FloatDragLayoutActivity::class.java)
-            btRotateLayout -> Intent(this, RotateLayoutActivity::class.java)
-            btCoordinatorLayout -> Intent(this, MenuCoordinatorLayoutActivity::class.java)
-            btSquareLayout -> Intent(this, SquareLayoutActivity::class.java)
-            btRelativePopupWindow -> Intent(this, RelativePopupWindowActivity::class.java)
-            btExpansionPanel -> Intent(this, MenuExpansionLayoutActivity::class.java)
-            btScrollView2d -> Intent(this, ScrollView2DActivity::class.java)
-            btScrollView2dAdvance -> Intent(this, ScrollView2DAdvanceActivity::class.java)
-            btSwipeRevealLayout -> Intent(this, SwipeRevealLayoutActivity::class.java)
-            btShadowLayout -> Intent(this, ShadowLayoutActivity::class.java)
-            btShapeOfView -> Intent(this, ShapeOfViewActivity::class.java)
-            btRoundableLayout -> Intent(this, RoundableLayoutActivity::class.java)
-            btFlowLayout -> Intent(this, FlowLayoutActivity::class.java)
-            btSplitPanelLayout -> Intent(this, SplitPanelLayoutActivity::class.java)
-            btTramsformationLayout -> Intent(this, TransformationActivity::class.java)
-            btTramsformationLayoutSingle -> Intent(this, TransformationSingleActivity::class.java)
-            btChessLayout -> Intent(this, ChessLayoutActivity::class.java)
-            btBasketLayoutActivity -> Intent(this, BasketLayoutActivity::class.java)
-            btSequenceLayoutActivity -> Intent(this, SequenceLayoutActivity::class.java)
-            btReflectionLayoutActivity -> Intent(this, ReflectionLayoutActivity::class.java)
-            else -> null
-        }
-        intent?.let {
-            startActivity(intent)
-            LActivityUtil.tranIn(this)
+        when (v) {
+            btAndroidSlidingUpPanel -> launchActivity(AndroidSlidingUpPanelActivity::class.java)
+            btAspectRatioLayout -> launchActivity(AspectRatioLayoutActivity::class.java)
+            btDraggablePanel -> launchActivity(DraggablePanelActivity::class.java)
+            btDraggablePanelFree -> launchActivity(DraggablePanelFreeActivity::class.java)
+            btDraggableView -> launchActivity(DraggableViewActivity::class.java)
+            btZoomLayout -> launchActivity(ZoomLayoutActivity::class.java)
+            btRippleLayout -> launchActivity(RippleLayoutActivity::class.java)
+            btSwipeRefreshLayout -> launchActivity(MenuSwipeRefreshLayoutActivity::class.java)
+            btCircularView -> launchActivity(CircularViewActivity::class.java)
+            btAutoLinearLayout -> launchActivity(AutoLinearLayoutActivity::class.java)
+            btConstraintLayout -> launchActivity(MenuConstraintlayoutActivity::class.java)
+            btSwipebackLayout -> launchActivity(SwipeBackLayoutActivity::class.java)
+            btHeartLayout -> launchActivity(HeartLayoutActivity::class.java)
+            btFloatDragLayout -> launchActivity(FloatDragLayoutActivity::class.java)
+            btRotateLayout -> launchActivity(RotateLayoutActivity::class.java)
+            btCoordinatorLayout -> launchActivity(MenuCoordinatorLayoutActivity::class.java)
+            btSquareLayout -> launchActivity(SquareLayoutActivity::class.java)
+            btRelativePopupWindow -> launchActivity(RelativePopupWindowActivity::class.java)
+            btExpansionPanel -> launchActivity(MenuExpansionLayoutActivity::class.java)
+            btScrollView2d -> launchActivity(ScrollView2DActivity::class.java)
+            btScrollView2dAdvance -> launchActivity(ScrollView2DAdvanceActivity::class.java)
+            btSwipeRevealLayout -> launchActivity(SwipeRevealLayoutActivity::class.java)
+            btShadowLayout -> launchActivity(ShadowLayoutActivity::class.java)
+            btShapeOfView -> launchActivity(ShapeOfViewActivity::class.java)
+            btRoundableLayout -> launchActivity(RoundableLayoutActivity::class.java)
+            btFlowLayout -> launchActivity(FlowLayoutActivity::class.java)
+            btSplitPanelLayout -> launchActivity(SplitPanelLayoutActivity::class.java)
+            btTramsformationLayout -> launchActivity(TransformationActivity::class.java)
+            btTramsformationLayoutSingle -> launchActivity(TransformationSingleActivity::class.java)
+            btChessLayout -> launchActivity(ChessLayoutActivity::class.java)
+            btBasketLayoutActivity -> launchActivity(BasketLayoutActivity::class.java)
+            btSequenceLayoutActivity -> launchActivity(SequenceLayoutActivity::class.java)
+            btReflectionLayoutActivity -> launchActivity(ReflectionLayoutActivity::class.java)
+            btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivity::class.java)
         }
     }
 }

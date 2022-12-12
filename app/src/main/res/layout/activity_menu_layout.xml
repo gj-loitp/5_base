@@ -64,6 +64,11 @@
                 android:text="@string/coordinatorlayout" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCornerCutLinearLayout"
+                style="@style/ButtonMenu"
+                android:text="CornerCutLinearLayout" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDraggablePanel"
                 style="@style/ButtonMenu"
                 android:text="@string/draggablepanel" />

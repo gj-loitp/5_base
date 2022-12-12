@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.imageview
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
@@ -8,7 +7,6 @@ import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_image_view.*
 import vn.loitp.app.R
@@ -22,6 +20,7 @@ import vn.loitp.app.activity.customviews.imageview.kenburnView.KenburnViewActivi
 import vn.loitp.app.activity.customviews.imageview.panorama.PanoramaImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.pinchToZoom.PinchToZoomViewPagerActivity
 import vn.loitp.app.activity.customviews.imageview.reflection.ReflectionActivity
+import vn.loitp.app.activity.customviews.imageview.roundedImageView.RoundedImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.scrollParallax.ScrollParallaxImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.stfaiconImageViewer.ListActivity
 import vn.loitp.app.activity.customviews.imageview.strectchy.StrectchyImageViewActivity
@@ -69,34 +68,27 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
         btComicView.setOnClickListener(this)
         btStfalconImageViewer.setOnClickListener(this)
         btReflection.setOnClickListener(this)
+        btRoundedImageView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        val intent = when (v) {
-            btCirleImageView -> Intent(this, CircleImageViewActivity::class.java)
-            btStretchyImageView -> Intent(this, StrectchyImageViewActivity::class.java)
-            btTouchImageView -> Intent(this, TouchImageViewActivity::class.java)
-            btZoomImageView -> Intent(this, ZoomImageViewActivity::class.java)
-            btFidgetSpinner -> Intent(this, FidgetSpinnerImageViewActivity::class.java)
-            btContinuousScrollableImageView ->
-                Intent(this, ContinuousScrollableImageViewActivity::class.java)
-            btScrollParallaxImageView ->
-                Intent(this, ScrollParallaxImageViewActivity::class.java)
-            btPanoramaImageView -> Intent(this, PanoramaImageViewActivity::class.java)
-            btBigImageView -> Intent(this, BigImageViewActivity::class.java)
-            btBigImageViewWithScrollView ->
-                Intent(this, BigImageViewWithScrollViewActivity::class.java)
-            btTouchImageViewWithViewPager ->
-                Intent(this, PinchToZoomViewPagerActivity::class.java)
-            btKenburnView -> Intent(this, KenburnViewActivity::class.java)
-            btComicView -> Intent(this, ComicViewActivity::class.java)
-            btStfalconImageViewer -> Intent(this, ListActivity::class.java)
-            btReflection -> Intent(this, ReflectionActivity::class.java)
-            else -> null
-        }
-        intent?.let { i ->
-            startActivity(i)
-            LActivityUtil.tranIn(this)
+        when (v) {
+            btCirleImageView -> launchActivity(CircleImageViewActivity::class.java)
+            btStretchyImageView -> launchActivity(StrectchyImageViewActivity::class.java)
+            btTouchImageView -> launchActivity(TouchImageViewActivity::class.java)
+            btZoomImageView -> launchActivity(ZoomImageViewActivity::class.java)
+            btFidgetSpinner -> launchActivity(FidgetSpinnerImageViewActivity::class.java)
+            btContinuousScrollableImageView -> launchActivity(ContinuousScrollableImageViewActivity::class.java)
+            btScrollParallaxImageView -> launchActivity(ScrollParallaxImageViewActivity::class.java)
+            btPanoramaImageView -> launchActivity(PanoramaImageViewActivity::class.java)
+            btBigImageView -> launchActivity(BigImageViewActivity::class.java)
+            btBigImageViewWithScrollView -> launchActivity(BigImageViewWithScrollViewActivity::class.java)
+            btTouchImageViewWithViewPager -> launchActivity(PinchToZoomViewPagerActivity::class.java)
+            btKenburnView -> launchActivity(KenburnViewActivity::class.java)
+            btComicView -> launchActivity(ComicViewActivity::class.java)
+            btStfalconImageViewer -> launchActivity(ListActivity::class.java)
+            btReflection -> launchActivity(ReflectionActivity::class.java)
+            btRoundedImageView -> launchActivity(RoundedImageViewActivity::class.java)
         }
     }
 }
