@@ -33,7 +33,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btImagePicker"
                 style="@style/ButtonMenu"
-                android:text="ImagePicker (+)" />
+                android:text="ImagePicker" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNumberPicker"
