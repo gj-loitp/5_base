@@ -19,6 +19,7 @@ import vn.loitp.app.activity.customviews.imageview.fidgetSpinner.FidgetSpinnerIm
 import vn.loitp.app.activity.customviews.imageview.kenburnView.KenburnViewActivity
 import vn.loitp.app.activity.customviews.imageview.panorama.PanoramaImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.pinchToZoom.PinchToZoomViewPagerActivity
+import vn.loitp.app.activity.customviews.imageview.previewImageCollection.PreviewImageCollectionActivity
 import vn.loitp.app.activity.customviews.imageview.reflection.ReflectionActivity
 import vn.loitp.app.activity.customviews.imageview.roundedImageView.RoundedImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.scrollParallax.ScrollParallaxImageViewActivity
@@ -69,6 +70,7 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
         btStfalconImageViewer.setOnClickListener(this)
         btReflection.setOnClickListener(this)
         btRoundedImageView.setOnClickListener(this)
+        btPreviewImageCollection.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -89,6 +91,7 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
             btStfalconImageViewer -> launchActivity(ListActivity::class.java)
             btReflection -> launchActivity(ReflectionActivity::class.java)
             btRoundedImageView -> launchActivity(RoundedImageViewActivity::class.java)
+            btPreviewImageCollection -> launchActivity(PreviewImageCollectionActivity::class.java)
         }
     }
 }

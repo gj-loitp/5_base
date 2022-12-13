@@ -63,6 +63,11 @@
                 android:text="@string/panorama_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPreviewImageCollection"
+                style="@style/ButtonMenu"
+                android:text="PreviewImageCollection" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btReflection"
                 style="@style/ButtonMenu"
                 android:text="Reflection ImageView" />
