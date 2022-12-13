@@ -1,10 +1,8 @@
 package vn.loitp.app.activity.customviews.layout.greedoLayout
 
 import android.os.Bundle
-import android.view.View
 import android.widget.ToggleButton
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.RecyclerView
 import com.fivehundredpx.greedolayout.GreedoLayoutManager
 import com.fivehundredpx.greedolayout.GreedoSpacingItemDecoration
 import com.loitpcore.annotation.IsAutoAnimation
@@ -54,14 +52,12 @@ class GreedoLayoutActivity : BaseFontActivity() {
         val layoutManager = GreedoLayoutManager(photosAdapter)
         layoutManager.setMaxRowHeight(MeasUtils.dpToPx(150F, this))
 
-        val recyclerView = findViewById<View>(R.id.recycler_view) as RecyclerView
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = photosAdapter
-
         val spacing = MeasUtils.dpToPx(4F, this)
         recyclerView.addItemDecoration(GreedoSpacingItemDecoration(spacing))
 
-        findViewById<View>(R.id.toggle_fixed_height).setOnClickListener { view ->
+        toggleFixedHeight.setOnClickListener { view ->
             layoutManager.setFixedHeight((view as ToggleButton).isChecked)
             layoutManager.requestLayout()
         }

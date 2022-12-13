@@ -31,7 +31,7 @@ class ScrollableCoordinatorLayoutActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        recycler_view.apply {
+        recyclerView.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = Adapter()
         }

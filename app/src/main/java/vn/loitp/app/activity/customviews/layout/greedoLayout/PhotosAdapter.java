@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fivehundredpx.greedolayout.GreedoLayoutSizeCalculator.SizeCalculatorDelegate;
@@ -21,7 +22,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotoViewH
     private final int[] mImageResIds = Constants.IMAGES;
     private final double[] mImageAspectRatios = new double[Constants.IMAGES.length];
 
-    private Context mContext;
+    private final Context mContext;
 
     @Override
     public double aspectRatioForIndex(int index) {
@@ -30,8 +31,8 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotoViewH
         return mImageAspectRatios[getLoopedIndex(index)];
     }
 
-    public class PhotoViewHolder extends RecyclerView.ViewHolder {
-        private ImageView mImageView;
+    public static class PhotoViewHolder extends RecyclerView.ViewHolder {
+        private final ImageView mImageView;
 
         public PhotoViewHolder(ImageView imageView) {
             super(imageView);
@@ -44,8 +45,9 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotoViewH
         calculateImageAspectRatios();
     }
 
+    @NonNull
     @Override
-    public PhotoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PhotoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ImageView imageView = new ImageView(mContext);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 

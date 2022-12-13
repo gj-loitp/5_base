@@ -1,31 +1,28 @@
-package vn.loitp.app.activity.customviews.layout.greedoLayout;
+package vn.loitp.app.activity.customviews.layout.greedoLayout
 
-import androidx.annotation.DrawableRes;
+import androidx.annotation.DrawableRes
+import vn.loitp.app.R
 
-import vn.loitp.app.R;
-
-/**
- * Created by Julian Villella on 16-02-24.
- */
-public class Constants {
-    public static final @DrawableRes
-    int[] IMAGES = new int[]{
-            R.drawable.loitp,
-            R.drawable.bkg_2,
-            R.drawable.iv,
-            R.drawable.find_your_love,
-            R.drawable.logo,
-            R.drawable.viewpager2_snap,
-            R.drawable.all_about_reading,
-            R.drawable.logo,
-            R.drawable.bkg_2,
-            R.drawable.poker_card_back,
-            R.drawable.bkg_1,
-            R.drawable.all_about_reading,
-            R.drawable.bkg_1,
-            R.drawable.logo,
-            R.drawable.iv,
-            R.drawable.find_your_love,
-            R.drawable.viewpager2_snap
-    };
+object Constants {
+    @JvmField
+    @DrawableRes
+    val IMAGES = intArrayOf(
+        R.drawable.loitp,
+        R.drawable.bkg_2,
+        R.drawable.iv,
+        R.drawable.find_your_love,
+        R.drawable.logo,
+        R.drawable.viewpager2_snap,
+        R.drawable.all_about_reading,
+        R.drawable.logo,
+        R.drawable.bkg_2,
+        R.drawable.poker_card_back,
+        R.drawable.bkg_1,
+        R.drawable.all_about_reading,
+        R.drawable.bkg_1,
+        R.drawable.logo,
+        R.drawable.iv,
+        R.drawable.find_your_love,
+        R.drawable.viewpager2_snap
+    )
 }

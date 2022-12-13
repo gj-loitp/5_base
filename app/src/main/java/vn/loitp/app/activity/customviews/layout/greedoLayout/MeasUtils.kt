@@ -1,16 +1,27 @@
-package vn.loitp.app.activity.customviews.layout.greedoLayout;
+package vn.loitp.app.activity.customviews.layout.greedoLayout
 
-import android.content.Context;
-import android.util.TypedValue;
+import android.content.Context
+import android.util.TypedValue
 
-public class MeasUtils {
-    public static int pxToDp(int px, Context context) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, px,
-                context.getResources().getDisplayMetrics());
+object MeasUtils {
+    @Suppress("unused")
+    fun pxToDp(
+        px: Int,
+        context: Context
+    ): Int {
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_PX, px.toFloat(),
+            context.resources.displayMetrics
+        ).toInt()
     }
 
-    public static int dpToPx(float dp, Context context) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
-                context.getResources().getDisplayMetrics());
+    fun dpToPx(
+        dp: Float,
+        context: Context
+    ): Int {
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP, dp,
+            context.resources.displayMetrics
+        ).toInt()
     }
 }
