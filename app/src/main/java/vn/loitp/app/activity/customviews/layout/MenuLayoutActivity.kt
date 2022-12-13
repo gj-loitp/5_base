@@ -24,6 +24,7 @@ import vn.loitp.app.activity.customviews.layout.draggableView.DraggableViewActiv
 import vn.loitp.app.activity.customviews.layout.expansionPanel.MenuExpansionLayoutActivity
 import vn.loitp.app.activity.customviews.layout.floatDragLayout.FloatDragLayoutActivity
 import vn.loitp.app.activity.customviews.layout.flowLayout.FlowLayoutActivity
+import vn.loitp.app.activity.customviews.layout.greedoLayout.GreedoLayoutActivity
 import vn.loitp.app.activity.customviews.layout.heartLayout.HeartLayoutActivity
 import vn.loitp.app.activity.customviews.layout.reflection.ReflectionLayoutActivity
 import vn.loitp.app.activity.customviews.layout.relativePopupWindow.RelativePopupWindowActivity
@@ -104,6 +105,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
         btSequenceLayoutActivity.setOnClickListener(this)
         btReflectionLayoutActivity.setOnClickListener(this)
         btCornerCutLinearLayout.setOnClickListener(this)
+        btGreedoLayout.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -142,6 +144,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
             btSequenceLayoutActivity -> launchActivity(SequenceLayoutActivity::class.java)
             btReflectionLayoutActivity -> launchActivity(ReflectionLayoutActivity::class.java)
             btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivity::class.java)
+            btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
         }
     }
 }

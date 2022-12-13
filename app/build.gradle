@@ -162,6 +162,8 @@ dependencies {
     api 'dev.bandb.graphview:graphview:0.8.1'
 //    https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter
     api 'in.srain.cube:grid-view-with-header-footer:1.0.12'
+//    https://github.com/500px/greedo-layout-for-android
+    api 'com.fivehundredpx:greedo-layout:1.5.1'
 
     api 'com.thedeanda:lorem:2.1'
 //    https://github.com/BeksOmega/looping-layout
