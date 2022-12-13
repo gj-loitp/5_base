@@ -8,13 +8,13 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.SeekBar
-import android.widget.Toast
 import androidx.core.view.isVisible
 import com.ivan200.photobarcodelib.PhotoBarcodeScannerBuilder
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_preview_image_collection.*
@@ -140,19 +140,19 @@ class PreviewImageCollectionActivity : BaseFontActivity() {
             }
         })
 
-        pinchToZoom.setOnCheckedChangeListener { buttonView, isChecked ->
+        pinchToZoom.setOnCheckedChangeListener { _, isChecked ->
             imageCollectionView.pinchToZoom = isChecked
         }
 
-        showExternalBorderMargins.setOnCheckedChangeListener { buttonView, isChecked ->
+        showExternalBorderMargins.setOnCheckedChangeListener { _, isChecked ->
             imageCollectionView.showExternalBorderMargins = isChecked
         }
 
-        distributeEvenly.setOnCheckedChangeListener { buttonView, isChecked ->
+        distributeEvenly.setOnCheckedChangeListener { _, isChecked ->
             imageCollectionView.previewDistributeEvenly = isChecked
         }
 
-        add_photo.setOnClickListener {
+        btAddPhoto.setOnClickListener {
             PhotoBarcodeScannerBuilder()
                 .withActivity(this)
                 .withTakingPictureMode()
@@ -171,83 +171,80 @@ class PreviewImageCollectionActivity : BaseFontActivity() {
                 }.build().start()
         }
 
-        clear_photos.setOnClickListener {
+        btClearPhotos.setOnClickListener {
             imageCollectionView.clearImages()
         }
 
         imageCollectionView.addImage(
-            BitmapFactory.decodeResource(resources, R.drawable.bkg_1),
-            object : ImageCollectionView.OnImageClickListener {
+            bitmap = BitmapFactory.decodeResource(resources, R.drawable.bkg_1),
+            onClick = object : ImageCollectionView.OnImageClickListener {
                 override fun onClick(bitmap: Bitmap, imageView: ImageView) {
-                    Toast.makeText(imageView.context, "Test Click image 08", Toast.LENGTH_LONG)
-                        .show()
+                    showShortInformation("Test Click image 08")
                 }
             }
         )
         imageCollectionView.addImage(
-            BitmapFactory.decodeResource(resources, R.drawable.bkg_2),
-            object : ImageCollectionView.OnImageLongClickListener {
+            bitmap = BitmapFactory.decodeResource(resources, R.drawable.bkg_2),
+            onLongClick = object : ImageCollectionView.OnImageLongClickListener {
                 override fun onLongClick(bitmap: Bitmap, imageView: ImageView) {
-                    Toast.makeText(imageView.context, "Long Click", Toast.LENGTH_LONG)
-                        .show()
+                    showShortInformation("Long Click")
                 }
             }
         )
         imageCollectionView.addImageK(
-            R.drawable.bkg_3,
-            { bitmap: Bitmap?, imageView: ImageView? ->
-                Toast.makeText(this, "landscape_02", Toast.LENGTH_LONG).show()
+            drawableRes = R.drawable.bkg_3,
+            onClickUnit = { _: Bitmap?, _: ImageView? ->
+                showShortInformation("landscape_02")
             }
         )
-
         imageCollectionView.addImage(
-            BitmapFactory.decodeResource(
-                resources,
-                R.drawable.loitp
-            )
-        )
-
-        imageCollectionView.addImage(
-            BitmapFactory.decodeResource(
-                resources,
-                R.drawable.iv
+            bitmap = BitmapFactory.decodeResource(
+                /* res = */ resources,
+                /* id = */ R.drawable.loitp
             )
         )
         imageCollectionView.addImage(
-            BitmapFactory.decodeResource(
-                resources,
-                R.drawable.logo
+            bitmap = BitmapFactory.decodeResource(
+                /* res = */ resources,
+                /* id = */ R.drawable.iv
             )
         )
         imageCollectionView.addImage(
-            BitmapFactory.decodeResource(
-                resources,
-                R.drawable.bkg_1
+            bitmap = BitmapFactory.decodeResource(
+                /* res = */ resources,
+                /* id = */ R.drawable.logo
             )
         )
         imageCollectionView.addImage(
-            BitmapFactory.decodeResource(
-                resources,
-                R.drawable.bkg_2
+            bitmap = BitmapFactory.decodeResource(
+                /* res = */ resources,
+                /* id = */ R.drawable.bkg_1
             )
         )
         imageCollectionView.addImage(
-            "https://d1dwhi9yny5dep.cloudfront.net/cm_live/c4d403788761d42233b6675.desktop-gallery-large.jpg",
-            pereira.agnaldo.previewimgcol.R.drawable.blur
+            bitmap = BitmapFactory.decodeResource(
+                /* res = */ resources,
+                /* id = */ R.drawable.bkg_2
+            )
         )
         imageCollectionView.addImage(
-            "https://d1dwhi9yny5dep.cloudfront.net/cm_live/80f4beb96361d422359321c.desktop-gallery-large.jpg",
-            pereira.agnaldo.previewimgcol.R.drawable.blur
+            url = Constants.URL_IMG,
+            placeHolder = pereira.agnaldo.previewimgcol.R.drawable.blur
+        )
+        imageCollectionView.addImage(
+            url = Constants.URL_IMG_1,
+            placeHolder = pereira.agnaldo.previewimgcol.R.drawable.blur
         )
 
         imageCollectionView.setOnMoreClicked(object : ImageCollectionView.OnMoreClickListener {
             override fun onMoreClicked(bitmaps: List<Bitmap>) {
-                Toast.makeText(imageCollectionView.context, "oi oi oi oi ", Toast.LENGTH_LONG)
-                    .show()
+                showShortInformation("oi oi oi oi ")
             }
         })
 
-        imageCollectionView.setOnMoreClicked { bitmaps -> }
+        imageCollectionView.setOnMoreClicked {
+
+        }
     }
 
 }
