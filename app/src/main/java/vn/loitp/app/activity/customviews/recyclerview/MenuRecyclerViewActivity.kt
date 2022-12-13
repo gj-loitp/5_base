@@ -10,6 +10,7 @@ import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_recycler_view.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.layout.greedoLayout.GreedoLayoutActivity
 import vn.loitp.app.activity.customviews.recyclerview.arcView.ArcViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.book.BookViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.carouselRecyclerview.CarouselRecyclerViewActivity
@@ -85,6 +86,7 @@ class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
         btDragDrop.setOnClickListener(this)
         btDragAndDropDemoActivity.setOnClickListener(this)
         btLoopingLayout.setOnClickListener(this)
+        btGreedoLayout.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -120,6 +122,7 @@ class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
             btDragDrop -> launchActivity(MainActivityDragDrop::class.java)
             btDragAndDropDemoActivity -> launchActivity(DragAndDropDemoActivity::class.java)
             btLoopingLayout -> launchActivity(LoopingLayoutActivity::class.java)
+            btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
         }
     }
 }

@@ -1,93 +1,75 @@
-package vn.loitp.app.activity.customviews.layout.greedoLayout;
+package vn.loitp.app.activity.customviews.layout.greedoLayout
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.content.Context
+import android.graphics.BitmapFactory
+import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.recyclerview.widget.RecyclerView
+import com.fivehundredpx.greedolayout.GreedoLayoutSizeCalculator.SizeCalculatorDelegate
+import com.loitpcore.core.utilities.LImageUtil
+import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.layout.greedoLayout.PhotosAdapter.PhotoViewHolder
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+class PhotosAdapter(private val mContext: Context) : RecyclerView.Adapter<PhotoViewHolder>(),
+    SizeCalculatorDelegate {
 
-import com.fivehundredpx.greedolayout.GreedoLayoutSizeCalculator.SizeCalculatorDelegate;
-import com.loitpcore.core.utilities.LImageUtil;
+    companion object {
+        private const val IMAGE_COUNT = 500 // number of images adapter will show
+    }
 
-import vn.loitp.app.R;
+    private val mImageResIds = Constants.IMAGES
+    private val mImageAspectRatios = DoubleArray(Constants.IMAGES.size)
 
-/**
- * Created by Julian Villella on 16-02-24.
- */
-public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder> implements SizeCalculatorDelegate {
-    private static final int IMAGE_COUNT = 500; // number of images adapter will show
-
-    private final int[] mImageResIds = Constants.IMAGES;
-    private final double[] mImageAspectRatios = new double[Constants.IMAGES.length];
-
-    private final Context mContext;
-
-    @Override
-    public double aspectRatioForIndex(int index) {
+    override fun aspectRatioForIndex(index: Int): Double {
         // Precaution, have better handling for this in greedo-layout
-        if (index >= getItemCount()) return 1.0;
-        return mImageAspectRatios[getLoopedIndex(index)];
+        return if (index >= itemCount) 1.0 else mImageAspectRatios[getLoopedIndex(index)]
     }
 
-    public static class PhotoViewHolder extends RecyclerView.ViewHolder {
-        private final ImageView mImageView;
+    class PhotoViewHolder(val mImageView: ImageView) : RecyclerView.ViewHolder(
+        mImageView
+    )
 
-        public PhotoViewHolder(ImageView imageView) {
-            super(imageView);
-            mImageView = imageView;
-        }
+    init {
+        calculateImageAspectRatios()
     }
 
-    public PhotosAdapter(Context context) {
-        mContext = context;
-        calculateImageAspectRatios();
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
+        val imageView = ImageView(mContext)
+        imageView.scaleType = ImageView.ScaleType.CENTER_CROP
+        imageView.layoutParams = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT
+        )
+        return PhotoViewHolder(imageView)
     }
 
-    @NonNull
-    @Override
-    public PhotoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ImageView imageView = new ImageView(mContext);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-
-        imageView.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
-        ));
-        return new PhotoViewHolder(imageView);
+    override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
+        LImageUtil.load(
+            context = mContext,
+            any = mImageResIds[getLoopedIndex(position)],
+            imageView = holder.mImageView,
+            resPlaceHolder = R.color.transparent,
+            resError = R.color.red,
+            transformation = null,
+            drawableRequestListener = null
+        )
     }
 
-    @Override
-    public void onBindViewHolder(PhotoViewHolder holder, int position) {
-        LImageUtil.Companion.load(
-                mContext,
-                mImageResIds[getLoopedIndex(position)],
-                holder.mImageView,
-                R.color.transparent,
-                R.color.red,
-                null,
-                null
-        );
+    override fun getItemCount(): Int {
+        return IMAGE_COUNT
     }
 
-    @Override
-    public int getItemCount() {
-        return IMAGE_COUNT;
-    }
-
-    private void calculateImageAspectRatios() {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-
-        for (int i = 0; i < mImageResIds.length; i++) {
-            BitmapFactory.decodeResource(mContext.getResources(), mImageResIds[i], options);
-            mImageAspectRatios[i] = options.outWidth / (double) options.outHeight;
+    private fun calculateImageAspectRatios() {
+        val options = BitmapFactory.Options()
+        options.inJustDecodeBounds = true
+        for (i in mImageResIds.indices) {
+            BitmapFactory.decodeResource(mContext.resources, mImageResIds[i], options)
+            mImageAspectRatios[i] = options.outWidth / options.outHeight.toDouble()
         }
     }
 
     // Index gets wrapped around <code>Constants.IMAGES.length</code> so we can loop content.
-    private int getLoopedIndex(int index) {
-        return index % Constants.IMAGES.length; // wrap around
+    private fun getLoopedIndex(index: Int): Int {
+        return index % Constants.IMAGES.size // wrap around
     }
 }
