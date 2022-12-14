@@ -19,7 +19,11 @@ class DemoService : Service() {
         return null
     }
 
-    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+    override fun onStartCommand(
+        intent: Intent,
+        flags: Int,
+        startId: Int
+    ): Int {
         LToast.show("Service onStartCommand")
         run()
         return START_STICKY

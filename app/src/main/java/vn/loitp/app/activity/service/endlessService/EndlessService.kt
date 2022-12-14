@@ -28,7 +28,11 @@ class EndlessService : Service() {
         return null
     }
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+    override fun onStartCommand(
+        intent: Intent?,
+        flags: Int,
+        startId: Int
+    ): Int {
         log("onStartCommand executed with startId: $startId")
         if (intent != null) {
             val action = intent.action

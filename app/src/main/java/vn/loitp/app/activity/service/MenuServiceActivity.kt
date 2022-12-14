@@ -1,14 +1,11 @@
 package vn.loitp.app.activity.service
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_service.*
 import vn.loitp.app.R
@@ -46,14 +43,9 @@ class MenuServiceActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        var intent: Intent? = null
         when (v) {
-            btDemoService -> intent = Intent(this, DemoServiceActivity::class.java)
-            btEndlessService -> intent = Intent(this, EndlessServiceActivity::class.java)
-        }
-        intent?.let {
-            startActivity(it)
-            LActivityUtil.tranIn(this)
+            btDemoService -> launchActivity(DemoServiceActivity::class.java)
+            btEndlessService -> launchActivity(EndlessServiceActivity::class.java)
         }
     }
 }

@@ -11,7 +11,10 @@ enum class ServiceState {
 private const val name = "SPYSERVICE_KEY"
 private const val key = "SPYSERVICE_STATE"
 
-fun setServiceState(context: Context, state: ServiceState) {
+fun setServiceState(
+    context: Context,
+    state: ServiceState
+) {
     val sharedPrefs = getPreferences(context)
     sharedPrefs.edit().let {
         it.putString(key, state.name)
