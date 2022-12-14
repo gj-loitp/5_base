@@ -52,9 +52,12 @@ class SplashActivity : BaseFontActivity() {
         })
         textViewVersion.text = "Version ${BuildConfig.VERSION_NAME}"
 
-        LUIUtil.setTextShadow(textView = tvPolicy, color = null)
-        tvPolicy.setOnClickListener {
-            LSocialUtil.openBrowserPolicy(context = this)
+        tvPolicy.apply {
+            LUIUtil.setTextUnderline(this)
+            LUIUtil.setTextShadow(textView = this, color = null)
+            setOnClickListener {
+                LSocialUtil.openBrowserPolicy(context = this@SplashActivity)
+            }
         }
 
         startIdleTimeHandler(10 * 1000)
@@ -155,7 +158,7 @@ class SplashActivity : BaseFontActivity() {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
-            finish()//correct
+            finish()
         }
     }
 
