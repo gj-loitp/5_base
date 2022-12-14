@@ -118,7 +118,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
         }
         tvTitle = findViewById(R.id.tvTitle)
         tvTitle?.visibility = View.GONE
-        tvMessage = findViewById(R.id.tv_message)
+        tvMessage = findViewById(R.id.tvMessage)
         tvMessage?.visibility = View.GONE
     }
 

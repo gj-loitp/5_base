@@ -91,12 +91,14 @@ class AutoScrollContentActivity : BaseFontActivity() {
         val adapter = ExampleAdapter().apply {
             submitList(messagesList)
         }
-
         binding.rvAutoScrollContent.adapter = adapter
-
         binding.rvAutoScrollContent.setItemClickListener { viewHolder, position ->
             viewHolder?.let {
-                adapter.onLinkItem(viewHolder, position, onItemClicked)
+                adapter.onLinkItem(
+                    holder = viewHolder,
+                    position = position,
+                    onLinkItem = onItemClicked
+                )
             }
         }
     }
@@ -153,7 +155,6 @@ class AutoScrollContentActivity : BaseFontActivity() {
     private fun setUpSeekBarCurrentSpeed() {
         binding.seekbar.progress = currentSpeed
         binding.seekbar.max = 100
-
         binding.seekbar.setOnSeekBarChangeListener(object :
             SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
@@ -13,14 +14,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_padding_medium"
         app:layout_constraintTop_toBottomOf="@+id/lActionBar">
 
-        <LinearLayout
-            android:id="@+id/ll_loop"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llLoop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -35,13 +36,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <LinearLayout
-            android:id="@+id/ll_reverse"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llReverse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ll_loop"
+            android:layout_below="@+id/llLoop"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -54,13 +55,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <LinearLayout
-            android:id="@+id/ll_horizontal_vertical"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llHorizontalVertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ll_reverse"
+            android:layout_below="@+id/llReverse"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -73,13 +74,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <LinearLayout
-            android:id="@+id/ll_can_touch"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llCanTouch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ll_horizontal_vertical"
+            android:layout_below="@+id/llHorizontalVertical"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -92,18 +93,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical" />
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.AppCompatSeekBar
             android:id="@+id/seekbar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_below="@+id/ll_can_touch"
-            android:layout_margin="20dp"
+            android:layout_below="@+id/llCanTouch"
             android:background="#ccc" />
 
         <com.teseo.studios.autoscrollcontent.AutoScrollContent
-            android:id="@+id/rv_auto_scroll_content"
+            android:id="@+id/rvAutoScrollContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/seekbar"

@@ -10,11 +10,13 @@ class ExampleViewHolder(
 
     fun bind(item: ExampleModel) {
         val binding = (binding as ItemAutoscrollContentBinding)
-
         binding.tvMessage.text = item.message
     }
 
-    fun onLinkItem(item: ExampleModel, onLinkItem: (String) -> Unit) {
+    fun onLinkItem(
+        item: ExampleModel,
+        onLinkItem: (String) -> Unit
+    ) {
         onLinkItem.invoke(item.message)
     }
 }
