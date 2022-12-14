@@ -31,7 +31,6 @@ class AutoResizeEditTextActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = AutoResizeEditTextActivity::class.java.simpleName
         }
     }

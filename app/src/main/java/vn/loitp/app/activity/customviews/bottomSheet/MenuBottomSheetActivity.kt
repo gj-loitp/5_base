@@ -49,7 +49,6 @@ class MenuBottomSheetActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuBottomSheetActivity::class.java.simpleName
         }
         btPayment.setSafeOnClickListener {

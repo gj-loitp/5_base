@@ -40,7 +40,6 @@ class ConstraintSetActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ConstraintSetActivity::class.java.simpleName
         }
         mConstraintSetNormal.clone(layoutConstrainRoot)

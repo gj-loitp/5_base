@@ -2,7 +2,6 @@ package vn.loitp.app.activity.demo.fragmentNavigation
 
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
@@ -44,7 +43,6 @@ class FragmentNavigationActivity :
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FragmentNavigationActivity::class.java.simpleName
         }
     }

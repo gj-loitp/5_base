@@ -2,7 +2,6 @@ package vn.loitp.app.activity.picker
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -42,7 +41,6 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuPickerActivity::class.java.simpleName
         }
         btAttachmentManager.setOnClickListener(this)

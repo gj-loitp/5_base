@@ -48,7 +48,6 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = RecyclerViewFooter2Activity::class.java.simpleName
         }
         footer2Adapter = Footer2Adapter(

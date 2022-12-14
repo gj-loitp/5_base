@@ -32,7 +32,6 @@ class TBGSingleSelectActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = TBGSingleSelectActivity::class.java.simpleName
         }
         groupChoices.setOnCheckedChangeListener { _, checkedId ->

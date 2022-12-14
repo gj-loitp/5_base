@@ -51,7 +51,6 @@ class NoTabOnlyIndicatorExampleActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = NoTabOnlyIndicatorExampleActivity::class.java.simpleName
         }
         viewPager.adapter = mExamplePagerAdapter

@@ -37,7 +37,6 @@ class AnswerViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = AnswerViewActivity::class.java.simpleName
         }
     }

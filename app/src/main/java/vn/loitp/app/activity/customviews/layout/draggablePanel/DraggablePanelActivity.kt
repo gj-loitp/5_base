@@ -34,7 +34,6 @@ class DraggablePanelActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = DraggablePanelActivity::class.java.simpleName
         }
         initializeDraggablePanel()

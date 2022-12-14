@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.imageview.bigImageView
 
 import android.net.Uri
 import android.os.Bundle
-import androidx.core.view.isVisible
 import com.github.piasy.biv.view.GlideImageViewFactory
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -36,7 +35,6 @@ class BigImageViewWithScrollViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = BigImageViewWithScrollViewActivity::class.java.simpleName
         }
 

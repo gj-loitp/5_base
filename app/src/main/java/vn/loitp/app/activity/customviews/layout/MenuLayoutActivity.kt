@@ -69,7 +69,6 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuLayoutActivity::class.java.simpleName
         }
         btAndroidSlidingUpPanel.setOnClickListener(this)

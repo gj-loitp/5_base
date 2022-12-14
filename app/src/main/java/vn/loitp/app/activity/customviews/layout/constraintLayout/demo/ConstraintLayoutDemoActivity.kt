@@ -34,7 +34,6 @@ class ConstraintLayoutDemoActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ConstraintLayoutDemoActivity::class.java.simpleName
         }
         button.setSafeOnClickListener {

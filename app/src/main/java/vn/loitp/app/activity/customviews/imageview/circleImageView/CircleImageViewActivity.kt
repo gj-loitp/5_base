@@ -37,7 +37,6 @@ class CircleImageViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = CircleImageViewActivity::class.java.simpleName
         }
         val resPlaceHolder = R.color.red

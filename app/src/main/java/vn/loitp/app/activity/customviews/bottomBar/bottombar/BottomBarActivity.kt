@@ -36,7 +36,6 @@ class BottomBarActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = BottomBarActivity::class.java.simpleName
         }
         textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.loitp)

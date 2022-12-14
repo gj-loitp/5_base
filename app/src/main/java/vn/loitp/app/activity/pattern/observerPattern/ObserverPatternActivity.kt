@@ -40,7 +40,6 @@ class ObserverPatternActivity : BaseFontActivity(), View.OnClickListener, Reposi
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ObserverPatternActivity::class.java.simpleName
         }
         bt.setOnClickListener(this)

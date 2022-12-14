@@ -39,7 +39,6 @@ class MenuMenuActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuMenuActivity::class.java.simpleName
         }
         btResideMenu.setOnClickListener(this)

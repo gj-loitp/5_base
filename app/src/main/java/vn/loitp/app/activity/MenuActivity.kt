@@ -60,7 +60,6 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuActivity::class.java.simpleName
         }
         tvPolicy.setSafeOnClickListener {

@@ -38,7 +38,6 @@ class TextToSpeechActivity : BaseFontActivity(), OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = TextToSpeechActivity::class.java.simpleName
         }
         btILoveYou.setOnClickListener(this)

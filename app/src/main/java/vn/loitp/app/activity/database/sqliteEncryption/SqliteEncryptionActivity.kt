@@ -51,7 +51,6 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = SqliteEncryptionActivity::class.java.simpleName
         }
         btAddBike.setOnClickListener(this)

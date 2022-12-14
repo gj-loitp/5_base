@@ -36,7 +36,6 @@ class SimpleFingerGesturesActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = SimpleFingerGesturesActivity::class.java.simpleName
         }
         val display = windowManager.defaultDisplay

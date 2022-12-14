@@ -42,7 +42,6 @@ class TTTAPIComicListActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = TTTAPIComicListActivity::class.java.simpleName
         }
         LDialogUtil.hideProgress(progressBar)

@@ -45,7 +45,6 @@ class TestAPIRetrofit2Activity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = TestAPIRetrofit2Activity::class.java.simpleName
         }
         mAdapter = AnswersAdapter(

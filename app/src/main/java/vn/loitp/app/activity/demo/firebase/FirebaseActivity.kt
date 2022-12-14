@@ -47,7 +47,6 @@ class FirebaseActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FirebaseActivity::class.java.simpleName
         }
 

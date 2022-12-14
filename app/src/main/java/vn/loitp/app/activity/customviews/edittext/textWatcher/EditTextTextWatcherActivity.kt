@@ -32,7 +32,6 @@ class EditTextTextWatcherActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = EditTextTextWatcherActivity::class.java.simpleName
         }
         var text = ""

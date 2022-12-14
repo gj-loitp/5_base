@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -60,7 +59,6 @@ class GameOseroActivity : BaseFontActivity(), GameView {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = GameOseroActivity::class.java.simpleName
         }
         // 二次元配列にマッピングしながらGridLayoutにマスを設定

@@ -1,64 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mcv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_marginBottom="@dimen/margin_padding_small"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="@dimen/w_5"
+    app:cardUseCompatPadding="false">
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize">
 
-        <com.github.mmin18.widget.RealtimeBlurView
-            android:id="@+id/realtimeBlurView"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivIconLeft"
+            android:layout_width="?android:attr/actionBarSize"
             android:layout_height="match_parent"
-            app:realtimeBlurRadius="@dimen/round_largest"
-            app:realtimeOverlayColor="@color/white85" />
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/margin_padding_small"
+            android:src="@drawable/ic_chevron_left_black_48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:gravity="start|center"
+            android:singleLine="true"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintEnd_toStartOf="@+id/ivIconRight"
+            app:layout_constraintStart_toEndOf="@+id/ivIconLeft"
+            tools:text="@string/app_name" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivIconLeft"
-                android:layout_width="?android:attr/actionBarSize"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/app_name"
-                android:padding="@dimen/margin_padding_small"
-                android:src="@drawable/ic_chevron_left_black_48dp" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivIconRight"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/margin_padding_small"
+            android:src="@drawable/ic_baseline_code_48"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnusedAttribute"
+            tools:visibility="visible" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:singleLine="true"
-                android:textSize="@dimen/txt_medium"
-                tools:text="@string/app_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivIconRight"
-                android:layout_width="?android:attr/actionBarSize"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/app_name"
-                android:padding="@dimen/margin_padding_small"
-                android:src="@drawable/ic_baseline_code_48"
-                android:visibility="gone"
-                tools:ignore="UnusedAttribute"
-                tools:visibility="visible" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </FrameLayout>
-
-    <View
-        android:id="@+id/viewShadow"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/w_5"
-        android:background="@drawable/l_bkg_shadow_black_white"
-        android:visibility="gone"
-        tools:visibility="visible" />
-</androidx.appcompat.widget.LinearLayoutCompat>
+</com.google.android.material.card.MaterialCardView>

@@ -33,7 +33,6 @@ class ZoomImageViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ZoomImageViewActivity::class.java.simpleName
         }
         zoomImageView.setImageDrawable(ColorGridDrawable())

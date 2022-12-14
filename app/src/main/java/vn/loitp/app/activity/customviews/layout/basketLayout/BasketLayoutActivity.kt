@@ -33,7 +33,6 @@ class BasketLayoutActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = BasketLayoutActivity::class.java.simpleName
         }
         basketView.apply {

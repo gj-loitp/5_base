@@ -36,7 +36,6 @@ class FloatDragWindowModeActivity : BaseActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FloatDragWindowModeActivity::class.java.simpleName
         }
 

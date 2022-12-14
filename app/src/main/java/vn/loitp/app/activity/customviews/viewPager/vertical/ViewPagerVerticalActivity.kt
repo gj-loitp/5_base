@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.customviews.viewPager.vertical
 
 import android.os.Bundle
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -41,7 +40,6 @@ class ViewPagerVerticalActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ViewPagerVerticalActivity::class.java.simpleName
         }
         viewPager.adapter = VerticalAdapter(

@@ -34,7 +34,6 @@ class FacebookCommentActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FacebookCommentActivity::class.java.simpleName
         }
         bt.setSafeOnClickListener {

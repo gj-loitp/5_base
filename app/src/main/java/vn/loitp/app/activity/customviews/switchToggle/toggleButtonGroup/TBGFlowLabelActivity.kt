@@ -34,7 +34,6 @@ class TBGFlowLabelActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = TBGFlowLabelActivity::class.java.simpleName
         }
         groupWeekdays.setOnCheckedChangeListener { _, checkedId ->

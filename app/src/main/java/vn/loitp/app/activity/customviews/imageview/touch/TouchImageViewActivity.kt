@@ -34,7 +34,6 @@ class TouchImageViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = TouchImageViewActivity::class.java.simpleName
         }
         // note when use with glide, must have placeholder

@@ -32,7 +32,6 @@ class RoundableLayoutActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = RoundableLayoutActivity::class.java.simpleName
         }
     }

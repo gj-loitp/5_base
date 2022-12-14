@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.recyclerview.normalRecyclerViewWithSin
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -46,7 +45,6 @@ class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = RecyclerViewWithSingletonDataActivity::class.java.simpleName
         }
         mAdapter = MoviesAdapter(

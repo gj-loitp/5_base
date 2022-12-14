@@ -35,7 +35,6 @@ class HeartLayoutActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = HeartLayoutActivity::class.java.simpleName
         }
         rootView.setOnClickListener {

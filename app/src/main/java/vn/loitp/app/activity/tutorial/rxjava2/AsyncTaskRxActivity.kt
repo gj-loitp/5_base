@@ -43,7 +43,6 @@ class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = AsyncTaskRxActivity::class.java.simpleName
         }
         btAsyncTask.setOnClickListener(this)

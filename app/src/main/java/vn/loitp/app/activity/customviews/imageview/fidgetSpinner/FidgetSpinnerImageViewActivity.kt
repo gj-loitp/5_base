@@ -32,7 +32,6 @@ class FidgetSpinnerImageViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FidgetSpinnerImageViewActivity::class.java.simpleName
         }
         fidgetSpinner.setImageDrawable(R.drawable.spinner)

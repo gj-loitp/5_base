@@ -53,7 +53,6 @@ class NFCActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = NFCActivity::class.java.simpleName
         }
         currentTagView.text = getString(R.string.loading)

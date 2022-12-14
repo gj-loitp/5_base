@@ -51,7 +51,6 @@ class ReadMoreOptionActivity : BaseFontActivity() {
                 it.isVisible = true
                 it.setImageResource(vn.loitp.app.R.drawable.ic_baseline_code_48)
             }
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ReadMoreOptionActivity::class.java.simpleName
         }
 

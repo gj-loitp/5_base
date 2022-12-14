@@ -57,7 +57,6 @@ class ImagePickerActivity : BaseFontActivity() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ImagePickerActivity::class.java.simpleName
         }
         adapter = ImageAdapter(this)

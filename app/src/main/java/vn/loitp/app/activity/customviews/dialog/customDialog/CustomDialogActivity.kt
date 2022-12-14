@@ -36,7 +36,6 @@ class CustomDialogActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = CustomDialogActivity::class.java.simpleName
         }
         btToggleFullScreen.setSafeOnClickListener {

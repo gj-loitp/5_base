@@ -2,7 +2,6 @@ package vn.loitp.app.activity.picker.numberPicker
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -35,7 +34,6 @@ class NumberPickerActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = NumberPickerActivity::class.java.simpleName
         }
         lnb.setCallback(object : LNumberPicker.Callback {

@@ -80,7 +80,6 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuCustomViewsActivity::class.java.simpleName
         }
         btViewPager.setOnClickListener(this)

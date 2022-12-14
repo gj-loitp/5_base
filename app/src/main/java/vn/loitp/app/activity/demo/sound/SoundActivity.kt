@@ -3,7 +3,6 @@ package vn.loitp.app.activity.demo.sound
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -35,7 +34,6 @@ class SoundActivity : BaseFontActivity(), OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = SoundActivity::class.java.simpleName
         }
         btPlay.setOnClickListener(this)

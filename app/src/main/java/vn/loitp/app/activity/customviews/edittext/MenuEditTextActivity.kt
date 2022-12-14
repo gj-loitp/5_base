@@ -44,7 +44,6 @@ class MenuEditTextActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuEditTextActivity::class.java.simpleName
         }
         btAnimatedExpandableEditText.setOnClickListener(this)

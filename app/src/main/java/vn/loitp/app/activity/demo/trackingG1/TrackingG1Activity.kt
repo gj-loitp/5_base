@@ -41,7 +41,6 @@ class TrackingG1Activity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = TrackingG1Activity::class.java.simpleName
         }
         btTestTrackingByParams?.setOnClickListener {

@@ -79,7 +79,6 @@ class MapTrackerActivity :
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MapTrackerActivity::class.java.simpleName
         }
 

@@ -35,7 +35,6 @@ class MainActivityDragDrop : BaseFontActivity(), CustomListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MainActivityDragDrop::class.java.simpleName
         }
         recyclerView1.init(listOf("A", "B", "C"), tvEmptyList1)

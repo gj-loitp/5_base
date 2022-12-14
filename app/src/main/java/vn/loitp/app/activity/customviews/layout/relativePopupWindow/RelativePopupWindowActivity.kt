@@ -37,7 +37,6 @@ class RelativePopupWindowActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = RelativePopupWindowActivity::class.java.simpleName
         }
         val adapterVertical = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item)

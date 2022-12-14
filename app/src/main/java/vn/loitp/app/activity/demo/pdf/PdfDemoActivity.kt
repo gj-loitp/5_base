@@ -2,7 +2,6 @@ package vn.loitp.app.activity.demo.pdf
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.github.barteksc.pdfviewer.util.FitPolicy
 import com.huxq17.download.Pump
@@ -46,7 +45,6 @@ class PdfDemoActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = PdfDemoActivity::class.java.simpleName
         }
         btFileAsyncTask.setSafeOnClickListener {

@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.demo.architectureComponent.room
 
 import android.os.Bundle
-import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitpcore.annotation.IsFullScreen
@@ -45,7 +44,6 @@ class WordActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = WordActivity::class.java.simpleName
         }
         wordListAdapter = WordListAdapter(object : WordListAdapter.Callback {

@@ -49,7 +49,6 @@ class WheelViewActivity : BaseFontActivity() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = WheelViewActivity::class.java.simpleName
         }
 

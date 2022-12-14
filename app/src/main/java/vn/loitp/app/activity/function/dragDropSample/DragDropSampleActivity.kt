@@ -7,7 +7,6 @@ import android.view.View
 import android.view.View.DragShadowBuilder
 import android.view.View.OnDragListener
 import android.widget.ImageView
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -39,7 +38,6 @@ class DragDropSampleActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = DragDropSampleActivity::class.java.simpleName
         }
 

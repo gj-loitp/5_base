@@ -33,7 +33,6 @@ class SeekbarActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = SeekbarActivity::class.java.simpleName
         }
         sb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {

@@ -2,7 +2,6 @@ package vn.loitp.app.activity.tutorial.rxjava2
 
 import android.os.Bundle
 import android.os.SystemClock
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -40,7 +39,6 @@ class DisposableExampleActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = DisposableExampleActivity::class.java.simpleName
         }
         btn.setSafeOnClickListener {

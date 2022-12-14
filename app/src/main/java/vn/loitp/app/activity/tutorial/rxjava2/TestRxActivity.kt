@@ -3,7 +3,6 @@ package vn.loitp.app.activity.tutorial.rxjava2
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import com.google.gson.reflect.TypeToken
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -47,7 +46,6 @@ class TestRxActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = TestRxActivity::class.java.simpleName
         }
         bt0.setOnClickListener(this)

@@ -32,7 +32,6 @@ class CircularProgressBarActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = CircularProgressBarActivity::class.java.simpleName
         }
 

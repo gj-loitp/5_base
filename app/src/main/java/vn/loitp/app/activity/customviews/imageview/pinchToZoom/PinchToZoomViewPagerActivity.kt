@@ -38,7 +38,6 @@ class PinchToZoomViewPagerActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = PinchToZoomViewPagerActivity::class.java.simpleName
         }
         list.add(Constants.URL_IMG)

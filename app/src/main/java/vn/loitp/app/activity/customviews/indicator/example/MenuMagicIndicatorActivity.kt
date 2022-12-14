@@ -37,7 +37,6 @@ class MenuMagicIndicatorActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuMagicIndicatorActivity::class.java.simpleName
         }
     }

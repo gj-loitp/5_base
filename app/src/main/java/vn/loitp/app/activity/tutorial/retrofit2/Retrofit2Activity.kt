@@ -2,7 +2,6 @@ package vn.loitp.app.activity.tutorial.retrofit2
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.annotation.IsFullScreen
@@ -48,7 +47,6 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = Retrofit2Activity::class.java.simpleName
         }
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)

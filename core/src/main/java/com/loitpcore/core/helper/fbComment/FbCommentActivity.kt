@@ -85,7 +85,6 @@ class FbCommentActivity : BaseFontActivity() {
                 onBaseBackPressed()
             }
             this.ivRight?.isVisible = false
-            this.realtimeBlurView?.isVisible = false
             this.tvTitle?.text = LAppResource.getString(R.string.fb_comment)
         }
     }

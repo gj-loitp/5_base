@@ -46,7 +46,6 @@ class SqliteActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = SqliteActivity::class.java.simpleName
         }
         databaseHandler = DatabaseHandler(this)

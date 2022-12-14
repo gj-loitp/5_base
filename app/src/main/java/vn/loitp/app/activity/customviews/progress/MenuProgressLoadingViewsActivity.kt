@@ -40,7 +40,6 @@ class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListene
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuProgressLoadingViewsActivity::class.java.simpleName
         }
         btCircularProgressBar.setOnClickListener(this)

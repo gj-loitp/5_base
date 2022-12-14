@@ -34,7 +34,6 @@ class CircularImageClickActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = CircularImageClickActivity::class.java.simpleName
         }
         circleButton.setOnCircleClickListener(object :

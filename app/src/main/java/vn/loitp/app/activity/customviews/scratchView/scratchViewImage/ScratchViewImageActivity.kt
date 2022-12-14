@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.scratchView.scratchViewImage
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -32,7 +31,6 @@ class ScratchViewImageActivity : BaseFontActivity() {
                 onBaseBackPressed()
             })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ScratchViewImageActivity::class.java.simpleName
         }
         scratchImageView.setRevealListener(object : LScratchImageView.IRevealListener {

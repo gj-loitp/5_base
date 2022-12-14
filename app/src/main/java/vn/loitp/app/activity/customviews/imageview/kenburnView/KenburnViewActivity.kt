@@ -51,7 +51,6 @@ class KenburnViewActivity : BaseFontActivity() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }
         LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = kbv)

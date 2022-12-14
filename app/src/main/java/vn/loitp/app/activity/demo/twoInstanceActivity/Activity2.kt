@@ -37,7 +37,6 @@ class Activity2 : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = Activity2::class.java.simpleName
         }
         btGoTo1.setSafeOnClickListener {

@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.scrollablePanel;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 
@@ -48,9 +47,6 @@ public class ScrollablePanelActivity extends BaseFontActivity {
         if (lActionBar != null) {
             if (lActionBar.getIvIconRight() != null) {
                 lActionBar.getIvIconRight().setImageResource(R.color.transparent);
-            }
-            if (lActionBar.getViewShadow() != null) {
-                lActionBar.getViewShadow().setVisibility(View.GONE);
             }
             if (lActionBar.getTvTitle() != null) {
                 lActionBar.getTvTitle().setText(getClass().getSimpleName());

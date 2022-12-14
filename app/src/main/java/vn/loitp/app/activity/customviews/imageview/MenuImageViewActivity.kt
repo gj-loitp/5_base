@@ -51,7 +51,6 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuImageViewActivity::class.java.simpleName
         }
         btCirleImageView.setOnClickListener(this)

@@ -34,7 +34,6 @@ class MenuDragViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuDragViewActivity::class.java.simpleName
         }
         btnNormal.setSafeOnClickListener {

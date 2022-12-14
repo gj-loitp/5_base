@@ -34,7 +34,6 @@ class FlowLayoutActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FlowLayoutActivity::class.java.simpleName
         }
         for (i in 0..20) {

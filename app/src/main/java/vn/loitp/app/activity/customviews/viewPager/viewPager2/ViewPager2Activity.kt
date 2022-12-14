@@ -40,7 +40,6 @@ class ViewPager2Activity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ViewPager2Activity::class.java.simpleName
         }
         viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL

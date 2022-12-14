@@ -40,7 +40,6 @@ class MenuSwitchToggleActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuSwitchToggleActivity::class.java.simpleName
         }
 

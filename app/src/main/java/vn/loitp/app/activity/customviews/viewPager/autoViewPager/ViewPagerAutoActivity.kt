@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.customviews.viewPager.autoViewPager
 
 import android.os.Bundle
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -37,7 +36,6 @@ class ViewPagerAutoActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ViewPagerAutoActivity::class.java.simpleName
         }
 

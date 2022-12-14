@@ -3,7 +3,6 @@ package vn.loitp.app.activity.demo.architectureComponent.viewmodel
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
-import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.loitpcore.annotation.IsFullScreen
@@ -14,7 +13,7 @@ import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_demo_view_model.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
-import java.util.* // ktlint-disable no-wildcard-imports
+import java.util.*
 
 // https://codinginfinite.com/architecture-component-viewmodel-example/
 
@@ -46,7 +45,6 @@ class ViewModelActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ViewModelActivity::class.java.simpleName
         }
 

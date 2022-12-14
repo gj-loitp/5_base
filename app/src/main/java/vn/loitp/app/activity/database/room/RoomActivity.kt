@@ -41,7 +41,6 @@ class RoomActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = RoomActivity::class.java.simpleName
         }
 

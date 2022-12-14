@@ -3,7 +3,6 @@ package vn.loitp.app.activity.service.demoService
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -35,7 +34,6 @@ class DemoServiceActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = DemoServiceActivity::class.java.simpleName
         }
         btStartService.setOnClickListener(this)

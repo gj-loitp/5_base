@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.game.osero
 
 import android.os.Bundle
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -41,7 +40,6 @@ class TopOseroActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = TopOseroActivity::class.java.simpleName
         }
         topModeManualButton.setSafeOnClickListener { startGameActivity(AINone()) }

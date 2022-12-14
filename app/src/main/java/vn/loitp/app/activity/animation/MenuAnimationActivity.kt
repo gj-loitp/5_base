@@ -55,7 +55,6 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuAnimationActivity::class.java.simpleName
         }
         btAnimationView.setOnClickListener(this)

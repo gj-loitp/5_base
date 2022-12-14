@@ -37,7 +37,6 @@ class MenuSwipeRefreshLayoutActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuSwipeRefreshLayoutActivity::class.java.simpleName
         }
         btWithScrollView.setSafeOnClickListener {

@@ -29,6 +29,11 @@ object LAppResource {
         ContextCompat.getColor(it, colorRes)
     }
 
+    fun getColor(@ColorRes colorRes: Int, alpha: Int): Int = application.let {
+        val color = ContextCompat.getColor(it, colorRes)
+        return LUIUtil.setAlphaComponent(color = color, alpha = alpha)
+    }
+
     fun getColorStateList(@ColorRes colorRes: Int): ColorStateList? = application.let {
         ContextCompat.getColorStateList(it, colorRes)
     }

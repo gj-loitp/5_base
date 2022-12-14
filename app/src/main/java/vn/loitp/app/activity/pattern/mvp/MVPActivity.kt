@@ -38,7 +38,6 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MVPActivity::class.java.simpleName
         }
 

@@ -38,7 +38,6 @@ class WebViewWrapContentActivity : BaseFontActivity() {
                     onBaseBackPressed()
                 }
             )
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = WebViewWrapContentActivity::class.java.simpleName
         }
 

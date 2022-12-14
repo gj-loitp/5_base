@@ -43,7 +43,6 @@ class FloatDragLayoutActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FloatDragLayoutActivity::class.java.simpleName
         }
         var rootView = window.decorView as ViewGroup

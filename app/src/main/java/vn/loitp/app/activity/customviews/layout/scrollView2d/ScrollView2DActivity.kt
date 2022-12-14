@@ -32,7 +32,6 @@ class ScrollView2DActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ScrollView2DActivity::class.java.simpleName
         }
         twoDScrollView.setScrollChangeListener { _, x, y, oldX, oldY ->

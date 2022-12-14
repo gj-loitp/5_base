@@ -47,7 +47,6 @@ class MenuViewPagerActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuViewPagerActivity::class.java.simpleName
         }
         btAutoViewPager.setOnClickListener(this)

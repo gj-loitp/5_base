@@ -39,7 +39,6 @@ class ComicViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ComicViewActivity::class.java.simpleName
         }
         initData()

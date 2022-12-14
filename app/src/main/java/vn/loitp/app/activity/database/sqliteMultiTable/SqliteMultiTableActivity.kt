@@ -2,7 +2,6 @@ package vn.loitp.app.activity.database.sqliteMultiTable
 
 import android.os.Bundle
 import android.widget.TextView
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
@@ -49,7 +48,6 @@ class SqliteMultiTableActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = SqliteMultiTableActivity::class.java.simpleName
         }
     }

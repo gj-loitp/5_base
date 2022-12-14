@@ -50,7 +50,6 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = PrettyDialogActivity::class.java.simpleName
         }
         btShow1.setOnClickListener(this)

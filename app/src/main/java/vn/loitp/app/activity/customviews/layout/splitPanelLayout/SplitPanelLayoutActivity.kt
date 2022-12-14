@@ -35,7 +35,6 @@ class SplitPanelLayoutActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = SplitPanelLayoutActivity::class.java.simpleName
         }
         splitPaneLayout.onSplitterPositionChangedListener =

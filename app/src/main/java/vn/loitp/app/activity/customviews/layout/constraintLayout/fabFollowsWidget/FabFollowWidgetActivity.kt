@@ -32,7 +32,6 @@ class FabFollowWidgetActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FabFollowWidgetActivity::class.java.simpleName
         }
     }

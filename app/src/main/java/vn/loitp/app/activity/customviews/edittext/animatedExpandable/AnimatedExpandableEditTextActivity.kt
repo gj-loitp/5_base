@@ -32,7 +32,6 @@ class AnimatedExpandableEditTextActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = AnimatedExpandableEditTextActivity::class.java.simpleName
         }
     }

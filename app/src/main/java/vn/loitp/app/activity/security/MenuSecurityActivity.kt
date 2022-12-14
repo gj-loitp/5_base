@@ -38,7 +38,6 @@ class MenuSecurityActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuSecurityActivity::class.java.simpleName
         }
         bt0.setSafeOnClickListener {

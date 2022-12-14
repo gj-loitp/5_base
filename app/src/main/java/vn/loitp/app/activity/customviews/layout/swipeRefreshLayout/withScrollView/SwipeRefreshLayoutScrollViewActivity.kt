@@ -33,7 +33,6 @@ class SwipeRefreshLayoutScrollViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = SwipeRefreshLayoutScrollViewActivity::class.java.simpleName
         }
         swipeRefreshLayout.setOnRefreshListener {

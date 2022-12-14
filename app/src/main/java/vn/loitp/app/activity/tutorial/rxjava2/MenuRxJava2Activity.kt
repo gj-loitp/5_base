@@ -39,7 +39,6 @@ class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuRxJava2Activity::class.java.simpleName
         }
         btDisposableExampleActivity.setOnClickListener(this)

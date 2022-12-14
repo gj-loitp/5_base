@@ -36,7 +36,6 @@ class DraggablePanelFreeActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = DraggablePanelFreeActivity::class.java.simpleName
         }
         btMaximize.setSafeOnClickListener {

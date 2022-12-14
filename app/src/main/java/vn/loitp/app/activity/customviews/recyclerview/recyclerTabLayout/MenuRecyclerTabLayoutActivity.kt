@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -44,7 +43,6 @@ class MenuRecyclerTabLayoutActivity : BaseFontActivity(), AdapterView.OnItemClic
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuRecyclerTabLayoutActivity::class.java.simpleName
         }
         listView.onItemClickListener = this

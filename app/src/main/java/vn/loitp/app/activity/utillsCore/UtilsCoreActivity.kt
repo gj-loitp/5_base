@@ -42,7 +42,6 @@ class UtilsCoreActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = UtilsCoreActivity::class.java.simpleName
         }
         btSetStatusBarColorAlpha.setSafeOnClickListener {

@@ -2,7 +2,6 @@ package vn.loitp.app.activity.function
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -54,7 +53,6 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = false
             this.tvTitle?.text = MenuFunctionActivity::class.java.simpleName
         }
         btSimpleFingerGesture.setOnClickListener(this)

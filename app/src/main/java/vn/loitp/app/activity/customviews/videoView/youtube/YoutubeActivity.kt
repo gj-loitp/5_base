@@ -33,7 +33,6 @@ class YoutubeActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = YoutubeActivity::class.java.simpleName
         }
         bt0.setSafeOnClickListener {

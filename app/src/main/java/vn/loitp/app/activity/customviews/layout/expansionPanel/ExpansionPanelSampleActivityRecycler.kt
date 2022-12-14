@@ -41,7 +41,6 @@ class ExpansionPanelSampleActivityRecycler : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ExpansionPanelSampleActivityRecycler::class.java.simpleName
         }
 

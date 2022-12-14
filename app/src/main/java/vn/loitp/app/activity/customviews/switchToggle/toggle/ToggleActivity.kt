@@ -36,7 +36,6 @@ class ToggleActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ToggleActivity::class.java.simpleName
         }
         labeledSwitch.setOnToggledListener(object : OnToggledListener {

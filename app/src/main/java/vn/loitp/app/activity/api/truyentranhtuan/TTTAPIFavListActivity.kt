@@ -41,7 +41,6 @@ class TTTAPIFavListActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = TTTAPIFavListActivity::class.java.simpleName
         }
         btAdd.setSafeOnClickListener {

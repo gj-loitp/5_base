@@ -41,7 +41,6 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = DialogOriginalActivity::class.java.simpleName
         }
         btShow1.setOnClickListener(this)

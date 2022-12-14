@@ -34,7 +34,6 @@ class StickerActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = StickerActivity::class.java.simpleName
         }
         // add a stickerImage to canvas

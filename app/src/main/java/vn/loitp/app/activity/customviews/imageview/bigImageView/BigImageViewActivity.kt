@@ -40,7 +40,6 @@ class BigImageViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = BigImageViewActivity::class.java.simpleName
         }
 

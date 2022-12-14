@@ -34,7 +34,6 @@ class CurrencyEditTextActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = CurrencyEditTextActivity::class.java.simpleName
         }
         currencyEditText.onTextChanged = { numDot, numNoDot ->

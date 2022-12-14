@@ -46,7 +46,6 @@ class LDebugViewActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = LDebugViewActivity::class.java.simpleName
         }
         btStart.setOnClickListener(this)

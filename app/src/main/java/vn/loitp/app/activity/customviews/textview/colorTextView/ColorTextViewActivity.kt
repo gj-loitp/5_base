@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.customviews.textview.colorTextView
 
 import android.os.Bundle
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
@@ -32,7 +31,6 @@ class ColorTextViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ColorTextViewActivity::class.java.simpleName
         }
     }

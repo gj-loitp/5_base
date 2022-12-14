@@ -41,7 +41,6 @@ class MenuWebViewActivity : BaseFontActivity(), OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuWebViewActivity::class.java.simpleName
         }
         btLWebView.setOnClickListener(this)

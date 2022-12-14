@@ -38,7 +38,6 @@ class DrawerBehaviorMainActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = DrawerBehaviorMainActivity::class.java.simpleName
         }
         buttonDefault.setOnClickListener(this)

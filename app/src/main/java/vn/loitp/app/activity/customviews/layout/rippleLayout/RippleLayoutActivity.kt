@@ -32,7 +32,6 @@ class RippleLayoutActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = RippleLayoutActivity::class.java.simpleName
         }
     }

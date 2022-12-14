@@ -43,7 +43,6 @@ class CircularProgressIndicatorActivity :
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = CircularProgressIndicatorActivity::class.java.simpleName
         }
 

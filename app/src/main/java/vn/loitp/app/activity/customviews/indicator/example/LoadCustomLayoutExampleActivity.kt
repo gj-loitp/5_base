@@ -52,7 +52,6 @@ class LoadCustomLayoutExampleActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = LoadCustomLayoutExampleActivity::class.java.simpleName
         }
         viewPager.adapter = mExamplePagerAdapter

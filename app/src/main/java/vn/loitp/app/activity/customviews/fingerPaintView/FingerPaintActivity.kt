@@ -54,7 +54,6 @@ class FingerPaintActivity : BaseFontActivity(), SeekBar.OnSeekBarChangeListener,
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FingerPaintActivity::class.java.simpleName
         }
         close.setOnClickListener(this)

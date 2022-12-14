@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.animation.flySchool
 
 import android.os.Bundle
-import androidx.core.view.isVisible
 import com.loitpcore.animation.flySchool.ImgObject
 import com.loitpcore.animation.flySchool.PATHS
 import com.loitpcore.annotation.IsFullScreen
@@ -35,7 +34,6 @@ class FlySchoolActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FlySchoolActivity::class.java.simpleName
         }
 

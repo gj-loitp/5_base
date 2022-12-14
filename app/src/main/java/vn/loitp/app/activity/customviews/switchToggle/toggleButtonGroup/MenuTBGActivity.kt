@@ -36,7 +36,6 @@ class MenuTBGActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuTBGActivity::class.java.simpleName
         }
 

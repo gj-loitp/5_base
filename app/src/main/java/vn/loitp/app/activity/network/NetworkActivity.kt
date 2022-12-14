@@ -42,7 +42,6 @@ class NetworkActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = NetworkActivity::class.java.simpleName
         }
         showStatus(LConnectivityUtil.isConnected())

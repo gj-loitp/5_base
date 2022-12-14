@@ -46,7 +46,6 @@ class RecyclerViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = RecyclerViewActivity::class.java.simpleName
         }
 

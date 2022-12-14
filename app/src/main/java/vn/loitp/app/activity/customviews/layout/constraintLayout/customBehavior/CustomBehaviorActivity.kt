@@ -34,7 +34,6 @@ class CustomBehaviorActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = CustomBehaviorActivity::class.java.simpleName
         }
         fab.setSafeOnClickListener {

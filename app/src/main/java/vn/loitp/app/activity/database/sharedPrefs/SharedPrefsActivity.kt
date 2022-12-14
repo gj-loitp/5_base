@@ -50,7 +50,6 @@ class SharedPrefsActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = SharedPrefsActivity::class.java.simpleName
         }
 

@@ -50,7 +50,6 @@ class AndroidParticlesActivity : BaseFontActivity() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = AndroidParticlesActivity::class.java.simpleName
         }
     }

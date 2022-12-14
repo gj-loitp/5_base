@@ -22,6 +22,7 @@ import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.appcompat.widget.AppCompatCheckBox
+import androidx.core.graphics.ColorUtils
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -957,6 +958,10 @@ class LUIUtil {
                     /* message = */ message
                 )
             }
+        }
+
+        fun setAlphaComponent(color: Int, alpha: Int = 50): Int {
+            return ColorUtils.setAlphaComponent(/* color = */ color, /* alpha = */ alpha)
         }
     }
 }

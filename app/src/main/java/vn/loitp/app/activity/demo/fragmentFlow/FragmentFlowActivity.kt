@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentManager
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -53,7 +52,6 @@ class FragmentFlowActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FragmentFlowActivity::class.java.simpleName
         }
         btAddFrmFlow0.setSafeOnClickListener {

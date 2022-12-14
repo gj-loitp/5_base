@@ -42,7 +42,6 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = EditTextAutoSuggestActivity::class.java.simpleName
         }
         aet0.apply {

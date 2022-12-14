@@ -33,7 +33,6 @@ class CustomProgressDialogActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = CustomProgressDialogActivity::class.java.simpleName
         }
         bt0.setSafeOnClickListener {

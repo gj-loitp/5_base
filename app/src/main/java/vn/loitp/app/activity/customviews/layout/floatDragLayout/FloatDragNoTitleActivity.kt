@@ -39,7 +39,6 @@ class FloatDragNoTitleActivity : BaseActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FloatDragNoTitleActivity::class.java.simpleName
         }
 

@@ -38,8 +38,6 @@ class PumpActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
-            this.tvTitle?.text = PumpActivity::class.java.simpleName
         }
         DownloadConfig.newBuilder()
             // Optional,set the maximum number of tasks to run, default 3.

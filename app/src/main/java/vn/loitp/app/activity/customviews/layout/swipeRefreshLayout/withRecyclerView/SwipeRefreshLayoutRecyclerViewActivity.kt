@@ -41,7 +41,6 @@ class SwipeRefreshLayoutRecyclerViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = SwipeRefreshLayoutRecyclerViewActivity::class.java.simpleName
         }
         swipeRefreshLayout.setOnRefreshListener { refresh() }

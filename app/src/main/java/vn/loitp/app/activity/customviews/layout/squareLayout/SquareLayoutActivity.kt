@@ -32,7 +32,6 @@ class SquareLayoutActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = SquareLayoutActivity::class.java.simpleName
         }
     }

@@ -38,7 +38,6 @@ class FabActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = FabActivity::class.java.simpleName
         }
         btAiNone.setSafeOnClickListener {

@@ -38,7 +38,6 @@ class MenuNavigationActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuNavigationActivity::class.java.simpleName
         }
         btArcNavigation.setOnClickListener(this)

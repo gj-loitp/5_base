@@ -58,7 +58,6 @@ class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
                 onBaseBackPressed()
             })
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuRecyclerViewActivity::class.java.simpleName
         }
         btArcViewActivity.setOnClickListener(this)

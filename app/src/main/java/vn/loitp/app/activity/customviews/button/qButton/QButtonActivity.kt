@@ -33,7 +33,6 @@ class QButtonActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = QButtonActivity::class.java.simpleName
         }
         btn.setCornerRadious(5)

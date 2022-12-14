@@ -34,7 +34,6 @@ class PopupMenuActivity : BaseFontActivity(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = PopupMenuActivity::class.java.simpleName
         }
         btShow1.setOnClickListener(this)

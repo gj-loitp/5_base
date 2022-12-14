@@ -37,7 +37,6 @@ class ViewPagerSwipeOut2Activity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = ViewPagerSwipeOut2Activity::class.java.simpleName
         }
         vp.adapter = SamplePagerAdapter(supportFragmentManager)

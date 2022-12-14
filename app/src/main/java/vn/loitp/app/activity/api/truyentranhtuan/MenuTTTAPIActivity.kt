@@ -2,7 +2,6 @@ package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -37,7 +36,6 @@ class MenuTTTAPIActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuTTTAPIActivity::class.java.simpleName
         }
         btComicList.setSafeOnClickListener {

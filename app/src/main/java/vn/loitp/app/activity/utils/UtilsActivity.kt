@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.utils
 
 import android.os.Bundle
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -11,7 +10,7 @@ import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.utils.util.* // ktlint-disable no-wildcard-imports
+import com.loitpcore.utils.util.*
 import kotlinx.android.synthetic.main.activity_utils.*
 import vn.loitp.app.R
 
@@ -42,7 +41,6 @@ class UtilsActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = UtilsActivity::class.java.simpleName
         }
         viewPager.adapter = SlidePagerAdapter(supportFragmentManager)

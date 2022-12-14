@@ -41,7 +41,6 @@ class MenuConstraintlayoutActivity : BaseFontActivity(), OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.viewShadow?.isVisible = true
             this.tvTitle?.text = MenuConstraintlayoutActivity::class.java.simpleName
         }
         btConstraintSet.setOnClickListener(this)
