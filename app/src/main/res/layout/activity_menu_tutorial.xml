@@ -26,14 +26,15 @@
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRetrofit2"
+                style="@style/ButtonMenu"
+                android:text="@string/retrofit_2" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRxJava2"
                 style="@style/ButtonMenu"
                 android:text="@string/rxjava_2" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btRetrofit2"
-                style="@style/ButtonMenu"
-                android:text="@string/retrofit_2" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
