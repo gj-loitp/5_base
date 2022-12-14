@@ -1,14 +1,11 @@
 package vn.loitp.app.activity.tutorial
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_tutorial.*
 import vn.loitp.app.R
@@ -46,14 +43,9 @@ class MenuTutorialActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        var intent: Intent? = null
         when (v) {
-            btRxJava2 -> intent = Intent(this, MenuRxJava2Activity::class.java)
-            btRetrofit2 -> intent = Intent(this, Retrofit2Activity::class.java)
-        }
-        intent?.let {
-            startActivity(intent)
-            LActivityUtil.tranIn(this)
+            btRxJava2 -> launchActivity(MenuRxJava2Activity::class.java)
+            btRetrofit2 -> launchActivity(Retrofit2Activity::class.java)
         }
     }
 }
