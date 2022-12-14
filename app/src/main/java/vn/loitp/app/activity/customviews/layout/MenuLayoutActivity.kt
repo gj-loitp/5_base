@@ -12,6 +12,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity
 import vn.loitp.app.activity.customviews.layout.aspectratio.AspectRatioLayoutActivity
 import vn.loitp.app.activity.customviews.layout.autoLinearLayout.AutoLinearLayoutActivity
+import vn.loitp.app.activity.customviews.layout.autoScrollContent.AutoScrollContentActivity
 import vn.loitp.app.activity.customviews.layout.basketLayout.BasketLayoutActivity
 import vn.loitp.app.activity.customviews.layout.chess.ChessLayoutActivity
 import vn.loitp.app.activity.customviews.layout.circularView.CircularViewActivity
@@ -106,6 +107,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
         btReflectionLayoutActivity.setOnClickListener(this)
         btCornerCutLinearLayout.setOnClickListener(this)
         btGreedoLayout.setOnClickListener(this)
+        btAutoScrollContent.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -145,6 +147,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
             btReflectionLayoutActivity -> launchActivity(ReflectionLayoutActivity::class.java)
             btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivity::class.java)
             btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
+            btAutoScrollContent -> launchActivity(AutoScrollContentActivity::class.java)
         }
     }
 }

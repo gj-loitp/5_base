@@ -39,6 +39,11 @@
                 android:text="@string/autolinearlayout" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAutoScrollContent"
+                style="@style/ButtonMenu"
+                android:text="AutoScrollContent" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBasketLayoutActivity"
                 style="@style/ButtonMenu"
                 android:text="@string/basketlayout_activity" />

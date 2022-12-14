@@ -99,7 +99,8 @@ dependencies {
     api 'com.daimajia.androidanimations:library:2.4@aar'
 //    https://github.com/hannesa2/AndroidSlidingUpPanel
     api 'com.github.hannesa2:AndroidSlidingUpPanel:4.5.0'
-
+//    https://github.com/angelmmg90/AutoScrollContent
+    api 'com.github.angelmmg90:AutoScrollContent:0.1.0'
 //    https://github.com/ibrahimsn98/android-particles
     api 'com.github.ibrahimsn98:android-particles:2.0'
 //    https://github.com/barteksc/AndroidPdfViewer
