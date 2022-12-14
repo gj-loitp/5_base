@@ -128,7 +128,10 @@ abstract class BaseActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        val isKeepScreenOn = javaClass.getAnnotation(IsKeepScreenOn::class.java)?.value ?: true
+        if (isKeepScreenOn) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
 
         CheckNetworkConnectionHelper
             .getInstance()

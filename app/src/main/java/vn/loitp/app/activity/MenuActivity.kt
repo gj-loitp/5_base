@@ -8,6 +8,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
+import com.loitpcore.annotation.IsKeepScreenOn
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
@@ -38,6 +39,7 @@ import vn.loitp.app.activity.utils.UtilsActivity
 @LogTag("MenuActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
+@IsKeepScreenOn(true)
 class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {

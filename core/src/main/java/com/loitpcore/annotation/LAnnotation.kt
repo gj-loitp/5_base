@@ -27,3 +27,7 @@ annotation class IsSwipeActivity(val value: Boolean)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FILE)
 @Retention(AnnotationRetention.RUNTIME)
 annotation class IsAutoAnimation(val value: Boolean)
+
+@Target(AnnotationTarget.CLASS, AnnotationTarget.FILE)
+@Retention(AnnotationRetention.RUNTIME)
+annotation class IsKeepScreenOn(val value: Boolean)
