@@ -67,6 +67,7 @@ class LValidateUtil {
             "loitp93.basemaster",
             "loitp.khotruyenvuive",
             "com.bizman.bizman_dikauri",
+            "com.songnob.adsplayer",
             "com.roygroup.base",
             "com.roygroup.vnexpress",
             "com.roygroup.base.demo",
