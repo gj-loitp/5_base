@@ -963,5 +963,9 @@ class LUIUtil {
         fun setAlphaComponent(color: Int, alpha: Int = 50): Int {
             return ColorUtils.setAlphaComponent(/* color = */ color, /* alpha = */ alpha)
         }
+
+        fun setTextUnderline(tv: TextView) {
+            tv.paintFlags = tv.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        }
     }
 }

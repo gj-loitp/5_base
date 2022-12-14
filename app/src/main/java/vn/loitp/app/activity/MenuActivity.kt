@@ -53,29 +53,34 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = MenuActivity::class.java.simpleName
         }
-        tvPolicy.setSafeOnClickListener {
-            LSocialUtil.openUrlInBrowser(context = this, url = Constants.URL_POLICY)
+
+        tvPolicy.apply {
+            LUIUtil.setTextUnderline(this)
+            setSafeOnClickListener {
+                LSocialUtil.openUrlInBrowser(
+                    context = this@MenuActivity, url = Constants.URL_POLICY
+                )
+            }
         }
 
-        swDarkTheme.isChecked = LUIUtil.isDarkTheme()
-        swDarkTheme.setOnCheckedChangeListener { _, isDarkTheme ->
-            if (isDarkTheme) {
-                LUIUtil.setDarkTheme(isDarkTheme = true)
-            } else {
-                LUIUtil.setDarkTheme(isDarkTheme = false)
+        swDarkTheme.apply {
+            isChecked = LUIUtil.isDarkTheme()
+            setOnCheckedChangeListener { _, isDarkTheme ->
+                if (isDarkTheme) {
+                    LUIUtil.setDarkTheme(isDarkTheme = true)
+                } else {
+                    LUIUtil.setDarkTheme(isDarkTheme = false)
+                }
+                finish()//correct
+                startActivity(Intent(this@MenuActivity, MenuActivity::class.java))
+                overridePendingTransition(0, 0)
             }
-            finish()//correct
-            startActivity(Intent(this, MenuActivity::class.java))
-            overridePendingTransition(0, 0)
         }
 
         btApi.setOnClickListener(this)
@@ -184,16 +189,13 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             btChat -> LSocialUtil.chatMessenger(this)
             btGithub -> {
                 LSocialUtil.openUrlInBrowser(
-                    context = this,
-                    url = "https://github.com/tplloi/base"
+                    context = this, url = "https://github.com/tplloi/base"
                 )
             }
             btAdHelper -> {
-                launchActivity(
-                    cls = AdHelperActivity::class.java,
-                    data = {
-                        it.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
-                    })
+                launchActivity(cls = AdHelperActivity::class.java, data = {
+                    it.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
+                })
             }
             btFbFanpage -> LSocialUtil.likeFacebookFanpage(this)
             btFrmMore -> launchActivity(MoreActivity::class.java)
