@@ -69,8 +69,9 @@ class UtilsActivity : BaseFontActivity() {
 
         override fun getItem(position: Int): Fragment {
             val frm = FrmUtils()
-            val bundle = Bundle()
-            bundle.putString(FrmUtils.KEY_CLASS, listClass[position])
+            val bundle = Bundle().apply {
+                putString(FrmUtils.KEY_CLASS, listClass[position])
+            }
             frm.arguments = bundle
             return frm
         }
