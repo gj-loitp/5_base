@@ -16,13 +16,19 @@ class Retrofit2Adapter(
         fun onItemClick(retroCrypto: RetroCrypto)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int
+    ) {
         holder.bind(cryptoList[position], listener)
     }
 
     override fun getItemCount(): Int = cryptoList.count()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_retrofit2, parent, false)
         return ViewHolder(view)
