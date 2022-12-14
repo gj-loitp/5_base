@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
@@ -9,7 +8,6 @@ import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_custom_view.*
 import vn.loitp.app.R
@@ -127,54 +125,50 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
     }
 
     override fun onClick(v: View) {
-        val intent: Intent? = when (v) {
-            btViewPager -> Intent(this, MenuViewPagerActivity::class.java)
-            btButton -> Intent(this, MenuButtonActivity::class.java)
-            btProgressLoading -> Intent(this, MenuProgressLoadingViewsActivity::class.java)
-            btSwitch -> Intent(this, MenuSwitchToggleActivity::class.java)
-            btActionBar -> Intent(this, MenuActionBarActivity::class.java)
-            btImageView -> Intent(this, MenuImageViewActivity::class.java)
-            btTextView -> Intent(this, MenuTextViewActivity::class.java)
-            btBottomBarBlur -> Intent(this, MenuBottomNavigationActivity::class.java)
-            btSticker -> Intent(this, StickerActivity::class.java)
-            btEditText -> Intent(this, MenuEditTextActivity::class.java)
-            btLayout -> Intent(this, MenuLayoutActivity::class.java)
-            btVideoView -> Intent(this, MenuVideoViewActivity::class.java)
-            btSeekBar -> Intent(this, MenuSeekbarActivity::class.java)
-            btRecyclerView -> Intent(this, MenuRecyclerViewActivity::class.java)
-            btDialog -> Intent(this, MenuDialogActivity::class.java)
-            btPopupMenu -> Intent(this, PopupMenuActivity::class.java)
-            btScratchView -> Intent(this, MenuScratchViewActivity::class.java)
-            btNavigation -> Intent(this, MenuNavigationActivity::class.java)
-            btTreeView -> Intent(this, TreeViewActivity::class.java)
-            btDraggableFlipView -> Intent(this, DraggableFlipViewActivity::class.java)
-            btDragView -> Intent(this, MenuDragViewActivity::class.java)
-            btAnswerView -> Intent(this, AnswerViewActivity::class.java)
-            btBottomSheet -> Intent(this, MenuBottomSheetActivity::class.java)
-            btScrollablePanel -> Intent(this, ScrollablePanelActivity::class.java)
-            btFbCmt -> Intent(this, FacebookCommentActivity::class.java)
-            btWwlMusic -> Intent(this, WWLActivityMusic::class.java)
-            btWwlVideo -> Intent(this, WWLVideoActivity::class.java)
-            btLDebugView -> Intent(this, LDebugViewActivity::class.java)
-            btMenu -> Intent(this, MenuMenuActivity::class.java)
-            btLCardView -> Intent(this, LCardViewActivity::class.java)
-            btCalendar -> Intent(this, MenuCalendarActivity::class.java)
-            btWebView -> Intent(this, MenuWebViewActivity::class.java)
-            btIndicator -> Intent(this, MenuMagicIndicatorActivity::class.java)
-            btWheelSpinner -> Intent(this, WheelSpinnerActivity::class.java)
-            btFingerPaintView -> Intent(this, FingerPaintActivity::class.java)
-            btStackExpandableViewActivity -> Intent(this, StackExpandableViewActivity::class.java)
-            btMenuGraphViewActivity -> Intent(this, MenuGraphViewActivity::class.java)
-            btSimpleRatingBar -> Intent(this, SimpleRatingBarActivity::class.java)
-            btCodeView -> Intent(this, CodeViewActivity::class.java)
-            btWheelView -> Intent(this, WheelViewActivity::class.java)
-            btLuckyWheelActivity -> Intent(this, LuckyWheelActivity::class.java)
-            btCornerSheet -> Intent(this, ExampleActivity::class.java)
-            else -> null
+        when (v) {
+            btViewPager -> launchActivity(MenuViewPagerActivity::class.java)
+            btButton -> launchActivity(MenuButtonActivity::class.java)
+            btProgressLoading -> launchActivity(MenuProgressLoadingViewsActivity::class.java)
+            btSwitch -> launchActivity(MenuSwitchToggleActivity::class.java)
+            btActionBar -> launchActivity(MenuActionBarActivity::class.java)
+            btImageView -> launchActivity(MenuImageViewActivity::class.java)
+            btTextView -> launchActivity(MenuTextViewActivity::class.java)
+            btBottomBarBlur -> launchActivity(MenuBottomNavigationActivity::class.java)
+            btSticker -> launchActivity(StickerActivity::class.java)
+            btEditText -> launchActivity(MenuEditTextActivity::class.java)
+            btLayout -> launchActivity(MenuLayoutActivity::class.java)
+            btVideoView -> launchActivity(MenuVideoViewActivity::class.java)
+            btSeekBar -> launchActivity(MenuSeekbarActivity::class.java)
+            btRecyclerView -> launchActivity(MenuRecyclerViewActivity::class.java)
+            btDialog -> launchActivity(MenuDialogActivity::class.java)
+            btPopupMenu -> launchActivity(PopupMenuActivity::class.java)
+            btScratchView -> launchActivity(MenuScratchViewActivity::class.java)
+            btNavigation -> launchActivity(MenuNavigationActivity::class.java)
+            btTreeView -> launchActivity(TreeViewActivity::class.java)
+            btDraggableFlipView -> launchActivity(DraggableFlipViewActivity::class.java)
+            btDragView -> launchActivity(MenuDragViewActivity::class.java)
+            btAnswerView -> launchActivity(AnswerViewActivity::class.java)
+            btBottomSheet -> launchActivity(MenuBottomSheetActivity::class.java)
+            btScrollablePanel -> launchActivity(ScrollablePanelActivity::class.java)
+            btFbCmt -> launchActivity(FacebookCommentActivity::class.java)
+            btWwlMusic -> launchActivity(WWLActivityMusic::class.java)
+            btWwlVideo -> launchActivity(WWLVideoActivity::class.java)
+            btLDebugView -> launchActivity(LDebugViewActivity::class.java)
+            btMenu -> launchActivity(MenuMenuActivity::class.java)
+            btLCardView -> launchActivity(LCardViewActivity::class.java)
+            btCalendar -> launchActivity(MenuCalendarActivity::class.java)
+            btWebView -> launchActivity(MenuWebViewActivity::class.java)
+            btIndicator -> launchActivity(MenuMagicIndicatorActivity::class.java)
+            btWheelSpinner -> launchActivity(WheelSpinnerActivity::class.java)
+            btFingerPaintView -> launchActivity(FingerPaintActivity::class.java)
+            btStackExpandableViewActivity -> launchActivity(StackExpandableViewActivity::class.java)
+            btMenuGraphViewActivity -> launchActivity(MenuGraphViewActivity::class.java)
+            btSimpleRatingBar -> launchActivity(SimpleRatingBarActivity::class.java)
+            btCodeView -> launchActivity(CodeViewActivity::class.java)
+            btWheelView -> launchActivity(WheelViewActivity::class.java)
+            btLuckyWheelActivity -> launchActivity(LuckyWheelActivity::class.java)
+            btCornerSheet -> launchActivity(ExampleActivity::class.java)
         }
-        intent?.let {
-            startActivity(it)
-            LActivityUtil.tranIn(this)
-        }
+
     }
 }

@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor"
-    android:orientation="vertical">
+    android:background="?attr/themeBackgroundColor">
 
     <com.loitpcore.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/lActionBar">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -62,7 +64,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCornerSheet"
                 style="@style/ButtonMenu"
-                android:text="CornerSheet" />
+                android:text="@string/corner_sheet" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDialog"
@@ -127,7 +129,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btLuckyWheelActivity"
                 style="@style/ButtonMenu"
-                android:text="LuckyWheelActivity" />
+                android:text="@string/lucky_wheel_activity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMenu"
@@ -237,4 +239,4 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

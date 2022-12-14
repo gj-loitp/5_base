@@ -1150,4 +1150,6 @@ Likewise may someone love you next.
     </array>
     <string name="enable_fixed_height">Enable Fixed Height</string>
     <string name="disable_fixed_height">Disable Fixed Height</string>
+    <string name="corner_sheet">CornerSheet</string>
+    <string name="lucky_wheel_activity">LuckyWheelActivity</string>
 </resources>
