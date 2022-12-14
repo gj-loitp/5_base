@@ -13,54 +13,101 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.core.widget.NestedScrollView
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+        android:padding="@dimen/margin_padding_medium"
+        app:layout_constraintTop_toBottomOf="@+id/lActionBar">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:id="@+id/ll_loop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/w_65"
-            android:paddingBottom="@dimen/margin_padding_medium">
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:indeterminateTint="?attr/themeTextColor"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:scaleType="centerCrop"
-                android:src="@drawable/logo"
-                app:layout_constraintTop_toBottomOf="@+id/progressBar" />
-
-            <FrameLayout
-                android:id="@+id/flWindows"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/w_170"
-                android:layout_marginTop="@dimen/margin_padding_medium"
-                android:background="@color/red50"
-                app:layout_constraintTop_toBottomOf="@+id/iv" />
+            android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/margin_padding_medium"
-                android:text="@string/large_text"
-                android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/txt_medium"
-                app:layout_constraintTop_toBottomOf="@+id/flWindows" />
+                android:text="Loop" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/sw_lopp_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" />
+        </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+        <LinearLayout
+            android:id="@+id/ll_reverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_loop"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reverse" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/sw_reverse_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_horizontal_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_reverse"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Horizontal / Vertical" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/sw_horizontal_vertical_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_can_touch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_horizontal_vertical"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Can touch" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/sw_can_touch_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/ll_can_touch"
+            android:layout_margin="20dp"
+            android:background="#ccc" />
+
+        <com.teseo.studios.autoscrollcontent.AutoScrollContent
+            android:id="@+id/rv_auto_scroll_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seekbar"
+            tools:listitem="@layout/item_autoscroll_content" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
