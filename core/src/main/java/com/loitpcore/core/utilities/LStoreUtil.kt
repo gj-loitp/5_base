@@ -11,6 +11,7 @@ import android.provider.DocumentsContract
 import android.provider.MediaStore
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.model.App
+import com.loitpcore.model.data.Pkg
 import okhttp3.*
 import java.io.*
 import java.util.*
@@ -349,6 +350,36 @@ class LStoreUtil {
                             val json = responseBody.string()
                             val app = BaseApplication.gson.fromJson(json, App::class.java)
                             onGGResponse?.invoke(app)
+                        }
+                    } else {
+                        onGGResponse?.invoke(null)
+                    }
+                }
+            })
+        }
+
+        fun getPkgFromGGDrive(
+            linkGGDriveSetting: String? = null,
+            onGGFailure: ((call: Call, e: IOException) -> Unit)? = null,
+            onGGResponse: ((pkg: Pkg?) -> Unit)? = null
+        ) {
+            if (linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
+                return
+            }
+            val request = Request.Builder().url(linkGGDriveSetting).build()
+            val okHttpClient = OkHttpClient()
+            okHttpClient.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    onGGFailure?.invoke(call, e)
+                }
+
+                @Throws(IOException::class)
+                override fun onResponse(call: Call, response: Response) {
+                    if (response.isSuccessful) {
+                        response.body?.let { responseBody ->
+                            val json = responseBody.string()
+                            val pkg = BaseApplication.gson.fromJson(json, Pkg::class.java)
+                            onGGResponse?.invoke(pkg)
                         }
                     } else {
                         onGGResponse?.invoke(null)

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?selectableItemBackground"
+    android:paddingStart="@dimen/margin_padding_medium"
+    android:paddingTop="@dimen/margin_padding_small"
+    android:paddingEnd="@dimen/margin_padding_medium"
+    android:paddingBottom="@dimen/margin_padding_small">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/loitp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margin_padding_medium"
+        android:paddingEnd="0dp"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        app:layout_constraintTop_toBottomOf="@+id/tvQ"
+        tools:text="@string/loitp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
