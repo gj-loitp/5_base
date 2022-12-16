@@ -65,7 +65,6 @@ class LCardViewActivity : BaseFontActivity() {
             setCardElevation(10f)
             setImg(Constants.URL_IMG_2)
         }
-
         lCardView1.apply {
             setText(System.currentTimeMillis().toString() + "")
             height = LScreenUtil.screenHeight * 3 / 2
