@@ -6,6 +6,7 @@ import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_interview_vn_iq.*
@@ -35,10 +36,14 @@ class InterviewVNIQActivity : BaseFontActivity() {
             this.tvTitle?.text = InterviewVNIQActivity::class.java.simpleName
         }
 
+        addFragment(FrmListPackage())
+    }
+
+    fun addFragment(baseFragment: BaseFragment) {
         LScreenUtil.addFragment(
             activity = this,
             containerFrameLayoutIdRes = R.id.flContainer,
-            fragment = FrmListPackage(),
+            fragment = baseFragment,
             isAddToBackStack = true
         )
     }

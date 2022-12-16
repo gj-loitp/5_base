@@ -25,7 +25,7 @@
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/loitp" />
+            tools:text="@string/app_name" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvA"
@@ -36,7 +36,18 @@
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"
             app:layout_constraintTop_toBottomOf="@+id/tvQ"
-            tools:text="@string/loitp" />
+            tools:text="@string/app_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNextLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/margin_padding_medium"
+            android:paddingEnd="0dp"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/txt_small"
+            app:layout_constraintTop_toBottomOf="@+id/tvA"
+            tools:text="@string/app_name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

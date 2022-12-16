@@ -7,21 +7,24 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.core.utilities.LStoreUtil
-import kotlinx.android.synthetic.main.activity_recycler_view_concat_adapter.*
-import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_package.*
-import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_package.recyclerView
+import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_qa.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.interviewVN.adapter.QAAdapter
 
 //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
-@LogTag("FrmListPackage")
-class FrmListPackage : BaseFragment() {
+@LogTag("FrmListQA")
+class FrmListQA : BaseFragment() {
+
+    companion object {
+        const val KEY_NEXT_LINK = "KEY_NEXT_LINK"
+    }
 
     private var concatAdapter = ConcatAdapter()
     private var qaAdapter = QAAdapter(ArrayList())
+    private var linkGGDrive: String? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_interview_vn_iq_list_package
+        return R.layout.frm_interview_vn_iq_list_qa
     }
 
     override fun onViewCreated(
@@ -30,29 +33,31 @@ class FrmListPackage : BaseFragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
+        arguments?.let {
+            linkGGDrive = it.getString(KEY_NEXT_LINK)
+        }
+        logE(">>>linkGGDrive $linkGGDrive")
+
         setupViews()
         setupData()
     }
 
     private fun setupViews() {
         recyclerView.layoutManager = LinearLayoutManager(context)
-        qaAdapter.onClickRootListener = { qa, _ ->
-            if (activity is InterviewVNIQActivity) {
-                (activity as InterviewVNIQActivity).addFragment(FrmListQA().apply {
-                    arguments = Bundle().apply {
-                        putString(FrmListQA.KEY_NEXT_LINK, qa.nextLink)
-                    }
-                })
-            }
+        qaAdapter.onClickRootListener = { qa, position ->
+
         }
         concatAdapter.addAdapter(qaAdapter)
         recyclerView.adapter = concatAdapter
     }
 
     private fun setupData() {
+        if (linkGGDrive.isNullOrEmpty()) {
+            return
+        }
         showDialogProgress()
         LStoreUtil.getPkgFromGGDrive(
-            linkGGDriveSetting = "https://drive.google.com/uc?export=download&id=1bF_xmaIGsre7c-aGeDhgSnWH7IYoqq8K",
+            linkGGDriveSetting = linkGGDrive,
             onGGFailure = { _, e ->
                 hideDialogProgress()
                 showShortError(e.toString())

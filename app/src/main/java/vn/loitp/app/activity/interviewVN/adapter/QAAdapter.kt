@@ -38,6 +38,13 @@ class QAAdapter(
                 itemView.tvA.isVisible = true
                 itemView.tvA.text = qa.a
             }
+            if (qa.nextLink.isEmpty()) {
+                itemView.tvNextLink.isVisible = false
+            } else {
+                itemView.tvNextLink.isVisible = true
+                itemView.tvNextLink.text = qa.nextLink
+            }
+
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(qa, bindingAdapterPosition)
             }
