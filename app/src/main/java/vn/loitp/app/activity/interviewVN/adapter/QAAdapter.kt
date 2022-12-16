@@ -11,6 +11,7 @@ import com.loitpcore.core.adapter.BaseAdapter
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.model.data.QA
 import kotlinx.android.synthetic.main.view_item_qa.view.*
+import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 
 @LogTag("QAAdapter")
@@ -38,11 +39,13 @@ class QAAdapter(
                 itemView.tvA.isVisible = true
                 itemView.tvA.text = qa.a
             }
-            if (qa.nextLink.isEmpty()) {
-                itemView.tvNextLink.isVisible = false
-            } else {
-                itemView.tvNextLink.isVisible = true
-                itemView.tvNextLink.text = qa.nextLink
+            if (BuildConfig.DEBUG) {
+                if (qa.nextLink.isEmpty()) {
+                    itemView.tvNextLink.isVisible = false
+                } else {
+                    itemView.tvNextLink.isVisible = true
+                    itemView.tvNextLink.text = qa.nextLink
+                }
             }
 
             itemView.layoutRoot.setSafeOnClickListener {

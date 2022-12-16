@@ -77,11 +77,15 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    open fun showDialogError(errMsg: String, runnable: Runnable? = null) {
+    open fun showDialogError(
+        title: String = getString(R.string.warning),
+        errMsg: String,
+        runnable: Runnable? = null
+    ) {
         context?.let {
             LDialogUtil.showDialog1(
                 context = it,
-                title = getString(R.string.warning),
+                title = title,
                 msg = errMsg,
                 button1 = getString(R.string.confirm),
                 onClickButton1 = {
@@ -91,11 +95,15 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    open fun showDialogMsg(msg: String, runnable: Runnable? = null) {
+    open fun showDialogMsg(
+        title: String = getString(R.string.app_name),
+        msg: String,
+        runnable: Runnable? = null
+    ) {
         context?.let {
             LDialogUtil.showDialog1(
                 context = it,
-                title = getString(R.string.app_name),
+                title = title,
                 msg = msg,
                 button1 = getString(R.string.confirm),
                 onClickButton1 = {
@@ -106,7 +114,11 @@ abstract class BaseFragment : Fragment() {
     }
 
     // https://stackoverflow.com/questions/14900738/nested-fragments-disappear-during-transition-animation
-    override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation? {
+    override fun onCreateAnimation(
+        transit: Int,
+        enter: Boolean,
+        nextAnim: Int
+    ): Animation? {
         val parent = parentFragment
 
         // Apply the workaround only if this is a child fragment, and the parent
@@ -125,7 +137,10 @@ abstract class BaseFragment : Fragment() {
     }
 
     @Suppress("unused")
-    private fun getNextAnimationDuration(fragment: Fragment, defValue: Long): Long {
+    private fun getNextAnimationDuration(
+        fragment: Fragment,
+        defValue: Long
+    ): Long {
         try {
             // Attempt to get the resource ID of the next animation that
             // will be applied to the given fragment.
@@ -149,37 +164,55 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    protected fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
+    protected fun showShortInformation(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
         }
     }
 
-    protected fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
+    protected fun showShortWarning(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
         }
     }
 
-    protected fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
+    protected fun showShortError(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showShortError(msg = msg, isTopAnchor = isTopAnchor)
         }
     }
 
-    protected fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
+    protected fun showLongInformation(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
         }
     }
 
-    protected fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
+    protected fun showLongWarning(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
         }
     }
 
-    protected fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
+    protected fun showLongError(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showLongError(msg = msg, isTopAnchor = isTopAnchor)
         }
