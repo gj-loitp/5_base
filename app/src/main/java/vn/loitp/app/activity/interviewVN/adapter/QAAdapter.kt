@@ -11,12 +11,13 @@ import com.loitpcore.core.adapter.BaseAdapter
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.model.data.QA
 import kotlinx.android.synthetic.main.view_item_qa.view.*
-import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 
 @LogTag("QAAdapter")
 class QAAdapter(
-    private val listQA: ArrayList<QA>
+    private val listQA: ArrayList<QA>,
+    private val isShowADefault: Boolean,
+    private val isShowNextLink: Boolean,
 ) : BaseAdapter() {
 
     var onClickRootListener: ((QA, Int) -> Unit)? = null
@@ -33,19 +34,26 @@ class QAAdapter(
         fun bind(qa: QA) {
             itemView.tvQ.text = "${bindingAdapterPosition + 1} - ${qa.q}"
 
-            if (qa.a.isEmpty()) {
-                itemView.tvA.isVisible = false
+            if (isShowADefault) {
+                if (qa.a.isEmpty()) {
+                    itemView.tvA.isVisible = false
+                } else {
+                    itemView.tvA.isVisible = true
+                    itemView.tvA.text = qa.a
+                }
             } else {
-                itemView.tvA.isVisible = true
-                itemView.tvA.text = qa.a
+                itemView.tvA.isVisible = false
             }
-            if (BuildConfig.DEBUG) {
+
+            if (isShowNextLink) {
                 if (qa.nextLink.isEmpty()) {
                     itemView.tvNextLink.isVisible = false
                 } else {
                     itemView.tvNextLink.isVisible = true
                     itemView.tvNextLink.text = qa.nextLink
                 }
+            } else {
+                itemView.tvNextLink.isVisible = false
             }
 
             itemView.layoutRoot.setSafeOnClickListener {

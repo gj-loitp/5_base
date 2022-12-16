@@ -18,7 +18,11 @@ import vn.loitp.app.activity.interviewVN.adapter.QAAdapter
 class FrmListPackage : BaseFragment() {
 
     private var concatAdapter = ConcatAdapter()
-    private var qaAdapter = QAAdapter(ArrayList())
+    private var qaAdapter = QAAdapter(
+        listQA = ArrayList(),
+        isShowADefault = false,
+        isShowNextLink = false
+    )
 
     override fun setLayoutResourceId(): Int {
         return R.layout.frm_interview_vn_iq_list_package

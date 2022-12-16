@@ -21,7 +21,11 @@ class FrmListQA : BaseFragment() {
     }
 
     private var concatAdapter = ConcatAdapter()
-    private var qaAdapter = QAAdapter(ArrayList())
+    private var qaAdapter = QAAdapter(
+        listQA = ArrayList(),
+        isShowADefault = false,
+        isShowNextLink = false
+    )
     private var linkGGDrive: String? = null
 
     override fun setLayoutResourceId(): Int {
@@ -45,8 +49,8 @@ class FrmListQA : BaseFragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         qaAdapter.onClickRootListener = { qa, _ ->
             showDialogMsg(
-                title = qa.q,
-                msg = qa.a
+                title = "Question: ${qa.q}",
+                msg = "Answer: ${qa.a}"
             )
         }
         concatAdapter.addAdapter(qaAdapter)
