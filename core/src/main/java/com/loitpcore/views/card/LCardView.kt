@@ -69,7 +69,6 @@ class LCardView : RelativeLayout {
         cardView.setOnClickListener { v ->
             callback?.onClickRoot(v)
         }
-
         cardView.setOnLongClickListener { v ->
             callback?.onLongClickRoot(v)
             true
@@ -77,7 +76,6 @@ class LCardView : RelativeLayout {
         textView.setOnClickListener { v ->
             callback?.onClickText(v)
         }
-
         textView.setOnLongClickListener { v ->
             callback?.onLongClickText(v)
             true
@@ -85,16 +83,16 @@ class LCardView : RelativeLayout {
     }
 
     fun setHeight(px: Int) {
-        cardView.let {
-            it.layoutParams.height = px
-            it.requestLayout()
+        cardView.apply {
+            layoutParams.height = px
+            requestLayout()
         }
     }
 
     fun setWidth(px: Int) {
-        cardView.let {
-            it.layoutParams.width = px
-            it.requestLayout()
+        cardView.apply {
+            layoutParams.width = px
+            requestLayout()
         }
     }
 
@@ -110,11 +108,11 @@ class LCardView : RelativeLayout {
     fun setCardElevation(elevation: Float) {
         cardView.cardElevation = elevation
         LUIUtil.setMargins(
-            cardView,
-            elevation.toInt(),
-            elevation.toInt(),
-            elevation.toInt(),
-            elevation.toInt() * 2
+            view = cardView,
+            leftPx = elevation.toInt(),
+            topPx = elevation.toInt(),
+            rightPx = elevation.toInt(),
+            bottomPx = elevation.toInt() * 2
         )
     }
 

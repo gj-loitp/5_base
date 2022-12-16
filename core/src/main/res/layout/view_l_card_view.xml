@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="@dimen/w_150"
-    card_view:cardBackgroundColor="@color/lightGrey"
-    card_view:cardCornerRadius="0dp"
-    card_view:cardElevation="0dp">
+    app:cardBackgroundColor="@color/lightGrey"
+    app:cardCornerRadius="@dimen/round_medium"
+    app:cardElevation="@dimen/w_1"
+    app:cardUseCompatPadding="false">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -21,17 +22,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            tools:src="@color/red" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:padding="@dimen/w_3"
+            android:padding="@dimen/margin_padding_small"
             android:singleLine="true"
             android:text="@string/app_name"
             android:textColor="@color/white"
-            android:textSize="@dimen/txt_large" />
-    </RelativeLayout>
-</androidx.cardview.widget.CardView>
+            android:textSize="@dimen/txt_large"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
