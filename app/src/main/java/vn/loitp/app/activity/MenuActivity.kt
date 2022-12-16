@@ -26,6 +26,7 @@ import vn.loitp.app.activity.database.MenuDatabaseActivity
 import vn.loitp.app.activity.demo.MenuDemoActivity
 import vn.loitp.app.activity.function.MenuFunctionActivity
 import vn.loitp.app.activity.game.MenuGameActivity
+import vn.loitp.app.activity.interviewVN.InterviewVNIQActivity
 import vn.loitp.app.activity.more.MoreActivity
 import vn.loitp.app.activity.network.NetworkActivity
 import vn.loitp.app.activity.pattern.MenuPatternActivity
@@ -108,6 +109,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         btUtilsCore.setOnClickListener(this)
         btGame.setOnClickListener(this)
         btFeedback.setOnClickListener(this)
+        btInterviewVNIQActivity.setOnClickListener(this)
     }
 
     private fun setupConfigGoogle() {
@@ -218,6 +220,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                     body = "..."
                 )
             }
+            btInterviewVNIQActivity -> launchActivity(InterviewVNIQActivity::class.java)
         }
     }
 }

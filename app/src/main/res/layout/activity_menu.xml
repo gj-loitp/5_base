@@ -86,6 +86,11 @@
                 android:text="Game" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btInterviewVNIQActivity"
+                style="@style/ButtonMenu"
+                android:text="InterviewVNIQActivity IQ" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNetwork"
                 style="@style/ButtonMenu"
                 android:text="@string/network" />
