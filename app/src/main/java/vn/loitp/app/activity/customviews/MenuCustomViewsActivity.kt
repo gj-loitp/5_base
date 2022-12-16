@@ -17,8 +17,9 @@ import vn.loitp.app.activity.customviews.bottomBar.MenuBottomNavigationActivity
 import vn.loitp.app.activity.customviews.bottomSheet.MenuBottomSheetActivity
 import vn.loitp.app.activity.customviews.button.MenuButtonActivity
 import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
+import vn.loitp.app.activity.customviews.cardView.CardViewActivity
 import vn.loitp.app.activity.customviews.codeView.CodeViewActivity
-import vn.loitp.app.activity.customviews.cornerSheet.ExampleActivity
+import vn.loitp.app.activity.customviews.cornerSheet.CornetSheetExampleActivity
 import vn.loitp.app.activity.customviews.dialog.MenuDialogActivity
 import vn.loitp.app.activity.customviews.dragView.MenuDragViewActivity
 import vn.loitp.app.activity.customviews.draggableFlipView.DraggableFlipViewActivity
@@ -122,6 +123,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btWheelView.setOnClickListener(this)
         btLuckyWheelActivity.setOnClickListener(this)
         btCornerSheet.setOnClickListener(this)
+        btCardView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -167,7 +169,8 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btCodeView -> launchActivity(CodeViewActivity::class.java)
             btWheelView -> launchActivity(WheelViewActivity::class.java)
             btLuckyWheelActivity -> launchActivity(LuckyWheelActivity::class.java)
-            btCornerSheet -> launchActivity(ExampleActivity::class.java)
+            btCornerSheet -> launchActivity(CornetSheetExampleActivity::class.java)
+            btCardView -> launchActivity(CardViewActivity::class.java)
         }
 
     }

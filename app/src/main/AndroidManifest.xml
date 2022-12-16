@@ -1283,7 +1283,7 @@
             android:name=".activity.customviews.layout.reflection.ReflectionLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.cornerSheet.ExampleActivity"
+            android:name=".activity.customviews.cornerSheet.CornetSheetExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.cornerSheet.BehaviorSampleActivity"
@@ -1383,6 +1383,9 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.autoScrollContent.AutoScrollContentActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.customviews.cardView.CardViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>

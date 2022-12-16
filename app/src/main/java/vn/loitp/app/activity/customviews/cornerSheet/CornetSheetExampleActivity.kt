@@ -18,7 +18,7 @@ import vn.loitp.app.activity.customviews.cornerSheet.support.ShopActivity
 @LogTag("ExampleActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class ExampleActivity : BaseFontActivity() {
+class CornetSheetExampleActivity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
         return R.layout.example_activity
     }
@@ -38,7 +38,7 @@ class ExampleActivity : BaseFontActivity() {
                     view = it,
                     runnable = {
                         LSocialUtil.openUrlInBrowser(
-                            context = this@ExampleActivity,
+                            context = this@CornetSheetExampleActivity,
                             url = "https://github.com/HeyAlex/CornerSheet"
                         )
                     }
