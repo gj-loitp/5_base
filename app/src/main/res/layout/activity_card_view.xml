@@ -25,6 +25,29 @@
             android:paddingTop="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mcvTest"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_250"
+                android:layout_marginStart="@dimen/margin_padding_medium"
+                android:layout_marginEnd="@dimen/margin_padding_medium"
+                app:cardBackgroundColor="@color/red"
+                app:cardCornerRadius="@dimen/round_largest"
+                app:cardElevation="@dimen/w_3"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="false"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/whiteSmoke"
+                app:strokeWidth="@dimen/w_3" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btChange"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_padding_medium"
+                android:text="Change"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mcvTest" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
