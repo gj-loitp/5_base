@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.cardView
 
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.google.android.material.shape.CornerFamily
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -20,7 +19,7 @@ import vn.loitp.app.R
 class CardViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return vn.loitp.app.R.layout.activity_card_view
+        return R.layout.activity_card_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,13 +46,13 @@ class CardViewActivity : BaseFontActivity() {
             val radiusBL = resources.getDimension(R.dimen.round_large)
             val radiusBR = resources.getDimension(R.dimen.round_largest)
 
-            mcvTest.shapeAppearanceModel = mcvTest.shapeAppearanceModel
-                .toBuilder()
-                .setTopLeftCorner(CornerFamily.ROUNDED, radiusTL)
-                .setTopRightCorner(CornerFamily.ROUNDED, radiusTR)
-                .setBottomRightCorner(CornerFamily.ROUNDED, radiusBL)
-                .setBottomLeftCorner(CornerFamily.ROUNDED, radiusBR)
-                .build()
+            LUIUtil.setCornerCardView(
+                cardView = mcvTest,
+                radiusTL = radiusTL,
+                radiusTR = radiusTR,
+                radiusBL = radiusBL,
+                radiusBR = radiusBR
+            )
         }
     }
 }

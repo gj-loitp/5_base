@@ -28,7 +28,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager.widget.ViewPager
 import com.github.wallpoo.Wallpo
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.shape.CornerFamily
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
@@ -155,7 +157,10 @@ class LUIUtil {
             return gradientDrawable
         }
 
-        fun createGradientDrawableWithColor(colorMain: Int, colorStroke: Int): GradientDrawable {
+        fun createGradientDrawableWithColor(
+            colorMain: Int,
+            colorStroke: Int
+        ): GradientDrawable {
             val gradientDrawable = GradientDrawable()
             gradientDrawable.setColor(colorMain)
             gradientDrawable.cornerRadius = 90f
@@ -163,7 +168,11 @@ class LUIUtil {
             return gradientDrawable
         }
 
-        fun setCircleViewWithColor(view: View, colorMain: Int, colorStroke: Int) {
+        fun setCircleViewWithColor(
+            view: View,
+            colorMain: Int,
+            colorStroke: Int
+        ) {
             try {
                 view.setBackgroundDrawable(createGradientDrawableWithColor(colorMain, colorStroke))
             } catch (e: Exception) {
@@ -195,13 +204,19 @@ class LUIUtil {
         }
 
         @Suppress("DEPRECATION")
-        fun setTextFromHTML(textView: TextView?, bodyData: String) {
+        fun setTextFromHTML(
+            textView: TextView?,
+            bodyData: String
+        ) {
             textView?.let {
                 it.text = Html.fromHtml(bodyData, Html.FROM_HTML_MODE_LEGACY)
             }
         }
 
-        fun setImageFromAsset(fileName: String, imageView: ImageView?) {
+        fun setImageFromAsset(
+            fileName: String,
+            imageView: ImageView?
+        ) {
             imageView?.let { iv ->
                 run {
                     val drawable: Drawable?
@@ -226,7 +241,10 @@ class LUIUtil {
         }
 
         @Suppress("unused")
-        fun fixSizeTabLayout(tabLayout: TabLayout, titleList: Array<String>) {
+        fun fixSizeTabLayout(
+            tabLayout: TabLayout,
+            titleList: Array<String>
+        ) {
             if (titleList.size > 3) {
                 tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
             } else {
@@ -238,13 +256,19 @@ class LUIUtil {
             }
         }
 
-        fun setDelay(mls: Int, runnable: Runnable) {
+        fun setDelay(
+            mls: Int,
+            runnable: Runnable
+        ) {
             val handler = Handler(Looper.getMainLooper())
             handler.postDelayed({ runnable.run() }, mls.toLong())
         }
 
         @Suppress("unused")
-        fun setSoftInputMode(activity: Activity, mode: Int) {
+        fun setSoftInputMode(
+            activity: Activity,
+            mode: Int
+        ) {
             // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
             // activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
             activity.window.setSoftInputMode(mode)
@@ -269,11 +293,17 @@ class LUIUtil {
             )
         }
 
-        fun setProgressViewOffset(swipeRefreshLayout: SwipeRefreshLayout?, topMargin: Int) {
+        fun setProgressViewOffset(
+            swipeRefreshLayout: SwipeRefreshLayout?,
+            topMargin: Int
+        ) {
             swipeRefreshLayout?.setProgressViewOffset(false, 0, topMargin)
         }
 
-        fun setTextShadow(textView: TextView?, color: Int?) {
+        fun setTextShadow(
+            textView: TextView?,
+            color: Int?
+        ) {
             val mColor: Int = color
                 ?: if (isDarkTheme()) {
                     Color.BLACK
@@ -292,7 +322,10 @@ class LUIUtil {
             textBold.setTypeface(null, Typeface.BOLD)
         }
 
-        fun printBeautyJson(o: Any, textView: TextView?) {
+        fun printBeautyJson(
+            o: Any,
+            textView: TextView?
+        ) {
             textView?.let {
                 val gson = GsonBuilder().setPrettyPrinting().create()
                 val json = gson.toJson(o)
@@ -301,7 +334,11 @@ class LUIUtil {
         }
 
         @SuppressLint("SetTextI18n")
-        fun printBeautyJson(o: Any?, textView: TextView?, tag: String) {
+        fun printBeautyJson(
+            o: Any?,
+            textView: TextView?,
+            tag: String
+        ) {
             textView?.let { tv ->
                 o?.let {
                     val gson = GsonBuilder().setPrettyPrinting().create()
@@ -532,7 +569,10 @@ class LUIUtil {
             progressBar?.visibility = visibility
         }
 
-        fun setColorSeekBar(seekBar: SeekBar?, color: Int) {
+        fun setColorSeekBar(
+            seekBar: SeekBar?,
+            color: Int
+        ) {
             seekBar?.let {
                 it.progressDrawable.setColorFilter(color, PorterDuff.Mode.SRC_IN)
                 it.thumb.setColorFilter(color, PorterDuff.Mode.SRC_IN)
@@ -550,14 +590,23 @@ class LUIUtil {
 //            textView?.setTextSize(typedValue, size.toFloat())
 //        }
 
-        fun setTextSize(textView: TextView?, size: Float) {
+        fun setTextSize(
+            textView: TextView?,
+            size: Float
+        ) {
             if (size < 0 || textView == null) {
                 return
             }
             textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
         }
 
-        fun setMargins(view: View?, leftPx: Int, topPx: Int, rightPx: Int, bottomPx: Int) {
+        fun setMargins(
+            view: View?,
+            leftPx: Int,
+            topPx: Int,
+            rightPx: Int,
+            bottomPx: Int
+        ) {
             view?.let {
                 if (it.layoutParams is ViewGroup.MarginLayoutParams) {
                     val p = it.layoutParams as ViewGroup.MarginLayoutParams
@@ -567,7 +616,13 @@ class LUIUtil {
             }
         }
 
-        fun setMarginsDp(view: View?, leftDp: Int, topDp: Int, rightDp: Int, bottomDp: Int) {
+        fun setMarginsDp(
+            view: View?,
+            leftDp: Int,
+            topDp: Int,
+            rightDp: Int,
+            bottomDp: Int
+        ) {
             view?.let {
                 if (it.layoutParams is ViewGroup.MarginLayoutParams) {
                     val p = it.layoutParams as ViewGroup.MarginLayoutParams
@@ -582,7 +637,10 @@ class LUIUtil {
             }
         }
 
-        fun changeTabsFont(tabLayout: TabLayout?, fontName: String) {
+        fun changeTabsFont(
+            tabLayout: TabLayout?,
+            fontName: String
+        ) {
             tabLayout?.let {
                 val vg = it.getChildAt(0) as ViewGroup
                 val tabsCount = vg.childCount
@@ -670,7 +728,10 @@ class LUIUtil {
         }
 
         // playYoutube(activity, "http://www.youtube.com/watch?v=Hxy8BZGQ5Jo");
-        fun playYoutube(activity: Activity?, url: String?) {
+        fun playYoutube(
+            activity: Activity?,
+            url: String?
+        ) {
             activity?.let { a ->
                 if (url.isNullOrEmpty()) {
                     return
@@ -680,7 +741,10 @@ class LUIUtil {
             }
         }
 
-        fun playYoutubeWithId(activity: Activity?, id: String) {
+        fun playYoutubeWithId(
+            activity: Activity?,
+            id: String
+        ) {
             activity?.let { a ->
                 playYoutube(activity = a, url = "http://www.youtube.com/watch?v=$id")
             }
@@ -700,7 +764,11 @@ class LUIUtil {
         }
 
         @SuppressLint("RestrictedApi")
-        fun setCheckBoxColor(checkBox: AppCompatCheckBox, uncheckedColor: Int, checkedColor: Int) {
+        fun setCheckBoxColor(
+            checkBox: AppCompatCheckBox,
+            uncheckedColor: Int,
+            checkedColor: Int
+        ) {
             val colorStateList = ColorStateList(
                 arrayOf(
                     intArrayOf(-android.R.attr.state_checked), // unchecked
@@ -711,7 +779,10 @@ class LUIUtil {
             checkBox.supportButtonTintList = colorStateList
         }
 
-        fun setChangeStatusBarTintToDark(window: Window, shouldChangeStatusBarTintToDark: Boolean) {
+        fun setChangeStatusBarTintToDark(
+            window: Window,
+            shouldChangeStatusBarTintToDark: Boolean
+        ) {
             val decor = window.decorView
             if (shouldChangeStatusBarTintToDark) {
                 decor.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
@@ -923,7 +994,10 @@ class LUIUtil {
             }
         }
 
-        fun setDrawableTintColor(textView: TextView, color: Int) {
+        fun setDrawableTintColor(
+            textView: TextView,
+            color: Int
+        ) {
             for (drawable in textView.compoundDrawables) {
                 if (drawable != null) {
                     drawable.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)
@@ -932,7 +1006,10 @@ class LUIUtil {
         }
 
         @Suppress("unused")
-        fun setTypeface(textView: TextView, pathFontAsset: String) {
+        fun setTypeface(
+            textView: TextView,
+            pathFontAsset: String
+        ) {
             val type = Typeface.createFromAsset(textView.context.assets, pathFontAsset)
             textView.typeface = type
         }
@@ -960,12 +1037,31 @@ class LUIUtil {
             }
         }
 
-        fun setAlphaComponent(color: Int, alpha: Int = 50): Int {
+        fun setAlphaComponent(
+            color: Int,
+            alpha: Int = 50
+        ): Int {
             return ColorUtils.setAlphaComponent(/* color = */ color, /* alpha = */ alpha)
         }
 
         fun setTextUnderline(tv: TextView) {
             tv.paintFlags = tv.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        }
+
+        fun setCornerCardView(
+            cardView: MaterialCardView,
+            radiusTL: Float,
+            radiusTR: Float,
+            radiusBL: Float,
+            radiusBR: Float,
+        ) {
+            cardView.shapeAppearanceModel = cardView.shapeAppearanceModel
+                .toBuilder()
+                .setTopLeftCorner(CornerFamily.ROUNDED, radiusTL)
+                .setTopRightCorner(CornerFamily.ROUNDED, radiusTR)
+                .setBottomRightCorner(CornerFamily.ROUNDED, radiusBL)
+                .setBottomLeftCorner(CornerFamily.ROUNDED, radiusBR)
+                .build()
         }
     }
 }
