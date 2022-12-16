@@ -4,15 +4,14 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.adapter.BaseAdapter
 import com.loitpcore.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.view_item_qa.view.*
-import kotlinx.android.synthetic.main.view_item_qa.view.layoutRoot
-import kotlinx.android.synthetic.main.view_item_user.view.*
-import vn.loitp.app.R
 import com.loitpcore.model.data.QA
+import kotlinx.android.synthetic.main.view_item_qa.view.*
+import vn.loitp.app.R
 
 @LogTag("QAAdapter")
 class QAAdapter(
@@ -29,9 +28,16 @@ class QAAdapter(
     }
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(qa: QA) {
-            itemView.tvQ.text = qa.q
-            itemView.tvA.text = qa.a
+            itemView.tvQ.text = "${bindingAdapterPosition + 1} - ${qa.q}"
+
+            if (qa.a.isEmpty()) {
+                itemView.tvA.isVisible = false
+            } else {
+                itemView.tvA.isVisible = true
+                itemView.tvA.text = qa.a
+            }
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(qa, bindingAdapterPosition)
             }
