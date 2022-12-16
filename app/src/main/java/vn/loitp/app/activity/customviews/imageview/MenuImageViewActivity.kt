@@ -23,6 +23,7 @@ import vn.loitp.app.activity.customviews.imageview.previewImageCollection.Previe
 import vn.loitp.app.activity.customviews.imageview.reflection.ReflectionActivity
 import vn.loitp.app.activity.customviews.imageview.roundedImageView.RoundedImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.scrollParallax.ScrollParallaxImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.shapeableImageView.ShapeableImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.stfaiconImageViewer.ListActivity
 import vn.loitp.app.activity.customviews.imageview.strectchy.StrectchyImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.touch.TouchImageViewActivity
@@ -70,6 +71,7 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
         btReflection.setOnClickListener(this)
         btRoundedImageView.setOnClickListener(this)
         btPreviewImageCollection.setOnClickListener(this)
+        btShapeableImageViewActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -91,6 +93,7 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
             btReflection -> launchActivity(ReflectionActivity::class.java)
             btRoundedImageView -> launchActivity(RoundedImageViewActivity::class.java)
             btPreviewImageCollection -> launchActivity(PreviewImageCollectionActivity::class.java)
+            btShapeableImageViewActivity -> launchActivity(ShapeableImageViewActivity::class.java)
         }
     }
 }

@@ -83,6 +83,11 @@
                 android:text="@string/scroll_parallax_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShapeableImageViewActivity"
+                style="@style/ButtonMenu"
+                android:text="ShapeableImageViewActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btStfalconImageViewer"
                 style="@style/ButtonMenu"
                 android:text="@string/stfalcon_imageviewer" />
