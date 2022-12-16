@@ -2,10 +2,12 @@ package vn.loitp.app.activity.customviews.imageview.shapeableImageView
 
 import android.os.Bundle
 import androidx.core.view.isVisible
+import com.google.android.material.shape.CornerFamily
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_shapeable_image_view.*
@@ -49,5 +51,17 @@ class ShapeableImageViewActivity : BaseFontActivity() {
             }
             this.tvTitle?.text = ShapeableImageViewActivity::class.java.simpleName
         }
+
+        siv.shapeAppearanceModel = siv.shapeAppearanceModel
+            .toBuilder()
+            .setTopRightCorner(
+                CornerFamily.ROUNDED,
+                LAppResource.getDimenValue(R.dimen.round_largest).toFloat()
+            )
+            .setBottomLeftCorner(
+                CornerFamily.ROUNDED,
+                LAppResource.getDimenValue(R.dimen.round_medium).toFloat()
+            )
+            .build()
     }
 }
