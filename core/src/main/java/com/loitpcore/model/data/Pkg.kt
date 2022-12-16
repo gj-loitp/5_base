@@ -4,5 +4,5 @@ import androidx.annotation.Keep
 
 @Keep
 data class Pkg(
-    val data: List<QA>
+    val data: ArrayList<QA>
 )

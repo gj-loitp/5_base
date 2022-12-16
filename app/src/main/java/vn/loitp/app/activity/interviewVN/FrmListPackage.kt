@@ -13,10 +13,12 @@ import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_package.recyclerV
 import vn.loitp.app.R
 import vn.loitp.app.activity.interviewVN.adapter.QAAdapter
 
+//https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
 @LogTag("FrmListPackage")
 class FrmListPackage : BaseFragment() {
 
     private var concatAdapter = ConcatAdapter()
+    private var qaAdapter = QAAdapter(ArrayList())
 
     override fun setLayoutResourceId(): Int {
         return R.layout.frm_interview_vn_iq_list_package
@@ -34,10 +36,8 @@ class FrmListPackage : BaseFragment() {
 
     private fun setupViews() {
         recyclerView.layoutManager = LinearLayoutManager(context)
-        val qaAdapter = QAAdapter(ArrayList()).apply {
-            onClickRootListener = { qa, position ->
+        qaAdapter.onClickRootListener = { qa, position ->
 
-            }
         }
         concatAdapter.addAdapter(qaAdapter)
         recyclerView.adapter = concatAdapter
@@ -50,11 +50,13 @@ class FrmListPackage : BaseFragment() {
                 showShortError(e.toString())
             },
             onGGResponse = { pkg ->
-                val list = pkg?.data
-                if (list.isNullOrEmpty()) {
-                    showShortError(getString(R.string.no_data_eng))
-                } else {
-                    logE(">>> ${list.size}")
+                activity?.runOnUiThread {
+                    val list = pkg?.data
+                    if (list.isNullOrEmpty()) {
+                        showShortError(getString(R.string.no_data_eng))
+                    } else {
+                        qaAdapter.setData(list)
+                    }
                 }
             }
         )
