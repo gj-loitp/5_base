@@ -9,6 +9,7 @@ import com.google.android.material.navigation.NavigationView
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.base.OnBackPressedListener
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_fragment_navigation.*
 import vn.loitp.app.R

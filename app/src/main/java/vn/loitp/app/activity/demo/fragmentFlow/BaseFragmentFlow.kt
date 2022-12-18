@@ -1,8 +1,9 @@
 package vn.loitp.app.activity.demo.fragmentFlow
 
 import com.loitpcore.core.base.BaseFragment
+import com.loitpcore.core.base.OnBackPressedListener
 
-abstract class FrmFlowBase : BaseFragment(), OnBackPressedListener {
+abstract class BaseFragmentFlow : BaseFragment(), OnBackPressedListener {
 
     override fun onDestroyView() {
         super.onDestroyView()

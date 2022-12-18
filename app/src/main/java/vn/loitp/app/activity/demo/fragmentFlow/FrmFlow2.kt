@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.frm_demo_flow_2.*
 import vn.loitp.app.R
 
 @LogTag("FrmFlow2")
-class FrmFlow2 : FrmFlowBase() {
+class FrmFlow2 : BaseFragmentFlow() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.frm_demo_flow_2

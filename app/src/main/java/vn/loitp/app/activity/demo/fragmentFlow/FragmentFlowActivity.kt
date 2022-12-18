@@ -9,6 +9,7 @@ import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.base.BaseFragment
+import com.loitpcore.core.base.OnBackPressedListener
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil
@@ -26,7 +27,7 @@ class FragmentFlowActivity : BaseFontActivity() {
         return FragmentManager.OnBackStackChangedListener {
             // print("OnBackStackChangedListener")
             supportFragmentManager.let {
-                val currFrag = it.findFragmentById(R.id.flContainer) as FrmFlowBase?
+                val currFrag = it.findFragmentById(R.id.flContainer) as BaseFragmentFlow?
                 currFrag?.onFragmentResume()
             }
         }
@@ -92,17 +93,17 @@ class FragmentFlowActivity : BaseFontActivity() {
         val frmFlow0 =
             LScreenUtil.findFragmentByTag(activity = this, tag = FrmFlow0::class.java.simpleName)
         frmFlow0?.let {
-            (it as FrmFlowBase).popThisFragment()
+            (it as BaseFragmentFlow).popThisFragment()
         }
         val frmFlow1 =
             LScreenUtil.findFragmentByTag(activity = this, tag = FrmFlow1::class.java.simpleName)
         frmFlow1?.let {
-            (it as FrmFlowBase).popThisFragment()
+            (it as BaseFragmentFlow).popThisFragment()
         }
         val frmFlow2 =
             LScreenUtil.findFragmentByTag(activity = this, tag = FrmFlow2::class.java.simpleName)
         frmFlow2?.let {
-            (it as FrmFlowBase).popThisFragment()
+            (it as BaseFragmentFlow).popThisFragment()
         }
     }
 

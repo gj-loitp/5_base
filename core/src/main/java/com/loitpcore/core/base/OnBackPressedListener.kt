@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.fragmentFlow
+package com.loitpcore.core.base
 
 interface OnBackPressedListener {
     fun onBackPressed(): Boolean
