@@ -19,7 +19,7 @@ import vn.loitp.app.R
 @IsFullScreen(false)
 class FragmentFlowActivity : BaseFontActivity() {
 
-    var onBackClickListener: OnBackClickListener? = null
+    var onBackClickListener: OnBackPressedListener? = null
     private var doubleBackToExitPressedOnce = false
 
     private fun getListener(): FragmentManager.OnBackStackChangedListener {
@@ -64,7 +64,7 @@ class FragmentFlowActivity : BaseFontActivity() {
 
     override fun onBaseBackPressed() {
 //        super.onBaseBackPressed()
-        if (onBackClickListener != null && onBackClickListener!!.onBackClick()) {
+        if (onBackClickListener != null && onBackClickListener!!.onBackPressed()) {
             return
         }
         if (doubleBackToExitPressedOnce) {
@@ -77,20 +77,6 @@ class FragmentFlowActivity : BaseFontActivity() {
             doubleBackToExitPressedOnce = false
         }, 2000)
     }
-//    override fun onBackPressed() {
-//        if (onBackClickListener != null && onBackClickListener!!.onBackClick()) {
-//            return
-//        }
-//        if (doubleBackToExitPressedOnce) {
-//            super.onBackPressed()
-//            return
-//        }
-//        this.doubleBackToExitPressedOnce = true
-//        showShortInformation(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            doubleBackToExitPressedOnce = false
-//        }, 2000)
-//    }
 
     fun showFragment(baseFragment: BaseFragment) {
         LScreenUtil.addFragment(

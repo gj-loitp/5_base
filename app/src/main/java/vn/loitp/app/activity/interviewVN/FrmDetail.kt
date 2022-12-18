@@ -2,20 +2,22 @@ package vn.loitp.app.activity.interviewVN
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.core.utilities.LStoreUtil
-import com.loitpcore.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_package.*
+import kotlinx.android.synthetic.main.frm_interview_vn_iq_detail.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.interviewVN.adapter.QAAdapter
 
 //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
-@LogTag("FrmListPackage")
-class FrmListPackage : BaseFragment() {
+@LogTag("FrmListQA")
+class FrmDetail : BaseFragment() {
+
+    companion object {
+        const val KEY_NEXT_LINK = "KEY_NEXT_LINK"
+    }
 
     private var concatAdapter = ConcatAdapter()
     private var qaAdapter = QAAdapter(
@@ -23,9 +25,10 @@ class FrmListPackage : BaseFragment() {
         isShowADefault = false,
         isShowNextLink = false
     )
+    private var linkGGDrive: String? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_interview_vn_iq_list_package
+        return R.layout.frm_interview_vn_iq_detail
     }
 
     override fun onViewCreated(
@@ -34,36 +37,32 @@ class FrmListPackage : BaseFragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
+        arguments?.let {
+            linkGGDrive = it.getString(KEY_NEXT_LINK)
+        }
         setupViews()
         setupData()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
-
-            })
-            ivIconRight?.isVisible = false
-            this.tvTitle?.text = InterviewVNIQActivity::class.java.simpleName
-        }
         recyclerView.layoutManager = LinearLayoutManager(context)
         qaAdapter.onClickRootListener = { qa, _ ->
-            if (activity is InterviewVNIQActivity) {
-                (activity as InterviewVNIQActivity).addFragment(FrmListQA().apply {
-                    arguments = Bundle().apply {
-                        putString(FrmListQA.KEY_NEXT_LINK, qa.nextLink)
-                    }
-                })
-            }
+            showDialogMsg(
+                title = "Question: ${qa.q}",
+                msg = "Answer: ${qa.a}"
+            )
         }
         concatAdapter.addAdapter(qaAdapter)
         recyclerView.adapter = concatAdapter
     }
 
     private fun setupData() {
+        if (linkGGDrive.isNullOrEmpty()) {
+            return
+        }
         showDialogProgress()
         LStoreUtil.getPkgFromGGDrive(
-            linkGGDriveSetting = "https://drive.google.com/uc?export=download&id=1bF_xmaIGsre7c-aGeDhgSnWH7IYoqq8K",
+            linkGGDriveSetting = linkGGDrive,
             onGGFailure = { _, e ->
                 hideDialogProgress()
                 showShortError(e.toString())

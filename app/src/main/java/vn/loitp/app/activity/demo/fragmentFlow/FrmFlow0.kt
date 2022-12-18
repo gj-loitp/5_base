@@ -13,7 +13,7 @@ class FrmFlow0 : FrmFlowBase() {
         return R.layout.frm_demo_flow_0
     }
 
-    override fun onBackClick(): Boolean {
+    override fun onBackPressed(): Boolean {
         print("onBackClick")
         popThisFragment()
         return true
