@@ -2,17 +2,22 @@ package vn.loitp.app.activity.interviewVN
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.utilities.LStoreUtil
+import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.frm_interview_vn_iq_detail.*
+import kotlinx.android.synthetic.main.frm_interview_vn_iq_detail.lActionBar
+import kotlinx.android.synthetic.main.frm_interview_vn_iq_detail.recyclerView
+import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_qa.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.fragmentFlow.BaseFragmentFlow
 import vn.loitp.app.activity.interviewVN.adapter.QAAdapter
 
 //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
-@LogTag("FrmListQA")
+@LogTag("FrmDetail")
 class FrmDetail : BaseFragmentFlow() {
 
     companion object {
@@ -55,6 +60,13 @@ class FrmDetail : BaseFragmentFlow() {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+                popThisFragment()
+            })
+            ivIconRight?.isVisible = false
+            this.tvTitle?.text = FrmDetail::class.java.simpleName
+        }
         recyclerView.layoutManager = LinearLayoutManager(context)
         qaAdapter.onClickRootListener = { qa, _ ->
             showDialogMsg(

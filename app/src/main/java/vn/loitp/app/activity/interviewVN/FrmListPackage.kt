@@ -51,10 +51,12 @@ class FrmListPackage : BaseFragmentFlow() {
     private fun setupViews() {
         lActionBar.apply {
             LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
-
+                if (activity is InterviewVNIQActivity) {
+                    (activity as InterviewVNIQActivity).onBaseBackPressed()
+                }
             })
             ivIconRight?.isVisible = false
-            this.tvTitle?.text = InterviewVNIQActivity::class.java.simpleName
+            this.tvTitle?.text = FrmListPackage::class.java.simpleName
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         qaAdapter.onClickRootListener = { qa, _ ->
