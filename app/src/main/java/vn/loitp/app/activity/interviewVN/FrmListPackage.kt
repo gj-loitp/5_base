@@ -6,16 +6,16 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitpcore.annotation.LogTag
-import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_package.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.demo.fragmentFlow.BaseFragmentFlow
 import vn.loitp.app.activity.interviewVN.adapter.QAAdapter
 
 //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
 @LogTag("FrmListPackage")
-class FrmListPackage : BaseFragment() {
+class FrmListPackage : BaseFragmentFlow() {
 
     private var concatAdapter = ConcatAdapter()
     private var qaAdapter = QAAdapter(
@@ -36,6 +36,16 @@ class FrmListPackage : BaseFragment() {
 
         setupViews()
         setupData()
+    }
+
+    override fun onBackPressed(): Boolean {
+        popThisFragment()
+        return true
+    }
+
+    override fun onFragmentResume() {
+        super.onFragmentResume()
+        print("onFragmentResume")
     }
 
     private fun setupViews() {

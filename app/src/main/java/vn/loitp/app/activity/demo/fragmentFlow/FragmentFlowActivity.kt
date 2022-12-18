@@ -64,7 +64,6 @@ class FragmentFlowActivity : BaseFontActivity() {
     }
 
     override fun onBaseBackPressed() {
-//        super.onBaseBackPressed()
         if (onBackClickListener != null && onBackClickListener!!.onBackPressed()) {
             return
         }
@@ -81,11 +80,11 @@ class FragmentFlowActivity : BaseFontActivity() {
 
     fun showFragment(baseFragment: BaseFragment) {
         LScreenUtil.addFragment(
-            this,
-            R.id.flContainer,
-            baseFragment,
-            baseFragment.javaClass.simpleName,
-            true
+            activity = this,
+            containerFrameLayoutIdRes = R.id.flContainer,
+            fragment = baseFragment,
+            tag = baseFragment.javaClass.simpleName,
+            isAddToBackStack = true
         )
     }
 
