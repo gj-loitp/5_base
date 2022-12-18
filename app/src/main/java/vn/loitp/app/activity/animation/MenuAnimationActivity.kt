@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.animation
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
@@ -8,7 +7,6 @@ import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_animation.*
 import vn.loitp.app.R
@@ -78,66 +76,25 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        val intent = when (v) {
-            btAnimationView -> {
-                Intent(this, AnimationViewActivity::class.java)
-            }
-            btOverScroll -> {
-                Intent(this, OverScrollActivity::class.java)
-            }
-            btFlySchool -> {
-                Intent(this, FlySchoolActivity::class.java)
-            }
-            btActivityTransition -> {
-                Intent(this, Animation1Activity::class.java)
-            }
-            btShadowViewHelper -> {
-                Intent(this, ShadowViewHelperActivity::class.java)
-            }
-            btBasicTransitionFrm -> {
-                Intent(this, BasicTransitionActivity::class.java)
-            }
-            btBasicTransitionActivity -> {
-                Intent(this, SceneTransitionBasicActivity::class.java)
-            }
-            btBasicTransition -> {
-                Intent(this, BasicTransition0Activity::class.java)
-            }
-            btLottie -> {
-                Intent(this, MenuLottieActivity::class.java)
-            }
-            btValueAnimator -> {
-                Intent(this, ValueAnimatorActivity::class.java)
-            }
-            btElasticView -> {
-                Intent(this, ElasticActivity::class.java)
-            }
-            btMorphTransitions -> {
-                Intent(this, MorphTransitionsMainActivity::class.java)
-            }
-            btActivityTransitionReveal -> {
-                Intent(this, RevealActivity1::class.java)
-            }
-            btPulsingView -> {
-                Intent(this, PulsingViewActivity::class.java)
-            }
-            btAndroidParticlesActivity -> {
-                Intent(this, AndroidParticlesActivity::class.java)
-            }
-            btKonfetti -> {
-                Intent(this, KonfettiActivity::class.java)
-            }
-            btFadeOutParticleActivity -> {
-                Intent(this, FadeOutParticleActivity::class.java)
-            }
-            btAnimatedStarsView -> {
-                Intent(this, AnimatedStarsViewActivity::class.java)
-            }
-            else -> null
-        }
-        intent?.let {
-            startActivity(it)
-            LActivityUtil.tranIn(this)
+        when (v) {
+            btAnimationView -> launchActivity(AnimationViewActivity::class.java)
+            btOverScroll -> launchActivity(OverScrollActivity::class.java)
+            btFlySchool -> launchActivity(FlySchoolActivity::class.java)
+            btActivityTransition -> launchActivity(Animation1Activity::class.java)
+            btShadowViewHelper -> launchActivity(ShadowViewHelperActivity::class.java)
+            btBasicTransitionFrm -> launchActivity(BasicTransitionActivity::class.java)
+            btBasicTransitionActivity -> launchActivity(SceneTransitionBasicActivity::class.java)
+            btBasicTransition -> launchActivity(BasicTransition0Activity::class.java)
+            btLottie -> launchActivity(MenuLottieActivity::class.java)
+            btValueAnimator -> launchActivity(ValueAnimatorActivity::class.java)
+            btElasticView -> launchActivity(ElasticActivity::class.java)
+            btMorphTransitions -> launchActivity(MorphTransitionsMainActivity::class.java)
+            btActivityTransitionReveal -> launchActivity(RevealActivity1::class.java)
+            btPulsingView -> launchActivity(PulsingViewActivity::class.java)
+            btAndroidParticlesActivity -> launchActivity(AndroidParticlesActivity::class.java)
+            btKonfetti -> launchActivity(KonfettiActivity::class.java)
+            btFadeOutParticleActivity -> launchActivity(FadeOutParticleActivity::class.java)
+            btAnimatedStarsView -> launchActivity(AnimatedStarsViewActivity::class.java)
         }
     }
 }
