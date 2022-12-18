@@ -28,7 +28,7 @@
             tools:text="@string/app_name" />
 
         <com.ortiz.touchview.TouchImageView
-            android:id="@+id/ivA"
+            android:id="@+id/ivQ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_padding_medium"
