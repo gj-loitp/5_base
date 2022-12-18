@@ -62,11 +62,18 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -249,7 +256,10 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         }
     }
 
-    private fun updateView(imageView: ImageView, textView: TextView) {
+    private fun updateView(
+        imageView: ImageView,
+        textView: TextView
+    ) {
         techniques?.let {
             LAnimationUtil.play(view = imageView, techniques = it)
             LAnimationUtil.play(view = textView, techniques = it)
@@ -322,7 +332,10 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         this.callback = callback
     }
 
-    fun setPerformItemClick(position: Int, invokedOnClickItem: Boolean = true) {
+    fun setPerformItemClick(
+        position: Int,
+        invokedOnClickItem: Boolean = true
+    ) {
         previousPos = currentPos
         currentPos = position
         when (position) {

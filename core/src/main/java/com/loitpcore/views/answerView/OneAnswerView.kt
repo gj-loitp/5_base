@@ -22,11 +22,18 @@ class OneAnswerView : LinearLayout {
         init()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -50,7 +57,10 @@ class OneAnswerView : LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.l_answer_view, this, true)
     }
 
-    fun setActive(active: Boolean, lAnswerView: LAnswerView) {
+    fun setActive(
+        active: Boolean,
+        lAnswerView: LAnswerView
+    ) {
         if (active != this.active) {
             this.active = active
             if (active) {

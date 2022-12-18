@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_weight="1"
     android:gravity="center_horizontal"
-    android:padding="5dp"
+    android:padding="@dimen/margin_padding_small"
     android:textColor="@color/black"
     android:textSize="@dimen/txt_medium"
     tools:text="1" />

@@ -32,11 +32,18 @@ class LAnswerView : LinearLayout, View.OnClickListener {
         init(null)
     }
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(attrs)
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -44,9 +51,6 @@ class LAnswerView : LinearLayout, View.OnClickListener {
         init(attrs)
     }
 
-//    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {
-//        init(context, attrs)
-//    }
 
     fun setOnAnswerChange(event: OnAnswerChange?) {
         change = event
