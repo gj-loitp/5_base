@@ -19,7 +19,7 @@ import vn.loitp.app.activity.interviewVN.adapter.QAAdapter
 
 //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
 @LogTag("FrmListQA")
-class FrmListQA : BaseFragmentFlow() {
+class FrmListQA(private val linkGGDrive: String?) : BaseFragmentFlow() {
 
     companion object {
         const val KEY_NEXT_LINK = "KEY_NEXT_LINK"
@@ -31,7 +31,6 @@ class FrmListQA : BaseFragmentFlow() {
         isShowADefault = false,
         isShowNextLink = false
     )
-    private var linkGGDrive: String? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.frm_interview_vn_iq_list_qa
@@ -43,9 +42,6 @@ class FrmListQA : BaseFragmentFlow() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        arguments?.let {
-            linkGGDrive = it.getString(KEY_NEXT_LINK)
-        }
         setupViews()
         setupData()
     }
