@@ -31,6 +31,7 @@
             android:id="@+id/ivA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_medium"
             app:layout_constraintTop_toBottomOf="@+id/tvQ"
             app:zoom_enabled="false"
             tools:src="@drawable/iv" />
