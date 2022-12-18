@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutRootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/transparent"
-    android:orientation="vertical"
     tools:background="@color/deepPink">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -20,6 +19,8 @@
         android:padding="@dimen/margin_padding_small"
         android:src="@drawable/ic_close_black_48dp"
         android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:tint="?attr/themeBackgroundColor"
         tools:visibility="visible" />
 
@@ -35,6 +36,7 @@
         android:padding="@dimen/margin_padding_medium"
         android:textColor="?attr/themeBackgroundColor"
         android:textSize="@dimen/txt_medium"
+        app:layout_constraintTop_toBottomOf="@+id/ivClose"
         tools:text="@string/app_name" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -49,16 +51,18 @@
         android:padding="@dimen/margin_padding_medium"
         android:textColor="?attr/themeBackgroundColor"
         android:textSize="@dimen/txt_medium"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         tools:text="@string/app_name" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_padding_medium"
         android:layout_marginTop="@dimen/margin_padding_medium"
         android:layout_marginEnd="@dimen/margin_padding_medium"
         android:layout_marginBottom="@dimen/margin_padding_medium"
-        android:background="@drawable/bg_bottom_sheet_option">
+        android:background="@drawable/bg_bottom_sheet_option"
+        app:layout_constraintTop_toBottomOf="@+id/tvMsg">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/bt3"
@@ -120,5 +124,5 @@
             android:visibility="gone"
             tools:text="@string/app_name"
             tools:visibility="visible" />
-    </LinearLayout>
-</LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>
