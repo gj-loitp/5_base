@@ -34,8 +34,9 @@ class FN1 : BaseFragment(), OnBackPressedListener {
         logD("onResume FN1")
     }
 
-    override fun onBackPressed() {
+    override fun onBackPressed(): Boolean {
         logD("onBackPressed FN1")
         fragmentNavigationActivity?.popThisFragment()
+        return true
     }
 }
