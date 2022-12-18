@@ -5,7 +5,6 @@
     android:id="@+id/mcv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/margin_padding_small"
     app:cardBackgroundColor="?attr/themePrimaryColor"
     app:cardCornerRadius="0dp"
     app:cardElevation="@dimen/w_5"
