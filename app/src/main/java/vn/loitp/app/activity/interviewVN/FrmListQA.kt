@@ -70,10 +70,9 @@ class FrmListQA : BaseFragmentFlow() {
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         qaAdapter.onClickRootListener = { qa, _ ->
-            showDialogMsg(
-                title = "Question: ${qa.q}",
-                msg = "Answer: ${qa.a}"
-            )
+            if (activity is InterviewVNIQActivity) {
+                (activity as InterviewVNIQActivity).addFragment(FrmDetail(qa))
+            }
         }
         concatAdapter.addAdapter(qaAdapter)
         recyclerView.adapter = concatAdapter
