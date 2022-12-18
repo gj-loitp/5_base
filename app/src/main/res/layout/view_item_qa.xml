@@ -13,39 +13,52 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/margin_padding_medium"
-        android:paddingTop="@dimen/margin_padding_medium"
-        android:paddingEnd="@dimen/margin_padding_medium"
         android:paddingBottom="@dimen/margin_padding_medium">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvQ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_medium"
+            android:layout_marginTop="@dimen/margin_padding_medium"
+            android:layout_marginEnd="@dimen/margin_padding_medium"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/app_name" />
 
+        <com.ortiz.touchview.TouchImageView
+            android:id="@+id/ivA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvQ"
+            app:zoom_enabled="false"
+            tools:src="@drawable/iv" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_medium"
+            android:layout_marginEnd="@dimen/margin_padding_medium"
             android:paddingStart="@dimen/margin_padding_medium"
             android:paddingEnd="0dp"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"
-            app:layout_constraintTop_toBottomOf="@+id/tvQ"
+            app:layout_constraintTop_toBottomOf="@+id/ivA"
             tools:text="@string/app_name" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvNextLink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_medium"
+            android:layout_marginEnd="@dimen/margin_padding_medium"
             android:paddingStart="@dimen/margin_padding_medium"
             android:paddingEnd="0dp"
             android:textColor="@color/blue"
             android:textSize="@dimen/txt_small"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvA"
             tools:text="@string/app_name" />
     </androidx.constraintlayout.widget.ConstraintLayout>

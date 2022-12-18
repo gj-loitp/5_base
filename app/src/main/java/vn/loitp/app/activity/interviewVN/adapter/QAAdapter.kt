@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.adapter.BaseAdapter
 import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.model.data.QA
+import kotlinx.android.synthetic.main.frm_interview_vn_iq_detail.*
 import kotlinx.android.synthetic.main.view_item_qa.view.*
 import vn.loitp.app.R
 
@@ -54,6 +56,16 @@ class QAAdapter(
                 }
             } else {
                 itemView.tvNextLink.isVisible = false
+            }
+            if (qa.ivA.isEmpty()) {
+                itemView.ivA.isVisible = false
+            } else {
+                itemView.ivA.isVisible = true
+                LImageUtil.load(
+                    context = itemView.ivA.context,
+                    any = qa.ivA,
+                    imageView = itemView.ivA
+                )
             }
 
             itemView.layoutRoot.setSafeOnClickListener {
