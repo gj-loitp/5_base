@@ -7,7 +7,9 @@ abstract class BaseFragmentFlow : BaseFragment(), OnBackPressedListener {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        (activity as FragmentFlowActivity).onBackClickListener = null
+        if (activity is FragmentFlowActivity) {
+            (activity as FragmentFlowActivity).onBackClickListener = null
+        }
     }
 
     open fun popThisFragment() {
@@ -16,6 +18,8 @@ abstract class BaseFragmentFlow : BaseFragment(), OnBackPressedListener {
 
     // this function will be called when backstack
     open fun onFragmentResume() {
-        (activity as FragmentFlowActivity).onBackClickListener = this
+        if (activity is FragmentFlowActivity) {
+            (activity as FragmentFlowActivity).onBackClickListener = this
+        }
     }
 }
