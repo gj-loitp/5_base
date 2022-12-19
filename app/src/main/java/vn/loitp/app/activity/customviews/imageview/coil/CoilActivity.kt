@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.imageview.coil
 import android.os.Bundle
 import androidx.core.view.isVisible
 import coil.load
+import coil.transform.CircleCropTransformation
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -55,5 +56,10 @@ class CoilActivity : BaseFontActivity() {
         }
 
         iv0.load(Constants.URL_IMG_1)
+        iv1.load(Constants.URL_IMG_2) {
+            crossfade(true)
+            placeholder(R.drawable.circle)
+            transformations(CircleCropTransformation())
+        }
     }
 }
