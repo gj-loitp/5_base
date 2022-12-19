@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.viewpager.widget.PagerAdapter
@@ -112,7 +111,7 @@ class MenuLottieActivity : BaseFontActivity() {
             val lottieItem = lottieItemList[position]
             val inflater = LayoutInflater.from(this@MenuLottieActivity)
             val layout = inflater.inflate(R.layout.item_lottie_view, collection, false) as ViewGroup
-            val rl = layout.findViewById<RelativeLayout>(R.id.rl)
+            val rl = layout.findViewById<ViewGroup>(R.id.rl)
             val animationView: LottieAnimationView = layout.findViewById(R.id.animationView)
             animationView.setAnimation(lottieItem.pathAsset)
             // lottieAnimationView.useHardwareAcceleration();

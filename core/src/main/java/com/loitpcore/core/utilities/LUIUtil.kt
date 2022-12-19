@@ -957,7 +957,7 @@ class LUIUtil {
             view: View? = null,
             scaleX: Float = 0.8f,
             scaleY: Float = 0.8f,
-            duration: Int = 100,
+            duration: Int = 50,
             runnable: Runnable? = null
         ) {
             view?.let { v ->
