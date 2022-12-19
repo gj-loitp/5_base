@@ -32,8 +32,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_padding_medium"
+            android:clickable="false"
             app:layout_constraintTop_toBottomOf="@+id/tvQ"
-            app:zoom_enabled="false"
             tools:src="@drawable/iv" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -46,7 +46,7 @@
             android:paddingEnd="0dp"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"
-            app:layout_constraintTop_toBottomOf="@+id/ivA"
+            app:layout_constraintTop_toBottomOf="@+id/ivQ"
             tools:text="@string/app_name" />
 
         <androidx.appcompat.widget.AppCompatTextView
