@@ -13,6 +13,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.imageview.bigImageView.BigImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.bigImageView.BigImageViewWithScrollViewActivity
 import vn.loitp.app.activity.customviews.imageview.circleImageView.CircleImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.coil.CoilActivity
 import vn.loitp.app.activity.customviews.imageview.comicView.ComicViewActivity
 import vn.loitp.app.activity.customviews.imageview.continuousScrollableImageView.ContinuousScrollableImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.fidgetSpinner.FidgetSpinnerImageViewActivity
@@ -72,6 +73,7 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
         btRoundedImageView.setOnClickListener(this)
         btPreviewImageCollection.setOnClickListener(this)
         btShapeableImageViewActivity.setOnClickListener(this)
+        btCoil.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -94,6 +96,7 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
             btRoundedImageView -> launchActivity(RoundedImageViewActivity::class.java)
             btPreviewImageCollection -> launchActivity(PreviewImageCollectionActivity::class.java)
             btShapeableImageViewActivity -> launchActivity(ShapeableImageViewActivity::class.java)
+            btCoil -> launchActivity(CoilActivity::class.java)
         }
     }
 }

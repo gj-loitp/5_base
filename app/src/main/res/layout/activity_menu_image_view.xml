@@ -41,6 +41,11 @@
                 android:text="@string/circle_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCoil"
+                style="@style/ButtonMenu"
+                android:text="Coil" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btComicView"
                 style="@style/ButtonMenu"
                 android:text="@string/comic_view" />
