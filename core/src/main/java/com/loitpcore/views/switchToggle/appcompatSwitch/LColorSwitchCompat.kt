@@ -23,11 +23,18 @@ class LColorSwitchCompat : SwitchCompat {
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs) {
         applyAttributes(context, attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -35,7 +42,10 @@ class LColorSwitchCompat : SwitchCompat {
         applyAttributes(context, attrs)
     }
 
-    private fun applyAttributes(context: Context, attrs: AttributeSet) {
+    private fun applyAttributes(
+        context: Context,
+        attrs: AttributeSet
+    ) {
         // Extract attrs
         val a = context.obtainStyledAttributes(attrs, R.styleable.LColorSwitchCompat)
         val indexCount = a.indexCount

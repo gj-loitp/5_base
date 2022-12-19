@@ -8,5 +8,8 @@ package com.loitpcore.views.switchToggle.toggle
  * freuss47@gmail.com
  */
 interface OnToggledListener {
-    fun onSwitched(labeledSwitch: LabeledSwitch, isOn: Boolean)
+    fun onSwitched(
+        labeledSwitch: LabeledSwitch,
+        isOn: Boolean
+    )
 }

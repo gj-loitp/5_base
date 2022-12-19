@@ -44,7 +44,10 @@ class LWebViewAdblock : AdblockWebView {
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs)
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
         context,
@@ -113,7 +116,12 @@ class LWebViewAdblock : AdblockWebView {
         }
     }
 
-    override fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
+    override fun onScrollChanged(
+        l: Int,
+        t: Int,
+        oldl: Int,
+        oldt: Int
+    ) {
         super.onScrollChanged(l, t, oldl, oldt)
 
         callback?.onScroll(l, t, oldl, oldt)
