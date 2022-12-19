@@ -62,10 +62,10 @@ class RevealActivity1 : BaseFontActivity() {
 
     private fun show(view: View) {
         val builder = CircularReveal.Builder(
-            this,
-            view,
-            Intent(this, RevealActivity2::class.java),
-            1000
+            activity = this,
+            viewClicked = view,
+            intent = Intent(this, RevealActivity2::class.java),
+            duration = 1000
         ).apply {
             revealColor = ContextCompat.getColor(
                 this@RevealActivity1,

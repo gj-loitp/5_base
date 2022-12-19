@@ -1,9 +1,7 @@
 package vn.loitp.app.activity.demo
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -13,7 +11,6 @@ import com.loitpcore.core.helper.gallery.GalleryCoreSplashActivity
 import com.loitpcore.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity
 import com.loitpcore.core.helper.gallery.member.GalleryMemberActivity
 import com.loitpcore.core.helper.ttt.ui.a.TTTSplashActivity
-import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_menu_demo.*
@@ -103,77 +100,56 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        var intent: Intent? = null
         when (v) {
-            btSound -> intent = Intent(this, SoundActivity::class.java)
-            btTextToSpeech -> intent = Intent(this, TextToSpeechActivity::class.java)
-            btFloatingWidget -> intent = Intent(
-                this,
-                vn.loitp.app.activity.demo.floatingWidget.FloatingWidgetActivity::class.java
-            )
-            btFloatingVideo -> intent = Intent(this, FloatingWidgetActivity::class.java)
+            btSound -> launchActivity(SoundActivity::class.java)
+            btTextToSpeech -> launchActivity(TextToSpeechActivity::class.java)
+            btFloatingWidget -> launchActivity(FloatingWidgetActivity::class.java)
+            btFloatingVideo -> launchActivity(FloatingWidgetActivity::class.java)
             btGalleryCore -> {
-                intent = Intent(this, GalleryCoreSplashActivity::class.java)
-                intent.putExtra(Constants.BKG_SPLASH_SCREEN, Constants.URL_IMG_11)
-                // neu muon remove albumn nao thi cu pass id cua albumn do
-                val removeAlbumFlickrList = ArrayList<String>()
-                removeAlbumFlickrList.add(Constants.FLICKR_ID_STICKER)
-                // removeAlbumFlickrList.add(Constants.FLICKR_ID_GIRL);
-                // removeAlbumFlickrList.add(Constants.FLICKR_ID_VN_BANCOBIET);
-                // removeAlbumFlickrList.add(Constants.FLICKR_ID_DONGVATKHAC);
-                intent.putStringArrayListExtra(
-                    Constants.KEY_REMOVE_ALBUM_FLICKR_LIST,
-                    removeAlbumFlickrList
-                )
+                launchActivity(
+                    cls = GalleryCoreSplashActivity::class.java,
+                    withAnim = true,
+                    data = {
+                        it.putExtra(Constants.BKG_SPLASH_SCREEN, Constants.URL_IMG_11)
+
+                        // neu muon remove albumn nao thi cu pass id cua album do
+                        val removeAlbumFlickrList = ArrayList<String>()
+                        removeAlbumFlickrList.add(Constants.FLICKR_ID_STICKER)
+                        // removeAlbumFlickrList.add(Constants.FLICKR_ID_GIRL)
+
+                        it.putStringArrayListExtra(
+                            Constants.KEY_REMOVE_ALBUM_FLICKR_LIST,
+                            removeAlbumFlickrList
+                        )
+                    })
             }
             btGalleryCoreAlbum -> {
-                intent = Intent(this, GalleryCorePhotosOnlyActivity::class.java)
-                // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_FAMOUSMANGA);
-                // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_TRUYENBUA);
-                // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_BANCOBIET);
-                // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_XE);
-                // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_PHONGCANH);
-//                intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
-                intent.putExtra(
-                    Constants.SK_PHOTOSET_ID,
-                    Constants.FLICKR_ID_VN_CUNGHOANGDAOHEHEHORO
-                )
+                launchActivity(
+                    cls = GalleryCorePhotosOnlyActivity::class.java,
+                    withAnim = true,
+                    data = {
+                        it.putExtra(
+                            Constants.SK_PHOTOSET_ID,
+                            Constants.FLICKR_ID_VN_CUNGHOANGDAOHEHEHORO
+                        )
+                    })
             }
-            btGalleryMember -> {
-                intent = Intent(this, GalleryMemberActivity::class.java)
-//                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_primary_black)
-            }
-            btEpubReader -> intent = Intent(this, MenuEpubReaderActivity::class.java)
-            bt2InstanceActivity -> intent = Intent(this, Activity1::class.java)
-            btFragmentNavigation -> intent = Intent(this, FragmentNavigationActivity::class.java)
-            btPdf -> intent = Intent(this, PdfDemoActivity::class.java)
-            btPiano -> {
-                intent = Intent(this, PianoActivity::class.java)
-            }
-            btFragmentFlow -> intent = Intent(this, FragmentFlowActivity::class.java)
-            btGalleryCoreAlbumFrm -> intent = Intent(this, GalleryCoreAlbumFrmActivity::class.java)
-            btArchitectureComponent ->
-                intent =
-                    Intent(this, MenuAndroidArchitectureComponentActivity::class.java)
-            btNFC -> intent = Intent(this, NFCActivity::class.java)
-            btMapTracker -> intent = Intent(this, MapTrackerActivity::class.java)
-            btFindNumber -> intent = Intent(this, SplashActivity::class.java)
-            btTTT -> {
-                intent = Intent(this, TTTSplashActivity::class.java)
-            }
-            btRSS -> {
-                intent = Intent(this, RSSActivity::class.java)
-            }
-            btTrackingG1 -> {
-                intent = Intent(this, TrackingG1Activity::class.java)
-            }
-            btFirebase -> {
-                intent = Intent(this, FirebaseActivity::class.java)
-            }
-        }
-        intent?.let {
-            startActivity(intent)
-            LActivityUtil.tranIn(this)
+            btGalleryMember -> launchActivity(GalleryMemberActivity::class.java)
+            btEpubReader -> launchActivity(MenuEpubReaderActivity::class.java)
+            bt2InstanceActivity -> launchActivity(Activity1::class.java)
+            btFragmentNavigation -> launchActivity(FragmentNavigationActivity::class.java)
+            btPdf -> launchActivity(PdfDemoActivity::class.java)
+            btPiano -> launchActivity(PianoActivity::class.java)
+            btFragmentFlow -> launchActivity(FragmentFlowActivity::class.java)
+            btGalleryCoreAlbumFrm -> launchActivity(GalleryCoreAlbumFrmActivity::class.java)
+            btArchitectureComponent -> launchActivity(MenuAndroidArchitectureComponentActivity::class.java)
+            btNFC -> launchActivity(NFCActivity::class.java)
+            btMapTracker -> launchActivity(MapTrackerActivity::class.java)
+            btFindNumber -> launchActivity(SplashActivity::class.java)
+            btTTT -> launchActivity(TTTSplashActivity::class.java)
+            btRSS -> launchActivity(RSSActivity::class.java)
+            btTrackingG1 -> launchActivity(TrackingG1Activity::class.java)
+            btFirebase -> launchActivity(FirebaseActivity::class.java)
         }
     }
 }
