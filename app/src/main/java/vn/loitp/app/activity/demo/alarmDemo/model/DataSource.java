@@ -12,11 +12,10 @@ import java.util.Collections;
 
 @Keep
 public class DataSource {
-    private static final String logTag = "AlarmMeActivity";
 
     private static final DataSource mDataSource = new DataSource();
     private static Context mContext = null;
-    private static ArrayList<Alarm> mList = null;
+    private static ArrayList<Alarm> mList = new ArrayList<>();
     private static long mNextId;
 
     private static final String DATA_FILE_NAME = "alarmme.txt";
@@ -34,7 +33,7 @@ public class DataSource {
     }
 
     private static void load() {
-        mList = new ArrayList<>();
+        mList.clear();
         mNextId = 1;
 
         try {

@@ -2,13 +2,17 @@ package vn.loitp.app.activity.customviews.imageview.coil
 
 import android.os.Bundle
 import androidx.core.view.isVisible
+import coil.load
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
+import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_0.*
+import kotlinx.android.synthetic.main.activity_0.lActionBar
+import kotlinx.android.synthetic.main.activity_coil.*
 import vn.loitp.app.R
 
 @LogTag("CoilActivity")
@@ -49,5 +53,7 @@ class CoilActivity : BaseFontActivity() {
             }
             this.tvTitle?.text = CoilActivity::class.java.simpleName
         }
+
+        iv0.load(Constants.URL_IMG_1)
     }
 }
