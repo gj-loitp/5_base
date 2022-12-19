@@ -44,6 +44,17 @@
                 app:layout_constraintTop_toBottomOf="@id/iv0"
                 tools:src="@drawable/iv" />
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv2"
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/margin_padding_medium"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv1"
+                tools:src="@drawable/iv" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

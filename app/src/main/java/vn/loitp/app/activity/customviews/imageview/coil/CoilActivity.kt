@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import coil.load
 import coil.transform.CircleCropTransformation
+import coil.transform.RoundedCornersTransformation
 import com.loitpcore.annotation.IsAutoAnimation
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -60,6 +61,18 @@ class CoilActivity : BaseFontActivity() {
             crossfade(true)
             placeholder(R.drawable.circle)
             transformations(CircleCropTransformation())
+        }
+        iv2.load(Constants.URL_IMG_2) {
+            crossfade(true)
+            placeholder(R.drawable.circle)
+            transformations(
+                RoundedCornersTransformation(
+                    topLeft = 45f,
+                    topRight = 0f,
+                    bottomLeft = 0f,
+                    bottomRight = 45f
+                )
+            )
         }
     }
 }
