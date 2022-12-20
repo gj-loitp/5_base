@@ -9,7 +9,7 @@ import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
 import com.loitp.core.base.BaseFontActivity;
 import com.loitp.core.utilities.LUIUtil;
-import com.loitpcore.views.actionBar.LActionBar;
+import com.loitp.views.actionBar.LActionBar;
 import com.loitpcore.views.scrollablePanel.LScrollablePanel;
 
 import java.text.SimpleDateFormat;

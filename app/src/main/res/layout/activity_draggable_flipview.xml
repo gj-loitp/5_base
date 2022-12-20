@@ -13,7 +13,7 @@
         app:backView="@layout/view_back"
         app:frontView="@layout/view_front" />
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.actionBar.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

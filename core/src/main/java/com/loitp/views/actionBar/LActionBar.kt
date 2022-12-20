@@ -1,4 +1,4 @@
-package com.loitpcore.views.actionBar
+package com.loitp.views.actionBar
 
 import android.content.Context
 import android.graphics.Color
@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.google.android.material.card.MaterialCardView
-import com.loitpcore.R
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -44,7 +44,7 @@ class LActionBar : RelativeLayout {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.view_l_action_bar, this)
+        View.inflate(context, R.layout.l_v_action_bar, this)
 
         this.mcv = findViewById(R.id.mcv)
         this.ivIconLeft = findViewById(R.id.ivIconLeft)
