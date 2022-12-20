@@ -1,4 +1,4 @@
-package com.loitpcore.rss
+package com.loitp.rss
 
 import org.xml.sax.Attributes
 import org.xml.sax.SAXException
@@ -129,7 +129,11 @@ internal class XMLParser : DefaultHandler() {
     }
 
     @Throws(SAXException::class)
-    override fun characters(ch: CharArray, start: Int, length: Int) {
+    override fun characters(
+        ch: CharArray,
+        start: Int,
+        length: Int
+    ) {
         val buff = String(ch, start, length)
         if (elementOn) {
             if (buff.length > 2) {

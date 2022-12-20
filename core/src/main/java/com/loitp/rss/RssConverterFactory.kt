@@ -1,4 +1,4 @@
-package com.loitpcore.rss
+package com.loitp.rss
 
 import okhttp3.ResponseBody
 import retrofit2.Converter

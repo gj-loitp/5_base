@@ -1,4 +1,4 @@
-package com.loitpcore.rss
+package com.loitp.rss
 
 import androidx.annotation.Keep
 

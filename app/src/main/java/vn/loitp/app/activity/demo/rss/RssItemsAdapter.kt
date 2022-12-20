@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
-import com.loitpcore.rss.RssItem
+import com.loitp.rss.RssItem
 import kotlinx.android.synthetic.main.view_rss.view.*
 import vn.loitp.app.R
 

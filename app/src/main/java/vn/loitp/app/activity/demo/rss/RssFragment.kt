@@ -7,9 +7,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.utilities.LSocialUtil
-import com.loitpcore.rss.RssConverterFactory
-import com.loitpcore.rss.RssFeed
-import com.loitpcore.rss.RssItem
+import com.loitp.rss.RssConverterFactory
+import com.loitp.rss.RssFeed
+import com.loitp.rss.RssItem
 import kotlinx.android.synthetic.main.frm_rss.*
 import retrofit2.Call
 import retrofit2.Callback
