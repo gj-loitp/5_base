@@ -1,4 +1,4 @@
-package com.loitpcore.utils.util
+package com.loitp.core.utils
 
 /**
  * Created by Loitp on 04,August,2022
@@ -33,7 +33,10 @@ class StringUtils {
             return true
         }
 
-        fun equals(a: CharSequence?, b: CharSequence?): Boolean {
+        fun equals(
+            a: CharSequence?,
+            b: CharSequence?
+        ): Boolean {
             if (a === b) return true
             var length = 0
             return if (a != null && b != null && a.length.also { length = it } == b.length) {

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.util.ArrayMap
-import com.loitpcore.utils.util.Utils
 
 /**
  * Created by Loitp on 04,August,2022

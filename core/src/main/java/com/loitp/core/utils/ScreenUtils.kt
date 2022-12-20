@@ -9,7 +9,7 @@ import android.util.DisplayMetrics
 import android.view.Surface
 import android.view.WindowManager
 import com.loitp.core.utils.BarUtils.Companion.getStatusBarHeight
-import com.loitpcore.utils.util.Utils.Companion.getContext
+import com.loitp.core.utils.Utils.Companion.getContext
 
 /**
  * Created by Loitp on 04,August,2022

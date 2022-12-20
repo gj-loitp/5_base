@@ -1,10 +1,10 @@
-package com.loitpcore.utils.util
+package com.loitp.core.utils
 
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
-import com.loitpcore.utils.util.Utils.Companion.getContext
+import com.loitp.core.utils.Utils.Companion.getContext
 
 /**
  * Created by Loitp on 04,August,2022
@@ -61,7 +61,11 @@ class ServiceUtils {
         }
 
         @Suppress("unused")
-        fun bindService(cls: Class<*>?, serviceConnection: ServiceConnection, flags: Int) {
+        fun bindService(
+            cls: Class<*>?,
+            serviceConnection: ServiceConnection,
+            flags: Int
+        ) {
             val intent = Intent(getContext(), cls)
             getContext()?.bindService(intent, serviceConnection, flags)
         }

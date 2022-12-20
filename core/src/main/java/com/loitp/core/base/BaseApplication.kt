@@ -15,7 +15,7 @@ import com.loitp.core.utilities.LConnectivityUtil
 import com.loitp.core.utilities.LLog
 import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.db.FindNumberDatabase
-import com.loitpcore.utils.util.Utils
+import com.loitp.core.utils.Utils
 
 
 /**

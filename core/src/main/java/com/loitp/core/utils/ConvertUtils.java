@@ -12,7 +12,6 @@ import android.view.View;
 
 import com.loitp.core.utils.constant.MemoryConstants;
 import com.loitp.core.utils.constant.TimeConstants;
-import com.loitpcore.utils.util.Utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

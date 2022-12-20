@@ -10,7 +10,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.provider.Settings
 import com.loitp.core.utilities.LLog
-import com.loitpcore.utils.util.Utils.Companion.getContext
+import com.loitp.core.utils.Utils.Companion.getContext
 
 /**
  * Created by Loitp on 04,August,2022

@@ -5,7 +5,6 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import com.loitpcore.utils.util.Utils
 
 /**
  * Created by Loitp on 04,August,2022

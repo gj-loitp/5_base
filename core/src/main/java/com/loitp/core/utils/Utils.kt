@@ -1,4 +1,4 @@
-package com.loitpcore.utils.util
+package com.loitp.core.utils
 
 import android.annotation.SuppressLint
 import android.content.Context

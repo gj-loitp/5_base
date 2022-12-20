@@ -5,7 +5,7 @@ import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import com.loitpcore.utils.util.Utils.Companion.getContext
+import com.loitp.core.utils.Utils.Companion.getContext
 
 /**
  * Created by Loitp on 04,August,2022

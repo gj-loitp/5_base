@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
-import com.loitpcore.utils.util.ServiceUtils
+import com.loitp.core.utils.ServiceUtils
 import com.loitpcore.views.lDebugView.LComunicateDebug.postFromActivity
 
 /**

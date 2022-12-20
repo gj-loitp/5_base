@@ -1,6 +1,4 @@
-package com.loitpcore.utils.util;
-
-import com.loitp.core.utils.CloseUtils;
+package com.loitp.core.utils;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
