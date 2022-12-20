@@ -1,4 +1,4 @@
-package com.loitpcore.picker.shiftColorPicker
+package com.loitp.picker.shiftColorPicker
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -261,7 +261,12 @@ class LineColorPicker(
         }
     }
 
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+    override fun onSizeChanged(
+        w: Int,
+        h: Int,
+        oldw: Int,
+        oldh: Int
+    ) {
         screenW = w
         screenH = h
         recalcCellSize()
@@ -318,7 +323,10 @@ class LineColorPicker(
     /**
      * Return true if palette contains this color
      */
-    private fun containsColor(colors: IntArray, c: Int): Boolean {
+    private fun containsColor(
+        colors: IntArray,
+        c: Int
+    ): Boolean {
         for (color in colors) {
             if (color == c) return true
         }

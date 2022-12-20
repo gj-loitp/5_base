@@ -1,4 +1,4 @@
-package com.loitpcore.picker.ssImagePicker
+package com.loitp.picker.ssImagePicker
 
 import android.os.Parcelable
 import androidx.annotation.Keep

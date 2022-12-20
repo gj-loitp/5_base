@@ -12,7 +12,7 @@ import com.app.imagepickerlibrary.model.PickerType
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.loitpcore.picker.ssImagePicker.PickerOptions
+import com.loitp.picker.ssImagePicker.PickerOptions
 import vn.loitp.app.R
 import vn.loitp.app.databinding.BottomSheetPickerOptionsBinding
 

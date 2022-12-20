@@ -1,11 +1,11 @@
-package com.loitpcore.picker.number
+package com.loitp.picker.number
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.RelativeLayout
 import com.loitpcore.R
-import kotlinx.android.synthetic.main.view_l_number_picker.view.*
+import kotlinx.android.synthetic.main.l_v_number_picker.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -32,11 +32,18 @@ class LNumberPicker : RelativeLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -49,7 +56,7 @@ class LNumberPicker : RelativeLayout {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.view_l_number_picker, this)
+        View.inflate(context, R.layout.l_v_number_picker, this)
         setMinMaxValue()
 
         numberPickerH.setOnValueChangedListener { _, _, _ ->
@@ -96,7 +103,11 @@ class LNumberPicker : RelativeLayout {
         callBack?.onValueChangedNumberPicker(h = h, m = m, s = s)
     }
 
-    fun setMinMaxValue(valueH: Int, valueM: Int, valueS: Int) {
+    fun setMinMaxValue(
+        valueH: Int,
+        valueM: Int,
+        valueS: Int
+    ) {
         if (valueH < minValueH || valueH > maxValueH) {
             throw IllegalArgumentException("$minValueH <= ValueH <= $maxValueH")
         }
@@ -112,7 +123,11 @@ class LNumberPicker : RelativeLayout {
         cal()
     }
 
-    fun setMinValue(minValueH: Int, minValueM: Int, minValueS: Int) {
+    fun setMinValue(
+        minValueH: Int,
+        minValueM: Int,
+        minValueS: Int
+    ) {
         this.minValueH = minValueH
         this.minValueM = minValueM
         this.minValueS = minValueS
@@ -120,7 +135,11 @@ class LNumberPicker : RelativeLayout {
         setMinMaxValue()
     }
 
-    fun setMaxValue(maxValueH: Int, maxValueM: Int, maxValueS: Int) {
+    fun setMaxValue(
+        maxValueH: Int,
+        maxValueM: Int,
+        maxValueS: Int
+    ) {
         this.maxValueH = maxValueH
         this.maxValueM = maxValueM
         this.maxValueS = maxValueS

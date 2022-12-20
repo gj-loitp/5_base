@@ -1,4 +1,4 @@
-package com.loitpcore.picker.shiftColorPicker
+package com.loitp.picker.shiftColorPicker
 
 import android.graphics.Color
 
