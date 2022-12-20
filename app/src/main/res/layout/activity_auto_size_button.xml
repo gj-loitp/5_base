@@ -23,7 +23,7 @@
                 android:layout_marginTop="@dimen/w_10"
                 android:text="@string/rotate_screen" />
 
-            <com.loitpcore.views.autoSize.imageButtonWithSize.ImageButtonWithSize
+            <com.loitp.views.autoSize.imageButtonWithSize.ImageButtonWithSize
                 android:id="@+id/bt0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/l_heart" />
 
-            <com.loitpcore.views.autoSize.imageButtonWithSize.ImageButtonWithSize
+            <com.loitp.views.autoSize.imageButtonWithSize.ImageButtonWithSize
                 android:id="@+id/bt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/l_gift" />
 
-            <com.loitpcore.views.autoSize.imageButtonWithSize.ImageButtonWithSize
+            <com.loitp.views.autoSize.imageButtonWithSize.ImageButtonWithSize
                 android:id="@+id/bt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

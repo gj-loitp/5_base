@@ -1,4 +1,4 @@
-package com.loitpcore.views.autoSize.textViewWithSize
+package com.loitp.views.autoSize.textViewWithSize
 
 import android.content.Context
 import android.content.res.Configuration

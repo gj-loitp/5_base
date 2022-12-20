@@ -1,4 +1,4 @@
-package com.loitpcore.views.bottomBar
+package com.loitp.views.bottomBar
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,11 +8,11 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
 import com.github.mmin18.widget.RealtimeBlurView
-import com.loitpcore.R
 import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.view_l_bottom_bar.view.*
+import com.loitpcore.R
+import kotlinx.android.synthetic.main.l_v_bottom_bar.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -82,7 +82,7 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.view_l_bottom_bar, this)
+        View.inflate(context, R.layout.l_v_bottom_bar, this)
 
         LUIUtil.setRipple(view = layoutIcon0)
         LUIUtil.setRipple(view = layoutIcon1)
@@ -165,32 +165,50 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         }
     }
 
-    fun setItem0(resImg: Int, name: String) {
+    fun setItem0(
+        resImg: Int,
+        name: String
+    ) {
         ivIcon0.setImageResource(resImg)
         tvIcon0.text = name
     }
 
-    fun setItem1(resImg: Int, name: String) {
+    fun setItem1(
+        resImg: Int,
+        name: String
+    ) {
         ivIcon1.setImageResource(resImg)
         tvIcon1.text = name
     }
 
-    fun setItem2(resImg: Int, name: String) {
+    fun setItem2(
+        resImg: Int,
+        name: String
+    ) {
         ivIcon2.setImageResource(resImg)
         tvIcon2.text = name
     }
 
-    fun setItem3(resImg: Int, name: String) {
+    fun setItem3(
+        resImg: Int,
+        name: String
+    ) {
         ivIcon3.setImageResource(resImg)
         tvIcon3.text = name
     }
 
-    fun setItem4(resImg: Int, name: String) {
+    fun setItem4(
+        resImg: Int,
+        name: String
+    ) {
         ivIcon4.setImageResource(resImg)
         tvIcon4.text = name
     }
 
-    fun setItem5(resImg: Int, name: String) {
+    fun setItem5(
+        resImg: Int,
+        name: String
+    ) {
         ivIcon5.setImageResource(resImg)
         tvIcon5.text = name
     }

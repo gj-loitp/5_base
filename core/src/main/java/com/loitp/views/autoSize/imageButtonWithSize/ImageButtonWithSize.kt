@@ -1,4 +1,4 @@
-package com.loitpcore.views.autoSize.imageButtonWithSize
+package com.loitp.views.autoSize.imageButtonWithSize
 
 import android.content.Context
 import android.content.res.Configuration

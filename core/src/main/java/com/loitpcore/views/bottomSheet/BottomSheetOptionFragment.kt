@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.loitpcore.R
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 import kotlinx.android.synthetic.main.l_frm_bottom_sheet_dialog_option.*
 
 /**
@@ -43,7 +43,10 @@ class BottomSheetOptionFragment(
         return inflater.inflate(R.layout.l_frm_bottom_sheet_dialog_option, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         // https://stackoverflow.com/questions/37104960/bottomsheetdialog-with-transparent-background
