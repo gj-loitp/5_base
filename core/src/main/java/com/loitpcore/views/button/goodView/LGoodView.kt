@@ -16,7 +16,7 @@ import android.view.animation.TranslateAnimation
 import android.widget.PopupWindow
 import android.widget.RelativeLayout
 import android.widget.TextView
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 
 /**
  * Created by Loitp on 04,August,2022

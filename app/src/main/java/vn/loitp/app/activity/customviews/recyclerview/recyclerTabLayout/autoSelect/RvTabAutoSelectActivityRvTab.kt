@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.autoSel
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import com.loitpcore.core.utilities.LActivityUtil
+import com.loitp.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_tab_layout.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.Demo

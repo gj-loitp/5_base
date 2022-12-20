@@ -12,7 +12,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import com.loitpcore.core.utilities.LAppResource;
+import com.loitp.core.utilities.LAppResource;
 
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;

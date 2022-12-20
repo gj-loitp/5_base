@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 import kotlinx.android.synthetic.main.l_answer_view.view.*
 
 /**

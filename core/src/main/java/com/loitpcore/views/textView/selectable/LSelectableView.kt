@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.appcompat.app.AppCompatActivity
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 import com.loitpcore.views.textView.selectable.CommonUtil.dpTpPx
 import com.loitpcore.views.textView.selectable.CustomTextView.OnCursorStateChangedListener
 

@@ -8,7 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
-import com.loitpcore.core.utilities.LAnimationUtil
+import com.loitp.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.card.LCardView

@@ -13,7 +13,7 @@ import android.view.MotionEvent
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import androidx.core.content.res.ResourcesCompat
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 import vn.loitp.app.R
 import vn.loitp.app.activity.game.pong.activity.GameActivity
 import java.util.*

@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.widget.RelativeLayout
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LAppResource.getColor
+import com.loitp.core.utilities.LAppResource.getColor
 
 /**
  * Created by Loitp on 04,August,2022

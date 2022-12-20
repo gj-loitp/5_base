@@ -10,7 +10,7 @@ import android.view.Gravity
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LAppResource.getColor
+import com.loitp.core.utilities.LAppResource.getColor
 import kotlin.math.abs
 
 /**

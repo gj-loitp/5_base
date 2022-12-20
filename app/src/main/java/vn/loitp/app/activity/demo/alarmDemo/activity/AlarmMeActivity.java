@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
 import com.loitp.core.base.BaseFontActivity;
-import com.loitpcore.core.utilities.LActivityUtil;
+import com.loitp.core.utilities.LActivityUtil;
 import com.loitpcore.core.utilities.LUIUtil;
 
 import kotlin.Suppress;

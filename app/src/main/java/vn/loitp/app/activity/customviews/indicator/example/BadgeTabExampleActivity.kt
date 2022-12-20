@@ -11,11 +11,10 @@ import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_badge_tab_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper

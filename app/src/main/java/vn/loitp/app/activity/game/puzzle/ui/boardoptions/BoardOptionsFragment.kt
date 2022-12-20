@@ -14,7 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
-import com.loitpcore.core.utilities.LActivityUtil
+import com.loitp.core.utilities.LActivityUtil
 import vn.loitp.app.R
 import vn.loitp.app.activity.game.puzzle.BoardActivityParams
 import vn.loitp.app.activity.game.puzzle.GameActivity

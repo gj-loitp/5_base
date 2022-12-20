@@ -5,7 +5,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_q_button.*
 import vn.loitp.app.R

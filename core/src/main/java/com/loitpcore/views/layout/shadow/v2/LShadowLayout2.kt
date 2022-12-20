@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.core.view.ViewCompat
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 
 /**
  * Created by Loitp on 04,August,2022

@@ -8,7 +8,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LAnimationUtil
+import com.loitp.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LUIUtil
 
 /**

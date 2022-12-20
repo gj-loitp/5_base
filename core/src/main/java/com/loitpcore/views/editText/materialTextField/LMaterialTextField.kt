@@ -14,7 +14,7 @@ import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 
 /**
  * Created by Loitp on 04,August,2022

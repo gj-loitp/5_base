@@ -1,4 +1,4 @@
-package com.loitpcore.core.utilities
+package com.loitp.core.utilities
 
 import android.app.Application
 import android.content.Context
@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.*
 import androidx.core.content.ContextCompat
+import com.loitpcore.core.utilities.LUIUtil
 
 /**
  * Created by Loitp on 04,August,2022
@@ -22,7 +23,7 @@ object LAppResource {
     lateinit var application: Application
 
     fun init(application: Application) {
-        this.application = application
+        LAppResource.application = application
     }
 
     fun getColor(@ColorRes colorRes: Int): Int = application.let {

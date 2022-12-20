@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
 
 /**

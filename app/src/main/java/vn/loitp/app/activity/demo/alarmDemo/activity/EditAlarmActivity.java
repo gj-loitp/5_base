@@ -21,7 +21,7 @@ import android.widget.TimePicker;
 import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
 import com.loitp.core.base.BaseFontActivity;
-import com.loitpcore.core.utilities.LActivityUtil;
+import com.loitp.core.utilities.LActivityUtil;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

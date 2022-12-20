@@ -2,6 +2,7 @@ package com.loitpcore.core.utilities
 
 import android.content.Context
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.utilities.LAppResource
 import com.loitpcore.model.App
 import com.loitpcore.utils.util.AppUtils
 

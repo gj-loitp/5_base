@@ -15,7 +15,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LPopupMenu
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_collapsingtoolbar_withtablayout.*

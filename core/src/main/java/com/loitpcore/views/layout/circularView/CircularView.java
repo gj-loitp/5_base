@@ -20,7 +20,7 @@ import android.view.SoundEffectConstants;
 import android.view.View;
 
 import com.loitpcore.R;
-import com.loitpcore.core.utilities.LAppResource;
+import com.loitp.core.utilities.LAppResource;
 
 import java.util.ArrayList;
 

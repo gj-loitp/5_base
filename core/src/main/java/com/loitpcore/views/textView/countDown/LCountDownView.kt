@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import android.widget.RelativeLayout
 import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LAnimationUtil
+import com.loitp.core.utilities.LAnimationUtil
 import kotlinx.android.synthetic.main.view_l_count_down.view.*
 
 /**

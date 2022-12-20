@@ -10,7 +10,7 @@ import android.view.Gravity
 import android.view.animation.LinearInterpolator
 import android.widget.LinearLayout
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LAppResource.getColor
+import com.loitp.core.utilities.LAppResource.getColor
 
 /**
  * Created by Loitp on 04,August,2022

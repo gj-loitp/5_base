@@ -2,12 +2,11 @@ package vn.loitp.app.activity.network
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.utilities.LConnectivityUtil
+import com.loitp.core.utilities.LConnectivityUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.data.EventBusData
 import com.loitpcore.function.network.TrafficUtils

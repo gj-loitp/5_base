@@ -13,7 +13,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 
 /**
  * Created by Loitp on 04,August,2022

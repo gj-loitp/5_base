@@ -17,7 +17,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
-import com.loitpcore.core.utilities.LAnimationUtil
+import com.loitp.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil

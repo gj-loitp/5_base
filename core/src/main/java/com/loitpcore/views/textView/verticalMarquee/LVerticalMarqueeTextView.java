@@ -12,7 +12,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.loitpcore.R;
-import com.loitpcore.core.utilities.LAppResource;
+import com.loitp.core.utilities.LAppResource;
 
 import kotlin.Suppress;
 

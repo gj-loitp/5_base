@@ -3,6 +3,7 @@ package com.loitpcore.core.utilities
 import android.app.Activity
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
+import com.loitp.core.utilities.LAppResource
 
 /**
  * Created by Loitp on 04,August,2022

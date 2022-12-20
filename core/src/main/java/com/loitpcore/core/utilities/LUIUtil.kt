@@ -37,6 +37,8 @@ import com.google.gson.GsonBuilder
 import com.loitpcore.R
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.utilities.LAppResource
 import com.loitpcore.utils.util.ConvertUtils
 import com.skydoves.elasticviews.elasticAnimation
 import io.github.inflationx.calligraphy3.CalligraphyConfig

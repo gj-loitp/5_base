@@ -9,6 +9,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.*
 import com.loitpcore.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.loitp.core.utilities.statusbar.StatusBarCompat

@@ -1,4 +1,4 @@
-package com.loitpcore.core.utilities
+package com.loitp.core.utilities
 
 import android.animation.ValueAnimator
 import android.view.View

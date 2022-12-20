@@ -27,7 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
 import com.loitpcore.R;
-import com.loitpcore.core.utilities.LAppResource;
+import com.loitp.core.utilities.LAppResource;
 import com.loitpcore.views.calendar.cosmoCalendar.FetchMonthsAsyncTask;
 import com.loitpcore.views.calendar.cosmoCalendar.adapter.MonthAdapter;
 import com.loitpcore.views.calendar.cosmoCalendar.listeners.OnMonthChangeListener;

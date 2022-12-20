@@ -1,4 +1,4 @@
-package com.loitpcore.core.utilities
+package com.loitp.core.utilities
 
 import android.app.Activity
 import android.content.Context
@@ -6,8 +6,8 @@ import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.view.View
 import android.view.WindowManager
-import com.loitpcore.R
 import com.loitp.core.common.Constants
+import com.loitpcore.R
 import com.loitpcore.data.ActivityData
 
 /**

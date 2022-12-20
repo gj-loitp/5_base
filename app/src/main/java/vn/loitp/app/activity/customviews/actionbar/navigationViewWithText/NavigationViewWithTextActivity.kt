@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 import com.loitpcore.views.navigationView.LTextNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view_with_text.*
 import vn.loitp.app.R

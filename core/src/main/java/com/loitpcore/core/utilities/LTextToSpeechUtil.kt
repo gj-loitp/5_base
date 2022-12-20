@@ -1,6 +1,7 @@
 package com.loitpcore.core.utilities
 
 import android.speech.tts.TextToSpeech
+import com.loitp.core.utilities.LAppResource
 import java.util.*
 
 /**

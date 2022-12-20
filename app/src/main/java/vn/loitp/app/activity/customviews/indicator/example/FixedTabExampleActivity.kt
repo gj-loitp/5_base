@@ -8,12 +8,11 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.OvershootInterpolator
 import android.widget.LinearLayout
-import androidx.core.view.isVisible
 import androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_fixed_tab_example_layout.*
 import net.lucode.hackware.magicindicator.FragmentContainerHelper

@@ -5,7 +5,7 @@ import com.google.gson.reflect.TypeToken
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseViewModel
-import com.loitpcore.core.utilities.LAppResource
+import com.loitp.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LPrefUtil
 import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.core.utilities.LStoreUtil.Companion.getListEpubFiles

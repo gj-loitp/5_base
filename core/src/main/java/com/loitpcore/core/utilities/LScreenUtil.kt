@@ -13,6 +13,8 @@ import android.provider.Settings
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.loitp.core.base.BaseActivity
+import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.utilities.LAppResource
 import com.loitpcore.utils.util.FragmentUtils
 
 /**

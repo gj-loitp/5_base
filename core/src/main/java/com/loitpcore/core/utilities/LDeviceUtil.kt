@@ -8,6 +8,7 @@ import android.os.Vibrator
 import android.provider.Settings
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
+import com.loitp.core.utilities.LAppResource
 import java.util.* // ktlint-disable no-wildcard-imports
 
 /**

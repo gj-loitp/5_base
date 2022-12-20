@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LActivityUtil
+import com.loitp.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.views.layout.swipeBack.SwipeBackLayout
 import com.loitpcore.views.layout.swipeBack.SwipeBackLayout.OnSwipeBackListener

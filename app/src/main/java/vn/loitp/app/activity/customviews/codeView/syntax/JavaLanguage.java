@@ -5,7 +5,7 @@ import android.content.Context;
 import com.amrdeveloper.codeview.Code;
 import com.amrdeveloper.codeview.CodeView;
 import com.amrdeveloper.codeview.Keyword;
-import com.loitpcore.core.utilities.LAppResource;
+import com.loitp.core.utilities.LAppResource;
 
 import java.util.ArrayList;
 import java.util.HashSet;
