@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.*
 import com.loitpcore.core.utilities.LUIUtil.Companion.scrollToBottom
-import com.loitpcore.core.utilities.statusbar.StatusBarCompat
+import com.loitp.core.utilities.statusbar.StatusBarCompat
 import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_utils_core.*
 import vn.loitp.app.R

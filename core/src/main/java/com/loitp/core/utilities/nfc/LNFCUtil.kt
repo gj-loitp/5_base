@@ -1,4 +1,4 @@
-package com.loitpcore.core.utilities.nfc
+package com.loitp.core.utilities.nfc
 
 import kotlin.experimental.and
 

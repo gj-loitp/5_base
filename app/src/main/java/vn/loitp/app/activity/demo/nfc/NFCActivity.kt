@@ -17,8 +17,8 @@ import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDateUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.core.utilities.nfc.LNFCUtil
-import com.loitpcore.core.utilities.nfc.TagWrapper
+import com.loitp.core.utilities.nfc.LNFCUtil
+import com.loitp.core.utilities.nfc.TagWrapper
 import kotlinx.android.synthetic.main.activity_demo_nfc.*
 import vn.loitp.app.R
 import java.io.UnsupportedEncodingException

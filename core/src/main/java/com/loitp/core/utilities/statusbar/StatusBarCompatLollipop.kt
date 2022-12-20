@@ -1,4 +1,4 @@
-package com.loitpcore.core.utilities.statusbar
+package com.loitp.core.utilities.statusbar
 
 import android.animation.ValueAnimator
 import android.app.Activity

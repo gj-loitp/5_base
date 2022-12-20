@@ -1,6 +1,7 @@
-package com.loitpcore.core.utilities.nfc
+package com.loitp.core.utilities.nfc
 
 import androidx.annotation.Keep
+import com.loitp.core.base.BaseModel
 
 /**
  * Created by Loitp on 04,August,2022
@@ -10,4 +11,6 @@ import androidx.annotation.Keep
  * freuss47@gmail.com
  */
 @Keep
-class TagTechList : LinkedHashMap<String?, List<String?>?>()
+class TagWrapper(val id: String) : BaseModel() {
+    var techList = TagTechList()
+}
