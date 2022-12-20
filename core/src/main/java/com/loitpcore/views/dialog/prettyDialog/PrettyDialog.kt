@@ -19,9 +19,10 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDialog
-import com.loitpcore.R
+import androidx.appcompat.widget.LinearLayoutCompat
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -33,8 +34,8 @@ import com.loitp.core.utilities.LUIUtil
 class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     private var defaultIconTint: Int = R.color.colorPrimary
     internal var resources: Resources
-    private var llContent: LinearLayout? = null
-    private var llButtons: LinearLayout? = null
+    private var llContent: LinearLayoutCompat? = null
+    private var llButtons: LinearLayoutCompat? = null
     private var ivIcon: ImageView? = null
     private var closeRotationAnimation: RotateAnimation? = null
     private var iconAnimation = true
@@ -47,7 +48,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
 
     init {
         window?.requestFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.l_dialog_pretty_dialog)
+        setContentView(R.layout.l_d_pretty_dialog)
         setCancelable(true)
         resources = context.resources
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -218,7 +219,11 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    fun setIcon(icon: Int?, iconTint: Int?, callback: Runnable?): PrettyDialog {
+    fun setIcon(
+        icon: Int?,
+        iconTint: Int?,
+        callback: Runnable?
+    ): PrettyDialog {
         iconAnimation = false
         ivIcon?.let {
             it.setImageResource(icon ?: R.drawable.ic_close_black_48dp)

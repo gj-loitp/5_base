@@ -6,27 +6,25 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.ortiz.touchview.TouchImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:adjustViewBounds="true"
+        android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:scaleType="centerCrop"
+        tools:background="@color/red"
+        tools:src="@drawable/logo" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivClose"
         android:layout_width="@dimen/w_35"
         android:layout_height="@dimen/w_35"
+        android:layout_margin="@dimen/margin_padding_medium"
         android:adjustViewBounds="true"
         android:background="?selectableItemBackgroundBorderless"
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_close_black_48dp"
-        app:layout_constraintRight_toRightOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:tint="?attr/themeTextColor"
         tools:ignore="UnusedAttribute" />

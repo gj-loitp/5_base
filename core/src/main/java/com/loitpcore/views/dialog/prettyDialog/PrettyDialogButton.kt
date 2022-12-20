@@ -10,9 +10,9 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.loitpcore.R
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 import kotlin.math.min
 
 /**
@@ -44,8 +44,8 @@ internal class PrettyDialogButton(
 
     private fun init() {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        inflater.inflate(R.layout.l_dialog_pretty_button, this)
-        tv = findViewById<TextView>(R.id.tv_button)
+        inflater.inflate(R.layout.l_d_pretty_button, this)
+        tv = findViewById(R.id.tv_button)
         tv?.let {
             it.text = text
             if (textColor == null) {

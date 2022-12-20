@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
-import com.loitpcore.R
 import com.loitp.core.utilities.LImageUtil
-import kotlinx.android.synthetic.main.l_frm_image_slide.view.*
+import com.loitpcore.R
+import kotlinx.android.synthetic.main.l_f_image_slide.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -28,9 +28,12 @@ class LSlideAdapter(
         fun onClickClose()
     }
 
-    override fun instantiateItem(collection: ViewGroup, position: Int): Any {
+    override fun instantiateItem(
+        collection: ViewGroup,
+        position: Int
+    ): Any {
         val inflater = LayoutInflater.from(mContext)
-        val layout = inflater.inflate(R.layout.l_frm_image_slide, collection, false) as ViewGroup
+        val layout = inflater.inflate(R.layout.l_f_image_slide, collection, false) as ViewGroup
 
         layout.ivClose.visibility = if (isShowIconClose) View.VISIBLE else View.INVISIBLE
 //        val sizeW = screenW
@@ -54,11 +57,18 @@ class LSlideAdapter(
         return stringList?.size ?: 0
     }
 
-    override fun isViewFromObject(arg0: View, arg1: Any): Boolean {
+    override fun isViewFromObject(
+        arg0: View,
+        arg1: Any
+    ): Boolean {
         return arg0 === arg1
     }
 
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+    override fun destroyItem(
+        container: ViewGroup,
+        position: Int,
+        `object`: Any
+    ) {
         // super.destroyItem(container, position, object);
     }
 }

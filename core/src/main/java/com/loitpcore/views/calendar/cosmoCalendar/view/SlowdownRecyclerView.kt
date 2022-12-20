@@ -27,11 +27,18 @@ class SlowdownRecyclerView : RecyclerView {
         createInterpolator()
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         createInterpolator()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -48,7 +55,10 @@ class SlowdownRecyclerView : RecyclerView {
         }
     }
 
-    override fun smoothScrollBy(dx: Int, dy: Int) {
+    override fun smoothScrollBy(
+        dx: Int,
+        dy: Int
+    ) {
         super.smoothScrollBy(dx, dy, interpolator)
     }
 }
