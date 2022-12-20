@@ -1,4 +1,4 @@
-package com.loitpcore.core.ext
+package com.loitp.core.ext
 
 import android.os.SystemClock
 import android.view.View

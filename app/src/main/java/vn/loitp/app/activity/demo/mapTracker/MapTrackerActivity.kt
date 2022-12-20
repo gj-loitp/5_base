@@ -24,7 +24,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LMathUtil
 import com.loitpcore.core.utilities.LUIUtil

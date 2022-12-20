@@ -6,7 +6,7 @@ import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_func_view_draghelper_simple_1.*
 import vn.loitp.app.R
 

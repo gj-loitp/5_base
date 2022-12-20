@@ -1,6 +1,6 @@
 package com.loitpcore.data
 
-import com.loitpcore.core.common.Constants
+import com.loitp.core.common.Constants
 
 /**
  * Created by Loitp on 04,August,2022

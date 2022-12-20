@@ -12,7 +12,7 @@ import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.google.android.exoplayer2.ui.PlayerView
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.views.exo.PlayerManager
 import vn.loitp.app.R
 import vn.loitp.app.activity.service.endlessService.log

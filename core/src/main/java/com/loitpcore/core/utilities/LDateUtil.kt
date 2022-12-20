@@ -1,6 +1,6 @@
 package com.loitpcore.core.utilities
 
-import com.loitpcore.core.common.Constants
+import com.loitp.core.common.Constants
 import java.text.DateFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat

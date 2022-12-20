@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.loitpcore.R
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_frm_bottom_sheet_dialog_option.*
 

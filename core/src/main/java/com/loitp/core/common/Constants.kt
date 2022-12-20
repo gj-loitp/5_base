@@ -1,4 +1,4 @@
-package com.loitpcore.core.common
+package com.loitp.core.common
 
 import com.loitpcore.R
 

@@ -15,7 +15,7 @@ import androidx.annotation.IntRange
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.drawerlayout.widget.DrawerLayout
 import com.loitpcore.R
-import com.loitpcore.core.common.Constants
+import com.loitp.core.common.Constants
 
 /**
  * Created by Loitp on 04,August,2022

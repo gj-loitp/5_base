@@ -7,7 +7,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.ttt.helper.ComicUtils
 import com.loitpcore.core.helper.ttt.model.comictype.ComicType
 import com.loitpcore.core.helper.ttt.viewmodel.TTTViewModel

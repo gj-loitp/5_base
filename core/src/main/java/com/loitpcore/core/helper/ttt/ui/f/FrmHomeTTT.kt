@@ -8,7 +8,7 @@ import com.loitpcore.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.ttt.adapter.TTTListComicAdapter
 import com.loitpcore.core.helper.ttt.helper.ComicUtils
 import com.loitpcore.core.helper.ttt.viewmodel.TTTViewModel

@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.common.Constants
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.viewPager.swipeOut.LSwipeOutViewPager
 import kotlinx.android.synthetic.main.activity_view_pager_swipe_out_2.*
@@ -51,7 +52,7 @@ class ViewPagerSwipeOut2Activity : BaseFontActivity() {
         })
         LUIUtil.setPullLikeIOSHorizontal(vp)
         tabLayout.setupWithViewPager(vp)
-        LUIUtil.changeTabsFont(tabLayout, com.loitpcore.core.common.Constants.FONT_PATH)
+        LUIUtil.changeTabsFont(tabLayout, Constants.FONT_PATH)
     }
 
     private inner class SamplePagerAdapter(fm: FragmentManager) :

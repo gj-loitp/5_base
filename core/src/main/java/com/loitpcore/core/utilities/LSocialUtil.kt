@@ -7,7 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import com.loitpcore.R
-import com.loitpcore.core.common.Constants
+import com.loitp.core.common.Constants
 import com.loitpcore.core.helper.fbComment.FbCommentActivity
 import com.loitpcore.utils.util.AppUtils
 import de.cketti.mailto.EmailIntentBuilder

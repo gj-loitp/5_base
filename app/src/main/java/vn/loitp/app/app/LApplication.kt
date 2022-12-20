@@ -5,7 +5,7 @@ import com.g1.onetargetsdk.core.Configuration
 import com.g1.onetargetsdk.core.IAM
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
-import com.loitpcore.core.common.Constants
+import com.loitp.core.common.Constants
 import com.loitpcore.core.helper.ttt.db.TTTDatabase
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.data.ActivityData

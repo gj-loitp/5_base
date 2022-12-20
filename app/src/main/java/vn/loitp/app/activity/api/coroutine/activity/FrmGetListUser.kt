@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.base.BaseFragment
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.frm_coroutine_get_list_user.*
 import vn.loitp.app.R

@@ -11,8 +11,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsKeepScreenOn
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.common.Constants
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.common.Constants
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.adHelper.AdHelperActivity
 import com.loitpcore.core.utilities.*
 import kotlinx.android.synthetic.main.activity_firebase.*

@@ -7,7 +7,7 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.common.Constants
+import com.loitp.core.common.Constants
 import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil

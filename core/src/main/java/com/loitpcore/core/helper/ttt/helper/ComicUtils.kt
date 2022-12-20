@@ -1,6 +1,6 @@
 package com.loitpcore.core.helper.ttt.helper
 
-import com.loitpcore.core.common.Constants
+import com.loitp.core.common.Constants
 import com.loitpcore.core.helper.ttt.model.comic.Comic
 import com.loitpcore.core.helper.ttt.model.comictype.ComicType
 

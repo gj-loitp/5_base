@@ -14,8 +14,8 @@ import com.loitpcore.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
-import com.loitpcore.core.common.Constants
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.common.Constants
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.gallery.photos.PhotosDataCore
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil

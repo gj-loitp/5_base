@@ -1,6 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.concatAdapter.data
 
-import com.loitpcore.core.common.Constants
+import com.loitp.core.common.Constants
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.data.model.Banner
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.data.model.User

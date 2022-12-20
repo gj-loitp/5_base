@@ -18,8 +18,8 @@ import com.loitpcore.R
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.common.Constants
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.common.Constants
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*

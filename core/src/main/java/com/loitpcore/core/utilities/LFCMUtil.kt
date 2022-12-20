@@ -2,7 +2,7 @@ package com.loitpcore.core.utilities
 
 import android.annotation.SuppressLint
 import com.loitpcore.R
-import com.loitpcore.core.common.Constants
+import com.loitp.core.common.Constants
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

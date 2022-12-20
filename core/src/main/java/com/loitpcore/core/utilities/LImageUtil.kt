@@ -14,7 +14,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.loitpcore.R
-import com.loitpcore.core.common.Constants
+import com.loitp.core.common.Constants
 import com.loitpcore.utils.util.FileUtils
 import com.ortiz.touchview.TouchImageView
 import java.io.File

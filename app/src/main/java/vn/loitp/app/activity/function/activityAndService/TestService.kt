@@ -11,7 +11,7 @@ import android.view.*
 import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.TextView
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListener
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode

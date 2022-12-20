@@ -1,4 +1,4 @@
-package com.loitpcore.core.ext
+package com.loitp.core.ext
 
 import android.view.View
 import android.view.ViewGroup

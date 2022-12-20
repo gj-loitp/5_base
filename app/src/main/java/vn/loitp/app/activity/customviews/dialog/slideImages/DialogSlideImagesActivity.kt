@@ -4,8 +4,8 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.common.Constants
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.common.Constants
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil

@@ -13,7 +13,7 @@ import androidx.core.app.ActivityCompat
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_unicorn_file_picker.*
 import vn.loitp.app.R

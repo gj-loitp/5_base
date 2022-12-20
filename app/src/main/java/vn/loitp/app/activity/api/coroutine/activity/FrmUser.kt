@@ -5,7 +5,7 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import com.loitpcore.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.service.model.UserTest

@@ -7,7 +7,7 @@ import android.content.res.Configuration
 import android.view.View
 import android.view.WindowManager
 import com.loitpcore.R
-import com.loitpcore.core.common.Constants
+import com.loitp.core.common.Constants
 import com.loitpcore.data.ActivityData
 
 /**
