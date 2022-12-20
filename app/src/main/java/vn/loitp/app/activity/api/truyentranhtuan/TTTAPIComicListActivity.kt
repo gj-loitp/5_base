@@ -8,9 +8,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.helper.ttt.helper.ComicUtils
-import com.loitpcore.core.helper.ttt.model.comictype.ComicType
-import com.loitpcore.core.helper.ttt.viewmodel.TTTViewModel
+import com.loitp.core.helper.ttt.helper.ComicUtils
+import com.loitp.core.helper.ttt.model.comictype.ComicType
+import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_ttt_api_comic_list.*
