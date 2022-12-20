@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.fivehundredpx.greedolayout.GreedoLayoutSizeCalculator.SizeCalculatorDelegate
-import com.loitpcore.core.utilities.LImageUtil
+import com.loitp.core.utilities.LImageUtil
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.greedoLayout.PhotosAdapter.PhotoViewHolder
 

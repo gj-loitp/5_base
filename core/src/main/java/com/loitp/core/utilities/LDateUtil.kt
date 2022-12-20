@@ -1,4 +1,4 @@
-package com.loitpcore.core.utilities
+package com.loitp.core.utilities
 
 import com.loitp.core.common.Constants
 import java.text.DateFormat

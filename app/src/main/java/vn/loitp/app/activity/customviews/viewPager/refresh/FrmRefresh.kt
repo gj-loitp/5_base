@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.loitpcore.core.utilities.LDialogUtil
+import com.loitp.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.toast.LToast
 import kotlinx.android.synthetic.main.frm_view_pager_refresh.*

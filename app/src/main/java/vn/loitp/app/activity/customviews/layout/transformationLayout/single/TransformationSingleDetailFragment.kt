@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.layout.transformationLayout.single
 import android.os.Bundle
 import android.view.View
 import com.loitp.core.base.BaseFragment
-import com.loitpcore.core.utilities.LImageUtil
+import com.loitp.core.utilities.LImageUtil
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
 import kotlinx.android.synthetic.main.activity_layout_transformation_detail.*

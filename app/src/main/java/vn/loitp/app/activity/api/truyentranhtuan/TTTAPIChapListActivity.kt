@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
-import com.loitpcore.core.utilities.LDialogUtil
+import com.loitp.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_ttt_api_chap_list.*
 import vn.loitp.app.R

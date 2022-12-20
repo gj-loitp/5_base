@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LImageUtil
+import com.loitp.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.stfalcon.imageviewer.StfalconImageViewer
 import kotlinx.android.synthetic.main.activity_stfaicon_image_viewer_list.*

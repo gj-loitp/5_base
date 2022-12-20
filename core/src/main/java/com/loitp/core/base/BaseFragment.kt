@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.utilities.LDialogUtil
+import com.loitp.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LLog
 import com.loitpcore.data.EventBusData
 import io.reactivex.disposables.CompositeDisposable

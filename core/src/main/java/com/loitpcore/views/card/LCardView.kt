@@ -8,7 +8,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LImageUtil
+import com.loitp.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 
 /**

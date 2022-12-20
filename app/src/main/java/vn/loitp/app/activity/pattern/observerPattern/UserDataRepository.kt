@@ -2,7 +2,7 @@ package vn.loitp.app.activity.pattern.observerPattern
 
 import android.os.Handler
 import android.os.Looper
-import com.loitpcore.core.utilities.LDeviceUtil
+import com.loitp.core.utilities.LDeviceUtil
 
 class UserDataRepository private constructor() : Subject {
     companion object {

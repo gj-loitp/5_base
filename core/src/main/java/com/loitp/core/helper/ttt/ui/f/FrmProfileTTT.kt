@@ -9,7 +9,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.ttt.ui.a.TTTComicActivity
 import com.loitpcore.R
 import com.loitp.core.utilities.LActivityUtil
-import com.loitpcore.core.utilities.LImageUtil
+import com.loitp.core.utilities.LImageUtil
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.l_frm_ttt_comic_profile.*
 

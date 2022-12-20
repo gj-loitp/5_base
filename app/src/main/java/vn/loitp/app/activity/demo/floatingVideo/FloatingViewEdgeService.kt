@@ -12,7 +12,7 @@ import android.view.* // ktlint-disable no-wildcard-imports
 import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.View.OnTouchListener
 import android.widget.RelativeLayout
-import com.loitpcore.core.utilities.LDeviceUtil
+import com.loitp.core.utilities.LDeviceUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import vn.loitp.app.R
 import kotlin.math.abs

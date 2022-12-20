@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.recyclerview.footer2
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +11,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.utilities.LDialogUtil
+import com.loitp.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LPopupMenu
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.recyclerView.itemDecoration.StickyFooterItemDecoration

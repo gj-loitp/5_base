@@ -1,4 +1,4 @@
-package com.loitpcore.core.utilities
+package com.loitp.core.utilities
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -13,9 +13,8 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.viewpager.widget.ViewPager
 import com.daimajia.androidanimations.library.Techniques
-import com.loitp.core.utilities.LAnimationUtil
-import com.loitp.core.utilities.LAppResource
 import com.loitpcore.R
+import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.dialog.slideImages.LSlideAdapter
 import com.loitpcore.views.progressLoadingView.window.WP10ProgressBar
 

@@ -1,4 +1,4 @@
-package com.loitpcore.core.utilities
+package com.loitp.core.utilities
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,8 +8,7 @@ import android.os.Vibrator
 import android.provider.Settings
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
-import com.loitp.core.utilities.LAppResource
-import java.util.* // ktlint-disable no-wildcard-imports
+import java.util.*
 
 /**
  * Created by Loitp on 04,August,2022

@@ -12,7 +12,7 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAnimationUtil
-import com.loitpcore.core.utilities.LDialogUtil
+import com.loitp.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.adapter.LevelAdapter

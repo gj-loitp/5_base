@@ -3,7 +3,7 @@ package com.loitp.animation.flySchool
 import android.content.res.Resources
 import android.graphics.PorterDuff
 import android.widget.ImageView
-import com.loitpcore.core.utilities.LDeviceUtil.Companion.getRandomNumber
+import com.loitp.core.utilities.LDeviceUtil.Companion.getRandomNumber
 import com.loitpcore.core.utilities.LStoreUtil.Companion.randomColor
 
 /**

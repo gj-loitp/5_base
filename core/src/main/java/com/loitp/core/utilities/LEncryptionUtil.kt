@@ -1,4 +1,4 @@
-package com.loitpcore.core.utilities
+package com.loitp.core.utilities
 
 import android.util.Base64
 import java.nio.charset.StandardCharsets

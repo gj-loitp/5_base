@@ -15,7 +15,7 @@ import android.widget.ScrollView
 import android.widget.TextView
 import com.loitpcore.R
 import com.loitp.core.utilities.LAppResource
-import com.loitpcore.core.utilities.LDateUtil
+import com.loitp.core.utilities.LDateUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil
 import org.greenrobot.eventbus.EventBus

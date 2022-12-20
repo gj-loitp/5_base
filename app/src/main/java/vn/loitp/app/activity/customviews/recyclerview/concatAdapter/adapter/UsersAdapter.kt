@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.utilities.LImageUtil
+import com.loitp.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_item_user.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.data.model.User
