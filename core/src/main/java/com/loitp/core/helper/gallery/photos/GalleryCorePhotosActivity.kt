@@ -1,4 +1,4 @@
-package com.loitpcore.core.helper.gallery.photos
+package com.loitp.core.helper.gallery.photos
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.helper.gallery.slide.GalleryCoreSlideActivity
+import com.loitp.core.helper.gallery.slide.GalleryCoreSlideActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LSocialUtil

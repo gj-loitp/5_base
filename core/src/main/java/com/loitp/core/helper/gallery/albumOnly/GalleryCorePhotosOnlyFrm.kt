@@ -1,5 +1,6 @@
-package com.loitpcore.core.helper.gallery.albumOnly
+package com.loitp.core.helper.gallery.albumOnly
 
+// ktlint-disable no-wildcard-imports
 import android.Manifest
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -7,16 +8,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
 import com.loitpcore.R
-import com.loitp.annotation.IsFullScreen
-import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseApplication
+import com.loitp.core.base.BaseFragment
 import com.loitp.core.common.Constants
-import com.loitpcore.core.helper.gallery.photos.PhotosDataCore
+import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LSocialUtil
@@ -25,12 +25,11 @@ import com.loitpcore.restApi.flickr.FlickrConst
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitpcore.restApi.flickr.service.FlickrService
 import com.loitpcore.restApi.restClient.RestClient
-import com.loitpcore.views.layout.swipeBack.SwipeBackLayout
 import com.permissionx.guolindev.PermissionX
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
+import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -39,84 +38,102 @@ import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only
  * +840766040293
  * freuss47@gmail.com
  */
-@LogTag("GalleryCorePhotosOnlyActivity")
-@IsFullScreen(false)
-@IsSwipeActivity(true)
-class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
+@LogTag("GalleryCorePhotosOnlyFrm")
+class GalleryCorePhotosOnlyFrm(
+    private val onTop: ((Unit) -> Unit)? = null,
+    private val onBottom: ((Unit) -> Unit)? = null,
+    private val onScrolled: ((isScrollDown: Boolean) -> Unit)? = null
+) : BaseFragment() {
+
     companion object {
         private const val PER_PAGE_SIZE = 100
+        const val IS_SHOW_TITLE = "IS_SHOW_TITLE"
     }
 
     private var currentPage = 0
     private var totalPage = 1
     private var isLoading: Boolean = false
     private var photosOnlyAdapter: PhotosOnlyAdapter? = null
-    private var photoSetID: String? = null
+    private var photosetID: String? = null
     private var photosSize: Int = 0
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_photos_only
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        RestClient.init(getString(R.string.flickr_URL))
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_frm_flickr_gallery_core_photos_only
+    }
+
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
+        super.onViewCreated(view, savedInstanceState)
 
         setupViews()
         checkPermission()
     }
 
     private fun setupViews() {
-        RestClient.init(getString(R.string.flickr_URL))
+        val bundle = arguments ?: return
         PhotosDataCore.instance.clearData()
-
-        photoSetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
-        if (photoSetID.isNullOrEmpty()) {
+        photosetID = bundle.getString(Constants.SK_PHOTOSET_ID)
+        if (photosetID.isNullOrEmpty()) {
             handleException(Exception(getString(R.string.err_unknown)))
             return
         }
-        photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        photosOnlyAdapter = PhotosOnlyAdapter(
-            callback = object : PhotosOnlyAdapter.Callback {
-                override fun onClick(photo: Photo, pos: Int) {
-                }
+//        logD("photosetID $photosetID")
+        photosSize = bundle.getInt(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
+//        logD("photosSize $photosSize")
 
-                override fun onLongClick(photo: Photo, pos: Int) {
-                }
+        val isShowTitle = bundle.getBoolean(IS_SHOW_TITLE)
+        if (isShowTitle) {
+            tvTitle.visibility = View.VISIBLE
+        } else {
+            tvTitle.visibility = View.GONE
+        }
 
-                override fun onClickDownload(photo: Photo, pos: Int) {
-                    save(url = photo.urlO)
-                }
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+        activity?.let { a ->
+            photosOnlyAdapter = PhotosOnlyAdapter(
+                callback = object : PhotosOnlyAdapter.Callback {
+                    override fun onClick(photo: Photo, pos: Int) {
+                    }
 
-                override fun onClickShare(photo: Photo, pos: Int) {
-                    LSocialUtil.share(
-                        activity = this@GalleryCorePhotosOnlyActivity,
-                        msg = photo.urlO
-                    )
-                }
+                    override fun onLongClick(photo: Photo, pos: Int) {
+                    }
 
-                override fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView) {
-                    LUIUtil.setWallpaperAndLockScreen(
-                        activity = this@GalleryCorePhotosOnlyActivity,
-                        imageView = imageView,
-                        message = "Wallpaper Set",
-                        isSetWallpaper = true,
-                        isSetLockScreen = true,
-                    )
-                }
+                    override fun onClickDownload(photo: Photo, pos: Int) {
+                        save(url = photo.urlO)
+                    }
 
-                override fun onClickReport(photo: Photo, pos: Int) {
-                    LSocialUtil.sendEmail(context = this@GalleryCorePhotosOnlyActivity)
-                }
+                    override fun onClickShare(photo: Photo, pos: Int) {
+                        LSocialUtil.share(activity = a, msg = photo.urlO)
+                    }
 
-                override fun onClickCmt(photo: Photo, pos: Int) {
-                    LSocialUtil.openFacebookComment(
-                        context = this@GalleryCorePhotosOnlyActivity,
-                        url = photo.urlO,
-                    )
+                    override fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView) {
+                        LUIUtil.setWallpaperAndLockScreen(
+                            activity = requireActivity(),
+                            imageView = imageView,
+                            message = "Wallpaper Set",
+                            isSetWallpaper = true,
+                            isSetLockScreen = true,
+                        )
+                    }
+
+                    override fun onClickReport(photo: Photo, pos: Int) {
+                        LSocialUtil.sendEmail(context = a)
+                    }
+
+                    override fun onClickCmt(photo: Photo, pos: Int) {
+                        LSocialUtil.openFacebookComment(context = a, url = photo.urlO)
+                    }
                 }
-            }
-        )
+            )
+        }
         photosOnlyAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
 //            val animAdapter = ScaleInAnimationAdapter(it)
@@ -130,46 +147,25 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             recyclerView.adapter = animAdapter
         }
 
-        // LUIUtil.setPullLikeIOSVertical(recyclerView)
-
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(
-                recyclerView: RecyclerView,
-                newState: Int
-            ) {
-                super.onScrollStateChanged(recyclerView, newState)
-                if (!recyclerView.canScrollVertically(1)) {
-                    if (!isLoading) {
-                        photoSetID?.let {
-                            photoSetsGetPhotos(photoSetID = it)
-                        }
-                    }
+        LUIUtil.setScrollChange(
+            recyclerView = recyclerView,
+            onTop = {
+                onTop?.invoke(Unit)
+            },
+            onBottom = {
+                if (!isLoading) {
+                    photosetsGetPhotos(photosetID)
                 }
+                onBottom?.invoke(Unit)
+            },
+            onScrolled = {
+                onScrolled?.invoke(it)
             }
-        })
+        )
 
-        btPage.setOnClickListener {
+        btPage.setSafeOnClickListener {
             showListPage()
         }
-
-        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(
-                mView: View?,
-                swipeBackFraction: Float,
-                swipeBackFactor: Float
-            ) {
-            }
-
-            override fun onViewSwipeFinished(
-                mView: View?,
-                isEnd: Boolean
-            ) {
-                if (isEnd) {
-                    finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryCorePhotosOnlyActivity)
-                }
-            }
-        })
     }
 
     private fun showListPage() {
@@ -178,30 +174,33 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         for (i in 0 until size) {
             arr[i] = "Page " + (totalPage - i)
         }
-        LDialogUtil.showDialogList(
-            context = this,
-            title = "Select page",
-            arr = arr,
-            onClick = { position ->
-                currentPage = totalPage - position
-                PhotosDataCore.instance.clearData()
-                updateAllViews()
-                photoSetID?.let {
-                    photoSetsGetPhotos(it)
+        activity?.let {
+            LDialogUtil.showDialogList(
+                context = it,
+                title = "Select page",
+                arr = arr,
+                onClick = { position ->
+                    currentPage = totalPage - position
+                    logD("showDialogList onClick position $position, -> currentPage: $currentPage")
+                    PhotosDataCore.instance.clearData()
+                    updateAllViews()
+                    photosetsGetPhotos(photosetID)
                 }
-            }
-        )
+            )
+        }
     }
 
     private fun goToHome() {
         if (photosSize == Constants.NOT_FOUND) {
-            getListPhotoSets()
+            getPhotosets()
         } else {
             init()
         }
     }
 
     private fun init() {
+        logD("init photosSize $photosSize")
+
         totalPage = if (photosSize % PER_PAGE_SIZE == 0) {
             photosSize / PER_PAGE_SIZE
         } else {
@@ -210,12 +209,10 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
         currentPage = totalPage
 
-        photoSetID?.let {
-            photoSetsGetPhotos(it)
-        }
+        photosetsGetPhotos(photosetID)
     }
 
-    private fun getListPhotoSets() {
+    private fun getPhotosets() {
         LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
@@ -230,37 +227,46 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
         compositeDisposable.add(
             service.getListPhotoset(
-                method = method,
-                apiKey = apiKey,
-                userId = userID,
-                page = page,
-                perPage = perPage,
-                primaryPhotoExtras = primaryPhotoExtras,
-                format = format, noJsonCallback = noJsonCallBack
+                method,
+                apiKey,
+                userID,
+                page,
+                perPage,
+                primaryPhotoExtras,
+                format,
+                noJsonCallBack
             )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ wrapperPhotoSetGetlist ->
-                    wrapperPhotoSetGetlist?.photosets?.photoset?.let { list ->
-                        for (photoSet in list) {
-                            if (photoSet.id == photoSetID) {
-                                photosSize = Integer.parseInt(photoSet.photos ?: "0")
+                .subscribe({ wrapperPhotosetGetlist ->
+
+                    wrapperPhotosetGetlist?.photosets?.photoset?.let { list ->
+                        for (photoset in list) {
+                            if (photoset.id == photosetID) {
+                                photosSize = Integer.parseInt(photoset.photos ?: "0")
                                 init()
                                 return@subscribe
                             }
                         }
                     }
                 }, { e ->
+                    e.printStackTrace()
                     handleException(e)
                     LDialogUtil.hideProgress(progressBar)
                 })
         )
     }
 
-    private fun photoSetsGetPhotos(photoSetID: String) {
-        if (isLoading) {
+    private fun photosetsGetPhotos(photosetID: String?) {
+        if (photosetID.isNullOrEmpty()) {
+            logD("photosetID isNullOrEmpty -> return")
             return
         }
+        if (isLoading) {
+            logD("photosetsGetList isLoading true -> return")
+            return
+        }
+        logD("is calling photosetsGetPhotos $currentPage/$totalPage")
         isLoading = true
         LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
@@ -268,7 +274,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         val apiKey = FlickrConst.API_KEY
         val userID = FlickrConst.USER_KEY
         if (currentPage <= 0) {
-//            logD("currentPage <= 0 -> return")
+            logD("currentPage <= 0 -> return")
             currentPage = 0
             LDialogUtil.hideProgress(progressBar)
             return
@@ -281,7 +287,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             service.getPhotosetPhotos(
                 method = method,
                 apiKey = apiKey,
-                photosetId = photoSetID,
+                photosetId = photosetID,
                 userId = userID,
                 extras = primaryPhotoExtras,
                 perPage = PER_PAGE_SIZE,
@@ -292,6 +298,12 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->
+                    logD(
+                        "photosetsGetPhotos onSuccess " + BaseApplication.gson.toJson(
+                            wrapperPhotosetGetPhotos
+                        )
+                    )
+
                     val s =
                         wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
@@ -330,7 +342,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 //                Manifest.permission.READ_EXTERNAL_STORAGE,
 //                Manifest.permission.WRITE_EXTERNAL_STORAGE,
             )
-            .setDialogTintColor(lightColor = color, darkColor = color)
+            .setDialogTintColor(color, color)
             .onExplainRequestReason { scope, deniedList, _ ->
                 val message = getString(R.string.app_name) + getString(R.string.needs_per)
                 scope.showRequestReasonDialog(
@@ -352,13 +364,16 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 if (allGranted) {
                     goToHome()
                 } else {
-                    onBaseBackPressed()
+                    activity?.let {
+                        it.finish()//correct
+                        LActivityUtil.tranOut(it)
+                    }
                 }
             }
     }
 
     private fun save(url: String) {
-        Pump.newRequestToPicture(/* url = */ url, /* directory = */ "/loitp/picture")
+        Pump.newRequestToPicture(url, "/loitp/picture")
             .listener(object : DownloadListener() {
 
                 override fun onProgress(progress: Int) {

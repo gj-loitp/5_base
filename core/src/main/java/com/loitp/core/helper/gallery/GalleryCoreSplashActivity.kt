@@ -1,4 +1,4 @@
-package com.loitpcore.core.helper.gallery
+package com.loitp.core.helper.gallery
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -10,7 +10,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
-import com.loitpcore.core.helper.gallery.album.GalleryCoreAlbumActivity
+import com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil

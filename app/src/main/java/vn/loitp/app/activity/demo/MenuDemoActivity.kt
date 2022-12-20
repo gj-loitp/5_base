@@ -7,9 +7,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
-import com.loitpcore.core.helper.gallery.GalleryCoreSplashActivity
-import com.loitpcore.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity
-import com.loitpcore.core.helper.gallery.member.GalleryMemberActivity
+import com.loitp.core.helper.gallery.GalleryCoreSplashActivity
+import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity
+import com.loitp.core.helper.gallery.member.GalleryMemberActivity
 import com.loitpcore.core.helper.ttt.ui.a.TTTSplashActivity
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.ui.SplashActivity

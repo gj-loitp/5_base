@@ -56,24 +56,24 @@
             android:value="2.1" />
 
         <activity
-            android:name=".core.helper.adHelper.AdHelperActivity"
+            android:name="com.loitp.core.helper.adHelper.AdHelperActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".core.helper.gallery.GalleryCoreSplashActivity"
+            android:name="com.loitp.core.helper.gallery.GalleryCoreSplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".core.helper.gallery.album.GalleryCoreAlbumActivity"
+            android:name="com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
-            android:name=".core.helper.gallery.photos.GalleryCorePhotosActivity"
+            android:name="com.loitp.core.helper.gallery.photos.GalleryCorePhotosActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
-            android:name=".core.helper.gallery.slide.GalleryCoreSlideActivity"
+            android:name="com.loitp.core.helper.gallery.slide.GalleryCoreSlideActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".core.helper.fbComment.FbCommentActivity"
+            android:name="com.loitp.core.helper.fbComment.FbCommentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
 
@@ -83,15 +83,15 @@
             android:exported="false" />
 
         <activity
-            android:name=".core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity"
+            android:name="com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
-            android:name=".core.helper.gallery.member.GalleryMemberActivity"
+            android:name="com.loitp.core.helper.gallery.member.GalleryMemberActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
-            android:name=".core.helper.gallery.member.GalleryMemberDetailActivity"
+            android:name="com.loitp.core.helper.gallery.member.GalleryMemberDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity

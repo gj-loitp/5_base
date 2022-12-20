@@ -1,4 +1,4 @@
-package com.loitpcore.core.helper.gallery.member
+package com.loitp.core.helper.gallery.member
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -15,7 +15,7 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
-import com.loitpcore.core.helper.gallery.photos.PhotosDataCore
+import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil

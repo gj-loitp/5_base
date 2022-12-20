@@ -1,4 +1,4 @@
-package com.loitpcore.core.helper.adHelper
+package com.loitp.core.helper.adHelper
 
 import android.annotation.SuppressLint
 import android.os.Bundle

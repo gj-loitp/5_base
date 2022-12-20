@@ -1,4 +1,4 @@
-package com.loitpcore.core.helper.gallery.photos
+package com.loitp.core.helper.gallery.photos
 
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 

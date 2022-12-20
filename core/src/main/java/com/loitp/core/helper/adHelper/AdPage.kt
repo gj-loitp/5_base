@@ -1,4 +1,4 @@
-package com.loitpcore.core.helper.adHelper
+package com.loitp.core.helper.adHelper
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel

@@ -1,4 +1,4 @@
-package com.loitpcore.core.helper.gallery.slide
+package com.loitp.core.helper.gallery.slide
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.helper.gallery.photos.PhotosDataCore.Companion.instance
+import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitpcore.core.utilities.LSocialUtil
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_slide.*
 

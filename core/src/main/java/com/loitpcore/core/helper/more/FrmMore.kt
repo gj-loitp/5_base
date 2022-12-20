@@ -6,7 +6,7 @@ import android.view.View
 import com.loitpcore.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import com.loitpcore.core.helper.adHelper.AdHelperActivity
+import com.loitp.core.helper.adHelper.AdHelperActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil

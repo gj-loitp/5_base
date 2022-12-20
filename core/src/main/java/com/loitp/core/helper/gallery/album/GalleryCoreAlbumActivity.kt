@@ -1,4 +1,4 @@
-package com.loitpcore.core.helper.gallery.album
+package com.loitp.core.helper.gallery.album
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -12,7 +12,7 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
-import com.loitpcore.core.helper.gallery.photos.GalleryCorePhotosActivity
+import com.loitp.core.helper.gallery.photos.GalleryCorePhotosActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.restApi.flickr.FlickrConst

@@ -1,4 +1,4 @@
-package com.loitpcore.core.helper.gallery.member
+package com.loitp.core.helper.gallery.member
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle

@@ -1,10 +1,11 @@
-package com.loitpcore.core.helper.gallery.photos
+package com.loitp.core.helper.gallery.member
 
-import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -13,11 +14,12 @@ import com.bumptech.glide.request.target.Target
 import com.loitpcore.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import com.loitpcore.core.helper.gallery.photos.PhotosDataCore.Companion.instance
+import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
-import kotlinx.android.synthetic.main.l_item_flickr_photos_core.view.*
+import kotlinx.android.synthetic.main.l_item_flickr_photos_member.view.*
+import java.util.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -26,15 +28,17 @@ import kotlinx.android.synthetic.main.l_item_flickr_photos_core.view.*
  * +840766040293
  * freuss47@gmail.com
  */
-@LogTag("PhotosAdapter")
-class PhotosAdapter internal constructor(
+@LogTag("MemberAdapter")
+class MemberAdapter(
     private val callback: Callback?
 ) : BaseAdapter() {
 
     interface Callback {
         fun onClick(
             photo: Photo,
-            pos: Int
+            pos: Int,
+            imageView: ImageView,
+            textView: TextView
         )
 
         fun onLongClick(
@@ -49,12 +53,12 @@ class PhotosAdapter internal constructor(
     ): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.l_item_flickr_photos_core, viewGroup, false)
+                .inflate(R.layout.l_item_flickr_photos_member, viewGroup, false)
         )
     }
 
     override fun getItemCount(): Int {
-        return instance.getPhotoList().size
+        return PhotosDataCore.instance.getPhotoList().size
     }
 
     override fun onBindViewHolder(
@@ -62,20 +66,20 @@ class PhotosAdapter internal constructor(
         position: Int
     ) {
         if (holder is ViewHolder) {
-            val photo = instance.getPhotoList()[position]
-            holder.bind(photo = photo)
+            val photo = PhotosDataCore.instance.getPhotoList()[position]
+            holder.bind(photo)
         }
     }
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        @SuppressLint("SetTextI18n")
+
         fun bind(photo: Photo) {
 
             val color = LUIUtil.getRandomColorLight()
             LImageUtil.load(
-                context = itemView.imageView.context,
-                any = photo.flickrLink1024,
-                imageView = itemView.imageView,
+                context = itemView.circleImageView.context,
+                any = photo.urlO,
+                imageView = itemView.circleImageView,
                 resPlaceHolder = color,
                 resError = color,
                 drawableRequestListener = object : RequestListener<Drawable> {
@@ -100,13 +104,21 @@ class PhotosAdapter internal constructor(
                 }
             )
 
-            itemView.tvSize.text = "${photo.widthO} x ${photo.heightO}"
-            LUIUtil.setTextShadow(textView = itemView.tvSize, color = null)
-
-            itemView.layoutRootView.setOnClickListener {
-                callback?.onClick(photo = photo, pos = bindingAdapterPosition)
+            if (photo.title.lowercase(Locale.getDefault()).startsWith("null")) {
+                itemView.tvTitle.visibility = View.INVISIBLE
+            } else {
+                itemView.tvTitle.visibility = View.VISIBLE
+                itemView.tvTitle.text = photo.title
             }
-            itemView.layoutRootView.setOnLongClickListener {
+            itemView.fl.setOnClickListener {
+                callback?.onClick(
+                    photo = photo,
+                    pos = bindingAdapterPosition,
+                    imageView = itemView.circleImageView,
+                    textView = itemView.tvTitle
+                )
+            }
+            itemView.fl.setOnLongClickListener {
                 callback?.onLongClick(photo = photo, pos = bindingAdapterPosition)
                 true
             }

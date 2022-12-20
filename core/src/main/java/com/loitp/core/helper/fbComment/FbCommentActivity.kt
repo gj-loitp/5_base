@@ -1,4 +1,4 @@
-package com.loitpcore.core.helper.fbComment
+package com.loitp.core.helper.fbComment
 
 import android.annotation.SuppressLint
 import android.net.Uri

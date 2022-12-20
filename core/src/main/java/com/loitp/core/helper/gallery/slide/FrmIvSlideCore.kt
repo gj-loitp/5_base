@@ -1,4 +1,4 @@
-package com.loitpcore.core.helper.gallery.slide
+package com.loitp.core.helper.gallery.slide
 
 import android.annotation.SuppressLint
 import android.net.Uri
@@ -11,7 +11,7 @@ import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.GlideImageViewFactory
 import com.loitpcore.R
 import com.loitp.core.common.Constants
-import com.loitpcore.core.helper.gallery.photos.PhotosDataCore.Companion.instance
+import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_item_flickr_photo_slide_iv_core.*
