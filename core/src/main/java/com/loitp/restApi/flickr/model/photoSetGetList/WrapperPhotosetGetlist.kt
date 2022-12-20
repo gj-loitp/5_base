@@ -1,4 +1,4 @@
-package com.loitpcore.restApi.flickr.model.photoSetGetList
+package com.loitp.restApi.flickr.model.photoSetGetList
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.Expose
@@ -13,8 +13,12 @@ import com.loitp.core.base.BaseModel
  * freuss47@gmail.com
  */
 @Keep
-class Description : BaseModel() {
-    @SerializedName("_content")
+class WrapperPhotosetGetlist : BaseModel() {
+    @SerializedName("photosets")
     @Expose
-    var content: String? = null
+    var photosets: Photosets? = null
+
+    @SerializedName("stat")
+    @Expose
+    var stat: String? = null
 }

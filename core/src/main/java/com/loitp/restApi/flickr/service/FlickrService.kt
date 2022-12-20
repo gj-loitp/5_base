@@ -1,7 +1,7 @@
-package com.loitpcore.restApi.flickr.service
+package com.loitp.restApi.flickr.service
 
-import com.loitpcore.restApi.flickr.model.photoSetGetList.WrapperPhotosetGetlist
-import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.WrapperPhotosetGetPhotos
+import com.loitp.restApi.flickr.model.photoSetGetList.WrapperPhotosetGetlist
+import com.loitp.restApi.flickr.model.photoSetGetPhotos.WrapperPhotosetGetPhotos
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query

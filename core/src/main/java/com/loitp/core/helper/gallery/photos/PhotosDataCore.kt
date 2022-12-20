@@ -1,6 +1,6 @@
 package com.loitp.core.helper.gallery.photos
 
-import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
+import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 
 /**
  * Created by Loitp on 04,August,2022

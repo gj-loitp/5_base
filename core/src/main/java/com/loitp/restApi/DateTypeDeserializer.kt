@@ -1,4 +1,4 @@
-package com.loitpcore.restApi
+package com.loitp.restApi
 
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer

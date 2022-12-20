@@ -16,10 +16,10 @@ import com.loitp.core.helper.gallery.slide.GalleryCoreSlideActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LSocialUtil
-import com.loitpcore.restApi.flickr.FlickrConst
-import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
-import com.loitpcore.restApi.flickr.service.FlickrService
-import com.loitpcore.restApi.restClient.RestClient
+import com.loitp.restApi.flickr.FlickrConst
+import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
+import com.loitp.restApi.flickr.service.FlickrService
+import com.loitp.restApi.restClient.RestClient
 import com.loitpcore.views.layout.swipeBack.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

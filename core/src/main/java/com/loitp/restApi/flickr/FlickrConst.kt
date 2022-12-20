@@ -1,4 +1,4 @@
-package com.loitpcore.restApi.flickr
+package com.loitp.restApi.flickr
 
 /**
  * Created by Loitp on 04,August,2022

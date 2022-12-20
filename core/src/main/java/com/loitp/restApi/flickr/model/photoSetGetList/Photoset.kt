@@ -1,4 +1,4 @@
-package com.loitpcore.restApi.flickr.model.photoSetGetList
+package com.loitp.restApi.flickr.model.photoSetGetList
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.Expose

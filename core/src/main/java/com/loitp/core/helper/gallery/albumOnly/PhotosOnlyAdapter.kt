@@ -12,7 +12,6 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.daimajia.androidanimations.library.Techniques
-import com.loitpcore.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.setSafeOnClickListener
@@ -21,7 +20,8 @@ import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
+import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
+import com.loitpcore.R
 import kotlinx.android.synthetic.main.l_item_flickr_photos_core_only.view.*
 import java.util.*
 
@@ -122,8 +122,8 @@ class PhotosOnlyAdapter(
                 itemView.tvTitle.text = p.title
             }
 
-            itemView.tvTitle.isVisible = true
-            itemView.tvTitle.text = "${p.widthO} x ${p.heightO}"
+//            itemView.tvTitle.isVisible = true
+//            itemView.tvTitle.text = "${p.widthO} x ${p.heightO}"
 
             itemView.layoutRoot.setOnClickListener {
                 callback?.onClick(photo = p, pos = position)

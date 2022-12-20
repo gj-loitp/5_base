@@ -1,9 +1,9 @@
-package com.loitpcore.restApi.restClient
+package com.loitp.restApi.restClient
 
 import android.text.TextUtils
 import com.google.gson.GsonBuilder
 import com.loitp.core.utilities.LLog
-import com.loitpcore.restApi.DateTypeDeserializer
+import com.loitp.restApi.DateTypeDeserializer
 import com.moczul.ok2curl.CurlInterceptor
 import com.moczul.ok2curl.logger.Logger
 import okhttp3.OkHttpClient
@@ -12,7 +12,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.security.InvalidParameterException
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 import java.util.concurrent.TimeUnit
 
 /**
@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit
  * +840766040293
  * freuss47@gmail.com
  */
-object RestClient2 {
+object RestClient {
     @Suppress("unused")
     private const val TIMEOUT_TIME = 1
     private const val CONNECT_TIMEOUT_TIME = 20L
@@ -31,7 +31,7 @@ object RestClient2 {
     private var restRequestInterceptor = RestRequestInterceptor()
 
     @JvmOverloads
-    fun init(baseApiUrl: String, token: String? = "") {
+    fun init(baseApiUrl: String, token: String = "") {
         if (TextUtils.isEmpty(baseApiUrl)) {
             throw InvalidParameterException("baseApiUrl cannot null or empty")
         }
@@ -59,8 +59,8 @@ object RestClient2 {
         retrofit = Retrofit.Builder()
             .baseUrl(baseApiUrl)
             .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
         if (!TextUtils.isEmpty(token)) {
@@ -81,10 +81,8 @@ object RestClient2 {
     }
 
     @Suppress("unused")
-    fun addAuthorization(token: String?) {
-        token?.let {
-            addHeader(AUTHORIZATION, it)
-        }
+    fun addAuthorization(token: String) {
+        addHeader(AUTHORIZATION, token)
     }
 
     @Suppress("unused")

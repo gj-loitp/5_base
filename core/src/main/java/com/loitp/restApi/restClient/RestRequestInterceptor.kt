@@ -1,4 +1,4 @@
-package com.loitpcore.restApi.restClient
+package com.loitp.restApi.restClient
 
 import okhttp3.Interceptor
 import okhttp3.Response
