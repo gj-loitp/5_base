@@ -1,10 +1,9 @@
-package com.loitpcore.core.utilities
+package com.loitp.core.utilities
 
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import com.loitp.core.utilities.LActivityUtil
 import com.loitpcore.R
 import com.loitpcore.function.epub.core.EpubReaderReadActivity
 import com.loitpcore.function.epub.model.BookInfo

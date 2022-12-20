@@ -12,7 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.utilities.LLog
+import com.loitp.core.utilities.LLog
 
 /**
  * Created by Loitp on 04,August,2022

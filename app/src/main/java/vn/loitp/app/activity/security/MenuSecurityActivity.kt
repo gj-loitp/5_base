@@ -6,7 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_security.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.security.simple.SimpleEncryptDecryptStringActivity

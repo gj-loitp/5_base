@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LPopupMenu
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LPopupMenu
+import com.loitp.core.utilities.LUIUtil
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 import vn.loitp.app.R

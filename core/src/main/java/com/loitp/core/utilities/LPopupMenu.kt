@@ -1,4 +1,4 @@
-package com.loitpcore.core.utilities
+package com.loitp.core.utilities
 
 import android.app.Activity
 import android.view.MenuItem

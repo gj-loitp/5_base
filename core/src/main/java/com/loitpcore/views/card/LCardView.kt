@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.loitpcore.R
 import com.loitp.core.utilities.LImageUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 
 /**
  * Created by Loitp on 04,August,2022

@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,8 +10,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LPopupMenu
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LPopupMenu
+import com.loitp.core.utilities.LUIUtil
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import kotlinx.android.synthetic.main.activity_recycler_view.*

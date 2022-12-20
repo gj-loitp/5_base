@@ -10,8 +10,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.utilities.LStoreUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LStoreUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.task.AsyncTaskDownloadPdfStream
 import com.loitpcore.task.GetPdfCoroutine
 import kotlinx.android.synthetic.main.activity_demo_pdf.*

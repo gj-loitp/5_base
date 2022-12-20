@@ -1,4 +1,4 @@
-package com.loitpcore.core.utilities
+package com.loitp.core.utilities
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -8,7 +8,6 @@ import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import com.loitp.core.utilities.LAppResource
 
 /**
  * Created by Loitp on 04,August,2022

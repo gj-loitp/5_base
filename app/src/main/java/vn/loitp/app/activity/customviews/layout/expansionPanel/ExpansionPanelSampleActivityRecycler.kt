@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.florent37.expansionpanel.ExpansionLayout
@@ -13,7 +12,7 @@ import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_expansion_panel_sample_recycler.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.expansionPanel.ExpansionPanelSampleActivityRecycler.RecyclerAdapter.RecyclerHolder

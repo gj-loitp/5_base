@@ -8,8 +8,8 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LConvertUtil
-import com.loitpcore.core.utilities.LSharedPrefsUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LSharedPrefsUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_shared_prefs.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User

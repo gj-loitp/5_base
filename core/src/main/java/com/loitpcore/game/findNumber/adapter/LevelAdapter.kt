@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import com.loitpcore.game.findNumber.db.Db.Companion.STATUS_LEVEL_WIN
 import com.loitpcore.game.findNumber.model.Level

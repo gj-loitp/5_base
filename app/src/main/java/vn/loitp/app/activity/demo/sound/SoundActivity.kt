@@ -6,8 +6,8 @@ import android.view.View.OnClickListener
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LSoundUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LSoundUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_demo_sound.*
 import vn.loitp.app.R
 

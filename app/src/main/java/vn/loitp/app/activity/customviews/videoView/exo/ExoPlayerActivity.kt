@@ -6,7 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
-import com.loitpcore.core.utilities.LScreenUtil
+import com.loitp.core.utilities.LScreenUtil
 import com.loitpcore.views.exo.PlayerManager
 import kotlinx.android.synthetic.main.activity_video_exo_player.*
 import kotlinx.android.synthetic.main.exo_playback_control_view.*

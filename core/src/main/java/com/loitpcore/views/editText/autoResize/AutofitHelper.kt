@@ -9,7 +9,7 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LLog
+import com.loitp.core.utilities.LLog
 
 /**
  * Created by Loitp on 04,August,2022

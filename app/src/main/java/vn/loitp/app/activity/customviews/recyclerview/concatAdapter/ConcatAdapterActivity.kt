@@ -10,8 +10,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.utilities.LSocialUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LSocialUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_recycler_view_concat_adapter.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.adapter.*

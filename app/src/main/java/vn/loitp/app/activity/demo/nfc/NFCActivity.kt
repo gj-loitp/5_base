@@ -15,7 +15,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LDialogUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.nfc.LNFCUtil
 import com.loitp.core.utilities.nfc.TagWrapper
 import kotlinx.android.synthetic.main.activity_demo_nfc.*

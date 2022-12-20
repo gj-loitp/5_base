@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener
-import com.loitpcore.core.utilities.LScreenUtil
+import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_interview_vn_iq.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.fragmentFlow.BaseFragmentFlow

@@ -9,7 +9,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
 import com.loitp.core.utilities.LAppResource
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 
 /**
  * Created by Loitp on 04,August,2022

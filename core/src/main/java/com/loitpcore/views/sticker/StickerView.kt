@@ -15,8 +15,8 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LLog
-import com.loitpcore.core.utilities.LUIUtil.Companion.isDarkTheme
+import com.loitp.core.utilities.LLog
+import com.loitp.core.utilities.LUIUtil.Companion.isDarkTheme
 import kotlin.math.* // ktlint-disable no-wildcard-imports
 
 /**

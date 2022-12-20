@@ -6,8 +6,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LUIUtil.Companion.setTextShadow
-import com.loitpcore.core.utilities.LUIUtil.Companion.setTextSize
+import com.loitp.core.utilities.LUIUtil.Companion.setTextShadow
+import com.loitp.core.utilities.LUIUtil.Companion.setTextSize
 import com.loitpcore.utils.util.ConvertUtils
 
 /**

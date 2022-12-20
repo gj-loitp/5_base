@@ -21,7 +21,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LAppResource
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*
 import kotlinx.android.synthetic.main.view_l_edittext.view.*
 

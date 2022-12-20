@@ -8,7 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LScreenUtil
+import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.l_dialog_find_number_win.*
 
 /**

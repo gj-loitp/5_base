@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.common.Constants
 import com.loitp.core.helper.ttt.db.TTTDatabase
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.data.ActivityData
 import com.onesignal.OneSignal
 import io.realm.Realm

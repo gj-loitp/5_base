@@ -12,8 +12,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LDialogUtil
-import com.loitpcore.core.utilities.LPopupMenu
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LPopupMenu
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.views.recyclerView.itemDecoration.StickyFooterItemDecoration
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.*

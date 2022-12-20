@@ -3,7 +3,6 @@ package com.loitp.core.utilities
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import com.loitpcore.core.utilities.LSharedPrefsUtil
 import com.loitpcore.data.EventBusData
 
 /**

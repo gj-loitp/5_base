@@ -3,7 +3,7 @@ package vn.loitp.app.activity.tutorial.rxjava2
 import android.annotation.SuppressLint
 import android.os.SystemClock
 import android.widget.TextView
-import com.loitpcore.core.utilities.LLog
+import com.loitp.core.utilities.LLog
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable

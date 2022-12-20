@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.customviews.viewPager.viewPager2
 
 import android.os.Bundle
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -10,7 +9,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_view_pager_2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewPager.viewPager2.FrmViewPager2.Companion.getInstance

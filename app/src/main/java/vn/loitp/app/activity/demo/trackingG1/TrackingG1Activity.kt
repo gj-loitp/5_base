@@ -11,8 +11,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.core.utilities.LUIUtil.Companion.printBeautyJson
+import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil.Companion.printBeautyJson
 import kotlinx.android.synthetic.main.activity_tracking_g1.*
 import vn.loitp.app.R
 

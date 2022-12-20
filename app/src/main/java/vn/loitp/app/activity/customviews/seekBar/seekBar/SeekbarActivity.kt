@@ -2,11 +2,10 @@ package vn.loitp.app.activity.customviews.seekBar.seekBar
 
 import android.os.Bundle
 import android.widget.SeekBar
-import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_seekbar.*
 import vn.loitp.app.R
 

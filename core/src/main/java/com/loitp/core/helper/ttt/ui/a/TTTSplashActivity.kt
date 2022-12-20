@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.R
 import com.loitp.core.utilities.LActivityUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.permissionx.guolindev.PermissionX
 
 /**

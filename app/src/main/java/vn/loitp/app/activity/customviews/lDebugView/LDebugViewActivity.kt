@@ -8,7 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.base.BaseModel
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.views.lDebugView.LComunicateDebug
 import com.loitpcore.views.lDebugView.LDebug
 import kotlinx.android.synthetic.main.activity_l_debug_view.*

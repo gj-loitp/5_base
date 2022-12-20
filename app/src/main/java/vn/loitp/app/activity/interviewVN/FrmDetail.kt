@@ -5,7 +5,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import com.loitp.annotation.LogTag
 import com.loitp.core.utilities.LImageUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.model.data.QA
 import kotlinx.android.synthetic.main.frm_interview_vn_iq_detail.*
 import vn.loitp.app.R

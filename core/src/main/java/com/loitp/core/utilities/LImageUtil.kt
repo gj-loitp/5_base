@@ -15,10 +15,6 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.loitp.core.common.Constants
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LLog
-import com.loitpcore.core.utilities.LScreenUtil
-import com.loitpcore.core.utilities.LStoreUtil
-import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.utils.util.FileUtils
 import com.ortiz.touchview.TouchImageView
 import java.io.File

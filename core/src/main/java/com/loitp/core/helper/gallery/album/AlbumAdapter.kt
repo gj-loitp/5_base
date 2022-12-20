@@ -15,7 +15,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LImageUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.restApi.flickr.model.photoSetGetList.Photoset
 import kotlinx.android.synthetic.main.l_item_flickr_album_core.view.*
 

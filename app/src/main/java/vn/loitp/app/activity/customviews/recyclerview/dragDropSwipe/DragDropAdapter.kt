@@ -4,8 +4,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeAdapter
-import com.loitpcore.core.utilities.LScreenUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.utilities.LUIUtil
 import vn.loitp.app.R
 
 class DragDropAdapter(

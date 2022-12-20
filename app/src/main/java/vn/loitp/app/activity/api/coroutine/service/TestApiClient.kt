@@ -2,7 +2,7 @@ package vn.loitp.app.activity.api.coroutine.service
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.loitpcore.core.utilities.LLog
+import com.loitp.core.utilities.LLog
 import com.loitpcore.restApi.DateTypeDeserializer
 import com.loitpcore.restApi.restClient.RestRequestInterceptor
 import com.moczul.ok2curl.CurlInterceptor

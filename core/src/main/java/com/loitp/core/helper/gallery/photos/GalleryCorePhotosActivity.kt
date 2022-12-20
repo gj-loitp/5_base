@@ -15,7 +15,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.gallery.slide.GalleryCoreSlideActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LDialogUtil
-import com.loitpcore.core.utilities.LSocialUtil
+import com.loitp.core.utilities.LSocialUtil
 import com.loitpcore.restApi.flickr.FlickrConst
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitpcore.restApi.flickr.service.FlickrService

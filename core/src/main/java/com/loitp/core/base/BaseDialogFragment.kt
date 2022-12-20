@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LUIUtil.Companion.allowInfiniteLines
-import com.loitpcore.core.utilities.LUIUtil.Companion.withBackground
+import com.loitp.core.utilities.LUIUtil.Companion.allowInfiniteLines
+import com.loitp.core.utilities.LUIUtil.Companion.withBackground
 import timber.log.Timber
 
 /**

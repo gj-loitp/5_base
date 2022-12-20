@@ -3,7 +3,7 @@ package com.loitp.core.base
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
-import com.loitpcore.core.utilities.LLog
+import com.loitp.core.utilities.LLog
 
 /**
  * Created by Loitp on 29,September,2022

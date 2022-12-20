@@ -10,7 +10,7 @@ import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.card.MaterialCardView
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.utils.util.ConvertUtils
 
 /**

@@ -13,7 +13,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LImageUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.restApi.restClient.RestClient
 import com.loitpcore.utils.util.AppUtils
 import com.permissionx.guolindev.PermissionX

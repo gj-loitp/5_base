@@ -19,8 +19,8 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LImageUtil
-import com.loitpcore.core.utilities.LScreenUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.restApi.flickr.model.photoSetGetPhotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_core_only.view.*
 import java.util.*

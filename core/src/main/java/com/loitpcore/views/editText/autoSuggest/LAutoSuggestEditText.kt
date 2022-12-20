@@ -10,7 +10,7 @@ import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 
 /**
  * Created by Loitp on 04,August,2022

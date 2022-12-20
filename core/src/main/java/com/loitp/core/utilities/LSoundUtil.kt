@@ -1,7 +1,6 @@
-package com.loitpcore.core.utilities
+package com.loitp.core.utilities
 
 import android.media.MediaPlayer
-import com.loitp.core.utilities.LAppResource
 import java.io.IOException
 
 /**

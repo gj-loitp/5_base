@@ -13,7 +13,7 @@ import com.loitpcore.R
 import com.loitp.core.common.Constants
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitp.core.utilities.LDialogUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_item_flickr_photo_slide_iv_core.*
 import java.io.File
 

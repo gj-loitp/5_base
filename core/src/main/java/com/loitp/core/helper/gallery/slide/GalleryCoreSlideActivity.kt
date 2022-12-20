@@ -13,7 +13,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
-import com.loitpcore.core.utilities.LSocialUtil
+import com.loitp.core.utilities.LSocialUtil
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_slide.*
 
 /**

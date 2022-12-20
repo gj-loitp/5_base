@@ -11,7 +11,7 @@ import com.loitp.core.helper.gallery.GalleryCoreSplashActivity
 import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity
 import com.loitp.core.helper.gallery.member.GalleryMemberActivity
 import com.loitp.core.helper.ttt.ui.a.TTTSplashActivity
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_menu_demo.*
 import vn.loitp.app.BuildConfig

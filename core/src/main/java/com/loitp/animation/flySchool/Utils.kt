@@ -4,7 +4,7 @@ import android.content.res.Resources
 import android.graphics.PorterDuff
 import android.widget.ImageView
 import com.loitp.core.utilities.LDeviceUtil.Companion.getRandomNumber
-import com.loitpcore.core.utilities.LStoreUtil.Companion.randomColor
+import com.loitp.core.utilities.LStoreUtil.Companion.randomColor
 
 /**
  * Utility class with simple utility functions

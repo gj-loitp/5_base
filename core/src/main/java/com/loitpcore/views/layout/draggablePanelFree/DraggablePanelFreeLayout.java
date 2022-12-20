@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
 import com.loitpcore.R;
-import com.loitpcore.core.utilities.LLog;
+import com.loitp.core.utilities.LLog;
 
 import org.jetbrains.annotations.NotNull;
 

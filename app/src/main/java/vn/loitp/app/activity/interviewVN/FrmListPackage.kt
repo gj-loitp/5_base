@@ -6,8 +6,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.utilities.LStoreUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LStoreUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_package.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.fragmentFlow.BaseFragmentFlow

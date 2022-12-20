@@ -2,7 +2,6 @@ package vn.loitp.app.activity.database.room
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.IsFullScreen
@@ -10,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_database_room2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.database.room.model.FloorPlan

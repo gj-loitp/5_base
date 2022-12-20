@@ -10,7 +10,7 @@ import androidx.annotation.AttrRes
 import androidx.core.view.MotionEventCompat
 import androidx.core.view.ViewCompat
 import androidx.customview.widget.ViewDragHelper
-import com.loitpcore.core.utilities.LScreenUtil
+import com.loitp.core.utilities.LScreenUtil
 import vn.loitp.app.R
 
 class VDHView @JvmOverloads constructor(

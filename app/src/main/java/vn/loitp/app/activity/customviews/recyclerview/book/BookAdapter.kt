@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
-import com.loitpcore.core.utilities.LScreenUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_item_book.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie

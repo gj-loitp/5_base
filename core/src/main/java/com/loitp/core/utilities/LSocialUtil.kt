@@ -1,4 +1,4 @@
-package com.loitpcore.core.utilities
+package com.loitp.core.utilities
 
 import android.app.Activity
 import android.content.ContentUris
@@ -9,9 +9,6 @@ import android.net.Uri
 import com.loitpcore.R
 import com.loitp.core.common.Constants
 import com.loitp.core.helper.fbComment.FbCommentActivity
-import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LDialogUtil
 import com.loitpcore.utils.util.AppUtils
 import de.cketti.mailto.EmailIntentBuilder
 

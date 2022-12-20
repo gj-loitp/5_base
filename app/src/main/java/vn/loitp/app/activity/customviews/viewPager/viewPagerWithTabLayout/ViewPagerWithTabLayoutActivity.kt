@@ -13,8 +13,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LDialogUtil
-import com.loitpcore.core.utilities.LStoreUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LStoreUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.views.viewPager.vpTransformers.*
 import kotlinx.android.synthetic.main.activity_view_pager_with_tablayout.*
 import vn.loitp.app.R

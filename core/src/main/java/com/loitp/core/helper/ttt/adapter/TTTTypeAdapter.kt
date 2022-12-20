@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.helper.ttt.model.comictype.ComicType
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_ttt_select_type.view.*
 
 /**

@@ -3,13 +3,12 @@ package vn.loitp.app.activity.customviews.recyclerview.fastScrollSeekbar
 import abak.tr.com.boxedverticalseekbar.BoxedVertical
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_recycler_view_fast_scroll_seek_bar.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie

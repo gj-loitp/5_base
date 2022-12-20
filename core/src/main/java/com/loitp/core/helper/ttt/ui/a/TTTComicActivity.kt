@@ -16,7 +16,7 @@ import com.loitp.core.helper.ttt.ui.f.FrmFavTTT
 import com.loitp.core.helper.ttt.ui.f.FrmHomeTTT
 import com.loitp.core.helper.ttt.ui.f.FrmProfileTTT
 import com.loitpcore.R
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.utils.util.KeyboardUtils
 import com.loitpcore.views.viewPager.vpTransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.MenuItemDescriptor

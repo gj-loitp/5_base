@@ -16,8 +16,8 @@ import android.widget.TextView
 import com.loitpcore.R
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LDateUtil
-import com.loitpcore.core.utilities.LScreenUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.utilities.LUIUtil
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode

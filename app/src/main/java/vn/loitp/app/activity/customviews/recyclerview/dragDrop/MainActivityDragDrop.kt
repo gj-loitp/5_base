@@ -9,7 +9,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_main_drag_drop.*
 import kotlinx.android.synthetic.main.activity_main_drag_drop.lActionBar
 import kotlinx.android.synthetic.main.activity_menu_recycler_view.*

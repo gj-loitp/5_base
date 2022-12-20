@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.webkit.*
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
-import com.loitpcore.core.utilities.LLog
+import com.loitp.core.utilities.LLog
 import org.adblockplus.libadblockplus.android.webview.AdblockWebView
 
 /**

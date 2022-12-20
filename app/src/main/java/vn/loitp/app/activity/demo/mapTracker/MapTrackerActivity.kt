@@ -25,9 +25,9 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LActivityUtil
-import com.loitpcore.core.utilities.LMathUtil
-import com.loitpcore.core.utilities.LUIUtil
-import com.loitpcore.core.utilities.LUIUtil.Companion.scrollToBottom
+import com.loitp.core.utilities.LMathUtil
+import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_map_tracker.*
 import vn.loitp.app.R

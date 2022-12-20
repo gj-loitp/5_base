@@ -8,7 +8,7 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
-import com.loitpcore.core.utilities.LScreenUtil
+import com.loitp.core.utilities.LScreenUtil
 import com.loitpcore.views.layout.swipeBack.SwipeBackLayout
 import com.loitpcore.views.layout.swipeBack.SwipeBackLayout.OnSwipeBackListener
 import kotlinx.android.synthetic.main.activity_swipe_back_layout.*

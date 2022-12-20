@@ -9,9 +9,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.utilities.LSocialUtil
-import com.loitpcore.core.utilities.LStoreUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LSocialUtil
+import com.loitp.core.utilities.LStoreUtil
+import com.loitp.core.utilities.LUIUtil
 import com.mirza.attachmentmanager.managers.AttachmentManager
 import com.mirza.attachmentmanager.models.AttachmentDetail
 import kotlinx.android.synthetic.main.activity_0.lActionBar

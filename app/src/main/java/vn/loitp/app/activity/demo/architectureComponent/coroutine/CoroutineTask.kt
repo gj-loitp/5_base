@@ -1,6 +1,6 @@
 package vn.loitp.app.activity.demo.architectureComponent.coroutine
 
-import com.loitpcore.core.utilities.LLog
+import com.loitp.core.utilities.LLog
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 

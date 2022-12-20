@@ -3,11 +3,10 @@ package vn.loitp.app.activity.customviews.layout.floatDragLayout
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.FrameLayout
-import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivity
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.views.layout.floatDrag.DisplayUtil
 import com.loitpcore.views.layout.floatDrag.FloatDragLayout
 import kotlinx.android.synthetic.main.activity_0.*

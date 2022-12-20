@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.utilities.LLog
+import com.loitp.core.utilities.LLog
 import com.willy.ratingbar.BaseRatingBar
 import kotlinx.android.synthetic.main.fragment_srb_demo.*
 import vn.loitp.app.R

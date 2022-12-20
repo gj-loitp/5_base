@@ -11,8 +11,8 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitpcore.core.utilities.LScreenUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_demo_fragment_flow.*
 import vn.loitp.app.R
 

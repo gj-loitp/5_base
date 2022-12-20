@@ -1,6 +1,6 @@
 package vn.loitp.app.activity.pattern.mvp
 
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 
 class DemoPresenter(var view: View?) {
     private val user: User = User()

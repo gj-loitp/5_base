@@ -13,8 +13,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LDialogUtil
-import com.loitpcore.core.utilities.LScreenUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.adapter.LevelAdapter
 import com.loitpcore.game.findNumber.model.Level
 import com.loitpcore.game.findNumber.viewModel.FindNumberViewModel

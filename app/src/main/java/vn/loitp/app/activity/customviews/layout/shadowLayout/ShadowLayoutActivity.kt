@@ -8,8 +8,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
-import com.loitpcore.core.utilities.LSocialUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LSocialUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.utils.util.ConvertUtils
 import kotlinx.android.synthetic.main.activity_shadow_layout.*
 import vn.loitp.app.R

@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LDisplayUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.views.shadowViewHelper.ShadowProperty
 import com.loitpcore.views.shadowViewHelper.ShadowViewDrawable
 import kotlinx.android.synthetic.main.activity_animation_shadow_view_helper.*

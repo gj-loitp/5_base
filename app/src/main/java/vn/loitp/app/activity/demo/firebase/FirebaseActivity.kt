@@ -13,7 +13,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LFCMUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.onesignal.OneSignal
 import com.onesignal.OneSignal.PostNotificationResponseHandler
 import kotlinx.android.synthetic.main.activity_firebase.*

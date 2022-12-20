@@ -21,8 +21,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LActivityUtil
-import com.loitpcore.core.utilities.LLocationUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LLocationUtil
+import com.loitp.core.utilities.LUIUtil
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_func_location.*
 import vn.loitp.app.BuildConfig

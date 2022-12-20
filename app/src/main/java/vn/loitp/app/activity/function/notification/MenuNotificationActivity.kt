@@ -14,8 +14,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LNotification
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LNotification
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.function.notification.Notti
 import com.loitpcore.function.notification.NottiFactory
 import com.loitpcore.function.notification.actions.ContentAction

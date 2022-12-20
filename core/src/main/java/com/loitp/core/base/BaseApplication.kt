@@ -12,8 +12,8 @@ import com.google.gson.Gson
 import com.loitp.annotation.LogTag
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LConnectivityUtil
-import com.loitpcore.core.utilities.LLog
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LLog
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.db.FindNumberDatabase
 import com.loitpcore.utils.util.Utils
 

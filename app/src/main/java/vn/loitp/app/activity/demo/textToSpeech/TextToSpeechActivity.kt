@@ -5,12 +5,11 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.View.OnClickListener
-import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.core.utilities.LTextToSpeechUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LTextToSpeechUtil
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_demo_text_to_speech.*
 import vn.loitp.app.R
 

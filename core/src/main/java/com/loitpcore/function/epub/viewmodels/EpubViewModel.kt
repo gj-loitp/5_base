@@ -6,9 +6,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseViewModel
 import com.loitp.core.utilities.LAppResource
-import com.loitpcore.core.utilities.LPrefUtil
-import com.loitpcore.core.utilities.LStoreUtil
-import com.loitpcore.core.utilities.LStoreUtil.Companion.getListEpubFiles
+import com.loitp.core.utilities.LPrefUtil
+import com.loitp.core.utilities.LStoreUtil
+import com.loitp.core.utilities.LStoreUtil.Companion.getListEpubFiles
 import com.loitpcore.function.epub.CssStatus
 import com.loitpcore.function.epub.Reader
 import com.loitpcore.function.epub.exception.ReadingException

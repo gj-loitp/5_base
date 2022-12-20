@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.utilities.LLog
+import com.loitp.core.utilities.LLog
 import com.loitpcore.service.RequestStatus
 import com.loitpcore.service.liveData.ActionData
 import com.loitpcore.service.model.ApiResponse

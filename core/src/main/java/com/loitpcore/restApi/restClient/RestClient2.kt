@@ -2,7 +2,7 @@ package com.loitpcore.restApi.restClient
 
 import android.text.TextUtils
 import com.google.gson.GsonBuilder
-import com.loitpcore.core.utilities.LLog
+import com.loitp.core.utilities.LLog
 import com.loitpcore.restApi.DateTypeDeserializer
 import com.moczul.ok2curl.CurlInterceptor
 import com.moczul.ok2curl.logger.Logger

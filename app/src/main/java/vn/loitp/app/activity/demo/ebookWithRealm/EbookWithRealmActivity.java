@@ -15,8 +15,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
 import com.loitp.core.base.BaseFontActivity;
-import com.loitpcore.core.utilities.LPrefUtil;
-import com.loitpcore.core.utilities.LUIUtil;
+import com.loitp.core.utilities.LPrefUtil;
+import com.loitp.core.utilities.LUIUtil;
 
 import org.jetbrains.annotations.NotNull;
 

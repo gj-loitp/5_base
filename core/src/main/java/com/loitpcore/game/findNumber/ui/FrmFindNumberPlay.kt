@@ -17,7 +17,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.utilities.LAnimationUtil
-import com.loitpcore.core.utilities.LUIUtil
+import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.dialog.FindNumberWinActivity
 import com.loitpcore.game.findNumber.model.Level
 import com.loitpcore.views.textView.autoFit.LAutoFitTextView
