@@ -78,7 +78,7 @@
             android:theme="@style/SwipeTheme" />
 
         <service
-            android:name=".views.lDebugView.LDebugViewService"
+            android:name="com.loitp.views.lDebugView.LDebugViewService"
             android:enabled="true"
             android:exported="false" />
 

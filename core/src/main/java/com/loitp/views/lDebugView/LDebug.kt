@@ -1,11 +1,11 @@
-package com.loitpcore.views.lDebugView
+package com.loitp.views.lDebugView
 
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
 import com.loitp.core.utils.ServiceUtils
-import com.loitpcore.views.lDebugView.LComunicateDebug.postFromActivity
+import com.loitp.views.lDebugView.LComunicateDebug.postFromActivity
 
 /**
  * Created by Loitp on 04,August,2022
@@ -27,7 +27,11 @@ object LDebug {
     }
 
     @JvmStatic
-    fun checkPermission(activity: Activity, requestCode: Int, resultCode: Int) {
+    fun checkPermission(
+        activity: Activity,
+        requestCode: Int,
+        resultCode: Int
+    ) {
         log("resultCode $resultCode")
         if (requestCode == CODE) {
             init(activity)
@@ -49,7 +53,10 @@ object LDebug {
         )
     }
 
-    fun log(type: Int, log: String?) {
+    fun log(
+        type: Int,
+        log: String?
+    ) {
         postFromActivity(
             msg = LComunicateDebug.MsgFromActivity(
                 type = type,
@@ -69,7 +76,10 @@ object LDebug {
         )
     }
 
-    fun log(type: Int, o: Any?) {
+    fun log(
+        type: Int,
+        o: Any?
+    ) {
         postFromActivity(
             msg = LComunicateDebug.MsgFromActivity(
                 type = type,

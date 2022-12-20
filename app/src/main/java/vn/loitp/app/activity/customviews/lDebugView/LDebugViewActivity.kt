@@ -9,8 +9,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.base.BaseModel
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.lDebugView.LComunicateDebug
-import com.loitpcore.views.lDebugView.LDebug
+import com.loitp.views.lDebugView.LComunicateDebug
+import com.loitp.views.lDebugView.LDebug
 import kotlinx.android.synthetic.main.activity_l_debug_view.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants.Companion.URL_IMG
@@ -57,7 +57,11 @@ class LDebugViewActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     //TODO fix onActivityResult
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
         super.onActivityResult(requestCode, resultCode, data)
 
         LDebug.checkPermission(activity = this, requestCode = requestCode, resultCode = resultCode)

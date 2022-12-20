@@ -1,4 +1,4 @@
-package com.loitpcore.views.lDebugView
+package com.loitp.views.lDebugView
 
 import android.annotation.SuppressLint
 import android.app.Service
@@ -7,17 +7,17 @@ import android.graphics.Color
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
-import android.view.* // ktlint-disable no-wildcard-imports
+import android.view.*
 import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
-import com.loitpcore.R
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -48,7 +48,7 @@ class LDebugViewService : Service(), OnTouchListener {
         super.onCreate()
         EventBus.getDefault().register(this)
 
-        mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_debug_view_service, null)
+        mFloatingView = LayoutInflater.from(this).inflate(R.layout.l_v_debug_view_service, null)
 
         val layoutFlag: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
@@ -57,11 +57,11 @@ class LDebugViewService : Service(), OnTouchListener {
             WindowManager.LayoutParams.TYPE_PHONE
         }
         params = WindowManager.LayoutParams(
-            WindowManager.LayoutParams.WRAP_CONTENT,
-            WindowManager.LayoutParams.WRAP_CONTENT,
-            layoutFlag,
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-            PixelFormat.TRANSLUCENT
+            /* w = */ WindowManager.LayoutParams.WRAP_CONTENT,
+            /* h = */ WindowManager.LayoutParams.WRAP_CONTENT,
+            /* _type = */ layoutFlag,
+            /* _flags = */ WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+            /* _format = */ PixelFormat.TRANSLUCENT
         )
 
         // Specify the view position
@@ -119,7 +119,10 @@ class LDebugViewService : Service(), OnTouchListener {
     private var initialTouchY = 0f
 
     @SuppressLint("ClickableViewAccessibility")
-    override fun onTouch(v: View, event: MotionEvent): Boolean {
+    override fun onTouch(
+        v: View,
+        event: MotionEvent
+    ): Boolean {
         if (v.id == R.id.rlRootContainer) {
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {

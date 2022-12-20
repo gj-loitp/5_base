@@ -1,4 +1,4 @@
-package com.loitpcore.views.lDebugView
+package com.loitp.views.lDebugView
 
 import org.greenrobot.eventbus.EventBus
 
