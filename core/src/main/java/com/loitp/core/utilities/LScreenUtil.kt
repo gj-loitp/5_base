@@ -13,7 +13,7 @@ import android.provider.Settings
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.loitp.core.base.BaseActivity
-import com.loitpcore.utils.util.FragmentUtils
+import com.loitp.core.utils.FragmentUtils
 
 /**
  * Created by Loitp on 04,August,2022

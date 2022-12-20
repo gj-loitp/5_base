@@ -5,7 +5,7 @@ import android.content.res.Configuration
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageButton
 import com.loitp.core.utils.ConvertUtils
-import com.loitpcore.utils.util.ScreenUtils
+import com.loitp.core.utils.ScreenUtils
 
 /**
  * Created by Loitp on 04,August,2022

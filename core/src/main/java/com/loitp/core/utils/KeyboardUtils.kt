@@ -1,4 +1,4 @@
-package com.loitpcore.utils.util
+package com.loitp.core.utils
 
 import android.app.Activity
 import android.content.Context
@@ -27,7 +27,10 @@ class KeyboardUtils {
         }
 
         @Suppress("unused")
-        fun hideSoftInput(context: Context?, view: View) {
+        fun hideSoftInput(
+            context: Context?,
+            view: View
+        ) {
             context?.let {
                 val imm = it.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(view.windowToken, 0)

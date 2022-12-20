@@ -1,4 +1,4 @@
-package com.loitpcore.utils.util;
+package com.loitp.core.utils;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -31,8 +31,7 @@ import android.view.View;
 import androidx.annotation.FloatRange;
 import androidx.annotation.IntRange;
 
-import com.loitp.core.utils.CloseUtils;
-import com.loitp.core.utils.FileUtils;
+import com.loitpcore.utils.util.Utils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

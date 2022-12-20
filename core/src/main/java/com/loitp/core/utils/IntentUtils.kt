@@ -1,4 +1,4 @@
-package com.loitpcore.utils.util
+package com.loitp.core.utils
 
 import android.content.ComponentName
 import android.content.Intent
@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
-import com.loitp.core.utils.FileUtils
 import com.loitpcore.utils.util.Utils.Companion.getContext
 import java.io.File
 
@@ -21,7 +20,10 @@ class IntentUtils {
     companion object {
 
         @Suppress("unused")
-        fun getInstallAppIntent(filePath: String, authority: String): Intent {
+        fun getInstallAppIntent(
+            filePath: String,
+            authority: String
+        ): Intent {
             return getInstallAppIntent(
                 file = FileUtils.getFileByPath(filePath),
                 authority = authority
@@ -70,7 +72,10 @@ class IntentUtils {
         }
 
         @Suppress("unused")
-        fun getShareImageIntent(content: String?, imagePath: String?): Intent? {
+        fun getShareImageIntent(
+            content: String?,
+            imagePath: String?
+        ): Intent? {
             return getShareImageIntent(
                 content = content,
                 image = FileUtils.getFileByPath(imagePath)
@@ -78,7 +83,10 @@ class IntentUtils {
         }
 
         @Suppress("unused")
-        fun getShareImageIntent(content: String?, image: File?): Intent? {
+        fun getShareImageIntent(
+            content: String?,
+            image: File?
+        ): Intent? {
             return if (!FileUtils.isFileExists(image)) null else getShareImageIntent(
                 content,
                 Uri.fromFile(image)
@@ -86,7 +94,10 @@ class IntentUtils {
         }
 
         @Suppress("unused")
-        fun getShareImageIntent(content: String?, uri: Uri?): Intent {
+        fun getShareImageIntent(
+            content: String?,
+            uri: Uri?
+        ): Intent {
             val intent = Intent(Intent.ACTION_SEND)
             intent.putExtra(Intent.EXTRA_TEXT, content)
             intent.putExtra(Intent.EXTRA_STREAM, uri)
@@ -95,12 +106,19 @@ class IntentUtils {
         }
 
         @Suppress("unused")
-        fun getComponentIntent(packageName: String, className: String): Intent {
+        fun getComponentIntent(
+            packageName: String,
+            className: String
+        ): Intent {
             return getComponentIntent(packageName, className, null)
         }
 
         @Suppress("unused")
-        fun getComponentIntent(packageName: String, className: String, bundle: Bundle?): Intent {
+        fun getComponentIntent(
+            packageName: String,
+            className: String,
+            bundle: Bundle?
+        ): Intent {
             val intent = Intent(Intent.ACTION_VIEW)
             if (bundle != null) {
                 intent.putExtras(bundle)
@@ -130,7 +148,10 @@ class IntentUtils {
         }
 
         @Suppress("unused")
-        fun getSendSmsIntent(phoneNumber: String, content: String?): Intent {
+        fun getSendSmsIntent(
+            phoneNumber: String,
+            content: String?
+        ): Intent {
             val uri = Uri.parse("smsto:$phoneNumber")
             val intent = Intent(Intent.ACTION_SENDTO, uri)
             intent.putExtra("sms_body", content)
