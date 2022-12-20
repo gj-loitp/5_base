@@ -14,7 +14,10 @@ class AnswersAdapter(
     private val mItemListener: PostItemListener
 ) : RecyclerView.Adapter<AnswersAdapter.ViewHolder>() {
 
-    inner class ViewHolder(itemView: View, postItemListener: PostItemListener) :
+    inner class ViewHolder(
+        itemView: View,
+        postItemListener: PostItemListener
+    ) :
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         var titleTv: TextView = itemView.findViewById(R.id.text1)
@@ -34,7 +37,10 @@ class AnswersAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         val postView = inflater.inflate(R.layout.view_item_test_retrofit, parent, false)
@@ -42,7 +48,10 @@ class AnswersAdapter(
     }
 
     @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int
+    ) {
         val item = mItems[position]
         val textView = holder.titleTv
         textView.text = "displayName: " + item.owner?.displayName

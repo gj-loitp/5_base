@@ -11,7 +11,6 @@ import vn.loitp.app.activity.api.coroutine.service.TestApiClient
 
 class TestViewModel : BaseViewModel() {
     private val repository: TestRepository = TestRepository(TestApiClient.apiService)
-
     val userTestListLiveData: MutableLiveData<ArrayList<UserTest>?> = MutableLiveData()
     val userActionLiveData: ActionLiveData<ActionData<ArrayList<UserTest>>> = ActionLiveData()
 
@@ -35,7 +34,10 @@ class TestViewModel : BaseViewModel() {
         }
     }
 
-    fun addUserList(userTestList: ArrayList<UserTest>, isRefresh: Boolean?) {
+    fun addUserList(
+        userTestList: ArrayList<UserTest>,
+        isRefresh: Boolean?
+    ) {
         var currentUserTestList = userTestListLiveData.value
         if (isRefresh == true) {
             currentUserTestList?.clear()

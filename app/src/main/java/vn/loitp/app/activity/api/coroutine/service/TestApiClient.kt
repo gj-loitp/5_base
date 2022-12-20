@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
 
 object TestApiClient {
 
-    private fun getBaseUrl() = ApiConfiguration.BASE_AUTHEN_URL
+    private fun getBaseUrl() = ApiConfiguration.BASE_URL
     private var restRequestInterceptor: RestRequestInterceptor? = null
 
     private fun getClient(url: String): Retrofit {
@@ -23,7 +23,10 @@ object TestApiClient {
         return getRetrofit(url, okHttpClient)
     }
 
-    private fun getRetrofit(url: String, builder: OkHttpClient.Builder): Retrofit {
+    private fun getRetrofit(
+        url: String,
+        builder: OkHttpClient.Builder
+    ): Retrofit {
 
         restRequestInterceptor = RestRequestInterceptor()
 
@@ -58,10 +61,13 @@ object TestApiClient {
         }.build()
     }
 
-    val apiService = getClient(getBaseUrl()).create(ApiService::class.java)
+    val apiService: ApiService = getClient(getBaseUrl()).create(ApiService::class.java)
 
     @Suppress("unused")
-    fun addHeader(name: String, value: String) {
+    fun addHeader(
+        name: String,
+        value: String
+    ) {
         restRequestInterceptor?.addHeader(name, value)
     }
 
