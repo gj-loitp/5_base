@@ -16,7 +16,7 @@ import com.nguyenhoanglam.imagepicker.model.Image
 import com.nguyenhoanglam.imagepicker.model.ImagePickerConfig
 import com.nguyenhoanglam.imagepicker.model.RootDirectory
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.registerImagePicker
-import kotlinx.android.synthetic.main.activity_image_picker.*
+import kotlinx.android.synthetic.main.activity_image_picker_demo.*
 import vn.loitp.app.R
 
 @LogTag("ImagePickerActivity")
@@ -33,7 +33,7 @@ class ImagePickerActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_image_picker
+        return R.layout.activity_image_picker_demo
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -98,10 +98,10 @@
             android:name="com.loitp.func.epub.core.EpubReaderReadActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".picker.crop.LCropImageActivity"
+            android:name="com.loitp.picker.crop.LCropImageActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".picker.crop.LGalleryActivity"
+            android:name="com.loitp.picker.crop.LGalleryActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".game.findNumber.ui.SplashActivity"

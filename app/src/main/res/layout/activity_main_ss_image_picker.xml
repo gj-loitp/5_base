@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+<!--    <data>-->
 
-        <variable
-            name="clickHandler"
-            type="android.view.View.OnClickListener" />
-    </data>
+<!--        <variable-->
+<!--            name="clickHandler"-->
+<!--            type="android.view.View.OnClickListener" />-->
+<!--    </data>-->
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -31,7 +31,6 @@
                 android:id="@+id/open_picker_button"
                 style="@style/ButtonSelectorStyle"
                 android:layout_marginTop="@dimen/_6sdp"
-                android:onClick="@{clickHandler::onClick}"
                 android:text="@string/open_image_picker"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +39,6 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/open_sheet_button"
                 style="@style/ButtonSelectorStyle"
-                android:onClick="@{clickHandler::onClick}"
                 android:text="@string/open_picker_sheet"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +47,6 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/options_button"
                 style="@style/ButtonSelectorStyle"
-                android:onClick="@{clickHandler::onClick}"
                 android:text="@string/customize_picker_options"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -69,6 +66,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/options_button"
                 app:spanCount="2"
+                tools:ignore="SpeakableTextPresentCheck"
                 tools:itemCount="8"
                 tools:listitem="@layout/picker_ss_image_list_item_image_data" />
 

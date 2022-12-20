@@ -1,4 +1,4 @@
-package com.loitpcore.picker.crop;
+package com.loitp.picker.crop;
 
 import android.graphics.RectF;
 

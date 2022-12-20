@@ -3,7 +3,6 @@ package vn.loitp.app.activity.picker.ssImagePicker.ui
 import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.app.imagepickerlibrary.ImagePicker
@@ -16,11 +15,14 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.picker.ssImagePicker.PickerOptions
 import com.loitp.picker.ssImagePicker.isAtLeast11
+import kotlinx.android.synthetic.main.activity_main_ss_image_picker.*
 import kotlinx.android.synthetic.main.activity_menu.*
+import kotlinx.android.synthetic.main.activity_menu.lActionBar
 import vn.loitp.app.R
 import vn.loitp.app.activity.MenuActivity
 import vn.loitp.app.databinding.ActivityMainSsImagePickerBinding
@@ -31,7 +33,7 @@ import vn.loitp.app.databinding.ActivityMainSsImagePickerBinding
 @LogTag("EmptyActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MainActivitySSImagePicker : BaseFontActivity(), View.OnClickListener,
+class MainActivitySSImagePicker : BaseFontActivity(),
     SSPickerOptionsBottomSheet.ImagePickerClickListener,
     ImagePickerResultListener, PickerOptionsBottomSheet.PickerOptionsListener {
 
@@ -52,7 +54,6 @@ class MainActivitySSImagePicker : BaseFontActivity(), View.OnClickListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main_ss_image_picker)
-        binding.clickHandler = this
         setUI(savedInstanceState)
 
         setupViews()
@@ -81,6 +82,18 @@ class MainActivitySSImagePicker : BaseFontActivity(), View.OnClickListener,
             }
             this.tvTitle?.text = MenuActivity::class.java.simpleName
         }
+
+        options_button.setSafeOnClickListener {
+            openPickerOptions()
+        }
+        open_picker_button.setSafeOnClickListener {
+            openImagePicker()
+        }
+        open_sheet_button.setSafeOnClickListener {
+            val fragment =
+                SSPickerOptionsBottomSheet.newInstance(R.style.CustomPickerBottomSheet)
+            fragment.show(supportFragmentManager, SSPickerOptionsBottomSheet.BOTTOM_SHEET_TAG)
+        }
     }
 
     private fun setUI(savedInstanceState: Bundle?) {
@@ -89,22 +102,6 @@ class MainActivitySSImagePicker : BaseFontActivity(), View.OnClickListener,
             val uriList: List<Uri> =
                 savedInstanceState.getParcelableArrayList(IMAGE_LIST) ?: listOf()
             updateImageList(uriList)
-        }
-    }
-
-    override fun onClick(v: View) {
-        when (v.id) {
-            R.id.options_button -> {
-                openPickerOptions()
-            }
-            R.id.open_picker_button -> {
-                openImagePicker()
-            }
-            R.id.open_sheet_button -> {
-                val fragment =
-                    SSPickerOptionsBottomSheet.newInstance(R.style.CustomPickerBottomSheet)
-                fragment.show(supportFragmentManager, SSPickerOptionsBottomSheet.BOTTOM_SHEET_TAG)
-            }
         }
     }
 

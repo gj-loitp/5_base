@@ -1,4 +1,4 @@
-package com.loitpcore.picker.crop
+package com.loitp.picker.crop
 
 import android.content.Intent
 import android.database.Cursor
@@ -11,14 +11,14 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.loitpcore.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil.Companion.tranOut
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utils.ConvertUtils
-import kotlinx.android.synthetic.main.l_activity_l_gallery.*
+import com.loitpcore.R
+import kotlinx.android.synthetic.main.l_a_l_gallery.*
 import java.io.File
 
 /**
@@ -39,7 +39,7 @@ class LGalleryActivity : BaseFontActivity(), View.OnClickListener {
     private val listThumbsData = ArrayList<String>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_l_gallery
+        return R.layout.l_a_l_gallery
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -133,7 +133,7 @@ class LGalleryActivity : BaseFontActivity(), View.OnClickListener {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             val itemView = LayoutInflater.from(this@LGalleryActivity)
-                .inflate(R.layout.l_item_l_gallery, parent, false)
+                .inflate(R.layout.l_v_l_gallery, parent, false)
             return PhotoItemHolder(itemView)
         }
 
