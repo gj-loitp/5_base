@@ -34,7 +34,10 @@ class FrmIvSlideCore : Fragment() {
         return inflater.inflate(R.layout.l_item_flickr_photo_slide_iv_core, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()

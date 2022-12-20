@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutRoot"
@@ -9,25 +9,25 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    android:orientation="vertical"
     tools:ignore="UnusedAttribute">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_padding_medium"
         android:singleLine="true"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/app_name" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
         android:contentDescription="@string/app_name"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         tools:src="@drawable/logo" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -37,7 +37,8 @@
         android:layout_gravity="center"
         android:layout_margin="@dimen/margin_padding_small"
         android:baselineAligned="false"
-        android:gravity="center">
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/iv">
 
         <FrameLayout
             android:layout_width="0dp"
@@ -148,5 +149,6 @@
         android:layout_marginTop="@dimen/margin_padding_small"
         android:background="?attr/themeTextColor"
         android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/layoutControl"
         tools:visibility="visible" />
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

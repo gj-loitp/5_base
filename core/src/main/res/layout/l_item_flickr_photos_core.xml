@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        tools:src="@color/red" />
+        tools:src="@color/lightCyan" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvSize"
@@ -25,6 +25,6 @@
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_small"
         android:visibility="invisible"
-        tools:text="69"
+        tools:text="@string/app_name"
         tools:visibility="visible" />
 </com.loitpcore.views.layout.square.LSquareFrameLayout>

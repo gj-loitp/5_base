@@ -10,13 +10,11 @@
     app:maskAlpha="125"
     app:swipeBackFactor="0.5">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:animateLayoutChanges="false"
-        android:background="?attr/themeBackgroundColor"
-        tools:background="@color/red">
+        android:background="?attr/themeBackgroundColor">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
@@ -28,27 +26,13 @@
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_large"
             android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/app_name" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            style="@style/ScrollVertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/tvTitle" />
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:indeterminateTint="?attr/themeTextColor" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_margin="@dimen/margin_padding_medium"
             android:contentDescription="@string/app_name"
             android:src="@drawable/l_page"
@@ -58,6 +42,27 @@
             app:borderWidth="@dimen/w_3"
             app:elevation="@dimen/w_3"
             app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:visibility="visible" />
-    </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            style="@style/ScrollVertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="?attr/themeTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </com.loitpcore.views.layout.swipeBack.SwipeBackLayout>

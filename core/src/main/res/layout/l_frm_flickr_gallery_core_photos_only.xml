@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
@@ -25,6 +25,7 @@
         android:textSize="@dimen/txt_large"
         android:textStyle="bold"
         android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="tvTitle"
         tools:visibility="visible" />
 
@@ -32,15 +33,16 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:indeterminateTint="?attr/themeTextColor" />
+        android:indeterminateTint="?attr/themeTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/margin_padding_medium"
         android:contentDescription="@string/app_name"
         android:src="@drawable/l_page"
@@ -50,5 +52,7 @@
         app:borderWidth="@dimen/w_3"
         app:elevation="@dimen/w_3"
         app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible" />
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
