@@ -11,6 +11,8 @@ import com.loitpcore.function.notification.config.VibrationSettings;
 
 import java.util.List;
 
+import kotlin.Suppress;
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -44,6 +46,7 @@ public interface CustomNotification {
 
     CustomNotification setInboxSummary(String item);
 
+    @Suppress(names = "unused")
     CustomNotification setInboxItems(List<String> itemList);
 
     CustomNotification setContentAction(ContentAction contentAction);
@@ -52,8 +55,10 @@ public interface CustomNotification {
 
     LightSettings getLightSettings();
 
+    @Suppress(names = "unused")
     CustomNotification setLightSettings(LightSettings lightSettings);
 
+    @Suppress(names = "unused")
     CustomNotification setVibrationSettings(VibrationSettings vibrations);
 
     VibrationSettings getVibrationSettings();

@@ -62,7 +62,10 @@ class TrafficUtils {
         }
 
         @Suppress("unused")
-        fun convertToBytes(value: Float, unit: String): Long {
+        fun convertToBytes(
+            value: Float,
+            unit: String
+        ): Long {
             return when (unit) {
                 "KB" -> {
                     (value.toLong()) * KB

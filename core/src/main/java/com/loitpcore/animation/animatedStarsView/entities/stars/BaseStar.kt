@@ -26,9 +26,7 @@ abstract class BaseStar(
 
     override val starSize: Double = starConstraints.getRandomStarSize()
 
-
     internal var paint = initPaintColor()
-
 
     abstract fun initPaintColor(): Paint
 
@@ -62,10 +60,8 @@ abstract class BaseStar(
 
     }
 
-
     interface StarCompleteListener {
         fun onStarAnimationComplete()
     }
-
 
 }

@@ -14,8 +14,6 @@ interface Star {
     var incrementFactor: Double
     val starSize : Double
 
-
-
     fun onDraw(canvas: Canvas?): Canvas?
 
     fun calculateFrame()

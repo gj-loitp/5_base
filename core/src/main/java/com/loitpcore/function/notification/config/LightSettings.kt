@@ -17,7 +17,11 @@ class LightSettings : BaseModel {
     var offMs = 3000
 
     @Suppress("unused")
-    constructor(argb: Int, onMs: Int, offMs: Int) {
+    constructor(
+        argb: Int,
+        onMs: Int,
+        offMs: Int
+    ) {
         this.argb = argb
         this.onMs = onMs
         this.offMs = offMs

@@ -19,19 +19,31 @@ open class NotificationAction {
     private var pendingIntent: PendingIntent? = null
     private val requestCode: Int = 0
 
-    constructor(intent: Intent?, context: Context?) {
+    constructor(
+        intent: Intent?,
+        context: Context?
+    ) {
         this.intent = intent
         this.context = context
     }
 
-    constructor(text: String?, intent: Intent?, context: Context?) {
+    constructor(
+        text: String?,
+        intent: Intent?,
+        context: Context?
+    ) {
         this.text = text
         this.intent = intent
         this.context = context
     }
 
     @Suppress("unused")
-    constructor(text: String?, intent: Intent?, image: Int, context: Context?) {
+    constructor(
+        text: String?,
+        intent: Intent?,
+        image: Int,
+        context: Context?
+    ) {
         this.text = text
         this.intent = intent
         this.image = image
@@ -39,7 +51,11 @@ open class NotificationAction {
     }
 
     @Suppress("unused")
-    constructor(text: String?, pendingIntent: PendingIntent?, image: Int) {
+    constructor(
+        text: String?,
+        pendingIntent: PendingIntent?,
+        image: Int
+    ) {
         this.text = text
         this.pendingIntent = pendingIntent
         this.image = image

@@ -19,10 +19,13 @@ class SimpleFingerGestures : OnTouchListener {
         // Will see if these need to be used. For now just returning duration in milliS
         @Suppress("unused")
         const val GESTURE_SPEED_SLOW: Long = 1500
+
         @Suppress("unused")
         const val GESTURE_SPEED_MEDIUM: Long = 1000
+
         @Suppress("unused")
         const val GESTURE_SPEED_FAST: Long = 500
+
         @Suppress("unused")
         private const val TAG = "SimpleFingerGestures"
     }
@@ -61,7 +64,10 @@ class SimpleFingerGestures : OnTouchListener {
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
+    override fun onTouch(
+        view: View,
+        motionEvent: MotionEvent
+    ): Boolean {
         when (motionEvent.action and MotionEvent.ACTION_MASK) {
             MotionEvent.ACTION_DOWN -> {
                 startTracking(0)

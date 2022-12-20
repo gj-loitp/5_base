@@ -4,7 +4,13 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import com.loitpcore.animation.animatedStarsView.entities.StarConstraints
 
-class RoundyStar(starConstraints: StarConstraints, x: Int, y: Int, color: Int, listener: StarCompleteListener) : BaseStar(starConstraints, x, y, color, listener) {
+class RoundyStar(
+    starConstraints: StarConstraints,
+    x: Int,
+    y: Int,
+    color: Int,
+    listener: StarCompleteListener
+) : BaseStar(starConstraints, x, y, color, listener) {
     override fun initPaintColor(): Paint {
         val paint = Paint(Paint.ANTI_ALIAS_FLAG)
         paint.color = color
@@ -16,10 +22,9 @@ class RoundyStar(starConstraints: StarConstraints, x: Int, y: Int, color: Int, l
     override var incrementFactor: Double = Math.random() * .025
 
     override fun onDraw(canvas: Canvas?): Canvas? {
-        paint?.also {
+        paint.also {
             it.alpha = alphaInt
             canvas?.drawCircle(x.toFloat(), y.toFloat(), starSize.toFloat() / 2f, it)
-
         }
         return canvas
     }

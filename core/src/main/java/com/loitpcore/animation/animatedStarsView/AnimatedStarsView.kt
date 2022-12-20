@@ -13,6 +13,8 @@ import com.loitpcore.animation.animatedStarsView.entities.stars.BaseStar
 import java.util.*
 import java.util.concurrent.Executors
 import kotlin.concurrent.timerTask
+import kotlin.math.min
+import kotlin.math.roundToInt
 
 /**
  * Kotlin Android view that draws animated stars on a canvas
@@ -24,7 +26,7 @@ import kotlin.concurrent.timerTask
  * Crafted with ❤️ by sofakingforever
  */
 class AnimatedStarsView
-@kotlin.jvm.JvmOverloads
+@JvmOverloads
 constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -127,7 +129,6 @@ constructor(
         }
     }
 
-
     /**
      * Must call this in Activity's onStop
      */
@@ -157,7 +158,6 @@ constructor(
         }
     }
 
-
     /**
      * Draw stars on view's canvas
      */
@@ -186,7 +186,6 @@ constructor(
 
     }
 
-
     /**
      * create x stars with a random point location and alphaDouble
      */
@@ -201,9 +200,9 @@ constructor(
                     postDelayed({
 
                         meteorite = Meteorite(
-                            smallestWidth = Math.min(viewWidth, viewHeight),
+                            smallestWidth = min(viewWidth, viewHeight),
                             x = viewWidth,
-                            y = Math.round(Math.random() * (viewHeight * 2 / 3)).toInt(),
+                            y = (Math.random() * (viewHeight * 2 / 3)).roundToInt(),
                             color = meteoritesColors[random.nextInt(meteoritesColors.size)],
                             starSize = starConstraints.getRandomStarSize().toInt(),
                             listener = meteoriteListener
@@ -236,16 +235,18 @@ constructor(
 
     }
 
-    private fun createStar(it: Int, starCompleteListener: BaseStar.StarCompleteListener): Star {
+    private fun createStar(
+        it: Int,
+        starCompleteListener: BaseStar.StarCompleteListener
+    ): Star {
         return InterstellarFactory.create(
             starConstraints = starConstraints,
-            x = Math.round(Math.random() * viewWidth).toInt(),
-            y = Math.round(Math.random() * viewHeight).toInt(),
+            x = (Math.random() * viewWidth).roundToInt(),
+            y = (Math.random() * viewHeight).roundToInt(),
             color = starColors[it % starColors.size],
             listener = starCompleteListener
         )
     }
-
 
     /**
      * calculate and invalidate all stars for the next frame

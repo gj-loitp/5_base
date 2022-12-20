@@ -50,26 +50,37 @@ class GestureAnalyser @JvmOverloads constructor(
         const val PINCH_4 = 45
         const val UNPINCH_4 = 46
         const val DOUBLE_TAP_1 = 107
+
         @Suppress("unused")
         const val SWIPING_1_UP = 101
+
         @Suppress("unused")
         const val SWIPING_1_DOWN = 102
+
         @Suppress("unused")
         const val SWIPING_1_LEFT = 103
+
         @Suppress("unused")
         const val SWIPING_1_RIGHT = 104
+
         @Suppress("unused")
         const val SWIPING_2_UP = 201
+
         @Suppress("unused")
         const val SWIPING_2_DOWN = 202
+
         @Suppress("unused")
         const val SWIPING_2_LEFT = 203
+
         @Suppress("unused")
         const val SWIPING_2_RIGHT = 204
+
         @Suppress("unused")
         const val PINCHING = 205
+
         @Suppress("unused")
         const val UNPINCHING = 206
+
         @Suppress("unused")
         private const val TAG = "GestureAnalyser"
     }
@@ -334,20 +345,27 @@ class GestureAnalyser @JvmOverloads constructor(
         return 0
     }
 
-    private fun initialFingDist(fingNum1: Int, fingNum2: Int): Double {
+    private fun initialFingDist(
+        fingNum1: Int,
+        fingNum2: Int
+    ): Double {
         return sqrt(
             (initialX[fingNum1] - initialX[fingNum2]).pow(2.0) +
                     (initialY[fingNum1] - initialY[fingNum2]).pow(2.0)
         )
     }
 
-    private fun finalFingDist(fingNum1: Int, fingNum2: Int): Double {
+    private fun finalFingDist(
+        fingNum1: Int,
+        fingNum2: Int
+    ): Double {
         return sqrt(
             (finalX[fingNum1] - finalX[fingNum2]).pow(2.0) +
                     (finalY[fingNum1] - finalY[fingNum2]).pow(2.0)
         )
     }
 
+    @Suppress("unused")
     val isDoubleTap: Boolean
         get() = initialT - prevFinalT < doubleTapMaxDelayMillis && finalT - initialT < doubleTapMaxDownMillis && prevFinalT - prevInitialT < doubleTapMaxDownMillis
 }

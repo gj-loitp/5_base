@@ -7,7 +7,13 @@ import com.loitpcore.animation.animatedStarsView.entities.stars.TinyStar
 
 object InterstellarFactory {
 
-    fun create(starConstraints: StarConstraints, x: Int, y: Int, color: Int, listener: BaseStar.StarCompleteListener): Star {
+    fun create(
+        starConstraints: StarConstraints,
+        x: Int,
+        y: Int,
+        color: Int,
+        listener: BaseStar.StarCompleteListener
+    ): Star {
         val starSize = starConstraints.getRandomStarSize()
 
         return if (starSize >= starConstraints.bigStarThreshold) {

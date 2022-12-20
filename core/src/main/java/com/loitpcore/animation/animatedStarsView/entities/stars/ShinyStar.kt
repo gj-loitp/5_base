@@ -5,8 +5,13 @@ import android.graphics.Paint
 import android.graphics.RectF
 import com.loitpcore.animation.animatedStarsView.entities.StarConstraints
 
-class ShinyStar(starConstraints: StarConstraints, x: Int, y: Int, color: Int, listener: StarCompleteListener) : BaseStar(starConstraints, x, y, color, listener) {
-
+class ShinyStar(
+    starConstraints: StarConstraints,
+    x: Int,
+    y: Int,
+    color: Int,
+    listener: StarCompleteListener
+) : BaseStar(starConstraints, x, y, color, listener) {
 
     private var hRect: RectF? = null
     private var vRect: RectF? = null
@@ -46,7 +51,7 @@ class ShinyStar(starConstraints: StarConstraints, x: Int, y: Int, color: Int, li
     }
 
     override fun onDraw(canvas: Canvas?): Canvas? {
-        paint?.also {
+        paint.also {
             it.alpha = alphaInt
 
             if (hRect != null && vRect != null) {

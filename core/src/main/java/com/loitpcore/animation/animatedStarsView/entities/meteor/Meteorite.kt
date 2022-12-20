@@ -25,7 +25,6 @@ internal class Meteorite(
     private var finished = false
     private val factor = starSize * (Math.random() * 1.9f)
 
-
     private val starPaint = Paint(Paint.ANTI_ALIAS_FLAG).also {
         it.color = color
     }
@@ -35,7 +34,7 @@ internal class Meteorite(
             starSize.toFloat()
     }
 
-
+    @Suppress("unused")
     fun calculateFrame(viewWidth: Int, viewHeight: Int) {
 
         if (finished) {
@@ -79,7 +78,6 @@ internal class Meteorite(
         canvas?.drawCircle(x.toFloat(), y.toFloat(), starSize.toFloat() / 2f, starPaint)
         return canvas
     }
-
 
     interface MeteoriteCompleteListener {
         fun onMeteoriteComplete()

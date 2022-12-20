@@ -12,6 +12,10 @@ import android.content.Intent
  * freuss47@gmail.com
  */
 class ContentAction : NotificationAction {
-    constructor(intent: Intent?, context: Context?) : super(intent, context)
+    constructor(
+        intent: Intent?,
+        context: Context?
+    ) : super(intent, context)
+
     constructor(pendingIntent: PendingIntent?) : super(pendingIntent)
 }
