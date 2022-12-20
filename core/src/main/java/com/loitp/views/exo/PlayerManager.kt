@@ -1,4 +1,4 @@
-package com.loitpcore.views.exo
+package com.loitp.views.exo
 
 import android.app.Activity
 import android.content.Context
@@ -23,10 +23,10 @@ import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import com.google.android.exoplayer2.video.VideoListener
-import com.loitpcore.R
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utils.AppUtils
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -219,7 +219,10 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
     }
 
     // for other sample not UZVideo
-    fun updateSizePlayerView(playerView: PlayerView, exoFullscreen: ImageButton) {
+    fun updateSizePlayerView(
+        playerView: PlayerView,
+        exoFullscreen: ImageButton
+    ) {
         if (LScreenUtil.isLandscape()) {
             playerView.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             playerView.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT

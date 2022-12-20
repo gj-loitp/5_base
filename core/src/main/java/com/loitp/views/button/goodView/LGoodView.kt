@@ -1,4 +1,4 @@
-package com.loitpcore.views.button.goodView
+package com.loitp.views.button.goodView
 
 import android.content.Context
 import android.graphics.Color
@@ -116,7 +116,11 @@ class LGoodView(
     }
 
     @Suppress("unused")
-    fun setTextInfo(text: String?, textColor: Int, textSize: Int) {
+    fun setTextInfo(
+        text: String?,
+        textColor: Int,
+        textSize: Int
+    ) {
         setTextColor(textColor)
         setTextSize(textSize)
         setText(text)
@@ -147,13 +151,19 @@ class LGoodView(
     }
 
     @Suppress("unused")
-    fun setTranslateY(fromY: Int, toY: Int) {
+    fun setTranslateY(
+        fromY: Int,
+        toY: Int
+    ) {
         mFromY = fromY
         mToY = toY
         mChanged = true
     }
 
-    fun setAlpha(fromAlpha: Float, toAlpha: Float) {
+    fun setAlpha(
+        fromAlpha: Float,
+        toAlpha: Float
+    ) {
         mFromAlpha = fromAlpha
         mToAlpha = toAlpha
         mChanged = true

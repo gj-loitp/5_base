@@ -1,4 +1,4 @@
-package com.loitpcore.views.button.circularImageClick
+package com.loitp.views.button.circularImageClick
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -45,9 +45,16 @@ class LCircularClickImageButton : AppCompatImageButton {
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -66,7 +73,12 @@ class LCircularClickImageButton : AppCompatImageButton {
         this.onCircleClickListener = onCircleClickListener
     }
 
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+    override fun onSizeChanged(
+        w: Int,
+        h: Int,
+        oldw: Int,
+        oldh: Int
+    ) {
         super.onSizeChanged(w, h, oldw, oldh)
         radius = w / 2.toFloat()
         centerX = radius

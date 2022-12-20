@@ -73,7 +73,7 @@
                             android:textSize="@dimen/txt_medium" />
                     </LinearLayout>
 
-                    <com.loitpcore.views.button.circularImageClick.LCircularClickImageButton
+                    <com.loitp.views.button.circularImageClick.LCircularClickImageButton
                         android:id="@+id/btMenu"
                         android:layout_width="@dimen/w_50"
                         android:layout_height="@dimen/w_30"

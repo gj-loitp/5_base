@@ -1,4 +1,4 @@
-package com.loitpcore.views.button.lButton
+package com.loitp.views.button.lButton
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -20,9 +20,16 @@ class LButton : AppCompatImageButton {
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
