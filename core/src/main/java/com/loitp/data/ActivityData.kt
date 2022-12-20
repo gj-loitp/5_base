@@ -1,4 +1,4 @@
-package com.loitpcore.data
+package com.loitp.data
 
 import com.loitp.core.common.Constants
 

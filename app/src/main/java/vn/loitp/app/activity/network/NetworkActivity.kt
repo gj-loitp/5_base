@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LConnectivityUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.data.EventBusData
+import com.loitp.data.EventBusData
 import com.loitpcore.function.network.TrafficUtils
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers

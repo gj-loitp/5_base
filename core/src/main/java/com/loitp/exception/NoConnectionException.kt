@@ -1,4 +1,4 @@
-package com.loitpcore.exception
+package com.loitp.exception
 
 /**
  * Created by Loitp on 04,August,2022

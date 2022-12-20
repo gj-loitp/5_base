@@ -22,7 +22,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.loitp.core.utilities.LUIUtil.Companion.withBackground
-import com.loitpcore.data.EventBusData
+import com.loitp.data.EventBusData
 import com.loitpcore.views.bottomSheet.BottomSheetOptionFragment
 import com.loitpcore.views.smoothTransition.SwitchAnimationUtil
 import com.loitpcore.views.toast.LToast

@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.data.ActivityData
+import com.loitp.data.ActivityData
 import kotlinx.android.synthetic.main.activity_animation_1.*
 import vn.loitp.app.R
 

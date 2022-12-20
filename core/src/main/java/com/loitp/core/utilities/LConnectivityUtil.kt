@@ -3,7 +3,7 @@ package com.loitp.core.utilities
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import com.loitpcore.data.EventBusData
+import com.loitp.data.EventBusData
 
 /**
  * Created by Loitp on 04,August,2022

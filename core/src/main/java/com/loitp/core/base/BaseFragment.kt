@@ -16,7 +16,7 @@ import com.loitpcore.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LLog
-import com.loitpcore.data.EventBusData
+import com.loitp.data.EventBusData
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
