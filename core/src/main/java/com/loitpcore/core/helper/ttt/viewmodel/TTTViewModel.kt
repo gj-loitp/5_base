@@ -36,6 +36,8 @@ class TTTViewModel : BaseViewModel() {
     val listPageActionLiveData: ActionLiveData<ActionData<List<String>>> = ActionLiveData()
 
     val listComicFavActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
+
+    @Suppress("unused")
     val updateComicLiveData: ActionLiveData<ActionData<Long>> = ActionLiveData()
     val favComicLiveData: ActionLiveData<ActionData<Long>> = ActionLiveData()
     val unfavComicLiveData: ActionLiveData<ActionData<Comic>> = ActionLiveData()

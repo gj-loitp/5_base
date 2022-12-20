@@ -31,7 +31,10 @@ class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
     private var tTTViewModel: TTTViewModel? = null
     private var tTTypeAdapter = TTTTypeAdapter()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()

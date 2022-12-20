@@ -30,7 +30,10 @@ class BottomSheetSettingTTTFragment : BaseBottomSheetFragment(
     private var dialog: AlertDialog? = null
     var onSwitchTheme: ((Unit) -> Unit)? = null
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()

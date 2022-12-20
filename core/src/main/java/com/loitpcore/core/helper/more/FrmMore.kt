@@ -26,7 +26,10 @@ class FrmMore : BaseFragment(), View.OnClickListener {
         return R.layout.l_frm_more
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()

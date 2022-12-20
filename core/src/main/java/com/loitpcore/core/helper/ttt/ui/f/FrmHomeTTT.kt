@@ -31,7 +31,10 @@ class FrmHomeTTT : BaseFragment() {
         return R.layout.l_frm_ttt_comic_home
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()

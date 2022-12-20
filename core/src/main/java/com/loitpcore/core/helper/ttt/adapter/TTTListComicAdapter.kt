@@ -55,18 +55,24 @@ class TTTListComicAdapter : BaseAdapter() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ) =
         DataViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.view_row_ttt_comic,
-                parent,
-                false
+                /* resource = */ R.layout.view_row_ttt_comic,
+                /* root = */ parent,
+                /* attachToRoot = */ false
             )
         )
 
     override fun getItemCount(): Int = listComic.size
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is DataViewHolder) {
             holder.bind(listComic[position])
         }
