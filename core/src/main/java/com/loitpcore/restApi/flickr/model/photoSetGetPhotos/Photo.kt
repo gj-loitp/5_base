@@ -64,11 +64,11 @@ class Photo : BaseModel() {
 
     @SerializedName("height_o")
     @Expose
-    var heightO = 0
+    var heightO = 1
 
     @SerializedName("width_o")
     @Expose
-    var widthO = 0
+    var widthO = 1
 
     @SerializedName("url_s")
     @Expose
@@ -77,12 +77,12 @@ class Photo : BaseModel() {
     @SerializedName("height_s")
     @Expose
     @Suppress("unused")
-    var heightS = 0
+    var heightS = 1
 
     @SerializedName("width_s")
     @Expose
     @Suppress("unused")
-    var widthS = 0
+    var widthS = 1
 
     @SerializedName("url_m")
     @Expose
@@ -136,4 +136,9 @@ class Photo : BaseModel() {
         } else {
             LImageUtil.getFlickrLink320(urlM)
         }
+
+    fun calculatorHeight(widthScreen: Int): Int {
+        return heightO * widthScreen / widthO
+    }
+
 }
