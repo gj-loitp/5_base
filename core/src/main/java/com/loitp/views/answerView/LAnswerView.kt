@@ -1,4 +1,4 @@
-package com.loitpcore.views.answerView
+package com.loitp.views.answerView
 
 import android.content.Context
 import android.util.AttributeSet
