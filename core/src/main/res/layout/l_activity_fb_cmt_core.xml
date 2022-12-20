@@ -7,7 +7,7 @@
     app:maskAlpha="125"
     app:swipeBackFactor="0.5">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?attr/themeBackgroundColor"
@@ -16,13 +16,15 @@
         <com.loitpcore.views.actionBar.LActionBar
             android:id="@+id/lActionBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <RelativeLayout
             android:id="@+id/rlWebview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/lActionBar">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lActionBar">
 
             <WebView
                 android:id="@+id/commentsWebView"
@@ -39,5 +41,5 @@
 
         </RelativeLayout>
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </com.loitpcore.views.layout.swipeBack.SwipeBackLayout>
