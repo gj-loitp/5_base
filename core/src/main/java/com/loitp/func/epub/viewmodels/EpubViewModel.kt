@@ -1,4 +1,4 @@
-package com.loitpcore.function.epub.viewmodels
+package com.loitp.func.epub.viewmodels
 
 import android.os.Environment
 import com.google.gson.reflect.TypeToken
@@ -9,10 +9,10 @@ import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LPrefUtil
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LStoreUtil.Companion.getListEpubFiles
-import com.loitpcore.function.epub.CssStatus
-import com.loitpcore.function.epub.Reader
-import com.loitpcore.function.epub.exception.ReadingException
-import com.loitpcore.function.epub.model.BookInfo
+import com.loitp.func.epub.exception.ReadingException
+import com.loitp.func.epub.model.BookInfo
+import com.loitp.func.epub.CssStatus
+import com.loitp.func.epub.Reader
 import com.loitpcore.service.liveData.ActionData
 import com.loitpcore.service.liveData.ActionLiveData
 import com.loitpcore.service.model.ErrorResponse
@@ -35,7 +35,10 @@ class EpubViewModel : BaseViewModel() {
     val loadDeviceAndAssetActionLiveData: ActionLiveData<ActionData<ArrayList<BookInfo>>> =
         ActionLiveData()
 
-    fun loadData(reader: Reader, bookInfo: BookInfo) {
+    fun loadData(
+        reader: Reader,
+        bookInfo: BookInfo
+    ) {
         loadDataActionLiveData.set(ActionData(isDoing = true))
 
         ioScope.launch {
@@ -75,7 +78,10 @@ class EpubViewModel : BaseViewModel() {
         }
     }
 
-    private fun searchForFilesAsset(maxBookAsset: Int, extensionEpub: String): ArrayList<BookInfo> {
+    private fun searchForFilesAsset(
+        maxBookAsset: Int,
+        extensionEpub: String
+    ): ArrayList<BookInfo> {
         val listFile = ArrayList<File>()
         val infoList = ArrayList<BookInfo>()
         var file: File?
@@ -114,7 +120,10 @@ class EpubViewModel : BaseViewModel() {
         return file
     }
 
-    fun getListBookAllAsset(maxBookAsset: Int, extensionEpub: String) {
+    fun getListBookAllAsset(
+        maxBookAsset: Int,
+        extensionEpub: String
+    ) {
         loadAssetActionLiveData.set(ActionData(isDoing = true))
 
         fun sortABC(listBookInfo: ArrayList<BookInfo>) {

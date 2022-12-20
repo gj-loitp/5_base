@@ -1,6 +1,6 @@
-package com.loitpcore.function.epub
+package com.loitp.func.epub
 
-import com.loitpcore.function.epub.exception.ReadingException
+import com.loitp.func.epub.exception.ReadingException
 import org.w3c.dom.Node
 
 /**

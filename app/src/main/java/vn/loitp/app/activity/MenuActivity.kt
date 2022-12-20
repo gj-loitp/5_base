@@ -17,7 +17,6 @@ import com.loitp.core.helper.adHelper.AdHelperActivity
 import com.loitp.core.utilities.LPrefUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.core.utilities.*
 import kotlinx.android.synthetic.main.activity_firebase.*
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.activity_menu.lActionBar

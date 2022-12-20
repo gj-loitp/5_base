@@ -5,9 +5,9 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import com.loitpcore.R
-import com.loitpcore.function.epub.core.EpubReaderReadActivity
-import com.loitpcore.function.epub.model.BookInfo
-import com.loitpcore.function.epub.model.BookInfoData
+import com.loitp.func.epub.core.EpubReaderReadActivity
+import com.loitp.func.epub.model.BookInfo
+import com.loitp.func.epub.model.BookInfoData
 
 /**
  * Created by Loitp on 04,August,2022

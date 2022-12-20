@@ -11,7 +11,6 @@ import android.content.pm.PackageManager
 import android.content.pm.Signature
 import android.graphics.drawable.Drawable
 import com.loitp.core.utilities.LLog
-import com.loitpcore.utils.util.*
 import java.io.File
 import java.util.*
 

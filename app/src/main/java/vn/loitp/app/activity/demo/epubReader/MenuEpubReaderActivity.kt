@@ -10,8 +10,8 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LReaderUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.function.epub.model.BookInfo
-import com.loitpcore.function.epub.viewmodels.EpubViewModel
+import com.loitp.func.epub.model.BookInfo
+import com.loitp.func.epub.viewmodels.EpubViewModel
 import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
 import vn.loitp.app.R
 

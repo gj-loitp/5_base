@@ -1,6 +1,6 @@
-package com.loitpcore.function.epub
+package com.loitp.func.epub
 
-import com.loitpcore.function.epub.exception.ReadingException
+import com.loitp.func.epub.exception.ReadingException
 import java.io.* // ktlint-disable no-wildcard-imports
 import java.net.URLDecoder
 import java.net.URLEncoder
@@ -43,7 +43,10 @@ internal object ContextHelper {
     }
 
     @JvmStatic
-    fun getTextAfterCharacter(text: String, character: Char): String {
+    fun getTextAfterCharacter(
+        text: String,
+        character: Char
+    ): String {
         val lastCharIndex = text.lastIndexOf(character)
         return text.substring(startIndex = lastCharIndex + 1)
     }
@@ -59,7 +62,10 @@ internal object ContextHelper {
 
     @JvmStatic
     @Throws(IOException::class)
-    fun copy(input: InputStream, output: OutputStream) {
+    fun copy(
+        input: InputStream,
+        output: OutputStream
+    ) {
         val bytes = ByteArray(size = 4096 * 1024)
         var bytesRead: Int
         while (input.read(bytes).also { bytesRead = it } != -1) {

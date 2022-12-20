@@ -1,4 +1,4 @@
-package com.loitpcore.function.epub.core
+package com.loitp.func.epub.core
 
 import android.graphics.BitmapFactory
 import android.graphics.Color
@@ -20,23 +20,22 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.daimajia.androidanimations.library.Techniques
-import com.loitpcore.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.*
-import com.loitpcore.core.utilities.*
 import com.loitp.core.utilities.LReaderUtil.Companion.defaultCover
-import com.loitpcore.function.epub.BookSection
-import com.loitpcore.function.epub.Reader
-import com.loitpcore.function.epub.core.PageFragment.OnFragmentReadyListener
-import com.loitpcore.function.epub.exception.OutOfPagesException
-import com.loitpcore.function.epub.exception.ReadingException
-import com.loitpcore.function.epub.model.BookInfo
-import com.loitpcore.function.epub.model.BookInfoData
-import com.loitpcore.function.epub.viewmodels.EpubViewModel
 import com.loitp.core.utils.ConvertUtils
+import com.loitpcore.R
+import com.loitp.func.epub.BookSection
+import com.loitp.func.epub.Reader
+import com.loitp.func.epub.core.PageFragment.OnFragmentReadyListener
+import com.loitp.func.epub.exception.OutOfPagesException
+import com.loitp.func.epub.exception.ReadingException
+import com.loitp.func.epub.model.BookInfo
+import com.loitp.func.epub.model.BookInfoData
+import com.loitp.func.epub.viewmodels.EpubViewModel
 import com.loitpcore.views.wv.LWebViewAdblock
 import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
 

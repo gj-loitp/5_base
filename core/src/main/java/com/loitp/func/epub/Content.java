@@ -1,10 +1,10 @@
-package com.loitpcore.function.epub;
+package com.loitp.func.epub;
 
 import androidx.annotation.Keep;
 
 import com.loitp.core.base.BaseModel;
-import com.loitpcore.function.epub.exception.OutOfPagesException;
-import com.loitpcore.function.epub.exception.ReadingException;
+import com.loitp.func.epub.exception.OutOfPagesException;
+import com.loitp.func.epub.exception.ReadingException;
 
 import org.xml.sax.SAXException;
 

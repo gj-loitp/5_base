@@ -1,4 +1,4 @@
-package com.loitpcore.function.epub.exception
+package com.loitp.func.epub.exception
 
 /**
  * Created by Loitp on 04,August,2022
@@ -14,5 +14,8 @@ class ReadingException : Exception {
     }
 
     constructor(message: String?) : super(message)
-    constructor(message: String?, throwable: Throwable?) : super(message, throwable)
+    constructor(
+        message: String?,
+        throwable: Throwable?
+    ) : super(message, throwable)
 }

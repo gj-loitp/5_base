@@ -1,7 +1,7 @@
-package com.loitpcore.function.epub
+package com.loitp.func.epub
 
-import com.loitpcore.function.epub.ContextHelper.getTextAfterCharacter
-import com.loitpcore.function.epub.exception.ReadingException
+import com.loitp.func.epub.exception.ReadingException
+import com.loitp.func.epub.ContextHelper.getTextAfterCharacter
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import java.lang.reflect.Field

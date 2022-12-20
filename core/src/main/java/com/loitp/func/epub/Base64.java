@@ -1,4 +1,4 @@
-package com.loitpcore.function.epub;
+package com.loitp.func.epub;
 
 import kotlin.Suppress;
 

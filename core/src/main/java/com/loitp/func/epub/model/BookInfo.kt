@@ -1,4 +1,4 @@
-package com.loitpcore.function.epub.model
+package com.loitp.func.epub.model
 
 import android.graphics.Bitmap
 import androidx.annotation.Keep

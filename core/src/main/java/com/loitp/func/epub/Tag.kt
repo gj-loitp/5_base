@@ -1,4 +1,4 @@
-package com.loitpcore.function.epub
+package com.loitp.func.epub
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel

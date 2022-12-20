@@ -13,7 +13,6 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.*
-import com.loitpcore.core.utilities.*
 import com.loitp.model.App
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_splash.*

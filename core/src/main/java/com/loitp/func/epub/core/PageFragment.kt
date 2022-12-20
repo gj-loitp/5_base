@@ -1,4 +1,4 @@
-package com.loitpcore.function.epub.core
+package com.loitp.func.epub.core
 
 import android.content.Context
 import android.os.Bundle
