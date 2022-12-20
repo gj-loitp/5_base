@@ -1,10 +1,10 @@
-package com.loitpcore.function.simpleFingerGestures
+package com.loitp.func.simpleFingerGestures
 
 import android.annotation.SuppressLint
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
-import com.loitpcore.function.simpleFingerGestures.GestureAnalyser.GestureType
+import com.loitp.func.simpleFingerGestures.GestureAnalyser.GestureType
 
 /**
  * Created by Loitp on 04,August,2022

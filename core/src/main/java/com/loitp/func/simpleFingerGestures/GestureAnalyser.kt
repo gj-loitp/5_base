@@ -1,4 +1,4 @@
-package com.loitpcore.function.simpleFingerGestures
+package com.loitp.func.simpleFingerGestures
 
 import android.os.SystemClock
 import android.view.MotionEvent
