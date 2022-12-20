@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.core.utilities.LUIUtil

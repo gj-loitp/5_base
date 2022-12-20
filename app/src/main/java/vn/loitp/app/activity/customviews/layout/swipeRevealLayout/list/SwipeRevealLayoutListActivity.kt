@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.customviews.layout.swipeRevealLayout.list
 
 import android.os.Bundle
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_swipe_reveal_layout_list.*
 import vn.loitp.app.R

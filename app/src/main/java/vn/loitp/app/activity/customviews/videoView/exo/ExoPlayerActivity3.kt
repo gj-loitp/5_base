@@ -2,8 +2,8 @@ package vn.loitp.app.activity.customviews.videoView.exo
 
 import android.os.Bundle
 import com.google.android.exoplayer2.ui.PlayerView
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LScreenUtil

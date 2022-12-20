@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.base.BaseFragment

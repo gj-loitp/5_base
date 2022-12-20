@@ -3,9 +3,9 @@ package vn.loitp.app.activity.animation.activityTransitionReveal
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsSwipeActivity
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.IsSwipeActivity
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.activity_reveal_2.*

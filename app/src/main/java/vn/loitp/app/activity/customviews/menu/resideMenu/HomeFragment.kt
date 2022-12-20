@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.menu.resideMenu
 
 import android.os.Bundle
 import android.view.View
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.views.menu.resideMenu.ResideMenu
 import kotlinx.android.synthetic.main.frm_reside_menu_home.*

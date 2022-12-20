@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import androidx.core.view.isVisible
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil

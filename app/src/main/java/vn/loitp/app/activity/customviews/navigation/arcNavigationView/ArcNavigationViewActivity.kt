@@ -7,8 +7,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_arc_navigation_view.*
 import kotlinx.android.synthetic.main.menu_arc_navigation_view_main.*

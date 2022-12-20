@@ -5,9 +5,9 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.devs.readmoreoption.ReadMoreOption
-import com.loitpcore.annotation.IsAutoAnimation
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsAutoAnimation
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil

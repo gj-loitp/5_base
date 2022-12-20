@@ -12,7 +12,7 @@ import android.view.Surface
 import android.view.TextureView.SurfaceTextureListener
 import android.view.View
 import android.view.ViewGroup
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
 import kotlinx.android.synthetic.main.wwl_music_watch_fragment.*
 import vn.loitp.app.R

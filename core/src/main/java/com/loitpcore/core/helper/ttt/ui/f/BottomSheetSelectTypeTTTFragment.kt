@@ -6,7 +6,7 @@ import android.view.WindowManager
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.loitpcore.R
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseBottomSheetFragment
 import com.loitpcore.core.helper.ttt.adapter.TTTTypeAdapter
 import com.loitpcore.core.helper.ttt.helper.ComicUtils

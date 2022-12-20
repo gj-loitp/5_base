@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.loitpcore.R
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.core.helper.adHelper.AdHelperActivity
 import com.loitpcore.core.utilities.LActivityUtil

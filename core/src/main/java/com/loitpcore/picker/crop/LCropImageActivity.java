@@ -16,8 +16,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.loitpcore.R;
-import com.loitpcore.annotation.IsFullScreen;
-import com.loitpcore.annotation.LogTag;
+import com.loitp.annotation.IsFullScreen;
+import com.loitp.annotation.LogTag;
 import com.loitpcore.core.base.BaseFontActivity;
 
 import java.io.File;

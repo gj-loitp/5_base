@@ -1,4 +1,4 @@
-package com.loitpcore.annotation
+package com.loitp.annotation
 
 // @Target(AnnotationTarget.CLASS, AnnotationTarget.FILE)
 // @Retention(AnnotationRetention.RUNTIME)

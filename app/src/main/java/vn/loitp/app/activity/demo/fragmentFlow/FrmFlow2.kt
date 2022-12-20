@@ -2,7 +2,7 @@ package vn.loitp.app.activity.demo.fragmentFlow
 
 import android.os.Bundle
 import android.view.View
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import kotlinx.android.synthetic.main.frm_demo_flow_2.*
 import vn.loitp.app.R
 

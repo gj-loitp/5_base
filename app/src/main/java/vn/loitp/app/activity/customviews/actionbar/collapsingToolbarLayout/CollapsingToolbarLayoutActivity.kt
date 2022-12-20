@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.google.android.material.snackbar.Snackbar
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LPopupMenu

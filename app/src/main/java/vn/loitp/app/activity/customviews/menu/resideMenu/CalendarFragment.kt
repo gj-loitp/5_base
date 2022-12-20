@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
 import kotlinx.android.synthetic.main.frm_reside_menu_calendar.*
 import vn.loitp.app.R

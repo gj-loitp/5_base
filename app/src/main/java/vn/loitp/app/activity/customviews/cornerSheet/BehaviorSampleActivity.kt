@@ -9,9 +9,9 @@ import androidx.appcompat.widget.Toolbar
 import com.github.heyalex.cornersheet.behavior.CornerSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.CornerMaterialSheetBehavior
-import com.loitpcore.annotation.IsAutoAnimation
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsAutoAnimation
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_main_cs.*
 import vn.loitp.app.R

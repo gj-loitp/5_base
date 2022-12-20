@@ -5,8 +5,8 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseActivity
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.layout.floatDrag.DisplayUtil

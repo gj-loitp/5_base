@@ -2,7 +2,7 @@ package com.loitpcore.core.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.BuildConfig
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.utilities.LLog
 import com.loitpcore.views.toast.LToast
 

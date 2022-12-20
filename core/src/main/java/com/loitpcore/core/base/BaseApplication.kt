@@ -9,7 +9,7 @@ import androidx.multidex.MultiDexApplication
 import com.github.piasy.biv.BigImageViewer
 import com.github.piasy.biv.loader.glide.GlideImageLoader
 import com.google.gson.Gson
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LConnectivityUtil
 import com.loitpcore.core.utilities.LLog

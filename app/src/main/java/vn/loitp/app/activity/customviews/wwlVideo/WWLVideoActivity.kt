@@ -3,8 +3,8 @@ package vn.loitp.app.activity.customviews.wwlVideo
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.FrameLayout
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseActivity
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.views.wwlMusic.utils.LWWLMusicUiUtil

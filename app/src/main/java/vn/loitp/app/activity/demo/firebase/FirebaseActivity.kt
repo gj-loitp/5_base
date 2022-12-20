@@ -7,9 +7,9 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.get
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
-import com.loitpcore.annotation.IsAutoAnimation
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsAutoAnimation
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LFCMUtil

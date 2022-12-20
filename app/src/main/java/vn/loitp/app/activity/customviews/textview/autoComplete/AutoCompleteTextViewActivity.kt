@@ -5,8 +5,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_text_view_auto_complete.*

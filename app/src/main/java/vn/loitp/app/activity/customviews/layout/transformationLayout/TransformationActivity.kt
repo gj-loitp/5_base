@@ -2,8 +2,8 @@ package vn.loitp.app.activity.customviews.layout.transformationLayout
 
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.skydoves.transformationlayout.onTransformationStartContainer
 import kotlinx.android.synthetic.main.activity_transformation_main.*

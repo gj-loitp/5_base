@@ -10,9 +10,9 @@ import android.widget.ImageView
 import android.widget.SeekBar
 import androidx.core.view.isVisible
 import com.ivan200.photobarcodelib.PhotoBarcodeScannerBuilder
-import com.loitpcore.annotation.IsAutoAnimation
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsAutoAnimation
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LSocialUtil

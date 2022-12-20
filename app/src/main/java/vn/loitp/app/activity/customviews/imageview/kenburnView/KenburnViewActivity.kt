@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import com.flaviofaria.kenburnsview.KenBurnsView
 import com.flaviofaria.kenburnsview.Transition
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.ext.setSafeOnClickListener

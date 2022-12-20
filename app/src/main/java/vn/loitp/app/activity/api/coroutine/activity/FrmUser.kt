@@ -3,7 +3,7 @@ package vn.loitp.app.activity.api.coroutine.activity
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LImageUtil

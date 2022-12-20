@@ -3,7 +3,7 @@ package com.loitpcore.core.base
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.utilities.LLog
 import com.loitpcore.service.RequestStatus
 import com.loitpcore.service.liveData.ActionData

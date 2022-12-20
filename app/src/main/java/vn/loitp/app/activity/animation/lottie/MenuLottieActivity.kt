@@ -10,8 +10,8 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LUIUtil

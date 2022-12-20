@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.customviews.wwlMusic
 
 import android.os.Bundle
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.views.wwlMusic.layout.LWWLMusic
 import com.loitpcore.views.wwlMusic.utils.LWWLMusicUiUtil.hideSystemUI

@@ -3,8 +3,8 @@ package vn.loitp.app.activity.function.keyboardHeightProvider
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_0.lActionBar

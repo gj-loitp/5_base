@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitpcore.R
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.core.ext.setSafeOnClickListener

@@ -12,9 +12,9 @@ import com.app.imagepickerlibrary.listener.ImagePickerResultListener
 import com.app.imagepickerlibrary.model.ImageProvider
 import com.app.imagepickerlibrary.model.PickerType
 import com.app.imagepickerlibrary.ui.bottomsheet.SSPickerOptionsBottomSheet
-import com.loitpcore.annotation.IsAutoAnimation
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsAutoAnimation
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil

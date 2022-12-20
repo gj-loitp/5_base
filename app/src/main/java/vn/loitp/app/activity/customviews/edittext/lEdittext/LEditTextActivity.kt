@@ -9,8 +9,8 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
 import androidx.core.view.isVisible
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LKeyBoardUtil

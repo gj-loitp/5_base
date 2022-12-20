@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.adapter.BaseAdapter
 import kotlinx.android.synthetic.main.view_item_about_me.view.*
 import kotlinx.android.synthetic.main.view_movie_list.view.*

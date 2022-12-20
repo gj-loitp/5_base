@@ -3,8 +3,8 @@ package vn.loitp.app.activity.service.endlessService
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LUIUtil

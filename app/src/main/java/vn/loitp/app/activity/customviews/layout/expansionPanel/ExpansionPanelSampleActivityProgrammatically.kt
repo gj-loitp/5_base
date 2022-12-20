@@ -14,8 +14,8 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.github.florent37.expansionpanel.ExpansionHeader
 import com.github.florent37.expansionpanel.ExpansionLayout
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_expansion_panel_sample_programmatically.*

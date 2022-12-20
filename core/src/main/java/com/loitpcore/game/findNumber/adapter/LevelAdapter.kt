@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.R
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.adapter.BaseAdapter
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN

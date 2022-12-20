@@ -6,7 +6,7 @@ import android.view.View
 import android.view.WindowManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.loitpcore.R
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseBottomSheetFragment
 import com.loitpcore.core.utilities.LDialogUtil
 import com.loitpcore.core.utilities.LUIUtil

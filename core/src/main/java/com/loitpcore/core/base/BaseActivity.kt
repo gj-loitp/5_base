@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
+import com.loitp.annotation.*
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
 import com.loitpcore.annotation.*

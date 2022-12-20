@@ -4,9 +4,9 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.RadioGroup
 import androidx.viewpager2.widget.ViewPager2
-import com.loitpcore.annotation.IsAutoAnimation
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsAutoAnimation
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer2
 import kotlinx.android.synthetic.main.activity_view_pager_2_demo.*

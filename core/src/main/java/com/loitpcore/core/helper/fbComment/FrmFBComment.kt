@@ -14,7 +14,7 @@ import android.webkit.*
 import android.widget.FrameLayout
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LAppResource

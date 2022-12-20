@@ -11,7 +11,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.loitpcore.R
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.adapter.BaseAdapter
 import com.loitpcore.core.utilities.LDateUtil
 import com.loitpcore.core.utilities.LImageUtil

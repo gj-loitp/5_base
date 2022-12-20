@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.customviews.layout.transformationLayout.single
 
 import android.os.Bundle
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import vn.loitp.app.R
 

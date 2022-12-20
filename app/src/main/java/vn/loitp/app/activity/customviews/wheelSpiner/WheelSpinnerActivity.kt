@@ -3,8 +3,8 @@ package vn.loitp.app.activity.customviews.wheelSpiner
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.View
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_wheel_spinner.*

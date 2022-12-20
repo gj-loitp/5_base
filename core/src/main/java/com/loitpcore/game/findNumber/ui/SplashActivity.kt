@@ -8,8 +8,8 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LScreenUtil

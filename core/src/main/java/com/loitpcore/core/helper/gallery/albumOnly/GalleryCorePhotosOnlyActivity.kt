@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
 import com.loitpcore.R
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsSwipeActivity
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.IsSwipeActivity
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.gallery.photos.PhotosDataCore

@@ -3,7 +3,7 @@ package com.loitpcore.core.helper.ttt.ui.f
 import android.os.Bundle
 import android.view.View
 import com.loitpcore.R
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
 
 /**

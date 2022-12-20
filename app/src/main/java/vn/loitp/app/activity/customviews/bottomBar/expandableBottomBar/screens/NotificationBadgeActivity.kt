@@ -7,9 +7,9 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewAnimationUtils
 import androidx.core.graphics.ColorUtils
-import com.loitpcore.annotation.IsAutoAnimation
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsAutoAnimation
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_notification_badge.*
 import vn.loitp.app.R

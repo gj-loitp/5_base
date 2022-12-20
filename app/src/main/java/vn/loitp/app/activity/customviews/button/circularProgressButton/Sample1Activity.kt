@@ -1,9 +1,9 @@
 package vn.loitp.app.activity.customviews.button.circularProgressButton
 
 import android.os.Bundle
-import com.loitpcore.annotation.IsAutoAnimation
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsAutoAnimation
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.layout_cpb_sample_1.*
 import vn.loitp.app.R

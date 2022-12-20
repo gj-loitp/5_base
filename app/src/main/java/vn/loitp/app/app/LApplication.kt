@@ -3,7 +3,7 @@ package vn.loitp.app.app
 import com.g1.onetargetsdk.core.Analytics
 import com.g1.onetargetsdk.core.Configuration
 import com.g1.onetargetsdk.core.IAM
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.helper.ttt.db.TTTDatabase

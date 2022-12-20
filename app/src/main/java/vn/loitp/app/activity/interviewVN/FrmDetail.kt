@@ -3,7 +3,7 @@ package vn.loitp.app.activity.interviewVN
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.model.data.QA

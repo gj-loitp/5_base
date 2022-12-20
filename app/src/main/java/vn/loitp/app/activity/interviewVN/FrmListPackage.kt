@@ -5,7 +5,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.utilities.LStoreUtil
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_package.*

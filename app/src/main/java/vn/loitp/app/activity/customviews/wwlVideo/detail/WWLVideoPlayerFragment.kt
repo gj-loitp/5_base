@@ -1,6 +1,6 @@
 package vn.loitp.app.activity.customviews.wwlVideo.detail
 
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFragment
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.wwlVideo.utils.WWLVideoDataset

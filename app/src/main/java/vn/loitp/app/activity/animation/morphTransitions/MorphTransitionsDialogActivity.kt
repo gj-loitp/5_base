@@ -7,9 +7,9 @@ import android.os.Bundle
 import androidx.core.app.ActivityCompat
 import com.loitp.animation.morphTransitions.FabTransform
 import com.loitp.animation.morphTransitions.MorphTransform
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsSwipeActivity
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.IsSwipeActivity
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_morph_transtions_dialog.*
 import vn.loitp.app.R

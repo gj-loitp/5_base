@@ -8,8 +8,8 @@ import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
 import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemDragListener
 import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemSwipeListener
 import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnListScrollListener
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.core.utilities.LUIUtil

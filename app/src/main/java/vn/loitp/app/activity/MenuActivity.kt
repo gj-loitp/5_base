@@ -6,10 +6,10 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.core.view.isVisible
-import com.loitpcore.annotation.IsAutoAnimation
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.IsKeepScreenOn
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsAutoAnimation
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.IsKeepScreenOn
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.ext.setSafeOnClickListener

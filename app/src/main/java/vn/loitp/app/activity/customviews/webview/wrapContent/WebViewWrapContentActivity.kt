@@ -5,9 +5,9 @@ import android.graphics.Color
 import android.os.Bundle
 import android.webkit.JavascriptInterface
 import androidx.core.view.isVisible
-import com.loitpcore.annotation.IsAutoAnimation
-import com.loitpcore.annotation.IsFullScreen
-import com.loitpcore.annotation.LogTag
+import com.loitp.annotation.IsAutoAnimation
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_web_view_wrap_content.*
