@@ -63,7 +63,10 @@ class LReaderUtil {
             return inSampleSize
         }
 
-        fun readEpub(activity: Activity?, bookInfo: BookInfo?) {
+        fun readEpub(
+            activity: Activity?,
+            bookInfo: BookInfo?
+        ) {
             if (activity == null || bookInfo == null) {
                 throw NullPointerException("activity == null || bookInfo == null")
             }

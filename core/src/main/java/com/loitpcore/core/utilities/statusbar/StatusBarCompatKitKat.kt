@@ -77,7 +77,10 @@ internal class StatusBarCompatKitKat {
         /**
          * add marginTop to simulate set FitsSystemWindow true
          */
-        private fun addMarginTopToContentChild(mContentChild: View?, statusBarHeight: Int) {
+        private fun addMarginTopToContentChild(
+            mContentChild: View?,
+            statusBarHeight: Int
+        ) {
             if (mContentChild == null) {
                 return
             }
@@ -92,7 +95,10 @@ internal class StatusBarCompatKitKat {
         /**
          * remove marginTop to simulate set FitsSystemWindow false
          */
-        private fun removeMarginTopOfContentChild(mContentChild: View?, statusBarHeight: Int) {
+        private fun removeMarginTopOfContentChild(
+            mContentChild: View?,
+            statusBarHeight: Int
+        ) {
             if (mContentChild == null) {
                 return
             }
@@ -114,7 +120,10 @@ internal class StatusBarCompatKitKat {
          * 4. addMarginTopToContentChild
          * 5. cancel ContentChild's fitsSystemWindow
          */
-        fun setStatusBarColor(activity: Activity, statusColor: Int) {
+        fun setStatusBarColor(
+            activity: Activity,
+            statusColor: Int
+        ) {
             val window = activity.window
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 

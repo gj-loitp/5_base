@@ -28,7 +28,10 @@ class LEncryptionUtil {
         private const val DELIMITER = "]"
         private val random = SecureRandom()
 
-        fun encrypt(plaintext: String?, password: String): String? {
+        fun encrypt(
+            plaintext: String?,
+            password: String
+        ): String? {
             if (plaintext == null) {
                 return null
             }
@@ -55,7 +58,10 @@ class LEncryptionUtil {
             }
         }
 
-        fun decrypt(cipherText: String?, password: String): String? {
+        fun decrypt(
+            cipherText: String?,
+            password: String
+        ): String? {
             if (cipherText == null) {
                 return null
             }
@@ -92,7 +98,10 @@ class LEncryptionUtil {
             return b
         }
 
-        private fun deriveKey(password: String, salt: ByteArray?): SecretKey {
+        private fun deriveKey(
+            password: String,
+            salt: ByteArray?
+        ): SecretKey {
             try {
                 val keySpec = PBEKeySpec(password.toCharArray(), salt, ITERATION_COUNT, KEY_LENGTH)
                 val keyFactory = SecretKeyFactory.getInstance(PBKDF2_DERIVATION_ALGORITHM)

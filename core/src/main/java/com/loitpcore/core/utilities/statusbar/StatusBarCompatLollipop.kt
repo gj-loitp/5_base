@@ -47,7 +47,10 @@ internal class StatusBarCompatLollipop {
          * 2. call setSystemUiVisibility to clear translucentStatusBar's Flag.
          * 3. set FitsSystemWindows to false
          */
-        fun setStatusBarColor(activity: Activity, statusColor: Int) {
+        fun setStatusBarColor(
+            activity: Activity,
+            statusColor: Int
+        ) {
             val window = activity.window
             window?.let {
                 it.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -73,7 +76,10 @@ internal class StatusBarCompatLollipop {
          *
          * @param hideStatusBarBackground hide statusBar's shadow
          */
-        fun translucentStatusBar(activity: Activity, hideStatusBarBackground: Boolean) {
+        fun translucentStatusBar(
+            activity: Activity,
+            hideStatusBarBackground: Boolean
+        ) {
             val window = activity.window
 
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
@@ -189,7 +195,12 @@ internal class StatusBarCompatLollipop {
          * use ValueAnimator to change statusBarColor when using collapsingToolbarLayout
          */
         @Suppress("unused")
-        fun startColorAnimation(startColor: Int, endColor: Int, duration: Long, window: Window?) {
+        fun startColorAnimation(
+            startColor: Int,
+            endColor: Int,
+            duration: Long,
+            window: Window?
+        ) {
             sAnimator?.cancel()
             sAnimator = ValueAnimator.ofArgb(startColor, endColor)
                 .setDuration(duration)

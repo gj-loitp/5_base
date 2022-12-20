@@ -164,7 +164,10 @@ class LEncryptionSharedPrefsUtil private constructor() {
         }
     }
 
-    fun <T> put(key: String, data: T) {
+    fun <T> put(
+        key: String,
+        data: T
+    ) {
         if (data is String ||
             data is Boolean ||
             data is Float ||

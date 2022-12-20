@@ -17,7 +17,10 @@ object LLog {
 
     @SuppressLint("LogNotTimber")
     @JvmStatic
-    fun d(tag: String, msg: String) {
+    fun d(
+        tag: String,
+        msg: String
+    ) {
         var i = 0
         while (i < msg.length) {
             Log.d(tag, msg.substring(i, min(a = msg.length, b = i + maxLogSize)))
@@ -27,7 +30,10 @@ object LLog {
 
     @SuppressLint("LogNotTimber")
     @JvmStatic
-    fun e(tag: String, msg: String) {
+    fun e(
+        tag: String,
+        msg: String
+    ) {
         var i = 0
         while (i < msg.length) {
             Log.e(tag, msg.substring(i, min(a = msg.length, b = i + maxLogSize)))
@@ -37,7 +43,10 @@ object LLog {
 
     @SuppressLint("LogNotTimber")
     @JvmStatic
-    fun i(tag: String, msg: String) {
+    fun i(
+        tag: String,
+        msg: String
+    ) {
         var i = 0
         while (i < msg.length) {
             Log.i(tag, msg.substring(i, min(a = msg.length, b = i + maxLogSize)))

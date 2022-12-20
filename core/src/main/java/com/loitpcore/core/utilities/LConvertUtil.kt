@@ -77,7 +77,10 @@ class LConvertUtil {
         }
 
         // round
-        fun roundBigDecimal(value: BigDecimal, newScale: Int = 0): BigDecimal {
+        fun roundBigDecimal(
+            value: BigDecimal,
+            newScale: Int = 0
+        ): BigDecimal {
             return value.setScale(newScale, BigDecimal.ROUND_HALF_UP)
         }
     }

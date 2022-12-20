@@ -18,7 +18,12 @@ object LLocationUtil {
         context: Context,
         latitude: Double,
         longitude: Double,
-        result: ((address: String?, city: String?, state: String?, country: String?) -> Unit)? = null
+        result: ((
+            address: String?,
+            city: String?,
+            state: String?,
+            country: String?
+        ) -> Unit)? = null
     ) {
         val gc = Geocoder(context, Locale.getDefault())
         try {

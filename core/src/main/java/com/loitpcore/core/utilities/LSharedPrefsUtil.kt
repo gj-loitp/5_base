@@ -129,35 +129,59 @@ class LSharedPrefsUtil private constructor() {
         }
     }
 
-    fun putString(key: String, data: String) {
+    fun putString(
+        key: String,
+        data: String
+    ) {
         put(key = key, data = data)
     }
 
-    fun putBoolean(key: String, data: Boolean) {
+    fun putBoolean(
+        key: String,
+        data: Boolean
+    ) {
         put(key = key, data = data)
     }
 
-    fun putFloat(key: String, data: Float) {
+    fun putFloat(
+        key: String,
+        data: Float
+    ) {
         put(key = key, data = data)
     }
 
-    fun putInt(key: String, data: Int) {
+    fun putInt(
+        key: String,
+        data: Int
+    ) {
         put(key = key, data = data)
     }
 
-    fun putLong(key: String, data: Long) {
+    fun putLong(
+        key: String,
+        data: Long
+    ) {
         put(key = key, data = data)
     }
 
-    fun <T> putObject(key: String, data: T) {
+    fun <T> putObject(
+        key: String,
+        data: T
+    ) {
         put(key = key, data = data)
     }
 
-    fun <T> putObjectList(key: String, data: T) {
+    fun <T> putObjectList(
+        key: String,
+        data: T
+    ) {
         put(key = key, data = data)
     }
 
-    private fun <T> put(key: String, data: T) {
+    private fun <T> put(
+        key: String,
+        data: T
+    ) {
         val editor = mSharedPreferences.edit()
         when (data) {
             is String -> {

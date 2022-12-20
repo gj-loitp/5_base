@@ -29,7 +29,10 @@ object LAppResource {
         ContextCompat.getColor(it, colorRes)
     }
 
-    fun getColor(@ColorRes colorRes: Int, alpha: Int): Int = application.let {
+    fun getColor(
+        @ColorRes colorRes: Int,
+        alpha: Int
+    ): Int = application.let {
         val color = ContextCompat.getColor(it, colorRes)
         return LUIUtil.setAlphaComponent(color = color, alpha = alpha)
     }
@@ -55,7 +58,10 @@ object LAppResource {
         }
 
     @Suppress("unused")
-    fun getViewInflater(@LayoutRes layoutRes: Int, container: ViewGroup?): View =
+    fun getViewInflater(
+        @LayoutRes layoutRes: Int,
+        container: ViewGroup?
+    ): View =
         application.let {
             val inflater =
                 application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -63,7 +69,11 @@ object LAppResource {
         }
 
     @Suppress("unused")
-    fun getViewInflater(@LayoutRes layoutRes: Int, parent: View?, container: ViewGroup?): View =
+    fun getViewInflater(
+        @LayoutRes layoutRes: Int,
+        parent: View?,
+        container: ViewGroup?
+    ): View =
         application.let {
             val inflater = LayoutInflater.from(parent?.context)
             inflater.inflate(layoutRes, container, false)

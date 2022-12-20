@@ -62,7 +62,10 @@ class LDateUtil {
             return null
         }
 
-        fun stringToDate(text: String, format: String): Date? {
+        fun stringToDate(
+            text: String,
+            format: String
+        ): Date? {
             val dateFormat = SimpleDateFormat(format, Locale.ENGLISH)
             return try {
                 dateFormat.parse(text)
@@ -72,7 +75,10 @@ class LDateUtil {
             }
         }
 
-        fun dateToString(date: Date, format: String): String? {
+        fun dateToString(
+            date: Date,
+            format: String
+        ): String? {
             val dateFormat = SimpleDateFormat(format, Locale.ENGLISH)
             return try {
                 dateFormat.format(date)
@@ -82,13 +88,22 @@ class LDateUtil {
             }
         }
 
-        fun getDate(year: Int, month: Int, day: Int): Date {
+        fun getDate(
+            year: Int,
+            month: Int,
+            day: Int
+        ): Date {
             val calendar = Calendar.getInstance()
             calendar.set(year, month, day)
             return calendar.time
         }
 
-        fun formatDatePicker(year: Int, month: Int, day: Int, format: String): String {
+        fun formatDatePicker(
+            year: Int,
+            month: Int,
+            day: Int,
+            format: String
+        ): String {
             val cal = Calendar.getInstance()
             cal.timeInMillis = 0
             cal.set(year, month, day)
@@ -98,7 +113,10 @@ class LDateUtil {
             return sdf.format(date)
         }
 
-        fun getTime(hr: Int, min: Int): String {
+        fun getTime(
+            hr: Int,
+            min: Int
+        ): String {
             val cal = Calendar.getInstance()
             cal.set(Calendar.HOUR_OF_DAY, hr)
             cal.set(Calendar.MINUTE, min)
@@ -111,7 +129,10 @@ class LDateUtil {
         }
 
         @JvmOverloads
-        fun getDate(dateString: String, format: String = "dd/MM/yyyy hh:mm aa"): String? {
+        fun getDate(
+            dateString: String,
+            format: String = "dd/MM/yyyy hh:mm aa"
+        ): String? {
             val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
             formatter.timeZone = TimeZone.getTimeZone("UTC")
             return try {
@@ -145,7 +166,13 @@ class LDateUtil {
             return setTime(date = date, hourOfDay = 0, minute = 0, second = 0, ms = 0)
         }
 
-        fun setTime(date: Date, hourOfDay: Int, minute: Int, second: Int, ms: Int): Date {
+        fun setTime(
+            date: Date,
+            hourOfDay: Int,
+            minute: Int,
+            second: Int,
+            ms: Int
+        ): Date {
             val gc = GregorianCalendar()
             gc.time = date
             gc.set(Calendar.HOUR_OF_DAY, hourOfDay)
@@ -188,7 +215,10 @@ class LDateUtil {
             }
         }
 
-        fun convertStringDate(yyyymmdd: String, format: String): Calendar? {
+        fun convertStringDate(
+            yyyymmdd: String,
+            format: String
+        ): Calendar? {
             val df = SimpleDateFormat(format, Locale.getDefault())
             val cal = Calendar.getInstance()
             val date: Date?
@@ -206,7 +236,10 @@ class LDateUtil {
          * getDateCurrentTimeZone("1524141369", "yyyy-MM-dd HH:mm:ss");
          * -> 2018-04-20 02:36:09
          */
-        fun getDateCurrentTimeZone(timestamp: Long, format: String): String {
+        fun getDateCurrentTimeZone(
+            timestamp: Long,
+            format: String
+        ): String {
             return try {
                 val calendar = Calendar.getInstance()
                 // TimeZone tz = TimeZone.getDefault();
@@ -226,7 +259,10 @@ class LDateUtil {
          * getDateCurrentTimeZone(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss");
          * -> 2018-04-20 02:36:09
          */
-        fun getDateCurrentTimeZoneMls(timestampMls: Long, format: String): String {
+        fun getDateCurrentTimeZoneMls(
+            timestampMls: Long,
+            format: String
+        ): String {
             return try {
                 val calendar = Calendar.getInstance()
                 // TimeZone tz = TimeZone.getDefault();
@@ -243,7 +279,10 @@ class LDateUtil {
         }
 
         @Suppress("unused")
-        fun convertDate(dateInMilliseconds: String, dateFormat: String): String? {
+        fun convertDate(
+            dateInMilliseconds: String,
+            dateFormat: String
+        ): String? {
             return try {
                 val timeStamp = java.lang.Long.parseLong(dateInMilliseconds)
                 val objFormatter = SimpleDateFormat(dateFormat, Locale.getDefault())
@@ -260,7 +299,10 @@ class LDateUtil {
         }
 
         @Suppress("unused")
-        fun convertSToFormat(second: Long, format: String): String? {
+        fun convertSToFormat(
+            second: Long,
+            format: String
+        ): String? {
             val d = Date(second * 1000L)
             val df = SimpleDateFormat(format, Locale.getDefault())
             df.timeZone = TimeZone.getTimeZone("GMT")

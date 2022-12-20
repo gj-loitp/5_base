@@ -492,7 +492,10 @@ class LStoreUtil {
             }
         }
 
-        fun getRealPathFromURI(context: Context?, uri: Uri?): String? {
+        fun getRealPathFromURI(
+            context: Context?,
+            uri: Uri?
+        ): String? {
             if (context == null || uri == null) {
                 return null
             }
@@ -601,7 +604,10 @@ class LStoreUtil {
             return null
         }
 
-        private fun getFilePath(context: Context, uri: Uri?): String? {
+        private fun getFilePath(
+            context: Context,
+            uri: Uri?
+        ): String? {
             var cursor: Cursor? = null
             val projection = arrayOf(
                 MediaStore.MediaColumns.DISPLAY_NAME

@@ -130,7 +130,10 @@ class LUIUtil {
                 )
             }
 
-        fun setMarquee(tv: TextView?, text: String?) {
+        fun setMarquee(
+            tv: TextView?,
+            text: String?
+        ) {
             tv?.let { t ->
                 text?.let {
                     t.text = it
@@ -903,6 +906,7 @@ class LUIUtil {
             }
         }
 
+        @Suppress("unused")
         fun ScrollView.scrollToBottom() {
             val lastChild = getChildAt(childCount - 1)
             val bottom = lastChild.bottom + paddingBottom

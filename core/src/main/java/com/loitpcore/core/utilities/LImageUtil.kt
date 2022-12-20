@@ -222,7 +222,10 @@ class LImageUtil {
         }
 
         // for glide
-        fun clear(context: Context?, target: View?) {
+        fun clear(
+            context: Context?,
+            target: View?
+        ) {
             if (context == null || target == null) {
                 return
             }

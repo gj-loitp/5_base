@@ -14,7 +14,10 @@ import android.provider.Telephony
 class LSMSUtil {
     companion object {
         // https://gist.github.com/mustafasevgi/8c6b638ffd5fca90d45d
-        fun sendSMS(activity: Activity?, text: String) {
+        fun sendSMS(
+            activity: Activity?,
+            text: String
+        ) {
             if (activity == null) {
                 return
             }

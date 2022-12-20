@@ -11,11 +11,17 @@ import java.math.BigDecimal
  */
 class LMathUtil {
     companion object {
-        fun roundBigDecimal(value: BigDecimal, newScale: Int = 0): BigDecimal {
+        fun roundBigDecimal(
+            value: BigDecimal,
+            newScale: Int = 0
+        ): BigDecimal {
             return value.setScale(newScale, BigDecimal.ROUND_HALF_UP)
         }
 
-        fun roundDouble(value: Double, newScale: Int = 0): Double {
+        fun roundDouble(
+            value: Double,
+            newScale: Int = 0
+        ): Double {
             return value.toBigDecimal().setScale(newScale, BigDecimal.ROUND_HALF_UP).toDouble()
         }
 
@@ -26,7 +32,10 @@ class LMathUtil {
          * @param b: số nguyên dương
          * @return USCLN của a và b
          */
-        fun getUSCLN(a: Int, b: Int): Int {
+        fun getUSCLN(
+            a: Int,
+            b: Int
+        ): Int {
             if (b == 0) return a
             return getUSCLN(a = b, b = a % b)
         }
@@ -38,7 +47,10 @@ class LMathUtil {
          * @param b: số nguyên dương
          * @return BSCNN của a và b
          */
-        fun getBSCNN(a: Int, b: Int): Int {
+        fun getBSCNN(
+            a: Int,
+            b: Int
+        ): Int {
             return (a * b) / getUSCLN(a, b)
         }
     }
