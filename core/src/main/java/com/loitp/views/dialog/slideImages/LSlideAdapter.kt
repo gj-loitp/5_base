@@ -1,4 +1,4 @@
-package com.loitpcore.views.dialog.slideImages
+package com.loitp.views.dialog.slideImages
 
 import android.content.Context
 import android.view.LayoutInflater

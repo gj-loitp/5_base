@@ -1,4 +1,4 @@
-package com.loitpcore.views.dialog.imersiveDialog
+package com.loitp.views.dialog.imersiveDialog
 
 import android.app.Activity
 import android.app.AlertDialog

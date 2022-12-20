@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.dialog.imersiveDialog.ImmersiveDialogFragment
+import com.loitp.views.dialog.imersiveDialog.ImmersiveDialogFragment
 import kotlinx.android.synthetic.main.activity_func_fullscreen.*
 import vn.loitp.app.R
 
