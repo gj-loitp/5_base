@@ -46,7 +46,7 @@ class TTTAPIFavListActivity : BaseFontActivity() {
         btAdd.setSafeOnClickListener {
             val comic = Comic()
             comic.date = "29.07.2014"
-            comic.url = "http://truyentranhtuan.com/vuong-phong-loi-i/"
+            comic.url = "http://truyentuan.com/vuong-phong-loi-i/"
             comic.title = "Vương Phong Lôi I"
             comic.isFav = true
             tttViewModel?.favComic(comic = comic)
@@ -54,7 +54,7 @@ class TTTAPIFavListActivity : BaseFontActivity() {
         btRemove.setSafeOnClickListener {
             val comic = Comic()
             comic.date = "29.07.2014"
-            comic.url = "http://truyentranhtuan.com/vuong-phong-loi-i/"
+            comic.url = "http://truyentuan.com/vuong-phong-loi-i/"
             comic.title = "Vương Phong Lôi I"
             comic.isFav = false
             tttViewModel?.unfavComic(comic = comic)

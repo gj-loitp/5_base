@@ -75,7 +75,7 @@ class TTTViewModel : BaseViewModel() {
 
                     val urlComic = eTitle.select("a")
 
-                    // http://truyentranhtuan.com/anima/
+                    // http://truyentuan.com/anima/
                     comic.url = urlComic.attr("href")
 
                     val eDate = eMangaFocus.select("span[class=current-date]")

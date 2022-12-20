@@ -27,7 +27,7 @@ class TTTAPIChapListActivity : BaseFontActivity() {
 
         setupViews()
         setupViewModels()
-        tttViewModel?.getListChap(link = "http://truyentranhtuan.com/one-piece/")
+        tttViewModel?.getListChap(link = "http://truyentuan.com/one-piece/")
     }
 
     private fun setupViews() {

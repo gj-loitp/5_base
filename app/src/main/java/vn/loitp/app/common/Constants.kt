@@ -30,7 +30,7 @@ class Constants {
             "https://c2.staticflickr.com/2/1732/40956766690_76ba5f8c21_n.jpg"
 
         @Suppress("unused")
-        const val MAIN_LINK_TRUYENTRANHTUAN = "http://truyentranhtuan.com/danh-sach-truyen"
+        const val MAIN_LINK_TRUYENTRANHTUAN = "http://truyentuan.com/danh-sach-truyen"
 
         const val ONE_SIGNAL_KEY = "f26cbe23-125a-4fe7-86d4-9353b4f7d2b0"
     }

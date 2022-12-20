@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
-import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
@@ -46,11 +45,11 @@ class ComicViewActivity : BaseFontActivity() {
 
     private fun initData() {
         val list = ArrayList<String>()
-        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00001.jpg")
-        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00002.jpg")
-        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00003.jpg")
-        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00004.jpg")
-        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00005.jpg")
+        list.add("http://truyentuan.com/manga2/onepunch-man/182-8/img-00001.jpg")
+        list.add("http://truyentuan.com/manga2/onepunch-man/182-8/img-00002.jpg")
+        list.add("http://truyentuan.com/manga2/onepunch-man/182-8/img-00003.jpg")
+        list.add("http://truyentuan.com/manga2/onepunch-man/182-8/img-00004.jpg")
+        list.add("http://truyentuan.com/manga2/onepunch-man/182-8/img-00005.jpg")
 
         val comicAdapter = ComicAdapter()
         comicView.adapter = comicAdapter

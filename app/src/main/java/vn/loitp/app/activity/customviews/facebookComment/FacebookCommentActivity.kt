@@ -39,7 +39,7 @@ class FacebookCommentActivity : BaseFontActivity() {
         bt.setSafeOnClickListener {
             LSocialUtil.openFacebookComment(
                 context = this,
-                url = "http://truyentranhtuan.com/one-piece-chuong-907/",
+                url = "http://truyentuan.com/one-piece-chuong-907/",
             )
         }
     }

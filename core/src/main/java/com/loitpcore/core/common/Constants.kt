@@ -49,7 +49,7 @@ class Constants {
         const val URL_IMG_ANDROID = "https://live.staticflickr.com/4501/37154024293_0c1c0ea3ce.jpg"
         //endregion
 
-        const val MAIN_LINK_TRUYENTRANHTUAN = "http://truyentranhtuan.com/danh-sach-truyen"
+        const val MAIN_LINK_TRUYENTRANHTUAN = "http://truyentuan.com/danh-sach-truyen"
 
         @Suppress("unused")
         const val ADMOB_ID_TEST_22 = "A2051BE3A7BDA5AAD02FE240F0543FE2"

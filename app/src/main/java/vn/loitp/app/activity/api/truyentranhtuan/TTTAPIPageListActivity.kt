@@ -27,7 +27,7 @@ class TTTAPIPageListActivity : BaseFontActivity() {
 
         setupViews()
         setupViewModels()
-        tttViewModel?.getListPage(link = "http://truyentranhtuan.com/one-piece-chuong-69/")
+        tttViewModel?.getListPage(link = "http://truyentuan.com/one-piece-chuong-69/")
     }
 
     private fun setupViews() {
