@@ -48,11 +48,17 @@ open class BaseDialogFragment : DialogFragment() {
         }
     }
 
-    fun logD(tag: String, msg: String) {
+    fun logD(
+        tag: String,
+        msg: String
+    ) {
         Timber.tag(tag).d(msg)
     }
 
-    fun logE(tag: String, msg: String) {
+    fun logE(
+        tag: String,
+        msg: String
+    ) {
         Timber.tag(tag).e(msg)
     }
 
@@ -60,7 +66,10 @@ open class BaseDialogFragment : DialogFragment() {
      * fix bug: Can not perform this action after onSaveInstanceState
      * https://medium.com/@waseefakhtar/demystifying-androids-fragmenttransaction-and-solving-can-not-perform-this-action-after-3d45004aa22f
      */
-    override fun show(manager: FragmentManager, tag: String?) {
+    override fun show(
+        manager: FragmentManager,
+        tag: String?
+    ) {
         try {
             val ft = manager.beginTransaction()
             ft.add(this, tag)

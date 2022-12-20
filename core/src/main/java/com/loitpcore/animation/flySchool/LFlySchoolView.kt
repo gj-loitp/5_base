@@ -20,11 +20,18 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -35,8 +42,8 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
     private fun init() {
         inflate(context, R.layout.view_l_fly_school, this)
 
-        ivGift = findViewById(R.id.iv_gift)
-        ivAvatar = findViewById(R.id.iv_avatar)
+        ivGift = findViewById(R.id.ivGift)
+        ivAvatar = findViewById(R.id.ivAvatar)
     }
 
     override fun setShape(drawable: Int) {

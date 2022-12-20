@@ -29,8 +29,14 @@ open class BaseBottomSheetFragment(
 ) : BottomSheetDialogFragment() {
 
     protected var logTag: String? = null
-    var onStateChanged: ((bottomSheet: View, newState: Int) -> Unit)? = null
-    var onSlide: ((bottomSheet: View, slideOffset: Float) -> Unit)? = null
+    var onStateChanged: ((
+        bottomSheet: View,
+        newState: Int
+    ) -> Unit)? = null
+    var onSlide: ((
+        bottomSheet: View,
+        slideOffset: Float
+    ) -> Unit)? = null
 
     protected fun <T : ViewModel> getViewModel(className: Class<T>): T? {
         return activity?.let {

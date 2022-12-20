@@ -16,6 +16,8 @@ import com.loitpcore.R;
 import java.util.ArrayList;
 import java.util.Random;
 
+import kotlin.Suppress;
+
 //https://www.desmos.com/calculator/cahqdxeshd
 //21.12.2020 try to convert kotlin but failed
 public class ShapeFlyer extends RelativeLayout {
@@ -43,6 +45,7 @@ public class ShapeFlyer extends RelativeLayout {
         init(attrs);
     }
 
+    @Suppress(names = "unused")
     public ShapeFlyer(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
@@ -75,6 +78,7 @@ public class ShapeFlyer extends RelativeLayout {
         }
     }
 
+    @Suppress(names = "unused")
     public void clearPaths() {
         if (mFlyBluePrints != null) {
             mFlyBluePrints.clear();
@@ -136,11 +140,7 @@ public class ShapeFlyer extends RelativeLayout {
     private void startAnimation(int drawable, Path path) {
         initPaths();
         View shapeView;
-//        if (Utils.INSTANCE.isLowerThanLollipop()) {
-//            shapeView = new AppCompatShapeView(getContext());
-//        } else {
-//            shapeView = new ShapeView(getContext());
-//        }
+
         shapeView = new ShapeView(getContext());
 
         LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

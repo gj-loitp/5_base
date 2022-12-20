@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutRootView"
@@ -9,12 +9,14 @@
     android:background="?attr/themeBackgroundColor">
 
     <com.loitpcore.views.imageView.continuousScrollable.LContinuousScrollableImageView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/layoutControl"
         app:direction="left"
         app:duration="28000"
         app:imageSrc="@drawable/l_bkg_city"
+        app:layout_constraintBottom_toTopOf="@+id/layoutControl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:scaleType="centerCrop" />
 
     <androidx.appcompat.widget.AppCompatImageButton
@@ -29,14 +31,16 @@
         android:contentDescription="@string/app_name"
         android:scaleType="centerInside"
         android:src="@drawable/ic_close_black_48dp"
-        android:tint="?attr/themeTextColor" />
+        android:tint="?attr/themeTextColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
         android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_50"
-        android:layout_alignParentBottom="true"
-        android:background="?attr/themeBackgroundColor50">
+        android:background="?attr/themeBackgroundColor50"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/btPrevScreen"
@@ -78,8 +82,10 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/layoutControl"
-        android:layout_below="@+id/btBack" />
-</RelativeLayout>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/layoutControl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btBack" />
+</androidx.constraintlayout.widget.ConstraintLayout>

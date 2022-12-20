@@ -40,31 +40,49 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    protected fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
+    protected fun showShortInformation(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     @Suppress("unused")
-    protected fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
+    protected fun showShortWarning(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         LToast.showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
+    protected fun showShortError(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         LToast.showShortError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     @Suppress("unused")
-    protected fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
+    protected fun showLongInformation(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         LToast.showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     @Suppress("unused")
-    protected fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
+    protected fun showLongWarning(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         LToast.showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     @Suppress("unused")
-    protected fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
+    protected fun showLongError(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         LToast.showLongError(msg = msg, isTopAnchor = isTopAnchor)
     }
 

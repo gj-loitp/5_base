@@ -9,6 +9,7 @@ import kotlin.math.tan
 internal class GravityArcMotion : ArcMotion() {
 
     companion object {
+        @Suppress("unused")
         private const val DEFAULT_MIN_ANGLE_DEGREES = 0f
         private const val DEFAULT_MAX_ANGLE_DEGREES = 70f
         private val DEFAULT_MAX_TANGENT =
@@ -72,7 +73,12 @@ internal class GravityArcMotion : ArcMotion() {
         return mMaximumAngle
     }
 
-    override fun getPath(startX: Float, startY: Float, endX: Float, endY: Float): Path {
+    override fun getPath(
+        startX: Float,
+        startY: Float,
+        endX: Float,
+        endY: Float
+    ): Path {
         // Here's a little ascii art to show how this is calculated:
         // c---------- b
         //  \        / |

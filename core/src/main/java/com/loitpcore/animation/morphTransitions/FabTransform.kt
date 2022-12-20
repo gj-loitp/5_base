@@ -83,7 +83,11 @@ class FabTransform : Transition {
         duration = DEFAULT_DURATION
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    @Suppress("unused")
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         var typedArray: TypedArray? = null
         try {
             typedArray = context.obtainStyledAttributes(attrs, R.styleable.FabTransform)

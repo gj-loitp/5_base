@@ -6,12 +6,14 @@ class MultipleLinePath : FlyPath {
     private var mFPoints = ArrayList<FPoint>()
     private var mPath: Path? = null
 
+    @Suppress("unused")
     constructor(mFPoints: ArrayList<FPoint>) {
         this.mFPoints = mFPoints
     }
 
     constructor()
 
+    @Suppress("unused")
     fun getmFPoints(): ArrayList<FPoint> {
         return mFPoints
     }

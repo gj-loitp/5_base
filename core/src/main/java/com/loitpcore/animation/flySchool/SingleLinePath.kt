@@ -12,7 +12,11 @@ class SingleLinePath(
         return mFPoint
     }
 
-    override fun getPath(mOrigin: FPoint, width: Float, height: Float): Path {
+    override fun getPath(
+        mOrigin: FPoint,
+        width: Float,
+        height: Float
+    ): Path {
         if (mPath == null) {
             mPath = Path()
             mPath?.let {

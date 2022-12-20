@@ -12,7 +12,11 @@ abstract class FlyPath {
      * Should return the path/trajectory of the animation.
      * Please refer to [BeizerPath] and [SingleLinePath] for examples
      */
-    abstract fun getPath(mOrigin: FPoint, width: Float, height: Float): Path
+    abstract fun getPath(
+        mOrigin: FPoint,
+        width: Float,
+        height: Float
+    ): Path
 
     companion object {
         fun getSimpleLinePath(mFPoint: FPoint): SingleLinePath {
@@ -27,6 +31,7 @@ abstract class FlyPath {
             return BeizerPath(mFPoint1, mFPoint2, mFPoint3)
         }
 
+        @Suppress("unused")
         fun getMultipleLinePath(vararg mFPoints: FPoint?): MultipleLinePath? {
             var multipleLinePath: MultipleLinePath? = null
             if (mFPoints.isNotEmpty()) {

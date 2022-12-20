@@ -11,11 +11,18 @@ class AppCompatShapeView : AppCompatImageView, ShapeSetter {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -32,7 +39,10 @@ class AppCompatShapeView : AppCompatImageView, ShapeSetter {
         setHeart(this)
     }
 
-    override fun setShape(imgObject: ImgObject, drawableRes: Int) {
+    override fun setShape(
+        imgObject: ImgObject,
+        drawableRes: Int
+    ) {
         // setImageResource(R.mipmap.ic_launcher);
     }
 }
