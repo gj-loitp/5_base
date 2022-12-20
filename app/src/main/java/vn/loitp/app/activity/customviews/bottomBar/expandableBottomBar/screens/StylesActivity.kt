@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import vn.loitp.app.R
 
 @LogTag("StylesActivity")

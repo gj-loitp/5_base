@@ -11,7 +11,7 @@ import androidx.viewpager.widget.ViewPager
 import com.loitpcore.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.helper.ttt.model.MenuComicTTT
 import com.loitpcore.core.helper.ttt.ui.f.FrmFavTTT
 import com.loitpcore.core.helper.ttt.ui.f.FrmHomeTTT

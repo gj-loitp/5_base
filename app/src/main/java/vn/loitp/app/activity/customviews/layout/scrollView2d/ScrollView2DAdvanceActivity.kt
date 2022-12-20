@@ -12,7 +12,7 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.scrollView.LScrollView
 import kotlinx.android.synthetic.main.activity_scrollview_2d_advance_layout.*

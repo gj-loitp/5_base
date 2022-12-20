@@ -5,7 +5,7 @@ import android.view.View
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFragment
+import com.loitp.core.base.BaseFragment
 import kotlinx.android.synthetic.main.frm_coordinator_1.*
 import vn.loitp.app.R
 

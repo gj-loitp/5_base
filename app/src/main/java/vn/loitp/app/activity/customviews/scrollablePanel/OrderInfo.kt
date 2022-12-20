@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.customviews.scrollablePanel
 
 import androidx.annotation.Keep
-import com.loitpcore.core.base.BaseModel
+import com.loitp.core.base.BaseModel
 import java.util.* // ktlint-disable no-wildcard-imports
 
 @Keep

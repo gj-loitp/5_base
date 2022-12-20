@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.customviews.viewPager.detectViewPagerSwipeOut
 
 import androidx.annotation.Keep
-import com.loitpcore.core.base.BaseModel
+import com.loitp.core.base.BaseModel
 
 @Keep
 class VPPhoto : BaseModel() {

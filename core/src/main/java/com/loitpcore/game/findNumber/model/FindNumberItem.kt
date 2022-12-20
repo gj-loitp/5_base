@@ -1,7 +1,7 @@
 package com.loitpcore.game.findNumber.model
 
 import androidx.annotation.Keep
-import com.loitpcore.core.base.BaseModel
+import com.loitp.core.base.BaseModel
 
 /**
  * Created by Loitp on 04,August,2022

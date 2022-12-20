@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_tab_layout.*
 import vn.loitp.app.R

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.loitpcore.R
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFragment
+import com.loitp.core.base.BaseFragment
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.ttt.ui.a.TTTComicActivity
 import com.loitpcore.core.utilities.LActivityUtil

@@ -1,6 +1,6 @@
 package com.loitpcore.service.repository
 
-import com.loitpcore.core.base.BaseApplication
+import com.loitp.core.base.BaseApplication
 import com.loitpcore.service.RequestStatus
 import com.loitpcore.service.model.ApiResponse
 import com.loitpcore.service.model.ErrorJson

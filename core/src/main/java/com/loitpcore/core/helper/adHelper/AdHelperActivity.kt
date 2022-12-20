@@ -12,7 +12,7 @@ import androidx.viewpager.widget.ViewPager
 import com.loitpcore.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LImageUtil

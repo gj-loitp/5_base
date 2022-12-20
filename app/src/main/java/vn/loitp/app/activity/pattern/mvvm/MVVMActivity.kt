@@ -5,7 +5,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import vn.loitp.app.BR
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvvm.viewModel.UserViewModel

@@ -15,7 +15,7 @@ import android.widget.FrameLayout
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFragment
+import com.loitp.core.base.BaseFragment
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LUIUtil

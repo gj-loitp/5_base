@@ -5,7 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFragment
+import com.loitp.core.base.BaseFragment
 import com.loitpcore.core.utilities.LSocialUtil
 import com.loitpcore.rss.RssConverterFactory
 import com.loitpcore.rss.RssFeed

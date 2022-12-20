@@ -1,4 +1,4 @@
-package com.loitpcore.core.base
+package com.loitp.core.base
 
 import android.content.res.Resources
 import android.os.Bundle

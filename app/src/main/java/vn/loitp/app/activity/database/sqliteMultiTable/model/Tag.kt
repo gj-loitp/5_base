@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.database.sqliteMultiTable.model
 
 import androidx.annotation.Keep
-import com.loitpcore.core.base.BaseModel
+import com.loitp.core.base.BaseModel
 
 /**
  * Created by Loitp on 15.09.2022

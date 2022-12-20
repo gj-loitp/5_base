@@ -2,7 +2,7 @@ package com.loitpcore.game.findNumber.db
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.loitpcore.core.base.BaseDao
+import com.loitp.core.base.BaseDao
 import com.loitpcore.game.findNumber.model.Level
 
 /**

@@ -7,7 +7,7 @@ import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.thedeanda.lorem.LoremIpsum
 import kotlinx.android.synthetic.main.layout_menu_fast_scroll.*

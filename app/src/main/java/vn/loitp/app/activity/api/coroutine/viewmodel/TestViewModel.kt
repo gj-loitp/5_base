@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.api.coroutine.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import com.loitpcore.core.base.BaseViewModel
+import com.loitp.core.base.BaseViewModel
 import com.loitpcore.service.liveData.ActionData
 import com.loitpcore.service.liveData.ActionLiveData
 import com.loitpcore.service.model.UserTest

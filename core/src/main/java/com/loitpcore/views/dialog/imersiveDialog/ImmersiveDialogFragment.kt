@@ -5,8 +5,8 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.view.WindowManager
-import com.loitpcore.core.base.BaseActivity
-import com.loitpcore.core.base.BaseDialogFragment
+import com.loitp.core.base.BaseActivity
+import com.loitp.core.base.BaseDialogFragment
 import com.loitpcore.views.toast.LToast
 
 /**

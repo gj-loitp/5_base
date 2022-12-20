@@ -10,7 +10,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_drawer_behavior_advance5.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*

@@ -14,8 +14,8 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitp.animation.morphTransitions.MorphTransform
 import com.loitpcore.R
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseApplication
-import com.loitpcore.core.base.BaseFragment
+import com.loitp.core.base.BaseApplication
+import com.loitp.core.base.BaseFragment
 import com.loitpcore.core.utilities.LAnimationUtil
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.game.findNumber.dialog.FindNumberWinActivity

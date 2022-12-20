@@ -3,7 +3,7 @@ package vn.loitp.app.activity.picker.imagePicker
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.loitpcore.core.base.BaseFragment
+import com.loitp.core.base.BaseFragment
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.nguyenhoanglam.imagepicker.model.Image
 import com.nguyenhoanglam.imagepicker.model.ImagePickerConfig

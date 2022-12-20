@@ -6,8 +6,8 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitpcore.R
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseApplication
-import com.loitpcore.core.base.BaseFragment
+import com.loitp.core.base.BaseApplication
+import com.loitp.core.base.BaseFragment
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.ttt.adapter.TTTListComicAdapter
 import com.loitpcore.core.helper.ttt.helper.ComicUtils

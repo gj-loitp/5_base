@@ -1,8 +1,8 @@
 package com.loitpcore.core.helper.ttt.viewmodel
 
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseApplication
-import com.loitpcore.core.base.BaseViewModel
+import com.loitp.core.base.BaseApplication
+import com.loitp.core.base.BaseViewModel
 import com.loitpcore.core.helper.ttt.db.TTTDatabase
 import com.loitpcore.core.helper.ttt.model.chap.Chap
 import com.loitpcore.core.helper.ttt.model.chap.Chaps

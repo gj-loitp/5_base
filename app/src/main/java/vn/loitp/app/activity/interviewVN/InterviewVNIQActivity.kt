@@ -7,9 +7,9 @@ import androidx.fragment.app.FragmentManager
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.base.BaseFragment
-import com.loitpcore.core.base.OnBackPressedListener
+import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFragment
+import com.loitp.core.base.OnBackPressedListener
 import com.loitpcore.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_interview_vn_iq.*
 import vn.loitp.app.R

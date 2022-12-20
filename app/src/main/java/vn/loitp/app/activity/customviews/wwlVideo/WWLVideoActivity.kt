@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.FrameLayout
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseActivity
+import com.loitp.core.base.BaseActivity
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.views.wwlMusic.utils.LWWLMusicUiUtil
 import com.loitpcore.views.wwlMusic.utils.LWWLMusicViewHelper

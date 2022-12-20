@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.interviewVN
 
-import com.loitpcore.core.base.BaseFragment
-import com.loitpcore.core.base.OnBackPressedListener
+import com.loitp.core.base.BaseFragment
+import com.loitp.core.base.OnBackPressedListener
 
 abstract class BaseFragmentFlow : BaseFragment(), OnBackPressedListener {
 

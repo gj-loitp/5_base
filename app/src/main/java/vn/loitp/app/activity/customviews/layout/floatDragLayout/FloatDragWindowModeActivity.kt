@@ -6,7 +6,7 @@ import android.widget.FrameLayout
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseActivity
+import com.loitp.core.base.BaseActivity
 import com.loitpcore.core.utilities.LUIUtil
 import com.loitpcore.views.layout.floatDrag.DisplayUtil
 import com.loitpcore.views.layout.floatDrag.FloatDragLayout

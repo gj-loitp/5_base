@@ -5,7 +5,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_text_view_auto_fit.*
 import vn.loitp.app.R

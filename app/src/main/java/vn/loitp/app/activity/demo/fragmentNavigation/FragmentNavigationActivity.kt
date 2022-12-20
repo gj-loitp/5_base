@@ -8,8 +8,8 @@ import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.navigation.NavigationView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.base.OnBackPressedListener
+import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.OnBackPressedListener
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_fragment_navigation.*
 import vn.loitp.app.R

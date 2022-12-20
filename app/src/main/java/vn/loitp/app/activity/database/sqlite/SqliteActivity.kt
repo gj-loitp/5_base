@@ -7,8 +7,8 @@ import android.widget.Button
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseApplication.Companion.gson
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseApplication.Companion.gson
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite.*
 import vn.loitp.app.R

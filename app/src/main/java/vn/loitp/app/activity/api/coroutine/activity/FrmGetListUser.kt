@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseApplication
-import com.loitpcore.core.base.BaseFontActivity
-import com.loitpcore.core.base.BaseFragment
+import com.loitp.core.base.BaseApplication
+import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFragment
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.frm_coroutine_get_list_user.*

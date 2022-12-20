@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.loitpcore.core.base.BaseDao
+import com.loitp.core.base.BaseDao
 import com.loitpcore.core.helper.ttt.model.comic.Comic
 
 /**

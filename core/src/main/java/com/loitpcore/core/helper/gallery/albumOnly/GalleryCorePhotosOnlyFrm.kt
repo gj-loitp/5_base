@@ -12,8 +12,8 @@ import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
 import com.loitpcore.R
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseApplication
-import com.loitpcore.core.base.BaseFragment
+import com.loitp.core.base.BaseApplication
+import com.loitp.core.base.BaseFragment
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.gallery.photos.PhotosDataCore

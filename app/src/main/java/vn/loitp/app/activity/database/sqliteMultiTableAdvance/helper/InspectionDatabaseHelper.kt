@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.loitpcore.core.base.BaseApplication
+import com.loitp.core.base.BaseApplication
 import com.loitpcore.utils.util.AppUtils
 import vn.loitp.app.activity.database.sqliteMultiTableAdvance.model.Action
 import vn.loitp.app.activity.database.sqliteMultiTableAdvance.model.Inspection

@@ -1,7 +1,7 @@
 package com.loitpcore.game.findNumber.viewModel
 
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseViewModel
+import com.loitp.core.base.BaseViewModel
 import com.loitpcore.game.findNumber.db.Db
 import com.loitpcore.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import com.loitpcore.game.findNumber.db.FindNumberDatabase

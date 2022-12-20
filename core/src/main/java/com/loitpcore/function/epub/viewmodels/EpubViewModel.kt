@@ -3,8 +3,8 @@ package com.loitpcore.function.epub.viewmodels
 import android.os.Environment
 import com.google.gson.reflect.TypeToken
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseApplication
-import com.loitpcore.core.base.BaseViewModel
+import com.loitp.core.base.BaseApplication
+import com.loitp.core.base.BaseViewModel
 import com.loitpcore.core.utilities.LAppResource
 import com.loitpcore.core.utilities.LPrefUtil
 import com.loitpcore.core.utilities.LStoreUtil

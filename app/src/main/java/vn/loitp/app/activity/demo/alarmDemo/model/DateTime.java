@@ -6,7 +6,7 @@ import android.preference.PreferenceManager;
 
 import androidx.annotation.Keep;
 
-import com.loitpcore.core.base.BaseModel;
+import com.loitp.core.base.BaseModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

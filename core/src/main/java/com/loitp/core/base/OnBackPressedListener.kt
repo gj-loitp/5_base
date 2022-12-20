@@ -1,4 +1,4 @@
-package com.loitpcore.core.base
+package com.loitp.core.base
 
 interface OnBackPressedListener {
     fun onBackPressed(): Boolean

@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.layout.transformationLayout
 
 import android.os.Bundle
 import android.view.View
-import com.loitpcore.core.base.BaseFragment
+import com.loitp.core.base.BaseFragment
 import com.loitpcore.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_transformation_radio.*
 import vn.loitp.app.R

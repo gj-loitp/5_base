@@ -3,7 +3,7 @@ package vn.loitp.app.activity.animation.activityTransition
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_animation_2.*
 import vn.loitp.app.R

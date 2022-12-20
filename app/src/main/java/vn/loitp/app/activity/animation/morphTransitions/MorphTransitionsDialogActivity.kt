@@ -10,7 +10,7 @@ import com.loitp.animation.morphTransitions.MorphTransform
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_morph_transtions_dialog.*
 import vn.loitp.app.R
 

@@ -3,8 +3,8 @@ package vn.loitp.app.activity.demo.fragmentNavigation
 import android.os.Bundle
 import android.view.View
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFragment
-import com.loitpcore.core.base.OnBackPressedListener
+import com.loitp.core.base.BaseFragment
+import com.loitp.core.base.OnBackPressedListener
 import vn.loitp.app.R
 
 @LogTag("fragmentNavigationActivity")

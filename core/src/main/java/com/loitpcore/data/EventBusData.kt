@@ -1,6 +1,6 @@
 package com.loitpcore.data
 
-import com.loitpcore.core.base.BaseModel
+import com.loitp.core.base.BaseModel
 import org.greenrobot.eventbus.EventBus
 
 /**

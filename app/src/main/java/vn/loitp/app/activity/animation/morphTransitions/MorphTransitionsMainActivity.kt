@@ -9,7 +9,7 @@ import com.loitp.animation.morphTransitions.FabTransform
 import com.loitp.animation.morphTransitions.MorphTransform
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_morph_transitions_main.*
 import vn.loitp.app.R

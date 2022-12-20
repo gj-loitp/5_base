@@ -6,7 +6,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import com.loitpcore.core.base.BaseModel
+import com.loitp.core.base.BaseModel
 
 /**
  * Created by Loitp on 04,August,2022

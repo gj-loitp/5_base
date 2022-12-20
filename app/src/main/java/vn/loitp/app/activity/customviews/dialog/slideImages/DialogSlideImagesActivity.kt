@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.dialog.slideImages
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LDialogUtil

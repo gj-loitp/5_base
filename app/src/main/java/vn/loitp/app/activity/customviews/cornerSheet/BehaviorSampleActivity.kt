@@ -12,7 +12,7 @@ import com.google.android.material.bottomsheet.CornerMaterialSheetBehavior
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_main_cs.*
 import vn.loitp.app.R
 import java.math.RoundingMode

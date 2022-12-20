@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.google.android.exoplayer2.ui.PlayerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.views.exo.PlayerManager

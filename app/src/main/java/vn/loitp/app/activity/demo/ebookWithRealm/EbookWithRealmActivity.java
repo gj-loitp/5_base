@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
-import com.loitpcore.core.base.BaseFontActivity;
+import com.loitp.core.base.BaseFontActivity;
 import com.loitpcore.core.utilities.LPrefUtil;
 import com.loitpcore.core.utilities.LUIUtil;
 

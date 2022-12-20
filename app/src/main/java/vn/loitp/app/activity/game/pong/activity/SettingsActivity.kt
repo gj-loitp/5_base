@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.base.BaseFontActivity
+import com.loitp.core.base.BaseFontActivity
 import com.loitpcore.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.dialog_settings.*
 import vn.loitp.app.R

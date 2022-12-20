@@ -3,7 +3,7 @@ package vn.loitp.app.activity.api.retrofit2.model
 import androidx.annotation.Keep
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import com.loitpcore.core.base.BaseModel
+import com.loitp.core.base.BaseModel
 
 @Keep
 class SOAnswersResponse : BaseModel() {

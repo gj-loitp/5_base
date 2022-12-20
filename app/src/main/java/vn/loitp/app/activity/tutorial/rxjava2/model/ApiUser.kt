@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.tutorial.rxjava2.model
 
 import androidx.annotation.Keep
-import com.loitpcore.core.base.BaseModel
+import com.loitp.core.base.BaseModel
 
 @Keep
 class ApiUser : BaseModel() {
