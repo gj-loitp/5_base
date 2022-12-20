@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
@@ -13,18 +14,21 @@
         android:background="@color/transparent"
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_keyboard_arrow_left_black_48dp"
-        android:tint="?attr/themeTextColor" />
+        android:tint="?attr/themeTextColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/btBack">
+        android:layout_height="0dp"
+        android:layout_below="@+id/btBack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btBack">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvUserTest"
@@ -32,6 +36,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:listitem="@layout/view_item_user_1" />
-        </LinearLayout>
+        </FrameLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

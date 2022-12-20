@@ -37,13 +37,19 @@ class UserListAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserTestViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): UserTestViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.view_item_user_1, parent, false)
         return UserTestViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: UserTestViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: UserTestViewHolder,
+        position: Int
+    ) {
         val userTest = userTestList[position]
         holder.bind(userTest)
     }
