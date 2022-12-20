@@ -1,4 +1,4 @@
-package com.loitpcore.task
+package com.loitp.task
 
 import android.os.AsyncTask
 import java.io.BufferedInputStream

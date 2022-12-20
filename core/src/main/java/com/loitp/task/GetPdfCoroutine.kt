@@ -1,6 +1,6 @@
-package com.loitpcore.task
+package com.loitp.task
 
-import kotlinx.coroutines.* // ktlint-disable no-wildcard-imports
+import kotlinx.coroutines.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -17,7 +17,7 @@ import kotlin.coroutines.CoroutineContext
  * freuss47@gmail.com
  */
 class GetPdfCoroutine : CoroutineScope {
-//    private val logTag = javaClass.simpleName
+    //    private val logTag = javaClass.simpleName
     private var job: Job = Job()
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job // to run code in Main(UI) Thread
@@ -82,11 +82,13 @@ class GetPdfCoroutine : CoroutineScope {
             val dir = File("$folderPath/$folderName")
             if (!dir.exists()) {
                 val isMkDirResult: Boolean = dir.mkdir()
+                print("isMkDirResult $isMkDirResult")
             }
             /* checks the file and if it already exist delete */
             val file = File(dir, fileName)
             if (file.exists()) {
                 val isDeleted: Boolean = file.delete()
+                print("isDeleted $isDeleted")
             }
             /* Open a connection */
             val urlConnection = url.openConnection()
@@ -109,6 +111,7 @@ class GetPdfCoroutine : CoroutineScope {
                 if (job.isCancelled) {
                     if (file.exists()) {
                         val isDelete = file.delete()
+                        print("isDelete $isDelete")
                     }
                     return null
                 }
