@@ -1,4 +1,4 @@
-package com.loitpcore.function.notification.notifications
+package com.loitp.func.notification.notifications
 
 import androidx.core.app.NotificationCompat
 
@@ -9,21 +9,32 @@ import androidx.core.app.NotificationCompat
  * +840766040293
  * freuss47@gmail.com
  */
-class StandardNotification(
-    val title: String?,
-    val content: String?
+class BIgTextNotification(
+    title: String?,
+    content: String?
 ) : BaseNotification() {
 
+    init {
+        this.title = title
+        this.content = content
+    }
+
     override fun setBuilder(builder: NotificationCompat.Builder): NotificationCompat.Builder {
-        builder.setContentTitle(title)
-            .setContentText(content)
+        builder.setContentTitle(title).setContentText(content)
         setBuilderIcon(builder)
+        setBigTextStyle(builder)
         return builder
     }
 
     private fun setBuilderIcon(builder: NotificationCompat.Builder) {
         icon?.let {
             builder.setSmallIcon(it)
+        }
+    }
+
+    private fun setBigTextStyle(builder: NotificationCompat.Builder) {
+        bigText?.let {
+            builder.setStyle(NotificationCompat.BigTextStyle().bigText(it))
         }
     }
 }

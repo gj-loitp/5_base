@@ -1,4 +1,4 @@
-package com.loitpcore.function.notification.config
+package com.loitp.func.notification.config
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel

@@ -1,4 +1,4 @@
-package com.loitpcore.function.notification.notifications
+package com.loitp.func.notification.notifications
 
 import androidx.core.app.NotificationCompat
 

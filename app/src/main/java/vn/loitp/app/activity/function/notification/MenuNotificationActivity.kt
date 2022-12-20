@@ -16,13 +16,13 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LNotification
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.function.notification.Notti
-import com.loitpcore.function.notification.NottiFactory
-import com.loitpcore.function.notification.actions.ContentAction
-import com.loitpcore.function.notification.actions.NotificationAction
-import com.loitpcore.function.notification.config.LightSettings
-import com.loitpcore.function.notification.config.NottiConfig
-import com.loitpcore.function.notification.config.VibrationSettings
+import com.loitp.func.notification.Notti
+import com.loitp.func.notification.NottiFactory
+import com.loitp.func.notification.actions.ContentAction
+import com.loitp.func.notification.actions.NotificationAction
+import com.loitp.func.notification.config.LightSettings
+import com.loitp.func.notification.config.NottiConfig
+import com.loitp.func.notification.config.VibrationSettings
 import kotlinx.android.synthetic.main.activity_menu_notification.*
 import vn.loitp.app.R
 

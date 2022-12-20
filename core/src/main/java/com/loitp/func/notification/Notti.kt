@@ -1,12 +1,12 @@
-package com.loitpcore.function.notification
+package com.loitp.func.notification
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import com.loitpcore.function.notification.config.NottiConfig
-import com.loitpcore.function.notification.notifications.CustomNotification
+import com.loitp.func.notification.config.NottiConfig
+import com.loitp.func.notification.notifications.CustomNotification
 import com.loitp.core.utils.AppUtils
 
 /**

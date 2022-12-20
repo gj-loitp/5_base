@@ -1,6 +1,6 @@
-package com.loitpcore.function.notification
+package com.loitp.func.notification
 
-import com.loitpcore.function.notification.notifications.*
+import com.loitp.func.notification.notifications.*
 
 /**
  * Created by Loitp on 04,August,2022

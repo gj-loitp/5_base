@@ -1,4 +1,4 @@
-package com.loitpcore.function.notification.actions
+package com.loitp.func.notification.actions
 
 import android.app.PendingIntent
 import android.content.Context

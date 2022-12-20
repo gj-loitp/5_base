@@ -1,13 +1,13 @@
-package com.loitpcore.function.notification.notifications;
+package com.loitp.func.notification.notifications;
 
 import android.graphics.Bitmap;
 
 import androidx.core.app.NotificationCompat;
 
-import com.loitpcore.function.notification.actions.ContentAction;
-import com.loitpcore.function.notification.actions.NotificationAction;
-import com.loitpcore.function.notification.config.LightSettings;
-import com.loitpcore.function.notification.config.VibrationSettings;
+import com.loitp.func.notification.actions.ContentAction;
+import com.loitp.func.notification.actions.NotificationAction;
+import com.loitp.func.notification.config.LightSettings;
+import com.loitp.func.notification.config.VibrationSettings;
 
 import java.util.List;
 
