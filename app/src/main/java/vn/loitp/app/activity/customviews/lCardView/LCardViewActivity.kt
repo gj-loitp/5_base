@@ -11,7 +11,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.card.LCardView
+import com.loitp.views.card.LCardView
 import kotlinx.android.synthetic.main.activity_l_card_view.*
 import vn.loitp.app.R
 

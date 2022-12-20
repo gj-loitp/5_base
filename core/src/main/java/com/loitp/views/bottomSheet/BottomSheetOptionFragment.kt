@@ -1,4 +1,4 @@
-package com.loitpcore.views.bottomSheet
+package com.loitp.views.bottomSheet
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.R
-import kotlinx.android.synthetic.main.l_frm_bottom_sheet_dialog_option.*
+import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -40,7 +40,7 @@ class BottomSheetOptionFragment(
         savedInstanceState: Bundle?
     ): View? {
         isCancelable = isCancelableFragment
-        return inflater.inflate(R.layout.l_frm_bottom_sheet_dialog_option, container, false)
+        return inflater.inflate(R.layout.l_f_bottom_sheet_dialog_option, container, false)
     }
 
     override fun onViewCreated(

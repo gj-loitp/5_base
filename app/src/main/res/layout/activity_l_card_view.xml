@@ -25,13 +25,13 @@
             android:paddingEnd="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
-            <com.loitpcore.views.card.LCardView
+            <com.loitp.views.card.LCardView
                 android:id="@+id/lCardView0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.loitpcore.views.card.LCardView
+            <com.loitp.views.card.LCardView
                 android:id="@+id/lCardView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

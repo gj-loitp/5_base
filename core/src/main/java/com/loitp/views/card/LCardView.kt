@@ -1,4 +1,4 @@
-package com.loitpcore.views.card
+package com.loitp.views.card
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import com.loitpcore.R
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -60,7 +60,7 @@ class LCardView : RelativeLayout {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.view_l_card_view, this)
+        View.inflate(context, R.layout.l_v_card_view, this)
 
         cardView = findViewById(R.id.cardView)
         textView = findViewById(R.id.textView)
