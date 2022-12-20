@@ -12,7 +12,7 @@
 
     <github.com.st235.lib_expandablebottombar.ExpandableBottomBar
         android:id="@+id/expandableBottomBar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_padding_medium"
         app:exb_backgroundColor="?attr/themeTextColor"
@@ -23,5 +23,7 @@
         app:exb_item_horizontal_padding="@dimen/margin_padding_small"
         app:exb_item_vertical_margin="@dimen/margin_padding_small"
         app:exb_item_vertical_padding="@dimen/margin_padding_small"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
