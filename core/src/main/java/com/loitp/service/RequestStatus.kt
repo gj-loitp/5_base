@@ -1,4 +1,4 @@
-package com.loitpcore.service
+package com.loitp.service
 
 /**
  * Created by Loitp on 04,August,2022

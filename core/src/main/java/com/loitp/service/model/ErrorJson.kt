@@ -1,4 +1,4 @@
-package com.loitpcore.service.model
+package com.loitp.service.model
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.Expose
@@ -13,13 +13,8 @@ import java.io.Serializable
  * freuss47@gmail.com
  */
 @Keep
-data class ErrorResponse(
-
-    @SerializedName("message")
+data class ErrorJson(
+    @SerializedName("errors")
     @Expose
-    val message: String? = null,
-
-    @SerializedName("code")
-    @Expose
-    val code: Int? = null
+    val errors: List<ErrorResponse>? = null
 ) : Serializable

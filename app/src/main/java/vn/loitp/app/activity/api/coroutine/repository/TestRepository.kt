@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.api.coroutine.repository
 
-import com.loitpcore.service.model.ApiResponse
-import com.loitpcore.service.model.UserTest
-import com.loitpcore.service.repository.BaseRepository
+import com.loitp.service.model.ApiResponse
+import com.loitp.service.model.UserTest
+import com.loitp.service.repository.BaseRepository
 import vn.loitp.app.activity.api.coroutine.service.ApiService
 
 class TestRepository(private val apiService: ApiService) : BaseRepository() {

@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.loitp.annotation.LogTag
 import com.loitp.core.utilities.LLog
-import com.loitpcore.service.RequestStatus
-import com.loitpcore.service.liveData.ActionData
-import com.loitpcore.service.model.ApiResponse
-import com.loitpcore.service.model.ErrorResponse
+import com.loitp.service.RequestStatus
+import com.loitp.service.liveData.ActionData
+import com.loitp.service.model.ApiResponse
+import com.loitp.service.model.ErrorResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

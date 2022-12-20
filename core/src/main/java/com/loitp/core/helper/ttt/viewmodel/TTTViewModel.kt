@@ -10,10 +10,10 @@ import com.loitp.core.helper.ttt.model.chap.Info
 import com.loitp.core.helper.ttt.model.chap.TTTChap
 import com.loitp.core.helper.ttt.model.comic.Comic
 import com.loitp.core.helper.ttt.model.comictype.ComicType
-import com.loitpcore.service.liveData.ActionData
-import com.loitpcore.service.liveData.ActionLiveData
-import com.loitpcore.service.liveData.QueuedMutableLiveData
-import com.loitpcore.service.liveData.SingleLiveEvent
+import com.loitp.service.liveData.ActionData
+import com.loitp.service.liveData.ActionLiveData
+import com.loitp.service.liveData.QueuedMutableLiveData
+import com.loitp.service.liveData.SingleLiveEvent
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document

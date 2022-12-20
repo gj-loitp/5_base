@@ -1,6 +1,6 @@
-package com.loitpcore.service.liveData
+package com.loitp.service.liveData
 
-import com.loitpcore.service.model.ErrorResponse
+import com.loitp.service.model.ErrorResponse
 
 /**
  * Created by Loitp on 04,August,2022
