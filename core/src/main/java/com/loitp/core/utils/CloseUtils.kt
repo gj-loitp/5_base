@@ -1,4 +1,4 @@
-package com.loitpcore.utils.util
+package com.loitp.core.utils
 
 import java.io.Closeable
 import java.io.IOException

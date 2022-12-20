@@ -9,7 +9,7 @@ import android.net.Uri
 import com.loitpcore.R
 import com.loitp.core.common.Constants
 import com.loitp.core.helper.fbComment.FbCommentActivity
-import com.loitpcore.utils.util.AppUtils
+import com.loitp.core.utils.AppUtils
 import de.cketti.mailto.EmailIntentBuilder
 
 /**

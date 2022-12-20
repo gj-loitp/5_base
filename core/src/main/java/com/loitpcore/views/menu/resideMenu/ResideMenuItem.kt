@@ -8,7 +8,7 @@ import android.widget.TextView
 import com.loitpcore.R
 import com.loitp.core.utilities.LUIUtil.Companion.setTextShadow
 import com.loitp.core.utilities.LUIUtil.Companion.setTextSize
-import com.loitpcore.utils.util.ConvertUtils
+import com.loitp.core.utils.ConvertUtils
 
 /**
  * Created by Loitp on 04,August,2022

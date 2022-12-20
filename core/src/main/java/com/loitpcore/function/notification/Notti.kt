@@ -7,7 +7,7 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.loitpcore.function.notification.config.NottiConfig
 import com.loitpcore.function.notification.notifications.CustomNotification
-import com.loitpcore.utils.util.AppUtils
+import com.loitp.core.utils.AppUtils
 
 /**
  * Created by Loitp on 04,August,2022

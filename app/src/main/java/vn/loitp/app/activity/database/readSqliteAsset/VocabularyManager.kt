@@ -6,8 +6,8 @@ import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
-import com.loitpcore.utils.util.AppUtils.Companion.appPackageName
-import com.loitpcore.utils.util.AppUtils.Companion.appVersionCode
+import com.loitp.core.utils.AppUtils.Companion.appPackageName
+import com.loitp.core.utils.AppUtils.Companion.appVersionCode
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream

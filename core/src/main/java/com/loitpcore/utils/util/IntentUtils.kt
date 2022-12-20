@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
+import com.loitp.core.utils.FileUtils
 import com.loitpcore.utils.util.Utils.Companion.getContext
 import java.io.File
 

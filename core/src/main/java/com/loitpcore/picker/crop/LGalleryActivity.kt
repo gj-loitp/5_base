@@ -17,7 +17,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil.Companion.tranOut
 import com.loitp.core.utilities.LImageUtil
-import com.loitpcore.utils.util.ConvertUtils
+import com.loitp.core.utils.ConvertUtils
 import kotlinx.android.synthetic.main.l_activity_l_gallery.*
 import java.io.File
 

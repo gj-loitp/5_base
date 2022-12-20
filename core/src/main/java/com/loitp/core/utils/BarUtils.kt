@@ -1,5 +1,6 @@
-package com.loitpcore.utils.util
+package com.loitp.core.utils
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
@@ -14,8 +15,8 @@ import androidx.annotation.ColorInt
 import androidx.annotation.IntRange
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.drawerlayout.widget.DrawerLayout
-import com.loitpcore.R
 import com.loitp.core.common.Constants
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -605,6 +606,7 @@ class BarUtils private constructor() {
             invokePanels(context, methodName)
         }
 
+        @SuppressLint("WrongConstant")
         private fun invokePanels(
             context: Context,
             methodName: String

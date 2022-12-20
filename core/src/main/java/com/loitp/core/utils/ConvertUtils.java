@@ -1,4 +1,4 @@
-package com.loitpcore.utils.util;
+package com.loitp.core.utils;
 
 import android.annotation.SuppressLint;
 import android.content.res.Resources;
@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.loitp.core.utils.constant.MemoryConstants;
 import com.loitp.core.utils.constant.TimeConstants;
+import com.loitpcore.utils.util.Utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

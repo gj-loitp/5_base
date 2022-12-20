@@ -1,5 +1,7 @@
 package com.loitpcore.utils.util;
 
+import com.loitp.core.utils.CloseUtils;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;

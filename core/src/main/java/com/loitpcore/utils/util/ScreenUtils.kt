@@ -8,7 +8,7 @@ import android.graphics.Bitmap
 import android.util.DisplayMetrics
 import android.view.Surface
 import android.view.WindowManager
-import com.loitpcore.utils.util.BarUtils.Companion.getStatusBarHeight
+import com.loitp.core.utils.BarUtils.Companion.getStatusBarHeight
 import com.loitpcore.utils.util.Utils.Companion.getContext
 
 /**

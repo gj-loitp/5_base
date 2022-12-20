@@ -2,7 +2,7 @@ package com.loitp.core.utilities
 
 import android.text.TextUtils
 import android.util.Patterns
-import com.loitpcore.utils.util.AppUtils
+import com.loitp.core.utils.AppUtils
 import java.util.* // ktlint-disable no-wildcard-imports
 import java.util.regex.Pattern
 

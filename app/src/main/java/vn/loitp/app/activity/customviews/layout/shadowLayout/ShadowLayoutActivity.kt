@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.utils.util.ConvertUtils
+import com.loitp.core.utils.ConvertUtils
 import kotlinx.android.synthetic.main.activity_shadow_layout.*
 import vn.loitp.app.R
 

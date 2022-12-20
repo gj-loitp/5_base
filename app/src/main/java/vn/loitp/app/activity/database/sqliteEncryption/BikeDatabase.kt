@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.loitp.core.utilities.LEncryptionUtil
-import com.loitpcore.utils.util.DeviceUtils
+import com.loitp.core.utils.DeviceUtils
 
 /**
  * Created by Loitp on 15.09.2022

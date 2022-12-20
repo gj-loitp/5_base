@@ -11,7 +11,7 @@ import android.widget.ScrollView
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitpcore.R
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.utils.util.ConvertUtils
+import com.loitp.core.utils.ConvertUtils
 import kotlin.math.hypot
 import kotlin.math.max
 

@@ -2,7 +2,8 @@ package com.loitpcore.utils.util
 
 import android.os.Environment
 import android.os.StatFs
-import com.loitpcore.utils.util.CloseUtils.Companion.closeIO
+import com.loitp.core.utils.CloseUtils.Companion.closeIO
+import com.loitp.core.utils.ConvertUtils
 import java.io.BufferedInputStream
 import java.io.BufferedReader
 import java.io.File

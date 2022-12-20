@@ -1,4 +1,4 @@
-package com.loitpcore.utils.util
+package com.loitp.core.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,6 +7,8 @@ import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.PowerManager
 import android.provider.Settings
+import com.loitpcore.utils.util.ShellUtils
+import com.loitpcore.utils.util.Utils
 import java.io.File
 import java.net.NetworkInterface
 import java.util.*

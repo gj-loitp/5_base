@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageButton
-import com.loitpcore.utils.util.ConvertUtils
+import com.loitp.core.utils.ConvertUtils
 import com.loitpcore.utils.util.ScreenUtils
 
 /**

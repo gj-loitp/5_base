@@ -1,5 +1,7 @@
-package com.loitpcore.utils.util
+package com.loitp.core.utils
 
+import com.loitpcore.utils.util.SDCardUtils
+import com.loitpcore.utils.util.Utils
 import java.io.File
 
 /**

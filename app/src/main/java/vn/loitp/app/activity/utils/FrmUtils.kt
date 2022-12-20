@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.loitp.core.utils.*
 import com.loitpcore.utils.util.*
 import kotlinx.android.synthetic.main.frm_utils.*
 import vn.loitp.app.R

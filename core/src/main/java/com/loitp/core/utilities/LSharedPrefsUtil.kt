@@ -3,7 +3,7 @@ package com.loitp.core.utilities
 import android.content.Context
 import android.content.SharedPreferences
 import com.loitp.core.base.BaseApplication
-import com.loitpcore.utils.util.AppUtils
+import com.loitp.core.utils.AppUtils
 import java.lang.reflect.Type
 
 /**

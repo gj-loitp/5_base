@@ -36,7 +36,7 @@ import com.loitpcore.function.epub.exception.ReadingException
 import com.loitpcore.function.epub.model.BookInfo
 import com.loitpcore.function.epub.model.BookInfoData
 import com.loitpcore.function.epub.viewmodels.EpubViewModel
-import com.loitpcore.utils.util.ConvertUtils
+import com.loitp.core.utils.ConvertUtils
 import com.loitpcore.views.wv.LWebViewAdblock
 import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
 

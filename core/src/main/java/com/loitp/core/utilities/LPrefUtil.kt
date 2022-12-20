@@ -3,7 +3,7 @@ package com.loitp.core.utilities
 import android.content.Context
 import com.loitp.core.base.BaseApplication
 import com.loitp.model.App
-import com.loitpcore.utils.util.AppUtils
+import com.loitp.core.utils.AppUtils
 
 /**
  * Created by Loitp on 04,August,2022

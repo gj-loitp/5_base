@@ -1,6 +1,6 @@
 package vn.loitp.app.activity.customviews.wwlMusic.utils
 
-import com.loitpcore.utils.util.AppUtils.Companion.appPackageName
+import com.loitp.core.utils.AppUtils.Companion.appPackageName
 import vn.loitp.app.R
 
 object WWLMusicDataset {

@@ -17,7 +17,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.utils.util.AppUtils
+import com.loitp.core.utils.AppUtils
 import com.manojbhadane.QButton
 import kotlinx.android.synthetic.main.l_activity_ad_helper.*
 

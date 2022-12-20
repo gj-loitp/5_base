@@ -10,6 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.utils.*
 import com.loitpcore.utils.util.*
 import kotlinx.android.synthetic.main.activity_utils.*
 import vn.loitp.app.R
