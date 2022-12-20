@@ -1,4 +1,4 @@
-package com.loitpcore.views.draggableFlipView
+package com.loitp.views.draggableFlipView
 
 import android.view.MotionEvent
 
@@ -82,7 +82,10 @@ class DragGestureDetector(
         return false
     }
 
-    private fun createPoint(x: Float, y: Float): TouchPoint {
+    private fun createPoint(
+        x: Float,
+        y: Float
+    ): TouchPoint {
         return TouchPoint(x, y)
     }
 

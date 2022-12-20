@@ -1,4 +1,4 @@
-package com.loitpcore.views.fingerPaintView
+package com.loitp.views.fingerPaintView
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -102,7 +102,12 @@ class FingerPaintImageView @JvmOverloads constructor(
     /**
      * Get current screen's width and height
      */
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+    override fun onSizeChanged(
+        w: Int,
+        h: Int,
+        oldw: Int,
+        oldh: Int
+    ) {
         super.onSizeChanged(w, h, oldw, oldh)
         brushBitmap = Bitmap.createBitmap(
             w,

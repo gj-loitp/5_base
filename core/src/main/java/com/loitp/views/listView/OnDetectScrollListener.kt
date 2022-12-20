@@ -1,4 +1,4 @@
-package com.loitpcore.views.listView
+package com.loitp.views.listView
 
 /**
  * Created by Loitp on 04,August,2022

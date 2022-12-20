@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:background="#68768A">
 
-        <com.loitpcore.views.fingerPaintView.FingerPaintImageView
+        <com.loitp.views.fingerPaintView.FingerPaintImageView
             android:id="@+id/finger"
             android:layout_width="300dp"
             android:layout_height="300dp"

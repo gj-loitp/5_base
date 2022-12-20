@@ -1,4 +1,4 @@
-package com.loitpcore.views.draggableFlipView
+package com.loitp.views.draggableFlipView
 
 import android.animation.ValueAnimator
 import android.view.View

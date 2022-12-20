@@ -1,4 +1,4 @@
-package com.loitpcore.views.listView
+package com.loitp.views.listView
 
 import android.content.Context
 import android.util.AttributeSet
@@ -21,11 +21,18 @@ open class LListView : ListView {
         onCreate()
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         onCreate()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
