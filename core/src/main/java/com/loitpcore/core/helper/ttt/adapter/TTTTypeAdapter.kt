@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.R
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.adapter.BaseAdapter
+import com.loitp.core.adapter.BaseAdapter
 import com.loitpcore.core.helper.ttt.model.comictype.ComicType
 import com.loitpcore.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_ttt_select_type.view.*

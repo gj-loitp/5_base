@@ -14,7 +14,7 @@ import com.bumptech.glide.request.target.Target
 import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.adapter.BaseAdapter
+import com.loitp.core.adapter.BaseAdapter
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.helper.gallery.photos.PhotosDataCore
 import com.loitpcore.core.utilities.LAnimationUtil

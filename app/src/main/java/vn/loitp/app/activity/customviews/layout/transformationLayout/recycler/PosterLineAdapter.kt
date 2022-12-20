@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.loitpcore.core.adapter.BaseAdapter
+import com.loitp.core.adapter.BaseAdapter
 import com.loitpcore.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_item_transformation_poster_line.view.*
 import vn.loitp.app.R

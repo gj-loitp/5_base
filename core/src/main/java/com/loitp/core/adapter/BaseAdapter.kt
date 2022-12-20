@@ -1,4 +1,4 @@
-package com.loitpcore.core.adapter
+package com.loitp.core.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.BuildConfig

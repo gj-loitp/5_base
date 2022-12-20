@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.adapter.BaseAdapter
+import com.loitp.core.adapter.BaseAdapter
 import com.loitpcore.core.ext.setSafeOnClickListener
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.model.data.QA

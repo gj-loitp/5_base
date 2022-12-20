@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
-import com.loitpcore.core.adapter.BaseAdapter
+import com.loitp.core.adapter.BaseAdapter
 import com.loitpcore.core.utilities.LImageUtil
 import com.loitpcore.core.utilities.LScreenUtil
 import com.loitpcore.core.utilities.LUIUtil
