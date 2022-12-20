@@ -1,4 +1,4 @@
-package com.loitpcore.function.network
+package com.loitp.func.network
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

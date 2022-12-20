@@ -1,4 +1,4 @@
-package com.loitpcore.function.network
+package com.loitp.func.network
 
 import android.content.Context
 import android.net.TrafficStats
