@@ -1,4 +1,4 @@
-package com.loitpcore.model
+package com.loitp.model
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.Expose
@@ -13,9 +13,16 @@ import com.loitp.core.base.BaseModel
  * freuss47@gmail.com
  */
 @Keep
-class Loitp : BaseModel() {
-
-    @SerializedName("loitp")
+class Config : BaseModel() {
+    @SerializedName("isReady")
     @Expose
-    var loitp: List<App>? = null
+    var isReady: Boolean? = false
+
+    @SerializedName("isFullData")
+    @Expose
+    var isFullData: Boolean? = false
+
+    @SerializedName("msg")
+    @Expose
+    var msg: String? = null
 }

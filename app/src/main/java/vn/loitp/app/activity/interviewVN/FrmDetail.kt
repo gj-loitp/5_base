@@ -6,7 +6,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.LogTag
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.model.data.QA
+import com.loitp.model.QA
 import kotlinx.android.synthetic.main.frm_interview_vn_iq_detail.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.fragmentFlow.BaseFragmentFlow

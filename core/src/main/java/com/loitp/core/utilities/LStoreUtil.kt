@@ -10,8 +10,8 @@ import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import com.loitp.core.base.BaseApplication
-import com.loitpcore.model.App
-import com.loitpcore.model.data.Pkg
+import com.loitp.model.App
+import com.loitp.model.Pkg
 import okhttp3.*
 import java.io.*
 import java.util.*

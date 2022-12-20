@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
-import com.loitpcore.model.data.QA
+import com.loitp.model.QA
 import kotlinx.android.synthetic.main.view_item_qa.view.*
 import vn.loitp.app.R
 

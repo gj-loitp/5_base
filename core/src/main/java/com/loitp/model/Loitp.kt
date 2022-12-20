@@ -1,4 +1,4 @@
-package com.loitpcore.model
+package com.loitp.model
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.Expose
@@ -13,14 +13,9 @@ import com.loitp.core.base.BaseModel
  * freuss47@gmail.com
  */
 @Keep
-class App : BaseModel() {
+class Loitp : BaseModel() {
 
-    @SerializedName("pkg")
+    @SerializedName("loitp")
     @Expose
-    @Suppress("unused")
-    var pkg: String? = null
-
-    @SerializedName("config")
-    @Expose
-    var config: Config? = null
+    var loitp: List<App>? = null
 }

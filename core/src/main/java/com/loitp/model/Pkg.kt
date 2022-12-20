@@ -1,4 +1,4 @@
-package com.loitpcore.model.data
+package com.loitp.model
 
 import androidx.annotation.Keep
 
