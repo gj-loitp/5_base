@@ -18,7 +18,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.*
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
-import com.loitpcore.annotation.*
 import com.loitpcore.core.common.Constants
 import com.loitpcore.core.utilities.*
 import com.loitpcore.core.utilities.LUIUtil.Companion.allowInfiniteLines
