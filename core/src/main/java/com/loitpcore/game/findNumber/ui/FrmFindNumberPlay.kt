@@ -11,8 +11,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import com.daimajia.androidanimations.library.Techniques
+import com.loitp.animation.morphTransitions.MorphTransform
 import com.loitpcore.R
-import com.loitpcore.animation.morphTransitions.MorphTransform
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseApplication
 import com.loitpcore.core.base.BaseFragment

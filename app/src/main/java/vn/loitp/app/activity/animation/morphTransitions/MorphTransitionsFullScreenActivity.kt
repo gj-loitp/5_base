@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.animation.morphTransitions
 
 import android.os.Bundle
-import com.loitpcore.animation.morphTransitions.FabTransform
+import com.loitp.animation.morphTransitions.FabTransform
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity

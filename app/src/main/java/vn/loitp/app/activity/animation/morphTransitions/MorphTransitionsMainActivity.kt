@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
-import com.loitpcore.animation.morphTransitions.FabTransform
-import com.loitpcore.animation.morphTransitions.MorphTransform
+import com.loitp.animation.morphTransitions.FabTransform
+import com.loitp.animation.morphTransitions.MorphTransform
 import com.loitpcore.annotation.IsFullScreen
 import com.loitpcore.annotation.LogTag
 import com.loitpcore.core.base.BaseFontActivity
