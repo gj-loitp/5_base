@@ -1,4 +1,4 @@
-package com.loitpcore.utils.constant
+package com.loitp.core.utils.constant
 
 /**
  * Created by Loitp on 04,August,2022

@@ -1,4 +1,4 @@
-package com.loitpcore.utils.constant
+package com.loitp.core.utils.constant
 
 import androidx.annotation.IntDef
 

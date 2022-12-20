@@ -10,8 +10,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 
-import com.loitpcore.utils.constant.MemoryConstants;
-import com.loitpcore.utils.constant.TimeConstants;
+import com.loitp.core.utils.constant.MemoryConstants;
+import com.loitp.core.utils.constant.TimeConstants;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

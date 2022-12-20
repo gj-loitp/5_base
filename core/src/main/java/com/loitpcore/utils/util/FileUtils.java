@@ -2,7 +2,7 @@ package com.loitpcore.utils.util;
 
 import android.annotation.SuppressLint;
 
-import com.loitpcore.utils.constant.MemoryConstants;
+import com.loitp.core.utils.constant.MemoryConstants;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
