@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.bottomSheet
+package vn.loitp.activity.customView.bs
 
 import android.annotation.SuppressLint
 import android.os.Bundle

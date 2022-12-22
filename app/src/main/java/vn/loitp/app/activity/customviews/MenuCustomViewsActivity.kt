@@ -14,7 +14,7 @@ import vn.loitp.app.R
 import vn.loitp.activity.customView.actionBar.MenuActionBarActivity
 import vn.loitp.activity.customView.answerView.AnswerViewActivity
 import vn.loitp.activity.customView.bottomBar.MenuBottomNavigationActivity
-import vn.loitp.app.activity.customviews.bottomSheet.MenuBottomSheetActivity
+import vn.loitp.activity.customView.bs.MenuBottomSheetActivity
 import vn.loitp.app.activity.customviews.button.MenuButtonActivity
 import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
 import vn.loitp.app.activity.customviews.cardView.CardViewActivity
