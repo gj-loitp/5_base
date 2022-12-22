@@ -20,7 +20,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.MoviesAdapter
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerViewWithSingletonData.DummyData.Companion.instance
-import vn.loitp.app.common.Constants
+import vn.loitp.common.Constants
 
 @LogTag("RecyclerViewFooterActivity")
 @IsFullScreen(false)

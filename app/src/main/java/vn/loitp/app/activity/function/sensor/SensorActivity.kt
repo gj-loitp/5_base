@@ -11,7 +11,7 @@ import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_func_sensor.*
 import vn.loitp.app.R
-import vn.loitp.app.common.Constants.Companion.URL_IMG
+import vn.loitp.common.Constants.Companion.URL_IMG
 
 @LogTag("SensorActivity")
 @IsFullScreen(false)

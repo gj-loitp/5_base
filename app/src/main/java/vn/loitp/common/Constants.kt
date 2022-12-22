@@ -1,4 +1,4 @@
-package vn.loitp.app.common
+package vn.loitp.common
 
 class Constants {
     companion object {

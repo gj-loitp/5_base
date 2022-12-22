@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_big_image_view_with_scroll_view.*
 import vn.loitp.app.R
-import vn.loitp.app.common.Constants
+import vn.loitp.common.Constants
 
 // https://github.com/Piasy/BigImageViewer
 @LogTag("BigImageViewWithScrollViewActivity")

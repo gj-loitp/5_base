@@ -12,7 +12,7 @@ import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.activity_book_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
-import vn.loitp.app.common.Constants
+import vn.loitp.common.Constants
 
 @LogTag("BookViewActivity")
 @IsFullScreen(false)

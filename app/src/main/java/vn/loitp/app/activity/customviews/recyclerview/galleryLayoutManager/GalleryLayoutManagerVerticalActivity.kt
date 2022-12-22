@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_recycler_view_menu_gallery_layout
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerViewWithSingletonData.DummyData.Companion.instance
-import vn.loitp.app.common.Constants
+import vn.loitp.common.Constants
 import kotlin.math.abs
 
 @LogTag("GalleryLayoutManagerVerticalActivity")

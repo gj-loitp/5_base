@@ -90,7 +90,7 @@ class LApplication : BaseApplication() {
     private fun setupOneSignal() {
         OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE)
         OneSignal.initWithContext(this)
-        OneSignal.setAppId(vn.loitp.app.common.Constants.ONE_SIGNAL_KEY)
+        OneSignal.setAppId(vn.loitp.common.Constants.ONE_SIGNAL_KEY)
         OneSignal.promptForPushNotifications()
     }
 

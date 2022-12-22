@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_swipe_refresh_recycler_view_layou
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.MoviesAdapter
-import vn.loitp.app.common.Constants.Companion.URL_IMG
+import vn.loitp.common.Constants.Companion.URL_IMG
 
 @LogTag("SwipeRefreshLayoutRecyclerViewActivity")
 @IsFullScreen(false)

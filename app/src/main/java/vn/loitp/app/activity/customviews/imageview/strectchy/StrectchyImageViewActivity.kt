@@ -9,7 +9,7 @@ import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_strectchy_imageview.*
 import vn.loitp.app.R
-import vn.loitp.app.common.Constants
+import vn.loitp.common.Constants
 
 @LogTag("StrectchyImageViewActivity")
 @IsFullScreen(false)

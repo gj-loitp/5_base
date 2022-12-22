@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerViewWithSingletonData.DummyData.Companion.instance
-import vn.loitp.app.common.Constants
+import vn.loitp.common.Constants
 
 @LogTag("RecyclerViewFooter2Activity")
 @IsFullScreen(false)
