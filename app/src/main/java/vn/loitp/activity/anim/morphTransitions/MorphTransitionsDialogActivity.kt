@@ -5,8 +5,8 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
-import com.loitp.animation.morphTransitions.FabTransform
-import com.loitp.animation.morphTransitions.MorphTransform
+import com.loitp.anim.morphTransitions.FabTransform
+import com.loitp.anim.morphTransitions.MorphTransform
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag

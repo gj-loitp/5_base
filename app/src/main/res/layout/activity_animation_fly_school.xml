@@ -28,7 +28,7 @@
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
-        <com.loitp.animation.flySchool.ShapeFlyer
+        <com.loitp.anim.flySchool.ShapeFlyer
             android:id="@+id/floatingContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

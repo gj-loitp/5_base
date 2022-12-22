@@ -3,7 +3,7 @@ package com.loitp.game.findNumber.dialog
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
 import com.loitp.R
-import com.loitp.animation.morphTransitions.FabTransform
+import com.loitp.anim.morphTransitions.FabTransform
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
