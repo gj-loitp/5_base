@@ -10,7 +10,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day
+import com.loitp.views.calendar.cosmoCalendar.model.Day
 import com.loitpcore.views.calendar.cosmoCalendar.selection.MultipleSelectionManager
 import com.loitpcore.views.calendar.cosmoCalendar.selection.OnDaySelectedListener
 import com.loitpcore.views.calendar.cosmoCalendar.selection.RangeSelectionManager
@@ -29,7 +29,8 @@ import java.util.*
 @LogTag("CosmoCalendarActivity")
 @IsFullScreen(false)
 class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeListener {
-    private var threeMonthsCriteriaList = ArrayList<BaseCriteria>()
+    private var threeMonthsCriteriaList =
+        ArrayList<BaseCriteria>()
     private var fridayCriteria: WeekDayCriteria? = null
 
     private var fridayCriteriaEnabled: Boolean = false
@@ -226,8 +227,12 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
                 calendarView.selectionManager as RangeSelectionManager
             val calendar: Calendar = Calendar.getInstance()
             calendar.add(Calendar.DATE, 3)
-            rangeSelectionManager.toggleDay(Day(Calendar.getInstance()))
-            rangeSelectionManager.toggleDay(Day(calendar))
+            rangeSelectionManager.toggleDay(
+                Day(Calendar.getInstance())
+            )
+            rangeSelectionManager.toggleDay(
+                Day(calendar)
+            )
             calendarView.update()
         }
     }

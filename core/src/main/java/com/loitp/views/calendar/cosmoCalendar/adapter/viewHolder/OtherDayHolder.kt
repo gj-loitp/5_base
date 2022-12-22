@@ -1,8 +1,8 @@
-package com.loitpcore.views.calendar.cosmoCalendar.adapter.viewHolder
+package com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder
 
 import android.view.View
 import com.loitpcore.R
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day
+import com.loitp.views.calendar.cosmoCalendar.model.Day
 import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView
 
 /**

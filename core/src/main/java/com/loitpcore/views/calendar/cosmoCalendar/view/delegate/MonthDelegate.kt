@@ -3,9 +3,9 @@ package com.loitpcore.views.calendar.cosmoCalendar.view.delegate
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.loitpcore.R
-import com.loitpcore.views.calendar.cosmoCalendar.adapter.DaysAdapter
-import com.loitpcore.views.calendar.cosmoCalendar.adapter.viewHolder.MonthHolder
-import com.loitpcore.views.calendar.cosmoCalendar.model.Month
+import com.loitp.views.calendar.cosmoCalendar.adapter.DaysAdapter
+import com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder.MonthHolder
+import com.loitp.views.calendar.cosmoCalendar.model.Month
 import com.loitpcore.views.calendar.cosmoCalendar.settings.SettingsManager
 
 /**

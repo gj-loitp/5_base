@@ -8,8 +8,8 @@ import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.loitpcore.views.calendar.cosmoCalendar.adapter.DaysAdapter
-import com.loitpcore.views.calendar.cosmoCalendar.model.Month
+import com.loitp.views.calendar.cosmoCalendar.adapter.DaysAdapter
+import com.loitp.views.calendar.cosmoCalendar.model.Month
 import com.loitpcore.views.calendar.cosmoCalendar.utils.Constants
 
 /**

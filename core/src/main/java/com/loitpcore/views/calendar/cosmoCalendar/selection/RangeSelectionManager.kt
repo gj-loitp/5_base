@@ -1,7 +1,7 @@
 package com.loitpcore.views.calendar.cosmoCalendar.selection
 
 import android.util.Pair
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day
+import com.loitp.views.calendar.cosmoCalendar.model.Day
 import com.loitpcore.views.calendar.cosmoCalendar.utils.DateUtils.isDayInRange
 
 /**

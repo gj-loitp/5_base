@@ -12,7 +12,7 @@ import android.view.animation.Transformation;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day;
+import com.loitp.views.calendar.cosmoCalendar.model.Day;
 import com.loitpcore.views.calendar.cosmoCalendar.selection.SelectionState;
 import com.loitpcore.views.calendar.cosmoCalendar.utils.CalendarUtils;
 import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView;

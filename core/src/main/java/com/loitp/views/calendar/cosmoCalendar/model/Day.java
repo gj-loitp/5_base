@@ -1,4 +1,4 @@
-package com.loitpcore.views.calendar.cosmoCalendar.model;
+package com.loitp.views.calendar.cosmoCalendar.model;
 
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;

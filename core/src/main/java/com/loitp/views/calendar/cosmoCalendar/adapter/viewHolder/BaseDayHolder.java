@@ -1,4 +1,4 @@
-package com.loitpcore.views.calendar.cosmoCalendar.adapter.viewHolder;
+package com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder;
 
 import android.view.View;
 import android.widget.TextView;

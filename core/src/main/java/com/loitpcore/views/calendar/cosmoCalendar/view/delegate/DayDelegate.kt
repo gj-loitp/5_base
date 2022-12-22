@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.R
-import com.loitpcore.views.calendar.cosmoCalendar.adapter.MonthAdapter
-import com.loitpcore.views.calendar.cosmoCalendar.adapter.viewHolder.DayHolder
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day
+import com.loitp.views.calendar.cosmoCalendar.adapter.MonthAdapter
+import com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder.DayHolder
+import com.loitp.views.calendar.cosmoCalendar.model.Day
 import com.loitpcore.views.calendar.cosmoCalendar.selection.MultipleSelectionManager
 import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView
 

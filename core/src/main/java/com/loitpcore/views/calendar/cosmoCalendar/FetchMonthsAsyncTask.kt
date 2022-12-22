@@ -2,8 +2,8 @@ package com.loitpcore.views.calendar.cosmoCalendar
 
 import android.os.AsyncTask
 import com.loitpcore.views.calendar.cosmoCalendar.FetchMonthsAsyncTask.FetchParams
-import com.loitpcore.views.calendar.cosmoCalendar.adapter.MonthAdapter
-import com.loitpcore.views.calendar.cosmoCalendar.model.Month
+import com.loitp.views.calendar.cosmoCalendar.adapter.MonthAdapter
+import com.loitp.views.calendar.cosmoCalendar.model.Month
 import com.loitpcore.views.calendar.cosmoCalendar.settings.SettingsManager
 import com.loitpcore.views.calendar.cosmoCalendar.utils.CalendarUtils
 import java.util.* // ktlint-disable no-wildcard-imports

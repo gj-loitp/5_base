@@ -5,9 +5,9 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.BitmapFactory
 import android.view.WindowManager
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day
-import com.loitpcore.views.calendar.cosmoCalendar.model.DayOfWeek
-import com.loitpcore.views.calendar.cosmoCalendar.model.Month
+import com.loitp.views.calendar.cosmoCalendar.model.Day
+import com.loitp.views.calendar.cosmoCalendar.model.DayOfWeek
+import com.loitp.views.calendar.cosmoCalendar.model.Month
 import com.loitpcore.views.calendar.cosmoCalendar.selection.selectionBar.SelectionBarContentItem
 import com.loitpcore.views.calendar.cosmoCalendar.selection.selectionBar.SelectionBarItem
 import com.loitpcore.views.calendar.cosmoCalendar.selection.selectionBar.SelectionBarTitleItem

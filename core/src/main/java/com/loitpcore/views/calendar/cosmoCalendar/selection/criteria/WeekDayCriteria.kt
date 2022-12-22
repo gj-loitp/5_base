@@ -1,6 +1,6 @@
 package com.loitpcore.views.calendar.cosmoCalendar.selection.criteria
 
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day
+import com.loitp.views.calendar.cosmoCalendar.model.Day
 import java.util.*
 
 /**

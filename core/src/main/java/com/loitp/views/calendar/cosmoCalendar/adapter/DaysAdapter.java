@@ -1,15 +1,15 @@
-package com.loitpcore.views.calendar.cosmoCalendar.adapter;
+package com.loitp.views.calendar.cosmoCalendar.adapter;
 
 import android.annotation.SuppressLint;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.loitpcore.views.calendar.cosmoCalendar.adapter.viewHolder.DayHolder;
-import com.loitpcore.views.calendar.cosmoCalendar.adapter.viewHolder.DayOfWeekHolder;
-import com.loitpcore.views.calendar.cosmoCalendar.adapter.viewHolder.OtherDayHolder;
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day;
-import com.loitpcore.views.calendar.cosmoCalendar.model.Month;
+import com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder.DayOfWeekHolder;
+import com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder.OtherDayHolder;
+import com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder.DayHolder;
+import com.loitp.views.calendar.cosmoCalendar.model.Day;
+import com.loitp.views.calendar.cosmoCalendar.model.Month;
 import com.loitpcore.views.calendar.cosmoCalendar.utils.Constants;
 import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView;
 import com.loitpcore.views.calendar.cosmoCalendar.view.ItemViewType;

@@ -1,6 +1,6 @@
-package com.loitpcore.views.calendar.cosmoCalendar.dialog
+package com.loitp.views.calendar.cosmoCalendar.dialog
 
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day
+import com.loitp.views.calendar.cosmoCalendar.model.Day
 
 /**
  * Created by Loitp on 04,August,2022

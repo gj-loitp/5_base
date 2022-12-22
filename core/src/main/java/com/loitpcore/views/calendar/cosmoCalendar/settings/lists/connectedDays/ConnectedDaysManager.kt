@@ -1,6 +1,6 @@
 package com.loitpcore.views.calendar.cosmoCalendar.settings.lists.connectedDays
 
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day
+import com.loitp.views.calendar.cosmoCalendar.model.Day
 import com.loitpcore.views.calendar.cosmoCalendar.utils.DateUtils.getCalendar
 import java.util.*
 

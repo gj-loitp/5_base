@@ -1,7 +1,7 @@
 package com.loitpcore.views.calendar.cosmoCalendar.utils
 
 import android.text.format.DateUtils
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day
+import com.loitp.views.calendar.cosmoCalendar.model.Day
 import java.util.* // ktlint-disable no-wildcard-imports
 
 /**

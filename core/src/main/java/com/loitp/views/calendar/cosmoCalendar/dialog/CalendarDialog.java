@@ -1,4 +1,4 @@
-package com.loitpcore.views.calendar.cosmoCalendar.dialog;
+package com.loitp.views.calendar.cosmoCalendar.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 
 import com.loitpcore.R;
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day;
+import com.loitp.views.calendar.cosmoCalendar.model.Day;
 import com.loitpcore.views.calendar.cosmoCalendar.settings.appearance.AppearanceInterface;
 import com.loitpcore.views.calendar.cosmoCalendar.settings.date.DateInterface;
 import com.loitpcore.views.calendar.cosmoCalendar.settings.lists.CalendarListsInterface;

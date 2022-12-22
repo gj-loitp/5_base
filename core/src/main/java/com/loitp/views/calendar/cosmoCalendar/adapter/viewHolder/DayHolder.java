@@ -1,10 +1,10 @@
-package com.loitpcore.views.calendar.cosmoCalendar.adapter.viewHolder;
+package com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder;
 
 import android.content.res.Resources;
 import android.view.View;
 
 import com.loitpcore.R;
-import com.loitpcore.views.calendar.cosmoCalendar.model.Day;
+import com.loitp.views.calendar.cosmoCalendar.model.Day;
 import com.loitpcore.views.calendar.cosmoCalendar.selection.BaseSelectionManager;
 import com.loitpcore.views.calendar.cosmoCalendar.selection.RangeSelectionManager;
 import com.loitpcore.views.calendar.cosmoCalendar.selection.SelectionState;
