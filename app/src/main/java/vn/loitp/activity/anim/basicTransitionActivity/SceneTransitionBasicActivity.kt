@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.basicTransitionActivity
+package vn.loitp.activity.anim.basicTransitionActivity
 
 import android.content.Intent
 import android.os.Bundle

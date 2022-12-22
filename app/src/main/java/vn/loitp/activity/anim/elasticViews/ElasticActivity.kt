@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.elasticViews
+package vn.loitp.activity.anim.elasticViews
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen

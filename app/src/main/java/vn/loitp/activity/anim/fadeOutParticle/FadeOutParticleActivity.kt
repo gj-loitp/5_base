@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.konfetti
+package vn.loitp.activity.anim.fadeOutParticle
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,20 +7,20 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_0.lActionBar
-import kotlinx.android.synthetic.main.activity_konfetti.*
+import kotlinx.android.synthetic.main.activity_fade_out_particle.*
 import vn.loitp.app.R
 
-@LogTag("KonfettiActivity")
+@LogTag("FadeOutParticleActivity")
 @IsFullScreen(false)
-@IsAutoAnimation(true)
-class KonfettiActivity : BaseFontActivity() {
+@IsAutoAnimation(false)
+class FadeOutParticleActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_konfetti
+        return R.layout.activity_fade_out_particle
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,27 +44,22 @@ class KonfettiActivity : BaseFontActivity() {
                     runnable = {
                         LSocialUtil.openUrlInBrowser(
                             context = context,
-                            url = "https://github.com/DanielMartinus/konfetti"
+                            url = "https://github.com/hoomanmmd/FadeOutParticle"
                         )
                     }
                 )
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = KonfettiActivity::class.java.simpleName
+            this.tvTitle?.text = FadeOutParticleActivity::class.java.simpleName
         }
 
-        btnFestive.setSafeOnClickListener {
-            konfettiView.start(Presets.festive())
+        btStart.setOnClickListener {
+            fadeOutParticle.startAnimation()
         }
-        btnExplode.setSafeOnClickListener {
-            konfettiView.start(Presets.explode())
-        }
-        btnParade.setSafeOnClickListener {
-            konfettiView.start(Presets.parade())
-        }
-        btnRain.setSafeOnClickListener {
-            konfettiView.start(Presets.rain())
+
+        btReset.setOnClickListener {
+            fadeOutParticle.reset()
         }
     }
 }

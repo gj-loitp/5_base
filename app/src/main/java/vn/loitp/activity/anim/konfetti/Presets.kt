@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.konfetti
+package vn.loitp.activity.anim.konfetti
 
 import nl.dionsegijn.konfetti.core.*
 import nl.dionsegijn.konfetti.core.emitter.Emitter

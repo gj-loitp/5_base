@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.flySchool
+package vn.loitp.activity.anim.flySchool
 
 import android.os.Bundle
 import com.loitp.animation.flySchool.ImgObject

@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_splash.*
 import okhttp3.Call
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
-import vn.loitp.app.activity.animation.konfetti.Presets
+import vn.loitp.activity.anim.konfetti.Presets
 import java.io.IOException
 
 @SuppressLint("CustomSplashScreen")

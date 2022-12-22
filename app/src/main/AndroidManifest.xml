@@ -246,7 +246,7 @@
             android:name=".activity.customviews.recyclerview.normalWithSpanSize.RecyclerViewWithSpanSizeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.flySchool.FlySchoolActivity"
+            android:name="vn.loitp.activity.anim.flySchool.FlySchoolActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.dialog.MenuDialogActivity"
@@ -526,22 +526,22 @@
             android:name=".activity.customviews.layout.coordinatorLayout.CoordinatorLayoutWithImageViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.basicTransitionFrm.BasicTransitionActivity"
+            android:name="vn.loitp.activity.anim.basicTransitionFrm.BasicTransitionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.basicTransitionActivity.SceneTransitionBasicActivity"
+            android:name="vn.loitp.activity.anim.basicTransitionActivity.SceneTransitionBasicActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.basicTransitionActivity.SceneTransitionBasicDetailActivity"
+            android:name="vn.loitp.activity.anim.basicTransitionActivity.SceneTransitionBasicDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.squareLayout.SquareLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.basicTransition.BasicTransition0Activity"
+            android:name="vn.loitp.activity.anim.basicTransition.BasicTransition0Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.basicTransition.BasicTransition1Activity"
+            android:name="vn.loitp.activity.anim.basicTransition.BasicTransition1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.relativePopupWindow.RelativePopupWindowActivity"
@@ -566,7 +566,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".activity.animation.lottie.MenuLottieActivity"
+            android:name="vn.loitp.activity.anim.lottie.MenuLottieActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.utils.UtilsActivity"
@@ -1016,7 +1016,7 @@
             android:name=".activity.customviews.recyclerview.fitGridView.FitGridViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.elasticViews.ElasticActivity"
+            android:name="vn.loitp.activity.anim.elasticViews.ElasticActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.indicator.example.MenuMagicIndicatorActivity"
@@ -1210,7 +1210,7 @@
             android:name=".activity.demo.piano.PianoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.konfetti.KonfettiActivity"
+            android:name="vn.loitp.activity.anim.konfetti.KonfettiActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.codeView.CodeViewActivity"
@@ -1256,7 +1256,7 @@
             android:name=".activity.picker.ssImagePicker.ui.MainActivitySSImagePicker"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.fadeOutParticle.FadeOutParticleActivity"
+            android:name="vn.loitp.activity.anim.fadeOutParticle.FadeOutParticleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.progress.segmentedProgressBar.StandardExampleActivity"

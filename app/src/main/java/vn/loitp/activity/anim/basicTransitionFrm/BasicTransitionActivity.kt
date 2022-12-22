@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.basicTransitionFrm
+package vn.loitp.activity.anim.basicTransitionFrm
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
