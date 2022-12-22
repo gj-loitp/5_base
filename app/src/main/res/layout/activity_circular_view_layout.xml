@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.layout.circularView.CircularView
+    <com.loitp.views.layout.circularView.CircularView
         android:id="@+id/circularView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

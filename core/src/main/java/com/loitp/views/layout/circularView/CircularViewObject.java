@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.circularView;
+package com.loitp.views.layout.circularView;
 
 import android.content.Context;
 import android.graphics.Bitmap;
