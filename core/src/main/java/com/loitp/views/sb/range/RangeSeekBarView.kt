@@ -10,7 +10,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.ColorInt
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.roundToInt

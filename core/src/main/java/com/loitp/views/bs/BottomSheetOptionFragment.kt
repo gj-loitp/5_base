@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.loitp.R
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.R
 import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.*
 
 /**

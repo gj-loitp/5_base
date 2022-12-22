@@ -7,6 +7,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
@@ -15,7 +16,6 @@ import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
-import com.loitpcore.R
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.l_a_flickr_member_detail.*
 

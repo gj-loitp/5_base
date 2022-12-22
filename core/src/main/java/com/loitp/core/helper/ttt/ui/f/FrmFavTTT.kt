@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

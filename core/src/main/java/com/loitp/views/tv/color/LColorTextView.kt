@@ -5,7 +5,7 @@ import android.text.Html
 import android.text.TextUtils
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.min
 
 /**

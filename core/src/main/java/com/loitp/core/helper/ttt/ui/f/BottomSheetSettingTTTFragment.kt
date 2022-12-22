@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseBottomSheetFragment
-import com.loitpcore.R
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_f_ttt_setting.*

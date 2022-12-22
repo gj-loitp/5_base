@@ -18,7 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
 import com.github.mmin18.widget.RealtimeBlurView;
-import com.loitpcore.R;
+import com.loitp.R;
 import com.loitp.core.utilities.LUIUtil;
 import com.loitp.views.layout.floatDrag.DisplayUtil;
 import com.nineoldandroids.animation.Animator;

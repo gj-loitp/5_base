@@ -22,7 +22,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import com.loitpcore.R;
+import com.loitp.R;
 
 import java.lang.ref.WeakReference;
 import java.util.UUID;

@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.func.epub.core.EpubReaderReadActivity
 import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.model.BookInfoData

@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.GlideImageViewFactory
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.core.common.Constants
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitp.core.utilities.LDialogUtil

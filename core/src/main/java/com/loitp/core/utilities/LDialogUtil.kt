@@ -13,7 +13,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.viewpager.widget.ViewPager
 import com.daimajia.androidanimations.library.Techniques
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.views.dlg.slideImages.LSlideAdapter
 import com.loitp.views.loading.window.WP10ProgressBar
 

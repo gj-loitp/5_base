@@ -3,7 +3,7 @@ package com.loitp.views.rv.fitGridView
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.GridView
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

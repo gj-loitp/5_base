@@ -26,7 +26,7 @@ import androidx.core.content.ContextCompat
 import com.loitp.animation.morphTransitions.AnimUtils.getFastOutLinearInInterpolator
 import com.loitp.animation.morphTransitions.AnimUtils.getFastOutSlowInInterpolator
 import com.loitp.animation.morphTransitions.AnimUtils.getLinearOutSlowInInterpolator
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.hypot
 
 class FabTransform : Transition {

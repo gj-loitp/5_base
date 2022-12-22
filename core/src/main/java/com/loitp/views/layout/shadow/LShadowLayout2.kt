@@ -7,8 +7,8 @@ import android.graphics.Color
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.core.view.ViewCompat
+import com.loitp.R
 import com.loitp.core.utilities.LAppResource
-import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022

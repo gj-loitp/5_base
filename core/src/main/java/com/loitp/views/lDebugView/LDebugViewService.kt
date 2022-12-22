@@ -17,7 +17,7 @@ import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.R
+import com.loitp.R
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode

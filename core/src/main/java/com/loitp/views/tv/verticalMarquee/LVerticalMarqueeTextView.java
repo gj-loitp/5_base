@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.loitpcore.R;
+import com.loitp.R;
 import com.loitp.core.utilities.LAppResource;
 
 import kotlin.Suppress;

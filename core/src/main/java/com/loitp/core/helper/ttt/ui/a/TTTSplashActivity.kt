@@ -5,12 +5,12 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.R
 import com.permissionx.guolindev.PermissionX
 
 /**

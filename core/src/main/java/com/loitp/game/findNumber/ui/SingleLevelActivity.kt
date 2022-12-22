@@ -14,7 +14,7 @@ import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.game.findNumber.adapter.LevelAdapter
 import com.loitp.game.findNumber.model.Level
 import com.loitp.game.findNumber.viewModel.FindNumberViewModel

@@ -4,7 +4,7 @@ import android.content.res.TypedArray
 import android.graphics.Path
 import android.view.View
 import android.view.ViewGroup
-import com.loitpcore.R
+import com.loitp.R
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
 

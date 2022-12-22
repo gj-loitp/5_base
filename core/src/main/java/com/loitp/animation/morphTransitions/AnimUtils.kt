@@ -6,7 +6,7 @@ import android.content.Context
 import android.util.ArrayMap
 import android.view.animation.AnimationUtils
 import android.view.animation.Interpolator
-import com.loitpcore.R
+import com.loitp.R
 
 internal object AnimUtils {
     private var fastOutSlowIn: Interpolator? = null

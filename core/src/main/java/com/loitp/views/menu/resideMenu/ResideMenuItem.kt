@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.loitp.R
 import com.loitp.core.utilities.LUIUtil.Companion.setTextShadow
 import com.loitp.core.utilities.LUIUtil.Companion.setTextSize
 import com.loitp.core.utils.ConvertUtils
-import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022

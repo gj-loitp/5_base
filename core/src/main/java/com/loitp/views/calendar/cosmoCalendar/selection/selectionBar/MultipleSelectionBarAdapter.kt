@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.views.calendar.cosmoCalendar.model.Day
 import com.loitp.views.calendar.cosmoCalendar.view.CalendarView
 import com.loitp.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

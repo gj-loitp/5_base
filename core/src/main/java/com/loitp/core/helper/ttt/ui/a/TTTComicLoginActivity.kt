@@ -6,7 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

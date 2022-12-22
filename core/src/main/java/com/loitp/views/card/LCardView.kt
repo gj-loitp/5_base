@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import com.loitp.R
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022

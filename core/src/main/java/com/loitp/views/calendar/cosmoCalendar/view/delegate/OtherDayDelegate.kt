@@ -2,7 +2,7 @@ package com.loitp.views.calendar.cosmoCalendar.view.delegate
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder.OtherDayHolder
 import com.loitp.views.calendar.cosmoCalendar.model.Day
 import com.loitp.views.calendar.cosmoCalendar.view.CalendarView

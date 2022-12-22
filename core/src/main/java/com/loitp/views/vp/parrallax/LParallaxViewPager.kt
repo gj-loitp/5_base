@@ -13,7 +13,7 @@ import android.view.animation.AnimationUtils
 import android.view.animation.Interpolator
 import android.view.animation.LinearInterpolator
 import androidx.viewpager.widget.ViewPager
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

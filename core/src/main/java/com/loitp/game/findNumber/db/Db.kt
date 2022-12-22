@@ -1,6 +1,6 @@
 package com.loitp.game.findNumber.db
 
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.game.findNumber.model.Level
 
 /**

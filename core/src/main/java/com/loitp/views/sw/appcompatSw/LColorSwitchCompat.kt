@@ -5,7 +5,7 @@ import android.graphics.Color
 import android.util.AttributeSet
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.graphics.drawable.DrawableCompat
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

@@ -9,7 +9,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.core.utilities.LImageUtil
 
 class LFlySchoolView : RelativeLayout, ShapeSetter {

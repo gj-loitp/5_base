@@ -8,7 +8,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatImageView
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.abs
 
 /**

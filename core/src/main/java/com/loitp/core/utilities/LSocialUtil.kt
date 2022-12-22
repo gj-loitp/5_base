@@ -6,7 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.core.common.Constants
 import com.loitp.core.helper.fbComment.FbCommentActivity
 import com.loitp.core.utils.AppUtils

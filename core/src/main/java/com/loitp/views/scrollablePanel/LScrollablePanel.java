@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.loitpcore.R;
+import com.loitp.R;
 
 import java.util.HashSet;
 import java.util.Objects;

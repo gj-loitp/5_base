@@ -21,7 +21,7 @@ import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
-import com.loitpcore.R
+import com.loitp.R
 import kotlinx.android.synthetic.main.l_i_flickr_photos_core_only.view.*
 import java.util.*
 

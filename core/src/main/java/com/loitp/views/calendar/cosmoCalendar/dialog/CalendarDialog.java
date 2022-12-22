@@ -15,7 +15,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
-import com.loitpcore.R;
+import com.loitp.R;
 import com.loitp.views.calendar.cosmoCalendar.model.Day;
 import com.loitp.views.calendar.cosmoCalendar.settings.appearance.AppearanceInterface;
 import com.loitp.views.calendar.cosmoCalendar.settings.date.DateInterface;

@@ -19,7 +19,7 @@ import android.widget.AdapterView;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Px;
 
-import com.loitpcore.R;
+import com.loitp.R;
 
 import kotlin.Suppress;
 

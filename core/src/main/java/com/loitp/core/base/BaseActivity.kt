@@ -16,8 +16,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.*
-import com.loitpcore.BuildConfig
-import com.loitpcore.R
+import com.loitp.BuildConfig
+import com.loitp.R
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LUIUtil.Companion.allowInfiniteLines

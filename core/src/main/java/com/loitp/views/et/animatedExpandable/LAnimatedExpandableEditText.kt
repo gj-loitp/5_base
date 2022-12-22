@@ -10,7 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
 import androidx.appcompat.widget.AppCompatEditText
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

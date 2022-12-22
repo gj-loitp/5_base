@@ -9,8 +9,8 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
+import com.loitp.R
 import com.loitp.core.utilities.LAppResource.getColor
-import com.loitpcore.R
 import kotlin.math.abs
 
 /**

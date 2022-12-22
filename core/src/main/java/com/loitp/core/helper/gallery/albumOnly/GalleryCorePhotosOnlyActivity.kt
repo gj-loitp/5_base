@@ -24,7 +24,7 @@ import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
 import com.loitp.restApi.restClient.RestClient
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
 import com.permissionx.guolindev.PermissionX
 import io.reactivex.android.schedulers.AndroidSchedulers

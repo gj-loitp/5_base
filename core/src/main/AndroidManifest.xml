@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.REBOOT" />
+    <uses-permission
+        android:name="android.permission.REBOOT"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
@@ -43,12 +45,6 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/LightTheme"
         android:usesCleartextTraffic="true">
-
-        <!--        <provider-->
-        <!--            android:name=".function.pump.download.DownloadProvider"-->
-        <!--            android:authorities="${applicationId}.function.pump.download.DownloadProvider"-->
-        <!--            android:exported="false"-->
-        <!--            android:multiprocess="true" />-->
 
         <!-- support 18:9 -->
         <meta-data
@@ -124,15 +120,15 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.helper.ttt.ui.a.TTTSplashActivity"
+            android:name="com.loitp.core.helper.ttt.ui.a.TTTSplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.helper.ttt.ui.a.TTTComicLoginActivity"
+            android:name="com.loitp.core.helper.ttt.ui.a.TTTComicLoginActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.helper.ttt.ui.a.TTTComicActivity"
+            android:name="com.loitp.core.helper.ttt.ui.a.TTTComicActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing" />

@@ -3,8 +3,8 @@ package com.loitp.views.layout.heart
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
+import com.loitp.R
 import com.loitp.views.layout.heart.AbstractPathAnimator.Config.Companion.fromTypeArray
-import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022

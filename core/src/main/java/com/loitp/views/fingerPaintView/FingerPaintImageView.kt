@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatImageView
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.abs
 
 class FingerPaintImageView @JvmOverloads constructor(

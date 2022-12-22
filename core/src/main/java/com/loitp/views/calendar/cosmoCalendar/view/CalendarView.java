@@ -28,7 +28,7 @@ import androidx.recyclerview.widget.SimpleItemAnimator;
 
 import com.loitp.views.calendar.cosmoCalendar.view.customViews.SquareTextView;
 import com.loitp.views.calendar.cosmoCalendar.view.delegate.MonthDelegate;
-import com.loitpcore.R;
+import com.loitp.R;
 import com.loitp.core.utilities.LAppResource;
 import com.loitp.views.calendar.cosmoCalendar.FetchMonthsAsyncTask;
 import com.loitp.views.calendar.cosmoCalendar.adapter.MonthAdapter;

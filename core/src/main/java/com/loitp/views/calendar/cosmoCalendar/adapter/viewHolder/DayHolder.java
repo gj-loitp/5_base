@@ -3,7 +3,7 @@ package com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder;
 import android.content.res.Resources;
 import android.view.View;
 
-import com.loitpcore.R;
+import com.loitp.R;
 import com.loitp.views.calendar.cosmoCalendar.model.Day;
 import com.loitp.views.calendar.cosmoCalendar.selection.BaseSelectionManager;
 import com.loitp.views.calendar.cosmoCalendar.selection.RangeSelectionManager;

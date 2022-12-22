@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.google.gson.annotations.SerializedName;
-import com.loitpcore.R;
+import com.loitp.R;
 
 import java.util.ArrayList;
 

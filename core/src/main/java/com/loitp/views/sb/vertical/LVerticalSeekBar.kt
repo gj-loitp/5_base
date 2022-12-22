@@ -11,7 +11,7 @@ import android.view.MotionEvent
 import android.widget.ProgressBar
 import androidx.appcompat.widget.AppCompatSeekBar
 import androidx.core.view.ViewCompat
-import com.loitpcore.R
+import com.loitp.R
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 

@@ -32,7 +32,7 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.loitpcore.R;
+import com.loitp.R;
 
 import org.jetbrains.annotations.NotNull;
 

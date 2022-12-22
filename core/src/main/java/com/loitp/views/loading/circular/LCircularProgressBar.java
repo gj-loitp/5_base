@@ -22,7 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.annotation.StyleRes;
 
-import com.loitpcore.R;
+import com.loitp.R;
 
 import kotlin.Suppress;
 

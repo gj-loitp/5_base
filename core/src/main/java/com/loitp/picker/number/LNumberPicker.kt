@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.RelativeLayout
-import com.loitpcore.R
+import com.loitp.R
 import kotlinx.android.synthetic.main.l_v_number_picker.view.*
 
 /**

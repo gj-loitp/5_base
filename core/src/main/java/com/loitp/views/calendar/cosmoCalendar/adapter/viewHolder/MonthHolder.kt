@@ -9,7 +9,7 @@ import com.loitp.views.calendar.cosmoCalendar.adapter.DaysAdapter
 import com.loitp.views.calendar.cosmoCalendar.model.Month
 import com.loitp.views.calendar.cosmoCalendar.settings.SettingsManager
 import com.loitp.views.calendar.cosmoCalendar.view.MonthView
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

@@ -14,8 +14,8 @@ import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.widget.AppCompatTextView
 import com.loitp.core.utilities.LAppResource
-import com.loitpcore.BuildConfig
-import com.loitpcore.R
+import com.loitp.BuildConfig
+import com.loitp.R
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewConfiguration
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.max
 import kotlin.math.min
 

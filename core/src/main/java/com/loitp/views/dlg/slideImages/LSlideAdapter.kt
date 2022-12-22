@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import com.loitp.core.utilities.LImageUtil
-import com.loitpcore.R
+import com.loitp.R
 import kotlinx.android.synthetic.main.l_f_image_slide.view.*
 
 /**

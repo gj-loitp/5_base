@@ -9,7 +9,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatImageView
 import com.loitp.core.utilities.LAppResource.getColor
-import com.loitpcore.R
+import com.loitp.R
 import timber.log.Timber
 import kotlin.math.abs
 

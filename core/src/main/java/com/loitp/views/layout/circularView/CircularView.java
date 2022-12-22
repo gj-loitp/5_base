@@ -19,7 +19,7 @@ import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
 
-import com.loitpcore.R;
+import com.loitp.R;
 import com.loitp.core.utilities.LAppResource;
 
 import java.util.ArrayList;

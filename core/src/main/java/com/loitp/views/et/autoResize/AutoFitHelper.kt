@@ -8,8 +8,8 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
+import com.loitp.R
 import com.loitp.core.utilities.LLog
-import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022

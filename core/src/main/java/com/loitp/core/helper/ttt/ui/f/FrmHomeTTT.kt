@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.ttt.helper.ComicUtils
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
-import com.loitpcore.R
+import com.loitp.R
 import kotlinx.android.synthetic.main.l_f_ttt_comic_home.*
 
 /**

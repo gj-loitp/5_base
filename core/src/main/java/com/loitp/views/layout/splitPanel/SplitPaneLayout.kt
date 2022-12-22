@@ -11,7 +11,7 @@ import android.os.Parcelable
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.*
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

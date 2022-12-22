@@ -9,7 +9,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.widget.FrameLayout
 import android.widget.RelativeLayout
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.abs
 
 /**

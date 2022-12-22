@@ -3,7 +3,7 @@ package com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder
 import android.view.View
 import com.loitp.views.calendar.cosmoCalendar.model.Day
 import com.loitp.views.calendar.cosmoCalendar.view.CalendarView
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

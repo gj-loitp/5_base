@@ -13,7 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
-import com.loitpcore.R;
+import com.loitp.R;
 
 import kotlin.Suppress;
 

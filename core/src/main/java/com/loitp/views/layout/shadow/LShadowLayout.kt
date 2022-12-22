@@ -8,7 +8,7 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.widget.RelativeLayout
 import com.loitp.core.utilities.LAppResource
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.min
 
 /**

@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.R
 import com.loitp.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import com.loitp.game.findNumber.db.Db.Companion.STATUS_LEVEL_WIN
 import com.loitp.game.findNumber.model.Level

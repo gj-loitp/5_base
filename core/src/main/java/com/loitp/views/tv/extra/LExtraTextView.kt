@@ -10,7 +10,7 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.roundToInt
 
 /**

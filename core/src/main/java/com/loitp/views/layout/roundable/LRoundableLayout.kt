@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewOutlineProvider
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

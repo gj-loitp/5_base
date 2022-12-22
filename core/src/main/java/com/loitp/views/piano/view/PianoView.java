@@ -19,7 +19,7 @@ import android.view.View;
 
 import androidx.core.content.ContextCompat;
 
-import com.loitpcore.R;
+import com.loitp.R;
 import com.loitp.views.piano.entity.AutoPlayEntity;
 import com.loitp.views.piano.entity.Piano;
 import com.loitp.views.piano.entity.PianoKey;

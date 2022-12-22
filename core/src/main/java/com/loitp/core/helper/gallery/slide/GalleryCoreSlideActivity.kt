@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
@@ -13,7 +14,6 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitp.core.utilities.LSocialUtil
-import com.loitpcore.R
 import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_slide.*
 
 /**

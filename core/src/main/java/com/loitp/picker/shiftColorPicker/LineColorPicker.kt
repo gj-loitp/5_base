@@ -10,7 +10,7 @@ import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.roundToInt
 
 class LineColorPicker(

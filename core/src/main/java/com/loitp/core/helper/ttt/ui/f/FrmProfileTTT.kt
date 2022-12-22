@@ -3,11 +3,11 @@ package com.loitp.core.helper.ttt.ui.f
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.ttt.ui.a.TTTComicActivity
-import com.loitpcore.R
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LImageUtil
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation

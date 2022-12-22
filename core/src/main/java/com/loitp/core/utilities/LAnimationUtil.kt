@@ -5,7 +5,7 @@ import android.view.View
 import android.view.animation.*
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.random.Random
 
 /**

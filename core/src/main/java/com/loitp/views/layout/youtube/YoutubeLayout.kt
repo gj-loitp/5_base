@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.core.view.MotionEventCompat
 import androidx.core.view.ViewCompat
 import androidx.customview.widget.ViewDragHelper
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min

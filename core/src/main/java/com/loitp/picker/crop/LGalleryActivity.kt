@@ -11,13 +11,13 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil.Companion.tranOut
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utils.ConvertUtils
-import com.loitpcore.R
 import kotlinx.android.synthetic.main.l_a_l_gallery.*
 import java.io.File
 

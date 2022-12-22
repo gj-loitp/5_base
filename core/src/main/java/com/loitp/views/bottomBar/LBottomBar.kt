@@ -8,10 +8,10 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
 import com.github.mmin18.widget.RealtimeBlurView
+import com.loitp.R
 import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.R
 import kotlinx.android.synthetic.main.l_v_bottom_bar.view.*
 
 /**

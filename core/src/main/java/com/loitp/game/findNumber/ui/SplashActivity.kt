@@ -13,7 +13,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.R
+import com.loitp.R
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_a_find_number_splash.*
 

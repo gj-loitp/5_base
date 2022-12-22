@@ -9,7 +9,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.google.android.material.card.MaterialCardView
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

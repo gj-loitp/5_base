@@ -8,7 +8,7 @@ import android.text.StaticLayout
 import android.text.TextPaint
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

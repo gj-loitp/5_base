@@ -25,7 +25,7 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 
-import com.loitpcore.R;
+import com.loitp.R;
 import com.loitp.core.utilities.LAppResource;
 import com.loitp.views.wwl.music.utils.LWWLMusicIllegal;
 

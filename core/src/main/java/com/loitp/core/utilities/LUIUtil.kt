@@ -34,7 +34,7 @@ import com.google.android.material.shape.CornerFamily
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utils.ConvertUtils

@@ -13,8 +13,8 @@ import com.bumptech.glide.load.Transformation
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
+import com.loitp.R
 import com.loitp.core.common.Constants
-import com.loitpcore.R
 import com.loitp.core.utils.FileUtils
 import com.ortiz.touchview.TouchImageView
 import java.io.File

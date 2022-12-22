@@ -11,8 +11,8 @@ import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.loitpcore.BuildConfig
-import com.loitpcore.R
+import com.loitp.BuildConfig
+import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LLog

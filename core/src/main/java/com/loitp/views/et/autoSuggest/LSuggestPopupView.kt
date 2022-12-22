@@ -11,7 +11,7 @@ import androidx.appcompat.widget.LinearLayoutCompat
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.ConvertUtils
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.hypot
 import kotlin.math.max
 

@@ -3,7 +3,7 @@ package com.loitp.views.tv.extra
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

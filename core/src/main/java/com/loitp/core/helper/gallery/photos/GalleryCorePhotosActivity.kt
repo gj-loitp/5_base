@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity

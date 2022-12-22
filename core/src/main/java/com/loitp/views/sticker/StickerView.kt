@@ -14,9 +14,9 @@ import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
+import com.loitp.R
 import com.loitp.core.utilities.LLog
 import com.loitp.core.utilities.LUIUtil.Companion.isDarkTheme
-import com.loitpcore.R
 import kotlin.math.*
 
 /**

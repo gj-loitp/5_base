@@ -3,7 +3,7 @@ package com.loitp.core.helper.more
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.helper.adHelper.AdHelperActivity

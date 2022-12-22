@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseBottomSheetFragment
 import com.loitp.core.common.Constants
 import com.loitp.core.helper.adHelper.AdHelperActivity
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
 import kotlinx.android.synthetic.main.l_f_ttt_information.*

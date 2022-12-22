@@ -6,7 +6,7 @@ import android.graphics.Color
 import android.util.AttributeSet
 import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatTextView
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.core.utilities.LUIUtil
 
 /**

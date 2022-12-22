@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.ViewGroup
-import com.loitpcore.R
+import com.loitp.R
 import java.util.*
 import kotlin.math.max
 import kotlin.math.min

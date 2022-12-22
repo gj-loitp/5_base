@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.views.calendar.cosmoCalendar.adapter.MonthAdapter
 import com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder.DayHolder
 import com.loitp.views.calendar.cosmoCalendar.model.Day

@@ -3,8 +3,8 @@ package com.loitp.animation.flySchool
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
+import com.loitp.R
 import com.loitp.animation.flySchool.Utils.setHeart
-import com.loitpcore.R
 
 class AppCompatShapeView : AppCompatImageView, ShapeSetter {
     constructor(context: Context) : super(context) {

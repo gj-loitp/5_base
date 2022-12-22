@@ -12,7 +12,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.min
 
 /**

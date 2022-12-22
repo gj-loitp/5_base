@@ -11,10 +11,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.appcompat.app.AppCompatActivity
+import com.loitp.R
 import com.loitp.core.utilities.LAppResource
 import com.loitp.views.tv.selectable.CommonUtil.dpTpPx
 import com.loitp.views.tv.selectable.CustomTextView.OnCursorStateChangedListener
-import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022

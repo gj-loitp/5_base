@@ -26,7 +26,7 @@ import com.google.android.exoplayer2.video.VideoListener
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utils.AppUtils
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

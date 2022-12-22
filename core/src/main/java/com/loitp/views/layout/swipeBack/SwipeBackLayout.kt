@@ -15,13 +15,13 @@ import androidx.annotation.IntRange
 import androidx.core.view.MotionEventCompat
 import androidx.core.view.ViewCompat
 import androidx.customview.widget.ViewDragHelper
+import com.loitp.R
 import com.loitp.views.layout.swipeBack.tools.Util.canViewScrollDown
 import com.loitp.views.layout.swipeBack.tools.Util.canViewScrollLeft
 import com.loitp.views.layout.swipeBack.tools.Util.canViewScrollRight
 import com.loitp.views.layout.swipeBack.tools.Util.canViewScrollUp
 import com.loitp.views.layout.swipeBack.tools.Util.contains
 import com.loitp.views.layout.swipeBack.tools.Util.findAllScrollViews
-import com.loitpcore.R
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min

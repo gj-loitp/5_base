@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
@@ -17,7 +18,6 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.AppUtils
-import com.loitpcore.R
 import com.manojbhadane.QButton
 import kotlinx.android.synthetic.main.l_a_ad_helper.*
 

@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag

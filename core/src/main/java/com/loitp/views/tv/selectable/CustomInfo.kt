@@ -3,7 +3,7 @@ package com.loitp.views.tv.selectable
 import android.text.Spannable
 import android.text.Spanned
 import android.text.style.CharacterStyle
-import com.loitpcore.BuildConfig
+import com.loitp.BuildConfig
 import kotlin.math.max
 import kotlin.math.min
 

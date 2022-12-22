@@ -8,7 +8,7 @@ import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.IntDef
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

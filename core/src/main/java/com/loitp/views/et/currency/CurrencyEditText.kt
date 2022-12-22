@@ -10,7 +10,7 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.widget.EditText
 import com.google.android.material.textfield.TextInputEditText
-import com.loitpcore.R
+import com.loitp.R
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.DecimalFormat

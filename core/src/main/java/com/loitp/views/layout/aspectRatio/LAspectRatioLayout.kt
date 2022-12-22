@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.roundToInt
 
 /**

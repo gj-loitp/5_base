@@ -5,12 +5,12 @@ import android.view.View
 import android.view.WindowManager
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseBottomSheetFragment
 import com.loitp.core.helper.ttt.adapter.TTTTypeAdapter
 import com.loitp.core.helper.ttt.helper.ComicUtils
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
-import com.loitpcore.R
 import kotlinx.android.synthetic.main.l_f_ttt_select_type.*
 
 /**

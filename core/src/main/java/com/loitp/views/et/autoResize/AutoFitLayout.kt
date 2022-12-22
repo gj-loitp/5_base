@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
-import com.loitpcore.R
+import com.loitp.R
 import java.util.*
 
 /**

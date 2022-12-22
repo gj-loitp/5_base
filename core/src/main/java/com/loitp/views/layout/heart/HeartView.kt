@@ -5,7 +5,7 @@ import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

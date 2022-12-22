@@ -13,8 +13,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
+import com.loitp.R
 import com.loitp.core.utilities.LAppResource
-import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022

@@ -10,7 +10,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
-import com.loitpcore.R
+import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment

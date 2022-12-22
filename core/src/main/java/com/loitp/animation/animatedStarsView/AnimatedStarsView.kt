@@ -4,12 +4,12 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.View
+import com.loitp.R
 import com.loitp.animation.animatedStarsView.entities.InterstellarFactory
 import com.loitp.animation.animatedStarsView.entities.Star
 import com.loitp.animation.animatedStarsView.entities.StarConstraints
 import com.loitp.animation.animatedStarsView.entities.meteor.Meteorite
 import com.loitp.animation.animatedStarsView.entities.stars.BaseStar
-import com.loitpcore.R
 import java.util.*
 import java.util.concurrent.Executors
 import kotlin.concurrent.timerTask

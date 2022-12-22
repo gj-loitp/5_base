@@ -6,7 +6,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
 import androidx.core.view.GravityCompat
-import com.loitpcore.R
+import com.loitp.R
 import kotlin.math.max
 
 /**

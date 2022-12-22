@@ -13,7 +13,7 @@ import android.view.ScaleGestureDetector
 import android.view.animation.DecelerateInterpolator
 import androidx.core.view.GestureDetectorCompat
 import com.loitp.views.lv.LListView
-import com.loitpcore.R
+import com.loitp.R
 import java.util.*
 
 /**

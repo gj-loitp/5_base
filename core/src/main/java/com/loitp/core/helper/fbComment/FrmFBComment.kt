@@ -12,8 +12,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
-import com.loitpcore.BuildConfig
-import com.loitpcore.R
+import com.loitp.BuildConfig
+import com.loitp.R
+
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.common.Constants

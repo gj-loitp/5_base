@@ -20,6 +20,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.daimajia.androidanimations.library.Techniques
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
@@ -36,7 +37,6 @@ import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.model.BookInfoData
 import com.loitp.func.epub.viewmodels.EpubViewModel
 import com.loitp.views.wv.LWebViewAdblock
-import com.loitpcore.R
 import kotlinx.android.synthetic.main.l_a_epub_reader_read.*
 
 /**

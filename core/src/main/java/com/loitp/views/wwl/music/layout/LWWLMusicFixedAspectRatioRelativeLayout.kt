@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 05,August,2022

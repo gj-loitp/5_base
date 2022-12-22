@@ -8,7 +8,7 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
-import com.loitpcore.R
+import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.loitpcore.R;
+import com.loitp.R;
 
 import kotlin.Suppress;
 

@@ -1,6 +1,7 @@
 package com.loitp.game.findNumber.ui
 
 import android.os.Bundle
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
@@ -9,7 +10,6 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LScreenUtil
-import com.loitpcore.R
 import com.loitp.game.findNumber.model.Level
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_a_find_number_single_play.*

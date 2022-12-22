@@ -17,7 +17,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.loitp.views.layout.draggablePanel.transformer.Transformer;
 import com.loitp.views.layout.draggablePanel.transformer.TransformerFactory;
-import com.loitpcore.R;
+import com.loitp.R;
 import com.nineoldandroids.view.ViewHelper;
 
 import kotlin.Suppress;

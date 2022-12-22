@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.loitpcore.R;
+import com.loitp.R;
 
 import org.jetbrains.annotations.NotNull;
 

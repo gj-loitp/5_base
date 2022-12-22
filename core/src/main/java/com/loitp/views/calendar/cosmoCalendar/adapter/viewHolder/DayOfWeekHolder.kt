@@ -1,10 +1,10 @@
 package com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder
 
 import android.view.View
+import com.loitp.R
 import com.loitp.views.calendar.cosmoCalendar.model.Day
 import com.loitp.views.calendar.cosmoCalendar.utils.Constants
 import com.loitp.views.calendar.cosmoCalendar.view.CalendarView
-import com.loitpcore.R
 import java.text.SimpleDateFormat
 import java.util.*
 
