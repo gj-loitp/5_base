@@ -9,8 +9,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivity
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.layout.floatDrag.DisplayUtil
-import com.loitpcore.views.layout.floatDrag.FloatDragLayout
+import com.loitp.views.layout.floatDrag.DisplayUtil
+import com.loitp.views.layout.floatDrag.FloatDragLayout
 import kotlinx.android.synthetic.main.activity_0.*
 import vn.loitp.app.R
 

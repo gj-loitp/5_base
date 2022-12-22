@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.floatDrag
+package com.loitp.views.layout.floatDrag
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -52,6 +52,7 @@ object DisplayUtil {
         return context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
     }
 
+    @SuppressLint("DiscouragedApi", "InternalInsetResource")
     @JvmStatic
     fun getStatusHeight(context: Context): Int {
         var statusHeight = -1
@@ -71,6 +72,7 @@ object DisplayUtil {
         return statusHeight
     }
 
+    @SuppressLint("InternalInsetResource", "DiscouragedApi")
     @JvmStatic
     fun getNavigationBarHeight(context: Context): Int {
         var result = 0
@@ -84,6 +86,7 @@ object DisplayUtil {
         return result
     }
 
+    @SuppressLint("DiscouragedApi")
     @Suppress("unused")
     fun hasNavBar(context: Context): Boolean {
         val res = context.resources
@@ -118,12 +121,18 @@ object DisplayUtil {
             return sNavBarOverride
         }
 
-    fun dp2px(context: Context, dps: Int): Int {
+    fun dp2px(
+        context: Context,
+        dps: Int
+    ): Int {
         return (dps.toFloat() * getDensityDpiScale(context)).roundToInt()
     }
 
     @Suppress("unused")
-    fun px2dp(context: Context, pixels: Int): Int {
+    fun px2dp(
+        context: Context,
+        pixels: Int
+    ): Int {
         return (pixels.toFloat() / getDensityDpiScale(context)).roundToInt()
     }
 
@@ -131,7 +140,10 @@ object DisplayUtil {
         return context.resources.displayMetrics.xdpi / 160.0f
     }
 
-    fun applyDimension(unit: Int, value: Float): Int {
+    fun applyDimension(
+        unit: Int,
+        value: Float
+    ): Int {
         return TypedValue.applyDimension(unit, value, Resources.getSystem().displayMetrics).toInt()
     }
 }

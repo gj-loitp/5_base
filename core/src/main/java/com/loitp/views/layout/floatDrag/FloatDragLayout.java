@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.floatDrag;
+package com.loitp.views.layout.floatDrag;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
