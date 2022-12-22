@@ -1,14 +1,13 @@
 package vn.loitp.app.activity.game
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.game.findNumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_menu.lActionBar
 import kotlinx.android.synthetic.main.activity_menu_game.*
 import vn.loitp.app.R
@@ -43,6 +42,7 @@ class MenuGameActivity : BaseFontActivity(), View.OnClickListener {
             this.tvTitle?.text = MenuGameActivity::class.java.simpleName
         }
 
+        btFindNumber.setOnClickListener(this)
         btOsero.setOnClickListener(this)
         btPong.setOnClickListener(this)
         btPuzzle.setOnClickListener(this)
@@ -50,21 +50,11 @@ class MenuGameActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        val intent = when (v) {
-            btOsero -> {
-                Intent(this, TopOseroActivity::class.java)
-            }
-            btPong -> {
-                Intent(this, PongMainActivity::class.java)
-            }
-            btPuzzle -> {
-                Intent(this, BoardOptionsActivity::class.java)
-            }
-            else -> null
-        }
-        intent?.let {
-            startActivity(it)
-            LActivityUtil.tranIn(this)
+        when (v) {
+            btFindNumber -> launchActivity(SplashActivity::class.java)
+            btOsero -> launchActivity(TopOseroActivity::class.java)
+            btPong -> launchActivity(PongMainActivity::class.java)
+            btPuzzle -> launchActivity(BoardOptionsActivity::class.java)
         }
     }
 }

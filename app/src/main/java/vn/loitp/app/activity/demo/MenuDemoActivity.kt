@@ -12,7 +12,6 @@ import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity
 import com.loitp.core.helper.gallery.member.GalleryMemberActivity
 import com.loitp.core.helper.ttt.ui.a.TTTSplashActivity
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.game.findNumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_menu_demo.*
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
@@ -92,7 +91,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btArchitectureComponent.setOnClickListener(this)
         btNFC.setOnClickListener(this)
         btMapTracker.setOnClickListener(this)
-        btFindNumber.setOnClickListener(this)
         btTTT.setOnClickListener(this)
         btRSS.setOnClickListener(this)
         btTrackingG1.setOnClickListener(this)
@@ -145,7 +143,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btArchitectureComponent -> launchActivity(MenuAndroidArchitectureComponentActivity::class.java)
             btNFC -> launchActivity(NFCActivity::class.java)
             btMapTracker -> launchActivity(MapTrackerActivity::class.java)
-            btFindNumber -> launchActivity(SplashActivity::class.java)
             btTTT -> launchActivity(TTTSplashActivity::class.java)
             btRSS -> launchActivity(RSSActivity::class.java)
             btTrackingG1 -> launchActivity(TrackingG1Activity::class.java)

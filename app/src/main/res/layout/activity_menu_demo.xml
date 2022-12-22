@@ -129,11 +129,6 @@
                 android:id="@+id/btTTT"
                 style="@style/ButtonMenu"
                 android:text="@string/truyentranhtuan" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btFindNumber"
-                style="@style/ButtonMenu"
-                android:text="@string/find_number" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
