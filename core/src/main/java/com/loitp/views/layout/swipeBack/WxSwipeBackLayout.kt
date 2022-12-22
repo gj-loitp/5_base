@@ -1,10 +1,10 @@
-package com.loitpcore.views.layout.swipeBack
+package com.loitp.views.layout.swipeBack
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import com.loitpcore.views.layout.swipeBack.tools.Util.onPanelReset
-import com.loitpcore.views.layout.swipeBack.tools.Util.onPanelSlide
+import com.loitp.views.layout.swipeBack.tools.Util.onPanelReset
+import com.loitp.views.layout.swipeBack.tools.Util.onPanelSlide
 
 /**
  * Created by Loitp on 04,August,2022

@@ -16,7 +16,7 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:titleTextColor="?attr/themeTextColor" />
 
-    <com.loitpcore.views.layout.swipeReveal.LSwipeRevealLayout
+    <com.loitp.views.layout.swipeReveal.LSwipeRevealLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="@dimen/margin_padding_medium"
@@ -61,9 +61,9 @@
                 android:text="@string/my_awesome_layout_1"
                 android:textColor="@color/black" />
         </FrameLayout>
-    </com.loitpcore.views.layout.swipeReveal.LSwipeRevealLayout>
+    </com.loitp.views.layout.swipeReveal.LSwipeRevealLayout>
 
-    <com.loitpcore.views.layout.swipeReveal.LSwipeRevealLayout
+    <com.loitp.views.layout.swipeReveal.LSwipeRevealLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="@dimen/margin_padding_medium"
@@ -109,9 +109,9 @@
                 android:text="@string/my_awesome_layout_2"
                 android:textColor="@color/black" />
         </FrameLayout>
-    </com.loitpcore.views.layout.swipeReveal.LSwipeRevealLayout>
+    </com.loitp.views.layout.swipeReveal.LSwipeRevealLayout>
 
-    <com.loitpcore.views.layout.swipeReveal.LSwipeRevealLayout
+    <com.loitp.views.layout.swipeReveal.LSwipeRevealLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="@dimen/margin_padding_medium"
@@ -148,9 +148,9 @@
                 android:text="@string/my_awesome_layout_3"
                 android:textColor="@color/black" />
         </FrameLayout>
-    </com.loitpcore.views.layout.swipeReveal.LSwipeRevealLayout>
+    </com.loitp.views.layout.swipeReveal.LSwipeRevealLayout>
 
-    <com.loitpcore.views.layout.swipeReveal.LSwipeRevealLayout
+    <com.loitp.views.layout.swipeReveal.LSwipeRevealLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="@dimen/margin_padding_medium"
@@ -187,5 +187,5 @@
                 android:text="@string/my_awesome_layout_4"
                 android:textColor="@color/black" />
         </FrameLayout>
-    </com.loitpcore.views.layout.swipeReveal.LSwipeRevealLayout>
+    </com.loitp.views.layout.swipeReveal.LSwipeRevealLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

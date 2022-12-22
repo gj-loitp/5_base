@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.swipeReveal;
+package com.loitp.views.layout.swipeReveal;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

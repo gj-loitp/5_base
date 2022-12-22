@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.loitp.views.toast.LToast;
-import com.loitpcore.views.layout.swipeReveal.LSwipeRevealLayout;
-import com.loitpcore.views.layout.swipeReveal.ViewBinderHelper;
+import com.loitp.views.layout.swipeReveal.LSwipeRevealLayout;
+import com.loitp.views.layout.swipeReveal.ViewBinderHelper;
 
 import org.jetbrains.annotations.NotNull;
 

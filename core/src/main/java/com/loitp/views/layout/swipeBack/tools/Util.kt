@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.swipeBack.tools
+package com.loitp.views.layout.swipeBack.tools
 
 import android.graphics.Rect
 import android.view.View

@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.youtube
+package com.loitp.views.layout.youtube
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -27,7 +27,7 @@ class YoutubeLayout @JvmOverloads constructor(
     defStyle: Int = 0
 ) : ViewGroup(context, attrs, defStyle) {
 
-//    private val logTag = javaClass.simpleName
+    //    private val logTag = javaClass.simpleName
     private val mDragHelper: ViewDragHelper
     private var mHeaderView: View? = null
     private var mDescView: View? = null
@@ -198,7 +198,11 @@ class YoutubeLayout @JvmOverloads constructor(
         )
     }
 
-    private fun isViewHit(view: View?, x: Int, y: Int): Boolean {
+    private fun isViewHit(
+        view: View?,
+        x: Int,
+        y: Int
+    ): Boolean {
         if (view == null) {
             return false
         }
@@ -211,7 +215,10 @@ class YoutubeLayout @JvmOverloads constructor(
         return screenX >= viewLocation[0] && screenX < viewLocation[0] + view.width && screenY >= viewLocation[1] && screenY < viewLocation[1] + view.height
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         measureChildren(widthMeasureSpec, heightMeasureSpec)
 
         val maxWidth = MeasureSpec.getSize(widthMeasureSpec)
@@ -222,7 +229,13 @@ class YoutubeLayout @JvmOverloads constructor(
         )
     }
 
-    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        l: Int,
+        t: Int,
+        r: Int,
+        b: Int
+    ) {
         mHeaderView?.let {
             mDragRange = height - it.height
 

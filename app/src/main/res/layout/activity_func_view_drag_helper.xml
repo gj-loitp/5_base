@@ -30,7 +30,7 @@
                 android:textSize="@dimen/txt_medium" />
         </androidx.core.widget.NestedScrollView>
 
-        <com.loitpcore.views.layout.youtube.YoutubeLayout
+        <com.loitp.views.layout.youtube.YoutubeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -61,6 +61,6 @@
                     android:textSize="@dimen/txt_medium" />
             </androidx.core.widget.NestedScrollView>
 
-        </com.loitpcore.views.layout.youtube.YoutubeLayout>
+        </com.loitp.views.layout.youtube.YoutubeLayout>
     </FrameLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

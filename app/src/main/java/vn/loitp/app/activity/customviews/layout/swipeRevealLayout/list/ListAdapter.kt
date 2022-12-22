@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.loitp.views.toast.LToast.showShortInformation
-import com.loitpcore.views.layout.swipeReveal.LSwipeRevealLayout
-import com.loitpcore.views.layout.swipeReveal.ViewBinderHelper
+import com.loitp.views.layout.swipeReveal.LSwipeRevealLayout
+import com.loitp.views.layout.swipeReveal.ViewBinderHelper
 import vn.loitp.app.R
 
 class ListAdapter(

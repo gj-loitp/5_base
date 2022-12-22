@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.swipeBack
+package com.loitp.views.layout.swipeBack
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -15,13 +15,13 @@ import androidx.annotation.IntRange
 import androidx.core.view.MotionEventCompat
 import androidx.core.view.ViewCompat
 import androidx.customview.widget.ViewDragHelper
+import com.loitp.views.layout.swipeBack.tools.Util.canViewScrollDown
+import com.loitp.views.layout.swipeBack.tools.Util.canViewScrollLeft
+import com.loitp.views.layout.swipeBack.tools.Util.canViewScrollRight
+import com.loitp.views.layout.swipeBack.tools.Util.canViewScrollUp
+import com.loitp.views.layout.swipeBack.tools.Util.contains
+import com.loitp.views.layout.swipeBack.tools.Util.findAllScrollViews
 import com.loitpcore.R
-import com.loitpcore.views.layout.swipeBack.tools.Util.canViewScrollDown
-import com.loitpcore.views.layout.swipeBack.tools.Util.canViewScrollLeft
-import com.loitpcore.views.layout.swipeBack.tools.Util.canViewScrollRight
-import com.loitpcore.views.layout.swipeBack.tools.Util.canViewScrollUp
-import com.loitpcore.views.layout.swipeBack.tools.Util.contains
-import com.loitpcore.views.layout.swipeBack.tools.Util.findAllScrollViews
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -69,7 +69,10 @@ open class SwipeBackLayout @JvmOverloads constructor(
     private var autoFinishedVelocityLimit = 2000f
     private var touchedEdge = ViewDragHelper.INVALID_POINTER
 
-    private fun init(context: Context, attrs: AttributeSet?) {
+    private fun init(
+        context: Context,
+        attrs: AttributeSet?
+    ) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SwipeBackLayout)
         directionMode = typedArray.getInt(R.styleable.SwipeBackLayout_directionMode, mDirectionMode)
         setSwipeBackFactor(
@@ -94,7 +97,10 @@ open class SwipeBackLayout @JvmOverloads constructor(
         decorView.addView(this)
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         val childCount = childCount
         check(childCount <= 1) { "SwipeBackLayout must contains only one direct child." }
@@ -117,7 +123,13 @@ open class SwipeBackLayout @JvmOverloads constructor(
         setMeasuredDimension(measuredWidth, measuredHeight)
     }
 
-    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        l: Int,
+        t: Int,
+        r: Int,
+        b: Int
+    ) {
         if (childCount == 0) {
             return
         }
@@ -339,7 +351,10 @@ open class SwipeBackLayout @JvmOverloads constructor(
             return true
         }
 
-    private fun backJudgeBySpeed(xvel: Float, yvel: Float): Boolean {
+    private fun backJudgeBySpeed(
+        xvel: Float,
+        yvel: Float
+    ): Boolean {
         when (mDirectionMode) {
             FROM_LEFT -> return xvel > autoFinishedVelocityLimit
             FROM_TOP -> return yvel > autoFinishedVelocityLimit

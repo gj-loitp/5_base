@@ -19,7 +19,7 @@ import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
 import com.loitp.restApi.flickr.service.FlickrService
 import com.loitp.restApi.restClient.RestClient
-import com.loitpcore.views.layout.swipeBack.SwipeBackLayout
+import com.loitp.views.layout.swipeBack.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter

@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.swipeBack.tools
+package com.loitp.views.layout.swipeBack.tools
 
 import android.app.Activity
 import android.app.Application
@@ -24,7 +24,10 @@ class WxSwipeBackActivityManager private constructor() : ActivityLifecycleCallba
         mApplication.registerActivityLifecycleCallbacks(this)
     }
 
-    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+    override fun onActivityCreated(
+        activity: Activity,
+        savedInstanceState: Bundle?
+    ) {
         mActivityStack.add(activity)
     }
 

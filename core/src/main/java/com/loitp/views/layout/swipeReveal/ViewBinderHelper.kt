@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.swipeReveal
+package com.loitp.views.layout.swipeReveal
 
 import android.os.Bundle
 import java.util.*
@@ -31,7 +31,10 @@ class ViewBinderHelper {
      * @param swipeLayout swipeLayout of the current view.
      * @param id          a string that uniquely defines the data object of the current view.
      */
-    fun bind(swipeLayout: LSwipeRevealLayout, id: String) {
+    fun bind(
+        swipeLayout: LSwipeRevealLayout,
+        id: String
+    ) {
         if (swipeLayout.shouldRequestLayout()) {
             swipeLayout.requestLayout()
         }
@@ -168,7 +171,10 @@ class ViewBinderHelper {
      * @param id          layout which bind with this data object id will be excluded.
      * @param swipeLayout will be excluded.
      */
-    private fun closeOthers(id: String, swipeLayout: LSwipeRevealLayout?) {
+    private fun closeOthers(
+        id: String,
+        swipeLayout: LSwipeRevealLayout?
+    ) {
         synchronized(stateChangeLock) {
             // close other rows if openOnlyOne is true.
             if (openCount > 1) {
@@ -186,7 +192,10 @@ class ViewBinderHelper {
         }
     }
 
-    private fun setLockSwipe(lock: Boolean, vararg id: String) {
+    private fun setLockSwipe(
+        lock: Boolean,
+        vararg id: String
+    ) {
         if (id.isEmpty()) {
             return
         }

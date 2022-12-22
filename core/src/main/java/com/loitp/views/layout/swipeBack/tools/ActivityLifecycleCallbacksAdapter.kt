@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.swipeBack.tools
+package com.loitp.views.layout.swipeBack.tools
 
 import android.app.Activity
 import android.app.Application.ActivityLifecycleCallbacks
@@ -12,11 +12,21 @@ import android.os.Bundle
  * freuss47@gmail.com
  */
 open class ActivityLifecycleCallbacksAdapter : ActivityLifecycleCallbacks {
-    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
+    override fun onActivityCreated(
+        activity: Activity,
+        savedInstanceState: Bundle?
+    ) {
+    }
+
     override fun onActivityStarted(activity: Activity) {}
     override fun onActivityResumed(activity: Activity) {}
     override fun onActivityPaused(activity: Activity) {}
     override fun onActivityStopped(activity: Activity) {}
-    override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {}
+    override fun onActivitySaveInstanceState(
+        activity: Activity,
+        outState: Bundle
+    ) {
+    }
+
     override fun onActivityDestroyed(activity: Activity) {}
 }
