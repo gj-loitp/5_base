@@ -1,4 +1,4 @@
-package com.loitpcore.views.imageView.comicView
+package com.loitp.views.iv.comicView
 
 import android.animation.Animator
 import android.animation.ValueAnimator
@@ -12,9 +12,9 @@ import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.view.animation.DecelerateInterpolator
 import androidx.core.view.GestureDetectorCompat
-import com.loitpcore.R
 import com.loitp.views.lv.LListView
-import java.util.* // ktlint-disable no-wildcard-imports
+import com.loitpcore.R
+import java.util.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -152,7 +152,10 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         removeOnListViewZoomListeners()
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         mListViewWidth = MeasureSpec.getSize(widthMeasureSpec).toFloat()
         mListViewHeight = MeasureSpec.getSize(heightMeasureSpec).toFloat()
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
@@ -342,7 +345,12 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
     }
 
     // let ListView zoom func
-    private fun zoomList(startValue: Float, endValue: Float, duration: Int, loadedPointFlag: Int) {
+    private fun zoomList(
+        startValue: Float,
+        endValue: Float,
+        duration: Int,
+        loadedPointFlag: Int
+    ) {
         if (mZoomValueAnimator == null) {
             mZoomValueAnimator = ValueAnimator()
             mZoomValueAnimator?.interpolator = DecelerateInterpolator()
@@ -447,14 +455,21 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         }
     }
 
-    private fun putPointF(dx: Float, dy: Float) {
+    private fun putPointF(
+        dx: Float,
+        dy: Float
+    ) {
         if (mLoadedPointFlag == UN_LOADED_POINT) {
             val pointF = PointF(dx, dy)
             mLinkPoints.addFirst(pointF)
         }
     }
 
-    private fun checkPointF(loadedPointFlag: Int, dx: Float, dy: Float): PointF? {
+    private fun checkPointF(
+        loadedPointFlag: Int,
+        dx: Float,
+        dy: Float
+    ): PointF? {
         val pointF: PointF? = null
         when (loadedPointFlag) {
             UN_LOADED_POINT -> putPointF(dx, dy)

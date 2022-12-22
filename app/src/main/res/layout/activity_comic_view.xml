@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.imageView.comicView.ComicView
+    <com.loitp.views.iv.comicView.ComicView
         android:id="@+id/comicView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"

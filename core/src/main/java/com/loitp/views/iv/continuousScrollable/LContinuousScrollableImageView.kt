@@ -1,4 +1,4 @@
-package com.loitpcore.views.imageView.continuousScrollable
+package com.loitp.views.iv.continuousScrollable
 
 import android.animation.ValueAnimator
 import android.app.Activity
@@ -83,7 +83,11 @@ class LContinuousScrollableImageView : LinearLayout {
     }
 
     @JvmOverloads
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int = 0) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int = 0
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -92,7 +96,11 @@ class LContinuousScrollableImageView : LinearLayout {
         init(context)
     }
 
-    private fun setViewAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
+    private fun setViewAttributes(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) {
         val typedArray = context.obtainStyledAttributes(
             attrs,
             R.styleable.LContinuousScrollableImageView,
@@ -142,7 +150,7 @@ class LContinuousScrollableImageView : LinearLayout {
      * @param context
      */
     private fun init(context: Context) {
-        inflate(context, R.layout.l_continuos_scrollable_imageview_layout, this)
+        inflate(context, R.layout.l_v_continuos_scrollable_imageview, this)
         build()
     }
 
@@ -246,8 +254,8 @@ class LContinuousScrollableImageView : LinearLayout {
         if (resourceId == -1) {
             return
         }
-        firstImage = findViewById(R.id.first_image)
-        secondImage = findViewById(R.id.second_image)
+        firstImage = findViewById(R.id.firstImage)
+        secondImage = findViewById(R.id.secondImage)
         firstImage?.setImageResource(resourceId)
         secondImage?.setImageResource(resourceId)
         setScaleType(scaleType)

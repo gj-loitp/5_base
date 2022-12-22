@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/w_65">
 
-            <com.loitpcore.views.imageView.continuousScrollable.LContinuousScrollableImageView
+            <com.loitp.views.iv.continuousScrollable.LContinuousScrollableImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:direction="right"
@@ -24,7 +24,7 @@
                 app:imageSrc="@drawable/plane"
                 app:scaleType="centerInside" />
 
-            <com.loitpcore.views.imageView.continuousScrollable.LContinuousScrollableImageView
+            <com.loitp.views.iv.continuousScrollable.LContinuousScrollableImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -32,7 +32,7 @@
                 app:duration="10000"
                 app:imageSrc="@drawable/buildings" />
 
-            <com.loitpcore.views.imageView.continuousScrollable.LContinuousScrollableImageView
+            <com.loitp.views.iv.continuousScrollable.LContinuousScrollableImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
