@@ -15,6 +15,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
+import com.loitp.views.vp.vpTransformers.*
 import com.loitpcore.views.viewPager.vpTransformers.*
 import kotlinx.android.synthetic.main.activity_view_pager_with_tablayout.*
 import vn.loitp.app.R

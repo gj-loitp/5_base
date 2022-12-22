@@ -10,12 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.viewPager.vertical.VerticalViewPager
+    <com.loitp.views.vp.vertical.VerticalViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
         tools:ignore="SpeakableTextPresentCheck">
 
-    </com.loitpcore.views.viewPager.vertical.VerticalViewPager>
+    </com.loitp.views.vp.vertical.VerticalViewPager>
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -13,7 +13,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.viewPager.parrallax.ParallaxMode
+import com.loitp.views.vp.parrallax.ParallaxMode
 import kotlinx.android.synthetic.main.activity_view_pager_parallax.*
 import vn.loitp.app.R
 

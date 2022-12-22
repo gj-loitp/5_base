@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.loitpcore.views.viewPager.lockable.LockableViewPager
+        <com.loitp.views.vp.lockable.LockableViewPager
             android:id="@+id/vp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

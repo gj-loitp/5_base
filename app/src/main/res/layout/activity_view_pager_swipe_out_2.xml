@@ -23,7 +23,7 @@
         app:tabSelectedTextColor="@color/blue"
         app:tabTextColor="@color/darkCyan" />
 
-    <com.loitpcore.views.viewPager.swipeOut.LSwipeOutViewPager
+    <com.loitp.views.vp.swipeOut.LSwipeOutViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

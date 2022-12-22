@@ -18,7 +18,7 @@ import com.loitp.core.helper.ttt.ui.f.FrmProfileTTT
 import com.loitpcore.R
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.KeyboardUtils
-import com.loitpcore.views.viewPager.vpTransformers.ZoomOutSlideTransformer
+import com.loitp.views.vp.vpTransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.MenuItemDescriptor
 import kotlinx.android.synthetic.main.l_activity_ttt_comic.*
 

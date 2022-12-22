@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.viewPager.swipeOut.LSwipeOutViewPager
+import com.loitp.views.vp.swipeOut.LSwipeOutViewPager
 import kotlinx.android.synthetic.main.activity_view_pager_swipe_out_2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewPager.autoViewPager.FrmIv.Companion.newInstance
