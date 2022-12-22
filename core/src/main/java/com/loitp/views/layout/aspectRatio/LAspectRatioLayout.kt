@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.aspectRatio
+package com.loitp.views.layout.aspectRatio
 
 import android.content.Context
 import android.util.AttributeSet
@@ -20,18 +20,22 @@ class LAspectRatioLayout : FrameLayout {
     private var widthRatio = 0f
     private var heightRatio = 0f
 
-    constructor(context: Context) :
-            super(context) {
+    constructor(context: Context) : super(context) {
         init(context, null, 0, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) :
-            super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(context, attrs, 0, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) :
-            super(context, attrs, defStyleAttr) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        @AttrRes defStyleAttr: Int
+    ) : super(context, attrs, defStyleAttr) {
         init(context, attrs, defStyleAttr, 0)
     }
 
@@ -41,8 +45,7 @@ class LAspectRatioLayout : FrameLayout {
         attrs: AttributeSet?,
         @AttrRes defStyleAttr: Int,
         @StyleRes defStyleRes: Int
-    ) :
-            super(context, attrs, defStyleAttr, defStyleRes) {
+    ) : super(context, attrs, defStyleAttr, defStyleRes) {
         init(context, attrs, defStyleAttr, defStyleRes)
     }
 
@@ -63,7 +66,10 @@ class LAspectRatioLayout : FrameLayout {
         typedArray.recycle()
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         var widthMeasureSpecFinal = widthMeasureSpec
         var heightMeasureSpecFinal = heightMeasureSpec
         var width = MeasureSpec.getSize(widthMeasureSpecFinal)

@@ -14,7 +14,7 @@
     app:strokeWidth="@dimen/w_tiny"
     tools:ignore="UnusedAttribute">
 
-    <com.loitpcore.views.layout.aspectRatio.LAspectRatioLayout
+    <com.loitp.views.layout.aspectRatio.LAspectRatioLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:arl_heightRatio="4"
@@ -53,6 +53,6 @@
             android:textSize="@dimen/txt_medium"
             android:textStyle="bold"
             tools:text="@string/app_name_comic" />
-    </com.loitpcore.views.layout.aspectRatio.LAspectRatioLayout>
+    </com.loitp.views.layout.aspectRatio.LAspectRatioLayout>
 
 </com.google.android.material.card.MaterialCardView>

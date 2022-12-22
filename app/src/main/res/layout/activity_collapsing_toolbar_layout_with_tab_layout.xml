@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     tools:context="vn.loitp.app.activity.customviews.actionbar.collapsingToolbarLayout.CollapsingToolbarLayoutActivity">
 
-    <com.loitpcore.views.layout.appBar.LAppBarLayout
+    <com.loitp.views.layout.appBar.LAppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_300"
@@ -90,7 +90,7 @@
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.loitpcore.views.layout.appBar.LAppBarLayout>
+    </com.loitp.views.layout.appBar.LAppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"

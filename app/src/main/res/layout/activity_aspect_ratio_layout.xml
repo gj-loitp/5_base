@@ -17,7 +17,7 @@
             android:orientation="vertical"
             android:paddingTop="@dimen/w_65">
 
-            <com.loitpcore.views.layout.aspectRatio.LAspectRatioLayout
+            <com.loitp.views.layout.aspectRatio.LAspectRatioLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
@@ -38,9 +38,9 @@
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
-            </com.loitpcore.views.layout.aspectRatio.LAspectRatioLayout>
+            </com.loitp.views.layout.aspectRatio.LAspectRatioLayout>
 
-            <com.loitpcore.views.layout.aspectRatio.LAspectRatioLayout
+            <com.loitp.views.layout.aspectRatio.LAspectRatioLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
@@ -61,7 +61,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/txt_medium" />
 
-            </com.loitpcore.views.layout.aspectRatio.LAspectRatioLayout>
+            </com.loitp.views.layout.aspectRatio.LAspectRatioLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

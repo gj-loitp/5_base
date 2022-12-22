@@ -5,7 +5,7 @@
     android:background="?attr/themeBackgroundColor"
     android:fitsSystemWindows="true">
 
-    <com.loitpcore.views.layout.appBar.LAppBarLayout
+    <com.loitp.views.layout.appBar.LAppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
             app:tabIndicatorColor="@color/red"
             app:tabSelectedTextColor="@color/green"
             app:tabTextColor="@color/red" />
-    </com.loitpcore.views.layout.appBar.LAppBarLayout>
+    </com.loitp.views.layout.appBar.LAppBarLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"

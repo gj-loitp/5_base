@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.appBar
+package com.loitp.views.layout.appBar
 
 import android.content.Context
 import android.util.AttributeSet
@@ -14,12 +14,26 @@ import kotlin.math.abs
  * freuss47@gmail.com
  */
 class LAppBarLayout : AppBarLayout, AppBarLayout.OnOffsetChangedListener {
+
+    interface OnStateChangeListener {
+        fun onStateChange(toolbarChange: State)
+    }
+
+    enum class State {
+        COLLAPSED,
+        EXPANDED,
+        IDLE
+    }
+
     private var state: State? = null
     private var onStateChangeListener: OnStateChangeListener? = null
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs)
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
@@ -29,7 +43,10 @@ class LAppBarLayout : AppBarLayout, AppBarLayout.OnOffsetChangedListener {
         addOnOffsetChangedListener(this)
     }
 
-    override fun onOffsetChanged(appBarLayout: AppBarLayout, verticalOffset: Int) {
+    override fun onOffsetChanged(
+        appBarLayout: AppBarLayout,
+        verticalOffset: Int
+    ) {
         when {
             verticalOffset == 0 -> {
                 if (state != State.EXPANDED) {
@@ -54,15 +71,5 @@ class LAppBarLayout : AppBarLayout, AppBarLayout.OnOffsetChangedListener {
 
     fun setOnStateChangeListener(listener: OnStateChangeListener) {
         this.onStateChangeListener = listener
-    }
-
-    interface OnStateChangeListener {
-        fun onStateChange(toolbarChange: State)
-    }
-
-    enum class State {
-        COLLAPSED,
-        EXPANDED,
-        IDLE
     }
 }

@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.autoLinear
+package com.loitp.views.layout.autoLinear
 
 import android.content.Context
 import android.util.AttributeSet
@@ -31,11 +31,18 @@ class LAutoLinearLayout : FrameLayout {
         init(context, null, 0, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(context, attrs, 0, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -53,7 +60,12 @@ class LAutoLinearLayout : FrameLayout {
         init(context, attrs, defStyleAttr, defStyleRes)
     }
 
-    private fun init(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
+    private fun init(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int
+    ) {
         val a = context.obtainStyledAttributes(
             attrs,
             R.styleable.LAutoLinearLayout,
@@ -71,7 +83,10 @@ class LAutoLinearLayout : FrameLayout {
         }
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         if (mOrientation == VERTICAL) {
             measureVertical(widthMeasureSpec, heightMeasureSpec)
         } else {
@@ -79,7 +94,10 @@ class LAutoLinearLayout : FrameLayout {
         }
     }
 
-    private fun measureHorizontal(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    private fun measureHorizontal(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         var wSize = MeasureSpec.getSize(widthMeasureSpec) - (paddingLeft + paddingRight)
 
         // Scrollview case
@@ -128,7 +146,10 @@ class LAutoLinearLayout : FrameLayout {
         )
     }
 
-    private fun measureVertical(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    private fun measureVertical(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         var hSize = MeasureSpec.getSize(heightMeasureSpec) - (paddingTop + paddingBottom)
         val count = childCount
         var columnHeight = 0
@@ -182,7 +203,13 @@ class LAutoLinearLayout : FrameLayout {
         )
     }
 
-    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        left: Int,
+        top: Int,
+        right: Int,
+        bottom: Int
+    ) {
         mListPositions.clear()
         if (mOrientation == VERTICAL) {
             layoutVertical(left, top, right, bottom)
@@ -200,7 +227,12 @@ class LAutoLinearLayout : FrameLayout {
      * @param right  parent right
      * @param bottom parent bottom
      */
-    private fun layoutVertical(left: Int, top: Int, right: Int, bottom: Int) {
+    private fun layoutVertical(
+        left: Int,
+        top: Int,
+        right: Int,
+        bottom: Int
+    ) {
         val count = childCount
         if (count == 0) return
         val width = right - paddingLeft - left - paddingRight
@@ -391,21 +423,32 @@ class LAutoLinearLayout : FrameLayout {
         }
     }
 
-    private fun updateLeftPositionByGravity(pos: ViewPosition, size: Int, gravity: Int) {
+    private fun updateLeftPositionByGravity(
+        pos: ViewPosition,
+        size: Int,
+        gravity: Int
+    ) {
         when (gravity and Gravity.HORIZONTAL_GRAVITY_MASK) {
             GravityCompat.END -> pos.left += if (size > 0) size else 0
             Gravity.CENTER_HORIZONTAL -> pos.left += (if (size > 0) size else 0) / 2
         }
     }
 
-    private fun updateTopPositionByGravity(pos: ViewPosition, size: Int, gravity: Int) {
+    private fun updateTopPositionByGravity(
+        pos: ViewPosition,
+        size: Int,
+        gravity: Int
+    ) {
         when (gravity and Gravity.VERTICAL_GRAVITY_MASK) {
             Gravity.BOTTOM -> pos.top += if (size > 0) size else 0
             Gravity.CENTER_VERTICAL -> pos.top += (if (size > 0) size else 0) / 2
         }
     }
 
-    private fun layout(child: View, pos: ViewPosition) {
+    private fun layout(
+        child: View,
+        pos: ViewPosition
+    ) {
         val lp = child.layoutParams as LayoutParams
         if (mOrientation == HORIZONTAL) child.layout(
             pos.left, pos.top + lp.topMargin, pos.left + child.measuredWidth,
