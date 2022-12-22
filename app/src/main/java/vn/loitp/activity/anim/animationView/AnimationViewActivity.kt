@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.animationView
+package vn.loitp.activity.anim.animationView
 
 import android.app.AlertDialog
 import android.os.Bundle

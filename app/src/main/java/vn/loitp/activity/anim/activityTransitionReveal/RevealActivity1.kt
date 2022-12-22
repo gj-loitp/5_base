@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.activityTransitionReveal
+package vn.loitp.activity.anim.activityTransitionReveal
 
 import android.app.Activity
 import android.content.Intent

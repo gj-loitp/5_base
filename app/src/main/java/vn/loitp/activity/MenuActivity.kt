@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_firebase.*
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.activity_menu.lActionBar
 import vn.loitp.app.R
-import vn.loitp.app.activity.animation.MenuAnimationActivity
+import vn.loitp.activity.anim.MenuAnimationActivity
 import vn.loitp.app.activity.api.MenuAPIActivity
 import vn.loitp.app.activity.customviews.MenuCustomViewsActivity
 import vn.loitp.app.activity.database.MenuDatabaseActivity

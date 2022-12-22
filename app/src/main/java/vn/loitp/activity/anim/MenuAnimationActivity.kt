@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation
+package vn.loitp.activity.anim
 
 import android.os.Bundle
 import android.view.View
@@ -10,11 +10,11 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_animation.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.animation.activityTransition.Animation1Activity
-import vn.loitp.app.activity.animation.activityTransitionReveal.RevealActivity1
-import vn.loitp.app.activity.animation.androidParticles.AndroidParticlesActivity
-import vn.loitp.app.activity.animation.animatedStarsView.AnimatedStarsViewActivity
-import vn.loitp.app.activity.animation.animationView.AnimationViewActivity
+import vn.loitp.activity.anim.activityTransition.Animation1Activity
+import vn.loitp.activity.anim.activityTransitionReveal.RevealActivity1
+import vn.loitp.activity.anim.androidParticles.AndroidParticlesActivity
+import vn.loitp.activity.anim.animatedStarsView.AnimatedStarsViewActivity
+import vn.loitp.activity.anim.animationView.AnimationViewActivity
 import vn.loitp.app.activity.animation.basicTransition.BasicTransition0Activity
 import vn.loitp.app.activity.animation.basicTransitionActivity.SceneTransitionBasicActivity
 import vn.loitp.app.activity.animation.basicTransitionFrm.BasicTransitionActivity

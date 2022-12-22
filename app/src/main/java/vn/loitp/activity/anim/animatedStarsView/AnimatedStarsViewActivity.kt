@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.androidParticles
+package vn.loitp.activity.anim.animatedStarsView
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,17 +9,16 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_0.lActionBar
-import kotlinx.android.synthetic.main.activity_android_particles.*
+import kotlinx.android.synthetic.main.activity_animated_stars_android.*
 import vn.loitp.app.R
 
-@LogTag("AndroidParticlesActivity")
+@LogTag("AnimatedStarsViewActivity")
 @IsFullScreen(false)
-@IsAutoAnimation(true)
-class AndroidParticlesActivity : BaseFontActivity() {
+@IsAutoAnimation(false)
+class AnimatedStarsViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_android_particles
+        return R.layout.activity_animated_stars_android
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,24 +42,24 @@ class AndroidParticlesActivity : BaseFontActivity() {
                     runnable = {
                         LSocialUtil.openUrlInBrowser(
                             context = context,
-                            url = "https://github.com/ibrahimsn98/android-particles"
+                            url = "https://github.com/sofakingforever/animated-stars-android"
                         )
                     }
                 )
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = AndroidParticlesActivity::class.java.simpleName
+            this.tvTitle?.text = AnimatedStarsViewActivity::class.java.simpleName
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        particleView.resume()
+    override fun onStart() {
+        super.onStart()
+        stars.onStart()
     }
 
-    override fun onPause() {
-        super.onPause()
-        particleView.pause()
+    override fun onStop() {
+        stars.onStop()
+        super.onStop()
     }
 }

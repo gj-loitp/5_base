@@ -61,10 +61,10 @@
             android:name=".activity.customviews.button.shineButton.ShineButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.MenuAnimationActivity"
+            android:name="vn.loitp.activity.anim.MenuAnimationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.animationView.AnimationViewActivity"
+            android:name="vn.loitp.activity.anim.animationView.AnimationViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.progress.MenuProgressLoadingViewsActivity"
@@ -255,10 +255,10 @@
             android:name=".activity.customviews.dialog.original.DialogOriginalActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.activityTransition.Animation1Activity"
+            android:name="vn.loitp.activity.anim.activityTransition.Animation1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.activityTransition.Animation2Activity"
+            android:name="vn.loitp.activity.anim.activityTransition.Animation2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.actionbar.collapsingToolbarLayout.CollapsingToolbarLayoutActivity"
@@ -1055,10 +1055,10 @@
             android:name=".activity.animation.morphTransitions.MorphTransitionsFullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.activityTransitionReveal.RevealActivity2"
+            android:name="vn.loitp.activity.anim.activityTransitionReveal.RevealActivity2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.activityTransitionReveal.RevealActivity1"
+            android:name="vn.loitp.activity.anim.activityTransitionReveal.RevealActivity1"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.chess.ChessLayoutActivity"
@@ -1180,7 +1180,7 @@
             android:name=".activity.customviews.stackExpandableView.StackExpandableViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.androidParticles.AndroidParticlesActivity"
+            android:name="vn.loitp.activity.anim.androidParticles.AndroidParticlesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.graphView.MenuGraphViewActivity"
@@ -1331,7 +1331,7 @@
             android:name=".activity.customviews.bottomBar.expandableBottomBar.screens.NotificationBadgeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.animatedStarsView.AnimatedStarsViewActivity"
+            android:name="vn.loitp.activity.anim.animatedStarsView.AnimatedStarsViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.security.ssBiometricsAuthentication.SSBiometricsAuthenticationActivity"
