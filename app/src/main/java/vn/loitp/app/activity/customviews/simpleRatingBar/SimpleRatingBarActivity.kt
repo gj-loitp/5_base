@@ -16,7 +16,7 @@ import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_simple_rating_bar.*
 import vn.loitp.R
-import vn.loitp.activity.EmptyActivity
+import vn.loitp.a.EmptyActivity
 
 @LogTag("SimpleRatingBarActivity")
 @IsFullScreen(false)

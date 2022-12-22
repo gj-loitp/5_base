@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".activity.MainActivity">
+        tools:context=".a.MainActivity">
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/pvpSpinner"

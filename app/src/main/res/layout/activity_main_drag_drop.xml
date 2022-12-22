@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.customviews.recyclerview.dragDrop.MainActivityDragDrop">
+        tools:context=".a.customviews.recyclerview.dragDrop.MainActivityDragDrop">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvEmptyList1"
