@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.imageView.fidgetSpinner.LFidgetSpinner
+    <com.loitp.views.iv.fidgetSpinner.LFidgetSpinner
         android:id="@+id/fidgetSpinner"
         android:layout_width="@dimen/w_250"
         android:layout_height="@dimen/w_250"

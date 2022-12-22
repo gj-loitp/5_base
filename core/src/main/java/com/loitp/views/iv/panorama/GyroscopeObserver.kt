@@ -1,4 +1,4 @@
-package com.loitpcore.views.imageView.panorama
+package com.loitp.views.iv.panorama
 
 import android.content.Context
 import android.hardware.Sensor
@@ -112,7 +112,12 @@ class GyroscopeObserver : SensorEventListener {
         mLastTimestamp = event.timestamp
     }
 
-    override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
+    override fun onAccuracyChanged(
+        sensor: Sensor,
+        accuracy: Int
+    ) {
+    }
+
     fun setMaxRotateRadian(maxRotateRadian: Double) {
         require(!(maxRotateRadian <= 0 || maxRotateRadian > Math.PI / 2)) { "The maxRotateRadian must be between (0, π/2]." }
         mMaxRotateRadian = maxRotateRadian

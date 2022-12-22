@@ -1,8 +1,8 @@
-package com.loitpcore.views.imageView.dynamic
+package com.loitp.views.iv.dynamic
 
 import android.content.Context
 import android.util.AttributeSet
-import com.flaviofaria.kenburnsview.KenBurnsView
+import androidx.appcompat.widget.AppCompatImageView
 
 /**
  * Created by Loitp on 04,August,2022
@@ -11,12 +11,21 @@ import com.flaviofaria.kenburnsview.KenBurnsView
  * +840766040293
  * freuss47@gmail.com
  */
-class DynamicHeightKenBurnsView : KenBurnsView {
+class DynamicHeightImageView : AppCompatImageView {
+
     private var mAspectRatio = 1.5f
 
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(context: Context) : super(context)
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs)
+
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -28,9 +37,11 @@ class DynamicHeightKenBurnsView : KenBurnsView {
         requestLayout()
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-
         val measuredWidth = measuredWidth
         setMeasuredDimension(measuredWidth, (measuredWidth / mAspectRatio).toInt())
     }

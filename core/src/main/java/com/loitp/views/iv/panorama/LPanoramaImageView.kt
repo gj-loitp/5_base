@@ -1,4 +1,4 @@
-package com.loitpcore.views.imageView.panorama
+package com.loitp.views.iv.panorama
 
 import android.content.Context
 import android.content.res.Resources
@@ -83,7 +83,10 @@ class LPanoramaImageView @JvmOverloads constructor(
         }
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
         mWidth = MeasureSpec.getSize(widthMeasureSpec) - paddingLeft - paddingRight

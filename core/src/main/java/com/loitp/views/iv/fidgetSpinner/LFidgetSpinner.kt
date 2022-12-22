@@ -1,4 +1,4 @@
-package com.loitpcore.views.imageView.fidgetSpinner
+package com.loitp.views.iv.fidgetSpinner
 
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
@@ -60,11 +60,18 @@ class LFidgetSpinner : FrameLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        @AttrRes defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -77,7 +84,10 @@ class LFidgetSpinner : FrameLayout {
         fidgetSpinnerImageView?.setImageDrawable(LAppResource.getDrawable(id))
     }
 
-    private fun onActionMove(x: Float, y: Float) {
+    private fun onActionMove(
+        x: Float,
+        y: Float
+    ) {
         if (!isPivot) {
             isPivot = true
             fidgetSpinnerImageView?.let {
@@ -91,7 +101,10 @@ class LFidgetSpinner : FrameLayout {
         rotate(angle.toFloat())
     }
 
-    private fun getRotationAngle(x: Float, y: Float): Double {
+    private fun getRotationAngle(
+        x: Float,
+        y: Float
+    ): Double {
         lastAngle = currentAngle
         lastAngleTime = currentAngleTime
         val now = System.currentTimeMillis()
@@ -107,12 +120,19 @@ class LFidgetSpinner : FrameLayout {
     }
 
     @Suppress("unused")
-    private fun adjustAlpha(alpha: Double, x: Float, y: Float): Double {
+    private fun adjustAlpha(
+        alpha: Double,
+        x: Float,
+        y: Float
+    ): Double {
         if (y > 0) return -alpha // Top
         return if (y < 0) 180 - alpha else alpha // Bottom
     }
 
-    private fun onActionUp(x: Float, y: Float) {
+    private fun onActionUp(
+        x: Float,
+        y: Float
+    ) {
         offsetAngle = currentAngle
         actionUpSpeed = min(MAX_ACTION_UP_SPEED.toDouble(), calcActionUpSpeed())
         startFidgetSpinnerAnimation()
@@ -137,7 +157,10 @@ class LFidgetSpinner : FrameLayout {
         }
     }
 
-    private fun onActionDown(x: Float, y: Float) {
+    private fun onActionDown(
+        x: Float,
+        y: Float
+    ) {
         try {
             spinAnimation?.cancel()
         } catch (e: Exception) {
