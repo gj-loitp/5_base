@@ -1,24 +1,24 @@
-package vn.loitp.app.activity.animation.pulsingView
+package vn.loitp.activity.anim.overScroll
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_pulsing_view.*
+import kotlinx.android.synthetic.main.activity_animation_over_scroll.*
 import vn.loitp.app.R
 
-@LogTag("PulsingViewActivity")
+@LogTag("OverScrollActivity")
 @IsFullScreen(false)
-class PulsingViewActivity : BaseFontActivity() {
+class OverScrollActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pulsing_view
+        return R.layout.activity_animation_over_scroll
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setupViews()
     }
 
@@ -31,7 +31,10 @@ class PulsingViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = PulsingViewActivity::class.java.simpleName
+            this.tvTitle?.text = OverScrollActivity::class.java.simpleName
         }
+
+        LUIUtil.setPullLikeIOSVertical(scrollView = nsv)
+        textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.overscroll)
     }
 }

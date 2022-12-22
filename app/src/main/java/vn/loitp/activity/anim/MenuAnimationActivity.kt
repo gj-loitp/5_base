@@ -23,11 +23,11 @@ import vn.loitp.activity.anim.fadeOutParticle.FadeOutParticleActivity
 import vn.loitp.activity.anim.flySchool.FlySchoolActivity
 import vn.loitp.activity.anim.konfetti.KonfettiActivity
 import vn.loitp.activity.anim.lottie.MenuLottieActivity
-import vn.loitp.app.activity.animation.morphTransitions.MorphTransitionsMainActivity
-import vn.loitp.app.activity.animation.overScroll.OverScrollActivity
-import vn.loitp.app.activity.animation.pulsingView.PulsingViewActivity
-import vn.loitp.app.activity.animation.shadowViewHelper.ShadowViewHelperActivity
-import vn.loitp.app.activity.animation.valueAnimator.ValueAnimatorActivity
+import vn.loitp.activity.anim.morphTransitions.MorphTransitionsMainActivity
+import vn.loitp.activity.anim.overScroll.OverScrollActivity
+import vn.loitp.activity.anim.pulsingView.PulsingViewActivity
+import vn.loitp.activity.anim.shadowViewHelper.ShadowViewHelperActivity
+import vn.loitp.activity.anim.valueAnimator.ValueAnimatorActivity
 
 @LogTag("MenuAnimationActivity")
 @IsFullScreen(false)

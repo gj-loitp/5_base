@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api
+package vn.loitp.activity.api
 
 import android.os.Bundle
 import android.view.View

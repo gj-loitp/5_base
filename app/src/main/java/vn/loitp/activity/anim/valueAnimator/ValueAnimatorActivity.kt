@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.valueAnimator
+package vn.loitp.activity.anim.valueAnimator
 
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint

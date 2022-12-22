@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.morphTransitions
+package vn.loitp.activity.anim.morphTransitions
 
 import android.content.Context
 import android.content.Intent

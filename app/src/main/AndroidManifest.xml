@@ -37,7 +37,7 @@
             android:name="vn.loitp.activity.MenuActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
-            android:name=".activity.api.MenuAPIActivity"
+            android:name="vn.loitp.activity.api.MenuAPIActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.MenuCustomViewsActivity"
@@ -70,7 +70,7 @@
             android:name=".activity.customviews.progress.MenuProgressLoadingViewsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.overScroll.OverScrollActivity"
+            android:name="vn.loitp.activity.anim.overScroll.OverScrollActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.viewPager.detectViewPagerSwipeOut.DetectViewPagerSwipeOutActivity"
@@ -360,7 +360,7 @@
             android:name=".activity.customviews.draggableFlipView.DraggableFlipViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.shadowViewHelper.ShadowViewHelperActivity"
+            android:name="vn.loitp.activity.anim.shadowViewHelper.ShadowViewHelperActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.answerView.AnswerViewActivity"
@@ -572,7 +572,7 @@
             android:name=".activity.utils.UtilsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.valueAnimator.ValueAnimatorActivity"
+            android:name="vn.loitp.activity.anim.valueAnimator.ValueAnimatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.videoView.youtube.YoutubeActivity"
@@ -1046,13 +1046,13 @@
             android:name=".activity.customviews.indicator.example.LoadCustomLayoutExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.morphTransitions.MorphTransitionsMainActivity"
+            android:name="vn.loitp.activity.anim.morphTransitions.MorphTransitionsMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.morphTransitions.MorphTransitionsDialogActivity"
+            android:name="vn.loitp.activity.anim.morphTransitions.MorphTransitionsDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.morphTransitions.MorphTransitionsFullScreenActivity"
+            android:name="vn.loitp.activity.anim.morphTransitions.MorphTransitionsFullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.activity.anim.activityTransitionReveal.RevealActivity2"
@@ -1103,7 +1103,7 @@
             android:name=".activity.customviews.dragView.ExoPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.pulsingView.PulsingViewActivity"
+            android:name="vn.loitp.activity.anim.pulsingView.PulsingViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.picker.unicornFilePicker.UnicornFilePickerActivity"

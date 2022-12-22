@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.shadowViewHelper
+package vn.loitp.activity.anim.shadowViewHelper
 
 import android.graphics.Color
 import android.os.Bundle

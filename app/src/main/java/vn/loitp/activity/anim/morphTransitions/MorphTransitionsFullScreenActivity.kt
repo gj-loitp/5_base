@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.animation.morphTransitions
+package vn.loitp.activity.anim.morphTransitions
 
 import android.os.Bundle
 import com.loitp.animation.morphTransitions.FabTransform
