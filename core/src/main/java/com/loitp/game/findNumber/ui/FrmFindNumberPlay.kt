@@ -20,7 +20,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.R
 import com.loitp.game.findNumber.dialog.FindNumberWinActivity
 import com.loitp.game.findNumber.model.Level
-import com.loitpcore.views.textView.autoFit.LAutoFitTextView
+import com.loitp.views.tv.autoFit.LAutoFitTextView
 import kotlinx.android.synthetic.main.l_f_find_number_play.*
 
 /**

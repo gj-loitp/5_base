@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.autoFit
+package com.loitp.views.tv.autoFit
 
 import android.content.res.Resources
 import android.text.*
@@ -232,7 +232,10 @@ class LAutoFitHelper private constructor(textView: TextView) {
      *
      * @see TextView.setTextSize
      */
-    fun setTextSize(unit: Int, size: Float) {
+    fun setTextSize(
+        unit: Int,
+        size: Float
+    ) {
         if (mIsAutofitting) {
             // We don't want to update the TextView's actual textSize while we're autofitting
             // since it'd get set to the autofitTextSize
@@ -263,7 +266,10 @@ class LAutoFitHelper private constructor(textView: TextView) {
         }
     }
 
-    private fun sendTextSizeChange(textSize: Float, oldTextSize: Float) {
+    private fun sendTextSizeChange(
+        textSize: Float,
+        oldTextSize: Float
+    ) {
         if (mListeners == null) {
             return
         }

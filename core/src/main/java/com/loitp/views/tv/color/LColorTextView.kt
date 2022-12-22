@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.color
+package com.loitp.views.tv.color
 
 import android.content.Context
 import android.text.Html
@@ -22,7 +22,10 @@ class LColorTextView : AppCompatTextView {
     private var mCurrentText: String? = null
 
     constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(attrs)
     }
 
@@ -43,7 +46,10 @@ class LColorTextView : AppCompatTextView {
         setHtmlText()
     }
 
-    private fun initData(colorTexts: String?, colors: String?) {
+    private fun initData(
+        colorTexts: String?,
+        colors: String?
+    ) {
         try {
             if (!TextUtils.isEmpty(colorTexts)) {
                 val texts = colorTexts?.split("\\|".toRegex())?.toTypedArray()
@@ -85,7 +91,10 @@ class LColorTextView : AppCompatTextView {
     }
 
     @Suppress("unused")
-    fun findAndSetStrColor(str: String, color: String): LColorTextView {
+    fun findAndSetStrColor(
+        str: String,
+        color: String
+    ): LColorTextView {
         try {
             if (!TextUtils.isEmpty(mCurrentText)) {
                 mCurrentText = mCurrentText?.replace(str.toRegex(), color(color, str))
@@ -99,7 +108,10 @@ class LColorTextView : AppCompatTextView {
         return this
     }
 
-    fun color(colorCode: String, str: String): String {
+    fun color(
+        colorCode: String,
+        str: String
+    ): String {
         return "<font color=\"$colorCode\">$str</font>"
     }
 }

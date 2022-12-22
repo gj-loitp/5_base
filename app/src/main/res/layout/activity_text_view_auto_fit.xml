@@ -53,7 +53,7 @@
                 android:text="@string/label_auto_fit"
                 android:textColor="?attr/themeTextColor" />
 
-            <com.loitpcore.views.textView.autoFit.LAutoFitTextView
+            <com.loitp.views.tv.autoFit.LAutoFitTextView
                 android:id="@+id/textViewAutoFit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.loitpcore.views.textView.color.LColorTextView
+            <com.loitp.views.tv.color.LColorTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_padding_medium"

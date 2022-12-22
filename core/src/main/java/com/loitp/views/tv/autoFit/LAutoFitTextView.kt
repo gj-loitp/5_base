@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.autoFit
+package com.loitp.views.tv.autoFit
 
 import android.content.Context
 import android.util.AttributeSet
@@ -21,11 +21,18 @@ class LAutoFitTextView : AppCompatTextView, LAutoFitHelper.OnTextSizeChangeListe
         init(context, null, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(context, attrs, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -34,12 +41,19 @@ class LAutoFitTextView : AppCompatTextView, LAutoFitHelper.OnTextSizeChangeListe
     }
 
     @Suppress("unused")
-    private fun init(context: Context, attrs: AttributeSet?, defStyle: Int) {
+    private fun init(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) {
         autoFitHelper = LAutoFitHelper.create(this, attrs, defStyle)
             .addOnTextSizeChangeListener(this)
     }
 
-    override fun setTextSize(unit: Int, size: Float) {
+    override fun setTextSize(
+        unit: Int,
+        size: Float
+    ) {
         super.setTextSize(unit, size)
         autoFitHelper?.setTextSize(unit, size)
     }
@@ -143,7 +157,10 @@ class LAutoFitTextView : AppCompatTextView, LAutoFitHelper.OnTextSizeChangeListe
             autoFitHelper?.precision = precision ?: 0f
         }
 
-    override fun onTextSizeChange(textSize: Float, oldTextSize: Float) {
+    override fun onTextSizeChange(
+        textSize: Float,
+        oldTextSize: Float
+    ) {
         // do nothing
     }
 }
