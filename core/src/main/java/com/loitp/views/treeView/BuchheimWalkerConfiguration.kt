@@ -1,4 +1,4 @@
-package com.loitpcore.views.treeView
+package com.loitp.views.treeView
 
 /**
  * Created by Loitp on 04,August,2022
@@ -8,4 +8,7 @@ package com.loitpcore.views.treeView
  * freuss47@gmail.com
  */
 @Suppress("unused")
-class BuchheimWalkerConfiguration(val siblingSeparation: Int, val subtreeSeparation: Int)
+class BuchheimWalkerConfiguration(
+    val siblingSeparation: Int,
+    val subtreeSeparation: Int
+)

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.treeView.LTreeView
+    <com.loitp.views.treeView.LTreeView
         android:id="@+id/treeView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,5 +20,5 @@
         app:line_color="?attr/themeTextColor"
         app:line_thickness="10dp">
 
-    </com.loitpcore.views.treeView.LTreeView>
+    </com.loitp.views.treeView.LTreeView>
 </androidx.appcompat.widget.LinearLayoutCompat>

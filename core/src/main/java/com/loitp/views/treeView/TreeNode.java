@@ -1,4 +1,4 @@
-package com.loitpcore.views.treeView;
+package com.loitp.views.treeView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

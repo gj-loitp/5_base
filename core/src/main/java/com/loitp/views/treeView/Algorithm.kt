@@ -1,4 +1,4 @@
-package com.loitpcore.views.treeView
+package com.loitp.views.treeView
 
 /**
  * Created by Loitp on 04,August,2022
@@ -8,5 +8,8 @@ package com.loitpcore.views.treeView
  * freuss47@gmail.com
  */
 interface Algorithm {
-    fun run(root: TreeNode?, size: TreeNodeSize?)
+    fun run(
+        root: TreeNode?,
+        size: TreeNodeSize?
+    )
 }

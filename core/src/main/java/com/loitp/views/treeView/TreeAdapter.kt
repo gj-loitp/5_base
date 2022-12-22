@@ -1,4 +1,4 @@
-package com.loitpcore.views.treeView
+package com.loitp.views.treeView
 
 import android.graphics.Point
 import android.view.View
@@ -52,5 +52,9 @@ interface TreeAdapter<VH> : Adapter, TreeNodeObserver {
      */
     fun getScreenPosition(position: Int): Point?
     fun onCreateViewHolder(view: View): VH
-    fun onBindViewHolder(viewHolder: VH, data: Any?, position: Int)
+    fun onBindViewHolder(
+        viewHolder: VH,
+        data: Any?,
+        position: Int
+    )
 }

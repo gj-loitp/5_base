@@ -1,4 +1,4 @@
-package com.loitpcore.views.treeView
+package com.loitp.views.treeView
 
 /**
  * Class to save additional data used by the buchheim-walker algorithm.

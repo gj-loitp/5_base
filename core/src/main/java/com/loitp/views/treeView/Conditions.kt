@@ -1,4 +1,4 @@
-package com.loitpcore.views.treeView
+package com.loitp.views.treeView
 
 /**
  * Created by Loitp on 04,August,2022
@@ -10,7 +10,10 @@ package com.loitpcore.views.treeView
 internal object Conditions {
 
     @JvmStatic
-    fun <T> isNonNull(t: T?, message: String): T {
+    fun <T> isNonNull(
+        t: T?,
+        message: String
+    ): T {
         requireNotNull(t) { message }
         return t
     }
