@@ -9,9 +9,9 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
-import com.loitpcore.R
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.ConvertUtils
+import com.loitpcore.R
 import kotlin.math.hypot
 import kotlin.math.max
 
@@ -34,7 +34,7 @@ class LSuggestPopupView(
 
     init {
         val layout =
-            LayoutInflater.from(context).inflate(R.layout.view_auto_suggest_edittext_popup, null)
+            LayoutInflater.from(context).inflate(R.layout.v_auto_suggest_edittext_popup, null)
         contentView = layout
         width = ViewGroup.LayoutParams.WRAP_CONTENT
         height = ViewGroup.LayoutParams.WRAP_CONTENT

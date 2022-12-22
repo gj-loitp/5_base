@@ -13,8 +13,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
-import com.loitpcore.R
 import com.loitp.core.utilities.LAppResource
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -45,12 +45,19 @@ open class LMaterialTextField : FrameLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs) {
         handleAttributes(context, attrs)
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -72,6 +79,7 @@ open class LMaterialTextField : FrameLayout {
         }
     }
 
+    @Suppress("unused")
     fun reduce() {
         if (isExpanded) {
             val heightInitial =
@@ -185,7 +193,10 @@ open class LMaterialTextField : FrameLayout {
         }
     }
 
-    protected fun handleAttributes(context: Context, attrs: AttributeSet) {
+    private fun handleAttributes(
+        context: Context,
+        attrs: AttributeSet
+    ) {
         try {
             val styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.LMaterialTextField)
 

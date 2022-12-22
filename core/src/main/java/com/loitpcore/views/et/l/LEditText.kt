@@ -1,4 +1,4 @@
-package com.loitpcore.views.et.lEditext
+package com.loitpcore.views.et.l
 
 import android.content.Context
 import android.graphics.Color
@@ -9,9 +9,9 @@ import android.view.View
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.card.MaterialCardView
-import com.loitpcore.R
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.ConvertUtils
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -46,11 +46,18 @@ class LEditText : RelativeLayout {
             tvMessage.setTextColor(value)
         }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -59,7 +66,7 @@ class LEditText : RelativeLayout {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.view_l_edittext, this)
+        View.inflate(context, R.layout.v_l_edit_text, this)
         mcv = findViewById(R.id.mcv)
         editText = findViewById(R.id.editText)
         ivLeft = findViewById(R.id.ivLeft)
@@ -143,7 +150,10 @@ class LEditText : RelativeLayout {
         editText.inputType = inputType
     }
 
-    fun setImeiActionEditText(imeOptions: Int, runnable: Runnable?) {
+    fun setImeiActionEditText(
+        imeOptions: Int,
+        runnable: Runnable?
+    ) {
         LUIUtil.setImeiActionEditText(editText, imeOptions, runnable)
     }
 

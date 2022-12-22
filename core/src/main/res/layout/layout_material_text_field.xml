@@ -9,7 +9,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:gravity="center_vertical"
-        android:paddingLeft="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="0dp"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         tools:text="Password" />

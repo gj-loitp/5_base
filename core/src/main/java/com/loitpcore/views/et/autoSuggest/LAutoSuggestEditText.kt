@@ -9,8 +9,8 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
-import com.loitpcore.R
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -39,11 +39,18 @@ class LAutoSuggestEditText : RelativeLayout {
         fun onTextChanged(text: String)
     }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -52,7 +59,7 @@ class LAutoSuggestEditText : RelativeLayout {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.view_auto_suggest_edittext, this)
+        View.inflate(context, R.layout.v_auto_suggest_edittext, this)
         editText = findViewById(R.id.editText)
         progressBar = findViewById(R.id.progressBar)
 
@@ -104,7 +111,10 @@ class LAutoSuggestEditText : RelativeLayout {
         resultList.clear()
     }
 
-    fun setImeiAction(imeOptions: Int, runnable: Runnable?) {
+    fun setImeiAction(
+        imeOptions: Int,
+        runnable: Runnable?
+    ) {
         LUIUtil.setImeiActionEditText(editText, imeOptions, runnable)
     }
 

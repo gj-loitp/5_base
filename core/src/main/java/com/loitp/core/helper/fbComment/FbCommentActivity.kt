@@ -13,8 +13,6 @@ import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
-import com.loitpcore.BuildConfig
-import com.loitpcore.R
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
@@ -22,8 +20,10 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.BuildConfig
+import com.loitpcore.R
 import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*
-import kotlinx.android.synthetic.main.view_l_edittext.view.*
+import kotlinx.android.synthetic.main.v_l_edit_text.view.*
 
 /**
  * Created by Loitp on 04,August,2022

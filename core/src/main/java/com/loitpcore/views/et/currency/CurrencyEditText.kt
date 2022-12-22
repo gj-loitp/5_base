@@ -58,7 +58,11 @@ class CurrencyEditText @JvmOverloads constructor(
         return this.text.toString().trim().replace(oldValue = ",", newValue = "")
     }
 
-    override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
+    override fun onFocusChanged(
+        focused: Boolean,
+        direction: Int,
+        previouslyFocusedRect: Rect?
+    ) {
         super.onFocusChanged(focused, direction, previouslyFocusedRect)
         if (focused) {
             addTextChangedListener(currencyTextWatcher)
