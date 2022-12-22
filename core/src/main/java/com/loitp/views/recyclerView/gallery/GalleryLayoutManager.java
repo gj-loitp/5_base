@@ -1,4 +1,4 @@
-package com.loitpcore.views.recyclerView.gallery;
+package com.loitp.views.recyclerView.gallery;
 
 import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
 

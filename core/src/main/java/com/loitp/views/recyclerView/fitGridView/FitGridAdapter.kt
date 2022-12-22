@@ -1,4 +1,4 @@
-package com.loitpcore.views.recyclerView.fitGridView
+package com.loitp.views.recyclerView.fitGridView
 
 import android.content.Context
 import android.view.LayoutInflater

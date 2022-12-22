@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
-import com.loitpcore.views.recyclerView.recyclerTabLayout.RecyclerTabLayout
+import com.loitp.views.recyclerView.recyclerTabLayout.RecyclerTabLayout
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.DemoColorPagerAdapter
 

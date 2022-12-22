@@ -1,4 +1,4 @@
-package com.loitpcore.views.recyclerView.recyclerTabLayout;
+package com.loitp.views.recyclerView.recyclerTabLayout;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;

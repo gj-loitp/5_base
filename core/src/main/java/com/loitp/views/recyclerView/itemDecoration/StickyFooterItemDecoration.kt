@@ -1,4 +1,4 @@
-package com.loitpcore.views.recyclerView.itemDecoration
+package com.loitp.views.recyclerView.itemDecoration
 
 import android.graphics.Rect
 import android.view.View
