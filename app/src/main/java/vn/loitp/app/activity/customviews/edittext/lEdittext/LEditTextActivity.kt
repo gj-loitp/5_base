@@ -15,7 +15,7 @@ import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LKeyBoardUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.et.l.LEditText
+import com.loitp.views.et.l.LEditText
 import kotlinx.android.synthetic.main.activity_l_edittext.*
 import vn.loitp.app.R
 

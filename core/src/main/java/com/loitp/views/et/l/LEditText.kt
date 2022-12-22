@@ -1,4 +1,4 @@
-package com.loitpcore.views.et.l
+package com.loitp.views.et.l
 
 import android.content.Context
 import android.graphics.Color
@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
 import android.widget.*
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.card.MaterialCardView
 import com.loitp.core.utilities.LUIUtil
@@ -25,9 +26,10 @@ class LEditText : RelativeLayout {
     lateinit var editText: EditText
     lateinit var ivLeft: ImageView
     lateinit var ivRight: ImageView
+
     @Suppress("unused")
     lateinit var tvMessage: TextView
-    lateinit var ll: LinearLayout
+    lateinit var ll: LinearLayoutCompat
     lateinit var rootView: ConstraintLayout
 
     var callback: Callback? = null

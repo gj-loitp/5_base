@@ -1,4 +1,4 @@
-package com.loitpcore.views.et.autoSuggest
+package com.loitp.views.et.autoSuggest
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,8 +6,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.*
 import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.ScrollView
+import androidx.appcompat.widget.LinearLayoutCompat
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.ConvertUtils
@@ -29,7 +29,7 @@ class LSuggestPopupView(
     val callback: Callback?,
 ) :
     RelativePopupWindow() {
-    private var ll: LinearLayout
+    private var ll: LinearLayoutCompat
     private var sv: ScrollView
 
     init {

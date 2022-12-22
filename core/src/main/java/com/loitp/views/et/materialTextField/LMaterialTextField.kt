@@ -1,4 +1,4 @@
-package com.loitpcore.views.et.materialTextField
+package com.loitp.views.et.materialTextField
 
 import android.content.Context
 import android.graphics.Color

@@ -19,7 +19,7 @@
             android:paddingEnd="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
-            <com.loitpcore.views.et.currency.CurrencyEditText
+            <com.loitp.views.et.currency.CurrencyEditText
                 android:id="@+id/currencyEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

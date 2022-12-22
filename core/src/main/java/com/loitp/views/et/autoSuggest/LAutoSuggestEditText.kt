@@ -1,4 +1,4 @@
-package com.loitpcore.views.et.autoSuggest
+package com.loitp.views.et.autoSuggest
 
 import android.content.Context
 import android.text.Editable
