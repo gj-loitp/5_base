@@ -1,4 +1,4 @@
-package com.loitp.views.bottomSheet
+package com.loitp.views.bs
 
 import android.content.DialogInterface
 import android.os.Bundle

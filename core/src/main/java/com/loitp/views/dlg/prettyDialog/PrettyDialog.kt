@@ -1,4 +1,4 @@
-package com.loitp.views.dialog.prettyDialog
+package com.loitp.views.dlg.prettyDialog
 
 import android.annotation.SuppressLint
 import android.content.Context

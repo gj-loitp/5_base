@@ -1,4 +1,4 @@
-package com.loitp.views.button.goodView
+package com.loitp.views.bt.goodView
 
 import android.content.Context
 import android.graphics.Color

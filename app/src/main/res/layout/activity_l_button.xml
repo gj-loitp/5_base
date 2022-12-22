@@ -25,7 +25,7 @@
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
-            <com.loitp.views.button.lButton.LButton
+            <com.loitp.views.bt.l.LButton
                 android:id="@+id/bt0"
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
@@ -33,7 +33,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/l_heart" />
 
-            <com.loitp.views.button.lButton.LButton
+            <com.loitp.views.bt.l.LButton
                 android:id="@+id/bt1"
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
@@ -41,7 +41,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/logo" />
 
-            <com.loitp.views.button.lButton.LButton
+            <com.loitp.views.bt.l.LButton
                 android:id="@+id/bt2"
                 android:layout_width="@dimen/w_80"
                 android:layout_height="@dimen/w_80"

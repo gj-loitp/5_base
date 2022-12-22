@@ -1,4 +1,4 @@
-package com.loitp.views.listView
+package com.loitp.views.lv
 
 import android.content.Context
 import android.util.AttributeSet

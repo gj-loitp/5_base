@@ -17,7 +17,7 @@
             android:orientation="vertical"
             android:paddingTop="@dimen/w_65">
 
-            <com.loitp.views.button.circularImageClick.LCircularClickImageButton
+            <com.loitp.views.bt.circularImageClick.LCircularClickImageButton
                 android:id="@+id/circleButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

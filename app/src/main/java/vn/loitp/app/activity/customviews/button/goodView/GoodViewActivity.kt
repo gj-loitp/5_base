@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.views.button.goodView.LGoodView
+import com.loitp.views.bt.goodView.LGoodView
 import kotlinx.android.synthetic.main.activity_good_view.*
 import vn.loitp.app.R
 
