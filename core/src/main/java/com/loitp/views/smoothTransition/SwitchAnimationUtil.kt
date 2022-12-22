@@ -1,11 +1,11 @@
-package com.loitpcore.views.smoothTransition
+package com.loitp.views.smoothTransition
 
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.LinearInterpolator
-import com.loitpcore.views.smoothTransition.ViewUtils.init
-import com.loitpcore.views.smoothTransition.ViewUtils.screenWidth
+import com.loitp.views.smoothTransition.ViewUtils.init
+import com.loitp.views.smoothTransition.ViewUtils.screenWidth
 import com.nineoldandroids.animation.AnimatorSet
 import com.nineoldandroids.animation.ObjectAnimator
 

@@ -1,4 +1,4 @@
-package com.loitpcore.views.smoothTransition
+package com.loitp.views.smoothTransition
 
 import android.app.Activity
 import android.content.Context
