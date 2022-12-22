@@ -10,12 +10,12 @@ import com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder.OtherDayHolder;
 import com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder.DayHolder;
 import com.loitp.views.calendar.cosmoCalendar.model.Day;
 import com.loitp.views.calendar.cosmoCalendar.model.Month;
-import com.loitpcore.views.calendar.cosmoCalendar.utils.Constants;
-import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView;
-import com.loitpcore.views.calendar.cosmoCalendar.view.ItemViewType;
-import com.loitpcore.views.calendar.cosmoCalendar.view.delegate.DayDelegate;
-import com.loitpcore.views.calendar.cosmoCalendar.view.delegate.DayOfWeekDelegate;
-import com.loitpcore.views.calendar.cosmoCalendar.view.delegate.OtherDayDelegate;
+import com.loitp.views.calendar.cosmoCalendar.utils.Constants;
+import com.loitp.views.calendar.cosmoCalendar.view.CalendarView;
+import com.loitp.views.calendar.cosmoCalendar.view.ItemViewType;
+import com.loitp.views.calendar.cosmoCalendar.view.delegate.DayDelegate;
+import com.loitp.views.calendar.cosmoCalendar.view.delegate.DayOfWeekDelegate;
+import com.loitp.views.calendar.cosmoCalendar.view.delegate.OtherDayDelegate;
 
 import org.jetbrains.annotations.NotNull;
 

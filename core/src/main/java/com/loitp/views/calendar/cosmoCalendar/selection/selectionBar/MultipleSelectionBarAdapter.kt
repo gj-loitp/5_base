@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.loitpcore.R
 import com.loitp.views.calendar.cosmoCalendar.model.Day
-import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView
-import com.loitpcore.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView
+import com.loitp.views.calendar.cosmoCalendar.view.CalendarView
+import com.loitp.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022

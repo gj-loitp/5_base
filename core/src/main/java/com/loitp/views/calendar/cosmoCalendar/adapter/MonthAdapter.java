@@ -9,15 +9,15 @@ import com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder.MonthHolder;
 import com.loitp.views.calendar.cosmoCalendar.model.Day;
 import com.loitp.views.calendar.cosmoCalendar.model.Month;
 import com.loitp.views.calendar.cosmoCalendar.selection.BaseSelectionManager;
-import com.loitpcore.views.calendar.cosmoCalendar.settings.lists.DisabledDaysCriteria;
-import com.loitpcore.views.calendar.cosmoCalendar.utils.CalendarUtils;
-import com.loitpcore.views.calendar.cosmoCalendar.utils.DayFlag;
-import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView;
-import com.loitpcore.views.calendar.cosmoCalendar.view.ItemViewType;
-import com.loitpcore.views.calendar.cosmoCalendar.view.delegate.DayDelegate;
-import com.loitpcore.views.calendar.cosmoCalendar.view.delegate.DayOfWeekDelegate;
-import com.loitpcore.views.calendar.cosmoCalendar.view.delegate.MonthDelegate;
-import com.loitpcore.views.calendar.cosmoCalendar.view.delegate.OtherDayDelegate;
+import com.loitp.views.calendar.cosmoCalendar.settings.lists.DisabledDaysCriteria;
+import com.loitp.views.calendar.cosmoCalendar.utils.CalendarUtils;
+import com.loitp.views.calendar.cosmoCalendar.utils.DayFlag;
+import com.loitp.views.calendar.cosmoCalendar.view.CalendarView;
+import com.loitp.views.calendar.cosmoCalendar.view.ItemViewType;
+import com.loitp.views.calendar.cosmoCalendar.view.delegate.DayDelegate;
+import com.loitp.views.calendar.cosmoCalendar.view.delegate.DayOfWeekDelegate;
+import com.loitp.views.calendar.cosmoCalendar.view.delegate.MonthDelegate;
+import com.loitp.views.calendar.cosmoCalendar.view.delegate.OtherDayDelegate;
 
 import org.jetbrains.annotations.NotNull;
 

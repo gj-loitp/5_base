@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView;
+import com.loitp.views.calendar.cosmoCalendar.view.CalendarView;
 
 /**
  * Created by Loitp on 04,August,2022

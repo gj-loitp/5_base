@@ -2,7 +2,7 @@ package com.loitp.views.calendar.cosmoCalendar.selection
 
 import android.util.Pair
 import com.loitp.views.calendar.cosmoCalendar.model.Day
-import com.loitpcore.views.calendar.cosmoCalendar.utils.DateUtils.isDayInRange
+import com.loitp.views.calendar.cosmoCalendar.utils.DateUtils.isDayInRange
 
 /**
  * Created by Loitp on 04,August,2022

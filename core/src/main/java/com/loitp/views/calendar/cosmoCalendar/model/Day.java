@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 
 import com.loitp.views.calendar.cosmoCalendar.selection.SelectionState;
-import com.loitpcore.views.calendar.cosmoCalendar.utils.DateUtils;
+import com.loitp.views.calendar.cosmoCalendar.utils.DateUtils;
 
 import java.util.Calendar;
 import java.util.Date;

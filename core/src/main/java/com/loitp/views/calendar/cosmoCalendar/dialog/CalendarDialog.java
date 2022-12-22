@@ -17,15 +17,15 @@ import androidx.annotation.NonNull;
 
 import com.loitpcore.R;
 import com.loitp.views.calendar.cosmoCalendar.model.Day;
-import com.loitpcore.views.calendar.cosmoCalendar.settings.appearance.AppearanceInterface;
-import com.loitpcore.views.calendar.cosmoCalendar.settings.date.DateInterface;
-import com.loitpcore.views.calendar.cosmoCalendar.settings.lists.CalendarListsInterface;
-import com.loitpcore.views.calendar.cosmoCalendar.settings.lists.DisabledDaysCriteria;
-import com.loitpcore.views.calendar.cosmoCalendar.settings.lists.connectedDays.ConnectedDays;
-import com.loitpcore.views.calendar.cosmoCalendar.settings.lists.connectedDays.ConnectedDaysManager;
-import com.loitpcore.views.calendar.cosmoCalendar.settings.selection.SelectionInterface;
-import com.loitpcore.views.calendar.cosmoCalendar.utils.SelectionType;
-import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView;
+import com.loitp.views.calendar.cosmoCalendar.settings.appearance.AppearanceInterface;
+import com.loitp.views.calendar.cosmoCalendar.settings.date.DateInterface;
+import com.loitp.views.calendar.cosmoCalendar.settings.lists.CalendarListsInterface;
+import com.loitp.views.calendar.cosmoCalendar.settings.lists.DisabledDaysCriteria;
+import com.loitp.views.calendar.cosmoCalendar.settings.lists.connectedDays.ConnectedDays;
+import com.loitp.views.calendar.cosmoCalendar.settings.lists.connectedDays.ConnectedDaysManager;
+import com.loitp.views.calendar.cosmoCalendar.settings.selection.SelectionInterface;
+import com.loitp.views.calendar.cosmoCalendar.utils.SelectionType;
+import com.loitp.views.calendar.cosmoCalendar.view.CalendarView;
 
 import java.util.Calendar;
 import java.util.List;

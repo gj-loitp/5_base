@@ -14,21 +14,21 @@
         android:padding="@dimen/space_1x"
         tools:text="MAY'16" />
 
-    <com.loitpcore.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView
+    <com.loitp.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView
         android:id="@+id/catv_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         tools:text="2" />
 
-    <com.loitpcore.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView
+    <com.loitp.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView
         android:id="@+id/catv_middle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         tools:text="15" />
 
-    <com.loitpcore.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView
+    <com.loitp.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView
         android:id="@+id/catv_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

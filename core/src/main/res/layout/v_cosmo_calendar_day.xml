@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.loitpcore.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView
+    <com.loitp.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView
         android:id="@+id/tv_day_number"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

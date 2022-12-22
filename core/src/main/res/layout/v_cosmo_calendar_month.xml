@@ -43,7 +43,7 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <com.loitpcore.views.calendar.cosmoCalendar.view.MonthView
+    <com.loitp.views.calendar.cosmoCalendar.view.MonthView
         android:id="@+id/month_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

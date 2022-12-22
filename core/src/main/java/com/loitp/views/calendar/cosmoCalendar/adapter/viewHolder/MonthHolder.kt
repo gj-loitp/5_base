@@ -5,11 +5,11 @@ import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.loitpcore.R
 import com.loitp.views.calendar.cosmoCalendar.adapter.DaysAdapter
 import com.loitp.views.calendar.cosmoCalendar.model.Month
-import com.loitpcore.views.calendar.cosmoCalendar.settings.SettingsManager
-import com.loitpcore.views.calendar.cosmoCalendar.view.MonthView
+import com.loitp.views.calendar.cosmoCalendar.settings.SettingsManager
+import com.loitp.views.calendar.cosmoCalendar.view.MonthView
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022

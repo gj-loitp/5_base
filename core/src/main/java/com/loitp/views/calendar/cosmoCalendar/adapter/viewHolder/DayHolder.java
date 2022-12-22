@@ -8,10 +8,10 @@ import com.loitp.views.calendar.cosmoCalendar.model.Day;
 import com.loitp.views.calendar.cosmoCalendar.selection.BaseSelectionManager;
 import com.loitp.views.calendar.cosmoCalendar.selection.RangeSelectionManager;
 import com.loitp.views.calendar.cosmoCalendar.selection.SelectionState;
-import com.loitpcore.views.calendar.cosmoCalendar.settings.appearance.ConnectedDayIconPosition;
-import com.loitpcore.views.calendar.cosmoCalendar.utils.CalendarUtils;
-import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView;
-import com.loitpcore.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView;
+import com.loitp.views.calendar.cosmoCalendar.settings.appearance.ConnectedDayIconPosition;
+import com.loitp.views.calendar.cosmoCalendar.utils.CalendarUtils;
+import com.loitp.views.calendar.cosmoCalendar.view.CalendarView;
+import com.loitp.views.calendar.cosmoCalendar.view.customViews.CircleAnimationTextView;
 
 /**
  * Created by Loitp on 04,August,2022

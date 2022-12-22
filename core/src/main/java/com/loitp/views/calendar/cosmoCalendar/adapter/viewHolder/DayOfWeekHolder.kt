@@ -1,12 +1,12 @@
 package com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder
 
 import android.view.View
-import com.loitpcore.R
 import com.loitp.views.calendar.cosmoCalendar.model.Day
-import com.loitpcore.views.calendar.cosmoCalendar.utils.Constants
-import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView
+import com.loitp.views.calendar.cosmoCalendar.utils.Constants
+import com.loitp.views.calendar.cosmoCalendar.view.CalendarView
+import com.loitpcore.R
 import java.text.SimpleDateFormat
-import java.util.* // ktlint-disable no-wildcard-imports
+import java.util.*
 
 /**
  * Created by Loitp on 04,August,2022
