@@ -1,7 +1,6 @@
 package com.loitpcore.game.findNumber.ui
 
 import android.os.Bundle
-import com.loitpcore.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
@@ -10,9 +9,10 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LScreenUtil
+import com.loitpcore.R
 import com.loitpcore.game.findNumber.model.Level
 import com.tombayley.activitycircularreveal.CircularReveal
-import kotlinx.android.synthetic.main.l_activity_find_number_single_play.*
+import kotlinx.android.synthetic.main.l_a_find_number_single_play.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -35,7 +35,7 @@ class SinglePlayActivity : BaseFontActivity() {
     private var currentLevel: Level? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_find_number_single_play
+        return R.layout.l_a_find_number_single_play
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,10 +48,6 @@ class SinglePlayActivity : BaseFontActivity() {
         setupViews()
         setupViewModels()
     }
-
-//    override fun onBackPressed() {
-//        activityCircularReveal?.unRevealActivity(this)
-//    }
 
     override fun onBaseBackPressed() {
         super.onBaseBackPressed()//correct

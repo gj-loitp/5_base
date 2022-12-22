@@ -7,15 +7,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.daimajia.androidanimations.library.Techniques
-import com.loitpcore.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 import com.tombayley.activitycircularreveal.CircularReveal
-import kotlinx.android.synthetic.main.l_activity_find_number_splash.*
+import kotlinx.android.synthetic.main.l_a_find_number_splash.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -34,7 +34,7 @@ class SplashActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_find_number_splash
+        return R.layout.l_a_find_number_splash
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

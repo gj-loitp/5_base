@@ -54,7 +54,7 @@
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="4"
                 tools:itemCount="69"
-                tools:listitem="@layout/view_row_item_find_number_level" />
+                tools:listitem="@layout/l_v_find_number_level" />
         </com.loitpcore.views.layout.square.LSquareFrameLayout>
 
         <androidx.appcompat.widget.AppCompatImageView

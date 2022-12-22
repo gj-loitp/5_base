@@ -6,7 +6,6 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.daimajia.androidanimations.library.Techniques
-import com.loitpcore.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
@@ -15,11 +14,12 @@ import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 import com.loitpcore.game.findNumber.adapter.LevelAdapter
 import com.loitpcore.game.findNumber.model.Level
 import com.loitpcore.game.findNumber.viewModel.FindNumberViewModel
 import com.tombayley.activitycircularreveal.CircularReveal
-import kotlinx.android.synthetic.main.l_activity_find_number_single_level.*
+import kotlinx.android.synthetic.main.l_a_find_number_single_level.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -32,13 +32,12 @@ import kotlinx.android.synthetic.main.l_activity_find_number_single_level.*
 @IsFullScreen(true)
 @IsSwipeActivity(true)
 class SingleLevelActivity : BaseFontActivity() {
-
     private var activityCircularReveal: CircularReveal? = null
     private var levelAdapter = LevelAdapter()
     private var findNumberViewModel: FindNumberViewModel? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_find_number_single_level
+        return R.layout.l_a_find_number_single_level
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,10 +52,6 @@ class SingleLevelActivity : BaseFontActivity() {
 
         findNumberViewModel?.getListLevelSingle()
     }
-
-//    override fun onBackPressed() {
-//        activityCircularReveal?.unRevealActivity(this)
-//    }
 
     override fun onBaseBackPressed() {
         super.onBaseBackPressed()//correct

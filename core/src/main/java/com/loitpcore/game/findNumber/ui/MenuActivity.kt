@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.content.ContextCompat
-import com.loitpcore.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
@@ -12,8 +11,9 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 import com.tombayley.activitycircularreveal.CircularReveal
-import kotlinx.android.synthetic.main.l_activity_find_number_menu.*
+import kotlinx.android.synthetic.main.l_a_find_number_menu.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -30,7 +30,7 @@ class MenuActivity : BaseFontActivity() {
     private var activityCircularReveal: CircularReveal? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_find_number_menu
+        return R.layout.l_a_find_number_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,12 +42,6 @@ class MenuActivity : BaseFontActivity() {
 
         setupViews()
     }
-
-//    override fun onBackPressed() {
-//        val intent = Intent()
-//        setResult(Activity.RESULT_OK, intent)
-//        activityCircularReveal?.unRevealActivity(this)
-//    }
 
     override fun onBaseBackPressed() {
         super.onBaseBackPressed()//correct

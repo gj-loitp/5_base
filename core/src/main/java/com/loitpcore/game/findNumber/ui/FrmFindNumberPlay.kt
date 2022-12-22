@@ -12,16 +12,16 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import com.daimajia.androidanimations.library.Techniques
 import com.loitp.animation.morphTransitions.MorphTransform
-import com.loitpcore.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 import com.loitpcore.game.findNumber.dialog.FindNumberWinActivity
 import com.loitpcore.game.findNumber.model.Level
 import com.loitpcore.views.textView.autoFit.LAutoFitTextView
-import kotlinx.android.synthetic.main.l_frm_find_number_play.*
+import kotlinx.android.synthetic.main.l_f_find_number_play.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -39,7 +39,7 @@ class FrmFindNumberPlay(
     private val listData = ArrayList<String>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_find_number_play
+        return R.layout.l_f_find_number_play
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

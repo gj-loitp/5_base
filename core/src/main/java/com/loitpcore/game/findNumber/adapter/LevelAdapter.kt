@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.loitpcore.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 import com.loitpcore.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import com.loitpcore.game.findNumber.db.Db.Companion.STATUS_LEVEL_WIN
 import com.loitpcore.game.findNumber.model.Level
-import kotlinx.android.synthetic.main.view_row_item_find_number_level.view.*
+import kotlinx.android.synthetic.main.l_v_find_number_level.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -58,13 +58,19 @@ class LevelAdapter : BaseAdapter() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LevelViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): LevelViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.view_row_item_find_number_level, parent, false)
+            .inflate(R.layout.l_v_find_number_level, parent, false)
         return LevelViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is LevelViewHolder) {
             holder.bind(listLevel[position])
         }
