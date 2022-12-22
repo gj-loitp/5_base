@@ -1,4 +1,4 @@
-package com.loitpcore.views.scrollView
+package com.loitp.views.sv
 
 import android.content.Context
 import android.util.AttributeSet
@@ -22,9 +22,16 @@ class LScrollView : ScrollView {
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -34,7 +41,12 @@ class LScrollView : ScrollView {
         this.mScrollListener = scrollListener
     }
 
-    override fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
+    override fun onScrollChanged(
+        l: Int,
+        t: Int,
+        oldl: Int,
+        oldt: Int
+    ) {
         super.onScrollChanged(l, t, oldl, oldt)
 
         mScrollListener?.onScrollChange(this, l, t, oldl, oldt)

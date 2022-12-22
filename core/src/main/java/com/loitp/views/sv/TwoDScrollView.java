@@ -1,4 +1,4 @@
-package com.loitpcore.views.scrollView;
+package com.loitp.views.sv;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
