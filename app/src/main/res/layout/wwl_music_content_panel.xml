@@ -17,7 +17,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frmHome"
-        android:name="vn.loitp.app.activity.customviews.wwlMusic.fragments.WWLHomeFragment"
+        android:name="vn.loitp.app.a.customviews.wwlMusic.fragments.WWLHomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

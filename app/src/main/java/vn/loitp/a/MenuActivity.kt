@@ -24,20 +24,20 @@ import vn.loitp.R
 import vn.loitp.a.anim.MenuAnimationActivity
 import vn.loitp.a.api.MenuAPIActivity
 import vn.loitp.a.cv.MenuCustomViewsActivity
-import vn.loitp.app.activity.database.MenuDatabaseActivity
-import vn.loitp.app.activity.demo.MenuDemoActivity
-import vn.loitp.app.activity.function.MenuFunctionActivity
-import vn.loitp.app.activity.game.MenuGameActivity
-import vn.loitp.app.activity.interviewVN.InterviewVNIQActivity
-import vn.loitp.app.activity.more.MoreActivity
-import vn.loitp.app.activity.network.NetworkActivity
-import vn.loitp.app.activity.pattern.MenuPatternActivity
-import vn.loitp.app.activity.picker.MenuPickerActivity
-import vn.loitp.app.activity.security.MenuSecurityActivity
-import vn.loitp.app.activity.service.MenuServiceActivity
-import vn.loitp.app.activity.tutorial.MenuTutorialActivity
-import vn.loitp.app.activity.utillsCore.UtilsCoreActivity
-import vn.loitp.app.activity.utils.UtilsActivity
+import vn.loitp.app.a.database.MenuDatabaseActivity
+import vn.loitp.app.a.demo.MenuDemoActivity
+import vn.loitp.app.a.function.MenuFunctionActivity
+import vn.loitp.app.a.game.MenuGameActivity
+import vn.loitp.app.a.interviewVN.InterviewVNIQActivity
+import vn.loitp.app.a.more.MoreActivity
+import vn.loitp.app.a.network.NetworkActivity
+import vn.loitp.app.a.pattern.MenuPatternActivity
+import vn.loitp.app.a.picker.MenuPickerActivity
+import vn.loitp.app.a.security.MenuSecurityActivity
+import vn.loitp.app.a.service.MenuServiceActivity
+import vn.loitp.app.a.tutorial.MenuTutorialActivity
+import vn.loitp.app.a.utillsCore.UtilsCoreActivity
+import vn.loitp.app.a.utils.UtilsActivity
 
 @LogTag("MenuActivity")
 @IsFullScreen(false)

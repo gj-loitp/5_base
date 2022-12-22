@@ -13,7 +13,7 @@ import com.onesignal.OneSignal
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.BuildConfig
-import vn.loitp.app.activity.database.room.db.FNBDatabase
+import vn.loitp.app.a.database.room.db.FNBDatabase
 
 // build release de check
 // TODO service -> ko stop service dc

@@ -25,13 +25,13 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/frmWatch"
-                android:name="vn.loitp.app.activity.customviews.wwlMusic.fragments.WWLWatchFragment"
+                android:name="vn.loitp.app.a.customviews.wwlMusic.fragments.WWLWatchFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/frmPlaylist"
-                android:name="vn.loitp.app.activity.customviews.wwlMusic.fragments.WWLPlaylistFragment"
+                android:name="vn.loitp.app.a.customviews.wwlMusic.fragments.WWLPlaylistFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

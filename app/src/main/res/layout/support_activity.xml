@@ -17,7 +17,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/support_fragment"
-            android:name="vn.loitp.app.activity.customviews.cornerSheet.support.SupportFragment"
+            android:name="vn.loitp.app.a.customviews.cornerSheet.support.SupportFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/support_content" />
