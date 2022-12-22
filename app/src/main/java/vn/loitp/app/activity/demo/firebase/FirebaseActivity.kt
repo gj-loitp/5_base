@@ -18,9 +18,8 @@ import com.onesignal.OneSignal
 import com.onesignal.OneSignal.PostNotificationResponseHandler
 import kotlinx.android.synthetic.main.activity_firebase.*
 import org.json.JSONObject
-import vn.loitp.app.BuildConfig
-import vn.loitp.app.R
-
+import vn.loitp.BuildConfig
+import vn.loitp.R
 
 @LogTag("FirebaseActivity")
 @IsFullScreen(false)
@@ -28,7 +27,7 @@ import vn.loitp.app.R
 class FirebaseActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return vn.loitp.app.R.layout.activity_firebase
+        return R.layout.activity_firebase
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,7 +69,7 @@ class FirebaseActivity : BaseFontActivity() {
             minimumFetchIntervalInSeconds = 3600
         }
         remoteConfig.setConfigSettingsAsync(configSettings)
-        remoteConfig.setDefaultsAsync(vn.loitp.app.R.xml.remote_config_defaults)
+        remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
 
         remoteConfig.fetchAndActivate()
             .addOnCompleteListener(this) { task ->

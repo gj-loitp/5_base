@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.view_item_text_view.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 
 class GalleryAdapterVertical internal constructor(

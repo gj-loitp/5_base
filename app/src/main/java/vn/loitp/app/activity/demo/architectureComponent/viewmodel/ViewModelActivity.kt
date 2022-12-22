@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_demo_view_model.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.pattern.mvp.User
 import java.util.*
 

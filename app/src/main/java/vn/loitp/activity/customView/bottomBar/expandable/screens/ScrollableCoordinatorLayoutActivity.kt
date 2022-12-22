@@ -17,7 +17,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_scrollable_coordinator_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ScrollableCoordinatorLayoutActivity")
 @IsFullScreen(false)

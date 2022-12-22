@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.ColorUtils
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBar
 import github.com.st235.lib_expandablebottombar.MenuItemDescriptor
-import vn.loitp.app.R
+import vn.loitp.R
 
 class ProgrammaticallyCreatedDemoActivity : AppCompatActivity() {
 

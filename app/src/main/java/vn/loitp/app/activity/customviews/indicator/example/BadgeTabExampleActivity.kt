@@ -30,7 +30,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.Simple
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgeAnchor
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgePagerTitleView
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgeRule
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.indicator.ext.titles.ScaleTransitionPagerTitleView
 
 @LogTag("BadgeTabExampleActivity")

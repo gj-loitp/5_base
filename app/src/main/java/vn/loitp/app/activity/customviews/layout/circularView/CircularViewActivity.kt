@@ -10,7 +10,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.layout.circularView.CircularView
 import com.loitp.views.layout.circularView.Marker
 import kotlinx.android.synthetic.main.activity_circular_view_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("CircularViewActivity")
 @IsFullScreen(false)

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("LoadingAdapter")
 class LoadingAdapter : BaseAdapter() {

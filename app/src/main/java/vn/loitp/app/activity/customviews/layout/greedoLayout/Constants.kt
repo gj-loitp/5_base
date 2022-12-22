@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.customviews.layout.greedoLayout
 
 import androidx.annotation.DrawableRes
-import vn.loitp.app.R
+import vn.loitp.R
 
 object Constants {
     @JvmField

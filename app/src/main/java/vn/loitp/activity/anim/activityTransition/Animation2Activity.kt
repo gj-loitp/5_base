@@ -6,7 +6,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_animation_2.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("Animation2Activity")
 @IsFullScreen(false)

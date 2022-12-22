@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.dlg.prettyDialog.PrettyDialog
 import kotlinx.android.synthetic.main.activity_pretty_dialog.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("PrettyDialogActivity")
 @IsFullScreen(false)

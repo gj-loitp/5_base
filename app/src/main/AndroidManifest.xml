@@ -12,7 +12,7 @@
 
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <application
-        android:name=".LApplication"
+        android:name=".app.LApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher_loitp"
         android:label="@string/app_name"
@@ -23,7 +23,7 @@
         tools:replace="android:name,android:allowBackup,android:theme">
 
         <activity
-            android:name="vn.loitp.activity.SplashActivity"
+            android:name=".activity.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:theme="@style/SplashTheme">

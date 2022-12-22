@@ -17,8 +17,8 @@ import com.loitp.model.App
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_splash.*
 import okhttp3.Call
-import vn.loitp.app.BuildConfig
-import vn.loitp.app.R
+import vn.loitp.BuildConfig
+import vn.loitp.R
 import vn.loitp.activity.anim.konfetti.Presets
 import java.io.IOException
 

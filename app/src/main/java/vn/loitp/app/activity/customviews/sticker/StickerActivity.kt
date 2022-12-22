@@ -8,7 +8,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.sticker.StickerImageView
 import com.loitp.views.sticker.StickerTextView
 import kotlinx.android.synthetic.main.activity_sticker.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("StickerActivity")
 @IsFullScreen(false)

@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_item_stf.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 
 @LogTag("BookAdapter")

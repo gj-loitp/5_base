@@ -8,7 +8,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.cornerSheet.support.shop.ShopFragment
 
 @LogTag("ShopActivity")

@@ -12,7 +12,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.activity_reveal_1.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("MainActivity")
 @IsFullScreen(false)

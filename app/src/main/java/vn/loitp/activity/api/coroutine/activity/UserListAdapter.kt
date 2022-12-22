@@ -10,7 +10,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.service.model.UserTest
 import kotlinx.android.synthetic.main.view_item_user_1.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 class UserListAdapter(
     private val context: Context,

@@ -25,7 +25,7 @@ import java.util.Objects;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
-import vn.loitp.app.R;
+import vn.loitp.R;
 import vn.loitp.app.activity.demo.ebookWithRealm.adapters.BooksAdapter;
 import vn.loitp.app.activity.demo.ebookWithRealm.adapters.RealmBooksAdapter;
 import vn.loitp.app.activity.demo.ebookWithRealm.model.Book;

@@ -11,7 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_swipe_refresh_recycler_view_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.MoviesAdapter
 import vn.loitp.common.Constants.Companion.URL_IMG

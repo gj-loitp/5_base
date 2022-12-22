@@ -8,7 +8,7 @@ import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.model.QA
 import kotlinx.android.synthetic.main.frm_interview_vn_iq_detail.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.demo.fragmentFlow.BaseFragmentFlow
 
 //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9

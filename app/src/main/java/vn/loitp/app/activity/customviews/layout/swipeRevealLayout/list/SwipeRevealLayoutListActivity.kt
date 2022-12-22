@@ -5,7 +5,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_swipe_reveal_layout_list.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("SwipeRevealLayoutListActivity")
 @IsFullScreen(false)

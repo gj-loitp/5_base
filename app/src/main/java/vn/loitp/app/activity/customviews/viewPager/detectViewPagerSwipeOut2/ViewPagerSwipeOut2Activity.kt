@@ -11,7 +11,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.vp.swipeOut.LSwipeOutViewPager
 import kotlinx.android.synthetic.main.activity_view_pager_swipe_out_2.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.viewPager.autoViewPager.FrmIv.Companion.newInstance
 
 @LogTag("ViewPagerSwipeOut2Activity")

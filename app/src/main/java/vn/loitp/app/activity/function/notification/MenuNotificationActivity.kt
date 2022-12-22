@@ -24,8 +24,7 @@ import com.loitp.func.notification.config.LightSettings
 import com.loitp.func.notification.config.NottiConfig
 import com.loitp.func.notification.config.VibrationSettings
 import kotlinx.android.synthetic.main.activity_menu_notification.*
-import vn.loitp.app.R
-
+import vn.loitp.R
 @LogTag("MenuNotificationActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)

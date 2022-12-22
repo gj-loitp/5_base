@@ -12,7 +12,7 @@ import com.skydoves.transformationlayout.TransformationCompat
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
 import kotlinx.android.synthetic.main.activity_layout_transformation_detail.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.layout.transformationLayout.recycler.Poster
 
 @LogTag("DetailActivity")

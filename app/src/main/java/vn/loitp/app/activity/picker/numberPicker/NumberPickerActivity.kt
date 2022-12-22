@@ -9,7 +9,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.picker.number.LNumberPicker
 import kotlinx.android.synthetic.main.activity_picker_number_picker.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("NumberPickerActivity")
 @IsFullScreen(false)

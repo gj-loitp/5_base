@@ -14,7 +14,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.LUIUtil.Companion.printBeautyJson
 import kotlinx.android.synthetic.main.activity_tracking_g1.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("TrackingG1Activity")
 @IsFullScreen(false)

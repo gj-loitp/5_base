@@ -10,7 +10,7 @@ import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.bt.goodView.LGoodView
 import kotlinx.android.synthetic.main.activity_good_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("GoodViewActivity")
 @IsFullScreen(false)

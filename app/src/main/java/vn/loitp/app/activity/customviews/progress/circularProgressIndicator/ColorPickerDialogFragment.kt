@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.SeekBar
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import vn.loitp.app.R
+import vn.loitp.R
 
 class ColorPickerDialogFragment : BottomSheetDialogFragment() {
 

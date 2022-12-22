@@ -10,7 +10,7 @@ import com.tuanhav95.drag.DragView
 import com.tuanhav95.drag.utils.toPx
 import kotlinx.android.synthetic.main.activity_drag_view_custom.*
 import kotlinx.android.synthetic.main.layout_drag_view_bottom.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.dragView.fragment.BottomFragment
 import vn.loitp.app.activity.customviews.dragView.fragment.NormalTopFragment
 import kotlin.math.max

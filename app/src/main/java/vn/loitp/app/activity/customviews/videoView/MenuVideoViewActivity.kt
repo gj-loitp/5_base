@@ -11,7 +11,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_video.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.videoView.exo.ExoPlayerActivity
 import vn.loitp.app.activity.customviews.videoView.exo.ExoPlayerActivity2
 import vn.loitp.app.activity.customviews.videoView.exo.ExoPlayerActivity3

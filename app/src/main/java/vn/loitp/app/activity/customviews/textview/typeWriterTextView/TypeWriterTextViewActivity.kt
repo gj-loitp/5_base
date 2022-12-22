@@ -7,7 +7,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_text_view_type_writer.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("TypeWriterTextViewActivity")
 @IsFullScreen(false)

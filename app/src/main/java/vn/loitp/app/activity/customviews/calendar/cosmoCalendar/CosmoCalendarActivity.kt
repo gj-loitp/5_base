@@ -21,7 +21,7 @@ import com.loitp.views.calendar.cosmoCalendar.selection.criteria.month.NextMonth
 import com.loitp.views.calendar.cosmoCalendar.selection.criteria.month.PreviousMonthCriteria
 import com.loitp.views.calendar.cosmoCalendar.utils.SelectionType
 import kotlinx.android.synthetic.main.activity_cosmo_calendar.*
-import vn.loitp.app.R
+import vn.loitp.R
 import java.util.*
 
 // https://github.com/ApplikeySolutions/CosmoCalendar

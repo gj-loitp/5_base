@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_auto_size_button.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("AutoSizeButtonActivity")
 @IsFullScreen(false)

@@ -10,8 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_web_view_wrap_content.*
-import vn.loitp.app.R
-
+import vn.loitp.R
 
 @LogTag("WebViewWrapContentActivity")
 @IsFullScreen(false)

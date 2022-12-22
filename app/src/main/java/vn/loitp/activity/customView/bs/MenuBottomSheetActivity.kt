@@ -15,7 +15,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.toast.LToast.show
 import kotlinx.android.synthetic.main.activity_menu_bottomsheet.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

@@ -12,7 +12,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_textarc.*
-
+import vn.loitp.R
 
 @LogTag("TextArcActivity")
 @IsFullScreen(false)
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_textarc.*
 class TextArcActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return vn.loitp.app.R.layout.activity_textarc
+        return R.layout.activity_textarc
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +49,7 @@ class TextArcActivity : BaseFontActivity() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(vn.loitp.app.R.drawable.ic_baseline_code_48)
+                it.setImageResource(R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = TextArcActivity::class.java.simpleName
         }

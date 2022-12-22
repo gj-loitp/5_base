@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.restClient.RestClient
 import kotlinx.android.synthetic.main.activity_menu_api.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.activity.api.coroutine.activity.CoroutineAPIActivity
 import vn.loitp.activity.api.galleryAPI.GalleryAPIActivity
 import vn.loitp.activity.api.retrofit2.TestAPIRetrofit2Activity

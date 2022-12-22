@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_draggable_panel_free.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("DraggablePanelFreeActivity")
 @IsFullScreen(false)

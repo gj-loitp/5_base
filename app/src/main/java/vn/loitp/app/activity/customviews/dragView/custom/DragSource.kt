@@ -6,7 +6,7 @@ import com.tuanhav95.drag.DragView
 import com.tuanhav95.drag.utils.inflate
 import com.tuanhav95.drag.utils.reWidth
 import kotlinx.android.synthetic.main.layout_drag_view_top.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 class DragSource @JvmOverloads constructor(
     context: Context,

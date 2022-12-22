@@ -5,7 +5,7 @@ import android.view.View
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import kotlinx.android.synthetic.main.frm_photo.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("FrmPhoto")
 class FrmPhoto : BaseFragment() {

@@ -14,7 +14,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 import kotlin.Suppress;
-import vn.loitp.app.R;
+import vn.loitp.R;
 
 public class JavaLanguage {
 

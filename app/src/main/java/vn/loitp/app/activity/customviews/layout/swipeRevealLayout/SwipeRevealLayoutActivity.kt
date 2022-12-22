@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_swipe_reveal_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.layout.swipeRevealLayout.grid.SwipeRevealLayoutGridActivity
 import vn.loitp.app.activity.customviews.layout.swipeRevealLayout.list.SwipeRevealLayoutListActivity
 import vn.loitp.app.activity.customviews.layout.swipeRevealLayout.recycler.SwipeRevealLayoutRecyclerActivity

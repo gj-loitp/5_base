@@ -14,7 +14,7 @@ import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_realm.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.demo.ebookWithRealm.EbookWithRealmActivity
 
 @LogTag("RealmActivity")

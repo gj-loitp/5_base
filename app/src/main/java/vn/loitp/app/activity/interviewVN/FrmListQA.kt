@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_qa.*
 import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_qa.lActionBar
 import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_qa.recyclerView
 import kotlinx.android.synthetic.main.view_movie_list.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.demo.fragmentFlow.BaseFragmentFlow
 import vn.loitp.app.activity.interviewVN.adapter.QAAdapter
 

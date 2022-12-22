@@ -14,7 +14,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.frm_coroutine_get_list_user.*
 import vn.loitp.activity.api.coroutine.viewmodel.TestViewModel
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("FrmGetListUser")
 class FrmGetListUser : BaseFragment() {

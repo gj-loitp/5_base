@@ -16,7 +16,7 @@ import com.mirza.attachmentmanager.managers.AttachmentManager
 import com.mirza.attachmentmanager.models.AttachmentDetail
 import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_attachment_manager.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("AttachmentManagerActivity")
 @IsFullScreen(false)

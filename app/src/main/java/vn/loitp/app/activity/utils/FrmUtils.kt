@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.loitp.core.utils.*
 import kotlinx.android.synthetic.main.frm_utils.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 class FrmUtils : Fragment() {
 

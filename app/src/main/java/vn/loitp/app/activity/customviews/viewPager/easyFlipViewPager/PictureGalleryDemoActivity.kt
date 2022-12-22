@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.wajahatkarim3.easyflipviewpager.CardFlipPageTransformer
 import kotlinx.android.synthetic.main.activity_picture_gallery_demo.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("PictureGalleryDemoActivity")
 @IsFullScreen(false)

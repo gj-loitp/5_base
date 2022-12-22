@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.frm_view_pager_vertical.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 class FrmVertical : Fragment() {
 

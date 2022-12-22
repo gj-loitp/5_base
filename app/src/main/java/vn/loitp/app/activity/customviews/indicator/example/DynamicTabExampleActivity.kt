@@ -15,7 +15,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNav
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView
-import vn.loitp.app.R
+import vn.loitp.R
 import java.util.*
 
 @LogTag("DynamicTabExampleActivity")

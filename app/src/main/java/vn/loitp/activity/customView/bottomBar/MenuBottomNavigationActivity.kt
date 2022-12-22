@@ -8,9 +8,9 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_bottom_navigation_bar.*
+import vn.loitp.R
 import vn.loitp.activity.customView.bottomBar.bottomBar.BottomBarActivity
 import vn.loitp.activity.customView.bottomBar.expandable.ShowCaseActivity
-import vn.loitp.app.R
 
 @LogTag("BottomNavigationMenuActivity")
 @IsFullScreen(false)

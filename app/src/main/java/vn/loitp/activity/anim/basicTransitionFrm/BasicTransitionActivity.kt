@@ -6,7 +6,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_basic_transition.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/googlesamples/android-BasicTransition/#readme
 @LogTag("BasicTransitionActivity")

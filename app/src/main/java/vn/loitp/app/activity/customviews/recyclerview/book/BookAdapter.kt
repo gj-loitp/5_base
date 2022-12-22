@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_item_book.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 
 @LogTag("BookAdapter")

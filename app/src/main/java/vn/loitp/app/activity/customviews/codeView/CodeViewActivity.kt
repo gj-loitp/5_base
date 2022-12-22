@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_code_view.*
 import kotlinx.android.synthetic.main.bottom_sheet_dialog.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.codeView.plugin.CommentManager
 import vn.loitp.app.activity.customviews.codeView.plugin.SourcePositionListener
 import vn.loitp.app.activity.customviews.codeView.plugin.UndoRedoManager

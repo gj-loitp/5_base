@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LTextToSpeechUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_demo_text_to_speech.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("TextToSpeechActivity")
 @IsFullScreen(false)

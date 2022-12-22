@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_iv_reflection.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ReflectionActivity")
 @IsFullScreen(false)

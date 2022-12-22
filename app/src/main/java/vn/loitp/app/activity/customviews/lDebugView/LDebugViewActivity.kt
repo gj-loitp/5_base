@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.lDebugView.LComunicateDebug
 import com.loitp.views.lDebugView.LDebug
 import kotlinx.android.synthetic.main.activity_l_debug_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.common.Constants.Companion.URL_IMG
 import vn.loitp.common.Constants.Companion.URL_IMG_2
 

@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_seekbar_boxed_vertical.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291
 @LogTag("BoxedVerticalSeekBarActivity")

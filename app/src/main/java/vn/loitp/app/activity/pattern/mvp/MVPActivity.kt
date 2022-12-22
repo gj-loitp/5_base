@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_pattern_mvp.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("MVPActivity")
 @IsFullScreen(false)

@@ -16,7 +16,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.rv.gallery.GalleryLayoutManager
 import com.loitp.views.rv.gallery.GalleryLayoutManager.ItemTransformer
 import kotlinx.android.synthetic.main.activity_recycler_view_menu_gallery_layout_manager.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerViewWithSingletonData.DummyData.Companion.instance
 import kotlin.math.abs

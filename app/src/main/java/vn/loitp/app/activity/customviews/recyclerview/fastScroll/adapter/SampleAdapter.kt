@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.updatePaddingRelative
 import androidx.recyclerview.widget.RecyclerView
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.fastScroll.db.ListItem
 
 class SampleAdapter(

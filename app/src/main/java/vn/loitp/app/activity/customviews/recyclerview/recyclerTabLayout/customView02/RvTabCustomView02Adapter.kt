@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.loitp.core.utilities.LAppResource
 import com.loitp.views.rv.recyclerTabLayout.RecyclerTabLayout
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.DemoImagePagerAdapter
 
 class RvTabCustomView02Adapter internal constructor(viewPager: ViewPager) :

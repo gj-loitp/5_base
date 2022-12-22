@@ -8,7 +8,7 @@ import dev.bandb.graphview.layouts.tree.BuchheimWalkerConfiguration
 import dev.bandb.graphview.layouts.tree.BuchheimWalkerLayoutManager
 import dev.bandb.graphview.layouts.tree.TreeEdgeDecoration
 import kotlinx.android.synthetic.main.activity_graph.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.graphView.GraphActivity
 
 class BuchheimWalkerActivity : GraphActivity() {

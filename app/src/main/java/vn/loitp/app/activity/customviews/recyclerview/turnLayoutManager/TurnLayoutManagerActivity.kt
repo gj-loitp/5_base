@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_turn_layout_manager.*
 import kotlinx.android.synthetic.main.activity_video_exo_player2.*
 import kotlinx.android.synthetic.main.view_controls_tlm.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("TurnLayoutManagerActivity")
 @IsFullScreen(false)

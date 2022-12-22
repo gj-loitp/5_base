@@ -3,7 +3,7 @@ package vn.loitp.app.activity.game.puzzle.ui.boardoptions
 import android.graphics.Bitmap
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import vn.loitp.app.R
+import vn.loitp.R
 import java.io.Serializable
 
 typealias TitledResourcePair = Pair<Int, String>

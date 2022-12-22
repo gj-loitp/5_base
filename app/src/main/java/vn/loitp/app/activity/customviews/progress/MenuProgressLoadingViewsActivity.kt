@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_progress_loading.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.progress.circularProgressBar.CircularProgressBarActivity
 import vn.loitp.app.activity.customviews.progress.circularProgressIndicator.CircularProgressIndicatorActivity
 import vn.loitp.app.activity.customviews.progress.comparingPerformanceBar.ComparingPerformanceBarActivity

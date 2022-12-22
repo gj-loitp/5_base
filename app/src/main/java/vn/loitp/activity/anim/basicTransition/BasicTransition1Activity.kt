@@ -9,7 +9,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_animation_basic_transition_1.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("BasicTransition1Activity")
 @IsFullScreen(false)

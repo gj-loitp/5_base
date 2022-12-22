@@ -12,7 +12,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.*
 import kotlinx.android.synthetic.main.activity_utils.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("UtilsActivity")
 @IsFullScreen(false)

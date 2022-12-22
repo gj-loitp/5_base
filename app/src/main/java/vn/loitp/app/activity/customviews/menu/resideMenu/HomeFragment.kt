@@ -6,7 +6,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.views.menu.resideMenu.ResideMenu
 import kotlinx.android.synthetic.main.frm_reside_menu_home.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("HomeFragment")
 class HomeFragment : BaseFragment() {

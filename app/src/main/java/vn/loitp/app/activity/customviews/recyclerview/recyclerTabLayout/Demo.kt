@@ -1,6 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout
 
-import vn.loitp.app.R
+import vn.loitp.R
 
 enum class Demo(var titleResId: Int) {
     BASIC(R.string.title_basic),

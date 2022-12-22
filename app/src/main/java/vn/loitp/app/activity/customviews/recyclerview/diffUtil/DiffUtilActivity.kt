@@ -11,7 +11,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view_diff_util.*
-import vn.loitp.app.R
+import vn.loitp.R
 import java.util.*
 
 @LogTag("DiffUtilActivity")

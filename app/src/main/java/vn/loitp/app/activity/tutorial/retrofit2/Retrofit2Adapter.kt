@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_retrofit2.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 class Retrofit2Adapter(
     private val cryptoList: ArrayList<RetroCrypto>,

@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.scratch.LScratchTextView
 import kotlinx.android.synthetic.main.activity_scratch_view_text.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ScratchViewTextActivity")
 @IsFullScreen(false)

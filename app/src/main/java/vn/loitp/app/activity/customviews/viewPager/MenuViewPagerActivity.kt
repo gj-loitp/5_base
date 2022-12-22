@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_view_pager.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.viewPager.autoViewPager.ViewPagerAutoActivity
 import vn.loitp.app.activity.customviews.viewPager.detectViewPagerSwipeOut.DetectViewPagerSwipeOutActivity
 import vn.loitp.app.activity.customviews.viewPager.detectViewPagerSwipeOut2.ViewPagerSwipeOut2Activity

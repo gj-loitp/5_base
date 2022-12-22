@@ -7,7 +7,7 @@ import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import kotlinx.android.synthetic.main.frm_coordinator_1.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("FrmCoordinator1")
 class FrmCoordinator1 : BaseFragment() {

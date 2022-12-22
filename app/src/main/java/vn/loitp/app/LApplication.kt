@@ -12,6 +12,7 @@ import com.loitp.data.ActivityData
 import com.onesignal.OneSignal
 import io.realm.Realm
 import io.realm.RealmConfiguration
+import vn.loitp.BuildConfig
 import vn.loitp.app.activity.database.room.db.FNBDatabase
 
 // build release de check

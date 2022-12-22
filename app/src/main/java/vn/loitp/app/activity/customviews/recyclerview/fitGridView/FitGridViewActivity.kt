@@ -9,7 +9,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.rv.fitGridView.FitGridView
 import kotlinx.android.synthetic.main.activity_fit_grid_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("FitGridViewActivity")
 @IsFullScreen(false)

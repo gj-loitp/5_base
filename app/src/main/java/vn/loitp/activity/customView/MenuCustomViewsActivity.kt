@@ -10,13 +10,13 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_custom_view.*
+import vn.loitp.R
 import vn.loitp.activity.customView.actionBar.MenuActionBarActivity
 import vn.loitp.activity.customView.androidRibbon.RibbonActivity
 import vn.loitp.activity.customView.answerView.AnswerViewActivity
 import vn.loitp.activity.customView.bottomBar.MenuBottomNavigationActivity
 import vn.loitp.activity.customView.bs.MenuBottomSheetActivity
 import vn.loitp.activity.customView.bt.MenuButtonActivity
-import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
 import vn.loitp.app.activity.customviews.cardView.CardViewActivity
 import vn.loitp.app.activity.customviews.codeView.CodeViewActivity

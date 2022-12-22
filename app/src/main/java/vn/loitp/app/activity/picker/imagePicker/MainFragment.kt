@@ -9,7 +9,7 @@ import com.nguyenhoanglam.imagepicker.model.Image
 import com.nguyenhoanglam.imagepicker.model.ImagePickerConfig
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.registerImagePicker
 import kotlinx.android.synthetic.main.fragment_main.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 class MainFragment : BaseFragment() {
 

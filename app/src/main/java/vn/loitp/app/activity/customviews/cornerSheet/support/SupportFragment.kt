@@ -11,7 +11,7 @@ import com.github.heyalex.cornersheet.behavior.CornerSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.support_content.view.*
 import kotlinx.android.synthetic.main.support_header.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 class SupportFragment : Fragment() {
 

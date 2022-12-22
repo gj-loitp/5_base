@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import vn.loitp.app.R
+import vn.loitp.R
 
 class GalleryImageFragment : Fragment() {
     companion object {

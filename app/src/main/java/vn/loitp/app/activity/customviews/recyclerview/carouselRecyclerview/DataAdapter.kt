@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.utilities.LImageUtil
-import vn.loitp.app.R
+import vn.loitp.R
 
 class DataAdapter(private var list: ArrayList<DataModel>) :
     RecyclerView.Adapter<DataAdapter.ViewHolder>() {

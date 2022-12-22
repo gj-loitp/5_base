@@ -12,7 +12,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.main.fragment_page.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 private const val PAGE_INDEX = "PAGE_INDEX"
 

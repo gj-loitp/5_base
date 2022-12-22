@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_pattern.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.pattern.mvp.MVPActivity
 import vn.loitp.app.activity.pattern.mvvm.MVVMActivity
 import vn.loitp.app.activity.pattern.observerPattern.ObserverPatternActivity

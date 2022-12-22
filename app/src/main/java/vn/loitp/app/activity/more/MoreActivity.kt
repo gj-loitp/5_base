@@ -8,7 +8,7 @@ import com.loitp.core.helper.more.FrmMore
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_more.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("MoreActivity")
 @IsFullScreen(false)

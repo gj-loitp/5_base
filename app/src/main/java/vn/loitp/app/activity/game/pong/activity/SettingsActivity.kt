@@ -11,7 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.dialog_settings.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.game.pong.pong.Difficulty
 import vn.loitp.app.activity.game.pong.pong.Mode
 import vn.loitp.app.activity.game.pong.pong.Settings

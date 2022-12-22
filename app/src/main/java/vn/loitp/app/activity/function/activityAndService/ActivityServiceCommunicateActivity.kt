@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_func_service_communicate.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.demo.floatingWidget.CommunicateMng
 
 @LogTag("ActivityServiceCommunicateActivity")

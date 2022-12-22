@@ -10,7 +10,7 @@ import io.reactivex.Single
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_rxjava2_flowable.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 

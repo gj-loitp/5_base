@@ -14,7 +14,7 @@ import hakobastvatsatryan.DropdownTextView
 import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_dropdown_text_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("DropdownTextViewActivity")
 @IsFullScreen(false)

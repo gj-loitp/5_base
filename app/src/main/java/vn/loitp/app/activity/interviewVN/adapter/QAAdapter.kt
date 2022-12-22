@@ -12,7 +12,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.model.QA
 import kotlinx.android.synthetic.main.view_item_qa.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("QAAdapter")
 class QAAdapter(

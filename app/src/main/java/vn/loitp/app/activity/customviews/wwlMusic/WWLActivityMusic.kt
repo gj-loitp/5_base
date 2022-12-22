@@ -9,7 +9,7 @@ import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.hideSystemUI
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.showSystemUI
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.updateStatusBarAlpha
 import kotlinx.android.synthetic.main.activity_wwl_music.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.wwlMusic.fragments.WWLPlaylistFragment
 import vn.loitp.app.activity.customviews.wwlMusic.fragments.WWLWatchFragment
 import vn.loitp.app.activity.customviews.wwlMusic.interfaces.FragmentHost

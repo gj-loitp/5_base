@@ -9,7 +9,7 @@ import com.nex3z.togglebuttongroup.MultiSelectToggleGroup
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup.OnCheckedStateChangeListener
 import com.nex3z.togglebuttongroup.SingleSelectToggleGroup
 import kotlinx.android.synthetic.main.activity_switch_tbg_custom_button.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("TBGCustomButtonActivity")
 @IsFullScreen(false)

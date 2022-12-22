@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_scroll_view_2d_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ScrollView2DActivity")
 @IsFullScreen(false)

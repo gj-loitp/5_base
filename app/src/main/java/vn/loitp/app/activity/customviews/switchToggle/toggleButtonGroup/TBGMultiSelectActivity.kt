@@ -7,7 +7,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup
 import kotlinx.android.synthetic.main.activity_switch_tbg_multi_select.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("TBGMultiSelectActivity")
 @IsFullScreen(false)

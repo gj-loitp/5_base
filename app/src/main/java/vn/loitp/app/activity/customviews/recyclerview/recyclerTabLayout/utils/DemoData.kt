@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import org.json.JSONException
 import org.json.JSONObject
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.ColorItem
 import java.io.IOException
 import java.nio.charset.Charset

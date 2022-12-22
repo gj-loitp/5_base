@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import kotlinx.android.synthetic.main.view_movie_list.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("MoviesAdapter")
 class MoviesAdapter(

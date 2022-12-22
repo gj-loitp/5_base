@@ -9,7 +9,7 @@ import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyFrm
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_demo_gallery_core_album_frm.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("GalleryCoreAlbumFrmActivity")
 @IsFullScreen(false)

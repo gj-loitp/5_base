@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.fastScroll
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.fastScroll.db.ListItem
 
 class HeaderSpacerItemDecoration(

@@ -8,7 +8,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.sw.toggle.LabeledSwitch
 import com.loitp.views.sw.toggle.OnToggledListener
 import kotlinx.android.synthetic.main.activity_switch_toggle.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/Angads25/android-toggle?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6778
 

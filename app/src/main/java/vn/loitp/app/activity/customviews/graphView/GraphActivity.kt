@@ -16,7 +16,7 @@ import dev.bandb.graphview.AbstractGraphAdapter
 import dev.bandb.graphview.graph.Graph
 import dev.bandb.graphview.graph.Node
 import kotlinx.android.synthetic.main.activity_graph.*
-import vn.loitp.app.R
+import vn.loitp.R
 import java.util.*
 
 @LogTag("GraphActivity")

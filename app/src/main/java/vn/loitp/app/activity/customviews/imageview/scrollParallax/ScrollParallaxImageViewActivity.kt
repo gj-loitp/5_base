@@ -11,7 +11,7 @@ import com.loitp.views.iv.scrollParallax.LScrollParallaxImageView
 import com.loitp.views.iv.scrollParallax.style.HorizontalScaleStyle
 import com.loitp.views.iv.scrollParallax.style.VerticalMovingStyle
 import kotlinx.android.synthetic.main.activity_scroll_parallax_image_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ScrollParallaxImageViewActivity")
 @IsFullScreen(false)

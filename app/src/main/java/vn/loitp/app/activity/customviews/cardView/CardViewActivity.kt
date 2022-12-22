@@ -10,8 +10,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_card_view.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet_sample.*
-import vn.loitp.app.R
-
+import vn.loitp.R
 
 @LogTag("CardViewActivity")
 @IsFullScreen(false)

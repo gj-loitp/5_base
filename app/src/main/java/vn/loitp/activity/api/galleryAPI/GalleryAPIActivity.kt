@@ -19,7 +19,7 @@ import com.loitp.restApi.restClient.RestClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_api_gallery.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("GalleryAPIActivity")
 @IsFullScreen(false)

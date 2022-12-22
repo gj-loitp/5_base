@@ -26,7 +26,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.Li
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.indicator.ext.titles.ScaleTransitionPagerTitleView
 
 @LogTag("FixedTabExampleActivity")

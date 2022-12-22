@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import vn.loitp.app.R
+import vn.loitp.R
 
 typealias OnItemClickListener = (info: ShowCaseInfo) -> Unit
 

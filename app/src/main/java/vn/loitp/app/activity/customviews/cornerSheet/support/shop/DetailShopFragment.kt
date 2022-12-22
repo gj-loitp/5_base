@@ -11,7 +11,7 @@ import com.github.heyalex.cornersheet.behavior.CornerSheetBehavior
 import com.github.heyalex.cornersheet.behavior.CornerSheetHeaderBehavior
 import kotlinx.android.synthetic.main.detail_shop_item_fragment.*
 import kotlinx.android.synthetic.main.detail_shop_item_fragment.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.cornerSheet.support.ShopActivity
 
 class DetailShopFragment : Fragment() {

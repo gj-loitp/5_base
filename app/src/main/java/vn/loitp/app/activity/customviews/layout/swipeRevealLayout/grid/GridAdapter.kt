@@ -10,7 +10,7 @@ import android.widget.TextView
 import com.loitp.views.toast.LToast.showShortInformation
 import com.loitp.views.layout.swipeReveal.LSwipeRevealLayout
 import com.loitp.views.layout.swipeReveal.ViewBinderHelper
-import vn.loitp.app.R
+import vn.loitp.R
 
 class GridAdapter(
     context: Context,

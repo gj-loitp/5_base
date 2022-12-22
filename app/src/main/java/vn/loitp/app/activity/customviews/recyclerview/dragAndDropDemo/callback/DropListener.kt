@@ -6,7 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.DragEvent
 import android.view.View
 import androidx.core.content.ContextCompat
-import vn.loitp.app.R
+import vn.loitp.R
 
 /**
  * Callback for the target view where dragged items will be dropped

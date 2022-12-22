@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.customviews.recyclerview.fastScroll.db
 
 import com.thedeanda.lorem.LoremIpsum
-import vn.loitp.app.R
+import vn.loitp.R
 
 val SAMPLE_DATA_TEXT = LoremIpsum.getInstance()
     .getWords(200)

@@ -11,7 +11,7 @@ import com.loitp.core.utilities.LImageUtil
 import com.tuanhav95.drag.utils.inflate
 import kotlinx.android.synthetic.main.frm_drag_view_bottom.*
 import kotlinx.android.synthetic.main.item_drag_view_normal.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 class BottomFragment : Fragment() {
     override fun onCreateView(

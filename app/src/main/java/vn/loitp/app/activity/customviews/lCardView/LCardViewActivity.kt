@@ -13,7 +13,7 @@ import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.card.LCardView
 import kotlinx.android.synthetic.main.activity_l_card_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("LCardViewActivity")
 @IsFullScreen(false)

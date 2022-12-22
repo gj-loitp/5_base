@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_text_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.textview.autoComplete.AutoCompleteTextViewActivity
 import vn.loitp.app.activity.customviews.textview.autoFit.AutoFitTextViewActivity
 import vn.loitp.app.activity.customviews.textview.colorTextView.ColorTextViewActivity

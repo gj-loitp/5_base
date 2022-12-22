@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_constraintlayout_menu.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.layout.constraintLayout.constraintSet.ConstraintSetActivity
 import vn.loitp.app.activity.customviews.layout.constraintLayout.customBehavior.CustomBehaviorActivity
 import vn.loitp.app.activity.customviews.layout.constraintLayout.demo.ConstraintLayoutDemoActivity

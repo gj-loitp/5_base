@@ -6,7 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.layout_cpb_sample_1.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("Sample1Activity")
 @IsFullScreen(false)

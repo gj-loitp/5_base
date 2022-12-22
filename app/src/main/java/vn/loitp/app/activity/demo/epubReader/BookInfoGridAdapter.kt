@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.loitp.core.utilities.LReaderUtil
 import com.loitp.func.epub.model.BookInfo
-import vn.loitp.app.R
+import vn.loitp.R
 
 class BookInfoGridAdapter(
     private val bookInfoList: ArrayList<BookInfo>

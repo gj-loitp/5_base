@@ -15,7 +15,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.demo.floatingWidget.CommunicateMng
 
 class TestService : Service() {

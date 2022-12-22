@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import kotlinx.android.synthetic.main.frm_reside_menu_calendar.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("CalendarFragment")
 class CalendarFragment : BaseFragment() {

@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.iv.zoom.ColorGridDrawable
 import kotlinx.android.synthetic.main.activity_zoom_image_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ZoomImageViewActivity")
 @IsFullScreen(false)

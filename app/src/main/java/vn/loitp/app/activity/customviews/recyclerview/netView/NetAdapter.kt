@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_item_net.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("NetAdapter")
 class NetAdapter : BaseAdapter() {

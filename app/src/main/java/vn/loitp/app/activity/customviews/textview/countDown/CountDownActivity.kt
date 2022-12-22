@@ -8,7 +8,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.tv.countDown.LCountDownView
 import kotlinx.android.synthetic.main.activity_text_view_count_down.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("CountDownActivity")
 @IsFullScreen(false)

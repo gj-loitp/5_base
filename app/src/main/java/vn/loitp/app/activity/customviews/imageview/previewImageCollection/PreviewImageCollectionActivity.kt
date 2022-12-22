@@ -19,7 +19,7 @@ import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_preview_image_collection.*
 import pereira.agnaldo.previewimgcol.ImageCollectionView
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("PreviewImageCollectionActivity")
 @IsFullScreen(false)

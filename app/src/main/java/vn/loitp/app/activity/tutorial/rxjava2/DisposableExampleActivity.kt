@@ -12,7 +12,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_rx_java2_disposable.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://www.vogella.com/tutorials/RxJava/article.html
 

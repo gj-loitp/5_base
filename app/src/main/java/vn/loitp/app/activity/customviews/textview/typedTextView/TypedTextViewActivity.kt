@@ -11,7 +11,7 @@ import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.prush.typedtextview.TypedTextView
 import kotlinx.android.synthetic.main.activity_0.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("TypedTextViewActivity")
 @IsFullScreen(false)

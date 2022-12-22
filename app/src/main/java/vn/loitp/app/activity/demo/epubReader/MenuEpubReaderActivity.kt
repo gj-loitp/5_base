@@ -13,7 +13,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.viewmodels.EpubViewModel
 import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("MenuEpubReaderActivity")
 @IsFullScreen(false)

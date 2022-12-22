@@ -7,7 +7,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.simmorsal.recolor_project.ReColor
 import kotlinx.android.synthetic.main.activity_fun_recolor.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/SIMMORSAL/ReColor
 

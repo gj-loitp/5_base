@@ -15,7 +15,7 @@ import com.amrdeveloper.codeview.Snippet;
 
 import java.util.List;
 
-import vn.loitp.app.R;
+import vn.loitp.R;
 
 public class CustomCodeViewAdapter extends CodeViewAdapter {
 

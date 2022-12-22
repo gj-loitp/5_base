@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_recycler_tablayout.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.autoSelect.RvTabAutoSelectActivityRvTab
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.basic.RvTabDemoBasicActivity
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.customView01.RvTabCustomView01Activity

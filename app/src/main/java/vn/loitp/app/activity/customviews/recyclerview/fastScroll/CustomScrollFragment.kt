@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearSmoothScroller
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.reddit.indicatorfastscroll.FastScrollerView
 import kotlinx.android.synthetic.main.layout_fast_scroll_sample_basic.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.fastScroll.adapter.SampleAdapter
 import vn.loitp.app.activity.customviews.recyclerview.fastScroll.db.ListItem
 import vn.loitp.app.activity.customviews.recyclerview.fastScroll.db.SAMPLE_DATA_TEXT

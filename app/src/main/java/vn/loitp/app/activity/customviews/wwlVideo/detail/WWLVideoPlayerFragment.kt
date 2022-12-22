@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.wwlVideo.detail
 
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.wwlVideo.utils.WWLVideoDataset
 
 @LogTag("DatabaseFirebaseSignInActivity")

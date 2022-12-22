@@ -21,8 +21,8 @@ import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import io.devlight.xtreeivi.cornercutlinearlayout.CornerCutLinearLayout
 import kotlinx.android.synthetic.main.activity_corner_cut_linear_layout.*
-import vn.loitp.app.R
-import vn.loitp.app.databinding.ActivityCornerCutLinearLayoutBinding
+import vn.loitp.R
+import vn.loitp.databinding.ActivityCornerCutLinearLayoutBinding
 import kotlin.math.hypot
 import kotlin.math.min
 import kotlin.math.roundToInt

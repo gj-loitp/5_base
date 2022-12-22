@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.loitp.views.rv.recyclerTabLayout.RecyclerTabLayout
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.DemoColorPagerAdapter
 
 class RvTabCustomView01Adapter internal constructor(viewPager: ViewPager) :

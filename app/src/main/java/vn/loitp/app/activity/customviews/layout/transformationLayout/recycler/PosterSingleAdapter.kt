@@ -10,7 +10,7 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
 import com.skydoves.transformationlayout.TransformationLayout
 import kotlinx.android.synthetic.main.view_item_transformation_poster.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 class PosterSingleAdapter constructor(
     private val delegate: PosterDelegate

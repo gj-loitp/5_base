@@ -20,7 +20,7 @@ import com.loitp.core.utilities.LActivityUtil;
 import com.loitp.core.utilities.LUIUtil;
 
 import kotlin.Suppress;
-import vn.loitp.app.R;
+import vn.loitp.R;
 import vn.loitp.app.activity.demo.alarmDemo.adapter.AlarmListAdapter;
 import vn.loitp.app.activity.demo.alarmDemo.model.Alarm;
 import vn.loitp.app.activity.demo.alarmDemo.service.Preferences;

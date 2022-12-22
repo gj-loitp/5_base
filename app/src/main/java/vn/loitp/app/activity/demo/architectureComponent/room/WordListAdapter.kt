@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.item_room_note.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.demo.architectureComponent.room.model.Word
 
 class WordListAdapter(val callback: Callback?) :

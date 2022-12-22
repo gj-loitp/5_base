@@ -11,7 +11,7 @@ import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil
 import com.loitp.views.wwl.music.utils.LWWLMusicViewHelper
 import com.loitp.views.wwl.video.LWWLVideo
 import kotlinx.android.synthetic.main.wwl_video_activity.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.wwlVideo.detail.WWLVideoMetaInfoFragment
 import vn.loitp.app.activity.customviews.wwlVideo.detail.WWLVideoPlayerFragment
 import vn.loitp.app.activity.customviews.wwlVideo.detail.WWLVideoUpNextFragment

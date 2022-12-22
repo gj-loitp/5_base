@@ -13,7 +13,7 @@ import com.loitp.core.utilities.LAppResource
 import com.loitp.views.menu.resideMenu.ResideMenu
 import com.loitp.views.menu.resideMenu.ResideMenuItem
 import kotlinx.android.synthetic.main.activity_reside_menu.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ResideMenuActivity")
 @IsFullScreen(false)

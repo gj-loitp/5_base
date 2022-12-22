@@ -15,7 +15,7 @@ import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.vp.parrallax.ParallaxMode
 import kotlinx.android.synthetic.main.activity_view_pager_parallax.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ParallaxViewPagerActivity")
 @IsFullScreen(false)

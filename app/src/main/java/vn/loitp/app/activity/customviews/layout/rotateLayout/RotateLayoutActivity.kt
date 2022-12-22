@@ -9,7 +9,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LDeviceUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_rotate_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("RotateLayoutActivity")
 @IsFullScreen(false)

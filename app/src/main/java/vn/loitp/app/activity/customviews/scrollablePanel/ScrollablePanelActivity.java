@@ -20,7 +20,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Random;
 
-import vn.loitp.app.R;
+import vn.loitp.R;
 
 //https://github.com/Kelin-Hong/ScrollablePanel?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5306
 @LogTag("ScrollablePanelActivity")

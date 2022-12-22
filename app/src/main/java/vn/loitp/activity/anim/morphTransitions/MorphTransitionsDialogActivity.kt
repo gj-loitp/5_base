@@ -12,7 +12,7 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_morph_transtions_dialog.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("DialogActivity")
 @IsFullScreen(false)

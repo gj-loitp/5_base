@@ -10,7 +10,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.layout.floatDrag.DisplayUtil
 import com.loitp.views.layout.floatDrag.FloatDragLayout
 import kotlinx.android.synthetic.main.activity_0.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("FloatDragWindowModeActivity")
 @IsFullScreen(false)

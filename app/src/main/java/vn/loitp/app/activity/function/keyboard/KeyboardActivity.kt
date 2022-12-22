@@ -10,7 +10,7 @@ import com.loitp.core.utilities.LKeyBoardUtil
 import com.loitp.core.utilities.LUIUtil
 import gun0912.tedkeyboardobserver.TedRxKeyboardObserver
 import kotlinx.android.synthetic.main.activity_func_keyboard.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/ParkSangGwon/TedKeyboardObserver
 

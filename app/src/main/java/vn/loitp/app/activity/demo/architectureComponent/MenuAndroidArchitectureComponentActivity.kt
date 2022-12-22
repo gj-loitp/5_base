@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_demo_architecture_component.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.demo.architectureComponent.coroutine.CoroutineActivity
 import vn.loitp.app.activity.demo.architectureComponent.room.WordActivity
 import vn.loitp.app.activity.demo.architectureComponent.viewmodel.ViewModelActivity

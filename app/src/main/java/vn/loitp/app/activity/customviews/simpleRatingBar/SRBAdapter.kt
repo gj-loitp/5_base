@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.willy.ratingbar.BaseRatingBar
 import com.willy.ratingbar.ScaleRatingBar
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.simpleRatingBar.SRBAdapter.MyViewHolder
 
 class SRBAdapter(private val mContext: Context) : RecyclerView.Adapter<MyViewHolder>() {

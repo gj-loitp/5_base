@@ -14,7 +14,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_asynctask_rx.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike
 
 @LogTag("AsyncTaskRxActivity")

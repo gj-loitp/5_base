@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import vn.loitp.app.R
+import vn.loitp.R
 
 class WWLMusicControlsOverlay(context: Context) : FrameLayout(context), View.OnClickListener {
 

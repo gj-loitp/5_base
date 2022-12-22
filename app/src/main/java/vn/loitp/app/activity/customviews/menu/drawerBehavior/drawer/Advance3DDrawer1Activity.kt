@@ -13,7 +13,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_drawer_behavior_advance_3d_1.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("Advance3DDrawer1Activity")
 @IsFullScreen(false)

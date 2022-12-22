@@ -14,7 +14,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.stfalcon.imageviewer.StfalconImageViewer
 import kotlinx.android.synthetic.main.activity_stfaicon_image_viewer_list.*
 import kotlinx.android.synthetic.main.view_stf_overlay.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 import vn.loitp.common.Constants
 

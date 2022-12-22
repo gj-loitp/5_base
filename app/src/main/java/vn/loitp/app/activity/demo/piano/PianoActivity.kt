@@ -18,7 +18,7 @@ import com.loitp.views.piano.listener.OnPianoAutoPlayListener
 import com.loitp.views.piano.listener.OnPianoListener
 import com.loitp.views.piano.utils.AutoPlayUtils
 import kotlinx.android.synthetic.main.activity_piano.*
-import vn.loitp.app.R
+import vn.loitp.R
 import java.io.IOException
 
 @LogTag("PianoActivity")

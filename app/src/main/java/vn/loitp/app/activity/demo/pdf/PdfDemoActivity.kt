@@ -15,7 +15,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.task.AsyncTaskDownloadPdfStream
 import com.loitp.task.GetPdfCoroutine
 import kotlinx.android.synthetic.main.activity_demo_pdf.*
-import vn.loitp.app.R
+import vn.loitp.R
 import java.io.File
 
 // https://github.com/barteksc/AndroidPdfViewer

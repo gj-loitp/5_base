@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_test_api_retrofit2.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.activity.api.retrofit2.AnswersAdapter.PostItemListener
 import vn.loitp.activity.api.retrofit2.ApiUtils.Companion.sOService
 import vn.loitp.activity.api.retrofit2.model.SOAnswersResponse

@@ -17,7 +17,7 @@ import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.vp.vpTransformers.*
 import kotlinx.android.synthetic.main.activity_view_pager_with_tablayout.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/geftimov/android-viewpager-transformers
 @LogTag("ViewPagerWithTabLayoutActivity")

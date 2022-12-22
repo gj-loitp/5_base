@@ -25,8 +25,8 @@ import com.loitp.core.utilities.LLocationUtil
 import com.loitp.core.utilities.LUIUtil
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_func_location.*
-import vn.loitp.app.BuildConfig
-import vn.loitp.app.R
+import vn.loitp.BuildConfig
+import vn.loitp.R
 import java.text.DateFormat
 import java.util.*
 

@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.frm_interview_vn_iq_list_package.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.demo.fragmentFlow.BaseFragmentFlow
 import vn.loitp.app.activity.interviewVN.adapter.QAAdapter
 

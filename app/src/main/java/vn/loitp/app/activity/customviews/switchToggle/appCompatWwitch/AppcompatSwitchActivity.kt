@@ -7,7 +7,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_switch_appcompat.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("AppcompatSwitchActivity")
 @IsFullScreen(false)

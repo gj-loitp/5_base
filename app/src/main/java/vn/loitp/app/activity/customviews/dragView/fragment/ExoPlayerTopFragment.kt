@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import kotlinx.android.synthetic.main.frm_drag_view_top_exo_player.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 class ExoPlayerTopFragment : Fragment(), Player.EventListener {
 

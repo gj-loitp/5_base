@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitp.views.toast.LToast
 import kotlinx.android.synthetic.main.popup_card.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @SuppressLint("InflateParams")
 class ExampleCardPopup internal constructor(context: Context?) : RelativePopupWindow() {

@@ -15,7 +15,7 @@ import android.view.ViewGroup
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import kotlinx.android.synthetic.main.wwl_music_watch_fragment.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.wwlMusic.interfaces.FragmentHost
 import vn.loitp.app.activity.customviews.wwlMusic.layout.WWLMusicControlsOverlay
 import vn.loitp.app.activity.customviews.wwlMusic.utils.WWLMusicDataset

@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_wheel_spinner.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("WheelSpinnerActivity")
 @IsFullScreen(false)

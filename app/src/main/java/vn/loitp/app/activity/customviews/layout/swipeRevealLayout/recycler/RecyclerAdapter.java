@@ -9,15 +9,16 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.loitp.views.toast.LToast;
 import com.loitp.views.layout.swipeReveal.LSwipeRevealLayout;
 import com.loitp.views.layout.swipeReveal.ViewBinderHelper;
+import com.loitp.views.toast.LToast;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import vn.loitp.app.R;
+import vn.loitp.R;
+
 
 //30.12.2020 try to convert kotlin but failed
 public class RecyclerAdapter extends RecyclerView.Adapter {

@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.loitp.annotation.LogTag
 import kotlinx.android.synthetic.main.frm_demo_flow_0.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("FrmFlow0")
 class FrmFlow0 : BaseFragmentFlow() {

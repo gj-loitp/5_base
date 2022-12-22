@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.layout.draggablePanel.DraggableListener
 import kotlinx.android.synthetic.main.activity_draggable_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("DraggableViewActivity")
 @IsFullScreen(false)

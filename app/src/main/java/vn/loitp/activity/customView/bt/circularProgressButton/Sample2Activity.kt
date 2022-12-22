@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.layout_cpb_sample_2.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("Sample2Activity")
 @IsFullScreen(false)

@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageView
 import com.nex3z.togglebuttongroup.button.CompoundToggleButton
-import vn.loitp.app.R
+import vn.loitp.R
 
 class CustomCompoundToggleButton @JvmOverloads constructor(
     context: Context,

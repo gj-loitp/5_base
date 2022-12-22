@@ -14,7 +14,7 @@ import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_ttt_api_comic_list.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("TTTAPIComicListActivity")
 @IsFullScreen(false)

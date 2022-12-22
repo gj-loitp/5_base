@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_standard_example.*
 import kotlinx.android.synthetic.main.layout_pager.*
 import pt.tornelas.segmentedprogressbar.SegmentedProgressBarListener
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.progress.segmentedProgressBar.pager.PagerAdapter
 
 @LogTag("StandardExampleActivity")

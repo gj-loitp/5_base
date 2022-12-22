@@ -11,7 +11,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.shadowViewHelper.ShadowProperty
 import com.loitp.views.shadowViewHelper.ShadowViewDrawable
 import kotlinx.android.synthetic.main.activity_animation_shadow_view_helper.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/wangjiegulu/ShadowViewHelper?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=1884
 @LogTag("ShadowViewHelperActivity")

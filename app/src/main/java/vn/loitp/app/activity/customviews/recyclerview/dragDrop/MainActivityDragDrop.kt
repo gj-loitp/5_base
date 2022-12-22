@@ -13,7 +13,7 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_main_drag_drop.*
 import kotlinx.android.synthetic.main.activity_main_drag_drop.lActionBar
 import kotlinx.android.synthetic.main.activity_menu_recycler_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("MainActivityDragDrop")
 @IsFullScreen(false)

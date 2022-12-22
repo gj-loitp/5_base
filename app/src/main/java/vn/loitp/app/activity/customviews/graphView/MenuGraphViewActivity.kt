@@ -14,7 +14,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_menu_graph_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("MenuGraphViewActivity")
 @IsFullScreen(false)

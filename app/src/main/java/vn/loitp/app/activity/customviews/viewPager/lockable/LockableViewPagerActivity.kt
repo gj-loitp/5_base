@@ -11,7 +11,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_view_pager_lockable.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.viewPager.autoViewPager.FrmIv
 
 @LogTag("LockableViewPagerActivity")

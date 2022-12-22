@@ -9,7 +9,7 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_custom_navigator_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.circlenavigator.CircleNavigator
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.indicator.ext.navigator.ScaleCircleNavigator
 
 @LogTag("CustomNavigatorExampleActivity")

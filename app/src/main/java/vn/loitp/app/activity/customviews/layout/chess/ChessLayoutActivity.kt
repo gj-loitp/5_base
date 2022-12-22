@@ -14,7 +14,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_chess_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ChessLayoutActivity")
 @IsFullScreen(false)

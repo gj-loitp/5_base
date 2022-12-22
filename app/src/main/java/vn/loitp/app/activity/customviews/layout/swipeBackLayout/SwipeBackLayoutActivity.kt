@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LScreenUtil
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
 import com.loitp.views.layout.swipeBack.SwipeBackLayout.OnSwipeBackListener
 import kotlinx.android.synthetic.main.activity_swipe_back_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/gongwen/SwipeBackLayout
 

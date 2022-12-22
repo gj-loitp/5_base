@@ -10,7 +10,7 @@ import android.view.ViewTreeObserver
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.PopupWindow
-import vn.loitp.app.R
+import vn.loitp.R
 
 class KeyboardHeightProvider(private val activity: Activity) : PopupWindow(activity) {
     private var resizableView: View

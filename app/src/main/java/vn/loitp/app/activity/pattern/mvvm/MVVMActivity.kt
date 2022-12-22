@@ -6,8 +6,8 @@ import androidx.databinding.ViewDataBinding
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import vn.loitp.app.BR
-import vn.loitp.app.R
+import vn.loitp.BR
+import vn.loitp.R
 import vn.loitp.app.activity.pattern.mvvm.viewModel.UserViewModel
 
 @LogTag("MVVMActivity")

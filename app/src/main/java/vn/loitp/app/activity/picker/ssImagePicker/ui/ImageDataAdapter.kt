@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.picker.ssImagePicker.loadImage
-import vn.loitp.app.R
-import vn.loitp.app.databinding.PickerSsImageListItemImageDataBinding
+import vn.loitp.R
+import vn.loitp.databinding.PickerSsImageListItemImageDataBinding
 
 /**
  * ImageDataAdapter class to display list of picked images from the picker.

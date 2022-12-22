@@ -6,7 +6,7 @@ import android.view.View
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_transformation_home.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.layout.transformationLayout.TransformationMockUtil.getMockPosters
 import vn.loitp.app.activity.customviews.layout.transformationLayout.recycler.PosterAdapter
 import vn.loitp.app.activity.customviews.layout.transformationLayout.recycler.PosterMenuAdapter

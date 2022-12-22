@@ -10,7 +10,7 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_item_news.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.data.model.News
 
 @LogTag("NewsAdapter")

@@ -8,7 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_coordinator_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 import kotlin.math.roundToInt
 
 @LogTag("CoordinatorLayoutWithImageViewActivity")

@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import vn.loitp.app.R;
+import vn.loitp.R;
 
 public class MyFragment extends Fragment {
 

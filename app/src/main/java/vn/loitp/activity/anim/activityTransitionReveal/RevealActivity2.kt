@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.activity_reveal_2.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("OtherActivity")
 @IsFullScreen(false)

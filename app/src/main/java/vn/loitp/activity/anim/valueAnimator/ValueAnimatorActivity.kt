@@ -12,7 +12,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_animation_value_animator.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://viblo.asia/p/custom-view-trong-android-gGJ59br9KX2
 @LogTag("ValueAnimatorActivity")

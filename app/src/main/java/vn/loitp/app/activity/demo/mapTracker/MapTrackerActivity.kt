@@ -30,7 +30,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_map_tracker.*
-import vn.loitp.app.R
+import vn.loitp.R
 import java.io.IOException
 import java.util.*
 

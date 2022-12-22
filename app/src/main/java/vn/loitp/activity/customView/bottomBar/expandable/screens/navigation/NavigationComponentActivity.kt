@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import github.com.st235.lib_expandablebottombar.navigation.ExpandableBottomBarNavigationUI
 import kotlinx.android.synthetic.main.activiy_navigation.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("NavigationComponentActivity")
 @IsFullScreen(false)

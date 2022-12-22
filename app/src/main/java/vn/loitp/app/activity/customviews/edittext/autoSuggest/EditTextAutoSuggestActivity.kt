@@ -16,7 +16,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_auto_suggest_editext.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("EditTextAutoSuggestActivity")
 @IsFullScreen(false)

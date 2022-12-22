@@ -77,7 +77,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    namespace 'vn.loitp.app'
+    namespace 'vn.loitp'
 
     android.applicationVariants.all { variant ->
         variant.outputs.all {

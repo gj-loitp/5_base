@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_item_transformation_poster_menu.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.layout.transformationLayout.TransformationDetailActivity
 
 class PosterMenuAdapter : BaseAdapter() {

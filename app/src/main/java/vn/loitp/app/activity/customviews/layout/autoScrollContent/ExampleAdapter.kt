@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import vn.loitp.app.databinding.ItemAutoscrollContentBinding
+import vn.loitp.databinding.ItemAutoscrollContentBinding
 
 class ExampleAdapter : ListAdapter<ExampleModel, ViewHolder>(ExampleDiffCallback()) {
 

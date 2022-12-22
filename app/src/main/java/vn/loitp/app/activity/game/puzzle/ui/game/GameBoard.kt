@@ -10,7 +10,7 @@ import android.util.AttributeSet
 import android.util.Size
 import android.view.View
 import androidx.core.content.ContextCompat
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.game.puzzle.ui.game.state.PuzzleGrid
 import kotlin.math.ceil
 

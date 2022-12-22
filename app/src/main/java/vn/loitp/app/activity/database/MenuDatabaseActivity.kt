@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_database.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.database.readSqliteAsset.ReadSqliteAssetActivity
 import vn.loitp.app.activity.database.realm.RealmActivity
 import vn.loitp.app.activity.database.room.RoomActivity

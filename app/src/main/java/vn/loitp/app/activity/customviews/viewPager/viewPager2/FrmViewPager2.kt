@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.frm_view_pager_2.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 class FrmViewPager2 : Fragment() {
 

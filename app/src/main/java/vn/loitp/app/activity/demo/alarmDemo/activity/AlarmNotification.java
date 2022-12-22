@@ -27,7 +27,7 @@ import com.loitp.core.utilities.LActivityUtil;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import vn.loitp.app.R;
+import vn.loitp.R;
 import vn.loitp.app.activity.demo.alarmDemo.model.Alarm;
 import vn.loitp.app.activity.demo.alarmDemo.model.DateTime;
 

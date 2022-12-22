@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_animation_scene_transition_basic_details.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("SceneTransitionBasicDetailActivity")
 @IsFullScreen(false)

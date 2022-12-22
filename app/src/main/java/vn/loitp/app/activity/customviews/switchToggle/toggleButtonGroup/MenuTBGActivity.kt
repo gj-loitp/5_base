@@ -9,7 +9,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_switch_tbg.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/nex3z/ToggleButtonGroup
 @LogTag("TBGMenuActivity")

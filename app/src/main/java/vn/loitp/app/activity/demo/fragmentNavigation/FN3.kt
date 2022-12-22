@@ -6,7 +6,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener
 import kotlinx.android.synthetic.main.frm_fn_3.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("fragmentNavigationActivity")
 class FN3 : BaseFragment(), OnBackPressedListener {

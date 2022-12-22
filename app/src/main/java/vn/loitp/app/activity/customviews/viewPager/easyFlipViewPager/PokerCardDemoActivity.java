@@ -16,7 +16,7 @@ import com.wajahatkarim3.easyflipviewpager.CardFlipPageTransformer;
 
 import java.util.ArrayList;
 
-import vn.loitp.app.R;
+import vn.loitp.R;
 
 public class PokerCardDemoActivity extends AppCompatActivity {
 

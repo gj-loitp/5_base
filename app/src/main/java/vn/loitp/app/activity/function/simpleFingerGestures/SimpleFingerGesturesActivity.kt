@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.func.simpleFingerGestures.SimpleFingerGestures
 import kotlinx.android.synthetic.main.activity_func_simple_finger_gestures.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("SimpleFingerGesturesActivity")
 @IsFullScreen(false)

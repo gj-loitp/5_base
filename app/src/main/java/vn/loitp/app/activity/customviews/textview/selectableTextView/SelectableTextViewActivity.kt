@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.tv.selectable.SelectableListener
 import kotlinx.android.synthetic.main.activity_text_view_selectable.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("SelectableTextViewActivity")
 @IsFullScreen(false)

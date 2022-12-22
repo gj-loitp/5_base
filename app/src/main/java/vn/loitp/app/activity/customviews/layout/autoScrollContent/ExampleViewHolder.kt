@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.layout.autoScrollContent
 
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.viewbinding.ViewBinding
-import vn.loitp.app.databinding.ItemAutoscrollContentBinding
+import vn.loitp.databinding.ItemAutoscrollContentBinding
 
 class ExampleViewHolder(
     private val binding: ViewBinding

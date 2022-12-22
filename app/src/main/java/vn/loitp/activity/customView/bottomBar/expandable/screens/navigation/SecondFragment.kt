@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import vn.loitp.app.R
+import vn.loitp.R
 
 class SecondFragment : Fragment() {
 

@@ -14,7 +14,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_recycler_view_drag_drop_swipe_list_horizontal.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("DragDropSwipeListHorizontalRecyclerviewActivity")
 @IsFullScreen(false)

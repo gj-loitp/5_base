@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
-import vn.loitp.app.R
+import vn.loitp.R
 
 class YearsPagerAdapter : PagerAdapter() {
 

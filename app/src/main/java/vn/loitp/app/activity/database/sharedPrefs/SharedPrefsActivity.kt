@@ -11,7 +11,7 @@ import com.loitp.core.utilities.LConvertUtil
 import com.loitp.core.utilities.LSharedPrefsUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_shared_prefs.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.pattern.mvp.User
 
 @LogTag("SharedPrefsActivity")

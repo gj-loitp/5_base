@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.menu.resideMenu
 
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ProfileFragment")
 class ProfileFragment : BaseFragment() {

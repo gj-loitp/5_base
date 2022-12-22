@@ -11,7 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_constraint_set.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ConstraintSetActivity")
 @IsFullScreen(false)

@@ -12,7 +12,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_read_more_option.*
-
+import vn.loitp.R
 
 @LogTag("ReadMoreOptionActivity")
 @IsFullScreen(false)
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_read_more_option.*
 class ReadMoreOptionActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return vn.loitp.app.R.layout.activity_read_more_option
+        return R.layout.activity_read_more_option
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +49,7 @@ class ReadMoreOptionActivity : BaseFontActivity() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(vn.loitp.app.R.drawable.ic_baseline_code_48)
+                it.setImageResource(R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = ReadMoreOptionActivity::class.java.simpleName
         }
@@ -65,6 +65,6 @@ class ReadMoreOptionActivity : BaseFontActivity() {
             .expandAnimation(true)
             .build()
 
-        readMoreOption.addReadMoreTo(tv, getString(vn.loitp.app.R.string.i_love_you))
+        readMoreOption.addReadMoreTo(tv, getString(R.string.i_love_you))
     }
 }

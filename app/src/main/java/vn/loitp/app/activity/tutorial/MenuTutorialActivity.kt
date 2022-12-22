@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_tutorial.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.tutorial.retrofit2.Retrofit2Activity
 import vn.loitp.app.activity.tutorial.rxjava2.MenuRxJava2Activity
 

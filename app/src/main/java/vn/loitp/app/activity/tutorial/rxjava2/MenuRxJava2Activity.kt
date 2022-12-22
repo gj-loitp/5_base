@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil.Companion.tranIn
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_rx_java2.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 

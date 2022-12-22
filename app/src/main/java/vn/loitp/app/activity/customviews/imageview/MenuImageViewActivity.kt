@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_image_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.imageview.bigImageView.BigImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.bigImageView.BigImageViewWithScrollViewActivity
 import vn.loitp.app.activity.customviews.imageview.circleImageView.CircleImageViewActivity

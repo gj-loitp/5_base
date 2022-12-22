@@ -13,7 +13,7 @@ import com.loitp.restApi.restClient.RestClient2
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_retrofit_2.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://code.tutsplus.com/tutorials/connect-to-an-api-with-retrofit-rxjava-2-and-kotlin--cms-32133
 

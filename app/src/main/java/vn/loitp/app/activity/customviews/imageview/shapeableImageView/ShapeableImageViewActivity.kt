@@ -11,7 +11,7 @@ import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_shapeable_image_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ShapeableImageViewActivity")
 @IsFullScreen(false)

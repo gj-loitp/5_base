@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_func_view_draghelper_simple_1.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ViewDragHelperSimpleActivity1")
 @IsFullScreen(false)

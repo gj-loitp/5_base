@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
 import com.loitp.views.nav.LTextNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view_with_text.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("NavigationViewWithTextActivity")
 @IsFullScreen(false)

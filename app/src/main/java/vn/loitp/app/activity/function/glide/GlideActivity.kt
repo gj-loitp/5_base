@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_func_glide.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("GlideActivity")
 @IsFullScreen(false)

@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.data.ActivityData
 import kotlinx.android.synthetic.main.activity_animation_1.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("Animation1Activity")
 @IsFullScreen(false)

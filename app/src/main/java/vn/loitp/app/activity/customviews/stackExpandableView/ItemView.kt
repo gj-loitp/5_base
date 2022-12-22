@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.appcompat.widget.LinearLayoutCompat
 import com.google.android.material.button.MaterialButton
-import vn.loitp.app.R
+import vn.loitp.R
 
 class ItemView @JvmOverloads constructor(
     context: Context,

@@ -11,7 +11,7 @@ import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.bottomBar.LBottomBar
 import kotlinx.android.synthetic.main.activity_bottom_bar_blur.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("BottomBarActivity")
 @IsFullScreen(false)

@@ -13,7 +13,8 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_recycler_view_concat_adapter.*
-import vn.loitp.app.R
+import vn.loitp.R
+
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.adapter.*
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.data.DataSource
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.data.model.AboutMe

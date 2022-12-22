@@ -7,13 +7,13 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.loitp.views.toast.LToast;
 import com.loitp.views.scrollablePanel.PanelAdapter;
+import com.loitp.views.toast.LToast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.loitp.app.R;
+import vn.loitp.R;
 
 public class ScrollablePanelAdapter extends PanelAdapter {
     private static final int TITLE_TYPE = 4;

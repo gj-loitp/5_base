@@ -11,7 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.views.rv.recyclerTabLayout.RecyclerTabLayout
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.Demo
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.DemoImagePagerAdapter
 import vn.loitp.app.activity.customviews.recyclerview.recyclerTabLayout.utils.DemoData

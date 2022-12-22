@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
-import vn.loitp.app.R
+import vn.loitp.R
 
 class WWLMusicPlayerPanel(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
 

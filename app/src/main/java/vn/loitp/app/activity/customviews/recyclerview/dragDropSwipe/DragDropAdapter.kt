@@ -6,7 +6,7 @@ import android.widget.TextView
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeAdapter
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import vn.loitp.app.R
+import vn.loitp.R
 
 class DragDropAdapter(
     dataSet: List<String> = emptyList(),

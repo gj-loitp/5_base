@@ -13,8 +13,8 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_auto_scroll_content.*
-import vn.loitp.app.R
-import vn.loitp.app.databinding.ActivityAutoScrollContentBinding
+import vn.loitp.R
+import vn.loitp.databinding.ActivityAutoScrollContentBinding
 
 @LogTag("AutoScrollContentActivity")
 @IsFullScreen(false)

@@ -10,7 +10,7 @@ import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.nav.LNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("NavigationViewActivity")
 @IsFullScreen(false)

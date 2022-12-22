@@ -13,8 +13,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.loitp.picker.ssImagePicker.PickerOptions
-import vn.loitp.app.R
-import vn.loitp.app.databinding.BottomSheetPickerOptionsBinding
+import vn.loitp.R
+import vn.loitp.databinding.BottomSheetPickerOptionsBinding
 
 /**
  * PickerOptionsBottomSheet to display picker option related to new Image Picker.

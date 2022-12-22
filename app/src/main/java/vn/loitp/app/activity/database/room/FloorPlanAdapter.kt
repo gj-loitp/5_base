@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_item_floor_plan.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.database.room.model.FloorPlan
 
 class FloorPlanAdapter : RecyclerView.Adapter<FloorPlanAdapter.ViewHolder>() {

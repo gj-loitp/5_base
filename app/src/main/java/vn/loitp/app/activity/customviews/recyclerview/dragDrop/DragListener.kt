@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.DragEvent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import vn.loitp.app.R
+import vn.loitp.R
 
 class DragListener internal constructor(private val listener: CustomListener) :
     View.OnDragListener {

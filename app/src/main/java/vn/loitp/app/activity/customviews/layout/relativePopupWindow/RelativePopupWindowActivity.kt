@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_relative_popup_window_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("RelativePopupWindowActivity")
 @IsFullScreen(false)

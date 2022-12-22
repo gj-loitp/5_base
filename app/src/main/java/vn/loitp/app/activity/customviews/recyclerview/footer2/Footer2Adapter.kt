@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import kotlinx.android.synthetic.main.view_item_about_me.view.*
 import kotlinx.android.synthetic.main.view_movie_list.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 
 @LogTag("Footer2Adapter")

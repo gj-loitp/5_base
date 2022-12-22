@@ -15,7 +15,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.sothree.slidinguppanel.PanelSlideListener
 import com.sothree.slidinguppanel.PanelState
 import kotlinx.android.synthetic.main.activity_android_sliding_up_panel.*
-import vn.loitp.app.R
+import vn.loitp.R
 import java.util.*
 
 @LogTag("AndroidSlidingUpPanelActivity")

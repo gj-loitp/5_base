@@ -9,7 +9,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_facebook_comment.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("FacebookCommentActivity")
 @IsFullScreen(false)

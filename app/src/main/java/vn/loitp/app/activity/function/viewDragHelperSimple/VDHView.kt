@@ -11,7 +11,7 @@ import androidx.core.view.MotionEventCompat
 import androidx.core.view.ViewCompat
 import androidx.customview.widget.ViewDragHelper
 import com.loitp.core.utilities.LScreenUtil
-import vn.loitp.app.R
+import vn.loitp.R
 
 class VDHView @JvmOverloads constructor(
     context: Context,

@@ -13,8 +13,8 @@ import com.loitp.core.helper.gallery.member.GalleryMemberActivity
 import com.loitp.core.helper.ttt.ui.a.TTTSplashActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_demo.*
-import vn.loitp.app.BuildConfig
-import vn.loitp.app.R
+import vn.loitp.BuildConfig
+import vn.loitp.R
 import vn.loitp.app.activity.demo.architectureComponent.MenuAndroidArchitectureComponentActivity
 import vn.loitp.app.activity.demo.epubReader.MenuEpubReaderActivity
 import vn.loitp.app.activity.demo.firebase.FirebaseActivity

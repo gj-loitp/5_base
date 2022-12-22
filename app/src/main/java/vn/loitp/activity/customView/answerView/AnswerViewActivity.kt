@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.answerView.LAnswerView
 import kotlinx.android.synthetic.main.activity_answer_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("AnswerViewActivity")
 @IsFullScreen(false)

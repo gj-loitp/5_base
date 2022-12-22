@@ -16,7 +16,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_animation_lottie.*
-import vn.loitp.app.R
+import vn.loitp.R
 import java.io.IOException
 
 // https://www.lottiefiles.com/?page=1

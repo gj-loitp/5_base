@@ -13,7 +13,7 @@ import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_custom_view.lActionBar
 import kotlinx.android.synthetic.main.activity_menu_webview.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.webview.lwebView.LWebViewActivity
 import vn.loitp.app.activity.customviews.webview.wrapContent.WebViewWrapContentActivity
 

@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_function.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.function.activityAndService.ActivityServiceCommunicateActivity
 import vn.loitp.app.activity.function.dragDropSample.DragDropSampleActivity
 import vn.loitp.app.activity.function.fullScreen.FullScreenActivity

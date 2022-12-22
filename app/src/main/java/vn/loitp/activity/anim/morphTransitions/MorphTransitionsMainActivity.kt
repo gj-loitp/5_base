@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_morph_transitions_main.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("MainActivity")
 @IsFullScreen(false)

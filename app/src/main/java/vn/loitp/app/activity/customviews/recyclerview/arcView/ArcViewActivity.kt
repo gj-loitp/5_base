@@ -14,7 +14,7 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_arc_view.*
 import kotlinx.android.synthetic.main.layout_include_arc_button.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ArcViewActivity")
 @IsFullScreen(false)

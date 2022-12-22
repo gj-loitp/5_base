@@ -14,7 +14,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_drawer_behavior_advance3.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("AdvanceDrawer3Activity")
 @IsFullScreen(false)

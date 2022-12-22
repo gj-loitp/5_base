@@ -12,7 +12,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_rxjava2_flowable.*
-import vn.loitp.app.R
+import vn.loitp.R
 import java.util.concurrent.TimeUnit
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples

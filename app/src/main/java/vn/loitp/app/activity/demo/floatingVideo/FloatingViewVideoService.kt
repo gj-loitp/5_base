@@ -14,7 +14,7 @@ import android.widget.RelativeLayout
 import com.google.android.exoplayer2.ui.PlayerView
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.views.exo.PlayerManager
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.service.endlessService.log
 
 class FloatingViewVideoService : Service() {

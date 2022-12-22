@@ -19,7 +19,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.nfc.LNFCUtil
 import com.loitp.core.utilities.nfc.TagWrapper
 import kotlinx.android.synthetic.main.activity_demo_nfc.*
-import vn.loitp.app.R
+import vn.loitp.R
 import java.io.UnsupportedEncodingException
 import java.nio.charset.Charset
 import kotlin.experimental.and

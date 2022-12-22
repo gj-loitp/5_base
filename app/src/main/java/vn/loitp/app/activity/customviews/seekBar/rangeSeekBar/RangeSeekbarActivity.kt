@@ -17,7 +17,7 @@ import com.loitp.views.sb.range.RangeSeekBarView
 import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_range_seekbar.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("RangeSeekbarActivity")
 @IsFullScreen(false)

@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer2
 import kotlinx.android.synthetic.main.activity_view_pager_2_demo.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ViewPager2DemoActivity")
 @IsFullScreen(false)

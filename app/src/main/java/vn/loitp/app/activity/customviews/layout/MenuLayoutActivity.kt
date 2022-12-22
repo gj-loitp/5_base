@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity
 import vn.loitp.app.activity.customviews.layout.aspectratio.AspectRatioLayoutActivity
 import vn.loitp.app.activity.customviews.layout.autoLinearLayout.AutoLinearLayoutActivity

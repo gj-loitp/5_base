@@ -3,7 +3,7 @@ package vn.loitp.app.activity.demo.alarmDemo.service;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
-import vn.loitp.app.R;
+import vn.loitp.R;
 
 public class Preferences extends PreferenceActivity {
     @Override

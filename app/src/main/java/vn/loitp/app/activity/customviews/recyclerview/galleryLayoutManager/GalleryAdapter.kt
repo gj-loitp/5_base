@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_item_gallery.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.normalRecyclerView.Movie
 
 class GalleryAdapter internal constructor(

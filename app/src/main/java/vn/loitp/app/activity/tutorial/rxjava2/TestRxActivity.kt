@@ -18,7 +18,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_test_rx.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike
 import java.util.concurrent.TimeUnit
 

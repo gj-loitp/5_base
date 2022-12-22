@@ -10,7 +10,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.treeView.BaseTreeAdapter
 import com.loitp.views.treeView.TreeNode
 import kotlinx.android.synthetic.main.activity_tree_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/Team-Blox/TreeView
 @LogTag("TreeViewActivity")

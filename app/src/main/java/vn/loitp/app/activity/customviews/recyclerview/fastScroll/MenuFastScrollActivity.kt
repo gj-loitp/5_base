@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.thedeanda.lorem.LoremIpsum
 import kotlinx.android.synthetic.main.layout_menu_fast_scroll.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("FastScrollMenuActivity")
 @IsFullScreen(false)

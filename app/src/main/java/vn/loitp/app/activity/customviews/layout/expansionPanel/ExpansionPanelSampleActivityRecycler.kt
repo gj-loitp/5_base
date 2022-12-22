@@ -14,7 +14,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_expansion_panel_sample_recycler.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.layout.expansionPanel.ExpansionPanelSampleActivityRecycler.RecyclerAdapter.RecyclerHolder
 
 @LogTag("ExpansionPanelSampleActivityRecycler")

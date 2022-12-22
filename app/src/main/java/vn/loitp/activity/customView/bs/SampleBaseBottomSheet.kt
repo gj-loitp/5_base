@@ -13,7 +13,7 @@ import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.layout_bottom_sheet_sample.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022

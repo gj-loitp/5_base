@@ -10,7 +10,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.game.findNumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_menu.lActionBar
 import kotlinx.android.synthetic.main.activity_menu_game.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.game.osero.TopOseroActivity
 import vn.loitp.app.activity.game.pong.activity.PongMainActivity
 import vn.loitp.app.activity.game.puzzle.BoardOptionsActivity

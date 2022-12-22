@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.yonder.basketlayout.BasketLayoutViewListener
 import kotlinx.android.synthetic.main.activity_basket_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("BasketLayoutActivity")
 @IsFullScreen(false)

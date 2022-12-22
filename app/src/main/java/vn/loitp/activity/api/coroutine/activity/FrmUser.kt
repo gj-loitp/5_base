@@ -12,7 +12,7 @@ import com.loitp.service.model.UserTest
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.frm_coroutine_user.*
 import vn.loitp.activity.api.coroutine.viewmodel.TestViewModel
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("FrmUser")
 class FrmUser : BaseFragment() {

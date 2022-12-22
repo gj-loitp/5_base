@@ -13,7 +13,7 @@ import com.github.heyalex.CornerDrawer
 import com.github.heyalex.cornersheet.behavior.CornerSheetHeaderBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.shop_fragment.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.cornerSheet.support.ShopActivity
 
 class ShopFragment : Fragment() {

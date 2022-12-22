@@ -8,8 +8,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_action_bar.*
+import vn.loitp.R
 import vn.loitp.activity.customView.actionBar.collapsingToolbarLayout.CollapsingToolbarLayoutActivity
-import vn.loitp.app.R
 import vn.loitp.activity.customView.actionBar.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivity
 import vn.loitp.activity.customView.actionBar.l.LActionbarActivity
 import vn.loitp.activity.customView.actionBar.navigationView.NavigationViewActivity

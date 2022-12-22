@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.switchToggle.toggleButtonGroup.button
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.CompoundButton
-import vn.loitp.app.R
+import vn.loitp.R
 
 class CustomCompoundButton @JvmOverloads constructor(
     context: Context?,

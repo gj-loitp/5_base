@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.loitp.core.utilities.LAppResource;
 
-import vn.loitp.app.R;
+import vn.loitp.R;
 import vn.loitp.app.activity.demo.alarmDemo.model.Alarm;
 import vn.loitp.app.activity.demo.alarmDemo.model.DataSource;
 import vn.loitp.app.activity.demo.alarmDemo.model.DateTime;

@@ -19,7 +19,7 @@ import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LPopupMenu
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_collapsingtoolbar_withtablayout.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("CollapsingToolbarWithTabLayoutActivity")
 @IsFullScreen(false)

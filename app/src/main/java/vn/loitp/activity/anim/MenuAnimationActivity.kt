@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_animation.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.activity.anim.activityTransition.Animation1Activity
 import vn.loitp.activity.anim.activityTransitionReveal.RevealActivity1
 import vn.loitp.activity.anim.androidParticles.AndroidParticlesActivity

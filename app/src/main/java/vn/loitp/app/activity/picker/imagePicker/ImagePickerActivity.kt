@@ -17,7 +17,7 @@ import com.nguyenhoanglam.imagepicker.model.ImagePickerConfig
 import com.nguyenhoanglam.imagepicker.model.RootDirectory
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.registerImagePicker
 import kotlinx.android.synthetic.main.activity_image_picker_demo.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ImagePickerActivity")
 @IsFullScreen(false)

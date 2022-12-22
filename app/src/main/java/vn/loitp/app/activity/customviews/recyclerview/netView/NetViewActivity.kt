@@ -13,7 +13,7 @@ import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_net_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("NetViewActivity")
 @IsFullScreen(false)

@@ -7,7 +7,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.fivehundredpx.greedolayout.GreedoLayoutSizeCalculator.SizeCalculatorDelegate
 import com.loitp.core.utilities.LImageUtil
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.layout.greedoLayout.PhotosAdapter.PhotoViewHolder
 
 class PhotosAdapter(private val mContext: Context) : RecyclerView.Adapter<PhotoViewHolder>(),

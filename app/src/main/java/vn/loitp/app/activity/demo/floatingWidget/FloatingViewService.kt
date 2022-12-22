@@ -12,7 +12,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.loitp.views.toast.LToast
-import vn.loitp.app.R
+import vn.loitp.R
 
 class FloatingViewService : Service() {
     private var mWindowManager: WindowManager? = null

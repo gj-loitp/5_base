@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.skydoves.transformationlayout.onTransformationStartContainer
 import kotlinx.android.synthetic.main.activity_transformation_main.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/skydoves/TransformationLayout
 @LogTag("MainActivity")

@@ -17,7 +17,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer
 import com.wajahatkarim3.easyflipviewpager.CardFlipPageTransformer
 import kotlinx.android.synthetic.main.activity_efvp.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("EFVPActivity")
 @IsFullScreen(false)

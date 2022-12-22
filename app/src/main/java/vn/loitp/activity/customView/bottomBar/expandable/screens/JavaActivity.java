@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity;
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBar;
 import github.com.st235.lib_expandablebottombar.Menu;
 import github.com.st235.lib_expandablebottombar.MenuItemDescriptor;
-import vn.loitp.app.R;
+import vn.loitp.R;
 
 @LogTag("CoordinatorLayoutActivity")
 @IsFullScreen(false)

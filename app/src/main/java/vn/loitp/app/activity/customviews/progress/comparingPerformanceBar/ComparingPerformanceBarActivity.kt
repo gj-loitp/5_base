@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_comparing_performance_bar.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ComparingPerformanceBarActivity")
 @IsFullScreen(false)

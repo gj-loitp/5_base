@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_database_room2.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.database.room.model.FloorPlan
 
 @LogTag("RoomActivity")

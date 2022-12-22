@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.nex3z.togglebuttongroup.button.LabelToggle
 import kotlinx.android.synthetic.main.activity_switch_tbg_flow_label.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("TBGFlowLabelActivity")
 @IsFullScreen(false)

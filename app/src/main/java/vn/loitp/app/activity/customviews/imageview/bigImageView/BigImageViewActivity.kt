@@ -11,7 +11,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_big_image_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.common.Constants
 import java.io.File
 

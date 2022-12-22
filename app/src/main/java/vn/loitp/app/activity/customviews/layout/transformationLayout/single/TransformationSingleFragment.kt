@@ -7,7 +7,7 @@ import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.addTransformation
 import com.skydoves.transformationlayout.onTransformationStartContainer
 import kotlinx.android.synthetic.main.frm_transformation_home.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.layout.transformationLayout.TransformationMockUtil.getMockPosters
 import vn.loitp.app.activity.customviews.layout.transformationLayout.recycler.Poster
 import vn.loitp.app.activity.customviews.layout.transformationLayout.recycler.PosterMenuAdapter

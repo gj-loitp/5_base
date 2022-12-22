@@ -9,7 +9,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.tv.textDecorator.LTextDecorator
 import com.loitp.views.tv.textDecorator.OnTextClickListener
 import kotlinx.android.synthetic.main.activity_text_view_text_decorator.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 // https://github.com/nntuyen/text-decorator?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=4982
 

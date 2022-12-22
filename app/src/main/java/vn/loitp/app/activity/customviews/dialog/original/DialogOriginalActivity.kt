@@ -15,7 +15,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_original_dialog.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("DialogOriginalActivity")
 @IsFullScreen(false)

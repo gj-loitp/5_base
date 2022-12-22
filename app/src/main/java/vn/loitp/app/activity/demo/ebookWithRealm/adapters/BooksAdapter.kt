@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.demo.ebookWithRealm.model.Book
 
 class BooksAdapter(

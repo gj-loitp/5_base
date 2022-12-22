@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table_advance.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.database.sqliteMultiTableAdvance.helper.InspectionDatabaseHelper
 import vn.loitp.app.activity.database.sqliteMultiTableAdvance.model.Action
 import vn.loitp.app.activity.database.sqliteMultiTableAdvance.model.Inspection

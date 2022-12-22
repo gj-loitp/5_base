@@ -10,7 +10,7 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.activity_top.*
 import kotlinx.android.synthetic.main.activity_top.lActionBar
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.game.osero.game.GameOseroActivity
 import vn.loitp.app.activity.game.osero.model.ai.AINone
 import vn.loitp.app.activity.game.osero.model.ai.AIStrong

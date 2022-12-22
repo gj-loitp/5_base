@@ -7,7 +7,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_animation_over_scroll.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("OverScrollActivity")
 @IsFullScreen(false)

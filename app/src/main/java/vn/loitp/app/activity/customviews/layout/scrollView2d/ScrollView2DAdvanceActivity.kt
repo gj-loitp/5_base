@@ -16,7 +16,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.sv.LScrollView
 import kotlinx.android.synthetic.main.activity_scrollview_2d_advance_layout.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ScrollView2DAdvanceActivity")
 @IsFullScreen(false)

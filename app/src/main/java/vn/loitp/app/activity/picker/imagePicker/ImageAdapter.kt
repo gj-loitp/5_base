@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.nguyenhoanglam.imagepicker.model.Image
-import vn.loitp.app.R
+import vn.loitp.R
 
 internal class ImageAdapter(private val context: Context) :
     RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {

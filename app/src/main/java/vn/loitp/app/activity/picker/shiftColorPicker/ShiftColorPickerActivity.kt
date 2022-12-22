@@ -15,8 +15,7 @@ import com.loitp.picker.shiftColorPicker.OnColorChangedListener
 import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_shift_color_picker.*
-import vn.loitp.app.R
-
+import vn.loitp.R
 
 @LogTag("ShiftColorPickerActivity")
 @IsFullScreen(false)

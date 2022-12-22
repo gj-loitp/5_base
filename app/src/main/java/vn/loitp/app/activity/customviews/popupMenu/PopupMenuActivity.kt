@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LPopupMenu
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_popup.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("PopupMenuActivity")
 @IsFullScreen(false)

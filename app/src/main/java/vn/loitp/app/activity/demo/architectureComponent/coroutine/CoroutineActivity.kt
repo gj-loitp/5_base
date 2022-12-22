@@ -8,7 +8,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_demo_coroutine.*
 import kotlinx.coroutines.*
-import vn.loitp.app.R
+import vn.loitp.R
 import kotlin.system.measureTimeMillis
 
 // https://viblo.asia/p/cung-hoc-kotlin-coroutine-phan-1-gioi-thieu-kotlin-coroutine-va-ky-thuat-lap-trinh-bat-dong-bo-gGJ59xajlX2

@@ -13,10 +13,10 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_showcase.*
 import kotlinx.android.synthetic.main.activity_showcase.lActionBar
+import vn.loitp.R
 import vn.loitp.activity.EmptyActivity
 import vn.loitp.activity.customView.bottomBar.expandable.screens.*
 import vn.loitp.activity.customView.bottomBar.expandable.screens.navigation.NavigationComponentActivity
-import vn.loitp.app.R
 
 @LogTag("ShowCaseActivity")
 @IsFullScreen(false)

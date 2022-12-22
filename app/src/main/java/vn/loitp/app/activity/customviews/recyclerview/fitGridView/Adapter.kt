@@ -5,7 +5,7 @@ import android.view.View
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.views.rv.fitGridView.FitGridAdapter
 import kotlinx.android.synthetic.main.view_item_grid.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 internal class Adapter(
     context: Context,

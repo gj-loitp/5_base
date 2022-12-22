@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_arc_navigation_view.*
 import kotlinx.android.synthetic.main.menu_arc_navigation_view_main.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("ArcNavigationViewActivity")
 @IsFullScreen(false)

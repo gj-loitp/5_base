@@ -11,7 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer
 import kotlinx.android.synthetic.main.activity_book_onboarding.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("BookOnboardingActivity")
 @IsFullScreen(false)

@@ -10,7 +10,7 @@ import android.view.View
 import android.view.WindowManager
 import com.loitp.core.base.BaseActivity
 import com.loitp.core.base.BaseDialogFragment
-import vn.loitp.app.R
+import vn.loitp.R
 
 class PositionDialog : BaseDialogFragment() {
     private val logTag = javaClass.simpleName

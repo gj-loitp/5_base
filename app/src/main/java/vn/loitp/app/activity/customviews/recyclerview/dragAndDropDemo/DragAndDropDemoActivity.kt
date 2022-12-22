@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_drag_and_drop_demo.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.dragAndDropDemo.adapter.SentenceAdapter
 import vn.loitp.app.activity.customviews.recyclerview.dragAndDropDemo.adapter.WordsAdapter
 import vn.loitp.app.activity.customviews.recyclerview.dragAndDropDemo.callback.DropListener

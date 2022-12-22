@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_item_about_me.view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.app.activity.customviews.recyclerview.concatAdapter.data.model.AboutMe
 
 @LogTag("AboutMeAdapter")

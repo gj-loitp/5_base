@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
-import vn.loitp.app.R
+import vn.loitp.R
 
 class BasicTransitionFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
 

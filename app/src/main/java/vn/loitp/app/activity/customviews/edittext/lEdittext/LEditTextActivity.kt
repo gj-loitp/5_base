@@ -17,7 +17,7 @@ import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.et.l.LEditText
 import kotlinx.android.synthetic.main.activity_l_edittext.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("LEditTextActivity")
 @IsFullScreen(false)

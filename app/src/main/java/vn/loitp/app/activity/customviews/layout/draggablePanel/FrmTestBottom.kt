@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.frm_test_bottom.*
-import vn.loitp.app.R
+import vn.loitp.R
 
 class FrmTestBottom : Fragment() {
 

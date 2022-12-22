@@ -11,7 +11,7 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import kotlinx.android.synthetic.main.activity_circle_image_view.*
-import vn.loitp.app.R
+import vn.loitp.R
 import vn.loitp.common.Constants
 
 @LogTag("CircleImageViewActivity")

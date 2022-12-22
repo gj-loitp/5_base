@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import vn.loitp.app.R
+import vn.loitp.R
 
 @LogTag("MainSingleActivity")
 @IsFullScreen(false)

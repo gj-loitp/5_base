@@ -9,7 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.lifecycle.ViewModelProviders
-import vn.loitp.app.R
+import vn.loitp.R
 
 typealias BoardSizeAdapter = ArrayAdapter<BoardTitledSize>
 

@@ -13,8 +13,8 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.loading.circularProgressIndicator.CircularProgressIndicator
 import kotlinx.android.synthetic.main.activity_progress_circular_progress_indicator.*
-import vn.loitp.app.BuildConfig
-import vn.loitp.app.R
+import vn.loitp.BuildConfig
+import vn.loitp.R
 
 @LogTag("CircularProgressIndicatorActivity")
 @IsFullScreen(false)
