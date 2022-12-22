@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.loitpcore.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
@@ -18,6 +17,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.AppUtils
+import com.loitpcore.R
 import com.manojbhadane.QButton
 import kotlinx.android.synthetic.main.l_activity_ad_helper.*
 
@@ -150,7 +150,10 @@ class AdHelperActivity : BaseFontActivity() {
     private inner class SlidePagerAdapter : PagerAdapter() {
 
         @SuppressLint("SetTextI18n")
-        override fun instantiateItem(collection: ViewGroup, position: Int): Any {
+        override fun instantiateItem(
+            collection: ViewGroup,
+            position: Int
+        ): Any {
             val adPage = adPageList[position]
             val inflater = LayoutInflater.from(this@AdHelperActivity)
             val layout =
@@ -186,7 +189,11 @@ class AdHelperActivity : BaseFontActivity() {
             return layout
         }
 
-        override fun destroyItem(collection: ViewGroup, position: Int, view: Any) {
+        override fun destroyItem(
+            collection: ViewGroup,
+            position: Int,
+            view: Any
+        ) {
             collection.removeView(view as View)
         }
 
@@ -194,7 +201,10 @@ class AdHelperActivity : BaseFontActivity() {
             return adPageList.size
         }
 
-        override fun isViewFromObject(view: View, any: Any): Boolean {
+        override fun isViewFromObject(
+            view: View,
+            any: Any
+        ): Boolean {
             return view === any
         }
     }

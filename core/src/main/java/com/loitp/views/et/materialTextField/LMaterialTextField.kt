@@ -255,7 +255,7 @@ open class LMaterialTextField : FrameLayout {
         }
 
         addView(
-            LayoutInflater.from(context).inflate(R.layout.layout_material_text_field, this, false)
+            LayoutInflater.from(context).inflate(R.layout.l_v_material_text_field, this, false)
         )
 
         editTextLayout = findViewById<View>(R.id.mtf_editTextLayout) as ViewGroup

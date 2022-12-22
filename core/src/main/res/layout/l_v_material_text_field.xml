@@ -13,7 +13,8 @@
         android:paddingEnd="0dp"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        tools:text="Password" />
+        tools:text="Password"
+        tools:textColor="@color/red" />
 
     <FrameLayout
         android:id="@+id/mtf_card"
