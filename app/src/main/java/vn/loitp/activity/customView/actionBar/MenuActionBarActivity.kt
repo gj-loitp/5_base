@@ -11,9 +11,9 @@ import kotlinx.android.synthetic.main.activity_menu_action_bar.*
 import vn.loitp.activity.customView.actionBar.collapsingToolbarLayout.CollapsingToolbarLayoutActivity
 import vn.loitp.app.R
 import vn.loitp.activity.customView.actionBar.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivity
-import vn.loitp.app.activity.customviews.actionbar.lActionbar.LActionbarActivity
-import vn.loitp.app.activity.customviews.actionbar.navigationView.NavigationViewActivity
-import vn.loitp.app.activity.customviews.actionbar.navigationViewWithText.NavigationViewWithTextActivity
+import vn.loitp.activity.customView.actionBar.l.LActionbarActivity
+import vn.loitp.activity.customView.actionBar.navigationView.NavigationViewActivity
+import vn.loitp.activity.customView.actionBar.navigationViewWithText.NavigationViewWithTextActivity
 
 @LogTag("MenuActionBarActivity")
 @IsFullScreen(false)

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.actionbar.navigationView
+package vn.loitp.activity.customView.actionBar.navigationView
 
 import android.annotation.SuppressLint
 import android.graphics.Color

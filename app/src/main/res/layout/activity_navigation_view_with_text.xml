@@ -21,6 +21,7 @@
         android:padding="@dimen/margin_padding_medium"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"
+        tools:text="@string/app_name"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatButton

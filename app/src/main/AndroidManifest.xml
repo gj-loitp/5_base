@@ -82,7 +82,7 @@
             android:name=".activity.customviews.switchToggle.appCompatWwitch.AppcompatSwitchActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.actionbar.lActionbar.LActionbarActivity"
+            android:name="vn.loitp.activity.customView.actionBar.l.LActionbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.imageview.MenuImageViewActivity"
@@ -611,10 +611,10 @@
             android:name=".activity.customviews.dialog.customProgressDialog.CustomProgressDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.actionbar.navigationView.NavigationViewActivity"
+            android:name="vn.loitp.activity.customView.actionBar.navigationView.NavigationViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.actionbar.navigationViewWithText.NavigationViewWithTextActivity"
+            android:name="vn.loitp.activity.customView.actionBar.navigationViewWithText.NavigationViewWithTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.recyclerview.diffUtil.DiffUtilActivity"
