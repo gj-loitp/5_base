@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.splitPanel
+package com.loitp.views.layout.splitPanel
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -99,14 +99,21 @@ class SplitPaneLayout : ViewGroup {
         mSplitterDraggingDrawable = PaintDrawable(-0x77000001)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         extractAttributes(context, attrs)
         descendantFocusability = FOCUS_AFTER_DESCENDANTS
         isFocusable = true
         isFocusableInTouchMode = false
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -117,7 +124,10 @@ class SplitPaneLayout : ViewGroup {
         isFocusableInTouchMode = false
     }
 
-    private fun extractAttributes(context: Context, attrs: AttributeSet?) {
+    private fun extractAttributes(
+        context: Context,
+        attrs: AttributeSet?
+    ) {
         if (attrs != null) {
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SplitPaneLayout)
             mOrientation = typedArray.getInt(R.styleable.SplitPaneLayout_splitterOrientation, 0)
@@ -249,7 +259,10 @@ class SplitPaneLayout : ViewGroup {
         }
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         val measuredWidth = measuredWidth
         val measuredHeight = measuredHeight
@@ -300,7 +313,13 @@ class SplitPaneLayout : ViewGroup {
         }
     }
 
-    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        l: Int,
+        t: Int,
+        r: Int,
+        b: Int
+    ) {
         val w = r - l
         val h = b - t
         when (mOrientation) {
@@ -315,7 +334,10 @@ class SplitPaneLayout : ViewGroup {
         }
     }
 
-    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+    override fun onKeyDown(
+        keyCode: Int,
+        event: KeyEvent
+    ): Boolean {
         var remeasure = false
         var offset = mSplitterSize
         if (event.isShiftPressed) {
@@ -368,7 +390,10 @@ class SplitPaneLayout : ViewGroup {
         return false
     }
 
-    private fun handleTouchDown(x: Int, y: Int) {
+    private fun handleTouchDown(
+        x: Int,
+        y: Int
+    ) {
         if (mSplitterTouchBounds.contains(x, y)) {
             performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             isDragging = true
@@ -379,7 +404,10 @@ class SplitPaneLayout : ViewGroup {
         }
     }
 
-    private fun handleTouchMove(x: Int, y: Int) {
+    private fun handleTouchMove(
+        x: Int,
+        y: Int
+    ) {
         if (isDragging) {
             if (!isMovingSplitter) {
                 // Verify we've moved far enough to leave the touch bounds before moving the splitter
@@ -434,7 +462,10 @@ class SplitPaneLayout : ViewGroup {
         }
     }
 
-    private fun handleTouchUp(x: Int, y: Int) {
+    private fun handleTouchUp(
+        x: Int,
+        y: Int
+    ) {
         if (isDragging) {
             isDragging = false
             isMovingSplitter = false

@@ -1,6 +1,6 @@
-package com.loitpcore.views.layout.shadow.v2
+package com.loitp.views.layout.shadow
 
-import android.graphics.* // ktlint-disable no-wildcard-imports
+import android.graphics.*
 import android.graphics.drawable.Drawable
 import kotlin.math.min
 
@@ -22,7 +22,12 @@ class ShadowDrawable(
     private val mShadowPaint: Paint = Paint()
     private var mRect: RectF? = null
 
-    override fun setBounds(left: Int, top: Int, right: Int, bottom: Int) {
+    override fun setBounds(
+        left: Int,
+        top: Int,
+        right: Int,
+        bottom: Int
+    ) {
         super.setBounds(left, top, right, bottom)
         // Log.i("ShadowLayout1", "ShadowDrawable1 setBounds left " + left);
         // Log.i("ShadowLayout1", "ShadowDrawable1 setBounds top " + top);

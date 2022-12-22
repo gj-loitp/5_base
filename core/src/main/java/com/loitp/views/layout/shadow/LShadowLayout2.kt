@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.shadow.v2
+package com.loitp.views.layout.shadow
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,8 +7,8 @@ import android.graphics.Color
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.core.view.ViewCompat
-import com.loitpcore.R
 import com.loitp.core.utilities.LAppResource
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -116,24 +116,23 @@ class LShadowLayout2 @JvmOverloads constructor(
         ViewCompat.setBackground(this@LShadowLayout2, mShadowDrawable)
     }
 
-    override fun setPadding(left: Int, top: Int, right: Int, bottom: Int) {
+    override fun setPadding(
+        left: Int,
+        top: Int,
+        right: Int,
+        bottom: Int
+    ) {
         // NO OP
     }
 
-    override fun setPaddingRelative(start: Int, top: Int, end: Int, bottom: Int) {
+    override fun setPaddingRelative(
+        start: Int,
+        top: Int,
+        end: Int,
+        bottom: Int
+    ) {
         // NO OP
     }
-
-//    private fun dp2Px(dpValue: Float): Float {
-//        val dm = context.resources.displayMetrics
-//        val scale = dm.density
-//        return dpValue * scale + 0.5f
-//    }
-
-//    private fun px2dip(pxValue: Float): Int {
-//        val scale = context.resources.displayMetrics.density
-//        return (pxValue / scale + 0.5f).toInt()
-//    }
 
     init {
         initialize(attrs)

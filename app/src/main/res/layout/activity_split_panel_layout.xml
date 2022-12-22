@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.layout.splitPanel.SplitPaneLayout xmlns:spl="http://schemas.android.com/apk/res-auto"
+    <com.loitp.views.layout.splitPanel.SplitPaneLayout xmlns:spl="http://schemas.android.com/apk/res-auto"
         android:id="@+id/splitPaneLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,5 +41,5 @@
             android:textColor="@color/red"
             android:textSize="@dimen/txt_medium" />
 
-    </com.loitpcore.views.layout.splitPanel.SplitPaneLayout>
+    </com.loitp.views.layout.splitPanel.SplitPaneLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

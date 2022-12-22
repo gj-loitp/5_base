@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.loitpcore.views.layout.square.LSquareFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.loitp.views.layout.square.LSquareFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutRootView"
     android:layout_width="match_parent"
@@ -21,4 +21,4 @@
         android:textColor="@color/white"
         android:textSize="@dimen/txt_large"
         tools:text="69" />
-</com.loitpcore.views.layout.square.LSquareFrameLayout>
+</com.loitp.views.layout.square.LSquareFrameLayout>

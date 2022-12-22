@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.roundable
+package com.loitp.views.layout.roundable
 
 import android.content.Context
 import android.graphics.*
@@ -39,7 +39,11 @@ class LRoundableLayout : ConstraintLayout {
     private var dashGap: Float = 0F
     private var dashWidth: Float = 0F
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -47,7 +51,10 @@ class LRoundableLayout : ConstraintLayout {
         render(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs) {
         render(attrs)
     }
 
@@ -224,7 +231,10 @@ class LRoundableLayout : ConstraintLayout {
         super.dispatchDraw(canvas)
     }
 
-    private fun clipPathCanvas(canvas: Canvas, floatArray: FloatArray) {
+    private fun clipPathCanvas(
+        canvas: Canvas,
+        floatArray: FloatArray
+    ) {
         path?.let {
             it.addRoundRect(
                 RectF(0F, 0F, canvas.width.toFloat(), canvas.height.toFloat()),

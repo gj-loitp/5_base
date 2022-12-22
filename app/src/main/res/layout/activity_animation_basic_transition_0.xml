@@ -27,7 +27,7 @@
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
-        <com.loitpcore.views.layout.square.LSquareFrameLayout
+        <com.loitp.views.layout.square.LSquareFrameLayout
             android:layout_width="@dimen/w_150"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvDummy">
@@ -40,7 +40,7 @@
                 android:scaleType="centerCrop"
                 tools:src="@drawable/loitp" />
 
-        </com.loitpcore.views.layout.square.LSquareFrameLayout>
+        </com.loitp.views.layout.square.LSquareFrameLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView"

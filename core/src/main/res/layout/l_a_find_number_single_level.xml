@@ -35,7 +35,7 @@
             android:visibility="invisible"
             tools:visibility="visible" />
 
-        <com.loitpcore.views.layout.square.LSquareFrameLayout
+        <com.loitp.views.layout.square.LSquareFrameLayout
             android:id="@+id/layoutLevel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                 app:spanCount="4"
                 tools:itemCount="69"
                 tools:listitem="@layout/l_v_find_number_level" />
-        </com.loitpcore.views.layout.square.LSquareFrameLayout>
+        </com.loitp.views.layout.square.LSquareFrameLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBack"

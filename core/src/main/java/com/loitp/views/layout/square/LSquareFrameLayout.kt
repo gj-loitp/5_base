@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.square
+package com.loitp.views.layout.square
 
 import android.content.Context
 import android.util.AttributeSet
@@ -15,8 +15,16 @@ import kotlin.math.min
  */
 class LSquareFrameLayout : FrameLayout {
     constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs)
+
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -29,7 +37,10 @@ class LSquareFrameLayout : FrameLayout {
         defStyleRes: Int
     ) : super(context, attrs, defStyleAttr, defStyleRes)
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         val widthSize = MeasureSpec.getSize(widthMeasureSpec)
         val heightSize = MeasureSpec.getSize(heightMeasureSpec)
 

@@ -31,7 +31,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/txt_largest" />
 
-            <com.loitpcore.views.layout.square.LSquareFrameLayout
+            <com.loitp.views.layout.square.LSquareFrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -42,7 +42,7 @@
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop" />
 
-            </com.loitpcore.views.layout.square.LSquareFrameLayout>
+            </com.loitp.views.layout.square.LSquareFrameLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"

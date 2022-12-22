@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.shadow
+package com.loitp.views.layout.shadow
 
 import android.content.Context
 import android.graphics.Canvas
@@ -7,8 +7,8 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.widget.RelativeLayout
-import com.loitpcore.R
 import com.loitp.core.utilities.LAppResource
+import com.loitpcore.R
 import kotlin.math.min
 
 /**
@@ -43,7 +43,10 @@ class LShadowLayout @JvmOverloads constructor(
     private var mShadowSide = ALL
     private var mShadowShape = SHAPE_RECTANGLE
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
         val effect = mShadowRadius + dip2px(5f)

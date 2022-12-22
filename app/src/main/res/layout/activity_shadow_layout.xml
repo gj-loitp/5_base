@@ -34,7 +34,7 @@
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
-            <com.loitpcore.views.layout.shadow.LShadowLayout
+            <com.loitp.views.layout.shadow.LShadowLayout
                 android:id="@+id/slOval"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                     android:text="@string/oval_shadow"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
-            </com.loitpcore.views.layout.shadow.LShadowLayout>
+            </com.loitp.views.layout.shadow.LShadowLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvChangeRadius"
@@ -70,7 +70,7 @@
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
-            <com.loitpcore.views.layout.shadow.LShadowLayout
+            <com.loitp.views.layout.shadow.LShadowLayout
                 android:id="@+id/slRectangle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                     android:text="@string/rectangle_shadow"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
-            </com.loitpcore.views.layout.shadow.LShadowLayout>
+            </com.loitp.views.layout.shadow.LShadowLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvChangeRectangle"
@@ -103,7 +103,7 @@
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
-            <com.loitpcore.views.layout.shadow.LShadowLayout
+            <com.loitp.views.layout.shadow.LShadowLayout
                 android:id="@+id/slRadius"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                     android:text="@string/radius_shadow"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
-            </com.loitpcore.views.layout.shadow.LShadowLayout>
+            </com.loitp.views.layout.shadow.LShadowLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

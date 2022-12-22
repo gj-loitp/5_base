@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.loitpcore.views.layout.square.LSquareFrameLayout
+            <com.loitp.views.layout.square.LSquareFrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -28,7 +28,7 @@
                     android:scaleType="centerCrop"
                     tools:src="@drawable/loitp" />
 
-            </com.loitpcore.views.layout.square.LSquareFrameLayout>
+            </com.loitp.views.layout.square.LSquareFrameLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textViewTitle"
