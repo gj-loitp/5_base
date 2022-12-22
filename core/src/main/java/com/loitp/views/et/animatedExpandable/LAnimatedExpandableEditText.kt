@@ -1,4 +1,4 @@
-package com.loitpcore.views.et.animatedExpandable
+package com.loitp.views.et.animatedExpandable
 
 import android.animation.ValueAnimator
 import android.content.Context

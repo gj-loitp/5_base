@@ -1,10 +1,10 @@
-package com.loitpcore.views.et.autoResize
+package com.loitp.views.et.autoResize
 
 import android.content.Context
 import android.util.AttributeSet
 import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatEditText
-import com.loitpcore.views.et.autoResize.AutoFitHelper.Companion.create
+import com.loitp.views.et.autoResize.AutoFitHelper.Companion.create
 
 /**
  * Created by Loitp on 04,August,2022

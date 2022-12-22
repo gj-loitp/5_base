@@ -1,4 +1,4 @@
-package com.loitpcore.views.et.autoResize
+package com.loitp.views.et.autoResize
 
 import android.annotation.SuppressLint
 import android.content.Context
