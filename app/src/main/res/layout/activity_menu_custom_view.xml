@@ -33,6 +33,11 @@
                 android:text="@string/action_bar" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAndroidRibbon"
+                style="@style/ButtonMenu"
+                android:text="AndroidRibbon" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAnswerView"
                 style="@style/ButtonMenu"
                 android:text="@string/answerview" />

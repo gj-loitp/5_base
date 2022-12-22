@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews
+package vn.loitp.activity.customView
 
 import android.os.Bundle
 import android.view.View
@@ -10,12 +10,13 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_custom_view.*
-import vn.loitp.app.R
 import vn.loitp.activity.customView.actionBar.MenuActionBarActivity
+import vn.loitp.activity.customView.androidRibbon.RibbonActivity
 import vn.loitp.activity.customView.answerView.AnswerViewActivity
 import vn.loitp.activity.customView.bottomBar.MenuBottomNavigationActivity
 import vn.loitp.activity.customView.bs.MenuBottomSheetActivity
 import vn.loitp.activity.customView.bt.MenuButtonActivity
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.calendar.MenuCalendarActivity
 import vn.loitp.app.activity.customviews.cardView.CardViewActivity
 import vn.loitp.app.activity.customviews.codeView.CodeViewActivity
@@ -124,6 +125,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btLuckyWheelActivity.setOnClickListener(this)
         btCornerSheet.setOnClickListener(this)
         btCardView.setOnClickListener(this)
+        btAndroidRibbon.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -171,6 +173,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btLuckyWheelActivity -> launchActivity(LuckyWheelActivity::class.java)
             btCornerSheet -> launchActivity(CornetSheetExampleActivity::class.java)
             btCardView -> launchActivity(CardViewActivity::class.java)
+            btAndroidRibbon -> launchActivity(RibbonActivity::class.java)
         }
 
     }
