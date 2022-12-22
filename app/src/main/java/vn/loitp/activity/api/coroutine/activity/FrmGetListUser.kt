@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.coroutine.activity
+package vn.loitp.activity.api.coroutine.activity
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,8 +13,8 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.frm_coroutine_get_list_user.*
+import vn.loitp.activity.api.coroutine.viewmodel.TestViewModel
 import vn.loitp.app.R
-import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
 
 @LogTag("FrmGetListUser")
 class FrmGetListUser : BaseFragment() {

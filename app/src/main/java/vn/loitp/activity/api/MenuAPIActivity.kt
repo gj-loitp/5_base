@@ -10,7 +10,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.restClient.RestClient
 import kotlinx.android.synthetic.main.activity_menu_api.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.api.coroutine.activity.CoroutineAPIActivity
+import vn.loitp.activity.api.coroutine.activity.CoroutineAPIActivity
 import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity
 import vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity
 import vn.loitp.app.activity.api.truyentranhtuan.MenuTTTAPIActivity

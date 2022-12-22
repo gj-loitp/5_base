@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.coroutine.service
+package vn.loitp.activity.api.coroutine.service
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory

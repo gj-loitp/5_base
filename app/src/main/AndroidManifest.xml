@@ -886,7 +886,7 @@
             android:name=".activity.customviews.calendar.cosmoCalendar.CosmoCalendarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.api.coroutine.activity.CoroutineAPIActivity"
+            android:name="vn.loitp.activity.api.coroutine.activity.CoroutineAPIActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.edittext.textWatcher.EditTextTextWatcherActivity"

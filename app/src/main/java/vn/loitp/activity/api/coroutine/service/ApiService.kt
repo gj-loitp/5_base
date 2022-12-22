@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.coroutine.service
+package vn.loitp.activity.api.coroutine.service
 
 import com.loitp.service.model.ApiResponse
 import com.loitp.service.model.UserTest

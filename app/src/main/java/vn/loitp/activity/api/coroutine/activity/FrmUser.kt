@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.coroutine.activity
+package vn.loitp.activity.api.coroutine.activity
 
 import android.os.Bundle
 import android.view.View
@@ -11,8 +11,8 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.service.model.UserTest
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.frm_coroutine_user.*
+import vn.loitp.activity.api.coroutine.viewmodel.TestViewModel
 import vn.loitp.app.R
-import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
 
 @LogTag("FrmUser")
 class FrmUser : BaseFragment() {
