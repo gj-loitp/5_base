@@ -1,7 +1,7 @@
 package vn.loitp.activity.api.coroutine.service
 
-import com.loitp.service.model.ApiResponse
-import com.loitp.service.model.UserTest
+import com.loitp.sv.model.ApiResponse
+import com.loitp.sv.model.UserTest
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET

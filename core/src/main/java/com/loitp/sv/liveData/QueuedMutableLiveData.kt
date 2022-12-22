@@ -1,4 +1,4 @@
-package com.loitp.service.liveData
+package com.loitp.sv.liveData
 
 import androidx.lifecycle.MutableLiveData
 import java.util.* // ktlint-disable no-wildcard-imports

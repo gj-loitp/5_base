@@ -6,8 +6,8 @@ import com.loitp.game.findNumber.db.Db
 import com.loitp.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import com.loitp.game.findNumber.db.FindNumberDatabase
 import com.loitp.game.findNumber.model.Level
-import com.loitp.service.liveData.ActionData
-import com.loitp.service.liveData.ActionLiveData
+import com.loitp.sv.liveData.ActionData
+import com.loitp.sv.liveData.ActionLiveData
 import kotlinx.coroutines.launch
 
 /**

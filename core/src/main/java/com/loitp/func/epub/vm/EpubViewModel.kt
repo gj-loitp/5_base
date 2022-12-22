@@ -13,9 +13,9 @@ import com.loitp.func.epub.exception.ReadingException
 import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.CssStatus
 import com.loitp.func.epub.Reader
-import com.loitp.service.liveData.ActionData
-import com.loitp.service.liveData.ActionLiveData
-import com.loitp.service.model.ErrorResponse
+import com.loitp.sv.liveData.ActionData
+import com.loitp.sv.liveData.ActionLiveData
+import com.loitp.sv.model.ErrorResponse
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream

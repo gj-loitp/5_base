@@ -1,10 +1,10 @@
-package com.loitp.service.repository
+package com.loitp.sv.repository
 
 import com.loitp.core.base.BaseApplication
-import com.loitp.service.RequestStatus
-import com.loitp.service.model.ApiResponse
-import com.loitp.service.model.ErrorJson
-import com.loitp.service.model.ErrorResponse
+import com.loitp.sv.RequestStatus
+import com.loitp.sv.model.ApiResponse
+import com.loitp.sv.model.ErrorJson
+import com.loitp.sv.model.ErrorResponse
 import retrofit2.Response
 
 /**

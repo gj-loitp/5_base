@@ -2,9 +2,9 @@ package vn.loitp.activity.api.coroutine.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.loitp.core.base.BaseViewModel
-import com.loitp.service.liveData.ActionData
-import com.loitp.service.liveData.ActionLiveData
-import com.loitp.service.model.UserTest
+import com.loitp.sv.liveData.ActionData
+import com.loitp.sv.liveData.ActionLiveData
+import com.loitp.sv.model.UserTest
 import kotlinx.coroutines.launch
 import vn.loitp.activity.api.coroutine.repository.TestRepository
 import vn.loitp.activity.api.coroutine.service.TestApiClient

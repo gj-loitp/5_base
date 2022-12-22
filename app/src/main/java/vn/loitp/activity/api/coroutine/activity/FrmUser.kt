@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.service.model.UserTest
+import com.loitp.sv.model.UserTest
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.frm_coroutine_user.*
 import vn.loitp.activity.api.coroutine.viewmodel.TestViewModel

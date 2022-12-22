@@ -48,7 +48,7 @@
         android:text="@string/msg_scroll_parallax_image_view"
         android:textColor="?attr/themeTextColor" />
 
-    <com.loitp.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
