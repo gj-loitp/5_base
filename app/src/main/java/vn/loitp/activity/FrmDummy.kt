@@ -1,4 +1,4 @@
-package vn.loitp.app.activity
+package vn.loitp.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle

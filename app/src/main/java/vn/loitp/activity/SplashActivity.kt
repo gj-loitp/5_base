@@ -1,4 +1,4 @@
-package vn.loitp.app.activity
+package vn.loitp.activity
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -64,7 +64,10 @@ class SplashActivity : BaseFontActivity() {
         // val getAddressLog = DebugDB.getAddressLog()
     }
 
-    override fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long, isIdleTime: Boolean) {
+    override fun onActivityUserIdleAfterTime(
+        delayMlsIdleTime: Long,
+        isIdleTime: Boolean
+    ) {
         super.onActivityUserIdleAfterTime(delayMlsIdleTime, isIdleTime)
         showShortInformation("onActivityUserIdleAfterTime delayMlsIdleTime $delayMlsIdleTime, isIdleTime: $isIdleTime")
     }

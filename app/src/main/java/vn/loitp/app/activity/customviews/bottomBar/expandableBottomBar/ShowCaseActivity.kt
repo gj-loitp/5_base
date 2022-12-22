@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_showcase.*
 import kotlinx.android.synthetic.main.activity_showcase.lActionBar
 import vn.loitp.app.R
-import vn.loitp.app.activity.EmptyActivity
+import vn.loitp.activity.EmptyActivity
 import vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.*
 import vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.navigation.NavigationComponentActivity
 

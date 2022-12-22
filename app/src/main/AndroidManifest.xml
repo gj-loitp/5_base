@@ -23,7 +23,7 @@
         tools:replace="android:name,android:allowBackup,android:theme">
 
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="vn.loitp.activity.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:theme="@style/SplashTheme">
@@ -34,7 +34,7 @@
         </activity>
         <!--https://ads-developers.googleblog.com/2018/10/announcing-v1700-of-android-google.html-->
         <activity
-            android:name=".activity.MenuActivity"
+            android:name="vn.loitp.activity.MenuActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name=".activity.api.MenuAPIActivity"
@@ -814,7 +814,7 @@
             android:name=".activity.database.sqliteEncryption.SqliteEncryptionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.EmptyActivity"
+            android:name="vn.loitp.activity.EmptyActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.database.sqliteMultiTable.SqliteMultiTableActivity"
