@@ -1,4 +1,4 @@
-package com.loitpcore.views.editText.lEditext
+package com.loitpcore.views.et.lEditext
 
 import android.content.Context
 import android.graphics.Color

@@ -1,10 +1,10 @@
-package com.loitpcore.views.editText.autoResize
+package com.loitpcore.views.et.autoResize
 
 import android.content.Context
 import android.util.AttributeSet
 import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatEditText
-import com.loitpcore.views.editText.autoResize.AutofitHelper.Companion.create
+import com.loitpcore.views.et.autoResize.AutoFitHelper.Companion.create
 
 /**
  * Created by Loitp on 04,August,2022
@@ -13,22 +13,29 @@ import com.loitpcore.views.editText.autoResize.AutofitHelper.Companion.create
  * +840766040293
  * freuss47@gmail.com
  */
-class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListener {
+class AutoFitEdittext : AppCompatEditText, AutoFitHelper.OnTextSizeChangeListener {
     /**
-     * Returns the [AutofitHelper] for this View.
+     * Returns the [AutoFitHelper] for this View.
      */
-    var autofitHelper: AutofitHelper? = null
+    var autoFitHelper: AutoFitHelper? = null
         private set
 
     constructor(context: Context) : super(context) {
         init(context, null, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(context, attrs, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -37,18 +44,25 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
     }
 
     @Suppress("unused")
-    private fun init(context: Context, attrs: AttributeSet?, defStyle: Int) {
-        autofitHelper = create(this, attrs, defStyle)
+    private fun init(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) {
+        autoFitHelper = create(this, attrs, defStyle)
             .addOnTextSizeChangeListener(this)
     }
     // Getters and Setters
     /**
      * {@inheritDoc}
      */
-    override fun setTextSize(unit: Int, size: Float) {
+    override fun setTextSize(
+        unit: Int,
+        size: Float
+    ) {
         super.setTextSize(unit, size)
 
-        autofitHelper?.setTextSize(unit = unit, size = size)
+        autoFitHelper?.setTextSize(unit = unit, size = size)
     }
 
     /**
@@ -57,7 +71,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
     override fun setLines(lines: Int) {
         super.setLines(lines)
 
-        autofitHelper?.setMaxLines(lines = lines)
+        autoFitHelper?.setMaxLines(lines = lines)
     }
 
     /**
@@ -66,7 +80,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
     override fun setMaxLines(maxLines: Int) {
         super.setMaxLines(maxLines)
 
-        autofitHelper?.setMaxLines(lines = maxLines)
+        autoFitHelper?.setMaxLines(lines = maxLines)
     }
     /**
      * Returns whether or not the text will be automatically re-sized to fit its constraints.
@@ -78,9 +92,9 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      * param sizeToFit
      */
     var isSizeToFit: Boolean?
-        get() = autofitHelper?.isEnabled
+        get() = autoFitHelper?.isEnabled
         set(sizeToFit) {
-            autofitHelper?.setEnabled(enabled = sizeToFit)
+            autoFitHelper?.setEnabled(enabled = sizeToFit)
         }
 
     /**
@@ -103,10 +117,10 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      */
     @Suppress("unused")
     var maxTextSize: Float?
-        get() = autofitHelper?.maxTextSize
+        get() = autoFitHelper?.maxTextSize
         set(size) {
             size?.let {
-                autofitHelper?.setMaxTextSize(size = it)
+                autoFitHelper?.setMaxTextSize(size = it)
             }
         }
 
@@ -120,14 +134,14 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      */
     @Suppress("unused")
     fun setMaxTextSize(unit: Int, size: Float) {
-        autofitHelper?.setMaxTextSize(unit = unit, size = size)
+        autoFitHelper?.setMaxTextSize(unit = unit, size = size)
     }
 
     /**
      * Returns the minimum size (in pixels) of the text in this View.
      */
     val minTextSize: Float?
-        get() = autofitHelper?.minTextSize
+        get() = autoFitHelper?.minTextSize
 
     /**
      * Set the minimum text size to the given value, interpreted as "scaled pixel" units. This size
@@ -138,7 +152,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      */
     @Suppress("unused")
     fun setMinTextSize(minSize: Int) {
-        autofitHelper?.setMinTextSize(unit = TypedValue.COMPLEX_UNIT_SP, size = minSize.toFloat())
+        autoFitHelper?.setMinTextSize(unit = TypedValue.COMPLEX_UNIT_SP, size = minSize.toFloat())
     }
 
     /**
@@ -151,7 +165,7 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      */
     @Suppress("unused")
     fun setMinTextSize(unit: Int, minSize: Float) {
-        autofitHelper?.setMinTextSize(unit = unit, size = minSize)
+        autoFitHelper?.setMinTextSize(unit = unit, size = minSize)
     }
     /**
      * Returns the amount of precision used to calculate the correct text size to fit within its
@@ -165,14 +179,17 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
      */
     @Suppress("unused")
     var precision: Float?
-        get() = autofitHelper?.precision
+        get() = autoFitHelper?.precision
         set(precision) {
             precision?.let {
-                autofitHelper?.setPrecision(it)
+                autoFitHelper?.setPrecision(it)
             }
         }
 
-    override fun onTextSizeChange(textSize: Float, oldTextSize: Float) {
+    override fun onTextSizeChange(
+        textSize: Float,
+        oldTextSize: Float
+    ) {
         // do nothing
     }
 }

@@ -1,4 +1,4 @@
-package com.loitpcore.views.editText.animatedExpandable
+package com.loitpcore.views.et.animatedExpandable
 
 import android.animation.ValueAnimator
 import android.content.Context
@@ -30,11 +30,18 @@ class LAnimatedExpandableEditText : AppCompatEditText {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -64,10 +71,13 @@ class LAnimatedExpandableEditText : AppCompatEditText {
         }
     }
 
-    private fun closeKeyboard(v: TextView, editText: EditText) {
+    private fun closeKeyboard(
+        tv: TextView,
+        editText: EditText
+    ) {
         val imm =
             editText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(v.windowToken, 0)
+        imm.hideSoftInputFromWindow(tv.windowToken, 0)
     }
 
     private fun getOnFocusChangeListener(editText: EditText): OnFocusChangeListener {
@@ -80,17 +90,26 @@ class LAnimatedExpandableEditText : AppCompatEditText {
         }
     }
 
-    private fun expandViewWithAnimation(editText: EditText, pixelsToExpand: Int) {
+    private fun expandViewWithAnimation(
+        editText: EditText,
+        pixelsToExpand: Int
+    ) {
         val animation = ValueAnimator.ofInt(editText.height, editText.height + pixelsToExpand)
         animateEditTextSize(editText, animation)
     }
 
-    private fun compactViewWithAnimation(editText: EditText, pixelsToExpand: Int) {
+    private fun compactViewWithAnimation(
+        editText: EditText,
+        pixelsToExpand: Int
+    ) {
         val animation = ValueAnimator.ofInt(editText.height, editText.height - pixelsToExpand)
         animateEditTextSize(editText, animation)
     }
 
-    private fun animateEditTextSize(editText: EditText, animation: ValueAnimator) {
+    private fun animateEditTextSize(
+        editText: EditText,
+        animation: ValueAnimator
+    ) {
         animation.duration = expandAnimationDurationMilliseconds.toLong()
         animation.addUpdateListener { a ->
             val value = a.animatedValue as Int

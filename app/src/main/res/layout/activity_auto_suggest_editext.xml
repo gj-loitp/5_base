@@ -18,12 +18,12 @@
             android:paddingEnd="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
-            <com.loitpcore.views.editText.autoSuggest.LAutoSuggestEditText
+            <com.loitpcore.views.et.autoSuggest.LAutoSuggestEditText
                 android:id="@+id/aet0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <com.loitpcore.views.editText.autoSuggest.LAutoSuggestEditText
+            <com.loitpcore.views.et.autoSuggest.LAutoSuggestEditText
                 android:id="@+id/aet1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

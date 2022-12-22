@@ -1,4 +1,4 @@
-package com.loitpcore.views.editText.currency
+package com.loitpcore.views.et.currency
 
 import android.content.Context
 import android.graphics.Rect

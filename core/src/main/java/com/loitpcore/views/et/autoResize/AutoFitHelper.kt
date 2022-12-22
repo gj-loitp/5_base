@@ -1,4 +1,4 @@
-package com.loitpcore.views.editText.autoResize
+package com.loitpcore.views.et.autoResize
 
 import android.content.res.Resources
 import android.text.*
@@ -8,8 +8,8 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
-import com.loitpcore.R
 import com.loitp.core.utilities.LLog
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -18,7 +18,7 @@ import com.loitp.core.utilities.LLog
  * +840766040293
  * freuss47@gmail.com
  */
-class AutofitHelper private constructor(view: TextView) {
+class AutoFitHelper private constructor(view: TextView) {
 
     companion object {
         private const val TAG = "AutoFitTextHelper"
@@ -43,8 +43,8 @@ class AutofitHelper private constructor(view: TextView) {
          */
         @JvmStatic
         @JvmOverloads
-        fun create(view: TextView, attrs: AttributeSet? = null, defStyle: Int = 0): AutofitHelper {
-            val helper = AutofitHelper(view)
+        fun create(view: TextView, attrs: AttributeSet? = null, defStyle: Int = 0): AutoFitHelper {
+            val helper = AutoFitHelper(view)
             var sizeToFit = true
             if (attrs != null) {
                 val context = view.context
@@ -52,16 +52,16 @@ class AutofitHelper private constructor(view: TextView) {
                 var precision = helper.precision
                 val typedArray = context.obtainStyledAttributes(
                     attrs,
-                    R.styleable.AutofitEditText,
+                    R.styleable.AutoFitEditText,
                     defStyle,
                     0
                 )
-                sizeToFit = typedArray.getBoolean(R.styleable.AutofitEditText_sizeToFit, sizeToFit)
+                sizeToFit = typedArray.getBoolean(R.styleable.AutoFitEditText_sizeToFit, sizeToFit)
                 minTextSize = typedArray.getDimensionPixelSize(
-                    R.styleable.AutofitEditText_minTextSize,
+                    R.styleable.AutoFitEditText_minTextSize,
                     minTextSize
                 )
-                precision = typedArray.getFloat(R.styleable.AutofitEditText_precision, precision)
+                precision = typedArray.getFloat(R.styleable.AutoFitEditText_precision, precision)
                 typedArray.recycle()
                 helper.setMinTextSize(TypedValue.COMPLEX_UNIT_PX, minTextSize.toFloat())
                     .setPrecision(precision)
@@ -73,7 +73,7 @@ class AutofitHelper private constructor(view: TextView) {
         /**
          * Re-sizes the textSize of the TextView so that the text fits within the bounds of the View.
          */
-        private fun autofit(
+        private fun autoFit(
             view: TextView,
             paint: TextPaint,
             minTextSize: Float,
@@ -140,13 +140,13 @@ class AutofitHelper private constructor(view: TextView) {
                 TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, mid, displayMetrics)
             if (maxLines != 1) {
                 layout = StaticLayout(
-                    text,
-                    paint,
-                    targetWidth.toInt(),
-                    Layout.Alignment.ALIGN_NORMAL,
-                    1.0f,
-                    0.0f,
-                    true
+                    /* source = */ text,
+                    /* paint = */ paint,
+                    /* width = */ targetWidth.toInt(),
+                    /* align = */ Layout.Alignment.ALIGN_NORMAL,
+                    /* spacingmult = */ 1.0f,
+                    /* spacingadd = */ 0.0f,
+                    /* includepad = */ true
                 )
                 lineCount = layout.lineCount
             }
@@ -289,11 +289,11 @@ class AutofitHelper private constructor(view: TextView) {
      */
     var isEnabled = false
         private set
-    private var mIsAutofitting = false
+    private var mIsAutoFitting = false
     private var mListeners: ArrayList<OnTextSizeChangeListener>? = null
-    private val mTextWatcher: TextWatcher = AutofitTextWatcher()
+    private val mTextWatcher: TextWatcher = AutoFitTextWatcher()
     private val mOnLayoutChangeListener: View.OnLayoutChangeListener =
-        AutofitOnLayoutChangeListener()
+        AutoFitOnLayoutChangeListener()
 
     init {
         val context = view.context
@@ -311,7 +311,7 @@ class AutofitHelper private constructor(view: TextView) {
      * Adds an [OnTextSizeChangeListener] to the list of those whose methods are called
      * whenever the [TextView]'s `textSize` changes.
      */
-    fun addOnTextSizeChangeListener(listener: OnTextSizeChangeListener): AutofitHelper {
+    fun addOnTextSizeChangeListener(listener: OnTextSizeChangeListener): AutoFitHelper {
         if (mListeners == null) {
             mListeners = ArrayList()
         }
@@ -324,7 +324,7 @@ class AutofitHelper private constructor(view: TextView) {
      * are called whenever the [TextView]'s `textSize` changes.
      */
     @Suppress("unused")
-    fun removeOnTextSizeChangeListener(listener: OnTextSizeChangeListener): AutofitHelper {
+    fun removeOnTextSizeChangeListener(listener: OnTextSizeChangeListener): AutoFitHelper {
         mListeners?.remove(listener)
         return this
     }
@@ -335,10 +335,10 @@ class AutofitHelper private constructor(view: TextView) {
      *
      * @param precision The amount of precision.
      */
-    fun setPrecision(precision: Float): AutofitHelper {
+    fun setPrecision(precision: Float): AutoFitHelper {
         if (this.precision != precision) {
             this.precision = precision
-            autofit()
+            autoFit()
         }
         return this
     }
@@ -351,7 +351,7 @@ class AutofitHelper private constructor(view: TextView) {
      * @attr ref me.grantland.R.styleable#AutofitEditText_minTextSize
      */
     @Suppress("unused")
-    fun setMinTextSize(size: Float): AutofitHelper {
+    fun setMinTextSize(size: Float): AutoFitHelper {
         return setMinTextSize(TypedValue.COMPLEX_UNIT_SP, size)
     }
 
@@ -363,7 +363,10 @@ class AutofitHelper private constructor(view: TextView) {
      * @param size The desired size in the given units.
      * @attr ref me.grantland.R.styleable#AutofitEditText_minTextSize
      */
-    fun setMinTextSize(unit: Int, size: Float): AutofitHelper {
+    fun setMinTextSize(
+        unit: Int,
+        size: Float
+    ): AutoFitHelper {
         val context = mTextView.context
         var r = Resources.getSystem()
         if (context != null) {
@@ -376,7 +379,7 @@ class AutofitHelper private constructor(view: TextView) {
     private fun setRawMinTextSize(size: Float) {
         if (size != minTextSize) {
             minTextSize = size
-            autofit()
+            autoFit()
         }
     }
 
@@ -387,7 +390,7 @@ class AutofitHelper private constructor(view: TextView) {
      * @param size The scaled pixel size.
      * @attr ref android.R.styleable#TextView_textSize
      */
-    fun setMaxTextSize(size: Float): AutofitHelper {
+    fun setMaxTextSize(size: Float): AutoFitHelper {
         return setMaxTextSize(TypedValue.COMPLEX_UNIT_SP, size)
     }
 
@@ -399,7 +402,10 @@ class AutofitHelper private constructor(view: TextView) {
      * @param size The desired size in the given units.
      * @attr ref android.R.styleable#TextView_textSize
      */
-    fun setMaxTextSize(unit: Int, size: Float): AutofitHelper {
+    fun setMaxTextSize(
+        unit: Int,
+        size: Float
+    ): AutoFitHelper {
         val context = mTextView.context
         var r = Resources.getSystem()
         if (context != null) {
@@ -412,17 +418,17 @@ class AutofitHelper private constructor(view: TextView) {
     private fun setRawMaxTextSize(size: Float) {
         if (size != maxTextSize) {
             maxTextSize = size
-            autofit()
+            autoFit()
         }
     }
 
     /**
      * @see TextView.setMaxLines
      */
-    fun setMaxLines(lines: Int): AutofitHelper {
+    fun setMaxLines(lines: Int): AutoFitHelper {
         if (maxLines != lines) {
             maxLines = lines
-            autofit()
+            autoFit()
         }
         return this
     }
@@ -430,14 +436,14 @@ class AutofitHelper private constructor(view: TextView) {
     /**
      * Set the enabled state of automatically resizing text.
      */
-    fun setEnabled(enabled: Boolean?): AutofitHelper {
+    fun setEnabled(enabled: Boolean?): AutoFitHelper {
         enabled?.let {
             if (isEnabled != it) {
                 isEnabled = it
                 if (it) {
                     mTextView.addTextChangedListener(mTextWatcher)
                     mTextView.addOnLayoutChangeListener(mOnLayoutChangeListener)
-                    autofit()
+                    autoFit()
                 } else {
                     mTextView.removeTextChangedListener(mTextWatcher)
                     mTextView.removeOnLayoutChangeListener(mOnLayoutChangeListener)
@@ -468,8 +474,11 @@ class AutofitHelper private constructor(view: TextView) {
      *
      * @see TextView.setTextSize
      */
-    fun setTextSize(unit: Int, size: Float) {
-        if (mIsAutofitting) {
+    fun setTextSize(
+        unit: Int,
+        size: Float
+    ) {
+        if (mIsAutoFitting) {
             // We don't want to update the TextView's actual textSize while we're autofitting
             // since it'd get set to the autofitTextSize
             return
@@ -488,18 +497,21 @@ class AutofitHelper private constructor(view: TextView) {
         }
     }
 
-    private fun autofit() {
+    private fun autoFit() {
         val oldTextSize = mTextView.textSize
-        mIsAutofitting = true
-        autofit(mTextView, mPaint, minTextSize, maxTextSize, maxLines, precision)
-        mIsAutofitting = false
+        mIsAutoFitting = true
+        autoFit(mTextView, mPaint, minTextSize, maxTextSize, maxLines, precision)
+        mIsAutoFitting = false
         val textSize: Float = mTextView.textSize
         if (textSize != oldTextSize) {
             sendTextSizeChange(textSize, oldTextSize)
         }
     }
 
-    private fun sendTextSizeChange(textSize: Float, oldTextSize: Float) {
+    private fun sendTextSizeChange(
+        textSize: Float,
+        oldTextSize: Float
+    ) {
         if (mListeners == null) {
             return
         }
@@ -508,7 +520,7 @@ class AutofitHelper private constructor(view: TextView) {
         }
     }
 
-    private inner class AutofitTextWatcher : TextWatcher {
+    private inner class AutoFitTextWatcher : TextWatcher {
         override fun beforeTextChanged(
             charSequence: CharSequence,
             start: Int,
@@ -524,7 +536,7 @@ class AutofitHelper private constructor(view: TextView) {
             before: Int,
             count: Int
         ) {
-            autofit()
+            autoFit()
         }
 
         override fun afterTextChanged(editable: Editable) {
@@ -532,7 +544,7 @@ class AutofitHelper private constructor(view: TextView) {
         }
     }
 
-    private inner class AutofitOnLayoutChangeListener : View.OnLayoutChangeListener {
+    private inner class AutoFitOnLayoutChangeListener : View.OnLayoutChangeListener {
 
         override fun onLayoutChange(
             view: View,
@@ -545,7 +557,7 @@ class AutofitHelper private constructor(view: TextView) {
             oldRight: Int,
             oldBottom: Int
         ) {
-            autofit()
+            autoFit()
         }
     }
 

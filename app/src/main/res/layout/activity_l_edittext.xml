@@ -48,14 +48,14 @@
             android:textSize="@dimen/txt_large"
             android:textStyle="italic" />
 
-        <com.loitpcore.views.editText.lEditext.LEditText
+        <com.loitpcore.views.et.lEditext.LEditText
             android:id="@+id/lEditTextId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvDescription"
             android:layout_marginTop="@dimen/w_100" />
 
-        <com.loitpcore.views.editText.lEditext.LEditText
+        <com.loitpcore.views.et.lEditext.LEditText
             android:id="@+id/lEditTextPw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

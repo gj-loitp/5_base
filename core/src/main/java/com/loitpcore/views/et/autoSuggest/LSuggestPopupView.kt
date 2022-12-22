@@ -1,4 +1,4 @@
-package com.loitpcore.views.editText.autoSuggest
+package com.loitpcore.views.et.autoSuggest
 
 import android.annotation.SuppressLint
 import android.content.Context

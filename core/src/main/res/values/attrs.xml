@@ -162,7 +162,7 @@
         <attr name="progressTextSize" format="float" />
     </declare-styleable>
 
-    <declare-styleable name="AutofitEditText">
+    <declare-styleable name="AutoFitEditText">
         <attr name="minTextSize" format="dimension" />
         <attr name="precision" format="float" />
         <attr name="sizeToFit" format="boolean" />
