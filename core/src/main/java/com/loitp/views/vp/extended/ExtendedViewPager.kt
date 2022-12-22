@@ -1,4 +1,4 @@
-package com.loitpcore.views.viewPager.extended
+package com.loitp.views.vp.extended
 
 import android.content.Context
 import android.util.AttributeSet
@@ -17,9 +17,18 @@ class ExtendedViewPager : ViewPager {
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs)
 
-    override fun canScroll(view: View, checkV: Boolean, dx: Int, x: Int, y: Int): Boolean {
+    override fun canScroll(
+        view: View,
+        checkV: Boolean,
+        dx: Int,
+        x: Int,
+        y: Int
+    ): Boolean {
         return if (view is TouchImageView) {
             view.canScrollHorizontally(-dx)
         } else {
