@@ -55,7 +55,7 @@
             android:name=".activity.customviews.viewPager.parrallax.ParallaxViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.button.MenuButtonActivity"
+            android:name="vn.loitp.activity.customView.bt.MenuButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.button.shineButton.ShineButtonActivity"
@@ -505,7 +505,7 @@
             android:name=".activity.customviews.button.lButton.LButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.button.autoSizeButton.AutoSizeButtonActivity"
+            android:name="vn.loitp.activity.customView.bt.autoSize.AutoSizeButtonActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
             android:name=".activity.customviews.lDebugView.LDebugViewActivity"

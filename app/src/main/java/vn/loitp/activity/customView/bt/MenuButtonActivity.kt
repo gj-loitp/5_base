@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.button
+package vn.loitp.activity.customView.bt
 
 import android.os.Bundle
 import android.view.View
@@ -8,8 +8,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_button.*
+import vn.loitp.activity.customView.bt.autoSize.AutoSizeButtonActivity
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.button.autoSizeButton.AutoSizeButtonActivity
 import vn.loitp.app.activity.customviews.button.circularImageClick.CircularImageClickActivity
 import vn.loitp.app.activity.customviews.button.circularProgressButton.CPBActivity
 import vn.loitp.app.activity.customviews.button.fab.FabActivity

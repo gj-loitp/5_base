@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.button.autoSizeButton
+package vn.loitp.activity.customView.bt.autoSize
 
 import android.os.Bundle
 import android.view.View
