@@ -1,4 +1,4 @@
-package vn.loitp.app.app
+package vn.loitp.app
 
 import com.g1.onetargetsdk.core.Analytics
 import com.g1.onetargetsdk.core.Configuration
@@ -12,7 +12,6 @@ import com.loitp.data.ActivityData
 import com.onesignal.OneSignal
 import io.realm.Realm
 import io.realm.RealmConfiguration
-import vn.loitp.app.BuildConfig
 import vn.loitp.app.activity.database.room.db.FNBDatabase
 
 // build release de check
