@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.answerView
+package vn.loitp.activity.customView.answerView
 
 import android.os.Bundle
 import androidx.core.view.isVisible

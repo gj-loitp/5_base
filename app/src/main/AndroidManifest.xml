@@ -97,7 +97,7 @@
             android:name=".activity.customviews.textview.scoreText.ScoreTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomBar.MenuBottomNavigationActivity"
+            android:name="vn.loitp.activity.customView.bottomBar.MenuBottomNavigationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.bottomBar.bottombar.BottomBarActivity"
@@ -363,7 +363,7 @@
             android:name="vn.loitp.activity.anim.shadowViewHelper.ShadowViewHelperActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.answerView.AnswerViewActivity"
+            android:name="vn.loitp.activity.customView.answerView.AnswerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.draggablePanel.DraggablePanelActivity"
