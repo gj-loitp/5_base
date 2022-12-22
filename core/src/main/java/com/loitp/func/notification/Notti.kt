@@ -6,7 +6,7 @@ import android.content.Context
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.loitp.func.notification.config.NottiConfig
-import com.loitp.func.notification.notifications.CustomNotification
+import com.loitp.func.notification.noti.CustomNotification
 import com.loitp.core.utils.AppUtils
 
 /**

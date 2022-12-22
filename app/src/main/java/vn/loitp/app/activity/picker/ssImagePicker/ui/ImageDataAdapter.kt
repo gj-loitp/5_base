@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.loitp.picker.ssImagePicker.loadImage
+import com.loitp.picker.ssImage.loadImage
 import vn.loitp.R
 import vn.loitp.databinding.PickerSsImageListItemImageDataBinding
 

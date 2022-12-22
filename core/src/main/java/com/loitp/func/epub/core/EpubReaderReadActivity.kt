@@ -35,7 +35,7 @@ import com.loitp.func.epub.exception.OutOfPagesException
 import com.loitp.func.epub.exception.ReadingException
 import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.model.BookInfoData
-import com.loitp.func.epub.viewmodels.EpubViewModel
+import com.loitp.func.epub.vm.EpubViewModel
 import com.loitp.views.wv.LWebViewAdblock
 import kotlinx.android.synthetic.main.l_a_epub_reader_read.*
 

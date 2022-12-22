@@ -18,7 +18,7 @@
         android:paddingTop="@dimen/margin_padding_medium"
         android:paddingBottom="@dimen/margin_padding_medium">
 
-        <com.loitp.picker.shiftColorPicker.LineColorPicker
+        <com.loitp.picker.shiftColor.LineColorPicker
             android:id="@+id/colorPicker"
             android:layout_width="match_parent"
             android:layout_height="@dimen/w_55"
@@ -31,7 +31,7 @@
             style="@style/ButtonMenu"
             android:text="Get selected color" />
 
-        <com.loitp.picker.shiftColorPicker.LineColorPicker
+        <com.loitp.picker.shiftColor.LineColorPicker
             android:id="@+id/colorPicker2"
             android:layout_width="@dimen/w_55"
             android:layout_height="0dp"

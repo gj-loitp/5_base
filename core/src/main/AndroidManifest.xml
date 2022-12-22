@@ -116,7 +116,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findNumber.dialog.FindNumberWinActivity"
+            android:name=".game.findNumber.dlg.FindNumberWinActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity

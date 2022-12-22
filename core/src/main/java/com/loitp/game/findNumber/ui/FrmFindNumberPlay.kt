@@ -18,7 +18,7 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.game.findNumber.dialog.FindNumberWinActivity
+import com.loitp.game.findNumber.dlg.FindNumberWinActivity
 import com.loitp.game.findNumber.model.Level
 import com.loitp.views.tv.autoFit.LAutoFitTextView
 import kotlinx.android.synthetic.main.l_f_find_number_play.*

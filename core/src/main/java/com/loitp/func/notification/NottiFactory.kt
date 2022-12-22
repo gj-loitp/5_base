@@ -1,6 +1,6 @@
 package com.loitp.func.notification
 
-import com.loitp.func.notification.notifications.*
+import com.loitp.func.notification.noti.*
 
 /**
  * Created by Loitp on 04,August,2022

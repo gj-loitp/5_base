@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.loitp.anim.animatedStarsView.AnimatedStarsView
+    <com.loitp.anim.animatedStars.AnimatedStarsView
         android:id="@+id/stars"
         android:layout_width="match_parent"
         android:layout_height="0dp"
