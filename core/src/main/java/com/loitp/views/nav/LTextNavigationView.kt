@@ -1,15 +1,15 @@
-package com.loitpcore.views.navigationView
+package com.loitp.views.nav
 
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
-import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
-import com.loitpcore.R
 import com.loitp.core.utilities.LAnimationUtil
+import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -18,21 +18,23 @@ import com.loitp.core.utilities.LAnimationUtil
  * +840766040293
  * freuss47@gmail.com
  */
-class LNavigationView : RelativeLayout, View.OnClickListener {
+class LTextNavigationView : RelativeLayout, View.OnClickListener {
     @Suppress("unused")
-    var ivPrev: ImageView? = null
+    var tvPrev: TextView? = null
+
     @Suppress("unused")
-    var ivNext: ImageView? = null
+    var tvNext: TextView? = null
+
     @Suppress("unused")
     var tv: TextView? = null
 
     private var stringList = ArrayList<String>()
     private var currentIndex = 0
-    var colorOn = Color.BLACK
-    var colorOff = Color.GRAY
+
     @Suppress("unused")
     var isEnableAnimation = true
-
+    var colorOn = Color.BLACK
+    var colorOff = Color.GRAY
     private var nvCallback: NVCallback? = null
 
     interface NVCallback {
@@ -43,11 +45,18 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
         this.nvCallback = nvCallback
     }
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -56,37 +65,38 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.view_navigation, this)
-
-        ivPrev = findViewById(R.id.ivPrev)
-        ivNext = findViewById(R.id.ivNext)
+        View.inflate(context, R.layout.v_navigation_text, this)
         tv = findViewById(R.id.textView)
+        tvPrev = findViewById(R.id.tvPrev)
+        tvNext = findViewById(R.id.tvNext)
 
-        ivPrev?.setOnClickListener(this)
-        ivNext?.setOnClickListener(this)
-
-        setEnableController(imageView = ivPrev, isEnable = false)
-        setEnableController(imageView = ivNext, isEnable = false)
+        tvPrev?.setOnClickListener(this)
+        tvNext?.setOnClickListener(this)
+        setEnableController(textView = tvPrev, isEnable = false)
+        setEnableController(textView = tvNext, isEnable = false)
     }
 
-    private fun setEnableController(imageView: ImageView?, isEnable: Boolean) {
+    private fun setEnableController(
+        textView: TextView?,
+        isEnable: Boolean
+    ) {
         if (isEnable) {
-            imageView?.let {
+            textView?.let {
                 it.isEnabled = true
                 it.isClickable = true
-                it.setColorFilter(colorOn)
+                it.setTextColor(colorOn)
             }
         } else {
-            imageView?.let {
+            textView?.let {
                 it.isEnabled = false
                 it.isClickable = false
-                it.setColorFilter(colorOff)
+                it.setTextColor(colorOff)
             }
         }
     }
 
     fun setStringList(stringList: ArrayList<String>?) {
-        if (stringList == null || stringList.isEmpty()) {
+        if (stringList.isNullOrEmpty()) {
             return
         }
         currentIndex = 0
@@ -94,7 +104,7 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
         updateUI()
     }
 
-    fun setCurrenIndex(index: Int) {
+    fun setCurrentIndex(index: Int) {
         if (stringList.isEmpty()) {
             return
         }
@@ -113,21 +123,21 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
         }
         val size = stringList.size
         if (size == 1) {
-            setEnableController(imageView = ivPrev, isEnable = false)
-            setEnableController(imageView = ivNext, isEnable = false)
+            setEnableController(textView = tvPrev, isEnable = false)
+            setEnableController(textView = tvNext, isEnable = false)
         } else {
             when {
                 currentIndex <= 0 -> {
-                    setEnableController(imageView = ivPrev, isEnable = false)
-                    setEnableController(imageView = ivNext, isEnable = true)
+                    setEnableController(textView = tvPrev, isEnable = false)
+                    setEnableController(textView = tvNext, isEnable = true)
                 }
                 currentIndex >= size - 1 -> {
-                    setEnableController(imageView = ivPrev, isEnable = true)
-                    setEnableController(imageView = ivNext, isEnable = false)
+                    setEnableController(textView = tvPrev, isEnable = true)
+                    setEnableController(textView = tvNext, isEnable = false)
                 }
                 else -> {
-                    setEnableController(imageView = ivPrev, isEnable = true)
-                    setEnableController(imageView = ivNext, isEnable = true)
+                    setEnableController(textView = tvPrev, isEnable = true)
+                    setEnableController(textView = tvNext, isEnable = true)
                 }
             }
         }
@@ -135,13 +145,13 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        if (view === ivPrev) {
+        if (view === tvPrev) {
             if (isEnableAnimation) {
                 LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
             }
             currentIndex--
             updateUI()
-        } else if (view === ivNext) {
+        } else if (view === tvNext) {
             if (isEnableAnimation) {
                 LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
             }
@@ -158,5 +168,23 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
     @Suppress("unused")
     fun getCurrentIndex(): Int {
         return currentIndex
+    }
+
+    fun setTextPrev(prev: String?) {
+        tvPrev?.text = prev
+    }
+
+    fun setTextNext(next: String?) {
+        tvNext?.text = next
+    }
+
+    fun setTextSize(
+        dpPrev: Float,
+        dpText: Float,
+        dpNext: Float
+    ) {
+        LUIUtil.setTextSize(textView = tvPrev, size = dpPrev)
+        LUIUtil.setTextSize(textView = tv, size = dpText)
+        LUIUtil.setTextSize(textView = tvNext, size = dpNext)
     }
 }

@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.navigationView.LNavigationView
+import com.loitp.views.nav.LNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view.*
 import vn.loitp.app.R
 
@@ -52,8 +52,8 @@ class NavigationViewActivity : BaseFontActivity() {
                 }
             }
         )
-        bt0.setOnClickListener { nv.setCurrenIndex(0) }
-        bt1.setOnClickListener { nv.setCurrenIndex(stringList.size - 1) }
-        bt2.setOnClickListener { nv.setCurrenIndex(2) }
+        bt0.setOnClickListener { nv.setCurrentIndex(0) }
+        bt1.setOnClickListener { nv.setCurrentIndex(stringList.size - 1) }
+        bt2.setOnClickListener { nv.setCurrentIndex(2) }
     }
 }

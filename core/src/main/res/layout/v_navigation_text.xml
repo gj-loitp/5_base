@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:paddingStart="@dimen/margin_padding_small"
+        android:paddingEnd="0dp"
+        android:singleLine="true"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvNext"
+        app:layout_constraintStart_toEndOf="@+id/tvPrev"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/lightCyan" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPrev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?actionBarItemBackground"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="Prev"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textView"
+        tools:background="@color/cyan"
+        tools:ignore="UnusedAttribute" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:foreground="?actionBarItemBackground"
+        android:gravity="center"
+        android:paddingEnd="@dimen/margin_padding_small"
+        android:singleLine="true"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="@id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textView"
+        tools:background="@color/cyan"
+        tools:ignore="UnusedAttribute" />
+</androidx.constraintlayout.widget.ConstraintLayout>

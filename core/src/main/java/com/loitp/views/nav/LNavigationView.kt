@@ -1,15 +1,15 @@
-package com.loitpcore.views.navigationView
+package com.loitp.views.nav
 
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
-import com.loitpcore.R
 import com.loitp.core.utilities.LAnimationUtil
-import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -18,20 +18,21 @@ import com.loitp.core.utilities.LUIUtil
  * +840766040293
  * freuss47@gmail.com
  */
-class LTextNavigationView : RelativeLayout, View.OnClickListener {
+class LNavigationView : RelativeLayout, View.OnClickListener {
     @Suppress("unused")
-    var tvPrev: TextView? = null
+    var ivPrev: ImageView? = null
     @Suppress("unused")
-    var tvNext: TextView? = null
+    var ivNext: ImageView? = null
     @Suppress("unused")
     var tv: TextView? = null
 
     private var stringList = ArrayList<String>()
     private var currentIndex = 0
-    @Suppress("unused")
-    var isEnableAnimation = true
     var colorOn = Color.BLACK
     var colorOff = Color.GRAY
+    @Suppress("unused")
+    var isEnableAnimation = true
+
     private var nvCallback: NVCallback? = null
 
     interface NVCallback {
@@ -42,11 +43,18 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
         this.nvCallback = nvCallback
     }
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -55,35 +63,40 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.view_navigation_text, this)
-        tv = findViewById(R.id.textView)
-        tvPrev = findViewById(R.id.tvPrev)
-        tvNext = findViewById(R.id.tvNext)
+        View.inflate(context, R.layout.v_navigation, this)
 
-        tvPrev?.setOnClickListener(this)
-        tvNext?.setOnClickListener(this)
-        setEnableController(textView = tvPrev, isEnable = false)
-        setEnableController(textView = tvNext, isEnable = false)
+        ivPrev = findViewById(R.id.ivPrev)
+        ivNext = findViewById(R.id.ivNext)
+        tv = findViewById(R.id.textView)
+
+        ivPrev?.setOnClickListener(this)
+        ivNext?.setOnClickListener(this)
+
+        setEnableController(imageView = ivPrev, isEnable = false)
+        setEnableController(imageView = ivNext, isEnable = false)
     }
 
-    private fun setEnableController(textView: TextView?, isEnable: Boolean) {
+    private fun setEnableController(
+        imageView: ImageView?,
+        isEnable: Boolean
+    ) {
         if (isEnable) {
-            textView?.let {
+            imageView?.let {
                 it.isEnabled = true
                 it.isClickable = true
-                it.setTextColor(colorOn)
+                it.setColorFilter(colorOn)
             }
         } else {
-            textView?.let {
+            imageView?.let {
                 it.isEnabled = false
                 it.isClickable = false
-                it.setTextColor(colorOff)
+                it.setColorFilter(colorOff)
             }
         }
     }
 
     fun setStringList(stringList: ArrayList<String>?) {
-        if (stringList.isNullOrEmpty()) {
+        if (stringList == null || stringList.isEmpty()) {
             return
         }
         currentIndex = 0
@@ -110,21 +123,21 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
         }
         val size = stringList.size
         if (size == 1) {
-            setEnableController(textView = tvPrev, isEnable = false)
-            setEnableController(textView = tvNext, isEnable = false)
+            setEnableController(imageView = ivPrev, isEnable = false)
+            setEnableController(imageView = ivNext, isEnable = false)
         } else {
             when {
                 currentIndex <= 0 -> {
-                    setEnableController(textView = tvPrev, isEnable = false)
-                    setEnableController(textView = tvNext, isEnable = true)
+                    setEnableController(imageView = ivPrev, isEnable = false)
+                    setEnableController(imageView = ivNext, isEnable = true)
                 }
                 currentIndex >= size - 1 -> {
-                    setEnableController(textView = tvPrev, isEnable = true)
-                    setEnableController(textView = tvNext, isEnable = false)
+                    setEnableController(imageView = ivPrev, isEnable = true)
+                    setEnableController(imageView = ivNext, isEnable = false)
                 }
                 else -> {
-                    setEnableController(textView = tvPrev, isEnable = true)
-                    setEnableController(textView = tvNext, isEnable = true)
+                    setEnableController(imageView = ivPrev, isEnable = true)
+                    setEnableController(imageView = ivNext, isEnable = true)
                 }
             }
         }
@@ -132,13 +145,13 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        if (view === tvPrev) {
+        if (view === ivPrev) {
             if (isEnableAnimation) {
                 LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
             }
             currentIndex--
             updateUI()
-        } else if (view === tvNext) {
+        } else if (view === ivNext) {
             if (isEnableAnimation) {
                 LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
             }
@@ -155,19 +168,5 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
     @Suppress("unused")
     fun getCurrentIndex(): Int {
         return currentIndex
-    }
-
-    fun setTextPrev(prev: String?) {
-        tvPrev?.text = prev
-    }
-
-    fun setTextNext(next: String?) {
-        tvNext?.text = next
-    }
-
-    fun setTextSize(dpPrev: Float, dpText: Float, dpNext: Float) {
-        LUIUtil.setTextSize(textView = tvPrev, size = dpPrev)
-        LUIUtil.setTextSize(textView = tv, size = dpText)
-        LUIUtil.setTextSize(textView = tvNext, size = dpNext)
     }
 }

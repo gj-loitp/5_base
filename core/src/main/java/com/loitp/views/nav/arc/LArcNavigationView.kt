@@ -1,4 +1,4 @@
-package com.loitpcore.views.navigation.arc
+package com.loitp.views.nav.arc
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -16,7 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.internal.NavigationMenuView
 import com.google.android.material.internal.ScrimInsetsFrameLayout
 import com.google.android.material.navigation.NavigationView
-import com.loitpcore.views.navigation.arc.LArcViewSettings.Companion.dpToPx
+import com.loitp.views.nav.arc.LArcViewSettings.Companion.dpToPx
 import kotlin.math.roundToInt
 
 /**
@@ -42,11 +42,17 @@ class LArcNavigationView : NavigationView {
         init(context, null)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(context, attrs)
     }
 
-    fun init(context: Context, attrs: AttributeSet?) {
+    fun init(
+        context: Context,
+        attrs: AttributeSet?
+    ) {
         settings = LArcViewSettings(context, attrs)
         settings?.elevation = ViewCompat.getElevation(this)
         setBackgroundColor(Color.TRANSPARENT)
@@ -174,7 +180,13 @@ class LArcNavigationView : NavigationView {
         return path
     }
 
-    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        left: Int,
+        top: Int,
+        right: Int,
+        bottom: Int
+    ) {
         super.onLayout(changed, left, top, right, bottom)
         if (changed) {
             calculateLayoutAndChildren()

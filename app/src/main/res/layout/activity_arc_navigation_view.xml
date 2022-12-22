@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.loitpcore.views.navigation.arc.LArcNavigationView
+    <com.loitp.views.nav.arc.LArcNavigationView
         android:id="@+id/navView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -27,7 +27,7 @@
         app:itemBackground="@android:color/transparent"
         app:menu="@menu/activity_main_drawer" />
 
-    <com.loitpcore.views.navigation.arc.LArcNavigationView
+    <com.loitp.views.nav.arc.LArcNavigationView
         android:id="@+id/navViewRight"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

@@ -5,7 +5,7 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.navigationView.LNavigationView
+    <com.loitp.views.nav.LNavigationView
         android:id="@+id/nv"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"

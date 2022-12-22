@@ -1,4 +1,4 @@
-package com.loitpcore.views.navigation.arc
+package com.loitp.views.nav.arc
 
 import android.content.Context
 import android.graphics.Color
