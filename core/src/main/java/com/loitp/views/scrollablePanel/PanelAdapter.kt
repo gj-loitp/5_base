@@ -1,4 +1,4 @@
-package com.loitpcore.views.scrollablePanel
+package com.loitp.views.scrollablePanel
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -41,7 +41,10 @@ abstract class PanelAdapter {
      * @return integer value identifying the type of the view needed to represent the item at
      * `row column`. Type codes need not be contiguous.
      */
-    open fun getItemViewType(row: Int, column: Int): Int {
+    open fun getItemViewType(
+        row: Int,
+        column: Int
+    ): Int {
         return 0
     }
 
@@ -52,10 +55,17 @@ abstract class PanelAdapter {
      * @param row    row-position to query
      * @param column column-position to query
      */
-    abstract fun onBindViewHolder(holder: RecyclerView.ViewHolder?, row: Int, column: Int)
+    abstract fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder?,
+        row: Int,
+        column: Int
+    )
 
     /**
      * see [RecyclerView.Adapter.onCreateViewHolder]  }
      */
-    abstract fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder?
+    abstract fun onCreateViewHolder(
+        parent: ViewGroup?,
+        viewType: Int
+    ): RecyclerView.ViewHolder?
 }

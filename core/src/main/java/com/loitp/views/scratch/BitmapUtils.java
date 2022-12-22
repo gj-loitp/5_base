@@ -1,4 +1,4 @@
-package com.loitpcore.views.scratchView;
+package com.loitp.views.scratch;
 
 import android.graphics.Bitmap;
 

@@ -1,4 +1,4 @@
-package com.loitpcore.views.scrollablePanel;
+package com.loitp.views.scrollablePanel;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -52,11 +52,11 @@ public class LScrollablePanel extends FrameLayout {
     }
 
     private void initView() {
-        LayoutInflater.from(getContext()).inflate(R.layout.view_scrollable_panel, this, true);
-        recyclerView = findViewById(R.id.recycler_content_list);
+        LayoutInflater.from(getContext()).inflate(R.layout.v_scrollable_panel, this, true);
+        recyclerView = findViewById(R.id.recyclerContentList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-        firstItemView = findViewById(R.id.first_item);
-        headerRecyclerView = findViewById(R.id.recycler_header_list);
+        firstItemView = findViewById(R.id.firstItem);
+        headerRecyclerView = findViewById(R.id.recyclerHeaderList);
         headerRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         headerRecyclerView.setHasFixedSize(true);
         if (panelAdapter != null) {
@@ -180,7 +180,7 @@ public class LScrollablePanel extends FrameLayout {
         @Override
         public PanelLineAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             final PanelLineAdapter.ViewHolder viewHolder = new PanelLineAdapter.ViewHolder(LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.view_item_content, parent, false));
+                    .inflate(R.layout.v_item_content, parent, false));
             initRecyclerView(viewHolder.recyclerView);
             return viewHolder;
         }
@@ -280,7 +280,7 @@ public class LScrollablePanel extends FrameLayout {
             recyclerViewHashSet.add(headerRecyclerView);
 
             for (int i = 0; i < contentRV.getChildCount(); i++) {
-                recyclerViewHashSet.add(contentRV.getChildAt(i).findViewById(R.id.recycler_line_list));
+                recyclerViewHashSet.add(contentRV.getChildAt(i).findViewById(R.id.recyclerLineList));
             }
             return recyclerViewHashSet;
         }
@@ -293,8 +293,8 @@ public class LScrollablePanel extends FrameLayout {
 
             public ViewHolder(View view) {
                 super(view);
-                this.recyclerView = view.findViewById(R.id.recycler_line_list);
-                this.firstColumnItemView = view.findViewById(R.id.first_column_item);
+                this.recyclerView = view.findViewById(R.id.recyclerLineList);
+                this.firstColumnItemView = view.findViewById(R.id.firstColumnItem);
                 this.recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false));
             }
         }

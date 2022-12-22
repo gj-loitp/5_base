@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag;
 import com.loitp.core.base.BaseFontActivity;
 import com.loitp.core.utilities.LUIUtil;
 import com.loitp.views.actionBar.LActionBar;
-import com.loitpcore.views.scrollablePanel.LScrollablePanel;
+import com.loitp.views.scrollablePanel.LScrollablePanel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
