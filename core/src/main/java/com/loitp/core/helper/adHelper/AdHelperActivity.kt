@@ -19,7 +19,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.AppUtils
 import com.loitpcore.R
 import com.manojbhadane.QButton
-import kotlinx.android.synthetic.main.l_activity_ad_helper.*
+import kotlinx.android.synthetic.main.l_a_ad_helper.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -35,7 +35,7 @@ class AdHelperActivity : BaseFontActivity() {
     private var isEnglishLanguage: Boolean = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_ad_helper
+        return R.layout.l_a_ad_helper
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
