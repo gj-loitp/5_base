@@ -1,4 +1,4 @@
-package com.loitp.views.recyclerView.parallax
+package com.loitp.views.rv.parallax
 
 import android.content.Context
 import android.graphics.Rect

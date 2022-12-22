@@ -30,7 +30,7 @@
             android:text="@string/change_size"
             android:textAllCaps="false" />
 
-        <com.loitp.views.recyclerView.fitGridView.FitGridView
+        <com.loitp.views.rv.fitGridView.FitGridView
             android:id="@+id/gridView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

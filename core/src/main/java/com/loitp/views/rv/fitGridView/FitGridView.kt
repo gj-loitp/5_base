@@ -1,4 +1,4 @@
-package com.loitp.views.recyclerView.fitGridView
+package com.loitp.views.rv.fitGridView
 
 import android.content.Context
 import android.util.AttributeSet
@@ -18,11 +18,18 @@ class FitGridView : GridView {
         init(null)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -49,13 +56,21 @@ class FitGridView : GridView {
         typedArray.recycle()
     }
 
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+    override fun onSizeChanged(
+        w: Int,
+        h: Int,
+        oldw: Int,
+        oldh: Int
+    ) {
         super.onSizeChanged(w, h, oldw, oldh)
         remeasure(width = w, height = h)
         updateAdapter()
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
         val width = MeasureSpec.getSize(widthMeasureSpec)
@@ -101,7 +116,10 @@ class FitGridView : GridView {
 
     private var itemWidth = 0
     private var itemHeight = 0
-    private fun remeasure(width: Int, height: Int) {
+    private fun remeasure(
+        width: Int,
+        height: Int
+    ) {
         itemWidth = width / if (column == 0) 1 else column
         itemHeight = height / if (numRows == 0) 1 else numRows
     }

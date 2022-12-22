@@ -1,4 +1,4 @@
-package com.loitp.views.recyclerView.gallery;
+package com.loitp.views.rv.gallery;
 
 import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
 
@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 import kotlin.Suppress;
 import timber.log.Timber;
@@ -706,7 +708,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
         View child;
         if (dx > 0) {
             //If we've reached the last item, enforce limits
-            if (getPosition(getChildAt(getChildCount() - 1)) == getItemCount() - 1) {
+            if (getPosition(Objects.requireNonNull(getChildAt(getChildCount() - 1))) == getItemCount() - 1) {
                 child = getChildAt(getChildCount() - 1);
                 assert child != null;
                 delta = -Math.max(0, Math.min(dx, (child.getRight() - child.getLeft()) / 2 + child.getLeft() - parentCenter));
@@ -736,7 +738,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
         View child;
         if (dy > 0) {
             //If we've reached the last item, enforce limits
-            if (getPosition(getChildAt(getChildCount() - 1)) == getItemCount() - 1) {
+            if (getPosition(Objects.requireNonNull(getChildAt(getChildCount() - 1))) == getItemCount() - 1) {
                 child = getChildAt(getChildCount() - 1);
                 assert child != null;
                 delta = -Math.max(0, Math.min(dy, (getDecoratedBottom(child) - getDecoratedTop(child)) / 2 + getDecoratedTop(child) - parentCenter));
@@ -879,7 +881,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
             super.onScrolled(recyclerView, dx, dy);
             View snap = mSnapHelper.findSnapView(recyclerView.getLayoutManager());
             if (snap != null) {
-                int selectedPosition = recyclerView.getLayoutManager().getPosition(snap);
+                int selectedPosition = Objects.requireNonNull(recyclerView.getLayoutManager()).getPosition(snap);
                 if (selectedPosition != mCurSelectedPosition) {
                     if (mCurSelectedView != null) {
                         mCurSelectedView.setSelected(false);
@@ -908,7 +910,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
             if (mState == SCROLL_STATE_IDLE) {
                 View snap = mSnapHelper.findSnapView(recyclerView.getLayoutManager());
                 if (snap != null) {
-                    int selectedPosition = recyclerView.getLayoutManager().getPosition(snap);
+                    int selectedPosition = Objects.requireNonNull(recyclerView.getLayoutManager()).getPosition(snap);
                     if (selectedPosition != mCurSelectedPosition) {
                         if (mCurSelectedView != null) {
                             mCurSelectedView.setSelected(false);

@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.views.recyclerView.fitGridView.FitGridView
+import com.loitp.views.rv.fitGridView.FitGridView
 import kotlinx.android.synthetic.main.activity_fit_grid_view.*
 import vn.loitp.app.R
 

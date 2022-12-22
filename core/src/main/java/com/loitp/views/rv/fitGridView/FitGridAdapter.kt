@@ -1,4 +1,4 @@
-package com.loitp.views.recyclerView.fitGridView
+package com.loitp.views.rv.fitGridView
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -24,20 +24,32 @@ abstract class FitGridAdapter : BaseAdapter {
     private var size = 0
     private var context: Context
 
-    constructor(context: Context, itemId: Int) {
+    constructor(
+        context: Context,
+        itemId: Int
+    ) {
         this.context = context
         this.layoutRes = itemId
     }
 
     @Suppress("unused")
-    constructor(context: Context, itemId: Int, size: Int) {
+    constructor(
+        context: Context,
+        itemId: Int,
+        size: Int
+    ) {
         this.context = context
         this.layoutRes = itemId
         this.size = size
     }
 
     @Suppress("unused")
-    constructor(context: Context, itemId: Int, row: Int, column: Int) {
+    constructor(
+        context: Context,
+        itemId: Int,
+        row: Int,
+        column: Int
+    ) {
         this.context = context
         this.layoutRes = itemId
         this.row = row
@@ -45,7 +57,11 @@ abstract class FitGridAdapter : BaseAdapter {
         size = row * column
     }
 
-    override fun getView(position: Int, itemView: View?, parent: ViewGroup): View? {
+    override fun getView(
+        position: Int,
+        itemView: View?,
+        parent: ViewGroup
+    ): View? {
         var mItemView = itemView
         if (mItemView == null) {
             val inflater =
@@ -58,7 +74,10 @@ abstract class FitGridAdapter : BaseAdapter {
         return mItemView
     }
 
-    abstract fun onBindView(position: Int, view: View)
+    abstract fun onBindView(
+        position: Int,
+        view: View
+    )
 
     override fun getCount(): Int {
         return if (size == 0) {
