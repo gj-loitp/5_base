@@ -1,31 +1,31 @@
-package vn.loitp.app.a.cv.cornerSheet
+package vn.loitp.app.a.cv.iv.continuousScrollable
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.example_activity.*
+import kotlinx.android.synthetic.main.activity_0.*
 import vn.loitp.R
 import vn.loitp.a.EmptyActivity
-import vn.loitp.app.a.cv.cornerSheet.sp.ShopActivity
 
-@LogTag("ExampleActivity")
+@LogTag("ContinuousScrollableImageViewActivity")
 @IsFullScreen(false)
-@IsAutoAnimation(false)
-class CornetSheetExampleActivity : BaseFontActivity() {
+class ContinuousScrollableImageViewActivity : BaseFontActivity() {
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.example_activity
+        return R.layout.activity_continuous_scrollable_imageview
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         lActionBar.apply {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
@@ -38,8 +38,8 @@ class CornetSheetExampleActivity : BaseFontActivity() {
                     view = it,
                     runnable = {
                         LSocialUtil.openUrlInBrowser(
-                            context = this@CornetSheetExampleActivity,
-                            url = "https://github.com/HeyAlex/CornerSheet"
+                            context = context,
+                            url = "https://github.com/Cutta/ContinuousScrollableImageView"
                         )
                     }
                 )
@@ -47,18 +47,6 @@ class CornetSheetExampleActivity : BaseFontActivity() {
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = EmptyActivity::class.java.simpleName
-        }
-
-        main.setOnClickListener {
-            val intent = Intent(this, BehaviorSampleActivity::class.java)
-            startActivity(intent)
-            LActivityUtil.tranIn(this)
-        }
-
-        support_sample.setOnClickListener {
-            val intent = Intent(this, ShopActivity::class.java)
-            startActivity(intent)
-            LActivityUtil.tranIn(this)
         }
     }
 }

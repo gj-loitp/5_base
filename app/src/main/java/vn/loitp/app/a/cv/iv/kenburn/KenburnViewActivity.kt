@@ -1,31 +1,36 @@
-package vn.loitp.app.a.cv.cornerSheet
+package vn.loitp.app.a.cv.iv.kenburn
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.loitp.annotation.IsAutoAnimation
+import com.flaviofaria.kenburnsview.KenBurnsView
+import com.flaviofaria.kenburnsview.Transition
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.common.Constants
+import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.example_activity.*
+import kotlinx.android.synthetic.main.activity_kenburn_view.*
 import vn.loitp.R
 import vn.loitp.a.EmptyActivity
-import vn.loitp.app.a.cv.cornerSheet.sp.ShopActivity
 
-@LogTag("ExampleActivity")
+@LogTag("KenburnViewActivity")
 @IsFullScreen(false)
-@IsAutoAnimation(false)
-class CornetSheetExampleActivity : BaseFontActivity() {
+class KenburnViewActivity : BaseFontActivity() {
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.example_activity
+        return R.layout.activity_kenburn_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         lActionBar.apply {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
@@ -38,8 +43,8 @@ class CornetSheetExampleActivity : BaseFontActivity() {
                     view = it,
                     runnable = {
                         LSocialUtil.openUrlInBrowser(
-                            context = this@CornetSheetExampleActivity,
-                            url = "https://github.com/HeyAlex/CornerSheet"
+                            context = context,
+                            url = "https://github.com/flavioarfaria/KenBurnsView"
                         )
                     }
                 )
@@ -48,17 +53,21 @@ class CornetSheetExampleActivity : BaseFontActivity() {
             }
             this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }
+        LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = kbv)
+        kbv.setTransitionListener(object : KenBurnsView.TransitionListener {
+            override fun onTransitionEnd(transition: Transition?) {
+                //
+            }
 
-        main.setOnClickListener {
-            val intent = Intent(this, BehaviorSampleActivity::class.java)
-            startActivity(intent)
-            LActivityUtil.tranIn(this)
+            override fun onTransitionStart(transition: Transition?) {
+                //
+            }
+        })
+        btPause.setSafeOnClickListener {
+            kbv.pause()
         }
-
-        support_sample.setOnClickListener {
-            val intent = Intent(this, ShopActivity::class.java)
-            startActivity(intent)
-            LActivityUtil.tranIn(this)
+        btResume.setSafeOnClickListener {
+            kbv.resume()
         }
     }
 }

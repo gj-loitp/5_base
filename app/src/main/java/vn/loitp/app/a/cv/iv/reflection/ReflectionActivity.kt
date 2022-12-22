@@ -1,31 +1,34 @@
-package vn.loitp.app.a.cv.cornerSheet
+package vn.loitp.app.a.cv.iv.reflection
 
-import android.content.Intent
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.example_activity.*
+import kotlinx.android.synthetic.main.activity_iv_reflection.*
 import vn.loitp.R
-import vn.loitp.a.EmptyActivity
-import vn.loitp.app.a.cv.cornerSheet.sp.ShopActivity
 
-@LogTag("ExampleActivity")
+@LogTag("ReflectionActivity")
 @IsFullScreen(false)
-@IsAutoAnimation(false)
-class CornetSheetExampleActivity : BaseFontActivity() {
+@IsAutoAnimation(true)
+class ReflectionActivity : BaseFontActivity() {
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.example_activity
+        return R.layout.activity_iv_reflection
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setupViews() {
         lActionBar.apply {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
@@ -38,27 +41,15 @@ class CornetSheetExampleActivity : BaseFontActivity() {
                     view = it,
                     runnable = {
                         LSocialUtil.openUrlInBrowser(
-                            context = this@CornetSheetExampleActivity,
-                            url = "https://github.com/HeyAlex/CornerSheet"
+                            context = context,
+                            url = "https://github.com/sparrow007/CarouselRecyclerview"
                         )
                     }
                 )
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = EmptyActivity::class.java.simpleName
-        }
-
-        main.setOnClickListener {
-            val intent = Intent(this, BehaviorSampleActivity::class.java)
-            startActivity(intent)
-            LActivityUtil.tranIn(this)
-        }
-
-        support_sample.setOnClickListener {
-            val intent = Intent(this, ShopActivity::class.java)
-            startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tvTitle?.text = ReflectionActivity::class.java.simpleName
         }
     }
 }

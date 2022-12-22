@@ -11,8 +11,8 @@ import com.tuanhav95.drag.utils.toPx
 import kotlinx.android.synthetic.main.activity_drag_view_custom.*
 import kotlinx.android.synthetic.main.layout_drag_view_bottom.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.dragView.fragment.BottomFragment
-import vn.loitp.app.a.cv.dragView.fragment.ExoPlayerTopFragment
+import vn.loitp.app.a.cv.dragView.frm.BottomFragment
+import vn.loitp.app.a.cv.dragView.frm.ExoPlayerTopFragment
 import kotlin.math.max
 import kotlin.math.min
 

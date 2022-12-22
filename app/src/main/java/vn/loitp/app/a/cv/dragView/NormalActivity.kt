@@ -9,8 +9,8 @@ import com.loitp.core.utilities.LUIUtil
 import com.tuanhav95.drag.DragView
 import kotlinx.android.synthetic.main.activity_drag_view_normal.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.dragView.fragment.BottomFragment
-import vn.loitp.app.a.cv.dragView.fragment.NormalTopFragment
+import vn.loitp.app.a.cv.dragView.frm.BottomFragment
+import vn.loitp.app.a.cv.dragView.frm.NormalTopFragment
 
 @LogTag("NormalActivity")
 @IsFullScreen(false)
