@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitpcore.BuildConfig
 import com.loitp.annotation.LogTag
 import com.loitp.core.utilities.LLog
-import com.loitpcore.views.toast.LToast
+import com.loitp.views.toast.LToast
 
 // https://github.com/wasabeef/recyclerview-animators
 

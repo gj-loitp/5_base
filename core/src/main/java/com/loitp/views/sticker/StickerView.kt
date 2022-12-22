@@ -1,4 +1,4 @@
-package com.loitpcore.views.sticker
+package com.loitp.views.sticker
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -14,10 +14,10 @@ import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
-import com.loitpcore.R
 import com.loitp.core.utilities.LLog
 import com.loitp.core.utilities.LUIUtil.Companion.isDarkTheme
-import kotlin.math.* // ktlint-disable no-wildcard-imports
+import com.loitpcore.R
+import kotlin.math.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -69,11 +69,18 @@ abstract class StickerView : FrameLayout {
         init(context)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(context)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -296,12 +303,20 @@ abstract class StickerView : FrameLayout {
         true
     }
 
-    private fun getLength(x1: Double, y1: Double, x2: Double, y2: Double): Double {
+    private fun getLength(
+        x1: Double,
+        y1: Double,
+        x2: Double,
+        y2: Double
+    ): Double {
         return sqrt((y2 - y1).pow(2.0) + (x2 - x1).pow(2.0))
     }
 
     @Suppress("unused")
-    private fun getRelativePos(absX: Float, absY: Float): FloatArray {
+    private fun getRelativePos(
+        absX: Float,
+        absY: Float
+    ): FloatArray {
 //        LLog.d("ken", "getRelativePos getX:" + (this.parent as View).x)
 //        LLog.d("ken", "getRelativePos getY:" + (this.parent as View).y)
         val pos = floatArrayOf(
@@ -332,13 +347,23 @@ abstract class StickerView : FrameLayout {
         get() = ivFlip
 
     @Suppress("unused")
-    private fun onScaling(scaleUp: Boolean) {}
+    private fun onScaling(scaleUp: Boolean) {
+    }
+
     private fun onRotating() {}
 
     private class BorderView : View {
         constructor(context: Context) : super(context)
-        constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-        constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        constructor(
+            context: Context,
+            attrs: AttributeSet?
+        ) : super(context, attrs)
+
+        constructor(
+            context: Context,
+            attrs: AttributeSet?,
+            defStyle: Int
+        ) : super(
             context,
             attrs,
             defStyle

@@ -5,8 +5,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.sticker.StickerImageView
-import com.loitpcore.views.sticker.StickerTextView
+import com.loitp.views.sticker.StickerImageView
+import com.loitp.views.sticker.StickerTextView
 import kotlinx.android.synthetic.main.activity_sticker.*
 import vn.loitp.app.R
 

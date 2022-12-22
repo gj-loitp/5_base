@@ -8,7 +8,7 @@ import android.graphics.Color
 import android.os.Build
 import android.os.IBinder
 import android.os.PowerManager
-import com.loitpcore.views.toast.LToast
+import com.loitp.views.toast.LToast
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable

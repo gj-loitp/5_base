@@ -1,4 +1,4 @@
-package com.loitpcore.views.sticker
+package com.loitp.views.sticker
 
 import android.content.Context
 import android.graphics.Color
@@ -16,23 +16,20 @@ import android.view.ViewGroup
  */
 class StickerTextView : StickerView {
 
-//    companion object {
-//        fun pixelsToSp(
-//            context: Context,
-//            px: Float
-//        ): Float {
-//            val scaledDensity = context.resources.displayMetrics.scaledDensity
-//            return px / scaledDensity
-//        }
-//    }
-
     private var tvMain: AutoResizeTextView? = null
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle

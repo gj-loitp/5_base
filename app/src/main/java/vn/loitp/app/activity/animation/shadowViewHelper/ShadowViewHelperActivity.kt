@@ -8,8 +8,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LDisplayUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.shadowViewHelper.ShadowProperty
-import com.loitpcore.views.shadowViewHelper.ShadowViewDrawable
+import com.loitp.views.shadowViewHelper.ShadowProperty
+import com.loitp.views.shadowViewHelper.ShadowViewDrawable
 import kotlinx.android.synthetic.main.activity_animation_shadow_view_helper.*
 import vn.loitp.app.R
 

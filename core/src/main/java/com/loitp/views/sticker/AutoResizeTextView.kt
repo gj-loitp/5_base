@@ -1,4 +1,4 @@
-package com.loitpcore.views.sticker
+package com.loitp.views.sticker
 
 import android.content.Context
 import android.content.res.Resources
@@ -84,11 +84,18 @@ class AutoResizeTextView : AppCompatTextView {
         initialize()
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         initialize()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle

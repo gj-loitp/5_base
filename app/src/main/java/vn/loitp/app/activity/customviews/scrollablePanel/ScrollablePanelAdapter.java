@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.loitpcore.views.toast.LToast;
+import com.loitp.views.toast.LToast;
 import com.loitp.views.scrollablePanel.PanelAdapter;
 
 import java.util.ArrayList;

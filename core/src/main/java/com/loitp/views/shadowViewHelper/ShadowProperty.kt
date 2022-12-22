@@ -1,4 +1,4 @@
-package com.loitpcore.views.shadowViewHelper
+package com.loitp.views.shadowViewHelper
 
 import java.io.Serializable
 import kotlin.math.max

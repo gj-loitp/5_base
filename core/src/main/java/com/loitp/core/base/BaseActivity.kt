@@ -25,7 +25,7 @@ import com.loitp.core.utilities.LUIUtil.Companion.withBackground
 import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
-import com.loitpcore.views.toast.LToast
+import com.loitp.views.toast.LToast
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import io.reactivex.disposables.CompositeDisposable

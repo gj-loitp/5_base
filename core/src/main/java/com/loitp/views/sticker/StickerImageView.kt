@@ -1,4 +1,4 @@
-package com.loitpcore.views.sticker
+package com.loitp.views.sticker
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -22,9 +22,16 @@ class StickerImageView : StickerView {
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle

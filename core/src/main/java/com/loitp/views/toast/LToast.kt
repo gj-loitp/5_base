@@ -1,4 +1,4 @@
-package com.loitpcore.views.toast
+package com.loitp.views.toast
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,10 +6,10 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
-import com.loitpcore.BuildConfig
-import com.loitpcore.R
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.BuildConfig
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -66,7 +66,10 @@ object LToast {
         toastList.clear()
     }
 
-    fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
+    fun showShortInformation(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         val textResColor: Int
         val backgroundResColor: Int
         if (LUIUtil.isDarkTheme()) {
@@ -85,7 +88,10 @@ object LToast {
         )
     }
 
-    fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
+    fun showShortWarning(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         val textResColor: Int
         val backgroundResColor: Int
         if (LUIUtil.isDarkTheme()) {
@@ -104,7 +110,10 @@ object LToast {
         )
     }
 
-    fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
+    fun showShortError(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         val textResColor: Int
         val backgroundResColor: Int
         if (LUIUtil.isDarkTheme()) {
@@ -123,7 +132,10 @@ object LToast {
         )
     }
 
-    fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
+    fun showLongInformation(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         val textResColor: Int
         val backgroundResColor: Int
         if (LUIUtil.isDarkTheme()) {
@@ -142,7 +154,10 @@ object LToast {
         )
     }
 
-    fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
+    fun showLongWarning(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         val textResColor: Int
         val backgroundResColor: Int
         if (LUIUtil.isDarkTheme()) {
@@ -161,7 +176,10 @@ object LToast {
         )
     }
 
-    fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
+    fun showLongError(
+        msg: String?,
+        isTopAnchor: Boolean = true
+    ) {
         val textResColor: Int
         val backgroundResColor: Int
         if (LUIUtil.isDarkTheme()) {

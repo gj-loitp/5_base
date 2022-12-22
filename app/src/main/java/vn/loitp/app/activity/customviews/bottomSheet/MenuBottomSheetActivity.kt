@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.toast.LToast.show
+import com.loitp.views.toast.LToast.show
 import kotlinx.android.synthetic.main.activity_menu_bottomsheet.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
 import vn.loitp.app.R

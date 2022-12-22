@@ -1,4 +1,4 @@
-package com.loitpcore.views.shadowViewHelper
+package com.loitp.views.shadowViewHelper
 
 import android.graphics.* // ktlint-disable no-wildcard-imports
 import android.graphics.drawable.Drawable
