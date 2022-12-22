@@ -1,4 +1,4 @@
-package com.loitpcore.views.imageView.zoom
+package com.loitp.views.iv.zoom
 
 import android.graphics.*
 import android.graphics.drawable.Drawable

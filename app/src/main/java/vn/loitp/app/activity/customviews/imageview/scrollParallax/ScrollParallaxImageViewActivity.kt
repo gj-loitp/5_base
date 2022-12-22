@@ -7,9 +7,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.imageView.scrollParallax.LScrollParallaxImageView
-import com.loitpcore.views.imageView.scrollParallax.parallaxStyle.HorizontalScaleStyle
-import com.loitpcore.views.imageView.scrollParallax.parallaxStyle.VerticalMovingStyle
+import com.loitp.views.iv.scrollParallax.LScrollParallaxImageView
+import com.loitp.views.iv.scrollParallax.style.HorizontalScaleStyle
+import com.loitp.views.iv.scrollParallax.style.VerticalMovingStyle
 import kotlinx.android.synthetic.main.activity_scroll_parallax_image_view.*
 import vn.loitp.app.R
 

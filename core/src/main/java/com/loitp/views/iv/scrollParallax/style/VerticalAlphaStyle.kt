@@ -1,8 +1,8 @@
-package com.loitpcore.views.imageView.scrollParallax.parallaxStyle
+package com.loitp.views.iv.scrollParallax.style
 
 import android.graphics.Canvas
-import com.loitpcore.views.imageView.scrollParallax.LScrollParallaxImageView
-import com.loitpcore.views.imageView.scrollParallax.LScrollParallaxImageView.ParallaxStyle
+import com.loitp.views.iv.scrollParallax.LScrollParallaxImageView
+import com.loitp.views.iv.scrollParallax.LScrollParallaxImageView.ParallaxStyle
 
 /**
  * When the imageView is scrolling vertically, the image in imageView will change its alpha.
@@ -28,7 +28,12 @@ class VerticalAlphaStyle : ParallaxStyle {
         finalAlpha = alpha
     }
 
-    override fun transform(view: LScrollParallaxImageView, canvas: Canvas, x: Int, y: Int) {
+    override fun transform(
+        view: LScrollParallaxImageView,
+        canvas: Canvas,
+        x: Int,
+        y: Int
+    ) {
         // view's height
         val vHeight = view.height - view.paddingTop - view.paddingBottom
         // device's height

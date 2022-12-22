@@ -1,9 +1,9 @@
-package com.loitpcore.views.imageView.scrollParallax.parallaxStyle
+package com.loitp.views.iv.scrollParallax.style
 
 import android.graphics.Canvas
 import android.widget.ImageView
-import com.loitpcore.views.imageView.scrollParallax.LScrollParallaxImageView
-import com.loitpcore.views.imageView.scrollParallax.LScrollParallaxImageView.ParallaxStyle
+import com.loitp.views.iv.scrollParallax.LScrollParallaxImageView
+import com.loitp.views.iv.scrollParallax.LScrollParallaxImageView.ParallaxStyle
 import kotlin.math.abs
 
 /**
@@ -30,7 +30,12 @@ class HorizontalMovingStyle : ParallaxStyle {
     override fun onDetachedFromImageView(view: LScrollParallaxImageView) {}
 
     @Suppress("NAME_SHADOWING")
-    override fun transform(view: LScrollParallaxImageView, canvas: Canvas, x: Int, y: Int) {
+    override fun transform(
+        view: LScrollParallaxImageView,
+        canvas: Canvas,
+        x: Int,
+        y: Int
+    ) {
         var x = x
         if (view.scaleType != ImageView.ScaleType.CENTER_CROP) {
             return

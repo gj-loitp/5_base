@@ -1,4 +1,4 @@
-package com.loitpcore.views.imageView.scrollParallax
+package com.loitp.views.iv.scrollParallax
 
 import android.content.Context
 import android.graphics.Canvas

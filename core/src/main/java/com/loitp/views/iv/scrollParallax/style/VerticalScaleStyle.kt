@@ -1,8 +1,8 @@
-package com.loitpcore.views.imageView.scrollParallax.parallaxStyle
+package com.loitp.views.iv.scrollParallax.style
 
 import android.graphics.Canvas
-import com.loitpcore.views.imageView.scrollParallax.LScrollParallaxImageView
-import com.loitpcore.views.imageView.scrollParallax.LScrollParallaxImageView.ParallaxStyle
+import com.loitp.views.iv.scrollParallax.LScrollParallaxImageView
+import com.loitp.views.iv.scrollParallax.LScrollParallaxImageView.ParallaxStyle
 
 /**
  * When the imageView is scrolling vertically, the image in imageView will be scaled.
@@ -27,7 +27,12 @@ class VerticalScaleStyle : ParallaxStyle {
         finalScaleRatio = scale
     }
 
-    override fun transform(view: LScrollParallaxImageView, canvas: Canvas, x: Int, y: Int) {
+    override fun transform(
+        view: LScrollParallaxImageView,
+        canvas: Canvas,
+        x: Int,
+        y: Int
+    ) {
         // view's width and height
         val vWidth = view.width - view.paddingLeft - view.paddingRight
         val vHeight = view.height - view.paddingTop - view.paddingBottom

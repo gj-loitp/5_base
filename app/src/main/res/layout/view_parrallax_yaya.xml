@@ -5,7 +5,7 @@
     android:layout_height="150dp"
     android:paddingBottom="@dimen/margin_padding_medium">
 
-    <com.loitpcore.views.imageView.scrollParallax.LScrollParallaxImageView
+    <com.loitp.views.iv.scrollParallax.LScrollParallaxImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
