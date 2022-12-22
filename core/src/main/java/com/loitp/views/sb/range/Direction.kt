@@ -1,4 +1,4 @@
-package com.loitpcore.views.seekBar.range
+package com.loitp.views.sb.range
 
 enum class Direction {
     RIGHT_TO_LEFT,

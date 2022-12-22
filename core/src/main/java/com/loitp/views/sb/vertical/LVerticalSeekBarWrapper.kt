@@ -1,4 +1,4 @@
-package com.loitpcore.views.seekBar.vertical
+package com.loitp.views.sb.vertical
 
 import android.content.Context
 import android.util.AttributeSet
@@ -26,7 +26,12 @@ class LVerticalSeekBarWrapper
     defStyleAttr
 ) {
 
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+    override fun onSizeChanged(
+        w: Int,
+        h: Int,
+        oldw: Int,
+        oldh: Int
+    ) {
         if (useViewRotation()) {
             onSizeChangedUseViewRotation(w = w, h = h, oldw = oldw, oldh = oldh)
         } else {
@@ -34,7 +39,12 @@ class LVerticalSeekBarWrapper
         }
     }
 
-    private fun onSizeChangedTraditionalRotation(w: Int, h: Int, oldw: Int, oldh: Int) {
+    private fun onSizeChangedTraditionalRotation(
+        w: Int,
+        h: Int,
+        oldw: Int,
+        oldh: Int
+    ) {
         val seekBar = childSeekBar
         if (seekBar != null) {
             val hPadding = paddingLeft + paddingRight
@@ -56,7 +66,12 @@ class LVerticalSeekBarWrapper
         super.onSizeChanged(w, h, oldw, oldh)
     }
 
-    private fun onSizeChangedUseViewRotation(w: Int, h: Int, oldw: Int, oldh: Int) {
+    private fun onSizeChangedUseViewRotation(
+        w: Int,
+        h: Int,
+        oldw: Int,
+        oldh: Int
+    ) {
         val seekBar = childSeekBar
         if (seekBar != null) {
             val hPadding = paddingLeft + paddingRight
@@ -70,7 +85,10 @@ class LVerticalSeekBarWrapper
         super.onSizeChanged(w, h, oldw, oldh)
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         val seekBar = childSeekBar
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
@@ -108,7 +126,10 @@ class LVerticalSeekBarWrapper
         applyViewRotation(width, height)
     }
 
-    private fun applyViewRotation(w: Int, h: Int) {
+    private fun applyViewRotation(
+        w: Int,
+        h: Int
+    ) {
         val seekBar = childSeekBar
         if (seekBar != null) {
             val isLTR = ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_LTR

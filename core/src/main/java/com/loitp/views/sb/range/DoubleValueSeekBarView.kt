@@ -1,4 +1,4 @@
-package com.loitpcore.views.seekBar.range
+package com.loitp.views.sb.range
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -20,7 +20,10 @@ open class DoubleValueSeekBarView : View {
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs) {
         init(attrs)
     }
 
@@ -44,7 +47,6 @@ open class DoubleValueSeekBarView : View {
     private var minValueToDraw: Int = 0
     private var maxValueToDraw: Int = 100
 
-
     private var barHeight: Int = 0
     private var circleRadius: Int = 0
     private var circleTextSize: Int = 0
@@ -58,7 +60,6 @@ open class DoubleValueSeekBarView : View {
     private var maxValuePaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
     private var mOnDoubleValueSeekBarViewChangeListener: OnDoubleValueSeekBarChangeListener? = null
-
 
     var minStep: Int = DEFAULT_MIN_STEP_VALUE
         set(value) {
@@ -268,7 +269,11 @@ open class DoubleValueSeekBarView : View {
         mOnDoubleValueSeekBarViewChangeListener = l
     }
 
-    private fun calculateProgress(value: Int, MIN: Int, MAX: Int): Int {
+    private fun calculateProgress(
+        value: Int,
+        MIN: Int,
+        MAX: Int
+    ): Int {
         return 100 * (value - MIN) / (MAX - MIN)
     }
 
@@ -283,7 +288,10 @@ open class DoubleValueSeekBarView : View {
         return resolveSizeAndState(size, measureSpec, 0)
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         setMeasuredDimension(measureWidth(widthMeasureSpec), measureHeight(heightMeasureSpec))
     }
 
@@ -360,7 +368,10 @@ open class DoubleValueSeekBarView : View {
         return (normalizedCoord.toFloat() / maxValue * widthSize).roundToInt()
     }
 
-    private fun isInThumbRange(touchX: Float, normalizedThumbValue: Int): Boolean {
+    private fun isInThumbRange(
+        touchX: Float,
+        normalizedThumbValue: Int
+    ): Boolean {
         return abs(touchX - normalizedToScreen(normalizedThumbValue)) <= getThumbWidth()
     }
 
@@ -410,11 +421,9 @@ open class DoubleValueSeekBarView : View {
         isDragging = true
     }
 
-
     private fun onStopTrackingTouch() {
         isDragging = false
     }
-
 
     private fun trackTouchEvent(event: MotionEvent) {
         val pointerIndex = event.findPointerIndex(mActivePointerId)
@@ -442,7 +451,10 @@ open class DoubleValueSeekBarView : View {
         return (coordinate / canvasSize * 100).toInt()
     }
 
-    private fun screenToNormalized(screenCoord: Float, thumb: Thumb) {
+    private fun screenToNormalized(
+        screenCoord: Float,
+        thumb: Thumb
+    ) {
         val width = width.toDouble()
         var coordinate: Float = screenCoord
         val canvasSize: Double = (width - paddingStart - paddingEnd)
@@ -465,15 +477,24 @@ open class DoubleValueSeekBarView : View {
     }
 
     @Suppress("unused")
-    protected fun touchDown(x: Float, y: Float) {
+    protected fun touchDown(
+        x: Float,
+        y: Float
+    ) {
     }
 
     @Suppress("unused")
-    protected fun touchMove(x: Float, y: Float) {
+    protected fun touchMove(
+        x: Float,
+        y: Float
+    ) {
     }
 
     @Suppress("unused")
-    protected fun touchUp(x: Float, y: Float) {
+    protected fun touchUp(
+        x: Float,
+        y: Float
+    ) {
     }
 
     @SuppressLint("ClickableViewAccessibility")

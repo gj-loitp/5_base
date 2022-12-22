@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.loitpcore.views.seekBar.range.RangeSeekBarView
+        <com.loitp.views.sb.range.RangeSeekBarView
             android:id="@+id/rangeSeekbar1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             app:stepValue="5" />
 
 
-        <com.loitpcore.views.seekBar.range.RangeSeekBarView
+        <com.loitp.views.sb.range.RangeSeekBarView
             android:id="@+id/rangeSeekbar2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             app:orientationRangeSeekBarView="RIGHT_TO_LEFT"
             app:stepValue="5" />
 
-        <com.loitpcore.views.seekBar.range.RangeSeekBarView
+        <com.loitp.views.sb.range.RangeSeekBarView
             android:id="@+id/rangeSeekbar3"
             android:layout_width="wrap_content"
             android:layout_height="400dp"
@@ -78,7 +78,7 @@
             app:stepValue="5" />
 
 
-        <com.loitpcore.views.seekBar.range.RangeSeekBarView
+        <com.loitp.views.sb.range.RangeSeekBarView
             android:id="@+id/rangeSeekbar4"
             android:layout_width="wrap_content"
             android:layout_height="400dp"
@@ -107,7 +107,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rangeSeekbar3" />
 
-        <com.loitpcore.views.seekBar.range.DoubleValueSeekBarView
+        <com.loitp.views.sb.range.DoubleValueSeekBarView
             android:id="@+id/rangeSeekbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

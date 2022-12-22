@@ -1,4 +1,4 @@
-package com.loitpcore.views.seekBar.vertical
+package com.loitp.views.sb.vertical
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -74,11 +74,18 @@ class LVerticalSeekBar : AppCompatSeekBar {
         initialize(context, null, 0, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs) {
         initialize(context, attrs, 0, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -241,7 +248,10 @@ class LVerticalSeekBar : AppCompatSeekBar {
         mIsDragging = false
     }
 
-    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+    override fun onKeyDown(
+        keyCode: Int,
+        event: KeyEvent
+    ): Boolean {
         if (isEnabled) {
             val handled: Boolean
             var direction = 0
@@ -288,7 +298,10 @@ class LVerticalSeekBar : AppCompatSeekBar {
 
     @Synchronized
     @Suppress("unused")
-    private fun setProgressFromUser(progress: Int, fromUser: Boolean) {
+    private fun setProgressFromUser(
+        progress: Int,
+        fromUser: Boolean
+    ) {
         if (mMethodSetProgressFromUser == null) {
             try {
                 val m: Method = ProgressBar::class.java.getDeclaredMethod(
@@ -337,7 +350,12 @@ class LVerticalSeekBar : AppCompatSeekBar {
         }
     }
 
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+    override fun onSizeChanged(
+        w: Int,
+        h: Int,
+        oldw: Int,
+        oldh: Int
+    ) {
         if (useViewRotation()) {
             super.onSizeChanged(w, h, oldw, oldh)
         } else {

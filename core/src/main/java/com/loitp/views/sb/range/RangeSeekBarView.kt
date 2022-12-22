@@ -1,4 +1,4 @@
-package com.loitpcore.views.seekBar.range
+package com.loitp.views.sb.range
 
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
@@ -18,13 +18,14 @@ import kotlin.math.roundToInt
 @SuppressLint("AppCompatCustomView")
 class RangeSeekBarView : View {
 
-
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs) {
         init(attrs)
     }
-
 
     companion object {
         private const val DEFAULT_BASE_COLOR = Color.GRAY
@@ -45,12 +46,10 @@ class RangeSeekBarView : View {
     private var circleTextSize: Int = 0
     private var defaultPadding: Int = 15
 
-
     private var barBasePaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var barFillPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var circlePaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var valuePaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
-
 
     private var direction: Direction = Direction.LEFT_TO_RIGHT
     private var animated: Boolean = false
@@ -133,7 +132,8 @@ class RangeSeekBarView : View {
                 animation = ValueAnimator.ofFloat(previousValue.toFloat(), currentValue.toFloat())
                 val changeInValue = abs(currentValue - previousValue)
 
-                val durationToUse: Long = if (direction == Direction.BOTTOM_TO_TOP || direction == Direction.RIGHT_TO_LEFT) {
+                val durationToUse: Long =
+                    if (direction == Direction.BOTTOM_TO_TOP || direction == Direction.RIGHT_TO_LEFT) {
                         (animationDuration * (changeInValue.toFloat() / minValue.toFloat())).toLong()
                     } else {
                         (animationDuration * (changeInValue.toFloat() / maxValue.toFloat())).toLong()
@@ -267,20 +267,25 @@ class RangeSeekBarView : View {
         minValue = temp
     }
 
-
     fun setOnRangeSeekBarViewChangeListener(l: OnRangeSeekBarChangeListener) {
         mOnRangeSeekBarViewChangeListener = l
     }
 
-    private fun calculateProgress(value: Int, MIN: Int, MAX: Int): Int {
+    private fun calculateProgress(
+        value: Int,
+        MIN: Int,
+        MAX: Int
+    ): Int {
         return 100 * (value - MIN) / (MAX - MIN)
     }
 
-    fun setAnimated(animated: Boolean, animationDuration: Long) {
+    fun setAnimated(
+        animated: Boolean,
+        animationDuration: Long
+    ) {
         this.animated = animated
         this.animationDuration = animationDuration
     }
-
 
     private fun measureHeight(measureSpec: Int): Int {
         var size = paddingTop + paddingBottom
@@ -293,7 +298,10 @@ class RangeSeekBarView : View {
         return resolveSizeAndState(size, measureSpec, 0)
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         setMeasuredDimension(measureWidth(widthMeasureSpec), measureHeight(heightMeasureSpec))
     }
 
@@ -322,7 +330,10 @@ class RangeSeekBarView : View {
 
     }
 
-    private fun drawBarVertical(canvas: Canvas, direction: Direction) {
+    private fun drawBarVertical(
+        canvas: Canvas,
+        direction: Direction
+    ) {
         val barLength = height - paddingTop - paddingBottom.toFloat()
         val barCenter = (width / 2).toFloat()
 
@@ -365,7 +376,10 @@ class RangeSeekBarView : View {
 
     }
 
-    private fun drawBarHorizontal(canvas: Canvas, direction: Direction) {
+    private fun drawBarHorizontal(
+        canvas: Canvas,
+        direction: Direction
+    ) {
         val barLength = (width - paddingRight - paddingLeft).toFloat()
         val barCenter = (height / 2).toFloat()
 
@@ -410,7 +424,6 @@ class RangeSeekBarView : View {
         currentValue = displayValue
     }
 
-
     override fun onSaveInstanceState(): Parcelable {
         val superState = super.onSaveInstanceState()
         val ss = SavedState(superState!!)
@@ -424,7 +437,6 @@ class RangeSeekBarView : View {
         valueToDraw = currentValue.toFloat()
         super.onRestoreInstanceState(ss.superState)
     }
-
 
     override fun performClick(): Boolean {
         super.performClick()
@@ -488,7 +500,6 @@ class RangeSeekBarView : View {
         }
         return true
     }
-
 
     private class SavedState : BaseSavedState {
         var value: Int = 0
