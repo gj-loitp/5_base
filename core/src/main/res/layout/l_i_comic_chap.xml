@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,4 +24,4 @@
         android:textSize="@dimen/txt_medium"
         app:drawableTint="?attr/themeTextColor"
         tools:text="@string/app_name" />
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

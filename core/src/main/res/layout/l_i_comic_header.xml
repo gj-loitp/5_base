@@ -14,11 +14,11 @@
         android:contentDescription="@string/app_name"
         tools:src="@drawable/logo" />
 
-<!--    <com.github.mmin18.widget.RealtimeBlurView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="@dimen/w_250"-->
-<!--        app:realtimeBlurRadius="@dimen/round_medium"-->
-<!--        app:realtimeOverlayColor="?attr/themeBackgroundColor50" />-->
+    <!--    <com.github.mmin18.widget.RealtimeBlurView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="@dimen/w_250"-->
+    <!--        app:realtimeBlurRadius="@dimen/round_medium"-->
+    <!--        app:realtimeOverlayColor="?attr/themeBackgroundColor50" />-->
 
     <io.github.florent37.shapeofview.shapes.RoundRectView
         android:id="@+id/roundRect"

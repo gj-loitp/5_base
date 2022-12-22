@@ -11,7 +11,7 @@ import com.loitp.core.helper.ttt.model.comic.Comic
 import com.loitpcore.R
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.view_row_ttt_comic.view.*
+import kotlinx.android.synthetic.main.l_i_ttt_comic.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -61,7 +61,7 @@ class TTTListComicAdapter : BaseAdapter() {
     ) =
         DataViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                /* resource = */ R.layout.view_row_ttt_comic,
+                /* resource = */ R.layout.l_i_ttt_comic,
                 /* root = */ parent,
                 /* attachToRoot = */ false
             )
