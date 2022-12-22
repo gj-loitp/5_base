@@ -15,7 +15,7 @@ import com.stfalcon.imageviewer.StfalconImageViewer
 import kotlinx.android.synthetic.main.activity_stfaicon_image_viewer_list.*
 import kotlinx.android.synthetic.main.view_stf_overlay.view.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.recyclerview.normalRecyclerView.Movie
+import vn.loitp.app.a.cv.rv.normalRv.Movie
 import vn.loitp.common.Constants
 
 @LogTag("ListActivity")

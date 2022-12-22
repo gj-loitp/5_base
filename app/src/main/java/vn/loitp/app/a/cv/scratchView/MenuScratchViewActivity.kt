@@ -11,8 +11,8 @@ import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_scratch_view.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.scratchView.scratchViewImage.ScratchViewImageActivity
-import vn.loitp.app.a.cv.scratchView.scratchViewText.ScratchViewTextActivity
+import vn.loitp.app.a.cv.scratchView.scratchViewIv.ScratchViewImageActivity
+import vn.loitp.app.a.cv.scratchView.scratchViewTv.ScratchViewTextActivity
 
 @LogTag("ScratchViewMenuActivity")
 @IsFullScreen(false)
