@@ -28,7 +28,7 @@ class DayOfWeekDelegate(
         viewType: Int
     ): DayOfWeekHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.v_cosmo_calendar_day_of_week, parent, false)
+            .inflate(R.layout.l_v_cosmo_calendar_day_of_week, parent, false)
         return DayOfWeekHolder(view, calendarView)
     }
 

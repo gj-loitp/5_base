@@ -52,7 +52,7 @@ public class LScrollablePanel extends FrameLayout {
     }
 
     private void initView() {
-        LayoutInflater.from(getContext()).inflate(R.layout.v_scrollable_panel, this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.l_v_scrollable_panel, this, true);
         recyclerView = findViewById(R.id.recyclerContentList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         firstItemView = findViewById(R.id.firstItem);
@@ -180,7 +180,7 @@ public class LScrollablePanel extends FrameLayout {
         @Override
         public PanelLineAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             final PanelLineAdapter.ViewHolder viewHolder = new PanelLineAdapter.ViewHolder(LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.v_item_content, parent, false));
+                    .inflate(R.layout.l_v_item_content, parent, false));
             initRecyclerView(viewHolder.recyclerView);
             return viewHolder;
         }

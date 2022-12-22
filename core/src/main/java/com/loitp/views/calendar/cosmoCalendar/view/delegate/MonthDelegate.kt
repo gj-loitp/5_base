@@ -26,7 +26,7 @@ class MonthDelegate(
         viewType: Int
     ): MonthHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.v_cosmo_calendar_month, parent, false)
+        val view = inflater.inflate(R.layout.l_v_cosmo_calendar_month, parent, false)
         val holder = MonthHolder(view, appearanceModel)
         holder.setDayAdapter(adapter)
         return holder

@@ -23,7 +23,7 @@ class OtherDayDelegate(private val calendarView: CalendarView) {
     ): OtherDayHolder {
 
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.v_cosmo_calendar_other_day, parent, false)
+            .inflate(R.layout.l_v_cosmo_calendar_other_day, parent, false)
         return OtherDayHolder(view, calendarView)
     }
 

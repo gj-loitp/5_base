@@ -40,7 +40,7 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
     }
 
     private fun init() {
-        inflate(context, R.layout.view_l_fly_school, this)
+        inflate(context, R.layout.l_v_l_fly_school, this)
 
         ivGift = findViewById(R.id.ivGift)
         ivAvatar = findViewById(R.id.ivAvatar)

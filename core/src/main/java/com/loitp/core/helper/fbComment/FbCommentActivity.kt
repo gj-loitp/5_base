@@ -23,7 +23,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
 import kotlinx.android.synthetic.main.l_a_fb_cmt_core.*
-import kotlinx.android.synthetic.main.v_l_edit_text.view.*
+import kotlinx.android.synthetic.main.l_v_l_edit_text.view.*
 
 /**
  * Created by Loitp on 04,August,2022

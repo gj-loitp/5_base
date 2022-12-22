@@ -64,7 +64,7 @@ public class CalendarDialog extends Dialog implements View.OnClickListener,
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        setContentView(R.layout.view_cosmo_calendar_dialog_calendar);
+        setContentView(R.layout.l_v_cosmo_calendar_dlg_calendar);
 
         Window window = getWindow();
 

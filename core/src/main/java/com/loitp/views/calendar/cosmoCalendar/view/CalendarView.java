@@ -338,7 +338,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
 
     @SuppressLint("InflateParams")
     private void createRangeSelectionLayout() {
-        llRangeSelection = (LinearLayout) ((LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.view_cosmo_calendar_selection_bar_range, null);
+        llRangeSelection = (LinearLayout) ((LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.l_v_cosmo_calendar_selection_bar_range, null);
         llRangeSelection.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         llRangeSelection.setVisibility(GONE);
         flBottomSelectionBar.addView(llRangeSelection);
@@ -420,7 +420,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
      */
     private void createNavigationButtons() {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        flNavigationButtons = (FrameLayout) inflater.inflate(R.layout.view_cosmo_calendar_navigation_buttons, this, false);
+        flNavigationButtons = (FrameLayout) inflater.inflate(R.layout.l_v_cosmo_calendar_navigation_buttons, this, false);
 
         setPreviousNavigationButton();
         setNextNavigationButton();

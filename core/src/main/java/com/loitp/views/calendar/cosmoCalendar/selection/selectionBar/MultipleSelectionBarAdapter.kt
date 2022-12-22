@@ -61,7 +61,7 @@ class MultipleSelectionBarAdapter(
             TitleViewHolder(
                 LayoutInflater.from(parent.context)
                     .inflate(
-                        /* resource = */ R.layout.v_cosmo_calendar_item_multiple_selection_bar_title,
+                        /* resource = */ R.layout.l_v_cosmo_calendar_item_multiple_selection_bar_title,
                         /* root = */ parent,
                         /* attachToRoot = */ false
                     )
@@ -70,7 +70,7 @@ class MultipleSelectionBarAdapter(
             ContentViewHolder(
                 LayoutInflater.from(parent.context)
                     .inflate(
-                        R.layout.view_cosmo_calendar_item_multiple_selection_bar_content,
+                        R.layout.l_v_cosmo_calendar_item_multiple_selection_bar_content,
                         parent,
                         false
                     )

@@ -68,7 +68,7 @@ class LEditText : RelativeLayout {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.v_l_edit_text, this)
+        View.inflate(context, R.layout.l_v_l_edit_text, this)
         mcv = findViewById(R.id.mcv)
         editText = findViewById(R.id.editText)
         ivLeft = findViewById(R.id.ivLeft)

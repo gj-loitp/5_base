@@ -84,7 +84,7 @@ class ComicViewActivity : BaseFontActivity() {
 
             if (mConvertView == null) {
                 mConvertView = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.view_comic_view, parent, false)
+                    .inflate(R.layout.l_v_comic_view, parent, false)
 
                 holder = ComicHolder()
                 holder.ivComic = mConvertView!!.findViewById(R.id.ivComic)

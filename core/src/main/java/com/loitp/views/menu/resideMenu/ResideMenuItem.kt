@@ -51,7 +51,7 @@ class ResideMenuItem : LinearLayout {
 
     private fun initViews(context: Context) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        inflater.inflate(R.layout.v_residemenu_item, this)
+        inflater.inflate(R.layout.l_v_reside_menu_item, this)
 
         ivIcon = findViewById(R.id.ivIcon)
         tvTitle = findViewById(R.id.tvTitle)

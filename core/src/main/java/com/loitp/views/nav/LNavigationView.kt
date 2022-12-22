@@ -63,7 +63,7 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.v_navigation, this)
+        View.inflate(context, R.layout.l_v_navigation, this)
 
         ivPrev = findViewById(R.id.ivPrev)
         ivNext = findViewById(R.id.ivNext)
