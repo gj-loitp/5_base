@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.retrofit2
+package vn.loitp.activity.api.retrofit2
 
 import android.os.Bundle
 import android.view.View
@@ -15,9 +15,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import vn.loitp.app.R
-import vn.loitp.app.activity.api.retrofit2.AnswersAdapter.PostItemListener
-import vn.loitp.app.activity.api.retrofit2.ApiUtils.Companion.sOService
-import vn.loitp.app.activity.api.retrofit2.model.SOAnswersResponse
+import vn.loitp.activity.api.retrofit2.AnswersAdapter.PostItemListener
+import vn.loitp.activity.api.retrofit2.ApiUtils.Companion.sOService
+import vn.loitp.activity.api.retrofit2.model.SOAnswersResponse
 
 @LogTag("TestAPIRetrofit2Activity")
 @IsFullScreen(false)

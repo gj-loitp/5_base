@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.truyentranhtuan
+package vn.loitp.activity.api.truyentranhtuan
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,17 +9,17 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_ttt_api_chap_list.*
+import kotlinx.android.synthetic.main.activity_ttt_api_page_list.*
 import vn.loitp.app.R
 
-@LogTag("TTTAPIChapListActivity")
+@LogTag("TTTAPIPageListActivity")
 @IsFullScreen(false)
-class TTTAPIChapListActivity : BaseFontActivity() {
+class TTTAPIPageListActivity : BaseFontActivity() {
 
     private var tttViewModel: TTTViewModel? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_ttt_api_chap_list
+        return (R.layout.activity_ttt_api_page_list)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +27,7 @@ class TTTAPIChapListActivity : BaseFontActivity() {
 
         setupViews()
         setupViewModels()
-        tttViewModel?.getListChap(link = "http://truyentuan.com/one-piece/")
+        tttViewModel?.getListPage(link = "http://truyentuan.com/one-piece-chuong-69/")
     }
 
     private fun setupViews() {
@@ -39,7 +39,7 @@ class TTTAPIChapListActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = TTTAPIChapListActivity::class.java.simpleName
+            this.tvTitle?.text = TTTAPIPageListActivity::class.java.simpleName
         }
     }
 
@@ -48,7 +48,7 @@ class TTTAPIChapListActivity : BaseFontActivity() {
         tttViewModel = getViewModel(TTTViewModel::class.java)
         tttViewModel?.let { vm ->
 
-            vm.tttChapActionLiveData.observe(this) { actionData ->
+            vm.listPageActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
 
@@ -57,14 +57,15 @@ class TTTAPIChapListActivity : BaseFontActivity() {
                 } else {
                     LDialogUtil.hideProgress(progressBar)
                     if (isSuccess == true) {
-                        val tttChap = actionData.data
-                        tttChap?.let {
+                        val listPage = actionData.data
+                        listPage?.let {
                             LUIUtil.printBeautyJson(o = it, textView = textView)
                         }
-                        tvTitle.text = "Chap truyện One Piece - size: " + tttChap?.chaps?.chap?.size
+                        tvTitle.text = "Danh sách page trong chap 69 - size: " + listPage?.size
                     }
                 }
             }
         }
     }
+
 }

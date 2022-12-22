@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.truyentranhtuan
+package vn.loitp.activity.api.truyentranhtuan
 
 import android.os.Bundle
 import androidx.core.view.isVisible

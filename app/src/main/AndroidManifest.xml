@@ -46,7 +46,7 @@
             android:name=".activity.demo.MenuDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.api.galleryAPI.GalleryAPIActivity"
+            android:name="vn.loitp.activity.api.galleryAPI.GalleryAPIActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.viewPager.MenuViewPagerActivity"
@@ -157,19 +157,19 @@
             android:name=".activity.customviews.textview.typeWriterTextView.TypeWriterTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.api.truyentranhtuan.MenuTTTAPIActivity"
+            android:name="vn.loitp.activity.api.truyentranhtuan.MenuTTTAPIActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.api.truyentranhtuan.TTTAPIComicListActivity"
+            android:name="vn.loitp.activity.api.truyentranhtuan.TTTAPIComicListActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.api.truyentranhtuan.TTTAPIChapListActivity"
+            android:name="vn.loitp.activity.api.truyentranhtuan.TTTAPIChapListActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.api.truyentranhtuan.TTTAPIPageListActivity"
+            android:name="vn.loitp.activity.api.truyentranhtuan.TTTAPIPageListActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.api.truyentranhtuan.TTTAPIFavListActivity"
+            android:name="vn.loitp.activity.api.truyentranhtuan.TTTAPIFavListActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.rippleLayout.RippleLayoutActivity"
@@ -348,7 +348,7 @@
             android:name=".activity.customviews.layout.draggableView.DraggableViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.api.retrofit2.TestAPIRetrofit2Activity"
+            android:name="vn.loitp.activity.api.retrofit2.TestAPIRetrofit2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.treeView.TreeViewActivity"

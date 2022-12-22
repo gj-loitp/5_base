@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.galleryAPI
+package vn.loitp.activity.api.galleryAPI
 
 import android.app.AlertDialog
 import android.content.DialogInterface

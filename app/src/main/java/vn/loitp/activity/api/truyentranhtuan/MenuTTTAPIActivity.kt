@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.truyentranhtuan
+package vn.loitp.activity.api.truyentranhtuan
 
 import android.content.Intent
 import android.os.Bundle

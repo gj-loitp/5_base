@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.retrofit2
+package vn.loitp.activity.api.retrofit2
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.app.R
-import vn.loitp.app.activity.api.retrofit2.model.Item
+import vn.loitp.activity.api.retrofit2.model.Item
 
 class AnswersAdapter(
     private var mItems: List<Item>,
