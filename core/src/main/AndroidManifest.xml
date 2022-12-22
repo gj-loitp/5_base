@@ -104,23 +104,23 @@
             android:name="com.loitp.picker.crop.LGalleryActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".game.findNumber.ui.SplashActivity"
+            android:name="com.loitp.game.findNumber.ui.SplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findNumber.ui.MenuActivity"
+            android:name="com.loitp.game.findNumber.ui.MenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findNumber.ui.SingleLevelActivity"
+            android:name="com.loitp.game.findNumber.ui.SingleLevelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findNumber.ui.SinglePlayActivity"
+            android:name="com.loitp.game.findNumber.ui.SinglePlayActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findNumber.dialog.FindNumberWinActivity"
+            android:name="com.loitp.game.findNumber.dialog.FindNumberWinActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity

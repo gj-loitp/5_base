@@ -1,10 +1,10 @@
-package com.loitpcore.game.findNumber.db
+package com.loitp.game.findNumber.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.loitpcore.game.findNumber.model.Level
+import com.loitp.game.findNumber.model.Level
 
 /**
  * Created by Loitp on 04,August,2022

@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.game.findNumber.ui.SplashActivity
+import com.loitp.game.findNumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_menu.lActionBar
 import kotlinx.android.synthetic.main.activity_menu_game.*
 import vn.loitp.app.R

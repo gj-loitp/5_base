@@ -1,4 +1,4 @@
-package com.loitpcore.game.findNumber.ui
+package com.loitp.game.findNumber.ui
 
 import android.app.ActivityOptions
 import android.content.Intent
@@ -18,8 +18,8 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.R
-import com.loitpcore.game.findNumber.dialog.FindNumberWinActivity
-import com.loitpcore.game.findNumber.model.Level
+import com.loitp.game.findNumber.dialog.FindNumberWinActivity
+import com.loitp.game.findNumber.model.Level
 import com.loitpcore.views.textView.autoFit.LAutoFitTextView
 import kotlinx.android.synthetic.main.l_f_find_number_play.*
 

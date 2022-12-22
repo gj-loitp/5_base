@@ -1,4 +1,4 @@
-package com.loitpcore.game.findNumber.dialog
+package com.loitp.game.findNumber.dialog
 
 import android.os.Bundle
 import androidx.core.app.ActivityCompat

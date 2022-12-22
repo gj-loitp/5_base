@@ -1,11 +1,11 @@
-package com.loitpcore.game.findNumber.model
+package com.loitp.game.findNumber.model
 
 import androidx.annotation.Keep
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import com.loitpcore.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
+import com.loitp.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import java.io.Serializable
 
 /**

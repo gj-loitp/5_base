@@ -1,4 +1,4 @@
-package com.loitpcore.game.findNumber.ui
+package com.loitp.game.findNumber.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,9 +15,9 @@ import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.R
-import com.loitpcore.game.findNumber.adapter.LevelAdapter
-import com.loitpcore.game.findNumber.model.Level
-import com.loitpcore.game.findNumber.viewModel.FindNumberViewModel
+import com.loitp.game.findNumber.adapter.LevelAdapter
+import com.loitp.game.findNumber.model.Level
+import com.loitp.game.findNumber.viewModel.FindNumberViewModel
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_a_find_number_single_level.*
 

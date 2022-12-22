@@ -1,4 +1,4 @@
-package com.loitpcore.game.findNumber.adapter
+package com.loitp.game.findNumber.adapter
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -10,9 +10,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.R
-import com.loitpcore.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
-import com.loitpcore.game.findNumber.db.Db.Companion.STATUS_LEVEL_WIN
-import com.loitpcore.game.findNumber.model.Level
+import com.loitp.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
+import com.loitp.game.findNumber.db.Db.Companion.STATUS_LEVEL_WIN
+import com.loitp.game.findNumber.model.Level
 import kotlinx.android.synthetic.main.l_v_find_number_level.view.*
 
 /**

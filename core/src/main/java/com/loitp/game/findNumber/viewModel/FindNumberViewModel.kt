@@ -1,11 +1,11 @@
-package com.loitpcore.game.findNumber.viewModel
+package com.loitp.game.findNumber.viewModel
 
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseViewModel
-import com.loitpcore.game.findNumber.db.Db
-import com.loitpcore.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
-import com.loitpcore.game.findNumber.db.FindNumberDatabase
-import com.loitpcore.game.findNumber.model.Level
+import com.loitp.game.findNumber.db.Db
+import com.loitp.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
+import com.loitp.game.findNumber.db.FindNumberDatabase
+import com.loitp.game.findNumber.model.Level
 import com.loitp.service.liveData.ActionData
 import com.loitp.service.liveData.ActionLiveData
 import kotlinx.coroutines.launch

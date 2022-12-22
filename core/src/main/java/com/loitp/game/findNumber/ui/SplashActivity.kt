@@ -1,4 +1,4 @@
-package com.loitpcore.game.findNumber.ui
+package com.loitp.game.findNumber.ui
 
 import android.annotation.SuppressLint
 import android.app.Activity

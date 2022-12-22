@@ -1,4 +1,4 @@
-package com.loitpcore.game.findNumber.model
+package com.loitp.game.findNumber.model
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel

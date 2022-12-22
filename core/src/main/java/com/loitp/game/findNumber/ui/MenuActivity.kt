@@ -1,4 +1,4 @@
-package com.loitpcore.game.findNumber.ui
+package com.loitp.game.findNumber.ui
 
 import android.app.Activity
 import android.content.Intent
