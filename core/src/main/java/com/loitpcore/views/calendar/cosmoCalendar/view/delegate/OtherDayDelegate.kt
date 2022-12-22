@@ -17,15 +17,22 @@ import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView
 class OtherDayDelegate(private val calendarView: CalendarView) {
 
     @Suppress("unused")
-    fun onCreateDayHolder(parent: ViewGroup, viewType: Int): OtherDayHolder {
+    fun onCreateDayHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): OtherDayHolder {
 
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.view_cosmo_calendar_other_day, parent, false)
+            .inflate(R.layout.v_cosmo_calendar_other_day, parent, false)
         return OtherDayHolder(view, calendarView)
     }
 
     @Suppress("unused")
-    fun onBindDayHolder(day: Day, holder: OtherDayHolder, position: Int) {
+    fun onBindDayHolder(
+        day: Day,
+        holder: OtherDayHolder,
+        position: Int
+    ) {
         holder.bind(day)
     }
 }

@@ -53,14 +53,17 @@ class MultipleSelectionBarAdapter(
         this.listItemClickListener = listItemClickListener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): RecyclerView.ViewHolder {
         return if (viewType == VIEW_TYPE_TITLE) {
             TitleViewHolder(
                 LayoutInflater.from(parent.context)
                     .inflate(
-                        R.layout.view_cosmo_calendar_item_multiple_selection_bar_title,
-                        parent,
-                        false
+                        /* resource = */ R.layout.v_cosmo_calendar_item_multiple_selection_bar_title,
+                        /* root = */ parent,
+                        /* attachToRoot = */ false
                     )
             )
         } else {
@@ -83,7 +86,10 @@ class MultipleSelectionBarAdapter(
         }
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (getItemViewType(position) == VIEW_TYPE_TITLE) {
             (holder as TitleViewHolder).bind(position)
         } else {

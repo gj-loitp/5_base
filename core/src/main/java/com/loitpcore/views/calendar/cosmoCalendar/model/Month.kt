@@ -36,5 +36,8 @@ class Month(
         }
 
     val monthName: String
-        get() = SimpleDateFormat("MMMM yyyy", Locale.getDefault()).format(firstDay.calendar.time)
+        get() = SimpleDateFormat(
+            /* pattern = */ "MMMM yyyy",
+            /* locale = */Locale.getDefault()
+        ).format(firstDay.calendar.time)
 }

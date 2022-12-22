@@ -213,7 +213,10 @@ object CalendarUtils {
     }
 
     @JvmStatic
-    fun isDayInSet(day: Day, daysInSet: Set<Long>): Boolean {
+    fun isDayInSet(
+        day: Day,
+        daysInSet: Set<Long>
+    ): Boolean {
         for (disabledTime in daysInSet) {
             val disabledDayCalendar = getCalendar(disabledTime)
             if (day.calendar[Calendar.YEAR] == disabledDayCalendar[Calendar.YEAR] &&
@@ -226,7 +229,10 @@ object CalendarUtils {
     }
 
     @JvmStatic
-    fun isDayDisabledByMinDate(day: Day, minDate: Calendar): Boolean {
+    fun isDayDisabledByMinDate(
+        day: Day,
+        minDate: Calendar
+    ): Boolean {
         return (
             day.calendar[Calendar.YEAR] < minDate[Calendar.YEAR] ||
                 day.calendar[Calendar.YEAR] == minDate[Calendar.YEAR] &&
@@ -235,7 +241,10 @@ object CalendarUtils {
     }
 
     @JvmStatic
-    fun isDayDisabledByMaxDate(day: Day, maxDate: Calendar): Boolean {
+    fun isDayDisabledByMaxDate(
+        day: Day,
+        maxDate: Calendar
+    ): Boolean {
         return (
             day.calendar[Calendar.YEAR] > maxDate[Calendar.YEAR] ||
                 day.calendar[Calendar.YEAR] == maxDate[Calendar.YEAR] &&
@@ -244,7 +253,10 @@ object CalendarUtils {
     }
 
     @JvmStatic
-    fun isDayDisabledByCriteria(day: Day, criteria: DisabledDaysCriteria): Boolean {
+    fun isDayDisabledByCriteria(
+        day: Day,
+        criteria: DisabledDaysCriteria
+    ): Boolean {
         val field: Int = when (criteria.criteriaType) {
             DisabledDaysCriteriaType.DAYS_OF_MONTH -> Calendar.DAY_OF_MONTH
             DisabledDaysCriteriaType.DAYS_OF_WEEK -> Calendar.DAY_OF_WEEK
@@ -258,7 +270,10 @@ object CalendarUtils {
     }
 
     @JvmStatic
-    fun getIconHeight(resources: Resources?, iconResId: Int): Int {
+    fun getIconHeight(
+        resources: Resources?,
+        iconResId: Int
+    ): Int {
         val options = BitmapFactory.Options()
         options.inJustDecodeBounds = true
         BitmapFactory.decodeResource(resources, iconResId, options)
