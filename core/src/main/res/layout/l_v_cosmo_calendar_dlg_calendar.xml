@@ -35,7 +35,7 @@
 
     </FrameLayout>
 
-    <com.loitp.views.calendar.cosmoCalendar.view.CalendarView
+    <com.loitp.views.cal.cosmoCalendar.view.CalendarView
         android:id="@+id/calendar_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

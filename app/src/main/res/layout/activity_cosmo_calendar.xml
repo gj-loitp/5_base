@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize" />
 
-    <com.loitp.views.calendar.cosmoCalendar.view.CalendarView
+    <com.loitp.views.cal.cosmoCalendar.view.CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
