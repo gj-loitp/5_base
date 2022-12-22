@@ -29,7 +29,7 @@
             android:visibility="visible"
             tools:text="@string/large_dummy_text" />
 
-        <com.loitpcore.views.textView.selectable.LSelectableView
+        <com.loitp.views.tv.selectable.LSelectableView
             android:id="@+id/selectableView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

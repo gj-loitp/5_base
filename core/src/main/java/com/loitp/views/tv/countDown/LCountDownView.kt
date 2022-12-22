@@ -1,13 +1,13 @@
-package com.loitpcore.views.textView.countDown
+package com.loitp.views.tv.countDown
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
 import com.daimajia.androidanimations.library.Techniques
-import com.loitpcore.R
 import com.loitp.core.utilities.LAnimationUtil
-import kotlinx.android.synthetic.main.view_l_count_down.view.*
+import com.loitpcore.R
+import kotlinx.android.synthetic.main.l_v_count_down.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -26,11 +26,18 @@ class LCountDownView : RelativeLayout {
     private var number = 0
     private var callback: Callback? = null
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -39,7 +46,7 @@ class LCountDownView : RelativeLayout {
     }
 
     private fun init() {
-        inflate(context, R.layout.view_l_count_down, this)
+        inflate(context, R.layout.l_v_count_down, this)
     }
 
     fun start(number: Int) {

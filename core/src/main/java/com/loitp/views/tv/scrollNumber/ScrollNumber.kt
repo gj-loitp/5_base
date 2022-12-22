@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.scrollNumber
+package com.loitp.views.tv.scrollNumber
 
 import android.content.Context
 import android.graphics.Canvas
@@ -74,7 +74,11 @@ internal class ScrollNumber @JvmOverloads constructor(
         mVelocity = velocity
     }
 
-    fun setNumber(from: Int, to: Int, delay: Long) {
+    fun setNumber(
+        from: Int,
+        to: Int,
+        delay: Long
+    ) {
         postDelayed({
             setFromNumber(from)
             setTargetNumber(to)
@@ -116,7 +120,10 @@ internal class ScrollNumber @JvmOverloads constructor(
         mTextHeight = mTextBounds.height()
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         val width = measureWidth(widthMeasureSpec)
         val height = measureHeight(heightMeasureSpec)
         setMeasuredDimension(width, height)

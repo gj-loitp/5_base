@@ -6,7 +6,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.textView.countDown.LCountDownView
+import com.loitp.views.tv.countDown.LCountDownView
 import kotlinx.android.synthetic.main.activity_text_view_count_down.*
 import vn.loitp.app.R
 

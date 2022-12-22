@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.selectable
+package com.loitp.views.tv.selectable
 
 import android.text.Spannable
 import android.text.Spanned
@@ -34,7 +34,12 @@ class CustomInfo {
         clear()
     }
 
-    constructor(text: CharSequence?, span: Any?, start: Int, end: Int) {
+    constructor(
+        text: CharSequence?,
+        span: Any?,
+        start: Int,
+        end: Int
+    ) {
         set(text, span, start, end)
     }
 
@@ -63,13 +68,22 @@ class CustomInfo {
         mEnd = 0
     }
 
-    operator fun set(span: Any?, start: Int, end: Int) {
+    operator fun set(
+        span: Any?,
+        start: Int,
+        end: Int
+    ) {
         this.span = span
         mStart = start
         mEnd = end
     }
 
-    operator fun set(text: CharSequence?, span: Any?, start: Int, end: Int) {
+    operator fun set(
+        text: CharSequence?,
+        span: Any?,
+        start: Int,
+        end: Int
+    ) {
         if (text is Spannable) {
             spannable = text
         }

@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.selectable
+package com.loitp.views.tv.selectable
 
 /**
  * Created by Loitp on 04,August,2022

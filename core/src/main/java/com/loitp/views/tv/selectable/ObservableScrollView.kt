@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.selectable
+package com.loitp.views.tv.selectable
 
 import android.content.Context
 import android.util.AttributeSet
@@ -23,7 +23,11 @@ class ObservableScrollView : ScrollView {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -31,7 +35,10 @@ class ObservableScrollView : ScrollView {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init()
     }
 
@@ -68,7 +75,12 @@ class ObservableScrollView : ScrollView {
         mOnScrollChangedListeners?.remove(onScrollChangedListener)
     }
 
-    override fun onScrollChanged(x: Int, y: Int, oldx: Int, oldy: Int) {
+    override fun onScrollChanged(
+        x: Int,
+        y: Int,
+        oldx: Int,
+        oldy: Int
+    ) {
         super.onScrollChanged(x, y, oldx, oldy)
         mOnScrollChangedListeners?.let {
             for (listener in it) {

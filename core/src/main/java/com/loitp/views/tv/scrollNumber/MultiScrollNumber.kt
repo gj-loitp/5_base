@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.scrollNumber
+package com.loitp.views.tv.scrollNumber
 
 import android.content.Context
 import android.text.TextUtils
@@ -12,8 +12,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.IntRange
-import com.loitpcore.R
 import com.loitp.core.utilities.LAppResource.getColor
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -109,7 +109,10 @@ class MultiScrollNumber @JvmOverloads constructor(
     }
 
     @Suppress("unused")
-    fun setNumber(from: Int, to: Int) {
+    fun setNumber(
+        from: Int,
+        to: Int
+    ) {
         if (to < from) throw UnsupportedOperationException("'to' value must > 'from' value")
         resetView()
         // operate to

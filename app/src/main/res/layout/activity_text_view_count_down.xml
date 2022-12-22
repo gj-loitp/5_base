@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.loitpcore.views.textView.countDown.LCountDownView
+        <com.loitp.views.tv.countDown.LCountDownView
             android:id="@+id/countDownView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

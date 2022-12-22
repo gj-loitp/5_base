@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.selectable
+package com.loitp.views.tv.selectable
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -13,9 +13,9 @@ import android.view.ViewTreeObserver.OnTouchModeChangeListener
 import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.widget.AppCompatTextView
+import com.loitp.core.utilities.LAppResource
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
-import com.loitp.core.utilities.LAppResource
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -42,11 +42,18 @@ class CustomTextView : AppCompatTextView {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle
@@ -90,7 +97,12 @@ class CustomTextView : AppCompatTextView {
     }
 
     @Suppress("unused")
-    fun setSelection(color: Int, start: Int, length: Int, duration: Int) {
+    fun setSelection(
+        color: Int,
+        start: Int,
+        length: Int,
+        duration: Int
+    ) {
         val end = if (start + length >= text.length) {
             text.length
         } else {
@@ -110,7 +122,11 @@ class CustomTextView : AppCompatTextView {
     }
 
     @Suppress("unused")
-    fun setSelection(start: Int, length: Int, duration: Int) {
+    fun setSelection(
+        start: Int,
+        length: Int,
+        duration: Int
+    ) {
         setSelection(
             color = mDefaultSelectionColor,
             start = start,
@@ -119,7 +135,10 @@ class CustomTextView : AppCompatTextView {
         )
     }
 
-    fun setSelection(start: Int, length: Int) {
+    fun setSelection(
+        start: Int,
+        length: Int
+    ) {
         setSelection(
             start = start,
             length = length,
@@ -143,7 +162,10 @@ class CustomTextView : AppCompatTextView {
     }
 
     @Suppress("unused")
-    fun removeSelection(selection: CustomInfo?, delay: Int) {
+    fun removeSelection(
+        selection: CustomInfo?,
+        delay: Int
+    ) {
         if (delay >= 0) {
             val runnable = Runnable {
                 selection?.remove()
@@ -153,7 +175,10 @@ class CustomTextView : AppCompatTextView {
     }
 
     @Suppress("NAME_SHADOWING")
-    fun showSelectionControls(start: Int, end: Int) {
+    fun showSelectionControls(
+        start: Int,
+        end: Int
+    ) {
         var start = start
         var end = end
         if (start < 0) {
@@ -205,7 +230,10 @@ class CustomTextView : AppCompatTextView {
         }
 
     @Suppress("unused")
-    fun getOffset(x: Int, y: Int): Int {
+    fun getOffset(
+        x: Int,
+        y: Int
+    ): Int {
         val layout = layout
         var offset = -1
         if (layout != null) {
@@ -216,7 +244,10 @@ class CustomTextView : AppCompatTextView {
     }
 
     @Suppress("unused")
-    fun getPreciseOffset(x: Int, y: Int): Int {
+    fun getPreciseOffset(
+        x: Int,
+        y: Int
+    ): Int {
         val layout = layout
         if (layout != null) {
             val topVisibleLine = layout.getLineForVertical(y)
@@ -230,7 +261,11 @@ class CustomTextView : AppCompatTextView {
     }
 
     @Suppress("NAME_SHADOWING")
-    private fun getHysteresisOffset(x: Int, y: Int, previousOffset: Int): Int {
+    private fun getHysteresisOffset(
+        x: Int,
+        y: Int,
+        previousOffset: Int
+    ): Int {
         var x = x
         var y = y
         var previousOffset = previousOffset
@@ -307,7 +342,10 @@ class CustomTextView : AppCompatTextView {
     }
 
     @Suppress("NAME_SHADOWING")
-    private fun getOffsetForHorizontal(line: Int, x: Int): Int {
+    private fun getOffsetForHorizontal(
+        line: Int,
+        x: Int
+    ): Int {
         var x = x
         x -= totalPaddingLeft
         // Clamp the position to inside of the view.
@@ -317,7 +355,12 @@ class CustomTextView : AppCompatTextView {
         return layout.getOffsetForHorizontal(line, x.toFloat())
     }
 
-    private fun getXY(offset: Int, scrollX: Int, scrollY: Int, coords: IntArray) {
+    private fun getXY(
+        offset: Int,
+        scrollX: Int,
+        scrollY: Int,
+        coords: IntArray
+    ) {
         if (BuildConfig.DEBUG && coords.size < 2) {
             error("Assertion failed")
         }
@@ -333,7 +376,12 @@ class CustomTextView : AppCompatTextView {
     }
 
     @Suppress("NAME_SHADOWING")
-    private fun getAdjusteStartXY(offset: Int, scrollX: Int, scrollY: Int, coords: IntArray) {
+    private fun getAdjusteStartXY(
+        offset: Int,
+        scrollX: Int,
+        scrollY: Int,
+        coords: IntArray
+    ) {
         var offset = offset
         if (offset < text.length) {
             val layout = layout
@@ -351,7 +399,12 @@ class CustomTextView : AppCompatTextView {
         getXY(offset = offset, scrollX = scrollX, scrollY = scrollY, coords = coords)
     }
 
-    private fun getAdjustedEndXY(offset: Int, scrollX: Int, scrollY: Int, coords: IntArray) {
+    private fun getAdjustedEndXY(
+        offset: Int,
+        scrollX: Int,
+        scrollY: Int,
+        coords: IntArray
+    ) {
         if (offset > 0) {
             val layout = layout
             if (layout != null) {

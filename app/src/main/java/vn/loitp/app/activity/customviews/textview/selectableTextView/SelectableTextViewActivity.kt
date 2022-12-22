@@ -6,7 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.textView.selectable.SelectableListener
+import com.loitp.views.tv.selectable.SelectableListener
 import kotlinx.android.synthetic.main.activity_text_view_selectable.*
 import vn.loitp.app.R
 

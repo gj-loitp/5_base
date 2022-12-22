@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.extra
+package com.loitp.views.tv.extra
 
 import android.content.Context
 import android.graphics.Color
@@ -28,11 +28,18 @@ class LToggleLExtraTextView : LExtraTextView {
         init(context, null, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(context, attrs, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -40,7 +47,11 @@ class LToggleLExtraTextView : LExtraTextView {
         init(context, attrs, defStyleAttr)
     }
 
-    private fun init(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
+    private fun init(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) {
         if (attrs == null) {
             return
         }

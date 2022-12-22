@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.selectable
+package com.loitp.views.tv.selectable
 
 import android.app.Activity
 import android.content.Context
@@ -11,10 +11,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.appcompat.app.AppCompatActivity
-import com.loitpcore.R
 import com.loitp.core.utilities.LAppResource
-import com.loitpcore.views.textView.selectable.CommonUtil.dpTpPx
-import com.loitpcore.views.textView.selectable.CustomTextView.OnCursorStateChangedListener
+import com.loitp.views.tv.selectable.CommonUtil.dpTpPx
+import com.loitp.views.tv.selectable.CustomTextView.OnCursorStateChangedListener
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -47,11 +47,18 @@ class LSelectableView : FrameLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        @AttrRes defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -87,7 +94,10 @@ class LSelectableView : FrameLayout {
     }
 
     @Suppress("NAME_SHADOWING")
-    private fun setHighlightBtnCoods(x: Int, y: Int) {
+    private fun setHighlightBtnCoods(
+        x: Int,
+        y: Int
+    ) {
         var x = x
         var y = y
         scrollView?.customTextView?.measure(
@@ -140,6 +150,7 @@ class LSelectableView : FrameLayout {
         hasActionBar = act.supportActionBar != null
     }
 
+    @Suppress("unused")
     fun setActivity(act: Activity) {
         hasActionBar = act.actionBar != null
     }

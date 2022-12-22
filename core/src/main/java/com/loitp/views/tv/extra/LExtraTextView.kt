@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.extra
+package com.loitp.views.tv.extra
 
 import android.content.Context
 import android.graphics.Canvas
@@ -43,11 +43,18 @@ open class LExtraTextView : AppCompatTextView {
         init(context, null, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(context, attrs, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -55,7 +62,11 @@ open class LExtraTextView : AppCompatTextView {
         init(context, attrs, defStyleAttr)
     }
 
-    private fun init(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
+    private fun init(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) {
         if (attrs == null) {
             return
         }
@@ -95,7 +106,10 @@ open class LExtraTextView : AppCompatTextView {
         typedArray.recycle()
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         if (drawableResourceId == 0) {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec)
             return
@@ -130,7 +144,13 @@ open class LExtraTextView : AppCompatTextView {
         }
     }
 
-    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        left: Int,
+        top: Int,
+        right: Int,
+        bottom: Int
+    ) {
         super.onLayout(changed, left, top, right, bottom)
 
         var fitPadding: Int? = null
