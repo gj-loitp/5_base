@@ -7,7 +7,7 @@
     android:animateLayoutChanges="true"
     android:background="?attr/themeBackgroundColor">
 
-    <com.loitpcore.views.layout.rotate.LRotateLayout
+    <com.loitp.views.layout.rotate.LRotateLayout
         android:id="@+id/rotateLayout"
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -36,7 +36,7 @@
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
         </RelativeLayout>
-    </com.loitpcore.views.layout.rotate.LRotateLayout>
+    </com.loitp.views.layout.rotate.LRotateLayout>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"

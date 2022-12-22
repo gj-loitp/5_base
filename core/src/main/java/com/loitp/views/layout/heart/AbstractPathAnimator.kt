@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.heart
+package com.loitp.views.layout.heart
 
 import android.content.res.TypedArray
 import android.graphics.Path
@@ -25,7 +25,11 @@ abstract class AbstractPathAnimator(
     }
 
     @Suppress("NAME_SHADOWING")
-    fun createPath(counter: AtomicInteger, view: View, factor: Int): Path {
+    fun createPath(
+        counter: AtomicInteger,
+        view: View,
+        factor: Int
+    ): Path {
         var factor = factor
         val r = mRandom
         var x = r.nextInt(mConfig.xRand)
@@ -60,7 +64,10 @@ abstract class AbstractPathAnimator(
         return p
     }
 
-    abstract fun start(child: View, parent: ViewGroup)
+    abstract fun start(
+        child: View,
+        parent: ViewGroup
+    )
 
     class Config {
         var initX = 0

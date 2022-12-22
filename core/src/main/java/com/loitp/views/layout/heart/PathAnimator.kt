@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.heart
+package com.loitp.views.layout.heart
 
 import android.graphics.Path
 import android.graphics.PathMeasure
@@ -29,7 +29,10 @@ class PathAnimator(config: Config) : AbstractPathAnimator(config) {
     private val atomicInteger = AtomicInteger(0)
     private val mHandler: Handler = Handler(Looper.getMainLooper())
 
-    override fun start(child: View, parent: ViewGroup) {
+    override fun start(
+        child: View,
+        parent: ViewGroup
+    ) {
         parent.addView(child, ViewGroup.LayoutParams(mConfig.heartWidth, mConfig.heartHeight))
 
         val anim = FloatAnimation(
@@ -62,7 +65,12 @@ class PathAnimator(config: Config) : AbstractPathAnimator(config) {
         child.startAnimation(anim)
     }
 
-    internal class FloatAnimation(path: Path?, rotation: Float, parent: View?, child: View?) :
+    internal class FloatAnimation(
+        path: Path?,
+        rotation: Float,
+        parent: View?,
+        child: View?
+    ) :
         Animation() {
         private val pathMeasure: PathMeasure = PathMeasure(path, false)
         private val mView: View? = child

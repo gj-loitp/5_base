@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.ripple
+package com.loitp.views.layout.ripple
 
 import android.content.Context
 import android.graphics.Bitmap

@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.heart
+package com.loitp.views.layout.heart
 
 import android.content.Context
 import android.graphics.*
@@ -35,9 +35,16 @@ class HeartView : AppCompatImageView {
     private var mHeartResId = R.drawable.l_heart_icon
     private var mHeartBorderResId = R.drawable.l_heart_border
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -50,7 +57,11 @@ class HeartView : AppCompatImageView {
         setImageDrawable(BitmapDrawable(resources, heart))
     }
 
-    fun setColorAndDrawables(color: Int, heartResId: Int, heartBorderResId: Int) {
+    fun setColorAndDrawables(
+        color: Int,
+        heartResId: Int,
+        heartBorderResId: Int
+    ) {
         if (heartResId != mHeartResId) {
             sHeart = null
         }

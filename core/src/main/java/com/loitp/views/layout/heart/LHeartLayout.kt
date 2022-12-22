@@ -1,10 +1,10 @@
-package com.loitpcore.views.layout.heart
+package com.loitp.views.layout.heart
 
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
+import com.loitp.views.layout.heart.AbstractPathAnimator.Config.Companion.fromTypeArray
 import com.loitpcore.R
-import com.loitpcore.views.layout.heart.AbstractPathAnimator.Config.Companion.fromTypeArray
 
 /**
  * Created by Loitp on 04,August,2022
@@ -20,11 +20,18 @@ class LHeartLayout : RelativeLayout {
         init(null, 0)
     }
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(attrs, 0)
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context?,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -32,7 +39,10 @@ class LHeartLayout : RelativeLayout {
         init(attrs, defStyleAttr)
     }
 
-    private fun init(attrs: AttributeSet?, defStyleAttr: Int) {
+    private fun init(
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) {
         val typedArray =
             context.obtainStyledAttributes(attrs, R.styleable.LHeartLayout, defStyleAttr, 0)
         abstractPathAnimator = PathAnimator(fromTypeArray(typedArray))
@@ -60,7 +70,11 @@ class LHeartLayout : RelativeLayout {
     }
 
     @Suppress("unused")
-    fun addHeart(color: Int, heartResId: Int, heartBorderResId: Int) {
+    fun addHeart(
+        color: Int,
+        heartResId: Int,
+        heartBorderResId: Int
+    ) {
         val heartView = HeartView(context)
         heartView.setColorAndDrawables(
             color = color,

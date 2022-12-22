@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.rotate
+package com.loitp.views.layout.rotate
 
 import android.content.Context
 import android.graphics.Canvas
@@ -72,7 +72,10 @@ class LRotateLayout @JvmOverloads constructor(
             null
         }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         val child = view
         if (child != null) {
             when {
@@ -121,7 +124,13 @@ class LRotateLayout @JvmOverloads constructor(
         }
     }
 
-    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        l: Int,
+        t: Int,
+        r: Int,
+        b: Int
+    ) {
         val layoutWidth = r - l
         val layoutHeight = b - t
         if (angleChanged || changed) {
@@ -150,7 +159,10 @@ class LRotateLayout @JvmOverloads constructor(
         canvas.restore()
     }
 
-    override fun invalidateChildInParent(location: IntArray, dirty: Rect): ViewParent {
+    override fun invalidateChildInParent(
+        location: IntArray,
+        dirty: Rect
+    ): ViewParent {
         invalidate()
         return super.invalidateChildInParent(location, dirty)
     }

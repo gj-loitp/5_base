@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.flow
+package com.loitp.views.layout.flow
 
 import android.content.Context
 import android.util.AttributeSet
@@ -66,7 +66,10 @@ class FlowLayout @JvmOverloads constructor(
     private val mWidthForRow: MutableList<Int> = ArrayList()
     private val mChildNumForRow: MutableList<Int> = ArrayList()
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
         val widthSize = MeasureSpec.getSize(widthMeasureSpec)
@@ -233,7 +236,13 @@ class FlowLayout @JvmOverloads constructor(
         setMeasuredDimension(measuredWidth, measuredHeight)
     }
 
-    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        l: Int,
+        t: Int,
+        r: Int,
+        b: Int
+    ) {
         val paddingLeft = paddingLeft
         val paddingRight = paddingRight
         val paddingTop = paddingTop
