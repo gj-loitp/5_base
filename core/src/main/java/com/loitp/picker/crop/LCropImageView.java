@@ -246,7 +246,7 @@ public class LCropImageView extends FrameLayout {
         mShowProgressBar = options.showProgressBar;
 
         final LayoutInflater inflater = LayoutInflater.from(context);
-        final View v = inflater.inflate(R.layout.l_crop_image_view, this, true);
+        final View v = inflater.inflate(R.layout.l_v_crop_iv, this, true);
 
         mImageView = v.findViewById(R.id.ImageView_image);
         mImageView.setScaleType(ImageView.ScaleType.MATRIX);

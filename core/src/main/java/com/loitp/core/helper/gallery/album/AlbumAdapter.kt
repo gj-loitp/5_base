@@ -17,7 +17,7 @@ import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
-import kotlinx.android.synthetic.main.l_item_flickr_album_core.view.*
+import kotlinx.android.synthetic.main.l_i_flickr_album_core.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -44,7 +44,7 @@ class AlbumAdapter(
     ): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.l_item_flickr_album_core, viewGroup, false)
+                .inflate(R.layout.l_i_flickr_album_core, viewGroup, false)
         )
     }
 

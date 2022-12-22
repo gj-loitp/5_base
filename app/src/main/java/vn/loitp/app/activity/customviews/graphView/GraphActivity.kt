@@ -52,7 +52,7 @@ abstract class GraphActivity : BaseFontActivity() {
         adapter = object : AbstractGraphAdapter<NodeViewHolder>() {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NodeViewHolder {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.node, parent, false)
+                    .inflate(R.layout.l_v_node, parent, false)
                 return NodeViewHolder(view)
             }
 

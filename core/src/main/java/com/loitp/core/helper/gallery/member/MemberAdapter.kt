@@ -18,7 +18,7 @@ import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
-import kotlinx.android.synthetic.main.l_item_flickr_photos_member.view.*
+import kotlinx.android.synthetic.main.l_i_flickr_photos_member.view.*
 import java.util.*
 
 /**
@@ -53,7 +53,7 @@ class MemberAdapter(
     ): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.l_item_flickr_photos_member, viewGroup, false)
+                .inflate(R.layout.l_i_flickr_photos_member, viewGroup, false)
         )
     }
 

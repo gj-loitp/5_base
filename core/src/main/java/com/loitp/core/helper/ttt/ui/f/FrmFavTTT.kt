@@ -17,7 +17,7 @@ import com.loitpcore.R
 class FrmFavTTT : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_ttt_comic_fav
+        return R.layout.l_f_ttt_comic_fav
     }
 
     override fun onViewCreated(

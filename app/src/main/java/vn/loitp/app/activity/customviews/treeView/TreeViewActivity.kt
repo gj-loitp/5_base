@@ -42,7 +42,7 @@ class TreeViewActivity : BaseFontActivity() {
         }
 
         val adapter: BaseTreeAdapter<*> =
-            object : BaseTreeAdapter<ViewHolder>(this, R.layout.node) {
+            object : BaseTreeAdapter<ViewHolder>(this, R.layout.l_v_node) {
                 override fun onCreateViewHolder(view: View): ViewHolder {
                     return ViewHolder(view)
                 }

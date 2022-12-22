@@ -110,19 +110,19 @@ public class ResideMenu extends FrameLayout {
 
     private void initViews(Context context, int customLeftMenuId, int customRightMenuId) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.residemenu_custom, this);
+        inflater.inflate(R.layout.l_v_reside_menu_custom, this);
 
         if (customLeftMenuId >= 0) {
             scrollViewLeftMenu = inflater.inflate(customLeftMenuId, this, false);
         } else {
-            scrollViewLeftMenu = inflater.inflate(R.layout.residemenu_custom_left_scrollview, this, false);
+            scrollViewLeftMenu = inflater.inflate(R.layout.l_v_reside_menu_custom_left_sv, this, false);
             layoutLeftMenu = scrollViewLeftMenu.findViewById(R.id.layout_left_menu);
         }
 
         if (customRightMenuId >= 0) {
             scrollViewRightMenu = inflater.inflate(customRightMenuId, this, false);
         } else {
-            scrollViewRightMenu = inflater.inflate(R.layout.residemenu_custom_right_scrollview, this, false);
+            scrollViewRightMenu = inflater.inflate(R.layout.l_v_reside_menu_custom_right_sv, this, false);
             layoutRightMenu = scrollViewRightMenu.findViewById(R.id.layout_right_menu);
         }
 

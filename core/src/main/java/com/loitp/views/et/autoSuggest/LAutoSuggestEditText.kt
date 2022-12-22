@@ -59,7 +59,7 @@ class LAutoSuggestEditText : RelativeLayout {
     }
 
     private fun init() {
-        View.inflate(context, R.layout.v_auto_suggest_edittext, this)
+        View.inflate(context, R.layout.l_v_auto_suggest_et, this)
         editText = findViewById(R.id.editText)
         progressBar = findViewById(R.id.progressBar)
 

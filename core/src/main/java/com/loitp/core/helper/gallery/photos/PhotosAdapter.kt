@@ -17,7 +17,7 @@ import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
-import kotlinx.android.synthetic.main.l_item_flickr_photos_core.view.*
+import kotlinx.android.synthetic.main.l_i_flickr_photos_core.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -49,7 +49,7 @@ class PhotosAdapter internal constructor(
     ): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.l_item_flickr_photos_core, viewGroup, false)
+                .inflate(R.layout.l_i_flickr_photos_core, viewGroup, false)
         )
     }
 

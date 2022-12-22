@@ -10,7 +10,7 @@ import com.loitp.core.helper.adHelper.AdHelperActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.l_frm_more.*
+import kotlinx.android.synthetic.main.l_f_more.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.l_frm_more.*
 class FrmMore : BaseFragment(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_more
+        return R.layout.l_f_more
     }
 
     override fun onViewCreated(

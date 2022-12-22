@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.loitp.core.utilities.LAppResource
 import com.loitpcore.R
-import kotlinx.android.synthetic.main.l_answer_view.view.*
+import kotlinx.android.synthetic.main.l_v_answer_view.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -54,7 +54,7 @@ class OneAnswerView : LinearLayout {
     @JvmField
     var active = false
     private fun init() {
-        LayoutInflater.from(context).inflate(R.layout.l_answer_view, this, true)
+        LayoutInflater.from(context).inflate(R.layout.l_v_answer_view, this, true)
     }
 
     fun setActive(

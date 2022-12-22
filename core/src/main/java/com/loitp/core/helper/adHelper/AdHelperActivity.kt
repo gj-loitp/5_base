@@ -157,7 +157,7 @@ class AdHelperActivity : BaseFontActivity() {
             val adPage = adPageList[position]
             val inflater = LayoutInflater.from(this@AdHelperActivity)
             val layout =
-                inflater.inflate(R.layout.l_item_photo_ad_helper, collection, false) as ViewGroup
+                inflater.inflate(R.layout.l_i_photo_ad_helper, collection, false) as ViewGroup
 
             val imageView = layout.findViewById<ImageView>(R.id.imageView)
             val textView = layout.findViewById<TextView>(R.id.textView)

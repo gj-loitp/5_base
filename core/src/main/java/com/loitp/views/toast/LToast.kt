@@ -39,7 +39,7 @@ object LToast {
         try {
             val inf =
                 LAppResource.application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            val layout = inf.inflate(R.layout.l_toast, null)
+            val layout = inf.inflate(R.layout.l_v_toast, null)
             val textView = layout.findViewById<AppCompatTextView>(R.id.tvLoading)
             textView.text = msg
             textView.setBackgroundColor(LAppResource.getColor(backgroundResColor))

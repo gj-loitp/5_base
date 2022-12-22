@@ -34,7 +34,7 @@ class LSuggestPopupView(
 
     init {
         val layout =
-            LayoutInflater.from(context).inflate(R.layout.v_auto_suggest_edittext_popup, null)
+            LayoutInflater.from(context).inflate(R.layout.l_v_auto_suggest_et_popup, null)
         contentView = layout
         width = ViewGroup.LayoutParams.WRAP_CONTENT
         height = ViewGroup.LayoutParams.WRAP_CONTENT

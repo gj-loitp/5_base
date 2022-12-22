@@ -11,7 +11,7 @@ import com.loitpcore.R
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LImageUtil
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
-import kotlinx.android.synthetic.main.l_frm_ttt_comic_profile.*
+import kotlinx.android.synthetic.main.l_f_ttt_comic_profile.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.l_frm_ttt_comic_profile.*
 class FrmProfileTTT : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_ttt_comic_profile
+        return R.layout.l_f_ttt_comic_profile
     }
 
     override fun onViewCreated(

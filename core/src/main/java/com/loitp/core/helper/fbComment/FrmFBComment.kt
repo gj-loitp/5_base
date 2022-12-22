@@ -19,7 +19,7 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.l_frm_fb_cmt.*
+import kotlinx.android.synthetic.main.l_f_fb_cmt.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -42,7 +42,7 @@ class FrmFBComment : BaseFragment() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_fb_cmt
+        return R.layout.l_f_fb_cmt
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -14,7 +14,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.l_item_flickr_photo_slide_iv_core.*
+import kotlinx.android.synthetic.main.l_i_flickr_photo_slide_iv_core.*
 import java.io.File
 
 /**
@@ -31,7 +31,7 @@ class FrmIvSlideCore : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.l_item_flickr_photo_slide_iv_core, container, false)
+        return inflater.inflate(R.layout.l_i_flickr_photo_slide_iv_core, container, false)
     }
 
     override fun onViewCreated(

@@ -29,7 +29,7 @@ import com.permissionx.guolindev.PermissionX
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
+import kotlinx.android.synthetic.main.l_f_flickr_gallery_core_photos_only.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -64,7 +64,7 @@ class GalleryCorePhotosOnlyFrm(
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_flickr_gallery_core_photos_only
+        return R.layout.l_f_flickr_gallery_core_photos_only
     }
 
     override fun onViewCreated(

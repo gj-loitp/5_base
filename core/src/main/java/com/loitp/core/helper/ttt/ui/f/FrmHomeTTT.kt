@@ -11,7 +11,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.ttt.helper.ComicUtils
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
 import com.loitpcore.R
-import kotlinx.android.synthetic.main.l_frm_ttt_comic_home.*
+import kotlinx.android.synthetic.main.l_f_ttt_comic_home.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -27,7 +27,7 @@ class FrmHomeTTT : BaseFragment() {
     private var tTTListComicAdapter = com.loitp.core.helper.ttt.adapter.TTTListComicAdapter()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_ttt_comic_home
+        return R.layout.l_f_ttt_comic_home
     }
 
     override fun onViewCreated(
