@@ -5,8 +5,8 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.R
 import com.loitp.core.utilities.LActivityUtil
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -20,7 +20,7 @@ import com.loitp.core.utilities.LActivityUtil
 class TTTComicLoginActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_ttt_comic_login
+        return R.layout.l_a_ttt_comic_login
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

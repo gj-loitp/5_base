@@ -15,12 +15,12 @@ import com.loitp.core.helper.ttt.model.MenuComicTTT
 import com.loitp.core.helper.ttt.ui.f.FrmFavTTT
 import com.loitp.core.helper.ttt.ui.f.FrmHomeTTT
 import com.loitp.core.helper.ttt.ui.f.FrmProfileTTT
-import com.loitpcore.R
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.KeyboardUtils
 import com.loitp.views.vp.vpTransformers.ZoomOutSlideTransformer
+import com.loitpcore.R
 import github.com.st235.lib_expandablebottombar.MenuItemDescriptor
-import kotlinx.android.synthetic.main.l_activity_ttt_comic.*
+import kotlinx.android.synthetic.main.l_a_ttt_comic.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -36,7 +36,7 @@ class TTTComicActivity : BaseFontActivity() {
     val listMenuComicTTT = ArrayList<MenuComicTTT>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_ttt_comic
+        return R.layout.l_a_ttt_comic
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

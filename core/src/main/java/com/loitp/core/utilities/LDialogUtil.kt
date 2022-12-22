@@ -279,7 +279,7 @@ class LDialogUtil {
             }
             val dialog = Dialog(context, android.R.style.Theme_Translucent_NoTitleBar)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setContentView(R.layout.l_dlg_custom_progress)
+            dialog.setContentView(R.layout.l_d_custom_progress)
             dialog.setCanceledOnTouchOutside(false)
             dialog.setCancelable(false)
 
@@ -322,7 +322,7 @@ class LDialogUtil {
         ): Dialog {
             val dialog = Dialog(context, android.R.style.Theme_Translucent_NoTitleBar)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setContentView(R.layout.l_dlg_slide_images)
+            dialog.setContentView(R.layout.l_d_slide_images)
             dialog.setCanceledOnTouchOutside(true)
             val slideAdapter = LSlideAdapter(
                 mContext = context,

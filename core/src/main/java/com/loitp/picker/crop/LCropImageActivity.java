@@ -46,7 +46,7 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.l_activity_l_crop_image;
+        return R.layout.l_a_l_crop_image;
     }
 
     @Override

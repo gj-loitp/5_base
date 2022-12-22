@@ -11,7 +11,7 @@ import com.loitp.core.helper.ttt.adapter.TTTTypeAdapter
 import com.loitp.core.helper.ttt.helper.ComicUtils
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
 import com.loitpcore.R
-import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_select_type_fragment.*
+import kotlinx.android.synthetic.main.l_f_ttt_select_type.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_select_type_fragment.*
  */
 @LogTag("BottomSheetSelectTypeTTTFragment")
 class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
-    layoutId = R.layout.l_bottom_sheet_ttt_select_type_fragment,
+    layoutId = R.layout.l_f_ttt_select_type,
     height = WindowManager.LayoutParams.WRAP_CONTENT,
     isDraggable = true,
     firstBehaviourState = BottomSheetBehavior.STATE_HALF_EXPANDED

@@ -8,9 +8,9 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.R
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
+import com.loitpcore.R
 import com.permissionx.guolindev.PermissionX
 
 /**
@@ -26,7 +26,7 @@ import com.permissionx.guolindev.PermissionX
 class TTTSplashActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_ttt_comic_splash
+        return R.layout.l_a_ttt_comic_splash
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

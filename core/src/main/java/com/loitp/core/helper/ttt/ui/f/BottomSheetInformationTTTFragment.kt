@@ -12,7 +12,7 @@ import com.loitp.core.helper.adHelper.AdHelperActivity
 import com.loitpcore.R
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
-import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_information_fragment.*
+import kotlinx.android.synthetic.main.l_f_ttt_information.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_information_fragment.*
 @LogTag("BottomSheetInformationTTTFragment")
 class BottomSheetInformationTTTFragment :
     BaseBottomSheetFragment(
-        layoutId = R.layout.l_bottom_sheet_ttt_information_fragment,
+        layoutId = R.layout.l_f_ttt_information,
         height = WindowManager.LayoutParams.WRAP_CONTENT,
         isDraggable = true,
         firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED

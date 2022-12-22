@@ -51,7 +51,7 @@ class PageFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.l_frm_epub_reader, container, false)
+        val rootView = inflater.inflate(R.layout.l_f_epub_reader, container, false)
 
         arguments?.let {
             val position = it.getInt(ARG_TAB_POSITION)

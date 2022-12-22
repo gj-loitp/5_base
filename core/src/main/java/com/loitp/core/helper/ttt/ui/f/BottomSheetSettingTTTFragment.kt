@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseBottomSheetFragment
 import com.loitpcore.R
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_setting_fragment.*
+import kotlinx.android.synthetic.main.l_f_ttt_setting.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_setting_fragment.*
  */
 @LogTag("BottomSheetSettingTTTFragment")
 class BottomSheetSettingTTTFragment : BaseBottomSheetFragment(
-    layoutId = R.layout.l_bottom_sheet_ttt_setting_fragment,
+    layoutId = R.layout.l_f_ttt_setting,
     height = WindowManager.LayoutParams.WRAP_CONTENT,
     isDraggable = true,
     firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED
