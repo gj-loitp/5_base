@@ -4,10 +4,10 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitpcore.views.wwlMusic.layout.LWWLMusic
-import com.loitpcore.views.wwlMusic.utils.LWWLMusicUiUtil.hideSystemUI
-import com.loitpcore.views.wwlMusic.utils.LWWLMusicUiUtil.showSystemUI
-import com.loitpcore.views.wwlMusic.utils.LWWLMusicUiUtil.updateStatusBarAlpha
+import com.loitp.views.wwl.music.layout.LWWLMusic
+import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.hideSystemUI
+import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.showSystemUI
+import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.updateStatusBarAlpha
 import kotlinx.android.synthetic.main.activity_wwl_music.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.wwlMusic.fragments.WWLPlaylistFragment

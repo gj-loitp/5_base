@@ -13,7 +13,7 @@
         android:fitsSystemWindows="true"
         tools:ignore="UselessParent">
 
-        <com.loitpcore.views.wwlVideo.LWWLVideo
+        <com.loitp.views.wwl.video.LWWLVideo
             android:id="@+id/watchWhileLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -51,7 +51,7 @@
                 android:layout_height="match_parent" />
 
             <include layout="@layout/wwl_video_content_panel" />
-        </com.loitpcore.views.wwlVideo.LWWLVideo>
+        </com.loitp.views.wwl.video.LWWLVideo>
 
     </FrameLayout>
 

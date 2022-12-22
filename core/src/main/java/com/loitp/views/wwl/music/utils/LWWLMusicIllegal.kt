@@ -1,4 +1,4 @@
-package com.loitpcore.views.wwlMusic.utils
+package com.loitp.views.wwl.music.utils
 
 /**
  * Created by Loitp on 05,August,2022
@@ -13,7 +13,10 @@ object LWWLMusicIllegal {
         require(ok)
     }
 
-    fun check(ok: Boolean, any: Any) {
+    fun check(
+        ok: Boolean,
+        any: Any
+    ) {
         require(ok) {
             any.toString()
         }
@@ -26,7 +29,10 @@ object LWWLMusicIllegal {
         throw IllegalArgumentException()
     }
 
-    fun check(any: Any?, objectMsg: Any): Any {
+    fun check(
+        any: Any?,
+        objectMsg: Any
+    ): Any {
         if (any != null) {
             return any
         }

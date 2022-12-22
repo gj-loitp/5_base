@@ -1,4 +1,4 @@
-package com.loitpcore.views.wwlMusic.utils
+package com.loitp.views.wwl.music.utils
 
 /**
  * Created by Loitp on 05,August,2022
@@ -19,7 +19,11 @@ object LWWLMusicViewHelper {
         } else (255.0f * f).toInt()
     }
 
-    fun evaluateColorAlpha(f: Float, color1: Int, color2: Int): Int {
+    fun evaluateColorAlpha(
+        f: Float,
+        color1: Int,
+        color2: Int
+    ): Int {
         val c14 = color1 ushr 24
         val c13 = color1 shr 16 and 255
         val c12 = color1 shr 8 and 255

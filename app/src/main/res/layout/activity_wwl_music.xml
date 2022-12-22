@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         tools:ignore="UselessParent">
 
-        <com.loitpcore.views.wwlMusic.layout.LWWLMusic
+        <com.loitp.views.wwl.music.layout.LWWLMusic
             android:id="@+id/watchWhileLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -36,7 +36,7 @@
                 android:layout_height="match_parent" />
 
             <include layout="@layout/wwl_music_content_panel" />
-        </com.loitpcore.views.wwlMusic.layout.LWWLMusic>
+        </com.loitp.views.wwl.music.layout.LWWLMusic>
 
     </FrameLayout>
 

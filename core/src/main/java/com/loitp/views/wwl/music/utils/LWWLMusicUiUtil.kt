@@ -1,4 +1,4 @@
-package com.loitpcore.views.wwlMusic.utils
+package com.loitp.views.wwl.music.utils
 
 import android.app.Activity
 import android.content.res.Resources
@@ -52,7 +52,10 @@ object LWWLMusicUiUtil {
     }
 
     @JvmStatic
-    fun updateStatusBarAlpha(activity: Activity, alpha: Float) {
+    fun updateStatusBarAlpha(
+        activity: Activity,
+        alpha: Float
+    ) {
         val color = ContextCompat.getColor(activity, R.color.colorPrimaryDark)
         val color2 = Color.BLACK
         val color3 =

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.loitpcore.views.wwlMusic.layout.LWWLMusicFixedAspectRatioRelativeLayout
+    <com.loitp.views.wwl.music.layout.LWWLMusicFixedAspectRatioRelativeLayout
         android:id="@+id/layoutThumbnail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,7 +42,7 @@
             android:textSize="@dimen/txt_large"
             tools:ignore="HardcodedText" />
 
-    </com.loitpcore.views.wwlMusic.layout.LWWLMusicFixedAspectRatioRelativeLayout>
+    </com.loitp.views.wwl.music.layout.LWWLMusicFixedAspectRatioRelativeLayout>
 
     <FrameLayout
         android:id="@+id/layoutAvatar"

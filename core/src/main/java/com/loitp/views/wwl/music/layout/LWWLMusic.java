@@ -1,4 +1,4 @@
-package com.loitpcore.views.wwlVideo;
+package com.loitp.views.wwl.music.layout;
 
 import static android.view.MotionEvent.ACTION_CANCEL;
 import static android.view.MotionEvent.ACTION_DOWN;
@@ -27,8 +27,7 @@ import android.widget.Scroller;
 
 import com.loitpcore.R;
 import com.loitp.core.utilities.LAppResource;
-import com.loitpcore.views.wwlMusic.utils.LWWLMusicIllegal;
-import com.loitpcore.views.wwlMusic.utils.LWWLMusicViewHelper;
+import com.loitp.views.wwl.music.utils.LWWLMusicIllegal;
 
 import java.util.LinkedList;
 
@@ -41,8 +40,7 @@ import kotlin.Suppress;
  * +840766040293
  * freuss47@gmail.com
  */
-//14.12.2020 try to convert to kotlin but failed
-public class LWWLVideo extends ViewGroup {
+public class LWWLMusic extends ViewGroup {
     public static final int STATE_HIDED = 0;
     public static final int STATE_MAXIMIZED = 1;
     public static final int STATE_MINIMIZED = 2;
@@ -54,18 +52,11 @@ public class LWWLVideo extends ViewGroup {
     private final Scroller mHScroller;
     private final Tracker mTracker;
     private final DecelerateInterpolator mDecelerateInterpolator;
-    private final Drawable mInnerglowDrawable;
-    private final Drawable mShadowDrawable;
-    private final int mPlayerShadowSize;
     private final int mPlayerViewId;
     private final int mMetadataViewId;
-    private final int mMetadataPanelViewId;
-    private final int mOverlayViewId;
     private final int mMiniPlayerWidth;
-    private final int mMiniPlayerPadding;
-    private final int mDismissDragDistance;
-    private final int mDismissAnimationDistance;
-    private final int mLayoutMode;
+    private int mDismissDragDistance;
+    private int mDismissAnimationDistance;
     public int mOffsetX;
     public int mMaxY;
     public int mState;
@@ -79,15 +70,12 @@ public class LWWLVideo extends ViewGroup {
     private boolean mIsReady;
     private View mPlayerView;
     private View mMetadataView;
-    private View mMetadataPanelView;
-    private View mOverlayView;
     private View mBgView;
     private LinkedList mViews;
     private int mCurrentY;
     private boolean mIsHScroll;
-    private int mOffsetH;
 
-    public LWWLVideo(Context context, AttributeSet attributeSet) {
+    public LWWLMusic(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Resources resources = context.getResources();
         this.mMiniPlayerRect = new Rect();
@@ -103,26 +91,14 @@ public class LWWLVideo extends ViewGroup {
         this.mDragState = DragOrientation.DRAGGING_NONE;
         this.mDismissDragDistance = (int) resources.getDimension(R.dimen.watch_while_mini_player_dismiss_drag_distance);
         this.mDismissAnimationDistance = (int) resources.getDimension(R.dimen.watch_while_mini_player_dismiss_animation_distance);
-        this.mInnerglowDrawable = DrawableHelper.get(context, R.drawable.miniplayer_innerglow);
-        this.mShadowDrawable = DrawableHelper.get(context, R.drawable.miniplayer_shadow);
-        this.mPlayerShadowSize = (int) resources.getDimension(R.dimen.watch_while_mini_player_shadow_size);
         this.mPlayerOuterRect = new Rect();
-
-        @SuppressLint("CustomViewStyleable")
         TypedArray typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.WatchWhileLayout);
         this.mPlayerViewId = typedArray.getResourceId(R.styleable.WatchWhileLayout_playerViewId, 0);
         this.mMetadataViewId = typedArray.getResourceId(R.styleable.WatchWhileLayout_metadataViewId, 0);
-        this.mMetadataPanelViewId = typedArray.getResourceId(R.styleable.WatchWhileLayout_metadataPanelViewId, 0);
-        this.mOverlayViewId = typedArray.getResourceId(R.styleable.WatchWhileLayout_overlayViewId, 0);
-        this.mLayoutMode = typedArray.getBoolean(R.styleable.WatchWhileLayout_tabletLayout, false) ? Orientation.LANDSCAPE : Orientation.PORTRAIT;
         this.mMiniPlayerWidth = (int) typedArray.getDimension(R.styleable.WatchWhileLayout_miniPlayerWidth, 240.0f);
-        this.mMiniPlayerPadding = (int) typedArray.getDimension(R.styleable.WatchWhileLayout_miniPlayerPadding, 12.0f);
         typedArray.recycle();
         LWWLMusicIllegal.INSTANCE.check(this.mPlayerViewId != 0, "playerViewId must be specified");
         LWWLMusicIllegal.INSTANCE.check(this.mMetadataViewId != 0, "metadataViewId must be specified");
-        if (isTablet()) {
-            LWWLMusicIllegal.INSTANCE.check(this.mMetadataPanelViewId != 0, "metadataLandscapeTitleViewId must be specified");
-        }
     }
 
     private static void updateRect(Rect rect, int left, int top, int right, int bottom) {
@@ -146,8 +122,7 @@ public class LWWLVideo extends ViewGroup {
     public void onFinishInflate() {
         super.onFinishInflate();
         int childCount = getChildCount();
-        boolean isTL = isTablet();
-        int requireViewCount = isTL ? 4 : 3;
+        int requireViewCount = 3;
         LWWLMusicIllegal.INSTANCE.check(childCount >= requireViewCount, "WatchWhileLayout must have at least " + requireViewCount + " children");
         this.mViews = new LinkedList();
         for (int i = 0; i < childCount; i++) {
@@ -157,32 +132,21 @@ public class LWWLVideo extends ViewGroup {
                 this.mPlayerView = view;
             } else if (this.mMetadataView == null && this.mMetadataViewId == id) {
                 this.mMetadataView = view;
-            } else if (this.mMetadataPanelView == null && this.mMetadataPanelViewId == id) {
-                this.mMetadataPanelView = view;
-            } else if (this.mOverlayView == null && this.mOverlayViewId == id) {
-                this.mOverlayView = view;
             } else {
                 this.mViews.add(view);
             }
         }
         LWWLMusicIllegal.INSTANCE.check(this.mPlayerView);
         LWWLMusicIllegal.INSTANCE.check(this.mMetadataView);
-        if (isTL) {
-            LWWLMusicIllegal.INSTANCE.check(this.mMetadataPanelView);
-        }
         LWWLMusicIllegal.INSTANCE.check(this.mViews.size() > 0, "contentViews cannot be empty");
         this.mPlayerView.setOnClickListener(new PlayerViewClickListener(this));
         this.mBgView = new View(getContext());
 //        this.mBgView.setBackgroundColor(getResources().getColor(android.R.color.black));
-        this.mBgView.setBackgroundColor(LAppResource.INSTANCE.getColor(R.color.black));
+        this.mBgView.setBackgroundColor(LAppResource.INSTANCE.getColor(android.R.color.black));
         addView(this.mBgView);
         bringChildToFront(this.mBgView);
-        if (this.mMetadataPanelView != null) {
-            bringChildToFront(this.mMetadataPanelView);
-        }
         bringChildToFront(this.mMetadataView);
         bringChildToFront(this.mPlayerView);
-        bringChildToFront(this.mOverlayView);
         updateVisibility();
     }
 
@@ -211,7 +175,7 @@ public class LWWLVideo extends ViewGroup {
                 invalidate();
             } else if (!isDragging()) {
                 if (this.mCurrentY != 0 && this.mCurrentY != this.mMaxY) {
-                    autoState();
+                    autoState(false);
                 } else if (this.mOffsetX != 0) {
                     slideTo(getState());
                 }
@@ -249,23 +213,12 @@ public class LWWLVideo extends ViewGroup {
         if (!isLandscape()) {
             fullPlayerInnerHeight = (int) (((float) innerWidth) / playerRatio);
             updateRect(this.mFullPlayerRect, paddingLeft, paddingTop, innerWidth, fullPlayerInnerHeight);
-        } else if (isTablet()) {
-            Context context = getContext();
-            LWWLMusicIllegal.INSTANCE.check(context);
-            int fullPlayerInnerWidth;
-            if (context.getResources().getConfiguration().smallestScreenWidthDp >= 720) {
-                fullPlayerInnerWidth = Math.round(0.7f * ((float) innerWidth));
-            } else {
-                fullPlayerInnerWidth = Math.round(0.65f * ((float) innerWidth));
-            }
-            fullPlayerInnerHeight = (int) (((float) fullPlayerInnerWidth) / playerRatio);
-            updateRect(this.mFullPlayerRect, paddingLeft, paddingTop, fullPlayerInnerWidth, fullPlayerInnerHeight);
         } else {
             updateRect(this.mFullPlayerRect, paddingLeft, paddingTop, innerWidth, innerHeight);
             fullPlayerInnerHeight = innerHeight;
         }
         if (this.mDefaultMiniPlayerRect.isEmpty()) {
-            updateRect(this.mMiniPlayerRect, (innerWidth - this.mMiniPlayerPadding) - this.mMiniPlayerWidth, ((height - getPaddingBottom()) - this.mMiniPlayerPadding) - miniPlayerInnerHeight, this.mMiniPlayerWidth, miniPlayerInnerHeight);
+            updateRect(this.mMiniPlayerRect, 0, (height - getPaddingBottom()) - miniPlayerInnerHeight, innerWidth, miniPlayerInnerHeight);
         } else {
             this.mMiniPlayerRect.set(this.mDefaultMiniPlayerRect);
         }
@@ -273,7 +226,7 @@ public class LWWLVideo extends ViewGroup {
         int cenY = ((this.mMiniPlayerRect.top + this.mMiniPlayerRect.bottom) / 2) - ((this.mFullPlayerRect.top + this.mFullPlayerRect.bottom) / 2);
         if (Math.abs(cenY) > Math.abs(cenX * 2)) {
             this.mTracker.fraction = 0.0f;
-            this.mMaxY = (innerHeight - this.mMiniPlayerPadding) - ((miniPlayerInnerHeight + fullPlayerInnerHeight) / 2);
+            this.mMaxY = innerHeight - ((miniPlayerInnerHeight + fullPlayerInnerHeight) / 2);
         } else {
             this.mTracker.fraction = (float) Math.atan2(cenY, cenX);
             this.mMaxY = (int) Math.sqrt((cenX * cenX) + (cenY * cenY));
@@ -416,7 +369,7 @@ public class LWWLVideo extends ViewGroup {
                 break;
             case ACTION_UP:
                 if (this.mDragState == DragOrientation.DRAGGING_HORIZONTAL) {
-                    int direction = this.mTracker.calcDirection(motionEvent, DragOrientation.DRAGGING_HORIZONTAL);
+                    int direction = this.mTracker.calcDirection(motionEvent, DragOrientation.DRAGGING_HORIZONTAL, true);
                     boolean isPositive = direction == Sign.SIGN_POSITIVE;
                     boolean isNegative = direction == Sign.SIGN_NEGATIVE;
                     boolean isZero = direction == Sign.SIGN_ZERO;
@@ -444,13 +397,13 @@ public class LWWLVideo extends ViewGroup {
                         slideHorizontal(true);
                     } else slideHorizontalRollBack(!isZero);
                 } else if (this.mDragState == DragOrientation.DRAGGING_VERTICAL) {
-                    int direction = this.mTracker.calcDirection(motionEvent, DragOrientation.DRAGGING_VERTICAL);
+                    int direction = this.mTracker.calcDirection(motionEvent, DragOrientation.DRAGGING_VERTICAL, true);
                     if (direction == Sign.SIGN_NEGATIVE && this.mState == STATE_MAXIMIZED) {
                         minimize(true);
                     } else if (direction == Sign.SIGN_POSITIVE && this.mState == STATE_MINIMIZED && this.mCurrentY < this.mMaxY) {
                         maximize(true);
                     } else {
-                        autoState();
+                        autoState(true);
                     }
                 }
                 stopDrag();
@@ -530,9 +483,9 @@ public class LWWLVideo extends ViewGroup {
                 slideTo(STATE_MINIMIZED);
                 return;
             }
-            int duration = calcDuration(abs, Math.max(this.mDismissDragDistance, abs), 250, smooth);
+            int a = calcDuration(abs, Math.max(this.mDismissDragDistance, abs), 250, smooth);
             reset();
-            this.mHScroller.startScroll(this.mOffsetX, 0, -this.mOffsetX, 0, duration);
+            this.mHScroller.startScroll(this.mOffsetX, 0, -this.mOffsetX, 0, a);
             invalidate();
         }
     }
@@ -545,7 +498,6 @@ public class LWWLVideo extends ViewGroup {
             }
             reset();
             this.mIsHScroll = true;
-            this.mOffsetH = this.mOffsetX;
             this.mHScroller.startScroll(this.mOffsetX, 0, this.mOffsetX < 0 ? -this.mDismissAnimationDistance : this.mDismissAnimationDistance, 0, duration);
             invalidate();
         }
@@ -602,14 +554,8 @@ public class LWWLVideo extends ViewGroup {
             if (!this.mIsHardware) {
                 if (!isLandscape()) {
                     this.mMetadataView.measure(makeMeasureSpecW, MeasureSpec.makeMeasureSpec(sizeH - this.mFullPlayerRect.height(), MeasureSpec.EXACTLY));
-                } else if (isTablet()) {
-                    this.mMetadataView.measure(MeasureSpec.makeMeasureSpec(sizeW - this.mFullPlayerRect.width(), MeasureSpec.EXACTLY), makeMeasureSpecH);
-                    this.mMetadataPanelView.measure(MeasureSpec.makeMeasureSpec(this.mFullPlayerRect.width(), MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(Math.max(0, sizeH - this.mFullPlayerRect.height()), MeasureSpec.EXACTLY));
                 }
                 this.mBgView.measure(widthMeasureSpec, heightMeasureSpec);
-                if (this.mOverlayView != null) {
-                    this.mOverlayView.measure(widthMeasureSpec, heightMeasureSpec);
-                }
                 for (Object mView : this.mViews) {
                     ((View) mView).measure(makeMeasureSpecW, makeMeasureSpecH);
                 }
@@ -631,43 +577,22 @@ public class LWWLVideo extends ViewGroup {
         if (this.mCurrentY <= 0) {
             this.mPlayerOuterRect.set(this.mPlayerRect);
         } else {
-            this.mPlayerOuterRect.set(this.mPlayerRect.left - this.mPlayerShadowSize, this.mPlayerRect.top - this.mPlayerShadowSize, this.mPlayerRect.right + this.mPlayerShadowSize, this.mPlayerRect.bottom + this.mPlayerShadowSize);
+            this.mPlayerOuterRect.set(this.mPlayerRect.left, this.mPlayerRect.top, this.mPlayerRect.right, this.mPlayerRect.bottom);
         }
         if (this.mMixRect != null) {
             this.mMixRect.union(this.mPlayerOuterRect);
         } else {
             this.mMixRect = new Rect(this.mPlayerOuterRect);
         }
-        float alpha = 0.0f;
-        if (this.mCurrentAlpha < 1.0f) {
-            alpha = this.mCurrentAlpha;
-        } else if (this.mCurrentAlpha < 2.0f) {
-            alpha = 2.0f - this.mCurrentAlpha;
-        }
-        if (this.mInnerglowDrawable != null) {
-            this.mInnerglowDrawable.setBounds(this.mPlayerRect);
-            this.mInnerglowDrawable.setAlpha(LWWLMusicViewHelper.alpha255(alpha));
-        }
-        this.mShadowDrawable.setBounds(this.mPlayerOuterRect);
-        this.mShadowDrawable.setAlpha(LWWLMusicViewHelper.alpha255(alpha));
         invalidate(this.mMixRect.left, this.mMixRect.top, this.mMixRect.right, this.mMixRect.bottom);
         int width = getWidth();
         int height = getHeight();
         if (this.mIsHardware) {
-            if (isLandscape() && isTablet()) {
-                int metaX = distanceVDuration(this.mCurrentAlpha, 0, width - this.mFullPlayerRect.right) + this.mPlayerRect.right;
-                int metaPanelX = metaX - this.mFullPlayerRect.width();
-                int metaPanelY = distanceVDuration(this.mCurrentAlpha, 0, (height - this.mFullPlayerRect.bottom) + (this.mMetadataPanelView.getMeasuredHeight() * 2)) + this.mPlayerRect.bottom;
-                this.mMetadataView.setTranslationX((float) (metaX - this.mMetadataView.getLeft()));
-                this.mMetadataPanelView.setTranslationX((float) (metaPanelX - this.mMetadataPanelView.getLeft()));
-                this.mMetadataPanelView.setTranslationY((float) (metaPanelY - this.mMetadataPanelView.getTop()));
-                return;
-            }
             int Y;
             if (isLandscape()) {
                 Y = height - getPaddingBottom();
             } else {
-                Y = this.mPlayerRect.bottom + distanceVDuration(this.mCurrentAlpha, 0, this.mMiniPlayerPadding + this.mMiniPlayerRect.height());
+                Y = this.mPlayerRect.bottom;
                 this.mMetadataView.setTranslationY((float) (Y - this.mMetadataView.getTop()));
             }
             this.mBgView.setTranslationY((float) Math.min(Y - this.mBgView.getMeasuredHeight(), 0));
@@ -675,32 +600,19 @@ public class LWWLVideo extends ViewGroup {
         }
         this.mMetadataView.setTranslationX(0.0f);
         this.mMetadataView.setTranslationY(0.0f);
-        if (this.mMetadataPanelView != null) {
-            this.mMetadataPanelView.setTranslationX(0.0f);
-            this.mMetadataPanelView.setTranslationY(0.0f);
-        }
         this.mBgView.setTranslationX(0.0f);
         this.mBgView.setTranslationY(0.0f);
         width = r - l;
         height = b - t;
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        if (isLandscape() && isTablet()) {
-            int metaLeft = this.mPlayerRect.right + distanceVDuration(this.mCurrentAlpha, 0, width - this.mFullPlayerRect.right);
-            int metaPanelLeft = metaLeft - this.mFullPlayerRect.width();
-            int metaPanelTop = this.mPlayerRect.bottom + distanceVDuration(this.mCurrentAlpha, 0, (height - this.mFullPlayerRect.bottom) + (this.mMetadataPanelView.getMeasuredHeight() * 2));
-            this.mMetadataView.layout(metaLeft, paddingTop, this.mMetadataView.getMeasuredWidth() + metaLeft, this.mMetadataView.getMeasuredHeight() + paddingTop);
-            this.mMetadataPanelView.layout(metaPanelLeft, metaPanelTop, this.mMetadataPanelView.getMeasuredWidth() + metaPanelLeft, this.mMetadataPanelView.getMeasuredHeight() + metaPanelTop);
-        } else if (isLandscape()) {
+        if (isLandscape()) {
             getPaddingBottom();
         } else {
-            int top = this.mPlayerRect.bottom + distanceVDuration(this.mCurrentAlpha, 0, this.mMiniPlayerPadding + this.mMiniPlayerRect.height());
+            int top = this.mPlayerRect.bottom;
             this.mMetadataView.layout(paddingLeft, top, this.mMetadataView.getMeasuredWidth() + paddingLeft, this.mMetadataView.getMeasuredHeight() + top);
         }
         this.mBgView.layout(0, 0, width, height);
-        if (this.mOverlayView != null) {
-            this.mOverlayView.layout(paddingLeft, paddingTop, this.mOverlayView.getMeasuredWidth() + paddingLeft, this.mOverlayView.getMeasuredHeight() + paddingTop);
-        }
         for (Object mView : this.mViews) {
             View view = (View) mView;
             view.layout(paddingLeft, paddingTop, view.getMeasuredWidth() + paddingLeft, view.getMeasuredHeight() + paddingTop);
@@ -716,20 +628,11 @@ public class LWWLVideo extends ViewGroup {
     }
 
     @Override
-    protected boolean drawChild(Canvas canvas, View view, long drawingTime) {
-        if (view != this.mPlayerView) {
-            return super.drawChild(canvas, view, drawingTime);
+    protected boolean drawChild(Canvas canvas, View child, long drawingTime) {
+        if (child != this.mPlayerView) {
+            return super.drawChild(canvas, child, drawingTime);
         }
-        boolean drawChild = super.drawChild(canvas, view, drawingTime);
-        if (this.mIsFullscreen || this.mState == STATE_HIDED || this.mCurrentY <= 0) {
-            return drawChild;
-        }
-        this.mShadowDrawable.draw(canvas);
-        if (this.mInnerglowDrawable == null) {
-            return drawChild;
-        }
-        this.mInnerglowDrawable.draw(canvas);
-        return drawChild;
+        return super.drawChild(canvas, child, drawingTime);
     }
 
     private float getPlayerRatio() {
@@ -752,11 +655,10 @@ public class LWWLVideo extends ViewGroup {
         return getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
-    private boolean isTablet() {
-        return this.mLayoutMode == Orientation.LANDSCAPE;
-    }
-
     private void layout() {
+        this.mDismissDragDistance = this.mFullPlayerRect.width() / 3;
+        this.mDismissAnimationDistance = this.mFullPlayerRect.width();
+
         if (this.mState != STATE_HIDED) {
             if (this.mCurrentY <= 0) {
                 this.mCurrentAlpha = 0.0f;
@@ -770,26 +672,10 @@ public class LWWLVideo extends ViewGroup {
                         distanceVDuration(this.mCurrentAlpha, this.mFullPlayerRect.bottom, this.mMiniPlayerRect.bottom)
                 );
             } else {
-                int i;
                 this.mCurrentAlpha = 1.0f;
                 this.mPlayerRect.set(this.mMiniPlayerRect);
-                if (this.mOffsetX != 0) {
-                    i = Math.abs(this.mOffsetX);
-                    if (this.mIsHScroll) {
-                        i -= Math.abs(this.mOffsetH);
-                        if (i >= this.mDismissAnimationDistance) {
-                            this.mCurrentAlpha = 3.0f;
-                        } else {
-                            this.mCurrentAlpha = (((float) i) / ((float) this.mDismissAnimationDistance)) + 2.0f;
-                        }
-                    } else if (i >= this.mDismissDragDistance) {
-                        this.mCurrentAlpha = 2.0f;
-                    } else {
-                        this.mCurrentAlpha = (((float) i) / ((float) this.mDismissDragDistance)) + 1.0f;
-                    }
-                }
                 int mStart = 0;
-                i = mStart + this.mMiniPlayerPadding;
+                int i = mStart;
                 if (i <= this.mMiniPlayerRect.left) {
                     i = 0;
                 } else {
@@ -809,36 +695,16 @@ public class LWWLVideo extends ViewGroup {
         if (this.mIsFullscreen) {
             this.mPlayerView.setVisibility(VISIBLE);
             this.mMetadataView.setVisibility(GONE);
-            if (this.mMetadataPanelView != null) {
-                this.mMetadataPanelView.setVisibility(GONE);
-            }
             this.mBgView.setVisibility(GONE);
         } else {
             int v_playerView = VISIBLE;
-            int v_metadataPanelView;
             int v_metadataView;
             int v_bgView;
             if (this.mState != STATE_HIDED) {
-                boolean isTL = isTablet();
-                boolean isLandscape = isLandscape();
-                boolean isNLM = !isTL && isLandscape;
-                boolean isLM = isTL && isLandscape;
                 if (this.mCurrentY < this.mMaxY) {
-                    if (isNLM) {
-                        v_metadataPanelView = GONE;
+                    if (isLandscape()) {
                         v_metadataView = GONE;
                     } else {
-                        if (isLM) {
-                            v_metadataPanelView = VISIBLE;
-                        } else {
-                            v_metadataPanelView = GONE;
-                        }
-                        float alpha = 1.0f;
-                        if (this.mCurrentAlpha > 0.1f) {
-                            alpha = 1.1f - this.mCurrentAlpha;
-                        }
-                        setViewAlpha(this.mMetadataView, alpha);
-                        setViewAlpha(this.mMetadataPanelView, alpha);
                         v_metadataView = VISIBLE;
                     }
                     if (this.mCurrentY > 0) {
@@ -850,7 +716,6 @@ public class LWWLVideo extends ViewGroup {
                     this.mIsReady = true;
                 } else {
                     v_bgView = GONE;
-                    v_metadataPanelView = GONE;
                     v_metadataView = GONE;
                 }
                 if (this.mCurrentY > 0) {
@@ -860,16 +725,12 @@ public class LWWLVideo extends ViewGroup {
                 invalidate(this.mPlayerOuterRect);
                 this.mMixRect = null;
                 v_bgView = GONE;
-                v_metadataPanelView = GONE;
                 v_metadataView = GONE;
                 v_playerView = GONE;
                 v_views = VISIBLE;
             }
             this.mPlayerView.setVisibility(v_playerView);
             this.mMetadataView.setVisibility(v_metadataView);
-            if (this.mMetadataPanelView != null) {
-                this.mMetadataPanelView.setVisibility(v_metadataPanelView);
-            }
             this.mBgView.setVisibility(v_bgView);
         }
         for (Object mView : this.mViews) {
@@ -896,9 +757,6 @@ public class LWWLVideo extends ViewGroup {
     }
 
     private int getDurationMilis() {
-        if (isTablet()) {
-            return 400;
-        }
         return 350;
     }
 
@@ -931,7 +789,8 @@ public class LWWLVideo extends ViewGroup {
         return STATE_MAXIMIZED;
     }
 
-    private void autoState() {
+    @Suppress(names = "unused")
+    private void autoState(boolean smooth) {
         switch (getState()) {
             case STATE_HIDED:
                 slideTo(STATE_HIDED);
@@ -958,7 +817,7 @@ public class LWWLVideo extends ViewGroup {
             int i = 0;
             while (i < childCount) {
                 View childAt = getChildAt(i);
-                if (childAt != this.mPlayerView) {
+                if (!(childAt == this.mPlayerView || childAt.getVisibility() == GONE)) {
                     childAt.setLayerType(type, null);
                     childAt.destroyDrawingCache();
                 }
@@ -979,6 +838,7 @@ public class LWWLVideo extends ViewGroup {
         void WWL_maximized();
     }
 
+    @Suppress(names = "unused")
     static final class Orientation {
         public static final int LANDSCAPE;
         public static final int PORTRAIT;
@@ -1001,6 +861,7 @@ public class LWWLVideo extends ViewGroup {
         }
     }
 
+    @Suppress(names = "unused")
     static class DrawableHelper {
         public static Drawable get(Context context, int i) {
             return context.getDrawable(i);
@@ -1058,7 +919,7 @@ public class LWWLVideo extends ViewGroup {
         public final int scaledPagingTouchSlop;
         private final int a;
         private final int snapVelocity;
-        public LWWLVideo layout;
+        public LWWLMusic layout;
         public float eX;
         public float eY;
         public int pointerId;
@@ -1072,7 +933,7 @@ public class LWWLVideo extends ViewGroup {
             this(context, 200);
         }
 
-        public Tracker(LWWLVideo layout, Context context) {
+        public Tracker(LWWLMusic layout, Context context) {
             this(context, 400);
             this.layout = layout;
             this.fraction = 0.0f;
@@ -1124,7 +985,8 @@ public class LWWLVideo extends ViewGroup {
             return findPointerIndex;
         }
 
-        public final int calcDirection(MotionEvent motionEvent, int orientation) {
+        @Suppress(names = "unused")
+        public final int calcDirection(MotionEvent motionEvent, int orientation, boolean z) {
             int findPointerIndex = motionEvent.findPointerIndex(this.pointerId);
 
             if (findPointerIndex < 0) {
@@ -1179,9 +1041,9 @@ public class LWWLVideo extends ViewGroup {
     }
 
     static final class PlayerViewClickListener implements View.OnClickListener {
-        private final LWWLVideo mLayout;
+        private final LWWLMusic mLayout;
 
-        public PlayerViewClickListener(LWWLVideo layout) {
+        public PlayerViewClickListener(LWWLMusic layout) {
             this.mLayout = layout;
         }
 

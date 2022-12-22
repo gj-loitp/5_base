@@ -1,4 +1,4 @@
-package com.loitpcore.views.wwlVideo
+package com.loitp.views.wwl.video
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -21,7 +21,10 @@ class LWWLVideoFixedAspectRatioRelativeLayout : RelativeLayout {
     }
 
     @SuppressLint("CustomViewStyleable")
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         val typedArray =
             context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatioRelativeLayout)
         mAspectRatio = typedArray.getFraction(
@@ -33,7 +36,10 @@ class LWWLVideoFixedAspectRatioRelativeLayout : RelativeLayout {
         typedArray.recycle()
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         when (MeasureSpec.EXACTLY) {
             MeasureSpec.getMode(widthMeasureSpec) -> {
                 super.onMeasure(

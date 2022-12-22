@@ -7,9 +7,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivity
 import com.loitp.core.utilities.LAppResource
-import com.loitpcore.views.wwlMusic.utils.LWWLMusicUiUtil
-import com.loitpcore.views.wwlMusic.utils.LWWLMusicViewHelper
-import com.loitpcore.views.wwlVideo.LWWLVideo
+import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil
+import com.loitp.views.wwl.music.utils.LWWLMusicViewHelper
+import com.loitp.views.wwl.video.LWWLVideo
 import kotlinx.android.synthetic.main.wwl_video_activity.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.wwlVideo.detail.WWLVideoMetaInfoFragment

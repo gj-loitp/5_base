@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import com.loitpcore.views.wwlMusic.utils.LWWLMusicUiUtil.getGridColumnCount
+import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.getGridColumnCount
 import kotlinx.android.synthetic.main.wwl_music_home_fragment.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.wwlMusic.interfaces.FragmentHost

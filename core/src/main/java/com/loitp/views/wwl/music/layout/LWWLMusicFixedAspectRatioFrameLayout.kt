@@ -1,9 +1,9 @@
-package com.loitpcore.views.wwlMusic.layout
+package com.loitp.views.wwl.music.layout
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.RelativeLayout
+import android.widget.FrameLayout
 import com.loitpcore.R
 
 /**
@@ -13,7 +13,8 @@ import com.loitpcore.R
  * +840766040293
  * freuss47@gmail.com
  */
-class LWWLMusicFixedAspectRatioRelativeLayout : RelativeLayout {
+class LWWLMusicFixedAspectRatioFrameLayout : FrameLayout {
+
     private var mAspectRatio: Float
 
     constructor(context: Context) : super(context) {
@@ -21,13 +22,19 @@ class LWWLMusicFixedAspectRatioRelativeLayout : RelativeLayout {
     }
 
     @SuppressLint("CustomViewStyleable")
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatio)
         mAspectRatio = typedArray.getFraction(R.styleable.FixedAspectRatio_aspectRatio, 1, 1, 1.0f)
         typedArray.recycle()
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         when (MeasureSpec.EXACTLY) {
             MeasureSpec.getMode(widthMeasureSpec) -> {
                 super.onMeasure(
