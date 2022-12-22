@@ -17,7 +17,7 @@ import retrofit2.Response
 import vn.loitp.R
 import vn.loitp.a.api.retrofit2.AnswersAdapter.PostItemListener
 import vn.loitp.a.api.retrofit2.ApiUtils.Companion.sOService
-import vn.loitp.a.api.retrofit2.model.SOAnswersResponse
+import vn.loitp.a.api.retrofit2.md.SOAnswersResponse
 
 @LogTag("TestAPIRetrofit2Activity")
 @IsFullScreen(false)

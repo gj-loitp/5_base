@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.R
-import vn.loitp.a.api.retrofit2.model.Item
+import vn.loitp.a.api.retrofit2.md.Item
 
 class AnswersAdapter(
     private var mItems: List<Item>,

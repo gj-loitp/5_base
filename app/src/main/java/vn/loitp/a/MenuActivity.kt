@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_menu.lActionBar
 import vn.loitp.R
 import vn.loitp.a.anim.MenuAnimationActivity
 import vn.loitp.a.api.MenuAPIActivity
-import vn.loitp.a.customView.MenuCustomViewsActivity
+import vn.loitp.a.cv.MenuCustomViewsActivity
 import vn.loitp.app.activity.database.MenuDatabaseActivity
 import vn.loitp.app.activity.demo.MenuDemoActivity
 import vn.loitp.app.activity.function.MenuFunctionActivity
