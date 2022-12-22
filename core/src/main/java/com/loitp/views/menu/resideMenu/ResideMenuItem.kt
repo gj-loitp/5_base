@@ -1,14 +1,14 @@
-package com.loitpcore.views.menu.resideMenu
+package com.loitp.views.menu.resideMenu
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.loitpcore.R
 import com.loitp.core.utilities.LUIUtil.Companion.setTextShadow
 import com.loitp.core.utilities.LUIUtil.Companion.setTextSize
 import com.loitp.core.utils.ConvertUtils
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -27,14 +27,22 @@ class ResideMenuItem : LinearLayout {
     }
 
     @Suppress("unused")
-    constructor(context: Context, icon: Int, title: Int) : super(context) {
+    constructor(
+        context: Context,
+        icon: Int,
+        title: Int
+    ) : super(context) {
         initViews(context)
 
         ivIcon?.setImageResource(icon)
         tvTitle?.setText(title)
     }
 
-    constructor(context: Context, icon: Int, title: String?) : super(context) {
+    constructor(
+        context: Context,
+        icon: Int,
+        title: String?
+    ) : super(context) {
         initViews(context)
 
         ivIcon?.setImageResource(icon)
@@ -43,7 +51,7 @@ class ResideMenuItem : LinearLayout {
 
     private fun initViews(context: Context) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        inflater.inflate(R.layout.residemenu_item, this)
+        inflater.inflate(R.layout.v_residemenu_item, this)
 
         ivIcon = findViewById(R.id.ivIcon)
         tvTitle = findViewById(R.id.tvTitle)

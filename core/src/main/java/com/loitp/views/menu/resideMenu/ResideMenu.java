@@ -1,4 +1,4 @@
-package com.loitpcore.views.menu.resideMenu;
+package com.loitp.views.menu.resideMenu;
 
 import android.app.Activity;
 import android.content.Context;

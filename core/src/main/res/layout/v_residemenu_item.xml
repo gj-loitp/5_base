@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
@@ -12,7 +13,8 @@
         android:layout_width="@dimen/w_30"
         android:layout_height="@dimen/w_30"
         android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        tools:src="@drawable/ic_launcher" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
@@ -20,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/w_10"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/txt_medium" />
+        android:textSize="@dimen/txt_medium"
+        tools:text="@string/app_name" />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

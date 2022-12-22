@@ -1,4 +1,4 @@
-package com.loitpcore.views.menu.resideMenu
+package com.loitp.views.menu.resideMenu
 
 import android.content.Context
 import android.util.AttributeSet
@@ -31,7 +31,10 @@ internal class TouchDisableView @JvmOverloads constructor(
             addView(mContent)
         }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         val width = getDefaultSize(0, widthMeasureSpec)
         val height = getDefaultSize(0, heightMeasureSpec)
         setMeasuredDimension(width, height)
@@ -40,7 +43,13 @@ internal class TouchDisableView @JvmOverloads constructor(
         mContent?.measure(contentWidth, contentHeight)
     }
 
-    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        l: Int,
+        t: Int,
+        r: Int,
+        b: Int
+    ) {
         val width = r - l
         val height = b - t
         mContent?.layout(0, 0, width, height)
