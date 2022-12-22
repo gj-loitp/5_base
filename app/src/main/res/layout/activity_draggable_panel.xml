@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.layout.draggablePanel.DraggablePanel
+    <com.loitp.views.layout.draggablePanel.DraggablePanel
         android:id="@+id/draggablePanel"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

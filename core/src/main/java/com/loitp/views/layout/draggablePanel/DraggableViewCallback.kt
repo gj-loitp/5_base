@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.draggablePanel
+package com.loitp.views.layout.draggablePanel
 
 import android.view.View
 import androidx.customview.widget.ViewDragHelper

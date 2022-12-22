@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.draggablePanel;
+package com.loitp.views.layout.draggablePanel;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -15,9 +15,9 @@ import androidx.customview.widget.ViewDragHelper;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.loitp.views.layout.draggablePanel.transformer.Transformer;
+import com.loitp.views.layout.draggablePanel.transformer.TransformerFactory;
 import com.loitpcore.R;
-import com.loitpcore.views.layout.draggablePanel.transformer.Transformer;
-import com.loitpcore.views.layout.draggablePanel.transformer.TransformerFactory;
 import com.nineoldandroids.view.ViewHelper;
 
 import kotlin.Suppress;

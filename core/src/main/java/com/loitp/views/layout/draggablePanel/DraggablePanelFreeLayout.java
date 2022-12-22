@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.draggablePanelFree;
+package com.loitp.views.layout.draggablePanel;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,8 +11,8 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
-import com.loitpcore.R;
 import com.loitp.core.utilities.LLog;
+import com.loitpcore.R;
 
 import org.jetbrains.annotations.NotNull;
 

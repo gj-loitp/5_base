@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.draggablePanel;
+package com.loitp.views.layout.draggablePanel;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -258,7 +258,7 @@ public class DraggablePanel extends FrameLayout {
         checkFragmentConsistency();
         checkSupportFragmentManagerConsistency();
 
-        inflate(getContext(), R.layout.l_draggable_panel, this);
+        inflate(getContext(), R.layout.l_v_draggable_panel, this);
         draggableView = findViewById(R.id.draggableView);
         draggableView.setTopViewHeight(topFragmentHeight);
         draggableView.setFragmentManager(fragmentManager);

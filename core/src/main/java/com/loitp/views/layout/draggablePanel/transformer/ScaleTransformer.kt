@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.draggablePanel.transformer
+package com.loitp.views.layout.draggablePanel.transformer
 
 import android.view.View
 import com.nineoldandroids.view.ViewHelper

@@ -1,4 +1,4 @@
-package com.loitpcore.views.layout.draggablePanel
+package com.loitp.views.layout.draggablePanel
 
 /**
  * Listener created to be notified when some drag actions are performed over DraggablePanel or

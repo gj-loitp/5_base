@@ -56,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.layout.draggablePanelFree.DraggablePanelFreeLayout
+    <com.loitp.views.layout.draggablePanel.DraggablePanelFreeLayout
         android:id="@+id/dpfl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -87,5 +87,5 @@
                 android:textColor="@color/red" />
         </androidx.core.widget.NestedScrollView>
 
-    </com.loitpcore.views.layout.draggablePanelFree.DraggablePanelFreeLayout>
+    </com.loitp.views.layout.draggablePanel.DraggablePanelFreeLayout>
 </RelativeLayout>
