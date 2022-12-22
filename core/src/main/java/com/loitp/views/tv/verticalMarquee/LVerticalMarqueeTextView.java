@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.verticalMarquee;
+package com.loitp.views.tv.verticalMarquee;
 
 import android.content.Context;
 import android.content.res.TypedArray;

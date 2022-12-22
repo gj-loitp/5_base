@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.typeWriter
+package com.loitp.views.tv.typeWriter
 
 import android.content.Context
 import android.os.Handler

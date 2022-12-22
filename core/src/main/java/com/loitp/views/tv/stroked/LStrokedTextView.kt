@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.stroked
+package com.loitp.views.tv.stroked
 
 import android.content.Context
 import android.graphics.Canvas
@@ -22,11 +22,18 @@ class LStrokedTextView : AppCompatTextView {
     //region Constructors
 
     constructor(ctx: Context) : super(ctx, null)
-    constructor(ctx: Context, attr: AttributeSet?) : super(ctx, attr, 0) {
+    constructor(
+        ctx: Context,
+        attr: AttributeSet?
+    ) : super(ctx, attr, 0) {
         getStyledAttributes(attr)
     }
 
-    constructor(ctx: Context, attr: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        ctx: Context,
+        attr: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         ctx,
         attr,
         defStyleAttr
@@ -66,7 +73,10 @@ class LStrokedTextView : AppCompatTextView {
         }
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         // Just grabbing the width for static layout
         setPadding(
             paddingStart + strokeWidth.toInt() / 2,

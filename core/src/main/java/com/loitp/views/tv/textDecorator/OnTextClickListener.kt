@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.textDecorator
+package com.loitp.views.tv.textDecorator
 
 import android.view.View
 
@@ -10,5 +10,8 @@ import android.view.View
  * freuss47@gmail.com
  */
 interface OnTextClickListener {
-    fun onClick(view: View, text: String)
+    fun onClick(
+        view: View,
+        text: String
+    )
 }

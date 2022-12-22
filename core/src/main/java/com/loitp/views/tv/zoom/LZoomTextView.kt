@@ -1,4 +1,4 @@
-package com.loitpcore.views.textView.zoom
+package com.loitp.views.tv.zoom
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -28,11 +28,18 @@ class LZoomTextView : AppCompatTextView {
         initialize()
     }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet
+    ) : super(context, attrs) {
         initialize()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -70,7 +77,7 @@ class LZoomTextView : AppCompatTextView {
     private inner class ScaleListener : ScaleGestureDetector.SimpleOnScaleGestureListener() {
         override fun onScale(detector: ScaleGestureDetector): Boolean {
             mScaleFactor *= detector.scaleFactor
-            mScaleFactor = max(1.0f, min(mScaleFactor, zoomLimit))
+            mScaleFactor = max(a = 1.0f, b = min(mScaleFactor, zoomLimit))
             setTextSize(TypedValue.COMPLEX_UNIT_PX, defaultSize * mScaleFactor)
             return true
         }

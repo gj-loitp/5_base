@@ -6,8 +6,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import com.loitpcore.views.textView.textDecorator.LTextDecorator
-import com.loitpcore.views.textView.textDecorator.OnTextClickListener
+import com.loitp.views.tv.textDecorator.LTextDecorator
+import com.loitp.views.tv.textDecorator.OnTextClickListener
 import kotlinx.android.synthetic.main.activity_text_view_text_decorator.*
 import vn.loitp.app.R
 
