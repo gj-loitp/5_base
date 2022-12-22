@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar
+package vn.loitp.activity.customView.bottomBar.expandable
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,10 +13,10 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_showcase.*
 import kotlinx.android.synthetic.main.activity_showcase.lActionBar
-import vn.loitp.app.R
 import vn.loitp.activity.EmptyActivity
-import vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.*
-import vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.navigation.NavigationComponentActivity
+import vn.loitp.activity.customView.bottomBar.expandable.screens.*
+import vn.loitp.activity.customView.bottomBar.expandable.screens.navigation.NavigationComponentActivity
+import vn.loitp.app.R
 
 @LogTag("ShowCaseActivity")
 @IsFullScreen(false)

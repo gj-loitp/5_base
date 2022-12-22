@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar
+package vn.loitp.activity.customView.bottomBar.expandable
 
 data class ShowCaseInfo(
     val title: String, val description: String, val toClass: Class<*>

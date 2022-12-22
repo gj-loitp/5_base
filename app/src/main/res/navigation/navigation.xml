@@ -6,19 +6,19 @@
 
     <fragment
         android:id="@+id/fragment1"
-        android:name="vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.navigation.FirstFragment"
+        android:name="vn.loitp.activity.customView.bottomBar.expandable.screens.navigation.FirstFragment"
         android:label="Fragment 1"
         tools:layout="@layout/fragment_one" />
 
     <fragment
         android:id="@+id/fragment2"
-        android:name="vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.navigation.SecondFragment"
+        android:name="vn.loitp.activity.customView.bottomBar.expandable.screens.navigation.SecondFragment"
         android:label="Fragment 2"
         tools:layout="@layout/fragment_two" />
 
     <fragment
         android:id="@+id/fragment3"
-        android:name="vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.navigation.ThirdFragment"
+        android:name="vn.loitp.activity.customView.bottomBar.expandable.screens.navigation.ThirdFragment"
         android:label="Fragment 3"
         tools:layout="@layout/fragment_three" />
 

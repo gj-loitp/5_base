@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens
+package vn.loitp.activity.customView.bottomBar.expandable.screens
 
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen

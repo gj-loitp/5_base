@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar
+package vn.loitp.activity.customView.bottomBar.expandable
 
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater

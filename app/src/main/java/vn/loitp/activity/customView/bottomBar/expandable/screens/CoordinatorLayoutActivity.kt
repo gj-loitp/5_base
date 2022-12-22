@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens
+package vn.loitp.activity.customView.bottomBar.expandable.screens
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -22,9 +22,12 @@ class CoordinatorLayoutActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Meow", Snackbar.LENGTH_LONG).show()
         }
     }
-
 }

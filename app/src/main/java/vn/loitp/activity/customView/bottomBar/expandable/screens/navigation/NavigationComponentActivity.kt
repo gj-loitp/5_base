@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.bottomBar.expandableBottomBar.screens.navigation
+package vn.loitp.activity.customView.bottomBar.expandable.screens.navigation
 
 import android.os.Bundle
 import androidx.navigation.Navigation

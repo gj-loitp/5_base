@@ -100,7 +100,7 @@
             android:name="vn.loitp.activity.customView.bottomBar.MenuBottomNavigationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomBar.bottombar.BottomBarActivity"
+            android:name="vn.loitp.activity.customView.bottomBar.bottomBar.BottomBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.textview.countDown.CountDownActivity"
@@ -1304,31 +1304,31 @@
             android:name=".activity.customviews.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomBar.expandableBottomBar.ShowCaseActivity"
+            android:name="vn.loitp.activity.customView.bottomBar.expandable.ShowCaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomBar.expandableBottomBar.screens.JavaActivity"
+            android:name="vn.loitp.activity.customView.bottomBar.expandable.screens.JavaActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomBar.expandableBottomBar.screens.XmlDeclaredActivity"
+            android:name="vn.loitp.activity.customView.bottomBar.expandable.screens.XmlDeclaredActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomBar.expandableBottomBar.screens.ProgrammaticallyCreatedDemoActivity"
+            android:name="vn.loitp.activity.customView.bottomBar.expandable.screens.ProgrammaticallyCreatedDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomBar.expandableBottomBar.screens.CoordinatorLayoutActivity"
+            android:name="vn.loitp.activity.customView.bottomBar.expandable.screens.CoordinatorLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomBar.expandableBottomBar.screens.ScrollableCoordinatorLayoutActivity"
+            android:name="vn.loitp.activity.customView.bottomBar.expandable.screens.ScrollableCoordinatorLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomBar.expandableBottomBar.screens.navigation.NavigationComponentActivity"
+            android:name="vn.loitp.activity.customView.bottomBar.expandable.screens.navigation.NavigationComponentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomBar.expandableBottomBar.screens.StylesActivity"
+            android:name="vn.loitp.activity.customView.bottomBar.expandable.screens.StylesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.bottomBar.expandableBottomBar.screens.NotificationBadgeActivity"
+            android:name="vn.loitp.activity.customView.bottomBar.expandable.screens.NotificationBadgeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name="vn.loitp.activity.anim.animatedStarsView.AnimatedStarsViewActivity"
