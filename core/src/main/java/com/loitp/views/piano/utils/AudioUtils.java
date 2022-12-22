@@ -1,4 +1,4 @@
-package com.loitpcore.views.piano.utils;
+package com.loitp.views.piano.utils;
 
 import android.content.Context;
 import android.media.AudioAttributes;
@@ -9,10 +9,10 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.SparseIntArray;
 
-import com.loitpcore.views.piano.entity.Piano;
-import com.loitpcore.views.piano.entity.PianoKey;
-import com.loitpcore.views.piano.listener.LoadAudioMessage;
-import com.loitpcore.views.piano.listener.OnLoadAudioListener;
+import com.loitp.views.piano.entity.Piano;
+import com.loitp.views.piano.entity.PianoKey;
+import com.loitp.views.piano.listener.LoadAudioMessage;
+import com.loitp.views.piano.listener.OnLoadAudioListener;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;

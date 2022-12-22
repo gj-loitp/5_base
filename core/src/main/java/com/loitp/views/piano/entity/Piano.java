@@ -1,4 +1,4 @@
-package com.loitpcore.views.piano.entity;
+package com.loitp.views.piano.entity;
 
 import android.content.Context;
 import android.graphics.Rect;

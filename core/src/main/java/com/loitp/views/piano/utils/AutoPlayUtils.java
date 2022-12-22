@@ -1,12 +1,12 @@
-package com.loitpcore.views.piano.utils;
+package com.loitp.views.piano.utils;
 
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.loitpcore.views.piano.entity.AutoPlayEntity;
-import com.loitpcore.views.piano.entity.Piano;
+import com.loitp.views.piano.entity.AutoPlayEntity;
+import com.loitp.views.piano.entity.Piano;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

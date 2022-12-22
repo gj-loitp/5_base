@@ -1,4 +1,4 @@
-package com.loitpcore.views.piano.listener
+package com.loitp.views.piano.listener
 
 /**
  * Created by Loitp on 27.09.2022

@@ -1,4 +1,4 @@
-package com.loitpcore.views.piano.view;
+package com.loitp.views.piano.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -20,13 +20,13 @@ import android.view.View;
 import androidx.core.content.ContextCompat;
 
 import com.loitpcore.R;
-import com.loitpcore.views.piano.entity.AutoPlayEntity;
-import com.loitpcore.views.piano.entity.Piano;
-import com.loitpcore.views.piano.entity.PianoKey;
-import com.loitpcore.views.piano.listener.OnLoadAudioListener;
-import com.loitpcore.views.piano.listener.OnPianoAutoPlayListener;
-import com.loitpcore.views.piano.listener.OnPianoListener;
-import com.loitpcore.views.piano.utils.AudioUtils;
+import com.loitp.views.piano.entity.AutoPlayEntity;
+import com.loitp.views.piano.entity.Piano;
+import com.loitp.views.piano.entity.PianoKey;
+import com.loitp.views.piano.listener.OnLoadAudioListener;
+import com.loitp.views.piano.listener.OnPianoAutoPlayListener;
+import com.loitp.views.piano.listener.OnPianoListener;
+import com.loitp.views.piano.utils.AudioUtils;
 
 import java.util.ArrayList;
 import java.util.List;

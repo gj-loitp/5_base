@@ -1,4 +1,4 @@
-package com.loitpcore.views.piano.utils;
+package com.loitp.views.piano.utils;
 
 import android.text.TextUtils;
 

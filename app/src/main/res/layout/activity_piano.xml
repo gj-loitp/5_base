@@ -45,10 +45,10 @@
             android:background="@drawable/music" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <com.loitpcore.views.piano.view.PianoView
+    <com.loitp.views.piano.view.PianoView
         android:id="@+id/pv"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.loitpcore.views.piano.view.PianoView>
+    </com.loitp.views.piano.view.PianoView>
 </androidx.appcompat.widget.LinearLayoutCompat>
