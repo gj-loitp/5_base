@@ -1,4 +1,4 @@
-package com.loitpcore.views.progressLoadingView.circular;
+package com.loitp.views.loading.circular;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;

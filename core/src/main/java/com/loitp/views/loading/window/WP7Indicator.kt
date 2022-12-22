@@ -1,4 +1,4 @@
-package com.loitpcore.views.progressLoadingView.window
+package com.loitp.views.loading.window
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
@@ -7,7 +7,7 @@ import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.view.View
 import android.widget.LinearLayout
-import com.loitpcore.views.progressLoadingView.window.Utils.px2dp
+import com.loitp.views.loading.window.Utils.px2dp
 
 /**
  * Created by Loitp on 04,August,2022
@@ -30,7 +30,10 @@ internal class WP7Indicator(
         initialize(indicatorHeight = indicatorHeight, radius = radius)
     }
 
-    private fun initialize(indicatorHeight: Int, radius: Int) {
+    private fun initialize(
+        indicatorHeight: Int,
+        radius: Int
+    ) {
         this.background = getCube(radius)
         val lp = LinearLayout.LayoutParams(
             px2dp(context = context, px = indicatorHeight),
@@ -50,7 +53,10 @@ internal class WP7Indicator(
         return drawable
     }
 
-    fun startAnim(animationDuration: Long, delay: Long) {
+    fun startAnim(
+        animationDuration: Long,
+        delay: Long
+    ) {
         objectAnimator = ObjectAnimator.ofFloat(this, "translationX", +1000f, -1000f)
         objectAnimator?.apply {
             interpolator = WPInterpolator()

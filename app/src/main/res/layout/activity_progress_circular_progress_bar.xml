@@ -24,7 +24,7 @@
             android:orientation="vertical"
             android:paddingTop="@dimen/w_65">
 
-            <com.loitpcore.views.progressLoadingView.circular.LCircularProgressBar
+            <com.loitp.views.loading.circular.LCircularProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_150"
@@ -43,7 +43,7 @@
                 app:progressAnimationDuration="100"
                 app:startAngle="270" />
 
-            <com.loitpcore.views.progressLoadingView.circular.LCircularProgressBar
+            <com.loitp.views.loading.circular.LCircularProgressBar
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/w_10"
@@ -62,7 +62,7 @@
                 app:progressAnimationDuration="100"
                 app:startAngle="270" />
 
-            <com.loitpcore.views.progressLoadingView.circular.LCircularProgressBar
+            <com.loitp.views.loading.circular.LCircularProgressBar
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/w_10"

@@ -1,13 +1,16 @@
-package com.loitpcore.views.progressLoadingView.window
+package com.loitp.views.loading.window
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
 import android.view.Gravity
-import android.widget.RelativeLayout
-import com.loitpcore.R
+import android.view.animation.LinearInterpolator
+import android.widget.LinearLayout
 import com.loitp.core.utilities.LAppResource.getColor
+import com.loitpcore.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -16,13 +19,13 @@ import com.loitp.core.utilities.LAppResource.getColor
  * +840766040293
  * freuss47@gmail.com
  */
-class WP10ProgressBar : RelativeLayout {
+class WP7ProgressBar : LinearLayout {
 
     companion object {
         private const val INTERVAL_DEF = 150
         private const val INDICATOR_COUNT_DEF = 5
-        private const val ANIMATION_DURATION_DEF = 1800
-        private const val INDICATOR_HEIGHT_DEF = 7
+        private const val ANIMATION_DURATION_DEF = 2200
+        private const val INDICATOR_HEIGHT_DEF = 5
         private const val INDICATOR_RADIUS_DEF = 0
     }
 
@@ -32,19 +35,27 @@ class WP10ProgressBar : RelativeLayout {
     private var indicatorColor = 0
     private var indicatorRadius = 0
     private var isShowing = false
-    private var listWP10Indicators: ArrayList<WP10Indicator>? = null
+    private var listWP7Indicators: ArrayList<WP7Indicator>? = null
     private var mHandler: Handler? = null
     private var progressBarCount = 0
+    private var objectAnimator: ObjectAnimator? = null
 
     constructor(context: Context) : super(context) {
         initialize(null)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         initialize(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -54,14 +65,14 @@ class WP10ProgressBar : RelativeLayout {
 
     private fun initialize(attrs: AttributeSet?) {
         this.gravity = Gravity.CENTER
+        this.orientation = HORIZONTAL
         mHandler = Handler(Looper.getMainLooper())
-        this.rotation = -25f
         setAttributes(attrs)
         initializeIndicators()
     }
 
     private fun setAttributes(attributeSet: AttributeSet?) {
-        val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.WP10ProgressBar)
+        val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.WP7ProgressBar)
         interval = typedArray.getInt(R.styleable.WP7ProgressBar_wpInterval, INTERVAL_DEF)
         animationDuration = typedArray.getInt(
             R.styleable.WP7ProgressBar_wpAnimationDuration,
@@ -79,7 +90,7 @@ class WP10ProgressBar : RelativeLayout {
     }
 
     private fun showAnimation() {
-        listWP10Indicators?.let {
+        listWP7Indicators?.let {
             for (i in it.indices) {
                 it[i].startAnim(
                     animationDuration = animationDuration.toLong(),
@@ -91,23 +102,24 @@ class WP10ProgressBar : RelativeLayout {
 
     private fun initializeIndicators() {
         removeAllViews()
-        val wP10Indicators = ArrayList<WP10Indicator>()
+        val list = ArrayList<WP7Indicator>()
         for (i in 0 until INDICATOR_COUNT_DEF) {
-            val wp10Indicator = WP10Indicator(
+            val wP7Indicator = WP7Indicator(
                 context = context,
                 indicatorHeight = indicatorHeight,
                 color = indicatorColor,
-                radius = indicatorRadius,
-                number = i
+                radius = indicatorRadius
             )
-            wP10Indicators.add(wp10Indicator)
-            this.addView(wp10Indicator)
+            list.add(wP7Indicator)
+            this.addView(wP7Indicator)
         }
-        listWP10Indicators = wP10Indicators
+        listWP7Indicators = list
     }
 
     private fun show() {
-        if (isShowing) return
+        if (isShowing) {
+            return
+        }
         isShowing = true
         showAnimation()
     }
@@ -117,8 +129,29 @@ class WP10ProgressBar : RelativeLayout {
         isShowing = false
     }
 
+    @Suppress("unused")
+    private fun startWholeViewAnimation() {
+        objectAnimator = ObjectAnimator.ofFloat(this, "translationX", -200f, 200f)
+        objectAnimator?.apply {
+            interpolator = LinearInterpolator()
+            duration = (animationDuration + 5 * interval).toLong()
+            repeatMode = ValueAnimator.RESTART
+            repeatCount = ValueAnimator.INFINITE
+            start()
+        }
+    }
+
+    @Suppress("unused")
+    private fun hideWholeViewAnimation() {
+        objectAnimator?.apply {
+            removeAllListeners()
+            cancel()
+            end()
+        }
+    }
+
     private fun clearIndicatorsAnimations() {
-        listWP10Indicators?.forEach {
+        listWP7Indicators?.forEach {
             it.removeAnim()
         }
     }
@@ -165,6 +198,7 @@ class WP10ProgressBar : RelativeLayout {
         initializeIndicators()
     }
 
+    @Suppress("unused")
     fun setIndicatorRadius(indicatorRadius: Int) {
         this.indicatorRadius = indicatorRadius
         initializeIndicators()

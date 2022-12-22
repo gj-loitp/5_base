@@ -15,7 +15,7 @@ import androidx.viewpager.widget.ViewPager
 import com.daimajia.androidanimations.library.Techniques
 import com.loitpcore.R
 import com.loitp.views.dlg.slideImages.LSlideAdapter
-import com.loitpcore.views.progressLoadingView.window.WP10ProgressBar
+import com.loitp.views.loading.window.WP10ProgressBar
 
 /**
  * Created by Loitp on 04,August,2022

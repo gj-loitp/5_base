@@ -1,6 +1,6 @@
-package com.loitpcore.views.progressLoadingView.circularProgressIndicator
+package com.loitp.views.loading.circularProgressIndicator
 
-import com.loitpcore.views.progressLoadingView.circularProgressIndicator.CircularProgressIndicator.ProgressTextAdapter
+import com.loitp.views.loading.circularProgressIndicator.CircularProgressIndicator.ProgressTextAdapter
 
 /**
  * Created by Loitp on 04,August,2022

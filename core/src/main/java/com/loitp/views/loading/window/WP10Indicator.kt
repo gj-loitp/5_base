@@ -1,4 +1,4 @@
-package com.loitpcore.views.progressLoadingView.window
+package com.loitp.views.loading.window
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
@@ -7,7 +7,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.Gravity
 import android.widget.RelativeLayout
-import com.loitpcore.views.progressLoadingView.window.Utils.px2dp
+import com.loitp.views.loading.window.Utils.px2dp
 
 /**
  * Created by Loitp on 04,August,2022
@@ -37,7 +37,12 @@ class WP10Indicator(
         )
     }
 
-    private fun initialize(indicatorHeight: Int, color: Int, radius: Int, number: Int) {
+    private fun initialize(
+        indicatorHeight: Int,
+        color: Int,
+        radius: Int,
+        number: Int
+    ) {
         this.number = number
         val base10Indicator = Base10Indicator(context, indicatorHeight, color, radius)
         val lp = LayoutParams(
@@ -52,7 +57,10 @@ class WP10Indicator(
         this.alpha = 0f
     }
 
-    fun startAnim(animationDuration: Long, delay: Long) {
+    fun startAnim(
+        animationDuration: Long,
+        delay: Long
+    ) {
         objectAnimator = ObjectAnimator.ofFloat(
             this,
             "rotation",

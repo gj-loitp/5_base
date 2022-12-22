@@ -27,7 +27,7 @@
             android:paddingEnd="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
-            <com.loitpcore.views.progressLoadingView.circularProgressIndicator.CircularProgressIndicator
+            <com.loitp.views.loading.circularProgressIndicator.CircularProgressIndicator
                 android:id="@+id/circularProgress"
                 android:layout_width="200dp"
                 android:layout_height="200dp"

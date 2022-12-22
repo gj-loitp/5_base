@@ -1,4 +1,4 @@
-package com.loitpcore.views.progressLoadingView.window
+package com.loitp.views.loading.window
 
 import android.view.animation.Interpolator
 import kotlin.math.pow

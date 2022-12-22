@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <com.loitpcore.views.progressLoadingView.window.WP7ProgressBar
+    <com.loitp.views.loading.window.WP7ProgressBar
         android:id="@+id/wp7progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         app:wpIndicatorRadius="5"
         app:wpInterval="100" />
 
-    <com.loitpcore.views.progressLoadingView.window.WP10ProgressBar
+    <com.loitp.views.loading.window.WP10ProgressBar
         android:id="@+id/wp10progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

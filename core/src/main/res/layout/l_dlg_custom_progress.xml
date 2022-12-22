@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:background="@color/red">
 
-    <com.loitpcore.views.progressLoadingView.window.WP10ProgressBar
+    <com.loitp.views.loading.window.WP10ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
