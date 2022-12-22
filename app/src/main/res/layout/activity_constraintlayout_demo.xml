@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
-    tools:context="vn.loitp.app.a.customviews.layout.constraintLayout.demo.ConstraintLayoutDemoActivity">
+    tools:context="vn.loitp.app.a.cv.layout.constraintLayout.demo.ConstraintLayoutDemoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ll"

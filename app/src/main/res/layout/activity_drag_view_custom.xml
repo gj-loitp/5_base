@@ -57,7 +57,7 @@
         android:layout_height="match_parent"
         android:background="#000" />
 
-    <vn.loitp.app.a.customviews.dragView.custom.DragSource
+    <vn.loitp.app.a.cv.dragView.custom.DragSource
         android:id="@+id/dragView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

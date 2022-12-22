@@ -33,20 +33,20 @@
 
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/frmPlayer"
-                    android:name="vn.loitp.app.a.customviews.wwlVideo.detail.WWLVideoPlayerFragment"
+                    android:name="vn.loitp.app.a.cv.wwlVideo.detail.WWLVideoPlayerFragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </FrameLayout>
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/frmUpNext"
-                android:name="vn.loitp.app.a.customviews.wwlVideo.detail.WWLVideoUpNextFragment"
+                android:name="vn.loitp.app.a.cv.wwlVideo.detail.WWLVideoUpNextFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/frmMetaInfo"
-                android:name="vn.loitp.app.a.customviews.wwlVideo.detail.WWLVideoMetaInfoFragment"
+                android:name="vn.loitp.app.a.cv.wwlVideo.detail.WWLVideoMetaInfoFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
