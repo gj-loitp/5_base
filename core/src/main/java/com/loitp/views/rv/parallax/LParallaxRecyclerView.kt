@@ -20,7 +20,10 @@ class LParallaxRecyclerView @JvmOverloads constructor(
     attrs: AttributeSet? = null
 ) : RecyclerView(context, attrs) {
 
-    private fun dp2px(context: Context, dipValue: Float): Int {
+    private fun dp2px(
+        context: Context,
+        dipValue: Float
+    ): Int {
         val scale = context.resources.displayMetrics.density
         return (dipValue * scale + 0.5f).toInt()
     }

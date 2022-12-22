@@ -33,7 +33,11 @@ class StickyFooterItemDecoration : ItemDecoration() {
         }
     }
 
-    private fun calculateTopOffset(parent: RecyclerView, footerView: View, itemCount: Int): Int {
+    private fun calculateTopOffset(
+        parent: RecyclerView,
+        footerView: View,
+        itemCount: Int
+    ): Int {
         val topOffset = (
                 parent.height -
                         parent.paddingTop -
@@ -69,7 +73,10 @@ class StickyFooterItemDecoration : ItemDecoration() {
         return totalHeight + footerHeight
     }
 
-    private fun fixLayoutSize(view: View, parent: ViewGroup) {
+    private fun fixLayoutSize(
+        view: View,
+        parent: ViewGroup
+    ) {
         // Check if the view has a layout parameter and if it does not create one for it
         if (view.layoutParams == null) {
             view.layoutParams = ViewGroup.LayoutParams(
