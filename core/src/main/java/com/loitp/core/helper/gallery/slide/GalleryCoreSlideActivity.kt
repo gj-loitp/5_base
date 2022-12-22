@@ -6,7 +6,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
-import com.loitpcore.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
@@ -14,7 +13,8 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitp.core.utilities.LSocialUtil
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_slide.*
+import com.loitpcore.R
+import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_slide.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_slide.*
 class GalleryCoreSlideActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_slide
+        return R.layout.l_a_flickr_gallery_core_slide
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

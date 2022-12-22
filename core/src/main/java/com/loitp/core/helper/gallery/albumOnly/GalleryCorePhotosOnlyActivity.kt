@@ -30,7 +30,7 @@ import com.permissionx.guolindev.PermissionX
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
+import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_photos_only.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -55,7 +55,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     private var photosSize: Int = 0
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_photos_only
+        return R.layout.l_a_flickr_gallery_core_photos_only
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

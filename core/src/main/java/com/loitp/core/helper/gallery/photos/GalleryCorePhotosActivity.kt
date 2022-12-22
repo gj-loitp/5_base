@@ -24,7 +24,7 @@ import com.loitp.views.layout.swipeBack.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos.*
+import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_photos.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -43,7 +43,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
     private var photoSetID: String? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_photos
+        return R.layout.l_a_flickr_gallery_core_photos
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -10,7 +10,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.loitpcore.R
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
@@ -24,11 +23,12 @@ import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
 import com.loitp.restApi.restClient.RestClient
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
+import com.loitpcore.R
 import com.permissionx.guolindev.PermissionX
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
+import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_photos_only.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -48,7 +48,7 @@ class GalleryMemberActivity : BaseFontActivity() {
     private var photosSize: Int = 0
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_photos_only
+        return R.layout.l_a_flickr_gallery_core_photos_only
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -24,7 +24,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_album.*
+import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_album.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -42,7 +42,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     private var listRemoveAlbum = ArrayList<String>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_album
+        return R.layout.l_a_flickr_gallery_core_album
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

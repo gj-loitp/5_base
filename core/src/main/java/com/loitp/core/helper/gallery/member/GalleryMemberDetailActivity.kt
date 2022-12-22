@@ -7,7 +7,6 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.loitpcore.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
@@ -16,8 +15,9 @@ import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
+import com.loitpcore.R
 import jp.wasabeef.glide.transformations.BlurTransformation
-import kotlinx.android.synthetic.main.l_activity_flickr_member_detail.*
+import kotlinx.android.synthetic.main.l_a_flickr_member_detail.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -36,7 +36,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_member_detail
+        return R.layout.l_a_flickr_member_detail
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

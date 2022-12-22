@@ -5,7 +5,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import com.loitpcore.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
@@ -14,10 +13,11 @@ import com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.restApi.restClient.RestClient
 import com.loitp.core.utils.AppUtils
+import com.loitp.restApi.restClient.RestClient
+import com.loitpcore.R
 import com.permissionx.guolindev.PermissionX
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
+import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_splash.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -32,7 +32,7 @@ import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
 class GalleryCoreSplashActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_splash
+        return R.layout.l_a_flickr_gallery_core_splash
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

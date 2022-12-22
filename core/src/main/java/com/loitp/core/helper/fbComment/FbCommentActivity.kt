@@ -22,7 +22,7 @@ import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import com.loitpcore.BuildConfig
 import com.loitpcore.R
-import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*
+import kotlinx.android.synthetic.main.l_a_fb_cmt_core.*
 import kotlinx.android.synthetic.main.v_l_edit_text.view.*
 
 /**
@@ -46,7 +46,7 @@ class FbCommentActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_fb_cmt_core
+        return R.layout.l_a_fb_cmt_core
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

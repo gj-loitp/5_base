@@ -27,7 +27,6 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LReaderUtil.Companion.defaultCover
 import com.loitp.core.utils.ConvertUtils
-import com.loitpcore.R
 import com.loitp.func.epub.BookSection
 import com.loitp.func.epub.Reader
 import com.loitp.func.epub.core.PageFragment.OnFragmentReadyListener
@@ -37,7 +36,8 @@ import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.model.BookInfoData
 import com.loitp.func.epub.viewmodels.EpubViewModel
 import com.loitp.views.wv.LWebViewAdblock
-import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
+import com.loitpcore.R
+import kotlinx.android.synthetic.main.l_a_epub_reader_read.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -63,7 +63,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     private var epubViewModel: EpubViewModel? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_epub_reader_read
+        return R.layout.l_a_epub_reader_read
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
