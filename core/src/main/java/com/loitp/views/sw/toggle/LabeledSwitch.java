@@ -1,4 +1,4 @@
-package com.loitpcore.views.switchToggle.toggle;
+package com.loitp.views.sw.toggle;
 
 import android.animation.ValueAnimator;
 import android.content.Context;

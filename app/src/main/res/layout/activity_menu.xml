@@ -27,7 +27,7 @@
             android:paddingTop="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
-            <com.loitpcore.views.switchToggle.appcompatSwitch.LColorSwitchCompat
+            <com.loitp.views.sw.appcompatSw.LColorSwitchCompat
                 android:id="@+id/swDarkTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

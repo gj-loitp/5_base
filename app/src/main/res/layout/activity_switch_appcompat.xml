@@ -30,7 +30,7 @@
             android:orientation="vertical"
             android:padding="@dimen/margin_padding_medium">
 
-            <com.loitpcore.views.switchToggle.appcompatSwitch.LColorSwitchCompat
+            <com.loitp.views.sw.appcompatSw.LColorSwitchCompat
                 android:id="@+id/sw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

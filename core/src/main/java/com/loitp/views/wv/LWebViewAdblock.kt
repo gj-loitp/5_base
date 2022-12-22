@@ -1,4 +1,4 @@
-package com.loitpcore.views.wv
+package com.loitp.views.wv
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -49,7 +49,11 @@ class LWebViewAdblock : AdblockWebView {
         attrs: AttributeSet
     ) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet,
+        defStyle: Int
+    ) : super(
         context,
         attrs,
         defStyle

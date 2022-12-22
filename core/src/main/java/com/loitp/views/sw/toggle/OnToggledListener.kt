@@ -1,4 +1,4 @@
-package com.loitpcore.views.switchToggle.toggle
+package com.loitp.views.sw.toggle
 
 /**
  * Created by Loitp on 04,August,2022

@@ -1,4 +1,4 @@
-package com.loitpcore.views.switchToggle.appcompatSwitch
+package com.loitp.views.sw.appcompatSw
 
 import android.content.Context
 import android.graphics.Color
