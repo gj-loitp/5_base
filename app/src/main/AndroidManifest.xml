@@ -198,7 +198,7 @@
             android:name=".activity.customviews.popupMenu.PopupMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.actionbar.MenuActionBarActivity"
+            android:name="vn.loitp.activity.customView.actionBar.MenuActionBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity android:name=".activity.demo.alarmDemo.activity.AlarmMeActivity">
             <!--
@@ -261,7 +261,7 @@
             android:name="vn.loitp.activity.anim.activityTransition.Animation2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.actionbar.collapsingToolbarLayout.CollapsingToolbarLayoutActivity"
+            android:name="vn.loitp.activity.customView.actionBar.collapsingToolbarLayout.CollapsingToolbarLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -275,7 +275,7 @@
             android:name=".activity.customviews.edittext.autoResize.AutoResizeEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.actionbar.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivity"
+            android:name="vn.loitp.activity.customView.actionBar.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity

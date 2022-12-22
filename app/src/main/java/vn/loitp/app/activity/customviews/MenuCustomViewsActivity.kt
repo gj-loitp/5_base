@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_custom_view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.actionbar.MenuActionBarActivity
+import vn.loitp.activity.customView.actionBar.MenuActionBarActivity
 import vn.loitp.app.activity.customviews.answerView.AnswerViewActivity
 import vn.loitp.app.activity.customviews.bottomBar.MenuBottomNavigationActivity
 import vn.loitp.app.activity.customviews.bottomSheet.MenuBottomSheetActivity

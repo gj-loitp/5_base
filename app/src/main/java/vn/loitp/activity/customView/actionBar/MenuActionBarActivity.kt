@@ -1,18 +1,16 @@
-package vn.loitp.app.activity.customviews.actionbar
+package vn.loitp.activity.customView.actionBar
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_action_bar.*
+import vn.loitp.activity.customView.actionBar.collapsingToolbarLayout.CollapsingToolbarLayoutActivity
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.actionbar.collapsingToolbarLayout.CollapsingToolbarLayoutActivity
-import vn.loitp.app.activity.customviews.actionbar.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivity
+import vn.loitp.activity.customView.actionBar.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivity
 import vn.loitp.app.activity.customviews.actionbar.lActionbar.LActionbarActivity
 import vn.loitp.app.activity.customviews.actionbar.navigationView.NavigationViewActivity
 import vn.loitp.app.activity.customviews.actionbar.navigationViewWithText.NavigationViewWithTextActivity
@@ -51,22 +49,16 @@ class MenuActionBarActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        val intent: Intent? = when (v) {
-            btCollapsingToolBarLayout ->
-                Intent(this, CollapsingToolbarLayoutActivity::class.java)
-            btCollapsingToolbarWithTabLayout ->
-                Intent(this, CollapsingToolbarWithTabLayoutActivity::class.java)
-            btLActionBar ->
-                Intent(this, LActionbarActivity::class.java)
-            btNavigationView ->
-                Intent(this, NavigationViewActivity::class.java)
-            btNavigationViewWithText ->
-                Intent(this, NavigationViewWithTextActivity::class.java)
-            else -> null
+        when (v) {
+            btCollapsingToolBarLayout -> launchActivity(CollapsingToolbarLayoutActivity::class.java)
+            btCollapsingToolbarWithTabLayout -> launchActivity(
+                CollapsingToolbarWithTabLayoutActivity::class.java
+            )
+            btLActionBar -> launchActivity(LActionbarActivity::class.java)
+            btNavigationView -> launchActivity(NavigationViewActivity::class.java)
+            btNavigationViewWithText -> launchActivity(NavigationViewWithTextActivity::class.java)
+
         }
-        intent?.let {
-            startActivity(it)
-            LActivityUtil.tranIn(this)
-        }
+
     }
 }

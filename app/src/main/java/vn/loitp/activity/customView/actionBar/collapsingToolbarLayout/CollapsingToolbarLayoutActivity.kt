@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.actionbar.collapsingToolbarLayout
+package vn.loitp.activity.customView.actionBar.collapsingToolbarLayout
 
 import android.graphics.Color
 import android.os.Bundle
