@@ -1,4 +1,4 @@
-package com.loitpcore.views.calendar.cosmoCalendar.selection.selectionBar
+package com.loitp.views.calendar.cosmoCalendar.selection.selectionBar
 
 /**
  * Created by Loitp on 04,August,2022

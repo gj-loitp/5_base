@@ -1,4 +1,4 @@
-package com.loitpcore.views.calendar.cosmoCalendar.selection.criteria.month
+package com.loitp.views.calendar.cosmoCalendar.selection.criteria.month
 
 import com.loitpcore.views.calendar.cosmoCalendar.utils.DateUtils.getCalendar
 import java.util.*

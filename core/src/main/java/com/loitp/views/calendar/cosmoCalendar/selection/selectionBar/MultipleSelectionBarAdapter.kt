@@ -1,4 +1,4 @@
-package com.loitpcore.views.calendar.cosmoCalendar.selection.selectionBar
+package com.loitp.views.calendar.cosmoCalendar.selection.selectionBar
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

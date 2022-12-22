@@ -5,9 +5,9 @@ import android.view.View;
 
 import com.loitpcore.R;
 import com.loitp.views.calendar.cosmoCalendar.model.Day;
-import com.loitpcore.views.calendar.cosmoCalendar.selection.BaseSelectionManager;
-import com.loitpcore.views.calendar.cosmoCalendar.selection.RangeSelectionManager;
-import com.loitpcore.views.calendar.cosmoCalendar.selection.SelectionState;
+import com.loitp.views.calendar.cosmoCalendar.selection.BaseSelectionManager;
+import com.loitp.views.calendar.cosmoCalendar.selection.RangeSelectionManager;
+import com.loitp.views.calendar.cosmoCalendar.selection.SelectionState;
 import com.loitpcore.views.calendar.cosmoCalendar.settings.appearance.ConnectedDayIconPosition;
 import com.loitpcore.views.calendar.cosmoCalendar.utils.CalendarUtils;
 import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView;

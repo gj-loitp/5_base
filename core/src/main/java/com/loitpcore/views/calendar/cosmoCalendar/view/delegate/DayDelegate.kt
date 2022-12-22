@@ -8,7 +8,7 @@ import com.loitpcore.R
 import com.loitp.views.calendar.cosmoCalendar.adapter.MonthAdapter
 import com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder.DayHolder
 import com.loitp.views.calendar.cosmoCalendar.model.Day
-import com.loitpcore.views.calendar.cosmoCalendar.selection.MultipleSelectionManager
+import com.loitp.views.calendar.cosmoCalendar.selection.MultipleSelectionManager
 import com.loitpcore.views.calendar.cosmoCalendar.view.CalendarView
 
 /**

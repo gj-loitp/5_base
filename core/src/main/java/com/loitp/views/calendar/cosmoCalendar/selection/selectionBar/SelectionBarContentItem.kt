@@ -1,4 +1,4 @@
-package com.loitpcore.views.calendar.cosmoCalendar.selection.selectionBar
+package com.loitp.views.calendar.cosmoCalendar.selection.selectionBar
 
 import com.loitp.views.calendar.cosmoCalendar.model.Day
 

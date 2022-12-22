@@ -3,7 +3,7 @@ package com.loitp.views.calendar.cosmoCalendar.model;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 
-import com.loitpcore.views.calendar.cosmoCalendar.selection.SelectionState;
+import com.loitp.views.calendar.cosmoCalendar.selection.SelectionState;
 import com.loitpcore.views.calendar.cosmoCalendar.utils.DateUtils;
 
 import java.util.Calendar;

@@ -1,7 +1,7 @@
-package com.loitpcore.views.calendar.cosmoCalendar.selection
+package com.loitp.views.calendar.cosmoCalendar.selection
 
 import com.loitp.views.calendar.cosmoCalendar.model.Day
-import com.loitpcore.views.calendar.cosmoCalendar.selection.criteria.BaseCriteria
+import com.loitp.views.calendar.cosmoCalendar.selection.criteria.BaseCriteria
 import java.util.*
 
 class MultipleSelectionManager : BaseCriteriaSelectionManager {

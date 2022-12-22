@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.loitp.views.calendar.cosmoCalendar.adapter.viewHolder.MonthHolder;
 import com.loitp.views.calendar.cosmoCalendar.model.Day;
 import com.loitp.views.calendar.cosmoCalendar.model.Month;
-import com.loitpcore.views.calendar.cosmoCalendar.selection.BaseSelectionManager;
+import com.loitp.views.calendar.cosmoCalendar.selection.BaseSelectionManager;
 import com.loitpcore.views.calendar.cosmoCalendar.settings.lists.DisabledDaysCriteria;
 import com.loitpcore.views.calendar.cosmoCalendar.utils.CalendarUtils;
 import com.loitpcore.views.calendar.cosmoCalendar.utils.DayFlag;

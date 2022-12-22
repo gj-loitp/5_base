@@ -8,9 +8,9 @@ import android.view.WindowManager
 import com.loitp.views.calendar.cosmoCalendar.model.Day
 import com.loitp.views.calendar.cosmoCalendar.model.DayOfWeek
 import com.loitp.views.calendar.cosmoCalendar.model.Month
-import com.loitpcore.views.calendar.cosmoCalendar.selection.selectionBar.SelectionBarContentItem
-import com.loitpcore.views.calendar.cosmoCalendar.selection.selectionBar.SelectionBarItem
-import com.loitpcore.views.calendar.cosmoCalendar.selection.selectionBar.SelectionBarTitleItem
+import com.loitp.views.calendar.cosmoCalendar.selection.selectionBar.SelectionBarContentItem
+import com.loitp.views.calendar.cosmoCalendar.selection.selectionBar.SelectionBarItem
+import com.loitp.views.calendar.cosmoCalendar.selection.selectionBar.SelectionBarTitleItem
 import com.loitpcore.views.calendar.cosmoCalendar.settings.SettingsManager
 import com.loitpcore.views.calendar.cosmoCalendar.settings.lists.DisabledDaysCriteria
 import com.loitpcore.views.calendar.cosmoCalendar.settings.lists.DisabledDaysCriteriaType

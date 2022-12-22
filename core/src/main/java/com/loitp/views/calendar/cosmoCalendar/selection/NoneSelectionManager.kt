@@ -1,4 +1,4 @@
-package com.loitpcore.views.calendar.cosmoCalendar.selection
+package com.loitp.views.calendar.cosmoCalendar.selection
 
 import com.loitp.views.calendar.cosmoCalendar.model.Day
 
