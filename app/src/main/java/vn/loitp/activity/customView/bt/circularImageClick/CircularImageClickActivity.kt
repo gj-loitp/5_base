@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.button.circularImageClick
+package vn.loitp.activity.customView.bt.circularImageClick
 
 import android.os.Bundle
 import android.view.View

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.button.circularProgressButton
+package vn.loitp.activity.customView.bt.circularProgressButton
 
 import android.os.Bundle
 import androidx.core.view.isVisible

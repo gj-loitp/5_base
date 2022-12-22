@@ -142,7 +142,7 @@
             android:name=".activity.pattern.mvp.MVPActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.button.circularImageClick.CircularImageClickActivity"
+            android:name="vn.loitp.activity.customView.bt.circularImageClick.CircularImageClickActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.edittext.MenuEditTextActivity"
@@ -1358,22 +1358,22 @@
             android:name=".activity.customviews.layout.cornerCutLinearLayout.CornerCutLinearLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.button.circularProgressButton.CPBActivity"
+            android:name="vn.loitp.activity.customView.bt.circularProgressButton.CPBActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.button.circularProgressButton.Sample1Activity"
+            android:name="vn.loitp.activity.customView.bt.circularProgressButton.Sample1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.button.circularProgressButton.Sample2Activity"
+            android:name="vn.loitp.activity.customView.bt.circularProgressButton.Sample2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.button.circularProgressButton.Sample3Activity"
+            android:name="vn.loitp.activity.customView.bt.circularProgressButton.Sample3Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.button.circularProgressButton.Sample4Activity"
+            android:name="vn.loitp.activity.customView.bt.circularProgressButton.Sample4Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.button.circularProgressButton.Sample5Activity"
+            android:name="vn.loitp.activity.customView.bt.circularProgressButton.Sample5Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.greedoLayout.GreedoLayoutActivity"
