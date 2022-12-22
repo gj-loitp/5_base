@@ -1,7 +1,7 @@
-package com.loitp.views.layout.circularView;
+package com.loitp.views.layout.circularView
 
-import android.database.DataSetObservable;
-import android.database.DataSetObserver;
+import android.database.DataSetObservable
+import android.database.DataSetObserver
 
 /**
  * Created by Loitp on 04,August,2022
@@ -10,23 +10,22 @@ import android.database.DataSetObserver;
  * +840766040293
  * freuss47@gmail.com
  */
-public abstract class SimpleCircularViewAdapter implements BaseCircularViewAdapter {
-    private final DataSetObservable mDataSetObservable = new DataSetObservable();
-
-    public void registerDataSetObserver(DataSetObserver observer) {
-        mDataSetObservable.registerObserver(observer);
+abstract class SimpleCircularViewAdapter : BaseCircularViewAdapter {
+    private val mDataSetObservable = DataSetObservable()
+    override fun registerDataSetObserver(observer: DataSetObserver?) {
+        mDataSetObservable.registerObserver(observer)
     }
 
-    public void unregisterDataSetObserver(DataSetObserver observer) {
-        mDataSetObservable.unregisterObserver(observer);
+    override fun unregisterDataSetObserver(observer: DataSetObserver?) {
+        mDataSetObservable.unregisterObserver(observer)
     }
 
     /**
      * Notifies the attached observers that the underlying data has been changed
      * and any View reflecting the data set should refresh itself.
      */
-    public void notifyDataSetChanged() {
-        mDataSetObservable.notifyChanged();
+    override fun notifyDataSetChanged() {
+        mDataSetObservable.notifyChanged()
     }
 
     /**
@@ -34,7 +33,7 @@ public abstract class SimpleCircularViewAdapter implements BaseCircularViewAdapt
      * or available. Once invoked this adapter is no longer valid and should
      * not report further data set changes.
      */
-    public void notifyDataSetInvalidated() {
-        mDataSetObservable.notifyInvalidated();
+    override fun notifyDataSetInvalidated() {
+        mDataSetObservable.notifyInvalidated()
     }
 }
