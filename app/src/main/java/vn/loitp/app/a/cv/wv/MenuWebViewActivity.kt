@@ -11,7 +11,6 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_custom_view.lActionBar
 import kotlinx.android.synthetic.main.activity_menu_webview.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.wv.l.LWebViewActivity

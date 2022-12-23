@@ -46,7 +46,7 @@ class MenuRecyclerTabLayoutActivity : BaseFontActivity(), AdapterView.OnItemClic
             this.tvTitle?.text = MenuRecyclerTabLayoutActivity::class.java.simpleName
         }
         listView.onItemClickListener = this
-        val adapter = ArrayAdapter<String>(this, R.layout.view_item_test_retrofit)
+        val adapter = ArrayAdapter<String>(this, R.layout.i_test_retrofit)
 
         for (demo in Demo.values()) {
             adapter.add(getString(demo.titleResId))

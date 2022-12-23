@@ -10,7 +10,7 @@ import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.sv.model.UserTest
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
-import kotlinx.android.synthetic.main.frm_coroutine_user.*
+import kotlinx.android.synthetic.main.f_coroutine_user.*
 import vn.loitp.a.api.coroutine.vm.TestViewModel
 import vn.loitp.R
 
@@ -23,7 +23,7 @@ class FrmUser : BaseFragment() {
     private var testViewModel: TestViewModel? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_coroutine_user
+        return R.layout.f_coroutine_user
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

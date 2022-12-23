@@ -10,7 +10,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_test_api_retrofit2.*
+import kotlinx.android.synthetic.main.a_test_api_retrofit2.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,7 +26,7 @@ class TestAPIRetrofit2Activity : BaseFontActivity() {
     private var mAdapter: AnswersAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_test_api_retrofit2
+        return R.layout.a_test_api_retrofit2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

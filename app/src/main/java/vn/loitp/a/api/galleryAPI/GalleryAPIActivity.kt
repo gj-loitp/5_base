@@ -18,7 +18,7 @@ import com.loitp.restApi.flickr.service.FlickrService
 import com.loitp.restApi.restClient.RestClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_api_gallery.*
+import kotlinx.android.synthetic.main.a_api_gallery.*
 import vn.loitp.R
 
 @LogTag("GalleryAPIActivity")
@@ -27,7 +27,7 @@ class GalleryAPIActivity : BaseFontActivity() {
     private var mWrapperPhotoSetGetList: WrapperPhotosetGetlist? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_api_gallery
+        return R.layout.a_api_gallery
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

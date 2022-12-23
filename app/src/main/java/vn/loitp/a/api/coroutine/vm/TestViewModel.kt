@@ -14,7 +14,10 @@ class TestViewModel : BaseViewModel() {
     val userTestListLiveData: MutableLiveData<ArrayList<UserTest>?> = MutableLiveData()
     val userActionLiveData: ActionLiveData<ActionData<ArrayList<UserTest>>> = ActionLiveData()
 
-    fun getUserTestListByPage(page: Int, isRefresh: Boolean) {
+    fun getUserTestListByPage(
+        page: Int,
+        isRefresh: Boolean
+    ) {
         userActionLiveData.set(ActionData(isDoing = true))
 
         ioScope.launch {

@@ -9,7 +9,7 @@
         android:id="@+id/frmGetListUser"
         android:name="vn.loitp.a.api.coroutine.a.FrmGetListUser"
         android:label="frmGetListUser"
-        tools:layout="@layout/frm_coroutine_get_list_user">
+        tools:layout="@layout/f_coroutine_get_list_user">
         <action
             android:id="@+id/action_frmGetListUser_to_frmUser"
             app:destination="@id/frmUser"
@@ -23,6 +23,6 @@
         android:id="@+id/frmUser"
         android:name="vn.loitp.a.api.coroutine.a.FrmUser"
         android:label="FrmUser"
-        tools:layout="@layout/frm_coroutine_user" />
+        tools:layout="@layout/f_coroutine_user" />
 
 </navigation>

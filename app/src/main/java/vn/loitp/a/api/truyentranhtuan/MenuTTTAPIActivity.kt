@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_ttt_api.*
+import kotlinx.android.synthetic.main.a_menu_ttt_api.*
 import vn.loitp.R
 
 @LogTag("TTTAPIMenuActivity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class MenuTTTAPIActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_ttt_api
+        return R.layout.a_menu_ttt_api
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

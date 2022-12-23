@@ -1,7 +1,6 @@
 package vn.loitp.a.api.coroutine.a
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,6 @@ import kotlinx.android.synthetic.main.view_item_user_1.view.*
 import vn.loitp.R
 
 class UserListAdapter(
-    private val context: Context,
     private val callback: (Int, UserTest) -> Unit,
 ) :
     RecyclerView.Adapter<UserListAdapter.UserTestViewHolder>() {
@@ -25,7 +23,11 @@ class UserListAdapter(
         @SuppressLint("SetTextI18n")
         fun bind(userTest: UserTest) {
             userTest.avatar?.let {
-                LImageUtil.load(context, it, itemView.ivAvt)
+                LImageUtil.load(
+                    context = itemView.ivAvt.context,
+                    any = it,
+                    imageView = itemView.ivAvt
+                )
             }
             itemView.tvEmail.text = userTest.email
             itemView.tvFirstName.text = userTest.firstName

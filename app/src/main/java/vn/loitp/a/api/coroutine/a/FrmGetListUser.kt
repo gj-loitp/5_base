@@ -12,9 +12,9 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.frm_coroutine_get_list_user.*
-import vn.loitp.a.api.coroutine.vm.TestViewModel
+import kotlinx.android.synthetic.main.f_coroutine_get_list_user.*
 import vn.loitp.R
+import vn.loitp.a.api.coroutine.vm.TestViewModel
 
 @LogTag("FrmGetListUser")
 class FrmGetListUser : BaseFragment() {
@@ -23,7 +23,7 @@ class FrmGetListUser : BaseFragment() {
     private var page = 1
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_coroutine_get_list_user
+        return R.layout.f_coroutine_get_list_user
     }
 
     override fun onCreateView(
@@ -54,7 +54,7 @@ class FrmGetListUser : BaseFragment() {
 
     private fun setupViews() {
         context?.let {
-            userListAdapter = UserListAdapter(it, callback = { _, userTest ->
+            userListAdapter = UserListAdapter(callback = { _, userTest ->
                 val bundle = Bundle()
                 bundle.putSerializable(FrmUser.KEY_USER, userTest)
                 findNavController().navigate(R.id.action_frmGetListUser_to_frmUser, bundle)

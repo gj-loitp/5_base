@@ -26,7 +26,7 @@ class CalendarFragment : BaseFragment() {
         activity?.let { a ->
             val arrayAdapter = ArrayAdapter(
                 a,
-                R.layout.view_item_test_retrofit,
+                R.layout.i_test_retrofit,
                 calendarData
             )
             listView.adapter = arrayAdapter

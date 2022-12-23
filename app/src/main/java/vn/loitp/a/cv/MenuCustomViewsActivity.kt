@@ -9,7 +9,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_custom_view.*
+import kotlinx.android.synthetic.main.a_menu_custom_view.*
 import vn.loitp.R
 import vn.loitp.a.cv.ab.MenuActionBarActivity
 import vn.loitp.a.cv.androidRibbon.RibbonActivity
@@ -18,9 +18,9 @@ import vn.loitp.a.cv.bb.MenuBottomNavigationActivity
 import vn.loitp.a.cv.bs.MenuBottomSheetActivity
 import vn.loitp.a.cv.bt.MenuButtonActivity
 import vn.loitp.app.a.cv.cal.MenuCalendarActivity
-import vn.loitp.app.a.cv.cv.CardViewActivity
 import vn.loitp.app.a.cv.code.CodeViewActivity
 import vn.loitp.app.a.cv.cornerSheet.CornetSheetExampleActivity
+import vn.loitp.app.a.cv.cv.CardViewActivity
 import vn.loitp.app.a.cv.dlg.MenuDialogActivity
 import vn.loitp.app.a.cv.dragView.MenuDragViewActivity
 import vn.loitp.app.a.cv.draggableFlipView.DraggableFlipViewActivity
@@ -28,8 +28,8 @@ import vn.loitp.app.a.cv.et.MenuEditTextActivity
 import vn.loitp.app.a.cv.fbCmt.FacebookCommentActivity
 import vn.loitp.app.a.cv.fingerPaintView.FingerPaintActivity
 import vn.loitp.app.a.cv.graph.MenuGraphViewActivity
-import vn.loitp.app.a.cv.iv.MenuImageViewActivity
 import vn.loitp.app.a.cv.indicator.ex.MenuMagicIndicatorActivity
+import vn.loitp.app.a.cv.iv.MenuImageViewActivity
 import vn.loitp.app.a.cv.lCv.LCardViewActivity
 import vn.loitp.app.a.cv.lDebug.LDebugViewActivity
 import vn.loitp.app.a.cv.layout.MenuLayoutActivity
@@ -39,20 +39,20 @@ import vn.loitp.app.a.cv.navi.MenuNavigationActivity
 import vn.loitp.app.a.cv.popupMenu.PopupMenuActivity
 import vn.loitp.app.a.cv.progress.MenuProgressLoadingViewsActivity
 import vn.loitp.app.a.cv.rv.MenuRecyclerViewActivity
+import vn.loitp.app.a.cv.sb.MenuSeekbarActivity
 import vn.loitp.app.a.cv.scratchView.MenuScratchViewActivity
 import vn.loitp.app.a.cv.scrollablePanel.ScrollablePanelActivity
-import vn.loitp.app.a.cv.sb.MenuSeekbarActivity
 import vn.loitp.app.a.cv.simpleRatingBar.SimpleRatingBarActivity
 import vn.loitp.app.a.cv.stackExpandableView.StackExpandableViewActivity
 import vn.loitp.app.a.cv.sticker.StickerActivity
 import vn.loitp.app.a.cv.sw.MenuSwitchToggleActivity
-import vn.loitp.app.a.cv.tv.MenuTextViewActivity
 import vn.loitp.app.a.cv.treeView.TreeViewActivity
+import vn.loitp.app.a.cv.tv.MenuTextViewActivity
 import vn.loitp.app.a.cv.video.MenuVideoViewActivity
 import vn.loitp.app.a.cv.vp.MenuViewPagerActivity
-import vn.loitp.app.a.cv.wv.MenuWebViewActivity
 import vn.loitp.app.a.cv.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.app.a.cv.wheelView.WheelViewActivity
+import vn.loitp.app.a.cv.wv.MenuWebViewActivity
 import vn.loitp.app.a.cv.wwlMusic.WWLActivityMusic
 import vn.loitp.app.a.cv.wwlVideo.WWLVideoActivity
 
@@ -62,7 +62,7 @@ import vn.loitp.app.a.cv.wwlVideo.WWLVideoActivity
 class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_custom_view
+        return R.layout.a_menu_custom_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
