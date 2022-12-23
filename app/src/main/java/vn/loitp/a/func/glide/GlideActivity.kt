@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.glide
+package vn.loitp.a.func.glide
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_func_glide.*
+import kotlinx.android.synthetic.main.a_func_glide.*
 import vn.loitp.R
 
 @LogTag("GlideActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class GlideActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_glide
+        return R.layout.a_func_glide
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
