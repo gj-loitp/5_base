@@ -880,10 +880,10 @@
             android:name=".app.a.demo.architectureComponent.coroutine.CoroutineActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.cal.MenuCalendarActivity"
+            android:name=".a.cv.cal.MenuCalendarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.cal.cosmo.CosmoCalendarActivity"
+            android:name=".a.cv.cal.cosmo.CosmoCalendarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.api.coroutine.a.CoroutineAPIActivity"
@@ -1213,7 +1213,7 @@
             android:name=".a.anim.konfetti.KonfettiActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.code.CodeViewActivity"
+            android:name=".a.cv.code.CodeViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.game.MenuGameActivity"
@@ -1283,13 +1283,13 @@
             android:name=".app.a.cv.layout.reflection.ReflectionLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.cornerSheet.CornetSheetExampleActivity"
+            android:name=".a.cv.cornerSheet.CornetSheetExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.cornerSheet.BehaviorSampleActivity"
+            android:name=".a.cv.cornerSheet.BehaviorSampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.cornerSheet.sp.ShopActivity"
+            android:name=".a.cv.cornerSheet.sp.ShopActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.rv.dragDrop.MainActivityDragDrop"

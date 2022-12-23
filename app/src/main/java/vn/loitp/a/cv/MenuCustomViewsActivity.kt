@@ -17,9 +17,9 @@ import vn.loitp.a.cv.answerView.AnswerViewActivity
 import vn.loitp.a.cv.bb.MenuBottomNavigationActivity
 import vn.loitp.a.cv.bs.MenuBottomSheetActivity
 import vn.loitp.a.cv.bt.MenuButtonActivity
-import vn.loitp.app.a.cv.cal.MenuCalendarActivity
-import vn.loitp.app.a.cv.code.CodeViewActivity
-import vn.loitp.app.a.cv.cornerSheet.CornetSheetExampleActivity
+import vn.loitp.a.cv.cal.MenuCalendarActivity
+import vn.loitp.a.cv.code.CodeViewActivity
+import vn.loitp.a.cv.cornerSheet.CornetSheetExampleActivity
 import vn.loitp.app.a.cv.cv.CardViewActivity
 import vn.loitp.app.a.cv.dlg.MenuDialogActivity
 import vn.loitp.app.a.cv.dragView.MenuDragViewActivity

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:showIn="@layout/activity_main_cs">
+    tools:showIn="@layout/a_main_cs">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/support_toolbar"
