@@ -12,10 +12,10 @@ import kotlinx.android.synthetic.main.activity_top.*
 import kotlinx.android.synthetic.main.activity_top.lActionBar
 import vn.loitp.R
 import vn.loitp.app.a.game.osero.game.GameOseroActivity
-import vn.loitp.app.a.game.osero.model.ai.AINone
-import vn.loitp.app.a.game.osero.model.ai.AIStrong
-import vn.loitp.app.a.game.osero.model.ai.AIWeak
-import vn.loitp.app.a.game.osero.model.ai.OseroAI
+import vn.loitp.app.a.game.osero.md.ai.AINone
+import vn.loitp.app.a.game.osero.md.ai.AIStrong
+import vn.loitp.app.a.game.osero.md.ai.AIWeak
+import vn.loitp.app.a.game.osero.md.ai.OseroAI
 
 @LogTag("TopOseroActivity")
 @IsFullScreen(false)

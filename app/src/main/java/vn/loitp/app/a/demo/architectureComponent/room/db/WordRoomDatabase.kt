@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import kotlinx.coroutines.CoroutineScope
 import vn.loitp.app.a.demo.architectureComponent.room.dao.WordDao
-import vn.loitp.app.a.demo.architectureComponent.room.model.Word
+import vn.loitp.app.a.demo.architectureComponent.room.md.Word
 
 @Database(entities = [Word::class], version = 1, exportSchema = false)
 abstract class WordRoomDatabase : RoomDatabase() {

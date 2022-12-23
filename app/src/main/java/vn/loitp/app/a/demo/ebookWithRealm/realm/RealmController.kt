@@ -5,7 +5,7 @@ import android.app.Application
 import androidx.fragment.app.Fragment
 import io.realm.Realm
 import io.realm.RealmResults
-import vn.loitp.app.a.demo.ebookWithRealm.model.Book
+import vn.loitp.app.a.demo.ebookWithRealm.md.Book
 
 class RealmController private constructor() {
     val realm: Realm = Realm.getDefaultInstance()

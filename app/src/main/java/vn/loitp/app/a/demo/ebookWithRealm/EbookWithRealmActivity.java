@@ -26,9 +26,9 @@ import java.util.Objects;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import vn.loitp.R;
-import vn.loitp.app.a.demo.ebookWithRealm.adapters.BooksAdapter;
-import vn.loitp.app.a.demo.ebookWithRealm.adapters.RealmBooksAdapter;
-import vn.loitp.app.a.demo.ebookWithRealm.model.Book;
+import vn.loitp.app.a.demo.ebookWithRealm.adt.BooksAdapter;
+import vn.loitp.app.a.demo.ebookWithRealm.adt.RealmBooksAdapter;
+import vn.loitp.app.a.demo.ebookWithRealm.md.Book;
 import vn.loitp.app.a.demo.ebookWithRealm.realm.RealmController;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/

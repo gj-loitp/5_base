@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_menu_pattern.*
 import vn.loitp.R
 import vn.loitp.app.a.pattern.mvp.MVPActivity
 import vn.loitp.app.a.pattern.mvvm.MVVMActivity
-import vn.loitp.app.a.pattern.observerPattern.ObserverPatternActivity
+import vn.loitp.app.a.pattern.observer.ObserverPatternActivity
 
 @LogTag("MenuPatternActivity")
 @IsFullScreen(false)

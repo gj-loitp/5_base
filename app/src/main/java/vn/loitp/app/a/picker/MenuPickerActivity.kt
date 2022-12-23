@@ -11,12 +11,12 @@ import kotlinx.android.synthetic.main.activity_menu_picker.*
 import vn.loitp.R
 import vn.loitp.app.a.picker.attachmentManager.AttachmentManagerActivity
 
-import vn.loitp.app.a.picker.imagePicker.ImagePickerActivity
-import vn.loitp.app.a.picker.numberPicker.NumberPickerActivity
-import vn.loitp.app.a.picker.shiftColorPicker.ShiftColorPickerActivity
-import vn.loitp.app.a.picker.ssImagePicker.ui.MainActivitySSImagePicker
-import vn.loitp.app.a.picker.timePicker.TimePickerActivity
-import vn.loitp.app.a.picker.unicornFilePicker.UnicornFilePickerActivity
+import vn.loitp.app.a.picker.image.ImagePickerActivity
+import vn.loitp.app.a.picker.number.NumberPickerActivity
+import vn.loitp.app.a.picker.shiftColor.ShiftColorPickerActivity
+import vn.loitp.app.a.picker.ssImage.MainActivitySSImagePicker
+import vn.loitp.app.a.picker.time.TimePickerActivity
+import vn.loitp.app.a.picker.unicornFile.UnicornFilePickerActivity
 
 @LogTag("MenuPickerActivity")
 @IsFullScreen(false)

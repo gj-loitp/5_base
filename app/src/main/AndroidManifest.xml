@@ -279,10 +279,10 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".app.a.function.MenuFunctionActivity"
+            android:name=".app.a.func.MenuFunctionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.simpleFingerGestures.SimpleFingerGesturesActivity"
+            android:name=".app.a.func.simpleFingerGestures.SimpleFingerGesturesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.autoFit.AutoFitTextViewActivity"
@@ -336,7 +336,7 @@
             android:name=".app.a.pattern.MenuPatternActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.pattern.observerPattern.ObserverPatternActivity"
+            android:name=".app.a.pattern.observer.ObserverPatternActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.iv.panorama.PanoramaImageViewActivity"
@@ -378,10 +378,10 @@
             android:name=".app.a.cv.layout.autoLinear.AutoLinearLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.hashmap.HashMapActivity"
+            android:name=".app.a.func.hashmap.HashMapActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.dragDropSample.DragDropSampleActivity"
+            android:name=".app.a.func.dragDrop.DragDropSampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.demo.floatingWidget.FloatingWidgetActivity"
@@ -390,7 +390,7 @@
             android:name=".app.a.demo.floatingVideo.FloatingWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.fullScreen.FullScreenActivity"
+            android:name=".app.a.func.fullScreen.FullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.sb.vertical.VerticalSeekbarActivity"
@@ -403,7 +403,7 @@
             android:name=".app.a.cv.layout.constraint.demo.ConstraintLayoutDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.viewDragHelper.ViewDragHelperActivity"
+            android:name=".app.a.func.viewDragHelper.ViewDragHelperActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -415,7 +415,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".app.a.function.recolor.RecolorActivity"
+            android:name=".app.a.func.recolor.RecolorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity"
@@ -430,17 +430,17 @@
             android:name=".app.a.cv.rv.book.BookViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.activityAndService.ActivityServiceCommunicateActivity"
+            android:name=".app.a.func.activityAndService.ActivityServiceCommunicateActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.swipeBack.SwipeBackLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.location.LocationActivity"
+            android:name=".app.a.func.location.LocationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- Facebook Configuration -->
         <activity
-            android:name=".app.a.function.notification.MenuNotificationActivity"
+            android:name=".app.a.func.noti.MenuNotificationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -459,7 +459,7 @@
             android:name=".app.a.cv.layout.constraint.customBehavior.CustomBehaviorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.viewDragHelperSimple.ViewDragHelperSimpleActivity"
+            android:name=".app.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.floatDrag.FloatDragLayoutActivity"
@@ -493,7 +493,7 @@
             android:name=".app.a.cv.wwlVideo.WWLVideoActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
-            android:name=".app.a.function.sensor.SensorActivity"
+            android:name=".app.a.func.sensor.SensorActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
             android:name=".app.a.cv.layout.rotate.RotateLayoutActivity"
@@ -550,7 +550,7 @@
             android:name=".app.a.demo.epubReader.MenuEpubReaderActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.glide.GlideActivity"
+            android:name=".app.a.func.glide.GlideActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.constraint.constraintSet.ConstraintSetActivity"
@@ -594,7 +594,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--start floating view-->
         <activity
-            android:name=".app.a.function.viewDragHelperSimple.ViewDragHelperSimpleActivity1"
+            android:name=".app.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -696,7 +696,7 @@
             android:name=".app.a.cv.dlg.slideImages.DialogSlideImagesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.keyboard.KeyboardActivity"
+            android:name=".app.a.func.keyboard.KeyboardActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.stroked.StrokedTextViewActivity"
@@ -738,7 +738,7 @@
             android:enabled="true"
             android:exported="false" />
         <service
-            android:name=".app.a.function.activityAndService.TestService"
+            android:name=".app.a.func.activityAndService.TestService"
             android:enabled="true"
             android:exported="false" />
         <service
@@ -823,16 +823,16 @@
             android:name=".app.a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.service.MenuServiceActivity"
+            android:name=".app.a.sv.MenuServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.service.endlessService.EndlessServiceActivity"
+            android:name=".app.a.sv.endless.EndlessServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.rv.looping.LoopingLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.picker.imagePicker.ImagePickerActivity"
+            android:name=".app.a.picker.image.ImagePickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <provider
@@ -847,21 +847,21 @@
                 tools:replace="android:resource" />
         </provider>
         <service
-            android:name=".app.a.service.endlessService.EndlessService"
+            android:name=".app.a.sv.endless.EndlessService"
             android:enabled="true"
             android:exported="false" />
         <receiver
-            android:name=".app.a.service.endlessService.RebootDeviceReceiver"
+            android:name=".app.a.sv.endless.RebootDeviceReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <service android:name=".app.a.service.demoService.DemoService" />
+        <service android:name=".app.a.sv.demo.DemoService" />
 
         <activity
-            android:name=".app.a.service.demoService.DemoServiceActivity"
+            android:name=".app.a.sv.demo.DemoServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.roundable.RoundableLayoutActivity"
@@ -872,7 +872,7 @@
         <activity
             android:name=".app.a.demo.architectureComponent.MenuAndroidArchitectureComponentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity android:name=".app.a.demo.architectureComponent.viewmodel.ViewModelActivity" />
+        <activity android:name=".app.a.demo.architectureComponent.vm.ViewModelActivity" />
         <activity
             android:name=".app.a.demo.architectureComponent.room.WordActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -910,7 +910,7 @@
             android:name=".app.a.cv.layout.shapeOfView.ShapeOfViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.picker.timePicker.TimePickerActivity"
+            android:name=".app.a.picker.time.TimePickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.flow.FlowLayoutActivity"
@@ -931,7 +931,7 @@
             android:name=".app.a.cv.sw.toggleButtonGroup.TBGSingleSelectActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.picker.numberPicker.NumberPickerActivity"
+            android:name=".app.a.picker.number.NumberPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.menu.drawerBehavior.DrawerBehaviorMainActivity"
@@ -992,7 +992,7 @@
             android:name=".app.a.cv.wv.l.LWebViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.theme.ThemeActivity"
+            android:name=".app.a.func.theme.ThemeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.iv.comic.ComicViewActivity"
@@ -1082,7 +1082,7 @@
             android:name=".app.a.cv.rv.fastScroll.MenuFastScrollActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.pump.PumpActivity"
+            android:name=".app.a.func.pump.PumpActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.vp.vertical.ViewPagerVerticalActivity"
@@ -1106,7 +1106,7 @@
             android:name=".a.anim.pulsingView.PulsingViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.picker.unicornFilePicker.UnicornFilePickerActivity"
+            android:name=".app.a.picker.unicornFile.UnicornFilePickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.basket.BasketLayoutActivity"
@@ -1137,14 +1137,14 @@
             android:name=".app.a.cv.tv.autoComplete.AutoCompleteTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.keyboardHeightProvider.KeyboardHeightProviderActivity"
+            android:name=".app.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".app.a.demo.trackingG1.TrackingG1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.idleTime.IdleTimeActivity"
+            android:name=".app.a.func.idleTime.IdleTimeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.fingerPaintView.FingerPaintActivity"
@@ -1226,15 +1226,15 @@
             android:name=".app.a.game.osero.game.GameOseroActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.game.pong.activity.PongMainActivity"
+            android:name=".app.a.game.pong.a.PongMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".app.a.game.pong.activity.SettingsActivity"
+            android:name=".app.a.game.pong.a.SettingsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".app.a.game.pong.activity.GameActivity"
+            android:name=".app.a.game.pong.a.GameActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity
@@ -1253,7 +1253,7 @@
             android:name=".app.a.cv.tv.dropdown.DropdownTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.picker.ssImagePicker.ui.MainActivitySSImagePicker"
+            android:name=".app.a.picker.ssImage.MainActivitySSImagePicker"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.anim.fadeOutParticle.FadeOutParticleActivity"
@@ -1346,10 +1346,10 @@
             android:name=".app.a.cv.bt.fit.FitButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.function.wallpo.WallpoActivity"
+            android:name=".app.a.func.wallpo.WallpoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.picker.shiftColorPicker.ShiftColorPickerActivity"
+            android:name=".app.a.picker.shiftColor.ShiftColorPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.iv.roundedIv.RoundedImageViewActivity"

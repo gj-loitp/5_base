@@ -15,7 +15,7 @@ import android.view.SurfaceView
 import androidx.core.content.res.ResourcesCompat
 import com.loitp.core.utilities.LAppResource
 import vn.loitp.R
-import vn.loitp.app.a.game.pong.activity.GameActivity
+import vn.loitp.app.a.game.pong.a.GameActivity
 import java.util.*
 import kotlin.concurrent.schedule
 

@@ -14,10 +14,10 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_game_osero.*
 import vn.loitp.R
-import vn.loitp.app.a.game.osero.model.Place
-import vn.loitp.app.a.game.osero.model.Stone
-import vn.loitp.app.a.game.osero.model.ai.AINone
-import vn.loitp.app.a.game.osero.model.ai.OseroAI
+import vn.loitp.app.a.game.osero.md.Place
+import vn.loitp.app.a.game.osero.md.Stone
+import vn.loitp.app.a.game.osero.md.ai.AINone
+import vn.loitp.app.a.game.osero.md.ai.OseroAI
 
 @LogTag("GameOseroActivity")
 @IsFullScreen(false)

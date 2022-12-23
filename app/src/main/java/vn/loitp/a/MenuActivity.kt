@@ -26,7 +26,7 @@ import vn.loitp.a.api.MenuAPIActivity
 import vn.loitp.a.cv.MenuCustomViewsActivity
 import vn.loitp.app.a.db.MenuDatabaseActivity
 import vn.loitp.app.a.demo.MenuDemoActivity
-import vn.loitp.app.a.function.MenuFunctionActivity
+import vn.loitp.app.a.func.MenuFunctionActivity
 import vn.loitp.app.a.game.MenuGameActivity
 import vn.loitp.app.a.interviewVN.InterviewVNIQActivity
 import vn.loitp.app.a.more.MoreActivity
@@ -34,7 +34,7 @@ import vn.loitp.app.a.network.NetworkActivity
 import vn.loitp.app.a.pattern.MenuPatternActivity
 import vn.loitp.app.a.picker.MenuPickerActivity
 import vn.loitp.app.a.security.MenuSecurityActivity
-import vn.loitp.app.a.service.MenuServiceActivity
+import vn.loitp.app.a.sv.MenuServiceActivity
 import vn.loitp.app.a.tutorial.MenuTutorialActivity
 import vn.loitp.app.a.utillsCore.UtilsCoreActivity
 import vn.loitp.app.a.utils.UtilsActivity

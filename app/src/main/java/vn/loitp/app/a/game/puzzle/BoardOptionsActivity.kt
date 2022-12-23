@@ -6,7 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import vn.loitp.R
-import vn.loitp.app.a.game.puzzle.ui.boardoptions.BoardOptionsFragment
+import vn.loitp.app.a.game.puzzle.ui.options.BoardOptionsFragment
 
 @LogTag("BoardOptionsActivity")
 @IsFullScreen(false)

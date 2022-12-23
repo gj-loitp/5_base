@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import com.loitp.core.base.BaseDao
-import vn.loitp.app.a.demo.architectureComponent.room.model.Word
+import vn.loitp.app.a.demo.architectureComponent.room.md.Word
 
 @Dao
 interface WordDao : BaseDao<Word> {

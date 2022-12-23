@@ -11,8 +11,8 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_demo_database_room_work.*
 import vn.loitp.R
-import vn.loitp.app.a.demo.architectureComponent.room.model.Word
-import vn.loitp.app.a.demo.architectureComponent.room.model.WordViewModel
+import vn.loitp.app.a.demo.architectureComponent.room.md.Word
+import vn.loitp.app.a.demo.architectureComponent.room.md.WordViewModel
 
 // https://codinginfinite.com/android-room-tutorial-persistence/
 // https://codinginfinite.com/android-room-persistent-rxjava/

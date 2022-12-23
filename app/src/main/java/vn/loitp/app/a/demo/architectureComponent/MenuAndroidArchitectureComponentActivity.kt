@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_menu_demo_architecture_component.
 import vn.loitp.R
 import vn.loitp.app.a.demo.architectureComponent.coroutine.CoroutineActivity
 import vn.loitp.app.a.demo.architectureComponent.room.WordActivity
-import vn.loitp.app.a.demo.architectureComponent.viewmodel.ViewModelActivity
+import vn.loitp.app.a.demo.architectureComponent.vm.ViewModelActivity
 
 @LogTag("MenuAndroidArchitectureComponentActivity")
 @IsFullScreen(false)

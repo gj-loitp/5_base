@@ -3,7 +3,7 @@ package vn.loitp.app.a.game.puzzle.ui.game.state
 import android.graphics.Bitmap
 import android.graphics.Point
 import android.util.Size
-import vn.loitp.app.a.game.puzzle.ui.game.utils.BitmapTile
+import vn.loitp.app.a.game.puzzle.ui.game.u.BitmapTile
 
 typealias Puzzle2DArray = Array<Array<PuzzleDescriptor?>>
 

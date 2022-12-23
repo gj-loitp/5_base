@@ -1,7 +1,7 @@
 package vn.loitp.app.a.game.osero.game
 
-import vn.loitp.app.a.game.osero.model.Place
-import vn.loitp.app.a.game.osero.model.Stone
+import vn.loitp.app.a.game.osero.md.Place
+import vn.loitp.app.a.game.osero.md.Stone
 
 interface GameView {
     fun putStone(place: Place)

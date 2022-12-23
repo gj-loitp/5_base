@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import vn.loitp.BR
 import vn.loitp.R
-import vn.loitp.app.a.pattern.mvvm.viewModel.UserViewModel
+import vn.loitp.app.a.pattern.mvvm.vm.UserViewModel
 
 @LogTag("MVVMActivity")
 @IsFullScreen(false)
@@ -26,7 +26,7 @@ class MVVMActivity : BaseFontActivity() {
 
     private fun setupViews() {
         // / Create the model with initial data
-        val user = vn.loitp.app.a.pattern.mvvm.model.User()
+        val user = vn.loitp.app.a.pattern.mvvm.md.User()
         user.age = 20
         user.female = false
         user.firstName = "Johnny"

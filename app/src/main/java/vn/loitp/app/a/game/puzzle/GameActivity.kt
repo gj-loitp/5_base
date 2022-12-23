@@ -11,8 +11,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import vn.loitp.R
-import vn.loitp.app.a.game.puzzle.ui.boardoptions.BoardOptionsViewModel
-import vn.loitp.app.a.game.puzzle.ui.boardoptions.BoardTitledSize
+import vn.loitp.app.a.game.puzzle.ui.options.BoardOptionsViewModel
+import vn.loitp.app.a.game.puzzle.ui.options.BoardTitledSize
 import vn.loitp.app.a.game.puzzle.ui.game.GameBoard
 
 data class BoardActivityParams(
