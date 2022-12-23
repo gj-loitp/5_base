@@ -1,4 +1,4 @@
-package vn.loitp.app.a.tutorial.rxjava2.model
+package vn.loitp.app.a.tutorial.rxjava2.md
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel

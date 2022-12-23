@@ -14,10 +14,10 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_rxjava2_flowable.*
 import vn.loitp.R
-import vn.loitp.app.a.tutorial.rxjava2.model.ApiUser
-import vn.loitp.app.a.tutorial.rxjava2.model.User
-import vn.loitp.app.a.tutorial.rxjava2.util.RxJavaUtils.Companion.apiUserList
-import vn.loitp.app.a.tutorial.rxjava2.util.RxJavaUtils.Companion.convertApiUserListToUserList
+import vn.loitp.app.a.tutorial.rxjava2.md.ApiUser
+import vn.loitp.app.a.tutorial.rxjava2.md.User
+import vn.loitp.app.a.tutorial.rxjava2.u.RxJavaUtils.Companion.apiUserList
+import vn.loitp.app.a.tutorial.rxjava2.u.RxJavaUtils.Companion.convertApiUserListToUserList
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 @LogTag("MapExampleActivity")

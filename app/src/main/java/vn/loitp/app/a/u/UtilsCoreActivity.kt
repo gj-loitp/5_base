@@ -1,4 +1,4 @@
-package vn.loitp.app.a.utillsCore
+package vn.loitp.app.a.u
 
 import android.annotation.SuppressLint
 import android.graphics.Color

@@ -15,7 +15,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_asynctask_rx.*
 import vn.loitp.R
-import vn.loitp.app.a.tutorial.rxjava2.model.Bike
+import vn.loitp.app.a.tutorial.rxjava2.md.Bike
 
 @LogTag("AsyncTaskRxActivity")
 @IsFullScreen(false)

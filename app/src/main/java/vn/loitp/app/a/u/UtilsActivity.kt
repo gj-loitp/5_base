@@ -1,4 +1,4 @@
-package vn.loitp.app.a.utils
+package vn.loitp.app.a.u
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

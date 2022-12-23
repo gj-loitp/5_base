@@ -19,7 +19,7 @@ import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_test_rx.*
 import vn.loitp.R
-import vn.loitp.app.a.tutorial.rxjava2.model.Bike
+import vn.loitp.app.a.tutorial.rxjava2.md.Bike
 import java.util.concurrent.TimeUnit
 
 // https://viblo.asia/p/cung-hoc-rxjava-phan-1-gioi-thieu-aRBeXWqgGWE
