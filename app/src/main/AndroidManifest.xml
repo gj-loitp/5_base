@@ -106,10 +106,10 @@
             android:name=".app.a.cv.tv.countDown.CountDownActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.strectchy.StrectchyImageViewActivity"
+            android:name=".a.cv.iv.strectchy.StrectchyIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.touch.TouchImageViewActivity"
+            android:name=".a.cv.iv.touch.TouchIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.sticker.StickerActivity"
@@ -121,7 +121,7 @@
             android:name=".app.a.cv.layout.zoom.ZoomLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.zoom.ZoomImageViewActivity"
+            android:name=".a.cv.iv.zoom.ZoomIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.fidgetSpinner.FidgetSpinnerIvActivity"
@@ -1388,7 +1388,7 @@
             android:name=".a.cv.cv.CardViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.shapeableIv.ShapeableImageViewActivity"
+            android:name=".a.cv.iv.shapeableIv.ShapeableIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.interviewVN.InterviewVNIQActivity"

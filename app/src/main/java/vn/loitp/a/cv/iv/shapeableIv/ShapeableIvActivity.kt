@@ -10,16 +10,16 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_shapeable_image_view.*
+import kotlinx.android.synthetic.main.a_iv_shapeable.*
 import vn.loitp.R
 
 @LogTag("ShapeableImageViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class ShapeableImageViewActivity : BaseFontActivity() {
+class ShapeableIvActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_shapeable_image_view
+        return R.layout.a_iv_shapeable
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +49,7 @@ class ShapeableImageViewActivity : BaseFontActivity() {
                 isVisible = true
                 setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = ShapeableImageViewActivity::class.java.simpleName
+            this.tvTitle?.text = ShapeableIvActivity::class.java.simpleName
         }
 
         siv.shapeAppearanceModel = siv.shapeAppearanceModel

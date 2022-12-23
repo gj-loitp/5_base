@@ -1,22 +1,21 @@
-package vn.loitp.a.cv.iv.strectchy
+package vn.loitp.a.cv.iv.zoom
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_strectchy_imageview.*
+import com.loitp.views.iv.zoom.ColorGridDrawable
+import kotlinx.android.synthetic.main.a_iv_zoom.*
 import vn.loitp.R
-import vn.loitp.common.Constants
 
-@LogTag("StrectchyImageViewActivity")
+@LogTag("ZoomImageViewActivity")
 @IsFullScreen(false)
-class StrectchyImageViewActivity : BaseFontActivity() {
+class ZoomIvActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_strectchy_imageview
+        return R.layout.a_iv_zoom
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,12 +33,15 @@ class StrectchyImageViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = StrectchyImageViewActivity::class.java.simpleName
+            this.tvTitle?.text = ZoomIvActivity::class.java.simpleName
         }
-        LImageUtil.load(
-            context = this,
-            any = Constants.URL_IMG_LONG,
-            imageView = lStretchyImageView
-        )
+        zoomImageView.setImageDrawable(ColorGridDrawable())
+
+//        zoomImageView.getEngine().panTo(x, y, true);
+//        zoomImageView.getEngine().panBy(deltaX, deltaY, true);
+//        zoomImageView.getEngine().zoomTo(zoom, true);
+//        zoomImageView.getEngine().zoomBy(factor, true);
+//        zoomImageView.getEngine().realZoomTo(realZoom, true);
+//        zoomImageView.getEngine().moveTo(zoom, x, y, true);
     }
 }

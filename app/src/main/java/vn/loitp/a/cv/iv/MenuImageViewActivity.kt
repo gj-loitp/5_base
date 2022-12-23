@@ -24,11 +24,11 @@ import vn.loitp.a.cv.iv.previewImageCollection.PreviewImageCollectionActivity
 import vn.loitp.a.cv.iv.reflection.ReflectionActivity
 import vn.loitp.a.cv.iv.roundedIv.RoundedIvActivity
 import vn.loitp.a.cv.iv.scrollParallax.ScrollParallaxIvActivity
-import vn.loitp.a.cv.iv.shapeableIv.ShapeableImageViewActivity
+import vn.loitp.a.cv.iv.shapeableIv.ShapeableIvActivity
 import vn.loitp.a.cv.iv.stfaiconIv.ListActivity
-import vn.loitp.a.cv.iv.strectchy.StrectchyImageViewActivity
-import vn.loitp.a.cv.iv.touch.TouchImageViewActivity
-import vn.loitp.a.cv.iv.zoom.ZoomImageViewActivity
+import vn.loitp.a.cv.iv.strectchy.StrectchyIvActivity
+import vn.loitp.a.cv.iv.touch.TouchIvActivity
+import vn.loitp.a.cv.iv.zoom.ZoomIvActivity
 
 @LogTag("ImageViewMenuActivity")
 @IsFullScreen(false)
@@ -79,9 +79,9 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
     override fun onClick(v: View) {
         when (v) {
             btCirleImageView -> launchActivity(CircleIvActivity::class.java)
-            btStretchyImageView -> launchActivity(StrectchyImageViewActivity::class.java)
-            btTouchImageView -> launchActivity(TouchImageViewActivity::class.java)
-            btZoomImageView -> launchActivity(ZoomImageViewActivity::class.java)
+            btStretchyImageView -> launchActivity(StrectchyIvActivity::class.java)
+            btTouchImageView -> launchActivity(TouchIvActivity::class.java)
+            btZoomImageView -> launchActivity(ZoomIvActivity::class.java)
             btFidgetSpinner -> launchActivity(FidgetSpinnerIvActivity::class.java)
             btContinuousScrollableImageView -> launchActivity(ContinuousScrollableImageViewActivity::class.java)
             btScrollParallaxImageView -> launchActivity(ScrollParallaxIvActivity::class.java)
@@ -95,7 +95,7 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
             btReflection -> launchActivity(ReflectionActivity::class.java)
             btRoundedImageView -> launchActivity(RoundedIvActivity::class.java)
             btPreviewImageCollection -> launchActivity(PreviewImageCollectionActivity::class.java)
-            btShapeableImageViewActivity -> launchActivity(ShapeableImageViewActivity::class.java)
+            btShapeableImageViewActivity -> launchActivity(ShapeableIvActivity::class.java)
             btCoil -> launchActivity(CoilActivity::class.java)
         }
     }

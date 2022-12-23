@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.iv.touch
+package vn.loitp.a.cv.iv.strectchy
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -7,16 +7,16 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_touch_image_view.*
+import kotlinx.android.synthetic.main.a_iv_strectchy.*
 import vn.loitp.R
 import vn.loitp.common.Constants
 
-@LogTag("TouchImageViewActivity")
+@LogTag("StrectchyImageViewActivity")
 @IsFullScreen(false)
-class TouchImageViewActivity : BaseFontActivity() {
+class StrectchyIvActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_touch_image_view
+        return R.layout.a_iv_strectchy
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,14 +34,12 @@ class TouchImageViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = TouchImageViewActivity::class.java.simpleName
+            this.tvTitle?.text = StrectchyIvActivity::class.java.simpleName
         }
-        // note when use with glide, must have placeholder
         LImageUtil.load(
             context = this,
-            any = Constants.URL_IMG,
-            imageView = lTouchImageView,
-            resPlaceHolder = R.color.colorPrimary
+            any = Constants.URL_IMG_LONG,
+            imageView = lStretchyImageView
         )
     }
 }

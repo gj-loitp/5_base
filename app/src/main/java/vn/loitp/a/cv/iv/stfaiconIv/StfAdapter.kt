@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
-import kotlinx.android.synthetic.main.view_item_stf.view.*
+import kotlinx.android.synthetic.main.v_item_stf.view.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 
@@ -47,13 +47,19 @@ class StfAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): MovieViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.view_item_stf, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.v_item_stf, parent, false)
         return MovieViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is MovieViewHolder) {
             holder.bind(moviesList[position])
         }
