@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.alarm.a;
+package vn.loitp.a.demo.alarm.a;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -28,8 +28,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import vn.loitp.R;
-import vn.loitp.app.a.demo.alarm.md.Alarm;
-import vn.loitp.app.a.demo.alarm.md.DateTime;
+import vn.loitp.a.demo.alarm.md.Alarm;
+import vn.loitp.a.demo.alarm.md.DateTime;
 
 @LogTag("AlarmNotification")
 @IsFullScreen(false)
@@ -47,7 +47,7 @@ public class AlarmNotification extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_alarm_notification;
+        return R.layout.a_alarm_notification;
     }
 
     @Override

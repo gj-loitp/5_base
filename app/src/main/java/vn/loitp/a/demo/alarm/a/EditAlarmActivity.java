@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.alarm.a;
+package vn.loitp.a.demo.alarm.a;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -27,8 +27,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import vn.loitp.R;
-import vn.loitp.app.a.demo.alarm.md.Alarm;
-import vn.loitp.app.a.demo.alarm.md.DateTime;
+import vn.loitp.a.demo.alarm.md.Alarm;
+import vn.loitp.a.demo.alarm.md.DateTime;
 
 @LogTag("EditAlarmActivity")
 @IsFullScreen(false)
@@ -53,7 +53,7 @@ public class EditAlarmActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_alarm_edit;
+        return R.layout.a_alarm_edit;
     }
 
     @Override

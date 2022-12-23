@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.alarm.adt;
+package vn.loitp.a.demo.alarm.adt;
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
@@ -14,10 +14,10 @@ import android.widget.TextView;
 import com.loitp.core.utilities.LAppResource;
 
 import vn.loitp.R;
-import vn.loitp.app.a.demo.alarm.md.Alarm;
-import vn.loitp.app.a.demo.alarm.md.DataSource;
-import vn.loitp.app.a.demo.alarm.md.DateTime;
-import vn.loitp.app.a.demo.alarm.sv.AlarmReceiver;
+import vn.loitp.a.demo.alarm.md.Alarm;
+import vn.loitp.a.demo.alarm.md.DataSource;
+import vn.loitp.a.demo.alarm.sv.AlarmReceiver;
+import vn.loitp.a.demo.alarm.md.DateTime;
 
 public class AlarmListAdapter extends BaseAdapter {
 

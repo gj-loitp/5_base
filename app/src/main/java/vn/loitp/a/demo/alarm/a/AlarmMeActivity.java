@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.alarm.a;
+package vn.loitp.a.demo.alarm.a;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,9 +21,9 @@ import com.loitp.core.utilities.LUIUtil;
 
 import kotlin.Suppress;
 import vn.loitp.R;
-import vn.loitp.app.a.demo.alarm.adt.AlarmListAdapter;
-import vn.loitp.app.a.demo.alarm.md.Alarm;
-import vn.loitp.app.a.demo.alarm.sv.Preferences;
+import vn.loitp.a.demo.alarm.adt.AlarmListAdapter;
+import vn.loitp.a.demo.alarm.md.Alarm;
+import vn.loitp.a.demo.alarm.sv.Preferences;
 
 @LogTag("AlarmMeActivity")
 @IsFullScreen(false)
@@ -43,7 +43,7 @@ public class AlarmMeActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_alarm_list;
+        return R.layout.a_alarm_list;
     }
 
     @Override

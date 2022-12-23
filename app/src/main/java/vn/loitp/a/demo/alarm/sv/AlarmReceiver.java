@@ -1,11 +1,11 @@
-package vn.loitp.app.a.demo.alarm.sv;
+package vn.loitp.a.demo.alarm.sv;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import vn.loitp.app.a.demo.alarm.a.AlarmNotification;
-import vn.loitp.app.a.demo.alarm.md.Alarm;
+import vn.loitp.a.demo.alarm.a.AlarmNotification;
+import vn.loitp.a.demo.alarm.md.Alarm;
 
 public class AlarmReceiver extends BroadcastReceiver {
 

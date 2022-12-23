@@ -200,7 +200,7 @@
         <activity
             android:name=".a.cv.ab.MenuActionBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity android:name=".app.a.demo.alarm.a.AlarmMeActivity">
+        <activity android:name=".a.demo.alarm.a.AlarmMeActivity">
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -209,14 +209,14 @@
             -->
         </activity>
         <activity
-            android:name=".app.a.demo.alarm.a.EditAlarmActivity"
+            android:name=".a.demo.alarm.a.EditAlarmActivity"
             android:label="Edit alarm" />
         <!-- FOR ALARM DEMO APP -->
         <activity
-            android:name=".app.a.demo.alarm.a.AlarmNotification"
+            android:name=".a.demo.alarm.a.AlarmNotification"
             android:label="Alarm notification" />
         <activity
-            android:name=".app.a.demo.alarm.sv.Preferences"
+            android:name=".a.demo.alarm.sv.Preferences"
             android:label="Preferences" />
         <activity
             android:name=".app.a.cv.layout.swipeRefresh.withSv.SwipeRefreshLayoutScrollViewActivity"
@@ -722,10 +722,10 @@
         <!--            android:value="@string/str_app_id" />-->
 
         <receiver
-            android:name=".app.a.demo.alarm.sv.AlarmReceiver"
+            android:name=".a.demo.alarm.sv.AlarmReceiver"
             android:process=":remote" />
         <receiver
-            android:name=".app.a.demo.alarm.sv.BootCompletedReceiver"
+            android:name=".a.demo.alarm.sv.BootCompletedReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

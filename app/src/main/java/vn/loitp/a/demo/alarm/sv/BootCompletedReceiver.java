@@ -1,11 +1,11 @@
-package vn.loitp.app.a.demo.alarm.sv;
+package vn.loitp.a.demo.alarm.sv;
 
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import vn.loitp.app.a.demo.alarm.adt.AlarmListAdapter;
+import vn.loitp.a.demo.alarm.adt.AlarmListAdapter;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     @SuppressLint("UnsafeProtectedBroadcastReceiver")

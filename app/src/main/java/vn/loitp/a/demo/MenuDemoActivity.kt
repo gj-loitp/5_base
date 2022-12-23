@@ -15,7 +15,7 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_demo_menu.*
 import vn.loitp.BuildConfig
 import vn.loitp.R
-import vn.loitp.app.a.demo.alarm.a.AlarmMeActivity
+import vn.loitp.a.demo.alarm.a.AlarmMeActivity
 import vn.loitp.app.a.demo.architectureComponent.MenuAndroidArchitectureComponentActivity
 import vn.loitp.app.a.demo.epubReader.MenuEpubReaderActivity
 import vn.loitp.app.a.demo.firebase.FirebaseActivity
