@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.epubReader
+package vn.loitp.a.demo.epubReader
 
 import android.os.Bundle
 import android.view.View
@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LReaderUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.vm.EpubViewModel
-import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
+import kotlinx.android.synthetic.main.a_demo_epub_reader.*
 import vn.loitp.R
 
 @LogTag("MenuEpubReaderActivity")
@@ -27,7 +27,7 @@ class MenuEpubReaderActivity : BaseFontActivity() {
     private var epubViewModel: EpubViewModel? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_epub_reader
+        return R.layout.a_demo_epub_reader
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

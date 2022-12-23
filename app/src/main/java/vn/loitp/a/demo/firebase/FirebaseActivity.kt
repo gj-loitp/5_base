@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.firebase
+package vn.loitp.a.demo.firebase
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -16,7 +16,7 @@ import com.loitp.core.utilities.LFCMUtil
 import com.loitp.core.utilities.LUIUtil
 import com.onesignal.OneSignal
 import com.onesignal.OneSignal.PostNotificationResponseHandler
-import kotlinx.android.synthetic.main.activity_firebase.*
+import kotlinx.android.synthetic.main.a_firebase.*
 import org.json.JSONObject
 import vn.loitp.BuildConfig
 import vn.loitp.R
@@ -27,7 +27,7 @@ import vn.loitp.R
 class FirebaseActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_firebase
+        return R.layout.a_firebase
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

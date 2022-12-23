@@ -547,7 +547,7 @@
             android:name=".app.a.cv.layout.relativePopupWindow.RelativePopupWindowActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.demo.epubReader.MenuEpubReaderActivity"
+            android:name=".a.demo.epubReader.MenuEpubReaderActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.func.glide.GlideActivity"
@@ -1247,7 +1247,7 @@
             android:name=".app.a.cv.sb.range.RangeSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.demo.firebase.FirebaseActivity"
+            android:name=".a.demo.firebase.FirebaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.dropdown.DropdownTextViewActivity"

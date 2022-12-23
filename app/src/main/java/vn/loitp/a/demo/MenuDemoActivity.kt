@@ -17,8 +17,8 @@ import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.a.demo.alarm.a.AlarmMeActivity
 import vn.loitp.app.a.demo.architectureComponent.MenuAndroidArchitectureComponentActivity
-import vn.loitp.app.a.demo.epubReader.MenuEpubReaderActivity
-import vn.loitp.app.a.demo.firebase.FirebaseActivity
+import vn.loitp.a.demo.epubReader.MenuEpubReaderActivity
+import vn.loitp.a.demo.firebase.FirebaseActivity
 import vn.loitp.app.a.demo.floatingVideo.FloatingWidgetActivity
 import vn.loitp.app.a.demo.fragmentFlow.FragmentFlowActivity
 import vn.loitp.app.a.demo.fragmentNavigation.FragmentNavigationActivity

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.epubReader
+package vn.loitp.a.demo.epubReader
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -32,13 +32,17 @@ class BookInfoGridAdapter(
         return 0
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
+    override fun getView(
+        position: Int,
+        convertView: View?,
+        parent: ViewGroup
+    ): View? {
         var view = convertView
         val viewHolder: ViewHolder
         if (view == null) {
             val inflater =
                 parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            view = inflater.inflate(R.layout.view_item_book_epub_reader, parent, false)
+            view = inflater.inflate(R.layout.i_book_epub_reader, parent, false)
             viewHolder = ViewHolder()
             viewHolder.tvBookTitle = view.findViewById(R.id.tvBookTitle)
             viewHolder.ivCover = view.findViewById(R.id.ivCover)
