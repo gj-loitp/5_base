@@ -10,7 +10,6 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_0.*
 import kotlinx.android.synthetic.main.activity_showcase.*
 import kotlinx.android.synthetic.main.activity_showcase.lActionBar
 import vn.loitp.R

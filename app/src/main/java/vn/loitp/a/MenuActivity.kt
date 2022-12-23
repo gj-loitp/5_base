@@ -17,9 +17,7 @@ import com.loitp.core.helper.adHelper.AdHelperActivity
 import com.loitp.core.utilities.LPrefUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_firebase.*
-import kotlinx.android.synthetic.main.activity_menu.*
-import kotlinx.android.synthetic.main.activity_menu.lActionBar
+import kotlinx.android.synthetic.main.a_menu.*
 import vn.loitp.R
 import vn.loitp.a.anim.MenuAnimationActivity
 import vn.loitp.a.api.MenuAPIActivity
@@ -36,8 +34,8 @@ import vn.loitp.app.a.picker.MenuPickerActivity
 import vn.loitp.app.a.security.MenuSecurityActivity
 import vn.loitp.app.a.sv.MenuServiceActivity
 import vn.loitp.app.a.tutorial.MenuTutorialActivity
-import vn.loitp.app.a.u.UtilsCoreActivity
 import vn.loitp.app.a.u.UtilsActivity
+import vn.loitp.app.a.u.UtilsCoreActivity
 
 @LogTag("MenuActivity")
 @IsFullScreen(false)
@@ -46,7 +44,7 @@ import vn.loitp.app.a.u.UtilsActivity
 class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu
+        return R.layout.a_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

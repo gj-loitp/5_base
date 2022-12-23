@@ -11,7 +11,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.data.ActivityData
-import kotlinx.android.synthetic.main.activity_animation_1.*
+import kotlinx.android.synthetic.main.a_animation_1.*
 import vn.loitp.R
 
 @LogTag("Animation1Activity")
@@ -19,7 +19,7 @@ import vn.loitp.R
 class Animation1Activity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_1
+        return R.layout.a_animation_1
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

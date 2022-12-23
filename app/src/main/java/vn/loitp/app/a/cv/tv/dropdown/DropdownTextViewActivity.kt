@@ -11,8 +11,6 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import hakobastvatsatryan.DropdownTextView
-import kotlinx.android.synthetic.main.activity_0.*
-import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_dropdown_text_view.*
 import vn.loitp.R
 

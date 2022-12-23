@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.prush.typedtextview.TypedTextView
-import kotlinx.android.synthetic.main.activity_0.*
+import kotlinx.android.synthetic.main.activity_typed_text_view.*
 import vn.loitp.R
 
 @LogTag("TypedTextViewActivity")

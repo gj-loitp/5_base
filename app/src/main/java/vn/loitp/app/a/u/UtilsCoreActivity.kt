@@ -12,7 +12,6 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.loitp.core.utilities.statusbar.StatusBarCompat
-import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_utils_core.*
 import vn.loitp.R
 import java.math.BigDecimal

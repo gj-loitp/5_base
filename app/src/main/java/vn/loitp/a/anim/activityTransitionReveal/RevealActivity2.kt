@@ -8,7 +8,7 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.tombayley.activitycircularreveal.CircularReveal
-import kotlinx.android.synthetic.main.activity_reveal_2.*
+import kotlinx.android.synthetic.main.a_reveal_2.*
 import vn.loitp.R
 
 @LogTag("OtherActivity")
@@ -23,7 +23,7 @@ class RevealActivity2 : BaseFontActivity() {
     private var activityCircularReveal: CircularReveal? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_reveal_2
+        return R.layout.a_reveal_2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

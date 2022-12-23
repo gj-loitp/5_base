@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_animated_stars_android.*
+import kotlinx.android.synthetic.main.a_animated_stars_android.*
 import vn.loitp.R
 
 @LogTag("AnimatedStarsViewActivity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class AnimatedStarsViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animated_stars_android
+        return R.layout.a_animated_stars_android
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

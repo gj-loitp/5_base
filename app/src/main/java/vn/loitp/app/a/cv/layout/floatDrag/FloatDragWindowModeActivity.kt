@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.layout.floatDrag.DisplayUtil
 import com.loitp.views.layout.floatDrag.FloatDragLayout
-import kotlinx.android.synthetic.main.activity_0.*
+import kotlinx.android.synthetic.main.a_0.*
 import vn.loitp.R
 
 @LogTag("FloatDragWindowModeActivity")
@@ -17,7 +17,7 @@ import vn.loitp.R
 class FloatDragWindowModeActivity : BaseActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_0
+        return R.layout.a_0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

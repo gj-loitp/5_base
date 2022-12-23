@@ -16,7 +16,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_animation_scene_transition_basic.*
+import kotlinx.android.synthetic.main.a_animation_scene_transition_basic.*
 import vn.loitp.R
 
 @LogTag("SceneTransitionBasicActivity")
@@ -24,7 +24,7 @@ import vn.loitp.R
 class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_scene_transition_basic
+        return R.layout.a_animation_scene_transition_basic
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

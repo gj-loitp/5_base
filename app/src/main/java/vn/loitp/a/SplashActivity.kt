@@ -15,7 +15,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.*
 import com.loitp.model.App
 import com.permissionx.guolindev.PermissionX
-import kotlinx.android.synthetic.main.activity_splash.*
+import kotlinx.android.synthetic.main.a_splash.*
 import okhttp3.Call
 import vn.loitp.BuildConfig
 import vn.loitp.R
@@ -33,7 +33,7 @@ class SplashActivity : BaseFontActivity() {
     private var isShowDialogCheck = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_splash
+        return R.layout.a_splash
     }
 
     @SuppressLint("SetTextI18n")

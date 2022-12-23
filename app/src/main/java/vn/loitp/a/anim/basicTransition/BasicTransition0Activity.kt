@@ -12,7 +12,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_animation_basic_transition_0.*
+import kotlinx.android.synthetic.main.a_animation_basic_transition_0.*
 import vn.loitp.R
 
 @LogTag("BasicTransition0Activity")
@@ -20,7 +20,7 @@ import vn.loitp.R
 class BasicTransition0Activity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_basic_transition_0
+        return R.layout.a_animation_basic_transition_0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

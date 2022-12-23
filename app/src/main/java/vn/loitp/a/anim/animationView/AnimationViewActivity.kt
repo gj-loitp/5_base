@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_animation_view.*
+import kotlinx.android.synthetic.main.a_animation_view.*
 import vn.loitp.R
 import java.util.*
 
@@ -20,7 +20,7 @@ class AnimationViewActivity : BaseFontActivity() {
     private var listString: Array<String?>? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_view
+        return R.layout.a_animation_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

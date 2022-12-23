@@ -9,8 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_0.lActionBar
-import kotlinx.android.synthetic.main.activity_android_particles.*
+import kotlinx.android.synthetic.main.a_android_particles.*
 import vn.loitp.R
 
 @LogTag("AndroidParticlesActivity")
@@ -19,7 +18,7 @@ import vn.loitp.R
 class AndroidParticlesActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_android_particles
+        return R.layout.a_android_particles
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

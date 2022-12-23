@@ -40,7 +40,7 @@ class BasicTransitionFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_basic_transition, container, false)!!
+        val view = inflater.inflate(R.layout.f_basic_transition, container, false)!!
 
         val radioGroup = view.findViewById<RadioGroup>(R.id.select_scene)
         radioGroup.setOnCheckedChangeListener(this)

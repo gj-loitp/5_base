@@ -14,8 +14,6 @@ import com.loitp.views.sb.range.DoubleValueSeekBarView
 import com.loitp.views.sb.range.OnDoubleValueSeekBarChangeListener
 import com.loitp.views.sb.range.OnRangeSeekBarChangeListener
 import com.loitp.views.sb.range.RangeSeekBarView
-import kotlinx.android.synthetic.main.activity_0.*
-import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_range_seekbar.*
 import vn.loitp.R
 

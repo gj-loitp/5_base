@@ -5,7 +5,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_basic_transition.*
+import kotlinx.android.synthetic.main.a_basic_transition.*
 import vn.loitp.R
 
 // https://github.com/googlesamples/android-BasicTransition/#readme
@@ -14,7 +14,7 @@ import vn.loitp.R
 class BasicTransitionActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_basic_transition
+        return R.layout.a_basic_transition
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

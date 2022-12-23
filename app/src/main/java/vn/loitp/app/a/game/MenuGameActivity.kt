@@ -8,7 +8,6 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.game.findNumber.ui.SplashActivity
-import kotlinx.android.synthetic.main.activity_menu.lActionBar
 import kotlinx.android.synthetic.main.activity_menu_game.*
 import vn.loitp.R
 import vn.loitp.app.a.game.osero.TopOseroActivity

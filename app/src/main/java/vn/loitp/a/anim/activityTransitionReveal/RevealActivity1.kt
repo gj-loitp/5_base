@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import com.tombayley.activitycircularreveal.CircularReveal
-import kotlinx.android.synthetic.main.activity_reveal_1.*
+import kotlinx.android.synthetic.main.a_reveal_1.*
 import vn.loitp.R
 
 @LogTag("MainActivity")
@@ -23,7 +23,7 @@ class RevealActivity1 : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_reveal_1
+        return R.layout.a_reveal_1
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
