@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db.sqliteMultiTableAdvance
+package vn.loitp.a.db.sqliteMultiTableAdvance
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,11 +9,11 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_sqlite_multi_table_advance.*
+import kotlinx.android.synthetic.main.a_db_sqlite_multi_table_advance.*
 import vn.loitp.R
-import vn.loitp.app.a.db.sqliteMultiTableAdvance.helper.InspectionDatabaseHelper
-import vn.loitp.app.a.db.sqliteMultiTableAdvance.md.Action
-import vn.loitp.app.a.db.sqliteMultiTableAdvance.md.Inspection
+import vn.loitp.a.db.sqliteMultiTableAdvance.helper.InspectionDatabaseHelper
+import vn.loitp.a.db.sqliteMultiTableAdvance.md.Action
+import vn.loitp.a.db.sqliteMultiTableAdvance.md.Inspection
 
 /**
  * Created by Loitp on 15.09.2022
@@ -30,7 +30,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
     private lateinit var inspectionDatabaseHelper: InspectionDatabaseHelper
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_sqlite_multi_table_advance
+        return R.layout.a_db_sqlite_multi_table_advance
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

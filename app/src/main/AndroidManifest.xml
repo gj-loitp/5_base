@@ -817,10 +817,10 @@
             android:name=".a.EmptyActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.db.sqliteMultiTable.SqliteMultiTableActivity"
+            android:name=".a.db.sqliteMultiTable.SqliteMultiTableActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity"
+            android:name=".a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.sv.MenuServiceActivity"

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db.sqliteMultiTable.helper
+package vn.loitp.a.db.sqliteMultiTable.helper
 
 import android.content.ContentValues
 import android.content.Context
@@ -6,8 +6,8 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.loitp.core.utils.AppUtils
-import vn.loitp.app.a.db.sqliteMultiTable.md.Note
-import vn.loitp.app.a.db.sqliteMultiTable.md.Tag
+import vn.loitp.a.db.sqliteMultiTable.md.Note
+import vn.loitp.a.db.sqliteMultiTable.md.Tag
 import java.text.SimpleDateFormat
 import java.util.*
 
