@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db
+package vn.loitp.a.db
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,9 +10,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_database.*
+import kotlinx.android.synthetic.main.a_db_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.db.readSqliteAsset.ReadSqliteAssetActivity
+import vn.loitp.a.db.readSqliteAsset.ReadSqliteAssetActivity
 import vn.loitp.app.a.db.realm.RealmActivity
 import vn.loitp.app.a.db.room.RoomActivity
 import vn.loitp.app.a.db.sharedPrefs.SharedPrefsActivity
@@ -37,7 +37,7 @@ import vn.loitp.app.a.demo.architectureComponent.room.WordActivity
 class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_database
+        return R.layout.a_db_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

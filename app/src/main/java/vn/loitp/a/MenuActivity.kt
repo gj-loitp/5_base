@@ -22,7 +22,7 @@ import vn.loitp.R
 import vn.loitp.a.anim.MenuAnimationActivity
 import vn.loitp.a.api.MenuAPIActivity
 import vn.loitp.a.cv.MenuCustomViewsActivity
-import vn.loitp.app.a.db.MenuDatabaseActivity
+import vn.loitp.a.db.MenuDatabaseActivity
 import vn.loitp.app.a.demo.MenuDemoActivity
 import vn.loitp.app.a.func.MenuFunctionActivity
 import vn.loitp.app.a.game.MenuGameActivity
