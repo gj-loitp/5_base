@@ -1,20 +1,20 @@
-package vn.loitp.app.a.demo.fragmentNavigation
+package vn.loitp.a.demo.fragmentNavigation
 
 import android.os.Bundle
 import android.view.View
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener
-import kotlinx.android.synthetic.main.frm_fn_2.*
+import kotlinx.android.synthetic.main.f_fn_3.*
 import vn.loitp.R
 
 @LogTag("fragmentNavigationActivity")
-class FN2 : BaseFragment(), OnBackPressedListener {
+class FN3 : BaseFragment(), OnBackPressedListener {
 
     private var fragmentNavigationActivity: FragmentNavigationActivity? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_fn_2
+        return R.layout.f_fn_3
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,20 +27,18 @@ class FN2 : BaseFragment(), OnBackPressedListener {
     }
 
     private fun setupViews() {
-        button2.setOnClickListener {
-            val navController = fragmentNavigationActivity?.navController
-            // new NavOptions.Builder().setExitAnim(R.anim.fade_out);
-            navController?.navigate(R.id.action_fn2_to_fn3)
+        button3.setOnClickListener {
+            fragmentNavigationActivity?.navController?.navigate(R.id.action_fn3_to_fn1)
         }
     }
 
     override fun onResume() {
         super.onResume()
-        logD("onResume FN2")
+        logD("onResume FN3")
     }
 
     override fun onBackPressed(): Boolean {
-        logD("onBackPressed FN2")
+        logD("onBackPressed FN3")
         fragmentNavigationActivity?.popThisFragment()
         return true
     }

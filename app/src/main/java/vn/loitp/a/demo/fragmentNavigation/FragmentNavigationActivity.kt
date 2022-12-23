@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.fragmentNavigation
+package vn.loitp.a.demo.fragmentNavigation
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -11,7 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.base.OnBackPressedListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_fragment_navigation.*
+import kotlinx.android.synthetic.main.a_frm_navigation.*
 import vn.loitp.R
 
 @LogTag("FragmentNavigationActivity")
@@ -26,7 +26,7 @@ class FragmentNavigationActivity :
         get() = Navigation.findNavController(this, R.id.fragmentContainerView)
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fragment_navigation
+        return R.layout.a_frm_navigation
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

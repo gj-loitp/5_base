@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/fn_1"
-        android:name="vn.loitp.app.a.demo.fragmentNavigation.FN1"
+        android:name="vn.loitp.a.demo.fragmentNavigation.FN1"
         android:label="label_1"
-        tools:layout="@layout/frm_fn_1">
+        tools:layout="@layout/f_fn_1">
         <action
             android:id="@+id/action_fn1_to_fn2"
             app:destination="@id/fn_2"
@@ -28,9 +28,9 @@
 
     <fragment
         android:id="@+id/fn_2"
-        android:name="vn.loitp.app.a.demo.fragmentNavigation.FN2"
+        android:name="vn.loitp.a.demo.fragmentNavigation.FN2"
         android:label="label_2"
-        tools:layout="@layout/frm_fn_2">
+        tools:layout="@layout/f_fn_2">
         <action
             android:id="@+id/action_fn2_to_fn3"
             app:destination="@id/fn_3"
@@ -42,9 +42,9 @@
 
     <fragment
         android:id="@+id/fn_3"
-        android:name="vn.loitp.app.a.demo.fragmentNavigation.FN3"
+        android:name="vn.loitp.a.demo.fragmentNavigation.FN3"
         android:label="label_3"
-        tools:layout="@layout/frm_fn_3">
+        tools:layout="@layout/f_fn_3">
         <action
             android:id="@+id/action_fn3_to_fn1"
             app:destination="@id/fn_1"
@@ -55,9 +55,9 @@
     </fragment>
     <fragment
         android:id="@+id/fn_4"
-        android:name="vn.loitp.app.a.demo.fragmentNavigation.FN4"
+        android:name="vn.loitp.a.demo.fragmentNavigation.FN4"
         android:label="label_4"
-        tools:layout="@layout/frm_fn_4">
+        tools:layout="@layout/f_fn_4">
 
     </fragment>
 </navigation>
