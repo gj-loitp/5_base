@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.floatingWidget
+package vn.loitp.a.demo.floatingWidget
 
 import android.annotation.SuppressLint
 import android.app.Service
@@ -32,7 +32,7 @@ class FloatingViewService : Service() {
     @SuppressLint("InflateParams")
     private fun setupViews() {
         mFloatingView =
-            LayoutInflater.from(this).inflate(R.layout.layout_demo_floating_widget, null)
+            LayoutInflater.from(this).inflate(R.layout.l_demo_floating_widget, null)
 
         val layoutFlag: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY

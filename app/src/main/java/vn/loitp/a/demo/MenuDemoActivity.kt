@@ -22,7 +22,7 @@ import vn.loitp.a.demo.firebase.FirebaseActivity
 import vn.loitp.a.demo.floatingVideo.FloatingWidgetActivity
 import vn.loitp.a.demo.fragmentFlow.FragmentFlowActivity
 import vn.loitp.app.a.demo.fragmentNavigation.FragmentNavigationActivity
-import vn.loitp.app.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity
+import vn.loitp.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity
 import vn.loitp.a.demo.mapTracker.MapTrackerActivity
 import vn.loitp.app.a.demo.nfc.NFCActivity
 import vn.loitp.app.a.demo.pdf.PdfDemoActivity

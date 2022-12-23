@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_func_service_communicate.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import vn.loitp.R
-import vn.loitp.app.a.demo.floatingWidget.CommunicateMng
+import vn.loitp.a.demo.floatingWidget.CommunicateMng
 
 @LogTag("ActivityServiceCommunicateActivity")
 @IsFullScreen(false)

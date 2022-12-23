@@ -384,7 +384,7 @@
             android:name=".app.a.func.dragDrop.DragDropSampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.demo.floatingWidget.FloatingWidgetActivity"
+            android:name=".a.demo.floatingWidget.FloatingWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.demo.floatingVideo.FloatingWidgetActivity"
@@ -734,7 +734,7 @@
         </receiver>
 
         <service
-            android:name=".app.a.demo.floatingWidget.FloatingViewService"
+            android:name=".a.demo.floatingWidget.FloatingViewService"
             android:enabled="true"
             android:exported="false" />
         <service
@@ -763,7 +763,7 @@
             android:name=".app.a.cv.progress.window.WindowProgressActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity"
+            android:name=".a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.kenburn.KenburnViewActivity"

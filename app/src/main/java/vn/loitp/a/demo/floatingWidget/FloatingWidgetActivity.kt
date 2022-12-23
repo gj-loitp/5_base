@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.floatingWidget
+package vn.loitp.a.demo.floatingWidget
 
 import android.content.Intent
 import android.net.Uri
@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_demo_floating_widget.*
+import kotlinx.android.synthetic.main.a_demo_floating_widget.*
 import vn.loitp.R
 
 @LogTag("FloatingWidgetActivity")
@@ -22,7 +22,7 @@ class FloatingWidgetActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_floating_widget
+        return R.layout.a_demo_floating_widget
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

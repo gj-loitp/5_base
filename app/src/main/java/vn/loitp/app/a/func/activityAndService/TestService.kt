@@ -16,7 +16,7 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import vn.loitp.R
-import vn.loitp.app.a.demo.floatingWidget.CommunicateMng
+import vn.loitp.a.demo.floatingWidget.CommunicateMng
 
 class TestService : Service() {
     private lateinit var mWindowManager: WindowManager

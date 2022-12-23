@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.galleryCoreAlbumFrm
+package vn.loitp.a.demo.galleryCoreAlbumFrm
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -8,7 +8,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyFrm
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_demo_gallery_core_album_frm.*
+import kotlinx.android.synthetic.main.a_demo_gallery_core_album_frm.*
 import vn.loitp.R
 
 @LogTag("GalleryCoreAlbumFrmActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class GalleryCoreAlbumFrmActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_gallery_core_album_frm
+        return R.layout.a_demo_gallery_core_album_frm
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
