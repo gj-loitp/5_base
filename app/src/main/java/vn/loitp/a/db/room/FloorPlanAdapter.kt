@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db.room
+package vn.loitp.a.db.room
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.view_row_item_floor_plan.view.*
+import kotlinx.android.synthetic.main.i_floor_plan.view.*
 import vn.loitp.R
-import vn.loitp.app.a.db.room.md.FloorPlan
+import vn.loitp.a.db.room.md.FloorPlan
 
 class FloorPlanAdapter : RecyclerView.Adapter<FloorPlanAdapter.ViewHolder>() {
 
@@ -42,13 +42,19 @@ class FloorPlanAdapter : RecyclerView.Adapter<FloorPlanAdapter.ViewHolder>() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.view_row_item_floor_plan, parent, false)
+            .inflate(R.layout.i_floor_plan, parent, false)
         return ViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int
+    ) {
         holder.bind(listFloorPlan[position])
     }
 

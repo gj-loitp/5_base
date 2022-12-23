@@ -1,11 +1,11 @@
-package vn.loitp.app.a.db.room.db
+package vn.loitp.a.db.room.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.loitp.core.base.BaseDao
-import vn.loitp.app.a.db.room.md.FloorPlan
+import vn.loitp.a.db.room.md.FloorPlan
 
 @Dao
 interface FloorPlanDao : BaseDao<FloorPlan> {

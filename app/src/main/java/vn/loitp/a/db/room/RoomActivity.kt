@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db.room
+package vn.loitp.a.db.room
 
 import android.os.Bundle
 import android.view.View
@@ -10,9 +10,9 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_database_room2.*
+import kotlinx.android.synthetic.main.a_db_room2.*
 import vn.loitp.R
-import vn.loitp.app.a.db.room.md.FloorPlan
+import vn.loitp.a.db.room.md.FloorPlan
 
 @LogTag("RoomActivity")
 @IsFullScreen(false)
@@ -21,7 +21,7 @@ class RoomActivity : BaseFontActivity() {
     private var homeViewModel: HomeViewModel? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_database_room2
+        return R.layout.a_db_room2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

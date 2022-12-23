@@ -1,13 +1,13 @@
-package vn.loitp.app.a.db.room
+package vn.loitp.a.db.room
 
 import com.loitp.core.base.BaseViewModel
 import com.loitp.sv.liveData.ActionData
 import com.loitp.sv.liveData.ActionLiveData
 import kotlinx.coroutines.launch
-import vn.loitp.app.a.db.room.db.FNBDatabase
-import vn.loitp.app.a.db.room.md.Area
-import vn.loitp.app.a.db.room.md.FloorPlan
-import vn.loitp.app.a.db.room.md.Table
+import vn.loitp.a.db.room.db.FNBDatabase
+import vn.loitp.a.db.room.md.Area
+import vn.loitp.a.db.room.md.FloorPlan
+import vn.loitp.a.db.room.md.Table
 
 class HomeViewModel : BaseViewModel() {
     val saveFloorPlanActionLiveData: ActionLiveData<ActionData<ArrayList<FloorPlan>>> =
@@ -21,7 +21,10 @@ class HomeViewModel : BaseViewModel() {
     val insertFloorPlanActionLiveData: ActionLiveData<ActionData<FloorPlan>> = ActionLiveData()
     val findFloorPlanActionLiveData: ActionLiveData<ActionData<FloorPlan>> = ActionLiveData()
 
-    private fun genFloorPlan(id: String, name: String): FloorPlan {
+    private fun genFloorPlan(
+        id: String,
+        name: String
+    ): FloorPlan {
         val floorPlan = FloorPlan()
 
         floorPlan.id = id
@@ -55,7 +58,10 @@ class HomeViewModel : BaseViewModel() {
         return floorPlan
     }
 
-    private fun genListFloorPlan(fromId: Int, toId: Int): ArrayList<FloorPlan> {
+    private fun genListFloorPlan(
+        fromId: Int,
+        toId: Int
+    ): ArrayList<FloorPlan> {
         val listFloorPlan = ArrayList<FloorPlan>()
         for (i in fromId until toId) {
             listFloorPlan.add(genFloorPlan(id = "$i", name = "Name $i"))
@@ -123,7 +129,10 @@ class HomeViewModel : BaseViewModel() {
         }
     }
 
-    fun getListByIndex(fromIndex: Int, toIndex: Int) {
+    fun getListByIndex(
+        fromIndex: Int,
+        toIndex: Int
+    ) {
         getByIndexFloorPlanActionLiveData.set(ActionData(isDoing = true))
         ioScope.launch {
             val offset = toIndex - fromIndex + 1

@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.a_db_menu.*
 import vn.loitp.R
 import vn.loitp.a.db.readSqliteAsset.ReadSqliteAssetActivity
 import vn.loitp.a.db.realm.RealmActivity
-import vn.loitp.app.a.db.room.RoomActivity
+import vn.loitp.a.db.room.RoomActivity
 import vn.loitp.a.db.sharedPrefs.SharedPrefsActivity
 import vn.loitp.a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivity
 import vn.loitp.a.db.sqlite.SqliteActivity

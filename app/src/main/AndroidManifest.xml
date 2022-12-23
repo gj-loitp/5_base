@@ -970,7 +970,7 @@
             android:name=".app.a.cv.rv.concatAdapter.ConcatAdapterActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.db.room.RoomActivity"
+            android:name=".a.db.room.RoomActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.et.currency.CurrencyEditTextActivity"
