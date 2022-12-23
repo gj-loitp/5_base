@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.pdf
+package vn.loitp.a.demo.pdf
 
 import kotlinx.coroutines.* // ktlint-disable no-wildcard-imports
 import java.io.BufferedInputStream
@@ -19,7 +19,10 @@ class PdfStreamCoroutine : CoroutineScope {
         job.cancel()
     }
 
-    fun startTask(urlPdf: String, result: (InputStream?) -> Unit) = launch {
+    fun startTask(
+        urlPdf: String,
+        result: (InputStream?) -> Unit
+    ) = launch {
         val inputStream = doInBackground(urlPdf)
         result.invoke(inputStream)
     }

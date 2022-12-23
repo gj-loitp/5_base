@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.pdf
+package vn.loitp.a.demo.pdf
 
 import android.os.Bundle
 import android.view.View
@@ -14,7 +14,7 @@ import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.task.AsyncTaskDownloadPdfStream
 import com.loitp.task.GetPdfCoroutine
-import kotlinx.android.synthetic.main.activity_demo_pdf.*
+import kotlinx.android.synthetic.main.a_demo_pdf.*
 import vn.loitp.R
 import java.io.File
 
@@ -27,7 +27,7 @@ class PdfDemoActivity : BaseFontActivity() {
     private var pdfStreamCoroutine: PdfStreamCoroutine? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_pdf
+        return R.layout.a_demo_pdf
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

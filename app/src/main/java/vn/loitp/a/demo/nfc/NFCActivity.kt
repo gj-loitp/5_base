@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.nfc
+package vn.loitp.a.demo.nfc
 
 import android.annotation.SuppressLint
 import android.app.PendingIntent
@@ -18,7 +18,7 @@ import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.nfc.LNFCUtil
 import com.loitp.core.utilities.nfc.TagWrapper
-import kotlinx.android.synthetic.main.activity_demo_nfc.*
+import kotlinx.android.synthetic.main.a_demo_nfc.*
 import vn.loitp.R
 import java.io.UnsupportedEncodingException
 import java.nio.charset.Charset
@@ -33,7 +33,7 @@ class NFCActivity : BaseFontActivity() {
     private var pendingIntent: PendingIntent? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_nfc
+        return R.layout.a_demo_nfc
     }
 
     @SuppressLint("SetTextI18n")
@@ -151,7 +151,10 @@ class NFCActivity : BaseFontActivity() {
         )
     }
 
-    private fun getTagInfo(tag: Tag, tech: String): List<String> {
+    private fun getTagInfo(
+        tag: Tag,
+        tech: String
+    ): List<String> {
         val info: MutableList<String> = ArrayList()
         when (tech) {
             "NfcA" -> {
