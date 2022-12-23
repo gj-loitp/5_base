@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db.sqlite
+package vn.loitp.a.db.sqlite
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication.Companion.gson
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_sqlite.*
+import kotlinx.android.synthetic.main.a_db_sqlite.*
 import vn.loitp.R
 
 /**
@@ -27,7 +27,7 @@ class SqliteActivity : BaseFontActivity(), View.OnClickListener {
     private var databaseHandler: DatabaseHandler? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_sqlite
+        return R.layout.a_db_sqlite
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

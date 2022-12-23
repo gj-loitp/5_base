@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db.sqliteEncryption
+package vn.loitp.a.db.sqliteEncryption
 
 import android.content.ContentValues
 import android.content.Context

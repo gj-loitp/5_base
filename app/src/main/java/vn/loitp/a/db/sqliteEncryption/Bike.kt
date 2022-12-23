@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db.sqliteEncryption
+package vn.loitp.a.db.sqliteEncryption
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel

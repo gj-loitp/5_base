@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db.sqliteEncryption
+package vn.loitp.a.db.sqliteEncryption
 
 import android.os.Bundle
 import android.view.Gravity
@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LUIUtil
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_sqlite_encryption.*
+import kotlinx.android.synthetic.main.a_db_sqlite_encryption.*
 import vn.loitp.R
 
 /**
@@ -29,7 +29,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     private lateinit var bikeDatabase: BikeDatabase
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_sqlite_encryption
+        return R.layout.a_db_sqlite_encryption
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -199,7 +199,10 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         )
     }
 
-    private fun updateBike(bike: Bike, button: Button) {
+    private fun updateBike(
+        bike: Bike,
+        button: Button
+    ) {
         bike.name = "Monster " + System.currentTimeMillis()
         bike.branch = "Ducati"
         bike.hp = bike.hp?.plus(1)
@@ -228,7 +231,10 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         )
     }
 
-    private fun deleteBike(bike: Bike, button: Button) {
+    private fun deleteBike(
+        bike: Bike,
+        button: Button
+    ) {
         val result = bikeDatabase.deleteBike(bike)
         logD("deleteContact result $result")
         ll.removeView(button)

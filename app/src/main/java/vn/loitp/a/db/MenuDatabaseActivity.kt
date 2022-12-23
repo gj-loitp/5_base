@@ -17,8 +17,8 @@ import vn.loitp.a.db.realm.RealmActivity
 import vn.loitp.app.a.db.room.RoomActivity
 import vn.loitp.a.db.sharedPrefs.SharedPrefsActivity
 import vn.loitp.a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivity
-import vn.loitp.app.a.db.sqlite.SqliteActivity
-import vn.loitp.app.a.db.sqliteEncryption.SqliteEncryptionActivity
+import vn.loitp.a.db.sqlite.SqliteActivity
+import vn.loitp.a.db.sqliteEncryption.SqliteEncryptionActivity
 import vn.loitp.app.a.db.sqliteMultiTable.SqliteMultiTableActivity
 import vn.loitp.app.a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity
 import vn.loitp.app.a.demo.architectureComponent.room.WordActivity

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db.sqlite
+package vn.loitp.a.db.sqlite
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel

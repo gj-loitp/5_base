@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db.sqlite
+package vn.loitp.a.db.sqlite
 
 import android.content.ContentValues
 import android.content.Context
@@ -14,10 +14,10 @@ import android.database.sqlite.SQLiteOpenHelper
  */
 
 class DatabaseHandler(context: Context) : SQLiteOpenHelper(
-    context,
-    DATABASE_NAME,
-    null,
-    DATABASE_VERSION
+    /* context = */ context,
+    /* name = */ DATABASE_NAME,
+    /* factory = */ null,
+    /* version = */ DATABASE_VERSION
 ) {
 
     companion object {
