@@ -1,4 +1,4 @@
-package vn.loitp.app.a.interviewVN.adt
+package vn.loitp.a.interviewVN.adt
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.model.QA
-import kotlinx.android.synthetic.main.view_item_qa.view.*
+import kotlinx.android.synthetic.main.i_qa.view.*
 import vn.loitp.R
 
 @LogTag("QAAdapter")
@@ -77,14 +77,15 @@ class QAAdapter(
         parent: ViewGroup, viewType: Int
     ) = DataViewHolder(
         LayoutInflater.from(parent.context).inflate(
-            R.layout.view_item_qa, parent, false
+            R.layout.i_qa, parent, false
         )
     )
 
     override fun getItemCount(): Int = listQA.size
 
     override fun onBindViewHolder(
-        holder: RecyclerView.ViewHolder, position: Int
+        holder: RecyclerView.ViewHolder,
+        position: Int
     ) {
         if (holder is DataViewHolder) {
             holder.bind(listQA[position])

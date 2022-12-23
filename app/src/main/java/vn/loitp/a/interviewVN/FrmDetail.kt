@@ -1,4 +1,4 @@
-package vn.loitp.app.a.interviewVN
+package vn.loitp.a.interviewVN
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.model.QA
-import kotlinx.android.synthetic.main.frm_interview_vn_iq_detail.*
+import kotlinx.android.synthetic.main.f_interview_vn_iq_detail.*
 import vn.loitp.R
 import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
 
@@ -15,7 +15,7 @@ import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
 @LogTag("FrmDetail")
 class FrmDetail(private val qa: QA) : BaseFragmentFlow() {
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_interview_vn_iq_detail
+        return R.layout.f_interview_vn_iq_detail
     }
 
     override fun onViewCreated(

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.interviewVN
+package vn.loitp.a.interviewVN
 
 import android.os.Bundle
 import android.os.Handler
@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener
 import com.loitp.core.utilities.LScreenUtil
-import kotlinx.android.synthetic.main.activity_interview_vn_iq.*
+import kotlinx.android.synthetic.main.a_interview_vn_iq.*
 import vn.loitp.R
 import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
 
@@ -34,7 +34,7 @@ class InterviewVNIQActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_interview_vn_iq
+        return R.layout.a_interview_vn_iq
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
