@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.indicator.ex
+package vn.loitp.a.cv.indicator.ex
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_magic_indicator_menu_layout.*
+import kotlinx.android.synthetic.main.a_magic_indicator_menu_layout.*
 import vn.loitp.R
 
 @LogTag("MenuMagicIndicatorActivity")
@@ -19,7 +19,7 @@ import vn.loitp.R
 class MenuMagicIndicatorActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_magic_indicator_menu_layout
+        return R.layout.a_magic_indicator_menu_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

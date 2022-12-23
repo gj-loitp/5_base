@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.indicator.ext.navi
+package vn.loitp.a.cv.indicator.ext.navi
 
 import android.content.Context
 import android.graphics.Canvas
@@ -19,11 +19,21 @@ class DummyCircleNavigator(context: Context) : View(context), IPagerNavigator {
     private val mCirclePoints: MutableList<PointF> = ArrayList()
     private val mPaint = Paint(Paint.ANTI_ALIAS_FLAG)
 
-    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+    override fun onPageScrolled(
+        position: Int,
+        positionOffset: Float,
+        positionOffsetPixels: Int
+    ) {}
 
     override fun onPageScrollStateChanged(state: Int) {}
 
-    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        left: Int,
+        top: Int,
+        right: Int,
+        bottom: Int
+    ) {
         prepareCirclePoints()
     }
 

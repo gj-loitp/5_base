@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.indicator.ex
+package vn.loitp.a.cv.indicator.ex
 
 import android.annotation.SuppressLint
 import android.content.Context

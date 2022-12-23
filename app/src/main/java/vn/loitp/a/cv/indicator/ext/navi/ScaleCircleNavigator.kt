@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.indicator.ext.navi
+package vn.loitp.a.cv.indicator.ext.navi
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -52,7 +52,10 @@ class ScaleCircleNavigator(context: Context) :
         mNavigatorHelper.setSkimOver(true)
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         setMeasuredDimension(measureWidth(widthMeasureSpec), measureHeight(heightMeasureSpec))
     }
 
@@ -152,7 +155,11 @@ class ScaleCircleNavigator(context: Context) :
         return super.onTouchEvent(event)
     }
 
-    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+    override fun onPageScrolled(
+        position: Int,
+        positionOffset: Float,
+        positionOffsetPixels: Int
+    ) {
         mNavigatorHelper.onPageScrolled(position, positionOffset, positionOffsetPixels)
     }
 
@@ -164,7 +171,13 @@ class ScaleCircleNavigator(context: Context) :
         mNavigatorHelper.onPageScrollStateChanged(state)
     }
 
-    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        left: Int,
+        top: Int,
+        right: Int,
+        bottom: Int
+    ) {
         prepareCirclePoints()
     }
 
@@ -242,7 +255,12 @@ class ScaleCircleNavigator(context: Context) :
         mCircleClickListener = circleClickListener
     }
 
-    override fun onEnter(index: Int, totalCount: Int, enterPercent: Float, leftToRight: Boolean) {
+    override fun onEnter(
+        index: Int,
+        totalCount: Int,
+        enterPercent: Float,
+        leftToRight: Boolean
+    ) {
         if (mFollowTouch) {
             val radius =
                 mMinRadius + (mMaxRadius - mMinRadius) * mStartInterpolator.getInterpolation(
@@ -253,7 +271,12 @@ class ScaleCircleNavigator(context: Context) :
         }
     }
 
-    override fun onLeave(index: Int, totalCount: Int, leavePercent: Float, leftToRight: Boolean) {
+    override fun onLeave(
+        index: Int,
+        totalCount: Int,
+        leavePercent: Float,
+        leftToRight: Boolean
+    ) {
         if (mFollowTouch) {
             val radius =
                 mMaxRadius + (mMinRadius - mMaxRadius) * mStartInterpolator.getInterpolation(
@@ -264,14 +287,20 @@ class ScaleCircleNavigator(context: Context) :
         }
     }
 
-    override fun onSelected(index: Int, totalCount: Int) {
+    override fun onSelected(
+        index: Int,
+        totalCount: Int
+    ) {
         if (!mFollowTouch) {
             mCircleRadiusArray.put(index, mMaxRadius.toFloat())
             invalidate()
         }
     }
 
-    override fun onDeselected(index: Int, totalCount: Int) {
+    override fun onDeselected(
+        index: Int,
+        totalCount: Int
+    ) {
         if (!mFollowTouch) {
             mCircleRadiusArray.put(index, mMinRadius.toFloat())
             invalidate()

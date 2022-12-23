@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.indicator.ex
+package vn.loitp.a.cv.indicator.ex
 
 import android.content.Context
 import android.graphics.Color
@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_no_tab_only_indicator_example_layout.*
+import kotlinx.android.synthetic.main.a_no_tab_only_indicator_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
@@ -32,7 +32,7 @@ class NoTabOnlyIndicatorExampleActivity : BaseFontActivity() {
     private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_no_tab_only_indicator_example_layout
+        return R.layout.a_no_tab_only_indicator_example_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

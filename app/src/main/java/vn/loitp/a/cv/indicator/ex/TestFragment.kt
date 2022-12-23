@@ -1,11 +1,11 @@
-package vn.loitp.app.a.cv.indicator.ex
+package vn.loitp.a.cv.indicator.ex
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.frm_test_magic_indicator.*
+import kotlinx.android.synthetic.main.f_test_magic_indicator.*
 import vn.loitp.R
 
 class TestFragment : Fragment() {
@@ -18,7 +18,7 @@ class TestFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.frm_test_magic_indicator, container, false)
+        return inflater.inflate(R.layout.f_test_magic_indicator, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

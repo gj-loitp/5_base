@@ -1,21 +1,22 @@
-package vn.loitp.app.a.cv.indicator.ex
+package vn.loitp.a.cv.indicator.ex
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
-import android.view.animation.OvershootInterpolator
+import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener
+import android.widget.TextView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_fixed_tab_example_layout.*
-import net.lucode.hackware.magicindicator.FragmentContainerHelper
+import kotlinx.android.synthetic.main.a_badge_tab_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
@@ -26,12 +27,15 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.Li
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgeAnchor
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgePagerTitleView
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgeRule
 import vn.loitp.R
-import vn.loitp.app.a.cv.indicator.ext.titles.ScaleTransitionPagerTitleView
+import vn.loitp.a.cv.indicator.ext.titles.ScaleTransitionPagerTitleView
 
-@LogTag("FixedTabExampleActivity")
+@LogTag("BadgeTabExampleActivity")
 @IsFullScreen(false)
-class FixedTabExampleActivity : BaseFontActivity() {
+class BadgeTabExampleActivity : BaseFontActivity() {
 
     companion object {
         private val CHANNELS = arrayOf("KITKAT", "NOUGAT", "DONUT")
@@ -41,7 +45,7 @@ class FixedTabExampleActivity : BaseFontActivity() {
     private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fixed_tab_example_layout
+        return R.layout.a_badge_tab_example_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +63,7 @@ class FixedTabExampleActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = FixedTabExampleActivity::class.java.simpleName
+            this.tvTitle?.text = BadgeTabExampleActivity::class.java.simpleName
         }
         viewPager.adapter = mExamplePagerAdapter
         initMagicIndicator1()
@@ -75,7 +79,9 @@ class FixedTabExampleActivity : BaseFontActivity() {
                 return mDataList.size
             }
 
+            @SuppressLint("InflateParams")
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                val badgePagerTitleView = BadgePagerTitleView(context)
                 val simplePagerTitleView: SimplePagerTitleView =
                     ColorTransitionPagerTitleView(context)
                 simplePagerTitleView.text = mDataList[index]
@@ -83,8 +89,45 @@ class FixedTabExampleActivity : BaseFontActivity() {
                 simplePagerTitleView.selectedColor = Color.WHITE
                 simplePagerTitleView.setOnClickListener {
                     viewPager.currentItem = index
+                    badgePagerTitleView.badgeView = null // cancel badge when click tab
                 }
-                return simplePagerTitleView
+                badgePagerTitleView.innerPagerTitleView = simplePagerTitleView
+
+                // setup badge
+                if (index != 2) {
+                    val badgeTextView = LayoutInflater.from(context)
+                        .inflate(R.layout.simple_count_badge_layout, null) as TextView
+                    badgeTextView.text = "${index + 1}"
+                    badgePagerTitleView.badgeView = badgeTextView
+                } else {
+                    val badgeImageView = LayoutInflater.from(context)
+                        .inflate(R.layout.simple_red_dot_badge_layout, null) as ImageView
+                    badgePagerTitleView.badgeView = badgeImageView
+                }
+
+                // set badge position
+                when (index) {
+                    0 -> {
+                        badgePagerTitleView.xBadgeRule =
+                            BadgeRule(BadgeAnchor.CONTENT_LEFT, -UIUtil.dip2px(context, 6.0))
+                        badgePagerTitleView.yBadgeRule = BadgeRule(BadgeAnchor.CONTENT_TOP, 0)
+                    }
+                    1 -> {
+                        badgePagerTitleView.xBadgeRule =
+                            BadgeRule(BadgeAnchor.CONTENT_RIGHT, -UIUtil.dip2px(context, 6.0))
+                        badgePagerTitleView.yBadgeRule = BadgeRule(BadgeAnchor.CONTENT_TOP, 0)
+                    }
+                    2 -> {
+                        badgePagerTitleView.xBadgeRule =
+                            BadgeRule(BadgeAnchor.CENTER_X, -UIUtil.dip2px(context, 3.0))
+                        badgePagerTitleView.yBadgeRule =
+                            BadgeRule(BadgeAnchor.CONTENT_BOTTOM, UIUtil.dip2px(context, 2.0))
+                    }
+                }
+
+                // don't cancel badge when tab selected
+                badgePagerTitleView.isAutoCancelBadge = false
+                return badgePagerTitleView
             }
 
             override fun getIndicator(context: Context): IPagerIndicator {
@@ -110,7 +153,9 @@ class FixedTabExampleActivity : BaseFontActivity() {
                 return mDataList.size
             }
 
+            @SuppressLint("InflateParams")
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                val badgePagerTitleView = BadgePagerTitleView(context)
                 val simplePagerTitleView: SimplePagerTitleView =
                     ScaleTransitionPagerTitleView(context)
                 simplePagerTitleView.text = mDataList[index]
@@ -120,7 +165,22 @@ class FixedTabExampleActivity : BaseFontActivity() {
                 simplePagerTitleView.setOnClickListener {
                     viewPager.currentItem = index
                 }
-                return simplePagerTitleView
+                badgePagerTitleView.innerPagerTitleView = simplePagerTitleView
+
+                // setup badge
+                if (index == 1) {
+                    val badgeImageView = LayoutInflater.from(context)
+                        .inflate(R.layout.simple_red_dot_badge_layout, null) as ImageView
+                    badgePagerTitleView.badgeView = badgeImageView
+                    badgePagerTitleView.xBadgeRule =
+                        BadgeRule(BadgeAnchor.CENTER_X, -UIUtil.dip2px(context, 3.0))
+                    badgePagerTitleView.yBadgeRule =
+                        BadgeRule(BadgeAnchor.CONTENT_BOTTOM, UIUtil.dip2px(context, 2.0))
+                }
+
+                // cancel badge when click tab, default true
+                badgePagerTitleView.isAutoCancelBadge = true
+                return badgePagerTitleView
             }
 
             override fun getIndicator(context: Context): IPagerIndicator {
@@ -160,6 +220,7 @@ class FixedTabExampleActivity : BaseFontActivity() {
             }
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                val badgePagerTitleView = BadgePagerTitleView(context)
                 val clipPagerTitleView = ClipPagerTitleView(context)
                 clipPagerTitleView.text = mDataList[index]
                 clipPagerTitleView.textColor = Color.parseColor("#e94220")
@@ -167,20 +228,21 @@ class FixedTabExampleActivity : BaseFontActivity() {
                 clipPagerTitleView.setOnClickListener {
                     viewPager.currentItem = index
                 }
-                return clipPagerTitleView
+                badgePagerTitleView.innerPagerTitleView = clipPagerTitleView
+                return badgePagerTitleView
             }
 
             override fun getIndicator(context: Context): IPagerIndicator {
-                val linePagerIndicator = LinePagerIndicator(context)
+                val indicator = LinePagerIndicator(context)
                 val navigatorHeight =
                     context.resources.getDimension(R.dimen.common_navigator_height)
                 val borderWidth = UIUtil.dip2px(context, 1.0).toFloat()
                 val lineHeight = navigatorHeight - 2 * borderWidth
-                linePagerIndicator.lineHeight = lineHeight
-                linePagerIndicator.roundRadius = lineHeight / 2
-                linePagerIndicator.yOffset = borderWidth
-                linePagerIndicator.setColors(Color.parseColor("#bc2a2a"))
-                return linePagerIndicator
+                indicator.lineHeight = lineHeight
+                indicator.roundRadius = lineHeight / 2
+                indicator.yOffset = borderWidth
+                indicator.setColors(Color.parseColor("#bc2a2a"))
+                return indicator
             }
         }
         magicIndicator3.navigator = commonNavigator
@@ -195,6 +257,7 @@ class FixedTabExampleActivity : BaseFontActivity() {
             }
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                val badgePagerTitleView = BadgePagerTitleView(context)
                 val simplePagerTitleView: SimplePagerTitleView =
                     ColorTransitionPagerTitleView(context)
                 simplePagerTitleView.normalColor = Color.GRAY
@@ -203,13 +266,12 @@ class FixedTabExampleActivity : BaseFontActivity() {
                 simplePagerTitleView.setOnClickListener {
                     viewPager.currentItem = index
                 }
-                return simplePagerTitleView
+                badgePagerTitleView.innerPagerTitleView = simplePagerTitleView
+                return badgePagerTitleView
             }
 
             override fun getIndicator(context: Context): IPagerIndicator {
                 val linePagerIndicator = LinePagerIndicator(context)
-                linePagerIndicator.mode = LinePagerIndicator.MODE_EXACTLY
-                linePagerIndicator.lineWidth = UIUtil.dip2px(context, 10.0).toFloat()
                 linePagerIndicator.setColors(Color.WHITE)
                 return linePagerIndicator
             }
@@ -219,16 +281,9 @@ class FixedTabExampleActivity : BaseFontActivity() {
         titleContainer.showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE
         titleContainer.dividerDrawable = object : ColorDrawable() {
             override fun getIntrinsicWidth(): Int {
-                return UIUtil.dip2px(this@FixedTabExampleActivity, 15.0)
+                return UIUtil.dip2px(this@BadgeTabExampleActivity, 15.0)
             }
         }
-        val fragmentContainerHelper = FragmentContainerHelper(magicIndicator4)
-        fragmentContainerHelper.setInterpolator(OvershootInterpolator(2.0f))
-        fragmentContainerHelper.setDuration(300)
-        viewPager.addOnPageChangeListener(object : SimpleOnPageChangeListener() {
-            override fun onPageSelected(position: Int) {
-                fragmentContainerHelper.handlePageSelected(position)
-            }
-        })
+        ViewPagerHelper.bind(magicIndicator4, viewPager)
     }
 }
