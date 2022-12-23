@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.dlg.custom
+package vn.loitp.a.cv.dlg.custom
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -7,7 +7,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_custom_dialog.*
+import kotlinx.android.synthetic.main.a_dlg_custom.*
 import vn.loitp.R
 
 @LogTag("CustomDialogActivity")
@@ -17,7 +17,7 @@ class CustomDialogActivity : BaseFontActivity() {
     private var isFullScreen: Boolean = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_custom_dialog
+        return R.layout.a_dlg_custom
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

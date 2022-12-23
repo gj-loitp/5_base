@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.dlg.custom
+package vn.loitp.a.cv.dlg.custom
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -20,7 +20,7 @@ class PositionDialog : BaseDialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialogBuilder = AlertDialog.Builder(context, R.style.FullDialogTheme)
         val inflater = LayoutInflater.from(context)
-        val dialogView = inflater.inflate(R.layout.dialog_position, null)
+        val dialogView = inflater.inflate(R.layout.dlg_position, null)
         dialogBuilder.setView(dialogView)
         isCancelable = true
         init(dialogView)

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.dlg
+package vn.loitp.a.cv.dlg
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,20 +8,20 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_dialog.*
+import kotlinx.android.synthetic.main.a_dlg_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.dlg.custom.CustomDialogActivity
-import vn.loitp.app.a.cv.dlg.customProgress.CustomProgressDialogActivity
-import vn.loitp.app.a.cv.dlg.original.DialogOriginalActivity
-import vn.loitp.app.a.cv.dlg.pretty.PrettyDialogActivity
-import vn.loitp.app.a.cv.dlg.slideImages.DialogSlideImagesActivity
+import vn.loitp.a.cv.dlg.custom.CustomDialogActivity
+import vn.loitp.a.cv.dlg.customProgress.CustomProgressDialogActivity
+import vn.loitp.a.cv.dlg.original.DialogOriginalActivity
+import vn.loitp.a.cv.dlg.pretty.PrettyDialogActivity
+import vn.loitp.a.cv.dlg.slideImages.DialogSlideImagesActivity
 
 @LogTag("MenuDialogActivity")
 @IsFullScreen(false)
 class MenuDialogActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_dialog
+        return R.layout.a_dlg_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

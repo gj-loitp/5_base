@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.dlg.pretty
+package vn.loitp.a.cv.dlg.pretty
 
 import android.graphics.Typeface
 import android.os.Bundle
@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.dlg.prettyDialog.PrettyDialog
-import kotlinx.android.synthetic.main.activity_pretty_dialog.*
+import kotlinx.android.synthetic.main.a_dlg_pretty.*
 import vn.loitp.R
 
 @LogTag("PrettyDialogActivity")
@@ -20,7 +20,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
     private var prettyDialog: PrettyDialog? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pretty_dialog
+        return R.layout.a_dlg_pretty
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

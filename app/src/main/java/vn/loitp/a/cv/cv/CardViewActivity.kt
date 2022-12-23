@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.cv
+package vn.loitp.a.cv.cv
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_card_view.*
+import kotlinx.android.synthetic.main.a_card_view.*
 import vn.loitp.R
 
 @LogTag("CardViewActivity")
@@ -17,7 +17,7 @@ import vn.loitp.R
 class CardViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_card_view
+        return R.layout.a_card_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

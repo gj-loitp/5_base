@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.dlg.slideImages
+package vn.loitp.a.cv.dlg.slideImages
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -9,7 +9,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_dialog_slide_images.*
+import kotlinx.android.synthetic.main.a_dlg_slide_images.*
 import vn.loitp.R
 
 @LogTag("DialogSlideImagesActivity")
@@ -17,7 +17,7 @@ import vn.loitp.R
 class DialogSlideImagesActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_dialog_slide_images
+        return R.layout.a_dlg_slide_images
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

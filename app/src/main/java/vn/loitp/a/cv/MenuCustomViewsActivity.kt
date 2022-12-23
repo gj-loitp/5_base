@@ -20,8 +20,8 @@ import vn.loitp.a.cv.bt.MenuButtonActivity
 import vn.loitp.a.cv.cal.MenuCalendarActivity
 import vn.loitp.a.cv.code.CodeViewActivity
 import vn.loitp.a.cv.cornerSheet.CornetSheetExampleActivity
-import vn.loitp.app.a.cv.cv.CardViewActivity
-import vn.loitp.app.a.cv.dlg.MenuDialogActivity
+import vn.loitp.a.cv.cv.CardViewActivity
+import vn.loitp.a.cv.dlg.MenuDialogActivity
 import vn.loitp.app.a.cv.dragView.MenuDragViewActivity
 import vn.loitp.app.a.cv.draggableFlipView.DraggableFlipViewActivity
 import vn.loitp.app.a.cv.et.MenuEditTextActivity

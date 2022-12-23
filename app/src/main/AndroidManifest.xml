@@ -249,10 +249,10 @@
             android:name=".a.anim.flySchool.FlySchoolActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.dlg.MenuDialogActivity"
+            android:name=".a.cv.dlg.MenuDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.dlg.original.DialogOriginalActivity"
+            android:name=".a.cv.dlg.original.DialogOriginalActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.anim.activityTransition.Animation1Activity"
@@ -265,7 +265,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".app.a.cv.dlg.pretty.PrettyDialogActivity"
+            android:name=".a.cv.dlg.pretty.PrettyDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.sb.MenuSeekbarActivity"
@@ -608,7 +608,7 @@
             android:name=".app.a.cv.vp.refresh.RefreshViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.dlg.customProgress.CustomProgressDialogActivity"
+            android:name=".a.cv.dlg.customProgress.CustomProgressDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.ab.navigationView.NavigationViewActivity"
@@ -693,7 +693,7 @@
             android:name=".app.a.cv.layout.swipeReveal.rv.SwipeRevealLayoutRecyclerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.dlg.slideImages.DialogSlideImagesActivity"
+            android:name=".a.cv.dlg.slideImages.DialogSlideImagesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.func.keyboard.KeyboardActivity"
@@ -757,7 +757,7 @@
             android:name=".app.a.cv.iv.pinchToZoom.PinchToZoomViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.dlg.custom.CustomDialogActivity"
+            android:name=".a.cv.dlg.custom.CustomDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.progress.window.WindowProgressActivity"
@@ -1385,7 +1385,7 @@
             android:name=".app.a.cv.layout.autoScrollContent.AutoScrollContentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.cv.CardViewActivity"
+            android:name=".a.cv.cv.CardViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.iv.shapeableIv.ShapeableImageViewActivity"
