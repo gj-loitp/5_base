@@ -15,7 +15,7 @@ import vn.loitp.R
 import vn.loitp.app.a.cv.wwlVideo.detail.WWLVideoMetaInfoFragment
 import vn.loitp.app.a.cv.wwlVideo.detail.WWLVideoPlayerFragment
 import vn.loitp.app.a.cv.wwlVideo.detail.WWLVideoUpNextFragment
-import vn.loitp.app.a.cv.wwlVideo.interfaces.FragmentHost
+import vn.loitp.app.a.cv.wwlVideo.itf.FragmentHost
 import vn.loitp.app.a.cv.wwlVideo.utils.WWLVideoDataset
 import kotlin.math.max
 import kotlin.math.min

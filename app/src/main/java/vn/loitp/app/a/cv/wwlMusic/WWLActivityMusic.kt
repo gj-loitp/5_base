@@ -10,9 +10,9 @@ import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.showSystemUI
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.updateStatusBarAlpha
 import kotlinx.android.synthetic.main.activity_wwl_music.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.wwlMusic.fragments.WWLPlaylistFragment
-import vn.loitp.app.a.cv.wwlMusic.fragments.WWLWatchFragment
-import vn.loitp.app.a.cv.wwlMusic.interfaces.FragmentHost
+import vn.loitp.app.a.cv.wwlMusic.frm.WWLPlaylistFragment
+import vn.loitp.app.a.cv.wwlMusic.frm.WWLWatchFragment
+import vn.loitp.app.a.cv.wwlMusic.itf.FragmentHost
 import vn.loitp.app.a.cv.wwlMusic.utils.WWLMusicDataset
 
 // https://github.com/vn-ttinc/Youtube-Watch-While-Layout

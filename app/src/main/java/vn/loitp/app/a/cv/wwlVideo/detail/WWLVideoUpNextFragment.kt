@@ -16,7 +16,7 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil
 import kotlinx.android.synthetic.main.wwl_video_up_next_fragment.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.wwlVideo.interfaces.FragmentHost
+import vn.loitp.app.a.cv.wwlVideo.itf.FragmentHost
 import vn.loitp.app.a.cv.wwlVideo.utils.WWLVideoDataset
 
 @LogTag("WWLVideoUpNextFragment")

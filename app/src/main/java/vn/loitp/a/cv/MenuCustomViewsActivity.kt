@@ -46,11 +46,11 @@ import vn.loitp.app.a.cv.simpleRatingBar.SimpleRatingBarActivity
 import vn.loitp.app.a.cv.stackExpandableView.StackExpandableViewActivity
 import vn.loitp.app.a.cv.sticker.StickerActivity
 import vn.loitp.app.a.cv.sw.MenuSwitchToggleActivity
-import vn.loitp.app.a.cv.textview.MenuTextViewActivity
+import vn.loitp.app.a.cv.tv.MenuTextViewActivity
 import vn.loitp.app.a.cv.treeView.TreeViewActivity
-import vn.loitp.app.a.cv.videoView.MenuVideoViewActivity
-import vn.loitp.app.a.cv.viewPager.MenuViewPagerActivity
-import vn.loitp.app.a.cv.webview.MenuWebViewActivity
+import vn.loitp.app.a.cv.video.MenuVideoViewActivity
+import vn.loitp.app.a.cv.vp.MenuViewPagerActivity
+import vn.loitp.app.a.cv.wv.MenuWebViewActivity
 import vn.loitp.app.a.cv.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.app.a.cv.wheelView.WheelViewActivity
 import vn.loitp.app.a.cv.wwlMusic.WWLActivityMusic

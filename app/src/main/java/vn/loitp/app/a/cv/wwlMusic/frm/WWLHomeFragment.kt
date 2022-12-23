@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wwlVideo
+package vn.loitp.app.a.cv.wwlMusic.frm
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -12,21 +12,21 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil
-import kotlinx.android.synthetic.main.wwl_video_home_fragment.*
+import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.getGridColumnCount
+import kotlinx.android.synthetic.main.wwl_music_home_fragment.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.wwlVideo.itf.FragmentHost
-import vn.loitp.app.a.cv.wwlVideo.utils.WWLVideoDataset
+import vn.loitp.app.a.cv.wwlMusic.itf.FragmentHost
+import vn.loitp.app.a.cv.wwlMusic.utils.WWLMusicDataset
 
-@LogTag("HomeFragment")
-class HomeFragment : BaseFragment() {
+@LogTag("WWLHomeFragment")
+class WWLHomeFragment : BaseFragment() {
 
-    private var gridLayoutManager: GridLayoutManager? = null
+    private var mLayoutManager: GridLayoutManager? = null
     private var customAdapter: CustomAdapter? = null
-    private var fragmentHost: FragmentHost? = null
+    private var mFragmentHost: FragmentHost? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.wwl_video_home_fragment
+        return R.layout.wwl_music_home_fragment
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,17 +37,16 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setupViews() {
-        gridLayoutManager =
-            GridLayoutManager(activity, LWWLMusicUiUtil.getGridColumnCount(resources))
-        recyclerView.layoutManager = gridLayoutManager
-        customAdapter = CustomAdapter(WWLVideoDataset.datasetItems)
+        mLayoutManager = GridLayoutManager(activity, getGridColumnCount(resources))
+        recyclerView.layoutManager = mLayoutManager
+        customAdapter = CustomAdapter(WWLMusicDataset.datasetItems)
         recyclerView.adapter = customAdapter
     }
 
     @Deprecated("Deprecated in Java")
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
-        fragmentHost = activity as FragmentHost
+        mFragmentHost = activity as FragmentHost
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -57,19 +56,19 @@ class HomeFragment : BaseFragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun updateLayoutIfNeed() {
-        gridLayoutManager?.spanCount = LWWLMusicUiUtil.getGridColumnCount(resources)
+        mLayoutManager?.spanCount = getGridColumnCount(resources)
         customAdapter?.notifyDataSetChanged()
     }
 
-    private fun onItemClicked(item: WWLVideoDataset.DatasetItem) {
-        fragmentHost?.goToDetail(item)
+    private fun onItemClicked(item: WWLMusicDataset.DatasetItem) {
+        mFragmentHost?.goToDetail(item)
     }
 
-    private inner class CustomAdapter(private val mDataSet: ArrayList<WWLVideoDataset.DatasetItem>) :
+    private inner class CustomAdapter(private val mDataSet: ArrayList<WWLMusicDataset.DatasetItem>) :
         RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val v = LayoutInflater.from(parent.context)
-                .inflate(R.layout.wwl_video_card_row_item, parent, false)
+                .inflate(R.layout.wwl_music_card_row_item, parent, false)
             return ViewHolder(v)
         }
 
