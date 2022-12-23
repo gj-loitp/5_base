@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.bt.fab
+package vn.loitp.a.cv.bt.fab
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_fab.*
+import kotlinx.android.synthetic.main.a_fab.*
 import vn.loitp.R
 
 @LogTag("FabActivity")
@@ -19,7 +19,7 @@ import vn.loitp.R
 class FabActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fab
+        return R.layout.a_fab
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
