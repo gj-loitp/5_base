@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor"
-    android:orientation="vertical">
+    android:background="?attr/themeBackgroundColor">
 
     <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#68768A">
+        android:layout_height="0dp"
+        android:background="#68768A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
 
         <com.loitp.views.fingerPaintView.FingerPaintImageView
             android:id="@+id/finger"
@@ -25,45 +28,45 @@
             android:src="@drawable/ic_launcher_background"
             app:inEditModeFPIV="true" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/undo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/finger"
-            android:layout_alignLeft="@+id/finger"
+            android:layout_alignStart="@+id/finger"
             android:background="?attr/selectableItemBackground"
             android:paddingTop="8dp"
-            android:paddingRight="8dp"
+            android:paddingEnd="8dp"
             android:paddingBottom="8dp"
             android:text="UNDO"
             android:textColor="#FFFFFF" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/clear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/finger"
-            android:layout_toRightOf="@+id/undo"
+            android:layout_toEndOf="@+id/undo"
             android:background="?attr/selectableItemBackground"
             android:paddingTop="8dp"
-            android:paddingRight="8dp"
+            android:paddingEnd="8dp"
             android:paddingBottom="8dp"
             android:text="|  CLEAR"
             android:textColor="#FFFFFF" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/finger"
-            android:layout_alignRight="@+id/finger"
+            android:layout_alignEnd="@+id/finger"
             android:background="?attr/selectableItemBackground"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:text="SAVE BITMAP"
             android:textColor="#FFFFFF" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -71,118 +74,118 @@
             android:orientation="horizontal"
             android:padding="8dp">
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="4dp">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:text="Red"
                         android:textColor="#FFFFFF" />
 
-                    <SeekBar
+                    <androidx.appcompat.widget.AppCompatSeekBar
                         android:id="@+id/red"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:max="255" />
-                </LinearLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <LinearLayout
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="4dp">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:text="Green"
                         android:textColor="#FFFFFF" />
 
-                    <SeekBar
+                    <androidx.appcompat.widget.AppCompatSeekBar
                         android:id="@+id/green"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:max="255" />
-                </LinearLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <LinearLayout
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="4dp">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:text="Blue"
                         android:textColor="#FFFFFF" />
 
-                    <SeekBar
+                    <androidx.appcompat.widget.AppCompatSeekBar
                         android:id="@+id/blue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:max="255" />
-                </LinearLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <LinearLayout
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="4dp">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:text="Tolerance"
                         android:textColor="#FFFFFF" />
 
-                    <SeekBar
+                    <androidx.appcompat.widget.AppCompatSeekBar
                         android:id="@+id/tolerance"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:max="100"
                         android:progress="1" />
-                </LinearLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <LinearLayout
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="4dp">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:text="Width"
                         android:textColor="#FFFFFF" />
 
-                    <SeekBar
+                    <androidx.appcompat.widget.AppCompatSeekBar
                         android:id="@+id/width"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:max="80"
                         android:progress="20" />
-                </LinearLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/colorPreview"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -221,10 +224,9 @@
                 </RadioGroup>
 
 
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <!-- Preview window -->
         <RelativeLayout
@@ -234,24 +236,24 @@
             android:background="#D9000000"
             android:visibility="invisible">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:textColor="#FFFFFF" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_margin="8dp"
                 android:background="?attr/selectableItemBackground"
                 android:text="Close"
                 android:textColor="#FFFFFF" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/preview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -263,4 +265,4 @@
 
     </RelativeLayout>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

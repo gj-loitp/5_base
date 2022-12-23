@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.graph
+package vn.loitp.a.cv.graph
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -15,7 +15,7 @@ import com.loitp.core.base.BaseFontActivity
 import dev.bandb.graphview.AbstractGraphAdapter
 import dev.bandb.graphview.graph.Graph
 import dev.bandb.graphview.graph.Node
-import kotlinx.android.synthetic.main.activity_graph.*
+import kotlinx.android.synthetic.main.a_graph.*
 import vn.loitp.R
 import java.util.*
 
@@ -25,7 +25,7 @@ import java.util.*
 abstract class GraphActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_graph
+        return R.layout.a_graph
     }
 
     protected lateinit var adapter: AbstractGraphAdapter<NodeViewHolder>

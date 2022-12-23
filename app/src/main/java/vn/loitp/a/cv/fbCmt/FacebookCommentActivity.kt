@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.fbCmt
+package vn.loitp.a.cv.fbCmt
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_facebook_comment.*
+import kotlinx.android.synthetic.main.a_facebook_comment.*
 import vn.loitp.R
 
 @LogTag("FacebookCommentActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class FacebookCommentActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_facebook_comment
+        return R.layout.a_facebook_comment
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

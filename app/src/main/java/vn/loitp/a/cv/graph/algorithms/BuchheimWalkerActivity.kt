@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.graph.algorithms
+package vn.loitp.a.cv.graph.algorithms
 
 import android.view.Menu
 import android.view.MenuItem
@@ -7,9 +7,9 @@ import dev.bandb.graphview.graph.Node
 import dev.bandb.graphview.layouts.tree.BuchheimWalkerConfiguration
 import dev.bandb.graphview.layouts.tree.BuchheimWalkerLayoutManager
 import dev.bandb.graphview.layouts.tree.TreeEdgeDecoration
-import kotlinx.android.synthetic.main.activity_graph.*
+import kotlinx.android.synthetic.main.a_graph.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.graph.GraphActivity
+import vn.loitp.a.cv.graph.GraphActivity
 
 class BuchheimWalkerActivity : GraphActivity() {
 

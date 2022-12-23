@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.fingerPaintView
+package vn.loitp.a.cv.fingerPaintView
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_finger_paint_view.*
+import kotlinx.android.synthetic.main.a_finger_paint_view.*
 import vn.loitp.R
 
 @LogTag("FingerPaintActivity")
@@ -22,7 +22,7 @@ class FingerPaintActivity : BaseFontActivity(), SeekBar.OnSeekBarChangeListener,
     View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_finger_paint_view
+        return R.layout.a_finger_paint_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

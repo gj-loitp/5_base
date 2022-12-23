@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.graph
+package vn.loitp.a.cv.graph
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,7 +13,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_menu_graph_view.*
+import kotlinx.android.synthetic.main.a_graph_view_menu.*
 import vn.loitp.R
 
 @LogTag("MenuGraphViewActivity")
@@ -22,7 +22,7 @@ import vn.loitp.R
 class MenuGraphViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_graph_view
+        return R.layout.a_graph_view_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

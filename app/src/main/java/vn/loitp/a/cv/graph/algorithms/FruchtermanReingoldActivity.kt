@@ -1,11 +1,11 @@
-package vn.loitp.app.a.cv.graph.algorithms
+package vn.loitp.a.cv.graph.algorithms
 
 import dev.bandb.graphview.decoration.edge.ArrowEdgeDecoration
 import dev.bandb.graphview.graph.Graph
 import dev.bandb.graphview.graph.Node
 import dev.bandb.graphview.layouts.energy.FruchtermanReingoldLayoutManager
-import kotlinx.android.synthetic.main.activity_graph.*
-import vn.loitp.app.a.cv.graph.GraphActivity
+import kotlinx.android.synthetic.main.a_graph.*
+import vn.loitp.a.cv.graph.GraphActivity
 
 class FruchtermanReingoldActivity : GraphActivity() {
 

@@ -1,8 +1,8 @@
-package vn.loitp.app.a.cv.graph
+package vn.loitp.a.cv.graph
 
-import vn.loitp.app.a.cv.graph.algorithms.BuchheimWalkerActivity
-import vn.loitp.app.a.cv.graph.algorithms.FruchtermanReingoldActivity
-import vn.loitp.app.a.cv.graph.algorithms.SugiyamaActivity
+import vn.loitp.a.cv.graph.algorithms.BuchheimWalkerActivity
+import vn.loitp.a.cv.graph.algorithms.FruchtermanReingoldActivity
+import vn.loitp.a.cv.graph.algorithms.SugiyamaActivity
 
 object MainContent {
     val ITEMS: MutableList<GraphItem> = ArrayList()

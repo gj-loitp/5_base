@@ -484,7 +484,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--end service for FCM-->
         <activity
-            android:name=".app.a.cv.fbCmt.FacebookCommentActivity"
+            android:name=".a.cv.fbCmt.FacebookCommentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.wwlMusic.WWLActivityMusic"
@@ -1147,7 +1147,7 @@
             android:name=".app.a.func.idleTime.IdleTimeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.fingerPaintView.FingerPaintActivity"
+            android:name=".a.cv.fingerPaintView.FingerPaintActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.fading.FadingTextViewActivity"
@@ -1183,16 +1183,16 @@
             android:name=".a.anim.androidParticles.AndroidParticlesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.graph.MenuGraphViewActivity"
+            android:name=".a.cv.graph.MenuGraphViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.graph.algorithms.FruchtermanReingoldActivity"
+            android:name=".a.cv.graph.algorithms.FruchtermanReingoldActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.graph.algorithms.BuchheimWalkerActivity"
+            android:name=".a.cv.graph.algorithms.BuchheimWalkerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.graph.algorithms.SugiyamaActivity"
+            android:name=".a.cv.graph.algorithms.SugiyamaActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.simpleRatingBar.SimpleRatingBarActivity"
