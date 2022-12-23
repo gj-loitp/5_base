@@ -1,4 +1,4 @@
-package vn.loitp.app.a.network
+package vn.loitp.a.network
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,7 +14,7 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_network.*
+import kotlinx.android.synthetic.main.a_network.*
 import vn.loitp.R
 import java.util.concurrent.TimeUnit
 
@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit
 class NetworkActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_network
+        return R.layout.a_network
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

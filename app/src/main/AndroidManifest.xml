@@ -499,7 +499,7 @@
             android:name=".app.a.cv.layout.rotate.RotateLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.more.MoreActivity"
+            android:name=".a.more.MoreActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.l.LButtonActivity"
@@ -672,7 +672,7 @@
             android:name=".app.a.demo.fragmentNavigation.FragmentNavigationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.network.NetworkActivity"
+            android:name=".a.network.NetworkActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.extra.ExtraTextViewActivity"

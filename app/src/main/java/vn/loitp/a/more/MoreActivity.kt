@@ -1,4 +1,4 @@
-package vn.loitp.app.a.more
+package vn.loitp.a.more
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -7,7 +7,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.helper.more.FrmMore
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_more.*
+import kotlinx.android.synthetic.main.a_more.*
 import vn.loitp.R
 
 @LogTag("MoreActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class MoreActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_more
+        return R.layout.a_more
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

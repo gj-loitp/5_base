@@ -27,8 +27,8 @@ import vn.loitp.app.a.demo.MenuDemoActivity
 import vn.loitp.app.a.func.MenuFunctionActivity
 import vn.loitp.app.a.game.MenuGameActivity
 import vn.loitp.app.a.interviewVN.InterviewVNIQActivity
-import vn.loitp.app.a.more.MoreActivity
-import vn.loitp.app.a.network.NetworkActivity
+import vn.loitp.a.more.MoreActivity
+import vn.loitp.a.network.NetworkActivity
 import vn.loitp.app.a.pattern.MenuPatternActivity
 import vn.loitp.app.a.picker.MenuPickerActivity
 import vn.loitp.app.a.security.MenuSecurityActivity
