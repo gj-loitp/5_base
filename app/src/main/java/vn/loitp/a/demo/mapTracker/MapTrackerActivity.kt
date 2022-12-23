@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.mapTracker
+package vn.loitp.a.demo.mapTracker
 
 import android.Manifest
 import android.content.Context
@@ -29,7 +29,7 @@ import com.loitp.core.utilities.LMathUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.permissionx.guolindev.PermissionX
-import kotlinx.android.synthetic.main.activity_map_tracker.*
+import kotlinx.android.synthetic.main.a_map_tracker.*
 import vn.loitp.R
 import java.io.IOException
 import java.util.*
@@ -59,7 +59,7 @@ class MapTrackerActivity :
     private val listLoc = ArrayList<Loc>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_map_tracker
+        return R.layout.a_map_tracker
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -390,7 +390,10 @@ class MapTrackerActivity :
     }
 
     // return in meter
-    private fun getDistance(startLatLng: LatLng, endLatLng: LatLng): Float {
+    private fun getDistance(
+        startLatLng: LatLng,
+        endLatLng: LatLng
+    ): Float {
         val results = floatArrayOf(0f)
         Location.distanceBetween(
             startLatLng.latitude,

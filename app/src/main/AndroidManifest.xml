@@ -387,7 +387,7 @@
             android:name=".app.a.demo.floatingWidget.FloatingWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.demo.floatingVideo.FloatingWidgetActivity"
+            android:name=".a.demo.floatingVideo.FloatingWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.func.fullScreen.FullScreenActivity"
@@ -708,7 +708,7 @@
             android:name=".a.cv.et.l.LEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.demo.fragmentFlow.FragmentFlowActivity"
+            android:name=".a.demo.fragmentFlow.FragmentFlowActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.shadow.ShadowLayoutActivity"
@@ -742,11 +742,11 @@
             android:enabled="true"
             android:exported="false" />
         <service
-            android:name=".app.a.demo.floatingVideo.FloatingViewVideoService"
+            android:name=".a.demo.floatingVideo.FloatingViewVideoService"
             android:enabled="true"
             android:exported="false" />
         <service
-            android:name=".app.a.demo.floatingVideo.FloatingViewEdgeService"
+            android:name=".a.demo.floatingVideo.FloatingViewEdgeService"
             android:enabled="true"
             android:exported="false" />
 
@@ -985,7 +985,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".app.a.demo.mapTracker.MapTrackerActivity"
+            android:name=".a.demo.mapTracker.MapTrackerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--endregion-->
         <activity

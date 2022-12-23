@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.fragmentFlow
+package vn.loitp.a.demo.fragmentFlow
 
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener

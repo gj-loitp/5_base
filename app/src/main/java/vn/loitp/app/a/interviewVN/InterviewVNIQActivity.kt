@@ -13,7 +13,7 @@ import com.loitp.core.base.OnBackPressedListener
 import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_interview_vn_iq.*
 import vn.loitp.R
-import vn.loitp.app.a.demo.fragmentFlow.BaseFragmentFlow
+import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
 
 @LogTag("InterviewVNIQActivity")
 @IsFullScreen(false)

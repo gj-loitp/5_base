@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.floatingVideo
+package vn.loitp.a.demo.floatingVideo
 
 import android.content.Intent
 import android.net.Uri
@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_demo_floating_video.*
+import kotlinx.android.synthetic.main.a_demo_floating_video.*
 import vn.loitp.R
 
 @LogTag("FloatingWidgetActivity")
@@ -23,7 +23,7 @@ class FloatingWidgetActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_floating_video
+        return R.layout.a_demo_floating_video
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,8 +92,11 @@ class FloatingWidgetActivity : BaseFontActivity() {
         )
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION_SHOW) {

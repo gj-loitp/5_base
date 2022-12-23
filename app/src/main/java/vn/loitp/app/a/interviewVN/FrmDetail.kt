@@ -9,7 +9,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.model.QA
 import kotlinx.android.synthetic.main.frm_interview_vn_iq_detail.*
 import vn.loitp.R
-import vn.loitp.app.a.demo.fragmentFlow.BaseFragmentFlow
+import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
 
 //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
 @LogTag("FrmDetail")

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.mapTracker
+package vn.loitp.a.demo.mapTracker
 
 import android.location.Location
 import androidx.annotation.Keep

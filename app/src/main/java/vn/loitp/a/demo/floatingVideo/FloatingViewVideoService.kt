@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.floatingVideo
+package vn.loitp.a.demo.floatingVideo
 
 import android.annotation.SuppressLint
 import android.app.Service
@@ -33,7 +33,7 @@ class FloatingViewVideoService : Service() {
     override fun onCreate() {
         super.onCreate()
 
-        mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_demo_floating_video, null)
+        mFloatingView = LayoutInflater.from(this).inflate(R.layout.l_demo_floating_video, null)
         setupViews()
     }
 

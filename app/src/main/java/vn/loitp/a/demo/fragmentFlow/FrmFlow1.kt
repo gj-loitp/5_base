@@ -1,16 +1,16 @@
-package vn.loitp.app.a.demo.fragmentFlow
+package vn.loitp.a.demo.fragmentFlow
 
 import android.os.Bundle
 import android.view.View
 import com.loitp.annotation.LogTag
-import kotlinx.android.synthetic.main.frm_demo_flow_0.*
+import kotlinx.android.synthetic.main.f_demo_flow_1.*
 import vn.loitp.R
 
-@LogTag("FrmFlow0")
-class FrmFlow0 : BaseFragmentFlow() {
+@LogTag("FrmFlow1")
+class FrmFlow1 : BaseFragmentFlow() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_demo_flow_0
+        return R.layout.f_demo_flow_1
     }
 
     override fun onBackPressed(): Boolean {
@@ -27,9 +27,7 @@ class FrmFlow0 : BaseFragmentFlow() {
 
     private fun setupViews() {
         bt.setOnClickListener {
-            if (activity is FragmentFlowActivity) {
-                (activity as FragmentFlowActivity).showFragment(FrmFlow1())
-            }
+            (activity as FragmentFlowActivity).showFragment(FrmFlow2())
         }
     }
 
@@ -38,9 +36,7 @@ class FrmFlow0 : BaseFragmentFlow() {
         print("onFragmentResume")
     }
 
-    private fun print(msg: String) {
-        if (activity is FragmentFlowActivity) {
-            (activity as FragmentFlowActivity).print("FrmFlow0: $msg")
-        }
+    fun print(msg: String) {
+        (activity as FragmentFlowActivity).print("FrmFlow1: $msg")
     }
 }

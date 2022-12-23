@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.floatingVideo
+package vn.loitp.a.demo.floatingVideo
 
 import android.annotation.SuppressLint
 import android.app.Service
@@ -87,7 +87,10 @@ class FloatingViewEdgeService : Service() {
 
     // only update 1 one time
     private var isUpdatedUIVideoSize = false
-    private fun updateUIVideoSizeOneTime(videoW: Int, videoH: Int) {
+    private fun updateUIVideoSizeOneTime(
+        videoW: Int,
+        videoH: Int
+    ) {
         if (!isUpdatedUIVideoSize) {
             val vW = screenWidth / 2
             val vH = vW * videoH / videoW
@@ -100,7 +103,10 @@ class FloatingViewEdgeService : Service() {
     }
 
     private var countDownTimer: CountDownTimer? = null
-    private fun slideToPosition(goToPosX: Int, goToPosY: Int) {
+    private fun slideToPosition(
+        goToPosX: Int,
+        goToPosY: Int
+    ) {
         val currentPosX = params.x
         val currentPosY = params.y
 
@@ -388,7 +394,10 @@ class FloatingViewEdgeService : Service() {
 
     // click vo se larger, click lan nua de smaller
     @Suppress("unused")
-    private fun setSizeMoveView(isFirstSizeInit: Boolean, isLarger: Boolean) {
+    private fun setSizeMoveView(
+        isFirstSizeInit: Boolean,
+        isLarger: Boolean
+    ) {
         var w = 0
         var h = 0
         if (isFirstSizeInit) {

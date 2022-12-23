@@ -19,11 +19,11 @@ import vn.loitp.a.demo.alarm.a.AlarmMeActivity
 import vn.loitp.app.a.demo.architectureComponent.MenuAndroidArchitectureComponentActivity
 import vn.loitp.a.demo.epubReader.MenuEpubReaderActivity
 import vn.loitp.a.demo.firebase.FirebaseActivity
-import vn.loitp.app.a.demo.floatingVideo.FloatingWidgetActivity
-import vn.loitp.app.a.demo.fragmentFlow.FragmentFlowActivity
+import vn.loitp.a.demo.floatingVideo.FloatingWidgetActivity
+import vn.loitp.a.demo.fragmentFlow.FragmentFlowActivity
 import vn.loitp.app.a.demo.fragmentNavigation.FragmentNavigationActivity
 import vn.loitp.app.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity
-import vn.loitp.app.a.demo.mapTracker.MapTrackerActivity
+import vn.loitp.a.demo.mapTracker.MapTrackerActivity
 import vn.loitp.app.a.demo.nfc.NFCActivity
 import vn.loitp.app.a.demo.pdf.PdfDemoActivity
 import vn.loitp.app.a.demo.piano.PianoActivity
