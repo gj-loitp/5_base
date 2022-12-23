@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo
+package vn.loitp.a.demo
 
 import android.os.Bundle
 import android.view.View
@@ -12,7 +12,7 @@ import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity
 import com.loitp.core.helper.gallery.member.GalleryMemberActivity
 import com.loitp.core.helper.ttt.ui.a.TTTSplashActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_demo.*
+import kotlinx.android.synthetic.main.a_demo_menu.*
 import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.app.a.demo.alarm.a.AlarmMeActivity
@@ -39,7 +39,7 @@ import vn.loitp.app.a.demo.twoInstanceActivity.Activity1
 class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_demo
+        return R.layout.a_demo_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
