@@ -6,15 +6,15 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_fidget_spinner_image_view.*
+import kotlinx.android.synthetic.main.a_iv_fidget_spinner.*
 import vn.loitp.R
 
 @LogTag("FidgetSpinnerImageViewActivity")
 @IsFullScreen(false)
-class FidgetSpinnerImageViewActivity : BaseFontActivity() {
+class FidgetSpinnerIvActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fidget_spinner_image_view
+        return R.layout.a_iv_fidget_spinner
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,7 @@ class FidgetSpinnerImageViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = FidgetSpinnerImageViewActivity::class.java.simpleName
+            this.tvTitle?.text = FidgetSpinnerIvActivity::class.java.simpleName
         }
         fidgetSpinner.setImageDrawable(R.drawable.spinner)
     }

@@ -16,7 +16,7 @@ import vn.loitp.a.cv.iv.circleIv.CircleIvActivity
 import vn.loitp.a.cv.iv.coil.CoilActivity
 import vn.loitp.a.cv.iv.comic.ComicViewActivity
 import vn.loitp.a.cv.iv.continuousScrollable.ContinuousScrollableImageViewActivity
-import vn.loitp.a.cv.iv.fidgetSpinner.FidgetSpinnerImageViewActivity
+import vn.loitp.a.cv.iv.fidgetSpinner.FidgetSpinnerIvActivity
 import vn.loitp.a.cv.iv.kenburn.KenburnViewActivity
 import vn.loitp.a.cv.iv.panorama.PanoramaImageViewActivity
 import vn.loitp.a.cv.iv.pinchToZoom.PinchToZoomViewPagerActivity
@@ -82,7 +82,7 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
             btStretchyImageView -> launchActivity(StrectchyImageViewActivity::class.java)
             btTouchImageView -> launchActivity(TouchImageViewActivity::class.java)
             btZoomImageView -> launchActivity(ZoomImageViewActivity::class.java)
-            btFidgetSpinner -> launchActivity(FidgetSpinnerImageViewActivity::class.java)
+            btFidgetSpinner -> launchActivity(FidgetSpinnerIvActivity::class.java)
             btContinuousScrollableImageView -> launchActivity(ContinuousScrollableImageViewActivity::class.java)
             btScrollParallaxImageView -> launchActivity(ScrollParallaxImageViewActivity::class.java)
             btPanoramaImageView -> launchActivity(PanoramaImageViewActivity::class.java)
