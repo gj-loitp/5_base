@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.fullScreen
+package vn.loitp.a.func.fullScreen
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.dlg.imersiveDialog.ImmersiveDialogFragment
-import kotlinx.android.synthetic.main.activity_func_fullscreen.*
+import kotlinx.android.synthetic.main.a_func_fullscreen.*
 import vn.loitp.R
 
 @LogTag("FullScreenActivity")
@@ -18,7 +18,7 @@ class FullScreenActivity : BaseFontActivity(), View.OnClickListener {
     private var isFullScreen: Boolean = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_fullscreen
+        return R.layout.a_func_fullscreen
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

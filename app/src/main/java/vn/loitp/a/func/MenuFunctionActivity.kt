@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func
+package vn.loitp.a.func
 
 import android.os.Bundle
 import android.view.View
@@ -7,11 +7,11 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_function.*
+import kotlinx.android.synthetic.main.a_func_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.func.activityAndService.ActivityServiceCommunicateActivity
-import vn.loitp.app.a.func.dragDrop.DragDropSampleActivity
-import vn.loitp.app.a.func.fullScreen.FullScreenActivity
+import vn.loitp.a.func.activityAndService.ActivityServiceCommunicateActivity
+import vn.loitp.a.func.dragDrop.DragDropSampleActivity
+import vn.loitp.a.func.fullScreen.FullScreenActivity
 import vn.loitp.app.a.func.glide.GlideActivity
 import vn.loitp.app.a.func.hashmap.HashMapActivity
 import vn.loitp.app.a.func.idleTime.IdleTimeActivity
@@ -35,7 +35,7 @@ import vn.loitp.app.a.func.wallpo.WallpoActivity
 class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_function
+        return R.layout.a_func_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

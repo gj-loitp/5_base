@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.activityAndService
+package vn.loitp.a.func.activityAndService
 
 import android.annotation.SuppressLint
 import android.app.Service
@@ -37,7 +37,7 @@ class TestService : Service() {
     @SuppressLint("InflateParams", "SetTextI18n")
     private fun setupViews() {
         EventBus.getDefault().register(this)
-        mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_floating_test, null)
+        mFloatingView = LayoutInflater.from(this).inflate(R.layout.l_floating_test, null)
 
         // Add the view to the window.
         val layoutFlag: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

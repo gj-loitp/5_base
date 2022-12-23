@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.dragDrop
+package vn.loitp.a.func.dragDrop
 
 import android.content.ClipData
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_func_drag_drop_sample.*
+import kotlinx.android.synthetic.main.a_func_drag_drop_sample.*
 import vn.loitp.R
 
 @LogTag("DragDropSampleActivity")
@@ -20,7 +20,7 @@ import vn.loitp.R
 class DragDropSampleActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_drag_drop_sample
+        return R.layout.a_func_drag_drop_sample
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

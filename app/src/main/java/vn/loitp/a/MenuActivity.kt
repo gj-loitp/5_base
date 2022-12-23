@@ -24,7 +24,7 @@ import vn.loitp.a.api.MenuAPIActivity
 import vn.loitp.a.cv.MenuCustomViewsActivity
 import vn.loitp.a.db.MenuDatabaseActivity
 import vn.loitp.a.demo.MenuDemoActivity
-import vn.loitp.app.a.func.MenuFunctionActivity
+import vn.loitp.a.func.MenuFunctionActivity
 import vn.loitp.app.a.game.MenuGameActivity
 import vn.loitp.app.a.interviewVN.InterviewVNIQActivity
 import vn.loitp.a.more.MoreActivity

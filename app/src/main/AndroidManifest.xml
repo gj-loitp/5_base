@@ -279,7 +279,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".app.a.func.MenuFunctionActivity"
+            android:name=".a.func.MenuFunctionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.func.simpleFingerGestures.SimpleFingerGesturesActivity"
@@ -381,7 +381,7 @@
             android:name=".app.a.func.hashmap.HashMapActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.func.dragDrop.DragDropSampleActivity"
+            android:name=".a.func.dragDrop.DragDropSampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.demo.floatingWidget.FloatingWidgetActivity"
@@ -390,7 +390,7 @@
             android:name=".a.demo.floatingVideo.FloatingWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.func.fullScreen.FullScreenActivity"
+            android:name=".a.func.fullScreen.FullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.sb.vertical.VerticalSeekbarActivity"
@@ -430,7 +430,7 @@
             android:name=".app.a.cv.rv.book.BookViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.func.activityAndService.ActivityServiceCommunicateActivity"
+            android:name=".a.func.activityAndService.ActivityServiceCommunicateActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.swipeBack.SwipeBackLayoutActivity"
@@ -738,7 +738,7 @@
             android:enabled="true"
             android:exported="false" />
         <service
-            android:name=".app.a.func.activityAndService.TestService"
+            android:name=".a.func.activityAndService.TestService"
             android:enabled="true"
             android:exported="false" />
         <service

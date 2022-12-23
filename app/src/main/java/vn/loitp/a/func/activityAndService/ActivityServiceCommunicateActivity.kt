@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.activityAndService
+package vn.loitp.a.func.activityAndService
 
 import android.content.Intent
 import android.net.Uri
@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_func_service_communicate.*
+import kotlinx.android.synthetic.main.a_func_service_communicate.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import vn.loitp.R
@@ -24,7 +24,7 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_service_communicate
+        return R.layout.a_func_service_communicate
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
