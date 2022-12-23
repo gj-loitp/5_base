@@ -49,5 +49,24 @@ class RibbonActivity : BaseFontActivity() {
             }
             this.tvTitle?.text = RibbonActivity::class.java.simpleName
         }
+
+        ribbonLayout.ribbonHeader = RibbonFactory.getChristmasRibbonHeader(this@RibbonActivity)
+        ribbonLayout.ribbonBottom = RibbonFactory.getChristmasRibbonBottom(this@RibbonActivity)
+        ribbonLayout01.ribbonHeader =
+            RibbonFactory.getChristmasPinkRibbonHeader(this@RibbonActivity)
+        ribbonLayout01.ribbonBottom =
+            RibbonFactory.getChristmasPinkRibbonBottom(this@RibbonActivity)
+        ribbonLayout02.ribbonHeader = RibbonFactory.getPresentRibbonHeader(this@RibbonActivity)
+        ribbonLayout02.ribbonBottom = RibbonFactory.getPresentRibbonBottom(this@RibbonActivity)
+
+        ribbonLayout.setOnClickListener {
+            launchActivity(SecondActivity::class.java)
+        }
+        ribbonLayout01.setOnClickListener {
+            launchActivity(SecondActivity::class.java)
+        }
+        ribbonLayout02.setOnClickListener {
+            launchActivity(SecondActivity::class.java)
+        }
     }
 }
