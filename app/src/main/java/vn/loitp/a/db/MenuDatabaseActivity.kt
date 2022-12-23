@@ -13,10 +13,10 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_db_menu.*
 import vn.loitp.R
 import vn.loitp.a.db.readSqliteAsset.ReadSqliteAssetActivity
-import vn.loitp.app.a.db.realm.RealmActivity
+import vn.loitp.a.db.realm.RealmActivity
 import vn.loitp.app.a.db.room.RoomActivity
-import vn.loitp.app.a.db.sharedPrefs.SharedPrefsActivity
-import vn.loitp.app.a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivity
+import vn.loitp.a.db.sharedPrefs.SharedPrefsActivity
+import vn.loitp.a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivity
 import vn.loitp.app.a.db.sqlite.SqliteActivity
 import vn.loitp.app.a.db.sqliteEncryption.SqliteEncryptionActivity
 import vn.loitp.app.a.db.sqliteMultiTable.SqliteMultiTableActivity

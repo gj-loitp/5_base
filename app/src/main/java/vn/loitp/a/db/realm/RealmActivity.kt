@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db.realm
+package vn.loitp.a.db.realm
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -13,7 +13,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import io.realm.Realm
-import kotlinx.android.synthetic.main.activity_realm.*
+import kotlinx.android.synthetic.main.a_db_realm.*
 import vn.loitp.R
 import vn.loitp.app.a.demo.ebookWithRealm.EbookWithRealmActivity
 
@@ -23,7 +23,7 @@ class RealmActivity : BaseFontActivity() {
     private lateinit var mRealm: Realm
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_realm
+        return R.layout.a_db_realm
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.db.sharedPrefs
+package vn.loitp.a.db.sharedPrefsEncryption
 
 import android.os.Bundle
 import com.google.gson.reflect.TypeToken
@@ -7,16 +7,23 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LConvertUtil
-import com.loitp.core.utilities.LSharedPrefsUtil
+import com.loitp.core.utilities.LEncryptionSharedPrefsUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_shared_prefs.*
+import kotlinx.android.synthetic.main.a_db_shared_prefs_encryption.*
 import vn.loitp.R
 import vn.loitp.app.a.pattern.mvp.User
 
-@LogTag("SharedPrefsActivity")
+/**
+ * Created by Loitp on 15.09.2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
+
+@LogTag("EncryptionSharedPrefsActivity")
 @IsFullScreen(false)
-class SharedPrefsActivity : BaseFontActivity() {
+class EncryptionSharedPrefsActivity : BaseFontActivity() {
 
     companion object {
         const val KEY_STRING = "KEY_STRING"
@@ -25,13 +32,12 @@ class SharedPrefsActivity : BaseFontActivity() {
         const val KEY_FLOAT = "KEY_FLOAT"
         const val KEY_INT = "KEY_INT"
         const val KEY_LONG = "KEY_LONG"
-        const val KEY_NUMBER = "KEY_NUMBER"
         const val KEY_OBJECT = "KEY_OBJECT"
         const val KEY_LIST_OBJECT = "KEY_LIST_OBJECT"
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_shared_prefs
+        return R.layout.a_db_shared_prefs_encryption
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,85 +55,79 @@ class SharedPrefsActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = SharedPrefsActivity::class.java.simpleName
+            this.tvTitle?.text = EncryptionSharedPrefsActivity::class.java.simpleName
+        }
+
+        btClearAll.setSafeOnClickListener {
+            LEncryptionSharedPrefsUtil.instance.clear()
         }
 
         btPutString.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putString(
+            LEncryptionSharedPrefsUtil.instance.put(
                 KEY_STRING,
                 "This is a string!!! " + System.currentTimeMillis()
             )
         }
         btGetString.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getString(KEY_STRING)
+            val value = LEncryptionSharedPrefsUtil.instance.getString(KEY_STRING)
             showLongInformation(value)
         }
 
         btPutStringWithDefaultValue.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putString(
+            LEncryptionSharedPrefsUtil.instance.put(
                 KEY_STRING_WITH_DEFAULT_VALUE,
                 "This is a string!!! " + System.currentTimeMillis()
             )
         }
         btGetStringWithDefaultValue.setSafeOnClickListener {
-            val value =
-                LSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value")
+            val value = LEncryptionSharedPrefsUtil.instance.getString(
+                KEY_STRING_WITH_DEFAULT_VALUE,
+                "Default value"
+            )
             showLongInformation(value)
         }
 
         btPutBoolean.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putBoolean(KEY_BOOLEAN, true)
+            LEncryptionSharedPrefsUtil.instance.put(KEY_BOOLEAN, true)
         }
         btGetBoolean.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getBoolean(KEY_BOOLEAN)
+            val value = LEncryptionSharedPrefsUtil.instance.getBoolean(KEY_BOOLEAN)
             showLongInformation("Value: $value")
         }
 
         btPutFloat.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putFloat(KEY_FLOAT, System.currentTimeMillis().toFloat())
+            LEncryptionSharedPrefsUtil.instance.put(KEY_FLOAT, System.currentTimeMillis().toFloat())
         }
         btGetFloat.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getFloat(KEY_FLOAT)
+            val value = LEncryptionSharedPrefsUtil.instance.getFloat(KEY_FLOAT)
             showLongInformation("Value: $value")
         }
 
         btPutInt.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putInt(KEY_INT, System.currentTimeMillis().toInt())
+            LEncryptionSharedPrefsUtil.instance.put(KEY_INT, System.currentTimeMillis().toInt())
         }
         btGetInt.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getInt(KEY_INT)
+            val value = LEncryptionSharedPrefsUtil.instance.getInt(KEY_INT)
             showLongInformation("Value: $value")
         }
 
         btPutLong.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putLong(KEY_LONG, System.currentTimeMillis())
+            LEncryptionSharedPrefsUtil.instance.put(KEY_LONG, System.currentTimeMillis())
         }
         btGetLong.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getLong(KEY_LONG)
+            val value = LEncryptionSharedPrefsUtil.instance.getLong(KEY_LONG)
             showLongInformation("Value: $value")
-        }
-
-        btPutNumber.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putString(KEY_NUMBER, 123456.789.toString())
-        }
-        btGetNumber.setSafeOnClickListener {
-            try {
-                val value = LSharedPrefsUtil.instance.getString(KEY_NUMBER)
-                showLongInformation("Value: $value -> " + LConvertUtil.convertToPrice(value.toBigDecimalOrNull()))
-            } catch (e: Exception) {
-                showShortError(e.toString())
-            }
         }
 
         btPutObject.setSafeOnClickListener {
             val user = User()
             user.email = "Email ${System.currentTimeMillis()}"
             user.fullName = "Name ${System.currentTimeMillis()}"
-            LSharedPrefsUtil.instance.putObject(KEY_OBJECT, user)
+            LEncryptionSharedPrefsUtil.instance.put(KEY_OBJECT, user)
         }
         btGetObject.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getObject(KEY_OBJECT, User::class.java)
-            showLongInformation("Value: $value")
+            val value = LEncryptionSharedPrefsUtil.instance.getObject(KEY_OBJECT, User::class.java)
+            showLongInformation("Value: " + BaseApplication.gson.toJson(value))
         }
 
         btPutListObject.setSafeOnClickListener {
@@ -138,13 +138,15 @@ class SharedPrefsActivity : BaseFontActivity() {
                 user.fullName = "Name ${System.currentTimeMillis()}"
                 list.add(user)
             }
-            LSharedPrefsUtil.instance.putObjectList(KEY_LIST_OBJECT, list)
+            LEncryptionSharedPrefsUtil.instance.put(KEY_LIST_OBJECT, list)
         }
-        btGetListObject.setSafeOnClickListener {
+        btListGetObject.setSafeOnClickListener {
             val type = object : TypeToken<List<User>>() {
             }.type
-            val value: ArrayList<User> =
-                LSharedPrefsUtil.instance.getObjectList(KEY_LIST_OBJECT, type)
+            val value: ArrayList<User> = LEncryptionSharedPrefsUtil.instance.getObjectList(
+                key = KEY_LIST_OBJECT,
+                typeOfT = type
+            )
             logD("list size: " + value.size)
             for (i in value.indices) {
                 logD("$i -> ${value[i].fullName}")

@@ -297,7 +297,7 @@
             android:name=".a.db.MenuDatabaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.db.realm.RealmActivity"
+            android:name=".a.db.realm.RealmActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.db.sqlite.SqliteActivity"
@@ -805,10 +805,10 @@
             android:name=".app.a.security.simple.SimpleEncryptDecryptStringActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.db.sharedPrefs.SharedPrefsActivity"
+            android:name=".a.db.sharedPrefs.SharedPrefsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivity"
+            android:name=".a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.db.sqliteEncryption.SqliteEncryptionActivity"
