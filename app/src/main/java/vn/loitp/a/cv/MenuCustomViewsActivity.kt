@@ -35,8 +35,8 @@ import vn.loitp.a.cv.lDebug.LDebugViewActivity
 import vn.loitp.app.a.cv.layout.MenuLayoutActivity
 import vn.loitp.a.cv.luckyWheel.LuckyWheelActivity
 import vn.loitp.app.a.cv.menu.MenuMenuActivity
-import vn.loitp.app.a.cv.navi.MenuNavigationActivity
-import vn.loitp.app.a.cv.popupMenu.PopupMenuActivity
+import vn.loitp.a.cv.navi.MenuNavigationActivity
+import vn.loitp.a.cv.popupMenu.PopupMenuActivity
 import vn.loitp.app.a.cv.progress.MenuProgressLoadingViewsActivity
 import vn.loitp.app.a.cv.rv.MenuRecyclerViewActivity
 import vn.loitp.app.a.cv.sb.MenuSeekbarActivity

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.popupMenu
+package vn.loitp.a.cv.popupMenu
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LPopupMenu
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_popup.*
+import kotlinx.android.synthetic.main.a_menu_popup.*
 import vn.loitp.R
 
 @LogTag("PopupMenuActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class PopupMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_popup
+        return R.layout.a_menu_popup
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

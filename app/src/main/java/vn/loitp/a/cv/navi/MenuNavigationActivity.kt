@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.navi
+package vn.loitp.a.cv.navi
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,9 +10,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_navigation_view.*
+import kotlinx.android.synthetic.main.a_navi_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.navi.arc.ArcNavigationViewActivity
+import vn.loitp.a.cv.navi.arc.ArcNavigationViewActivity
 
 @LogTag("NavigationMenuActivity")
 @IsFullScreen(false)
@@ -20,7 +20,7 @@ import vn.loitp.app.a.cv.navi.arc.ArcNavigationViewActivity
 class MenuNavigationActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_navigation_view
+        return R.layout.a_navi_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

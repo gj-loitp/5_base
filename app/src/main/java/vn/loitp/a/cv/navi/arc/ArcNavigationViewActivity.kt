@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.navi.arc
+package vn.loitp.a.cv.navi.arc
 
 import android.os.Bundle
 import android.view.Menu
@@ -10,7 +10,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_arc_navigation_view.*
+import kotlinx.android.synthetic.main.a_navi_arc_navigation_view.*
 import kotlinx.android.synthetic.main.menu_arc_navigation_view_main.*
 import vn.loitp.R
 
@@ -21,7 +21,7 @@ class ArcNavigationViewActivity :
     NavigationView.OnNavigationItemSelectedListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_arc_navigation_view
+        return R.layout.a_navi_arc_navigation_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
