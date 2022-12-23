@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.bt.fit
+package vn.loitp.a.cv.bt.fit
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_fit_button.*
+import kotlinx.android.synthetic.main.a_fit_button.*
 import vn.loitp.R
 
 @LogTag("FitButtonActivity")
@@ -21,7 +21,7 @@ import vn.loitp.R
 class FitButtonActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fit_button
+        return R.layout.a_fit_button
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -58,7 +58,7 @@
             android:name=".a.cv.bt.MenuButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.bt.shine.ShineButtonActivity"
+            android:name=".a.cv.bt.shine.ShineButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.anim.MenuAnimationActivity"
@@ -354,7 +354,7 @@
             android:name=".app.a.cv.treeView.TreeViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.bt.goodView.GoodViewActivity"
+            android:name=".a.cv.bt.goodView.GoodViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.draggableFlipView.DraggableFlipViewActivity"
@@ -502,7 +502,7 @@
             android:name=".app.a.more.MoreActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.bt.l.LButtonActivity"
+            android:name=".a.cv.bt.l.LButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.autoSize.AutoSizeButtonActivity"
@@ -867,7 +867,7 @@
             android:name=".app.a.cv.layout.roundable.RoundableLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.bt.q.QButtonActivity"
+            android:name=".a.cv.bt.q.QButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.demo.architectureComponent.MenuAndroidArchitectureComponentActivity"
@@ -1343,7 +1343,7 @@
             android:name=".app.a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.bt.fit.FitButtonActivity"
+            android:name=".a.cv.bt.fit.FitButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.func.wallpo.WallpoActivity"

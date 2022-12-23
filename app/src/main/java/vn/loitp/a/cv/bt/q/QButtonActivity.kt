@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.bt.q
+package vn.loitp.a.cv.bt.q
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_q_button.*
+import kotlinx.android.synthetic.main.a_q_button.*
 import vn.loitp.R
 
 @LogTag("QButtonActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class QButtonActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_q_button
+        return R.layout.a_q_button
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,12 +26,9 @@ class QButtonActivity : BaseFontActivity() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = QButtonActivity::class.java.simpleName
         }

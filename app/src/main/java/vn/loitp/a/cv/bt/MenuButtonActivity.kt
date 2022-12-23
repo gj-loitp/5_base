@@ -13,11 +13,11 @@ import vn.loitp.a.cv.bt.autoSize.AutoSizeButtonActivity
 import vn.loitp.a.cv.bt.circularImageClick.CircularImageClickActivity
 import vn.loitp.a.cv.bt.circularProgress.CPBActivity
 import vn.loitp.a.cv.bt.fab.FabActivity
-import vn.loitp.app.a.cv.bt.fit.FitButtonActivity
-import vn.loitp.app.a.cv.bt.goodView.GoodViewActivity
-import vn.loitp.app.a.cv.bt.l.LButtonActivity
-import vn.loitp.app.a.cv.bt.q.QButtonActivity
-import vn.loitp.app.a.cv.bt.shine.ShineButtonActivity
+import vn.loitp.a.cv.bt.fit.FitButtonActivity
+import vn.loitp.a.cv.bt.goodView.GoodViewActivity
+import vn.loitp.a.cv.bt.l.LButtonActivity
+import vn.loitp.a.cv.bt.q.QButtonActivity
+import vn.loitp.a.cv.bt.shine.ShineButtonActivity
 
 @LogTag("MenuButtonActivity")
 @IsFullScreen(false)

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.bt.goodView
+package vn.loitp.a.cv.bt.goodView
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.bt.goodView.LGoodView
-import kotlinx.android.synthetic.main.activity_good_view.*
+import kotlinx.android.synthetic.main.a_good_view.*
 import vn.loitp.R
 
 @LogTag("GoodViewActivity")
@@ -19,7 +19,7 @@ class GoodViewActivity : BaseFontActivity() {
     private var lGoodView: LGoodView? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_good_view
+        return R.layout.a_good_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

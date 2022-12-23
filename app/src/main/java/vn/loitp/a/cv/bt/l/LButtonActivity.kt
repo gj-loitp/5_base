@@ -1,20 +1,22 @@
-package vn.loitp.app.a.cv.bt.shine
+package vn.loitp.a.cv.bt.l
 
 import android.os.Bundle
+import android.view.View
+import android.view.View.OnClickListener
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_shine_button.*
+import kotlinx.android.synthetic.main.a_l_button.*
 import vn.loitp.R
 
-@LogTag("ShineButtonActivity")
+@LogTag("LButtonActivity")
 @IsFullScreen(false)
-class ShineButtonActivity : BaseFontActivity() {
+class LButtonActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_shine_button
+        return R.layout.a_l_button
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +34,22 @@ class ShineButtonActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = ShineButtonActivity::class.java.simpleName
+            this.tvTitle?.text = LButtonActivity::class.java.simpleName
+        }
+
+        bt0.setOnClickListener(this)
+
+        bt1.setPressedDrawable(R.drawable.l_circle_color_primary)
+        bt1.setOnClickListener(this)
+
+        bt2.setPressedDrawable(R.drawable.l_bt_color_primary)
+        bt2.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View) {
+        when (v) {
+            bt0, bt1, bt2 ->
+                showShortInformation(msg = getString(R.string.click))
         }
     }
 }
