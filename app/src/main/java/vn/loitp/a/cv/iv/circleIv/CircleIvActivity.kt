@@ -10,16 +10,16 @@ import com.loitp.core.utilities.LUIUtil
 import jp.wasabeef.glide.transformations.CropCircleTransformation
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
-import kotlinx.android.synthetic.main.activity_circle_image_view.*
+import kotlinx.android.synthetic.main.a_iv_circle.*
 import vn.loitp.R
 import vn.loitp.common.Constants
 
 @LogTag("CircleImageViewActivity")
 @IsFullScreen(false)
-class CircleImageViewActivity : BaseFontActivity() {
+class CircleIvActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_circle_image_view
+        return R.layout.a_iv_circle
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +37,7 @@ class CircleImageViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = CircleImageViewActivity::class.java.simpleName
+            this.tvTitle?.text = CircleIvActivity::class.java.simpleName
         }
         val resPlaceHolder = R.color.red
         LImageUtil.load(

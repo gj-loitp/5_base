@@ -10,9 +10,9 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_iv_menu.*
 import vn.loitp.R
-import vn.loitp.a.cv.iv.bigIv.BigImageViewActivity
-import vn.loitp.a.cv.iv.bigIv.BigImageViewWithScrollViewActivity
-import vn.loitp.a.cv.iv.circleIv.CircleImageViewActivity
+import vn.loitp.a.cv.iv.bigIv.BigIvActivity
+import vn.loitp.a.cv.iv.bigIv.BigIvWithSvActivity
+import vn.loitp.a.cv.iv.circleIv.CircleIvActivity
 import vn.loitp.a.cv.iv.coil.CoilActivity
 import vn.loitp.a.cv.iv.comic.ComicViewActivity
 import vn.loitp.a.cv.iv.continuousScrollable.ContinuousScrollableImageViewActivity
@@ -78,7 +78,7 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            btCirleImageView -> launchActivity(CircleImageViewActivity::class.java)
+            btCirleImageView -> launchActivity(CircleIvActivity::class.java)
             btStretchyImageView -> launchActivity(StrectchyImageViewActivity::class.java)
             btTouchImageView -> launchActivity(TouchImageViewActivity::class.java)
             btZoomImageView -> launchActivity(ZoomImageViewActivity::class.java)
@@ -86,8 +86,8 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
             btContinuousScrollableImageView -> launchActivity(ContinuousScrollableImageViewActivity::class.java)
             btScrollParallaxImageView -> launchActivity(ScrollParallaxImageViewActivity::class.java)
             btPanoramaImageView -> launchActivity(PanoramaImageViewActivity::class.java)
-            btBigImageView -> launchActivity(BigImageViewActivity::class.java)
-            btBigImageViewWithScrollView -> launchActivity(BigImageViewWithScrollViewActivity::class.java)
+            btBigImageView -> launchActivity(BigIvActivity::class.java)
+            btBigImageViewWithScrollView -> launchActivity(BigIvWithSvActivity::class.java)
             btTouchImageViewWithViewPager -> launchActivity(PinchToZoomViewPagerActivity::class.java)
             btKenburnView -> launchActivity(KenburnViewActivity::class.java)
             btComicView -> launchActivity(ComicViewActivity::class.java)

@@ -88,7 +88,7 @@
             android:name=".a.cv.iv.MenuImageViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.circleIv.CircleImageViewActivity"
+            android:name=".a.cv.iv.circleIv.CircleIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.MenuTextViewActivity"
@@ -475,12 +475,12 @@
         <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
         See README(https://goo.gl/l4GJaQ) for more. -->
         <activity
-            android:name=".a.cv.iv.bigIv.BigImageViewActivity"
+            android:name=".a.cv.iv.bigIv.BigIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
              notification message. See README(https://goo.gl/6BKBk7) for more. -->
         <activity
-            android:name=".a.cv.iv.bigIv.BigImageViewWithScrollViewActivity"
+            android:name=".a.cv.iv.bigIv.BigIvWithSvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--end service for FCM-->
         <activity

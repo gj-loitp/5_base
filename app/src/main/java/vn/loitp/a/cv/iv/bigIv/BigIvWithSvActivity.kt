@@ -7,17 +7,17 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_big_image_view_with_scroll_view.*
+import kotlinx.android.synthetic.main.a_big_iv_with_sv.*
 import vn.loitp.R
 import vn.loitp.common.Constants
 
 // https://github.com/Piasy/BigImageViewer
 @LogTag("BigImageViewWithScrollViewActivity")
 @IsFullScreen(false)
-class BigImageViewWithScrollViewActivity : BaseFontActivity() {
+class BigIvWithSvActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_big_image_view_with_scroll_view
+        return R.layout.a_big_iv_with_sv
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class BigImageViewWithScrollViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = BigImageViewWithScrollViewActivity::class.java.simpleName
+            this.tvTitle?.text = BigIvWithSvActivity::class.java.simpleName
         }
 
         biv0.setImageViewFactory(GlideImageViewFactory())

@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_big_image_view.*
+import kotlinx.android.synthetic.main.a_big_iv.*
 import vn.loitp.R
 import vn.loitp.common.Constants
 import java.io.File
@@ -18,10 +18,10 @@ import java.io.File
 // https://github.com/Piasy/BigImageViewer
 @LogTag("BigImageViewActivity")
 @IsFullScreen(false)
-class BigImageViewActivity : BaseFontActivity() {
+class BigIvActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_big_image_view
+        return R.layout.a_big_iv
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +39,7 @@ class BigImageViewActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = BigImageViewActivity::class.java.simpleName
+            this.tvTitle?.text = BigIvActivity::class.java.simpleName
         }
 
         LDialogUtil.hideProgress(progressBar)

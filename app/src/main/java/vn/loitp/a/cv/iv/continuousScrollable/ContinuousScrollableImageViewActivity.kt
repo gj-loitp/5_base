@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_continuous_scrollable_imageview.*
+import kotlinx.android.synthetic.main.a_iv_continuous_scrollable.*
 import vn.loitp.R
 import vn.loitp.a.EmptyActivity
 
@@ -16,7 +16,7 @@ import vn.loitp.a.EmptyActivity
 class ContinuousScrollableImageViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_continuous_scrollable_imageview
+        return R.layout.a_iv_continuous_scrollable
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -12,7 +12,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_coil.*
+import kotlinx.android.synthetic.main.a_coil.*
 import vn.loitp.R
 
 @LogTag("CoilActivity")
@@ -21,7 +21,7 @@ import vn.loitp.R
 class CoilActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_coil
+        return R.layout.a_coil
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

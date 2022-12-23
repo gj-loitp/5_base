@@ -11,7 +11,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_comic_view.*
+import kotlinx.android.synthetic.main.a_comic_view.*
 import vn.loitp.R
 
 // https://github.com/nahzur-h/ScollZoomListView
@@ -20,7 +20,7 @@ import vn.loitp.R
 class ComicViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_comic_view
+        return R.layout.a_comic_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
