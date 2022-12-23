@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LScreenUtil
-import kotlinx.android.synthetic.main.activity_auto_size_button.*
+import kotlinx.android.synthetic.main.a_auto_size_button.*
 import vn.loitp.R
 
 @LogTag("AutoSizeButtonActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class AutoSizeButtonActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_auto_size_button
+        return R.layout.a_auto_size_button
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

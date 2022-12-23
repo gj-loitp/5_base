@@ -5,7 +5,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.layout_cpb_sample_5.*
+import kotlinx.android.synthetic.main.l_cpb_sample_5.*
 import vn.loitp.R
 
 @LogTag("Sample5Activity")
@@ -13,7 +13,7 @@ import vn.loitp.R
 @IsAutoAnimation(false)
 class Sample5Activity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
-        return R.layout.layout_cpb_sample_5
+        return R.layout.l_cpb_sample_5
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -9,7 +9,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.layout_cpb_sample_2.*
+import kotlinx.android.synthetic.main.l_cpb_sample_2.*
 import vn.loitp.R
 
 @LogTag("Sample2Activity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class Sample2Activity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.layout_cpb_sample_2
+        return R.layout.l_cpb_sample_2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

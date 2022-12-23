@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_cpb.*
+import kotlinx.android.synthetic.main.a_cpb.*
 import vn.loitp.R
 
 @LogTag("CPBActivity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class CPBActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_cpb
+        return R.layout.a_cpb
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

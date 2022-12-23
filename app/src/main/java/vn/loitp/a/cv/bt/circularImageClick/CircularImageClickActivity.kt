@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.bt.circularImageClick.LCircularClickImageButton
-import kotlinx.android.synthetic.main.activity_circular_image_click.*
+import kotlinx.android.synthetic.main.a_circular_image_click.*
 import vn.loitp.R
 
 @LogTag("CircularImageClickActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class CircularImageClickActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_circular_image_click
+        return R.layout.a_circular_image_click
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
