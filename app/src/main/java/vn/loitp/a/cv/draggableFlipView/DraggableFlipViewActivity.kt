@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.draggableFlipView
+package vn.loitp.a.cv.draggableFlipView
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_draggable_flipview.*
+import kotlinx.android.synthetic.main.a_draggable_flip_view.*
 import vn.loitp.R
 
 @LogTag("DraggableFlipViewActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class DraggableFlipViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_draggable_flipview
+        return R.layout.a_draggable_flip_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

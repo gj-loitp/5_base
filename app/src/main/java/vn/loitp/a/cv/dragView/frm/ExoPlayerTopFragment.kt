@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.dragView.frm
+package vn.loitp.a.cv.dragView.frm
 
 import android.graphics.Color
 import android.net.Uri
@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
-import kotlinx.android.synthetic.main.frm_drag_view_top_exo_player.*
+import kotlinx.android.synthetic.main.f_drag_view_top_exo_player.*
 import vn.loitp.R
 
 class ExoPlayerTopFragment : Fragment(), Player.EventListener {
@@ -32,7 +32,7 @@ class ExoPlayerTopFragment : Fragment(), Player.EventListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.frm_drag_view_top_exo_player, container, false)
+        return inflater.inflate(R.layout.f_drag_view_top_exo_player, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

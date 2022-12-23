@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.dragView.frm
+package vn.loitp.a.cv.dragView.frm
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,6 +13,6 @@ class NormalTopFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.frm_drag_view_top, container, false)
+        return inflater.inflate(R.layout.f_drag_view_top, container, false)
     }
 }

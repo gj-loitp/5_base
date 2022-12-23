@@ -22,8 +22,8 @@ import vn.loitp.a.cv.code.CodeViewActivity
 import vn.loitp.a.cv.cornerSheet.CornetSheetExampleActivity
 import vn.loitp.a.cv.cv.CardViewActivity
 import vn.loitp.a.cv.dlg.MenuDialogActivity
-import vn.loitp.app.a.cv.dragView.MenuDragViewActivity
-import vn.loitp.app.a.cv.draggableFlipView.DraggableFlipViewActivity
+import vn.loitp.a.cv.dragView.MenuDragViewActivity
+import vn.loitp.a.cv.draggableFlipView.DraggableFlipViewActivity
 import vn.loitp.app.a.cv.et.MenuEditTextActivity
 import vn.loitp.app.a.cv.fbCmt.FacebookCommentActivity
 import vn.loitp.app.a.cv.fingerPaintView.FingerPaintActivity

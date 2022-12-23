@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.dragView.frm
+package vn.loitp.a.cv.dragView.frm
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.utilities.LImageUtil
 import com.tuanhav95.drag.utils.inflate
-import kotlinx.android.synthetic.main.frm_drag_view_bottom.*
-import kotlinx.android.synthetic.main.item_drag_view_normal.view.*
+import kotlinx.android.synthetic.main.f_drag_view_bottom.*
+import kotlinx.android.synthetic.main.i_drag_view_normal.view.*
 import vn.loitp.R
 
 class BottomFragment : Fragment() {
@@ -19,7 +19,7 @@ class BottomFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.frm_drag_view_bottom, container, false)
+        return inflater.inflate(R.layout.f_drag_view_bottom, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class BottomFragment : Fragment() {
 
     class ListAdapter : RecyclerView.Adapter<ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(parent.inflate(R.layout.item_drag_view_normal))
+            return ViewHolder(parent.inflate(R.layout.i_drag_view_normal))
         }
 
         override fun getItemCount(): Int {

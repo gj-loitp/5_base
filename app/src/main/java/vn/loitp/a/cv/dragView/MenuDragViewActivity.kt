@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.dragView
+package vn.loitp.a.cv.dragView
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_drag_view.*
+import kotlinx.android.synthetic.main.a_menu_drag_view.*
 import vn.loitp.R
 
 @LogTag("MenuDragViewActivity")
@@ -17,7 +17,7 @@ import vn.loitp.R
 class MenuDragViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_drag_view
+        return R.layout.a_menu_drag_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

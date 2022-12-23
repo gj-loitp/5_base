@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.dragView
+package vn.loitp.a.cv.dragView
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -8,11 +8,11 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import com.tuanhav95.drag.DragView
 import com.tuanhav95.drag.utils.toPx
-import kotlinx.android.synthetic.main.activity_drag_view_custom.*
-import kotlinx.android.synthetic.main.layout_drag_view_bottom.*
+import kotlinx.android.synthetic.main.a_drag_view_custom.*
+import kotlinx.android.synthetic.main.l_drag_view_bottom.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.dragView.frm.BottomFragment
-import vn.loitp.app.a.cv.dragView.frm.NormalTopFragment
+import vn.loitp.a.cv.dragView.frm.BottomFragment
+import vn.loitp.a.cv.dragView.frm.NormalTopFragment
 import kotlin.math.max
 import kotlin.math.min
 
@@ -21,7 +21,7 @@ import kotlin.math.min
 class DragViewCustomActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_drag_view_custom
+        return R.layout.a_drag_view_custom
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

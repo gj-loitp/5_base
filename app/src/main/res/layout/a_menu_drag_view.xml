@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:ignore="HardcodedText">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:paddingTop="@dimen/w_65">
+        android:paddingTop="@dimen/margin_padding_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnNormal"
@@ -27,8 +36,4 @@
             android:text="Exoplayer" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <com.loitp.views.ab.LActionBar
-        android:id="@+id/lActionBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
