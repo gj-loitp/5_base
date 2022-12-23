@@ -15,7 +15,7 @@ class ProgrammaticallyCreatedDemoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_programmatically_declared)
+        setContentView(R.layout.a_programmatically_declared)
 
         val colorView: View = findViewById(R.id.color)
         val bottomBar: ExpandableBottomBar = findViewById(R.id.expandableBottomBar)

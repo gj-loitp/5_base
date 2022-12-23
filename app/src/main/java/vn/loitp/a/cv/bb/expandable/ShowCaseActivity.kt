@@ -10,8 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_showcase.*
-import kotlinx.android.synthetic.main.activity_showcase.lActionBar
+import kotlinx.android.synthetic.main.a_showcase.*
 import vn.loitp.R
 import vn.loitp.a.EmptyActivity
 import vn.loitp.a.cv.bb.expandable.screens.*
@@ -60,7 +59,7 @@ class ShowCaseActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_showcase
+        return R.layout.a_showcase
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

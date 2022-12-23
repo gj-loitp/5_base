@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_bottom_navigation_bar.*
+import kotlinx.android.synthetic.main.a_menu_bottom_navigation_bar.*
 import vn.loitp.R
 import vn.loitp.a.cv.bb.bottomBar.BottomBarActivity
 import vn.loitp.a.cv.bb.expandable.ShowCaseActivity
@@ -18,7 +18,7 @@ import vn.loitp.a.cv.bb.expandable.ShowCaseActivity
 class MenuBottomNavigationActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_bottom_navigation_bar
+        return R.layout.a_menu_bottom_navigation_bar
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LPopupMenu
 import com.loitp.views.layout.appBar.LAppBarLayout
-import kotlinx.android.synthetic.main.activity_collapsing_toolbar_layout_with_tab_layout.*
+import kotlinx.android.synthetic.main.a_collapsing_toolbar_layout_with_tab_layout.*
 import vn.loitp.R
 
 @LogTag("CollapsingToolbarLayoutActivity")
@@ -19,7 +19,7 @@ import vn.loitp.R
 class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_collapsing_toolbar_layout_with_tab_layout
+        return R.layout.a_collapsing_toolbar_layout_with_tab_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.answerView.LAnswerView
-import kotlinx.android.synthetic.main.activity_answer_view.*
+import kotlinx.android.synthetic.main.a_answer_view.*
 import vn.loitp.R
 
 @LogTag("AnswerViewActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class AnswerViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_answer_view
+        return R.layout.a_answer_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

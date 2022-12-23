@@ -16,7 +16,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LImageUtil
-import kotlinx.android.synthetic.main.activity_scrollable_coordinator_layout.*
+import kotlinx.android.synthetic.main.a_scrollable_coordinator_layout.*
 import vn.loitp.R
 
 @LogTag("ScrollableCoordinatorLayoutActivity")
@@ -25,7 +25,7 @@ import vn.loitp.R
 class ScrollableCoordinatorLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_scrollable_coordinator_layout
+        return R.layout.a_scrollable_coordinator_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

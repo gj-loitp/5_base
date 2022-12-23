@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_ribbon.*
+import kotlinx.android.synthetic.main.a_ribbon.*
 import vn.loitp.R
 
 @LogTag("RibbonActivity")
@@ -17,7 +17,7 @@ import vn.loitp.R
 class RibbonActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_ribbon
+        return R.layout.a_ribbon
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

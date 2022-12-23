@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_action_bar.*
+import kotlinx.android.synthetic.main.a_menu_action_bar.*
 import vn.loitp.R
 import vn.loitp.a.cv.ab.collapsingToolbarLayout.CollapsingToolbarLayoutActivity
 import vn.loitp.a.cv.ab.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivity
@@ -21,7 +21,7 @@ import vn.loitp.a.cv.ab.navigationViewWithText.NavigationViewWithTextActivity
 class MenuActionBarActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_action_bar
+        return R.layout.a_menu_action_bar
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

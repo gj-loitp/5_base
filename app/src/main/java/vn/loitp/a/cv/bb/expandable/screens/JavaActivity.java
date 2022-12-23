@@ -20,7 +20,7 @@ public class JavaActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_java;
+        return R.layout.a_java;
     }
 
     @Override

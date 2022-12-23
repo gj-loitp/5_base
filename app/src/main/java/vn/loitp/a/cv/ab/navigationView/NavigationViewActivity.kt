@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.nav.LNavigationView
-import kotlinx.android.synthetic.main.activity_navigation_view.*
+import kotlinx.android.synthetic.main.a_navigation_view.*
 import vn.loitp.R
 
 @LogTag("NavigationViewActivity")
@@ -17,7 +17,7 @@ import vn.loitp.R
 class NavigationViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_navigation_view
+        return R.layout.a_navigation_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -12,7 +12,7 @@ import com.loitp.core.helper.adHelper.AdHelperActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.layout_bottom_sheet_sample.*
+import kotlinx.android.synthetic.main.l_bottom_sheet_sample.*
 import vn.loitp.R
 
 /**
@@ -25,7 +25,7 @@ import vn.loitp.R
 @LogTag("SampleBaseBottomSheet")
 class SampleBaseBottomSheet :
     BaseBottomSheetFragment(
-        layoutId = R.layout.layout_bottom_sheet_sample,
+        layoutId = R.layout.l_bottom_sheet_sample,
         height = WindowManager.LayoutParams.WRAP_CONTENT,
         isDraggable = true,
         firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED

@@ -13,7 +13,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.toast.LToast.show
-import kotlinx.android.synthetic.main.activity_menu_bottomsheet.*
+import kotlinx.android.synthetic.main.a_menu_bottom_sheet.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
 import vn.loitp.R
 
@@ -30,7 +30,7 @@ class MenuBottomSheetActivity : BaseFontActivity() {
     private var bottomSheetBehavior: BottomSheetBehavior<*>? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_bottomsheet
+        return R.layout.a_menu_bottom_sheet
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,7 +98,7 @@ class MenuBottomSheetActivity : BaseFontActivity() {
         }
         bt1.setSafeOnClickListener {
             @SuppressLint("InflateParams") val view =
-                layoutInflater.inflate(R.layout.frm_bottom_sheet_dialog, null)
+                layoutInflater.inflate(R.layout.f_bottom_sheet_dialog, null)
             val dialog = BottomSheetDialog(this)
             dialog.setContentView(view)
             dialog.show()

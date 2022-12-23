@@ -6,7 +6,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_ebb_coordinator_layout.*
+import kotlinx.android.synthetic.main.a_ebb_coordinator_layout.*
 import vn.loitp.R
 
 @LogTag("CoordinatorLayoutActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class CoordinatorLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_ebb_coordinator_layout
+        return R.layout.a_ebb_coordinator_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

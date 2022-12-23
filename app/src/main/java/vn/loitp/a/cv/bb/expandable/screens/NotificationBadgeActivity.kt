@@ -11,7 +11,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_notification_badge.*
+import com.loitp.core.utils.FragmentUtils.setBackgroundColor
+import kotlinx.android.synthetic.main.a_notification_badge.*
 import vn.loitp.R
 
 @LogTag("CoordinatorLayoutActivity")
@@ -20,7 +21,7 @@ import vn.loitp.R
 class NotificationBadgeActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_notification_badge
+        return R.layout.a_notification_badge
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

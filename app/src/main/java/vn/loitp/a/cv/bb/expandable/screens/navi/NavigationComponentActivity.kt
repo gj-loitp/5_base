@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import github.com.st235.lib_expandablebottombar.navigation.ExpandableBottomBarNavigationUI
-import kotlinx.android.synthetic.main.activiy_navigation.*
+import kotlinx.android.synthetic.main.a_navigation.*
 import vn.loitp.R
 
 @LogTag("NavigationComponentActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class NavigationComponentActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activiy_navigation
+        return R.layout.a_navigation
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

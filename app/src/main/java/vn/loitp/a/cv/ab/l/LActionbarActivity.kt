@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_l_action_bar.*
+import kotlinx.android.synthetic.main.a_l_action_bar.*
 import vn.loitp.R
 
 @LogTag("LActionbarActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class LActionbarActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_l_action_bar
+        return R.layout.a_l_action_bar
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -18,7 +18,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LPopupMenu
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_collapsingtoolbar_withtablayout.*
+import kotlinx.android.synthetic.main.a_collapsingtoolbar_withtablayout.*
 import vn.loitp.R
 
 @LogTag("CollapsingToolbarWithTabLayoutActivity")
@@ -26,7 +26,7 @@ import vn.loitp.R
 class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_collapsingtoolbar_withtablayout
+        return R.layout.a_collapsingtoolbar_withtablayout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

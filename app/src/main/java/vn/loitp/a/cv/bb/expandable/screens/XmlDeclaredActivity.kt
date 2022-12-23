@@ -10,7 +10,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_xml_declared.*
+import kotlinx.android.synthetic.main.a_xml_declared.*
 import vn.loitp.R
 
 @LogTag("XmlDeclaredActivity")
@@ -19,7 +19,7 @@ import vn.loitp.R
 class XmlDeclaredActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_xml_declared
+        return R.layout.a_xml_declared
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

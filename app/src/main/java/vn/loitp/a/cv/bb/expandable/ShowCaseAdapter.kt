@@ -20,7 +20,7 @@ class ShowCaseAdapter(
         viewType: Int
     ): ViewHolder {
         val context = parent.context
-        val v = LayoutInflater.from(context).inflate(R.layout.content_showcase_item, parent, false)
+        val v = LayoutInflater.from(context).inflate(R.layout.i_content_showcase, parent, false)
         return ViewHolder(v)
     }
 

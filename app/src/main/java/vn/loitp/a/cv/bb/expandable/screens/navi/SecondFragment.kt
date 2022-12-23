@@ -13,5 +13,5 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_two, container, false)
+    ): View? = inflater.inflate(R.layout.f_two, container, false)
 }

@@ -13,5 +13,5 @@ class ThirdFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_three, container, false)
+    ): View? = inflater.inflate(R.layout.f_three, container, false)
 }

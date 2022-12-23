@@ -8,18 +8,18 @@
         android:id="@+id/fragment1"
         android:name="vn.loitp.a.cv.bb.expandable.screens.navi.FirstFragment"
         android:label="Fragment 1"
-        tools:layout="@layout/fragment_one" />
+        tools:layout="@layout/f_one" />
 
     <fragment
         android:id="@+id/fragment2"
         android:name="vn.loitp.a.cv.bb.expandable.screens.navi.SecondFragment"
         android:label="Fragment 2"
-        tools:layout="@layout/fragment_two" />
+        tools:layout="@layout/f_two" />
 
     <fragment
         android:id="@+id/fragment3"
         android:name="vn.loitp.a.cv.bb.expandable.screens.navi.ThirdFragment"
         android:label="Fragment 3"
-        tools:layout="@layout/fragment_three" />
+        tools:layout="@layout/f_three" />
 
 </navigation>

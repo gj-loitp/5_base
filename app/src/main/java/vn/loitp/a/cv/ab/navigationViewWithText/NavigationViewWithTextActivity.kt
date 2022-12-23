@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
 import com.loitp.views.nav.LTextNavigationView
-import kotlinx.android.synthetic.main.activity_navigation_view_with_text.*
+import kotlinx.android.synthetic.main.a_navigation_view_with_text.*
 import vn.loitp.R
 
 @LogTag("NavigationViewWithTextActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class NavigationViewWithTextActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_navigation_view_with_text
+        return R.layout.a_navigation_view_with_text
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

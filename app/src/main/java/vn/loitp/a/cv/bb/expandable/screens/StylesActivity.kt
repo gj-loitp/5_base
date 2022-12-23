@@ -11,6 +11,6 @@ import vn.loitp.R
 @IsAutoAnimation(false)
 class StylesActivity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_styles
+        return R.layout.a_styles
     }
 }
