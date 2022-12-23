@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.a_demo_menu.*
 import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.a.demo.alarm.a.AlarmMeActivity
-import vn.loitp.app.a.demo.architectureComponent.MenuAndroidArchitectureComponentActivity
 import vn.loitp.a.demo.epubReader.MenuEpubReaderActivity
 import vn.loitp.a.demo.firebase.FirebaseActivity
 import vn.loitp.a.demo.floatingVideo.FloatingWidgetActivity
@@ -27,9 +26,10 @@ import vn.loitp.a.demo.mapTracker.MapTrackerActivity
 import vn.loitp.a.demo.nfc.NFCActivity
 import vn.loitp.a.demo.pdf.PdfDemoActivity
 import vn.loitp.a.demo.piano.PianoActivity
-import vn.loitp.app.a.demo.rss.RSSActivity
-import vn.loitp.app.a.demo.sound.SoundActivity
-import vn.loitp.app.a.demo.textToSpeech.TextToSpeechActivity
+import vn.loitp.a.demo.rss.RSSActivity
+import vn.loitp.a.demo.sound.SoundActivity
+import vn.loitp.app.a.demo.architectureComponent.MenuAndroidArchitectureComponentActivity
+import vn.loitp.a.demo.tts.TextToSpeechActivity
 import vn.loitp.app.a.demo.trackingG1.TrackingG1Activity
 import vn.loitp.app.a.demo.twoInstanceActivity.Activity1
 

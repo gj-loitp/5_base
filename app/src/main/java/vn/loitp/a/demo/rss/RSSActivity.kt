@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.rss
+package vn.loitp.a.demo.rss
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -11,7 +11,7 @@ import vn.loitp.R
 @IsFullScreen(false)
 class RSSActivity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_rss
+        return R.layout.a_rss
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

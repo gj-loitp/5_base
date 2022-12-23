@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.sound
+package vn.loitp.a.demo.sound
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSoundUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_demo_sound.*
+import kotlinx.android.synthetic.main.a_demo_sound.*
 import vn.loitp.R
 
 @LogTag("SoundActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class SoundActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_sound
+        return R.layout.a_demo_sound
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

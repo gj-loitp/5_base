@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.rss
+package vn.loitp.a.demo.rss
 
 import com.loitp.rss.RssFeed
 import retrofit2.Call

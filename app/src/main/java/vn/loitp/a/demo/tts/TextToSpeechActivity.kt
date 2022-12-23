@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.textToSpeech
+package vn.loitp.a.demo.tts
 
 import android.os.Bundle
 import android.text.Editable
@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LTextToSpeechUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_demo_text_to_speech.*
+import kotlinx.android.synthetic.main.a_demo_text_to_speech.*
 import vn.loitp.R
 
 @LogTag("TextToSpeechActivity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class TextToSpeechActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_text_to_speech
+        return R.layout.a_demo_text_to_speech
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

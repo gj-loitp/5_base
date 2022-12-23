@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.rss
+package vn.loitp.a.demo.rss
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.rss.RssItem
-import kotlinx.android.synthetic.main.view_rss.view.*
+import kotlinx.android.synthetic.main.i_rss.view.*
 import vn.loitp.R
 
 @LogTag("RssItemsAdapter")
@@ -26,13 +26,19 @@ class RssItemsAdapter(
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RSSViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): RSSViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.view_rss, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.i_rss, parent, false)
         return RSSViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is RSSViewHolder) {
             holder.bind(itemList[position])
         }

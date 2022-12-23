@@ -188,10 +188,10 @@
             android:name=".app.a.cv.progress.circularProgressBar.CircularProgressBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.demo.sound.SoundActivity"
+            android:name=".a.demo.sound.SoundActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.demo.textToSpeech.TextToSpeechActivity"
+            android:name=".a.demo.tts.TextToSpeechActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -1067,7 +1067,7 @@
             android:name=".app.a.cv.wheelSpiner.WheelSpinnerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.demo.rss.RSSActivity"
+            android:name=".a.demo.rss.RSSActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivity"
