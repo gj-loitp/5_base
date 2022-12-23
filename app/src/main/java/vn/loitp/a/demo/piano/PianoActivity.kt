@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.piano
+package vn.loitp.a.demo.piano
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -17,7 +17,7 @@ import com.loitp.views.piano.listener.OnLoadAudioListener
 import com.loitp.views.piano.listener.OnPianoAutoPlayListener
 import com.loitp.views.piano.listener.OnPianoListener
 import com.loitp.views.piano.utils.AutoPlayUtils
-import kotlinx.android.synthetic.main.activity_piano.*
+import kotlinx.android.synthetic.main.a_piano.*
 import vn.loitp.R
 import java.io.IOException
 
@@ -38,7 +38,7 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
     private val litterStartBreakLongTime: Long = 1000
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_piano
+        return R.layout.a_piano
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -418,7 +418,9 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
     override fun onPianoInitFinish() {}
 
     override fun onPianoClick(
-        type: Piano.PianoKeyType?, voice: Piano.PianoVoice?, group: Int,
+        type: Piano.PianoKeyType?,
+        voice: Piano.PianoVoice?,
+        group: Int,
         positionOfGroup: Int
     ) {
     }
@@ -439,7 +441,11 @@ class PianoActivity : BaseFontActivity(), OnPianoListener, OnLoadAudioListener,
         logD("progress:$progress")
     }
 
-    override fun onProgressChanged(seekBar: SeekBar?, i: Int, b: Boolean) {
+    override fun onProgressChanged(
+        seekBar: SeekBar?,
+        i: Int,
+        b: Boolean
+    ) {
         pv?.scroll(i)
     }
 

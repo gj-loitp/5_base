@@ -26,7 +26,7 @@ import vn.loitp.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity
 import vn.loitp.a.demo.mapTracker.MapTrackerActivity
 import vn.loitp.a.demo.nfc.NFCActivity
 import vn.loitp.a.demo.pdf.PdfDemoActivity
-import vn.loitp.app.a.demo.piano.PianoActivity
+import vn.loitp.a.demo.piano.PianoActivity
 import vn.loitp.app.a.demo.rss.RSSActivity
 import vn.loitp.app.a.demo.sound.SoundActivity
 import vn.loitp.app.a.demo.textToSpeech.TextToSpeechActivity
