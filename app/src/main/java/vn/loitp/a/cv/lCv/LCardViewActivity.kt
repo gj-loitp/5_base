@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.lCv
+package vn.loitp.a.cv.lCv
 
 import android.os.Bundle
 import android.view.View
@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.card.LCardView
-import kotlinx.android.synthetic.main.activity_l_card_view.*
+import kotlinx.android.synthetic.main.a_l_card_view.*
 import vn.loitp.R
 
 @LogTag("LCardViewActivity")
@@ -20,7 +20,7 @@ import vn.loitp.R
 class LCardViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_l_card_view
+        return R.layout.a_l_card_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

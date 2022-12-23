@@ -508,7 +508,7 @@
             android:name=".a.cv.bt.autoSize.AutoSizeButtonActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
-            android:name=".app.a.cv.lDebug.LDebugViewActivity"
+            android:name=".a.cv.lDebug.LDebugViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2Activity"
@@ -520,7 +520,7 @@
             android:name=".app.a.cv.menu.reside.ResideMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.lCv.LCardViewActivity"
+            android:name=".a.cv.lCv.LCardViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.coordinator.CoordinatorLayoutWithImageViewActivity"
@@ -1268,7 +1268,7 @@
             android:name=".app.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.luckyWheel.LuckyWheelActivity"
+            android:name=".a.cv.luckyWheel.LuckyWheelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.textArc.TextArcActivity"

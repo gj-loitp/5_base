@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.luckyWheel
+package vn.loitp.a.cv.luckyWheel
 
 import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_lucky_wheel.*
+import kotlinx.android.synthetic.main.a_lucky_wheel.*
 import vn.loitp.R
 
 @LogTag("LuckyWheelActivity")
@@ -23,7 +23,7 @@ class LuckyWheelActivity : BaseFontActivity() {
     private var wheelItems = ArrayList<WheelItem>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_lucky_wheel
+        return R.layout.a_lucky_wheel
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

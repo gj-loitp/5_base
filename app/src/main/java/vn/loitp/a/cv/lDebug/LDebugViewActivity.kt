@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.lDebug
+package vn.loitp.a.cv.lDebug
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseModel
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.lDebugView.LComunicateDebug
 import com.loitp.views.lDebugView.LDebug
-import kotlinx.android.synthetic.main.activity_l_debug_view.*
+import kotlinx.android.synthetic.main.a_l_debug_view.*
 import vn.loitp.R
 import vn.loitp.common.Constants.Companion.URL_IMG
 import vn.loitp.common.Constants.Companion.URL_IMG_2
@@ -28,7 +28,7 @@ class LDebugViewActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_l_debug_view
+        return R.layout.a_l_debug_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

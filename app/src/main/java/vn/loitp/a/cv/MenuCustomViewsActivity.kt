@@ -30,10 +30,10 @@ import vn.loitp.a.cv.fingerPaintView.FingerPaintActivity
 import vn.loitp.a.cv.graph.MenuGraphViewActivity
 import vn.loitp.a.cv.indicator.ex.MenuMagicIndicatorActivity
 import vn.loitp.a.cv.iv.MenuImageViewActivity
-import vn.loitp.app.a.cv.lCv.LCardViewActivity
-import vn.loitp.app.a.cv.lDebug.LDebugViewActivity
+import vn.loitp.a.cv.lCv.LCardViewActivity
+import vn.loitp.a.cv.lDebug.LDebugViewActivity
 import vn.loitp.app.a.cv.layout.MenuLayoutActivity
-import vn.loitp.app.a.cv.luckyWheel.LuckyWheelActivity
+import vn.loitp.a.cv.luckyWheel.LuckyWheelActivity
 import vn.loitp.app.a.cv.menu.MenuMenuActivity
 import vn.loitp.app.a.cv.navi.MenuNavigationActivity
 import vn.loitp.app.a.cv.popupMenu.PopupMenuActivity
