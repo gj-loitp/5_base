@@ -29,7 +29,7 @@ import vn.loitp.a.cv.fbCmt.FacebookCommentActivity
 import vn.loitp.a.cv.fingerPaintView.FingerPaintActivity
 import vn.loitp.a.cv.graph.MenuGraphViewActivity
 import vn.loitp.a.cv.indicator.ex.MenuMagicIndicatorActivity
-import vn.loitp.app.a.cv.iv.MenuImageViewActivity
+import vn.loitp.a.cv.iv.MenuImageViewActivity
 import vn.loitp.app.a.cv.lCv.LCardViewActivity
 import vn.loitp.app.a.cv.lDebug.LDebugViewActivity
 import vn.loitp.app.a.cv.layout.MenuLayoutActivity
@@ -135,7 +135,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btProgressLoading -> launchActivity(MenuProgressLoadingViewsActivity::class.java)
             btSwitch -> launchActivity(MenuSwitchToggleActivity::class.java)
             btActionBar -> launchActivity(MenuActionBarActivity::class.java)
-            btImageView -> launchActivity(MenuImageViewActivity::class.java)
+            btImageView -> launchActivity(vn.loitp.a.cv.iv.MenuImageViewActivity::class.java)
             btTextView -> launchActivity(MenuTextViewActivity::class.java)
             btBottomBarBlur -> launchActivity(MenuBottomNavigationActivity::class.java)
             btSticker -> launchActivity(StickerActivity::class.java)
