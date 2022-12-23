@@ -200,7 +200,7 @@
         <activity
             android:name=".a.cv.ab.MenuActionBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity android:name=".app.a.demo.alarmDemo.activity.AlarmMeActivity">
+        <activity android:name=".app.a.demo.alarm.a.AlarmMeActivity">
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -209,14 +209,14 @@
             -->
         </activity>
         <activity
-            android:name=".app.a.demo.alarmDemo.activity.EditAlarmActivity"
+            android:name=".app.a.demo.alarm.a.EditAlarmActivity"
             android:label="Edit alarm" />
         <!-- FOR ALARM DEMO APP -->
         <activity
-            android:name=".app.a.demo.alarmDemo.activity.AlarmNotification"
+            android:name=".app.a.demo.alarm.a.AlarmNotification"
             android:label="Alarm notification" />
         <activity
-            android:name=".app.a.demo.alarmDemo.service.Preferences"
+            android:name=".app.a.demo.alarm.sv.Preferences"
             android:label="Preferences" />
         <activity
             android:name=".app.a.cv.layout.swipeRefresh.withSv.SwipeRefreshLayoutScrollViewActivity"
@@ -294,13 +294,13 @@
             android:name=".app.a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.database.MenuDatabaseActivity"
+            android:name=".app.a.db.MenuDatabaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.database.realm.RealmActivity"
+            android:name=".app.a.db.realm.RealmActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.database.sqlite.SqliteActivity"
+            android:name=".app.a.db.sqlite.SqliteActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.scratchView.MenuScratchViewActivity"
@@ -342,7 +342,7 @@
             android:name=".app.a.cv.iv.panorama.PanoramaImageViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.database.readSqliteAsset.ReadSqliteAssetActivity"
+            android:name=".app.a.db.readSqliteAsset.ReadSqliteAssetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.draggableView.DraggableViewActivity"
@@ -722,10 +722,10 @@
         <!--            android:value="@string/str_app_id" />-->
 
         <receiver
-            android:name=".app.a.demo.alarmDemo.service.AlarmReceiver"
+            android:name=".app.a.demo.alarm.sv.AlarmReceiver"
             android:process=":remote" />
         <receiver
-            android:name=".app.a.demo.alarmDemo.service.BootCompletedReceiver"
+            android:name=".app.a.demo.alarm.sv.BootCompletedReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -805,22 +805,22 @@
             android:name=".app.a.security.simple.SimpleEncryptDecryptStringActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.database.sharedPrefs.SharedPrefsActivity"
+            android:name=".app.a.db.sharedPrefs.SharedPrefsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.database.sharedPrefsEncryption.EncryptionSharedPrefsActivity"
+            android:name=".app.a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.database.sqliteEncryption.SqliteEncryptionActivity"
+            android:name=".app.a.db.sqliteEncryption.SqliteEncryptionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.EmptyActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.database.sqliteMultiTable.SqliteMultiTableActivity"
+            android:name=".app.a.db.sqliteMultiTable.SqliteMultiTableActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.database.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity"
+            android:name=".app.a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.service.MenuServiceActivity"
@@ -970,7 +970,7 @@
             android:name=".app.a.cv.rv.concatAdapter.ConcatAdapterActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.database.room.RoomActivity"
+            android:name=".app.a.db.room.RoomActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.et.currency.CurrencyEditTextActivity"

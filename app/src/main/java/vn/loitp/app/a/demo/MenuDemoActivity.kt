@@ -15,6 +15,7 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_demo.*
 import vn.loitp.BuildConfig
 import vn.loitp.R
+import vn.loitp.app.a.demo.alarm.a.AlarmMeActivity
 import vn.loitp.app.a.demo.architectureComponent.MenuAndroidArchitectureComponentActivity
 import vn.loitp.app.a.demo.epubReader.MenuEpubReaderActivity
 import vn.loitp.app.a.demo.firebase.FirebaseActivity
@@ -95,6 +96,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btRSS.setOnClickListener(this)
         btTrackingG1.setOnClickListener(this)
         btFirebase.setOnClickListener(this)
+        btAlarm.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -147,6 +149,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btRSS -> launchActivity(RSSActivity::class.java)
             btTrackingG1 -> launchActivity(TrackingG1Activity::class.java)
             btFirebase -> launchActivity(FirebaseActivity::class.java)
+            btAlarm -> launchActivity(AlarmMeActivity::class.java)
         }
     }
 }

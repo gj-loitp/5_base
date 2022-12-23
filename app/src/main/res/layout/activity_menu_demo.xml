@@ -26,6 +26,11 @@
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAlarm"
+                style="@style/ButtonMenu"
+                android:text="Alarm" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btArchitectureComponent"
                 style="@style/ButtonMenu"
                 android:text="@string/architecture_component" />
