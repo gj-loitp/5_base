@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.loitp.core.utilities.LImageUtil
-import kotlinx.android.synthetic.main.frm_iv_pinch_to_zoom.*
+import kotlinx.android.synthetic.main.f_iv_pinch_to_zoom.*
 import vn.loitp.R
 
 class FrmIvPinchToZoom : Fragment() {
@@ -22,7 +22,7 @@ class FrmIvPinchToZoom : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.frm_iv_pinch_to_zoom, container, false)
+        return inflater.inflate(R.layout.f_iv_pinch_to_zoom, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

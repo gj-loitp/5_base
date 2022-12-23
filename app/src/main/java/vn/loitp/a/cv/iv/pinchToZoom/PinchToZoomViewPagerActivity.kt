@@ -9,7 +9,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_pinch_to_zoom_view_pager.*
+import kotlinx.android.synthetic.main.a_iv_pinch_to_zoom_vp.*
 import vn.loitp.R
 import vn.loitp.common.Constants
 
@@ -20,7 +20,7 @@ class PinchToZoomViewPagerActivity : BaseFontActivity() {
     private val list = ArrayList<String>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pinch_to_zoom_view_pager
+        return R.layout.a_iv_pinch_to_zoom_vp
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

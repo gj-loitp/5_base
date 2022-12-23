@@ -12,7 +12,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_kenburn_view.*
+import kotlinx.android.synthetic.main.a_kenburn_view.*
 import vn.loitp.R
 import vn.loitp.a.EmptyActivity
 
@@ -21,7 +21,7 @@ import vn.loitp.a.EmptyActivity
 class KenburnViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_kenburn_view
+        return R.layout.a_kenburn_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -17,7 +17,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_preview_image_collection.*
+import kotlinx.android.synthetic.main.a_iv_preview_image_collection.*
 import pereira.agnaldo.previewimgcol.ImageCollectionView
 import vn.loitp.R
 
@@ -30,7 +30,7 @@ class PreviewImageCollectionActivity : BaseFontActivity() {
         get() = (this * Resources.getSystem().displayMetrics.density).toInt()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_preview_image_collection
+        return R.layout.a_iv_preview_image_collection
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

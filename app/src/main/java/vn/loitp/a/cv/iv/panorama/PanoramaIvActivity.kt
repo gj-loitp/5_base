@@ -9,17 +9,17 @@ import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.iv.panorama.GyroscopeObserver
 import com.loitp.views.iv.panorama.LPanoramaImageView
-import kotlinx.android.synthetic.main.activity_panorama_image_view.*
+import kotlinx.android.synthetic.main.a_iv_panorama.*
 import vn.loitp.R
 import vn.loitp.a.EmptyActivity
 
-@LogTag("PanoramaImageViewActivity")
+@LogTag("PanoramaIvActivity")
 @IsFullScreen(false)
-class PanoramaImageViewActivity : BaseFontActivity() {
+class PanoramaIvActivity : BaseFontActivity() {
     private var gyroscopeObserver: GyroscopeObserver? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_panorama_image_view
+        return R.layout.a_iv_panorama
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:id="@+id/kbv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar"
+        tools:src="@drawable/loitp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_padding_medium"
+        android:background="?attr/themeBackgroundColorMedium"
+        android:text="@string/pause"
+        android:textColor="?attr/themeTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btResume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_padding_medium"
+        android:background="?attr/themeBackgroundColorMedium"
+        android:text="@string/_resume"
+        android:textColor="?attr/themeTextColor"
+        app:layout_constraintBottom_toBottomOf="@id/btPause"
+        app:layout_constraintStart_toEndOf="@+id/btPause" />
+</androidx.constraintlayout.widget.ConstraintLayout>

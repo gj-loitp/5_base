@@ -9,7 +9,7 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_iv_fidget_spinner.*
 import vn.loitp.R
 
-@LogTag("FidgetSpinnerImageViewActivity")
+@LogTag("FidgetSpinnerIvActivity")
 @IsFullScreen(false)
 class FidgetSpinnerIvActivity : BaseFontActivity() {
 
