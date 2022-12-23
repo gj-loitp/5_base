@@ -5,7 +5,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_pulsing_view.*
+import kotlinx.android.synthetic.main.a_pulsing_view.*
 import vn.loitp.R
 
 @LogTag("PulsingViewActivity")
@@ -13,7 +13,7 @@ import vn.loitp.R
 class PulsingViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pulsing_view
+        return R.layout.a_pulsing_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

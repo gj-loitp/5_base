@@ -11,7 +11,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_morph_transitions_main.*
+import kotlinx.android.synthetic.main.a_morph_transitions_main.*
 import vn.loitp.R
 
 @LogTag("MainActivity")
@@ -19,7 +19,7 @@ import vn.loitp.R
 class MorphTransitionsMainActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_morph_transitions_main
+        return R.layout.a_morph_transitions_main
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

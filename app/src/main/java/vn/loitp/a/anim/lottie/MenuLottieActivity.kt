@@ -15,7 +15,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_animation_lottie.*
+import kotlinx.android.synthetic.main.a_animation_lottie.*
 import vn.loitp.R
 import java.io.IOException
 
@@ -26,7 +26,7 @@ class MenuLottieActivity : BaseFontActivity() {
     private val lottieItemList: MutableList<LottieItem> = ArrayList()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_lottie
+        return R.layout.a_animation_lottie
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -110,7 +110,7 @@ class MenuLottieActivity : BaseFontActivity() {
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
             val lottieItem = lottieItemList[position]
             val inflater = LayoutInflater.from(this@MenuLottieActivity)
-            val layout = inflater.inflate(R.layout.item_lottie_view, collection, false) as ViewGroup
+            val layout = inflater.inflate(R.layout.i_lottie_view, collection, false) as ViewGroup
             val rl = layout.findViewById<ViewGroup>(R.id.rl)
             val animationView: LottieAnimationView = layout.findViewById(R.id.animationView)
             animationView.setAnimation(lottieItem.pathAsset)

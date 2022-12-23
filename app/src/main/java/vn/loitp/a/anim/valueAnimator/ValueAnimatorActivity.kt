@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_animation_value_animator.*
+import kotlinx.android.synthetic.main.a_animation_value_animator.*
 import vn.loitp.R
 
 // https://viblo.asia/p/custom-view-trong-android-gGJ59br9KX2
@@ -20,7 +20,7 @@ import vn.loitp.R
 class ValueAnimatorActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_value_animator
+        return R.layout.a_animation_value_animator
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

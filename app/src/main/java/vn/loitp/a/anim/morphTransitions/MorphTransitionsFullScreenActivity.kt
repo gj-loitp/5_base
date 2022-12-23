@@ -6,14 +6,14 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_morph_transitions_full_screen.*
+import kotlinx.android.synthetic.main.a_morph_transitions_full_screen.*
 import vn.loitp.R
 
 @LogTag("MorphTransitionsFullScreenActivity")
 @IsFullScreen(false)
 class MorphTransitionsFullScreenActivity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_morph_transitions_full_screen
+        return R.layout.a_morph_transitions_full_screen
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

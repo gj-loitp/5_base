@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_fade_out_particle.*
+import kotlinx.android.synthetic.main.a_fade_out_particle.*
 import vn.loitp.R
 
 @LogTag("FadeOutParticleActivity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class FadeOutParticleActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fade_out_particle
+        return R.layout.a_fade_out_particle
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

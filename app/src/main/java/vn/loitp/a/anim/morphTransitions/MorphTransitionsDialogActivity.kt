@@ -11,7 +11,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_morph_transtions_dialog.*
+import kotlinx.android.synthetic.main.a_morph_transtions_dialog.*
 import vn.loitp.R
 
 @LogTag("DialogActivity")
@@ -32,7 +32,7 @@ class MorphTransitionsDialogActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_morph_transtions_dialog
+        return R.layout.a_morph_transtions_dialog
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

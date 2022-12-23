@@ -10,7 +10,7 @@ import com.loitp.core.utilities.LDisplayUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.shadowViewHelper.ShadowProperty
 import com.loitp.views.shadowViewHelper.ShadowViewDrawable
-import kotlinx.android.synthetic.main.activity_animation_shadow_view_helper.*
+import kotlinx.android.synthetic.main.a_animation_shadow_view_helper.*
 import vn.loitp.R
 
 // https://github.com/wangjiegulu/ShadowViewHelper?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=1884
@@ -19,7 +19,7 @@ import vn.loitp.R
 class ShadowViewHelperActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_shadow_view_helper
+        return R.layout.a_animation_shadow_view_helper
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

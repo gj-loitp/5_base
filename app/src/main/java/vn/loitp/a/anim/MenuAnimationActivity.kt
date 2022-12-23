@@ -8,7 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_animation.*
+import kotlinx.android.synthetic.main.a_menu_animation.*
 import vn.loitp.R
 import vn.loitp.a.anim.activityTransition.Animation1Activity
 import vn.loitp.a.anim.activityTransitionReveal.RevealActivity1
@@ -35,7 +35,7 @@ import vn.loitp.a.anim.valueAnimator.ValueAnimatorActivity
 class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_animation
+        return R.layout.a_menu_animation
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

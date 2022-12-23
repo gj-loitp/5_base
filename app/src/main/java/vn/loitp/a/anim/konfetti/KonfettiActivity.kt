@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_konfetti.*
+import kotlinx.android.synthetic.main.a_konfetti.*
 import vn.loitp.R
 
 @LogTag("KonfettiActivity")
@@ -19,7 +19,7 @@ import vn.loitp.R
 class KonfettiActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_konfetti
+        return R.layout.a_konfetti
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
