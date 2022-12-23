@@ -1,4 +1,4 @@
-package vn.loitp.app.a.u
+package vn.loitp.a.u
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.loitp.core.utils.*
-import kotlinx.android.synthetic.main.frm_utils.*
+import kotlinx.android.synthetic.main.f_utils.*
 import vn.loitp.R
 
 class FrmUtils : Fragment() {
@@ -22,7 +22,7 @@ class FrmUtils : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.frm_utils, container, false)
+        return inflater.inflate(R.layout.f_utils, container, false)
     }
 
     override fun onViewCreated(

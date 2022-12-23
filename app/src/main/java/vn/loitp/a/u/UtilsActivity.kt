@@ -1,4 +1,4 @@
-package vn.loitp.app.a.u
+package vn.loitp.a.u
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.*
-import kotlinx.android.synthetic.main.activity_utils.*
+import kotlinx.android.synthetic.main.a_utils.*
 import vn.loitp.R
 
 @LogTag("UtilsActivity")
@@ -22,7 +22,7 @@ class UtilsActivity : BaseFontActivity() {
     private val listClass = ArrayList<String>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_utils
+        return R.layout.a_utils
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -34,8 +34,8 @@ import vn.loitp.app.a.picker.MenuPickerActivity
 import vn.loitp.app.a.security.MenuSecurityActivity
 import vn.loitp.app.a.sv.MenuServiceActivity
 import vn.loitp.app.a.tutorial.MenuTutorialActivity
-import vn.loitp.app.a.u.UtilsActivity
-import vn.loitp.app.a.u.UtilsCoreActivity
+import vn.loitp.a.u.UtilsActivity
+import vn.loitp.a.u.UtilsCoreActivity
 
 @LogTag("MenuActivity")
 @IsFullScreen(false)

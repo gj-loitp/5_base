@@ -1,4 +1,4 @@
-package vn.loitp.app.a.u
+package vn.loitp.a.u
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -12,7 +12,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.loitp.core.utilities.statusbar.StatusBarCompat
-import kotlinx.android.synthetic.main.activity_utils_core.*
+import kotlinx.android.synthetic.main.a_utils_core.*
 import vn.loitp.R
 import java.math.BigDecimal
 
@@ -22,7 +22,7 @@ import java.math.BigDecimal
 class UtilsCoreActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_utils_core
+        return R.layout.a_utils_core
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
