@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.et.textWatcher
+package vn.loitp.a.cv.et.autoResize
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -6,15 +6,14 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_text_watcher_edittext.*
+import kotlinx.android.synthetic.main.a_et_auto_resize.*
 import vn.loitp.R
 
-@LogTag("EditTextTextWatcherActivity")
+@LogTag("AutoResizeEditTextActivity")
 @IsFullScreen(false)
-class EditTextTextWatcherActivity : BaseFontActivity() {
-
+class AutoResizeEditTextActivity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_watcher_edittext
+        return R.layout.a_et_auto_resize
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,15 +31,7 @@ class EditTextTextWatcherActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = EditTextTextWatcherActivity::class.java.simpleName
+            this.tvTitle?.text = AutoResizeEditTextActivity::class.java.simpleName
         }
-        var text = ""
-        LUIUtil.addTextChangedListener(
-            editText = editText,
-            delayInMls = 1000, afterTextChanged = { s ->
-                text += s + "\n"
-                textView.text = text
-            }
-        )
     }
 }

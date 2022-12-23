@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.et.autoSuggest
+package vn.loitp.a.cv.et.autoSuggest
 
 import android.graphics.Color
 import android.os.Bundle
@@ -15,7 +15,7 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_auto_suggest_editext.*
+import kotlinx.android.synthetic.main.a_et_auto_suggest.*
 import vn.loitp.R
 
 @LogTag("EditTextAutoSuggestActivity")
@@ -24,7 +24,7 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
     private var disposableSearch: Disposable? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_auto_suggest_editext
+        return R.layout.a_et_auto_suggest
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

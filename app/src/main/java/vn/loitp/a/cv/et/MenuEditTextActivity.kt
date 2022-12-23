@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.et
+package vn.loitp.a.cv.et
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,15 +10,15 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_edittext.*
+import kotlinx.android.synthetic.main.a_et_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivity
-import vn.loitp.app.a.cv.et.autoResize.AutoResizeEditTextActivity
-import vn.loitp.app.a.cv.et.autoSuggest.EditTextAutoSuggestActivity
-import vn.loitp.app.a.cv.et.currency.CurrencyEditTextActivity
-import vn.loitp.app.a.cv.et.l.LEditTextActivity
-import vn.loitp.app.a.cv.et.materialTextField.MaterialTextFieldActivity
-import vn.loitp.app.a.cv.et.textWatcher.EditTextTextWatcherActivity
+import vn.loitp.a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivity
+import vn.loitp.a.cv.et.autoResize.AutoResizeEditTextActivity
+import vn.loitp.a.cv.et.autoSuggest.EditTextAutoSuggestActivity
+import vn.loitp.a.cv.et.currency.CurrencyEditTextActivity
+import vn.loitp.a.cv.et.l.LEditTextActivity
+import vn.loitp.a.cv.et.materialTextField.MaterialTextFieldActivity
+import vn.loitp.a.cv.et.textWatcher.EditTextTextWatcherActivity
 
 @LogTag("EditTextMenuActivity")
 @IsFullScreen(false)
@@ -26,7 +26,7 @@ import vn.loitp.app.a.cv.et.textWatcher.EditTextTextWatcherActivity
 class MenuEditTextActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_edittext
+        return R.layout.a_et_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

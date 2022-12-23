@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.et.materialTextField
+package vn.loitp.a.cv.et.materialTextField
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_material_textfield.*
+import kotlinx.android.synthetic.main.a_et_material_textfield.*
 import vn.loitp.R
 
 @LogTag("MaterialTextFieldActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class MaterialTextFieldActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_material_textfield
+        return R.layout.a_et_material_textfield
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

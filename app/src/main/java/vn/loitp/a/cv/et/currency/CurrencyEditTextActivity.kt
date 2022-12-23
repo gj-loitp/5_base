@@ -1,19 +1,21 @@
-package vn.loitp.app.a.cv.et.autoResize
+package vn.loitp.a.cv.et.currency
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_auto_resize_editext.*
+import kotlinx.android.synthetic.main.a_et_currency.*
 import vn.loitp.R
 
-@LogTag("AutoResizeEditTextActivity")
+@LogTag("CurrencyEditTextActivity")
 @IsFullScreen(false)
-class AutoResizeEditTextActivity : BaseFontActivity() {
+class CurrencyEditTextActivity : BaseFontActivity() {
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_auto_resize_editext
+        return R.layout.a_et_currency
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +24,7 @@ class AutoResizeEditTextActivity : BaseFontActivity() {
         setupViews()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupViews() {
         lActionBar.apply {
             LUIUtil.setSafeOnClickListenerElastic(
@@ -31,7 +34,10 @@ class AutoResizeEditTextActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = AutoResizeEditTextActivity::class.java.simpleName
+            this.tvTitle?.text = CurrencyEditTextActivity::class.java.simpleName
+        }
+        currencyEditText.onTextChanged = { numDot, numNoDot ->
+            tvCurrency.text = "$numDot -> $numNoDot"
         }
     }
 }

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.et.l
+package vn.loitp.a.cv.et.l
 
 import android.graphics.Color
 import android.os.Bundle
@@ -16,7 +16,7 @@ import com.loitp.core.utilities.LKeyBoardUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.et.l.LEditText
-import kotlinx.android.synthetic.main.activity_l_edittext.*
+import kotlinx.android.synthetic.main.a_et_l.*
 import vn.loitp.R
 
 @LogTag("LEditTextActivity")
@@ -24,7 +24,7 @@ import vn.loitp.R
 class LEditTextActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_l_edittext
+        return R.layout.a_et_l
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

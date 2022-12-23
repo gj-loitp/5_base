@@ -145,10 +145,10 @@
             android:name=".a.cv.bt.circularImageClick.CircularImageClickActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.et.MenuEditTextActivity"
+            android:name=".a.cv.et.MenuEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.et.materialTextField.MaterialTextFieldActivity"
+            android:name=".a.cv.et.materialTextField.MaterialTextFieldActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.video.MenuVideoViewActivity"
@@ -272,7 +272,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- FOR ALARM DEMO APP -->
         <activity
-            android:name=".app.a.cv.et.autoResize.AutoResizeEditTextActivity"
+            android:name=".a.cv.et.autoResize.AutoResizeEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.ab.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivity"
@@ -291,7 +291,7 @@
             android:name=".app.a.demo.ebookWithRealm.EbookWithRealmActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivity"
+            android:name=".a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.db.MenuDatabaseActivity"
@@ -702,10 +702,10 @@
             android:name=".app.a.cv.tv.stroked.StrokedTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.et.autoSuggest.EditTextAutoSuggestActivity"
+            android:name=".a.cv.et.autoSuggest.EditTextAutoSuggestActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.et.l.LEditTextActivity"
+            android:name=".a.cv.et.l.LEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.demo.fragmentFlow.FragmentFlowActivity"
@@ -889,7 +889,7 @@
             android:name=".a.api.coroutine.a.CoroutineAPIActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.et.textWatcher.EditTextTextWatcherActivity"
+            android:name=".a.cv.et.textWatcher.EditTextTextWatcherActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.expansionPanel.MenuExpansionLayoutActivity"
@@ -973,7 +973,7 @@
             android:name=".app.a.db.room.RoomActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.et.currency.CurrencyEditTextActivity"
+            android:name=".a.cv.et.currency.CurrencyEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity

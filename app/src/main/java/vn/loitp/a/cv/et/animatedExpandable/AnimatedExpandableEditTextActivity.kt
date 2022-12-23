@@ -1,21 +1,20 @@
-package vn.loitp.app.a.cv.et.currency
+package vn.loitp.a.cv.et.animatedExpandable
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_currency_edittext.*
+import kotlinx.android.synthetic.main.a_et_animated_expandale.*
 import vn.loitp.R
 
-@LogTag("CurrencyEditTextActivity")
+@LogTag("AnimatedExpandableEditTextActivity")
 @IsFullScreen(false)
-class CurrencyEditTextActivity : BaseFontActivity() {
+class AnimatedExpandableEditTextActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_currency_edittext
+        return R.layout.a_et_animated_expandale
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +23,6 @@ class CurrencyEditTextActivity : BaseFontActivity() {
         setupViews()
     }
 
-    @SuppressLint("SetTextI18n")
     private fun setupViews() {
         lActionBar.apply {
             LUIUtil.setSafeOnClickListenerElastic(
@@ -34,10 +32,7 @@ class CurrencyEditTextActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = CurrencyEditTextActivity::class.java.simpleName
-        }
-        currencyEditText.onTextChanged = { numDot, numNoDot ->
-            tvCurrency.text = "$numDot -> $numNoDot"
+            this.tvTitle?.text = AnimatedExpandableEditTextActivity::class.java.simpleName
         }
     }
 }
