@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_iv_reflection.*
+import kotlinx.android.synthetic.main.a_iv_reflection.*
 import vn.loitp.R
 
 @LogTag("ReflectionActivity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class ReflectionActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_iv_reflection
+        return R.layout.a_iv_reflection
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

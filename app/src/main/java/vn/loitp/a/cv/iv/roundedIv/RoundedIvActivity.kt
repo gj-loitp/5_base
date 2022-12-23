@@ -10,16 +10,16 @@ import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_rounded_image_view.*
+import kotlinx.android.synthetic.main.a_iv_rounded.*
 import vn.loitp.R
 
-@LogTag("RoundedImageViewActivity")
+@LogTag("RoundedIvActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class RoundedImageViewActivity : BaseFontActivity() {
+class RoundedIvActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_rounded_image_view
+        return R.layout.a_iv_rounded
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +49,7 @@ class RoundedImageViewActivity : BaseFontActivity() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = RoundedImageViewActivity::class.java.simpleName
+            this.tvTitle?.text = RoundedIvActivity::class.java.simpleName
         }
         LImageUtil.load(
             context = this,

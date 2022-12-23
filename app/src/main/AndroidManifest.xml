@@ -330,7 +330,7 @@
             android:name=".a.cv.iv.continuousScrollable.ContinuousScrollableImageViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.scrollParallax.ScrollParallaxImageViewActivity"
+            android:name=".a.cv.iv.scrollParallax.ScrollParallaxIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.pattern.MenuPatternActivity"
@@ -1352,7 +1352,7 @@
             android:name=".app.a.picker.shiftColor.ShiftColorPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.roundedIv.RoundedImageViewActivity"
+            android:name=".a.cv.iv.roundedIv.RoundedIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity"

@@ -10,15 +10,15 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.iv.scrollParallax.LScrollParallaxImageView
 import com.loitp.views.iv.scrollParallax.style.HorizontalScaleStyle
 import com.loitp.views.iv.scrollParallax.style.VerticalMovingStyle
-import kotlinx.android.synthetic.main.activity_scroll_parallax_image_view.*
+import kotlinx.android.synthetic.main.a_iv_scroll_parallax.*
 import vn.loitp.R
 
-@LogTag("ScrollParallaxImageViewActivity")
+@LogTag("ScrollParallaxIvActivity")
 @IsFullScreen(false)
-class ScrollParallaxImageViewActivity : BaseFontActivity() {
+class ScrollParallaxIvActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_scroll_parallax_image_view
+        return R.layout.a_iv_scroll_parallax
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +48,7 @@ class ScrollParallaxImageViewActivity : BaseFontActivity() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = ScrollParallaxImageViewActivity::class.java.simpleName
+            this.tvTitle?.text = ScrollParallaxIvActivity::class.java.simpleName
         }
         spiv.setParallaxStyles(VerticalMovingStyle()) // or other parallax styles
         for (i in 0..9) {

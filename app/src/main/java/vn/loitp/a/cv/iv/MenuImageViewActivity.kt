@@ -22,8 +22,8 @@ import vn.loitp.a.cv.iv.panorama.PanoramaIvActivity
 import vn.loitp.a.cv.iv.pinchToZoom.PinchToZoomViewPagerActivity
 import vn.loitp.a.cv.iv.previewImageCollection.PreviewImageCollectionActivity
 import vn.loitp.a.cv.iv.reflection.ReflectionActivity
-import vn.loitp.a.cv.iv.roundedIv.RoundedImageViewActivity
-import vn.loitp.a.cv.iv.scrollParallax.ScrollParallaxImageViewActivity
+import vn.loitp.a.cv.iv.roundedIv.RoundedIvActivity
+import vn.loitp.a.cv.iv.scrollParallax.ScrollParallaxIvActivity
 import vn.loitp.a.cv.iv.shapeableIv.ShapeableImageViewActivity
 import vn.loitp.a.cv.iv.stfaiconIv.ListActivity
 import vn.loitp.a.cv.iv.strectchy.StrectchyImageViewActivity
@@ -84,7 +84,7 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
             btZoomImageView -> launchActivity(ZoomImageViewActivity::class.java)
             btFidgetSpinner -> launchActivity(FidgetSpinnerIvActivity::class.java)
             btContinuousScrollableImageView -> launchActivity(ContinuousScrollableImageViewActivity::class.java)
-            btScrollParallaxImageView -> launchActivity(ScrollParallaxImageViewActivity::class.java)
+            btScrollParallaxImageView -> launchActivity(ScrollParallaxIvActivity::class.java)
             btPanoramaImageView -> launchActivity(PanoramaIvActivity::class.java)
             btBigImageView -> launchActivity(BigIvActivity::class.java)
             btBigImageViewWithScrollView -> launchActivity(BigIvWithSvActivity::class.java)
@@ -93,7 +93,7 @@ class MenuImageViewActivity : BaseFontActivity(), OnClickListener {
             btComicView -> launchActivity(ComicViewActivity::class.java)
             btStfalconImageViewer -> launchActivity(ListActivity::class.java)
             btReflection -> launchActivity(ReflectionActivity::class.java)
-            btRoundedImageView -> launchActivity(RoundedImageViewActivity::class.java)
+            btRoundedImageView -> launchActivity(RoundedIvActivity::class.java)
             btPreviewImageCollection -> launchActivity(PreviewImageCollectionActivity::class.java)
             btShapeableImageViewActivity -> launchActivity(ShapeableImageViewActivity::class.java)
             btCoil -> launchActivity(CoilActivity::class.java)
