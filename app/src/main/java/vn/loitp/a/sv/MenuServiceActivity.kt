@@ -1,21 +1,24 @@
-package vn.loitp.app.a.sv.demo
+package vn.loitp.a.sv
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_service_demo.*
+import kotlinx.android.synthetic.main.a_sv_menu.*
 import vn.loitp.R
+import vn.loitp.a.sv.demo.DemoServiceActivity
+import vn.loitp.a.sv.endless.EndlessServiceActivity
 
-@LogTag("DemoServiceActivity")
+@LogTag("MenuServiceActivity")
 @IsFullScreen(false)
-class DemoServiceActivity : BaseFontActivity(), View.OnClickListener {
+@IsAutoAnimation(true)
+class MenuServiceActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_service_demo
+        return R.layout.a_sv_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,25 +32,20 @@ class DemoServiceActivity : BaseFontActivity(), View.OnClickListener {
             LUIUtil.setSafeOnClickListenerElastic(
                 view = this.ivIconLeft,
                 runnable = {
-//                    onBackPressed()
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = DemoServiceActivity::class.java.simpleName
+            this.tvTitle?.text = MenuServiceActivity::class.java.simpleName
         }
-        btStartService.setOnClickListener(this)
-        btStopService.setOnClickListener(this)
+        btDemoService.setOnClickListener(this)
+        btEndlessService.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when (v) {
-            btStartService -> {
-                startService(Intent(applicationContext, DemoService::class.java))
-            }
-            btStopService -> {
-                stopService(Intent(applicationContext, DemoService::class.java))
-            }
+            btDemoService -> launchActivity(DemoServiceActivity::class.java)
+            btEndlessService -> launchActivity(EndlessServiceActivity::class.java)
         }
     }
 }

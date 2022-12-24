@@ -823,10 +823,10 @@
             android:name=".a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.sv.MenuServiceActivity"
+            android:name=".a.sv.MenuServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.sv.endless.EndlessServiceActivity"
+            android:name=".a.sv.endless.EndlessServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.rv.looping.LoopingLayoutActivity"
@@ -847,21 +847,21 @@
                 tools:replace="android:resource" />
         </provider>
         <service
-            android:name=".app.a.sv.endless.EndlessService"
+            android:name=".a.sv.endless.EndlessService"
             android:enabled="true"
             android:exported="false" />
         <receiver
-            android:name=".app.a.sv.endless.RebootDeviceReceiver"
+            android:name=".a.sv.endless.RebootDeviceReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <service android:name=".app.a.sv.demo.DemoService" />
+        <service android:name=".a.sv.demo.DemoService" />
 
         <activity
-            android:name=".app.a.sv.demo.DemoServiceActivity"
+            android:name=".a.sv.demo.DemoServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.roundable.RoundableLayoutActivity"

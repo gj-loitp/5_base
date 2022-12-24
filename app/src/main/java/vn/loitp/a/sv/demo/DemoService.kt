@@ -1,4 +1,4 @@
-package vn.loitp.app.a.sv.demo
+package vn.loitp.a.sv.demo
 
 import android.app.Service
 import android.content.Intent

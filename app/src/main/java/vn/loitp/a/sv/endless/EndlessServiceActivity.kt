@@ -1,4 +1,4 @@
-package vn.loitp.app.a.sv.endless
+package vn.loitp.a.sv.endless
 
 import android.content.Intent
 import android.os.Build
@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_service_endless.*
+import kotlinx.android.synthetic.main.a_sv_endless.*
 import vn.loitp.R
 
 @LogTag("EndlessServiceActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class EndlessServiceActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_service_endless
+        return R.layout.a_sv_endless
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

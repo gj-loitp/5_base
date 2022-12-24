@@ -1,4 +1,4 @@
-package vn.loitp.app.a.sv.endless
+package vn.loitp.a.sv.endless
 
 import android.annotation.SuppressLint
 import android.app.*
@@ -147,7 +147,12 @@ class EndlessService : Service() {
 
         val pendingIntent: PendingIntent =
             Intent(this, EndlessServiceActivity::class.java).let { notificationIntent ->
-                PendingIntent.getActivity(this, 0, notificationIntent, 0)
+                PendingIntent.getActivity(
+                    /* context = */ this,
+                    /* requestCode = */ 0,
+                    /* intent = */ notificationIntent,
+                    /* flags = */ PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+                )
             }
 
         val builder: Notification.Builder =
