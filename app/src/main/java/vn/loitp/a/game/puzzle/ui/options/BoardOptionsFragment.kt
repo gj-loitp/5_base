@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.puzzle.ui.options
+package vn.loitp.a.game.puzzle.ui.options
 
 import `in`.srain.cube.views.GridViewWithHeaderAndFooter
 import android.annotation.SuppressLint
@@ -16,8 +16,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.loitp.core.utilities.LActivityUtil
 import vn.loitp.R
-import vn.loitp.app.a.game.puzzle.BoardActivityParams
-import vn.loitp.app.a.game.puzzle.GameActivity
+import vn.loitp.a.game.puzzle.BoardActivityParams
+import vn.loitp.a.game.puzzle.GameActivity
 
 class ImageCardsAdapterGridView(
     private val parentContext: Context,
@@ -45,7 +45,7 @@ class ImageCardsAdapterGridView(
         if (newView == null) {
             val vi =
                 parentContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            newView = vi.inflate(R.layout.frm_titled_image_card, null)
+            newView = vi.inflate(R.layout.f_titled_image_card, null)
             newView.tag = cards[position]
         }
 
@@ -72,7 +72,7 @@ class BoardOptionsFragment : androidx.fragment.app.Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.frm_puzzle_board_options, container, false)
+        val view = inflater.inflate(R.layout.f_puzzle_board_options, container, false)
         (activity as AppCompatActivity).setSupportActionBar(
             view.findViewById(R.id.tbBoardOptions)
         )
@@ -89,7 +89,7 @@ class BoardOptionsFragment : androidx.fragment.app.Fragment() {
         if (context != null && board != null) {
             val layoutInflater = LayoutInflater.from(view?.context)
             board.addHeaderView(
-                layoutInflater.inflate(R.layout.view_puzzle_board_options_grid_header, null)
+                layoutInflater.inflate(R.layout.v_puzzle_board_options_grid_header, null)
             )
 
             board.adapter = ImageCardsAdapterGridView(

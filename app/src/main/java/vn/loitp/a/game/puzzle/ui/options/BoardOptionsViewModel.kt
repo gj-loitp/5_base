@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.puzzle.ui.options
+package vn.loitp.a.game.puzzle.ui.options
 
 import android.graphics.Bitmap
 import androidx.lifecycle.MutableLiveData

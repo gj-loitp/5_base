@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.puzzle
+package vn.loitp.a.game.puzzle
 
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -11,9 +11,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import vn.loitp.R
-import vn.loitp.app.a.game.puzzle.ui.options.BoardOptionsViewModel
-import vn.loitp.app.a.game.puzzle.ui.options.BoardTitledSize
-import vn.loitp.app.a.game.puzzle.ui.game.GameBoard
+import vn.loitp.a.game.puzzle.ui.options.BoardOptionsViewModel
+import vn.loitp.a.game.puzzle.ui.options.BoardTitledSize
+import vn.loitp.a.game.puzzle.ui.game.GameBoard
 
 data class BoardActivityParams(
     val bitmap: Bitmap, val size: BoardTitledSize

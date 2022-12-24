@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.puzzle.ui.options
+package vn.loitp.a.game.puzzle.ui.options
 
 import android.content.Context
 import android.os.Bundle
@@ -21,14 +21,15 @@ class BoardSizeSpinnerFragment : androidx.fragment.app.Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.frm_puzzel_board_size_spinner, container, false)
+        val view = inflater.inflate(R.layout.f_puzzel_board_size_spinner, container, false)
         val sizeSpinner = view.findViewById<Spinner>(R.id.board_size_spinner)
         val arrayAdapter = BoardSizeAdapter(
             activity as Context,
-            R.layout.game_toolbar_spinner_item,
+            R.layout.v_game_toolbar_spinner_item,
             BoardOptionsViewModel.PREDEFINED_BOARD_SIZE
         )
 

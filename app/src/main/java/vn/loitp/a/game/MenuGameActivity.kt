@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.a_game_menu.*
 import vn.loitp.R
 import vn.loitp.a.game.osero.TopOseroActivity
 import vn.loitp.a.game.pong.a.PongMainActivity
-import vn.loitp.app.a.game.puzzle.BoardOptionsActivity
+import vn.loitp.a.game.puzzle.BoardOptionsActivity
 
 @LogTag("MenuGameActivity")
 @IsFullScreen(false)
