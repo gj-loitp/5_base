@@ -1,10 +1,10 @@
-package vn.loitp.app.a.demo.architectureComponent.room.dao
+package vn.loitp.a.demo.architectureComponent.room.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import com.loitp.core.base.BaseDao
-import vn.loitp.app.a.demo.architectureComponent.room.md.Word
+import vn.loitp.a.demo.architectureComponent.room.md.Word
 
 @Dao
 interface WordDao : BaseDao<Word> {

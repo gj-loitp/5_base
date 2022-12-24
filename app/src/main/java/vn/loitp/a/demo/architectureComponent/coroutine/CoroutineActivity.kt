@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.architectureComponent.coroutine
+package vn.loitp.a.demo.architectureComponent.coroutine
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -6,7 +6,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_demo_coroutine.*
+import kotlinx.android.synthetic.main.a_demo_coroutine.*
 import kotlinx.coroutines.*
 import vn.loitp.R
 import kotlin.system.measureTimeMillis
@@ -23,7 +23,7 @@ import kotlin.system.measureTimeMillis
 class CoroutineActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_coroutine
+        return R.layout.a_demo_coroutine
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

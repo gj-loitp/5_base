@@ -21,7 +21,7 @@ import vn.loitp.a.db.sqlite.SqliteActivity
 import vn.loitp.a.db.sqliteEncryption.SqliteEncryptionActivity
 import vn.loitp.a.db.sqliteMultiTable.SqliteMultiTableActivity
 import vn.loitp.a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity
-import vn.loitp.app.a.demo.architectureComponent.room.WordActivity
+import vn.loitp.a.demo.architectureComponent.room.WordActivity
 
 /**
  * Created by Loitp on 15.09.2022

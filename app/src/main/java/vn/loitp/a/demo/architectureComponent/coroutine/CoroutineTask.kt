@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.architectureComponent.coroutine
+package vn.loitp.a.demo.architectureComponent.coroutine
 
 import com.loitp.core.utilities.LLog
 import kotlinx.coroutines.*

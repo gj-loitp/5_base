@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.architectureComponent.vm
+package vn.loitp.a.demo.architectureComponent.vm
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_demo_view_model.*
+import kotlinx.android.synthetic.main.a_demo_view_model.*
 import vn.loitp.R
 import vn.loitp.app.a.pattern.mvp.User
 import java.util.*
@@ -25,7 +25,7 @@ class ViewModelActivity : BaseFontActivity() {
     private lateinit var timeChangerViewModel: TimeChangerViewModel
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_view_model
+        return R.layout.a_demo_view_model
     }
 
     @SuppressLint("SetTextI18n")

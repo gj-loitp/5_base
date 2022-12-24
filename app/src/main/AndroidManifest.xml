@@ -870,14 +870,14 @@
             android:name=".a.cv.bt.q.QButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.demo.architectureComponent.MenuAndroidArchitectureComponentActivity"
+            android:name=".a.demo.architectureComponent.MenuArchitectureComponentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity android:name=".app.a.demo.architectureComponent.vm.ViewModelActivity" />
+        <activity android:name=".a.demo.architectureComponent.vm.ViewModelActivity" />
         <activity
-            android:name=".app.a.demo.architectureComponent.room.WordActivity"
+            android:name=".a.demo.architectureComponent.room.WordActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.demo.architectureComponent.coroutine.CoroutineActivity"
+            android:name=".a.demo.architectureComponent.coroutine.CoroutineActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.cal.MenuCalendarActivity"

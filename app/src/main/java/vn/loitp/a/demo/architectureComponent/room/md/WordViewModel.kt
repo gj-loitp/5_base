@@ -1,12 +1,12 @@
-package vn.loitp.app.a.demo.architectureComponent.room.md
+package vn.loitp.a.demo.architectureComponent.room.md
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import vn.loitp.app.a.demo.architectureComponent.room.db.WordRoomDatabase
-import vn.loitp.app.a.demo.architectureComponent.room.repo.WordRepository
+import vn.loitp.a.demo.architectureComponent.room.db.WordRoomDatabase
+import vn.loitp.a.demo.architectureComponent.room.repo.WordRepository
 
 class WordViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: WordRepository

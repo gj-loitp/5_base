@@ -12,7 +12,7 @@
     app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
     app:cardCornerRadius="@dimen/round_medium"
     app:cardElevation="@dimen/w_5"
-    app:cardUseCompatPadding="true"
+    app:cardUseCompatPadding="false"
     app:strokeColor="?attr/themeTextColor"
     app:strokeWidth="@dimen/w_1">
 

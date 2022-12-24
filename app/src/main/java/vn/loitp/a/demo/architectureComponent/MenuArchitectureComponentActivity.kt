@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.architectureComponent
+package vn.loitp.a.demo.architectureComponent
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,19 +9,19 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_demo_architecture_component.*
+import kotlinx.android.synthetic.main.a_menu_demo_architecture_component.*
 import vn.loitp.R
-import vn.loitp.app.a.demo.architectureComponent.coroutine.CoroutineActivity
-import vn.loitp.app.a.demo.architectureComponent.room.WordActivity
-import vn.loitp.app.a.demo.architectureComponent.vm.ViewModelActivity
+import vn.loitp.a.demo.architectureComponent.coroutine.CoroutineActivity
+import vn.loitp.a.demo.architectureComponent.room.WordActivity
+import vn.loitp.a.demo.architectureComponent.vm.ViewModelActivity
 
-@LogTag("MenuAndroidArchitectureComponentActivity")
+@LogTag("MenuArchitectureComponentActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClickListener {
+class MenuArchitectureComponentActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_demo_architecture_component
+        return R.layout.a_menu_demo_architecture_component
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +39,7 @@ class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClic
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuAndroidArchitectureComponentActivity::class.java.simpleName
+            this.tvTitle?.text = MenuArchitectureComponentActivity::class.java.simpleName
         }
         btCoroutine.setOnClickListener(this)
         btRoom.setOnClickListener(this)

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.architectureComponent.room
+package vn.loitp.a.demo.architectureComponent.room
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
@@ -9,10 +9,10 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_demo_database_room_work.*
+import kotlinx.android.synthetic.main.a_demo_database_room_work.*
 import vn.loitp.R
-import vn.loitp.app.a.demo.architectureComponent.room.md.Word
-import vn.loitp.app.a.demo.architectureComponent.room.md.WordViewModel
+import vn.loitp.a.demo.architectureComponent.room.md.Word
+import vn.loitp.a.demo.architectureComponent.room.md.WordViewModel
 
 // https://codinginfinite.com/android-room-tutorial-persistence/
 // https://codinginfinite.com/android-room-persistent-rxjava/
@@ -25,7 +25,7 @@ class WordActivity : BaseFontActivity() {
     private var wordListAdapter: WordListAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_database_room_work
+        return R.layout.a_demo_database_room_work
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

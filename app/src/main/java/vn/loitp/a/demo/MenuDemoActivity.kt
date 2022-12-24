@@ -28,7 +28,7 @@ import vn.loitp.a.demo.pdf.PdfDemoActivity
 import vn.loitp.a.demo.piano.PianoActivity
 import vn.loitp.a.demo.rss.RSSActivity
 import vn.loitp.a.demo.sound.SoundActivity
-import vn.loitp.app.a.demo.architectureComponent.MenuAndroidArchitectureComponentActivity
+import vn.loitp.a.demo.architectureComponent.MenuArchitectureComponentActivity
 import vn.loitp.a.demo.tts.TextToSpeechActivity
 import vn.loitp.app.a.demo.trackingG1.TrackingG1Activity
 import vn.loitp.app.a.demo.twoInstanceActivity.Activity1
@@ -142,7 +142,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btPiano -> launchActivity(PianoActivity::class.java)
             btFragmentFlow -> launchActivity(FragmentFlowActivity::class.java)
             btGalleryCoreAlbumFrm -> launchActivity(GalleryCoreAlbumFrmActivity::class.java)
-            btArchitectureComponent -> launchActivity(MenuAndroidArchitectureComponentActivity::class.java)
+            btArchitectureComponent -> launchActivity(MenuArchitectureComponentActivity::class.java)
             btNFC -> launchActivity(NFCActivity::class.java)
             btMapTracker -> launchActivity(MapTrackerActivity::class.java)
             btTTT -> launchActivity(TTTSplashActivity::class.java)
