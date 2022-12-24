@@ -1,10 +1,10 @@
-package vn.loitp.app.a.cv.progress.window
+package vn.loitp.a.cv.progress.window
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_progress_window.*
+import kotlinx.android.synthetic.main.a_progress_window.*
 import vn.loitp.R
 
 @LogTag("WindowProgressActivity")
@@ -12,7 +12,7 @@ import vn.loitp.R
 class WindowProgressActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_progress_window
+        return R.layout.a_progress_window
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

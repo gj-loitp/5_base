@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.progress
+package vn.loitp.a.cv.progress
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,20 +9,20 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_progress_loading.*
+import kotlinx.android.synthetic.main.a_pb_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.progress.circularProgressBar.CircularProgressBarActivity
-import vn.loitp.app.a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivity
-import vn.loitp.app.a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivity
-import vn.loitp.app.a.cv.progress.segmentedProgressBar.StandardExampleActivity
-import vn.loitp.app.a.cv.progress.window.WindowProgressActivity
+import vn.loitp.a.cv.progress.circularPb.CircularProgressBarActivity
+import vn.loitp.a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivity
+import vn.loitp.a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivity
+import vn.loitp.a.cv.progress.segmentedPb.StandardExampleActivity
+import vn.loitp.a.cv.progress.window.WindowProgressActivity
 
-@LogTag("MenuProgressLoadingViewsActivity")
+@LogTag("MenuProgressActivity")
 @IsFullScreen(false)
-class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListener {
+class MenuProgressActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_progress_loading
+        return R.layout.a_pb_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +40,7 @@ class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListene
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = MenuProgressLoadingViewsActivity::class.java.simpleName
+            this.tvTitle?.text = MenuProgressActivity::class.java.simpleName
         }
         btCircularProgressBar.setOnClickListener(this)
         btCircularProgressIndicator.setOnClickListener(this)

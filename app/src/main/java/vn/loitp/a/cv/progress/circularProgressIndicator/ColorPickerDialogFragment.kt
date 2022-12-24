@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.progress.circularProgressIndicator
+package vn.loitp.a.cv.progress.circularProgressIndicator
 
 import android.graphics.Color
 import android.graphics.PorterDuff
@@ -20,7 +20,7 @@ class ColorPickerDialogFragment : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.frm_dialog_color_picker, container, false)
+        val rootView = inflater.inflate(R.layout.f_dialog_color_picker, container, false)
 
         val sbRed = rootView.findViewById<SeekBar>(R.id.sbRed)
         val sbGreen = rootView.findViewById<SeekBar>(R.id.sbGreen)

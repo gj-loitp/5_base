@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.progress.circularProgressIndicator
+package vn.loitp.a.cv.progress.circularProgressIndicator
 
 import android.graphics.Color
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.loading.circularProgressIndicator.CircularProgressIndicator
-import kotlinx.android.synthetic.main.activity_progress_circular_progress_indicator.*
+import kotlinx.android.synthetic.main.a_progress_circular_progress_indicator.*
 import vn.loitp.BuildConfig
 import vn.loitp.R
 
@@ -25,7 +25,7 @@ class CircularProgressIndicatorActivity :
     ColorPickerDialogFragment.OnColorSelectedListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_progress_circular_progress_indicator
+        return R.layout.a_progress_circular_progress_indicator
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -152,7 +152,11 @@ class CircularProgressIndicatorActivity :
         dialog.show(supportFragmentManager, tag)
     }
 
-    override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+    override fun onProgressChanged(
+        seekBar: SeekBar,
+        progress: Int,
+        fromUser: Boolean
+    ) {
         when (seekBar.id) {
             R.id.progress -> circularProgress.setCurrentProgress(progress.toDouble())
             R.id.progressStrokeWidth -> circularProgress.setProgressStrokeWidthDp(progress)
@@ -168,7 +172,12 @@ class CircularProgressIndicatorActivity :
 
     override fun onStopTrackingTouch(seekBar: SeekBar) {}
 
-    override fun onColorChosen(dialog: ColorPickerDialogFragment, r: Int, g: Int, b: Int) {
+    override fun onColorChosen(
+        dialog: ColorPickerDialogFragment,
+        r: Int,
+        g: Int,
+        b: Int
+    ) {
         val tag = dialog.tag
         val color = Color.rgb(r, g, b)
 

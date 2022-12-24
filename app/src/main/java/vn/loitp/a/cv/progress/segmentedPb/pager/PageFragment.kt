@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.progress.segmentedProgressBar.pager
+package vn.loitp.a.cv.progress.segmentedPb.pager
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -11,7 +11,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import kotlinx.android.synthetic.main.fragment_page.*
+import kotlinx.android.synthetic.main.f_page.*
 import vn.loitp.R
 
 private const val PAGE_INDEX = "PAGE_INDEX"
@@ -41,10 +41,12 @@ class PageFragment : Fragment(), RequestListener<Drawable> {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_page, container, false)
+    ): View = inflater.inflate(R.layout.f_page, container, false)
 
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         progressBar.visibility = View.VISIBLE

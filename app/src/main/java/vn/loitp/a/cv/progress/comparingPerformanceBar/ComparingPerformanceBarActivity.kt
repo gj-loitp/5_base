@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.progress.comparingPerformanceBar
+package vn.loitp.a.cv.progress.comparingPerformanceBar
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_comparing_performance_bar.*
+import kotlinx.android.synthetic.main.a_comparing_performance_bar.*
 import vn.loitp.R
 
 @LogTag("ComparingPerformanceBarActivity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class ComparingPerformanceBarActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_comparing_performance_bar
+        return R.layout.a_comparing_performance_bar
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

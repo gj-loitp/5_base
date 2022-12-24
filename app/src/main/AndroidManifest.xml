@@ -67,7 +67,7 @@
             android:name=".a.anim.animationView.AnimationViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.progress.MenuProgressLoadingViewsActivity"
+            android:name=".a.cv.progress.MenuProgressActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.anim.overScroll.OverScrollActivity"
@@ -185,7 +185,7 @@
             android:name=".app.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.progress.circularProgressBar.CircularProgressBarActivity"
+            android:name=".a.cv.progress.circularPb.CircularProgressBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.demo.sound.SoundActivity"
@@ -751,7 +751,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".app.a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivity"
+            android:name=".a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.pinchToZoom.PinchToZoomViewPagerActivity"
@@ -760,7 +760,7 @@
             android:name=".a.cv.dlg.custom.CustomDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.progress.window.WindowProgressActivity"
+            android:name=".a.cv.progress.window.WindowProgressActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity"
@@ -1259,10 +1259,10 @@
             android:name=".a.anim.fadeOutParticle.FadeOutParticleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.progress.segmentedProgressBar.StandardExampleActivity"
+            android:name=".a.cv.progress.segmentedPb.StandardExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivity"
+            android:name=".a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivity"

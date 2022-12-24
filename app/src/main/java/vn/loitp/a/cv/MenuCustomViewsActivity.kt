@@ -29,7 +29,6 @@ import vn.loitp.a.cv.fbCmt.FacebookCommentActivity
 import vn.loitp.a.cv.fingerPaintView.FingerPaintActivity
 import vn.loitp.a.cv.graph.MenuGraphViewActivity
 import vn.loitp.a.cv.indicator.ex.MenuMagicIndicatorActivity
-import vn.loitp.a.cv.iv.MenuImageViewActivity
 import vn.loitp.a.cv.lCv.LCardViewActivity
 import vn.loitp.a.cv.lDebug.LDebugViewActivity
 import vn.loitp.app.a.cv.layout.MenuLayoutActivity
@@ -37,7 +36,7 @@ import vn.loitp.a.cv.luckyWheel.LuckyWheelActivity
 import vn.loitp.app.a.cv.menu.MenuMenuActivity
 import vn.loitp.a.cv.navi.MenuNavigationActivity
 import vn.loitp.a.cv.popupMenu.PopupMenuActivity
-import vn.loitp.app.a.cv.progress.MenuProgressLoadingViewsActivity
+import vn.loitp.a.cv.progress.MenuProgressActivity
 import vn.loitp.app.a.cv.rv.MenuRecyclerViewActivity
 import vn.loitp.app.a.cv.sb.MenuSeekbarActivity
 import vn.loitp.app.a.cv.scratchView.MenuScratchViewActivity
@@ -132,7 +131,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         when (v) {
             btViewPager -> launchActivity(MenuViewPagerActivity::class.java)
             btButton -> launchActivity(MenuButtonActivity::class.java)
-            btProgressLoading -> launchActivity(MenuProgressLoadingViewsActivity::class.java)
+            btProgressLoading -> launchActivity(MenuProgressActivity::class.java)
             btSwitch -> launchActivity(MenuSwitchToggleActivity::class.java)
             btActionBar -> launchActivity(MenuActionBarActivity::class.java)
             btImageView -> launchActivity(vn.loitp.a.cv.iv.MenuImageViewActivity::class.java)

@@ -1,15 +1,15 @@
-package vn.loitp.app.a.cv.progress.segmentedProgressBar
+package vn.loitp.a.cv.progress.segmentedPb
 
 import android.os.Bundle
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_standard_example.*
+import kotlinx.android.synthetic.main.a_standard_example.*
 import kotlinx.android.synthetic.main.layout_pager.*
 import pt.tornelas.segmentedprogressbar.SegmentedProgressBarListener
 import vn.loitp.R
-import vn.loitp.app.a.cv.progress.segmentedProgressBar.pager.PagerAdapter
+import vn.loitp.a.cv.progress.segmentedPb.pager.PagerAdapter
 
 @LogTag("StandardExampleActivity")
 @IsFullScreen(false)
@@ -17,7 +17,7 @@ import vn.loitp.app.a.cv.progress.segmentedProgressBar.pager.PagerAdapter
 class StandardExampleActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_standard_example
+        return R.layout.a_standard_example
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
