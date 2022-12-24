@@ -1,4 +1,4 @@
-package vn.loitp.app.a.pattern.mvp
+package vn.loitp.a.pattern.mvp
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel
@@ -10,7 +10,10 @@ class User : BaseModel {
 
     constructor()
 
-    constructor(fullName: String, email: String) {
+    constructor(
+        fullName: String,
+        email: String
+    ) {
         this.fullName = fullName
         this.email = email
     }

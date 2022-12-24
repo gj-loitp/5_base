@@ -11,7 +11,7 @@ import com.loitp.core.utilities.LEncryptionUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_encrypt_decrypt_string.*
 import vn.loitp.R
-import vn.loitp.app.a.pattern.mvp.User
+import vn.loitp.a.pattern.mvp.User
 
 @LogTag("SimpleEncryptDecryptStringActivity")
 @IsFullScreen(false)

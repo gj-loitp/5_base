@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LSharedPrefsUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_db_shared_prefs.*
 import vn.loitp.R
-import vn.loitp.app.a.pattern.mvp.User
+import vn.loitp.a.pattern.mvp.User
 
 @LogTag("SharedPrefsActivity")
 @IsFullScreen(false)

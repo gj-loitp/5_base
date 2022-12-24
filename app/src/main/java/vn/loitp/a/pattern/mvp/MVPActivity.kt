@@ -1,4 +1,4 @@
-package vn.loitp.app.a.pattern.mvp
+package vn.loitp.a.pattern.mvp
 
 import android.os.Bundle
 import android.text.Editable
@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_pattern_mvp.*
+import kotlinx.android.synthetic.main.a_pattern_mvp.*
 import vn.loitp.R
 
 @LogTag("MVPActivity")
@@ -19,7 +19,7 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
     private lateinit var demoPresenter: DemoPresenter
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pattern_mvp
+        return R.layout.a_pattern_mvp
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

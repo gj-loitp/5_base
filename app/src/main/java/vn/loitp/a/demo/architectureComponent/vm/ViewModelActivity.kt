@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_demo_view_model.*
 import vn.loitp.R
-import vn.loitp.app.a.pattern.mvp.User
+import vn.loitp.a.pattern.mvp.User
 import java.util.*
 
 // https://codinginfinite.com/architecture-component-viewmodel-example/

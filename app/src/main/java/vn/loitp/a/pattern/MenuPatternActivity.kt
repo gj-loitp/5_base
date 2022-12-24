@@ -1,4 +1,4 @@
-package vn.loitp.app.a.pattern
+package vn.loitp.a.pattern
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,11 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_pattern.*
+import kotlinx.android.synthetic.main.a_pattern_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.pattern.mvp.MVPActivity
+import vn.loitp.a.pattern.mvp.MVPActivity
 import vn.loitp.app.a.pattern.mvvm.MVVMActivity
-import vn.loitp.app.a.pattern.observer.ObserverPatternActivity
+import vn.loitp.a.pattern.observer.ObserverPatternActivity
 
 @LogTag("MenuPatternActivity")
 @IsFullScreen(false)
@@ -21,7 +21,7 @@ import vn.loitp.app.a.pattern.observer.ObserverPatternActivity
 class MenuPatternActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_pattern
+        return R.layout.a_pattern_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

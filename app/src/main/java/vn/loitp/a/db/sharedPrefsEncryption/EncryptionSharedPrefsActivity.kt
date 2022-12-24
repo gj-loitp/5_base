@@ -11,7 +11,7 @@ import com.loitp.core.utilities.LEncryptionSharedPrefsUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_db_shared_prefs_encryption.*
 import vn.loitp.R
-import vn.loitp.app.a.pattern.mvp.User
+import vn.loitp.a.pattern.mvp.User
 
 /**
  * Created by Loitp on 15.09.2022

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.pattern.observer
+package vn.loitp.a.pattern.observer
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,8 +7,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_pattern_observer.*
+import kotlinx.android.synthetic.main.a_pattern_observer.*
 import vn.loitp.R
+
 // https://viblo.asia/p/android-design-patterns-the-observer-pattern-WAyK8xqpKxX
 
 @LogTag("ObserverPatternActivity")
@@ -17,7 +18,7 @@ class ObserverPatternActivity : BaseFontActivity(), View.OnClickListener, Reposi
     private var mUserDataRepository: Subject? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pattern_observer
+        return R.layout.a_pattern_observer
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

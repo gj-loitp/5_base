@@ -1,4 +1,4 @@
-package vn.loitp.app.a.pattern.observer
+package vn.loitp.a.pattern.observer
 
 import android.os.Handler
 import android.os.Looper
@@ -53,7 +53,10 @@ class UserDataRepository private constructor() : Subject {
         }
     }
 
-    private fun setUserData(fullName: String, age: Int) {
+    private fun setUserData(
+        fullName: String,
+        age: Int
+    ) {
         mFullName = fullName
         mAge = age
         notifyObservers()

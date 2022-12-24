@@ -1,4 +1,4 @@
-package vn.loitp.app.a.pattern.mvp
+package vn.loitp.a.pattern.mvp
 
 import com.loitp.core.utilities.LUIUtil
 

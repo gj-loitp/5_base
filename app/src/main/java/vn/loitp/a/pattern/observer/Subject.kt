@@ -1,4 +1,4 @@
-package vn.loitp.app.a.pattern.observer
+package vn.loitp.a.pattern.observer
 
 interface Subject {
     fun registerObserver(repositoryObserver: RepositoryObserver)
