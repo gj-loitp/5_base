@@ -1,4 +1,4 @@
-package vn.loitp.app.a.tutorial.retrofit2
+package vn.loitp.a.tut.retrofit2
 
 import io.reactivex.Observable
 import retrofit2.http.GET

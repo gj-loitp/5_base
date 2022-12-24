@@ -620,7 +620,7 @@
             android:name=".app.a.cv.rv.diffUtil.DiffUtilActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.tutorial.MenuTutorialActivity"
+            android:name=".a.tut.MenuTutorialActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.tutorial.rxjava2.DisposableExampleActivity"
@@ -640,7 +640,7 @@
             android:name=".a.pattern.mvvm.MVVMActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.tutorial.retrofit2.Retrofit2Activity"
+            android:name=".a.tut.retrofit2.Retrofit2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.tutorial.rxjava2.SingleObserverExampleActivity"

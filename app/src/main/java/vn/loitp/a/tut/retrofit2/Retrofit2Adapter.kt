@@ -1,11 +1,11 @@
-package vn.loitp.app.a.tutorial.retrofit2
+package vn.loitp.a.tut.retrofit2
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_retrofit2.view.*
+import kotlinx.android.synthetic.main.i_retrofit2.view.*
 import vn.loitp.R
 
 class Retrofit2Adapter(
@@ -30,7 +30,7 @@ class Retrofit2Adapter(
         viewType: Int
     ): ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_retrofit2, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.i_retrofit2, parent, false)
         return ViewHolder(view)
     }
 

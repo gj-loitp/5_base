@@ -1,4 +1,4 @@
-package vn.loitp.app.a.tutorial.retrofit2
+package vn.loitp.a.tut.retrofit2
 
 import android.os.Bundle
 import android.view.View
@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.restClient.RestClient2
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_retrofit_2.*
+import kotlinx.android.synthetic.main.a_retrofit_2.*
 import vn.loitp.R
 
 // https://code.tutsplus.com/tutorials/connect-to-an-api-with-retrofit-rxjava-2-and-kotlin--cms-32133
@@ -26,7 +26,7 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
     private lateinit var sampleService: SampleService
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_retrofit_2
+        return R.layout.a_retrofit_2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
