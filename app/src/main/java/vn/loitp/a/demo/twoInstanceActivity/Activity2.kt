@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.twoInstanceActivity
+package vn.loitp.a.demo.twoInstanceActivity
 
 import android.app.ActivityManager
 import android.content.Context
@@ -10,15 +10,15 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_3.*
+import kotlinx.android.synthetic.main.a_2.*
 import vn.loitp.R
 
-@LogTag("Activity3")
+@LogTag("Activity2")
 @IsFullScreen(false)
-class Activity3 : BaseFontActivity() {
+class Activity2 : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_3
+        return R.layout.a_2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,16 +36,16 @@ class Activity3 : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = Activity3::class.java.simpleName
+            this.tvTitle?.text = Activity2::class.java.simpleName
         }
         btGoTo1.setSafeOnClickListener {
-            val intent = Intent(this, Activity1::class.java)
+            val intent = Intent(this@Activity2, Activity1::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
             LActivityUtil.tranIn(this)
         }
-        btGoTo2.setSafeOnClickListener {
-            val intent = Intent(this, Activity2::class.java)
+        btGoTo3.setSafeOnClickListener {
+            val intent = Intent(this@Activity2, Activity3::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
             LActivityUtil.tranIn(this)
