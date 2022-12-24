@@ -660,7 +660,7 @@
             android:name=".app.a.tutorial.rxjava2.TestRxActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.picker.MenuPickerActivity"
+            android:name=".a.picker.MenuPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.scrollView2d.ScrollView2DActivity"
@@ -931,7 +931,7 @@
             android:name=".app.a.cv.sw.toggleButtonGroup.TBGSingleSelectActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.picker.number.NumberPickerActivity"
+            android:name=".a.picker.number.NumberPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.menu.drawerBehavior.DrawerBehaviorMainActivity"
@@ -1118,7 +1118,7 @@
             android:name=".app.a.cv.layout.sequence.SequenceLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.picker.attachmentManager.AttachmentManagerActivity"
+            android:name=".a.picker.attachmentManager.AttachmentManagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <provider

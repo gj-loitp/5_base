@@ -1,4 +1,4 @@
-package vn.loitp.app.a.picker.number
+package vn.loitp.a.picker.number
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.picker.number.LNumberPicker
-import kotlinx.android.synthetic.main.activity_picker_number_picker.*
+import kotlinx.android.synthetic.main.a_picker_number_picker.*
 import vn.loitp.R
 
 @LogTag("NumberPickerActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class NumberPickerActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_picker_number_picker
+        return R.layout.a_picker_number_picker
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

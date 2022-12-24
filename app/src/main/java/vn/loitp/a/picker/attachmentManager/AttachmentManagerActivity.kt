@@ -1,4 +1,4 @@
-package vn.loitp.app.a.picker.attachmentManager
+package vn.loitp.a.picker.attachmentManager
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,7 +14,7 @@ import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import com.mirza.attachmentmanager.managers.AttachmentManager
 import com.mirza.attachmentmanager.models.AttachmentDetail
-import kotlinx.android.synthetic.main.activity_attachment_manager.*
+import kotlinx.android.synthetic.main.a_attachment_manager.*
 import vn.loitp.R
 
 @LogTag("AttachmentManagerActivity")
@@ -66,7 +66,7 @@ class AttachmentManagerActivity : BaseFontActivity() {
     )
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_attachment_manager
+        return R.layout.a_attachment_manager
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.picker
+package vn.loitp.a.picker
 
 import android.os.Bundle
 import android.view.View
@@ -7,12 +7,11 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_picker.*
+import kotlinx.android.synthetic.main.a_picker_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.picker.attachmentManager.AttachmentManagerActivity
-
+import vn.loitp.a.picker.attachmentManager.AttachmentManagerActivity
 import vn.loitp.app.a.picker.image.ImagePickerActivity
-import vn.loitp.app.a.picker.number.NumberPickerActivity
+import vn.loitp.a.picker.number.NumberPickerActivity
 import vn.loitp.app.a.picker.shiftColor.ShiftColorPickerActivity
 import vn.loitp.app.a.picker.ssImage.MainActivitySSImagePicker
 import vn.loitp.app.a.picker.time.TimePickerActivity
@@ -24,7 +23,7 @@ import vn.loitp.app.a.picker.unicornFile.UnicornFilePickerActivity
 class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_picker
+        return R.layout.a_picker_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
