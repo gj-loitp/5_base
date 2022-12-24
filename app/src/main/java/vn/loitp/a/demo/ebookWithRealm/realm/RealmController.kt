@@ -1,11 +1,11 @@
-package vn.loitp.app.a.demo.ebookWithRealm.realm
+package vn.loitp.a.demo.ebookWithRealm.realm
 
 import android.app.Activity
 import android.app.Application
 import androidx.fragment.app.Fragment
 import io.realm.Realm
 import io.realm.RealmResults
-import vn.loitp.app.a.demo.ebookWithRealm.md.Book
+import vn.loitp.a.demo.ebookWithRealm.md.Book
 
 class RealmController private constructor() {
     val realm: Realm = Realm.getDefaultInstance()
@@ -41,7 +41,7 @@ class RealmController private constructor() {
 
     // query example
     @Suppress("unused")
-    fun queryedBooks(): RealmResults<Book> {
+    fun queryBooks(): RealmResults<Book> {
         return realm.where(Book::class.java)
             .contains("author", "Author 0")
             .or()

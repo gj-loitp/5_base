@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.ebookWithRealm;
+package vn.loitp.a.demo.ebookWithRealm;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -26,10 +26,10 @@ import java.util.Objects;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import vn.loitp.R;
-import vn.loitp.app.a.demo.ebookWithRealm.adt.BooksAdapter;
-import vn.loitp.app.a.demo.ebookWithRealm.adt.RealmBooksAdapter;
-import vn.loitp.app.a.demo.ebookWithRealm.md.Book;
-import vn.loitp.app.a.demo.ebookWithRealm.realm.RealmController;
+import vn.loitp.a.demo.ebookWithRealm.adt.BooksAdapter;
+import vn.loitp.a.demo.ebookWithRealm.adt.RealmBooksAdapter;
+import vn.loitp.a.demo.ebookWithRealm.md.Book;
+import vn.loitp.a.demo.ebookWithRealm.realm.RealmController;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
 
@@ -44,7 +44,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_ebook_with_realm;
+        return R.layout.a_ebook_with_realm;
     }
 
     @Override

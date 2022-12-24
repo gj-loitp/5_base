@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.ebookWithRealm.adt
+package vn.loitp.a.demo.ebookWithRealm.adt
 
 import android.content.Context
 import android.graphics.Color
@@ -11,7 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import vn.loitp.R
-import vn.loitp.app.a.demo.ebookWithRealm.md.Book
+import vn.loitp.a.demo.ebookWithRealm.md.Book
 
 class BooksAdapter(
     val context: Context,
@@ -19,17 +19,26 @@ class BooksAdapter(
 ) : RealmRecyclerViewAdapter<Book?>() {
 
     interface OnClick {
-        fun onClick(book: Book, position: Int)
+        fun onClick(
+            book: Book,
+            position: Int
+        )
         fun onLongClick(position: Int)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): CardViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.view_item_books_realm, parent, false)
+            .inflate(R.layout.v_item_books_realm, parent, false)
         return CardViewHolder(view)
     }
 
-    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        viewHolder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         val book = getItem(position)
 
         book?.let { b ->

@@ -15,7 +15,7 @@ import com.loitp.core.utilities.LUIUtil
 import io.realm.Realm
 import kotlinx.android.synthetic.main.a_db_realm.*
 import vn.loitp.R
-import vn.loitp.app.a.demo.ebookWithRealm.EbookWithRealmActivity
+import vn.loitp.a.demo.ebookWithRealm.EbookWithRealmActivity
 
 @LogTag("RealmActivity")
 @IsFullScreen(false)

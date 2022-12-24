@@ -1,8 +1,8 @@
-package vn.loitp.app.a.demo.ebookWithRealm.adt
+package vn.loitp.a.demo.ebookWithRealm.adt
 
 import android.content.Context
 import io.realm.RealmResults
-import vn.loitp.app.a.demo.ebookWithRealm.md.Book
+import vn.loitp.a.demo.ebookWithRealm.md.Book
 
 class RealmBooksAdapter(
     context: Context,

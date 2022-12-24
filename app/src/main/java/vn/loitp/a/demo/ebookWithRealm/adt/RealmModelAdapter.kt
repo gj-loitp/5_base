@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.ebookWithRealm.adt
+package vn.loitp.a.demo.ebookWithRealm.adt
 
 import android.content.Context
 import android.view.View
@@ -17,7 +17,11 @@ open class RealmModelAdapter<T : RealmObject> internal constructor(
     automaticUpdate
 ) {
 
-    override fun getView(position: Int, convertView: View, parent: ViewGroup): View? {
+    override fun getView(
+        position: Int,
+        convertView: View,
+        parent: ViewGroup
+    ): View? {
         return null
     }
 }
