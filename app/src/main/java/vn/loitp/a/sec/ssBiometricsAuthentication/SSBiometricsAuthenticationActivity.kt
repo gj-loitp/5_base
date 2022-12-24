@@ -1,4 +1,4 @@
-package vn.loitp.app.a.security.ssBiometricsAuthentication
+package vn.loitp.a.sec.ssBiometricsAuthentication
 
 import android.annotation.SuppressLint
 import android.app.KeyguardManager
@@ -17,7 +17,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_ss_biometrics_authentication.*
+import kotlinx.android.synthetic.main.a_ss_biometrics_authentication.*
 import vn.loitp.R
 import java.util.concurrent.Executor
 
@@ -37,7 +37,7 @@ class SSBiometricsAuthenticationActivity : BaseFontActivity() {
     private var keyguardManager: KeyguardManager? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_ss_biometrics_authentication
+        return R.layout.a_ss_biometrics_authentication
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

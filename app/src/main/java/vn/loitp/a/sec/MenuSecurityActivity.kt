@@ -1,4 +1,4 @@
-package vn.loitp.app.a.security
+package vn.loitp.a.sec
 
 import android.os.Bundle
 import com.loitp.annotation.IsAutoAnimation
@@ -7,11 +7,11 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_security.*
+import kotlinx.android.synthetic.main.a_sec_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.security.simple.SimpleEncryptDecryptStringActivity
+import vn.loitp.a.sec.simple.SimpleEncryptDecryptStringActivity
 
-import vn.loitp.app.a.security.ssBiometricsAuthentication.SSBiometricsAuthenticationActivity
+import vn.loitp.a.sec.ssBiometricsAuthentication.SSBiometricsAuthenticationActivity
 
 @LogTag("SecurityMenuActivity")
 @IsFullScreen(false)
@@ -19,7 +19,7 @@ import vn.loitp.app.a.security.ssBiometricsAuthentication.SSBiometricsAuthentica
 class MenuSecurityActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_security
+        return R.layout.a_sec_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

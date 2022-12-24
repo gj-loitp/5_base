@@ -31,7 +31,7 @@ import vn.loitp.a.more.MoreActivity
 import vn.loitp.a.network.NetworkActivity
 import vn.loitp.a.pattern.MenuPatternActivity
 import vn.loitp.a.picker.MenuPickerActivity
-import vn.loitp.app.a.security.MenuSecurityActivity
+import vn.loitp.a.sec.MenuSecurityActivity
 import vn.loitp.app.a.sv.MenuServiceActivity
 import vn.loitp.app.a.tutorial.MenuTutorialActivity
 import vn.loitp.a.u.UtilsActivity

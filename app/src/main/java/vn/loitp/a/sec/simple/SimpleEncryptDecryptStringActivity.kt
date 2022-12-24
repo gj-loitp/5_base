@@ -1,4 +1,4 @@
-package vn.loitp.app.a.security.simple
+package vn.loitp.a.sec.simple
 
 import android.os.Bundle
 import android.view.View
@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LEncryptionUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_encrypt_decrypt_string.*
+import kotlinx.android.synthetic.main.a_encrypt_decrypt_string.*
 import vn.loitp.R
 import vn.loitp.a.pattern.mvp.User
 
@@ -20,7 +20,7 @@ class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
     private val password = "Loitp@123KawasakiZ1000R"
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_encrypt_decrypt_string
+        return R.layout.a_encrypt_decrypt_string
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
