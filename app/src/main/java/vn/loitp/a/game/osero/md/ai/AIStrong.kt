@@ -1,8 +1,8 @@
-package vn.loitp.app.a.game.osero.md.ai
+package vn.loitp.a.game.osero.md.ai
 
-import vn.loitp.app.a.game.osero.md.OseroGame
-import vn.loitp.app.a.game.osero.md.Place
-import vn.loitp.app.a.game.osero.md.Stone
+import vn.loitp.a.game.osero.md.OseroGame
+import vn.loitp.a.game.osero.md.Place
+import vn.loitp.a.game.osero.md.Stone
 
 /**
  * 盤面に重み付けをして最適手を評価する
@@ -20,7 +20,10 @@ class AIStrong : OseroAI {
         arrayOf(30, -12, 0, -1, -1, 0, -12, 30)
     )
 
-    override fun computeNext(game: OseroGame, color: Stone): Place {
+    override fun computeNext(
+        game: OseroGame,
+        color: Stone
+    ): Place {
         return game.boardStatus.flatten()
             .filter { game.canPut(Place(it.x, it.y, color)) }
             .maxBy { checkScore(it) + game.getCanChangePlaces(it).sumOf { checkScore(it) } }

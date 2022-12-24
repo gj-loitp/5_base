@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game
+package vn.loitp.a.game
 
 import android.os.Bundle
 import android.view.View
@@ -8,9 +8,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.game.findNumber.ui.SplashActivity
-import kotlinx.android.synthetic.main.activity_menu_game.*
+import kotlinx.android.synthetic.main.a_game_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.game.osero.TopOseroActivity
+import vn.loitp.a.game.osero.TopOseroActivity
 import vn.loitp.app.a.game.pong.a.PongMainActivity
 import vn.loitp.app.a.game.puzzle.BoardOptionsActivity
 
@@ -20,7 +20,7 @@ import vn.loitp.app.a.game.puzzle.BoardOptionsActivity
 class MenuGameActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_game
+        return R.layout.a_game_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

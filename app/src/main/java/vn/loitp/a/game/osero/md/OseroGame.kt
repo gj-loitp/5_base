@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.osero.md
+package vn.loitp.a.game.osero.md
 
 class OseroGame {
 
@@ -135,7 +135,10 @@ class OseroGame {
     }
 
     /** targetを始点として挟めている範囲を判定して返す */
-    private fun getInsidePlaces(target: Place, places: List<Place>): List<Place> {
+    private fun getInsidePlaces(
+        target: Place,
+        places: List<Place>
+    ): List<Place> {
         // 最初に見つかった自分の石
         val endPoint = places.indexOfFirst { it.stone == target.stone }
         // 挟めていなければ終わり

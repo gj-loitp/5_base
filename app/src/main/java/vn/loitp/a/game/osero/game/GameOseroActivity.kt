@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.osero.game
+package vn.loitp.a.game.osero.game
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -12,12 +12,12 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_game_osero.*
+import kotlinx.android.synthetic.main.a_osero_game.*
 import vn.loitp.R
-import vn.loitp.app.a.game.osero.md.Place
-import vn.loitp.app.a.game.osero.md.Stone
-import vn.loitp.app.a.game.osero.md.ai.AINone
-import vn.loitp.app.a.game.osero.md.ai.OseroAI
+import vn.loitp.a.game.osero.md.Place
+import vn.loitp.a.game.osero.md.Stone
+import vn.loitp.a.game.osero.md.ai.AINone
+import vn.loitp.a.game.osero.md.ai.OseroAI
 
 @LogTag("GameOseroActivity")
 @IsFullScreen(false)
@@ -39,7 +39,7 @@ class GameOseroActivity : BaseFontActivity(), GameView {
     private val boardSize = presenter.boardSize
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_game_osero
+        return R.layout.a_osero_game
     }
 
     @SuppressLint("InflateParams")
@@ -94,7 +94,11 @@ class GameOseroActivity : BaseFontActivity(), GameView {
         gameCurrentPlayerText.text = getString(R.string.textGameCurrentPlayer, color)
     }
 
-    override fun showWinner(player: Stone, blackCount: Int, whiteCount: Int) {
+    override fun showWinner(
+        player: Stone,
+        blackCount: Int,
+        whiteCount: Int
+    ) {
         val color = when (player) {
             Stone.BLACK -> "Black"
             Stone.WHITE -> "White"

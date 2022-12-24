@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.osero
+package vn.loitp.a.game.osero
 
 import android.os.Bundle
 import com.loitp.annotation.IsAutoAnimation
@@ -7,21 +7,20 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_top.*
-import kotlinx.android.synthetic.main.activity_top.lActionBar
+import kotlinx.android.synthetic.main.a_osero_top.*
 import vn.loitp.R
-import vn.loitp.app.a.game.osero.game.GameOseroActivity
-import vn.loitp.app.a.game.osero.md.ai.AINone
-import vn.loitp.app.a.game.osero.md.ai.AIStrong
-import vn.loitp.app.a.game.osero.md.ai.AIWeak
-import vn.loitp.app.a.game.osero.md.ai.OseroAI
+import vn.loitp.a.game.osero.game.GameOseroActivity
+import vn.loitp.a.game.osero.md.ai.AINone
+import vn.loitp.a.game.osero.md.ai.AIStrong
+import vn.loitp.a.game.osero.md.ai.AIWeak
+import vn.loitp.a.game.osero.md.ai.OseroAI
 
 @LogTag("TopOseroActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class TopOseroActivity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_top
+        return R.layout.a_osero_top
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

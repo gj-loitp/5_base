@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.osero.md
+package vn.loitp.a.game.osero.md
 
 /**
  * マスの座標と状態を保持する

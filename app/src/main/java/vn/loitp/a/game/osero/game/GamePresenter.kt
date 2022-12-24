@@ -1,11 +1,11 @@
-package vn.loitp.app.a.game.osero.game
+package vn.loitp.a.game.osero.game
 
 import androidx.annotation.VisibleForTesting
-import vn.loitp.app.a.game.osero.md.OseroGame
-import vn.loitp.app.a.game.osero.md.Place
-import vn.loitp.app.a.game.osero.md.Stone
-import vn.loitp.app.a.game.osero.md.ai.AINone
-import vn.loitp.app.a.game.osero.md.ai.OseroAI
+import vn.loitp.a.game.osero.md.OseroGame
+import vn.loitp.a.game.osero.md.Place
+import vn.loitp.a.game.osero.md.Stone
+import vn.loitp.a.game.osero.md.ai.AINone
+import vn.loitp.a.game.osero.md.ai.OseroAI
 
 class GamePresenter {
     private val game: OseroGame = OseroGame()
@@ -16,7 +16,10 @@ class GamePresenter {
     /** 現在どちらのターンか **/
     private var currentPlayer = Stone.BLACK
 
-    fun onCreate(view: GameView, ai: OseroAI = AINone()) {
+    fun onCreate(
+        view: GameView,
+        ai: OseroAI = AINone()
+    ) {
         this.view = view
         this.ai = ai
         view.setCurrentPlayerText(Stone.BLACK)
@@ -24,7 +27,10 @@ class GamePresenter {
         view.markCanPutPlaces(game.getAllCanPutPlaces(currentPlayer))
     }
 
-    fun onClickPlace(x: Int, y: Int) {
+    fun onClickPlace(
+        x: Int,
+        y: Int
+    ) {
         val view = view ?: return
         val clickPlace = Place(x, y, currentPlayer)
         if (!game.canPut(clickPlace)) {
