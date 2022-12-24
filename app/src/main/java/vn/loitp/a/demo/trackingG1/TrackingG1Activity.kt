@@ -1,4 +1,4 @@
-package vn.loitp.app.a.demo.trackingG1
+package vn.loitp.a.demo.trackingG1
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -13,7 +13,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.LUIUtil.Companion.printBeautyJson
-import kotlinx.android.synthetic.main.activity_tracking_g1.*
+import kotlinx.android.synthetic.main.a_tracking_g1.*
 import vn.loitp.R
 
 @LogTag("TrackingG1Activity")
@@ -22,7 +22,7 @@ import vn.loitp.R
 class TrackingG1Activity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_tracking_g1
+        return R.layout.a_tracking_g1
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

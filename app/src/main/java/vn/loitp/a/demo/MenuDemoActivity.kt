@@ -30,7 +30,7 @@ import vn.loitp.a.demo.rss.RSSActivity
 import vn.loitp.a.demo.sound.SoundActivity
 import vn.loitp.a.demo.architectureComponent.MenuArchitectureComponentActivity
 import vn.loitp.a.demo.tts.TextToSpeechActivity
-import vn.loitp.app.a.demo.trackingG1.TrackingG1Activity
+import vn.loitp.a.demo.trackingG1.TrackingG1Activity
 import vn.loitp.app.a.demo.twoInstanceActivity.Activity1
 
 @LogTag("MenuDemoActivity")
