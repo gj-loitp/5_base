@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.pong.a
+package vn.loitp.a.game.pong.a
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,9 +12,9 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.dialog_settings.*
 import vn.loitp.R
-import vn.loitp.app.a.game.pong.pong.Difficulty
-import vn.loitp.app.a.game.pong.pong.Mode
-import vn.loitp.app.a.game.pong.pong.Settings
+import vn.loitp.a.game.pong.pong.Difficulty
+import vn.loitp.a.game.pong.pong.Mode
+import vn.loitp.a.game.pong.pong.Settings
 import java.util.*
 
 @LogTag("SettingsActivity")
@@ -25,7 +25,7 @@ class SettingsActivity : BaseFontActivity() {
     private val settings = Settings()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pong_settings
+        return R.layout.a_pong_settings
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +66,12 @@ class SettingsActivity : BaseFontActivity() {
         override fun onNothingSelected(parent: AdapterView<*>?) {
         }
 
-        override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+        override fun onItemSelected(
+            parent: AdapterView<*>,
+            view: View,
+            position: Int,
+            id: Long
+        ) {
             settings.pvp = Mode.valueOf(
                 parent.getItemAtPosition(position).toString().uppercase(Locale.ROOT).replace(
                     ' ',
@@ -80,7 +85,12 @@ class SettingsActivity : BaseFontActivity() {
         override fun onNothingSelected(parent: AdapterView<*>?) {
         }
 
-        override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+        override fun onItemSelected(
+            parent: AdapterView<*>,
+            view: View,
+            position: Int,
+            id: Long
+        ) {
             settings.difficulty =
                 Difficulty.valueOf(
                     parent.getItemAtPosition(position).toString()

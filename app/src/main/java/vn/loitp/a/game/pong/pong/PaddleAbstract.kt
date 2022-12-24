@@ -1,11 +1,16 @@
-package vn.loitp.app.a.game.pong.pong
+package vn.loitp.a.game.pong.pong
 
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
 import android.view.MotionEvent
 
-abstract class PaddleAbstract(private val side: Side, x: Float, y: Float, difficulty: Difficulty) {
+abstract class PaddleAbstract(
+    private val side: Side,
+    x: Float,
+    y: Float,
+    difficulty: Difficulty
+) {
     var paddleX = x
         internal set
     var paddleY = y
@@ -43,7 +48,11 @@ abstract class PaddleAbstract(private val side: Side, x: Float, y: Float, diffic
         )
     }
 
-    abstract fun movePaddle(event: MotionEvent, index: Int, height: Int)
+    abstract fun movePaddle(
+        event: MotionEvent,
+        index: Int,
+        height: Int
+    )
 
 }
 

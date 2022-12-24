@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.pong.a
+package vn.loitp.a.game.pong.a
 
 import android.os.Bundle
 import com.loitp.annotation.IsAutoAnimation
@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LScreenUtil
 import vn.loitp.R
-import vn.loitp.app.a.game.pong.pong.Settings
+import vn.loitp.a.game.pong.pong.Settings
 
 @LogTag("GameActivity")
 @IsFullScreen(false)
@@ -17,7 +17,7 @@ class GameActivity : BaseFontActivity() {
     lateinit var settings: Settings
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pong_game
+        return R.layout.a_pong_game
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.pong.pong
+package vn.loitp.a.game.pong.pong
 
 import java.io.Serializable
 

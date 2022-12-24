@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.pong.pong
+package vn.loitp.a.game.pong.pong
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -15,12 +15,15 @@ import android.view.SurfaceView
 import androidx.core.content.res.ResourcesCompat
 import com.loitp.core.utilities.LAppResource
 import vn.loitp.R
-import vn.loitp.app.a.game.pong.a.GameActivity
+import vn.loitp.a.game.pong.a.GameActivity
 import java.util.*
 import kotlin.concurrent.schedule
 
 
-class GameView(context: Context, attrs: AttributeSet) : SurfaceView(context, attrs),
+class GameView(
+    context: Context,
+    attrs: AttributeSet
+) : SurfaceView(context, attrs),
     SurfaceHolder.Callback {
 
     private val thread: GameThread
@@ -84,7 +87,12 @@ class GameView(context: Context, attrs: AttributeSet) : SurfaceView(context, att
         thread.start()
     }
 
-    override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
+    override fun surfaceChanged(
+        holder: SurfaceHolder,
+        format: Int,
+        width: Int,
+        height: Int
+    ) {
         paddleB.paddleX = width.toFloat()
         ball.initX = width / 2f - ball.size / 2
     }

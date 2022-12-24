@@ -1,13 +1,22 @@
-package vn.loitp.app.a.game.pong.pong
+package vn.loitp.a.game.pong.pong
 
 import android.view.MotionEvent
 
-class SmoothPaddle(side: Side, x: Float, y: Float, difficulty: Difficulty) :
+class SmoothPaddle(
+    side: Side,
+    x: Float,
+    y: Float,
+    difficulty: Difficulty
+) :
     PaddleAbstract(side, x, y, difficulty) {
     private var movementState: MovementState = MovementState.MOVING_NOT
     private val speed = 30f
 
-    override fun movePaddle(event: MotionEvent, index: Int, height: Int) {
+    override fun movePaddle(
+        event: MotionEvent,
+        index: Int,
+        height: Int
+    ) {
         movementState = when {
             event.getY(index) > height / 2f -> {
                 MovementState.MOVING_UP

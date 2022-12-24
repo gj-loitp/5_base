@@ -1,4 +1,4 @@
-package vn.loitp.app.a.game.pong.pong
+package vn.loitp.a.game.pong.pong
 
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -8,7 +8,11 @@ import vn.loitp.R
 import kotlin.math.pow
 import kotlin.random.Random
 
-class Ball(var initX: Float, private var initY: Float, difficulty: Difficulty) {
+class Ball(
+    var initX: Float,
+    private var initY: Float,
+    difficulty: Difficulty
+) {
     var ballX = initX
         private set
     var ballY = initY

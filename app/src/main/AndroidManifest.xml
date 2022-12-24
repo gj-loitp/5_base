@@ -1226,15 +1226,15 @@
             android:name=".a.game.osero.game.GameOseroActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.game.pong.a.PongMainActivity"
+            android:name=".a.game.pong.a.PongMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".app.a.game.pong.a.SettingsActivity"
+            android:name=".a.game.pong.a.SettingsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".app.a.game.pong.a.GameActivity"
+            android:name=".a.game.pong.a.GameActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity
