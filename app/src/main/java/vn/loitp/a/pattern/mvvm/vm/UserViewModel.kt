@@ -1,10 +1,10 @@
-package vn.loitp.app.a.pattern.mvvm.vm
+package vn.loitp.a.pattern.mvvm.vm
 
 import android.view.View
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.databinding.library.baseAdapters.BR
-import vn.loitp.app.a.pattern.mvvm.md.User
+import vn.loitp.a.pattern.mvvm.md.User
 import java.util.*
 
 class UserViewModel(private val user: User) : Observer, BaseObservable() {
@@ -15,7 +15,10 @@ class UserViewModel(private val user: User) : Observer, BaseObservable() {
     }
 
     // / Notify the UI when change event emitting from Model is received.
-    override fun update(p0: Observable?, p1: Any?) {
+    override fun update(
+        p0: Observable?,
+        p1: Any?
+    ) {
         if (p1 is String) {
             when (p1) {
                 "age" -> {

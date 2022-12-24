@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_pattern_menu.*
 import vn.loitp.R
 import vn.loitp.a.pattern.mvp.MVPActivity
-import vn.loitp.app.a.pattern.mvvm.MVVMActivity
+import vn.loitp.a.pattern.mvvm.MVVMActivity
 import vn.loitp.a.pattern.observer.ObserverPatternActivity
 
 @LogTag("MenuPatternActivity")

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.pattern.mvvm
+package vn.loitp.a.pattern.mvvm
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

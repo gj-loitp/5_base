@@ -1,4 +1,4 @@
-package vn.loitp.app.a.pattern.mvvm
+package vn.loitp.a.pattern.mvvm
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -8,14 +8,15 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import vn.loitp.BR
 import vn.loitp.R
-import vn.loitp.app.a.pattern.mvvm.vm.UserViewModel
+import vn.loitp.a.pattern.mvvm.md.User
+import vn.loitp.a.pattern.mvvm.vm.UserViewModel
 
 @LogTag("MVVMActivity")
 @IsFullScreen(false)
 class MVVMActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pattern_mvvm
+        return R.layout.a_pattern_mvvm
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +27,7 @@ class MVVMActivity : BaseFontActivity() {
 
     private fun setupViews() {
         // / Create the model with initial data
-        val user = vn.loitp.app.a.pattern.mvvm.md.User()
+        val user = User()
         user.age = 20
         user.female = false
         user.firstName = "Johnny"
@@ -39,7 +40,7 @@ class MVVMActivity : BaseFontActivity() {
 
         // / Data-Binding
         val binding =
-            DataBindingUtil.setContentView<ViewDataBinding>(this, R.layout.activity_pattern_mvvm)
+            DataBindingUtil.setContentView<ViewDataBinding>(this, R.layout.a_pattern_mvvm)
         binding.setVariable(BR.user, userViewModel)
     }
 }

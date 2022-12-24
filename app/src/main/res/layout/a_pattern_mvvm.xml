@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="vn.loitp.app.a.pattern.mvvm.vm.UserViewModel" />
+            type="vn.loitp.a.pattern.mvvm.vm.UserViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
