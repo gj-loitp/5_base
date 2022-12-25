@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import com.loitp.annotation.IsAutoAnimation
@@ -88,13 +89,16 @@ class SplashActivity : BaseFontActivity() {
             } else {
                 Color.BLACK
             }
+
+            val listPer = ArrayList<String>()
+            listPer.add(Manifest.permission.ACCESS_FINE_LOCATION)
+            listPer.add(Manifest.permission.CAMERA)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                listPer.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+            }
+
             PermissionX.init(this)
-                .permissions(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.CAMERA,
-//                    Manifest.permission.READ_EXTERNAL_STORAGE,
-//                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                )
+                .permissions(listPer)
                 .setDialogTintColor(color, color)
                 .onExplainRequestReason { scope, deniedList, _ ->
                     val message = getString(R.string.app_name) + getString(R.string.needs_per)
