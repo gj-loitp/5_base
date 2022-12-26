@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.keyboardHeightProvider
+package vn.loitp.a.func.keyboardHeightProvider
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_keyboard_height_provider.*
+import kotlinx.android.synthetic.main.a_kb_height_provider.*
 import vn.loitp.R
 
 @LogTag("KeyboardHeightProviderActivity")
@@ -17,7 +17,7 @@ class KeyboardHeightProviderActivity : BaseFontActivity() {
     private var keyboardHeightProvider: KeyboardHeightProvider? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_keyboard_height_provider
+        return R.layout.a_kb_height_provider
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

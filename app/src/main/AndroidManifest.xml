@@ -1137,7 +1137,7 @@
             android:name=".app.a.cv.tv.autoComplete.AutoCompleteTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity"
+            android:name=".a.func.keyboardHeightProvider.KeyboardHeightProviderActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="adjustNothing" />
         <activity

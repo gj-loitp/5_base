@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.keyboardHeightProvider
+package vn.loitp.a.func.keyboardHeightProvider
 
 object KeyboardInfo {
     @Suppress("unused")

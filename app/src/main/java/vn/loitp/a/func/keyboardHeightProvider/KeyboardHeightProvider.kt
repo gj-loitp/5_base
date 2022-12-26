@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.keyboardHeightProvider
+package vn.loitp.a.func.keyboardHeightProvider
 
 import android.app.Activity
 import android.content.Context
@@ -20,7 +20,7 @@ class KeyboardHeightProvider(private val activity: Activity) : PopupWindow(activ
     private var keyboardListeners = ArrayList<KeyboardListener>()
 
     init {
-        contentView = View.inflate(activity, R.layout.keyboard_popup, null)
+        contentView = View.inflate(activity, R.layout.v_keyboard_popup, null)
         resizableView = contentView.findViewById(R.id.keyResizeContainer)
         softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE or
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
@@ -97,7 +97,10 @@ class KeyboardHeightProvider(private val activity: Activity) : PopupWindow(activ
     }
 
     @Suppress("unused")
-    private fun notifyKeyboardHeightChanged(height: Int, orientation: Int) {
+    private fun notifyKeyboardHeightChanged(
+        height: Int,
+        orientation: Int
+    ) {
         keyboardListeners.forEach {
             it.onHeightChanged(height)
         }
