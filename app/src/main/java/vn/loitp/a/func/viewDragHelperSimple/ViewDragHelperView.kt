@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.viewDragHelperSimple
+package vn.loitp.a.func.viewDragHelperSimple
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -99,7 +99,13 @@ class ViewDragHelperView @JvmOverloads constructor(
         mEdgeTrackerView = getChildAt(2)
     }
 
-    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        l: Int,
+        t: Int,
+        r: Int,
+        b: Int
+    ) {
         super.onLayout(changed, l, t, r, b)
 
         mAutoBackView?.let {

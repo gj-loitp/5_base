@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
@@ -156,7 +156,7 @@
         </androidx.core.widget.NestedScrollView>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <vn.loitp.app.a.func.viewDragHelperSimple.VDHView
+    <vn.loitp.a.func.viewDragHelperSimple.VDHView
         android:id="@+id/vdhv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -184,5 +184,5 @@
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
         </androidx.core.widget.NestedScrollView>
-    </vn.loitp.app.a.func.viewDragHelperSimple.VDHView>
-</RelativeLayout>
+    </vn.loitp.a.func.viewDragHelperSimple.VDHView>
+</androidx.constraintlayout.widget.ConstraintLayout>

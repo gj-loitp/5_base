@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.viewDragHelperSimple
+package vn.loitp.a.func.viewDragHelperSimple
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -310,7 +310,13 @@ class VDHView @JvmOverloads constructor(
         return isViewUnder
     }
 
-    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        l: Int,
+        t: Int,
+        r: Int,
+        b: Int
+    ) {
         super.onLayout(changed, l, t, r, b)
         mDragRange = height - headerView.height
         mAutoBackViewX = headerView.left
@@ -374,7 +380,10 @@ class VDHView @JvmOverloads constructor(
         smoothSlideTo(positionX = posX, positionY = posY)
     }
 
-    fun smoothSlideTo(positionX: Int, positionY: Int) {
+    fun smoothSlideTo(
+        positionX: Int,
+        positionY: Int
+    ) {
         if (mViewDragHelper.smoothSlideViewTo(headerView, positionX, positionY)) {
             ViewCompat.postInvalidateOnAnimation(this)
             postInvalidate()

@@ -1,11 +1,11 @@
-package vn.loitp.app.a.func.viewDragHelperSimple
+package vn.loitp.a.func.viewDragHelperSimple
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_func_view_draghelper_simple.*
+import kotlinx.android.synthetic.main.a_func_view_drag_helper_simple.*
 import vn.loitp.R
 
 @LogTag("ViewDragHelperSimpleActivity")
@@ -13,7 +13,7 @@ import vn.loitp.R
 class ViewDragHelperSimpleActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_view_draghelper_simple
+        return R.layout.a_func_view_drag_helper_simple
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

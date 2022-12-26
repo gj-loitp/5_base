@@ -25,8 +25,8 @@ import vn.loitp.a.func.sensor.SensorActivity
 import vn.loitp.a.func.simpleFingerGestures.SimpleFingerGesturesActivity
 import vn.loitp.a.func.theme.ThemeActivity
 import vn.loitp.a.func.viewDragHelper.ViewDragHelperActivity
-import vn.loitp.app.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity
-import vn.loitp.app.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1
+import vn.loitp.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity
+import vn.loitp.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1
 import vn.loitp.app.a.func.wallpo.WallpoActivity
 
 @LogTag("MenuFunctionActivity")

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.viewDragHelperSimple
+package vn.loitp.a.func.viewDragHelperSimple
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_func_view_draghelper_simple_1.*
+import kotlinx.android.synthetic.main.a_func_view_drag_helper_simple_1.*
 import vn.loitp.R
 
 @LogTag("ViewDragHelperSimpleActivity1")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class ViewDragHelperSimpleActivity1 : BaseFontActivity(), VDHView.Callback {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_view_draghelper_simple_1
+        return R.layout.a_func_view_drag_helper_simple_1
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,7 +91,11 @@ class ViewDragHelperSimpleActivity1 : BaseFontActivity(), VDHView.Callback {
     }
 
     @SuppressLint("SetTextI18n")
-    override fun onViewPositionChanged(left: Int, top: Int, dragOffset: Float) {
+    override fun onViewPositionChanged(
+        left: Int,
+        top: Int,
+        dragOffset: Float
+    ) {
         tv1.text = "onViewPositionChanged left: $left, top: $top, dragOffset: $dragOffset"
     }
 
