@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.pump
+package vn.loitp.a.func.pump
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_pump.*
+import kotlinx.android.synthetic.main.a_pump.*
 import vn.loitp.R
 import vn.loitp.common.Constants
 
@@ -19,7 +19,7 @@ import vn.loitp.common.Constants
 class PumpActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pump
+        return R.layout.a_pump
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
