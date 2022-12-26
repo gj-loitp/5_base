@@ -10,7 +10,7 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_picker_menu.*
 import vn.loitp.R
 import vn.loitp.a.picker.attachmentManager.AttachmentManagerActivity
-import vn.loitp.app.a.picker.image.ImagePickerActivity
+import vn.loitp.a.picker.image.ImagePickerActivity
 import vn.loitp.a.picker.number.NumberPickerActivity
 import vn.loitp.app.a.picker.shiftColor.ShiftColorPickerActivity
 import vn.loitp.app.a.picker.ssImage.MainActivitySSImagePicker

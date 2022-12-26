@@ -1,21 +1,20 @@
-package vn.loitp.app.a.picker.image
+package vn.loitp.a.picker.image
 
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
-import com.nguyenhoanglam.imagepicker.model.Image
 import com.nguyenhoanglam.imagepicker.model.ImagePickerConfig
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.registerImagePicker
-import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.f_main.*
 import vn.loitp.R
 
 class MainFragment : BaseFragment() {
 
     private var config: ImagePickerConfig? = null
     private var adapter: ImageAdapter? = null
-    private var images = ArrayList<Image>()
+//    private var images = ArrayList<Image>()
 
     private val launcher = registerImagePicker {
         adapter?.setData(it)
@@ -38,7 +37,7 @@ class MainFragment : BaseFragment() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.fragment_main
+        return R.layout.f_main
     }
 
     override fun onViewCreated(
@@ -49,7 +48,11 @@ class MainFragment : BaseFragment() {
 
         adapter = ImageAdapter(requireActivity())
         recyclerView.layoutManager =
-            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(
+                /* context = */ activity,
+                /* orientation = */LinearLayoutManager.HORIZONTAL,
+                /* reverseLayout = */false
+            )
         recyclerView.adapter = adapter
 
         pickImageButton.setSafeOnClickListener {

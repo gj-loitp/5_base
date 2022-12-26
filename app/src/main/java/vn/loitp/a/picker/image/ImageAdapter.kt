@@ -1,4 +1,4 @@
-package vn.loitp.app.a.picker.image
+package vn.loitp.a.picker.image
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -25,7 +25,7 @@ internal class ImageAdapter(private val context: Context) :
         parent: ViewGroup,
         viewType: Int
     ): ImageViewHolder {
-        return ImageViewHolder(inflater.inflate(R.layout.item_image, parent, false))
+        return ImageViewHolder(inflater.inflate(R.layout.i_image, parent, false))
     }
 
     override fun onBindViewHolder(

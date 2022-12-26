@@ -1,4 +1,4 @@
-package vn.loitp.app.a.picker.image
+package vn.loitp.a.picker.image
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -16,7 +16,7 @@ import com.nguyenhoanglam.imagepicker.model.Image
 import com.nguyenhoanglam.imagepicker.model.ImagePickerConfig
 import com.nguyenhoanglam.imagepicker.model.RootDirectory
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.registerImagePicker
-import kotlinx.android.synthetic.main.activity_image_picker_demo.*
+import kotlinx.android.synthetic.main.a_picker_image_demo.*
 import vn.loitp.R
 
 @LogTag("ImagePickerActivity")
@@ -33,7 +33,7 @@ class ImagePickerActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_image_picker_demo
+        return R.layout.a_picker_image_demo
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
