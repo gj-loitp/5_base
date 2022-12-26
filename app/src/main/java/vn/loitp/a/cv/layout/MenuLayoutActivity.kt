@@ -9,8 +9,8 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_layout_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity
-import vn.loitp.app.a.cv.layout.aspectratio.AspectRatioLayoutActivity
+import vn.loitp.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity
+import vn.loitp.a.cv.layout.aspectratio.AspectRatioLayoutActivity
 import vn.loitp.app.a.cv.layout.autoLinear.AutoLinearLayoutActivity
 import vn.loitp.app.a.cv.layout.autoScrollContent.AutoScrollContentActivity
 import vn.loitp.app.a.cv.layout.basket.BasketLayoutActivity

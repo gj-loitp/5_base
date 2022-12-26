@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.androidSlidingUpPanel
+package vn.loitp.a.cv.layout.androidSlidingUpPanel
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,7 +14,7 @@ import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.sothree.slidinguppanel.PanelSlideListener
 import com.sothree.slidinguppanel.PanelState
-import kotlinx.android.synthetic.main.activity_android_sliding_up_panel.*
+import kotlinx.android.synthetic.main.a_android_sliding_up_panel.*
 import vn.loitp.R
 import java.util.*
 
@@ -24,7 +24,7 @@ import java.util.*
 class AndroidSlidingUpPanelActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_android_sliding_up_panel
+        return R.layout.a_android_sliding_up_panel
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

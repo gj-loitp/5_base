@@ -964,7 +964,7 @@
             android:name=".app.a.cv.layout.splitPanel.SplitPanelLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.aspectratio.AspectRatioLayoutActivity"
+            android:name=".a.cv.layout.aspectratio.AspectRatioLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.rv.concatAdapter.ConcatAdapterActivity"
@@ -1301,7 +1301,7 @@
             android:name=".a.game.puzzle.GameActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity"
+            android:name=".a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bb.expandable.ShowCaseActivity"
