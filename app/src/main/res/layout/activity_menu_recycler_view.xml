@@ -6,7 +6,7 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -109,6 +109,11 @@
                 android:id="@+id/btGalleryLayoutManagerVertical"
                 style="@style/ButtonMenu"
                 android:text="@string/gallerylayoutmanager_vertical" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGreedoLayout"
+                style="@style/ButtonMenu"
+                android:text="Greedo Layout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btLoopingLayout"

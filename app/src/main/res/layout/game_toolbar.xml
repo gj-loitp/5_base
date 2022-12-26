@@ -7,7 +7,7 @@
     android:titleTextColor="@color/white">
 
     <fragment
-        android:name="vn.loitp.app.activity.game.puzzle.ui.boardoptions.BoardSizeSpinnerFragment"
+        android:name="vn.loitp.a.game.puzzle.ui.options.BoardSizeSpinnerFragment"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end" />

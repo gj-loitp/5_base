@@ -5,7 +5,7 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <com.loitpcore.views.layout.ripple.LRippleLayout
+        <com.loitp.views.layout.ripple.LRippleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -27,7 +27,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/loitp" />
 
-        </com.loitpcore.views.layout.ripple.LRippleLayout>
+        </com.loitp.views.layout.ripple.LRippleLayout>
 
     </androidx.core.widget.NestedScrollView>
 

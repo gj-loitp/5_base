@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="false"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    tools:ignore="UnusedAttribute">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_padding_medium"
+        android:singleLine="true"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/app_name" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        tools:src="@drawable/logo" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layoutControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_padding_small"
+        android:baselineAligned="false"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/iv">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btReport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_bug_report_black_48dp"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:borderWidth="@dimen/w_3"
+                app:elevation="@dimen/w_3"
+                app:fabSize="mini" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btSetWallpaper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/baseline_wallpaper_black_48"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:borderWidth="@dimen/w_3"
+                app:elevation="@dimen/w_3"
+                app:fabSize="mini" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btDownload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_cloud_download_black_48dp"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:borderWidth="@dimen/w_3"
+                app:elevation="@dimen/w_3"
+                app:fabSize="mini" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btCmt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_chat_black_48dp"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:borderWidth="@dimen/w_3"
+                app:elevation="@dimen/w_3"
+                app:fabSize="mini" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_share_black_48dp"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:borderWidth="@dimen/w_3"
+                app:elevation="@dimen/w_3"
+                app:fabSize="mini" />
+        </FrameLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:id="@+id/viewLine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_1"
+        android:layout_marginTop="@dimen/margin_padding_small"
+        android:background="?attr/themeTextColor"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/layoutControl"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

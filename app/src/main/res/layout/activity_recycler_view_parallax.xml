@@ -6,12 +6,12 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.recyclerView.parallax.LParallaxRecyclerView
+    <com.loitp.views.rv.parallax.LParallaxRecyclerView
         android:id="@+id/rv"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"

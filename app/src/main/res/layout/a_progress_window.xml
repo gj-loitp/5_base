@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.loading.window.WP7ProgressBar
+        android:id="@+id/wp7progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        app:wpAnimationDuration="2300"
+        app:wpIndicatorColor="?attr/themeTextColor"
+        app:wpIndicatorHeight="7"
+        app:wpIndicatorRadius="5"
+        app:wpInterval="100" />
+
+    <com.loitp.views.loading.window.WP10ProgressBar
+        android:id="@+id/wp10progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:clipChildren="false"
+        app:wpIndicatorColor="@color/red" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/wp7Ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/showWP7Btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/themeBackgroundColorMedium"
+            android:text="Show WP7 bar"
+            android:textColor="?attr/themeTextColor"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/hideWP7Btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_medium"
+            android:layout_weight="1"
+            android:background="?attr/themeBackgroundColorMedium"
+            android:text="Hide WP7 bar"
+            android:textColor="?attr/themeTextColor"
+            tools:ignore="HardcodedText" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/wp7Ll"
+        android:layout_marginBottom="@dimen/margin_padding_medium">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/showWP10Btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/themeBackgroundColorMedium"
+            android:text="Show WP10 bar"
+            android:textColor="?attr/themeTextColor"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/hideWP10Btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_medium"
+            android:layout_weight="1"
+            android:background="?attr/themeBackgroundColorMedium"
+            android:text="Hide WP10 bar"
+            android:textColor="?attr/themeTextColor"
+            tools:ignore="HardcodedText" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</RelativeLayout>

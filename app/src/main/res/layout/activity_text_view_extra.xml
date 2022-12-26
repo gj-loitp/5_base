@@ -25,7 +25,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <com.loitpcore.views.textView.extra.LExtraTextView
+                <com.loitp.views.tv.extra.LExtraTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_padding_medium"
@@ -60,7 +60,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <com.loitpcore.views.textView.extra.LExtraTextView
+                <com.loitp.views.tv.extra.LExtraTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -95,7 +95,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <com.loitpcore.views.textView.extra.LExtraTextView
+                <com.loitp.views.tv.extra.LExtraTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -134,7 +134,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <com.loitpcore.views.textView.extra.LExtraTextView
+                <com.loitp.views.tv.extra.LExtraTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -172,7 +172,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <com.loitpcore.views.textView.extra.LExtraTextView
+                <com.loitp.views.tv.extra.LExtraTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -208,7 +208,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <com.loitpcore.views.textView.extra.LExtraTextView
+                <com.loitp.views.tv.extra.LExtraTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -241,7 +241,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <com.loitpcore.views.textView.extra.LToggleLExtraTextView
+                <com.loitp.views.tv.extra.LToggleLExtraTextView
                     android:id="@+id/toggleTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -295,7 +295,7 @@
             </TableRow>
         </TableLayout>
 
-        <com.loitpcore.views.textView.extra.LExtraTextView
+        <com.loitp.views.tv.extra.LExtraTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -320,7 +320,7 @@
             android:layout_marginTop="16dp"
             android:orientation="horizontal">
 
-            <com.loitpcore.views.textView.extra.LToggleLExtraTextView
+            <com.loitp.views.tv.extra.LToggleLExtraTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -339,7 +339,7 @@
                 app:ext_txt_drawableWidth="16dp"
                 app:ext_txt_idleTint="@android:color/holo_blue_light" />
 
-            <com.loitpcore.views.textView.extra.LToggleLExtraTextView
+            <com.loitp.views.tv.extra.LToggleLExtraTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

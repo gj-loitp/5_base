@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/margin_padding_medium"
+        android:paddingBottom="@dimen/margin_padding_medium"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btClearAll"
+            style="@style/ButtonMenu"
+            android:text="@string/clear_all" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btAdd"
+            style="@style/ButtonMenu"
+            android:text="@string/add_dummy_contact" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btAdd100"
+            style="@style/ButtonMenu"
+            android:text="@string/add_100_dummy_contact" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btGetContactWithId"
+            style="@style/ButtonMenu"
+            android:text="@string/get_contact_with_id_2" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btGetContactListPage1"
+            style="@style/ButtonMenu"
+            android:text="@string/get_contact_list_page_1" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llButtons">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/demo_sqlite_click_to_edit_long_click_to_delete"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

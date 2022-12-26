@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize" />
+
+    <com.loitp.views.cal.cosmoCalendar.view.CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/hsvSettings"
+        android:layout_below="@id/toolbar" />
+
+    <HorizontalScrollView
+        android:id="@+id/hsvSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/rgShowHideFlBottomSelectionBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/rbHideFlBottomSelectionBar">
+
+                <RadioButton
+                    android:id="@+id/rbShowFlBottomSelectionBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="@string/show_flbottomselectionbar"
+                    android:textColor="?attr/themeTextColor"
+                    tools:ignore="UnusedAttribute" />
+
+                <RadioButton
+                    android:id="@+id/rbHideFlBottomSelectionBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="@string/hide_flbottomselectionbar"
+                    android:textColor="?attr/themeTextColor"
+                    tools:ignore="UnusedAttribute" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rgOrientation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/rbVertical">
+
+                <RadioButton
+                    android:id="@+id/rbHorizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="@string/horizontal"
+                    android:textColor="?attr/themeTextColor"
+                    tools:ignore="UnusedAttribute" />
+
+                <RadioButton
+                    android:id="@+id/rbVertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="@string/vertical"
+                    android:textColor="?attr/themeTextColor"
+                    tools:ignore="UnusedAttribute" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rgSelectionType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/rbSingle">
+
+                <RadioButton
+                    android:id="@+id/rbSingle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="@string/single"
+                    android:textColor="?attr/themeTextColor"
+                    tools:ignore="UnusedAttribute" />
+
+                <RadioButton
+                    android:id="@+id/rbMultiple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="@string/multiple"
+                    android:textColor="?attr/themeTextColor"
+                    tools:ignore="UnusedAttribute" />
+
+                <RadioButton
+                    android:id="@+id/rbRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="@string/range"
+                    android:textColor="?attr/themeTextColor"
+                    tools:ignore="UnusedAttribute" />
+
+                <RadioButton
+                    android:id="@+id/rbNone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="@string/none"
+                    android:textColor="?attr/themeTextColor"
+                    tools:ignore="UnusedAttribute" />
+            </RadioGroup>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </HorizontalScrollView>
+</RelativeLayout>

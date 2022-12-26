@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAlarm"
+                style="@style/ButtonMenu"
+                android:text="Alarm" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btArchitectureComponent"
+                style="@style/ButtonMenu"
+                android:text="@string/architecture_component" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btEpubReader"
+                style="@style/ButtonMenu"
+                android:text="@string/epub_reader" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFirebase"
+                style="@style/ButtonMenu"
+                android:text="Firebase" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFloatingVideo"
+                style="@style/ButtonMenu"
+                android:text="@string/android_floating_video" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFloatingWidget"
+                style="@style/ButtonMenu"
+                android:text="@string/android_floating_widget_like_facebook_chat_head" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFragmentFlow"
+                style="@style/ButtonMenu"
+                android:text="@string/fragment_flow" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFragmentNavigation"
+                style="@style/ButtonMenu"
+                android:text="@string/fragment_navigation" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGalleryCore"
+                style="@style/ButtonMenu"
+                android:text="@string/gallery_from_core" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGalleryCoreAlbum"
+                style="@style/ButtonMenu"
+                android:text="@string/gallery_from_core_album_only" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGalleryCoreAlbumFrm"
+                style="@style/ButtonMenu"
+                android:text="@string/gallery_from_core_album_only_fragment" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGalleryMember"
+                style="@style/ButtonMenu"
+                android:text="@string/gallery_member" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMapTracker"
+                style="@style/ButtonMenu"
+                android:text="@string/map_tracker" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNFC"
+                style="@style/ButtonMenu"
+                android:text="@string/nfc" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPdf"
+                style="@style/ButtonMenu"
+                android:text="@string/pdf" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPiano"
+                style="@style/ButtonMenu"
+                android:text="Piano" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRSS"
+                style="@style/ButtonMenu"
+                android:text="@string/rss" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSound"
+                style="@style/ButtonMenu"
+                android:text="@string/sound" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTextToSpeech"
+                style="@style/ButtonMenu"
+                android:text="@string/text_to_speech" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTrackingG1"
+                style="@style/ButtonMenu"
+                android:text="@string/tracking_g1" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt2InstanceActivity"
+                style="@style/ButtonMenu"
+                android:text="@string/_2_instance_activity_parallel" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTTT"
+                style="@style/ButtonMenu"
+                android:text="@string/truyentranhtuan" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

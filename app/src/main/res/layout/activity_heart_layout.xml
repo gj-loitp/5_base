@@ -6,7 +6,7 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -21,7 +21,7 @@
             android:contentDescription="@string/app_name"
             android:src="@drawable/logo" />
 
-        <com.loitpcore.views.layout.heart.LHeartLayout
+        <com.loitp.views.layout.heart.LHeartLayout
             android:id="@+id/heartLayout"
             android:layout_width="@dimen/w_100"
             android:layout_height="match_parent"

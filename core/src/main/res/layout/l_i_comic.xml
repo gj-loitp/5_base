@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?selectableItemBackground"
+    app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
+    app:cardCornerRadius="@dimen/round_medium"
+    app:cardElevation="@dimen/w_3"
+    app:cardUseCompatPadding="true"
+    app:strokeColor="?themeTextColor"
+    app:strokeWidth="@dimen/w_tiny"
+    tools:ignore="UnusedAttribute">
+
+    <com.loitp.views.layout.aspectRatio.LAspectRatioLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:arl_heightRatio="4"
+        app:arl_widthRatio="3">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/logo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTotalChapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:padding="@dimen/margin_padding_small"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_large"
+            android:visibility="gone"
+            tools:text="@string/app_name_comic"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="?attr/themeBackgroundColor50"
+            android:gravity="center_vertical"
+            android:lines="2"
+            android:maxLines="2"
+            android:padding="@dimen/margin_padding_small"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            android:textStyle="bold"
+            tools:text="@string/app_name_comic" />
+    </com.loitp.views.layout.aspectRatio.LAspectRatioLayout>
+
+</com.google.android.material.card.MaterialCardView>

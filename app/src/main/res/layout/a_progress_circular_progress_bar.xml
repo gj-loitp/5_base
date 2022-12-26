@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/w_65">
+
+            <com.loitp.views.loading.circular.LCircularProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="@dimen/w_150"
+                android:layout_height="@dimen/w_150"
+                app:animateProgress="false"
+                app:backgroundStrokeColor="@color/green"
+                app:backgroundStrokeWidth="5dp"
+                app:drawBackgroundStroke="true"
+                app:foregroundStrokeColor="@color/red"
+                app:foregroundStrokeWidth="15dp"
+                app:indeterminate="true"
+                app:indeterminateArcAnimationDuration="600"
+                app:indeterminateMinimumAngle="45"
+                app:indeterminateRotationAnimationDuration="1200"
+                app:maximum="100"
+                app:progress="50"
+                app:progressAnimationDuration="100"
+                app:startAngle="270" />
+
+            <com.loitp.views.loading.circular.LCircularProgressBar
+                android:layout_width="@dimen/w_100"
+                android:layout_height="@dimen/w_100"
+                android:layout_marginTop="@dimen/w_10"
+                app:animateProgress="true"
+                app:backgroundStrokeColor="@color/red"
+                app:backgroundStrokeWidth="15dp"
+                app:drawBackgroundStroke="true"
+                app:foregroundStrokeColor="@color/white"
+                app:foregroundStrokeWidth="5dp"
+                app:indeterminate="true"
+                app:indeterminateArcAnimationDuration="600"
+                app:indeterminateMinimumAngle="45"
+                app:indeterminateRotationAnimationDuration="1200"
+                app:maximum="100"
+                app:progress="50"
+                app:progressAnimationDuration="100"
+                app:startAngle="270" />
+
+            <com.loitp.views.loading.circular.LCircularProgressBar
+                android:layout_width="@dimen/w_100"
+                android:layout_height="@dimen/w_100"
+                android:layout_marginTop="@dimen/w_10"
+                app:animateProgress="true"
+                app:backgroundStrokeColor="@color/red"
+                app:backgroundStrokeWidth="2dp"
+                app:drawBackgroundStroke="true"
+                app:foregroundStrokeColor="@color/blue"
+                app:foregroundStrokeWidth="20dp"
+                app:indeterminate="true"
+                app:indeterminateArcAnimationDuration="500"
+                app:indeterminateMinimumAngle="180"
+                app:indeterminateRotationAnimationDuration="2400"
+                app:maximum="100"
+                app:progress="50"
+                app:progressAnimationDuration="200"
+                app:startAngle="270" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

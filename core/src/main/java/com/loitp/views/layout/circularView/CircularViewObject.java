@@ -1,0 +1,498 @@
+package com.loitp.views.layout.circularView;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.util.StateSet;
+import android.view.MotionEvent;
+import android.view.View;
+
+import androidx.annotation.NonNull;
+
+import com.loitp.core.utilities.LAppResource;
+
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import kotlin.Suppress;
+
+/**
+ * Created by Loitp on 04,August,2022
+ * Galaxy One company,
+ * Vietnam
+ * +840766040293
+ * freuss47@gmail.com
+ */
+public class CircularViewObject {
+
+    /*
+     * View states are largely copied from View.java.
+     * Not all states are required at the moment so there are some gaps.
+     */
+    private static final int[][] VIEW_STATE_SETS;
+    static final int VIEW_STATE_SELECTED = 1 << 1;
+    static final int VIEW_STATE_FOCUSED = 1 << 2;
+    static final int VIEW_STATE_PRESSED = 1 << 4;
+
+    static final int[] VIEW_STATE_IDS = new int[]{
+            0, 0,
+            android.R.attr.state_selected, VIEW_STATE_SELECTED,
+            android.R.attr.state_focused, VIEW_STATE_FOCUSED,
+            0, 0,
+            android.R.attr.state_pressed, VIEW_STATE_PRESSED
+    };
+
+    static {
+        final int NUM_BITS = VIEW_STATE_IDS.length / 2;
+        VIEW_STATE_SETS = new int[1 << NUM_BITS][];
+
+        VIEW_STATE_SETS[0] = StateSet.NOTHING;
+        VIEW_STATE_SETS[VIEW_STATE_SELECTED] = new int[]{android.R.attr.state_selected};
+        VIEW_STATE_SETS[VIEW_STATE_FOCUSED] = new int[]{android.R.attr.state_focused};
+        VIEW_STATE_SETS[VIEW_STATE_PRESSED] = new int[]{android.R.attr.state_pressed};
+        VIEW_STATE_SETS[VIEW_STATE_SELECTED | VIEW_STATE_FOCUSED]
+                = new int[]{android.R.attr.state_selected, android.R.attr.state_focused};
+        VIEW_STATE_SETS[VIEW_STATE_SELECTED | VIEW_STATE_PRESSED]
+                = new int[]{android.R.attr.state_selected, android.R.attr.state_pressed};
+        VIEW_STATE_SETS[VIEW_STATE_PRESSED | VIEW_STATE_FOCUSED]
+                = new int[]{android.R.attr.state_pressed, android.R.attr.state_focused};
+        VIEW_STATE_SETS[VIEW_STATE_SELECTED | VIEW_STATE_PRESSED | VIEW_STATE_FOCUSED]
+                = new int[]{android.R.attr.state_selected, android.R.attr.state_pressed, android.R.attr.state_focused};
+    }
+
+    private int mCombinedState;
+    private static final AtomicInteger sAtomicIdCounter = new AtomicInteger(0);
+    private final int id;
+    protected float radius;
+    protected float radiusPadding;
+    protected float x;
+    protected float y;
+    private final Paint paint;
+    private final Context context;
+    private Drawable drawable;
+    private CircularView.AdapterDataSetObserver mAdapterDataSetObserver;
+    private boolean fitToCircle;
+    private int visibility;
+
+    /**
+     * Use this value to make sure that no color shows.
+     */
+    public static final int NO_COLOR = -1;
+
+    /**
+     * Create a new CircularViewObject with the current context.
+     *
+     * @param context Current context.
+     */
+    public CircularViewObject(final Context context) {
+        this.context = context;
+        id = sAtomicIdCounter.getAndAdd(1);
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(NO_COLOR);
+        setRadiusPadding(5f);
+        fitToCircle = false;
+        visibility = View.VISIBLE;
+    }
+
+    CircularViewObject(final Context context, final float radiusPadding, final int centerBackgroundColor) {
+        this(context);
+        setRadiusPadding(radiusPadding);
+        paint.setColor(centerBackgroundColor);
+    }
+
+    protected void init(final float x, final float y, final float radius, final CircularView.AdapterDataSetObserver adapterDataSetObserver) {
+        this.x = x;
+        this.y = y;
+        setRadius(radius);
+        this.mAdapterDataSetObserver = adapterDataSetObserver;
+    }
+
+    protected void draw(final Canvas canvas) {
+        if (visibility == View.VISIBLE) {
+            if (paint.getColor() != NO_COLOR) {
+                canvas.drawCircle(x, y, radius, paint);
+            }
+            if (drawable != null) {
+                float leftOffset = -radius + radiusPadding;
+                float topOffset = -radius + radiusPadding;
+                float rightOffset = radius - radiusPadding;
+                float bottomOffset = radius - radiusPadding;
+                if (fitToCircle) {
+                    final double extraOffset = distanceFromCenter(x + leftOffset, y + topOffset) - radius;
+                    leftOffset += extraOffset;
+                    topOffset += extraOffset;
+                    rightOffset -= extraOffset;
+                    bottomOffset -= extraOffset;
+                }
+                drawable.setBounds(
+                        (int) (x + leftOffset),
+                        (int) (y + topOffset),
+                        (int) (x + rightOffset),
+                        (int) (y + bottomOffset)
+                );
+                drawable.draw(canvas);
+            }
+        }
+    }
+
+    /**
+     * Check to see if a point is in the center circle or not.
+     * This simply uses the distance formula to get the distance from the center of the circle
+     * to the given point and then compares that to the circle's radius.
+     *
+     * @param x X coordinate.
+     * @param y Y coordinate.
+     * @return True if the point is within the circle, false if not.
+     */
+    public boolean isInCenterCircle(final float x, final float y) {
+        final double c = distanceFromCenter(x, y);
+        return c <= radius;
+    }
+
+    /**
+     * Get the distance from the given point to the center of this object.
+     *
+     * @param x X coordinate.
+     * @param y Y coordinate.
+     * @return Distance from the given point to the center of this object.
+     */
+    public double distanceFromCenter(final float x, final float y) {
+        return Math.sqrt(Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2));
+    }
+
+    /**
+     * Get this Object's unique ID. The ID is generated atomically on initialization.
+     *
+     * @return Atomically generated ID.
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Set the object's visual as a bitmap.
+     *
+     * @param bitmap Bitmap to display.
+     */
+    public void setSrc(Bitmap bitmap) {
+        setSrc(new BitmapDrawable(context.getResources(), bitmap));
+    }
+
+    /**
+     * Set the object's visual by using a resource id.
+     *
+     * @param resId Resource id of the drawable to display.
+     */
+    public void setSrc(final int resId) {
+//        setSrc(BitmapFactory.decodeResource(context.getResources(), resId));
+//        setSrc(context.getResources().getDrawable(resId));
+        setSrc(LAppResource.INSTANCE.getDrawable(resId));
+    }
+
+    /**
+     * Set the object's visual as a drawable.
+     *
+     * @param drawable Drawable to display.
+     */
+    public void setSrc(final Drawable drawable) {
+        this.drawable = drawable;
+        invalidate();
+    }
+
+    void setCallback(final View view) {
+        if (drawable != null) {
+            drawable.setCallback(view);
+        }
+    }
+
+    public boolean setState(final int[] stateSet) {
+        boolean appearanceChange = false;
+        if (drawable != null) {
+            appearanceChange = drawable.setState(stateSet);
+            if (appearanceChange) {
+                invalidate();
+            }
+        }
+        return appearanceChange;
+    }
+
+    /**
+     * Either remove or add a state to the combined state.
+     *
+     * @param state State to add or remove.
+     * @param flag  True to add, false to remove.
+     */
+    public void updateDrawableState(int state, boolean flag) {
+        final int oldState = mCombinedState;
+        // Update the combined state flag
+        if (flag) mCombinedState |= state;
+        else mCombinedState &= ~state;
+
+        // Set the combined state
+        if (oldState != mCombinedState) {
+            setState(VIEW_STATE_SETS[mCombinedState]);
+        }
+    }
+
+    /**
+     * Get the object's drawable.
+     *
+     * @return The drawable.
+     */
+    public Drawable getDrawable() {
+        return drawable;
+    }
+
+    /**
+     * Get the y position.
+     *
+     * @return The y position.
+     */
+    public float getY() {
+        return y;
+    }
+
+    /**
+     * Set the y position.
+     *
+     * @param y The new y position.
+     */
+    public void setY(float y) {
+        this.y = y;
+        invalidate();
+    }
+
+    /**
+     * Get the x position.
+     *
+     * @return The x position.
+     */
+    public float getX() {
+        return x;
+    }
+
+    /**
+     * Set the x position.
+     *
+     * @param x The new x position.
+     */
+    public void setX(float x) {
+        this.x = x;
+        invalidate();
+    }
+
+    /**
+     * Get the radius of the object.
+     *
+     * @return The radius.
+     */
+    public float getRadius() {
+        return radius;
+    }
+
+    /**
+     * Set the radius of the object.
+     *
+     * @param radius The new radius.
+     */
+    public void setRadius(float radius) {
+        this.radius = radius;
+        invalidate();
+    }
+
+    /**
+     * Get the object's visual padding from the radius.
+     *
+     * @return The object's visual padding from the radius.
+     */
+    @Suppress(names = "unused")
+    public float getRadiusPadding() {
+        return radiusPadding;
+    }
+
+    /**
+     * Set the object's visual padding from the radius.
+     *
+     * @param radiusPadding The object's visual padding from the radius.
+     */
+    public void setRadiusPadding(float radiusPadding) {
+        this.radiusPadding = radiusPadding;
+        invalidate();
+    }
+
+    @Suppress(names = "unused")
+    public int getCenterBackgroundColor() {
+        return paint.getColor();
+    }
+
+    public void setCenterBackgroundColor(int centerBackgroundColor) {
+        paint.setColor(centerBackgroundColor);
+        invalidate();
+    }
+
+    @Suppress(names = "unused")
+    CircularView.AdapterDataSetObserver getAdapterDataSetObserver() {
+        return mAdapterDataSetObserver;
+    }
+
+    @Suppress(names = "unused")
+    void setAdapterDataSetObserver(CircularView.AdapterDataSetObserver adapterDataSetObserver) {
+        this.mAdapterDataSetObserver = adapterDataSetObserver;
+    }
+
+    /**
+     * True if the object's drawable should fit inside the center circle. False if it will not.
+     *
+     * @return True if the object's drawable should fit inside the center circle. False if it will not.
+     */
+    @Suppress(names = "unused")
+    public boolean isFitToCircle() {
+        return fitToCircle;
+    }
+
+    /**
+     * Set to true if this object's drawable should fit inside of the center circle and false if not.
+     *
+     * @param fitToCircle Flag to determine if this drawable should fit inside the center circle.
+     */
+    public void setFitToCircle(boolean fitToCircle) {
+        this.fitToCircle = fitToCircle;
+        invalidate();
+    }
+
+    /**
+     * Returns the visibility status for this view.
+     *
+     * @return One of {@link View#VISIBLE}, {@link View#INVISIBLE}, or {@link View#GONE}.
+     */
+    public int getVisibility() {
+        return visibility;
+    }
+
+    /**
+     * Set the enabled state of this view.
+     *
+     * @param visibility One of {@link View#VISIBLE}, {@link View#INVISIBLE}, or {@link View#GONE}.
+     */
+    public void setVisibility(int visibility) {
+        if (this.visibility != visibility) {
+            final boolean hasSpace = this.visibility == View.VISIBLE || this.visibility == View.INVISIBLE;
+            final boolean removingSpace = visibility == View.GONE;
+            final boolean change = hasSpace && removingSpace;
+            this.visibility = visibility;
+            // Only change the dataset if it is absolutely necessary
+            if (change && mAdapterDataSetObserver != null) {
+                mAdapterDataSetObserver.onChanged();
+            } else {
+                invalidate();
+            }
+        }
+    }
+
+    /**
+     * Act on a touch event. Returns a status based on what action was taken.
+     *
+     * @param event The motion event that was just received.
+     * @return Return a negative number if the event wasn't handled. Return a MotionEvent action code if it was handled.
+     */
+    public int onTouchEvent(final MotionEvent event) {
+        int status = -2;
+        if (visibility != View.GONE) {
+            final int action = event.getAction();
+
+            final boolean isEventInCenterCircle = isInCenterCircle(event.getX(), event.getY());
+            if (action == MotionEvent.ACTION_DOWN) {
+                // check if center
+                if (isEventInCenterCircle) {
+                    updateDrawableState(VIEW_STATE_PRESSED, true);
+                    status = MotionEvent.ACTION_DOWN;
+                }
+            } else if (action == MotionEvent.ACTION_UP) {
+                final boolean isPressed = (mCombinedState & VIEW_STATE_PRESSED) != 0;
+                if (isPressed && isEventInCenterCircle) {
+                    updateDrawableState(VIEW_STATE_PRESSED, false);
+                    status = MotionEvent.ACTION_UP;
+                }
+
+            } else if (action == MotionEvent.ACTION_MOVE) {
+                if (!isEventInCenterCircle) {
+                    updateDrawableState(VIEW_STATE_PRESSED, false);
+                }
+            }
+        }
+        return status;
+    }
+
+    /**
+     * Schedule the object's parent to redraw again.
+     */
+    protected void invalidate() {
+        if (mAdapterDataSetObserver != null) {
+            mAdapterDataSetObserver.onInvalidated();
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CircularViewObject object = (CircularViewObject) o;
+
+        if (fitToCircle != object.fitToCircle) return false;
+        if (id != object.id) return false;
+        if (mCombinedState != object.mCombinedState) return false;
+        if (Float.compare(object.radius, radius) != 0) return false;
+        if (Float.compare(object.radiusPadding, radiusPadding) != 0) return false;
+        if (visibility != object.visibility) return false;
+        if (Float.compare(object.x, x) != 0) return false;
+        if (Float.compare(object.y, y) != 0) return false;
+        if (!Objects.equals(context, object.context))
+            return false;
+        if (!Objects.equals(drawable, object.drawable))
+            return false;
+        if (!Objects.equals(mAdapterDataSetObserver, object.mAdapterDataSetObserver))
+            return false;
+        return Objects.equals(paint, object.paint);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = mCombinedState;
+        result = 31 * result + id;
+        result = 31 * result + (radius != 0.0f ? Float.floatToIntBits(radius) : 0);
+        result = 31 * result + (radiusPadding != 0.0f ? Float.floatToIntBits(radiusPadding) : 0);
+        result = 31 * result + (x != 0.0f ? Float.floatToIntBits(x) : 0);
+        result = 31 * result + (y != 0.0f ? Float.floatToIntBits(y) : 0);
+        result = 31 * result + (paint != null ? paint.hashCode() : 0);
+        result = 31 * result + (context != null ? context.hashCode() : 0);
+        result = 31 * result + (drawable != null ? drawable.hashCode() : 0);
+        result = 31 * result + (mAdapterDataSetObserver != null ? mAdapterDataSetObserver.hashCode() : 0);
+        result = 31 * result + (fitToCircle ? 1 : 0);
+        result = 31 * result + visibility;
+        return result;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "CircularViewObject{" +
+                "mCombinedState=" + mCombinedState +
+                ", id=" + id +
+                ", radius=" + radius +
+                ", radiusPadding=" + radiusPadding +
+                ", x=" + x +
+                ", y=" + y +
+                ", paint=" + paint +
+                ", context=" + context +
+                ", drawable=" + drawable +
+                ", mAdapterDataSetObserver=" + mAdapterDataSetObserver +
+                ", fitToCircle=" + fitToCircle +
+                ", visibility=" + visibility +
+                '}';
+    }
+}

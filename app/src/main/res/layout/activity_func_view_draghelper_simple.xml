@@ -5,12 +5,12 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <vn.loitp.app.activity.function.viewDragHelperSimple.ViewDragHelperView
+    <vn.loitp.app.a.func.viewDragHelperSimple.ViewDragHelperView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -51,5 +51,5 @@
             android:text="@string/edage_to_ctrl_me"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_medium" />
-    </vn.loitp.app.activity.function.viewDragHelperSimple.ViewDragHelperView>
+    </vn.loitp.app.a.func.viewDragHelperSimple.ViewDragHelperView>
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -6,7 +6,7 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -30,7 +30,7 @@
             android:text="@string/change_size"
             android:textAllCaps="false" />
 
-        <com.loitpcore.views.recyclerView.fitGridView.FitGridView
+        <com.loitp.views.rv.fitGridView.FitGridView
             android:id="@+id/gridView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

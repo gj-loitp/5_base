@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCollapsingToolBarLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/collapsing_toolbar_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCollapsingToolbarWithTabLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/collapsing_toolbar_with_tab_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLActionBar"
+                style="@style/ButtonMenu"
+                android:text="@string/lactionbar" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNavigationView"
+                style="@style/ButtonMenu"
+                android:text="@string/navigation_view" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNavigationViewWithText"
+                style="@style/ButtonMenu"
+                android:text="@string/navigation_view_with_text" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

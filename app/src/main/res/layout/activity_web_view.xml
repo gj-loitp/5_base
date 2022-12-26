@@ -6,7 +6,7 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -23,7 +23,7 @@
             android:orientation="horizontal"
             android:padding="@dimen/margin_padding_medium">
 
-            <com.loitpcore.views.switchToggle.appcompatSwitch.LColorSwitchCompat
+            <com.loitp.views.sw.appcompatSw.LColorSwitchCompat
                 android:id="@+id/swEnableCopyContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
                 app:toggleOffColor="@color/vip3"
                 app:toggleOnColor="@color/vip4" />
 
-            <com.loitpcore.views.switchToggle.appcompatSwitch.LColorSwitchCompat
+            <com.loitp.views.sw.appcompatSw.LColorSwitchCompat
                 android:id="@+id/swEnableDarkMode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
         android:indeterminateOnly="false"
         android:progressTint="?attr/themeTextColor" />
 
-    <com.loitpcore.views.wv.LWebViewAdblock
+    <com.loitp.views.wv.LWebViewAdblock
         android:id="@+id/lWebView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

@@ -5,7 +5,7 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.loitpcore.views.scratchView.LScratchImageView
+        <com.loitp.views.scratch.LScratchImageView
             android:id="@+id/scratchImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

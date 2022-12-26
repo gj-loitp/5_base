@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
+
+    <RadioGroup
+        android:id="@+id/select_scene"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/scene"
+            android:textColor="?attr/themeTextColor" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/select_scene_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/scene_1"
+            android:textColor="?attr/themeTextColor" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/select_scene_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/scene_2"
+            android:textColor="?attr/themeTextColor" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/select_scene_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/scene_3"
+            android:textColor="?attr/themeTextColor" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/select_scene_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/scene_4"
+            android:textColor="?attr/themeTextColor" />
+
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/scene_root"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <include layout="@layout/frm_basic_transition_scene1" />
+
+    </FrameLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         tools:ignore="UselessParent">
 
-        <com.loitpcore.views.wwlMusic.layout.LWWLMusic
+        <com.loitp.views.wwl.music.layout.LWWLMusic
             android:id="@+id/watchWhileLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,18 +25,18 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/frmWatch"
-                android:name="vn.loitp.app.activity.customviews.wwlMusic.fragments.WWLWatchFragment"
+                android:name="vn.loitp.app.a.cv.wwlMusic.frm.WWLWatchFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/frmPlaylist"
-                android:name="vn.loitp.app.activity.customviews.wwlMusic.fragments.WWLPlaylistFragment"
+                android:name="vn.loitp.app.a.cv.wwlMusic.frm.WWLPlaylistFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
             <include layout="@layout/wwl_music_content_panel" />
-        </com.loitpcore.views.wwlMusic.layout.LWWLMusic>
+        </com.loitp.views.wwl.music.layout.LWWLMusic>
 
     </FrameLayout>
 

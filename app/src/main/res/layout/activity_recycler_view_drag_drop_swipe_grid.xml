@@ -8,12 +8,12 @@
     android:orientation="vertical"
     tools:ignore="HardcodedText">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.switchToggle.appcompatSwitch.LColorSwitchCompat
+    <com.loitp.views.sw.appcompatSw.LColorSwitchCompat
         android:id="@+id/swLayoutBehind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:paddingStart="@dimen/margin_padding_medium"
+    android:paddingTop="@dimen/margin_padding_small"
+    android:paddingEnd="@dimen/margin_padding_medium"
+    android:paddingBottom="@dimen/margin_padding_small">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:inputType="text"
+        android:paddingStart="0dp"
+        android:paddingEnd="@dimen/w_3"
+        android:textCursorDrawable="@null"
+        tools:text="@string/app_name" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="@dimen/w_30"
+        android:layout_height="@dimen/w_30"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"
+        tools:visibility="visible" />
+</RelativeLayout>

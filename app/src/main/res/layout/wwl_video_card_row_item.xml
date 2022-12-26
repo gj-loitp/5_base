@@ -5,7 +5,7 @@
     android:background="@color/red50"
     android:layout_height="wrap_content">
 
-    <com.loitpcore.views.wwlVideo.LWWLVideoFixedAspectRatioRelativeLayout
+    <com.loitp.views.wwl.video.LWWLVideoFixedAspectRatioRelativeLayout
         android:id="@+id/layoutThumbnail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,7 +41,7 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/txt_large" />
 
-    </com.loitpcore.views.wwlVideo.LWWLVideoFixedAspectRatioRelativeLayout>
+    </com.loitp.views.wwl.video.LWWLVideoFixedAspectRatioRelativeLayout>
 
     <FrameLayout
         android:id="@+id/layoutAvatar"

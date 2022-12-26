@@ -27,7 +27,7 @@
     <style name="ButtonMenu">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
+        <item name="android:gravity">start|center</item>
         <item name="android:background">?attr/themeBackgroundColorMedium</item>
         <item name="android:textSize">@dimen/txt_medium</item>
         <item name="android:layout_marginStart">@dimen/margin_padding_medium</item>
@@ -39,8 +39,7 @@
         <item name="android:layout_marginTop">@dimen/margin_padding_small</item>
         <item name="android:layout_marginBottom">@dimen/margin_padding_small</item>
         <item name="android:foreground">?selectableItemBackground</item>
-        <item name="android:drawableEnd">@drawable/ic_baseline_arrow_back_ios_24</item>
-        <item name="android:drawableStart">@drawable/ic_baseline_arrow_forward_ios_24</item>
+        <item name="android:drawableStart">@drawable/ic_baseline_arrow_back_ios_24</item>
         <item name="android:drawableTint">?attr/themeTextColor</item>
 
     </style>
@@ -115,4 +114,39 @@
         <item>@color/pineGreen</item>
         <item>@color/pink</item>
     </integer-array>
+
+    <style name="circle">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="rounded_corner">
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="cut_corner">
+        <item name="cornerSize">20dp</item>
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <style name="specific_rounded_corner">
+        <item name="cornerSizeTopLeft">50dp</item>
+        <item name="cornerSizeBottomRight">50dp</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+    </style>
+
+    <style name="specific_cut_corner">
+        <item name="cornerSizeTopLeft">50dp</item>
+        <item name="cornerSizeBottomRight">50dp</item>
+        <item name="cornerFamilyTopLeft">cut</item>
+        <item name="cornerFamilyBottomRight">cut</item>
+    </style>
+
+    <style name="specific_mix_corner">
+        <item name="cornerSize">50dp</item>
+        <item name="cornerFamilyTopLeft">cut</item>
+        <item name="cornerFamilyBottomRight">cut</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+    </style>
 </resources>

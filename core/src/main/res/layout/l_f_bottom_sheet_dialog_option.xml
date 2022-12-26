@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutRootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    tools:background="@color/deepPink">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivClose"
+        android:layout_width="@dimen/w_35"
+        android:layout_height="@dimen/w_35"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:layout_marginEnd="@dimen/margin_padding_medium"
+        android:background="@drawable/circle_primary_medium"
+        android:padding="@dimen/margin_padding_small"
+        android:src="@drawable/ic_close_black_48dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/themeBackgroundColor"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_padding_medium"
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:layout_marginEnd="@dimen/margin_padding_medium"
+        android:background="@drawable/bg_bottom_sheet_option"
+        android:gravity="center"
+        android:padding="@dimen/margin_padding_medium"
+        android:textColor="?attr/themeBackgroundColor"
+        android:textSize="@dimen/txt_medium"
+        app:layout_constraintTop_toBottomOf="@+id/ivClose"
+        tools:text="@string/app_name" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_padding_medium"
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:layout_marginEnd="@dimen/margin_padding_medium"
+        android:background="@drawable/bg_bottom_sheet_option"
+        android:gravity="center"
+        android:padding="@dimen/margin_padding_medium"
+        android:textColor="?attr/themeBackgroundColor"
+        android:textSize="@dimen/txt_medium"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        tools:text="@string/app_name" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_padding_medium"
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:layout_marginEnd="@dimen/margin_padding_medium"
+        android:layout_marginBottom="@dimen/margin_padding_medium"
+        android:background="@drawable/bg_bottom_sheet_option"
+        app:layout_constraintTop_toBottomOf="@+id/tvMsg">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bt3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?selectableItemBackground"
+            android:gravity="center"
+            android:padding="@dimen/margin_padding_medium"
+            android:singleLine="true"
+            android:textColor="?attr/themeBackgroundColor"
+            android:textSize="@dimen/txt_medium"
+            android:visibility="gone"
+            tools:text="@string/app_name"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/viewSpace1"
+            android:layout_width="@dimen/w_1"
+            android:layout_height="match_parent"
+            android:background="?attr/themeBackgroundColor"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bt2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?selectableItemBackground"
+            android:gravity="center"
+            android:padding="@dimen/margin_padding_medium"
+            android:singleLine="true"
+            android:textColor="?attr/themeBackgroundColor"
+            android:textSize="@dimen/txt_medium"
+            android:visibility="gone"
+            tools:text="@string/app_name"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/viewSpace2"
+            android:layout_width="@dimen/w_1"
+            android:layout_height="match_parent"
+            android:background="?attr/themeBackgroundColor"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bt1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?selectableItemBackground"
+            android:gravity="center"
+            android:padding="@dimen/margin_padding_medium"
+            android:singleLine="true"
+            android:textColor="?attr/themeBackgroundColor"
+            android:textSize="@dimen/txt_medium"
+            android:visibility="gone"
+            tools:text="@string/app_name"
+            tools:visibility="visible" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

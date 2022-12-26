@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
+    app:cardCornerRadius="@dimen/round_medium"
+    app:cardElevation="@dimen/w_3"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/margin_padding_medium">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_medium"
+            android:layout_marginTop="@dimen/margin_padding_medium"
+            android:layout_marginEnd="@dimen/margin_padding_medium"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/app_name" />
+
+        <com.ortiz.touchview.TouchImageView
+            android:id="@+id/ivQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_medium"
+            android:clickable="false"
+            app:layout_constraintTop_toBottomOf="@+id/tvQ"
+            tools:src="@drawable/iv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_medium"
+            android:layout_marginEnd="@dimen/margin_padding_medium"
+            android:paddingStart="@dimen/margin_padding_medium"
+            android:paddingEnd="0dp"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintTop_toBottomOf="@+id/ivQ"
+            tools:text="@string/app_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNextLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_medium"
+            android:layout_marginEnd="@dimen/margin_padding_medium"
+            android:paddingStart="@dimen/margin_padding_medium"
+            android:paddingEnd="0dp"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/txt_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvA"
+            tools:text="@string/app_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

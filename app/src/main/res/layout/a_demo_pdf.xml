@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/margin_padding_medium">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btFileAsyncTask"
+        style="@style/ButtonMenu"
+        android:text="@string/load_from_url_file_aysnctask" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btFileCoroutine"
+        style="@style/ButtonMenu"
+        android:text="@string/load_from_url_file_coroutine" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btStreamAsyncTask"
+        style="@style/ButtonMenu"
+        android:text="@string/load_from_url_stream_aysnctask" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btStreamCoroutine"
+        style="@style/ButtonMenu"
+        android:text="@string/load_from_url_stream_coroutine" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.barteksc.pdfviewer.PDFView
+            android:id="@+id/pdfView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/pb"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/w_10"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/margin_padding_medium"
+            android:indeterminateTint="@color/red"
+            android:max="100"
+            android:visibility="gone"
+            tools:progress="50"
+            tools:visibility="visible" />
+    </RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

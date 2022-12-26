@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aandroid="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btClose"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_close_black_48dp"
+            android:contentDescription="@string/app_name"
+            android:foreground="?actionBarItemBackground"
+            android:transitionName="close"
+            aandroid:ignore="UnusedAttribute" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_confirm"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_done_black_48dp"
+            android:contentDescription="@string/app_name"
+            android:foreground="?actionBarItemBackground"
+            android:transitionName="close"
+            aandroid:ignore="UnusedAttribute" />
+
+    </RelativeLayout>
+
+    <com.loitp.picker.crop.LCropImageView
+        android:id="@+id/cropImageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:LcropShape="oval" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/w_10"
+        android:paddingBottom="@dimen/w_10">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_rotaion"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:background="@null"
+            android:contentDescription="@string/app_name"
+            android:foreground="?actionBarItemBackground"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_rotate_left_black_48dp"
+            aandroid:ignore="UnusedAttribute" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_crop"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:contentDescription="@string/app_name"
+            android:foreground="?actionBarItemBackground"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_crop_black_48dp"
+            aandroid:ignore="UnusedAttribute" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:background="@null"
+            android:contentDescription="@string/app_name"
+            android:foreground="?actionBarItemBackground"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_close_black_48dp"
+            android:visibility="gone"
+            aandroid:ignore="UnusedAttribute" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_cut_confirm"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:contentDescription="@string/app_name"
+            android:foreground="?actionBarItemBackground"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_done_black_48dp"
+            android:visibility="gone"
+            aandroid:ignore="UnusedAttribute"
+            aandroid:layout_width="@dimen/w_50" />
+    </LinearLayout>
+</LinearLayout>

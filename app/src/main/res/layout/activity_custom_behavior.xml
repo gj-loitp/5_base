@@ -134,7 +134,7 @@
             android:layout_gravity="bottom|start"
             android:layout_margin="@dimen/w_30"
             android:src="@drawable/iv"
-            app:layout_behavior="vn.loitp.app.activity.customviews.layout.constraintLayout.customBehavior.CustomBehavior" />
+            app:layout_behavior="vn.loitp.app.a.cv.layout.constraint.customBehavior.CustomBehavior" />
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="wrap_content"
@@ -142,7 +142,7 @@
             app:layout_anchor="@id/cardView3" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

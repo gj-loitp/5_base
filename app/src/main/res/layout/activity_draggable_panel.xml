@@ -19,12 +19,12 @@
             android:textSize="@dimen/txt_medium" />
     </androidx.core.widget.NestedScrollView>
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.layout.draggablePanel.DraggablePanel
+    <com.loitp.views.layout.draggablePanel.DraggablePanel
         android:id="@+id/draggablePanel"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

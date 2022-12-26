@@ -5,7 +5,7 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -21,33 +21,33 @@
             android:orientation="vertical"
             android:paddingTop="@dimen/w_65">
 
-            <com.loitpcore.views.layout.square.LSquareFrameLayout
+            <com.loitp.views.layout.square.LSquareFrameLayout
                 android:layout_width="@dimen/w_50"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@color/blue" />
 
-            <com.loitpcore.views.layout.square.LSquareFrameLayout
+            <com.loitp.views.layout.square.LSquareFrameLayout
                 android:layout_width="@dimen/w_250"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@color/green" />
 
-            <com.loitpcore.views.layout.square.LSquareFrameLayout
+            <com.loitp.views.layout.square.LSquareFrameLayout
                 android:layout_width="@dimen/w_80"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@color/red" />
 
-            <com.loitpcore.views.layout.square.LSquareFrameLayout
+            <com.loitp.views.layout.square.LSquareFrameLayout
                 android:layout_width="@dimen/w_100"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/margin_padding_medium"
                 android:background="@color/pink" />
 
-            <com.loitpcore.views.layout.square.LSquareFrameLayout
+            <com.loitp.views.layout.square.LSquareFrameLayout
                 android:layout_width="@dimen/w_250"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_padding_medium"

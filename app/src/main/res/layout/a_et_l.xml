@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/w_120"
+            android:layout_height="@dimen/w_120"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/w_55"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_marginStart="@dimen/w_20"
+            android:layout_marginEnd="@dimen/w_20"
+            android:text="@string/login"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_larger"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_marginStart="@dimen/w_20"
+            android:layout_marginEnd="@dimen/w_20"
+            android:text="Id: loitp\nPw: 123456789"
+            android:textColor="@color/red"
+            android:textSize="@dimen/txt_large"
+            android:textStyle="italic" />
+
+        <com.loitp.views.et.l.LEditText
+            android:id="@+id/lEditTextId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDescription"
+            android:layout_marginTop="@dimen/w_100" />
+
+        <com.loitp.views.et.l.LEditText
+            android:id="@+id/lEditTextPw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lEditTextId"
+            android:layout_marginTop="@dimen/w_55" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/w_20"
+            android:background="?attr/themeBackgroundColor"
+            android:text="@string/login"
+            android:textColor="?attr/themeTextColor" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

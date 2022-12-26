@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAndroidSlidingUpPanel"
+                style="@style/ButtonMenu"
+                android:text="AndroidSlidingUpPanelActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAspectRatioLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/aspect_ratio_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAutoLinearLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/autolinearlayout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAutoScrollContent"
+                style="@style/ButtonMenu"
+                android:text="AutoScrollContent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btBasketLayoutActivity"
+                style="@style/ButtonMenu"
+                android:text="@string/basketlayout_activity" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btChessLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/chess_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCircularView"
+                style="@style/ButtonMenu"
+                android:text="@string/circularview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btConstraintLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/constraint_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCoordinatorLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/coordinatorlayout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCornerCutLinearLayout"
+                style="@style/ButtonMenu"
+                android:text="CornerCutLinearLayout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDraggablePanel"
+                style="@style/ButtonMenu"
+                android:text="@string/draggablepanel" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDraggablePanelFree"
+                style="@style/ButtonMenu"
+                android:text="@string/draggablepanel_free" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDraggableView"
+                style="@style/ButtonMenu"
+                android:text="@string/draggableview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btExpansionPanel"
+                style="@style/ButtonMenu"
+                android:text="@string/expansion_panel" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFloatDragLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/floatdraglayout_activity" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFloatLayout"
+                style="@style/ButtonMenu"
+                android:text="FloatLayoutActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFlowLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/flow_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGreedoLayout"
+                style="@style/ButtonMenu"
+                android:text="Greedo Layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btHeartLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/heart_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btReflectionLayoutActivity"
+                style="@style/ButtonMenu"
+                android:text="ReflectionLayoutActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRelativePopupWindow"
+                style="@style/ButtonMenu"
+                android:text="@string/relative_popup_window" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRippleLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/ripple_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRotateLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/rotate_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRoundableLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/roundable_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btScrollView2d"
+                style="@style/ButtonMenu"
+                android:text="@string/scroll_view_2d" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btScrollView2dAdvance"
+                style="@style/ButtonMenu"
+                android:text="@string/scroll_view_2d_advance" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSequenceLayoutActivity"
+                style="@style/ButtonMenu"
+                android:text="@string/sequence_layout_activity" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShadowLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/shadow_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShapeOfView"
+                style="@style/ButtonMenu"
+                android:text="@string/shape_of_view" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSplitPanelLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/split_panel_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSquareLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/square_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSwipebackLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/swipe_back_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSwipeRefreshLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/swipe_refresh_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSwipeRevealLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/swipe_reveal_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTramsformationLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/transformation_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTramsformationLayoutSingle"
+                style="@style/ButtonMenu"
+                android:text="@string/transformation_layout_single" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btZoomLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/zoom_layout" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

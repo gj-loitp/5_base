@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rlRootContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <!--View while view is collapsed-->
+        <RelativeLayout
+            android:id="@+id/rlCollapse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Icon of floating widget -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/w_50"
+                android:layout_height="@dimen/w_50"
+                android:layout_marginTop="@dimen/w_5"
+                android:src="@drawable/ic_bug_report_black_48dp"
+                app:tint="@color/red"
+                tools:ignore="ContentDescription" />
+
+            <!--Close button-->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivClose"
+                android:layout_width="@dimen/w_20"
+                android:layout_height="@dimen/w_20"
+                android:layout_marginStart="@dimen/w_40"
+                android:src="@drawable/ic_close_black_48dp"
+                app:tint="@color/red"
+                tools:ignore="ContentDescription" />
+        </RelativeLayout>
+
+        <!--View while view is expanded-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llExpanded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/black85"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end|center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/w_3">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="@string/drag_me_here"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt_medium"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivCloseButton"
+                    android:layout_width="@dimen/w_20"
+                    android:layout_height="@dimen/w_20"
+                    android:layout_marginStart="@dimen/w_5"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_close_black_48dp"
+                    app:tint="@color/white" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/grey" />
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_root_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/w_3">
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </ScrollView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </RelativeLayout>
+</FrameLayout>

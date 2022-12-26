@@ -13,7 +13,7 @@
         android:fitsSystemWindows="true"
         tools:ignore="UselessParent">
 
-        <com.loitpcore.views.wwlVideo.LWWLVideo
+        <com.loitp.views.wwl.video.LWWLVideo
             android:id="@+id/watchWhileLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -33,25 +33,25 @@
 
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/frmPlayer"
-                    android:name="vn.loitp.app.activity.customviews.wwlVideo.detail.WWLVideoPlayerFragment"
+                    android:name="vn.loitp.app.a.cv.wwlVideo.detail.WWLVideoPlayerFragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </FrameLayout>
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/frmUpNext"
-                android:name="vn.loitp.app.activity.customviews.wwlVideo.detail.WWLVideoUpNextFragment"
+                android:name="vn.loitp.app.a.cv.wwlVideo.detail.WWLVideoUpNextFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/frmMetaInfo"
-                android:name="vn.loitp.app.activity.customviews.wwlVideo.detail.WWLVideoMetaInfoFragment"
+                android:name="vn.loitp.app.a.cv.wwlVideo.detail.WWLVideoMetaInfoFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
             <include layout="@layout/wwl_video_content_panel" />
-        </com.loitpcore.views.wwlVideo.LWWLVideo>
+        </com.loitp.views.wwl.video.LWWLVideo>
 
     </FrameLayout>
 

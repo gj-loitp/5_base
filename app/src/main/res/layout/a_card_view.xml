@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/lActionBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mcvTest"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_250"
+                android:layout_marginStart="@dimen/margin_padding_medium"
+                android:layout_marginEnd="@dimen/margin_padding_medium"
+                app:cardBackgroundColor="@color/red"
+                app:cardCornerRadius="@dimen/round_largest"
+                app:cardElevation="@dimen/w_3"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="false"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/whiteSmoke"
+                app:strokeWidth="@dimen/w_3" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btChange"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_padding_medium"
+                android:text="Change"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mcvTest" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

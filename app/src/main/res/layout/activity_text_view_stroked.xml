@@ -6,12 +6,12 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.textView.stroked.LStrokedTextView
+    <com.loitp.views.tv.stroked.LStrokedTextView
         android:id="@+id/stv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/stv">
 
-        <com.loitpcore.views.textView.stroked.LStrokedTextView
+        <com.loitp.views.tv.stroked.LStrokedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/margin_padding_medium"

@@ -615,7 +615,7 @@ Likewise may someone love you next.
     <string name="_default">Default</string>
     <string name="text_watcher">Text Watcher</string>
     <string name="currency_edittext">Currency EditText</string>
-    <string name="one_piece_907">http://truyentranhtuan.com/one-piece-chuong-907/</string>
+    <string name="one_piece_907">http://truyentuan.com/one-piece-chuong-907/</string>
     <string name="stfalcon_imageviewer">Stfalcon ImageViewer</string>
     <string name="touch_image_view_with_viewpager">Touch Image View with ViewPager</string>
     <string name="kenburn_view">Kenburn view</string>
@@ -1133,4 +1133,23 @@ Likewise may someone love you next.
     <string name="message_set_up_pattern">Set up PIN/Pattern/Password.</string>
     <string name="title_device_lock">Device Lock</string>
     <string name="title_set_up_device_lock">Set up Device lock.</string>
+    <string name="Upload">Upload</string>
+    <string name="Error">Error</string>
+    <string name="Complete">Complete</string>
+    <string name="IndeterminateProgressSample">Indeterminate Progress Sample</string>
+    <string name="IntegerProgressSample">Integer Progress Sample</string>
+    <string name="StateChangeSample">State Change Sample</string>
+    <string name="ProgressPaddingSample">Progress Padding Sample</string>
+    <string name="CustomSelectorSample">Custom Selector Sample</string>
+    <array name="sample_list">
+        <item>@string/IndeterminateProgressSample</item>
+        <item>@string/IntegerProgressSample</item>
+        <item>@string/StateChangeSample</item>
+        <item>@string/ProgressPaddingSample</item>
+        <item>@string/CustomSelectorSample</item>
+    </array>
+    <string name="enable_fixed_height">Enable Fixed Height</string>
+    <string name="disable_fixed_height">Disable Fixed Height</string>
+    <string name="corner_sheet">CornerSheet</string>
+    <string name="lucky_wheel_activity">LuckyWheelActivity</string>
 </resources>

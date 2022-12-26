@@ -1,0 +1,45 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/mtf_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:gravity="center_vertical"
+        android:paddingStart="5dp"
+        android:paddingEnd="0dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        tools:text="Password"
+        tools:textColor="@color/red" />
+
+    <FrameLayout
+        android:id="@+id/mtf_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mtf_cardHeight_final"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/l_card">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mtf_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:adjustViewBounds="true" />
+
+        <FrameLayout
+            android:id="@+id/mtf_editTextLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="50dp"
+            android:paddingEnd="10dp" />
+
+    </FrameLayout>
+
+</FrameLayout>

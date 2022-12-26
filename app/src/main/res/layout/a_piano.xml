@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_padding_medium"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ivLeftArrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="@dimen/margin_padding_medium"
+            android:background="@drawable/left_arrow" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/sb"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/piano_bar"
+            android:padding="0dp"
+            android:progressDrawable="@null"
+            android:thumb="@drawable/seekbar_thumb" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ivRightArrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/right_arrow" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ivMusic"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/music" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.loitp.views.piano.view.PianoView
+        android:id="@+id/pv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llc">
+
+    </com.loitp.views.piano.view.PianoView>
+</androidx.constraintlayout.widget.ConstraintLayout>

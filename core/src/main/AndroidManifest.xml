@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.REBOOT" />
+    <uses-permission
+        android:name="android.permission.REBOOT"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
@@ -21,6 +23,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <!-- Always required on api < 21, needed to keep a wake lock while your job is running -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- Required on all api levels if you are using setPersisted(true) -->
@@ -43,12 +46,6 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/LightTheme"
         android:usesCleartextTraffic="true">
-
-        <!--        <provider-->
-        <!--            android:name=".function.pump.download.DownloadProvider"-->
-        <!--            android:authorities="${applicationId}.function.pump.download.DownloadProvider"-->
-        <!--            android:exported="false"-->
-        <!--            android:multiprocess="true" />-->
 
         <!-- support 18:9 -->
         <meta-data
@@ -95,7 +92,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
-            android:name=".function.epub.core.EpubReaderReadActivity"
+            android:name=".func.epub.core.EpubReaderReadActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".picker.crop.LCropImageActivity"
@@ -120,7 +117,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findNumber.dialog.FindNumberWinActivity"
+            android:name=".game.findNumber.dlg.FindNumberWinActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity

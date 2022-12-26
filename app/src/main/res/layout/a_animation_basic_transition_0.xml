@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDummy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_medium"
+            android:text="@string/activity_0"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
+
+        <com.loitp.views.layout.square.LSquareFrameLayout
+            android:layout_width="@dimen/w_150"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDummy">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewItem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/loitp" />
+
+        </com.loitp.views.layout.square.LSquareFrameLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/margin_padding_medium"
+            android:text="@string/loitp"
+            android:textColor="@color/red"
+            android:textSize="@dimen/txt_large" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt"
+        style="@style/ButtonMenu"
+        android:layout_gravity="center"
+        android:text="@string/app_name"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium" />
+</FrameLayout>

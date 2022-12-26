@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/pdlg_space"
+    android:layout_marginBottom="@dimen/pdlg_space">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/l_bkg_dialog"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="@dimen/pdlg_space"
+            android:paddingTop="@dimen/pdlg_space"
+            android:paddingRight="@dimen/pdlg_space"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/pdlg_tv_title"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/pdlg_space"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/pdlg_tv_message"
+            tools:text="@string/app_name" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="true"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:background="@drawable/l_bkg_dialog_icon"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="@dimen/pdlg_icon_size"
+            android:layout_height="@dimen/pdlg_icon_size"
+            android:layout_margin="@dimen/pdlg_border_size"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_close_black_48dp"
+            android:tint="@color/blue"
+            tools:src="@drawable/ic_launcher" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</FrameLayout>

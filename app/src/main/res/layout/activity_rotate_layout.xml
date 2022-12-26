@@ -18,7 +18,7 @@
             android:orientation="vertical"
             android:paddingTop="@dimen/w_65">
 
-            <com.loitpcore.views.layout.rotate.LRotateLayout
+            <com.loitp.views.layout.rotate.LRotateLayout
                 android:id="@+id/rotateLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -30,9 +30,9 @@
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/iv" />
-            </com.loitpcore.views.layout.rotate.LRotateLayout>
+            </com.loitp.views.layout.rotate.LRotateLayout>
 
-            <com.loitpcore.views.layout.rotate.LRotateLayout
+            <com.loitp.views.layout.rotate.LRotateLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/w_30"
@@ -44,9 +44,9 @@
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/iv" />
-            </com.loitpcore.views.layout.rotate.LRotateLayout>
+            </com.loitp.views.layout.rotate.LRotateLayout>
 
-            <com.loitpcore.views.layout.rotate.LRotateLayout
+            <com.loitp.views.layout.rotate.LRotateLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/w_30"
@@ -58,9 +58,9 @@
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/iv" />
-            </com.loitpcore.views.layout.rotate.LRotateLayout>
+            </com.loitp.views.layout.rotate.LRotateLayout>
 
-            <com.loitpcore.views.layout.rotate.LRotateLayout
+            <com.loitp.views.layout.rotate.LRotateLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/w_30"
@@ -75,7 +75,7 @@
                     android:textColor="@color/blue"
                     android:textSize="@dimen/txt_large"
                     android:textStyle="bold" />
-            </com.loitpcore.views.layout.rotate.LRotateLayout>
+            </com.loitp.views.layout.rotate.LRotateLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
@@ -89,7 +89,7 @@
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

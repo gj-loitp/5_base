@@ -15,7 +15,7 @@
         android:gravity="center"
         android:textColor="@android:color/white" />
 
-    <com.loitpcore.views.wwlMusic.layout.LWWLMusicFixedAspectRatioFrameLayout
+    <com.loitp.views.wwl.music.layout.LWWLMusicFixedAspectRatioFrameLayout
         android:id="@id/layoutThumbnail"
         android:layout_width="88.0dip"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             android:src="@drawable/iv" />
-    </com.loitpcore.views.wwlMusic.layout.LWWLMusicFixedAspectRatioFrameLayout>
+    </com.loitp.views.wwl.music.layout.LWWLMusicFixedAspectRatioFrameLayout>
 
     <FrameLayout
         android:id="@+id/layoutMenuAnchorContainer"

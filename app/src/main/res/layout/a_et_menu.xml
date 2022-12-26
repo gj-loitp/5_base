@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAnimatedExpandableEditText"
+                style="@style/ButtonMenu"
+                android:text="@string/animated_expandable_edittext_activity" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAutoResizeEditText"
+                style="@style/ButtonMenu"
+                android:text="@string/autoresizeedittext" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAutoSuggestEditText"
+                style="@style/ButtonMenu"
+                android:text="@string/autosuggestedittext" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCurrencyEditText"
+                style="@style/ButtonMenu"
+                android:text="@string/currency_edittext" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMaterialTextField"
+                style="@style/ButtonMenu"
+                android:text="@string/materialtextfield" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLEditText"
+                style="@style/ButtonMenu"
+                android:text="@string/ledittext" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btEditextTextWatcher"
+                style="@style/ButtonMenu"
+                android:text="@string/text_watcher" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

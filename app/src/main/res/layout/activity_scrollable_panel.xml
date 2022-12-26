@@ -6,12 +6,12 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.loitpcore.views.scrollablePanel.LScrollablePanel
+    <com.loitp.views.scrollablePanel.LScrollablePanel
         android:id="@+id/scrollablePanel"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

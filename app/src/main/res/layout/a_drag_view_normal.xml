@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <com.loitp.views.ab.LActionBar
+            android:id="@+id/lActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnMax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Max" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnMin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Min" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Close" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:id="@+id/alpha"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000" />
+
+    <com.tuanhav95.drag.DragView
+        android:id="@+id/dragView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:height_when_max="300dp"
+        app:height_when_min="80dp"
+        app:margin_bottom_when_min="8dp"
+        app:margin_edge_when_min="8dp"
+        app:percent_when_middle="0.9"
+        app:state="MIN" />
+</androidx.constraintlayout.widget.ConstraintLayout>

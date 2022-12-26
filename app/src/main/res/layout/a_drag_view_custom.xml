@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <com.loitp.views.ab.LActionBar
+            android:id="@+id/lActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnMax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Max" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnMin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Min" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Close" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etHeightMax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:digits="0123456789"
+            android:hint="Enter height max db (max 350, min 200)"
+            android:inputType="number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSetHeightMax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Height Max" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:id="@+id/alpha"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000" />
+
+    <vn.loitp.a.cv.dragView.custom.DragSource
+        android:id="@+id/dragView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:height_when_max="300dp"
+        app:height_when_min="58dp"
+        app:state="MIN" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -18,7 +18,7 @@
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
-        <com.loitpcore.views.textView.verticalMarquee.LVerticalMarqueeTextView
+        <com.loitp.views.tv.verticalMarquee.LVerticalMarqueeTextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
@@ -29,7 +29,7 @@
             example:textSize="@dimen/txt_medium"
             example:textStyle="bold" />
 
-        <com.loitpcore.views.textView.verticalMarquee.LVerticalMarqueeTextView
+        <com.loitp.views.tv.verticalMarquee.LVerticalMarqueeTextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center_horizontal"

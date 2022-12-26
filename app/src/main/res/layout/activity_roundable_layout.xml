@@ -6,7 +6,7 @@
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
-    <com.loitpcore.views.actionBar.LActionBar
+    <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -26,7 +26,7 @@
             android:paddingEnd="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
-            <com.loitpcore.views.layout.roundable.LRoundableLayout
+            <com.loitp.views.layout.roundable.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -44,7 +44,7 @@
                 app:lrl_strokeLineColor="@color/colorPrimary"
                 app:lrl_strokeLineWidth="2dp" />
 
-            <com.loitpcore.views.layout.roundable.LRoundableLayout
+            <com.loitp.views.layout.roundable.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -72,9 +72,9 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-            </com.loitpcore.views.layout.roundable.LRoundableLayout>
+            </com.loitp.views.layout.roundable.LRoundableLayout>
 
-            <com.loitpcore.views.layout.roundable.LRoundableLayout
+            <com.loitp.views.layout.roundable.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -87,7 +87,7 @@
                 app:lrl_strokeLineColor="@color/red"
                 app:lrl_strokeLineWidth="5dp" />
 
-            <com.loitpcore.views.layout.roundable.LRoundableLayout
+            <com.loitp.views.layout.roundable.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -110,9 +110,9 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-            </com.loitpcore.views.layout.roundable.LRoundableLayout>
+            </com.loitp.views.layout.roundable.LRoundableLayout>
 
-            <com.loitpcore.views.layout.roundable.LRoundableLayout
+            <com.loitp.views.layout.roundable.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -122,7 +122,7 @@
                 app:lrl_cornerLeftTop="90dp"
                 app:lrl_cornerRightBottom="90dp" />
 
-            <com.loitpcore.views.layout.roundable.LRoundableLayout
+            <com.loitp.views.layout.roundable.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -142,9 +142,9 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-            </com.loitpcore.views.layout.roundable.LRoundableLayout>
+            </com.loitp.views.layout.roundable.LRoundableLayout>
 
-            <com.loitpcore.views.layout.roundable.LRoundableLayout
+            <com.loitp.views.layout.roundable.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -162,7 +162,7 @@
                 app:lrl_strokeLineColor="@color/red"
                 app:lrl_strokeLineWidth="5dp" />
 
-            <com.loitpcore.views.layout.roundable.LRoundableLayout
+            <com.loitp.views.layout.roundable.LRoundableLayout
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_marginTop="@dimen/w_50"
@@ -190,7 +190,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-            </com.loitpcore.views.layout.roundable.LRoundableLayout>
+            </com.loitp.views.layout.roundable.LRoundableLayout>
 
             <View
                 android:layout_width="match_parent"
