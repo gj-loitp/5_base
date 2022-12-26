@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.keyboard
+package vn.loitp.a.func.keyboard
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LKeyBoardUtil
 import com.loitp.core.utilities.LUIUtil
 import gun0912.tedkeyboardobserver.TedRxKeyboardObserver
-import kotlinx.android.synthetic.main.activity_func_keyboard.*
+import kotlinx.android.synthetic.main.a_func_keyboard.*
 import vn.loitp.R
 
 // https://github.com/ParkSangGwon/TedKeyboardObserver
@@ -19,7 +19,7 @@ import vn.loitp.R
 class KeyboardActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_keyboard
+        return R.layout.a_func_keyboard
     }
 
     @SuppressLint("CheckResult", "SetTextI18n")
