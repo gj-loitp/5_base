@@ -15,7 +15,7 @@ import vn.loitp.a.picker.number.NumberPickerActivity
 import vn.loitp.a.picker.shiftColor.ShiftColorPickerActivity
 import vn.loitp.a.picker.ssImage.MainActivitySSImagePicker
 import vn.loitp.a.picker.time.TimePickerActivity
-import vn.loitp.app.a.picker.unicornFile.UnicornFilePickerActivity
+import vn.loitp.a.picker.unicornFile.UnicornFilePickerActivity
 
 @LogTag("MenuPickerActivity")
 @IsFullScreen(false)

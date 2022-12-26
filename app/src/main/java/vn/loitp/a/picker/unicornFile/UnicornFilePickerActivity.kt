@@ -1,4 +1,4 @@
-package vn.loitp.app.a.picker.unicornFile
+package vn.loitp.a.picker.unicornFile
 
 import abhishekti7.unicorn.filepicker.UnicornFilePicker
 import abhishekti7.unicorn.filepicker.utils.Constants
@@ -15,8 +15,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_unicorn_file_picker.*
+import kotlinx.android.synthetic.main.a_unicorn_file_picker.*
 import vn.loitp.R
+
 @LogTag("UnicornFilePickerActivity")
 @IsFullScreen(false)
 class UnicornFilePickerActivity : BaseFontActivity() {
@@ -31,7 +32,7 @@ class UnicornFilePickerActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_unicorn_file_picker
+        return R.layout.a_unicorn_file_picker
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -121,7 +122,11 @@ class UnicornFilePickerActivity : BaseFontActivity() {
     }
 
     //TODO onActivityResult
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == Constants.REQ_UNICORN_FILE && resultCode == RESULT_OK) {
