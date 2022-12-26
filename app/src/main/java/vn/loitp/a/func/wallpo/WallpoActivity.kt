@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.wallpo
+package vn.loitp.a.func.wallpo
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_wallpo.*
+import kotlinx.android.synthetic.main.a_wallpo.*
 import vn.loitp.R
 
 @LogTag("WallpoActivity")
@@ -21,7 +21,7 @@ import vn.loitp.R
 class WallpoActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_wallpo
+        return R.layout.a_wallpo
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
