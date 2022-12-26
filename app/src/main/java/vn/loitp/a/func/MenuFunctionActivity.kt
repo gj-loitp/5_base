@@ -13,7 +13,7 @@ import vn.loitp.a.func.activityAndService.ActivityServiceCommunicateActivity
 import vn.loitp.a.func.dragDrop.DragDropSampleActivity
 import vn.loitp.a.func.fullScreen.FullScreenActivity
 import vn.loitp.a.func.glide.GlideActivity
-import vn.loitp.app.a.func.hashmap.HashMapActivity
+import vn.loitp.a.func.hashmap.HashMapActivity
 import vn.loitp.app.a.func.idleTime.IdleTimeActivity
 import vn.loitp.app.a.func.keyboard.KeyboardActivity
 import vn.loitp.app.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity
