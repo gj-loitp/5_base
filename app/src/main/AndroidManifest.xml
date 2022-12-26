@@ -1407,6 +1407,10 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <service android:name="io.hamed.floatinglayout.service.FloatingService" />
+        <activity
+            android:name=".a.cv.spotlight.SpotlightActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
     </application>
     <queries>
         <intent>

@@ -188,6 +188,11 @@
                 android:text="@string/simple_rating_bar" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSpotlight"
+                style="@style/ButtonMenu"
+                android:text="Spotlight" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btStackExpandableViewActivity"
                 style="@style/ButtonMenu"
                 android:text="@string/stack_expandable_view_activity" />

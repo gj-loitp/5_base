@@ -87,8 +87,12 @@ dependencies {
     api 'com.flaviofaria:kenburnsview:1.0.7'
     //https://github.com/kakajika/RelativePopupWindow
     api 'com.labo.kaji:relativepopupwindow:0.4.1'
+
+//    https://github.com/NicholasMata/Spotlight
+    api 'com.github.nicholasmata:spotlight:0.2.0'
     //https://github.com/stfalcon-studio/StfalconImageViewer
     api 'com.github.stfalcon:stfalcon-imageviewer:1.0.1'
+
     //https://github.com/skydoves/TransformationLayout
     api "com.github.skydoves:transformationlayout:1.1.1"
     //https://github.com/hackware1993/MagicIndicator
