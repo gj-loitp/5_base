@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor"
-    android:orientation="vertical">
+    android:background="?attr/themeBackgroundColor">
 
     <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/margin_padding_medium"
         android:text="@string/notification_menu"
         android:textColor="@color/red"
-        android:textSize="@dimen/txt_medium" />
+        android:textSize="@dimen/txt_medium"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_below="@+id/tvMenu"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMenu">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
@@ -67,4 +71,4 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

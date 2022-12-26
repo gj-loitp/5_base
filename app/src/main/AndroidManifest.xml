@@ -440,7 +440,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- Facebook Configuration -->
         <activity
-            android:name=".app.a.func.noti.MenuNotificationActivity"
+            android:name=".a.func.noti.MenuNotificationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity

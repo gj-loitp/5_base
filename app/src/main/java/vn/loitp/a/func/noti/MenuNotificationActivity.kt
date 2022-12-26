@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.noti
+package vn.loitp.a.func.noti
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -23,8 +23,9 @@ import com.loitp.func.notification.actions.NotificationAction
 import com.loitp.func.notification.config.LightSettings
 import com.loitp.func.notification.config.NottiConfig
 import com.loitp.func.notification.config.VibrationSettings
-import kotlinx.android.synthetic.main.activity_menu_notification.*
+import kotlinx.android.synthetic.main.a_menu_notification.*
 import vn.loitp.R
+
 @LogTag("MenuNotificationActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
@@ -38,7 +39,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
     private val channelId = "my_package_channel"
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_notification
+        return R.layout.a_menu_notification
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
