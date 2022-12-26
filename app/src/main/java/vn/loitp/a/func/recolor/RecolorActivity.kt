@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.recolor
+package vn.loitp.a.func.recolor
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -6,7 +6,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.simmorsal.recolor_project.ReColor
-import kotlinx.android.synthetic.main.activity_fun_recolor.*
+import kotlinx.android.synthetic.main.a_func_recolor.*
 import vn.loitp.R
 
 // https://github.com/SIMMORSAL/ReColor
@@ -22,7 +22,7 @@ class RecolorActivity : BaseFontActivity() {
     private var isNavigationBarColorChanged = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fun_recolor
+        return R.layout.a_func_recolor
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
