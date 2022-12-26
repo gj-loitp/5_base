@@ -1403,7 +1403,7 @@
             android:name=".a.cv.androidRibbon.SecondActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.floatLayout.FloatLayoutActivity"
+            android:name=".a.cv.layout.floatLayout.FloatLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>

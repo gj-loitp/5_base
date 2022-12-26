@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.floatLayout
+package vn.loitp.a.cv.layout.floatLayout
 
 import android.os.Bundle
 import androidx.core.view.isVisible
