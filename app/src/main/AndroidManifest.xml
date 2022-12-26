@@ -436,7 +436,7 @@
             android:name=".app.a.cv.layout.swipeBack.SwipeBackLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.func.location.LocationActivity"
+            android:name=".a.func.location.LocationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- Facebook Configuration -->
         <activity

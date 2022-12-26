@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.location
+package vn.loitp.a.func.location
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -24,7 +24,7 @@ import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LLocationUtil
 import com.loitp.core.utilities.LUIUtil
 import com.permissionx.guolindev.PermissionX
-import kotlinx.android.synthetic.main.activity_func_location.*
+import kotlinx.android.synthetic.main.a_func_location.*
 import vn.loitp.BuildConfig
 import vn.loitp.R
 import java.text.DateFormat
@@ -60,7 +60,7 @@ class LocationActivity : BaseFontActivity() {
     private var mRequestingLocationUpdates: Boolean? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_location
+        return R.layout.a_func_location
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -316,7 +316,11 @@ class LocationActivity : BaseFontActivity() {
     }
 
     //TODO onActivityResult
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             REQUEST_CHECK_SETTINGS -> when (resultCode) {
