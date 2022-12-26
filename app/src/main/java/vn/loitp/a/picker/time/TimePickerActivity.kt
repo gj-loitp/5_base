@@ -1,4 +1,4 @@
-package vn.loitp.app.a.picker.time
+package vn.loitp.a.picker.time
 
 import android.annotation.SuppressLint
 import android.app.TimePickerDialog
@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_time_picker.*
+import kotlinx.android.synthetic.main.a_picker_time.*
 import vn.loitp.R
 import java.util.*
 
@@ -20,7 +20,7 @@ class TimePickerActivity : BaseFontActivity() {
     private var pickerRange: RangeTimePickerDialog? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_time_picker
+        return R.layout.a_picker_time
     }
 
     @SuppressLint("SetTextI18n")

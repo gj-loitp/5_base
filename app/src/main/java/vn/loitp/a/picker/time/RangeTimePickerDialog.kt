@@ -1,4 +1,4 @@
-package vn.loitp.app.a.picker.time
+package vn.loitp.a.picker.time
 
 import android.app.TimePickerDialog
 import android.content.Context
@@ -17,17 +17,27 @@ class RangeTimePickerDialog(
     private var mMaxHour = 100
     private var mMaxMinute = 100
 
-    fun setMin(hour: Int, minute: Int) {
+    fun setMin(
+        hour: Int,
+        minute: Int
+    ) {
         mMinHour = hour
         mMinMinute = minute
     }
 
-    fun setMax(hour: Int, minute: Int) {
+    fun setMax(
+        hour: Int,
+        minute: Int
+    ) {
         mMaxHour = hour
         mMaxMinute = minute
     }
 
-    override fun onTimeChanged(view: TimePicker, hourOfDay: Int, minute: Int) {
+    override fun onTimeChanged(
+        view: TimePicker,
+        hourOfDay: Int,
+        minute: Int
+    ) {
         super.onTimeChanged(view, hourOfDay, minute)
 
         val validTime = (
