@@ -493,7 +493,7 @@
             android:name=".app.a.cv.wwlVideo.WWLVideoActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
-            android:name=".app.a.func.sensor.SensorActivity"
+            android:name=".a.func.sensor.SensorActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
             android:name=".app.a.cv.layout.rotate.RotateLayoutActivity"

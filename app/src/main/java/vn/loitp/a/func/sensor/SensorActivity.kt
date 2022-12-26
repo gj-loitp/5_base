@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.sensor
+package vn.loitp.a.func.sensor
 
 import android.content.Context
 import android.os.Bundle
@@ -7,11 +7,11 @@ import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LScreenUtil
-import kotlinx.android.synthetic.main.activity_func_sensor.*
+import kotlinx.android.synthetic.main.a_func_sensor.*
 import vn.loitp.R
-import vn.loitp.common.Constants.Companion.URL_IMG
 
 @LogTag("SensorActivity")
 @IsFullScreen(false)
@@ -19,7 +19,7 @@ class SensorActivity : BaseFontActivity() {
     private var orientationListener: OrientationListener? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_sensor
+        return R.layout.a_func_sensor
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +29,7 @@ class SensorActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        LImageUtil.load(context = this, any = URL_IMG, imageView = imageView)
+        LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = imageView)
         val w = LScreenUtil.screenWidth
         val h = w * 9 / 16
         setSizeRelativeLayout(rotateLayout, w, h)

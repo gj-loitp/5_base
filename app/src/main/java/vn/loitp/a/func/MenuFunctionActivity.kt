@@ -21,7 +21,7 @@ import vn.loitp.a.func.location.LocationActivity
 import vn.loitp.a.func.noti.MenuNotificationActivity
 import vn.loitp.a.func.pump.PumpActivity
 import vn.loitp.a.func.recolor.RecolorActivity
-import vn.loitp.app.a.func.sensor.SensorActivity
+import vn.loitp.a.func.sensor.SensorActivity
 import vn.loitp.app.a.func.simpleFingerGestures.SimpleFingerGesturesActivity
 import vn.loitp.app.a.func.theme.ThemeActivity
 import vn.loitp.app.a.func.viewDragHelper.ViewDragHelperActivity
