@@ -1,4 +1,4 @@
-package vn.loitp.app.a.tutorial.rxjava2
+package vn.loitp.a.tut.rxjava2
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -17,9 +17,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_test_rx.*
+import kotlinx.android.synthetic.main.a_rx_test.*
 import vn.loitp.R
-import vn.loitp.app.a.tutorial.rxjava2.md.Bike
+import vn.loitp.a.tut.rxjava2.md.Bike
 import java.util.concurrent.TimeUnit
 
 // https://viblo.asia/p/cung-hoc-rxjava-phan-1-gioi-thieu-aRBeXWqgGWE
@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit
 class TestRxActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_test_rx
+        return R.layout.a_rx_test
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

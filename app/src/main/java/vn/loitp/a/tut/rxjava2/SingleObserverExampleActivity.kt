@@ -1,4 +1,4 @@
-package vn.loitp.app.a.tutorial.rxjava2
+package vn.loitp.a.tut.rxjava2
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -6,23 +6,20 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import io.reactivex.Completable
-import io.reactivex.CompletableObserver
-import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.Single
+import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_rxjava2_flowable.*
+import kotlinx.android.synthetic.main.a_rxjava2_flowable.*
 import vn.loitp.R
-import java.util.concurrent.TimeUnit
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 
-@LogTag("CompletableObserverExampleActivity")
+@LogTag("SingleObserverExampleActivity")
 @IsFullScreen(false)
-class CompletableObserverExampleActivity : BaseFontActivity() {
+class SingleObserverExampleActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_rxjava2_flowable
+        return R.layout.a_rxjava2_flowable
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +37,7 @@ class CompletableObserverExampleActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = CompletableObserverExampleActivity::class.java.simpleName
+            this.tvTitle?.text = SingleObserverExampleActivity::class.java.simpleName
         }
         btn.setSafeOnClickListener {
             doSomeWork()
@@ -48,25 +45,21 @@ class CompletableObserverExampleActivity : BaseFontActivity() {
     }
 
     /*
-     * simple example using CompletableObserver
+     * simple example using SingleObserver
      */
     private fun doSomeWork() {
-        val completable = Completable.timer(2000, TimeUnit.MILLISECONDS)
-        completable
-            .subscribeOn(Schedulers.io()) // Be notified on the main thread
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(completableObserver)
+        Single.just("Amit").subscribe(singleObserver)
     }
 
-    private val completableObserver: CompletableObserver
-        get() = object : CompletableObserver {
+    private val singleObserver: SingleObserver<String>
+        get() = object : SingleObserver<String> {
             override fun onSubscribe(d: Disposable) {
                 logD("onSubscribe : " + d.isDisposed)
             }
 
-            override fun onComplete() {
-                textView.append("\nonComplete")
-                logD("onComplete")
+            override fun onSuccess(value: String) {
+                textView.append("\nonSuccess : value : $value")
+                logD("onSuccess value : $value")
             }
 
             override fun onError(e: Throwable) {

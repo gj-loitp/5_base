@@ -1,4 +1,4 @@
-package vn.loitp.app.a.tutorial.rxjava2
+package vn.loitp.a.tut.rxjava2
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -6,20 +6,20 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import io.reactivex.Single
+import io.reactivex.Flowable
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
-import kotlinx.android.synthetic.main.activity_rxjava2_flowable.*
+import kotlinx.android.synthetic.main.a_rxjava2_flowable.*
 import vn.loitp.R
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 
-@LogTag("SingleObserverExampleActivity")
+@LogTag("FlowableExampleActivity")
 @IsFullScreen(false)
-class SingleObserverExampleActivity : BaseFontActivity() {
+class FlowAbleExampleActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_rxjava2_flowable
+        return R.layout.a_rxjava2_flowable
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +37,7 @@ class SingleObserverExampleActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = SingleObserverExampleActivity::class.java.simpleName
+            this.tvTitle?.text = FlowAbleExampleActivity::class.java.simpleName
         }
         btn.setSafeOnClickListener {
             doSomeWork()
@@ -45,21 +45,22 @@ class SingleObserverExampleActivity : BaseFontActivity() {
     }
 
     /*
-     * simple example using SingleObserver
+     * simple example using Flowable
      */
     private fun doSomeWork() {
-        Single.just("Amit").subscribe(singleObserver)
+        val observable = Flowable.just(1, 2, 3, 4, 1)
+        observable.reduce(50) { t1: Int, t2: Int -> t1 + t2 }.subscribe(observer)
     }
 
-    private val singleObserver: SingleObserver<String>
-        get() = object : SingleObserver<String> {
+    private val observer: SingleObserver<Int>
+        get() = object : SingleObserver<Int> {
             override fun onSubscribe(d: Disposable) {
                 logD("onSubscribe : " + d.isDisposed)
             }
 
-            override fun onSuccess(value: String) {
+            override fun onSuccess(value: Int) {
                 textView.append("\nonSuccess : value : $value")
-                logD("onSuccess value : $value")
+                logD("onSuccess : value : $value")
             }
 
             override fun onError(e: Throwable) {

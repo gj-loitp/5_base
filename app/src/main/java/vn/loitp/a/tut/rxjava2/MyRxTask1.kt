@@ -1,4 +1,4 @@
-package vn.loitp.app.a.tutorial.rxjava2
+package vn.loitp.a.tut.rxjava2
 
 import android.annotation.SuppressLint
 import android.os.SystemClock

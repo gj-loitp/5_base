@@ -1,7 +1,7 @@
-package vn.loitp.app.a.tutorial.rxjava2.u
+package vn.loitp.a.tut.rxjava2.u
 
-import vn.loitp.app.a.tutorial.rxjava2.md.ApiUser
-import vn.loitp.app.a.tutorial.rxjava2.md.User
+import vn.loitp.a.tut.rxjava2.md.ApiUser
+import vn.loitp.a.tut.rxjava2.md.User
 
 class RxJavaUtils {
     companion object {
@@ -108,7 +108,10 @@ class RxJavaUtils {
             }
 
         @Suppress("unused")
-        fun filterUserWhoLovesBoth(cricketFans: List<User>, footballFans: List<User>): List<User> {
+        fun filterUserWhoLovesBoth(
+            cricketFans: List<User>,
+            footballFans: List<User>
+        ): List<User> {
             val userWhoLovesBoth: MutableList<User> = ArrayList()
             for (cricketFan in cricketFans) {
                 for (footballFan in footballFans) {

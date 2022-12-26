@@ -1,4 +1,4 @@
-package vn.loitp.app.a.tutorial.rxjava2
+package vn.loitp.a.tut.rxjava2
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -10,7 +10,7 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_rxjava2_flowable.*
+import kotlinx.android.synthetic.main.a_rxjava2_flowable.*
 import vn.loitp.R
 import java.util.concurrent.TimeUnit
 
@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit
 class IntervalExampleActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_rxjava2_flowable
+        return R.layout.a_rxjava2_flowable
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

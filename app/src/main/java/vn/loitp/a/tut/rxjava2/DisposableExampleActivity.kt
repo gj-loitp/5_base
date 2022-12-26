@@ -1,4 +1,4 @@
-package vn.loitp.app.a.tutorial.rxjava2
+package vn.loitp.a.tut.rxjava2
 
 import android.os.Bundle
 import android.os.SystemClock
@@ -11,7 +11,7 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_rx_java2_disposable.*
+import kotlinx.android.synthetic.main.a_rx_java2_disposable.*
 import vn.loitp.R
 
 // https://www.vogella.com/tutorials/RxJava/article.html
@@ -21,7 +21,7 @@ import vn.loitp.R
 class DisposableExampleActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_rx_java2_disposable
+        return R.layout.a_rx_java2_disposable
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

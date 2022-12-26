@@ -1,4 +1,4 @@
-package vn.loitp.app.a.tutorial.rxjava2
+package vn.loitp.a.tut.rxjava2
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil.Companion.tranIn
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_rx_java2.*
+import kotlinx.android.synthetic.main.a_rx_java2_menu.*
 import vn.loitp.R
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
@@ -20,7 +20,7 @@ import vn.loitp.R
 class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_rx_java2
+        return R.layout.a_rx_java2_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

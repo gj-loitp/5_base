@@ -1,4 +1,4 @@
-package vn.loitp.app.a.tutorial.rxjava2
+package vn.loitp.a.tut.rxjava2
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -6,20 +6,23 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import io.reactivex.Flowable
-import io.reactivex.SingleObserver
+import io.reactivex.Completable
+import io.reactivex.CompletableObserver
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import kotlinx.android.synthetic.main.activity_rxjava2_flowable.*
+import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.a_rxjava2_flowable.*
 import vn.loitp.R
+import java.util.concurrent.TimeUnit
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 
-@LogTag("FlowableExampleActivity")
+@LogTag("CompletableObserverExampleActivity")
 @IsFullScreen(false)
-class FlowAbleExampleActivity : BaseFontActivity() {
+class CompletableObserverExampleActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_rxjava2_flowable
+        return R.layout.a_rxjava2_flowable
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +40,7 @@ class FlowAbleExampleActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = FlowAbleExampleActivity::class.java.simpleName
+            this.tvTitle?.text = CompletableObserverExampleActivity::class.java.simpleName
         }
         btn.setSafeOnClickListener {
             doSomeWork()
@@ -45,22 +48,25 @@ class FlowAbleExampleActivity : BaseFontActivity() {
     }
 
     /*
-     * simple example using Flowable
+     * simple example using CompletableObserver
      */
     private fun doSomeWork() {
-        val observable = Flowable.just(1, 2, 3, 4, 1)
-        observable.reduce(50) { t1: Int, t2: Int -> t1 + t2 }.subscribe(observer)
+        val completable = Completable.timer(2000, TimeUnit.MILLISECONDS)
+        completable
+            .subscribeOn(Schedulers.io()) // Be notified on the main thread
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(completableObserver)
     }
 
-    private val observer: SingleObserver<Int>
-        get() = object : SingleObserver<Int> {
+    private val completableObserver: CompletableObserver
+        get() = object : CompletableObserver {
             override fun onSubscribe(d: Disposable) {
                 logD("onSubscribe : " + d.isDisposed)
             }
 
-            override fun onSuccess(value: Int) {
-                textView.append("\nonSuccess : value : $value")
-                logD("onSuccess : value : $value")
+            override fun onComplete() {
+                textView.append("\nonComplete")
+                logD("onComplete")
             }
 
             override fun onError(e: Throwable) {

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.tutorial.rxjava2
+package vn.loitp.a.tut.rxjava2
 
 import android.annotation.SuppressLint
 import android.os.AsyncTask
@@ -13,9 +13,9 @@ import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_asynctask_rx.*
+import kotlinx.android.synthetic.main.a_rx_async_task.*
 import vn.loitp.R
-import vn.loitp.app.a.tutorial.rxjava2.md.Bike
+import vn.loitp.a.tut.rxjava2.md.Bike
 
 @LogTag("AsyncTaskRxActivity")
 @IsFullScreen(false)
@@ -24,7 +24,7 @@ class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
     private var disposable: Disposable? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_asynctask_rx
+        return R.layout.a_rx_async_task
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
