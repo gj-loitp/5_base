@@ -1,20 +1,19 @@
-package vn.loitp.app.a.func.theme
+package vn.loitp.a.func.viewDragHelper
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_theme.*
+import kotlinx.android.synthetic.main.a_func_view_drag_helper.*
 import vn.loitp.R
 
-@LogTag("ThemeActivity")
+@LogTag("ViewDragHelperActivity")
 @IsFullScreen(false)
-class ThemeActivity : BaseFontActivity() {
+class ViewDragHelperActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_theme
+        return R.layout.a_func_view_drag_helper
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,16 +31,7 @@ class ThemeActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ThemeActivity::class.java.simpleName
-        }
-        btChangeTheme.setSafeOnClickListener {
-            val isDarkTheme = LUIUtil.isDarkTheme()
-            if (isDarkTheme) {
-                LUIUtil.setDarkTheme(isDarkTheme = false)
-            } else {
-                LUIUtil.setDarkTheme(isDarkTheme = true)
-            }
-            recreate()
+            this.tvTitle?.text = ViewDragHelperActivity::class.java.simpleName
         }
     }
 }

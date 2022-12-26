@@ -23,8 +23,8 @@ import vn.loitp.a.func.pump.PumpActivity
 import vn.loitp.a.func.recolor.RecolorActivity
 import vn.loitp.a.func.sensor.SensorActivity
 import vn.loitp.a.func.simpleFingerGestures.SimpleFingerGesturesActivity
-import vn.loitp.app.a.func.theme.ThemeActivity
-import vn.loitp.app.a.func.viewDragHelper.ViewDragHelperActivity
+import vn.loitp.a.func.theme.ThemeActivity
+import vn.loitp.a.func.viewDragHelper.ViewDragHelperActivity
 import vn.loitp.app.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity
 import vn.loitp.app.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1
 import vn.loitp.app.a.func.wallpo.WallpoActivity
