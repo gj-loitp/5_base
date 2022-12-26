@@ -21,6 +21,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:padding="@dimen/margin_padding_medium"
         android:text="@string/simple_finger_gestures_demo"
         android:textColor="?attr/themeTextColor"
