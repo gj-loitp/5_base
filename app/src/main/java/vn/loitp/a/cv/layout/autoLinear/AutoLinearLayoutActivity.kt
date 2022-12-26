@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.autoLinear
+package vn.loitp.a.cv.layout.autoLinear
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_auto_linear_layout.*
+import kotlinx.android.synthetic.main.a_auto_linear_layout.*
 import vn.loitp.R
 import vn.loitp.a.EmptyActivity
 
@@ -16,7 +16,7 @@ import vn.loitp.a.EmptyActivity
 class AutoLinearLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_auto_linear_layout
+        return R.layout.a_auto_linear_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
