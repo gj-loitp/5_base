@@ -24,8 +24,8 @@ class SwitchAnimationUtil {
     }
 
     private var mOrderIndex = 0
-    private val mDelay = 100
-    private val mDuration = 100
+    private val mDelay = 50
+    private val mDuration = 50
 
     fun startAnimation(
         root: View,

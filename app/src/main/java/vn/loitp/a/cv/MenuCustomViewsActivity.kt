@@ -58,7 +58,7 @@ import vn.loitp.app.a.cv.wwlVideo.WWLVideoActivity
 
 @LogTag("MenuCustomViewsActivity")
 @IsFullScreen(false)
-@IsAutoAnimation(false)
+@IsAutoAnimation(true)
 class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
