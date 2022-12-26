@@ -1406,6 +1406,7 @@
             android:name=".a.cv.layout.floatLayout.FloatLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
+        <service android:name="io.hamed.floatinglayout.service.FloatingService" />
     </application>
     <queries>
         <intent>

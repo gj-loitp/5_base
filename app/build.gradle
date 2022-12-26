@@ -147,6 +147,8 @@ dependencies {
 
 //    https://github.com/rosenpin/fading-text-view
     api 'com.github.rosenpin:fading-text-view:3.0'
+//    https://github.com/HamedTaherpour/floating-layout-android
+    api 'com.github.HamedTaherpour:floating-layout-android:1.1.5'
 
 //    https://github.com/nguyenhoanglam/ImagePicker
     api 'com.github.nguyenhoanglam:ImagePicker:1.5.5'

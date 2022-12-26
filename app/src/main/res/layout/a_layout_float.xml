@@ -11,4 +11,26 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnOpen"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Open"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPermission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check For Permission"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnOpen" />
 </androidx.constraintlayout.widget.ConstraintLayout>
