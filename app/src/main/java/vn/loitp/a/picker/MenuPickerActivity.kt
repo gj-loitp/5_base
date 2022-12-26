@@ -13,7 +13,7 @@ import vn.loitp.a.picker.attachmentManager.AttachmentManagerActivity
 import vn.loitp.a.picker.image.ImagePickerActivity
 import vn.loitp.a.picker.number.NumberPickerActivity
 import vn.loitp.a.picker.shiftColor.ShiftColorPickerActivity
-import vn.loitp.app.a.picker.ssImage.MainActivitySSImagePicker
+import vn.loitp.a.picker.ssImage.MainActivitySSImagePicker
 import vn.loitp.app.a.picker.time.TimePickerActivity
 import vn.loitp.app.a.picker.unicornFile.UnicornFilePickerActivity
 

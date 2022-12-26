@@ -1,4 +1,4 @@
-package vn.loitp.app.a.picker.ssImage
+package vn.loitp.a.picker.ssImage
 
 import android.annotation.SuppressLint
 import android.net.Uri
@@ -20,10 +20,10 @@ import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.picker.ssImage.PickerOptions
 import com.loitp.picker.ssImage.isAtLeast11
-import kotlinx.android.synthetic.main.activity_main_ss_image_picker.*
+import kotlinx.android.synthetic.main.a_main_ss_image_picker.*
 import vn.loitp.R
 import vn.loitp.a.MenuActivity
-import vn.loitp.databinding.ActivityMainSsImagePickerBinding
+import vn.loitp.databinding.AMainSsImagePickerBinding
 
 /**
  * MainActivity which displays all the functionality of the ImagePicker library. All the attributes are modified with the ui.
@@ -39,19 +39,19 @@ class MainActivitySSImagePicker : BaseFontActivity(),
         private const val IMAGE_LIST = "IMAGE_LIST"
     }
 
-    private lateinit var binding: ActivityMainSsImagePickerBinding
+    private lateinit var binding: AMainSsImagePickerBinding
     private val imagePicker: ImagePicker = registerImagePicker(this@MainActivitySSImagePicker)
     private val imageList = mutableListOf<Uri>()
     private val imageDataAdapter = ImageDataAdapter(imageList)
     private var pickerOptions = PickerOptions.default()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_main_ss_image_picker
+        return R.layout.a_main_ss_image_picker
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main_ss_image_picker)
+        binding = DataBindingUtil.setContentView(this, R.layout.a_main_ss_image_picker)
         setUI(savedInstanceState)
 
         setupViews()

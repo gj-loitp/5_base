@@ -1,4 +1,4 @@
-package vn.loitp.app.a.picker.ssImage
+package vn.loitp.a.picker.ssImage
 
 import android.app.Dialog
 import android.os.Bundle
@@ -59,7 +59,10 @@ class PickerOptionsBottomSheet : BottomSheetDialogFragment(), View.OnClickListen
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
         setUI()
     }

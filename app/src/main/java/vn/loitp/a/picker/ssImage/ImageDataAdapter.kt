@@ -1,4 +1,4 @@
-package vn.loitp.app.a.picker.ssImage
+package vn.loitp.a.picker.ssImage
 
 import android.net.Uri
 import android.view.LayoutInflater
@@ -7,24 +7,30 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.picker.ssImage.loadImage
 import vn.loitp.R
-import vn.loitp.databinding.PickerSsImageListItemImageDataBinding
+import vn.loitp.databinding.IPickerSsImageListItemBinding
 
 /**
  * ImageDataAdapter class to display list of picked images from the picker.
  */
 class ImageDataAdapter(private val imageList: List<Uri>) :
     RecyclerView.Adapter<ImageDataAdapter.ImageDataViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageDataViewHolder {
-        val binding: PickerSsImageListItemImageDataBinding = DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context),
-            R.layout.picker_ss_image_list_item_image_data,
-            parent,
-            false
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ImageDataViewHolder {
+        val binding: IPickerSsImageListItemBinding = DataBindingUtil.inflate(
+            /* inflater = */ LayoutInflater.from(parent.context),
+            /* layoutId = */ R.layout.i_picker_ss_image_list_item,
+            /* parent = */ parent,
+            /* attachToParent = */ false
         )
         return ImageDataViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ImageDataViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ImageDataViewHolder,
+        position: Int
+    ) {
         holder.binding.imageView.loadImage(imageList[position])
     }
 
@@ -32,6 +38,6 @@ class ImageDataAdapter(private val imageList: List<Uri>) :
         return imageList.size
     }
 
-    inner class ImageDataViewHolder(val binding: PickerSsImageListItemImageDataBinding) :
+    inner class ImageDataViewHolder(val binding: IPickerSsImageListItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 }
