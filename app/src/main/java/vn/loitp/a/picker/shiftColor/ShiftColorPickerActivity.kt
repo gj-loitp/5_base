@@ -1,4 +1,4 @@
-package vn.loitp.app.a.picker.shiftColor
+package vn.loitp.a.picker.shiftColor
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -12,7 +12,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.picker.shiftColor.OnColorChangedListener
-import kotlinx.android.synthetic.main.activity_shift_color_picker.*
+import kotlinx.android.synthetic.main.a_picker_shift_color.*
 import vn.loitp.R
 
 @LogTag("ShiftColorPickerActivity")
@@ -21,7 +21,7 @@ import vn.loitp.R
 class ShiftColorPickerActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_shift_color_picker
+        return R.layout.a_picker_shift_color
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

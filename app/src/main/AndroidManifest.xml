@@ -1349,7 +1349,7 @@
             android:name=".app.a.func.wallpo.WallpoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.picker.shiftColor.ShiftColorPickerActivity"
+            android:name=".a.picker.shiftColor.ShiftColorPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.roundedIv.RoundedIvActivity"
