@@ -100,6 +100,11 @@
                 android:text="@string/floatdraglayout_activity" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFloatLayout"
+                style="@style/ButtonMenu"
+                android:text="FloatLayoutActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFlowLayout"
                 style="@style/ButtonMenu"
                 android:text="@string/flow_layout" />

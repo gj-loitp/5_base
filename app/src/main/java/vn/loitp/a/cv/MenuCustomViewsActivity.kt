@@ -31,12 +31,12 @@ import vn.loitp.a.cv.graph.MenuGraphViewActivity
 import vn.loitp.a.cv.indicator.ex.MenuMagicIndicatorActivity
 import vn.loitp.a.cv.lCv.LCardViewActivity
 import vn.loitp.a.cv.lDebug.LDebugViewActivity
-import vn.loitp.app.a.cv.layout.MenuLayoutActivity
+import vn.loitp.a.cv.layout.MenuLayoutActivity
 import vn.loitp.a.cv.luckyWheel.LuckyWheelActivity
-import vn.loitp.app.a.cv.menu.MenuMenuActivity
 import vn.loitp.a.cv.navi.MenuNavigationActivity
 import vn.loitp.a.cv.popupMenu.PopupMenuActivity
 import vn.loitp.a.cv.progress.MenuProgressActivity
+import vn.loitp.app.a.cv.menu.MenuMenuActivity
 import vn.loitp.app.a.cv.rv.MenuRecyclerViewActivity
 import vn.loitp.app.a.cv.sb.MenuSeekbarActivity
 import vn.loitp.app.a.cv.scratchView.MenuScratchViewActivity

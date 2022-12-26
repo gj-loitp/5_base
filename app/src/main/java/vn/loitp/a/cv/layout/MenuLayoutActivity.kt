@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout
+package vn.loitp.a.cv.layout
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_layout.*
+import kotlinx.android.synthetic.main.a_layout_menu.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity
 import vn.loitp.app.a.cv.layout.aspectratio.AspectRatioLayoutActivity
@@ -24,6 +24,7 @@ import vn.loitp.app.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity
 import vn.loitp.app.a.cv.layout.draggableView.DraggableViewActivity
 import vn.loitp.app.a.cv.layout.expansionPanel.MenuExpansionLayoutActivity
 import vn.loitp.app.a.cv.layout.floatDrag.FloatDragLayoutActivity
+import vn.loitp.app.a.cv.layout.floatLayout.FloatLayoutActivity
 import vn.loitp.app.a.cv.layout.flow.FlowLayoutActivity
 import vn.loitp.app.a.cv.layout.greedo.GreedoLayoutActivity
 import vn.loitp.app.a.cv.layout.heart.HeartLayoutActivity
@@ -51,7 +52,7 @@ import vn.loitp.app.a.cv.layout.zoom.ZoomLayoutActivity
 class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_layout
+        return R.layout.a_layout_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,6 +108,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
         btCornerCutLinearLayout.setOnClickListener(this)
         btGreedoLayout.setOnClickListener(this)
         btAutoScrollContent.setOnClickListener(this)
+        btFloatLayout.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -147,6 +149,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
             btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivity::class.java)
             btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
             btAutoScrollContent -> launchActivity(AutoScrollContentActivity::class.java)
+            btFloatLayout -> launchActivity(FloatLayoutActivity::class.java)
         }
     }
 }
