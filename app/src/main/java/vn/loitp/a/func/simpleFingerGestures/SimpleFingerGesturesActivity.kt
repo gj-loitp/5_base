@@ -1,4 +1,4 @@
-package vn.loitp.app.a.func.simpleFingerGestures
+package vn.loitp.a.func.simpleFingerGestures
 
 import android.annotation.SuppressLint
 import android.graphics.Point
@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.func.simpleFingerGestures.SimpleFingerGestures
-import kotlinx.android.synthetic.main.activity_func_simple_finger_gestures.*
+import kotlinx.android.synthetic.main.a_func_simple_finger_gestures.*
 import vn.loitp.R
 
 @LogTag("SimpleFingerGesturesActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class SimpleFingerGesturesActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_simple_finger_gestures
+        return R.layout.a_func_simple_finger_gestures
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
