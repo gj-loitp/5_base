@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.expansionPanel
+package vn.loitp.a.cv.layout.expansionPanel
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -18,16 +18,16 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_expansion_panel_sample_programmatically.*
+import kotlinx.android.synthetic.main.a_expansion_panel_sample_programmatically.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.expansionPanel.Utils.dpToPx
+import vn.loitp.a.cv.layout.expansionPanel.Utils.dpToPx
 
 @LogTag("ExpansionPanelSampleActivityProgrammatically")
 @IsFullScreen(false)
 class ExpansionPanelSampleActivityProgrammatically : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_expansion_panel_sample_programmatically
+        return R.layout.a_expansion_panel_sample_programmatically
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

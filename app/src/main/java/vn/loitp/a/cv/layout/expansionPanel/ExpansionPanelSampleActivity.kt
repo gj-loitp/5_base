@@ -1,19 +1,19 @@
-package vn.loitp.app.a.cv.layout.expansionPanel
+package vn.loitp.a.cv.layout.expansionPanel
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_expansion_panel_sample_main_viewgroup.*
+import kotlinx.android.synthetic.main.a_expansion_panel_sample_main.*
 import vn.loitp.R
 
-@LogTag("ExpansionPanelSampleActivityViewGroup")
+@LogTag("ExpansionPanelSampleActivity")
 @IsFullScreen(false)
-class ExpansionPanelSampleActivityViewGroup : BaseFontActivity() {
+class ExpansionPanelSampleActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_expansion_panel_sample_main_viewgroup
+        return R.layout.a_expansion_panel_sample_main
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class ExpansionPanelSampleActivityViewGroup : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ExpansionPanelSampleActivityViewGroup::class.java.simpleName
+            this.tvTitle?.text = ExpansionPanelSampleActivity::class.java.simpleName
         }
     }
 }

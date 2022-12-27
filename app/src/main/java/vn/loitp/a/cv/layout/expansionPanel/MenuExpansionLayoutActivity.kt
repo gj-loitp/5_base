@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.expansionPanel
+package vn.loitp.a.cv.layout.expansionPanel
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_expansion_panel.*
+import kotlinx.android.synthetic.main.a_menu_expansion_panel.*
 import vn.loitp.R
 
 @LogTag("MenuExpansionLayoutActivity")
@@ -20,7 +20,7 @@ import vn.loitp.R
 class MenuExpansionLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_expansion_panel
+        return R.layout.a_menu_expansion_panel
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
