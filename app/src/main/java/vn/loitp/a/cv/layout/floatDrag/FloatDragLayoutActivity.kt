@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.floatDrag
+package vn.loitp.a.cv.layout.floatDrag
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +15,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.layout.floatDrag.DisplayUtil
 import com.loitp.views.layout.floatDrag.FloatDragLayout
 import com.loitp.views.layout.floatDrag.FloatDragPopupWindow
-import kotlinx.android.synthetic.main.activity_float_drag_layout.*
+import kotlinx.android.synthetic.main.a_float_drag_layout.*
 import vn.loitp.R
 
 @LogTag("FloatDragLayoutActivity")
@@ -25,7 +25,7 @@ class FloatDragLayoutActivity : BaseFontActivity(), View.OnClickListener {
     private var floatDragPopupWindow: FloatDragPopupWindow? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_float_drag_layout
+        return R.layout.a_float_drag_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -23,7 +23,7 @@ import vn.loitp.a.cv.layout.draggablePanel.DraggablePanelActivity
 import vn.loitp.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity
 import vn.loitp.a.cv.layout.draggableView.DraggableViewActivity
 import vn.loitp.a.cv.layout.expansionPanel.MenuExpansionLayoutActivity
-import vn.loitp.app.a.cv.layout.floatDrag.FloatDragLayoutActivity
+import vn.loitp.a.cv.layout.floatDrag.FloatDragLayoutActivity
 import vn.loitp.a.cv.layout.floatLayout.FloatLayoutActivity
 import vn.loitp.app.a.cv.layout.flow.FlowLayoutActivity
 import vn.loitp.app.a.cv.layout.greedo.GreedoLayoutActivity

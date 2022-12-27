@@ -462,15 +462,15 @@
             android:name=".a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.floatDrag.FloatDragLayoutActivity"
+            android:name=".a.cv.layout.floatDrag.FloatDragLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.floatDrag.FloatDragFullScreenActivity"
+            android:name=".a.cv.layout.floatDrag.FloatDragFullScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
         <!--service for FCM-->
-        <activity android:name=".app.a.cv.layout.floatDrag.FloatDragNoTitleActivity" />
+        <activity android:name=".a.cv.layout.floatDrag.FloatDragNoTitleActivity" />
         <activity
-            android:name=".app.a.cv.layout.floatDrag.FloatDragWindowModeActivity"
+            android:name=".a.cv.layout.floatDrag.FloatDragWindowModeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
         See README(https://goo.gl/l4GJaQ) for more. -->
