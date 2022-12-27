@@ -204,6 +204,8 @@ dependencies {
     api 'com.github.devendroid:ReadMoreOption:1.0.2'
 //    https://github.com/rishabh876/RoundedImageView
     api 'com.rishabhharit.roundedimageview:RoundedImageView:0.8.4'
+//    https://github.com/Chrisvin/RubberPicker
+    api 'com.github.Chrisvin:RubberPicker:v1.5'
 
 //    https://github.com/Crysis21/PulsingView
     api 'ro.holdone:pulseview:1.0.2'

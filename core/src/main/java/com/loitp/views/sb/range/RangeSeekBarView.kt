@@ -200,52 +200,52 @@ class RangeSeekBarView : View {
         val typedArray =
             context.theme.obtainStyledAttributes(attrs, R.styleable.RangeSeekBarView, 0, 0)
 
-        if (typedArray.hasValue(R.styleable.RangeSeekBarView_stepValue)) {
-            step = typedArray.getInt(R.styleable.RangeSeekBarView_stepValue, 0)
+        if (typedArray.hasValue(R.styleable.RangeSeekBarView_stepValueRSB)) {
+            step = typedArray.getInt(R.styleable.RangeSeekBarView_stepValueRSB, 0)
         }
-        if (typedArray.hasValue(R.styleable.RangeSeekBarView_minValue)) {
-            minValue = typedArray.getInt(R.styleable.RangeSeekBarView_minValue, 0)
+        if (typedArray.hasValue(R.styleable.RangeSeekBarView_minValueRSB)) {
+            minValue = typedArray.getInt(R.styleable.RangeSeekBarView_minValueRSB, 0)
         }
-        if (typedArray.hasValue(R.styleable.RangeSeekBarView_maxValue)) {
-            maxValue = typedArray.getInt(R.styleable.RangeSeekBarView_maxValue, 0)
+        if (typedArray.hasValue(R.styleable.RangeSeekBarView_maxValueRSB)) {
+            maxValue = typedArray.getInt(R.styleable.RangeSeekBarView_maxValueRSB, 0)
         }
-        if (typedArray.hasValue(R.styleable.RangeSeekBarView_currentValue)) {
-            currentValue = typedArray.getInt(R.styleable.RangeSeekBarView_currentValue, 0)
+        if (typedArray.hasValue(R.styleable.RangeSeekBarView_currentValueRSB)) {
+            currentValue = typedArray.getInt(R.styleable.RangeSeekBarView_currentValueRSB, 0)
         }
-        if (typedArray.hasValue(R.styleable.RangeSeekBarView_barHeight)) {
-            barHeight = typedArray.getDimensionPixelSize(R.styleable.RangeSeekBarView_barHeight, 0)
+        if (typedArray.hasValue(R.styleable.RangeSeekBarView_barHeightRSB)) {
+            barHeight = typedArray.getDimensionPixelSize(R.styleable.RangeSeekBarView_barHeightRSB, 0)
         }
 
-        if (typedArray.hasValue(R.styleable.RangeSeekBarView_circleRadius)) {
+        if (typedArray.hasValue(R.styleable.RangeSeekBarView_circleRadiusRSB)) {
             circleRadius =
-                typedArray.getDimensionPixelSize(R.styleable.RangeSeekBarView_circleRadius, 0)
+                typedArray.getDimensionPixelSize(R.styleable.RangeSeekBarView_circleRadiusRSB, 0)
             defaultPadding = circleRadius
         }
 
-        if (typedArray.hasValue(R.styleable.RangeSeekBarView_circleTextSize)) {
+        if (typedArray.hasValue(R.styleable.RangeSeekBarView_circleTextSizeRSB)) {
             circleTextSize =
-                typedArray.getDimensionPixelSize(R.styleable.RangeSeekBarView_circleTextSize, 0)
+                typedArray.getDimensionPixelSize(R.styleable.RangeSeekBarView_circleTextSizeRSB, 0)
         }
-        if (typedArray.hasValue(R.styleable.RangeSeekBarView_circleTextColor)) {
+        if (typedArray.hasValue(R.styleable.RangeSeekBarView_circleTextColorRSB)) {
             circleTextColor = typedArray.getColor(
-                R.styleable.RangeSeekBarView_circleTextColor,
+                R.styleable.RangeSeekBarView_circleTextColorRSB,
                 DEFAULT_TEXT_COLOR
             )
         }
 
-        if (typedArray.hasValue(R.styleable.RangeSeekBarView_circleFillColor)) {
+        if (typedArray.hasValue(R.styleable.RangeSeekBarView_circleFillColorRSB)) {
             circleFillColor = typedArray.getColor(
-                R.styleable.RangeSeekBarView_circleFillColor,
+                R.styleable.RangeSeekBarView_circleFillColorRSB,
                 DEFAULT_CIRCLE_COLOR
             )
         }
-        if (typedArray.hasValue(R.styleable.RangeSeekBarView_baseColor)) {
+        if (typedArray.hasValue(R.styleable.RangeSeekBarView_baseColorRSB)) {
             baseColor =
-                typedArray.getColor(R.styleable.RangeSeekBarView_baseColor, DEFAULT_BASE_COLOR)
+                typedArray.getColor(R.styleable.RangeSeekBarView_baseColorRSB, DEFAULT_BASE_COLOR)
         }
-        if (typedArray.hasValue(R.styleable.RangeSeekBarView_fillColor)) {
+        if (typedArray.hasValue(R.styleable.RangeSeekBarView_fillColorRSB)) {
             fillColor =
-                typedArray.getColor(R.styleable.RangeSeekBarView_fillColor, DEFAULT_FILL_COLOR)
+                typedArray.getColor(R.styleable.RangeSeekBarView_fillColorRSB, DEFAULT_FILL_COLOR)
         }
         if (typedArray.hasValue(R.styleable.RangeSeekBarView_orientationRangeSeekBarView)) {
             direction =

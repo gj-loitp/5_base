@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.a_0.*
+import kotlinx.android.synthetic.main.a_sb_rubber_picker.*
 import vn.loitp.R
 
 @LogTag("RubberPickerActivity")
@@ -17,7 +17,7 @@ import vn.loitp.R
 class RubberPickerActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_0
+        return R.layout.a_sb_rubber_picker
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

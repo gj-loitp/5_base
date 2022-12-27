@@ -699,17 +699,17 @@
     </declare-styleable>
 
     <declare-styleable name="RangeSeekBarView">
-        <attr name="stepValue" format="integer|dimension" />
-        <attr name="minValue" format="integer|dimension" />
-        <attr name="maxValue" format="integer|dimension" />
-        <attr name="currentValue" format="integer|dimension" />
-        <attr name="barHeight" format="dimension" />
-        <attr name="circleRadius" format="dimension" />
-        <attr name="circleTextSize" format="dimension" />
-        <attr name="circleTextColor" format="color" />
-        <attr name="baseColor" format="color" />
-        <attr name="fillColor" format="color" />
-        <attr name="circleFillColor" format="color" />
+        <attr name="stepValueRSB" format="integer|dimension" />
+        <attr name="minValueRSB" format="integer|dimension" />
+        <attr name="maxValueRSB" format="integer|dimension" />
+        <attr name="currentValueRSB" format="integer|dimension" />
+        <attr name="barHeightRSB" format="dimension" />
+        <attr name="circleRadiusRSB" format="dimension" />
+        <attr name="circleTextSizeRSB" format="dimension" />
+        <attr name="circleTextColorRSB" format="color" />
+        <attr name="baseColorRSB" format="color" />
+        <attr name="fillColorRSB" format="color" />
+        <attr name="circleFillColorRSB" format="color" />
         <attr name="orientationRangeSeekBarView" format="enum">
             <enum name="RIGHT_TO_LEFT" value="0" />
             <enum name="LEFT_TO_RIGHT" value="1" />
@@ -745,7 +745,6 @@
         <attr name="starsView_meteoritesEnabled" format="boolean" />
         <attr name="starsView_meteoritesInterval" format="integer" />
     </declare-styleable>
-
 
     <declare-styleable name="LineColorPicker">
         <attr name="lcpOrientation" format="enum">
