@@ -1355,7 +1355,7 @@
             android:name=".a.cv.iv.roundedIv.RoundedIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity"
+            android:name=".a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.circularProgress.CPBActivity"

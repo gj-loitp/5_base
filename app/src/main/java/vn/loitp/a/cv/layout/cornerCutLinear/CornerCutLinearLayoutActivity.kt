@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.cornerCutLinear
+package vn.loitp.a.cv.layout.cornerCutLinear
 
 import android.annotation.SuppressLint
 import android.graphics.*
@@ -20,9 +20,9 @@ import com.loitp.core.ext.*
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import io.devlight.xtreeivi.cornercutlinearlayout.CornerCutLinearLayout
-import kotlinx.android.synthetic.main.activity_corner_cut_linear_layout.*
+import kotlinx.android.synthetic.main.a_layout_corner_cut_linear.*
 import vn.loitp.R
-import vn.loitp.databinding.ActivityCornerCutLinearLayoutBinding
+import vn.loitp.databinding.ALayoutCornerCutLinearBinding
 import kotlin.math.hypot
 import kotlin.math.min
 import kotlin.math.roundToInt
@@ -33,7 +33,7 @@ import kotlin.math.sqrt
 @IsAutoAnimation(true)
 class CornerCutLinearLayoutActivity : BaseFontActivity() {
 
-    private lateinit var viewBinding: ActivityCornerCutLinearLayoutBinding
+    private lateinit var viewBinding: ALayoutCornerCutLinearBinding
 
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var runnable: Runnable
@@ -50,13 +50,13 @@ class CornerCutLinearLayoutActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_corner_cut_linear_layout
+        return R.layout.a_layout_corner_cut_linear
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewBinding = ActivityCornerCutLinearLayoutBinding.inflate(layoutInflater)
+        viewBinding = ALayoutCornerCutLinearBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
         setupViews()
     }
@@ -371,7 +371,10 @@ class CornerCutLinearLayoutActivity : BaseFontActivity() {
             view.forEach {
                 tempPath.rewind()
                 if (it is CornerCutLinearLayout) {
-                    tempPath.offset(-it.left.toFloat(), -it.top.toFloat())
+                    tempPath.offset(
+                        -it.left.toFloat(),
+                        -it.top.toFloat()
+                    )
                     tempPath.addPath(it.viewAreaPath)
                     tempPath.transform(it.matrix)
                     tempPath.offset(it.left.toFloat(), it.top.toFloat())
