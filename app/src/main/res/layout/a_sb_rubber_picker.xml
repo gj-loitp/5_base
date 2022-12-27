@@ -11,4 +11,343 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="@dimen/margin_padding_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topGuideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="8dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/elasticBehaviorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Elastic Behavior"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/topGuideLine" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/stretchRangeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_medium"
+            android:text="Stretch Range"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/elasticBehaviorTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dampingRatioTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Damping Ratio"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stretchRangeTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/stiffnessTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stiffness"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dampingRatioTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/thumbRadiusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Default Thumb Radius"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stiffnessTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/normalTrackWidthTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal Track Width"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/thumbRadiusTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/highlightTrackWidthTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Highlight Track Width"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/normalTrackWidthTextView" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="thumbRadiusTextView,highlightTrackWidthTextView,stretchRangeTextView,elasticBehaviorTextView,dampingRatioTextView,normalTrackWidthTextView,stiffnessTextView" />
+
+        <RadioGroup
+            android:id="@+id/elasticBehavior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/cubicRadioButton"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@+id/barrier"
+            app:layout_constraintTop_toTopOf="@+id/topGuideLine">
+
+            <RadioButton
+                android:id="@+id/cubicRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cubic" />
+
+            <RadioButton
+                android:id="@+id/linearRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Linear" />
+
+            <RadioButton
+                android:id="@+id/rigidRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rigid" />
+        </RadioGroup>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/stretchRangeValue"
+            android:layout_width="36sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_medium"
+            android:text="24"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/elasticBehaviorTextView" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/stretchRange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_medium"
+            android:max="50"
+            android:progress="24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/stretchRangeValue"
+            app:layout_constraintTop_toBottomOf="@id/elasticBehaviorTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dampingRatioValue"
+            android:layout_width="36sp"
+            android:layout_height="wrap_content"
+            android:text="0.2"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/stretchRangeTextView" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/dampingRatio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dampingRatioValue"
+            app:layout_constraintTop_toBottomOf="@id/stretchRangeTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/stiffnessValue"
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:text="200"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/dampingRatioTextView" />
+
+        <View
+            android:id="@+id/stiffnessEmptyView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@id/stiffnessValue"
+            app:layout_constraintTop_toBottomOf="@+id/dampingRatioTextView" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/stiffness"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="20"
+            android:progress="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/stiffnessEmptyView"
+            app:layout_constraintTop_toBottomOf="@id/dampingRatioTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/defaultThumbRadiusValue"
+            android:layout_width="36sp"
+            android:layout_height="wrap_content"
+            android:text="16"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/stiffnessTextView" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/defaultThumbRadius"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="50"
+            android:progress="16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/defaultThumbRadiusValue"
+            app:layout_constraintTop_toBottomOf="@id/stiffnessTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/normalTrackWidthValue"
+            android:layout_width="36sp"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/thumbRadiusTextView" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/normalTrackWidth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="2"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/normalTrackWidthValue"
+            app:layout_constraintTop_toBottomOf="@id/thumbRadiusTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/highlightTrackWidthValue"
+            android:layout_width="36sp"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            app:layout_constraintStart_toStartOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/normalTrackWidthTextView" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/highlightTrackWidth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="20"
+            android:progress="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/highlightTrackWidthValue"
+            app:layout_constraintTop_toBottomOf="@id/normalTrackWidthTextView" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/rubberDividerBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="highlightTrackWidth, highlightTrackWidthTextView" />
+
+        <com.jem.rubberpicker.RubberSeekBar
+            android:id="@+id/rubberSeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/rubberSeekBarValueHeading"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rubberDividerBarrier" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rubberSeekBarValueHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RubberSeekBar Value : "
+            app:layout_constraintBottom_toTopOf="@id/rubberRangePicker"
+            app:layout_constraintEnd_toStartOf="@+id/rubberSeekBarValue"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rubberSeekBar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rubberSeekBarValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            app:layout_constraintBaseline_toBaselineOf="@id/rubberSeekBarValueHeading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rubberSeekBarValueHeading" />
+
+        <com.jem.rubberpicker.RubberRangePicker
+            android:id="@+id/rubberRangePicker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:highlightDefaultThumbOnTouchColor="#CD5D67"
+            app:highlightTrackColor="#BA1F33"
+            app:layout_constraintBottom_toTopOf="@+id/rubberRangePickerValueHeading"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rubberSeekBarValueHeading"
+            app:normalTrackColor="#AAAAAA" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rubberRangePickerValueHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RubberRangePicker Values : "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/rubberRangePickerStartValue"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rubberRangePicker" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rubberRangePickerStartValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            app:layout_constraintBaseline_toBaselineOf="@id/rubberRangePickerValueHeading"
+            app:layout_constraintEnd_toEndOf="@id/rubberRangePickerValueDivider"
+            app:layout_constraintStart_toEndOf="@+id/rubberRangePickerValueHeading" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rubberRangePickerValueDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            app:layout_constraintBaseline_toBaselineOf="@id/rubberRangePickerValueHeading"
+            app:layout_constraintEnd_toStartOf="@id/rubberRangePickerEndValue"
+            app:layout_constraintStart_toEndOf="@+id/rubberRangePickerStartValue" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rubberRangePickerEndValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            app:layout_constraintBaseline_toBaselineOf="@id/rubberRangePickerValueHeading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rubberRangePickerValueDivider" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
