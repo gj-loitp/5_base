@@ -1,18 +1,17 @@
 package vn.loitp.app.a.cv.sb
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_seekbar.*
+import kotlinx.android.synthetic.main.a_sb_menu.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.sb.boxedVertical.BoxedVerticalSeekBarActivity
 import vn.loitp.app.a.cv.sb.range.RangeSeekbarActivity
+import vn.loitp.app.a.cv.sb.rubberPicker.RubberPickerActivity
 import vn.loitp.app.a.cv.sb.seekBar.SeekbarActivity
 import vn.loitp.app.a.cv.sb.vertical.VerticalSeekbarActivity
 import vn.loitp.app.a.cv.sb.vertical2.VerticalSeekBar2Activity
@@ -20,10 +19,10 @@ import vn.loitp.app.a.cv.sb.vertical2.VerticalSeekBar2Activity
 @LogTag("MenuSeekbarActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuSeekbarActivity : BaseFontActivity(), View.OnClickListener {
+class MenuSeekbarActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_seekbar
+        return R.layout.a_sb_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,27 +42,23 @@ class MenuSeekbarActivity : BaseFontActivity(), View.OnClickListener {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = MenuSeekbarActivity::class.java.simpleName
         }
-        btBoxedVerticalSeekbar.setOnClickListener(this)
-        btVerticalSeekBar.setOnClickListener(this)
-        btSeekBar.setOnClickListener(this)
-        btVerticalSeekBar2.setOnClickListener(this)
-        btRangeSeekBar.setOnClickListener(this)
-    }
-
-    override fun onClick(v: View) {
-        var intent: Intent? = null
-        when (v) {
-            btBoxedVerticalSeekbar ->
-                intent =
-                    Intent(this, BoxedVerticalSeekBarActivity::class.java)
-            btVerticalSeekBar -> intent = Intent(this, VerticalSeekbarActivity::class.java)
-            btSeekBar -> intent = Intent(this, SeekbarActivity::class.java)
-            btVerticalSeekBar2 -> intent = Intent(this, VerticalSeekBar2Activity::class.java)
-            btRangeSeekBar -> intent = Intent(this, RangeSeekbarActivity::class.java)
+        btBoxedVerticalSeekbar.setSafeOnClickListener {
+            launchActivity(BoxedVerticalSeekBarActivity::class.java)
         }
-        intent?.let {
-            startActivity(it)
-            LActivityUtil.tranIn(this)
+        btVerticalSeekBar.setSafeOnClickListener {
+            launchActivity(VerticalSeekbarActivity::class.java)
+        }
+        btSeekBar.setSafeOnClickListener {
+            launchActivity(SeekbarActivity::class.java)
+        }
+        btVerticalSeekBar2.setSafeOnClickListener {
+            launchActivity(VerticalSeekBar2Activity::class.java)
+        }
+        btRangeSeekBar.setSafeOnClickListener {
+            launchActivity(RangeSeekbarActivity::class.java)
+        }
+        btRubberPicker.setSafeOnClickListener {
+            launchActivity(RubberPickerActivity::class.java)
         }
     }
 }
