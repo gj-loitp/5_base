@@ -1,4 +1,4 @@
-package vn.loitp.a
+package vn.loitp.app
 
 import android.os.Bundle
 import androidx.core.view.isVisible

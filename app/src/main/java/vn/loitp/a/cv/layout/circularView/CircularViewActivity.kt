@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.circularView
+package vn.loitp.a.cv.layout.circularView
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -9,7 +9,7 @@ import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.layout.circularView.CircularView
 import com.loitp.views.layout.circularView.Marker
-import kotlinx.android.synthetic.main.activity_circular_view_layout.*
+import kotlinx.android.synthetic.main.a_layout_circular_view.*
 import vn.loitp.R
 
 @LogTag("CircularViewActivity")
@@ -17,7 +17,7 @@ import vn.loitp.R
 class CircularViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_circular_view_layout
+        return R.layout.a_layout_circular_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

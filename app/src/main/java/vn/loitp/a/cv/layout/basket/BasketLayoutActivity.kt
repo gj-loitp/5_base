@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.basket
+package vn.loitp.a.cv.layout.basket
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.yonder.basketlayout.BasketLayoutViewListener
-import kotlinx.android.synthetic.main.activity_basket_layout.*
+import kotlinx.android.synthetic.main.a_basket_layout.*
 import vn.loitp.R
 
 @LogTag("BasketLayoutActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class BasketLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_basket_layout
+        return R.layout.a_basket_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

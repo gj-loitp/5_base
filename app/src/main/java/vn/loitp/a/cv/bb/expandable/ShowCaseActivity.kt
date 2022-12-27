@@ -12,7 +12,7 @@ import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_showcase.*
 import vn.loitp.R
-import vn.loitp.a.EmptyActivity
+import vn.loitp.app.EmptyActivity
 import vn.loitp.a.cv.bb.expandable.screens.*
 import vn.loitp.a.cv.bb.expandable.screens.navi.NavigationComponentActivity
 

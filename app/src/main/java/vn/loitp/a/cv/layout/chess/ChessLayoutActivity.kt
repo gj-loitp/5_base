@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.chess
+package vn.loitp.a.cv.layout.chess
 
 import android.graphics.Color
 import android.os.Bundle
@@ -13,7 +13,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_chess_layout.*
+import kotlinx.android.synthetic.main.a_layout_chess.*
 import vn.loitp.R
 
 @LogTag("ChessLayoutActivity")
@@ -21,7 +21,7 @@ import vn.loitp.R
 class ChessLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_chess_layout
+        return R.layout.a_layout_chess
     }
 
     private var mRows = 10

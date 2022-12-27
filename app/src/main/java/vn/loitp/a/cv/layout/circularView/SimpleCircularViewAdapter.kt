@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.circularView
+package vn.loitp.a.cv.layout.circularView
 
 import com.loitp.views.layout.circularView.Marker
 import com.loitp.views.layout.circularView.SimpleCircularViewAdapter

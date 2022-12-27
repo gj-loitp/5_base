@@ -369,7 +369,7 @@
             android:name=".app.a.cv.layout.draggablePanel.DraggablePanelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.circularView.CircularViewActivity"
+            android:name=".a.cv.layout.circularView.CircularViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.sw.toggle.ToggleActivity"
@@ -814,7 +814,7 @@
             android:name=".a.db.sqliteEncryption.SqliteEncryptionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.EmptyActivity"
+            android:name=".app.EmptyActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.db.sqliteMultiTable.SqliteMultiTableActivity"
@@ -1061,7 +1061,7 @@
             android:name=".a.anim.activityTransitionReveal.RevealActivity1"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.chess.ChessLayoutActivity"
+            android:name=".a.cv.layout.chess.ChessLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.wheelSpiner.WheelSpinnerActivity"
@@ -1109,7 +1109,7 @@
             android:name=".a.picker.unicornFile.UnicornFilePickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.basket.BasketLayoutActivity"
+            android:name=".a.cv.layout.basket.BasketLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.justified.JustifiedTextViewActivity"

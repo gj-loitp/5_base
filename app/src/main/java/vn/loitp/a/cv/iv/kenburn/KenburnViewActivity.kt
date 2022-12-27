@@ -14,7 +14,7 @@ import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_kenburn_view.*
 import vn.loitp.R
-import vn.loitp.a.EmptyActivity
+import vn.loitp.app.EmptyActivity
 
 @LogTag("KenburnViewActivity")
 @IsFullScreen(false)
