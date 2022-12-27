@@ -17,7 +17,7 @@ import vn.loitp.a.cv.layout.basket.BasketLayoutActivity
 import vn.loitp.a.cv.layout.chess.ChessLayoutActivity
 import vn.loitp.a.cv.layout.circularView.CircularViewActivity
 import vn.loitp.a.cv.layout.constraint.MenuConstraintLayoutActivity
-import vn.loitp.app.a.cv.layout.coordinator.MenuCoordinatorLayoutActivity
+import vn.loitp.a.cv.layout.coordinator.MenuCoordinatorLayoutActivity
 import vn.loitp.app.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity
 import vn.loitp.app.a.cv.layout.draggablePanel.DraggablePanelActivity
 import vn.loitp.app.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity

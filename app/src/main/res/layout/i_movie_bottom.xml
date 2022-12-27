@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="@dimen/w_300"
@@ -17,4 +17,4 @@
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_largest"
         android:textStyle="bold" />
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

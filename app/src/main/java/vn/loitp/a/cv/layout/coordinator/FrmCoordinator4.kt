@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.coordinator
+package vn.loitp.a.cv.layout.coordinator
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.frm_coordinator_4.*
+import kotlinx.android.synthetic.main.f_coordinator_4.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 import vn.loitp.common.Constants
@@ -17,10 +17,13 @@ class FrmCoordinator4 : BaseFragment() {
     private var mAdapter: MultiAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_coordinator_4
+        return R.layout.f_coordinator_4
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()

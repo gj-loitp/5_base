@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.coordinator
+package vn.loitp.a.cv.layout.coordinator
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -52,19 +52,25 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): RecyclerView.ViewHolder {
         return if (viewType == TYPE_MOVIE) {
             val itemView =
-                LayoutInflater.from(parent.context).inflate(R.layout.view_movie_list, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.i_movie_list, parent, false)
             MovieViewHolder(itemView)
         } else {
             val itemView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.view_movie_bottom, parent, false)
+                .inflate(R.layout.i_movie_bottom, parent, false)
             BottomView(itemView)
         }
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         val movie = moviesList[position]
         if (holder.itemViewType == TYPE_MOVIE) {
             (holder as MovieViewHolder).bind(movie)

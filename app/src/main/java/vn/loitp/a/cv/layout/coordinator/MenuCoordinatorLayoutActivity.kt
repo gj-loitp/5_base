@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.coordinator
+package vn.loitp.a.cv.layout.coordinator
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_coordinator_layout.*
+import kotlinx.android.synthetic.main.a_menu_coordinator_layout.*
 import vn.loitp.R
 
 // http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
@@ -18,7 +18,7 @@ import vn.loitp.R
 class MenuCoordinatorLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_coordinator_layout
+        return R.layout.a_menu_coordinator_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

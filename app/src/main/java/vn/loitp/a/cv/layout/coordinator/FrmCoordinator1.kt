@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.coordinator
+package vn.loitp.a.cv.layout.coordinator
 
 import android.os.Bundle
 import android.view.View
@@ -6,17 +6,20 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import kotlinx.android.synthetic.main.frm_coordinator_1.*
+import kotlinx.android.synthetic.main.f_coordinator_1.*
 import vn.loitp.R
 
 @LogTag("FrmCoordinator1")
 class FrmCoordinator1 : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_coordinator_1
+        return R.layout.f_coordinator_1
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()

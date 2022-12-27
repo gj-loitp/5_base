@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import kotlinx.android.synthetic.main.i_movie_list.view.*
 import kotlinx.android.synthetic.main.view_item_about_me.view.*
-import kotlinx.android.synthetic.main.view_movie_list.view.*
+import kotlinx.android.synthetic.main.i_movie_list.view.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 
@@ -61,7 +62,7 @@ class Footer2Adapter(private val moviesList: List<Movie>, private val callback: 
             BannerViewHolder(itemView)
         } else {
             val itemView =
-                LayoutInflater.from(parent.context).inflate(R.layout.view_movie_list, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.i_movie_list, parent, false)
             MovieViewHolder(itemView)
         }
     }

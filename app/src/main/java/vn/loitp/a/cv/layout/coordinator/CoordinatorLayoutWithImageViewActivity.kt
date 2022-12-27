@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.coordinator
+package vn.loitp.a.cv.layout.coordinator
 
 import android.graphics.Matrix
 import android.os.Bundle
@@ -7,7 +7,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_coordinator_layout.*
+import kotlinx.android.synthetic.main.a_coordinator_layout.*
 import vn.loitp.R
 import kotlin.math.roundToInt
 
@@ -16,7 +16,7 @@ import kotlin.math.roundToInt
 class CoordinatorLayoutWithImageViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_coordinator_layout
+        return R.layout.a_coordinator_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

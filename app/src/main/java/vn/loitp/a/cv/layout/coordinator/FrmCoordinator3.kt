@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.coordinator
+package vn.loitp.a.cv.layout.coordinator
 
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
@@ -8,6 +8,6 @@ import vn.loitp.R
 class FrmCoordinator3 : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_coordinator_3
+        return R.layout.f_coordinator_3
     }
 }
