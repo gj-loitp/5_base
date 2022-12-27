@@ -41,7 +41,7 @@ import vn.loitp.a.cv.menu.MenuMenuActivity
 import vn.loitp.app.a.cv.rv.MenuRecyclerViewActivity
 import vn.loitp.app.a.cv.sb.MenuSeekbarActivity
 import vn.loitp.a.cv.scratchView.MenuScratchViewActivity
-import vn.loitp.app.a.cv.scrollablePanel.ScrollablePanelActivity
+import vn.loitp.a.cv.scrollablePanel.ScrollablePanelActivity
 import vn.loitp.app.a.cv.simpleRatingBar.SimpleRatingBarActivity
 import vn.loitp.app.a.cv.stackExpandableView.StackExpandableViewActivity
 import vn.loitp.app.a.cv.sticker.StickerActivity

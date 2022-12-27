@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.scrollablePanel;
+package vn.loitp.a.cv.scrollablePanel;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,21 +70,21 @@ public class ScrollablePanelAdapter extends PanelAdapter {
         switch (viewType) {
             case DATE_TYPE:
                 return new DateViewHolder(LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.listitem_date_info, parent, false));
+                        .inflate(R.layout.i_date_info, parent, false));
             case ROOM_TYPE:
                 return new RoomViewHolder(LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.listitem_room_info, parent, false));
+                        .inflate(R.layout.i_room_info, parent, false));
             case ORDER_TYPE:
                 return new OrderViewHolder(LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.listitem_order_info, parent, false));
+                        .inflate(R.layout.i_order_info, parent, false));
             case TITLE_TYPE:
                 return new TitleViewHolder(LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.listitem_title, parent, false));
+                        .inflate(R.layout.i_title, parent, false));
             default:
                 break;
         }
         return new OrderViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.listitem_order_info, parent, false));
+                .inflate(R.layout.i_order_info, parent, false));
     }
 
 

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.scrollablePanel;
+package vn.loitp.a.cv.scrollablePanel;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -32,7 +32,7 @@ public class ScrollablePanelActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_scrollable_panel;
+        return R.layout.a_scrollable_panel;
     }
 
     @Override

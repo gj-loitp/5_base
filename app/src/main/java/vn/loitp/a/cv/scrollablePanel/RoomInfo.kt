@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.scrollablePanel
+package vn.loitp.a.cv.scrollablePanel
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel
