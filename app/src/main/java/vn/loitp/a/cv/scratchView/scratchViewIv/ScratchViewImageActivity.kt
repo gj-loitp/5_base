@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.scratchView.scratchViewTv
+package vn.loitp.a.cv.scratchView.scratchViewIv
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,16 +6,16 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.views.scratch.LScratchTextView
-import kotlinx.android.synthetic.main.activity_scratch_view_text.*
+import com.loitp.views.scratch.LScratchImageView
+import kotlinx.android.synthetic.main.a_scratch_iv.*
 import vn.loitp.R
 
-@LogTag("ScratchViewTextActivity")
+@LogTag("ScratchViewImageActivity")
 @IsFullScreen(false)
-class ScratchViewTextActivity : BaseFontActivity() {
+class ScratchViewImageActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_scratch_view_text
+        return R.layout.a_scratch_iv
     }
 
     @SuppressLint("SetTextI18n")
@@ -27,25 +27,20 @@ class ScratchViewTextActivity : BaseFontActivity() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ScratchViewTextActivity::class.java.simpleName
+            this.tvTitle?.text = ScratchViewImageActivity::class.java.simpleName
         }
-
-        scratchViewTextView.setRevealListener(object : LScratchTextView.IRevealListener {
-
+        scratchImageView.setRevealListener(object : LScratchImageView.IRevealListener {
             @SuppressLint("SetTextI18n")
-            override fun onRevealed(tv: LScratchTextView) {
+            override fun onRevealed(iv: LScratchImageView) {
                 textView.text = "onRevealed"
             }
 
             @SuppressLint("SetTextI18n")
-            override fun onRevealPercentChangedListener(stv: LScratchTextView, percent: Float) {
+            override fun onRevealPercentChangedListener(siv: LScratchImageView, percent: Float) {
                 textView.text = "onRevealPercentChangedListener percent: $percent"
             }
         })
