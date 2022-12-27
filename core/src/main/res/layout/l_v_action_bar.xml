@@ -31,6 +31,7 @@
             android:gravity="start|center"
             android:singleLine="true"
             android:textSize="@dimen/txt_medium"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/ivIconRight"
             app:layout_constraintStart_toEndOf="@+id/ivIconLeft"
             tools:text="@string/app_name" />
