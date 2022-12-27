@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LScreenUtil
-import com.loitp.views.exo.PlayerManager
+import vn.loitp.app.a.cv.video.exo.mng.PlayerManager
 import kotlinx.android.synthetic.main.activity_video_exo_player.*
 import kotlinx.android.synthetic.main.exo_playback_control_view.*
 import vn.loitp.R

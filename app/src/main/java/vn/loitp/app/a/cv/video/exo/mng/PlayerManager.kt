@@ -1,4 +1,4 @@
-package com.loitp.views.exo
+package vn.loitp.app.a.cv.video.exo.mng
 
 import android.app.Activity
 import android.content.Context
@@ -23,10 +23,10 @@ import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import com.google.android.exoplayer2.video.VideoListener
+import com.loitp.R
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utils.AppUtils
-import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -226,10 +226,10 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
         if (LScreenUtil.isLandscape()) {
             playerView.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             playerView.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
-            exoFullscreen.setImageResource(R.drawable.exo_controls_fullscreen_exit)
+            exoFullscreen.setImageResource(R.drawable.player_collapse)
         } else {
             playerView.layoutParams.height = screenW * 9 / 16
-            exoFullscreen.setImageResource(R.drawable.exo_controls_fullscreen_enter)
+            exoFullscreen.setImageResource(R.drawable.player_fullscreen)
         }
         playerView.requestLayout()
     }

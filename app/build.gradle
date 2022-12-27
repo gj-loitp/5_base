@@ -145,6 +145,20 @@ dependencies {
 //    https://github.com/wajahatkarim3/EasyFlipViewPager
     api 'com.wajahatkarim:easyflipviewpager:2.0.1'
 
+    //https://github.com/google/ExoPlayer
+    api 'com.google.android.exoplayer:exoplayer:2.10.4'
+    //compile 'com.google.android.exoplayer:exoplayer-core:2.10.4''
+    api 'com.google.android.exoplayer:extension-ima:2.10.4'
+    api 'com.google.android.exoplayer:exoplayer-dash:2.10.4'
+    api 'com.google.android.exoplayer:exoplayer-hls:2.10.4'
+    //api 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.10.4''
+    api 'com.google.android.exoplayer:exoplayer-ui:2.10.4'
+    //api 'com.google.android.exoplayer:extension-cast:2.10.4''
+    //api 'com.googlecode.android-query:android-query:0.25.9' //queue for chromecast
+    //https://github.com/rubensousa/PreviewSeekBar
+    //api 'com.github.rubensousa:previewseekbar:2.0.0'
+    //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
+
 //    https://github.com/rosenpin/fading-text-view
     api 'com.github.rosenpin:fading-text-view:3.0'
 //    https://github.com/HamedTaherpour/floating-layout-android

@@ -151,21 +151,6 @@ dependencies {
     //https://github.com/JakeWharton/NineOldAndroids
     api 'com.nineoldandroids:library:2.4.0' //for draggable view
 
-    //https://github.com/google/ExoPlayer
-    api 'com.google.android.exoplayer:exoplayer:2.10.4'
-    //compile 'com.google.android.exoplayer:exoplayer-core:2.10.4''
-    api 'com.google.android.exoplayer:extension-ima:2.10.4'
-    api 'com.google.android.exoplayer:exoplayer-dash:2.10.4'
-    api 'com.google.android.exoplayer:exoplayer-hls:2.10.4'
-    //api 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.10.4''
-    api 'com.google.android.exoplayer:exoplayer-ui:2.10.4'
-    //api 'com.google.android.exoplayer:extension-cast:2.10.4''
-    //api 'com.googlecode.android-query:android-query:0.25.9' //queue for chromecast
-
-    //https://github.com/rubensousa/PreviewSeekBar
-    //api 'com.github.rubensousa:previewseekbar:2.0.0'
-    //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
-
     //https://github.com/guolindev/PermissionX
     api 'com.guolindev.permissionx:permissionx:1.7.1'
 
