@@ -400,7 +400,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".app.a.cv.layout.constraint.demo.ConstraintLayoutDemoActivity"
+            android:name=".a.cv.layout.constraint.demo.ConstraintLayoutDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.func.viewDragHelper.ViewDragHelperActivity"
@@ -447,16 +447,16 @@
             android:name=".app.a.cv.layout.heart.HeartLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.constraint.MenuConstraintlayoutActivity"
+            android:name=".a.cv.layout.constraint.MenuConstraintLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.constraint.fabAndSnackbar.FabAndSnackBarActivity"
+            android:name=".a.cv.layout.constraint.fabAndSnackbar.FabAndSnackBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.constraint.fabFollowsWidget.FabFollowWidgetActivity"
+            android:name=".a.cv.layout.constraint.fabFollowsWidget.FabFollowWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.constraint.customBehavior.CustomBehaviorActivity"
+            android:name=".a.cv.layout.constraint.customBehavior.CustomBehaviorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity"
@@ -553,7 +553,7 @@
             android:name=".a.func.glide.GlideActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.constraint.constraintSet.ConstraintSetActivity"
+            android:name=".a.cv.layout.constraint.constraintSet.ConstraintSetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.video.exo.ExoPlayerActivity"

@@ -16,7 +16,7 @@ import vn.loitp.a.cv.layout.autoScrollContent.AutoScrollContentActivity
 import vn.loitp.a.cv.layout.basket.BasketLayoutActivity
 import vn.loitp.a.cv.layout.chess.ChessLayoutActivity
 import vn.loitp.a.cv.layout.circularView.CircularViewActivity
-import vn.loitp.app.a.cv.layout.constraint.MenuConstraintlayoutActivity
+import vn.loitp.a.cv.layout.constraint.MenuConstraintLayoutActivity
 import vn.loitp.app.a.cv.layout.coordinator.MenuCoordinatorLayoutActivity
 import vn.loitp.app.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity
 import vn.loitp.app.a.cv.layout.draggablePanel.DraggablePanelActivity
@@ -123,7 +123,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
             btSwipeRefreshLayout -> launchActivity(MenuSwipeRefreshLayoutActivity::class.java)
             btCircularView -> launchActivity(CircularViewActivity::class.java)
             btAutoLinearLayout -> launchActivity(AutoLinearLayoutActivity::class.java)
-            btConstraintLayout -> launchActivity(MenuConstraintlayoutActivity::class.java)
+            btConstraintLayout -> launchActivity(MenuConstraintLayoutActivity::class.java)
             btSwipebackLayout -> launchActivity(SwipeBackLayoutActivity::class.java)
             btHeartLayout -> launchActivity(HeartLayoutActivity::class.java)
             btFloatDragLayout -> launchActivity(FloatDragLayoutActivity::class.java)

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.constraint.customBehavior
+package vn.loitp.a.cv.layout.constraint.customBehavior
 
 import android.content.Context
 import android.util.AttributeSet

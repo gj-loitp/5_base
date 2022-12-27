@@ -1,29 +1,31 @@
-package vn.loitp.app.a.cv.layout.constraint
+package vn.loitp.a.cv.layout.constraint
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.core.view.isVisible
+import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_constraintlayout_menu.*
+import kotlinx.android.synthetic.main.a_menu_constraint_layout.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.constraint.constraintSet.ConstraintSetActivity
-import vn.loitp.app.a.cv.layout.constraint.customBehavior.CustomBehaviorActivity
-import vn.loitp.app.a.cv.layout.constraint.demo.ConstraintLayoutDemoActivity
-import vn.loitp.app.a.cv.layout.constraint.fabAndSnackbar.FabAndSnackBarActivity
-import vn.loitp.app.a.cv.layout.constraint.fabFollowsWidget.FabFollowWidgetActivity
+import vn.loitp.a.cv.layout.constraint.constraintSet.ConstraintSetActivity
+import vn.loitp.a.cv.layout.constraint.customBehavior.CustomBehaviorActivity
+import vn.loitp.a.cv.layout.constraint.demo.ConstraintLayoutDemoActivity
+import vn.loitp.a.cv.layout.constraint.fabAndSnackbar.FabAndSnackBarActivity
+import vn.loitp.a.cv.layout.constraint.fabFollowsWidget.FabFollowWidgetActivity
 
 @LogTag("MenuConstraintlayoutActivity")
 @IsFullScreen(false)
-class MenuConstraintlayoutActivity : BaseFontActivity(), OnClickListener {
+@IsAutoAnimation(true)
+class MenuConstraintLayoutActivity : BaseFontActivity(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_constraintlayout_menu
+        return R.layout.a_menu_constraint_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +43,7 @@ class MenuConstraintlayoutActivity : BaseFontActivity(), OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = MenuConstraintlayoutActivity::class.java.simpleName
+            this.tvTitle?.text = MenuConstraintLayoutActivity::class.java.simpleName
         }
         btConstraintSet.setOnClickListener(this)
         btDemo.setOnClickListener(this)

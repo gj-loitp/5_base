@@ -1,11 +1,11 @@
-package vn.loitp.app.a.cv.layout.constraint.fabAndSnackbar
+package vn.loitp.a.cv.layout.constraint.fabAndSnackbar
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_fab_and_snackbar.*
+import kotlinx.android.synthetic.main.a_fab_and_snack_bar.*
 import vn.loitp.R
 
 @LogTag("FabAndSnackbarActivity")
@@ -13,7 +13,7 @@ import vn.loitp.R
 class FabAndSnackBarActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fab_and_snackbar
+        return R.layout.a_fab_and_snack_bar
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

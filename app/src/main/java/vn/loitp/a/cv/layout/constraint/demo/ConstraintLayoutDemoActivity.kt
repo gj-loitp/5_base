@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.constraint.demo
+package vn.loitp.a.cv.layout.constraint.demo
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_constraintlayout_demo.*
+import kotlinx.android.synthetic.main.a_constraint_layout_demo.*
 import vn.loitp.R
 
 @LogTag("ConstraintLayoutDemoActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class ConstraintLayoutDemoActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_constraintlayout_demo
+        return R.layout.a_constraint_layout_demo
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
