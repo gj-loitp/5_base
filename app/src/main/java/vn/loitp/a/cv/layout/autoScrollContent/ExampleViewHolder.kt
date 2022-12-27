@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.autoScrollContent
+package vn.loitp.a.cv.layout.autoScrollContent
 
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.viewbinding.ViewBinding

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.autoScrollContent
+package vn.loitp.a.cv.layout.autoScrollContent
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

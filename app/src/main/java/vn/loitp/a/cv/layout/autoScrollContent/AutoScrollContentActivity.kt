@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.autoScrollContent
+package vn.loitp.a.cv.layout.autoScrollContent
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,16 +12,16 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_auto_scroll_content.*
+import kotlinx.android.synthetic.main.a_auto_scroll_content.*
 import vn.loitp.R
-import vn.loitp.databinding.ActivityAutoScrollContentBinding
+import vn.loitp.databinding.AAutoScrollContentBinding
 
 @LogTag("AutoScrollContentActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class AutoScrollContentActivity : BaseFontActivity() {
 
-    private lateinit var binding: ActivityAutoScrollContentBinding
+    private lateinit var binding: AAutoScrollContentBinding
     private val lm = LinearLayoutManager(this)
     private var reverse = false
     private var loop = false
@@ -30,12 +30,12 @@ class AutoScrollContentActivity : BaseFontActivity() {
     private var currentSpeed = 40
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_auto_scroll_content
+        return R.layout.a_auto_scroll_content
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAutoScrollContentBinding.inflate(layoutInflater)
+        binding = AAutoScrollContentBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
