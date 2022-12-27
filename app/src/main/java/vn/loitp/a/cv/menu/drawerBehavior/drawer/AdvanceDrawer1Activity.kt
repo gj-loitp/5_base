@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.menu.drawerBehavior.drawer
+package vn.loitp.a.cv.menu.drawerBehavior.drawer
 
 import android.os.Bundle
 import android.view.Gravity
@@ -11,18 +11,17 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_drawer_behavior_advance_3d_1.*
+import com.loitp.core.ext.setSafeOnClickListener
+import kotlinx.android.synthetic.main.a_drawer_behavior_advance1.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.R
 
-@LogTag("Advance3DDrawer1Activity")
+@LogTag("AdvanceDrawer1Activity")
 @IsFullScreen(false)
-class Advance3DDrawer1Activity :
-    BaseFontActivity(),
-    NavigationView.OnNavigationItemSelectedListener {
+class AdvanceDrawer1Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_drawer_behavior_advance_3d_1
+        return R.layout.a_drawer_behavior_advance1
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,11 +33,10 @@ class Advance3DDrawer1Activity :
     private fun setupViews() {
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
+        fab.setSafeOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-
         val toggle = ActionBarDrawerToggle(
             this,
             drawerLayout,
@@ -48,15 +46,9 @@ class Advance3DDrawer1Activity :
         )
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
-
         navView.setNavigationItemSelectedListener(this)
-
-        drawerLayout?.apply {
-            setViewScale(Gravity.START, 0.96f)
-            setRadius(Gravity.START, 20f)
-            setViewElevation(Gravity.START, 8f)
-            setViewRotation(Gravity.START, 15f)
-        }
+        drawerLayout?.useCustomBehavior(Gravity.START)
+        drawerLayout?.useCustomBehavior(Gravity.END)
     }
 
 //    override fun onBackPressed() {

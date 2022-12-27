@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.menu.drawerBehavior.drawer
+package vn.loitp.a.cv.menu.drawerBehavior.drawer
 
 import android.os.Bundle
 import android.view.Gravity
@@ -12,16 +12,16 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_drawer_behavior_advance2.*
+import kotlinx.android.synthetic.main.a_drawer_behavior_advance4.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.R
 
-@LogTag("AdvanceDrawer2Activity")
+@LogTag("AdvanceDrawer4Activity")
 @IsFullScreen(false)
-class AdvanceDrawer2Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
+class AdvanceDrawer4Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_drawer_behavior_advance2
+        return R.layout.a_drawer_behavior_advance4
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,8 +47,8 @@ class AdvanceDrawer2Activity : BaseFontActivity(), NavigationView.OnNavigationIt
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
         drawerLayout?.apply {
-            setViewScale(Gravity.START, 0.9f)
-            setViewElevation(Gravity.START, 20f)
+            setViewScale(Gravity.END, 0.9f)
+            setViewElevation(Gravity.END, 20f)
         }
     }
 

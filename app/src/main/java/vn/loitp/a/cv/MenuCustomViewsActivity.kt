@@ -37,7 +37,7 @@ import vn.loitp.a.cv.navi.MenuNavigationActivity
 import vn.loitp.a.cv.popupMenu.PopupMenuActivity
 import vn.loitp.a.cv.progress.MenuProgressActivity
 import vn.loitp.a.cv.spotlight.SpotlightActivity
-import vn.loitp.app.a.cv.menu.MenuMenuActivity
+import vn.loitp.a.cv.menu.MenuMenuActivity
 import vn.loitp.app.a.cv.rv.MenuRecyclerViewActivity
 import vn.loitp.app.a.cv.sb.MenuSeekbarActivity
 import vn.loitp.app.a.cv.scratchView.MenuScratchViewActivity

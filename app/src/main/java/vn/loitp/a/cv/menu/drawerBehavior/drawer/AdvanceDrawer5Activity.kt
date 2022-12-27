@@ -1,6 +1,7 @@
-package vn.loitp.app.a.cv.menu.drawerBehavior.drawer
+package vn.loitp.a.cv.menu.drawerBehavior.drawer
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -11,16 +12,16 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_drawer_behavior_default.*
+import kotlinx.android.synthetic.main.a_drawer_behavior_advance5.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.R
 
-@LogTag("DefaultDrawerActivity")
+@LogTag("ExtraTextViewActivity")
 @IsFullScreen(false)
-class DefaultDrawerActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
+class AdvanceDrawer5Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_drawer_behavior_default
+        return R.layout.a_drawer_behavior_advance5
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,15 +37,20 @@ class DefaultDrawerActivity : BaseFontActivity(), NavigationView.OnNavigationIte
                 .setAction("Action", null).show()
         }
         val toggle = ActionBarDrawerToggle(
-            this,
-            drawerLayout,
-            toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
+            /* activity = */ this,
+            /* drawerLayout = */ drawerLayout,
+            /* toolbar = */ toolbar,
+            /* openDrawerContentDescRes = */ R.string.navigation_drawer_open,
+            /* closeDrawerContentDescRes = */ R.string.navigation_drawer_close
         )
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
+        drawerLayout?.apply {
+            setViewScale(Gravity.START, 0.9f)
+            setRadius(Gravity.START, 35f)
+            setViewElevation(Gravity.START, 20f)
+        }
     }
 
 //    override fun onBackPressed() {

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.menu.drawerBehavior.drawer
+package vn.loitp.a.cv.menu.drawerBehavior.drawer
 
 import android.os.Bundle
 import android.view.Menu
@@ -13,7 +13,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_drawer_behavior_advance6.*
+import kotlinx.android.synthetic.main.a_drawer_behavior_advance6.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.R
 
@@ -22,7 +22,7 @@ import vn.loitp.R
 class AdvanceDrawer6Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_drawer_behavior_advance6
+        return R.layout.a_drawer_behavior_advance6
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,11 +42,11 @@ class AdvanceDrawer6Activity : BaseFontActivity(), NavigationView.OnNavigationIt
         }
 
         val toggle = ActionBarDrawerToggle(
-            this,
-            drawerLayout,
-            toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
+            /* activity = */ this,
+            /* drawerLayout = */ drawerLayout,
+            /* toolbar = */ toolbar,
+            /* openDrawerContentDescRes = */ R.string.navigation_drawer_open,
+            /* closeDrawerContentDescRes = */ R.string.navigation_drawer_close
         )
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()

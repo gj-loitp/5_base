@@ -514,7 +514,7 @@
             android:name=".app.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.menu.MenuMenuActivity"
+            android:name=".a.cv.menu.MenuMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.menu.reside.ResideMenuActivity"
@@ -934,31 +934,31 @@
             android:name=".a.picker.number.NumberPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.menu.drawerBehavior.DrawerBehaviorMainActivity"
+            android:name=".a.cv.menu.drawerBehavior.DrawerBehaviorMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.menu.drawerBehavior.drawer.Advance3DDrawer1Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.Advance3DDrawer1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer1Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer2Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer3Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer3Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer4Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer4Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer5Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer5Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer6Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer6Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.menu.drawerBehavior.drawer.DefaultDrawerActivity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.DefaultDrawerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.layout.splitPanel.SplitPanelLayoutActivity"

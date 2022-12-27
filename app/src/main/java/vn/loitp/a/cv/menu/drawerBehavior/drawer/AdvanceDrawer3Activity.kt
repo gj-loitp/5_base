@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.menu.drawerBehavior.drawer
+package vn.loitp.a.cv.menu.drawerBehavior.drawer
 
 import android.os.Bundle
 import android.view.Gravity
@@ -12,16 +12,16 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_drawer_behavior_advance1.*
+import kotlinx.android.synthetic.main.a_drawer_behavior_advance3.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.R
 
-@LogTag("AdvanceDrawer1Activity")
+@LogTag("AdvanceDrawer3Activity")
 @IsFullScreen(false)
-class AdvanceDrawer1Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
+class AdvanceDrawer3Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_drawer_behavior_advance1
+        return R.layout.a_drawer_behavior_advance3
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,23 +32,25 @@ class AdvanceDrawer1Activity : BaseFontActivity(), NavigationView.OnNavigationIt
 
     private fun setupViews() {
         setSupportActionBar(toolbar)
-
         fab.setSafeOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
         val toggle = ActionBarDrawerToggle(
-            this,
-            drawerLayout,
-            toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
+            /* activity = */ this,
+            /* drawerLayout = */ drawerLayout,
+            /* toolbar = */ toolbar,
+            /* openDrawerContentDescRes = */ R.string.navigation_drawer_open,
+            /* closeDrawerContentDescRes = */ R.string.navigation_drawer_close
         )
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
-        drawerLayout?.useCustomBehavior(Gravity.START)
-        drawerLayout?.useCustomBehavior(Gravity.END)
+        drawerLayout?.apply {
+            setViewScale(Gravity.START, 0.9f)
+            setViewElevation(Gravity.START, 20f)
+            useCustomBehavior(Gravity.END)
+        }
     }
 
 //    override fun onBackPressed() {
