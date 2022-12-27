@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.menu.reside
+package vn.loitp.a.cv.menu.reside
 
 import android.os.Bundle
 import android.view.View
@@ -6,14 +6,14 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import kotlinx.android.synthetic.main.frm_reside_menu_calendar.*
+import kotlinx.android.synthetic.main.f_reside_menu_calendar.*
 import vn.loitp.R
 
 @LogTag("CalendarFragment")
 class CalendarFragment : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_reside_menu_calendar
+        return R.layout.f_reside_menu_calendar
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

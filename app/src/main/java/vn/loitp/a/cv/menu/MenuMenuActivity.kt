@@ -11,7 +11,7 @@ import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_menu_menu.*
 import vn.loitp.R
 import vn.loitp.a.cv.menu.drawerBehavior.DrawerBehaviorMainActivity
-import vn.loitp.app.a.cv.menu.reside.ResideMenuActivity
+import vn.loitp.a.cv.menu.reside.ResideMenuActivity
 
 @LogTag("MenuMenuActivity")
 @IsFullScreen(false)

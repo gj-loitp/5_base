@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.menu.reside
+package vn.loitp.a.cv.menu.reside
 
 import android.graphics.Color
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LAppResource
 import com.loitp.views.menu.resideMenu.ResideMenu
 import com.loitp.views.menu.resideMenu.ResideMenuItem
-import kotlinx.android.synthetic.main.activity_reside_menu.*
+import kotlinx.android.synthetic.main.a_reside_menu.*
 import vn.loitp.R
 
 @LogTag("ResideMenuActivity")
@@ -26,7 +26,7 @@ class ResideMenuActivity : BaseFontActivity(), View.OnClickListener {
     private var itemSettings: ResideMenuItem? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_reside_menu
+        return R.layout.a_reside_menu
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {

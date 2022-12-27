@@ -1,11 +1,11 @@
-package vn.loitp.app.a.cv.menu.reside
+package vn.loitp.a.cv.menu.reside
 
 import android.os.Bundle
 import android.view.View
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.views.menu.resideMenu.ResideMenu
-import kotlinx.android.synthetic.main.frm_reside_menu_home.*
+import kotlinx.android.synthetic.main.f_reside_menu_home.*
 import vn.loitp.R
 
 @LogTag("HomeFragment")
@@ -14,7 +14,7 @@ class HomeFragment : BaseFragment() {
     private var resideMenu: ResideMenu? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_reside_menu_home
+        return R.layout.f_reside_menu_home
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

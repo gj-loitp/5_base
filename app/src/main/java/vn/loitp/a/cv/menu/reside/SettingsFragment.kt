@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.menu.reside
+package vn.loitp.a.cv.menu.reside
 
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
@@ -8,6 +8,6 @@ import vn.loitp.R
 class SettingsFragment : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_reside_menu_setting
+        return R.layout.f_reside_menu_setting
     }
 }
