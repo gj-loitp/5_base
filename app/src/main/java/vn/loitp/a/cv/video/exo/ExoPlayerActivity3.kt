@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.video.exo
+package vn.loitp.a.cv.video.exo
 
 import android.os.Bundle
 import com.google.android.exoplayer2.ui.PlayerView
@@ -7,9 +7,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LScreenUtil
-import vn.loitp.app.a.cv.video.exo.mng.PlayerManager
-import kotlinx.android.synthetic.main.activity_video_exo_player3.*
+import kotlinx.android.synthetic.main.a_video_exo_player3.*
 import vn.loitp.R
+import vn.loitp.a.cv.video.exo.mng.PlayerManager
 
 @LogTag("ExoPlayerActivity3")
 @IsFullScreen(false)
@@ -17,7 +17,7 @@ class ExoPlayerActivity3 : BaseFontActivity() {
     private var playerManager: PlayerManager? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_video_exo_player3
+        return R.layout.a_video_exo_player3
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,14 +66,6 @@ class ExoPlayerActivity3 : BaseFontActivity() {
         playerManager?.release()
         super.onDestroy()
     }
-
-//    override fun onBackPressed() {
-//        if (LScreenUtil.isLandscape()) {
-//            playerManager?.toggleFullscreen(activity = this)
-//        } else {
-//            super.onBackPressed()
-//        }
-//    }
 
     override fun onBaseBackPressed() {
         if (LScreenUtil.isLandscape()) {

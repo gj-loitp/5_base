@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.video.youtube
+package vn.loitp.a.cv.video.youtube
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -6,7 +6,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_video_youtube.*
+import kotlinx.android.synthetic.main.a_video_youtube.*
 import vn.loitp.R
 
 @LogTag("YoutubeActivity")
@@ -14,7 +14,7 @@ import vn.loitp.R
 class YoutubeActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_video_youtube
+        return R.layout.a_video_youtube
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -48,7 +48,7 @@ import vn.loitp.app.a.cv.sticker.StickerActivity
 import vn.loitp.app.a.cv.sw.MenuSwitchToggleActivity
 import vn.loitp.app.a.cv.treeView.TreeViewActivity
 import vn.loitp.app.a.cv.tv.MenuTextViewActivity
-import vn.loitp.app.a.cv.video.MenuVideoViewActivity
+import vn.loitp.a.cv.video.MenuVideoViewActivity
 import vn.loitp.app.a.cv.vp.MenuViewPagerActivity
 import vn.loitp.app.a.cv.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.app.a.cv.wheelView.WheelViewActivity

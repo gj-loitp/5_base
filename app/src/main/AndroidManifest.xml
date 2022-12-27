@@ -151,7 +151,7 @@
             android:name=".a.cv.et.materialTextField.MaterialTextFieldActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.video.MenuVideoViewActivity"
+            android:name=".a.cv.video.MenuVideoViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.typeWrite.TypeWriterTextViewActivity"
@@ -556,13 +556,13 @@
             android:name=".a.cv.layout.constraint.constraintSet.ConstraintSetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.video.exo.ExoPlayerActivity"
+            android:name=".a.cv.video.exo.ExoPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.video.exo.ExoPlayerActivity2"
+            android:name=".a.cv.video.exo.ExoPlayerActivity2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.video.exo.ExoPlayerActivity3"
+            android:name=".a.cv.video.exo.ExoPlayerActivity3"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -575,7 +575,7 @@
             android:name=".a.anim.valueAnimator.ValueAnimatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.video.youtube.YoutubeActivity"
+            android:name=".a.cv.video.youtube.YoutubeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.demo.twoInstanceActivity.Activity1"

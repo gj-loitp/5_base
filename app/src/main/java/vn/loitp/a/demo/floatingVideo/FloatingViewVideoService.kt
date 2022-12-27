@@ -13,7 +13,7 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.google.android.exoplayer2.ui.PlayerView
 import com.loitp.core.ext.setSafeOnClickListener
-import vn.loitp.app.a.cv.video.exo.mng.PlayerManager
+import vn.loitp.a.cv.video.exo.mng.PlayerManager
 import vn.loitp.R
 import vn.loitp.a.sv.endless.log
 

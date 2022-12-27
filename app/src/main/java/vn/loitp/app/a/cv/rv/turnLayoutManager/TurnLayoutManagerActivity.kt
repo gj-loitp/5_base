@@ -19,7 +19,6 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_turn_layout_manager.*
-import kotlinx.android.synthetic.main.activity_video_exo_player2.*
 import kotlinx.android.synthetic.main.view_controls_tlm.*
 import vn.loitp.R
 
