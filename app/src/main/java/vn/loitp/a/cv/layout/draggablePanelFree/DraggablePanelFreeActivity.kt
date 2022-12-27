@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.draggablePanelFree
+package vn.loitp.a.cv.layout.draggablePanelFree
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_draggable_panel_free.*
+import kotlinx.android.synthetic.main.a_draggable_panel_free.*
 import vn.loitp.R
 
 @LogTag("DraggablePanelFreeActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class DraggablePanelFreeActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_draggable_panel_free
+        return R.layout.a_draggable_panel_free
     }
 
     @SuppressLint("SetTextI18n")

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.draggableView
+package vn.loitp.a.cv.layout.draggableView
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.layout.draggablePanel.DraggableListener
-import kotlinx.android.synthetic.main.activity_draggable_view.*
+import kotlinx.android.synthetic.main.a_draggable_view.*
 import vn.loitp.R
 
 @LogTag("DraggableViewActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class DraggableViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_draggable_view
+        return R.layout.a_draggable_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

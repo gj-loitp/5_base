@@ -1,11 +1,11 @@
-package vn.loitp.app.a.cv.layout.draggablePanel
+package vn.loitp.a.cv.layout.draggablePanel
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.frm_test_bottom.*
+import kotlinx.android.synthetic.main.f_test_bottom.*
 import vn.loitp.R
 
 class FrmTestBottom : Fragment() {
@@ -21,10 +21,13 @@ class FrmTestBottom : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.frm_test_bottom, container, false)
+        return inflater.inflate(R.layout.f_test_bottom, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         imageView.setImageResource(R.drawable.iv)

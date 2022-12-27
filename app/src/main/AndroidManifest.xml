@@ -345,7 +345,7 @@
             android:name=".a.db.readSqliteAsset.ReadSqliteAssetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.draggableView.DraggableViewActivity"
+            android:name=".a.cv.layout.draggableView.DraggableViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.api.retrofit2.TestAPIRetrofit2Activity"
@@ -366,7 +366,7 @@
             android:name=".a.cv.answerView.AnswerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.draggablePanel.DraggablePanelActivity"
+            android:name=".a.cv.layout.draggablePanel.DraggablePanelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.circularView.CircularViewActivity"
@@ -598,7 +598,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".app.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity"
+            android:name=".a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.vp.lockable.LockableViewPagerActivity"

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.draggablePanel
+package vn.loitp.a.cv.layout.draggablePanel
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,6 +20,6 @@ class FrmTestTop : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.frm_test_bottom, container, false)
+        return inflater.inflate(R.layout.f_test_bottom, container, false)
     }
 }
