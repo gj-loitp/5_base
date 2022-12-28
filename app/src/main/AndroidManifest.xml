@@ -989,7 +989,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--endregion-->
         <activity
-            android:name=".app.a.cv.wv.l.LWebViewActivity"
+            android:name=".a.cv.wv.l.LWebViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.func.theme.ThemeActivity"
@@ -1201,10 +1201,10 @@
             android:name=".app.a.cv.tv.typed.TypedTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.wv.MenuWebViewActivity"
+            android:name=".a.cv.wv.MenuWebViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.wv.wrapContent.WebViewWrapContentActivity"
+            android:name=".a.cv.wv.wrapContent.WebViewWrapContentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.demo.piano.PianoActivity"

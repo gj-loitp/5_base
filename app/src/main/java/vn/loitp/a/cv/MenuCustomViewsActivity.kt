@@ -52,7 +52,7 @@ import vn.loitp.a.cv.video.MenuVideoViewActivity
 import vn.loitp.app.a.cv.vp.MenuViewPagerActivity
 import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.a.cv.wheelView.WheelViewActivity
-import vn.loitp.app.a.cv.wv.MenuWebViewActivity
+import vn.loitp.a.cv.wv.MenuWebViewActivity
 import vn.loitp.app.a.cv.wwlMusic.WWLActivityMusic
 import vn.loitp.app.a.cv.wwlVideo.WWLVideoActivity
 

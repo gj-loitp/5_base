@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wv.wrapContent
+package vn.loitp.a.cv.wv.wrapContent
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -9,7 +9,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_web_view_wrap_content.*
+import kotlinx.android.synthetic.main.a_wv_wrap_content.*
 import vn.loitp.R
 
 @LogTag("WebViewWrapContentActivity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class WebViewWrapContentActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_web_view_wrap_content
+        return R.layout.a_wv_wrap_content
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

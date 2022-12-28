@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wv.l
+package vn.loitp.a.cv.wv.l
 
 import android.os.Bundle
 import android.view.KeyEvent
@@ -12,7 +12,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.wv.LWebViewAdblock
-import kotlinx.android.synthetic.main.activity_web_view.*
+import kotlinx.android.synthetic.main.a_wv.*
 import vn.loitp.R
 
 @LogTag("LWebViewActivity")
@@ -23,7 +23,7 @@ class LWebViewActivity : BaseFontActivity() {
     private var isDetectButtonClickWeb = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_web_view
+        return R.layout.a_wv
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
