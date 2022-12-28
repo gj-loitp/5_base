@@ -1,11 +1,11 @@
-package vn.loitp.app.a.cv.simpleRatingBar
+package vn.loitp.a.cv.simpleRatingBar
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_srb_list.*
+import kotlinx.android.synthetic.main.f_srb_list.*
 import vn.loitp.R
 
 class SRBListFragment : Fragment() {
@@ -14,7 +14,7 @@ class SRBListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_srb_list, container, false)
+        return inflater.inflate(R.layout.f_srb_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

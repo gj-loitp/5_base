@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.simpleRatingBar
+package vn.loitp.a.cv.simpleRatingBar
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -14,7 +14,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_simple_rating_bar.*
+import kotlinx.android.synthetic.main.a_simple_rating_bar.*
 import vn.loitp.R
 import vn.loitp.app.EmptyActivity
 
@@ -24,7 +24,7 @@ import vn.loitp.app.EmptyActivity
 class SimpleRatingBarActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_simple_rating_bar
+        return R.layout.a_simple_rating_bar
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,7 +70,6 @@ class SimpleRatingBarActivity : BaseFontActivity() {
         viewPager.addOnPageChangeListener(TabLayoutOnPageChangeListener(tabLayout))
     }
 
-    //TODO convert viewpager 2
     inner class SamplePagerAdapter(fm: FragmentManager) :
         FragmentStatePagerAdapter(fm) {
         private val fragments: MutableList<Fragment>

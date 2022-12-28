@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.simpleRatingBar
+package vn.loitp.a.cv.simpleRatingBar
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.willy.ratingbar.BaseRatingBar
 import com.willy.ratingbar.ScaleRatingBar
 import vn.loitp.R
-import vn.loitp.app.a.cv.simpleRatingBar.SRBAdapter.MyViewHolder
+import vn.loitp.a.cv.simpleRatingBar.SRBAdapter.MyViewHolder
 
 class SRBAdapter(private val mContext: Context) : RecyclerView.Adapter<MyViewHolder>() {
     private val list: MutableList<Float>
@@ -23,7 +23,7 @@ class SRBAdapter(private val mContext: Context) : RecyclerView.Adapter<MyViewHol
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         @SuppressLint("InflateParams") val view =
-            LayoutInflater.from(mContext).inflate(R.layout.layout_item_srb, null)
+            LayoutInflater.from(mContext).inflate(R.layout.i_srb, null)
         return MyViewHolder(view)
     }
 

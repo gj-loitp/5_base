@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.simpleRatingBar
+package vn.loitp.a.cv.simpleRatingBar
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LLog
 import com.willy.ratingbar.BaseRatingBar
-import kotlinx.android.synthetic.main.fragment_srb_demo.*
+import kotlinx.android.synthetic.main.f_srb_demo.*
 import vn.loitp.R
 
 class SRBDemoFragment : Fragment() {
@@ -21,7 +21,7 @@ class SRBDemoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_srb_demo, container, false)
+        return inflater.inflate(R.layout.f_srb_demo, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
