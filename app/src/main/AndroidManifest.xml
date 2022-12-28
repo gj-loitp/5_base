@@ -112,7 +112,7 @@
             android:name=".a.cv.iv.touch.TouchIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.sticker.StickerActivity"
+            android:name=".a.cv.sticker.StickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.MenuLayoutActivity"

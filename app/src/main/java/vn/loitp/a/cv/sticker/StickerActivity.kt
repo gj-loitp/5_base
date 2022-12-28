@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.sticker
+package vn.loitp.a.cv.sticker
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -7,7 +7,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.sticker.StickerImageView
 import com.loitp.views.sticker.StickerTextView
-import kotlinx.android.synthetic.main.activity_sticker.*
+import kotlinx.android.synthetic.main.a_sticker.*
 import vn.loitp.R
 
 @LogTag("StickerActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class StickerActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_sticker
+        return R.layout.a_sticker
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
