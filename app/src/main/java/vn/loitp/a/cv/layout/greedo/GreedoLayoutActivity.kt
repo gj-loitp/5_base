@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.greedo
+package vn.loitp.a.cv.layout.greedo
 
 import android.os.Bundle
 import android.widget.ToggleButton
@@ -11,7 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_greedo_layout.*
+import kotlinx.android.synthetic.main.a_layout_greedo.*
 import vn.loitp.R
 
 @LogTag("GreedoLayoutActivity")
@@ -20,7 +20,7 @@ import vn.loitp.R
 class GreedoLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_greedo_layout
+        return R.layout.a_layout_greedo
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.flow
+package vn.loitp.a.cv.layout.flow
 
 import android.os.Bundle
 import android.widget.TextView
@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LDeviceUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_flow_layout.*
+import kotlinx.android.synthetic.main.a_flow_layout.*
 import vn.loitp.R
 
 @LogTag("FlowLayoutActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class FlowLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_flow_layout
+        return R.layout.a_flow_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

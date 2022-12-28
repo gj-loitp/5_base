@@ -25,8 +25,8 @@ import vn.loitp.a.cv.layout.draggableView.DraggableViewActivity
 import vn.loitp.a.cv.layout.expansionPanel.MenuExpansionLayoutActivity
 import vn.loitp.a.cv.layout.floatDrag.FloatDragLayoutActivity
 import vn.loitp.a.cv.layout.floatLayout.FloatLayoutActivity
-import vn.loitp.app.a.cv.layout.flow.FlowLayoutActivity
-import vn.loitp.app.a.cv.layout.greedo.GreedoLayoutActivity
+import vn.loitp.a.cv.layout.flow.FlowLayoutActivity
+import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivity
 import vn.loitp.app.a.cv.layout.heart.HeartLayoutActivity
 import vn.loitp.app.a.cv.layout.reflection.ReflectionLayoutActivity
 import vn.loitp.app.a.cv.layout.relativePopupWindow.RelativePopupWindowActivity

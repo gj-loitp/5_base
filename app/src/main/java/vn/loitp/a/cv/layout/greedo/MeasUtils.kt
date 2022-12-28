@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.greedo
+package vn.loitp.a.cv.layout.greedo
 
 import android.content.Context
 import android.util.TypedValue

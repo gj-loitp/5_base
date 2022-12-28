@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.greedo
+package vn.loitp.a.cv.layout.greedo
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fivehundredpx.greedolayout.GreedoLayoutSizeCalculator.SizeCalculatorDelegate
 import com.loitp.core.utilities.LImageUtil
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.greedo.PhotosAdapter.PhotoViewHolder
+import vn.loitp.a.cv.layout.greedo.PhotosAdapter.PhotoViewHolder
 
 class PhotosAdapter(private val mContext: Context) : RecyclerView.Adapter<PhotoViewHolder>(),
     SizeCalculatorDelegate {
@@ -33,7 +33,10 @@ class PhotosAdapter(private val mContext: Context) : RecyclerView.Adapter<PhotoV
         calculateImageAspectRatios()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): PhotoViewHolder {
         val imageView = ImageView(mContext)
         imageView.scaleType = ImageView.ScaleType.CENTER_CROP
         imageView.layoutParams = ViewGroup.LayoutParams(
