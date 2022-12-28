@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.scrollView2d
+package vn.loitp.a.cv.layout.scrollView2d
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -15,7 +15,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.sv.LScrollView
-import kotlinx.android.synthetic.main.activity_scrollview_2d_advance_layout.*
+import kotlinx.android.synthetic.main.a_layout_scrollview_2d_advance.*
 import vn.loitp.R
 
 @LogTag("ScrollView2DAdvanceActivity")
@@ -28,7 +28,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_scrollview_2d_advance_layout
+        return R.layout.a_layout_scrollview_2d_advance
     }
 
     @SuppressLint("SetTextI18n")

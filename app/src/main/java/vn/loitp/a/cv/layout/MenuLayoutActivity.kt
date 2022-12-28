@@ -33,8 +33,8 @@ import vn.loitp.a.cv.layout.relativePopupWindow.RelativePopupWindowActivity
 import vn.loitp.a.cv.layout.ripple.RippleLayoutActivity
 import vn.loitp.a.cv.layout.rotate.RotateLayoutActivity
 import vn.loitp.a.cv.layout.roundable.RoundableLayoutActivity
-import vn.loitp.app.a.cv.layout.scrollView2d.ScrollView2DActivity
-import vn.loitp.app.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity
+import vn.loitp.a.cv.layout.scrollView2d.ScrollView2DActivity
+import vn.loitp.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity
 import vn.loitp.app.a.cv.layout.sequence.SequenceLayoutActivity
 import vn.loitp.app.a.cv.layout.shadow.ShadowLayoutActivity
 import vn.loitp.app.a.cv.layout.shapeOfView.ShapeOfViewActivity

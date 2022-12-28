@@ -663,10 +663,10 @@
             android:name=".a.picker.MenuPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.scrollView2d.ScrollView2DActivity"
+            android:name=".a.cv.layout.scrollView2d.ScrollView2DActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity"
+            android:name=".a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.demo.fragmentNavigation.FragmentNavigationActivity"

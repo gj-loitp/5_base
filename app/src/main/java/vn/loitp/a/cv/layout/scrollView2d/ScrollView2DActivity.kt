@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.scrollView2d
+package vn.loitp.a.cv.layout.scrollView2d
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -6,7 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_scroll_view_2d_layout.*
+import kotlinx.android.synthetic.main.a_layout_scroll_view_2d.*
 import vn.loitp.R
 
 @LogTag("ScrollView2DActivity")
@@ -14,7 +14,7 @@ import vn.loitp.R
 class ScrollView2DActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_scroll_view_2d_layout
+        return R.layout.a_layout_scroll_view_2d
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
