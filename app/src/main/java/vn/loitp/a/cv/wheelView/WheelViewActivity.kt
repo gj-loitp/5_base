@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wheelView
+package vn.loitp.a.cv.wheelView
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_wheel_view.*
+import kotlinx.android.synthetic.main.a_wheel_view.*
 import vn.loitp.R
 
 @LogTag("WheelViewActivity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class WheelViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_wheel_view
+        return R.layout.a_wheel_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
