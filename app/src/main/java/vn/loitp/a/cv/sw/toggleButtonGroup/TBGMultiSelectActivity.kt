@@ -1,19 +1,20 @@
-package vn.loitp.app.a.cv.sw.toggleButtonGroup
+package vn.loitp.a.cv.sw.toggleButtonGroup
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_switch_tbg_single.*
+import com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+import kotlinx.android.synthetic.main.a_switch_tbg_multi_select.*
 import vn.loitp.R
 
-@LogTag("TBGSingleSelectActivity")
+@LogTag("TBGMultiSelectActivity")
 @IsFullScreen(false)
-class TBGSingleSelectActivity : BaseFontActivity() {
+class TBGMultiSelectActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_switch_tbg_single
+        return R.layout.a_switch_tbg_multi_select
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,11 +32,10 @@ class TBGSingleSelectActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = TBGSingleSelectActivity::class.java.simpleName
+            this.tvTitle?.text = TBGMultiSelectActivity::class.java.simpleName
         }
-        groupChoices.setOnCheckedChangeListener { _, checkedId ->
-            logD("onCheckedChanged(): checkedId = $checkedId")
-            showShortInformation("onCheckedChanged(): checkedId = $checkedId")
+        groupWeekdays.setOnCheckedChangeListener { group: MultiSelectToggleGroup, _: Int, _: Boolean ->
+            logD("onCheckedStateChanged(): group.getCheckedIds() = " + group.checkedIds)
         }
     }
 }

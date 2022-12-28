@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.sw.toggleButtonGroup
+package vn.loitp.a.cv.sw.toggleButtonGroup
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -8,7 +8,7 @@ import com.loitp.core.utilities.LUIUtil
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup.OnCheckedStateChangeListener
 import com.nex3z.togglebuttongroup.SingleSelectToggleGroup
-import kotlinx.android.synthetic.main.activity_switch_tbg_custom_button.*
+import kotlinx.android.synthetic.main.a_switch_tbg_custom_button.*
 import vn.loitp.R
 
 @LogTag("TBGCustomButtonActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class TBGCustomButtonActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_switch_tbg_custom_button
+        return R.layout.a_switch_tbg_custom_button
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

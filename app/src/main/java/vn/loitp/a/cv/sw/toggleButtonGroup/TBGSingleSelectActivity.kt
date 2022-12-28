@@ -1,23 +1,19 @@
-package vn.loitp.app.a.cv.sw.toggle
+package vn.loitp.a.cv.sw.toggleButtonGroup
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.views.sw.toggle.LabeledSwitch
-import com.loitp.views.sw.toggle.OnToggledListener
-import kotlinx.android.synthetic.main.activity_switch_toggle.*
+import kotlinx.android.synthetic.main.a_switch_tbg_single.*
 import vn.loitp.R
 
-// https://github.com/Angads25/android-toggle?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6778
-
-@LogTag("ToggleActivity")
+@LogTag("TBGSingleSelectActivity")
 @IsFullScreen(false)
-class ToggleActivity : BaseFontActivity() {
+class TBGSingleSelectActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_switch_toggle
+        return R.layout.a_switch_tbg_single
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,12 +31,11 @@ class ToggleActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ToggleActivity::class.java.simpleName
+            this.tvTitle?.text = TBGSingleSelectActivity::class.java.simpleName
         }
-        labeledSwitch.setOnToggledListener(object : OnToggledListener {
-            override fun onSwitched(labeledSwitch: LabeledSwitch, isOn: Boolean) {
-                showShortInformation("isOn $isOn")
-            }
-        })
+        groupChoices.setOnCheckedChangeListener { _, checkedId ->
+            logD("onCheckedChanged(): checkedId = $checkedId")
+            showShortInformation("onCheckedChanged(): checkedId = $checkedId")
+        }
     }
 }

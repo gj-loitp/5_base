@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.sw.toggleButtonGroup
+package vn.loitp.a.cv.sw.toggleButtonGroup
 
 import android.graphics.Color
 import android.os.Bundle
@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.nex3z.togglebuttongroup.button.LabelToggle
-import kotlinx.android.synthetic.main.activity_switch_tbg_flow_label.*
+import kotlinx.android.synthetic.main.a_switch_tbg_flow_label.*
 import vn.loitp.R
 
 @LogTag("TBGFlowLabelActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class TBGFlowLabelActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_switch_tbg_flow_label
+        return R.layout.a_switch_tbg_flow_label
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

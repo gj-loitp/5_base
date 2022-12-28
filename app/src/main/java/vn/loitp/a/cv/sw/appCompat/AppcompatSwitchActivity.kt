@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.sw.appCompat
+package vn.loitp.a.cv.sw.appCompat
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -6,7 +6,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_switch_appcompat.*
+import kotlinx.android.synthetic.main.a_sw_appcompat.*
 import vn.loitp.R
 
 @LogTag("AppcompatSwitchActivity")
@@ -14,7 +14,7 @@ import vn.loitp.R
 class AppcompatSwitchActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_switch_appcompat
+        return R.layout.a_sw_appcompat
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

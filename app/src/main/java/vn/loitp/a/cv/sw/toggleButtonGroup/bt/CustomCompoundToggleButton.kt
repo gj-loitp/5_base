@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.sw.toggleButtonGroup.bt
+package vn.loitp.a.cv.sw.toggleButtonGroup.bt
 
 import android.animation.Animator
 import android.animation.AnimatorInflater

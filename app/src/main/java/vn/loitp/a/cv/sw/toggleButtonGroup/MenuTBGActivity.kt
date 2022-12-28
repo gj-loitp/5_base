@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.sw.toggleButtonGroup
+package vn.loitp.a.cv.sw.toggleButtonGroup
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_switch_tbg.*
+import kotlinx.android.synthetic.main.a_menu_switch_tbg.*
 import vn.loitp.R
 
 // https://github.com/nex3z/ToggleButtonGroup
@@ -17,7 +17,7 @@ import vn.loitp.R
 class MenuTBGActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_switch_tbg
+        return R.layout.a_menu_switch_tbg
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
