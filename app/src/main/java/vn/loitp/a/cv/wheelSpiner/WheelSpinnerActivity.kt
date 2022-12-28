@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wheelSpiner
+package vn.loitp.a.cv.wheelSpiner
 
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_wheel_spinner.*
+import kotlinx.android.synthetic.main.a_wheel_spinner.*
 import vn.loitp.R
 
 @LogTag("WheelSpinnerActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class WheelSpinnerActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_wheel_spinner
+        return R.layout.a_wheel_spinner
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
