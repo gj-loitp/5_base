@@ -444,7 +444,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".app.a.cv.layout.heart.HeartLayoutActivity"
+            android:name=".a.cv.layout.heart.HeartLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.constraint.MenuConstraintLayoutActivity"
@@ -1280,7 +1280,7 @@
             android:name=".a.cv.iv.reflection.ReflectionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.reflection.ReflectionLayoutActivity"
+            android:name=".a.cv.layout.reflection.ReflectionLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.cornerSheet.CornetSheetExampleActivity"

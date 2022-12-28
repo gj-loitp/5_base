@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.heart
+package vn.loitp.a.cv.layout.heart
 
 import android.graphics.Color
 import android.os.Bundle
@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_heart_layout.*
+import kotlinx.android.synthetic.main.a_layout_heart.*
 import vn.loitp.R
 import java.util.*
 
@@ -17,7 +17,7 @@ class HeartLayoutActivity : BaseFontActivity() {
     private val mRandom = Random()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_heart_layout
+        return R.layout.a_layout_heart
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

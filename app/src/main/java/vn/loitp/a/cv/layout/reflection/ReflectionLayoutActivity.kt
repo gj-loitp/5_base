@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.reflection
+package vn.loitp.a.cv.layout.reflection
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_reflection_layout.*
+import kotlinx.android.synthetic.main.a_layout_reflection.*
 import vn.loitp.R
 
 @LogTag("ReflectionLayoutActivity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class ReflectionLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_reflection_layout
+        return R.layout.a_layout_reflection
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
