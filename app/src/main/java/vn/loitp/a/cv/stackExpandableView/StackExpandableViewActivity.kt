@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.stackExpandableView
+package vn.loitp.a.cv.stackExpandableView
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_stack_expandable_view.*
+import kotlinx.android.synthetic.main.a_stack_expandable_view.*
 import vn.loitp.R
 
 @LogTag("StackExpandableViewActivity")
@@ -26,7 +26,7 @@ class StackExpandableViewActivity : BaseFontActivity() {
     private var counter = STARTING_ITEM_NUMBER
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_stack_expandable_view
+        return R.layout.a_stack_expandable_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

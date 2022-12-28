@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.stackExpandableView
+package vn.loitp.a.cv.stackExpandableView
 
 import android.content.Context
 import android.util.AttributeSet

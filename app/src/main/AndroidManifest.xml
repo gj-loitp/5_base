@@ -1177,7 +1177,7 @@
             android:name=".app.a.cv.rv.arcView.ArcViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.stackExpandableView.StackExpandableViewActivity"
+            android:name=".a.cv.stackExpandableView.StackExpandableViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.anim.androidParticles.AndroidParticlesActivity"
