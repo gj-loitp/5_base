@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.roundable
+package vn.loitp.a.cv.layout.roundable
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -6,7 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_roundable_layout.*
+import kotlinx.android.synthetic.main.a_layout_roundable.*
 import vn.loitp.R
 
 @LogTag("RoundableLayoutActivity")
@@ -14,7 +14,7 @@ import vn.loitp.R
 class RoundableLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_roundable_layout
+        return R.layout.a_layout_roundable
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

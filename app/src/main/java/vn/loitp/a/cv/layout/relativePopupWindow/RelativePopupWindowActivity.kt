@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.relativePopupWindow
+package vn.loitp.a.cv.layout.relativePopupWindow
 
 import android.os.Bundle
 import android.util.TypedValue
@@ -11,7 +11,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_relative_popup_window_layout.*
+import kotlinx.android.synthetic.main.a_layout_relative_popup_window.*
 import vn.loitp.R
 
 @LogTag("RelativePopupWindowActivity")
@@ -19,7 +19,7 @@ import vn.loitp.R
 class RelativePopupWindowActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_relative_popup_window_layout
+        return R.layout.a_layout_relative_popup_window
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

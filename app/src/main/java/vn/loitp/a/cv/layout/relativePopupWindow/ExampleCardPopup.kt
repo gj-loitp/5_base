@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.relativePopupWindow
+package vn.loitp.a.cv.layout.relativePopupWindow
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitp.views.toast.LToast
-import kotlinx.android.synthetic.main.popup_card.view.*
+import kotlinx.android.synthetic.main.dlg_card.view.*
 import vn.loitp.R
 
 @SuppressLint("InflateParams")
@@ -52,7 +52,7 @@ class ExampleCardPopup internal constructor(context: Context?) : RelativePopupWi
 //    }
 
     init {
-        val layout = LayoutInflater.from(context).inflate(R.layout.popup_card, null)
+        val layout = LayoutInflater.from(context).inflate(R.layout.dlg_card, null)
         contentView = layout
         width = ViewGroup.LayoutParams.WRAP_CONTENT
         height = ViewGroup.LayoutParams.WRAP_CONTENT

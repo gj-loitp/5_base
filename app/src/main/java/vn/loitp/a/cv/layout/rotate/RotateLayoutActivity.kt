@@ -1,20 +1,22 @@
-package vn.loitp.app.a.cv.layout.ripple
+package vn.loitp.a.cv.layout.rotate
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.utilities.LDeviceUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_ripple_layout.*
+import kotlinx.android.synthetic.main.a_layout_rotate.*
 import vn.loitp.R
 
-@LogTag("RippleLayoutActivity")
+@LogTag("RotateLayoutActivity")
 @IsFullScreen(false)
-class RippleLayoutActivity : BaseFontActivity() {
+class RotateLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_ripple_layout
+        return R.layout.a_layout_rotate
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +34,11 @@ class RippleLayoutActivity : BaseFontActivity() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = RippleLayoutActivity::class.java.simpleName
+            this.tvTitle?.text = RotateLayoutActivity::class.java.simpleName
+        }
+        btRandomRotate.setSafeOnClickListener {
+            val angle = LDeviceUtil.getRandomNumber(360)
+            rotateLayout.setAngle(angle)
         }
     }
 }

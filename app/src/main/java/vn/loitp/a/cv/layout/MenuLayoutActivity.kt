@@ -29,10 +29,10 @@ import vn.loitp.a.cv.layout.flow.FlowLayoutActivity
 import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivity
 import vn.loitp.a.cv.layout.heart.HeartLayoutActivity
 import vn.loitp.a.cv.layout.reflection.ReflectionLayoutActivity
-import vn.loitp.app.a.cv.layout.relativePopupWindow.RelativePopupWindowActivity
-import vn.loitp.app.a.cv.layout.ripple.RippleLayoutActivity
-import vn.loitp.app.a.cv.layout.rotate.RotateLayoutActivity
-import vn.loitp.app.a.cv.layout.roundable.RoundableLayoutActivity
+import vn.loitp.a.cv.layout.relativePopupWindow.RelativePopupWindowActivity
+import vn.loitp.a.cv.layout.ripple.RippleLayoutActivity
+import vn.loitp.a.cv.layout.rotate.RotateLayoutActivity
+import vn.loitp.a.cv.layout.roundable.RoundableLayoutActivity
 import vn.loitp.app.a.cv.layout.scrollView2d.ScrollView2DActivity
 import vn.loitp.app.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity
 import vn.loitp.app.a.cv.layout.sequence.SequenceLayoutActivity
