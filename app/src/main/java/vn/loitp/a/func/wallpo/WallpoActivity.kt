@@ -81,5 +81,13 @@ class WallpoActivity : BaseFontActivity() {
             )
             showShortInformation("Lock Screen Wallpaper set successfully")
         }
+        btSetRandomColor.setSafeOnClickListener {
+            LUIUtil.setWallpaperAndLockScreen(
+                activity = this,
+                color = LUIUtil.getRandomColor(),
+                isSetWallpaper = true,
+                isSetLockScreen = true,
+            )
+        }
     }
 }

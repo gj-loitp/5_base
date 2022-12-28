@@ -523,6 +523,11 @@ class LUIUtil {
             return listColorLight[index]
         }
 
+        fun getRandomColor(): Int {
+            val rnd = Random()
+            return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+        }
+
         // it.imeOptions = EditorInfo.IME_ACTION_SEARCH
         fun setImeiActionEditText(
             editText: EditText? = null,
@@ -1029,18 +1034,34 @@ class LUIUtil {
         ) {
             if (isSetWallpaper) {
                 Wallpo.setMainScreenWallpaper(
-                    /* context = */
-                    activity,
-                    /* imageView = */
-                    imageView,
+                    context = activity,
+                    imageView = imageView,
                 )
             }
             if (isSetLockScreen) {
                 Wallpo.setLockScreenWallpaper(
-                    /* activity = */
-                    activity,
-                    /* imageView = */
-                    imageView,
+                    activity = activity,
+                    imageView = imageView,
+                )
+            }
+        }
+
+        fun setWallpaperAndLockScreen(
+            activity: Activity,
+            color: Int,
+            isSetWallpaper: Boolean = true,
+            isSetLockScreen: Boolean = true,
+        ) {
+            if (isSetWallpaper) {
+                Wallpo.setMainScreenWallpaper(
+                    context = activity,
+                    color = color,
+                )
+            }
+            if (isSetLockScreen) {
+                Wallpo.setLockScreenWallpaper(
+                    activity = activity,
+                    color = color,
                 )
             }
         }

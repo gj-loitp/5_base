@@ -46,6 +46,11 @@
                 style="@style/ButtonMenu"
                 android:text="SET AS LOCKSCREEN WALLPAPER" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSetRandomColor"
+                style="@style/ButtonMenu"
+                android:text="SET WALLPAPER RANDOM COLOR" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
