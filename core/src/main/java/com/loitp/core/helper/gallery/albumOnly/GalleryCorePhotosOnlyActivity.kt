@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
@@ -24,7 +25,6 @@ import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
 import com.loitp.restApi.restClient.RestClient
-import com.loitp.R
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
 import com.permissionx.guolindev.PermissionX
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -99,7 +99,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                     LUIUtil.setWallpaperAndLockScreen(
                         activity = this@GalleryCorePhotosOnlyActivity,
                         imageView = imageView,
-                        message = "Wallpaper Set",
                         isSetWallpaper = true,
                         isSetLockScreen = true,
                     )

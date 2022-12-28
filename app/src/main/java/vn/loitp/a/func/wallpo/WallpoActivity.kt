@@ -67,20 +67,19 @@ class WallpoActivity : BaseFontActivity() {
             LUIUtil.setWallpaperAndLockScreen(
                 activity = this,
                 imageView = ivPreview,
-                message = "Wallpaper Set",
                 isSetWallpaper = true,
                 isSetLockScreen = false,
             )
+            showShortInformation("Wallpaper set successfully")
         }
-
         btSetLockscreen.setSafeOnClickListener {
             LUIUtil.setWallpaperAndLockScreen(
                 activity = this,
                 imageView = ivPreview,
-                message = "LockWallpaper Set",
                 isSetWallpaper = false,
                 isSetLockScreen = true,
             )
+            showShortInformation("Lock Screen Wallpaper set successfully")
         }
     }
 }

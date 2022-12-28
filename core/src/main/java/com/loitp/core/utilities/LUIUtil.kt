@@ -1024,22 +1024,23 @@ class LUIUtil {
         fun setWallpaperAndLockScreen(
             activity: Activity,
             imageView: ImageView,
-            message: String = "Wallpaper Set",
             isSetWallpaper: Boolean = true,
             isSetLockScreen: Boolean = true,
         ) {
             if (isSetWallpaper) {
                 Wallpo.setMainScreenWallpaper(
-                    /* context = */ activity,
-                    /* imageView = */ imageView,
-                    /* message = */ message
+                    /* context = */
+                    activity,
+                    /* imageView = */
+                    imageView,
                 )
             }
             if (isSetLockScreen) {
                 Wallpo.setLockScreenWallpaper(
-                    /* activity = */ activity,
-                    /* imageView = */ imageView,
-                    /* message = */ message
+                    /* activity = */
+                    activity,
+                    /* imageView = */
+                    imageView,
                 )
             }
         }

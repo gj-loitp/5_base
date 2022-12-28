@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_200"
                 android:scaleType="centerCrop"
-                android:src="@drawable/loitp" />
+                android:src="@drawable/iv" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btChangeImageNetwork"
