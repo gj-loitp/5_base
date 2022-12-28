@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.treeView
+package vn.loitp.a.cv.treeView
 
 import android.os.Bundle
 import android.view.View
@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.treeView.BaseTreeAdapter
 import com.loitp.views.treeView.TreeNode
-import kotlinx.android.synthetic.main.activity_tree_view.*
+import kotlinx.android.synthetic.main.a_tree_view.*
 import vn.loitp.R
 
 // https://github.com/Team-Blox/TreeView
@@ -20,7 +20,7 @@ class TreeViewActivity : BaseFontActivity() {
     private var nodeCount = 0
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_tree_view
+        return R.layout.a_tree_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
