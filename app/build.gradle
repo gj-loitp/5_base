@@ -94,7 +94,7 @@ repositories {
 dependencies {
     api project(':core')
 //    https://github.com/tplloi/base
-//    api 'com.github.tplloi:base:4.6.07'
+//    api 'com.github.tplloi:base:4.6.08'
 
     api 'com.daimajia.androidanimations:library:2.4@aar'
 //    https://github.com/hannesa2/AndroidSlidingUpPanel
