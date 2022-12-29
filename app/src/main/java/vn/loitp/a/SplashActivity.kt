@@ -93,7 +93,11 @@ class SplashActivity : BaseFontActivity() {
             val listPer = ArrayList<String>()
             listPer.add(Manifest.permission.ACCESS_FINE_LOCATION)
             listPer.add(Manifest.permission.CAMERA)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+
+            //ACCESS_BACKGROUND_LOCATION publish len store rat kho khan, khong can thiet
+            //ban build debug thi chi test de biet feat nay work
+            //con ban release thi khong can dau
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && BuildConfig.DEBUG) {
                 listPer.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
             }
 
