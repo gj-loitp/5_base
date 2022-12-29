@@ -1,9 +1,7 @@
 package vn.loitp.a.sec.ssBiometricsAuthentication
 
 import android.annotation.SuppressLint
-import android.app.KeyguardManager
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import androidx.biometric.BiometricManager
@@ -28,13 +26,11 @@ class SSBiometricsAuthenticationActivity : BaseFontActivity() {
 
     companion object {
         const val RC_BIOMETRICS_ENROLL = 10
-        const val RC_DEVICE_CREDENTIAL_ENROLL = 18
     }
 
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var executor: Executor
     private lateinit var callBack: BiometricPrompt.AuthenticationCallback
-    private var keyguardManager: KeyguardManager? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_ss_biometrics_authentication
@@ -139,16 +135,8 @@ class SSBiometricsAuthenticationActivity : BaseFontActivity() {
         }
     }
 
-    private fun setUpDeviceLockInAPIBelow23Intent(): Intent {
-        return Intent(Settings.ACTION_SECURITY_SETTINGS)
-    }
-
     private fun checkAPILevelAndProceed() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            startActivityForResult(setUpDeviceLockInAPIBelow23Intent(), RC_DEVICE_CREDENTIAL_ENROLL)
-        } else {
-            startActivityForResult(biometricsEnrollIntent(), RC_BIOMETRICS_ENROLL)
-        }
+        startActivityForResult(biometricsEnrollIntent(), RC_BIOMETRICS_ENROLL)
     }
 
     private fun getErrorMessage(errorCode: Int): String {
@@ -210,20 +198,6 @@ class SSBiometricsAuthenticationActivity : BaseFontActivity() {
             setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_WEAK or BiometricManager.Authenticators.DEVICE_CREDENTIAL)
         }.build()
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            keyguardManager = getSystemService(KEYGUARD_SERVICE) as KeyguardManager
-            keyguardManager?.let { manager ->
-                if (manager.isKeyguardSecure) {
-                    biometricPrompt.authenticate(promptInfo)
-                } else {
-                    startActivityForResult(
-                        setUpDeviceLockInAPIBelow23Intent(),
-                        RC_DEVICE_CREDENTIAL_ENROLL
-                    )
-                }
-            }
-        } else {
-            biometricPrompt.authenticate(promptInfo)
-        }
+        biometricPrompt.authenticate(promptInfo)
     }
 }
