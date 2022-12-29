@@ -1,5 +1,6 @@
 package com.loitp.core.base
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -15,9 +16,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
-import com.loitp.annotation.*
 import com.loitp.BuildConfig
 import com.loitp.R
+import com.loitp.annotation.*
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LUIUtil.Companion.allowInfiniteLines
@@ -465,5 +466,15 @@ abstract class BaseActivity : AppCompatActivity() {
         if (withAnim) {
             LActivityUtil.tranIn(this)
         }
+    }
+
+    fun setResultActivity(
+        data: ((Intent) -> Unit)? = null
+    ) {
+        val i = Intent().apply {
+            data?.invoke(this)
+        }
+        setResult(Activity.RESULT_OK, i)
+        onBaseBackPressed()
     }
 }

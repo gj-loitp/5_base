@@ -1,8 +1,6 @@
 package vn.loitp.app
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsAutoAnimation
@@ -65,14 +63,12 @@ class EmptyActivity : BaseFontActivity() {
         } else {
             tv.text = "Click me to back screen $input"
             tv.setSafeOnClickListener {
-                val i = Intent().apply {
-                    putExtra(
+                setResultActivity { data ->
+                    data.putExtra(
                         /* name = */ ActivityServiceCommunicateActivity.KEY_OUTPUT,
                         /* value = */ "You are the best!!! ${System.currentTimeMillis()}"
                     )
                 }
-                setResult(Activity.RESULT_OK, i)
-                onBaseBackPressed()
             }
         }
     }
