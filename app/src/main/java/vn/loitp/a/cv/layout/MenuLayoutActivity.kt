@@ -37,7 +37,7 @@ import vn.loitp.a.cv.layout.scrollView2d.ScrollView2DActivity
 import vn.loitp.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity
 import vn.loitp.a.cv.layout.sequence.SequenceLayoutActivity
 import vn.loitp.a.cv.layout.shadow.ShadowLayoutActivity
-import vn.loitp.app.a.cv.layout.shapeOfView.ShapeOfViewActivity
+import vn.loitp.a.cv.layout.shapeOfView.ShapeOfViewActivity
 import vn.loitp.app.a.cv.layout.splitPanel.SplitPanelLayoutActivity
 import vn.loitp.app.a.cv.layout.square.SquareLayoutActivity
 import vn.loitp.app.a.cv.layout.swipeBack.SwipeBackLayoutActivity

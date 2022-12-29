@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.shapeOfView
+package vn.loitp.a.cv.layout.shapeOfView
 
 import android.animation.ValueAnimator
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_shape_of_view_layout.*
+import kotlinx.android.synthetic.main.a_layout_shape_of_view.*
 import vn.loitp.R
 
 @LogTag("ShapeOfViewActivity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class ShapeOfViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_shape_of_view_layout
+        return R.layout.a_layout_shape_of_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
