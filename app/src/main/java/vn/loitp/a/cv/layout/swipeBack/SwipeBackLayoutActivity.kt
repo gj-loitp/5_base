@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.swipeBack
+package vn.loitp.a.cv.layout.swipeBack
 
 import android.os.Bundle
 import android.view.View
@@ -11,7 +11,7 @@ import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
 import com.loitp.views.layout.swipeBack.SwipeBackLayout.OnSwipeBackListener
-import kotlinx.android.synthetic.main.activity_swipe_back_layout.*
+import kotlinx.android.synthetic.main.a_layout_swipe_back.*
 import vn.loitp.R
 
 // https://github.com/gongwen/SwipeBackLayout
@@ -24,7 +24,7 @@ class SwipeBackLayoutActivity : BaseFontActivity() {
     private var screenH = 0
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_swipe_back_layout
+        return R.layout.a_layout_swipe_back
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
