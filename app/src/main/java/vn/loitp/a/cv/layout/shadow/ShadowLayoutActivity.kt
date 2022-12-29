@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.shadow
+package vn.loitp.a.cv.layout.shadow
 
 import android.graphics.Color
 import android.os.Bundle
@@ -11,7 +11,7 @@ import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.ConvertUtils
-import kotlinx.android.synthetic.main.activity_shadow_layout.*
+import kotlinx.android.synthetic.main.a_layout_shadow.*
 import vn.loitp.R
 
 @LogTag("ShadowLayoutActivity")
@@ -19,7 +19,7 @@ import vn.loitp.R
 class ShadowLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_shadow_layout
+        return R.layout.a_layout_shadow
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
