@@ -1,11 +1,11 @@
-package vn.loitp.app.a.cv.layout.sequence
+package vn.loitp.a.cv.layout.sequence
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_sequence_layout.*
+import kotlinx.android.synthetic.main.a_layout_sequence.*
 import vn.loitp.R
 
 @LogTag("SequenceLayoutActivity")
@@ -14,7 +14,7 @@ import vn.loitp.R
 class SequenceLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_sequence_layout
+        return R.layout.a_layout_sequence
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
