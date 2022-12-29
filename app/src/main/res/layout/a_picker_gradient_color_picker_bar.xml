@@ -63,7 +63,7 @@
             app:thumbStrokeColorGCP="@android:color/white"
             app:thumbStrokeWidthGCP="2dp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/changColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/resetProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
             app:layout_constraintStart_toEndOf="@+id/changColor"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/changeBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/changColor" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/changeThumbStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
             app:layout_constraintStart_toEndOf="@+id/changeBarStyle"
             app:layout_constraintTop_toBottomOf="@+id/resetProgress" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/changeOrientation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

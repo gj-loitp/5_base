@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.*
 import android.util.AttributeSet
-import android.util.Log
 import android.util.TypedValue
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -24,7 +23,7 @@ import kotlin.math.roundToInt
 class GradientColorPickerBar : View {
 
     companion object {
-        private const val TAG = "GradientColorPickBar"
+//        private const val TAG = "GradientColorPickBar"
 
         const val HORIZONTAL = 0
         const val VERTICAL = 1
@@ -71,8 +70,16 @@ class GradientColorPickerBar : View {
     private var onChangeListener: OnChangeListener? = null
 
     constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : this(context, attrs, 0)
+
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -80,7 +87,10 @@ class GradientColorPickerBar : View {
         init(context, attrs)
     }
 
-    private fun init(context: Context, attrs: AttributeSet?) {
+    private fun init(
+        context: Context,
+        attrs: AttributeSet?
+    ) {
         val a = context.obtainStyledAttributes(attrs, R.styleable.GradientColorPickerBar)
         thumbSize = a.getDimension(R.styleable.GradientColorPickerBar_thumbSizeGCP, thumbSize)
         thumbCorner = a.getDimension(R.styleable.GradientColorPickerBar_thumbRadiusGCP, thumbCorner)
@@ -99,7 +109,10 @@ class GradientColorPickerBar : View {
         a.recycle()
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         if (orientation == VERTICAL) {
             val width = (max(totalThumbSize(), barHeight) + paddingStart + paddingEnd).roundToInt()
             super.onMeasure(
@@ -116,7 +129,13 @@ class GradientColorPickerBar : View {
         }
     }
 
-    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        left: Int,
+        top: Int,
+        right: Int,
+        bottom: Int
+    ) {
         super.onLayout(changed, left, top, right, bottom)
         resetData()
     }
@@ -143,12 +162,12 @@ class GradientColorPickerBar : View {
             barRect.right = barRect.left + barHeight
             barRect.bottom = height - paddingBottom - totalThumbSize() / 2f
         }
-        Log.d(TAG, "updateBarRect: barRect=${barRect.toShortString()}")
+//        Log.d(TAG, "updateBarRect: barRect=${barRect.toShortString()}")
     }
 
     private fun updatePaintColor() {
         if (!hasEnoughColors()) {
-            Log.w(TAG, "updatePaintColor: colors must > 1")
+//            Log.w(TAG, "updatePaintColor: colors must > 1")
             return
         }
         colorPositions = FloatArray(colors.size)
@@ -157,21 +176,21 @@ class GradientColorPickerBar : View {
         for (i in colors.indices) {
             colorPositions[i] = (posLength * i) / barLength
         }
-        Log.d(TAG, "updatePaintColor: colorPositions=${colorPositions.contentToString()}")
+//        Log.d(TAG, "updatePaintColor: colorPositions=${colorPositions.contentToString()}")
         barPaint.shader = if (orientation == HORIZONTAL) LinearGradient(
-            barRect.left,
-            0f,
-            barRect.right,
-            0f,
-            colors, colorPositions,
-            Shader.TileMode.CLAMP
+            /* x0 = */ barRect.left,
+            /* y0 = */ 0f,
+            /* x1 = */ barRect.right,
+            /* y1 = */ 0f,
+            /* colors = */ colors, /* positions = */ colorPositions,
+            /* tile = */ Shader.TileMode.CLAMP
         ) else LinearGradient(
-            0f,
-            barRect.top,
-            0f,
-            barRect.bottom,
-            colors, colorPositions,
-            Shader.TileMode.CLAMP
+            /* x0 = */ 0f,
+            /* y0 = */ barRect.top,
+            /* x1 = */ 0f,
+            /* y1 = */ barRect.bottom,
+            /* colors = */ colors, /* positions = */ colorPositions,
+            /* tile = */ Shader.TileMode.CLAMP
         )
     }
 
@@ -189,7 +208,7 @@ class GradientColorPickerBar : View {
             thumbRect.right = thumbRect.left + thumbSize
             thumbRect.bottom = thumbRect.top + thumbSize
         }
-        Log.d(TAG, "updateThumbRect: thumbRect=${thumbRect.toShortString()}")
+//        Log.d(TAG, "updateThumbRect: thumbRect=${thumbRect.toShortString()}")
     }
 
     private fun hasEnoughColors(): Boolean = colors.size > 1
@@ -267,14 +286,19 @@ class GradientColorPickerBar : View {
             (positionY - barRect.top) / barRect.height()
         }
         findColorByPercent(progress)
-        Log.d(TAG, "calculateProgress: progress=$progress")
-        onChangeListener?.onProgressChanged(this, progress, selectedColor, true)
+//        Log.d(TAG, "calculateProgress: progress=$progress")
+        onChangeListener?.onProgressChanged(
+            gradientColorPickBar = this,
+            progress = progress,
+            color = selectedColor,
+            fromUser = true
+        )
         postInvalidate()
     }
 
     private fun findColorByPercent(@FloatRange(from = 0.0, to = 1.0) percent: Float) {
         if (!barRect.isEmpty && colors.isNotEmpty() && colorPositions.isNotEmpty()) {
-            Log.d(TAG, "findColorByPercent: percent=$percent")
+//            Log.d(TAG, "findColorByPercent: percent=$percent")
             if (percent == 0f) {
                 selectedColor = colors.first()
             } else if (percent == 1.0f) {
@@ -297,16 +321,10 @@ class GradientColorPickerBar : View {
                     percent * totalLength - (colorPositions[index - 1] * totalLength)
                 val colorLength = colorPositions[1] * totalLength
                 val fraction = percentLength / colorLength
-                Log.d(
-                    TAG,
-                    "findColorByPercent: percentLength=$percentLength,colorLength=$colorLength,fraction$fraction"
-                )
+//                Log.d(TAG, "findColorByPercent: percentLength=$percentLength,colorLength=$colorLength,fraction$fraction")
                 selectedColor = argbEvaluator.evaluate(fraction, preColor, nextColor) as Int
             }
-            Log.d(
-                TAG,
-                "findColorByPercent: selectedColor=${parseColorInt(selectedColor)}"
-            )
+//            Log.d(TAG, "findColorByPercent: selectedColor=${parseColorInt(selectedColor)}")
         }
     }
 
@@ -331,21 +349,25 @@ class GradientColorPickerBar : View {
         requestLayout()
     }
 
-    fun setBarStyle(barHeight: Float, barRadius: Float) {
+    fun setBarStyle(
+        barHeight: Float,
+        barRadius: Float
+    ) {
         this.barHeight = barHeight
         this.barCorner = barRadius
         requestLayout()
     }
 
     fun setColors(colors: IntArray) {
-        if (!hasEnoughColors()) {
-            Log.w(TAG, "updatePaintColor: colors must > 1")
-        }
+//        if (!hasEnoughColors()) {
+//            Log.w(TAG, "updatePaintColor: colors must > 1")
+//        }
         this.colors = colors
         updatePaintColor()
         setProgress(0f)
     }
 
+    @Suppress("unused")
     @FloatRange(from = 0.0, to = 1.0)
     fun getProgress() = progress
 
@@ -357,6 +379,7 @@ class GradientColorPickerBar : View {
         postInvalidate()
     }
 
+    @Suppress("unused")
     fun getSelectedColor() = selectedColor
 
     fun setOnChangeListener(onChangeListener: OnChangeListener?) {
