@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.sb
+package vn.loitp.a.cv.sb
 
 import android.os.Bundle
 import com.loitp.annotation.IsAutoAnimation
@@ -9,12 +9,12 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_sb_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.sb.boxedVertical.BoxedVerticalSeekBarActivity
-import vn.loitp.app.a.cv.sb.range.RangeSeekbarActivity
-import vn.loitp.app.a.cv.sb.rubberPicker.RubberPickerActivity
-import vn.loitp.app.a.cv.sb.seekBar.SeekbarActivity
-import vn.loitp.app.a.cv.sb.vertical.VerticalSeekbarActivity
-import vn.loitp.app.a.cv.sb.vertical2.VerticalSeekBar2Activity
+import vn.loitp.a.cv.sb.boxedVertical.BoxedVerticalSeekBarActivity
+import vn.loitp.a.cv.sb.range.RangeSeekbarActivity
+import vn.loitp.a.cv.sb.rubberPicker.RubberPickerActivity
+import vn.loitp.a.cv.sb.sb.SeekbarActivity
+import vn.loitp.a.cv.sb.vertical.VerticalSeekbarActivity
+import vn.loitp.a.cv.sb.vertical2.VerticalSeekBar2Activity
 
 @LogTag("MenuSeekbarActivity")
 @IsFullScreen(false)

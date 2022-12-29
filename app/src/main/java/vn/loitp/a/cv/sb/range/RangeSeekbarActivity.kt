@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.sb.range
+package vn.loitp.a.cv.sb.range
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,7 +14,7 @@ import com.loitp.views.sb.range.DoubleValueSeekBarView
 import com.loitp.views.sb.range.OnDoubleValueSeekBarChangeListener
 import com.loitp.views.sb.range.OnRangeSeekBarChangeListener
 import com.loitp.views.sb.range.RangeSeekBarView
-import kotlinx.android.synthetic.main.activity_range_seekbar.*
+import kotlinx.android.synthetic.main.a_sb_range.*
 import vn.loitp.R
 
 @LogTag("RangeSeekbarActivity")
@@ -23,7 +23,7 @@ import vn.loitp.R
 class RangeSeekbarActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_range_seekbar
+        return R.layout.a_sb_range
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

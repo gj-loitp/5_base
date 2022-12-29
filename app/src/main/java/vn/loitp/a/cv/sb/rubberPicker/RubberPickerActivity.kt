@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.sb.rubberPicker
+package vn.loitp.a.cv.sb.rubberPicker
 
 import android.os.Bundle
 import android.widget.RadioButton

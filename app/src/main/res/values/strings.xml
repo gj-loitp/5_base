@@ -1152,4 +1152,21 @@ Likewise may someone love you next.
     <string name="disable_fixed_height">Disable Fixed Height</string>
     <string name="corner_sheet">CornerSheet</string>
     <string name="lucky_wheel_activity">LuckyWheelActivity</string>
+    <string name="elastic_behavior">Elastic Behavior</string>
+    <string name="stretch_range">Stretch Range</string>
+    <string name="damping_ratio">Damping Ratio</string>
+    <string name="stiffness">Stiffness</string>
+    <string name="default_thumb_radius">Default Thumb Radius</string>
+    <string name="normal_track_width">Normal Track Width</string>
+    <string name="highlight_track_width">Highlight Track Width</string>
+    <string name="cubic">Cubic</string>
+    <string name="linear">Linear</string>
+    <string name="rigid">Rigid</string>
+    <string name="_24">24</string>
+    <string name="_0_2">0.2</string>
+    <string name="_200">200</string>
+    <string name="_16">16</string>
+    <string name="rubberseekbar_value">RubberSeekBar Value :</string>
+    <string name="rubberrangepicker_values">RubberRangePicker Values :</string>
+    <string name="get_values">Get Values</string>
 </resources>

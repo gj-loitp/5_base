@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.sb.vertical2
+package vn.loitp.a.cv.sb.vertical2
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_vertical_seek_bar.*
+import kotlinx.android.synthetic.main.a_sb_vertical.*
 import vn.loitp.R
 
 @LogTag("VerticalSeekBar2Activity")
@@ -18,7 +18,7 @@ import vn.loitp.R
 class VerticalSeekBar2Activity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_vertical_seek_bar
+        return R.layout.a_sb_vertical
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

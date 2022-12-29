@@ -39,7 +39,7 @@ import vn.loitp.a.cv.progress.MenuProgressActivity
 import vn.loitp.a.cv.spotlight.SpotlightActivity
 import vn.loitp.a.cv.menu.MenuMenuActivity
 import vn.loitp.app.a.cv.rv.MenuRecyclerViewActivity
-import vn.loitp.app.a.cv.sb.MenuSeekbarActivity
+import vn.loitp.a.cv.sb.MenuSeekbarActivity
 import vn.loitp.a.cv.scratchView.MenuScratchViewActivity
 import vn.loitp.a.cv.scrollablePanel.ScrollablePanelActivity
 import vn.loitp.a.cv.simpleRatingBar.SimpleRatingBarActivity

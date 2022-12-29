@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.sb.boxedVertical
+package vn.loitp.a.cv.sb.boxedVertical
 
 import abak.tr.com.boxedverticalseekbar.BoxedVertical
 import android.graphics.Color
@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_seekbar_boxed_vertical.*
+import kotlinx.android.synthetic.main.a_sb_boxed_vertical.*
 import vn.loitp.R
 
 // https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291
@@ -17,7 +17,7 @@ class BoxedVerticalSeekBarActivity : BaseFontActivity() {
     private val stringList = ArrayList<String>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_seekbar_boxed_vertical
+        return R.layout.a_sb_boxed_vertical
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.sb.seekBar
+package vn.loitp.a.cv.sb.sb
 
 import android.os.Bundle
 import android.widget.SeekBar
@@ -6,7 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_seekbar.*
+import kotlinx.android.synthetic.main.a_sb.*
 import vn.loitp.R
 
 @LogTag("SeekbarActivity")
@@ -14,7 +14,7 @@ import vn.loitp.R
 class SeekbarActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_seekbar
+        return R.layout.a_sb
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
