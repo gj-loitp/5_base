@@ -58,7 +58,7 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
             )
         }
 
-        btTestStartActivityForResult.setSafeOnClickListener {
+        btTestStartActivity4Result.setSafeOnClickListener {
             launchActivityTest()
         }
     }
