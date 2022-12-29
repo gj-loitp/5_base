@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/slidingUpPanelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="bottom"
+        sothree:layout_constraintBottom_toBottomOf="parent"
+        sothree:layout_constraintTop_toBottomOf="@id/lActionBar"
+        sothree:umanoAboveShadowStyle="@drawable/my_above_shadow"
+        sothree:umanoDragView="@+id/dragView"
+        sothree:umanoOverlay="true"
+        sothree:umanoPanelHeight="68dp"
+        sothree:umanoParallaxOffset="100dp"
+        sothree:umanoScrollableView="@+id/listView"
+        sothree:umanoShadowHeight="50dp">
+
+        <!-- MAIN CONTENT -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btActionToggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="action_toggle" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btActionAnchor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="action_anchor" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="@string/large_dummy_text"
+                android:textColor="@color/deepPink"
+                android:textSize="@dimen/txt_medium" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!-- SLIDING LAYOUT -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/dragView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/margin_padding_medium"
+                    android:paddingEnd="@dimen/margin_padding_medium"
+                    android:text="@string/app_name"
+                    android:textColor="@color/deepPink"
+                    android:textSize="@dimen/txt_medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/follow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/yellow"
+                    android:gravity="center_vertical|end"
+                    android:paddingLeft="@dimen/margin_padding_medium"
+                    android:paddingRight="@dimen/margin_padding_medium"
+                    android:text="follow"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/txt_medium" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/violet" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

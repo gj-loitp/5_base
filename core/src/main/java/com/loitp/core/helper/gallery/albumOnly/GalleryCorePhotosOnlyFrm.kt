@@ -118,7 +118,6 @@ class GalleryCorePhotosOnlyFrm(
                         LUIUtil.setWallpaperAndLockScreen(
                             activity = requireActivity(),
                             imageView = imageView,
-                            message = "Wallpaper Set",
                             isSetWallpaper = true,
                             isSetLockScreen = true,
                         )

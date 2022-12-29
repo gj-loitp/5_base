@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_tiny" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_tiny" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_tiny" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btToast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_toast"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btAlpha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enable_disable_alpha"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btRevertMax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enable_disable_isenablerevertmaxsize"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btMaximize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/maximize"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btMinimizeBottomLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/minimize_bottom_left"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btMinimizeBottomRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/minimize_bottom_right"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btMinimizeTopRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/minimize_top_right"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btMinimizeTopLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/minimize_top_left"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btSlideToPosition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slide_to_position"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btShowHideHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_hide_header"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btShowHideBody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_hide_body"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btAppear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/appear"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btDisappear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disappear"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/margin_padding_medium"
+                    android:text="@string/large_text"
+                    android:textColor="?attr/themeTextColor" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <vn.loitp.a.func.viewDragHelperSimple.VDHView
+        android:id="@+id/vdhv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/headerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/w_250"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/iv" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/bodyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/red">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_padding_medium"
+                android:text="@string/large_text"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
+        </androidx.core.widget.NestedScrollView>
+    </vn.loitp.a.func.viewDragHelperSimple.VDHView>
+</androidx.constraintlayout.widget.ConstraintLayout>

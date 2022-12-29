@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:ignore="UselessParent">
+
+        <com.loitp.views.wwl.video.LWWLVideo
+            android:id="@+id/watchWhileLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:fitsSystemWindows="true"
+            app:metadataViewId="@+id/frmUpNext"
+            app:miniPlayerPadding="@dimen/watch_while_mini_player_padding"
+            app:miniPlayerWidth="@dimen/watch_while_mini_player_width"
+            app:playerViewId="@+id/fmrPlayerFragmentContainer"
+            app:tabletLayout="false">
+
+            <FrameLayout
+                android:id="@+id/fmrPlayerFragmentContainer"
+                android:layout_width="0.0dip"
+                android:layout_height="0.0dip"
+                android:background="@android:color/black">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/frmPlayer"
+                    android:name="vn.loitp.a.cv.wwlVideo.detail.WWLVideoPlayerFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </FrameLayout>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/frmUpNext"
+                android:name="vn.loitp.a.cv.wwlVideo.detail.WWLVideoUpNextFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/frmMetaInfo"
+                android:name="vn.loitp.a.cv.wwlVideo.detail.WWLVideoMetaInfoFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <include layout="@layout/wwl_video_content_panel" />
+        </com.loitp.views.wwl.video.LWWLVideo>
+
+    </FrameLayout>
+
+</RelativeLayout>

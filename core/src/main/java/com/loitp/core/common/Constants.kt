@@ -89,6 +89,7 @@ class Constants {
 
         @Suppress("unused")
         const val ASSET_FILE_GIFT = "img/ic_gift.png"
+        @Suppress("unused")
         const val FONT_PATH = "fonts/android_font.TTF"
         const val FACEBOOK_COMMENT_URL = "FACEBOOK_COMMENT_URL"
 

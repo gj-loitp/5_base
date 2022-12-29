@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/margin_padding_medium">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivPreview"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_200"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iv" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btChangeImageNetwork"
+                style="@style/ButtonMenu"
+                android:text="Change image on internet" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSetWallpaper"
+                style="@style/ButtonMenu"
+                android:text="SET AS WALLPAPER" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSetLockscreen"
+                style="@style/ButtonMenu"
+                android:text="SET AS LOCKSCREEN WALLPAPER" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSetRandomColor"
+                style="@style/ButtonMenu"
+                android:text="SET WALLPAPER RANDOM COLOR" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

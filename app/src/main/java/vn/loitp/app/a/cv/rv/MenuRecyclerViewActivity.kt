@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_recycler_view.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.greedo.GreedoLayoutActivity
+import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivity
 import vn.loitp.app.a.cv.rv.arcView.ArcViewActivity
 import vn.loitp.app.a.cv.rv.book.BookViewActivity
 import vn.loitp.app.a.cv.rv.carouselRv.CarouselRecyclerViewActivity

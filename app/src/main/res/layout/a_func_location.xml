@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btStartLocationUpdates"
+                style="@style/ButtonMenu"
+                android:text="@string/start_updates" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btStopLocationUpdates"
+                style="@style/ButtonMenu"
+                android:enabled="false"
+                android:text="@string/stop_updates" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGetLastLocation"
+                style="@style/ButtonMenu"
+                android:text="@string/get_last_location" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/margin_padding_medium"
+                android:text="@string/location_updates_will_be_received_only_when_app_is_foreground"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLocationResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_padding_medium"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUpdatedOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_padding_medium"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

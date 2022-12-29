@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_padding_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar"
+        tools:context=".MainActivity">
+
+        <!-- LVerticalSeekBar in non-ScrollView -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_in_non_scroll_view"
+            android:textColor="?attr/themeTextColor" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btSetProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/red"
+            android:text="@string/set_progress_30_for_seekbar1"
+            android:textColor="?attr/themeTextColor" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#cccccc"
+            android:paddingLeft="50dp"
+            android:paddingTop="10dp"
+            android:paddingRight="50dp"
+            android:paddingBottom="10dp">
+
+            <!-- Clock wise - 90 -->
+            <com.loitp.views.sb.vertical.LVerticalSeekBarWrapper
+                android:id="@+id/seekBarContainer1"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp">
+
+                <com.loitp.views.sb.vertical.LVerticalSeekBar
+                    android:id="@+id/seekBar1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:splitTrack="false"
+                    app:VSseekBarRotation="CW90" />
+            </com.loitp.views.sb.vertical.LVerticalSeekBarWrapper>
+
+            <!-- Clock wise - 270 -->
+            <com.loitp.views.sb.vertical.LVerticalSeekBarWrapper
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_marginStart="50dp"
+                android:layout_toEndOf="@+id/seekBarContainer1"
+                android:minWidth="10dp">
+
+                <com.loitp.views.sb.vertical.LVerticalSeekBar
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:splitTrack="false"
+                    app:VSseekBarRotation="CW270" />
+            </com.loitp.views.sb.vertical.LVerticalSeekBarWrapper>
+
+        </RelativeLayout>
+
+        <!-- LVerticalSeekBar in ScrollView -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_medium"
+            android:background="@color/green"
+            android:text="@string/text_in_scroll_view"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            android:textColor="?attr/themeTextColor" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#cccccc">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:paddingTop="100dp"
+                android:paddingRight="50dp"
+                android:paddingBottom="100dp">
+
+                <!-- Clock wise - 90 -->
+                <com.loitp.views.sb.vertical.LVerticalSeekBarWrapper
+                    android:id="@+id/seekBarContainer3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp">
+
+                    <com.loitp.views.sb.vertical.LVerticalSeekBar
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:splitTrack="false"
+                        app:VSseekBarRotation="CW90" />
+                </com.loitp.views.sb.vertical.LVerticalSeekBarWrapper>
+
+                <!-- Clock wise - 270 -->
+                <com.loitp.views.sb.vertical.LVerticalSeekBarWrapper
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_toEndOf="@+id/seekBarContainer3">
+
+                    <com.loitp.views.sb.vertical.LVerticalSeekBar
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:splitTrack="false"
+                        app:VSseekBarRotation="CW270" />
+                </com.loitp.views.sb.vertical.LVerticalSeekBarWrapper>
+
+            </RelativeLayout>
+        </ScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

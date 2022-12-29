@@ -1,10 +1,20 @@
 package com.loitp.core.ext
 
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.ColorFilter
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
+import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieProperty
+import com.airbnb.lottie.SimpleColorFilter
+import com.airbnb.lottie.model.KeyPath
+import com.airbnb.lottie.value.LottieValueCallback
 
 val View.horizontalPadding: Int get() = this.paddingStart + this.paddingEnd
 val View.verticalPadding: Int get() = this.paddingTop + this.paddingBottom
@@ -68,3 +78,30 @@ fun View.duplicateViewSizeContinuously(
         }
     }
 }
+
+fun LottieAnimationView.changeLayersColor(
+    color: Int
+) {
+    val filter = SimpleColorFilter(color)
+    val keyPath = KeyPath("**")
+    val callback: LottieValueCallback<ColorFilter> = LottieValueCallback(filter)
+
+    addValueCallback(keyPath, LottieProperty.COLOR_FILTER, callback)
+}
+
+fun Drawable.toBitmap(): Bitmap {
+    if (this is BitmapDrawable) {
+        return bitmap
+    }
+
+    val width = if (bounds.isEmpty) intrinsicWidth else bounds.width()
+    val height = if (bounds.isEmpty) intrinsicHeight else bounds.height()
+
+    return Bitmap.createBitmap(width.nonZero(), height.nonZero(), Bitmap.Config.ARGB_8888).also {
+        val canvas = Canvas(it)
+        setBounds(0, 0, canvas.width, canvas.height)
+        draw(canvas)
+    }
+}
+
+private fun Int.nonZero() = if (this <= 0) 1 else this

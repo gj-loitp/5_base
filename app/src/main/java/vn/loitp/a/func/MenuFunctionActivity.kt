@@ -16,18 +16,18 @@ import vn.loitp.a.func.glide.GlideActivity
 import vn.loitp.a.func.hashmap.HashMapActivity
 import vn.loitp.a.func.idleTime.IdleTimeActivity
 import vn.loitp.a.func.keyboard.KeyboardActivity
-import vn.loitp.app.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity
-import vn.loitp.app.a.func.location.LocationActivity
-import vn.loitp.app.a.func.noti.MenuNotificationActivity
-import vn.loitp.app.a.func.pump.PumpActivity
-import vn.loitp.app.a.func.recolor.RecolorActivity
-import vn.loitp.app.a.func.sensor.SensorActivity
-import vn.loitp.app.a.func.simpleFingerGestures.SimpleFingerGesturesActivity
-import vn.loitp.app.a.func.theme.ThemeActivity
-import vn.loitp.app.a.func.viewDragHelper.ViewDragHelperActivity
-import vn.loitp.app.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity
-import vn.loitp.app.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1
-import vn.loitp.app.a.func.wallpo.WallpoActivity
+import vn.loitp.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity
+import vn.loitp.a.func.location.LocationActivity
+import vn.loitp.a.func.noti.MenuNotificationActivity
+import vn.loitp.a.func.pump.PumpActivity
+import vn.loitp.a.func.recolor.RecolorActivity
+import vn.loitp.a.func.sensor.SensorActivity
+import vn.loitp.a.func.simpleFingerGestures.SimpleFingerGesturesActivity
+import vn.loitp.a.func.theme.ThemeActivity
+import vn.loitp.a.func.viewDragHelper.ViewDragHelperActivity
+import vn.loitp.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity
+import vn.loitp.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1
+import vn.loitp.a.func.wallpo.WallpoActivity
 
 @LogTag("MenuFunctionActivity")
 @IsFullScreen(false)

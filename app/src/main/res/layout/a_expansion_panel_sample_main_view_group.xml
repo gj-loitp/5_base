@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColorMedium">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding_medium"
+                app:cardBackgroundColor="?attr/themeBackgroundColor"
+                app:cardCornerRadius="@dimen/round_medium"
+                app:cardElevation="@dimen/w_3"
+                app:cardUseCompatPadding="true">
+
+                <com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:expansion_openOnlyOne="true">
+
+                    <include layout="@layout/view_expansion_panel_sample_panel" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/w_1"
+                        android:background="@color/gray" />
+
+                    <include layout="@layout/view_expansion_panel_sample_panel" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/w_1"
+                        android:background="@color/gray" />
+
+                    <include layout="@layout/view_expansion_panel_sample_panel" />
+
+                </com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

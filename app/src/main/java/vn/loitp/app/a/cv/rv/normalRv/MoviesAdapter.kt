@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import kotlinx.android.synthetic.main.view_movie_list.view.*
+import kotlinx.android.synthetic.main.i_movie_list.view.*
 import vn.loitp.R
 
 @LogTag("MoviesAdapter")
@@ -17,8 +17,16 @@ class MoviesAdapter(
     BaseAdapter() {
 
     interface Callback {
-        fun onClick(movie: Movie, position: Int)
-        fun onLongClick(movie: Movie, position: Int)
+        fun onClick(
+            movie: Movie,
+            position: Int
+        )
+
+        fun onLongClick(
+            movie: Movie,
+            position: Int
+        )
+
         fun onLoadMore()
     }
 
@@ -45,7 +53,7 @@ class MoviesAdapter(
         viewType: Int
     ): MovieViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.view_movie_list, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.i_movie_list, parent, false)
         return MovieViewHolder(itemView)
     }
 

@@ -27,7 +27,6 @@ import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager.widget.ViewPager
-import com.github.wallpoo.Wallpo
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.shape.CornerFamily
@@ -38,6 +37,7 @@ import com.loitp.R
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utils.ConvertUtils
+import com.loitp.func.wallpo.Wallpo
 import com.skydoves.elasticviews.elasticAnimation
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor
@@ -113,6 +113,7 @@ class LUIUtil {
             R.color.default_selection_bar_month_title_text_color
         )
 
+        @Suppress("unused")
         var fontForAll: String? = null
             set(fontForAll) {
                 field = fontForAll
@@ -177,7 +178,8 @@ class LUIUtil {
             colorStroke: Int
         ) {
             try {
-                view.setBackgroundDrawable(createGradientDrawableWithColor(colorMain, colorStroke))
+//                view.setBackgroundDrawable(createGradientDrawableWithColor(colorMain, colorStroke))
+                view.background = createGradientDrawableWithColor(colorMain, colorStroke)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -203,7 +205,8 @@ class LUIUtil {
             p.setCornerRadii(floatArrayOf(5f, 5f, 5f, 5f, 0f, 0f, 0f, 0f))
             layers[0] = p
             val composite = LayerDrawable(layers)
-            v.setBackgroundDrawable(composite)
+//            v.setBackgroundDrawable(composite)
+            v.background = composite
         }
 
         @Suppress("DEPRECATION")
@@ -518,6 +521,11 @@ class LUIUtil {
             val random = Random()
             val index = random.nextInt(listColorLight.size)
             return listColorLight[index]
+        }
+
+        fun getRandomColor(): Int {
+            val rnd = Random()
+            return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
         }
 
         // it.imeOptions = EditorInfo.IME_ACTION_SEARCH
@@ -847,12 +855,12 @@ class LUIUtil {
                     if (dy < 0) {
                         if (isScrollDown) {
                             isScrollDown = false
-                            onScrolled?.invoke(isScrollDown)
+                            onScrolled?.invoke(false)
                         }
                     } else if (dy > 0) {
                         if (!isScrollDown) {
                             isScrollDown = true
-                            onScrolled?.invoke(isScrollDown)
+                            onScrolled?.invoke(true)
                         }
                     }
                 }
@@ -1021,22 +1029,39 @@ class LUIUtil {
         fun setWallpaperAndLockScreen(
             activity: Activity,
             imageView: ImageView,
-            message: String = "Wallpaper Set",
             isSetWallpaper: Boolean = true,
             isSetLockScreen: Boolean = true,
         ) {
             if (isSetWallpaper) {
                 Wallpo.setMainScreenWallpaper(
-                    /* context = */ activity,
-                    /* imageView = */ imageView,
-                    /* message = */ message
+                    context = activity,
+                    imageView = imageView,
                 )
             }
             if (isSetLockScreen) {
                 Wallpo.setLockScreenWallpaper(
-                    /* activity = */ activity,
-                    /* imageView = */ imageView,
-                    /* message = */ message
+                    activity = activity,
+                    imageView = imageView,
+                )
+            }
+        }
+
+        fun setWallpaperAndLockScreen(
+            activity: Activity,
+            color: Int,
+            isSetWallpaper: Boolean = true,
+            isSetLockScreen: Boolean = true,
+        ) {
+            if (isSetWallpaper) {
+                Wallpo.setMainScreenWallpaper(
+                    context = activity,
+                    color = color,
+                )
+            }
+            if (isSetLockScreen) {
+                Wallpo.setLockScreenWallpaper(
+                    activity = activity,
+                    color = color,
                 )
             }
         }

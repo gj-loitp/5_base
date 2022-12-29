@@ -9,35 +9,35 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_layout_menu.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity
-import vn.loitp.app.a.cv.layout.aspectratio.AspectRatioLayoutActivity
-import vn.loitp.app.a.cv.layout.autoLinear.AutoLinearLayoutActivity
-import vn.loitp.app.a.cv.layout.autoScrollContent.AutoScrollContentActivity
-import vn.loitp.app.a.cv.layout.basket.BasketLayoutActivity
-import vn.loitp.app.a.cv.layout.chess.ChessLayoutActivity
-import vn.loitp.app.a.cv.layout.circularView.CircularViewActivity
-import vn.loitp.app.a.cv.layout.constraint.MenuConstraintlayoutActivity
-import vn.loitp.app.a.cv.layout.coordinator.MenuCoordinatorLayoutActivity
-import vn.loitp.app.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity
-import vn.loitp.app.a.cv.layout.draggablePanel.DraggablePanelActivity
-import vn.loitp.app.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity
-import vn.loitp.app.a.cv.layout.draggableView.DraggableViewActivity
-import vn.loitp.app.a.cv.layout.expansionPanel.MenuExpansionLayoutActivity
-import vn.loitp.app.a.cv.layout.floatDrag.FloatDragLayoutActivity
+import vn.loitp.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity
+import vn.loitp.a.cv.layout.aspectratio.AspectRatioLayoutActivity
+import vn.loitp.a.cv.layout.autoLinear.AutoLinearLayoutActivity
+import vn.loitp.a.cv.layout.autoScrollContent.AutoScrollContentActivity
+import vn.loitp.a.cv.layout.basket.BasketLayoutActivity
+import vn.loitp.a.cv.layout.chess.ChessLayoutActivity
+import vn.loitp.a.cv.layout.circularView.CircularViewActivity
+import vn.loitp.a.cv.layout.constraint.MenuConstraintLayoutActivity
+import vn.loitp.a.cv.layout.coordinator.MenuCoordinatorLayoutActivity
+import vn.loitp.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity
+import vn.loitp.a.cv.layout.draggablePanel.DraggablePanelActivity
+import vn.loitp.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity
+import vn.loitp.a.cv.layout.draggableView.DraggableViewActivity
+import vn.loitp.a.cv.layout.expansionPanel.MenuExpansionLayoutActivity
+import vn.loitp.a.cv.layout.floatDrag.FloatDragLayoutActivity
 import vn.loitp.a.cv.layout.floatLayout.FloatLayoutActivity
-import vn.loitp.app.a.cv.layout.flow.FlowLayoutActivity
-import vn.loitp.app.a.cv.layout.greedo.GreedoLayoutActivity
-import vn.loitp.app.a.cv.layout.heart.HeartLayoutActivity
-import vn.loitp.app.a.cv.layout.reflection.ReflectionLayoutActivity
-import vn.loitp.app.a.cv.layout.relativePopupWindow.RelativePopupWindowActivity
-import vn.loitp.app.a.cv.layout.ripple.RippleLayoutActivity
-import vn.loitp.app.a.cv.layout.rotate.RotateLayoutActivity
-import vn.loitp.app.a.cv.layout.roundable.RoundableLayoutActivity
-import vn.loitp.app.a.cv.layout.scrollView2d.ScrollView2DActivity
-import vn.loitp.app.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity
-import vn.loitp.app.a.cv.layout.sequence.SequenceLayoutActivity
-import vn.loitp.app.a.cv.layout.shadow.ShadowLayoutActivity
-import vn.loitp.app.a.cv.layout.shapeOfView.ShapeOfViewActivity
+import vn.loitp.a.cv.layout.flow.FlowLayoutActivity
+import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivity
+import vn.loitp.a.cv.layout.heart.HeartLayoutActivity
+import vn.loitp.a.cv.layout.reflection.ReflectionLayoutActivity
+import vn.loitp.a.cv.layout.relativePopupWindow.RelativePopupWindowActivity
+import vn.loitp.a.cv.layout.ripple.RippleLayoutActivity
+import vn.loitp.a.cv.layout.rotate.RotateLayoutActivity
+import vn.loitp.a.cv.layout.roundable.RoundableLayoutActivity
+import vn.loitp.a.cv.layout.scrollView2d.ScrollView2DActivity
+import vn.loitp.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity
+import vn.loitp.a.cv.layout.sequence.SequenceLayoutActivity
+import vn.loitp.a.cv.layout.shadow.ShadowLayoutActivity
+import vn.loitp.a.cv.layout.shapeOfView.ShapeOfViewActivity
 import vn.loitp.app.a.cv.layout.splitPanel.SplitPanelLayoutActivity
 import vn.loitp.app.a.cv.layout.square.SquareLayoutActivity
 import vn.loitp.app.a.cv.layout.swipeBack.SwipeBackLayoutActivity
@@ -123,7 +123,7 @@ class MenuLayoutActivity : BaseFontActivity(), View.OnClickListener {
             btSwipeRefreshLayout -> launchActivity(MenuSwipeRefreshLayoutActivity::class.java)
             btCircularView -> launchActivity(CircularViewActivity::class.java)
             btAutoLinearLayout -> launchActivity(AutoLinearLayoutActivity::class.java)
-            btConstraintLayout -> launchActivity(MenuConstraintlayoutActivity::class.java)
+            btConstraintLayout -> launchActivity(MenuConstraintLayoutActivity::class.java)
             btSwipebackLayout -> launchActivity(SwipeBackLayoutActivity::class.java)
             btHeartLayout -> launchActivity(HeartLayoutActivity::class.java)
             btFloatDragLayout -> launchActivity(FloatDragLayoutActivity::class.java)

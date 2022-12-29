@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <vn.loitp.a.func.viewDragHelperSimple.ViewDragHelperView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="@dimen/w_150"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_padding_medium"
+            android:background="#88ff0000"
+            android:gravity="center"
+            android:padding="@dimen/margin_padding_medium"
+            android:text="@string/i_can_be_dragged"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_medium" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="@dimen/w_150"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_padding_medium"
+            android:background="#8800ff00"
+            android:gravity="center"
+            android:padding="@dimen/margin_padding_medium"
+            android:text="@string/i_will_back_to_original_loc"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_medium" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="@dimen/w_150"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_padding_medium"
+            android:background="#880000ff"
+            android:gravity="center"
+            android:padding="@dimen/margin_padding_medium"
+            android:text="@string/edage_to_ctrl_me"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_medium" />
+    </vn.loitp.a.func.viewDragHelperSimple.ViewDragHelperView>
+</androidx.constraintlayout.widget.ConstraintLayout>

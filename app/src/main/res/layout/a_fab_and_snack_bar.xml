@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <RelativeLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/showSnackbarButton"
+        style="@style/ButtonMenu"
+        android:layout_gravity="center"
+        android:text="@string/show_snackbar" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_play_arrow_black_48dp"
+        android:tint="?attr/themeTextColor"
+        tools:ignore="RtlHardcoded" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/w_300"
+        android:layout_height="@dimen/w_150"
+        android:layout_gravity="bottom"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/iv" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

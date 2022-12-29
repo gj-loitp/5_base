@@ -94,7 +94,7 @@ repositories {
 dependencies {
     api project(':core')
 //    https://github.com/tplloi/base
-//    api 'com.github.tplloi:base:4.6.03'
+//    api 'com.github.tplloi:base:4.6.07'
 
     api 'com.daimajia.androidanimations:library:2.4@aar'
 //    https://github.com/hannesa2/AndroidSlidingUpPanel
@@ -145,6 +145,20 @@ dependencies {
 //    https://github.com/wajahatkarim3/EasyFlipViewPager
     api 'com.wajahatkarim:easyflipviewpager:2.0.1'
 
+    //https://github.com/google/ExoPlayer
+    api 'com.google.android.exoplayer:exoplayer:2.10.4'
+    //compile 'com.google.android.exoplayer:exoplayer-core:2.10.4''
+    api 'com.google.android.exoplayer:extension-ima:2.10.4'
+    api 'com.google.android.exoplayer:exoplayer-dash:2.10.4'
+    api 'com.google.android.exoplayer:exoplayer-hls:2.10.4'
+    //api 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.10.4''
+    api 'com.google.android.exoplayer:exoplayer-ui:2.10.4'
+    //api 'com.google.android.exoplayer:extension-cast:2.10.4''
+    //api 'com.googlecode.android-query:android-query:0.25.9' //queue for chromecast
+    //https://github.com/rubensousa/PreviewSeekBar
+    //api 'com.github.rubensousa:previewseekbar:2.0.0'
+    //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
+
 //    https://github.com/rosenpin/fading-text-view
     api 'com.github.rosenpin:fading-text-view:3.0'
 //    https://github.com/HamedTaherpour/floating-layout-android
@@ -169,6 +183,8 @@ dependencies {
     api 'dev.bandb.graphview:graphview:0.8.1'
 //    https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter
     api 'in.srain.cube:grid-view-with-header-footer:1.0.12'
+//    https://github.com/wangpeiyuan/GradientColorPickerBar
+//    api 'com.github.wangpeiyuan:GradientColorPickerBar:1.0.0'
 //    https://github.com/500px/greedo-layout-for-android
     api 'com.fivehundredpx:greedo-layout:1.5.1'
 
@@ -190,6 +206,8 @@ dependencies {
     api 'com.github.devendroid:ReadMoreOption:1.0.2'
 //    https://github.com/rishabh876/RoundedImageView
     api 'com.rishabhharit.roundedimageview:RoundedImageView:0.8.4'
+//    https://github.com/Chrisvin/RubberPicker
+    api 'com.github.Chrisvin:RubberPicker:v1.5'
 
 //    https://github.com/Crysis21/PulsingView
     api 'ro.holdone:pulseview:1.0.2'

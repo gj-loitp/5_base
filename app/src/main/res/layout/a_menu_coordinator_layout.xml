@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt0"
+                style="@style/ButtonMenu"
+                android:text="@string/with_imageview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt1"
+                style="@style/ButtonMenu"
+                android:text="@string/standard_app_bar_scrolling_with_only_toolbar" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt2"
+                style="@style/ButtonMenu"
+                android:text="@string/app_bar_scrolling_with_tabs" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt3"
+                style="@style/ButtonMenu"
+                android:text="@string/app_bar_scrolling_with_flexible_space" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt4"
+                style="@style/ButtonMenu"
+                android:text="@string/app_bar_scrolling_with_overlapping_content_in_flexible_space" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt5"
+                style="@style/ButtonMenu"
+                android:text="@string/recyclerview" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

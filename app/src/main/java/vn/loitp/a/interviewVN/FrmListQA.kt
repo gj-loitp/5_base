@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.f_interview_vn_iq_list_qa.*
-import kotlinx.android.synthetic.main.view_movie_list.*
+import kotlinx.android.synthetic.main.i_movie_list.*
 import vn.loitp.R
 import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
 import vn.loitp.a.interviewVN.adt.QAAdapter
@@ -18,9 +18,9 @@ import vn.loitp.a.interviewVN.adt.QAAdapter
 @LogTag("FrmListQA")
 class FrmListQA(private val linkGGDrive: String?) : BaseFragmentFlow() {
 
-    companion object {
-        const val KEY_NEXT_LINK = "KEY_NEXT_LINK"
-    }
+//    companion object {
+//        const val KEY_NEXT_LINK = "KEY_NEXT_LINK"
+//    }
 
     private var concatAdapter = ConcatAdapter()
     private var qaAdapter = QAAdapter(

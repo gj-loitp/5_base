@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/margin_padding_medium"
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingEnd="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
+
+            <com.loitp.views.layout.roundable.LRoundableLayout
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/w_50"
+                android:elevation="5dp"
+                android:translationZ="5dp"
+                app:lrl_backgroundColor="?attr/themeTextColor"
+                app:lrl_cornerLeftBottom="40dp"
+                app:lrl_cornerLeftSide="25dp"
+                app:lrl_cornerLeftTop="40dp"
+                app:lrl_cornerRightBottom="40dp"
+                app:lrl_cornerRightSide="25dp"
+                app:lrl_cornerRightTop="40dp"
+                app:lrl_dashLineGap="4dp"
+                app:lrl_dashLineWidth="10dp"
+                app:lrl_strokeLineColor="@color/colorPrimary"
+                app:lrl_strokeLineWidth="2dp" />
+
+            <com.loitp.views.layout.roundable.LRoundableLayout
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/w_50"
+                android:elevation="5dp"
+                android:translationZ="5dp"
+                app:lrl_backgroundColor="?attr/themeTextColor"
+                app:lrl_cornerLeftBottom="40dp"
+                app:lrl_cornerLeftSide="25dp"
+                app:lrl_cornerLeftTop="40dp"
+                app:lrl_cornerRightBottom="40dp"
+                app:lrl_cornerRightSide="25dp"
+                app:lrl_cornerRightTop="40dp"
+                app:lrl_dashLineGap="4dp"
+                app:lrl_dashLineWidth="10dp"
+                app:lrl_strokeLineColor="@color/colorPrimary"
+                app:lrl_strokeLineWidth="2dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/loitp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </com.loitp.views.layout.roundable.LRoundableLayout>
+
+            <com.loitp.views.layout.roundable.LRoundableLayout
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/w_50"
+                android:elevation="5dp"
+                app:lrl_backgroundColor="?attr/themeTextColor"
+                app:lrl_cornerLeftTop="40dp"
+                app:lrl_cornerRightBottom="40dp"
+                app:lrl_dashLineGap="15dp"
+                app:lrl_dashLineWidth="10dp"
+                app:lrl_strokeLineColor="@color/red"
+                app:lrl_strokeLineWidth="5dp" />
+
+            <com.loitp.views.layout.roundable.LRoundableLayout
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/w_50"
+                android:elevation="5dp"
+                app:lrl_backgroundColor="?attr/themeTextColor"
+                app:lrl_cornerLeftTop="40dp"
+                app:lrl_cornerRightBottom="40dp"
+                app:lrl_dashLineGap="15dp"
+                app:lrl_dashLineWidth="10dp"
+                app:lrl_strokeLineColor="@color/blue"
+                app:lrl_strokeLineWidth="5dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/loitp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </com.loitp.views.layout.roundable.LRoundableLayout>
+
+            <com.loitp.views.layout.roundable.LRoundableLayout
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/w_50"
+                android:elevation="0dp"
+                app:lrl_backgroundColor="?attr/themeTextColor"
+                app:lrl_cornerLeftBottom="90dp"
+                app:lrl_cornerLeftTop="90dp"
+                app:lrl_cornerRightBottom="90dp" />
+
+            <com.loitp.views.layout.roundable.LRoundableLayout
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/w_50"
+                android:elevation="0dp"
+                app:lrl_backgroundColor="?attr/themeTextColor"
+                app:lrl_cornerLeftBottom="90dp"
+                app:lrl_cornerLeftTop="90dp"
+                app:lrl_cornerRightBottom="90dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/loitp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </com.loitp.views.layout.roundable.LRoundableLayout>
+
+            <com.loitp.views.layout.roundable.LRoundableLayout
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/w_50"
+                android:elevation="5dp"
+                android:translationZ="5dp"
+                app:lrl_backgroundColor="?attr/themeTextColor"
+                app:lrl_cornerLeftBottom="@dimen/w_200"
+                app:lrl_cornerLeftSide="@dimen/w_100"
+                app:lrl_cornerLeftTop="@dimen/w_200"
+                app:lrl_cornerRightBottom="@dimen/w_200"
+                app:lrl_cornerRightSide="@dimen/w_100"
+                app:lrl_cornerRightTop="@dimen/w_200"
+                app:lrl_dashLineGap="15dp"
+                app:lrl_dashLineWidth="15dp"
+                app:lrl_strokeLineColor="@color/red"
+                app:lrl_strokeLineWidth="5dp" />
+
+            <com.loitp.views.layout.roundable.LRoundableLayout
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/w_50"
+                android:elevation="5dp"
+                android:translationZ="5dp"
+                app:lrl_backgroundColor="?attr/themeTextColor"
+                app:lrl_cornerLeftBottom="@dimen/w_200"
+                app:lrl_cornerLeftSide="@dimen/w_100"
+                app:lrl_cornerLeftTop="@dimen/w_200"
+                app:lrl_cornerRightBottom="@dimen/w_200"
+                app:lrl_cornerRightSide="@dimen/w_100"
+                app:lrl_cornerRightTop="@dimen/w_200"
+                app:lrl_dashLineGap="15dp"
+                app:lrl_dashLineWidth="15dp"
+                app:lrl_strokeLineColor="@color/red"
+                app:lrl_strokeLineWidth="5dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/loitp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </com.loitp.views.layout.roundable.LRoundableLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_50" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColorMedium"
-    tools:showIn="@layout/activity_drawer_behavior_default">
+    tools:showIn="@layout/a_drawer_behavior_default">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

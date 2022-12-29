@@ -11,7 +11,7 @@ import com.loitp.views.iv.panorama.GyroscopeObserver
 import com.loitp.views.iv.panorama.LPanoramaImageView
 import kotlinx.android.synthetic.main.a_iv_panorama.*
 import vn.loitp.R
-import vn.loitp.a.EmptyActivity
+import vn.loitp.app.EmptyActivity
 
 @LogTag("PanoramaIvActivity")
 @IsFullScreen(false)
