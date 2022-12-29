@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.swipeRefresh.withRv
+package vn.loitp.a.cv.layout.swipeRefresh.withRv
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_swipe_refresh_recycler_view_layout.*
+import kotlinx.android.synthetic.main.a_layout_swipe_refresh_rv.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 import vn.loitp.app.a.cv.rv.normalRv.MoviesAdapter
@@ -23,7 +23,7 @@ class SwipeRefreshLayoutRecyclerViewActivity : BaseFontActivity() {
     private var mAdapter: MoviesAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_swipe_refresh_recycler_view_layout
+        return R.layout.a_layout_swipe_refresh_rv
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

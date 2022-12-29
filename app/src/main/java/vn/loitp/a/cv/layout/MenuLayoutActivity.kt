@@ -41,7 +41,7 @@ import vn.loitp.a.cv.layout.shapeOfView.ShapeOfViewActivity
 import vn.loitp.a.cv.layout.splitPanel.SplitPanelLayoutActivity
 import vn.loitp.a.cv.layout.square.SquareLayoutActivity
 import vn.loitp.a.cv.layout.swipeBack.SwipeBackLayoutActivity
-import vn.loitp.app.a.cv.layout.swipeRefresh.MenuSwipeRefreshLayoutActivity
+import vn.loitp.a.cv.layout.swipeRefresh.MenuSwipeRefreshLayoutActivity
 import vn.loitp.app.a.cv.layout.swipeReveal.SwipeRevealLayoutActivity
 import vn.loitp.app.a.cv.layout.transformation.TransformationActivity
 import vn.loitp.app.a.cv.layout.transformation.single.TransformationSingleActivity

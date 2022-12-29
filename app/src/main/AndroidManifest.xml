@@ -219,13 +219,13 @@
             android:name=".a.demo.alarm.sv.Preferences"
             android:label="Preferences" />
         <activity
-            android:name=".app.a.cv.layout.swipeRefresh.withSv.SwipeRefreshLayoutScrollViewActivity"
+            android:name=".a.cv.layout.swipeRefresh.withSv.SwipeRefreshLayoutScrollViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.swipeRefresh.MenuSwipeRefreshLayoutActivity"
+            android:name=".a.cv.layout.swipeRefresh.MenuSwipeRefreshLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.swipeRefresh.withRv.SwipeRefreshLayoutRecyclerViewActivity"
+            android:name=".a.cv.layout.swipeRefresh.withRv.SwipeRefreshLayoutRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.rv.normalRv.RecyclerViewActivity"
