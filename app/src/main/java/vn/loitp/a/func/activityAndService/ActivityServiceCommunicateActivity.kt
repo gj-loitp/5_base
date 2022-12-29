@@ -108,7 +108,7 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
         }
 
     private val resultOverlay =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             handleNotify()
         }
 }

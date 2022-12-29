@@ -1,8 +1,8 @@
 package vn.loitp.a.cv.lDebug
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
@@ -56,21 +56,14 @@ class LDebugViewActivity : BaseFontActivity(), View.OnClickListener {
         btSendObjectD.setOnClickListener(this)
     }
 
-    //TODO fix onActivityResult
-    override fun onActivityResult(
-        requestCode: Int,
-        resultCode: Int,
-        data: Intent?
-    ) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        LDebug.checkPermission(activity = this, requestCode = requestCode, resultCode = resultCode)
-    }
-
     override fun onClick(v: View) {
         when (v) {
             btStart -> {
-                LDebug.init(this)
+                LDebug.init(
+                    activity = this,
+                    data = { intent ->
+                        resultOverlay.launch(intent)
+                    })
                 btStop.isEnabled = true
                 btSendD.isEnabled = true
                 btSendI.isEnabled = true
@@ -110,4 +103,9 @@ class LDebugViewActivity : BaseFontActivity(), View.OnClickListener {
             }
         }
     }
+
+    private val resultOverlay =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            LDebug.start()
+        }
 }
