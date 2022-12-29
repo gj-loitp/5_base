@@ -2,7 +2,9 @@ package vn.loitp.a.func.activityAndService
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import androidx.activity.result.contract.ActivityResultContracts
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
@@ -21,8 +23,6 @@ import vn.loitp.app.EmptyActivity
 class ActivityServiceCommunicateActivity : BaseFontActivity() {
 
     companion object {
-        private const val CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084
-
         const val KEY_INPUT = "KEY_INPUT"
         const val KEY_OUTPUT = "KEY_OUTPUT"
     }
@@ -62,27 +62,20 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
     }
 
     private fun handleNotify() {
-//        val intent =
-//            Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
-//        launchActivity(
-//            intent = intent,
-//            launchForResult = true
-//        )
-    }
-
-    //TODO onActivityResult
-    override fun onActivityResult(
-        requestCode: Int,
-        resultCode: Int,
-        data: Intent?
-    ) {
-        when (requestCode) {
-            CODE_DRAW_OVER_OTHER_APP_PERMISSION -> {
-                handleNotify()
-            }
-            else -> {
-                super.onActivityResult(requestCode, resultCode, data)
-            }
+        if (Settings.canDrawOverlays(this)) {
+            showShortInformation("onClick TestService")
+            textView.text = ""
+            startService(Intent(this, TestService::class.java))
+        } else {
+            launchActivityForResult(
+                intent = Intent(
+                    Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:$packageName")
+                ),
+                withAnim = true,
+                data = { intent ->
+                    resultOverlay.launch(intent)
+                })
         }
     }
 
@@ -98,11 +91,11 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
             withAnim = true,
             data = { intent ->
                 intent.putExtra(KEY_INPUT, "Hello Loitp ${System.currentTimeMillis()}")
-                resultLauncher.launch(intent)
+                resultTest.launch(intent)
             })
     }
 
-    private val resultLauncher =
+    private val resultTest =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 result.data?.let { intent ->
@@ -110,5 +103,11 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
                     showShortInformation(output)
                 }
             }
+        }
+
+    private val resultOverlay =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            logE(">>>>")
+            handleNotify()
         }
 }

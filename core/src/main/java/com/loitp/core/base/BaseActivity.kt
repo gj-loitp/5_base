@@ -480,6 +480,17 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
+    fun launchActivityForResult(
+        intent: Intent,
+        withAnim: Boolean = true,
+        data: ((Intent) -> Unit)? = null,
+    ) {
+        data?.invoke(intent)
+        if (withAnim) {
+            LActivityUtil.tranIn(this)
+        }
+    }
+
     fun setResultActivity(
         data: ((Intent) -> Unit)? = null
     ) {
