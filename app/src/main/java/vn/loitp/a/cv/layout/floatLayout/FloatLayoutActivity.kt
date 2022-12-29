@@ -81,9 +81,6 @@ class FloatLayoutActivity : BaseFontActivity() {
     }
 
     private fun requestPermission() {
-//        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName")
-//        )
-//        startActivityForResult(intent, 25)
         launchActivityForResult(
             intent = Intent(
                 Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
