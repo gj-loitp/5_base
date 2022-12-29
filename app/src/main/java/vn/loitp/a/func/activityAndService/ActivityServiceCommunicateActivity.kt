@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import androidx.activity.result.contract.ActivityResultContracts
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
@@ -25,7 +26,6 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
     companion object {
         private const val CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084
 
-        private const val CODE_INPUT = 1111
         const val KEY_INPUT = "KEY_INPUT"
         const val KEY_OUTPUT = "KEY_OUTPUT"
     }
@@ -87,14 +87,6 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
             CODE_DRAW_OVER_OTHER_APP_PERMISSION -> {
                 handleNotify()
             }
-            CODE_INPUT -> {
-                if (resultCode == Activity.RESULT_OK) {
-                    data?.let {
-                        val output = it.getStringExtra(KEY_OUTPUT)
-                        showShortInformation(output)
-                    }
-                }
-            }
             else -> {
                 super.onActivityResult(requestCode, resultCode, data)
             }
@@ -110,14 +102,17 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
     private fun launchActivityTest() {
         val intent = Intent(this, EmptyActivity::class.java)
         intent.putExtra(KEY_INPUT, "Hello Loitp ${System.currentTimeMillis()}")
-//        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-//            if (result.resultCode == Activity.RESULT_OK) {
-//                val data: Intent? = result.data
-//
-//            }
-//        }.launch(intent)
-
-        startActivityForResult(intent, CODE_INPUT)
+        resultLauncher.launch(intent)
         LActivityUtil.tranIn(this)
     }
+
+    private var resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                result.data?.let { intent ->
+                    val output = intent.getStringExtra(KEY_OUTPUT)
+                    showShortInformation(output)
+                }
+            }
+        }
 }
