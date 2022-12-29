@@ -755,4 +755,18 @@
         <attr name="lcpSelectedColorIndex" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="GradientColorPickerBar">
+        <attr name="thumbSizeGCP" format="dimension" />
+        <attr name="thumbRadiusGCP" format="dimension" />
+        <attr name="thumbStrokeColorGCP" format="color" />
+        <attr name="thumbStrokeWidthGCP" format="dimension" />
+        <attr name="barHeightGCP" format="dimension" />
+        <attr name="barRadiusGCP" format="dimension" />
+        <attr name="orientationGCP" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="colorEntriesGCP" format="reference" />
+        <attr name="progressGCP" format="float" />
+    </declare-styleable>
 </resources>

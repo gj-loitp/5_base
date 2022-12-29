@@ -1414,6 +1414,9 @@
         <activity
             android:name=".a.cv.sb.rubberPicker.RubberPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.picker.gradientColorPickerBar.GradientColorPickerBarActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
     <queries>

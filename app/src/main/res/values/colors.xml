@@ -101,4 +101,22 @@
         <item>@color/color_5</item>
         <item>@color/color_6</item>
     </integer-array>
+
+    <array name="colors">
+        <item>@color/purple_700</item>
+        <item>@color/purple_500</item>
+        <item>@color/purple_200</item>
+    </array>
+
+    <array name="color1">
+        <item>#76FF03</item>
+        <item>#B2FF59</item>
+        <item>#CCFF90</item>
+    </array>
+
+    <array name="color2">
+        <item>#FF3D00</item>
+        <item>#FF6E40</item>
+        <item>#FF9E80</item>
+    </array>
 </resources>
