@@ -2,15 +2,12 @@ package vn.loitp.a.func.activityAndService
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings
-import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_func_service_communicate.*
 import org.greenrobot.eventbus.Subscribe
@@ -65,16 +62,12 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
     }
 
     private fun handleNotify() {
-        // Check if the application has draw over other apps permission or not?
-        // This permission is by default available for API<23. But for API > 23
-        // you have to ask for the permission in runtime.
-        // If the draw over permission is not available open the settings screen
-        // to grant the permission.
-        val intent =
-            Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
-        //TODO startActivityForResult
-        startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION)
-        LActivityUtil.tranIn(this)
+//        val intent =
+//            Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
+//        launchActivity(
+//            intent = intent,
+//            launchForResult = true
+//        )
     }
 
     //TODO onActivityResult
@@ -100,22 +93,22 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
     }
 
     private fun launchActivityTest() {
-        launchActivity(
+        launchActivityForResult(
             cls = EmptyActivity::class.java,
-            launchForResult = true,
             withAnim = true,
             data = { intent ->
                 intent.putExtra(KEY_INPUT, "Hello Loitp ${System.currentTimeMillis()}")
+                resultLauncher.launch(intent)
             })
     }
-    
-    override fun getResultActivity(result: ActivityResult) {
-        super.getResultActivity(result)
-        if (result.resultCode == Activity.RESULT_OK) {
-            result.data?.let { intent ->
-                val output = intent.getStringExtra(KEY_OUTPUT)
-                showShortInformation(output)
+
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                result.data?.let { intent ->
+                    val output = intent.getStringExtra(KEY_OUTPUT)
+                    showShortInformation(output)
+                }
             }
         }
-    }
 }

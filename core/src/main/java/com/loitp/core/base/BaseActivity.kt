@@ -12,8 +12,6 @@ import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
 import androidx.activity.addCallback
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -207,7 +205,7 @@ abstract class BaseActivity : AppCompatActivity() {
         handlerIdleTime = Handler(Looper.getMainLooper())
         runnableIdleTime = Runnable {
             isIdleTime = true
-            onActivityUserIdleAfterTime(delayMlsIdleTime, isIdleTime)
+            onActivityUserIdleAfterTime(delayMlsIdleTime = delayMlsIdleTime, isIdleTime = true)
         }
         handlerIdleTime?.let { h ->
             runnableIdleTime?.let { r ->
@@ -459,17 +457,24 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun launchActivity(
         cls: Class<*>,
-        launchForResult: Boolean = false,
         withAnim: Boolean = true,
         data: ((Intent) -> Unit)? = null,
     ) {
         val intent = Intent(/* packageContext = */ this, /* cls = */ cls)
         data?.invoke(intent)
-        if (launchForResult) {
-            resultLauncher.launch(intent)
-        } else {
-            startActivity(intent)
+        startActivity(intent)
+        if (withAnim) {
+            LActivityUtil.tranIn(this)
         }
+    }
+
+    fun launchActivityForResult(
+        cls: Class<*>,
+        withAnim: Boolean = true,
+        data: ((Intent) -> Unit)? = null,
+    ) {
+        val intent = Intent(/* packageContext = */ this, /* cls = */ cls)
+        data?.invoke(intent)
         if (withAnim) {
             LActivityUtil.tranIn(this)
         }
@@ -484,11 +489,4 @@ abstract class BaseActivity : AppCompatActivity() {
         setResult(Activity.RESULT_OK, i)
         onBaseBackPressed()
     }
-
-    private val resultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            getResultActivity(result)
-        }
-
-    open fun getResultActivity(result: ActivityResult) {}
 }
