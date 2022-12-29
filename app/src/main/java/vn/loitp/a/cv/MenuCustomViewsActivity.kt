@@ -33,27 +33,27 @@ import vn.loitp.a.cv.lCv.LCardViewActivity
 import vn.loitp.a.cv.lDebug.LDebugViewActivity
 import vn.loitp.a.cv.layout.MenuLayoutActivity
 import vn.loitp.a.cv.luckyWheel.LuckyWheelActivity
+import vn.loitp.a.cv.menu.MenuMenuActivity
 import vn.loitp.a.cv.navi.MenuNavigationActivity
 import vn.loitp.a.cv.popupMenu.PopupMenuActivity
 import vn.loitp.a.cv.progress.MenuProgressActivity
-import vn.loitp.a.cv.spotlight.SpotlightActivity
-import vn.loitp.a.cv.menu.MenuMenuActivity
-import vn.loitp.app.a.cv.rv.MenuRecyclerViewActivity
 import vn.loitp.a.cv.sb.MenuSeekbarActivity
 import vn.loitp.a.cv.scratchView.MenuScratchViewActivity
 import vn.loitp.a.cv.scrollablePanel.ScrollablePanelActivity
 import vn.loitp.a.cv.simpleRatingBar.SimpleRatingBarActivity
+import vn.loitp.a.cv.spotlight.SpotlightActivity
 import vn.loitp.a.cv.stackExpandableView.StackExpandableViewActivity
 import vn.loitp.a.cv.sticker.StickerActivity
 import vn.loitp.a.cv.sw.MenuSwitchToggleActivity
 import vn.loitp.a.cv.treeView.TreeViewActivity
-import vn.loitp.app.a.cv.tv.MenuTextViewActivity
 import vn.loitp.a.cv.video.MenuVideoViewActivity
-import vn.loitp.app.a.cv.vp.MenuViewPagerActivity
 import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.a.cv.wheelView.WheelViewActivity
 import vn.loitp.a.cv.wv.MenuWebViewActivity
-import vn.loitp.app.a.cv.wwlMusic.WWLActivityMusic
+import vn.loitp.a.cv.wwlMusic.WWLActivityMusic
+import vn.loitp.app.a.cv.rv.MenuRecyclerViewActivity
+import vn.loitp.app.a.cv.tv.MenuTextViewActivity
+import vn.loitp.app.a.cv.vp.MenuViewPagerActivity
 import vn.loitp.app.a.cv.wwlVideo.WWLVideoActivity
 
 @LogTag("MenuCustomViewsActivity")

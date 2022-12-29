@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wwlMusic
+package vn.loitp.a.cv.wwlMusic
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -8,12 +8,12 @@ import com.loitp.views.wwl.music.layout.LWWLMusic
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.hideSystemUI
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.showSystemUI
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.updateStatusBarAlpha
-import kotlinx.android.synthetic.main.activity_wwl_music.*
+import kotlinx.android.synthetic.main.a_wwl_music.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.wwlMusic.frm.WWLPlaylistFragment
-import vn.loitp.app.a.cv.wwlMusic.frm.WWLWatchFragment
-import vn.loitp.app.a.cv.wwlMusic.itf.FragmentHost
-import vn.loitp.app.a.cv.wwlMusic.utils.WWLMusicDataset
+import vn.loitp.a.cv.wwlMusic.frm.WWLPlaylistFragment
+import vn.loitp.a.cv.wwlMusic.frm.WWLWatchFragment
+import vn.loitp.a.cv.wwlMusic.itf.FragmentHost
+import vn.loitp.a.cv.wwlMusic.utils.WWLMusicDataset
 
 // https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 @LogTag("WWLActivityMusic")
@@ -25,7 +25,7 @@ class WWLActivityMusic : BaseFontActivity(), LWWLMusic.Listener, FragmentHost {
     private var frmPlaylist: WWLPlaylistFragment? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_wwl_music
+        return R.layout.a_wwl_music
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

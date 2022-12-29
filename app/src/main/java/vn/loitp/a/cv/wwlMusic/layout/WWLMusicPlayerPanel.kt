@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wwlMusic.layout
+package vn.loitp.a.cv.wwlMusic.layout
 
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
@@ -10,7 +10,10 @@ import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import vn.loitp.R
 
-class WWLMusicPlayerPanel(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
+class WWLMusicPlayerPanel(
+    context: Context,
+    attrs: AttributeSet?
+) : FrameLayout(context, attrs) {
 
     private var mBgColorDrawable: ColorDrawable = ColorDrawable()
     private var layoutMiniControlsContainer: View? = null
@@ -39,7 +42,10 @@ class WWLMusicPlayerPanel(context: Context, attrs: AttributeSet?) : FrameLayout(
         requestLayout()
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    override fun onMeasure(
+        widthMeasureSpec: Int,
+        heightMeasureSpec: Int
+    ) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
         val width = MeasureSpec.getSize(widthMeasureSpec)
@@ -60,7 +66,13 @@ class WWLMusicPlayerPanel(context: Context, attrs: AttributeSet?) : FrameLayout(
         }
     }
 
-    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+    override fun onLayout(
+        changed: Boolean,
+        left: Int,
+        top: Int,
+        right: Int,
+        bottom: Int
+    ) {
         super.onLayout(changed, left, top, right, bottom)
 
         layoutMusicPlayerView?.let { fl ->

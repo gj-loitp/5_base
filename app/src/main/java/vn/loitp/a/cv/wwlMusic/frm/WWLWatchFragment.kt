@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wwlMusic.frm
+package vn.loitp.a.cv.wwlMusic.frm
 
 import android.app.Activity
 import android.content.Context
@@ -14,11 +14,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import kotlinx.android.synthetic.main.wwl_music_watch_fragment.*
+import kotlinx.android.synthetic.main.f_wwl_music_watch.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.wwlMusic.itf.FragmentHost
-import vn.loitp.app.a.cv.wwlMusic.layout.WWLMusicControlsOverlay
-import vn.loitp.app.a.cv.wwlMusic.utils.WWLMusicDataset
+import vn.loitp.a.cv.wwlMusic.itf.FragmentHost
+import vn.loitp.a.cv.wwlMusic.layout.WWLMusicControlsOverlay
+import vn.loitp.a.cv.wwlMusic.utils.WWLMusicDataset
 
 @LogTag("WWLWatchFragment")
 class WWLWatchFragment : BaseFragment(), SurfaceTextureListener, WWLMusicControlsOverlay.Listener {
@@ -33,10 +33,13 @@ class WWLWatchFragment : BaseFragment(), SurfaceTextureListener, WWLMusicControl
     private var mFragmentHost: FragmentHost? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.wwl_music_watch_fragment
+        return R.layout.f_wwl_music_watch
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         playerView.requestFocus()
@@ -68,7 +71,11 @@ class WWLWatchFragment : BaseFragment(), SurfaceTextureListener, WWLMusicControl
         }
     }
 
-    override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
+    override fun onSurfaceTextureAvailable(
+        surface: SurfaceTexture,
+        width: Int,
+        height: Int
+    ) {
         try {
             mSurfaceView = Surface(surface)
             openVideo()
@@ -77,7 +84,11 @@ class WWLWatchFragment : BaseFragment(), SurfaceTextureListener, WWLMusicControl
         }
     }
 
-    override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture, width: Int, height: Int) {}
+    override fun onSurfaceTextureSizeChanged(
+        surface: SurfaceTexture,
+        width: Int,
+        height: Int
+    ) {}
 
     override fun onSurfaceTextureDestroyed(surface: SurfaceTexture): Boolean {
         mSurfaceView = null

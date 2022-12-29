@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wwlMusic.frm
+package vn.loitp.a.cv.wwlMusic.frm
 
 import android.app.Activity
 import android.os.Bundle
@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import kotlinx.android.synthetic.main.wwl_music_playlist_fragment.*
+import kotlinx.android.synthetic.main.f_wwl_music_playlist.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.wwlMusic.itf.FragmentHost
-import vn.loitp.app.a.cv.wwlMusic.utils.WWLMusicDataset
+import vn.loitp.a.cv.wwlMusic.itf.FragmentHost
+import vn.loitp.a.cv.wwlMusic.utils.WWLMusicDataset
 
 @LogTag("WWLPlaylistFragment")
 class WWLPlaylistFragment : BaseFragment() {
@@ -22,10 +22,13 @@ class WWLPlaylistFragment : BaseFragment() {
     private var mFragmentHost: FragmentHost? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.wwl_music_playlist_fragment
+        return R.layout.f_wwl_music_playlist
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()

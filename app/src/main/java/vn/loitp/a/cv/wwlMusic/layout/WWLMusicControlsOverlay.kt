@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wwlMusic.layout
+package vn.loitp.a.cv.wwlMusic.layout
 
 import android.content.Context
 import android.view.LayoutInflater

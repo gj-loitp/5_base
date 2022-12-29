@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wwlMusic.utils
+package vn.loitp.a.cv.wwlMusic.utils
 
 import com.loitp.core.utils.AppUtils.Companion.appPackageName
 import vn.loitp.R

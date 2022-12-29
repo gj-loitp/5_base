@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wwlMusic.frm
+package vn.loitp.a.cv.wwlMusic.frm
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -13,10 +13,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.getGridColumnCount
-import kotlinx.android.synthetic.main.wwl_music_home_fragment.*
+import kotlinx.android.synthetic.main.f_wwl_music_home.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.wwlMusic.itf.FragmentHost
-import vn.loitp.app.a.cv.wwlMusic.utils.WWLMusicDataset
+import vn.loitp.a.cv.wwlMusic.itf.FragmentHost
+import vn.loitp.a.cv.wwlMusic.utils.WWLMusicDataset
 
 @LogTag("WWLHomeFragment")
 class WWLHomeFragment : BaseFragment() {
@@ -26,10 +26,13 @@ class WWLHomeFragment : BaseFragment() {
     private var mFragmentHost: FragmentHost? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.wwl_music_home_fragment
+        return R.layout.f_wwl_music_home
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()
