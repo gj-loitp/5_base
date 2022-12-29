@@ -5,7 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.ActivityResult
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
@@ -100,19 +100,22 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
     }
 
     private fun launchActivityTest() {
-        val intent = Intent(this, EmptyActivity::class.java)
-        intent.putExtra(KEY_INPUT, "Hello Loitp ${System.currentTimeMillis()}")
-        resultLauncher.launch(intent)
-        LActivityUtil.tranIn(this)
+        launchActivity(
+            cls = EmptyActivity::class.java,
+            launchForResult = true,
+            withAnim = true,
+            data = { intent ->
+                intent.putExtra(KEY_INPUT, "Hello Loitp ${System.currentTimeMillis()}")
+            })
     }
-
-    private var resultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                result.data?.let { intent ->
-                    val output = intent.getStringExtra(KEY_OUTPUT)
-                    showShortInformation(output)
-                }
+    
+    override fun getResultActivity(result: ActivityResult) {
+        super.getResultActivity(result)
+        if (result.resultCode == Activity.RESULT_OK) {
+            result.data?.let { intent ->
+                val output = intent.getStringExtra(KEY_OUTPUT)
+                showShortInformation(output)
             }
         }
+    }
 }

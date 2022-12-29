@@ -12,6 +12,8 @@ import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
 import androidx.activity.addCallback
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -457,12 +459,17 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun launchActivity(
         cls: Class<*>,
+        launchForResult: Boolean = false,
         withAnim: Boolean = true,
-        data: ((Intent) -> Unit)? = null
+        data: ((Intent) -> Unit)? = null,
     ) {
         val intent = Intent(/* packageContext = */ this, /* cls = */ cls)
         data?.invoke(intent)
-        startActivity(intent)
+        if (launchForResult) {
+            resultLauncher.launch(intent)
+        } else {
+            startActivity(intent)
+        }
         if (withAnim) {
             LActivityUtil.tranIn(this)
         }
@@ -477,4 +484,11 @@ abstract class BaseActivity : AppCompatActivity() {
         setResult(Activity.RESULT_OK, i)
         onBaseBackPressed()
     }
+
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            getResultActivity(result)
+        }
+
+    open fun getResultActivity(result: ActivityResult) {}
 }
