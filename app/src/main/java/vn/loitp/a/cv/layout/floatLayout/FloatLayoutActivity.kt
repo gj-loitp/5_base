@@ -119,7 +119,7 @@ class FloatLayoutActivity : BaseFontActivity() {
     }
 
     private val resultOverlay =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { _ ->
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             showFloating()
         }
 }
