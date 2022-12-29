@@ -1,5 +1,6 @@
 package vn.loitp.a.func.activityAndService
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -8,12 +9,14 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_func_service_communicate.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import vn.loitp.R
 import vn.loitp.a.demo.floatingWidget.CommunicateMng
+import vn.loitp.app.EmptyActivity
 
 @LogTag("ActivityServiceCommunicateActivity")
 @IsFullScreen(false)
@@ -21,6 +24,10 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
 
     companion object {
         private const val CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084
+
+        private const val CODE_INPUT = 1111
+        const val KEY_INPUT = "KEY_INPUT"
+        const val KEY_OUTPUT = "KEY_OUTPUT"
     }
 
     override fun setLayoutResourceId(): Int {
@@ -51,6 +58,10 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
         bt0.setSafeOnClickListener {
             CommunicateMng.postFromActivity(CommunicateMng.MsgFromActivity(bt0.text.toString()))
         }
+
+        btTestStartActivityForResult.setSafeOnClickListener {
+            launchActivityTest()
+        }
     }
 
     private fun handleNotify() {
@@ -63,14 +74,30 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
             Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
         //TODO startActivityForResult
         startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION)
+        LActivityUtil.tranIn(this)
     }
 
     //TODO onActivityResult
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {
-            handleNotify()
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
+        when (requestCode) {
+            CODE_DRAW_OVER_OTHER_APP_PERMISSION -> {
+                handleNotify()
+            }
+            CODE_INPUT -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    data?.let {
+                        val output = it.getStringExtra(KEY_OUTPUT)
+                        showShortInformation(output)
+                    }
+                }
+            }
+            else -> {
+                super.onActivityResult(requestCode, resultCode, data)
+            }
         }
     }
 
@@ -78,5 +105,19 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(msg: CommunicateMng.MsgFromService) {
         textView.text = msg.msg
+    }
+
+    private fun launchActivityTest() {
+        val intent = Intent(this, EmptyActivity::class.java)
+        intent.putExtra(KEY_INPUT, "Hello Loitp ${System.currentTimeMillis()}")
+//        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+//            if (result.resultCode == Activity.RESULT_OK) {
+//                val data: Intent? = result.data
+//
+//            }
+//        }.launch(intent)
+
+        startActivityForResult(intent, CODE_INPUT)
+        LActivityUtil.tranIn(this)
     }
 }

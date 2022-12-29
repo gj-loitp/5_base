@@ -1,15 +1,20 @@
 package vn.loitp.app
 
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_0.*
 import vn.loitp.R
+import vn.loitp.a.func.activityAndService.ActivityServiceCommunicateActivity
 
 @LogTag("EmptyActivity")
 @IsFullScreen(false)
@@ -24,6 +29,7 @@ class EmptyActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         setupViews()
+        testInputData()
     }
 
     private fun setupViews() {
@@ -48,6 +54,26 @@ class EmptyActivity : BaseFontActivity() {
                 setImageResource(R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = EmptyActivity::class.java.simpleName
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun testInputData() {
+        val input = intent.getStringExtra(ActivityServiceCommunicateActivity.KEY_INPUT)
+        if (input.isNullOrEmpty()) {
+            //do nothing
+        } else {
+            tv.text = "Click me to back screen $input"
+            tv.setSafeOnClickListener {
+                val i = Intent().apply {
+                    putExtra(
+                        /* name = */ ActivityServiceCommunicateActivity.KEY_OUTPUT,
+                        /* value = */ "You are the best!!! ${System.currentTimeMillis()}"
+                    )
+                }
+                setResult(Activity.RESULT_OK, i)
+                onBaseBackPressed()
+            }
         }
     }
 }
