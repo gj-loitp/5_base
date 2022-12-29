@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.Button
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
@@ -60,7 +61,9 @@ class FloatLayoutActivity : BaseFontActivity() {
         }
 
         btnOpen.setSafeOnClickListener {
-            if (!isNeedPermission()) {
+            if (isNeedPermission()) {
+                showShortInformation("Need permission")
+            } else {
                 showFloating()
             }
         }
@@ -78,12 +81,18 @@ class FloatLayoutActivity : BaseFontActivity() {
     }
 
     private fun requestPermission() {
-        val intent = Intent(
-            Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse(
-                "package:$packageName"
-            )
-        )
-        startActivityForResult(intent, 25)
+//        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName")
+//        )
+//        startActivityForResult(intent, 25)
+        launchActivityForResult(
+            intent = Intent(
+                Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                Uri.parse("package:$packageName")
+            ),
+            withAnim = true,
+            data = { intent ->
+                resultOverlay.launch(intent)
+            })
     }
 
     private fun showFloating() {
@@ -108,4 +117,9 @@ class FloatLayoutActivity : BaseFontActivity() {
             it.create()
         }
     }
+
+    private val resultOverlay =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { _ ->
+            showFloating()
+        }
 }

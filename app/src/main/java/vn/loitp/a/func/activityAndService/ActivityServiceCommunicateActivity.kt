@@ -109,7 +109,6 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
 
     private val resultOverlay =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            logE(">>>>")
             handleNotify()
         }
 }
