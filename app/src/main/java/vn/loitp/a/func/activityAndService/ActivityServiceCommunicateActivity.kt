@@ -53,7 +53,9 @@ class ActivityServiceCommunicateActivity : BaseFontActivity() {
             handleNotify()
         }
         bt0.setSafeOnClickListener {
-            CommunicateMng.postFromActivity(CommunicateMng.MsgFromActivity(bt0.text.toString()))
+            CommunicateMng.postFromActivity(
+                CommunicateMng.MsgFromActivity("${bt0.text} +${System.currentTimeMillis()}")
+            )
         }
 
         btTestStartActivityForResult.setSafeOnClickListener {
