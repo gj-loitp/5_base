@@ -961,7 +961,7 @@
             android:name=".a.cv.menu.drawerBehavior.drawer.DefaultDrawerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.layout.splitPanel.SplitPanelLayoutActivity"
+            android:name=".a.cv.layout.splitPanel.SplitPanelLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.aspectratio.AspectRatioLayoutActivity"

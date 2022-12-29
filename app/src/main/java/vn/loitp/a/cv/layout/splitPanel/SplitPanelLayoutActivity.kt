@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.splitPanel
+package vn.loitp.a.cv.layout.splitPanel
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.layout.splitPanel.SplitPaneLayout
-import kotlinx.android.synthetic.main.activity_split_panel_layout.*
+import kotlinx.android.synthetic.main.a_layout_split_panel.*
 import vn.loitp.R
 import java.text.DecimalFormat
 import java.util.*
@@ -17,7 +17,7 @@ import java.util.*
 class SplitPanelLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_split_panel_layout
+        return R.layout.a_layout_split_panel
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
