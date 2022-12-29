@@ -9,8 +9,8 @@ import android.os.Build
 import android.os.IBinder
 import android.view.*
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import androidx.appcompat.widget.LinearLayoutCompat
 import com.loitp.views.toast.LToast
 import vn.loitp.R
 
@@ -60,7 +60,7 @@ class FloatingViewService : Service() {
 
         val rlRootContainer = mFloatingView.findViewById<View>(R.id.rlRootContainer)
         val rlCollapse = mFloatingView.findViewById<RelativeLayout>(R.id.rlCollapse)
-        val llExpanded = mFloatingView.findViewById<LinearLayout>(R.id.llExpanded)
+        val llExpanded = mFloatingView.findViewById<LinearLayoutCompat>(R.id.llExpanded)
         val ivClose = mFloatingView.findViewById<ImageView>(R.id.ivClose)
         val ivPlay = mFloatingView.findViewById<ImageView>(R.id.ivPlay)
         val nextButton = mFloatingView.findViewById<ImageView>(R.id.ivNext)

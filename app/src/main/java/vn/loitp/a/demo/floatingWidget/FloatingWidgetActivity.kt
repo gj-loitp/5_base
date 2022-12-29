@@ -48,7 +48,8 @@ class FloatingWidgetActivity : BaseFontActivity() {
 
     private fun startService() {
         if (Settings.canDrawOverlays(this)) {
-            startService()
+            startService(Intent(this, FloatingViewService::class.java))
+            onBaseBackPressed()
         } else {
             launchActivityForResult(
                 intent = Intent(
