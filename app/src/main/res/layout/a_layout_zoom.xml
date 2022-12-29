@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor"
-    android:orientation="vertical">
+    android:background="?attr/themeBackgroundColor">
 
     <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.otaliastudios.zoom.ZoomLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_below="@+id/lActionBar"
         android:scrollbars="vertical|horizontal"
         app:alignment="center"
@@ -21,6 +21,8 @@
         app:flingEnabled="true"
         app:hasClickableChildren="false"
         app:horizontalPanEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar"
         app:maxZoom="2.5"
         app:maxZoomType="zoom"
         app:minZoom="0.7"
@@ -76,4 +78,4 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
     </com.otaliastudios.zoom.ZoomLayout>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

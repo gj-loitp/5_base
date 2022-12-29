@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.zoom
+package vn.loitp.a.cv.layout.zoom
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_layout_zoom.*
+import kotlinx.android.synthetic.main.a_layout_zoom.*
 import vn.loitp.R
 
 @LogTag("ZoomLayoutActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class ZoomLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_zoom
+        return R.layout.a_layout_zoom
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

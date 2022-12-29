@@ -43,9 +43,9 @@ import vn.loitp.a.cv.layout.square.SquareLayoutActivity
 import vn.loitp.a.cv.layout.swipeBack.SwipeBackLayoutActivity
 import vn.loitp.a.cv.layout.swipeRefresh.MenuSwipeRefreshLayoutActivity
 import vn.loitp.a.cv.layout.swipeReveal.SwipeRevealLayoutActivity
+import vn.loitp.a.cv.layout.zoom.ZoomLayoutActivity
 import vn.loitp.app.a.cv.layout.transformation.TransformationActivity
 import vn.loitp.app.a.cv.layout.transformation.single.TransformationSingleActivity
-import vn.loitp.app.a.cv.layout.zoom.ZoomLayoutActivity
 
 @LogTag("MenuLayoutActivity")
 @IsFullScreen(false)
