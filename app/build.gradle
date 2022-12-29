@@ -70,11 +70,13 @@ android {
             //used android.enableR8=true in gradle.properties
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+//            applicationIdSuffix ".release"
         }
         debug {
             minifyEnabled false
             //used android.enableR8=true in gradle.properties
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            applicationIdSuffix ".debug"
         }
     }
     namespace 'vn.loitp'
