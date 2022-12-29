@@ -16,9 +16,11 @@ import kotlinx.android.synthetic.main.a_demo_menu.*
 import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.a.demo.alarm.a.AlarmMeActivity
+import vn.loitp.a.demo.architectureComponent.MenuArchitectureComponentActivity
 import vn.loitp.a.demo.epubReader.MenuEpubReaderActivity
 import vn.loitp.a.demo.firebase.FirebaseActivity
-import vn.loitp.a.demo.floatingVideo.FloatingWidgetActivity
+import vn.loitp.a.demo.floatingVideo.FloatingWidgetVideoActivity
+import vn.loitp.a.demo.floatingWidget.FloatingWidgetActivity
 import vn.loitp.a.demo.fragmentFlow.FragmentFlowActivity
 import vn.loitp.a.demo.fragmentNavigation.FragmentNavigationActivity
 import vn.loitp.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity
@@ -28,9 +30,8 @@ import vn.loitp.a.demo.pdf.PdfDemoActivity
 import vn.loitp.a.demo.piano.PianoActivity
 import vn.loitp.a.demo.rss.RSSActivity
 import vn.loitp.a.demo.sound.SoundActivity
-import vn.loitp.a.demo.architectureComponent.MenuArchitectureComponentActivity
-import vn.loitp.a.demo.tts.TextToSpeechActivity
 import vn.loitp.a.demo.trackingG1.TrackingG1Activity
+import vn.loitp.a.demo.tts.TextToSpeechActivity
 import vn.loitp.a.demo.twoInstanceActivity.Activity1
 
 @LogTag("MenuDemoActivity")
@@ -104,7 +105,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btSound -> launchActivity(SoundActivity::class.java)
             btTextToSpeech -> launchActivity(TextToSpeechActivity::class.java)
             btFloatingWidget -> launchActivity(FloatingWidgetActivity::class.java)
-            btFloatingVideo -> launchActivity(FloatingWidgetActivity::class.java)
+            btFloatingVideo -> launchActivity(FloatingWidgetVideoActivity::class.java)
             btGalleryCore -> {
                 launchActivity(
                     cls = GalleryCoreSplashActivity::class.java,

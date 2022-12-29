@@ -50,7 +50,7 @@ class FloatingViewService : Service() {
 
         // Specify the view position
         params.gravity =
-            Gravity.TOP or Gravity.LEFT // Initially view will be added to top-left corner
+            Gravity.TOP or Gravity.START // Initially view will be added to top-left corner
         params.x = 0
         params.y = 100
 

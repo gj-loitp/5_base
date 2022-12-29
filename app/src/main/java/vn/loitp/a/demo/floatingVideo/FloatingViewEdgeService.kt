@@ -87,6 +87,8 @@ class FloatingViewEdgeService : Service() {
 
     // only update 1 one time
     private var isUpdatedUIVideoSize = false
+
+    @Suppress("unused")
     private fun updateUIVideoSizeOneTime(
         videoW: Int,
         videoH: Int
@@ -384,7 +386,7 @@ class FloatingViewEdgeService : Service() {
 
     private fun openApp() {
         // Open the application  click.
-        val intent = Intent(this@FloatingViewEdgeService, FloatingWidgetActivity::class.java)
+        val intent = Intent(this@FloatingViewEdgeService, FloatingWidgetVideoActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
 

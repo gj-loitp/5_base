@@ -387,7 +387,7 @@
             android:name=".a.demo.floatingWidget.FloatingWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.floatingVideo.FloatingWidgetActivity"
+            android:name=".a.demo.floatingVideo.FloatingWidgetVideoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.func.fullScreen.FullScreenActivity"
