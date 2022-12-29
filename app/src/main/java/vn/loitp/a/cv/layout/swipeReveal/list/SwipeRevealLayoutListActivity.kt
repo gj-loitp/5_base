@@ -1,21 +1,20 @@
-package vn.loitp.app.a.cv.layout.swipeReveal.rv
+package vn.loitp.a.cv.layout.swipeReveal.list
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_recycler.*
+import kotlinx.android.synthetic.main.a_swipe_reveal_layout_list.*
 import vn.loitp.R
 
-@LogTag("SwipeRevealLayoutRecyclerActivity")
+@LogTag("SwipeRevealLayoutListActivity")
 @IsFullScreen(false)
-class SwipeRevealLayoutRecyclerActivity : BaseFontActivity() {
+class SwipeRevealLayoutListActivity : BaseFontActivity() {
 
-    private var recyclerAdapter: RecyclerAdapter? = null
+    private var listAdapter: ListAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler
+        return R.layout.a_swipe_reveal_layout_list
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +29,7 @@ class SwipeRevealLayoutRecyclerActivity : BaseFontActivity() {
 
         // Only if you need to restore open/close state when
         // the orientation is changed
-        recyclerAdapter?.saveStates(outState)
+        listAdapter?.saveStates(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -38,18 +37,18 @@ class SwipeRevealLayoutRecyclerActivity : BaseFontActivity() {
 
         // Only if you need to restore open/close state when
         // the orientation is changed
-        recyclerAdapter?.restoreStates(savedInstanceState)
+        listAdapter?.restoreStates(savedInstanceState)
     }
 
     private fun setupList() {
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerAdapter = RecyclerAdapter(this, createList())
-        recyclerView.adapter = recyclerAdapter
+        listAdapter = ListAdapter(this, createList(20))
+        listView.adapter = listAdapter
     }
 
-    private fun createList(): List<String> {
+    @Suppress("unused")
+    private fun createList(n: Int): List<String> {
         val list: MutableList<String> = ArrayList()
-        for (i in 0 until 20) {
+        for (i in 0 until n) {
             list.add("View $i")
         }
         return list

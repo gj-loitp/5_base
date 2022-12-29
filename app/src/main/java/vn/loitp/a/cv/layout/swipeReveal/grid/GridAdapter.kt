@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.swipeReveal.grid
+package vn.loitp.a.cv.layout.swipeReveal.grid
 
 import android.content.Context
 import android.os.Bundle
@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import com.loitp.views.toast.LToast.showShortInformation
 import com.loitp.views.layout.swipeReveal.LSwipeRevealLayout
 import com.loitp.views.layout.swipeReveal.ViewBinderHelper
+import com.loitp.views.toast.LToast.showShortInformation
 import vn.loitp.R
 
 class GridAdapter(
@@ -17,7 +17,7 @@ class GridAdapter(
     objects: List<String>
 ) : ArrayAdapter<String>(
     context,
-    R.layout.view_item_swipe_reveal_layout_list,
+    R.layout.i_swipe_reveal_layout_list,
     objects
 ) {
 

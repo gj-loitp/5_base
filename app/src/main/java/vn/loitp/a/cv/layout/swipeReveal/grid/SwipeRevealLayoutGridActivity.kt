@@ -1,48 +1,46 @@
-package vn.loitp.app.a.cv.layout.swipeReveal.list
+package vn.loitp.a.cv.layout.swipeReveal.grid
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_swipe_reveal_layout_list.*
+import kotlinx.android.synthetic.main.a_swipe_reveal_layout_grid.*
 import vn.loitp.R
 
-@LogTag("SwipeRevealLayoutListActivity")
+@LogTag("SwipeRevealLayoutGridActivity")
 @IsFullScreen(false)
-class SwipeRevealLayoutListActivity : BaseFontActivity() {
+class SwipeRevealLayoutGridActivity : BaseFontActivity() {
 
-    private var listAdapter: ListAdapter? = null
+    private var gridAdapter: GridAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_swipe_reveal_layout_list
+        return R.layout.a_swipe_reveal_layout_grid
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setupActionBar()
-        setupList()
+        setupGrid()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-
         // Only if you need to restore open/close state when
         // the orientation is changed
-        listAdapter?.saveStates(outState)
+        gridAdapter?.saveStates(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-
         // Only if you need to restore open/close state when
         // the orientation is changed
-        listAdapter?.restoreStates(savedInstanceState)
+        gridAdapter?.restoreStates(savedInstanceState)
     }
 
-    private fun setupList() {
-        listAdapter = ListAdapter(this, createList(20))
-        listView.adapter = listAdapter
+    private fun setupGrid() {
+        gridAdapter = GridAdapter(this, createList(20))
+        gridView.adapter = gridAdapter
     }
 
     @Suppress("unused")

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.swipeReveal
+package vn.loitp.a.cv.layout.swipeReveal
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,11 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_swipe_reveal_layout.*
+import kotlinx.android.synthetic.main.a_layout_swipe_reveal.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.swipeReveal.grid.SwipeRevealLayoutGridActivity
-import vn.loitp.app.a.cv.layout.swipeReveal.list.SwipeRevealLayoutListActivity
-import vn.loitp.app.a.cv.layout.swipeReveal.rv.SwipeRevealLayoutRecyclerActivity
+import vn.loitp.a.cv.layout.swipeReveal.grid.SwipeRevealLayoutGridActivity
+import vn.loitp.a.cv.layout.swipeReveal.list.SwipeRevealLayoutListActivity
+import vn.loitp.a.cv.layout.swipeReveal.rv.SwipeRevealLayoutRecyclerActivity
 
 // https://github.com/chthai64/SwipeRevealLayout
 @LogTag("SwipeRevealLayoutActivity")
@@ -21,7 +21,7 @@ import vn.loitp.app.a.cv.layout.swipeReveal.rv.SwipeRevealLayoutRecyclerActivity
 class SwipeRevealLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_swipe_reveal_layout
+        return R.layout.a_layout_swipe_reveal
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

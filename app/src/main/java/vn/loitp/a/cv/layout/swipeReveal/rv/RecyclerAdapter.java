@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.swipeReveal.rv;
+package vn.loitp.a.cv.layout.swipeReveal.rv;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -37,7 +37,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     @NotNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
-        final View view = mInflater.inflate(R.layout.view_item_swipe_reveal_layout_list, parent, false);
+        final View view = mInflater.inflate(R.layout.i_swipe_reveal_layout_list, parent, false);
         return new ViewHolder(view);
     }
 
