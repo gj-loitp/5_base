@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wwlVideo.detail
+package vn.loitp.a.cv.wwlVideo.detail
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -14,10 +14,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil
-import kotlinx.android.synthetic.main.wwl_video_up_next_fragment.*
+import kotlinx.android.synthetic.main.f_wwl_video_up_next.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.wwlVideo.itf.FragmentHost
-import vn.loitp.app.a.cv.wwlVideo.utils.WWLVideoDataset
+import vn.loitp.a.cv.wwlVideo.itf.FragmentHost
+import vn.loitp.a.cv.wwlVideo.utils.WWLVideoDataset
 
 @LogTag("WWLVideoUpNextFragment")
 class WWLVideoUpNextFragment : BaseFragment() {
@@ -34,10 +34,13 @@ class WWLVideoUpNextFragment : BaseFragment() {
     private var mIsLandscape = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.wwl_video_up_next_fragment
+        return R.layout.f_wwl_video_up_next
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()

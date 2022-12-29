@@ -1,16 +1,16 @@
-package vn.loitp.app.a.cv.wwlVideo.detail
+package vn.loitp.a.cv.wwlVideo.detail
 
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import vn.loitp.R
-import vn.loitp.app.a.cv.wwlVideo.utils.WWLVideoDataset
+import vn.loitp.a.cv.wwlVideo.utils.WWLVideoDataset
 
 @LogTag("DatabaseFirebaseSignInActivity")
 class WWLVideoPlayerFragment : BaseFragment() {
     private var mUrl: String? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.wwl_video_player_fragment
+        return R.layout.f_wwl_video_player
     }
 
     fun startPlay(item: WWLVideoDataset.DatasetItem) {

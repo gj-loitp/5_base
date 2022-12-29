@@ -51,10 +51,10 @@ import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.a.cv.wheelView.WheelViewActivity
 import vn.loitp.a.cv.wv.MenuWebViewActivity
 import vn.loitp.a.cv.wwlMusic.WWLActivityMusic
+import vn.loitp.a.cv.wwlVideo.WWLVideoActivity
 import vn.loitp.app.a.cv.rv.MenuRecyclerViewActivity
 import vn.loitp.app.a.cv.tv.MenuTextViewActivity
 import vn.loitp.app.a.cv.vp.MenuViewPagerActivity
-import vn.loitp.app.a.cv.wwlVideo.WWLVideoActivity
 
 @LogTag("MenuCustomViewsActivity")
 @IsFullScreen(false)

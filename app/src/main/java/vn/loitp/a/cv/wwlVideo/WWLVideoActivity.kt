@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.wwlVideo
+package vn.loitp.a.cv.wwlVideo
 
 import android.graphics.Color
 import android.os.Bundle
@@ -10,13 +10,13 @@ import com.loitp.core.utilities.LAppResource
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil
 import com.loitp.views.wwl.music.utils.LWWLMusicViewHelper
 import com.loitp.views.wwl.video.LWWLVideo
-import kotlinx.android.synthetic.main.wwl_video_activity.*
+import kotlinx.android.synthetic.main.a_wwl_video.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.wwlVideo.detail.WWLVideoMetaInfoFragment
-import vn.loitp.app.a.cv.wwlVideo.detail.WWLVideoPlayerFragment
-import vn.loitp.app.a.cv.wwlVideo.detail.WWLVideoUpNextFragment
-import vn.loitp.app.a.cv.wwlVideo.itf.FragmentHost
-import vn.loitp.app.a.cv.wwlVideo.utils.WWLVideoDataset
+import vn.loitp.a.cv.wwlVideo.detail.WWLVideoMetaInfoFragment
+import vn.loitp.a.cv.wwlVideo.detail.WWLVideoPlayerFragment
+import vn.loitp.a.cv.wwlVideo.detail.WWLVideoUpNextFragment
+import vn.loitp.a.cv.wwlVideo.itf.FragmentHost
+import vn.loitp.a.cv.wwlVideo.utils.WWLVideoDataset
 import kotlin.math.max
 import kotlin.math.min
 
@@ -31,7 +31,7 @@ class WWLVideoActivity : BaseActivity(), LWWLVideo.Listener, FragmentHost {
     private var frmMetaInfo: WWLVideoMetaInfoFragment? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.wwl_video_activity
+        return R.layout.a_wwl_video
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
