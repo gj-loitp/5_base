@@ -1,6 +1,5 @@
-package vn.loitp.app.a.cv.rv.book
+package vn.loitp.a.cv.rv.book
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
@@ -8,8 +7,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.activity_book_view.*
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
+import kotlinx.android.synthetic.main.a_rv_book_view.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 import vn.loitp.common.Constants
@@ -21,7 +20,7 @@ class BookViewActivity : BaseFontActivity() {
     private var bookAdapter: BookAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_book_view
+        return R.layout.a_rv_book_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,8 +64,8 @@ class BookViewActivity : BaseFontActivity() {
         rv.layoutManager = GridLayoutManager(this, 3)
         bookAdapter?.let {
 //            val scaleAdapter = AlphaInAnimationAdapter(it)
-//            val scaleAdapter = ScaleInAnimationAdapter(it)
-            val scaleAdapter = SlideInBottomAnimationAdapter(it)
+            val scaleAdapter = ScaleInAnimationAdapter(it)
+//            val scaleAdapter = SlideInBottomAnimationAdapter(it)
 //            val scaleAdapter = SlideInLeftAnimationAdapter(it)
 //            val scaleAdapter = SlideInRightAnimationAdapter(it)
             scaleAdapter.setDuration(1000)
@@ -77,7 +76,6 @@ class BookViewActivity : BaseFontActivity() {
         prepareMovieData()
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         var cover: String
         for (i in 0..99) {
@@ -91,7 +89,7 @@ class BookViewActivity : BaseFontActivity() {
         }
         bookAdapter?.apply {
             checkData()
-            notifyDataSetChanged()
+            notifyItemRangeChanged(0, this.itemCount)
         }
     }
 }

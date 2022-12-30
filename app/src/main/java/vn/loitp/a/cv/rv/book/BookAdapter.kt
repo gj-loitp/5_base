@@ -1,6 +1,5 @@
-package vn.loitp.app.a.cv.rv.book
+package vn.loitp.a.cv.rv.book
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,7 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.view_item_book.view.*
+import kotlinx.android.synthetic.main.i_book.view.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 
@@ -34,7 +33,6 @@ class BookAdapter(
         fun onLoadMore()
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun checkData() {
         val indexEachColumn = itemCount % column
         val missItemCount = column - indexEachColumn
@@ -43,7 +41,7 @@ class BookAdapter(
                 val movie = Movie()
                 moviesList.add(movie)
             }
-            notifyDataSetChanged()
+            notifyItemRangeChanged(0, itemCount)
         }
     }
 
@@ -96,7 +94,7 @@ class BookAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.view_item_book, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.i_book, parent, false)
         return MovieViewHolder(itemView)
     }
 

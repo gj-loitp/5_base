@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.a_rv_menu.*
 import vn.loitp.R
 import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivity
 import vn.loitp.a.cv.rv.arcView.ArcViewActivity
-import vn.loitp.app.a.cv.rv.book.BookViewActivity
+import vn.loitp.a.cv.rv.book.BookViewActivity
 import vn.loitp.app.a.cv.rv.carouselRv.CarouselRecyclerViewActivity
 import vn.loitp.app.a.cv.rv.concatAdapter.ConcatAdapterActivity
 import vn.loitp.app.a.cv.rv.diffUtil.DiffUtilActivity
