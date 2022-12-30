@@ -1,6 +1,5 @@
-package vn.loitp.app.a.cv.rv.concatAdapter.adapter
+package vn.loitp.a.cv.rv.concatAdapter.adt
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,20 +7,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
-import kotlinx.android.synthetic.main.view_item_banner.view.*
+import kotlinx.android.synthetic.main.i_banner.view.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.concatAdapter.data.model.Banner
+import vn.loitp.a.cv.rv.concatAdapter.data.model.Banner
 
 @LogTag("BannerAdapter")
 class BannerAdapter(
     private val listBanner: ArrayList<Banner>
 ) : BaseAdapter() {
 
-    @SuppressLint("NotifyDataSetChanged")
     fun setData(listBanner: ArrayList<Banner>) {
         this.listBanner.clear()
         this.listBanner.addAll(listBanner)
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0, itemCount)
     }
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -34,14 +32,20 @@ class BannerAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ) =
         DataViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.view_item_banner, parent, false)
+                .inflate(R.layout.i_banner, parent, false)
         )
 
     override fun getItemCount(): Int = listBanner.size
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is DataViewHolder) {
             holder.bind(listBanner[position])
         }

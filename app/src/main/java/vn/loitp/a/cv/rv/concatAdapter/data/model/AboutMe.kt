@@ -1,11 +1,11 @@
-package vn.loitp.app.a.cv.rv.concatAdapter.data.model
+package vn.loitp.a.cv.rv.concatAdapter.data.model
 
 import androidx.annotation.Keep
-import java.io.Serializable
+import com.loitp.core.base.BaseModel
 
 @Keep
 data class AboutMe(
     val id: Int = 0,
     var name: String = "",
     var aboutMe: String = ""
-) : Serializable
+) : BaseModel()

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.concatAdapter.adapter
+package vn.loitp.a.cv.rv.concatAdapter.adt
 
 import android.view.LayoutInflater
 import android.view.View
@@ -20,11 +20,18 @@ class LoadingAdapter : BaseAdapter() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         DataViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.view_item_loading, parent, false)
+                .inflate(
+                    /* resource = */ R.layout.i_loading,
+                    /* root = */ parent,
+                    /* attachToRoot = */ false
+                )
         )
 
     override fun getItemCount(): Int = 1
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is DataViewHolder) {
             holder.bind()
         }

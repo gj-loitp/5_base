@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,23 +9,16 @@
     <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        style="@style/ScrollVertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/hsv"
-        android:layout_below="@+id/lActionBar" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <HorizontalScrollView
         android:id="@+id/hsv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:background="@color/yellow"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
@@ -117,4 +111,13 @@
                 tools:ignore="UnusedAttribute" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </HorizontalScrollView>
-</RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hsv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

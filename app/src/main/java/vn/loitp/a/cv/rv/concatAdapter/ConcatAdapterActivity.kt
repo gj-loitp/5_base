@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.concatAdapter
+package vn.loitp.a.cv.rv.concatAdapter
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -12,13 +12,12 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_recycler_view_concat_adapter.*
+import kotlinx.android.synthetic.main.a_rv_concat_adapter.*
 import vn.loitp.R
-
-import vn.loitp.app.a.cv.rv.concatAdapter.adapter.*
-import vn.loitp.app.a.cv.rv.concatAdapter.data.DataSource
-import vn.loitp.app.a.cv.rv.concatAdapter.data.model.AboutMe
-import vn.loitp.app.a.cv.rv.concatAdapter.data.model.News
+import vn.loitp.a.cv.rv.concatAdapter.adt.*
+import vn.loitp.a.cv.rv.concatAdapter.data.DataSource
+import vn.loitp.a.cv.rv.concatAdapter.data.model.AboutMe
+import vn.loitp.a.cv.rv.concatAdapter.data.model.News
 
 @LogTag("MergeAdapterActivity")
 @IsFullScreen(false)
@@ -31,7 +30,7 @@ class ConcatAdapterActivity : BaseFontActivity() {
     private val loadingAdapter = LoadingAdapter()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_concat_adapter
+        return R.layout.a_rv_concat_adapter
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -133,7 +132,7 @@ class ConcatAdapterActivity : BaseFontActivity() {
             }
         }
         btGenAboutMe.setSafeOnClickListener {
-            val aboutMe = AboutMe(1, "Loitp93", "I'm a developer.")
+            val aboutMe = AboutMe(1, "Loitp93", "I'm a developer ${System.currentTimeMillis()}")
             val listAboutMe = ArrayList<AboutMe>()
             listAboutMe.add(aboutMe)
             aboutMeAdapter?.setData(listAboutMe)

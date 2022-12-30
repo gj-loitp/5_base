@@ -1,8 +1,8 @@
-package vn.loitp.app.a.cv.rv.concatAdapter.data.model
+package vn.loitp.a.cv.rv.concatAdapter.data.model
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
+import com.loitp.core.base.BaseModel
 
 @Keep
 data class User(
@@ -14,4 +14,4 @@ data class User(
 
     @SerializedName("avatar")
     var avatar: String = ""
-) : Serializable
+) : BaseModel()

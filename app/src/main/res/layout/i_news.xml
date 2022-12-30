@@ -23,7 +23,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@color/black" />
+        tools:src="@drawable/loitp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewNews"

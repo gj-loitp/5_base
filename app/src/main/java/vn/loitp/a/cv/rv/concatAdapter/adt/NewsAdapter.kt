@@ -1,6 +1,5 @@
-package vn.loitp.app.a.cv.rv.concatAdapter.adapter
+package vn.loitp.a.cv.rv.concatAdapter.adt
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +8,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LImageUtil
-import kotlinx.android.synthetic.main.view_item_news.view.*
+import kotlinx.android.synthetic.main.i_news.view.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.concatAdapter.data.model.News
+import vn.loitp.a.cv.rv.concatAdapter.data.model.News
 
 @LogTag("NewsAdapter")
 class NewsAdapter(
@@ -20,10 +19,9 @@ class NewsAdapter(
 
     var onClickRootListener: ((News, Int) -> Unit)? = null
 
-    @SuppressLint("NotifyDataSetChanged")
     fun addData(listNews: ArrayList<News>) {
         this.listNews.addAll(listNews)
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0, itemCount)
     }
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -40,17 +38,24 @@ class NewsAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ) =
         DataViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.view_item_news, parent,
-                false
+                /* resource = */ R.layout.i_news,
+                /* root = */ parent,
+                /* attachToRoot = */ false
             )
         )
 
     override fun getItemCount(): Int = listNews.size
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is DataViewHolder) {
             holder.bind(listNews[position])
         }

@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/w_100"
     android:contentDescription="@string/app_name"
+    android:indeterminateTint="?attr/themeTextColor"
     android:padding="@dimen/margin_padding_medium"
-    android:progressTint="@color/red"
     tools:ignore="UnusedAttribute" />
