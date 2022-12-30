@@ -32,13 +32,13 @@ class AppUtils private constructor() {
         versionCode: Int,
         isSystem: Boolean
     ) {
-        var name: String? = null
-        var icon: Drawable? = null
-        var packageName: String? = null
-        var packagePath: String? = null
-        var versionName: String? = null
-        var versionCode = 0
-        var isSystem = false
+        private var name: String? = null
+        private var icon: Drawable? = null
+        private var packageName: String? = null
+        private var packagePath: String? = null
+        private var versionName: String? = null
+        private var versionCode = 0
+        private var isSystem = false
 
         override fun toString(): String {
             return """
