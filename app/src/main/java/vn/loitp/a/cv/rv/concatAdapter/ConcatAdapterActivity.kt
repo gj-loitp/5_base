@@ -130,6 +130,9 @@ class ConcatAdapterActivity : BaseFontActivity() {
                     }
                 }
                 showShortInformation("removeAdapter success")
+                btGenAboutMe.isVisible = false
+                btGenListUser.isVisible = false
+                btGenBanner.isVisible = false
             }
         }
         btGenAboutMe.setSafeOnClickListener {
