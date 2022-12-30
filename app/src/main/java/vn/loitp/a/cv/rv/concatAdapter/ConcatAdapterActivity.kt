@@ -129,6 +129,7 @@ class ConcatAdapterActivity : BaseFontActivity() {
                         a.removeAdapter(childAdapter)
                     }
                 }
+                showShortInformation("removeAdapter success")
             }
         }
         btGenAboutMe.setSafeOnClickListener {
