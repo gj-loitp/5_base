@@ -80,5 +80,26 @@
             android:text="SHOW Success"
             android:textColor="?attr/themeTextColor" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btSetOTP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set OTP"
+            android:textColor="?attr/themeTextColor" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btGetOTP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get OTP"
+            android:textColor="?attr/themeTextColor" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btResetState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset state"
+            android:textColor="?attr/themeTextColor" />
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.constraintlayout.widget.ConstraintLayout>

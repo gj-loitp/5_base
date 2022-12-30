@@ -69,6 +69,15 @@ class OtpViewActivity : BaseFontActivity() {
         btSuccess.setSafeOnClickListener {
             otpView.showSuccess()
         }
+        btSetOTP.setSafeOnClickListener {
+            otpView.setOTP("654321")
+        }
+        btGetOTP.setSafeOnClickListener {
+            showShortInformation("otp: ${otpView.otp}")
+        }
+        btResetState.setSafeOnClickListener {
+            otpView.resetState()
+        }
     }
 
 }
