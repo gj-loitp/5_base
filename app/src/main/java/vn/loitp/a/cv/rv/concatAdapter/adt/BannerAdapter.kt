@@ -18,8 +18,13 @@ class BannerAdapter(
 
     fun setData(listBanner: ArrayList<Banner>) {
         this.listBanner.clear()
-        this.listBanner.addAll(listBanner)
-        notifyItemRangeChanged(0, itemCount)
+//        this.listBanner.addAll(listBanner)
+//        notifyDataSetChanged()
+
+        listBanner.forEachIndexed { index, banner ->
+            this.listBanner.add(banner)
+            notifyItemInserted(index)
+        }
     }
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
