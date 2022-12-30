@@ -12,41 +12,39 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lActionBar">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_padding_medium"
+            android:gravity="center"
             android:text="@string/verification_code"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_largest"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_padding_medium"
             android:text="@string/please_type_the_verification_code_sent_to_n_9xxxxxxx19"
             android:textAlignment="center"
             android:textColor="?attr/themeTextColor"
-            android:textSize="@dimen/txt_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:textSize="@dimen/txt_medium" />
 
         <com.loitp.views.et.otp.OtpTextView
             android:id="@+id/otpView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_medium"
             android:textColor="@color/red"
             app:bar_active_color="@color/blue"
             app:bar_enabled="true"
@@ -60,10 +58,6 @@
             app:box_margin="0dp"
             app:height="40dp"
             app:hide_otp="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:length="6"
             app:otp=""
             app:otp_text_size="@dimen/txt_large"
@@ -74,25 +68,17 @@
             android:id="@+id/btError"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_large"
             android:padding="12dp"
             android:text="SHOW ERROR"
-            android:textColor="?attr/themeTextColor"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.19"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/otpView" />
+            android:textColor="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btSuccess"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SHOW Success"
-            android:textColor="?attr/themeTextColor"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btError"
-            app:layout_constraintTop_toBottomOf="@+id/otpView" />
+            android:textColor="?attr/themeTextColor" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.constraintlayout.widget.ConstraintLayout>
