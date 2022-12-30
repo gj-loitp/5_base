@@ -37,7 +37,6 @@ class TransformationDetailActivity : BaseFontActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //TODO getParcelableExtra
         onTransformationEndContainer(intent.getParcelableExtra(Constants.activityTransitionName))
         super.onCreate(savedInstanceState)
 

@@ -1,6 +1,5 @@
 package vn.loitp.a.cv.layout.transformation.rv
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,11 +39,10 @@ class PosterAdapter(
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun addPosterList(list: List<Poster>) {
         listPoster.clear()
         listPoster.addAll(list)
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0, itemCount)
     }
 
     override fun getItemCount() = listPoster.size

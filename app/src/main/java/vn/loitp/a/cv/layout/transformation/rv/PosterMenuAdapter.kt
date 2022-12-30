@@ -1,6 +1,5 @@
 package vn.loitp.a.cv.layout.transformation.rv
 
-import android.annotation.SuppressLint
 import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
@@ -40,11 +39,10 @@ class PosterMenuAdapter : BaseAdapter() {
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun addPosterList(listPoster: List<Poster>) {
         this.listPoster.clear()
         this.listPoster.addAll(listPoster)
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0, itemCount)
     }
 
     override fun getItemCount() = listPoster.size

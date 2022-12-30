@@ -42,8 +42,7 @@ class TransformationActivity : BaseFontActivity() {
             )
         }
 
-        //TODO fix deprecated
-        mainBottomNavigation.setOnNavigationItemSelectedListener {
+        mainBottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.actionHome -> {
                     mainViewPager.currentItem = 0

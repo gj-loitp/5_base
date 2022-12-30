@@ -42,7 +42,7 @@ class PosterLineAdapter : BaseAdapter() {
     fun addPosterList(listPoster: List<Poster>) {
         this.listPoster.clear()
         this.listPoster.addAll(listPoster)
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0, itemCount)
     }
 
     override fun getItemCount() = listPoster.size
