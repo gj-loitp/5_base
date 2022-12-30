@@ -1275,7 +1275,7 @@
             android:name=".app.a.cv.tv.textArc.TextArcActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.carouselRv.CarouselRecyclerViewActivity"
+            android:name=".a.cv.rv.carouselRv.CarouselRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.reflection.ReflectionActivity"

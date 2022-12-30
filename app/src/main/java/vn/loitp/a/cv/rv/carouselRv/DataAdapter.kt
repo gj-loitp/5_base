@@ -1,6 +1,5 @@
-package vn.loitp.app.a.cv.rv.carouselRv
+package vn.loitp.a.cv.rv.carouselRv
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +15,10 @@ class DataAdapter(private var list: ArrayList<DataModel>) :
         val image: ImageView = itemView.findViewById(R.id.image)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
         val inflater =
             LayoutInflater.from(parent.context).inflate(R.layout.view_item_carousel, parent, false)
         return ViewHolder(inflater)
@@ -26,7 +28,10 @@ class DataAdapter(private var list: ArrayList<DataModel>) :
         return list.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int
+    ) {
         LImageUtil.load(
             context = holder.image.context,
             any = list[position].img,
@@ -35,10 +40,9 @@ class DataAdapter(private var list: ArrayList<DataModel>) :
     }
 
     @Suppress("unused")
-    @SuppressLint("NotifyDataSetChanged")
     fun updateData(list: ArrayList<DataModel>) {
         this.list = list
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0, itemCount)
     }
 
     @Suppress("unused")

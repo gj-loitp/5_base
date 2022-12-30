@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.carouselRv
+package vn.loitp.a.cv.rv.carouselRv
 
 import androidx.annotation.Keep
 
@@ -6,5 +6,4 @@ import androidx.annotation.Keep
 data class DataModel(
     val img: Int,
     val text: String
-) {
-}
+)

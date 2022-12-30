@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.carouselRv
+package vn.loitp.a.cv.rv.carouselRv
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_carousel_recycler_view.*
+import kotlinx.android.synthetic.main.a_rv_carousel.*
 import vn.loitp.R
 
 @LogTag("CarouselRecyclerViewActivity")
@@ -19,7 +19,7 @@ import vn.loitp.R
 class CarouselRecyclerViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_carousel_recycler_view
+        return R.layout.a_rv_carousel
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
