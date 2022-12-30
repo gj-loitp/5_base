@@ -45,11 +45,18 @@ class OtpTextView : FrameLayout {
         init(null)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -63,12 +70,18 @@ class OtpTextView : FrameLayout {
         styles.recycle()
     }
 
-    private fun styleEditTexts(styles: TypedArray, attrs: AttributeSet?) {
+    private fun styleEditTexts(
+        styles: TypedArray,
+        attrs: AttributeSet?
+    ) {
         length = styles.getInt(R.styleable.OtpTextView_length, DEFAULT_LENGTH)
         generateViews(styles, attrs)
     }
 
-    private fun generateViews(styles: TypedArray, attrs: AttributeSet?) {
+    private fun generateViews(
+        styles: TypedArray,
+        attrs: AttributeSet?
+    ) {
         itemViews = ArrayList()
         if (length > 0) {
             val otp = styles.getString(R.styleable.OtpTextView_otp)
@@ -230,6 +243,7 @@ class OtpTextView : FrameLayout {
         }
     }
 
+    @Suppress("unused")
     fun resetState() {
         otp?.let {
             setFocus(it.length)
@@ -244,6 +258,7 @@ class OtpTextView : FrameLayout {
         }
     }
 
+    @Suppress("unused")
     fun setOTP(otp: String) {
         otpChildEditText?.setText(otp)
     }

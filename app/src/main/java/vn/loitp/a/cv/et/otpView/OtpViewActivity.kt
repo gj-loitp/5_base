@@ -1,12 +1,12 @@
 package vn.loitp.a.cv.et.otpView
 
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.et.otp.OTPListener
@@ -52,12 +52,8 @@ class OtpViewActivity : BaseFontActivity() {
             this.tvTitle?.text = OtpViewActivity::class.java.simpleName
         }
 
-        val window = window
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = resources.getColor(R.color.black)
-
-        otp_view?.requestFocusOTP()
-        otp_view?.otpListener = object : OTPListener {
+        otpView.requestFocusOTP()
+        otpView.otpListener = object : OTPListener {
             override fun onInteractionListener() {
 
             }
@@ -66,8 +62,13 @@ class OtpViewActivity : BaseFontActivity() {
                 showShortInformation("The OTP is $otp")
             }
         }
-        button.setOnClickListener { otp_view?.showError() }
-        button2.setOnClickListener { otp_view?.showSuccess() }
+
+        btError.setSafeOnClickListener {
+            otpView.showError()
+        }
+        btSuccess.setSafeOnClickListener {
+            otpView.showSuccess()
+        }
     }
 
 }

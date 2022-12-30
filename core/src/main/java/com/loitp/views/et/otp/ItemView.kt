@@ -14,6 +14,16 @@ import androidx.core.content.res.ResourcesCompat
 import com.loitp.R
 
 class ItemView : FrameLayout {
+    companion object {
+        const val ACTIVE = 1
+        const val INACTIVE = 0
+        const val ERROR = -1
+        const val SUCCESS = 2
+
+        private const val DEFAULT_BAR_HEIGHT = 2f
+        private const val DEFAULT_OTP_TEXT_SIZE = 24f
+        private const val DEFAULT_BAR_MARGIN = 2
+    }
 
     private var textView: TextView? = null
     private var view: View? = null
@@ -33,11 +43,18 @@ class ItemView : FrameLayout {
         init(null)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?
+    ) : super(context, attrs) {
         init(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int
+    ) : super(
         context,
         attrs,
         defStyleAttr
@@ -204,17 +221,6 @@ class ItemView : FrameLayout {
             else -> {
             }
         }
-    }
-
-    companion object {
-        const val ACTIVE = 1
-        const val INACTIVE = 0
-        const val ERROR = -1
-        const val SUCCESS = 2
-
-        private const val DEFAULT_BAR_HEIGHT = 2f
-        private const val DEFAULT_OTP_TEXT_SIZE = 24f
-        private const val DEFAULT_BAR_MARGIN = 2
     }
 
 }

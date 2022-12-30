@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="@color/lightBlue">
 
     <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"
@@ -17,40 +17,39 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lActionBar">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="@dimen/margin_padding_medium"
             android:text="@string/verification_code"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_largest"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:lineSpacingExtra="4dp"
+            android:layout_marginTop="@dimen/margin_padding_medium"
             android:text="@string/please_type_the_verification_code_sent_to_n_9xxxxxxx19"
             android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textSize="14sp"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <com.loitp.views.et.otp.OtpTextView
-            android:id="@+id/otp_view"
+            android:id="@+id/otpView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            app:bar_active_color="@color/white"
+            android:textColor="@color/red"
+            app:bar_active_color="@color/blue"
             app:bar_enabled="true"
-            app:bar_error_color="@color/red"
+            app:bar_error_color="@color/deepPink"
             app:bar_height="1.5dp"
             app:bar_inactive_color="@color/gray"
             app:bar_margin_bottom="0dp"
@@ -69,38 +68,29 @@
             app:otp_text_size="20dp"
             app:width="40dp" />
 
-        <Button
-            android:id="@+id/button"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btError"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_buttons"
             android:padding="12dp"
             android:text="SHOW ERROR"
-            android:textColor="@color/red"
+            android:textColor="?attr/themeTextColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.19"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/otp_view" />
+            app:layout_constraintTop_toBottomOf="@+id/otpView" />
 
-        <Button
-            android:id="@+id/button2"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btSuccess"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_buttons"
-            android:padding="12dp"
             android:text="SHOW Success"
-            android:textColor="@color/green"
+            android:textColor="?attr/themeTextColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button"
-            app:layout_constraintTop_toBottomOf="@+id/otp_view" />
+            app:layout_constraintStart_toEndOf="@+id/btError"
+            app:layout_constraintTop_toBottomOf="@+id/otpView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
