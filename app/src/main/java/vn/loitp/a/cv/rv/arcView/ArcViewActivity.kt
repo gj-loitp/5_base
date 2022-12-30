@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.arcView
+package vn.loitp.a.cv.rv.arcView
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,7 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_arc_view.*
+import kotlinx.android.synthetic.main.a_rv_arc_view.*
 import kotlinx.android.synthetic.main.layout_include_arc_button.*
 import vn.loitp.R
 
@@ -23,7 +23,7 @@ class ArcViewActivity : BaseFontActivity(), View.OnClickListener {
     private lateinit var shadowArc: ArcLinearLayout
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_arc_view
+        return R.layout.a_rv_arc_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

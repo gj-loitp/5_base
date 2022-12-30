@@ -176,7 +176,7 @@
             android:name=".a.cv.layout.ripple.RippleLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.MenuRecyclerViewActivity"
+            android:name=".a.cv.rv.MenuRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -1175,7 +1175,7 @@
             android:name=".a.u.UtilsCoreActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.arcView.ArcViewActivity"
+            android:name=".a.cv.rv.arcView.ArcViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.stackExpandableView.StackExpandableViewActivity"

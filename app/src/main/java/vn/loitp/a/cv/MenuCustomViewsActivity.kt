@@ -37,6 +37,7 @@ import vn.loitp.a.cv.menu.MenuMenuActivity
 import vn.loitp.a.cv.navi.MenuNavigationActivity
 import vn.loitp.a.cv.popupMenu.PopupMenuActivity
 import vn.loitp.a.cv.progress.MenuProgressActivity
+import vn.loitp.a.cv.rv.MenuRecyclerViewActivity
 import vn.loitp.a.cv.sb.MenuSeekbarActivity
 import vn.loitp.a.cv.scratchView.MenuScratchViewActivity
 import vn.loitp.a.cv.scrollablePanel.ScrollablePanelActivity
@@ -52,7 +53,6 @@ import vn.loitp.a.cv.wheelView.WheelViewActivity
 import vn.loitp.a.cv.wv.MenuWebViewActivity
 import vn.loitp.a.cv.wwlMusic.WWLActivityMusic
 import vn.loitp.a.cv.wwlVideo.WWLVideoActivity
-import vn.loitp.app.a.cv.rv.MenuRecyclerViewActivity
 import vn.loitp.app.a.cv.tv.MenuTextViewActivity
 import vn.loitp.app.a.cv.vp.MenuViewPagerActivity
 

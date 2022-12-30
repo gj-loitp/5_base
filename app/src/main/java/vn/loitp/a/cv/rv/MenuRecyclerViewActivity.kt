@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv
+package vn.loitp.a.cv.rv
 
 import android.os.Bundle
 import android.view.View
@@ -8,10 +8,10 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_menu_recycler_view.*
+import kotlinx.android.synthetic.main.a_rv_menu.*
 import vn.loitp.R
 import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivity
-import vn.loitp.app.a.cv.rv.arcView.ArcViewActivity
+import vn.loitp.a.cv.rv.arcView.ArcViewActivity
 import vn.loitp.app.a.cv.rv.book.BookViewActivity
 import vn.loitp.app.a.cv.rv.carouselRv.CarouselRecyclerViewActivity
 import vn.loitp.app.a.cv.rv.concatAdapter.ConcatAdapterActivity
@@ -43,7 +43,7 @@ import vn.loitp.app.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivity
 class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_recycler_view
+        return R.layout.a_rv_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
