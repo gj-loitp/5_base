@@ -1,23 +1,26 @@
-package vn.loitp.app.a.cv.layout.transformation
+package vn.loitp.a.cv.layout.transformation
 
 import android.os.Bundle
 import android.os.SystemClock
 import android.view.View
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.frm_transformation_home.*
+import kotlinx.android.synthetic.main.f_transformation_home.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.transformation.TransformationMockUtil.getMockPosters
-import vn.loitp.app.a.cv.layout.transformation.rv.PosterAdapter
-import vn.loitp.app.a.cv.layout.transformation.rv.PosterMenuAdapter
+import vn.loitp.a.cv.layout.transformation.TransformationMockUtil.getMockPosters
+import vn.loitp.a.cv.layout.transformation.rv.PosterAdapter
+import vn.loitp.a.cv.layout.transformation.rv.PosterMenuAdapter
 
 class TransformationHomeFragment : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_transformation_home
+        return R.layout.f_transformation_home
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()

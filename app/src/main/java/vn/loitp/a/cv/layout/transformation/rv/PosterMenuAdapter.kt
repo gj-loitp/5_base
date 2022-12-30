@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.transformation.rv
+package vn.loitp.a.cv.layout.transformation.rv
 
 import android.annotation.SuppressLint
 import android.os.SystemClock
@@ -8,27 +8,33 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
-import kotlinx.android.synthetic.main.view_item_transformation_poster_menu.view.*
+import kotlinx.android.synthetic.main.i_transformation_poster_menu.view.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.transformation.TransformationDetailActivity
+import vn.loitp.a.cv.layout.transformation.TransformationDetailActivity
 
 class PosterMenuAdapter : BaseAdapter() {
 
     private val listPoster = mutableListOf<Poster>()
     private var previousTime = SystemClock.elapsedRealtime()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): PosterViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return PosterViewHolder(
             inflater.inflate(
-                R.layout.view_item_transformation_poster_menu,
-                parent,
-                false
+                /* resource = */ R.layout.i_transformation_poster_menu,
+                /* root = */ parent,
+                /* attachToRoot = */ false
             )
         )
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is PosterViewHolder) {
             holder.bind(poster = listPoster[position])
         }

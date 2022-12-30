@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.transformation.single
+package vn.loitp.a.cv.layout.transformation.single
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -10,7 +10,7 @@ import vn.loitp.R
 @IsFullScreen(false)
 class TransformationSingleActivity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_transformation_single_main
+        return R.layout.a_layout_transformation_single_main
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

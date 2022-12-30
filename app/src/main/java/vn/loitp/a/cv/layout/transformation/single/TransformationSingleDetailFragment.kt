@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.transformation.single
+package vn.loitp.a.cv.layout.transformation.single
 
 import android.os.Bundle
 import android.view.View
@@ -6,9 +6,9 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.core.utilities.LImageUtil
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
-import kotlinx.android.synthetic.main.activity_layout_transformation_detail.*
+import kotlinx.android.synthetic.main.a_layout_transformation_detail.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.transformation.rv.Poster
+import vn.loitp.a.cv.layout.transformation.rv.Poster
 
 class TransformationSingleDetailFragment : BaseFragment() {
 
@@ -19,14 +19,13 @@ class TransformationSingleDetailFragment : BaseFragment() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_transformation_detail
+        return R.layout.a_layout_transformation_detail
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // [Step1]: apply onTransformationEndContainer using TransformationLayout.Params.
-        //TODO getParcelable
         val params = arguments?.getParcelable<TransformationLayout.Params>(paramsKey)
         onTransformationEndContainer(params)
     }

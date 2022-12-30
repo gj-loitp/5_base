@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.transformation
+package vn.loitp.a.cv.layout.transformation
 
 import android.content.Context
 import android.content.Intent
@@ -11,9 +11,9 @@ import com.loitp.core.utilities.LImageUtil
 import com.skydoves.transformationlayout.TransformationCompat
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
-import kotlinx.android.synthetic.main.activity_layout_transformation_detail.*
+import kotlinx.android.synthetic.main.a_layout_transformation_detail.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.transformation.rv.Poster
+import vn.loitp.a.cv.layout.transformation.rv.Poster
 
 @LogTag("DetailActivity")
 @IsFullScreen(false)
@@ -33,7 +33,7 @@ class TransformationDetailActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_transformation_detail
+        return R.layout.a_layout_transformation_detail
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

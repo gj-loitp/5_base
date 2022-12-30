@@ -1,20 +1,23 @@
-package vn.loitp.app.a.cv.layout.transformation
+package vn.loitp.a.cv.layout.transformation
 
 import android.os.Bundle
 import android.view.View
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.frm_transformation_radio.*
+import kotlinx.android.synthetic.main.f_transformation_radio.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.transformation.rv.PosterCircleAdapter
+import vn.loitp.a.cv.layout.transformation.rv.PosterCircleAdapter
 
 class TransformationRadioFragment : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_transformation_radio
+        return R.layout.f_transformation_radio
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()

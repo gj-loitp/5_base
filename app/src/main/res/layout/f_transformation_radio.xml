@@ -15,7 +15,7 @@
         android:padding="6dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
-        tools:listitem="@layout/view_item_poster_circle" />
+        tools:listitem="@layout/i_poster_circle" />
 
     <com.skydoves.transformationlayout.TransformationLayout
         android:id="@+id/transformationLayoutFab"

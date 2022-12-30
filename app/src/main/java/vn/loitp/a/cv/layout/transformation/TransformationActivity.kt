@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.transformation
+package vn.loitp.a.cv.layout.transformation
 
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
@@ -6,16 +6,16 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.skydoves.transformationlayout.onTransformationStartContainer
-import kotlinx.android.synthetic.main.activity_transformation_main.*
+import kotlinx.android.synthetic.main.a_transformation_main.*
 import vn.loitp.R
 
 // https://github.com/skydoves/TransformationLayout
-@LogTag("MainActivity")
+@LogTag("TransformationActivity")
 @IsFullScreen(false)
 class TransformationActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_transformation_main
+        return R.layout.a_transformation_main
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -15,7 +15,7 @@
         android:padding="@dimen/margin_padding_small"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
-        tools:listitem="@layout/view_item_transformation_poster" />
+        tools:listitem="@layout/i_transformation_poster" />
 
     <com.skydoves.transformationlayout.TransformationLayout
         android:id="@+id/transformationLayout"
@@ -71,7 +71,7 @@
                 android:layout_height="264dp"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/view_item_transformation_poster_menu" />
+                tools:listitem="@layout/i_transformation_poster_menu" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"

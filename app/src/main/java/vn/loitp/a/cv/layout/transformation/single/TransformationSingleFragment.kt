@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.layout.transformation.single
+package vn.loitp.a.cv.layout.transformation.single
 
 import android.os.Bundle
 import android.view.View
@@ -6,12 +6,12 @@ import com.loitp.core.base.BaseFragment
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.addTransformation
 import com.skydoves.transformationlayout.onTransformationStartContainer
-import kotlinx.android.synthetic.main.frm_transformation_home.*
+import kotlinx.android.synthetic.main.f_transformation_home.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.layout.transformation.TransformationMockUtil.getMockPosters
-import vn.loitp.app.a.cv.layout.transformation.rv.Poster
-import vn.loitp.app.a.cv.layout.transformation.rv.PosterMenuAdapter
-import vn.loitp.app.a.cv.layout.transformation.rv.PosterSingleAdapter
+import vn.loitp.a.cv.layout.transformation.TransformationMockUtil.getMockPosters
+import vn.loitp.a.cv.layout.transformation.rv.Poster
+import vn.loitp.a.cv.layout.transformation.rv.PosterMenuAdapter
+import vn.loitp.a.cv.layout.transformation.rv.PosterSingleAdapter
 
 class TransformationSingleFragment : BaseFragment(), PosterSingleAdapter.PosterDelegate {
 
@@ -20,7 +20,7 @@ class TransformationSingleFragment : BaseFragment(), PosterSingleAdapter.PosterD
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_transformation_home
+        return R.layout.f_transformation_home
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,10 @@ class TransformationSingleFragment : BaseFragment(), PosterSingleAdapter.PosterD
     }
 
     /** This function will be called from the [PosterSingleAdapter.PosterDelegate]'s onBindViewHolder. */
-    override fun onItemClick(poster: Poster, itemView: TransformationLayout) {
+    override fun onItemClick(
+        poster: Poster,
+        itemView: TransformationLayout
+    ) {
         val fragment = TransformationSingleDetailFragment()
         // [Step2]: getBundle from the TransformationLayout.
         val bundle = itemView.getBundle(TransformationSingleDetailFragment.paramsKey)
@@ -47,7 +50,10 @@ class TransformationSingleFragment : BaseFragment(), PosterSingleAdapter.PosterD
             .commit()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView.adapter = PosterSingleAdapter(this).apply { addPosterList(getMockPosters()) }

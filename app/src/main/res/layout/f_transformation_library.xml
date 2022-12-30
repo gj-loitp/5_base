@@ -16,7 +16,7 @@
         android:padding="@dimen/margin_padding_small"
         android:paddingBottom="68dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/view_item_transformation_poster_line" />
+        tools:listitem="@layout/i_transformation_poster_line" />
 
     <com.skydoves.transformationlayout.TransformationLayout
         android:id="@+id/transformationLayout"
