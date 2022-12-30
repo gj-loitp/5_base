@@ -46,14 +46,19 @@
                 android:text="@string/currency_edittext" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLEditText"
+                style="@style/ButtonMenu"
+                android:text="@string/ledittext" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMaterialTextField"
                 style="@style/ButtonMenu"
                 android:text="@string/materialtextfield" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btLEditText"
+                android:id="@+id/btOTPView"
                 style="@style/ButtonMenu"
-                android:text="@string/ledittext" />
+                android:text="OTP View" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btEditextTextWatcher"
