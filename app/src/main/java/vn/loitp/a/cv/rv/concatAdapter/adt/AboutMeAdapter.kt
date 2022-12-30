@@ -21,7 +21,8 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : BaseAdapter(
             this.listAboutMe.add(item)
             notifyItemInserted(index)
         }
-
+//        this.listAboutMe.addAll(aboutMe)
+//        notifyDataSetChanged()
     }
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
