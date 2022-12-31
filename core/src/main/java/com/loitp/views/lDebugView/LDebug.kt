@@ -15,27 +15,30 @@ import com.loitp.views.lDebugView.LComunicateDebug.postFromActivity
  * freuss47@gmail.com
  */
 object LDebug {
-    private const val CODE = 1993
 
-    @JvmStatic
-    fun init(activity: Activity) {
-        val intent = Intent(
-            Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-            Uri.parse("package:" + activity.packageName)
-        )
-        activity.startActivityForResult(intent, CODE)
+    private fun isNeedPermission(activity: Activity): Boolean {
+        return !Settings.canDrawOverlays(activity)
     }
 
     @JvmStatic
-    fun checkPermission(
+    fun init(
         activity: Activity,
-        requestCode: Int,
-        resultCode: Int
+        data: ((Intent) -> Unit)? = null,
     ) {
-        log("resultCode $resultCode")
-        if (requestCode == CODE) {
-            init(activity)
+        if (isNeedPermission(activity)) {
+            val intent = Intent(
+                Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                Uri.parse("package:" + activity.packageName)
+            )
+            data?.invoke(intent)
+        } else {
+            start()
         }
+    }
+
+    @JvmStatic
+    fun start() {
+        ServiceUtils.startService(LDebugViewService::class.java.name)
     }
 
     @JvmStatic

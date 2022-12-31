@@ -81,7 +81,7 @@
                 android:layout_height="0.5dp"
                 android:background="@color/grey" />
 
-            <ScrollView
+            <androidx.core.widget.NestedScrollView
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -95,7 +95,7 @@
                     android:padding="@dimen/w_3">
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
-            </ScrollView>
+            </androidx.core.widget.NestedScrollView>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </RelativeLayout>
 </FrameLayout>

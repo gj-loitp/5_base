@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.loitp.views.layout.splitPanel.SplitPaneLayout xmlns:spl="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/splitPaneLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        spl:layout_constraintBottom_toBottomOf="parent"
+        spl:layout_constraintTop_toBottomOf="@id/lActionBar"
+        spl:splitterBackground="@drawable/bg_et"
+        spl:splitterDraggingBackground="#88000000"
+        spl:splitterOrientation="vertical"
+        spl:splitterPanelSizeMin="48dip"
+        spl:splitterPosition="69%"
+        spl:splitterSize="4dip">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFirst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/margin_padding_medium"
+            android:text="@string/hello_world"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSecond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/margin_padding_medium"
+            android:text="@string/hello_world"
+            android:textColor="@color/red"
+            android:textSize="@dimen/txt_medium" />
+
+    </com.loitp.views.layout.splitPanel.SplitPaneLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

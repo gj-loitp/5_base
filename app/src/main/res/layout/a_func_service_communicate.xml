@@ -45,6 +45,12 @@
                 android:id="@+id/bt0"
                 style="@style/ButtonMenu"
                 android:text="@string/send_service_dummy_test_0" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTestStartActivity4Result"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_padding_large"
+                android:text="Test start activity for result" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

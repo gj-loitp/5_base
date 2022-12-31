@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/w_65">
+
+            <com.loitp.views.layout.square.LSquareFrameLayout
+                android:layout_width="@dimen/w_50"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding_medium"
+                android:background="@color/blue" />
+
+            <com.loitp.views.layout.square.LSquareFrameLayout
+                android:layout_width="@dimen/w_250"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding_medium"
+                android:background="@color/green" />
+
+            <com.loitp.views.layout.square.LSquareFrameLayout
+                android:layout_width="@dimen/w_80"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/margin_padding_medium"
+                android:background="@color/red" />
+
+            <com.loitp.views.layout.square.LSquareFrameLayout
+                android:layout_width="@dimen/w_100"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_padding_medium"
+                android:background="@color/pink" />
+
+            <com.loitp.views.layout.square.LSquareFrameLayout
+                android:layout_width="@dimen/w_250"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding_medium"
+                android:background="@color/purple" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

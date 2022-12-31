@@ -10,14 +10,14 @@ import android.os.IBinder
 import android.view.*
 import android.view.View.OnTouchListener
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.ScrollView
 import android.widget.TextView
+import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.core.widget.NestedScrollView
+import com.loitp.R
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.R
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -36,8 +36,8 @@ class LDebugViewService : Service(), OnTouchListener {
     private var params: WindowManager.LayoutParams? = null
     private var collapsedView: View? = null
     private var expandedView: View? = null
-    private var llRootTv: LinearLayout? = null
-    private var scrollView: ScrollView? = null
+    private var llRootTv: LinearLayoutCompat? = null
+    private var scrollView: NestedScrollView? = null
 
     override fun onBind(intent: Intent): IBinder? {
         return null

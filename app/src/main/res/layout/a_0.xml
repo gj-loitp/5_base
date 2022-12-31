@@ -49,6 +49,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/iv" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_padding_medium"

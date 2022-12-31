@@ -74,7 +74,7 @@ class TestService : Service() {
         setDrag(params)
         textView.text = "This is floating view"
         mFloatingView.findViewById<View>(R.id.bt0).setOnClickListener {
-            CommunicateMng.postFromService(CommunicateMng.MsgFromService(msg = "Send msg to activity"))
+            CommunicateMng.postFromService(CommunicateMng.MsgFromService(msg = "Send msg to activity ${System.currentTimeMillis()}"))
         }
     }
 

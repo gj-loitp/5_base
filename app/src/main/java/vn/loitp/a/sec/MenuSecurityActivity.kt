@@ -9,6 +9,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_sec_menu.*
 import vn.loitp.R
+import vn.loitp.a.sec.rxbiometric.RxBiometricActivity
 import vn.loitp.a.sec.simple.SimpleEncryptDecryptStringActivity
 
 import vn.loitp.a.sec.ssBiometricsAuthentication.SSBiometricsAuthenticationActivity
@@ -36,7 +37,10 @@ class MenuSecurityActivity : BaseFontActivity() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = MenuSecurityActivity::class.java.simpleName
         }
-        bt0.setSafeOnClickListener {
+        btRxBiometric.setSafeOnClickListener {
+            launchActivity(RxBiometricActivity::class.java)
+        }
+        btSimple.setSafeOnClickListener {
             launchActivity(SimpleEncryptDecryptStringActivity::class.java)
         }
         btSSBiometricsAuthenticationActivity.setSafeOnClickListener {

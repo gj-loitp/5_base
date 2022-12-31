@@ -7,14 +7,14 @@ import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
-import android.view.* // ktlint-disable no-wildcard-imports
+import android.view.*
 import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.google.android.exoplayer2.ui.PlayerView
 import com.loitp.core.ext.setSafeOnClickListener
-import vn.loitp.a.cv.video.exo.mng.PlayerManager
 import vn.loitp.R
+import vn.loitp.a.cv.video.exo.mng.PlayerManager
 import vn.loitp.a.sv.endless.log
 
 class FloatingViewVideoService : Service() {
@@ -129,7 +129,7 @@ class FloatingViewVideoService : Service() {
     // Open the application on thi button click
     private fun openApp() {
         // Open the application  click.
-        val intent = Intent(this@FloatingViewVideoService, FloatingWidgetActivity::class.java)
+        val intent = Intent(this@FloatingViewVideoService, FloatingWidgetVideoActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
 
