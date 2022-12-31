@@ -81,16 +81,29 @@ class LDeviceUtil {
         }
 
         fun isEmulator(): Boolean {
-            return (
-                    Build.FINGERPRINT.startsWith("generic") ||
-                            Build.FINGERPRINT.startsWith("unknown") ||
-                            Build.MODEL.contains("google_sdk") ||
-                            Build.MODEL.contains("Emulator") ||
-                            Build.MODEL.contains("Android SDK built for x86") ||
-                            Build.MANUFACTURER.contains("Genymotion") ||
-                            Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic") ||
-                            "google_sdk" == Build.PRODUCT
-                    )
+            return (Build.FINGERPRINT.startsWith("generic") || Build.FINGERPRINT.startsWith("unknown") || Build.MODEL.contains(
+                "google_sdk"
+            ) || Build.MODEL.contains("Emulator") || Build.MODEL.contains("Android SDK built for x86") || Build.MANUFACTURER.contains(
+                "Genymotion"
+            ) || Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic") || "google_sdk" == Build.PRODUCT)
+        }
+
+        @SuppressLint("HardwareIds")
+        fun getDeviceId(context: Context?): String? {
+            if (context == null) {
+                return null
+            }
+            val androidId = Settings.Secure.getString(
+                context.contentResolver, Settings.Secure.ANDROID_ID
+            )
+            if (androidId.isNotEmpty()) {
+                return androidId
+            }
+
+            val uniquePseudoID =
+                "35" + Build.BOARD.length % 10 + Build.BRAND.length % 10 + Build.DEVICE.length % 10 + Build.DISPLAY.length % 10 + Build.HOST.length % 10 + Build.ID.length % 10 + Build.MANUFACTURER.length % 10 + Build.MODEL.length % 10 + Build.PRODUCT.length % 10 + Build.TAGS.length % 10 + Build.TYPE.length % 10 + Build.USER.length % 10
+            val serial = Build.getRadioVersion()
+            return UUID(uniquePseudoID.hashCode().toLong(), serial.hashCode().toLong()).toString()
         }
     }
 }

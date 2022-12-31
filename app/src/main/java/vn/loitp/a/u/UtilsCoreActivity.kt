@@ -144,7 +144,8 @@ class UtilsCoreActivity : BaseFontActivity() {
                 "isNavigationBarAvailable:${LDeviceUtil.isNavigationBarAvailable}" +
                         "\nisTablet: ${LDeviceUtil.isTablet()}" +
                         "\nisCanOverlay: ${LDeviceUtil.isCanOverlay()}" +
-                        "\nisEmulator: ${LDeviceUtil.isEmulator()}"
+                        "\nisEmulator: ${LDeviceUtil.isEmulator()}" +
+                        "\ngetDeviceId: ${LDeviceUtil.getDeviceId(this)}"
             )
         }
         btSetClipboard.setSafeOnClickListener {
