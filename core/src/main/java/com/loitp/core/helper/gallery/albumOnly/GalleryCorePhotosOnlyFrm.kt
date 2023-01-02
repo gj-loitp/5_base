@@ -116,7 +116,7 @@ class GalleryCorePhotosOnlyFrm(
 
                     override fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView) {
                         LUIUtil.setWallpaperAndLockScreen(
-                            activity = requireActivity(),
+                            context = requireContext(),
                             imageView = imageView,
                             isSetWallpaper = true,
                             isSetLockScreen = true,

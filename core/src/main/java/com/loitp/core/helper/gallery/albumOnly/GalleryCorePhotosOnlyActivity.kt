@@ -97,7 +97,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
                 override fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView) {
                     LUIUtil.setWallpaperAndLockScreen(
-                        activity = this@GalleryCorePhotosOnlyActivity,
+                        context = this@GalleryCorePhotosOnlyActivity,
                         imageView = imageView,
                         isSetWallpaper = true,
                         isSetLockScreen = true,

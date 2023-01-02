@@ -2,6 +2,7 @@ package com.loitp.core.utilities
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.*
@@ -1027,40 +1028,40 @@ class LUIUtil {
         }
 
         fun setWallpaperAndLockScreen(
-            activity: Activity,
+            context: Context,
             imageView: ImageView,
             isSetWallpaper: Boolean = true,
             isSetLockScreen: Boolean = true,
         ) {
             if (isSetWallpaper) {
                 Wallpo.setMainScreenWallpaper(
-                    context = activity,
+                    context = context,
                     imageView = imageView,
                 )
             }
             if (isSetLockScreen) {
                 Wallpo.setLockScreenWallpaper(
-                    activity = activity,
+                    context = context,
                     imageView = imageView,
                 )
             }
         }
 
         fun setWallpaperAndLockScreen(
-            activity: Activity,
+            context: Context,
             color: Int,
             isSetWallpaper: Boolean = true,
             isSetLockScreen: Boolean = true,
         ) {
             if (isSetWallpaper) {
                 Wallpo.setMainScreenWallpaper(
-                    context = activity,
+                    context = context,
                     color = color,
                 )
             }
             if (isSetLockScreen) {
                 Wallpo.setLockScreenWallpaper(
-                    activity = activity,
+                    context = context,
                     color = color,
                 )
             }

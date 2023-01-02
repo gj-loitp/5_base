@@ -1,6 +1,5 @@
 package com.loitp.func.wallpo
 
-import android.app.Activity
 import android.app.WallpaperManager
 import android.content.Context
 import android.graphics.Bitmap
@@ -68,10 +67,10 @@ object Wallpo {
     }
 
     fun setLockScreenWallpaper(
-        activity: Activity?,
+        context: Context?,
         imageView: ImageView,
     ): Boolean {
-        val manager = WallpaperManager.getInstance(activity)
+        val manager = WallpaperManager.getInstance(context)
         try {
             manager.setBitmap(
                 /* fullImage = */ (imageView.drawable as BitmapDrawable).bitmap,
@@ -87,11 +86,11 @@ object Wallpo {
     }
 
     fun setLockScreenWallpaper(
-        activity: Activity?,
+        context: Context?,
         color: Int,
     ): Boolean {
         try {
-            val manager = WallpaperManager.getInstance(activity)
+            val manager = WallpaperManager.getInstance(context)
             val cd = ColorDrawable(color)
             cd.setBounds(0, 0, LScreenUtil.screenWidth, LScreenUtil.screenHeight)
             val bitmap = cd.toBitmap()

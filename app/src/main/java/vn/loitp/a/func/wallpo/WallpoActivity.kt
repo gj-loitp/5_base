@@ -65,7 +65,7 @@ class WallpoActivity : BaseFontActivity() {
 
         btSetWallpaper.setSafeOnClickListener {
             LUIUtil.setWallpaperAndLockScreen(
-                activity = this,
+                context = this,
                 imageView = ivPreview,
                 isSetWallpaper = true,
                 isSetLockScreen = false,
@@ -74,7 +74,7 @@ class WallpoActivity : BaseFontActivity() {
         }
         btSetLockscreen.setSafeOnClickListener {
             LUIUtil.setWallpaperAndLockScreen(
-                activity = this,
+                context = this,
                 imageView = ivPreview,
                 isSetWallpaper = false,
                 isSetLockScreen = true,
@@ -83,7 +83,7 @@ class WallpoActivity : BaseFontActivity() {
         }
         btSetRandomColor.setSafeOnClickListener {
             LUIUtil.setWallpaperAndLockScreen(
-                activity = this,
+                context = this,
                 color = LUIUtil.getRandomColor(),
                 isSetWallpaper = true,
                 isSetLockScreen = true,
