@@ -140,7 +140,10 @@ class RecolorActivity : BaseFontActivity() {
                 view = it,
                 startColor = Color.RED,
                 endColor = Color.GREEN,
-                duration = 300
+                duration = 300,
+                onReColorFinish = {
+                    showSnackBarInfor("onReColorFinish")
+                }
             )
         }
         val reColorCardView = ReColor(this)

@@ -39,6 +39,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utils.ConvertUtils
 import com.loitp.func.wallpo.Wallpo
+import com.simmorsal.recolor_project.OnReColorFinish
 import com.simmorsal.recolor_project.ReColor
 import com.skydoves.elasticviews.elasticAnimation
 import io.github.inflationx.calligraphy3.CalligraphyConfig
@@ -1099,7 +1100,8 @@ class LUIUtil {
             view: View,
             startColor: Int,
             endColor: Int,
-            duration: Int = 300
+            duration: Int = 300,
+            onReColorFinish: OnReColorFinish? = null
         ) {
             val hexColorStart = java.lang.String.format("#%08X", -0x1 and startColor)
             val hexColorEnd = java.lang.String.format("#%08X", -0x1 and endColor)
@@ -1112,7 +1114,7 @@ class LUIUtil {
                         /* startingColor = */ hexColorStart,
                         /* endingColor = */ hexColorEnd,
                         /* duration = */ duration
-                    )
+                    ).setOnReColorFinish(onReColorFinish)
                 }
                 is TextView -> {
                     ReColor(view.context).setTextViewColor(
@@ -1120,7 +1122,7 @@ class LUIUtil {
                         /* startingColor = */hexColorStart,
                         /* endingColor = */hexColorEnd,
                         /* duration = */duration
-                    )
+                    ).setOnReColorFinish(onReColorFinish)
                 }
                 else -> {
                     ReColor(view.context).setViewBackgroundColor(
@@ -1128,7 +1130,7 @@ class LUIUtil {
                         /* startingColor = */ hexColorStart,
                         /* endingColor = */ hexColorEnd,
                         /* duration = */ duration
-                    )
+                    ).setOnReColorFinish(onReColorFinish)
                 }
             }
 
