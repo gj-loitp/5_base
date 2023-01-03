@@ -203,7 +203,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                     it.putExtra(Constants.AD_HELPER_COLOR_PRIMARY, Color.RED)
                     it.putExtra(Constants.AD_HELPER_COLOR_BACKGROUND, Color.YELLOW)
                     it.putExtra(Constants.AD_HELPER_COLOR_STATUS_BAR, Color.GREEN)
-                    it.putExtra(Constants.AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, false)
+                    it.putExtra(Constants.AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
                 })
             }
             btFbFanpage -> LSocialUtil.likeFacebookFanpage(this)

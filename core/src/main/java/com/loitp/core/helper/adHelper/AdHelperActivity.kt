@@ -165,6 +165,9 @@ class AdHelperActivity : BaseFontActivity() {
         if (colorPrimary != 0 && colorBackground != 0) {
             layoutRootView.setBackgroundColor(colorBackground)
             btBack.setColorFilter(colorPrimary)
+            btPrevScreen.setColorFilter(colorPrimary)
+            btNextScreen.setColorFilter(colorPrimary)
+            tvPage.setTextColor(colorPrimary)
         }
     }
 
