@@ -38,8 +38,8 @@
                 android:clickable="true"
                 android:contentDescription="@string/app_name"
                 android:focusable="true"
-                android:src="@drawable/ic_launcher_loitp"
-                android:tint="#fff" />
+                android:src="@drawable/ic_info_black_48dp"
+                android:tint="@color/red" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"

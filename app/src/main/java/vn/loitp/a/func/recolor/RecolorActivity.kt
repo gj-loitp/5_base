@@ -1,5 +1,6 @@
 package vn.loitp.a.func.recolor
 
+import android.graphics.Color
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
@@ -55,19 +56,39 @@ class RecolorActivity : BaseFontActivity() {
         imageView.setOnClickListener {
             when (imageViewColorSetNumber) {
                 0 -> {
-                    ReColor(this).setImageViewColorFilter(imageView, "ffffff", "388E3C", 300)
+                    LUIUtil.recolor(
+                        view = imageView,
+                        startColor = Color.RED,
+                        endColor = Color.YELLOW,
+                        duration = 300
+                    )
                     imageViewColorSetNumber = 1
                 }
                 1 -> {
-                    ReColor(this).setImageViewColorFilter(imageView, "388E3C", "00838F", 300)
+                    LUIUtil.recolor(
+                        view = imageView,
+                        startColor = Color.YELLOW,
+                        endColor = Color.GREEN,
+                        duration = 300
+                    )
                     imageViewColorSetNumber = 2
                 }
                 2 -> {
-                    ReColor(this).setImageViewColorFilter(imageView, "00838F", "F4511E", 300)
+                    LUIUtil.recolor(
+                        view = imageView,
+                        startColor = Color.GREEN,
+                        endColor = Color.BLUE,
+                        duration = 300
+                    )
                     imageViewColorSetNumber = 3
                 }
                 3 -> {
-                    ReColor(this).setImageViewColorFilter(imageView, "F4511E", "FFFFFF", 300)
+                    LUIUtil.recolor(
+                        view = imageView,
+                        startColor = Color.BLUE,
+                        endColor = Color.RED,
+                        duration = 300
+                    )
                     imageViewColorSetNumber = 0
                 }
             }

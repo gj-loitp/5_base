@@ -39,6 +39,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utils.ConvertUtils
 import com.loitp.func.wallpo.Wallpo
+import com.simmorsal.recolor_project.ReColor
 import com.skydoves.elasticviews.elasticAnimation
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor
@@ -1092,6 +1093,26 @@ class LUIUtil {
                 .setBottomRightCorner(CornerFamily.ROUNDED, radiusBL)
                 .setBottomLeftCorner(CornerFamily.ROUNDED, radiusBR)
                 .build()
+        }
+
+        fun recolor(
+            view: View,
+            startColor: Int,
+            endColor: Int,
+            duration: Int = 300
+        ) {
+            if (view is ImageView) {
+                val hexColorStart = java.lang.String.format("#%06X", 0xFFFFFF and startColor)
+                val hexColorEnd = java.lang.String.format("#%06X", 0xFFFFFF and endColor)
+
+                ReColor(view.context).setImageViewColorFilter(
+                    /* imageView = */ view,
+                    /* startingColor = */ hexColorStart,
+                    /* endingColor = */ hexColorEnd,
+                    /* duration = */ duration
+                )
+            }
+
         }
     }
 }
