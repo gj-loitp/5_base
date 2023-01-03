@@ -1,5 +1,6 @@
 package vn.loitp.a.cv.progress.tileProgressView
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsAutoAnimation
@@ -50,6 +51,9 @@ class TileProgressViewActivity : BaseFontActivity() {
             this.tvTitle?.text = TileProgressViewActivity::class.java.simpleName
         }
 
-        tileProgressView.setProgress(6f)
+        tileProgressView.setProgress(69f)
+        tileProgressView.setColor(Color.RED)
+//        tileProgressView.setBackgroundColor(Color.GREEN)
+//        tileProgressView.setLoadingColor(Color.YELLOW)
     }
 }
