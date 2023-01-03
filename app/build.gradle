@@ -265,5 +265,8 @@ dependencies {
 
 //    https://github.com/psuzn/WheelView
     api 'com.github.psuzn:WheelView:v1.0.2'
+
+    // debugImplementation because LeakCanary should only run in debug builds.
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.10'
 }
 //apply plugin: 'com.google.gms.google-services'
