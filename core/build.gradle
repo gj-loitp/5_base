@@ -201,6 +201,8 @@ dependencies {
 
     //https://github.com/MikeOrtiz/TouchImageView
     api 'com.github.MikeOrtiz:TouchImageView:3.2.1'
+//    https://github.com/iammert/TileProgressView
+    api 'com.github.iammert:TileProgressView:0.1'
 
     //https://github.com/manojbhadane/QButton
     api 'com.github.manojbhadane:QButton:v1.3'
