@@ -98,19 +98,39 @@ class RecolorActivity : BaseFontActivity() {
         textView.setOnClickListener {
             when (textViewColorSetNumber) {
                 0 -> {
-                    ReColor(this).setTextViewColor(textView, "ffffff", "81D4FA", 300)
+                    LUIUtil.recolor(
+                        view = textView,
+                        startColor = Color.RED,
+                        endColor = Color.YELLOW,
+                        duration = 300
+                    )
                     textViewColorSetNumber = 1
                 }
                 1 -> {
-                    ReColor(this).setTextViewColor(textView, "81D4FA", "ef9a9a", 300)
+                    LUIUtil.recolor(
+                        view = textView,
+                        startColor = Color.YELLOW,
+                        endColor = Color.BLACK,
+                        duration = 300
+                    )
                     textViewColorSetNumber = 2
                 }
                 2 -> {
-                    ReColor(this).setTextViewColor(textView, "ef9a9a", "FFAB91", 300)
+                    LUIUtil.recolor(
+                        view = textView,
+                        startColor = Color.BLACK,
+                        endColor = Color.WHITE,
+                        duration = 300
+                    )
                     textViewColorSetNumber = 3
                 }
                 3 -> {
-                    ReColor(this).setTextViewColor(textView, "FFAB91", "ffffff", 300)
+                    LUIUtil.recolor(
+                        view = textView,
+                        startColor = Color.WHITE,
+                        endColor = Color.RED,
+                        duration = 300
+                    )
                     textViewColorSetNumber = 0
                 }
             }

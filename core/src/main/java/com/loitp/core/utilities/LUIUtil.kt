@@ -1101,16 +1101,23 @@ class LUIUtil {
             endColor: Int,
             duration: Int = 300
         ) {
+            val hexColorStart = java.lang.String.format("#%06X", 0xFFFFFF and startColor)
+            val hexColorEnd = java.lang.String.format("#%06X", 0xFFFFFF and endColor)
             if (view is ImageView) {
-                val hexColorStart = java.lang.String.format("#%06X", 0xFFFFFF and startColor)
-                val hexColorEnd = java.lang.String.format("#%06X", 0xFFFFFF and endColor)
-
                 ReColor(view.context).setImageViewColorFilter(
                     /* imageView = */ view,
                     /* startingColor = */ hexColorStart,
                     /* endingColor = */ hexColorEnd,
                     /* duration = */ duration
                 )
+            } else if (view is TextView) {
+                ReColor(view.context).setTextViewColor(
+                    /* textView = */ view,
+                    /* startingColor = */hexColorStart,
+                    /* endingColor = */hexColorEnd,
+                    /* duration = */duration
+                )
+
             }
 
         }

@@ -50,6 +50,7 @@
                 android:focusable="true"
                 android:gravity="center"
                 android:text="@string/a_simple_textview"
+                android:textColor="@color/red"
                 android:textSize="@dimen/txt_medium" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
