@@ -33,6 +33,10 @@ import kotlinx.android.synthetic.main.l_a_ad_helper.*
 class AdHelperActivity : BaseFontActivity() {
     private val adPageList = ArrayList<AdPage>()
     private var isEnglishLanguage: Boolean = false
+    private var colorPrimary = 0
+    private var colorBackground = 0
+    private var colorStatusBar = 0
+    private var isLightIconStatusBar = true
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_a_ad_helper
@@ -42,6 +46,18 @@ class AdHelperActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         isEnglishLanguage = intent.getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)
+        colorPrimary = intent.getIntExtra(Constants.AD_HELPER_COLOR_PRIMARY, 0)
+        colorBackground = intent.getIntExtra(Constants.AD_HELPER_COLOR_BACKGROUND, 0)
+        colorStatusBar = intent.getIntExtra(Constants.AD_HELPER_COLOR_STATUS_BAR, 0)
+        isLightIconStatusBar =
+            intent.getBooleanExtra(Constants.AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
+
+        if (colorStatusBar != 0) {
+            changeStatusBarContrastStyle(
+                lightIcons = isLightIconStatusBar,
+                colorBackground = colorStatusBar
+            )
+        }
 
         setupData()
         setupViews()
@@ -145,6 +161,11 @@ class AdHelperActivity : BaseFontActivity() {
             }
         })
         tvPage.text = (viewPager.currentItem + 1).toString() + "/" + adPageList.size
+
+        if (colorPrimary != 0 && colorBackground != 0) {
+            layoutRootView.setBackgroundColor(colorBackground)
+            btBack.setColorFilter(colorPrimary)
+        }
     }
 
     private inner class SlidePagerAdapter : PagerAdapter() {

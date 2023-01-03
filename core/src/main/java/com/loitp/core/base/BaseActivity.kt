@@ -235,6 +235,22 @@ abstract class BaseActivity : AppCompatActivity() {
 //        StatusBarCompat.translucentStatusBar(activity = this, hideStatusBarBackground = true)
     }
 
+    fun changeStatusBarContrastStyle(lightIcons: Boolean, colorBackground: Int) {
+        val decorView: View = this.window.decorView
+        if (lightIcons) {
+            decorView.systemUiVisibility =
+                decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+        } else {
+            decorView.systemUiVisibility =
+                decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        }
+
+        this.setCustomStatusBar(
+            colorStatusBar = colorBackground,
+            colorNavigationBar = colorBackground
+        )
+    }
+
     override fun onDestroy() {
         EventBus.getDefault().unregister(this)
         compositeDisposable.clear()

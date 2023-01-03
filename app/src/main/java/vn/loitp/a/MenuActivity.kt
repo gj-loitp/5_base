@@ -1,6 +1,7 @@
 package vn.loitp.a
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -199,6 +200,10 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             btAdHelper -> {
                 launchActivity(cls = AdHelperActivity::class.java, data = {
                     it.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
+                    it.putExtra(Constants.AD_HELPER_COLOR_PRIMARY, Color.RED)
+                    it.putExtra(Constants.AD_HELPER_COLOR_BACKGROUND, Color.YELLOW)
+                    it.putExtra(Constants.AD_HELPER_COLOR_STATUS_BAR, Color.GREEN)
+                    it.putExtra(Constants.AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, false)
                 })
             }
             btFbFanpage -> LSocialUtil.likeFacebookFanpage(this)
