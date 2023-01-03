@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/margin_padding_medium"
         android:contentDescription="@string/app_name"
-        android:scaleType="fitXY"
+        android:scaleType="center"
         tools:src="@drawable/ic_launcher" />
 
     <androidx.appcompat.widget.AppCompatTextView
