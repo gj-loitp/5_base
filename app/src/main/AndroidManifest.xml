@@ -1424,6 +1424,9 @@
         <activity
             android:name=".a.cv.et.otpView.OtpViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.func.processPhoenix.ProcessPhoenixActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
     <queries>

@@ -19,6 +19,7 @@ import vn.loitp.a.func.keyboard.KeyboardActivity
 import vn.loitp.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity
 import vn.loitp.a.func.location.LocationActivity
 import vn.loitp.a.func.noti.MenuNotificationActivity
+import vn.loitp.a.func.processPhoenix.ProcessPhoenixActivity
 import vn.loitp.a.func.pump.PumpActivity
 import vn.loitp.a.func.recolor.RecolorActivity
 import vn.loitp.a.func.sensor.SensorActivity
@@ -74,6 +75,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         btKeyboardHeightProvider.setOnClickListener(this)
         btTheme.setOnClickListener(this)
         btWallpoActivity.setOnClickListener(this)
+        btProcessPhoenix.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -97,6 +99,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
             btKeyboardHeightProvider -> launchActivity(KeyboardHeightProviderActivity::class.java)
             btTheme -> launchActivity(ThemeActivity::class.java)
             btWallpoActivity -> launchActivity(WallpoActivity::class.java)
+            btProcessPhoenix -> launchActivity(ProcessPhoenixActivity::class.java)
         }
     }
 }

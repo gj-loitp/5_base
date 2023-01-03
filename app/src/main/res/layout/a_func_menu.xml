@@ -80,6 +80,11 @@
                 android:text="@string/notification" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btProcessPhoenix"
+                style="@style/ButtonMenu"
+                android:text="ProcessPhoenix" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPump"
                 style="@style/ButtonMenu"
                 android:text="Pump" />

@@ -161,6 +161,9 @@ dependencies {
     //api 'com.github.rubensousa:previewseekbar:2.0.0'
     //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
 
+//    https://github.com/JakeWharton/ProcessPhoenix
+    api 'com.jakewharton:process-phoenix:2.1.2'
+
 //    https://github.com/rosenpin/fading-text-view
     api 'com.github.rosenpin:fading-text-view:3.0'
 //    https://github.com/HamedTaherpour/floating-layout-android
