@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.dragDrop
+package vn.loitp.a.cv.rv.dragDrop
 
 import android.annotation.SuppressLint
 import android.content.ClipData
@@ -42,7 +42,10 @@ class CustomAdapter(
     fun getList(): MutableList<String> = this.list.toMutableList()
 
     @SuppressLint("ClickableViewAccessibility")
-    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+    override fun onTouch(
+        v: View?,
+        event: MotionEvent?
+    ): Boolean {
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
                 val data = ClipData.newPlainText("", "")
@@ -70,7 +73,7 @@ class CustomAdapter(
     }
 
     class CustomViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
-        RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item_drag_drop, parent, false)) {
+        RecyclerView.ViewHolder(inflater.inflate(R.layout.i_drag_drop, parent, false)) {
         var text: TextView? = null
         var frameLayout: FrameLayout? = null
 

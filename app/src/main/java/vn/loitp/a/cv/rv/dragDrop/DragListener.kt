@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.dragDrop
+package vn.loitp.a.cv.rv.dragDrop
 
 import android.annotation.SuppressLint
 import android.view.DragEvent
@@ -11,7 +11,10 @@ class DragListener internal constructor(private val listener: CustomListener) :
     private var isDropped = false
 
     @SuppressLint("NotifyDataSetChanged")
-    override fun onDrag(v: View, event: DragEvent): Boolean {
+    override fun onDrag(
+        v: View,
+        event: DragEvent
+    ): Boolean {
         when (event.action) {
             DragEvent.ACTION_DROP -> {
                 isDropped = true
@@ -46,6 +49,9 @@ class DragListener internal constructor(private val listener: CustomListener) :
                             }
                             listSource?.let { adapterSource.updateList(it) }
                             adapterSource?.notifyDataSetChanged()
+//                            adapterSource?.let {
+//                                it.notifyItemRangeChanged(0, it.itemCount)
+//                            }
                             val adapterTarget = target.adapter as CustomAdapter?
                             val customListTarget = adapterTarget?.getList()
                             if (positionTarget >= 0) {
@@ -55,6 +61,9 @@ class DragListener internal constructor(private val listener: CustomListener) :
                             }
                             customListTarget?.let { adapterTarget.updateList(it) }
                             adapterTarget?.notifyDataSetChanged()
+//                            adapterSource?.let {
+//                                it.notifyItemRangeChanged(0, it.itemCount)
+//                            }
                             if (source.id == recyclerView2 && (adapterSource?.itemCount ?: 0) < 1) {
                                 listener.setEmptyList(
                                     visibility = View.VISIBLE,

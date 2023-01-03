@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.dragDrop
+package vn.loitp.a.cv.rv.dragDrop
 
 import android.os.Bundle
 import android.widget.TextView
@@ -10,7 +10,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_main_drag_drop.*
+import kotlinx.android.synthetic.main.a_main_drag_drop.*
 import vn.loitp.R
 
 @LogTag("MainActivityDragDrop")
@@ -19,7 +19,7 @@ import vn.loitp.R
 class MainActivityDragDrop : BaseFontActivity(), CustomListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_main_drag_drop
+        return R.layout.a_main_drag_drop
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
