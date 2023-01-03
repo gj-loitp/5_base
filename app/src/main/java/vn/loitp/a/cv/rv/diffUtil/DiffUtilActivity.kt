@@ -1,6 +1,5 @@
-package vn.loitp.app.a.cv.rv.diffUtil
+package vn.loitp.a.cv.rv.diffUtil
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
@@ -10,7 +9,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
-import kotlinx.android.synthetic.main.activity_recycler_view_diff_util.*
+import kotlinx.android.synthetic.main.a_rv_diff_util.*
 import vn.loitp.R
 import java.util.*
 
@@ -25,10 +24,16 @@ class DiffUtilActivity : BaseFontActivity() {
         return items.filter { rand.nextBoolean() }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun add(): List<Content> {
-        items.add(Content(1, "Loitp ${System.currentTimeMillis()}", Constants.URL_IMG_ANDROID))
-        adapter.notifyDataSetChanged()
+        items.add(
+            Content(
+                id = 1,
+                text = "Loitp ${System.currentTimeMillis()}",
+                image = Constants.URL_IMG_ANDROID
+            )
+        )
+//        adapter.notifyDataSetChanged()
+        adapter.notifyItemRangeChanged(0, adapter.itemCount)
         return items
     }
 
@@ -40,7 +45,7 @@ class DiffUtilActivity : BaseFontActivity() {
     val adapter = ContentAdapter()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_diff_util
+        return R.layout.a_rv_diff_util
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

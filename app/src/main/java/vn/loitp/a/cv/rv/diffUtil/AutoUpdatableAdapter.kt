@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.diffUtil
+package vn.loitp.a.cv.rv.diffUtil
 
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView

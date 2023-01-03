@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.diffUtil
+package vn.loitp.a.cv.rv.diffUtil
 
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +16,10 @@ class ContentAdapter : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), AutoUp
         autoNotify(old, new) { o, n -> o.id == n.id }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.view_item_diff_util, parent, false)
         )
@@ -24,7 +27,10 @@ class ContentAdapter : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), AutoUp
 
     override fun getItemCount() = items.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int
+    ) {
         holder.bind(items[position])
     }
 
