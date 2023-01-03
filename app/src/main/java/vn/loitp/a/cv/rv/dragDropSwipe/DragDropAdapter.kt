@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.dragDropSwipe
+package vn.loitp.a.cv.rv.dragDropSwipe
 
 import android.view.View
 import android.widget.ImageView
@@ -22,7 +22,11 @@ class DragDropAdapter(
 
     override fun getViewHolder(itemView: View) = ViewHolder(itemView)
 
-    override fun onBindViewHolder(item: String, viewHolder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        item: String,
+        viewHolder: ViewHolder,
+        position: Int
+    ) {
         // Here we update the contents of the view holder's views to reflect the item's data
         if (isHorizontal) {
             LUIUtil.setSizeOfView(view = viewHolder.itemView, width = sizeWidth, height = null)

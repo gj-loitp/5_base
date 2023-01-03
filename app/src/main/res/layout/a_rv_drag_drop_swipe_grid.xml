@@ -33,5 +33,6 @@
         android:layout_height="match_parent"
         app:divider="@drawable/bg_list_divider"
         app:item_layout="@layout/view_row_item_drag_drop_recycler_detail_view"
-        app:swiped_item_opacity_fades_on_swiping="true" />
+        app:swiped_item_opacity_fades_on_swiping="true"
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.appcompat.widget.LinearLayoutCompat>

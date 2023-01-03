@@ -1,26 +1,25 @@
-package vn.loitp.app.a.cv.rv.dragDropSwipe
+package vn.loitp.a.cv.rv.dragDropSwipe
 
 import android.os.Bundle
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_recycler_view_drag_drop_swipe_grid.*
+import kotlinx.android.synthetic.main.a_rv_drag_drop_swipe_list_vertical.*
 import vn.loitp.R
 
-@LogTag("DragDropSwipeGridRecyclerviewActivity")
+@LogTag("DragDropSwipeListVerticalRecyclerviewActivity")
 @IsFullScreen(false)
-class DragDropSwipeGridRecyclerviewActivity : BaseFontActivity() {
+class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
 
     private var dragDropAdapter: DragDropAdapter? = null
-    private val numberOfColumns = 2
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_drag_drop_swipe_grid
+        return R.layout.a_rv_drag_drop_swipe_list_vertical
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,17 +57,21 @@ class DragDropSwipeGridRecyclerviewActivity : BaseFontActivity() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = DragDropSwipeGridRecyclerviewActivity::class.java.simpleName
+            this.tvTitle?.text =
+                DragDropSwipeListVerticalRecyclerviewActivity::class.java.simpleName
         }
 
         dragDropAdapter = DragDropAdapter(setData())
 
-        dragDropSwipeRecyclerView.layoutManager = GridLayoutManager(this, numberOfColumns)
+        dragDropSwipeRecyclerView.layoutManager = LinearLayoutManager(this) // list
         dragDropSwipeRecyclerView.adapter = dragDropAdapter
 
-        setIsRestrictingDraggingDirections()
+        setIsRestrictingDraggingDirections(isRestrictingDraggingDirections = false)
         setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems = false)
 
+        swIsRestrictingDraggingDirections.setOnCheckedChangeListener { _, isChecked ->
+            setIsRestrictingDraggingDirections(isRestrictingDraggingDirections = isChecked)
+        }
         swLayoutBehind.setOnCheckedChangeListener { _, isChecked ->
             setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems = isChecked)
         }
@@ -76,10 +79,14 @@ class DragDropSwipeGridRecyclerviewActivity : BaseFontActivity() {
         // listener -> check DragDropSwipeListHorizontalRecyclerviewActivity
     }
 
-    private fun setIsRestrictingDraggingDirections() {
-        dragDropSwipeRecyclerView.orientation =
-            DragDropSwipeRecyclerView.ListOrientation.GRID_LIST_WITH_HORIZONTAL_SWIPING
-        dragDropSwipeRecyclerView.numOfColumnsPerRowInGridList = numberOfColumns
+    private fun setIsRestrictingDraggingDirections(isRestrictingDraggingDirections: Boolean) {
+        if (isRestrictingDraggingDirections) {
+            dragDropSwipeRecyclerView.orientation =
+                DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_VERTICAL_DRAGGING
+        } else {
+            dragDropSwipeRecyclerView.orientation =
+                DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_UNCONSTRAINED_DRAGGING
+        }
     }
 
     private fun setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems: Boolean) {

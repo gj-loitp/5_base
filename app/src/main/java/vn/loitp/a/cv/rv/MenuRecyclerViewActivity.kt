@@ -18,9 +18,9 @@ import vn.loitp.a.cv.rv.concatAdapter.ConcatAdapterActivity
 import vn.loitp.a.cv.rv.diffUtil.DiffUtilActivity
 import vn.loitp.a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity
 import vn.loitp.a.cv.rv.dragDrop.MainActivityDragDrop
-import vn.loitp.app.a.cv.rv.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity
-import vn.loitp.app.a.cv.rv.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivity
-import vn.loitp.app.a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivity
+import vn.loitp.a.cv.rv.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity
+import vn.loitp.a.cv.rv.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivity
+import vn.loitp.a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivity
 import vn.loitp.app.a.cv.rv.fastScroll.MenuFastScrollActivity
 import vn.loitp.app.a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivity
 import vn.loitp.app.a.cv.rv.fitGv.FitGridViewActivity

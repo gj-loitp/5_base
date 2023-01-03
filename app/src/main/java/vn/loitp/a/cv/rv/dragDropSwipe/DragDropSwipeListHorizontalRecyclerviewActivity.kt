@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.dragDropSwipe
+package vn.loitp.a.cv.rv.dragDropSwipe
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -13,7 +13,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_recycler_view_drag_drop_swipe_list_horizontal.*
+import kotlinx.android.synthetic.main.a_rv_drag_drop_swipe_list_horizontal.*
 import vn.loitp.R
 
 @LogTag("DragDropSwipeListHorizontalRecyclerviewActivity")
@@ -23,7 +23,7 @@ class DragDropSwipeListHorizontalRecyclerviewActivity : BaseFontActivity() {
     private var dragDropAdapter: DragDropAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_drag_drop_swipe_list_horizontal
+        return R.layout.a_rv_drag_drop_swipe_list_horizontal
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
