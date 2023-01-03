@@ -1,12 +1,12 @@
 package vn.loitp.a.anim
 
 import android.os.Bundle
-import android.view.View
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_menu_animation.*
 import vn.loitp.R
@@ -27,12 +27,13 @@ import vn.loitp.a.anim.morphTransitions.MorphTransitionsMainActivity
 import vn.loitp.a.anim.overScroll.OverScrollActivity
 import vn.loitp.a.anim.pulsingView.PulsingViewActivity
 import vn.loitp.a.anim.shadowViewHelper.ShadowViewHelperActivity
+import vn.loitp.a.anim.snowfall.SnowfallActivity
 import vn.loitp.a.anim.valueAnimator.ValueAnimatorActivity
 
 @LogTag("MenuAnimationActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
+class MenuAnimationActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu_animation
@@ -46,55 +47,68 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = MenuAnimationActivity::class.java.simpleName
         }
-        btAnimationView.setOnClickListener(this)
-        btOverScroll.setOnClickListener(this)
-        btFlySchool.setOnClickListener(this)
-        btActivityTransition.setOnClickListener(this)
-        btShadowViewHelper.setOnClickListener(this)
-        btBasicTransitionFrm.setOnClickListener(this)
-        btBasicTransitionActivity.setOnClickListener(this)
-        btBasicTransition.setOnClickListener(this)
-        btLottie.setOnClickListener(this)
-        btValueAnimator.setOnClickListener(this)
-        btElasticView.setOnClickListener(this)
-        btMorphTransitions.setOnClickListener(this)
-        btActivityTransitionReveal.setOnClickListener(this)
-        btPulsingView.setOnClickListener(this)
-        btAndroidParticlesActivity.setOnClickListener(this)
-        btKonfetti.setOnClickListener(this)
-        btFadeOutParticleActivity.setOnClickListener(this)
-        btAnimatedStarsView.setOnClickListener(this)
-    }
-
-    override fun onClick(v: View) {
-        when (v) {
-            btAnimationView -> launchActivity(AnimationViewActivity::class.java)
-            btOverScroll -> launchActivity(OverScrollActivity::class.java)
-            btFlySchool -> launchActivity(FlySchoolActivity::class.java)
-            btActivityTransition -> launchActivity(Animation1Activity::class.java)
-            btShadowViewHelper -> launchActivity(ShadowViewHelperActivity::class.java)
-            btBasicTransitionFrm -> launchActivity(BasicTransitionActivity::class.java)
-            btBasicTransitionActivity -> launchActivity(SceneTransitionBasicActivity::class.java)
-            btBasicTransition -> launchActivity(BasicTransition0Activity::class.java)
-            btLottie -> launchActivity(MenuLottieActivity::class.java)
-            btValueAnimator -> launchActivity(ValueAnimatorActivity::class.java)
-            btElasticView -> launchActivity(ElasticActivity::class.java)
-            btMorphTransitions -> launchActivity(MorphTransitionsMainActivity::class.java)
-            btActivityTransitionReveal -> launchActivity(RevealActivity1::class.java)
-            btPulsingView -> launchActivity(PulsingViewActivity::class.java)
-            btAndroidParticlesActivity -> launchActivity(AndroidParticlesActivity::class.java)
-            btKonfetti -> launchActivity(KonfettiActivity::class.java)
-            btFadeOutParticleActivity -> launchActivity(FadeOutParticleActivity::class.java)
-            btAnimatedStarsView -> launchActivity(AnimatedStarsViewActivity::class.java)
+        btAnimationView.setSafeOnClickListener {
+            launchActivity(AnimationViewActivity::class.java)
+        }
+        btOverScroll.setSafeOnClickListener {
+            launchActivity(OverScrollActivity::class.java)
+        }
+        btFlySchool.setSafeOnClickListener {
+            launchActivity(FlySchoolActivity::class.java)
+        }
+        btActivityTransition.setSafeOnClickListener {
+            launchActivity(Animation1Activity::class.java)
+        }
+        btShadowViewHelper.setSafeOnClickListener {
+            launchActivity(ShadowViewHelperActivity::class.java)
+        }
+        btBasicTransitionFrm.setSafeOnClickListener {
+            launchActivity(BasicTransitionActivity::class.java)
+        }
+        btBasicTransitionActivity.setSafeOnClickListener {
+            launchActivity(SceneTransitionBasicActivity::class.java)
+        }
+        btBasicTransition.setSafeOnClickListener {
+            launchActivity(BasicTransition0Activity::class.java)
+        }
+        btLottie.setSafeOnClickListener {
+            launchActivity(MenuLottieActivity::class.java)
+        }
+        btValueAnimator.setSafeOnClickListener {
+            launchActivity(ValueAnimatorActivity::class.java)
+        }
+        btElasticView.setSafeOnClickListener {
+            launchActivity(ElasticActivity::class.java)
+        }
+        btMorphTransitions.setSafeOnClickListener {
+            launchActivity(MorphTransitionsMainActivity::class.java)
+        }
+        btActivityTransitionReveal.setSafeOnClickListener {
+            launchActivity(RevealActivity1::class.java)
+        }
+        btPulsingView.setSafeOnClickListener {
+            launchActivity(PulsingViewActivity::class.java)
+        }
+        btAndroidParticlesActivity.setSafeOnClickListener {
+            launchActivity(AndroidParticlesActivity::class.java)
+        }
+        btKonfetti.setSafeOnClickListener {
+            launchActivity(KonfettiActivity::class.java)
+        }
+        btFadeOutParticleActivity.setSafeOnClickListener {
+            launchActivity(FadeOutParticleActivity::class.java)
+        }
+        btAnimatedStarsView.setSafeOnClickListener {
+            launchActivity(AnimatedStarsViewActivity::class.java)
+        }
+        btSnowfall.setSafeOnClickListener {
+            launchActivity(SnowfallActivity::class.java)
         }
     }
 }

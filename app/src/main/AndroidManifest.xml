@@ -1430,6 +1430,9 @@
         <activity
             android:name=".a.cv.progress.tileProgressView.TileProgressViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.anim.snowfall.SnowfallActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
     <queries>

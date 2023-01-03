@@ -103,6 +103,8 @@ dependencies {
     api 'com.github.hannesa2:AndroidSlidingUpPanel:4.5.0'
 //    https://github.com/angelmmg90/AutoScrollContent
     api 'com.github.angelmmg90:AutoScrollContent:0.1.0'
+//    https://github.com/JetradarMobile/android-snowfall
+    api 'com.github.jetradarmobile:android-snowfall:1.2.1'
 //    https://github.com/ibrahimsn98/android-particles
     api 'com.github.ibrahimsn98:android-particles:2.0'
 //    https://github.com/barteksc/AndroidPdfViewer
