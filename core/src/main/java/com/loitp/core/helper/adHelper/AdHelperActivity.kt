@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.loitp.R
@@ -193,18 +194,18 @@ class AdHelperActivity : BaseFontActivity() {
             }
 
             textView.text = adPage.title
+            textView.setTextColor(colorPrimary)
             tvMsg.text = adPage.msg
+            tvMsg.setTextColor(colorPrimary)
 
             if (isEnglishLanguage) {
                 btOkay.text = "I understand"
             } else {
                 btOkay.text = "Tôi đã hiểu"
             }
-            if (position == adPageList.size - 1) {
-                btOkay.visibility = View.VISIBLE
-            } else {
-                btOkay.visibility = View.GONE
-            }
+            btOkay.isVisible = position == adPageList.size - 1
+            btOkay.setBackgroundColor(colorPrimary)
+            btOkay.setTextColor(colorBackground)
             btOkay.setSafeOnClickListener {
                 onBaseBackPressed()
             }
