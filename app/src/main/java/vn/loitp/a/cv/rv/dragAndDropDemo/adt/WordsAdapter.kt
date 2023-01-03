@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.dragAndDropDemo.adapter
+package vn.loitp.a.cv.rv.dragAndDropDemo.adt
 
 import android.content.ClipData
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.dragAndDropDemo.callback.DragListener
-import vn.loitp.app.a.cv.rv.dragAndDropDemo.callback.WordsDiffCallback
+import vn.loitp.a.cv.rv.dragAndDropDemo.callback.DragListener
+import vn.loitp.a.cv.rv.dragAndDropDemo.callback.WordsDiffCallback
 
 /**
  * A @androidx.recyclerview.widget.RecyclerView adapter to show draggable items
@@ -23,7 +23,7 @@ class WordsAdapter(private val onDragStarted: (String) -> Unit) :
         viewType: Int
     ): WordsViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_word_drag_n_drop, parent, false)
+            .inflate(R.layout.i_word_drag_n_drop, parent, false)
         return WordsViewHolder(view)
     }
 

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.dragAndDropDemo
+package vn.loitp.a.cv.rv.dragAndDropDemo
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,11 +10,11 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_drag_and_drop_demo.*
+import kotlinx.android.synthetic.main.a_rv_drag_and_drop_demo.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.dragAndDropDemo.adapter.SentenceAdapter
-import vn.loitp.app.a.cv.rv.dragAndDropDemo.adapter.WordsAdapter
-import vn.loitp.app.a.cv.rv.dragAndDropDemo.callback.DropListener
+import vn.loitp.a.cv.rv.dragAndDropDemo.adt.SentenceAdapter
+import vn.loitp.a.cv.rv.dragAndDropDemo.adt.WordsAdapter
+import vn.loitp.a.cv.rv.dragAndDropDemo.callback.DropListener
 
 @LogTag("DragAndDropDemoActivity")
 @IsFullScreen(false)
@@ -28,7 +28,7 @@ class DragAndDropDemoActivity : BaseFontActivity() {
     private var selectedWord = ""
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_drag_and_drop_demo
+        return R.layout.a_rv_drag_and_drop_demo
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

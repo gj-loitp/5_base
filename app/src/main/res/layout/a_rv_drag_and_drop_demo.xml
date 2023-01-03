@@ -15,11 +15,11 @@
         android:id="@+id/rvSentenceCard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="@dimen/margin_padding_medium"
         android:layout_weight="1"
         app:cardBackgroundColor="@color/yellow"
         app:cardCornerRadius="@dimen/round_medium"
-        app:cardElevation="@dimen/w_1">
+        app:cardElevation="@dimen/margin_padding_small"
+        app:cardUseCompatPadding="true">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvSentence"

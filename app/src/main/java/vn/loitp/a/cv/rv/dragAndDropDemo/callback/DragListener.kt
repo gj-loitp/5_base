@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.dragAndDropDemo.callback
+package vn.loitp.a.cv.rv.dragAndDropDemo.callback
 
 import android.view.DragEvent
 import android.view.View
@@ -7,7 +7,10 @@ import android.view.View
  * Callback for the draggable view to update it's visibility
  * */
 class DragListener : View.OnDragListener {
-    override fun onDrag(view: View, dragEvent: DragEvent): Boolean {
+    override fun onDrag(
+        view: View,
+        dragEvent: DragEvent
+    ): Boolean {
         when (dragEvent.action) {
             // hide view when drag has been started
             DragEvent.ACTION_DRAG_ENTERED -> view.visibility = View.INVISIBLE

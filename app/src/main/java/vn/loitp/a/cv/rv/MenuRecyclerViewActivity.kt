@@ -16,7 +16,7 @@ import vn.loitp.a.cv.rv.book.BookViewActivity
 import vn.loitp.a.cv.rv.carouselRv.CarouselRecyclerViewActivity
 import vn.loitp.a.cv.rv.concatAdapter.ConcatAdapterActivity
 import vn.loitp.a.cv.rv.diffUtil.DiffUtilActivity
-import vn.loitp.app.a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity
+import vn.loitp.a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity
 import vn.loitp.app.a.cv.rv.dragDrop.MainActivityDragDrop
 import vn.loitp.app.a.cv.rv.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity
 import vn.loitp.app.a.cv.rv.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivity
