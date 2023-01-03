@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.fastScroll
+package vn.loitp.a.cv.rv.fastScroll
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
-import kotlinx.android.synthetic.main.layout_fast_scroll_sample_basic.*
+import kotlinx.android.synthetic.main.f_fast_scroll_sample_basic.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.fastScroll.adapter.SampleAdapter
-import vn.loitp.app.a.cv.rv.fastScroll.db.ListItem
-import vn.loitp.app.a.cv.rv.fastScroll.db.SAMPLE_DATA_TEXT
+import vn.loitp.a.cv.rv.fastScroll.adt.SampleAdapter
+import vn.loitp.a.cv.rv.fastScroll.db.ListItem
+import vn.loitp.a.cv.rv.fastScroll.db.SAMPLE_DATA_TEXT
 import java.util.*
 
 class JustTextFragment : Fragment() {
@@ -21,7 +21,7 @@ class JustTextFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.layout_fast_scroll_sample_basic, container, false)
+        return inflater.inflate(R.layout.f_fast_scroll_sample_basic, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

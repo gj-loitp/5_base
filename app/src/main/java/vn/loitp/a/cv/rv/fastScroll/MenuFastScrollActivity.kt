@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.fastScroll
+package vn.loitp.a.cv.rv.fastScroll
 
 import android.os.AsyncTask
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.thedeanda.lorem.LoremIpsum
-import kotlinx.android.synthetic.main.layout_menu_fast_scroll.*
+import kotlinx.android.synthetic.main.a_menu_fast_scroll.*
 import vn.loitp.R
 
 @LogTag("FastScrollMenuActivity")
@@ -21,15 +21,15 @@ class MenuFastScrollActivity : BaseFontActivity() {
         val title: String,
         val fragmentClass: Class<out Fragment>
     ) {
-        JustText("Just text", JustTextFragment::class.java),
-        TextWithIcon("Text with icon", TextWithIconFragment::class.java),
-        Styled("Styled", StyledFragment::class.java),
-        Filtered("Filtered", FilteredFragment::class.java),
-        CustomScroll("Custom scroll", CustomScrollFragment::class.java)
+        JustText(title = "Just text", fragmentClass = JustTextFragment::class.java),
+        TextWithIcon(title = "Text with icon", fragmentClass = TextWithIconFragment::class.java),
+        Styled(title = "Styled", fragmentClass = StyledFragment::class.java),
+        Filtered(title = "Filtered", fragmentClass = FilteredFragment::class.java),
+        CustomScroll(title = "Custom scroll", fragmentClass = CustomScrollFragment::class.java)
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.layout_menu_fast_scroll
+        return R.layout.a_menu_fast_scroll
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

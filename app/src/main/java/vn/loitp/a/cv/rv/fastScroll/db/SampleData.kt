@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.fastScroll.db
+package vn.loitp.a.cv.rv.fastScroll.db
 
 import com.thedeanda.lorem.LoremIpsum
 import vn.loitp.R
@@ -13,8 +13,8 @@ val SAMPLE_DATA_TEXT = LoremIpsum.getInstance()
 val SAMPLE_DATA_TEXT_AND_HEADERS =
     listOf(
         ListItem.HeaderItem(
-            "Favorites",
-            R.drawable.indicator_favorites,
+            title = "Favorites",
+            iconRes = R.drawable.indicator_favorites,
             showInFastScroll = true
         )
     ) +
@@ -25,8 +25,8 @@ val SAMPLE_DATA_TEXT_AND_HEADERS =
                 .map { ListItem.DataItem(it, showInFastScroll = false) } +
             listOf(
                 ListItem.HeaderItem(
-                    "All",
-                    R.drawable.indicator_words,
+                    title = "All",
+                    iconRes = R.drawable.indicator_words,
                     showInFastScroll = false
                 )
             ) +

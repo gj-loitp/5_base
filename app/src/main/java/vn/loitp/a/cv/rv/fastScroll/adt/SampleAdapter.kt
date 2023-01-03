@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.fastScroll.adapter
+package vn.loitp.a.cv.rv.fastScroll.adt
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.core.view.updatePaddingRelative
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.fastScroll.db.ListItem
+import vn.loitp.a.cv.rv.fastScroll.db.ListItem
 
 class SampleAdapter(
     private val listItem: List<ListItem>
@@ -21,7 +21,10 @@ class SampleAdapter(
 
     private val containsHeaders: Boolean = listItem.any { it is ListItem.HeaderItem }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
 
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(
@@ -45,7 +48,10 @@ class SampleAdapter(
         }
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int
+    ) {
         holder.bind(listItem[position])
     }
 
