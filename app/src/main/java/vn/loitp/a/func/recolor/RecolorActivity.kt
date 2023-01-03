@@ -136,13 +136,12 @@ class RecolorActivity : BaseFontActivity() {
             }
         }
         linReColorBackground.setOnClickListener {
-            isRootViewColorChanged = if (!isRootViewColorChanged) {
-                ReColor(this).setViewBackgroundColor(rootView, "004D40", "#880E4F", 10000)
-                !isRootViewColorChanged
-            } else {
-                ReColor(this).setViewBackgroundColor(rootView, "880E4F", "#004D40", 10000)
-                !isRootViewColorChanged
-            }
+            LUIUtil.recolor(
+                view = it,
+                startColor = Color.RED,
+                endColor = Color.GREEN,
+                duration = 300
+            )
         }
         val reColorCardView = ReColor(this)
         reColorCardView.setOnReColorFinish {

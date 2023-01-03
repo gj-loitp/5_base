@@ -1101,23 +1101,35 @@ class LUIUtil {
             endColor: Int,
             duration: Int = 300
         ) {
-            val hexColorStart = java.lang.String.format("#%06X", 0xFFFFFF and startColor)
-            val hexColorEnd = java.lang.String.format("#%06X", 0xFFFFFF and endColor)
-            if (view is ImageView) {
-                ReColor(view.context).setImageViewColorFilter(
-                    /* imageView = */ view,
-                    /* startingColor = */ hexColorStart,
-                    /* endingColor = */ hexColorEnd,
-                    /* duration = */ duration
-                )
-            } else if (view is TextView) {
-                ReColor(view.context).setTextViewColor(
-                    /* textView = */ view,
-                    /* startingColor = */hexColorStart,
-                    /* endingColor = */hexColorEnd,
-                    /* duration = */duration
-                )
-
+            val hexColorStart = java.lang.String.format("#%08X", -0x1 and startColor)
+            val hexColorEnd = java.lang.String.format("#%08X", -0x1 and endColor)
+            LLog.e("loitpp", "hexColorStart $hexColorStart")
+            LLog.e("loitpp", "hexColorEnd $hexColorEnd")
+            when (view) {
+                is ImageView -> {
+                    ReColor(view.context).setImageViewColorFilter(
+                        /* imageView = */ view,
+                        /* startingColor = */ hexColorStart,
+                        /* endingColor = */ hexColorEnd,
+                        /* duration = */ duration
+                    )
+                }
+                is TextView -> {
+                    ReColor(view.context).setTextViewColor(
+                        /* textView = */ view,
+                        /* startingColor = */hexColorStart,
+                        /* endingColor = */hexColorEnd,
+                        /* duration = */duration
+                    )
+                }
+                else -> {
+                    ReColor(view.context).setViewBackgroundColor(
+                        /* view = */ view,
+                        /* startingColor = */ hexColorStart,
+                        /* endingColor = */ hexColorEnd,
+                        /* duration = */ duration
+                    )
+                }
             }
 
         }

@@ -53,11 +53,11 @@
                 android:textColor="@color/red"
                 android:textSize="@dimen/txt_medium" />
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <LinearLayout
                 android:id="@+id/linReColorBackground"
                 android:layout_width="290dp"
                 android:layout_height="70dp"
-                android:background="#1d1d1d"
+                android:background="@color/red"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
@@ -70,7 +70,7 @@
                     android:text="ReColor Background"
                     android:textColor="@color/white"
                     tools:ignore="HardcodedText" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/theCardView"
