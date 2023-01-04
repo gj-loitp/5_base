@@ -75,14 +75,15 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/theCardView"
                 android:layout_width="290dp"
-                android:layout_height="70dp"
+                android:layout_height="120dp"
                 android:layout_marginTop="30dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackgroundBorderless"
-                app:cardBackgroundColor="#1E88E5"
+                app:cardBackgroundColor="@color/red"
                 app:cardCornerRadius="@dimen/round_medium"
-                app:cardElevation="10dp">
+                app:cardElevation="@dimen/margin_padding_small"
+                app:cardUseCompatPadding="true">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"

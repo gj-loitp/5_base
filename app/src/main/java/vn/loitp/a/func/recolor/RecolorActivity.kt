@@ -17,8 +17,6 @@ import vn.loitp.R
 class RecolorActivity : BaseFontActivity() {
     private var imageViewColorSetNumber = 0
     private var textViewColorSetNumber = 0
-    private var isRootViewColorChanged = false
-    private var isCardColorChanged = false
     private var isStatusBarColorChanged = false
     private var isNavigationBarColorChanged = false
 
@@ -146,18 +144,17 @@ class RecolorActivity : BaseFontActivity() {
                 }
             )
         }
-        val reColorCardView = ReColor(this)
-        reColorCardView.setOnReColorFinish {
-            logD("onReColorFinishCallBack It listens")
-        }
+
         theCardView.setOnClickListener {
-            isCardColorChanged = if (!isCardColorChanged) {
-                reColorCardView.setCardViewColor(theCardView, "1E88E5", "f44336", 3000)
-                !isCardColorChanged
-            } else {
-                reColorCardView.setCardViewColor(theCardView, "f44336", "1E88E5", 3000)
-                !isCardColorChanged
-            }
+            LUIUtil.recolor(
+                view = it,
+                startColor = Color.RED,
+                endColor = Color.GREEN,
+                duration = 300,
+                onReColorFinish = {
+                    showSnackBarInfor("onReColorFinish")
+                }
+            )
         }
 
         // changing statusBar color

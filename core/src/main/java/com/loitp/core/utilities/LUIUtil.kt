@@ -23,6 +23,7 @@ import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.appcompat.widget.AppCompatCheckBox
+import androidx.cardview.widget.CardView
 import androidx.core.graphics.ColorUtils
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
@@ -1119,6 +1120,14 @@ class LUIUtil {
                 is TextView -> {
                     ReColor(view.context).setTextViewColor(
                         /* textView = */ view,
+                        /* startingColor = */hexColorStart,
+                        /* endingColor = */hexColorEnd,
+                        /* duration = */duration
+                    ).setOnReColorFinish(onReColorFinish)
+                }
+                is CardView -> {
+                    ReColor(view.context).setCardViewColor(
+                         view,
                         /* startingColor = */hexColorStart,
                         /* endingColor = */hexColorEnd,
                         /* duration = */duration
