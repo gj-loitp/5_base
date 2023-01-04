@@ -7,8 +7,6 @@ import android.text.Html
 import android.text.Spanned
 import android.util.TypedValue
 import android.view.Gravity
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -383,26 +381,5 @@ class FancyShowcaseActivity : BaseActivityFancyShowcase() {
                 .build()
                 .show()
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_fancy_show_case, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-
-    /**
-     * Shows a FancyShowCaseView that focuses to ActionBar items
-     *
-     * @param item actionbar item to focus
-     * @return true
-     */
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        FancyShowCaseView.Builder(this)
-            .focusOn(findViewById(item.itemId))
-            .title("Focus on Actionbar items")
-            .build()
-            .show()
-        return true
     }
 }

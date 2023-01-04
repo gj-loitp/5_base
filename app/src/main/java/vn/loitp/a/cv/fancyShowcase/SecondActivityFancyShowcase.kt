@@ -1,8 +1,6 @@
 package vn.loitp.a.cv.fancyShowcase
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.a_fancy_showcase_second.*
 import me.toptas.fancyshowcase.FancyShowCaseView
@@ -42,26 +40,4 @@ class SecondActivityFancyShowcase : BaseActivityFancyShowcase() {
             .show()
     }
 
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_fancy_show_case, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-
-    /**
-     * Shows a FancyShowCaseView that focuses to ActionBar items
-     *
-     * @param item actionbar item to focus
-     * @return true
-     */
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        FancyShowCaseView.Builder(this)
-            .focusOn(findViewById(item.itemId))
-            .title("Focus on Actionbar items")
-            .fitSystemWindows(true)
-            .build()
-            .show()
-        return true
-    }
 }
