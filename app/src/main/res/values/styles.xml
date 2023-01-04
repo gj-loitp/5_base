@@ -149,4 +149,10 @@
         <item name="cornerFamilyBottomLeft">rounded</item>
         <item name="cornerFamilyTopRight">rounded</item>
     </style>
+
+    <style name="MyTitleStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#00ff00</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
 </resources>

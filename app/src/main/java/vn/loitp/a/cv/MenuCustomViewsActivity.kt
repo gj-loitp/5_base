@@ -25,6 +25,7 @@ import vn.loitp.a.cv.dlg.MenuDialogActivity
 import vn.loitp.a.cv.dragView.MenuDragViewActivity
 import vn.loitp.a.cv.draggableFlipView.DraggableFlipViewActivity
 import vn.loitp.a.cv.et.MenuEditTextActivity
+import vn.loitp.a.cv.fancyShowcase.FancyShowcaseActivity
 import vn.loitp.a.cv.fbCmt.FacebookCommentActivity
 import vn.loitp.a.cv.fingerPaintView.FingerPaintActivity
 import vn.loitp.a.cv.graph.MenuGraphViewActivity
@@ -127,6 +128,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btCardView.setOnClickListener(this)
         btAndroidRibbon.setOnClickListener(this)
         btSpotlight.setOnClickListener(this)
+        btFancyShowcase.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -176,6 +178,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btCardView -> launchActivity(CardViewActivity::class.java)
             btAndroidRibbon -> launchActivity(RibbonActivity::class.java)
             btSpotlight -> launchActivity(SpotlightActivity::class.java)
+            btFancyShowcase -> launchActivity(FancyShowcaseActivity::class.java)
         }
 
     }

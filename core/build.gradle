@@ -84,6 +84,8 @@ dependencies {
 
 //    https://github.com/hoomanmmd/FadeOutParticle
     api 'com.github.hoomanmmd:fadeoutparticle:1.1.0'
+//    https://github.com/faruktoptas/FancyShowCaseView
+    api 'com.github.faruktoptas:FancyShowCaseView:1.3.9'
 
     //https://github.com/flavioarfaria/KenBurnsView
     api 'com.flaviofaria:kenburnsview:1.0.7'
