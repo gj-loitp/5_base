@@ -1134,6 +1134,20 @@ class LUIUtil {
             ).setOnReColorFinish(onReColorFinish)
         }
 
+        fun recolorNavigationBarPulse(
+            context: Context,
+            pulseColor: Int,
+            pulseSpeed: Int = 300,
+            pulseCount: Int = 2,
+        ) {
+            val pulseColorString = java.lang.String.format("#%08X", -0x1 and pulseColor)
+            ReColor(context).pulseNavigationBar(
+                pulseColorString,
+                pulseSpeed,
+                pulseCount,
+            )
+        }
+
         fun recolorNavigationBar(
             context: Context,
             startColor: Int? = null,
