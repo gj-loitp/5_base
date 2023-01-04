@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#004D40"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="@dimen/margin_padding_medium">
 
@@ -53,7 +53,7 @@
                 android:textColor="@color/red"
                 android:textSize="@dimen/txt_medium" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linReColorBackground"
                 android:layout_width="290dp"
                 android:layout_height="70dp"
@@ -70,7 +70,7 @@
                     android:text="ReColor Background"
                     android:textColor="@color/white"
                     tools:ignore="HardcodedText" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/theCardView"
@@ -220,6 +220,8 @@
                         android:textColor="@color/white" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
+
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
