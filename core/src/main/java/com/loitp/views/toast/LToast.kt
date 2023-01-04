@@ -6,10 +6,10 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
-import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.BuildConfig
 import com.loitp.R
+import com.loitp.core.utilities.LAppResource
+import com.loitp.core.utilities.LUIUtil
 
 /**
  * Created by Loitp on 04,August,2022
@@ -19,9 +19,6 @@ import com.loitp.R
  * freuss47@gmail.com
  */
 object LToast {
-
-    private val toastList = ArrayList<Toast>()
-
     @JvmStatic
     @SuppressLint("InflateParams")
     @JvmOverloads
@@ -35,7 +32,6 @@ object LToast {
         if (msg.isNullOrEmpty()) {
             return
         }
-        clear()
         try {
             val inf =
                 LAppResource.application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -53,17 +49,9 @@ object LToast {
             toast.duration = length
             toast.view = layout
             toast.show()
-            toastList.add(toast)
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
-
-    private fun clear() {
-        for (i in toastList.indices) {
-            toastList[i].cancel()
-        }
-        toastList.clear()
     }
 
     fun showShortInformation(
