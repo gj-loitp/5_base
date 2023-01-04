@@ -2,8 +2,10 @@ package com.loitp.core.ext
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.ColorFilter
 import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
@@ -105,3 +107,5 @@ fun Drawable.toBitmap(): Bitmap {
 }
 
 private fun Int.nonZero() = if (this <= 0) 1 else this
+
+fun View.getBackgroundColor() = (background as? ColorDrawable?)?.color ?: Color.TRANSPARENT

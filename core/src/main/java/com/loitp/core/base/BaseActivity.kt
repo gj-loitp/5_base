@@ -177,8 +177,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     open fun onActivityUserIdleAfterTime(
-        delayMlsIdleTime: Long,
-        isIdleTime: Boolean
+        delayMlsIdleTime: Long, isIdleTime: Boolean
     ) {
         logD("onActivityUserIdleAfterTime delayMlsIdleTime: $delayMlsIdleTime, isIdleTime: $isIdleTime")
     }
@@ -199,8 +198,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun setCustomStatusBar(
-        colorStatusBar: Int,
-        colorNavigationBar: Int
+        colorStatusBar: Int, colorNavigationBar: Int
     ) {
         window.statusBarColor = colorStatusBar
         window.navigationBarColor = colorNavigationBar
@@ -220,7 +218,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun changeStatusBarContrastStyle(
         lightIcons: Boolean,
-        colorBackground: Int
+        colorBackground: Int,
+        withRecolorEfx: Boolean = true,
     ) {
         val decorView: View = this.window.decorView
         if (lightIcons) {
@@ -230,10 +229,18 @@ abstract class BaseActivity : AppCompatActivity() {
             decorView.systemUiVisibility =
                 decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
-
-        this.setCustomStatusBar(
-            colorStatusBar = colorBackground, colorNavigationBar = colorBackground
-        )
+        if (withRecolorEfx) {
+            LUIUtil.recolorStatusBar(
+                context = this, startColor = null, endColor = colorBackground, duration = 300
+            )
+            LUIUtil.recolorNavigationBar(
+                context = this, startColor = null, endColor = colorBackground, duration = 300
+            )
+        } else {
+            this.setCustomStatusBar(
+                colorStatusBar = colorBackground, colorNavigationBar = colorBackground
+            )
+        }
     }
 
     override fun onDestroy() {
@@ -252,8 +259,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showDialogError(
-        errMsg: String?,
-        runnable: Runnable? = null
+        errMsg: String?, runnable: Runnable? = null
     ) {
         if (errMsg.isNullOrEmpty()) {
             return
@@ -269,8 +275,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showDialogMsg(
-        errMsg: String,
-        runnable: Runnable? = null
+        errMsg: String, runnable: Runnable? = null
     ) {
         LDialogUtil.showDialog1(context = this,
             title = getString(R.string.app_name),
@@ -289,43 +294,37 @@ abstract class BaseActivity : AppCompatActivity() {
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
     fun showShortInformation(
-        msg: String?,
-        isTopAnchor: Boolean = true
+        msg: String?, isTopAnchor: Boolean = true
     ) {
         LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     fun showShortWarning(
-        msg: String?,
-        isTopAnchor: Boolean = true
+        msg: String?, isTopAnchor: Boolean = true
     ) {
         LToast.showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     fun showShortError(
-        msg: String?,
-        isTopAnchor: Boolean = true
+        msg: String?, isTopAnchor: Boolean = true
     ) {
         LToast.showShortError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     fun showLongInformation(
-        msg: String?,
-        isTopAnchor: Boolean = true
+        msg: String?, isTopAnchor: Boolean = true
     ) {
         LToast.showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     fun showLongWarning(
-        msg: String?,
-        isTopAnchor: Boolean = true
+        msg: String?, isTopAnchor: Boolean = true
     ) {
         LToast.showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     fun showLongError(
-        msg: String?,
-        isTopAnchor: Boolean = true
+        msg: String?, isTopAnchor: Boolean = true
     ) {
         LToast.showLongError(msg = msg, isTopAnchor = isTopAnchor)
     }
@@ -388,9 +387,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showSnackBarInfor(
-        msg: String,
-        view: View? = null,
-        isFullWidth: Boolean = false
+        msg: String, view: View? = null, isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
             val anchorView = view ?: findViewById(android.R.id.content)
@@ -404,9 +401,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showSnackBarWarning(
-        msg: String,
-        view: View? = null,
-        isFullWidth: Boolean = false
+        msg: String, view: View? = null, isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
             val anchorView = view ?: findViewById(android.R.id.content)
@@ -420,9 +415,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showSnackBarError(
-        msg: String,
-        view: View? = null,
-        isFullWidth: Boolean = false
+        msg: String, view: View? = null, isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
             val anchorView = view ?: findViewById(android.R.id.content)

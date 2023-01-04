@@ -56,7 +56,8 @@ class AdHelperActivity : BaseFontActivity() {
         if (colorStatusBar != 0) {
             changeStatusBarContrastStyle(
                 lightIcons = isLightIconStatusBar,
-                colorBackground = colorStatusBar
+                colorBackground = colorStatusBar,
+                withRecolorEfx = true
             )
         }
 
