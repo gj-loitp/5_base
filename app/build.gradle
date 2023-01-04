@@ -233,6 +233,8 @@ dependencies {
     api 'com.github.TOrnelas:SegmentedProgressBar:0.0.3'
 //    https://github.com/fabiosassu/StackExpandableView
     api 'com.github.fabiosassu:StackExpandableView:1.0.2'
+//    https://github.com/NicholasMata/Spotlight
+    api 'com.github.nicholasmata:spotlight:0.2.0'
 
 //    https://github.com/AndroidLab/textarc
     api 'io.github.a.lab.develop:textarc:1.0.4'
