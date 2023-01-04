@@ -1097,6 +1097,20 @@ class LUIUtil {
                 .build()
         }
 
+        fun recolorStatusBarPulse(
+            context: Context,
+            pulseColor: Int,
+            pulseSpeed: Int = 300,
+            pulseCount: Int = 2,
+        ) {
+            val pulseColorString = java.lang.String.format("#%08X", -0x1 and pulseColor)
+            ReColor(context).pulseStatusBar(
+                pulseColorString,
+                pulseSpeed,
+                pulseCount,
+            )
+        }
+
         fun recolorStatusBar(
             context: Context,
             startColor: Int? = null,

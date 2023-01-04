@@ -241,7 +241,12 @@ class RecolorActivity : BaseFontActivity() {
 
         // pulsing statusBar to an orange color for 2 times
         linPulseStatusBar.setOnClickListener {
-            ReColor(this).pulseStatusBar("E64A19", 200, 2)
+            LUIUtil.recolorStatusBarPulse(
+                context = this,
+                pulseColor = Color.RED,
+                pulseSpeed = 200,
+                pulseCount = 2
+            )
         }
 
         // pulsing navigationBar to an orange color for 2 times
