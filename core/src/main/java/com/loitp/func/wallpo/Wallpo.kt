@@ -24,10 +24,9 @@ object Wallpo {
         context: Context,
         imageView: ImageView,
     ): Boolean {
-        val manager = WallpaperManager.getInstance(context)
         try {
             val bitmap: Bitmap = (imageView.drawable as BitmapDrawable).bitmap
-            manager.setBitmap(
+            WallpaperManager.getInstance(context).setBitmap(
                 /* fullImage = */ bitmap,
                 /* visibleCropHint = */null,
                 /* allowBackup = */true,
@@ -47,11 +46,10 @@ object Wallpo {
         color: Int,
     ): Boolean {
         try {
-            val manager = WallpaperManager.getInstance(context)
             val cd = ColorDrawable(color)
             cd.setBounds(0, 0, LScreenUtil.screenWidth, LScreenUtil.screenHeight)
             val bitmap = cd.toBitmap()
-            manager.setBitmap(
+            WallpaperManager.getInstance(context).setBitmap(
                 /* fullImage = */ bitmap,
                 /* visibleCropHint = */null,
                 /* allowBackup = */true,
@@ -70,9 +68,8 @@ object Wallpo {
         context: Context?,
         imageView: ImageView,
     ): Boolean {
-        val manager = WallpaperManager.getInstance(context)
         try {
-            manager.setBitmap(
+            WallpaperManager.getInstance(context).setBitmap(
                 /* fullImage = */ (imageView.drawable as BitmapDrawable).bitmap,
                 /* visibleCropHint = */ null,
                 /* allowBackup = */ true,
@@ -90,11 +87,10 @@ object Wallpo {
         color: Int,
     ): Boolean {
         try {
-            val manager = WallpaperManager.getInstance(context)
             val cd = ColorDrawable(color)
             cd.setBounds(0, 0, LScreenUtil.screenWidth, LScreenUtil.screenHeight)
             val bitmap = cd.toBitmap()
-            manager.setBitmap(
+            WallpaperManager.getInstance(context).setBitmap(
                 /* fullImage = */ bitmap,
                 /* visibleCropHint = */ null,
                 /* allowBackup = */ true,
