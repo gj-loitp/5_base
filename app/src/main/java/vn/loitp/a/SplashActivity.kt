@@ -97,6 +97,7 @@ class SplashActivity : BaseFontActivity() {
             //ACCESS_BACKGROUND_LOCATION publish len store rat kho khan, khong can thiet
             //ban build debug thi chi test de biet feat nay work
             //con ban release thi khong can dau
+            //nho uncomment per ACCESS_BACKGROUND_LOCATION trong manifest
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && BuildConfig.DEBUG) {
                 listPer.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
             }
