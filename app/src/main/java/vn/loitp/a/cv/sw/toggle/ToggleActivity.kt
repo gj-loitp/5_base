@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.sw.toggle.LabeledSwitch
 import com.loitp.views.sw.toggle.OnToggledListener
@@ -46,6 +47,7 @@ class ToggleActivity : BaseFontActivity() {
         llc.setOnClickListener {
             ls.performClick()
         }
+        ls.setColorBorder(LAppResource.getColor(R.color.deepPink))
         ls.setOnToggledListener(object : OnToggledListener {
             override fun onSwitched(labeledSwitch: LabeledSwitch, isOn: Boolean) {
                 showShortInformation("isOn $isOn")

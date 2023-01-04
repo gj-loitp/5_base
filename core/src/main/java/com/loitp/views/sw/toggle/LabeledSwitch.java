@@ -422,6 +422,11 @@ public class LabeledSwitch extends View {
         invalidate();
     }
 
+    public void setColorBorder(int colorBorder) {
+        this.colorBorder = colorBorder;
+        invalidate();
+    }
+
     @Suppress(names = "unused")
     public String getLabelOn() {
         return labelOn;
