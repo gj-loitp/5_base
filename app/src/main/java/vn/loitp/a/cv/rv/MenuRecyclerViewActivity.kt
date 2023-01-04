@@ -24,7 +24,7 @@ import vn.loitp.a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActiv
 import vn.loitp.a.cv.rv.fastScroll.MenuFastScrollActivity
 import vn.loitp.a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivity
 import vn.loitp.a.cv.rv.fitGv.FitGridViewActivity
-import vn.loitp.app.a.cv.rv.footer.RecyclerViewFooterActivity
+import vn.loitp.a.cv.rv.footer.RecyclerViewFooterActivity
 import vn.loitp.app.a.cv.rv.footer2.RecyclerViewFooter2Activity
 import vn.loitp.app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity
 import vn.loitp.app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivity

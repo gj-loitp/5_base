@@ -1,6 +1,5 @@
-package vn.loitp.app.a.cv.rv.footer
+package vn.loitp.a.cv.rv.footer
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,7 +14,7 @@ import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LPopupMenu
 import com.loitp.core.utilities.LUIUtil
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
-import kotlinx.android.synthetic.main.activity_recycler_view_footer.*
+import kotlinx.android.synthetic.main.a_rv_footer.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 import vn.loitp.app.a.cv.rv.normalRv.MoviesAdapter
@@ -29,7 +28,7 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
     private var moviesAdapter: MoviesAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_footer
+        return R.layout.a_rv_footer
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,18 +39,14 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = RecyclerViewFooterActivity::class.java.simpleName
         }
 
-        moviesAdapter = MoviesAdapter(
-            moviesList = instance.movieList,
+        moviesAdapter = MoviesAdapter(moviesList = instance.movieList,
             callback = object : MoviesAdapter.Callback {
                 override fun onClick(movie: Movie, position: Int) {
                     showShortInformation("Click " + movie.title)
@@ -69,8 +64,7 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
 
                 override fun onLoadMore() {
                 }
-            }
-        )
+            })
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
 //        rv.adapter = moviesAdapter
@@ -91,8 +85,7 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
         prepareMovieData()
 
         btSetting.setSafeOnClickListener {
-            LPopupMenu.show(
-                activity = this,
+            LPopupMenu.show(activity = this,
                 showOnView = it,
                 menuRes = R.menu.menu_recycler_view,
                 callback = { menuItem ->
@@ -111,21 +104,16 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
                             )
                             rv.layoutManager = lmHorizontal
                         }
-                        R.id.menuGridLayoutManager2 ->
-                            rv.layoutManager =
-                                GridLayoutManager(this@RecyclerViewFooterActivity, 2)
-                        R.id.menuGridLayoutManager3 ->
-                            rv.layoutManager =
-                                GridLayoutManager(this@RecyclerViewFooterActivity, 3)
-                        R.id.menuStaggeredGridLayoutManager2 ->
-                            rv.layoutManager =
-                                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-                        R.id.menuStaggeredGridLayoutManager4 ->
-                            rv.layoutManager =
-                                StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
+                        R.id.menuGridLayoutManager2 -> rv.layoutManager =
+                            GridLayoutManager(this@RecyclerViewFooterActivity, 2)
+                        R.id.menuGridLayoutManager3 -> rv.layoutManager =
+                            GridLayoutManager(this@RecyclerViewFooterActivity, 3)
+                        R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager =
+                            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                        R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager =
+                            StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
                     }
-                }
-            )
+                })
         }
 
         btAddMore.setSafeOnClickListener {
@@ -133,30 +121,25 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
         LDialogUtil.showProgress(progressBar)
-        LUIUtil.setDelay(
-            mls = 2000,
-            runnable = {
-                val newSize = 5
-                for (i in 0 until newSize) {
-                    val movie = Movie(
-                        title = "Add new $i",
-                        genre = "Add new $i",
-                        year = "Add new: $i",
-                        cover = Constants.URL_IMG
-                    )
-                    instance.movieList.add(movie)
-                }
-                LDialogUtil.hideProgress(progressBar)
-                moviesAdapter?.notifyDataSetChanged()
-                showShortInformation("Finish loadMore")
+        LUIUtil.setDelay(mls = 2000, runnable = {
+            val newSize = 5
+            for (i in 0 until newSize) {
+                val movie = Movie(
+                    title = "Add new $i",
+                    genre = "Add new $i",
+                    year = "Add new: $i",
+                    cover = Constants.URL_IMG
+                )
+                instance.movieList.add(movie)
             }
-        )
+            LDialogUtil.hideProgress(progressBar)
+            moviesAdapter?.notifyAllViews()
+            showShortInformation("Finish loadMore")
+        })
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         if (instance.movieList.isEmpty()) {
             for (i in 0..3) {
@@ -169,7 +152,7 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
                 instance.movieList.add(movie)
             }
         }
-        moviesAdapter?.notifyDataSetChanged()
+        moviesAdapter?.notifyAllViews()
         LDialogUtil.hideProgress(progressBar)
     }
 }

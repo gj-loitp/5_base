@@ -316,7 +316,7 @@
             android:name=".app.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.footer.RecyclerViewFooterActivity"
+            android:name=".a.cv.rv.footer.RecyclerViewFooterActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.rv.footer2.RecyclerViewFooter2Activity"
