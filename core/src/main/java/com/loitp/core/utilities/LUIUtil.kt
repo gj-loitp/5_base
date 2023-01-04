@@ -1097,6 +1097,29 @@ class LUIUtil {
                 .build()
         }
 
+        fun recolorStatusBar(
+            context: Context,
+            startColor: Int? = null,
+            endColor: Int,
+            duration: Int = 300,
+            onReColorFinish: OnReColorFinish? = null
+        ) {
+            // if starting color is null, color will be automatically retrieved from status bar
+            // same is true for navigation bar
+            var hexColorStart: String? = null
+            if (startColor == null) {
+                //do nothing
+            } else {
+                hexColorStart = java.lang.String.format("#%08X", -0x1 and startColor)
+            }
+            val hexColorEnd = java.lang.String.format("#%08X", -0x1 and endColor)
+            ReColor(context).setStatusBarColor(
+                /* startingColor = */ hexColorStart,
+                /* endingColor = */hexColorEnd,
+                /* duration = */duration
+            ).setOnReColorFinish(onReColorFinish)
+        }
+
         fun recolor(
             view: View,
             startColor: Int,
@@ -1106,8 +1129,8 @@ class LUIUtil {
         ) {
             val hexColorStart = java.lang.String.format("#%08X", -0x1 and startColor)
             val hexColorEnd = java.lang.String.format("#%08X", -0x1 and endColor)
-            LLog.e("loitpp", "hexColorStart $hexColorStart")
-            LLog.e("loitpp", "hexColorEnd $hexColorEnd")
+//            LLog.e("loitpp", "hexColorStart $hexColorStart")
+//            LLog.e("loitpp", "hexColorEnd $hexColorEnd")
             when (view) {
                 is ImageView -> {
                     ReColor(view.context).setImageViewColorFilter(
@@ -1127,7 +1150,7 @@ class LUIUtil {
                 }
                 is CardView -> {
                     ReColor(view.context).setCardViewColor(
-                         view,
+                        view,
                         /* startingColor = */hexColorStart,
                         /* endingColor = */hexColorEnd,
                         /* duration = */duration

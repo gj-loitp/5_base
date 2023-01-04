@@ -162,10 +162,20 @@ class RecolorActivity : BaseFontActivity() {
             isStatusBarColorChanged = if (!isStatusBarColorChanged) {
                 // if starting color is null, color will be automatically retrieved from status bar
                 // same is true for navigation bar
-                ReColor(this).setStatusBarColor(null, "880E4F", 2000)
+                LUIUtil.recolorStatusBar(
+                    context = this,
+                    startColor = null,
+                    endColor = Color.RED,
+                    duration = 300
+                )
                 !isStatusBarColorChanged
             } else {
-                ReColor(this).setStatusBarColor(null, "004D40", 2000)
+                LUIUtil.recolorStatusBar(
+                    context = this,
+                    startColor = null,
+                    endColor = Color.YELLOW,
+                    duration = 300
+                )
                 !isStatusBarColorChanged
             }
         }
