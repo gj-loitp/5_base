@@ -3,6 +3,7 @@ package vn.loitp.a.cv.fancyShowcase
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.loitp.core.base.BaseActivityFancyShowcase
 import kotlinx.android.synthetic.main.a_fancy_showcase_queue.*
 import me.toptas.fancyshowcase.FancyShowCaseQueue
 import me.toptas.fancyshowcase.FancyShowCaseView

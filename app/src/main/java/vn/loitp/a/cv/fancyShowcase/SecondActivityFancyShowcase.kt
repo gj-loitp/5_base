@@ -2,6 +2,7 @@ package vn.loitp.a.cv.fancyShowcase
 
 import android.os.Bundle
 import android.view.View
+import com.loitp.core.base.BaseActivityFancyShowcase
 import kotlinx.android.synthetic.main.a_fancy_showcase_second.*
 import me.toptas.fancyshowcase.FancyShowCaseView
 import vn.loitp.R

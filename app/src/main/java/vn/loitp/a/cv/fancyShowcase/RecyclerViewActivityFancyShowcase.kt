@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewTreeObserver
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.loitp.core.base.BaseActivityFancyShowcase
 import kotlinx.android.synthetic.main.a_fancy_showcase_recycler_view.*
 import me.toptas.fancyshowcase.FancyShowCaseView
 import vn.loitp.R

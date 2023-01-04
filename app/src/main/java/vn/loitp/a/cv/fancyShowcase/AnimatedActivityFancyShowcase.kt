@@ -5,6 +5,7 @@ import android.os.Handler
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.TextView
+import com.loitp.core.base.BaseActivityFancyShowcase
 import kotlinx.android.synthetic.main.a_fancy_showcase.*
 
 import me.toptas.fancyshowcase.FancyShowCaseQueue
