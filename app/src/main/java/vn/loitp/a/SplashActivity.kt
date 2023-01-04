@@ -5,7 +5,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import com.loitp.annotation.IsAutoAnimation
@@ -98,9 +97,9 @@ class SplashActivity : BaseFontActivity() {
             //ban build debug thi chi test de biet feat nay work
             //con ban release thi khong can dau
             //nho uncomment per ACCESS_BACKGROUND_LOCATION trong manifest
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && BuildConfig.DEBUG) {
-                listPer.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-            }
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && BuildConfig.DEBUG) {
+//                listPer.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+//            }
 
             PermissionX.init(this)
                 .permissions(listPer)
