@@ -1183,6 +1183,14 @@ class LUIUtil {
 //            LLog.e("loitpp", "hexColorStart $hexColorStart")
 //            LLog.e("loitpp", "hexColorEnd $hexColorEnd")
             when (view) {
+                is ImageButton -> {
+                    ReColor(view.context).setImageButtonColorFilter(
+                        view,
+                        /* startingColor = */hexColorStart,
+                        /* endingColor = */hexColorEnd,
+                        /* duration = */duration
+                    ).setOnReColorFinish(onReColorFinish)
+                }
                 is ImageView -> {
                     ReColor(view.context).setImageViewColorFilter(
                         /* imageView = */ view,

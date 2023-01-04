@@ -221,7 +221,13 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/ib"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_100"
+                android:layout_marginTop="@dimen/margin_padding_medium"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/ic_launcher" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -274,5 +274,13 @@ class RecolorActivity : BaseFontActivity() {
                 pulseCount = 2
             )
         }
+        ib.setOnClickListener {
+            LUIUtil.recolor(
+                view = it,
+                startColor = Color.WHITE,
+                endColor = Color.RED,
+                duration = 300
+            )
+        }
     }
 }
