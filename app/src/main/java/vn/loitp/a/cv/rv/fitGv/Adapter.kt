@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.fitGv
+package vn.loitp.a.cv.rv.fitGv
 
 import android.content.Context
 import android.view.View

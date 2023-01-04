@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.fitGv
+package vn.loitp.a.cv.rv.fitGv
 
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.rv.fitGridView.FitGridView
-import kotlinx.android.synthetic.main.activity_fit_grid_view.*
+import kotlinx.android.synthetic.main.a_fit_grid_view.*
 import vn.loitp.R
 
 @LogTag("FitGridViewActivity")
@@ -16,7 +16,7 @@ import vn.loitp.R
 class FitGridViewActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fit_grid_view
+        return R.layout.a_fit_grid_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,7 +81,10 @@ class FitGridViewActivity : BaseFontActivity() {
         counter = ++counter % 3
     }
 
-    private fun changeSize(row: Int, column: Int) {
+    private fun changeSize(
+        row: Int,
+        column: Int
+    ) {
         gridView.numRows = row
         gridView.numColumns = column
         gridView.update()
