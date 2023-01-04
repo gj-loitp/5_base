@@ -261,8 +261,18 @@ class RecolorActivity : BaseFontActivity() {
 
         // pulsing both colors' to an orange color for 5 times really fast
         linPulseBoth.setOnClickListener {
-            ReColor(this).pulseStatusBar("E64A19", 80, 5)
-            ReColor(this).pulseNavigationBar("e64a19", 80, 5)
+            LUIUtil.recolorStatusBarPulse(
+                context = this,
+                pulseColor = Color.RED,
+                pulseSpeed = 200,
+                pulseCount = 2
+            )
+            LUIUtil.recolorNavigationBarPulse(
+                context = this,
+                pulseColor = Color.RED,
+                pulseSpeed = 200,
+                pulseCount = 2
+            )
         }
     }
 }
