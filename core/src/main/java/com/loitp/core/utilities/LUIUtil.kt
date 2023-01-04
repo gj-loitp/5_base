@@ -1120,6 +1120,29 @@ class LUIUtil {
             ).setOnReColorFinish(onReColorFinish)
         }
 
+        fun recolorNavigationBar(
+            context: Context,
+            startColor: Int? = null,
+            endColor: Int,
+            duration: Int = 300,
+            onReColorFinish: OnReColorFinish? = null
+        ) {
+            // if starting color is null, color will be automatically retrieved from status bar
+            // same is true for navigation bar
+            var hexColorStart: String? = null
+            if (startColor == null) {
+                //do nothing
+            } else {
+                hexColorStart = java.lang.String.format("#%08X", -0x1 and startColor)
+            }
+            val hexColorEnd = java.lang.String.format("#%08X", -0x1 and endColor)
+            ReColor(context).setNavigationBarColor(
+                /* startingColor = */ hexColorStart,
+                /* endingColor = */hexColorEnd,
+                /* duration = */duration
+            ).setOnReColorFinish(onReColorFinish)
+        }
+
         fun recolor(
             view: View,
             startColor: Int,

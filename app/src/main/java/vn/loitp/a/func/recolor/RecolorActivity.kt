@@ -183,10 +183,20 @@ class RecolorActivity : BaseFontActivity() {
         // changing navigationBar color
         linRecolorNavigationBar.setOnClickListener {
             isNavigationBarColorChanged = if (!isNavigationBarColorChanged) {
-                ReColor(this).setNavigationBarColor(null, "880E4F", 2000)
+                LUIUtil.recolorNavigationBar(
+                    context = this,
+                    startColor = null,
+                    endColor = Color.YELLOW,
+                    duration = 300
+                )
                 !isNavigationBarColorChanged
             } else {
-                ReColor(this).setNavigationBarColor(null, "000000", 2000)
+                LUIUtil.recolorNavigationBar(
+                    context = this,
+                    startColor = null,
+                    endColor = Color.GREEN,
+                    duration = 300
+                )
                 !isNavigationBarColorChanged
             }
         }
