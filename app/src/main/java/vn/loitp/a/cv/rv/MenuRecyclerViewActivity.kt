@@ -22,7 +22,7 @@ import vn.loitp.a.cv.rv.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity
 import vn.loitp.a.cv.rv.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivity
 import vn.loitp.a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivity
 import vn.loitp.a.cv.rv.fastScroll.MenuFastScrollActivity
-import vn.loitp.app.a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivity
+import vn.loitp.a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivity
 import vn.loitp.app.a.cv.rv.fitGv.FitGridViewActivity
 import vn.loitp.app.a.cv.rv.footer.RecyclerViewFooterActivity
 import vn.loitp.app.a.cv.rv.footer2.RecyclerViewFooter2Activity

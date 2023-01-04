@@ -180,7 +180,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".app.a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivity"
+            android:name=".a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivity"

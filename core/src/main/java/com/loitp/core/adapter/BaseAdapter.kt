@@ -1,5 +1,6 @@
 package com.loitp.core.adapter
 
+import android.annotation.SuppressLint
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.BuildConfig
 import com.loitp.annotation.LogTag
@@ -97,6 +98,15 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     protected fun showLongDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
             LToast.showLongInformation(msg)
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun notifyAllViews() {
+        try {
+            notifyItemRangeChanged(0, itemCount)
+        } catch (e: java.lang.Exception) {
+            notifyDataSetChanged()
         }
     }
 }

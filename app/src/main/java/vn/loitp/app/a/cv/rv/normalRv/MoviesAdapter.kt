@@ -13,8 +13,7 @@ import vn.loitp.R
 class MoviesAdapter(
     private val moviesList: List<Movie>,
     private val callback: Callback?
-) :
-    BaseAdapter() {
+) : BaseAdapter() {
 
     interface Callback {
         fun onClick(

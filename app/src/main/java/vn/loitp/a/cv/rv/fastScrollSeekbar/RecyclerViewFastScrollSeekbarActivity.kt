@@ -1,7 +1,6 @@
-package vn.loitp.app.a.cv.rv.fastScrollSeekbar
+package vn.loitp.a.cv.rv.fastScrollSeekbar
 
 import abak.tr.com.boxedverticalseekbar.BoxedVertical
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_recycler_view_fast_scroll_seek_bar.*
+import kotlinx.android.synthetic.main.a_rv_fast_scroll_seek_bar.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 import vn.loitp.app.a.cv.rv.normalRv.MoviesAdapter
@@ -26,7 +25,7 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
     private var isOnTracking = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_fast_scroll_seek_bar
+        return R.layout.a_rv_fast_scroll_seek_bar
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,7 +106,6 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
         prepareMovieData()
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
         LUIUtil.setDelay(mls = 2000, runnable = {
             val newSize = 5
@@ -120,13 +118,12 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
                 )
                 movieList.add(movie)
             }
-            moviesAdapter?.notifyDataSetChanged()
+            moviesAdapter?.notifyAllViews()
             bindSeekbarMax()
             showShortInformation("Finish loadMore")
         })
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         for (i in 0..49) {
             val movie = Movie(
@@ -137,7 +134,7 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
             )
             movieList.add(movie)
         }
-        moviesAdapter?.notifyDataSetChanged()
+        moviesAdapter?.notifyAllViews()
         bindSeekbarMax()
     }
 
