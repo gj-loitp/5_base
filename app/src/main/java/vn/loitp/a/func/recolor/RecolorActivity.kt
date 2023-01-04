@@ -204,17 +204,37 @@ class RecolorActivity : BaseFontActivity() {
         // changing both statusBar and navigationBar colors
         linRecolorBoth.setOnClickListener {
             isStatusBarColorChanged = if (!isStatusBarColorChanged) {
-                ReColor(this).setStatusBarColor(null, "880E4F", 2000)
+                LUIUtil.recolorStatusBar(
+                    context = this,
+                    startColor = null,
+                    endColor = Color.YELLOW,
+                    duration = 300
+                )
                 !isStatusBarColorChanged
             } else {
-                ReColor(this).setStatusBarColor(null, "004D40", 2000)
+                LUIUtil.recolorStatusBar(
+                    context = this,
+                    startColor = null,
+                    endColor = Color.RED,
+                    duration = 300
+                )
                 !isStatusBarColorChanged
             }
             isNavigationBarColorChanged = if (!isNavigationBarColorChanged) {
-                ReColor(this).setNavigationBarColor(null, "880E4F", 2000)
+                LUIUtil.recolorNavigationBar(
+                    context = this,
+                    startColor = null,
+                    endColor = Color.YELLOW,
+                    duration = 300
+                )
                 !isNavigationBarColorChanged
             } else {
-                ReColor(this).setNavigationBarColor(null, "000000", 2000)
+                LUIUtil.recolorNavigationBar(
+                    context = this,
+                    startColor = null,
+                    endColor = Color.RED,
+                    duration = 300
+                )
                 !isNavigationBarColorChanged
             }
         }
