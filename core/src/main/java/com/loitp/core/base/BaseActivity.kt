@@ -486,25 +486,24 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun registerNetworkChangeListener() {
-        CheckNetworkConnectionHelper.getInstance().registerNetworkChangeListener(network)
-    }
+        CheckNetworkConnectionHelper.getInstance()
+            .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
+                override fun onConnected() {
+                    LConnectivityUtil.onNetworkConnectionChanged(isConnected = true)
+                }
 
-    private val network = object : OnNetworkConnectionChangeListener {
-        override fun onConnected() {
-            LConnectivityUtil.onNetworkConnectionChanged(isConnected = true)
-        }
+                override fun onDisconnected() {
+                    LConnectivityUtil.onNetworkConnectionChanged(isConnected = false)
+                }
 
-        override fun onDisconnected() {
-            LConnectivityUtil.onNetworkConnectionChanged(isConnected = false)
-        }
-
-        override fun getContext(): Context {
-            return this@BaseActivity
-        }
+                override fun getContext(): Context {
+                    return this@BaseActivity
+                }
+            })
     }
 
     private fun unRegisterNetworkChangeListener() {
-        CheckNetworkConnectionHelper.getInstance().unregisterObserver(network)
+//        AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
     }
 
 }
