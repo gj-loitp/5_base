@@ -42,5 +42,14 @@ class ToggleActivity : BaseFontActivity() {
                 showShortInformation("isOn $isOn")
             }
         })
+
+        llc.setOnClickListener {
+            ls.performClick()
+        }
+        ls.setOnToggledListener(object : OnToggledListener {
+            override fun onSwitched(labeledSwitch: LabeledSwitch, isOn: Boolean) {
+                showShortInformation("isOn $isOn")
+            }
+        })
     }
 }
