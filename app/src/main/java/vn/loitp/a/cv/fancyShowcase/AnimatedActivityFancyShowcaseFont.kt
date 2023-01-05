@@ -13,6 +13,8 @@ import kotlinx.android.synthetic.main.a_fancy_showcase.*
 import kotlinx.android.synthetic.main.l_fancy_showcaseanimated_view.*
 import me.toptas.fancyshowcase.FancyShowCaseQueue
 import me.toptas.fancyshowcase.FancyShowCaseView
+import me.toptas.fancyshowcase.FocusShape
+import me.toptas.fancyshowcase.listener.DismissListener
 import me.toptas.fancyshowcase.listener.OnViewInflateListener
 import vn.loitp.R
 
@@ -32,17 +34,32 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
         fancyView = FancyShowCaseView.Builder(this)
             .focusOn(btnFocus)
             .backgroundColor(Color.YELLOW)
+            .focusShape(FocusShape.CIRCLE)
+//            .roundRectRadius(90)
+            .focusBorderColor(Color.GREEN)
+            .focusBorderSize(15)
+//            .focusDashedBorder(15.0f, 15.0f)
+//            .showOnce("1")
+            .dismissListener(object : DismissListener {
+                override fun onDismiss(id: String?) {
+
+                }
+
+                override fun onSkipped(id: String?) {
+
+                }
+            })
             .customView(R.layout.l_fancy_showcaseanimated_view, object : OnViewInflateListener {
                 override fun onViewInflated(view: View) {
                     LUIUtil.recolorStatusBar(
                         context = this@AnimatedActivityFancyShowcaseFont,
                         startColor = null,
-                        endColor = Color.YELLOW
+                        endColor = Color.RED
                     )
                     LUIUtil.recolorNavigationBar(
                         context = this@AnimatedActivityFancyShowcaseFont,
                         startColor = null,
-                        endColor = Color.YELLOW
+                        endColor = Color.RED
                     )
                     setAnimatedContent(fancyView)
                 }
