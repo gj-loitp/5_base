@@ -267,7 +267,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         //Shows a FancyShowCaseView with custom enter, exit animations
-        btn_anim.setOnClickListener {
+        btnAnim.setOnClickListener {
             val enterAnimation =
                 AnimationUtils.loadAnimation(this, R.anim.slide_in_top_fancy_showcase)
             val exitAnimation =
@@ -296,7 +296,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         //Shows a FancyShowCaseView view custom view inflation
-        btn_custom_view.setOnClickListener {
+        btnCustomView.setOnClickListener {
             mFancyShowCaseView = FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .enableTouchOnFocusedView(true)
@@ -326,11 +326,11 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
 
         }
 
-        btn_custom_view2.setOnClickListener {
+        btnCustomView2.setOnClickListener {
             launchActivity(AnimatedActivityFancyShowcaseFont::class.java)
         }
 
-        btn_no_anim.setOnClickListener {
+        btnNoAnim.setOnClickListener {
             mFancyShowCaseView = FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .disableFocusAnimation()
@@ -339,23 +339,23 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
 
         }
 
-        btn_queue.setOnClickListener {
+        btnQueue.setOnClickListener {
             launchActivity(QueueActivityFancyShowcaseFont::class.java)
         }
 
-        btn_custom_queue.setOnClickListener {
+        btnCustomQueue.setOnClickListener {
             launchActivity(CustomQueueActivityFontFancyShowcase::class.java)
         }
 
-        btn_another_activity.setOnClickListener {
+        btnAnotherActivity.setOnClickListener {
             launchActivity(SecondActivityFancyShowcaseFont::class.java)
         }
 
-        btn_recycler_view.setOnClickListener {
+        btnRecyclerView.setOnClickListener {
             launchActivity(RecyclerViewActivityFontFancyShowcase::class.java)
         }
 
-        btn_scaled_view.setOnClickListener {
+        btnScaledView.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .title("Focus on Scaled View")

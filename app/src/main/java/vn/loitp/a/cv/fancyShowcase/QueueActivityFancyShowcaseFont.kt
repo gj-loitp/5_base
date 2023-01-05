@@ -9,7 +9,6 @@ import me.toptas.fancyshowcase.FancyShowCaseView
 import me.toptas.fancyshowcase.listener.OnCompleteListener
 import vn.loitp.R
 
-
 abstract class QueueActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
