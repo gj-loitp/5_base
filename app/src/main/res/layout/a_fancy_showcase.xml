@@ -239,12 +239,6 @@
                 android:text="Another Activity" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnQueue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="queuing Multiple Instances" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRecyclerView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

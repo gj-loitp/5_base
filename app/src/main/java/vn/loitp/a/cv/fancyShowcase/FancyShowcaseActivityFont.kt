@@ -339,10 +339,6 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
 
         }
 
-        btnQueue.setOnClickListener {
-            launchActivity(QueueActivityFancyShowcaseFont::class.java)
-        }
-
         btnAnotherActivity.setOnClickListener {
             launchActivity(SecondActivityFancyShowcaseFont::class.java)
         }
