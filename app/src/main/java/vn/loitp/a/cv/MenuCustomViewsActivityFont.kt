@@ -25,7 +25,7 @@ import vn.loitp.a.cv.dlg.MenuDialogActivityFont
 import vn.loitp.a.cv.dragView.MenuDragViewActivityFont
 import vn.loitp.a.cv.draggableFlipView.DraggableFlipViewActivityFont
 import vn.loitp.a.cv.et.MenuEditTextActivityFont
-import vn.loitp.a.cv.fancyShowcase.FancyShowcaseActivityFont
+import vn.loitp.a.cv.fancyShowcase.FancyShowcaseActivity
 import vn.loitp.a.cv.fbCmt.FacebookCommentActivityFont
 import vn.loitp.a.cv.fingerPaintView.FingerPaintActivityFont
 import vn.loitp.a.cv.graph.MenuGraphViewActivityFont
@@ -178,7 +178,7 @@ class MenuCustomViewsActivityFont : BaseActivityFont(), OnClickListener {
             btCardView -> launchActivity(CardViewActivityFont::class.java)
             btAndroidRibbon -> launchActivity(RibbonActivityFont::class.java)
             btSpotlight -> launchActivity(SpotlightActivityFont::class.java)
-            btFancyShowcase -> launchActivity(FancyShowcaseActivityFont::class.java)
+            btFancyShowcase -> launchActivity(FancyShowcaseActivity::class.java)
         }
 
     }

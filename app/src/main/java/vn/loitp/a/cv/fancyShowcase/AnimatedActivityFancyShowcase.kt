@@ -7,7 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.animation.AnimationUtils
-import com.loitp.core.base.BaseActivityFancyShowcaseFont
+import com.loitp.core.base.BaseActivityFancyShowcase
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_fancy_showcase.*
 import kotlinx.android.synthetic.main.l_fancy_showcaseanimated_view.*
@@ -18,7 +18,7 @@ import me.toptas.fancyshowcase.listener.DismissListener
 import me.toptas.fancyshowcase.listener.OnViewInflateListener
 import vn.loitp.R
 
-class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
+class AnimatedActivityFancyShowcase : BaseActivityFancyShowcase() {
 
     private lateinit var queue: FancyShowCaseQueue
     private lateinit var fancyView: FancyShowCaseView
@@ -52,12 +52,12 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
             .customView(R.layout.l_fancy_showcaseanimated_view, object : OnViewInflateListener {
                 override fun onViewInflated(view: View) {
                     LUIUtil.recolorStatusBar(
-                        context = this@AnimatedActivityFancyShowcaseFont,
+                        context = this@AnimatedActivityFancyShowcase,
                         startColor = null,
                         endColor = Color.RED
                     )
                     LUIUtil.recolorNavigationBar(
-                        context = this@AnimatedActivityFancyShowcaseFont,
+                        context = this@AnimatedActivityFancyShowcase,
                         startColor = null,
                         endColor = Color.RED
                     )
@@ -103,13 +103,13 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
             }
 
             val mainAnimation = AnimationUtils.loadAnimation(
-                /* context = */ this@AnimatedActivityFancyShowcaseFont,
+                /* context = */ this@AnimatedActivityFancyShowcase,
                 /* id = */ R.anim.slide_in_left_fancy_showcase
             )
             mainAnimation.fillAfter = true
 
             val subAnimation = AnimationUtils.loadAnimation(
-                /* context = */ this@AnimatedActivityFancyShowcaseFont,
+                /* context = */ this@AnimatedActivityFancyShowcase,
                 /* id = */ R.anim.slide_in_left_fancy_showcase
             )
             subAnimation.fillAfter = true

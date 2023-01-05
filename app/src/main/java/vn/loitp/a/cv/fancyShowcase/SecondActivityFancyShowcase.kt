@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseActivityFancyShowcaseFont
+import com.loitp.core.base.BaseActivityFancyShowcase
 import kotlinx.android.synthetic.main.a_fancy_showcase_second.*
 import me.toptas.fancyshowcase.FancyShowCaseView
 import vn.loitp.R
@@ -12,7 +12,7 @@ import vn.loitp.R
 @LogTag("SecondActivityFancyShowcaseFont")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class SecondActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
+class SecondActivityFancyShowcase : BaseActivityFancyShowcase() {
     override fun setLayoutResourceId(): Int {
         return R.layout.a_fancy_showcase_second
     }
@@ -27,7 +27,7 @@ class SecondActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
     }
 
     private fun focusOnButton() {
-        FancyShowCaseView.Builder(this@SecondActivityFancyShowcaseFont)
+        FancyShowCaseView.Builder(this@SecondActivityFancyShowcase)
             .focusOn(button1)
             .title("Focus a view")
             .fitSystemWindows(true)

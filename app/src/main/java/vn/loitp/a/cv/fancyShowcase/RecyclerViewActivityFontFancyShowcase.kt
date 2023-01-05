@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseActivityFancyShowcaseFont
+import com.loitp.core.base.BaseActivityFancyShowcase
 import kotlinx.android.synthetic.main.a_fancy_showcase_recycler_view.*
 import me.toptas.fancyshowcase.FancyShowCaseView
 import vn.loitp.R
@@ -17,7 +17,7 @@ import vn.loitp.a.cv.fancyShowcase.adt.MyRecyclerViewAdapter
 @LogTag("RecyclerViewActivityFontFancyShowcase")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class RecyclerViewActivityFontFancyShowcase : BaseActivityFancyShowcaseFont() {
+class RecyclerViewActivityFontFancyShowcase : BaseActivityFancyShowcase() {
     override fun setLayoutResourceId(): Int {
         return R.layout.a_fancy_showcase_recycler_view
     }

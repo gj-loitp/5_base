@@ -1434,16 +1434,16 @@
             android:name=".a.anim.snowfall.SnowfallActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.fancyShowcase.FancyShowcaseActivityFont"
+            android:name=".a.cv.fancyShowcase.FancyShowcaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.fancyShowcase.SecondActivityFancyShowcaseFont"
+            android:name=".a.cv.fancyShowcase.SecondActivityFancyShowcase"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.fancyShowcase.RecyclerViewActivityFontFancyShowcase"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.fancyShowcase.AnimatedActivityFancyShowcaseFont"
+            android:name=".a.cv.fancyShowcase.AnimatedActivityFancyShowcase"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>

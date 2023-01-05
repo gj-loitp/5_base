@@ -16,7 +16,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseActivityFancyShowcaseFont
+import com.loitp.core.base.BaseActivityFancyShowcase
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_fancy_showcase.*
@@ -29,7 +29,7 @@ import vn.loitp.R
 @LogTag("FancyShowcaseActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
+class FancyShowcaseActivity : BaseActivityFancyShowcase() {
 
     private var mFancyShowCaseView: FancyShowCaseView? = null
 
@@ -69,7 +69,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
                 isVisible = true
                 setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = FancyShowcaseActivityFont::class.java.simpleName
+            this.tvTitle?.text = FancyShowcaseActivity::class.java.simpleName
         }
 
         btnSimple.setOnClickListener {
@@ -327,7 +327,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         btnCustomView2.setOnClickListener {
-            launchActivity(AnimatedActivityFancyShowcaseFont::class.java)
+            launchActivity(AnimatedActivityFancyShowcase::class.java)
         }
 
         btnNoAnim.setOnClickListener {
@@ -340,7 +340,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         btnAnotherActivity.setOnClickListener {
-            launchActivity(SecondActivityFancyShowcaseFont::class.java)
+            launchActivity(SecondActivityFancyShowcase::class.java)
         }
 
         btnRecyclerView.setOnClickListener {
