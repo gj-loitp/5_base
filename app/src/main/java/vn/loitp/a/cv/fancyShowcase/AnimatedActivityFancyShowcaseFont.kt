@@ -58,6 +58,9 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
     private fun setAnimatedContent(
         fancyShowCaseView: FancyShowCaseView
     ) {
+//        val color = Color.YELLOW
+//        setCustomStatusBar(color, color)
+//        fl.setBackgroundColor(color)
         Handler(Looper.getMainLooper()).postDelayed({
             if (fancyShowCaseView == fancyView2) {
                 tvMain.text = "My Fancy Title 2"
