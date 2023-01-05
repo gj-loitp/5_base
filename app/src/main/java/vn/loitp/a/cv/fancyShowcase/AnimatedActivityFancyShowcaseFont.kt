@@ -1,5 +1,6 @@
 package vn.loitp.a.cv.fancyShowcase
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -30,7 +31,7 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
             .focusOn(btnFocus)
             .customView(R.layout.l_fancy_showcaseanimated_view, object : OnViewInflateListener {
                 override fun onViewInflated(view: View) {
-                    setAnimatedContent(view, fancyView)
+                    setAnimatedContent(fancyView)
                 }
             })
             .build()
@@ -39,7 +40,7 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
             .focusOn(btnFocus2)
             .customView(R.layout.l_fancy_showcaseanimated_view, object : OnViewInflateListener {
                 override fun onViewInflated(view: View) {
-                    setAnimatedContent(view, fancyView2)
+                    setAnimatedContent(fancyView2)
                 }
             })
             .build()
@@ -53,8 +54,8 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setAnimatedContent(
-        view: View,
         fancyShowCaseView: FancyShowCaseView
     ) {
         Handler(Looper.getMainLooper()).postDelayed({
