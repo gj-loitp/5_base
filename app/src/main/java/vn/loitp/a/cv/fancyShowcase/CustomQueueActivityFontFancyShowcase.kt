@@ -1,7 +1,6 @@
 package vn.loitp.a.cv.fancyShowcase
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.loitp.core.base.BaseActivityFancyShowcaseFont
 import kotlinx.android.synthetic.main.a_fancy_showcase_queue.*
@@ -16,17 +15,14 @@ abstract class CustomQueueActivityFontFancyShowcase : BaseActivityFancyShowcaseF
     private lateinit var queue: FancyShowCaseQueue
 
     private var mClickListener: View.OnClickListener = View.OnClickListener {
-        Log.d("", "onClick: ")
         queue.current?.hide()
     }
 
     private var dismissListener = object : DismissListener {
         override fun onDismiss(id: String?) {
-            Log.v("asd", "dismiss")
         }
 
         override fun onSkipped(id: String?) {
-            Log.v("asd", "skipped")
         }
 
     }
@@ -37,10 +33,10 @@ abstract class CustomQueueActivityFontFancyShowcase : BaseActivityFancyShowcaseF
 
         val fancyShowCaseView1 = FancyShowCaseView.Builder(this)
             .title("First Queue Item")
-            .focusOn(btn_queue_1)
+            .focusOn(btnQueue1)
             .customView(R.layout.l_fancy_showcase_my_custom_view, object : OnViewInflateListener {
                 override fun onViewInflated(view: View) {
-                    view.findViewById<View>(R.id.btn_action_1).setOnClickListener(mClickListener)
+                    view.findViewById<View>(R.id.btnAction1).setOnClickListener(mClickListener)
                 }
             })
             .closeOnTouch(false)
@@ -49,10 +45,10 @@ abstract class CustomQueueActivityFontFancyShowcase : BaseActivityFancyShowcaseF
 
         val fancyShowCaseView2 = FancyShowCaseView.Builder(this)
             .title("Second Queue Item")
-            .focusOn(btn_queue_2)
+            .focusOn(btnQueue2)
             .customView(R.layout.l_fancy_showcase_my_custom_view, object : OnViewInflateListener {
                 override fun onViewInflated(view: View) {
-                    view.findViewById<View>(R.id.btn_action_1).setOnClickListener(mClickListener)
+                    view.findViewById<View>(R.id.btnAction1).setOnClickListener(mClickListener)
                 }
             })
             .closeOnTouch(false)
@@ -61,10 +57,10 @@ abstract class CustomQueueActivityFontFancyShowcase : BaseActivityFancyShowcaseF
 
         val fancyShowCaseView3 = FancyShowCaseView.Builder(this)
             .title("Third Queue Item")
-            .focusOn(btn_queue_3!!)
+            .focusOn(btnQueue3!!)
             .customView(R.layout.l_fancy_showcase_my_custom_view, object : OnViewInflateListener {
                 override fun onViewInflated(view: View) {
-                    view.findViewById<View>(R.id.btn_action_1).setOnClickListener(mClickListener)
+                    view.findViewById<View>(R.id.btnAction1).setOnClickListener(mClickListener)
                 }
             })
             .closeOnTouch(false)

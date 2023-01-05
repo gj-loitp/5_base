@@ -1,6 +1,5 @@
 package vn.loitp.a.cv.fancyShowcase
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Html
@@ -12,7 +11,6 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsAutoAnimation
@@ -73,7 +71,8 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
             }
             this.tvTitle?.text = FancyShowcaseActivityFont::class.java.simpleName
         }
-        btn_simple.setOnClickListener {
+
+        btnSimple.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .title("No Focus")
                 .build()
@@ -91,7 +90,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
 
         // Set title with spanned
         val spanned: Spanned = Html.fromHtml("<font color='#ff0000'>Spanned</font>")
-        btn_spanned.setOnClickListener {
+        btnSpanned.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .title(spanned)
@@ -103,7 +102,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         // Set title size
-        btn_title_size.setOnClickListener {
+        btnTitleSize.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .title("Title size")
@@ -113,7 +112,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         // Set title typeface
-        btn_title_typeface.setOnClickListener {
+        btnTitleTypeface.setOnClickListener {
             val typeface =
                 ResourcesCompat.getFont(this, R.font.pacifico_regular)
             FancyShowCaseView.Builder(this)
@@ -125,7 +124,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         //Shows a FancyShowCaseView with rounded rect focus shape
-        btn_rounded_rect.setOnClickListener {
+        btnRoundedRect.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .focusShape(FocusShape.ROUNDED_RECTANGLE)
@@ -135,15 +134,14 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
                 .show()
         }
 
-
         //Shows a FancyShowCaseView that focus on a view
-        btn_focus_dismiss_on_focus_area.setOnClickListener {
+        btnFocusDismissOnFocusArea.setOnClickListener {
             if (FancyShowCaseView.isVisible(this)) {
-                Toast.makeText(this, "Clickable button", Toast.LENGTH_SHORT).show()
+                showShortInformation("Clickable button")
                 FancyShowCaseView.hideCurrent(this)
             } else {
                 FancyShowCaseView.Builder(this)
-                    .focusOn(findViewById(R.id.btn_focus_dismiss_on_focus_area))
+                    .focusOn(findViewById(R.id.btnFocusDismissOnFocusArea))
                     .enableTouchOnFocusedView(true)
                     .title("Focus on View \n(dismiss on focus area)")
                     .build()
@@ -152,9 +150,9 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         //Shows a FancyShowCaseView with rounded rect focus shape
-        btn_rounded_rect_dismiss_on_focus_area.setOnClickListener {
+        btnRoundedRectDismissOnFocusArea.setOnClickListener {
             if (FancyShowCaseView.isVisible(this)) {
-                Toast.makeText(this, "Clickable button", Toast.LENGTH_SHORT).show()
+                showShortInformation("Clickable button")
                 FancyShowCaseView.hideCurrent(this)
             } else {
                 FancyShowCaseView.Builder(this)
@@ -182,7 +180,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         //Shows FancyShowCaseView at specific position (round rectangle shape)
-        btn_rect_position.setOnClickListener {
+        btnRectPosition.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .title("Focus on larger view")
                 .focusRectAtPosition(260, 85, 480, 80)
@@ -202,7 +200,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         //Shows a FancyShowCaseView that focuses on a larger view
-        btn_focus_rect_color.setOnClickListener {
+        btnFocusRectColor.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .title("Focus on larger view")
@@ -216,7 +214,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         //Shows a FancyShowCaseView that has dashed rectangle border
-        btn_focus_dashed_rect.setOnClickListener {
+        btnFocusDashedRect.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .title("Focus with dashed line")
@@ -231,7 +229,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         //Shows a FancyShowCaseView that has dashed circle border
-        btn_focus_dashed_circle.setOnClickListener {
+        btnFocusDashedCircle.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .title("Focus with dashed line")
@@ -246,7 +244,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         //Shows a FancyShowCaseView with background color and title style
-        btn_background_color.setOnClickListener {
+        btnBackgroundColor.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .backgroundColor(Color.parseColor("#AAff0000"))
@@ -257,7 +255,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         //Shows a FancyShowCaseView with border color
-        btn_border_color.setOnClickListener {
+        btnBorderColor.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .title("Focus border color can be changed")
@@ -307,7 +305,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
                     object : OnViewInflateListener {
                         override fun onViewInflated(view: View) {
                             val image =
-                                (view as RelativeLayout).findViewById<ImageView>(R.id.iv_custom_view)
+                                (view as RelativeLayout).findViewById<ImageView>(R.id.ivCustomView)
                             val params = image.layoutParams as RelativeLayout.LayoutParams
 
                             image.post {
@@ -318,7 +316,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
                                 image.layoutParams = params
                             }
 
-                            view.findViewById<View>(R.id.btn_action_1)
+                            view.findViewById<View>(R.id.btnAction1)
                                 .setOnClickListener(mClickListener)
                         }
                     })
@@ -329,7 +327,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         btn_custom_view2.setOnClickListener {
-            startActivity(Intent(this, AnimatedActivityFancyShowcaseFont::class.java))
+            launchActivity(AnimatedActivityFancyShowcaseFont::class.java)
         }
 
         btn_no_anim.setOnClickListener {
@@ -342,19 +340,19 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         btn_queue.setOnClickListener {
-            startActivity(Intent(this, QueueActivityFancyShowcaseFont::class.java))
+            launchActivity(QueueActivityFancyShowcaseFont::class.java)
         }
 
         btn_custom_queue.setOnClickListener {
-            startActivity(Intent(this, CustomQueueActivityFontFancyShowcase::class.java))
+            launchActivity(CustomQueueActivityFontFancyShowcase::class.java)
         }
 
         btn_another_activity.setOnClickListener {
-            startActivity(Intent(this, SecondActivityFancyShowcaseFont::class.java))
+            launchActivity(SecondActivityFancyShowcaseFont::class.java)
         }
 
         btn_recycler_view.setOnClickListener {
-            startActivity(Intent(this, RecyclerViewActivityFontFancyShowcase::class.java))
+            launchActivity(RecyclerViewActivityFontFancyShowcase::class.java)
         }
 
         btn_scaled_view.setOnClickListener {
@@ -365,7 +363,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
                 .show()
         }
 
-        btn_focus_delay.setOnClickListener {
+        btnFocusDelay.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .title("Focus with delay")
                 .focusOn(it)
@@ -374,7 +372,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
                 .show()
         }
 
-        btn_show_once.setOnClickListener {
+        btnShowOnce.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .title("Clean storage to see this again")

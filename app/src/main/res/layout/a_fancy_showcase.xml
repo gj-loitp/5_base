@@ -11,187 +11,184 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lActionBar">
 
-        <LinearLayout
-            android:id="@+id/activity_main"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/activityMain"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center|top"
-            android:orientation="vertical"
-            tools:context="me.toptas.fancyshowcasesample.FancyShowcaseMainActivity">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_simple"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSimple"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_padding_medium"
                 android:text="NoFocus" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnFocus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Circle" />
 
-                <Button
-                    android:id="@+id/btn_rounded_rect"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRoundedRect"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="Rounded Rect" />
 
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            </LinearLayout>
-
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btn_title_typeface"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnTitleTypeface"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Title Typeface" />
 
-                <Button
-                    android:id="@+id/btn_title_size"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnTitleSize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="Title Size" />
 
-                <Button
-                    android:id="@+id/btn_spanned"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSpanned"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="Spanned" />
 
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btn_focus_dismiss_on_focus_area"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnFocusDismissOnFocusArea"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_padding_medium"
                     android:text="Circle \n(dismiss on \nfocus area)" />
 
-                <Button
-                    android:id="@+id/btn_rounded_rect_dismiss_on_focus_area"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRoundedRectDismissOnFocusArea"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:layout_marginTop="@dimen/margin_padding_medium"
                     android:text="Rounded Rect \n(dismiss on \nfocus area)" />
 
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnFocus2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_padding_medium"
                     android:text="Larger" />
 
-                <Button
-                    android:id="@+id/btn_rect_position"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRectPosition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_padding_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="Focus a Position" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btn_background_color"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnBackgroundColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_padding_medium"
                     android:text="Background color" />
 
-                <Button
-                    android:id="@+id/btn_border_color"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnBorderColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_padding_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="Circle border color" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <Button
-                android:id="@+id/btn_focus_rect_color"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnFocusRectColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:text="A button with rect border color" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btn_focus_dashed_rect"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnFocusDashedRect"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_padding_medium"
                     android:text="Dashed Rect Border" />
 
-                <Button
-                    android:id="@+id/btn_focus_dashed_circle"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnFocusDashedCircle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_padding_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="Dashed Circle Border" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btn_focus_delay"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnFocusDelay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_padding_medium"
                     android:text="Delayed" />
 
-                <Button
-                    android:id="@+id/btn_show_once"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnShowOnce"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_padding_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="Show once" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -276,7 +273,7 @@
                 android:scaleY="1.5"
                 android:text="Scaled Button" />
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

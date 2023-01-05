@@ -18,17 +18,17 @@ abstract class QueueActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() 
 
         val fancyShowCaseView1 = FancyShowCaseView.Builder(this)
             .title("First Queue Item")
-            .focusOn(btn_queue_1)
+            .focusOn(btnQueue1)
             .build()
 
         val fancyShowCaseView2 = FancyShowCaseView.Builder(this)
             .title("Second Queue Item")
-            .focusOn(btn_queue_2)
+            .focusOn(btnQueue2)
             .build()
 
         val fancyShowCaseView3 = FancyShowCaseView.Builder(this)
             .title("Third Queue Item")
-            .focusOn(btn_queue_3)
+            .focusOn(btnQueue3)
             .build()
 
         val queue = FancyShowCaseQueue()

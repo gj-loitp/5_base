@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activityMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center|top"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_queue_1"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnQueue1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_padding_medium"
         android:text="Focus1" />
 
 
-    <Button
-        android:id="@+id/btn_queue_2"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnQueue2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_padding_medium"
-        android:layout_marginBottom="@dimen/margin_padding_medium"
         android:text="Focus2" />
 
-    <Button
-        android:id="@+id/btn_queue_3"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnQueue3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_padding_medium"
         android:text="Focus3" />
 
 
-</LinearLayout>
-
+</androidx.appcompat.widget.LinearLayoutCompat>
