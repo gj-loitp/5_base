@@ -2,12 +2,12 @@ package vn.loitp.a.cv.fancyShowcase
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.TextView
 import com.loitp.core.base.BaseActivityFancyShowcaseFont
 import kotlinx.android.synthetic.main.a_fancy_showcase.*
-
+import kotlinx.android.synthetic.main.l_fancy_showcaseanimated_view.*
 import me.toptas.fancyshowcase.FancyShowCaseQueue
 import me.toptas.fancyshowcase.FancyShowCaseView
 import me.toptas.fancyshowcase.listener.OnViewInflateListener
@@ -27,7 +27,7 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
         super.onCreate(savedInstanceState)
 
         fancyView = FancyShowCaseView.Builder(this)
-            .focusOn(btn_focus)
+            .focusOn(btnFocus)
             .customView(R.layout.l_fancy_showcaseanimated_view, object : OnViewInflateListener {
                 override fun onViewInflated(view: View) {
                     setAnimatedContent(view, fancyView)
@@ -36,7 +36,7 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
             .build()
 
         fancyView2 = FancyShowCaseView.Builder(this)
-            .focusOn(btn_focus2)
+            .focusOn(btnFocus2)
             .customView(R.layout.l_fancy_showcaseanimated_view, object : OnViewInflateListener {
                 override fun onViewInflated(view: View) {
                     setAnimatedContent(view, fancyView2)
@@ -44,49 +44,44 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
             })
             .build()
 
-        btn_focus.setOnClickListener {
+        btnFocus.setOnClickListener {
             queue = FancyShowCaseQueue().apply {
                 add(fancyView)
                 add(fancyView2)
                 show()
             }
         }
-
-
     }
 
-    private fun setAnimatedContent(view: View, fancyShowCaseView: FancyShowCaseView) {
-        Handler().postDelayed({
-            val tvMain = view.findViewById<View>(R.id.tvMain) as TextView
-            val tvSub = view.findViewById<View>(R.id.tvSub) as TextView
-            val tvNext = view.findViewById<View>(R.id.btn_next) as TextView
-            val tvDismiss = view.findViewById<View>(R.id.btn_dismiss) as TextView
-
+    private fun setAnimatedContent(
+        view: View,
+        fancyShowCaseView: FancyShowCaseView
+    ) {
+        Handler(Looper.getMainLooper()).postDelayed({
             if (fancyShowCaseView == fancyView2) {
                 tvMain.text = "My Fancy Title 2"
                 tvSub.text = "My fancy description can be a longer text.2"
-                tvNext.text = "Close"
+                btn_next.text = "Close"
             }
 
-            tvNext.setOnClickListener { fancyShowCaseView.hide() }
+            btn_next.setOnClickListener { fancyShowCaseView.hide() }
+            btn_dismiss.setOnClickListener { queue.cancel(true) }
 
-            tvDismiss.setOnClickListener { queue.cancel(true) }
-
-            val mainAnimation =
-                AnimationUtils.loadAnimation(
-                    this@AnimatedActivityFancyShowcaseFont,
-                    R.anim.slide_in_left_fancy_showcase
-                )
+            val mainAnimation = AnimationUtils.loadAnimation(
+                /* context = */ this@AnimatedActivityFancyShowcaseFont,
+                /* id = */ R.anim.slide_in_left_fancy_showcase
+            )
             mainAnimation.fillAfter = true
 
-            val subAnimation =
-                AnimationUtils.loadAnimation(
-                    this@AnimatedActivityFancyShowcaseFont,
-                    R.anim.slide_in_left_fancy_showcase
-                )
+            val subAnimation = AnimationUtils.loadAnimation(
+                /* context = */ this@AnimatedActivityFancyShowcaseFont,
+                /* id = */ R.anim.slide_in_left_fancy_showcase
+            )
             subAnimation.fillAfter = true
             tvMain.startAnimation(mainAnimation)
-            Handler().postDelayed({ tvSub.startAnimation(subAnimation) }, 80)
+            Handler(Looper.getMainLooper()).postDelayed({
+                tvSub.startAnimation(subAnimation)
+            }, 80)
         }, 200)
     }
 }

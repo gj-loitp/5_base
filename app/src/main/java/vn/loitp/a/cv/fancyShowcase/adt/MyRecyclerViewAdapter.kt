@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.fancyShowcase
+package vn.loitp.a.cv.fancyShowcase.adt
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.errorprone.annotations.Keep
 import vn.loitp.R
 
 /**
@@ -15,26 +16,28 @@ class MyRecyclerViewAdapter(private val mMyModelList: List<MyModel>) :
     RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder>() {
     private var mClickListener: View.OnClickListener? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.i_fancy_showcase_recycler, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int
+    ) {
         val myModel = mMyModelList[position]
-        holder.title!!.text = myModel.title
-        holder.title!!.setOnClickListener { v ->
-            if (mClickListener != null) {
-                mClickListener!!.onClick(v)
-            }
+        holder.tvMain.text = myModel.title
+        holder.tvMain.setOnClickListener { v ->
+            mClickListener?.onClick(v)
         }
-        holder.imageView!!.setOnClickListener { v ->
-            if (mClickListener != null) {
-                mClickListener!!.onClick(v)
-            }
+        holder.ivIcon.setOnClickListener { v ->
+            mClickListener?.onClick(v)
         }
-        holder.imageView!!.visibility = if (position % 5 == 2) View.VISIBLE else View.GONE
+        holder.ivIcon.visibility = if (position % 5 == 2) View.VISIBLE else View.GONE
 
     }
 
@@ -43,8 +46,8 @@ class MyRecyclerViewAdapter(private val mMyModelList: List<MyModel>) :
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var title: TextView = view.findViewById(R.id.tvMain)
-        var imageView: ImageView = view.findViewById(R.id.ivIcon)
+        var tvMain: TextView = view.findViewById(R.id.tvMain)
+        var ivIcon: ImageView = view.findViewById(R.id.ivIcon)
     }
 
     fun setClickListener(clickListener: View.OnClickListener) {
@@ -52,4 +55,5 @@ class MyRecyclerViewAdapter(private val mMyModelList: List<MyModel>) :
     }
 }
 
+@Keep
 data class MyModel(val title: String)

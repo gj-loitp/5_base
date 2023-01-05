@@ -81,7 +81,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         //Shows a FancyShowCaseView that focus on a vie
-        btn_focus.setOnClickListener {
+        btnFocus.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .title("Circle Focus on View")
@@ -170,7 +170,7 @@ class FancyShowcaseActivityFont : BaseActivityFancyShowcaseFont() {
         }
 
         //Shows FancyShowCaseView with focusCircleRadiusFactor 1.5 and title gravity
-        btn_focus2.setOnClickListener {
+        btnFocus2.setOnClickListener {
             FancyShowCaseView.Builder(this)
                 .focusOn(it)
                 .focusCircleRadiusFactor(1.5)

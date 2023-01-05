@@ -9,6 +9,8 @@ import com.loitp.core.base.BaseActivityFancyShowcaseFont
 import kotlinx.android.synthetic.main.a_fancy_showcase_recycler_view.*
 import me.toptas.fancyshowcase.FancyShowCaseView
 import vn.loitp.R
+import vn.loitp.a.cv.fancyShowcase.adt.MyModel
+import vn.loitp.a.cv.fancyShowcase.adt.MyRecyclerViewAdapter
 
 class RecyclerViewActivityFontFancyShowcase : BaseActivityFancyShowcaseFont() {
     override fun setLayoutResourceId(): Int {
