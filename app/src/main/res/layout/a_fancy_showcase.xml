@@ -245,12 +245,6 @@
                 android:text="queuing Multiple Instances" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnCustomQueue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Custom view of queuing Multiple Instances" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRecyclerView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
