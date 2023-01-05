@@ -29,7 +29,7 @@ class TransformationRadioFragment : BaseFragment() {
         }
 
         fab.setSafeOnClickListener {
-            TransformationDetailActivity.startActivity(
+            TransformationDetailActivityFont.startActivity(
                 requireContext(),
                 transformationLayoutFab,
                 TransformationMockUtil.getMockPoster()

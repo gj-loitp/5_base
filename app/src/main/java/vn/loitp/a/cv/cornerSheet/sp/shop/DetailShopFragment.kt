@@ -12,7 +12,7 @@ import com.github.heyalex.cornersheet.behavior.CornerSheetHeaderBehavior
 import kotlinx.android.synthetic.main.f_detail_shop_item.*
 import kotlinx.android.synthetic.main.f_detail_shop_item.view.*
 import vn.loitp.R
-import vn.loitp.a.cv.cornerSheet.sp.ShopActivity
+import vn.loitp.a.cv.cornerSheet.sp.ShopActivityFont
 
 class DetailShopFragment : Fragment() {
 
@@ -28,7 +28,7 @@ class DetailShopFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         behavior =
-            (activity as ShopActivity).supportFragment.behavior as CornerSheetHeaderBehavior<CornerDrawer>
+            (activity as ShopActivityFont).supportFragment.behavior as CornerSheetHeaderBehavior<CornerDrawer>
 
         behavior.horizontalState = CornerSheetBehavior.STATE_EXPANDED
         return inflater.inflate(R.layout.f_detail_shop_item, container, false)

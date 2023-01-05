@@ -40,6 +40,6 @@ class FrmFlow2 : BaseFragmentFlow() {
     }
 
     private fun print(msg: String) {
-        (activity as FragmentFlowActivity).print("FrmFlow2: $msg")
+        (activity as FragmentFlowActivityFont).print("FrmFlow2: $msg")
     }
 }

@@ -9,7 +9,7 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.i_transformation_poster_line.view.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.transformation.TransformationDetailActivity
+import vn.loitp.a.cv.layout.transformation.TransformationDetailActivityFont
 
 class PosterLineAdapter : BaseAdapter() {
 
@@ -62,7 +62,7 @@ class PosterLineAdapter : BaseAdapter() {
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
                     if (now - previousTime >= layoutItemPosterLineTransformation.duration) {
-                        TransformationDetailActivity.startActivity(
+                        TransformationDetailActivityFont.startActivity(
                             context,
                             layoutItemPosterLineTransformation,
                             poster

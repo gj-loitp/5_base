@@ -6,7 +6,7 @@ import android.view.View
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import com.loitp.core.helper.adHelper.AdHelperActivity
+import com.loitp.core.helper.adHelper.AdHelperActivityFont
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
@@ -55,7 +55,7 @@ class FrmMore : BaseFragment(), View.OnClickListener {
                 btLikeFbFanpage -> LSocialUtil.likeFacebookFanpage(activity = it)
                 btSupport -> LSocialUtil.chatMessenger(activity = it)
                 btAdHelper -> {
-                    val intent = Intent(it, AdHelperActivity::class.java)
+                    val intent = Intent(it, AdHelperActivityFont::class.java)
                     startActivity(intent)
                     LActivityUtil.tranIn(it)
                 }

@@ -386,7 +386,7 @@ class FloatingViewEdgeService : Service() {
 
     private fun openApp() {
         // Open the application  click.
-        val intent = Intent(this@FloatingViewEdgeService, FloatingWidgetVideoActivity::class.java)
+        val intent = Intent(this@FloatingViewEdgeService, FloatingWidgetVideoActivityFont::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
 

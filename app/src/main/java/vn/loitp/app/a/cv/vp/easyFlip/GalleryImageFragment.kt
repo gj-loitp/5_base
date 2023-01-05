@@ -69,13 +69,13 @@ class GalleryImageFragment : Fragment() {
                     R.drawable.books_snap -> startActivity(
                         Intent(
                             context,
-                            BookOnboardingActivity::class.java
+                            BookOnboardingActivityFont::class.java
                         )
                     )
                     R.drawable.gallery_snap -> startActivity(
                         Intent(
                             context,
-                            PictureGalleryDemoActivity::class.java
+                            PictureGalleryDemoActivityFont::class.java
                         )
                     )
                     R.drawable.poker_snap -> startActivity(
@@ -87,7 +87,7 @@ class GalleryImageFragment : Fragment() {
                     R.drawable.viewpager2_snap -> startActivity(
                         Intent(
                             context,
-                            ViewPager2DemoActivity::class.java
+                            ViewPager2DemoActivityFont::class.java
                         )
                     )
                 }

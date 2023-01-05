@@ -63,8 +63,8 @@ class FrmListQA(private val linkGGDrive: String?) : BaseFragmentFlow() {
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         qaAdapter.onClickRootListener = { qa, _ ->
-            if (activity is InterviewVNIQActivity) {
-                (activity as InterviewVNIQActivity).addFragment(FrmDetail(qa))
+            if (activity is InterviewVNIQActivityFont) {
+                (activity as InterviewVNIQActivityFont).addFragment(FrmDetail(qa))
             }
         }
         concatAdapter.addAdapter(qaAdapter)

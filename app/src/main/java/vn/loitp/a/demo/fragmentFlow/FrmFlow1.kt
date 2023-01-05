@@ -27,7 +27,7 @@ class FrmFlow1 : BaseFragmentFlow() {
 
     private fun setupViews() {
         bt.setOnClickListener {
-            (activity as FragmentFlowActivity).showFragment(FrmFlow2())
+            (activity as FragmentFlowActivityFont).showFragment(FrmFlow2())
         }
     }
 
@@ -37,6 +37,6 @@ class FrmFlow1 : BaseFragmentFlow() {
     }
 
     fun print(msg: String) {
-        (activity as FragmentFlowActivity).print("FrmFlow1: $msg")
+        (activity as FragmentFlowActivityFont).print("FrmFlow1: $msg")
     }
 }

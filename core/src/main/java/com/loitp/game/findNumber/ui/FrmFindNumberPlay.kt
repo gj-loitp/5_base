@@ -18,7 +18,7 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.game.findNumber.dlg.FindNumberWinActivity
+import com.loitp.game.findNumber.dlg.FindNumberWinActivityFont
 import com.loitp.game.findNumber.model.Level
 import com.loitp.views.tv.autoFit.LAutoFitTextView
 import kotlinx.android.synthetic.main.l_f_find_number_play.*
@@ -151,7 +151,7 @@ class FrmFindNumberPlay(
 
     private fun winGame(view: View) {
         activity?.let { a ->
-            val intent = Intent(context, FindNumberWinActivity::class.java)
+            val intent = Intent(context, FindNumberWinActivityFont::class.java)
             MorphTransform.addExtras(
                 intent,
                 ContextCompat.getColor(a, R.color.colorAccent),

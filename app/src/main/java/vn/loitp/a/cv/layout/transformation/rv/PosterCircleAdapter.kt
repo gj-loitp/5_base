@@ -9,7 +9,7 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.i_poster_circle.view.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.transformation.TransformationDetailActivity
+import vn.loitp.a.cv.layout.transformation.TransformationDetailActivityFont
 
 class PosterCircleAdapter : BaseAdapter() {
 
@@ -56,7 +56,7 @@ class PosterCircleAdapter : BaseAdapter() {
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
                     if (now - previousTime >= layoutItemPosterCircleTransformation.duration)
-                        TransformationDetailActivity.startActivity(
+                        TransformationDetailActivityFont.startActivity(
                             context,
                             layoutItemPosterCircleTransformation,
                             poster

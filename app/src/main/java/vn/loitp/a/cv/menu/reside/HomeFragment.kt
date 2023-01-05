@@ -24,7 +24,7 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setUpViews() {
-        val parentActivity = activity as ResideMenuActivity
+        val parentActivity = activity as ResideMenuActivityFont
         resideMenu = parentActivity.resideMenu
 
         btOpenMenu.setOnClickListener {

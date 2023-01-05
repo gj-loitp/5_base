@@ -9,7 +9,7 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.i_transformation_poster_menu.view.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.transformation.TransformationDetailActivity
+import vn.loitp.a.cv.layout.transformation.TransformationDetailActivityFont
 
 class PosterMenuAdapter : BaseAdapter() {
 
@@ -60,7 +60,7 @@ class PosterMenuAdapter : BaseAdapter() {
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
                     if (now - previousTime >= layoutItemPosterMenuTransformation.duration) {
-                        TransformationDetailActivity.startActivity(
+                        TransformationDetailActivityFont.startActivity(
                             context,
                             layoutItemPosterMenuTransformation,
                             poster

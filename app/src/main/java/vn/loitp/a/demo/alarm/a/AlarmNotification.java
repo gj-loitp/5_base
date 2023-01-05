@@ -21,7 +21,7 @@ import androidx.core.app.NotificationCompat;
 
 import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
-import com.loitp.core.base.BaseFontActivity;
+import com.loitp.core.base.BaseActivityFont;
 import com.loitp.core.utilities.LActivityUtil;
 
 import java.util.Timer;
@@ -33,7 +33,7 @@ import vn.loitp.a.demo.alarm.md.DateTime;
 
 @LogTag("AlarmNotification")
 @IsFullScreen(false)
-public class AlarmNotification extends BaseFontActivity {
+public class AlarmNotification extends BaseActivityFont {
     private Ringtone mRingtone;
     private Vibrator mVibrator;
     private final long[] mVibratePattern = {0, 500, 500};
@@ -134,7 +134,7 @@ public class AlarmNotification extends BaseFontActivity {
 
         logD("AlarmNotification.addNotification(" + alarm.getId() + ", '" + alarm.getTitle() + "', '" + mDateTime.formatDetails(alarm) + "')");
 
-        intent = new Intent(this.getApplicationContext(), AlarmMeActivity.class);
+        intent = new Intent(this.getApplicationContext(), AlarmMeActivityFont.class);
         intent.setAction(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
 

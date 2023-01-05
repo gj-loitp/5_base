@@ -14,7 +14,7 @@ import com.github.heyalex.cornersheet.behavior.CornerSheetHeaderBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.f_shop.*
 import vn.loitp.R
-import vn.loitp.a.cv.cornerSheet.sp.ShopActivity
+import vn.loitp.a.cv.cornerSheet.sp.ShopActivityFont
 
 class ShopFragment : Fragment() {
 
@@ -31,7 +31,7 @@ class ShopFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         behavior =
-            (activity as ShopActivity).supportFragment.behavior as CornerSheetHeaderBehavior<CornerDrawer>
+            (activity as ShopActivityFont).supportFragment.behavior as CornerSheetHeaderBehavior<CornerDrawer>
 
         toolbar.setOnApplyWindowInsetsListener { v, insets ->
             v.updatePadding(top = insets.systemWindowInsetTop)

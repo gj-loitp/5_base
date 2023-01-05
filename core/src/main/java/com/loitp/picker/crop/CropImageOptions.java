@@ -181,7 +181,7 @@ public class CropImageOptions implements Parcelable {
     public int maxCropResultHeight;
 
     /**
-     * the title of the {@link LCropImageActivity}
+     * the title of the {@link LCropImageActivityFont}
      */
     public String activityTitle;
 

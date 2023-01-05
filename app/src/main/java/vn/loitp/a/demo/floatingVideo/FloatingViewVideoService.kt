@@ -129,7 +129,7 @@ class FloatingViewVideoService : Service() {
     // Open the application on thi button click
     private fun openApp() {
         // Open the application  click.
-        val intent = Intent(this@FloatingViewVideoService, FloatingWidgetVideoActivity::class.java)
+        val intent = Intent(this@FloatingViewVideoService, FloatingWidgetVideoActivityFont::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
 
