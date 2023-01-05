@@ -9,9 +9,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp">
+        android:padding="@dimen/margin_padding_medium">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
             android:textColor="#E91E63"
             android:textSize="30sp" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvSub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,18 +28,19 @@
             android:textColor="#ffffff"
             android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/btn_dismiss"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnDismiss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:clickable="true"
             android:text="Dismiss"
             android:textColor="#E91E63"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
-        <TextView
-            android:id="@+id/btn_next"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -47,9 +48,9 @@
             android:clickable="true"
             android:text="Next"
             android:textColor="#E91E63"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </RelativeLayout>
-
 
 </FrameLayout>

@@ -62,11 +62,15 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
             if (fancyShowCaseView == fancyView2) {
                 tvMain.text = "My Fancy Title 2"
                 tvSub.text = "My fancy description can be a longer text.2"
-                btn_next.text = "Close"
+                btnNext.text = "Close"
             }
 
-            btn_next.setOnClickListener { fancyShowCaseView.hide() }
-            btn_dismiss.setOnClickListener { queue.cancel(true) }
+            btnNext.setOnClickListener {
+                fancyShowCaseView.hide()
+            }
+            btnDismiss.setOnClickListener {
+                queue.cancel(true)
+            }
 
             val mainAnimation = AnimationUtils.loadAnimation(
                 /* context = */ this@AnimatedActivityFancyShowcaseFont,
