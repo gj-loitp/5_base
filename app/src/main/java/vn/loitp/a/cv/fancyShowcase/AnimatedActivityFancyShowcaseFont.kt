@@ -1,12 +1,14 @@
 package vn.loitp.a.cv.fancyShowcase
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.animation.AnimationUtils
 import com.loitp.core.base.BaseActivityFancyShowcaseFont
+import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_fancy_showcase.*
 import kotlinx.android.synthetic.main.l_fancy_showcaseanimated_view.*
 import me.toptas.fancyshowcase.FancyShowCaseQueue
@@ -29,8 +31,19 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
 
         fancyView = FancyShowCaseView.Builder(this)
             .focusOn(btnFocus)
+            .backgroundColor(Color.YELLOW)
             .customView(R.layout.l_fancy_showcaseanimated_view, object : OnViewInflateListener {
                 override fun onViewInflated(view: View) {
+                    LUIUtil.recolorStatusBar(
+                        context = this@AnimatedActivityFancyShowcaseFont,
+                        startColor = null,
+                        endColor = Color.YELLOW
+                    )
+                    LUIUtil.recolorNavigationBar(
+                        context = this@AnimatedActivityFancyShowcaseFont,
+                        startColor = null,
+                        endColor = Color.YELLOW
+                    )
                     setAnimatedContent(fancyView)
                 }
             })
@@ -58,9 +71,6 @@ class AnimatedActivityFancyShowcaseFont : BaseActivityFancyShowcaseFont() {
     private fun setAnimatedContent(
         fancyShowCaseView: FancyShowCaseView
     ) {
-//        val color = Color.YELLOW
-//        setCustomStatusBar(color, color)
-//        fl.setBackgroundColor(color)
         Handler(Looper.getMainLooper()).postDelayed({
             if (fancyShowCaseView == fancyView2) {
                 tvMain.text = "My Fancy Title 2"
