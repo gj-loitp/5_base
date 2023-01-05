@@ -1440,13 +1440,7 @@
             android:name=".a.cv.fancyShowcase.SecondActivityFancyShowcaseFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.fancyShowcase.QueueActivityFancyShowcaseFont"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name=".a.cv.fancyShowcase.RecyclerViewActivityFontFancyShowcase"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name=".a.cv.fancyShowcase.CustomQueueActivityFontFancyShowcase"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.fancyShowcase.AnimatedActivityFancyShowcaseFont"
