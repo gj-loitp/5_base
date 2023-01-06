@@ -12,7 +12,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LFCMUtil
+import com.loitp.core.ext.testCrash
 import com.loitp.core.utilities.LUIUtil
 import com.onesignal.OneSignal
 import com.onesignal.OneSignal.PostNotificationResponseHandler
@@ -51,7 +51,7 @@ class FirebaseActivityFont : BaseActivityFont() {
 
         btTestCrashFirebase.isVisible = BuildConfig.DEBUG
         btTestCrashFirebase.setSafeOnClickListener {
-            LFCMUtil.testCrash()
+            testCrash()
         }
 
         btRemoteConfig.setSafeOnClickListener {
