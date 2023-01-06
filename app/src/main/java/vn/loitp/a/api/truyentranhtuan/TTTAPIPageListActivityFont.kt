@@ -6,6 +6,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
@@ -59,7 +60,7 @@ class TTTAPIPageListActivityFont : BaseActivityFont() {
                     if (isSuccess == true) {
                         val listPage = actionData.data
                         listPage?.let {
-                            LUIUtil.printBeautyJson(o = it, textView = textView)
+                            textView.printBeautyJson(o = it)
                         }
                         tvTitle.text = "Danh sách page trong chap 69 - size: " + listPage?.size
                     }

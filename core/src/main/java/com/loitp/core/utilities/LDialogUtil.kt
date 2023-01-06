@@ -15,6 +15,7 @@ import androidx.viewpager.widget.ViewPager
 import com.daimajia.androidanimations.library.Techniques
 import com.loitp.R
 import com.loitp.core.ext.play
+import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.views.dlg.slideImages.LSlideAdapter
 import com.loitp.views.loading.window.WP10ProgressBar
 
@@ -337,7 +338,7 @@ class LDialogUtil {
             if (index != 0) {
                 viewPager.currentItem = index
             }
-            LUIUtil.setPullLikeIOSHorizontal(viewPager)
+            viewPager.setPullLikeIOSHorizontal()
             val ivNext = dialog.findViewById<ImageView>(R.id.ivNext)
             val ivPrev = dialog.findViewById<ImageView>(R.id.ivPrev)
             if (isShowController) {

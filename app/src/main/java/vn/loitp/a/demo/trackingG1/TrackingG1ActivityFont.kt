@@ -11,8 +11,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.core.utilities.LUIUtil.Companion.printBeautyJson
 import kotlinx.android.synthetic.main.a_tracking_g1.*
 import vn.loitp.R
 
@@ -84,7 +84,7 @@ class TrackingG1ActivityFont : BaseActivityFont() {
             eventName = eventName,
             eventData = eventData,
             onPreExecute = { input ->
-                printBeautyJson(input, tvInput)
+                tvInput.printBeautyJson(input)
                 tvOutput?.text = "Loading..."
             },
             onResponse = { isSuccessful, code, response ->
@@ -135,7 +135,7 @@ class TrackingG1ActivityFont : BaseActivityFont() {
         Analytics.trackEvent(
             monitorEvent = monitorEvent,
             onPreExecute = { input ->
-                printBeautyJson(input, tvInput)
+                tvInput.printBeautyJson(input)
                 tvOutput?.text = "Loading..."
             },
             onResponse = { isSuccessful, code, response ->

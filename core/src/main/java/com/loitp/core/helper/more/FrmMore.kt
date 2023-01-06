@@ -6,10 +6,10 @@ import android.view.View
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
+import com.loitp.core.ext.setPullLikeIOSVertical
 import com.loitp.core.ext.tranIn
 import com.loitp.core.helper.adHelper.AdHelperActivity
 import com.loitp.core.utilities.LSocialUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_f_more.*
 
 /**
@@ -43,7 +43,7 @@ class FrmMore : BaseFragment(), View.OnClickListener {
         btSupport.setOnClickListener(this)
         btAdHelper.setOnClickListener(this)
 
-        LUIUtil.setPullLikeIOSVertical(nestedScrollView)
+        nestedScrollView.setPullLikeIOSVertical()
     }
 
     override fun onClick(v: View) {

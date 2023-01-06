@@ -11,8 +11,8 @@ import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.card.MaterialCardView
 import com.loitp.R
+import com.loitp.core.ext.setImeiActionEditText
 import com.loitp.core.ext.setLastCursorEditText
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.ConvertUtils
 
 /**
@@ -157,7 +157,7 @@ class LEditText : RelativeLayout {
         imeOptions: Int,
         runnable: Runnable?
     ) {
-        LUIUtil.setImeiActionEditText(editText, imeOptions, runnable)
+        editText.setImeiActionEditText(imeOptions, runnable)
     }
 
     fun setMaxLines(maxLines: Int) {

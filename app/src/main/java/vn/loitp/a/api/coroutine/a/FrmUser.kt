@@ -6,9 +6,9 @@ import androidx.navigation.fragment.findNavController
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.ext.setColorForSwipeRefreshLayout
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.sv.model.UserTest
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.f_coroutine_user.*
@@ -43,7 +43,7 @@ class FrmUser : BaseFragment() {
         bundle?.let { b ->
             val userTest = b.getSerializable(KEY_USER)
             if (userTest is UserTest) {
-                LUIUtil.printBeautyJson(o = userTest, textView = textView)
+                textView.printBeautyJson(o = userTest)
                 imageView.loadGlide(
                     any = userTest.avatar,
                     transformation = CropCircleWithBorderTransformation()

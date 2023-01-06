@@ -17,6 +17,7 @@ import com.airbnb.lottie.model.KeyPath
 import com.airbnb.lottie.value.LottieValueCallback
 import com.google.android.material.tabs.TabLayout
 import com.loitp.core.utilities.LStoreUtil
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 
 val View.horizontalPadding: Int get() = this.paddingStart + this.paddingEnd
 val View.verticalPadding: Int get() = this.paddingTop + this.paddingBottom
@@ -191,4 +192,18 @@ fun TabLayout?.fixSizeTabLayout(
             )
         }
     }
+}
+
+fun View.setPullLikeIOSVertical(
+) {
+    // guide: https://github.com/EverythingMe/overscroll-decor
+
+    // Horizontal
+    // OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL);
+
+    // Vertical
+    OverScrollDecoratorHelper.setUpStaticOverScroll(
+        /* view = */ this,
+        /* orientation = */ OverScrollDecoratorHelper.ORIENTATION_VERTICAL
+    )
 }

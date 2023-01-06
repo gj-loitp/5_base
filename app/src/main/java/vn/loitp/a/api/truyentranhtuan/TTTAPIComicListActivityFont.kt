@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.ttt.helper.ComicUtils
 import com.loitp.core.helper.ttt.model.comictype.ComicType
@@ -78,7 +79,7 @@ class TTTAPIComicListActivityFont : BaseActivityFont() {
                     if (isSuccess == true) {
                         val listComic = actionData.data
                         listComic?.let {
-                            LUIUtil.printBeautyJson(o = it, textView = textView)
+                            textView.printBeautyJson(o = it)
                         }
                     }
                 }

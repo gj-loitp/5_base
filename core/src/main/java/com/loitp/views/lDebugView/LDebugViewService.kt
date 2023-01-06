@@ -14,6 +14,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.widget.NestedScrollView
 import com.loitp.R
+import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LScreenUtil
@@ -184,7 +185,7 @@ class LDebugViewService : Service(), OnTouchListener {
         if (msgFromActivity.any == null) {
             textView.text = currentTime + " : " + msgFromActivity.msg
         } else {
-            LUIUtil.printBeautyJson(o = msgFromActivity.any, textView = textView, tag = currentTime)
+            textView.printBeautyJson(o = msgFromActivity.any, tag = currentTime)
         }
         LUIUtil.setTextSize(
             textView = textView,

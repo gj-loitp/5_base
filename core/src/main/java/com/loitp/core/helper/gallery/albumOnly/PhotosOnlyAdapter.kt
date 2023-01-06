@@ -15,6 +15,7 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.getRandomColorLight
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.play
 import com.loitp.core.ext.setSafeOnClickListener
@@ -87,7 +88,7 @@ class PhotosOnlyAdapter(
                 height = screenHeight,
             )
 
-            val color = LUIUtil.getRandomColorLight()
+            val color = getRandomColorLight()
             itemView.iv.loadGlide(
                 any = p.urlO,
                 resPlaceHolder = color,

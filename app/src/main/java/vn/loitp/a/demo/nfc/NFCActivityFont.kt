@@ -12,6 +12,7 @@ import android.provider.Settings
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.ext.tranIn
 import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LDialogUtil
@@ -133,7 +134,7 @@ class NFCActivityFont : BaseActivityFont() {
             }
             tags.add(tagWrapper)
 
-            LUIUtil.printBeautyJson(o = tags, textView = tvResult)
+            tvResult.printBeautyJson(o = tags)
         }
     }
 

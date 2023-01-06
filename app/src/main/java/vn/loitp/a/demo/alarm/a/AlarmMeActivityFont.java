@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
 import com.loitp.core.base.BaseActivityFont;
-import com.loitp.core.utilities.LUIUtil;
 
 import kotlin.Suppress;
 import vn.loitp.R;
@@ -55,7 +54,6 @@ public class AlarmMeActivityFont extends BaseActivityFont {
 
     private void setupViews() {
         ListView mAlarmList = findViewById(R.id.lv_alarm);
-        LUIUtil.Companion.setPullLikeIOSVertical(mAlarmList);
 
         mAlarmListAdapter = new AlarmListAdapter(this);
         mAlarmList.setAdapter(mAlarmListAdapter);

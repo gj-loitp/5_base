@@ -16,7 +16,6 @@ import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
 import com.loitp.core.base.BaseActivityFont;
 import com.loitp.core.utilities.LPrefUtil;
-import com.loitp.core.utilities.LUIUtil;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -100,7 +99,6 @@ public class EbookWithRealmActivityFont extends BaseActivityFont {
             }
         });
         recyclerView.setAdapter(booksAdapter);
-        LUIUtil.Companion.setPullLikeIOSVertical(recyclerView);
     }
 
     private void setRealmData() {

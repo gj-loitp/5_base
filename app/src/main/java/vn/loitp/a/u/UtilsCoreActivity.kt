@@ -207,10 +207,10 @@ class UtilsCoreActivity : BaseActivityFont() {
         tv1.setTextFromHTML(
             "<p>This is Loitp<br />\n" + "Dep Trai<br />\n" + "Vip<br />\n" + "Pro No1</p>"
         )
-        LUIUtil.setTextBold(tv1)
+        tv1.setTextBold()
         iv.setImageFromAsset("ic_gift.png")
         srl.setProgressViewOffset(200)
-        LUIUtil.setImeiActionSearch(et1) { }
+        et1.setImeiActionSearch() { }
         LUIUtil.setColorSeekBar(sb1, Color.RED)
         LUIUtil.setMarginsDp(sb1, 16, 16, 16, 16)
         LUIUtil.setRandomBackground(layoutRootView)

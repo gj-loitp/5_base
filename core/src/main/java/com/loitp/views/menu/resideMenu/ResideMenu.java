@@ -19,7 +19,6 @@ import android.widget.ScrollView;
 
 import com.github.mmin18.widget.RealtimeBlurView;
 import com.loitp.R;
-import com.loitp.core.utilities.LUIUtil;
 import com.loitp.views.layout.floatDrag.DisplayUtil;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorSet;
@@ -133,8 +132,8 @@ public class ResideMenu extends FrameLayout {
         ScrollView svLeft = scrollViewLeftMenu.findViewById(R.id.sv_left_menu);
         ScrollView svRight = scrollViewRightMenu.findViewById(R.id.sv_right_menu);
 
-        LUIUtil.Companion.setPullLikeIOSVertical(svLeft);
-        LUIUtil.Companion.setPullLikeIOSVertical(svRight);
+//        svLeft.setPullLikeIOSVertical();
+//        svRight.setPullLikeIOSVertical();
 
         RelativeLayout menuHolder = findViewById(R.id.sv_menu_holder);
         menuHolder.addView(scrollViewLeftMenu);

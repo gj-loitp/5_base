@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_iv_pinch_to_zoom_vp.*
 import vn.loitp.R
@@ -49,10 +50,9 @@ class PinchToZoomViewPagerActivityFont : BaseActivityFont() {
         list.add(Constants.URL_IMG_LONG)
         list.add(Constants.URL_IMG_LARGE_PORTRAIT_O)
         vp.adapter = SamplePagerAdapter(supportFragmentManager)
-        LUIUtil.setPullLikeIOSHorizontal(vp)
+        vp.setPullLikeIOSHorizontal()
     }
 
-    //TODO update to vp 2
     private inner class SamplePagerAdapter(fm: FragmentManager) :
         FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 

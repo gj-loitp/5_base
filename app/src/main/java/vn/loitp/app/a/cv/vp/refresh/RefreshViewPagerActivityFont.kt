@@ -8,6 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_view_pager_refresh.*
 import vn.loitp.R
@@ -38,7 +39,7 @@ class RefreshViewPagerActivityFont : BaseActivityFont() {
             this.tvTitle?.text = RefreshViewPagerActivityFont::class.java.simpleName
         }
         vp.adapter = SamplePagerAdapter(supportFragmentManager)
-        LUIUtil.setPullLikeIOSHorizontal(vp)
+        vp.setPullLikeIOSHorizontal()
         tabLayout.setupWithViewPager(vp)
         LUIUtil.changeTabsFont(tabLayout, Constants.FONT_PATH)
     }

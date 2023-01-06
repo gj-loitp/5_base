@@ -9,9 +9,10 @@ import android.widget.Button
 import android.widget.ScrollView
 import androidx.appcompat.widget.LinearLayoutCompat
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
+import com.loitp.R
+import com.loitp.core.ext.setPullLikeIOSVertical
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.ConvertUtils
-import com.loitp.R
 import kotlin.math.hypot
 import kotlin.math.max
 
@@ -48,7 +49,7 @@ class LSuggestPopupView(
         ll = layout.findViewById(R.id.ll)
         sv = layout.findViewById(R.id.sv)
         if (withEffect) {
-            LUIUtil.setPullLikeIOSVertical(sv)
+            sv.setPullLikeIOSVertical()
         }
     }
 

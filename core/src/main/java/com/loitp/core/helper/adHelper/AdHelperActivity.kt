@@ -16,8 +16,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.AppUtils
 import com.manojbhadane.QButton
 import kotlinx.android.synthetic.main.l_a_ad_helper.*
@@ -136,7 +136,7 @@ class AdHelperActivity : BaseActivityFont() {
         }
 
         viewPager.adapter = SlidePagerAdapter()
-        LUIUtil.setPullLikeIOSHorizontal(viewPager)
+        viewPager.setPullLikeIOSHorizontal()
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,

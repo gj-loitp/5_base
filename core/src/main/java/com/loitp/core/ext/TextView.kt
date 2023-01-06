@@ -1,11 +1,14 @@
 package com.loitp.core.ext
 
+import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.Typeface
 import android.text.Html
 import android.text.TextUtils
 import android.widget.TextView
 import androidx.core.widget.TextViewCompat
+import com.google.gson.GsonBuilder
 import com.loitp.core.utilities.LUIUtil
 
 /**
@@ -63,4 +66,28 @@ fun TextView.setTextShadow(
         /* dy = */ 1f, // dy
         /* color = */ mColor // shadow color
     )
+}
+
+fun TextView.setTextBold() {
+    this.setTypeface(null, Typeface.BOLD)
+}
+
+fun TextView.printBeautyJson(
+    o: Any,
+) {
+    val gson = GsonBuilder().setPrettyPrinting().create()
+    val json = gson.toJson(o)
+    this.text = json
+}
+
+@SuppressLint("SetTextI18n")
+fun TextView.printBeautyJson(
+    o: Any?,
+    tag: String
+) {
+    o?.let {
+        val gson = GsonBuilder().setPrettyPrinting().create()
+        val json = gson.toJson(it)
+        this.text = "$tag :\n$json"
+    }
 }

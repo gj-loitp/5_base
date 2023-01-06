@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_read_sqlite_asset.*
 import vn.loitp.R
@@ -49,7 +50,7 @@ class ReadSqliteAssetActivityFont : BaseActivityFont() {
         logD("size: " + vocabularyList.size)
 
         try {
-            LUIUtil.printBeautyJson(o = vocabularyList[0], textView = textView)
+            textView.printBeautyJson(o = vocabularyList[0])
         } catch (e: Exception) {
             textView.text = "$e"
         }

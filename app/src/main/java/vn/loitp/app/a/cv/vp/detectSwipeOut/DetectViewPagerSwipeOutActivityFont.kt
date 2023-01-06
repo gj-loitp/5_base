@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_view_pager_detect_swipe_out.*
@@ -45,8 +46,7 @@ class DetectViewPagerSwipeOutActivityFont : BaseActivityFont() {
             vpPhoto.string = "Page " + i + "/" + (max - 1)
             vpPhotoList.add(vpPhoto)
         }
-        LUIUtil.setPullLikeIOSHorizontal(
-            viewPager = viewPager,
+        viewPager.setPullLikeIOSHorizontal(
             onUpOrLeft = { offset ->
                 logD("onUpOrLeft $offset")
                 showShortInformation("Detect Left")

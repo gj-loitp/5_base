@@ -7,6 +7,7 @@ import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
@@ -84,7 +85,7 @@ class GalleryAPIActivityFont : BaseActivityFont() {
                 .subscribe({ wrapperPhotosetGetlist: WrapperPhotosetGetlist? ->
                     mWrapperPhotoSetGetList = wrapperPhotosetGetlist
                     wrapperPhotosetGetlist?.let {
-                        LUIUtil.printBeautyJson(it, textView)
+                        textView.printBeautyJson(it)
                     }
                     LDialogUtil.hideProgress(progressBar)
                     bt2.visibility = View.VISIBLE
@@ -146,7 +147,7 @@ class GalleryAPIActivityFont : BaseActivityFont() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist: WrapperPhotosetGetPhotos? ->
                     wrapperPhotosetGetlist?.let {
-                        LUIUtil.printBeautyJson(it, textView)
+                        textView.printBeautyJson(it)
                     }
                     LDialogUtil.hideProgress(progressBar)
                     bt2.visibility = View.VISIBLE

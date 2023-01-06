@@ -8,6 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.getRandomColor
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
@@ -82,7 +83,7 @@ class WallpoActivityFont : BaseActivityFont() {
         btSetRandomColor.setSafeOnClickListener {
             LUIUtil.setWallpaperAndLockScreen(
                 context = this,
-                color = LUIUtil.getRandomColor(),
+                color = getRandomColor(),
                 isSetWallpaper = true,
                 isSetLockScreen = true,
             )

@@ -10,6 +10,7 @@ import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitp.R
+import com.loitp.core.ext.setImeiActionEditText
 import com.loitp.core.ext.setLastCursorEditText
 import com.loitp.core.utilities.LUIUtil
 
@@ -116,7 +117,7 @@ class LAutoSuggestEditText : RelativeLayout {
         imeOptions: Int,
         runnable: Runnable?
     ) {
-        LUIUtil.setImeiActionEditText(editText, imeOptions, runnable)
+        editText.setImeiActionEditText(imeOptions = imeOptions, runnable = runnable)
     }
 
     fun setResultList(resultList: ArrayList<String>) {

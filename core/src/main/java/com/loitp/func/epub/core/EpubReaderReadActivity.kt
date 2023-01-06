@@ -26,6 +26,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.play
 import com.loitp.core.ext.setDelay
+import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LReaderUtil.Companion.defaultCover
@@ -92,7 +93,7 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
 
         sectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
         viewPager.apply {
-            LUIUtil.setPullLikeIOSHorizontal(viewPager = this)
+            this.setPullLikeIOSHorizontal()
             this.offscreenPageLimit = 2
 //            this.setPageTransformer(true, ZoomOutSlideTransformer())
             this.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {

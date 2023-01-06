@@ -8,6 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.utilities.LUIUtil
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -116,7 +117,7 @@ class SqliteEncryptionActivityFont : BaseActivityFont(), View.OnClickListener {
         val bike = bikeDatabase.getBike(idBike)
         logD("addButton bike " + BaseApplication.gson.toJson(bike))
         if (bike != null) {
-            LUIUtil.printBeautyJson(bike, button)
+            button.printBeautyJson(bike)
             button.isAllCaps = false
             button.gravity = Gravity.START
             button.setOnClickListener {
@@ -219,7 +220,7 @@ class SqliteEncryptionActivityFont : BaseActivityFont(), View.OnClickListener {
             }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     {
-                        LUIUtil.printBeautyJson(bike, button)
+                        button.printBeautyJson(bike)
                         hideProgress()
                     },
                     { t ->
