@@ -1,5 +1,6 @@
 package com.loitp.core.ext
 
+import android.content.res.ColorStateList
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
@@ -82,6 +83,7 @@ fun View.duplicateViewSizeContinuously(
 }
 
 @Suppress("unused")
+//doi mau cua lottie
 fun LottieAnimationView.changeLayersColor(
     color: Int
 ) {
@@ -109,4 +111,9 @@ fun Drawable.toBitmap(): Bitmap {
 
 private fun Int.nonZero() = if (this <= 0) 1 else this
 
+//get mau background current cua view
 fun View.getBackgroundColor() = (background as? ColorDrawable?)?.color ?: Color.TRANSPARENT
+
+fun View.setBackgroundTintList(color: Int) {
+    this.backgroundTintList = ColorStateList.valueOf(color)
+}
