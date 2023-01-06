@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.a_menu.*
 import vn.loitp.R
 import vn.loitp.a.anim.MenuAnimationActivityFont
 import vn.loitp.a.api.MenuAPIActivityFont
-import vn.loitp.a.cv.MenuCustomViewsActivityFont
+import vn.loitp.a.cv.MenuCustomViewsActivity
 import vn.loitp.a.db.MenuDatabaseActivityFont
 import vn.loitp.a.demo.MenuDemoActivityFont
 import vn.loitp.a.func.MenuFunctionActivityFont
@@ -41,7 +41,7 @@ import vn.loitp.a.u.UtilsCoreActivity
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 @IsKeepScreenOn(true)
-class MenuActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu
@@ -60,13 +60,13 @@ class MenuActivityFont : BaseActivityFont(), View.OnClickListener {
                 onBaseBackPressed()
             })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuActivity::class.java.simpleName
         }
 
         tvPolicy.apply {
             LUIUtil.setTextUnderline(this)
             setSafeOnClickListener {
-                this@MenuActivityFont.openUrlInBrowser(
+                this@MenuActivity.openUrlInBrowser(
                     url = Constants.URL_POLICY
                 )
             }
@@ -81,7 +81,7 @@ class MenuActivityFont : BaseActivityFont(), View.OnClickListener {
                     LUIUtil.setDarkTheme(isDarkTheme = false)
                 }
                 finish()//correct
-                startActivity(Intent(this@MenuActivityFont, MenuActivityFont::class.java))
+                startActivity(Intent(this@MenuActivity, MenuActivity::class.java))
                 overridePendingTransition(0, 0)
             }
         }
@@ -182,7 +182,7 @@ class MenuActivityFont : BaseActivityFont(), View.OnClickListener {
         when (v) {
             btApi -> launchActivity(MenuAPIActivityFont::class.java)
             btAnimation -> launchActivity(MenuAnimationActivityFont::class.java)
-            btCustomView -> launchActivity(MenuCustomViewsActivityFont::class.java)
+            btCustomView -> launchActivity(MenuCustomViewsActivity::class.java)
             btDemo -> launchActivity(MenuDemoActivityFont::class.java)
             btRateApp -> this.rateApp(packageName)
             btMoreApp -> this.moreApp()

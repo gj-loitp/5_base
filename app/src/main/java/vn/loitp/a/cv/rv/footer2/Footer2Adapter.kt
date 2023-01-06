@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.footer2
+package vn.loitp.a.cv.rv.footer2
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -13,7 +13,10 @@ import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 
 @LogTag("Footer2Adapter")
-class Footer2Adapter(private val moviesList: List<Movie>, private val callback: Callback?) :
+class Footer2Adapter(
+    private val moviesList: List<Movie>,
+    private val callback: Callback?
+) :
     BaseAdapter() {
 
     companion object {
@@ -54,7 +57,10 @@ class Footer2Adapter(private val moviesList: List<Movie>, private val callback: 
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): RecyclerView.ViewHolder {
         return if (viewType == TYPE_BANNER) {
             val itemView = LayoutInflater.from(parent.context)
                 .inflate(R.layout.i_about_me, parent, false)
@@ -74,7 +80,10 @@ class Footer2Adapter(private val moviesList: List<Movie>, private val callback: 
         }
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: RecyclerView.ViewHolder,
+        position: Int
+    ) {
         if (holder is BannerViewHolder) {
             val movie = moviesList[position]
             holder.bind(movie)

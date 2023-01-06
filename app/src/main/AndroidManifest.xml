@@ -35,13 +35,13 @@
         </activity>
         <!--https://ads-developers.googleblog.com/2018/10/announcing-v1700-of-android-google.html-->
         <activity
-            android:name=".a.MenuActivityFont"
+            android:name=".a.MenuActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name=".a.api.MenuAPIActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.MenuCustomViewsActivityFont"
+            android:name=".a.cv.MenuCustomViewsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.demo.MenuDemoActivityFont"
@@ -176,7 +176,7 @@
             android:name=".a.cv.layout.ripple.RippleLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.MenuRecyclerViewActivityFont"
+            android:name=".a.cv.rv.MenuRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -319,7 +319,7 @@
             android:name=".a.cv.rv.footer.RecyclerViewFooterActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.footer2.RecyclerViewFooter2ActivityFont"
+            android:name=".a.cv.rv.footer2.RecyclerViewFooter2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.navi.MenuNavigationActivityFont"

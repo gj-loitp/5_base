@@ -38,7 +38,7 @@ import vn.loitp.a.cv.menu.MenuMenuActivityFont
 import vn.loitp.a.cv.navi.MenuNavigationActivityFont
 import vn.loitp.a.cv.popupMenu.PopupMenuActivityFont
 import vn.loitp.a.cv.progress.MenuProgressActivityFont
-import vn.loitp.a.cv.rv.MenuRecyclerViewActivityFont
+import vn.loitp.a.cv.rv.MenuRecyclerViewActivity
 import vn.loitp.a.cv.sb.MenuSeekbarActivityFont
 import vn.loitp.a.cv.scratchView.MenuScratchViewActivityFont
 import vn.loitp.a.cv.scrollablePanel.ScrollablePanelActivityFont
@@ -60,7 +60,7 @@ import vn.loitp.app.a.cv.vp.MenuViewPagerActivityFont
 @LogTag("MenuCustomViewsActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuCustomViewsActivityFont : BaseActivityFont(), OnClickListener {
+class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu_custom_view
@@ -81,7 +81,7 @@ class MenuCustomViewsActivityFont : BaseActivityFont(), OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = MenuCustomViewsActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuCustomViewsActivity::class.java.simpleName
         }
         btViewPager.setOnClickListener(this)
         btButton.setOnClickListener(this)
@@ -146,7 +146,7 @@ class MenuCustomViewsActivityFont : BaseActivityFont(), OnClickListener {
             btLayout -> launchActivity(MenuLayoutActivityFont::class.java)
             btVideoView -> launchActivity(MenuVideoViewActivityFont::class.java)
             btSeekBar -> launchActivity(MenuSeekbarActivityFont::class.java)
-            btRecyclerView -> launchActivity(MenuRecyclerViewActivityFont::class.java)
+            btRecyclerView -> launchActivity(MenuRecyclerViewActivity::class.java)
             btDialog -> launchActivity(MenuDialogActivityFont::class.java)
             btPopupMenu -> launchActivity(PopupMenuActivityFont::class.java)
             btScratchView -> launchActivity(MenuScratchViewActivityFont::class.java)

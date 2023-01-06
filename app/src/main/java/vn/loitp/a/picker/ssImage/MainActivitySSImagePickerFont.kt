@@ -22,7 +22,7 @@ import com.loitp.picker.ssImage.PickerOptions
 import com.loitp.picker.ssImage.isAtLeast11
 import kotlinx.android.synthetic.main.a_main_ss_image_picker.*
 import vn.loitp.R
-import vn.loitp.a.MenuActivityFont
+import vn.loitp.a.MenuActivity
 import vn.loitp.databinding.AMainSsImagePickerBinding
 
 /**
@@ -77,7 +77,7 @@ class MainActivitySSImagePickerFont : BaseActivityFont(),
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = MenuActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuActivity::class.java.simpleName
         }
 
         options_button.setSafeOnClickListener {

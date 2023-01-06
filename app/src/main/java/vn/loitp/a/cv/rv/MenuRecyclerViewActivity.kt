@@ -25,7 +25,7 @@ import vn.loitp.a.cv.rv.fastScroll.MenuFastScrollActivityFont
 import vn.loitp.a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivityFont
 import vn.loitp.a.cv.rv.fitGv.FitGridViewActivityFont
 import vn.loitp.a.cv.rv.footer.RecyclerViewFooterActivityFont
-import vn.loitp.app.a.cv.rv.footer2.RecyclerViewFooter2ActivityFont
+import vn.loitp.a.cv.rv.footer2.RecyclerViewFooter2Activity
 import vn.loitp.app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivityFont
 import vn.loitp.app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont
 import vn.loitp.app.a.cv.rv.looping.LoopingLayoutActivityFont
@@ -40,7 +40,7 @@ import vn.loitp.app.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivityFont
 @LogTag("MenuRecyclerViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuRecyclerViewActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rv_menu
@@ -58,7 +58,7 @@ class MenuRecyclerViewActivityFont : BaseActivityFont(), View.OnClickListener {
                 onBaseBackPressed()
             })
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = MenuRecyclerViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuRecyclerViewActivity::class.java.simpleName
         }
         btArcViewActivity.setOnClickListener(this)
         btParallaxRecyclerView.setOnClickListener(this)
@@ -104,7 +104,7 @@ class MenuRecyclerViewActivityFont : BaseActivityFont(), View.OnClickListener {
             btRecyclerTabLayout -> launchActivity(MenuRecyclerTabLayoutActivityFont::class.java)
             btConcatAdapter -> launchActivity(ConcatAdapterActivityFont::class.java)
             btFooter -> launchActivity(RecyclerViewFooterActivityFont::class.java)
-            btFooter2 -> launchActivity(RecyclerViewFooter2ActivityFont::class.java)
+            btFooter2 -> launchActivity(RecyclerViewFooter2Activity::class.java)
             btNetView -> launchActivity(NetViewActivityFont::class.java)
             btFitGridView -> launchActivity(FitGridViewActivityFont::class.java)
             btDragDropSwipeRecyclerviewListVertical -> launchActivity(

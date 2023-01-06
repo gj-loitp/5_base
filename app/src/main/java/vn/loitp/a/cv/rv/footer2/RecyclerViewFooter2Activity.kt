@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.footer2
+package vn.loitp.a.cv.rv.footer2
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -17,7 +17,7 @@ import com.loitp.core.utilities.LPopupMenu
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.rv.itemDecoration.StickyFooterItemDecoration
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
-import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.*
+import kotlinx.android.synthetic.main.a_rv_footer_2.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 import vn.loitp.app.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
@@ -25,12 +25,12 @@ import vn.loitp.common.Constants
 
 @LogTag("RecyclerViewFooter2Activity")
 @IsFullScreen(false)
-class RecyclerViewFooter2ActivityFont : BaseActivityFont() {
+class RecyclerViewFooter2Activity : BaseActivityFont() {
 
     private var footer2Adapter: Footer2Adapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_footer_2
+        return R.layout.a_rv_footer_2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,17 +41,13 @@ class RecyclerViewFooter2ActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = RecyclerViewFooter2ActivityFont::class.java.simpleName
+            this.tvTitle?.text = RecyclerViewFooter2Activity::class.java.simpleName
         }
-        footer2Adapter = Footer2Adapter(
-            moviesList = instance.movieList,
+        footer2Adapter = Footer2Adapter(moviesList = instance.movieList,
             callback = object : Footer2Adapter.Callback {
                 override fun onClick(movie: Movie, position: Int) {
                     showShortInformation("Click " + movie.title)
@@ -69,8 +65,7 @@ class RecyclerViewFooter2ActivityFont : BaseActivityFont() {
 
                 override fun onLoadMore() {
                 }
-            }
-        )
+            })
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
 //        rv.adapter = footer2Adapter
@@ -92,8 +87,7 @@ class RecyclerViewFooter2ActivityFont : BaseActivityFont() {
         prepareMovieData()
 
         btSetting.setSafeOnClickListener {
-            LPopupMenu.show(
-                activity = this,
+            LPopupMenu.show(activity = this,
                 showOnView = it,
                 menuRes = R.menu.menu_recycler_view,
                 callback = { menuItem ->
@@ -101,32 +95,27 @@ class RecyclerViewFooter2ActivityFont : BaseActivityFont() {
                     when (menuItem.itemId) {
                         R.id.menuLinearVertical -> {
                             val lmVertical: RecyclerView.LayoutManager =
-                                LinearLayoutManager(this@RecyclerViewFooter2ActivityFont)
+                                LinearLayoutManager(this@RecyclerViewFooter2Activity)
                             rv.layoutManager = lmVertical
                         }
                         R.id.menuLinearHorizontal -> {
                             val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(
-                                this@RecyclerViewFooter2ActivityFont,
+                                this@RecyclerViewFooter2Activity,
                                 LinearLayoutManager.HORIZONTAL,
                                 false
                             )
                             rv.layoutManager = lmHorizontal
                         }
-                        R.id.menuGridLayoutManager2 ->
-                            rv.layoutManager =
-                                GridLayoutManager(this@RecyclerViewFooter2ActivityFont, 2)
-                        R.id.menuGridLayoutManager3 ->
-                            rv.layoutManager =
-                                GridLayoutManager(this@RecyclerViewFooter2ActivityFont, 3)
-                        R.id.menuStaggeredGridLayoutManager2 ->
-                            rv.layoutManager =
-                                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-                        R.id.menuStaggeredGridLayoutManager4 ->
-                            rv.layoutManager =
-                                StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
+                        R.id.menuGridLayoutManager2 -> rv.layoutManager =
+                            GridLayoutManager(this@RecyclerViewFooter2Activity, 2)
+                        R.id.menuGridLayoutManager3 -> rv.layoutManager =
+                            GridLayoutManager(this@RecyclerViewFooter2Activity, 3)
+                        R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager =
+                            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                        R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager =
+                            StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
                     }
-                }
-            )
+                })
         }
 
         btAddMore.setSafeOnClickListener {
@@ -137,24 +126,21 @@ class RecyclerViewFooter2ActivityFont : BaseActivityFont() {
     @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
         LDialogUtil.showProgress(progressBar)
-        setDelay(
-            mls = 2000,
-            runnable = {
-                val newSize = 5
-                for (i in 0 until newSize) {
-                    val movie = Movie(
-                        title = "Add new $i",
-                        genre = "Add new $i",
-                        year = "Add new: $i",
-                        cover = Constants.URL_IMG
-                    )
-                    instance.movieList.add(movie)
-                }
-                LDialogUtil.hideProgress(progressBar)
-                footer2Adapter?.notifyDataSetChanged()
-                showShortInformation("Finish loadMore")
+        setDelay(mls = 2000, runnable = {
+            val newSize = 5
+            for (i in 0 until newSize) {
+                val movie = Movie(
+                    title = "Add new $i",
+                    genre = "Add new $i",
+                    year = "Add new: $i",
+                    cover = Constants.URL_IMG
+                )
+                instance.movieList.add(movie)
             }
-        )
+            LDialogUtil.hideProgress(progressBar)
+            footer2Adapter?.notifyDataSetChanged()
+            showShortInformation("Finish loadMore")
+        })
     }
 
     @SuppressLint("NotifyDataSetChanged")

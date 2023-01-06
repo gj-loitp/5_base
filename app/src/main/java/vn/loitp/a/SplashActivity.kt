@@ -168,7 +168,7 @@ class SplashActivity : BaseActivityFont() {
         logD("goToHome isAnimDone $isAnimDone, isCheckReadyDone $isCheckReadyDone")
 
         if (isAnimDone && isCheckReadyDone) {
-            val intent = Intent(this, MenuActivityFont::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             this.tranIn()
             finish()
