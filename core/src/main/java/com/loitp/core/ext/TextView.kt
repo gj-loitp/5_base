@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.text.Html
 import android.text.TextUtils
+import android.util.TypedValue
 import android.widget.TextView
 import androidx.core.widget.TextViewCompat
 import com.google.gson.GsonBuilder
@@ -90,4 +91,13 @@ fun TextView.printBeautyJson(
         val json = gson.toJson(it)
         this.text = "$tag :\n$json"
     }
+}
+
+fun TextView?.setTextSizePx(
+    size: Float
+) {
+    if (size < 0 || this == null) {
+        return
+    }
+    this.setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
 }

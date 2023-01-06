@@ -10,9 +10,9 @@ import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitp.R
+import com.loitp.core.ext.setColorProgressBar
 import com.loitp.core.ext.setImeiActionEditText
 import com.loitp.core.ext.setLastCursorEditText
-import com.loitp.core.utilities.LUIUtil
 
 /**
  * Created by Loitp on 04,August,2022
@@ -93,7 +93,7 @@ class LAutoSuggestEditText : RelativeLayout {
     }
 
     fun setColorProgressBar(color: Int) {
-        LUIUtil.setColorProgressBar(progressBar, color)
+        progressBar.setColorProgressBar(color)
     }
 
     @Suppress("unused")

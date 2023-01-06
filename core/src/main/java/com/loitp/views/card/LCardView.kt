@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.loitp.R
 import com.loitp.core.ext.loadGlide
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setMargins
 
 /**
  * Created by Loitp on 04,August,2022
@@ -107,8 +107,7 @@ class LCardView : RelativeLayout {
 
     fun setCardElevation(elevation: Float) {
         cardView.cardElevation = elevation
-        LUIUtil.setMargins(
-            view = cardView,
+        cardView.setMargins(
             leftPx = elevation.toInt(),
             topPx = elevation.toInt(),
             rightPx = elevation.toInt(),

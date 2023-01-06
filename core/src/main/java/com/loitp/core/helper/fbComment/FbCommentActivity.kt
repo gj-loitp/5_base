@@ -19,9 +19,10 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.setColorProgressBar
 import com.loitp.core.ext.setDelay
+import com.loitp.core.ext.setProgressBarVisibility
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_a_fb_cmt_core.*
 import kotlinx.android.synthetic.main.l_v_l_edit_text.view.*
 
@@ -60,8 +61,7 @@ class FbCommentActivity : BaseActivityFont() {
     private fun setupViews() {
         setupActionBar()
 
-        LUIUtil.setColorProgressBar(
-            progressBar = progressBar,
+        progressBar.setColorProgressBar(
             color = getColor(R.color.colorPrimary)
         )
 
@@ -120,13 +120,12 @@ class FbCommentActivity : BaseActivityFont() {
     private fun setLoading(isLoading: Boolean) {
         this.isLoading = isLoading
         if (isLoading) {
-            LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE)
+            progressBar.setProgressBarVisibility(View.VISIBLE)
         } else {
             setDelay(
                 mls = 1000,
                 runnable = {
-                    LUIUtil.setProgressBarVisibility(
-                        progressBar = progressBar,
+                    progressBar.setProgressBarVisibility(
                         visibility = View.GONE
                     )
                 }

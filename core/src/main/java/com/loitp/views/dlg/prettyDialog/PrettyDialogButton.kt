@@ -12,7 +12,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.loitp.R
 import com.loitp.core.ext.getColor
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setTextSizePx
 import kotlin.math.min
 
 /**
@@ -142,6 +142,6 @@ internal class PrettyDialogButton(
     }
 
     fun setTextSize(size: Float) {
-        LUIUtil.setTextSize(textView = tv, size = size)
+        tv.setTextSizePx(size = size)
     }
 }

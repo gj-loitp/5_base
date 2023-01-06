@@ -8,6 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.ext.setTextSizePx
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_db_sqlite_multi_table_advance.*
 import vn.loitp.R
@@ -72,7 +73,9 @@ class SqliteMultiTableAdvanceActivityFont : BaseActivityFont(), View.OnClickList
         logD("\n" + msg)
         val tv = TextView(this)
         tv.text = msg
-        LUIUtil.setTextSize(textView = tv, size = resources.getDimension(R.dimen.txt_small))
+        tv.setTextSizePx(
+            size = resources.getDimension(R.dimen.txt_small)
+        )
         tv.setTextColor(Color.RED)
         ll.addView(tv)
     }

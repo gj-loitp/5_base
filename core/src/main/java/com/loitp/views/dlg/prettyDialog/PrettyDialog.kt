@@ -22,7 +22,7 @@ import androidx.appcompat.app.AppCompatDialog
 import androidx.appcompat.widget.LinearLayoutCompat
 import com.loitp.R
 import com.loitp.core.ext.getColor
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setTextSizePx
 
 /**
  * Created by Loitp on 04,August,2022
@@ -276,12 +276,12 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setTextSizeTitle(size: Float): PrettyDialog {
-        LUIUtil.setTextSize(textView = tvTitle, size = size)
+        tvTitle.setTextSizePx(size = size)
         return this
     }
 
     fun setTextSizeMsg(size: Float): PrettyDialog {
-        LUIUtil.setTextSize(textView = tvMessage, size = size)
+        tvMessage.setTextSizePx(size = size)
         return this
     }
 

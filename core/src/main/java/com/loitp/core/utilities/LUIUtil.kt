@@ -29,7 +29,6 @@ import com.google.android.material.tabs.TabLayout
 import com.loitp.R
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.*
-import com.loitp.core.utils.ConvertUtils
 import com.loitp.func.wallpo.Wallpo
 import com.simmorsal.recolor_project.OnReColorFinish
 import com.simmorsal.recolor_project.ReColor
@@ -46,88 +45,6 @@ import java.util.*
  */
 class LUIUtil {
     companion object {
-
-        fun setColorProgressBar(
-            progressBar: ProgressBar? = null,
-            color: Int
-        ) {
-            progressBar?.indeterminateDrawable?.setColorFilter(color, PorterDuff.Mode.MULTIPLY)
-        }
-
-        fun setProgressBarVisibility(
-            progressBar: ProgressBar? = null,
-            visibility: Int
-        ) {
-            progressBar?.visibility = visibility
-        }
-
-        fun setColorSeekBar(
-            seekBar: SeekBar?,
-            color: Int
-        ) {
-            seekBar?.let {
-                it.progressDrawable.setColorFilter(color, PorterDuff.Mode.SRC_IN)
-                it.thumb.setColorFilter(color, PorterDuff.Mode.SRC_IN)
-            }
-        }
-
-        // Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, 25);//25dp
-        // Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_SP, 25);//25sp
-        // Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PX, 25);//25px
-        // Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PT, 25);//25points
-//        fun setTextSize(textView: TextView?, typedValue: Int, size: Int) {
-//            if (size < 0) {
-//                return
-//            }
-//            textView?.setTextSize(typedValue, size.toFloat())
-//        }
-
-        fun setTextSize(
-            textView: TextView?,
-            size: Float
-        ) {
-            if (size < 0 || textView == null) {
-                return
-            }
-            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
-        }
-
-        fun setMargins(
-            view: View?,
-            leftPx: Int,
-            topPx: Int,
-            rightPx: Int,
-            bottomPx: Int
-        ) {
-            view?.let {
-                if (it.layoutParams is ViewGroup.MarginLayoutParams) {
-                    val p = it.layoutParams as ViewGroup.MarginLayoutParams
-                    p.setMargins(leftPx, topPx, rightPx, bottomPx)
-                    it.requestLayout()
-                }
-            }
-        }
-
-        fun setMarginsDp(
-            view: View?,
-            leftDp: Int,
-            topDp: Int,
-            rightDp: Int,
-            bottomDp: Int
-        ) {
-            view?.let {
-                if (it.layoutParams is ViewGroup.MarginLayoutParams) {
-                    val p = it.layoutParams as ViewGroup.MarginLayoutParams
-                    p.setMargins(
-                        ConvertUtils.dp2px(leftDp.toFloat()),
-                        ConvertUtils.dp2px(topDp.toFloat()),
-                        ConvertUtils.dp2px(rightDp.toFloat()),
-                        ConvertUtils.dp2px(bottomDp.toFloat())
-                    )
-                    it.requestLayout()
-                }
-            }
-        }
 
         fun changeTabsFont(
             tabLayout: TabLayout?,
@@ -478,8 +395,7 @@ class LUIUtil {
                 (view.findViewById<View?>(R.id.snackbar_text) as? TextView?)?.let {
                     it.isSingleLine = false
                     it.setTextColor(Color.WHITE)
-                    setTextSize(
-                        textView = it,
+                    it.setTextSizePx(
                         size = getDimenValue(R.dimen.txt_medium).toFloat()
                     )
                     it.textAlignment = View.TEXT_ALIGNMENT_CENTER

@@ -11,6 +11,7 @@ import androidx.appcompat.widget.LinearLayoutCompat
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitp.R
 import com.loitp.core.ext.setPullLikeIOSVertical
+import com.loitp.core.ext.setTextSizePx
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.ConvertUtils
 import kotlin.math.hypot
@@ -102,8 +103,7 @@ class LSuggestPopupView(
             // button.setBackgroundColor(Color.TRANSPARENT)
             button.text = s
             button.setTextColor(Color.BLACK)
-            LUIUtil.setTextSize(
-                textView = button,
+            button.setTextSizePx(
                 size = context.resources.getDimension(R.dimen.txt_medium)
             )
             LUIUtil.setRipple(view = button)

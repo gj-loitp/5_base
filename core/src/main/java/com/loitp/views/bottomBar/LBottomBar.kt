@@ -11,6 +11,7 @@ import com.github.mmin18.widget.RealtimeBlurView
 import com.loitp.R
 import com.loitp.core.ext.getColor
 import com.loitp.core.ext.play
+import com.loitp.core.ext.setMargins
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_v_bottom_bar.view.*
 
@@ -397,12 +398,24 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     fun setTextMarginBottom(bottomPx: Int) {
-        LUIUtil.setMargins(view = tvIcon0, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
-        LUIUtil.setMargins(view = tvIcon1, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
-        LUIUtil.setMargins(view = tvIcon2, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
-        LUIUtil.setMargins(view = tvIcon3, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
-        LUIUtil.setMargins(view = tvIcon4, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
-        LUIUtil.setMargins(view = tvIcon5, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
+        tvIcon0.setMargins(
+            leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx
+        )
+        tvIcon1.setMargins(
+            leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx
+        )
+        tvIcon2.setMargins(
+            leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx
+        )
+        tvIcon3.setMargins(
+            leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx
+        )
+        tvIcon4.setMargins(
+            leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx
+        )
+        tvIcon5.setMargins(
+            leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx
+        )
     }
 
     @Suppress("unused")

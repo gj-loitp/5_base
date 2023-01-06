@@ -17,6 +17,7 @@ import com.airbnb.lottie.model.KeyPath
 import com.airbnb.lottie.value.LottieValueCallback
 import com.google.android.material.tabs.TabLayout
 import com.loitp.core.utilities.LStoreUtil
+import com.loitp.core.utils.ConvertUtils
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 
 val View.horizontalPadding: Int get() = this.paddingStart + this.paddingEnd
@@ -206,4 +207,39 @@ fun View.setPullLikeIOSVertical(
         /* view = */ this,
         /* orientation = */ OverScrollDecoratorHelper.ORIENTATION_VERTICAL
     )
+}
+
+fun View?.setMargins(
+    leftPx: Int,
+    topPx: Int,
+    rightPx: Int,
+    bottomPx: Int
+) {
+    this?.let {
+        if (it.layoutParams is ViewGroup.MarginLayoutParams) {
+            val p = it.layoutParams as ViewGroup.MarginLayoutParams
+            p.setMargins(leftPx, topPx, rightPx, bottomPx)
+            it.requestLayout()
+        }
+    }
+}
+
+fun View?.setMarginsDp(
+    leftDp: Int,
+    topDp: Int,
+    rightDp: Int,
+    bottomDp: Int
+) {
+    this?.let {
+        if (it.layoutParams is ViewGroup.MarginLayoutParams) {
+            val p = it.layoutParams as ViewGroup.MarginLayoutParams
+            p.setMargins(
+                ConvertUtils.dp2px(leftDp.toFloat()),
+                ConvertUtils.dp2px(topDp.toFloat()),
+                ConvertUtils.dp2px(rightDp.toFloat()),
+                ConvertUtils.dp2px(bottomDp.toFloat())
+            )
+            it.requestLayout()
+        }
+    }
 }

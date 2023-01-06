@@ -9,7 +9,7 @@ import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
 import com.loitp.R
 import com.loitp.core.ext.play
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setTextSizePx
 
 /**
  * Created by Loitp on 04,August,2022
@@ -183,8 +183,14 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
         dpText: Float,
         dpNext: Float
     ) {
-        LUIUtil.setTextSize(textView = tvPrev, size = dpPrev)
-        LUIUtil.setTextSize(textView = tv, size = dpText)
-        LUIUtil.setTextSize(textView = tvNext, size = dpNext)
+        tvPrev.setTextSizePx(
+            size = dpPrev
+        )
+        tv.setTextSizePx(
+            size = dpText
+        )
+        tvNext.setTextSizePx(
+            size = dpNext
+        )
     }
 }

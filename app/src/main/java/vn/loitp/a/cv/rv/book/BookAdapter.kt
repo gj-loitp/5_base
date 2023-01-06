@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.setMargins
 import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.i_book.view.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
@@ -65,8 +65,7 @@ class BookAdapter(
                     itemView.bkg.setImageResource(R.drawable.l_grid_item_background_center)
                 }
             }
-            LUIUtil.setMargins(
-                view = itemView.imageView,
+            itemView.imageView.setMargins(
                 leftPx = sizeMarginTopLeftRight,
                 topPx = sizeMarginTopBottom,
                 rightPx = sizeMarginTopLeftRight,

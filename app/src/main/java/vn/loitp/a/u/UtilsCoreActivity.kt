@@ -203,8 +203,12 @@ class UtilsCoreActivity : BaseActivityFont() {
         iv.setImageFromAsset("ic_gift.png")
         srl.setProgressViewOffset(200)
         et1.setImeiActionSearch() { }
-        LUIUtil.setColorSeekBar(sb1, Color.RED)
-        LUIUtil.setMarginsDp(view = sb1, leftDp = 16, topDp = 16, rightDp = 16, bottomDp = 16)
+        sb1.setColorSeekBar(
+            Color.RED
+        )
+        sb1.setMarginsDp(
+            leftDp = 16, topDp = 16, rightDp = 16, bottomDp = 16
+        )
         LUIUtil.setRandomBackground(layoutRootView)
         LUIUtil.getAllChildren(layoutRootView).forEach {
             logD(">>>getAllChildren ${it.id}")

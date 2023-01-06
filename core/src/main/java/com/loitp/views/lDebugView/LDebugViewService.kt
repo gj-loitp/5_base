@@ -17,8 +17,8 @@ import com.loitp.R
 import com.loitp.core.ext.getDateCurrentTimeZoneMls
 import com.loitp.core.ext.getDimenValue
 import com.loitp.core.ext.printBeautyJson
+import com.loitp.core.ext.setTextSizePx
 import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -180,14 +180,15 @@ class LDebugViewService : Service(), OnTouchListener {
         }
         val currentTime = System.currentTimeMillis().getDateCurrentTimeZoneMls("HH:mm:ss")
         val textView = TextView(this)
-        LUIUtil.setTextSize(textView, getDimenValue(R.dimen.txt_medium).toFloat())
+        textView.setTextSizePx(
+            getDimenValue(R.dimen.txt_medium).toFloat()
+        )
         if (msgFromActivity.any == null) {
             textView.text = currentTime + " : " + msgFromActivity.msg
         } else {
             textView.printBeautyJson(o = msgFromActivity.any, tag = currentTime)
         }
-        LUIUtil.setTextSize(
-            textView = textView,
+        textView.setTextSizePx(
             size = baseContext.resources.getDimension(R.dimen.txt_tiny)
         )
         when (msgFromActivity.type) {
