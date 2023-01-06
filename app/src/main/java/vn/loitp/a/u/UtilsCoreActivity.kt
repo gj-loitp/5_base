@@ -85,40 +85,32 @@ class UtilsCoreActivity : BaseActivityFont() {
         }
         btLDateUtil.setSafeOnClickListener {
             val msg =
-                "currentDate: ${LDateUtil.currentDate}" + "\ncurrentYearMonth: ${LDateUtil.currentYearMonth}" + "\ncurrentMonth: ${LDateUtil.currentMonth}" + "\nconvertFormatDate: ${
-                    LDateUtil.convertFormatDate(
-                        "12/03/2022 01:02:03", "dd/MM/yyyy Hh:mm:ss", "yyyy/MM/dd"
+                "currentDate: $currentDate\ncurrentYearMonth: $currentYearMonth\ncurrentMonth: $currentMonth" + "\nconvertFormatDate: ${
+                    "12/03/2022 01:02:03".convertFormatDate(
+                        "dd/MM/yyyy Hh:mm:ss", "yyyy/MM/dd"
                     )
                 }" + "\nstringToDate: ${
-                    LDateUtil.stringToDate(
-                        "12/03/2022 01:02:03", "dd/MM/yyyy Hh:mm:ss"
+                    "12/03/2022 01:02:03".stringToDate(
+                        "dd/MM/yyyy Hh:mm:ss"
                     )
                 }" + "\ndateToString: ${
-                    LDateUtil.dateToString(
-                        LDateUtil.getDate(year = 1993, month = 2, day = 4), "yyyy/MM/dd"
+                    getDate(year = 1993, month = 2, day = 4).dateToString(
+                        "yyyy/MM/dd"
                     )
                 }" + "\nformatDatePicker: ${
-                    LDateUtil.formatDatePicker(
+                    formatDatePicker(
                         year = 1993, month = 2, day = 4, format = "yyyy/MM/dd"
                     )
-                }" + "\ngetDateWithoutTime: ${LDateUtil.getDateWithoutTime("04/02/1993")}" + "\nconvertDateToTimestamp: ${
-                    LDateUtil.convertDateToTimestamp(
-                        "14-09-2017"
-                    )
+                }" + "\ngetDateWithoutTime: ${"04/02/1993".getDateWithoutTime()}" + "\nconvertDateToTimestamp: ${
+                    "14-09-2017".convertDateToTimestamp()
                 }" + "\nzeroTime: ${
-                    LDateUtil.zeroTime(
-                        LDateUtil.getDate(
-                            year = 1993, month = 2, day = 4
-                        )
-                    )
-                }" + "\nconvertDateToTimeStamp: ${LDateUtil.convertDateToTimeStamp("1993-02-04'T'11:22:33")}" + "\nconvertStringToCalendar: ${
-                    LDateUtil.convertStringToCalendar(
-                        "1993-02-04"
-                    )
+                    getDate(
+                        year = 1993, month = 2, day = 4
+                    ).zeroTime()
+                }" + "\nconvertDateToTimeStamp: ${"1993-02-04'T'11:22:33".convertDateToTimeStamp()}" + "\nconvertStringToCalendar: ${
+                    "1993-02-04".convertStringToCalendar()
                 }" + "\nconvertStringDate: ${
-                    LDateUtil.convertStringDate(
-                        "02/04/1993", "MM/dd/yyyy"
-                    )
+                    "02/04/1993".convertStringDate("MM/dd/yyyy")
                 }"
             showDialogMsg(msg)
         }

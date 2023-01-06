@@ -12,9 +12,9 @@ import android.provider.Settings
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.now
 import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.ext.tranIn
-import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.nfc.LNFCUtil
@@ -105,7 +105,7 @@ class NFCActivityFont : BaseActivityFont() {
         tagId?.let {
             val tagWrapper = TagWrapper(id = it)
             val misc = ArrayList<String>()
-            misc.add("scanned at: " + LDateUtil.now())
+            misc.add("scanned at: " + now())
 
             val rawMsg = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
             var tagData = ""

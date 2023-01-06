@@ -14,9 +14,9 @@ import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.widget.NestedScrollView
 import com.loitp.R
+import com.loitp.core.ext.getDateCurrentTimeZoneMls
 import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import org.greenrobot.eventbus.EventBus
@@ -178,8 +178,7 @@ class LDebugViewService : Service(), OnTouchListener {
         if (msgFromActivity == null) {
             return
         }
-        val currentTime =
-            LDateUtil.getDateCurrentTimeZoneMls(System.currentTimeMillis(), "HH:mm:ss")
+        val currentTime = System.currentTimeMillis().getDateCurrentTimeZoneMls("HH:mm:ss")
         val textView = TextView(this)
         LUIUtil.setTextSize(textView, LAppResource.getDimenValue(R.dimen.txt_medium).toFloat())
         if (msgFromActivity.any == null) {

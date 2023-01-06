@@ -13,10 +13,10 @@ import com.bumptech.glide.request.target.Target
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.getDateCurrentTimeZone
 import com.loitp.core.ext.getRandomColorLight
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setTextShadow
-import com.loitp.core.utilities.LDateUtil
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
 import kotlinx.android.synthetic.main.l_i_flickr_album_core.view.*
 
@@ -95,8 +95,7 @@ class AlbumAdapter(
 
             itemView.tvLabel.text = p.title?.content
 
-            val update = LDateUtil.getDateCurrentTimeZone(
-                timestamp = p.dateUpdate,
+            val update = p.dateUpdate.getDateCurrentTimeZone(
                 format = "dd-MM-yyyy HH:mm:ss"
             )
             itemView.tvUpdate.text = update

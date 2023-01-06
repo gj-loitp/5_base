@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LDateUtil
+import com.loitp.core.ext.getDateCurrentTimeZoneMls
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_demo_view_model.*
 import vn.loitp.R
@@ -81,8 +81,7 @@ class ViewModelActivityFont : BaseActivityFont() {
                     return@Observer
                 }
                 tvTime.text =
-                    "countToStop: $countToStop -> $it -> " + LDateUtil.getDateCurrentTimeZoneMls(
-                        it,
+                    "countToStop: $countToStop -> $it -> " + it.getDateCurrentTimeZoneMls(
                         "yyyy-MM-dd HH:mm:ss"
                     )
             }
