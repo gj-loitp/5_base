@@ -13,8 +13,8 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.setZoomFitWidthScreen
 import com.loitp.core.ext.transActivityNoAnimation
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
 import jp.wasabeef.glide.transformations.BlurTransformation
@@ -93,7 +93,7 @@ class GalleryMemberDetailActivity : BaseActivityFont() {
                     dataSource: DataSource,
                     isFirstResource: Boolean
                 ): Boolean {
-                    LImageUtil.setZoomFitWidthScreen(touchImageView = imageView)
+                    imageView.setZoomFitWidthScreen()
                     return false
                 }
             })
