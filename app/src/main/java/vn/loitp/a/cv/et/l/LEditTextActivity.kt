@@ -11,8 +11,8 @@ import android.widget.ImageView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.hideKeyboard
 import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LKeyBoardUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.et.l.LEditText
@@ -21,7 +21,7 @@ import vn.loitp.R
 
 @LogTag("LEditTextActivity")
 @IsFullScreen(false)
-class LEditTextActivityFont : BaseActivityFont() {
+class LEditTextActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_et_l
@@ -42,7 +42,7 @@ class LEditTextActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = LEditTextActivityFont::class.java.simpleName
+            this.tvTitle?.text = LEditTextActivity::class.java.simpleName
         }
         lEditTextId.apply {
             colorFocus = LAppResource.getColor(R.color.black)
@@ -104,7 +104,7 @@ class LEditTextActivityFont : BaseActivityFont() {
             setImeiActionEditText(
                 imeOptions = EditorInfo.IME_ACTION_DONE,
                 runnable = {
-                    LKeyBoardUtil.hide(this@LEditTextActivityFont)
+                    this@LEditTextActivity.hideKeyboard()
                 }
             )
             callback = object : LEditText.Callback {

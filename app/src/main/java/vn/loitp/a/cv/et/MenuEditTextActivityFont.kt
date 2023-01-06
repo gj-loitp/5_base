@@ -14,7 +14,7 @@ import vn.loitp.a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivityFon
 import vn.loitp.a.cv.et.autoResize.AutoResizeEditTextActivityFont
 import vn.loitp.a.cv.et.autoSuggest.EditTextAutoSuggestActivityFont
 import vn.loitp.a.cv.et.currency.CurrencyEditTextActivityFont
-import vn.loitp.a.cv.et.l.LEditTextActivityFont
+import vn.loitp.a.cv.et.l.LEditTextActivity
 import vn.loitp.a.cv.et.materialTextField.MaterialTextFieldActivityFont
 import vn.loitp.a.cv.et.otpView.OtpViewActivityFont
 import vn.loitp.a.cv.et.textWatcher.EditTextTextWatcherActivityFont
@@ -58,7 +58,7 @@ class MenuEditTextActivityFont : BaseActivityFont() {
             launchActivity(EditTextAutoSuggestActivityFont::class.java)
         }
         btLEditText.setSafeOnClickListener {
-            launchActivity(LEditTextActivityFont::class.java)
+            launchActivity(LEditTextActivity::class.java)
         }
         btEditextTextWatcher.setSafeOnClickListener {
             launchActivity(EditTextTextWatcherActivityFont::class.java)

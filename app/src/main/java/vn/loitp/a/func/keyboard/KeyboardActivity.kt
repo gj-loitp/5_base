@@ -5,8 +5,9 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.hideKeyboard
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LKeyBoardUtil
+import com.loitp.core.ext.showKeyboard
 import com.loitp.core.utilities.LUIUtil
 import gun0912.tedkeyboardobserver.TedRxKeyboardObserver
 import kotlinx.android.synthetic.main.a_func_keyboard.*
@@ -16,7 +17,7 @@ import vn.loitp.R
 
 @LogTag("KeyboardActivity")
 @IsFullScreen(false)
-class KeyboardActivityFont : BaseActivityFont() {
+class KeyboardActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_func_keyboard
@@ -39,7 +40,7 @@ class KeyboardActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = KeyboardActivityFont::class.java.simpleName
+            this.tvTitle?.text = KeyboardActivity::class.java.simpleName
         }
         TedRxKeyboardObserver(this)
             .listen()
@@ -48,10 +49,10 @@ class KeyboardActivityFont : BaseActivityFont() {
             }, { throwable -> throwable.printStackTrace() })
 
         btShow.setSafeOnClickListener {
-            LKeyBoardUtil.show(this)
+            this.showKeyboard()
         }
         btHide.setSafeOnClickListener {
-            LKeyBoardUtil.hide(this)
+            this.hideKeyboard()
         }
     }
 }

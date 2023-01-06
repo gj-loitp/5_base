@@ -15,7 +15,7 @@ import vn.loitp.a.func.fullScreen.FullScreenActivityFont
 import vn.loitp.a.func.glide.GlideActivityFont
 import vn.loitp.a.func.hashmap.HashMapActivityFont
 import vn.loitp.a.func.idleTime.IdleTimeActivityFont
-import vn.loitp.a.func.keyboard.KeyboardActivityFont
+import vn.loitp.a.func.keyboard.KeyboardActivity
 import vn.loitp.a.func.keyboardHeightProvider.KeyboardHeightProviderActivityFont
 import vn.loitp.a.func.location.LocationActivityFont
 import vn.loitp.a.func.noti.MenuNotificationActivityFont
@@ -95,7 +95,7 @@ class MenuFunctionActivityFont : BaseActivityFont(), View.OnClickListener {
             btViewDragHelperSimple1 -> launchActivity(ViewDragHelperSimpleActivity1Font::class.java)
             btSensor -> launchActivity(SensorActivityFont::class.java)
             btGlide -> launchActivity(GlideActivityFont::class.java)
-            btKeyboard -> launchActivity(KeyboardActivityFont::class.java)
+            btKeyboard -> launchActivity(KeyboardActivity::class.java)
             btKeyboardHeightProvider -> launchActivity(KeyboardHeightProviderActivityFont::class.java)
             btTheme -> launchActivity(ThemeActivityFont::class.java)
             btWallpoActivity -> launchActivity(WallpoActivityFont::class.java)
