@@ -19,9 +19,9 @@ import com.google.android.gms.location.*
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.getCityByLatLon
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.tranOut
-import com.loitp.core.utilities.LLocationUtil
 import com.loitp.core.utilities.LUIUtil
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.a_func_location.*
@@ -32,7 +32,7 @@ import java.util.*
 
 @LogTag("LocationActivity")
 @IsFullScreen(false)
-class LocationActivityFont : BaseActivityFont() {
+class LocationActivity : BaseActivityFont() {
 
     companion object {
         // location updates interval - 10sec
@@ -83,7 +83,7 @@ class LocationActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = LocationActivityFont::class.java.simpleName
+            this.tvTitle?.text = LocationActivity::class.java.simpleName
         }
         btStartLocationUpdates.setSafeOnClickListener {
             startLocationButtonClick()
@@ -149,10 +149,9 @@ class LocationActivityFont : BaseActivityFont() {
         mCurrentLocation?.let {
 
             var moreInfor = ""
-            LLocationUtil.getCityByLatLon(
-                this,
-                it.latitude,
-                it.longitude
+            this.getCityByLatLon(
+                latitude = it.latitude,
+                longitude = it.longitude
             ) { address: String?, city: String?, state: String?, country: String? ->
                 moreInfor += "$address - $city - $state - $country"
             }

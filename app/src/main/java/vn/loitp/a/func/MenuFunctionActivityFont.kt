@@ -17,7 +17,7 @@ import vn.loitp.a.func.hashmap.HashMapActivityFont
 import vn.loitp.a.func.idleTime.IdleTimeActivityFont
 import vn.loitp.a.func.keyboard.KeyboardActivity
 import vn.loitp.a.func.keyboardHeightProvider.KeyboardHeightProviderActivityFont
-import vn.loitp.a.func.location.LocationActivityFont
+import vn.loitp.a.func.location.LocationActivity
 import vn.loitp.a.func.noti.MenuNotificationActivityFont
 import vn.loitp.a.func.processPhoenix.ProcessPhoenixActivityFont
 import vn.loitp.a.func.pump.PumpActivityFont
@@ -88,7 +88,7 @@ class MenuFunctionActivityFont : BaseActivityFont(), View.OnClickListener {
             btViewDragHelper -> launchActivity(ViewDragHelperActivityFont::class.java)
             btRecolor -> launchActivity(RecolorActivityFont::class.java)
             btActivityServiceComunicate -> launchActivity(ActivityServiceCommunicateActivityFont::class.java)
-            btLocation -> launchActivity(LocationActivityFont::class.java)
+            btLocation -> launchActivity(LocationActivity::class.java)
             btNotification -> launchActivity(MenuNotificationActivityFont::class.java)
             btPump -> launchActivity(PumpActivityFont::class.java)
             btViewDragHelperSimple -> launchActivity(ViewDragHelperSimpleActivityFont::class.java)
