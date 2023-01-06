@@ -8,7 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.utilities.LThreadUtil.Companion.isUIThread
+import com.loitp.core.ext.isUIThread
 import com.loitp.core.utilities.LUIUtil
 import io.reactivex.Observable
 import io.reactivex.ObservableEmitter

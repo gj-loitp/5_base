@@ -17,3 +17,7 @@ fun setDelay(
     val handler = Handler(Looper.getMainLooper())
     handler.postDelayed({ runnable.run() }, mls.toLong())
 }
+
+val isUIThread: Boolean
+    get() = Looper.myLooper() == Looper.getMainLooper()
+
