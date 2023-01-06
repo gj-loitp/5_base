@@ -24,7 +24,7 @@ import vn.loitp.a.demo.floatingWidget.FloatingWidgetActivityFont
 import vn.loitp.a.demo.fragmentFlow.FragmentFlowActivityFont
 import vn.loitp.a.demo.fragmentNavigation.FragmentNavigationActivityFont
 import vn.loitp.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivityFont
-import vn.loitp.a.demo.mapTracker.MapTrackerActivityFont
+import vn.loitp.a.demo.mapTracker.MapTrackerActivity
 import vn.loitp.a.demo.nfc.NFCActivityFont
 import vn.loitp.a.demo.pdf.PdfDemoActivityFont
 import vn.loitp.a.demo.piano.PianoActivityFont
@@ -145,7 +145,7 @@ class MenuDemoActivityFont : BaseActivityFont(), View.OnClickListener {
             btGalleryCoreAlbumFrm -> launchActivity(GalleryCoreAlbumFrmActivityFont::class.java)
             btArchitectureComponent -> launchActivity(MenuArchitectureComponentActivityFont::class.java)
             btNFC -> launchActivity(NFCActivityFont::class.java)
-            btMapTracker -> launchActivity(MapTrackerActivityFont::class.java)
+            btMapTracker -> launchActivity(MapTrackerActivity::class.java)
             btTTT -> launchActivity(TTTSplashActivity::class.java)
             btRSS -> launchActivity(RSSActivityFont::class.java)
             btTrackingG1 -> launchActivity(TrackingG1ActivityFont::class.java)

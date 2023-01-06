@@ -23,9 +23,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.ext.roundDouble
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.tranOut
-import com.loitp.core.utilities.LMathUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.permissionx.guolindev.PermissionX
@@ -36,7 +36,7 @@ import java.util.*
 
 @LogTag("MapTrackerActivity")
 @IsFullScreen(false)
-class MapTrackerActivityFont :
+class MapTrackerActivity :
     BaseActivityFont(),
     OnMapReadyCallback,
     GoogleApiClient.ConnectionCallbacks,
@@ -78,7 +78,7 @@ class MapTrackerActivityFont :
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MapTrackerActivityFont::class.java.simpleName
+            this.tvTitle?.text = MapTrackerActivity::class.java.simpleName
         }
 
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
@@ -154,8 +154,8 @@ class MapTrackerActivityFont :
         currentLocationMarker?.remove()
         mCurrentLocation?.let { location ->
 
-            val latRound = LMathUtil.roundDouble(value = location.latitude, newScale = 4)
-            val lngRound = LMathUtil.roundDouble(value = location.longitude, newScale = 4)
+            val latRound = location.latitude.roundDouble(newScale = 4)
+            val lngRound = location.longitude.roundDouble(newScale = 4)
 
             val latLng = LatLng(latRound, lngRound)
 

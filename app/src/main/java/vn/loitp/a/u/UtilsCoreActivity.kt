@@ -150,15 +150,15 @@ class UtilsCoreActivity : BaseActivityFont() {
         btLMathUtil.setSafeOnClickListener {
             showDialogMsg(
                 "roundBigDecimal ${
-                    LMathUtil.roundBigDecimal(
-                        value = BigDecimal(6.123456), newScale = 3
+                    BigDecimal(6.123456).roundBigDecimal(
+                        newScale = 3
                     )
                 }" + "\ngetUSCLN: ${
-                    LMathUtil.getUSCLN(
+                    getUSCLN(
                         6,
                         9
                     )
-                }" + "\ngetBSCNN: ${LMathUtil.getBSCNN(6, 9)}"
+                }" + "\ngetBSCNN: ${getBSCNN(6, 9)}"
             )
         }
         btShowStatusBar.setSafeOnClickListener {
@@ -200,7 +200,6 @@ class UtilsCoreActivity : BaseActivityFont() {
         }
 
         LUIUtil.setMarquee(tv, getString(R.string.large_dummy_text))
-        //TODO fix setBackgroundDrawable
         v1.setBackgroundDrawable(LUIUtil.createGradientDrawableWithRandomColor())
         v2.setBackgroundDrawable(LUIUtil.createGradientDrawableWithColor(Color.RED, Color.GREEN))
         LUIUtil.setCircleViewWithColor(v3, Color.GREEN, Color.CYAN)

@@ -986,7 +986,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".a.demo.mapTracker.MapTrackerActivityFont"
+            android:name=".a.demo.mapTracker.MapTrackerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--endregion-->
         <activity
