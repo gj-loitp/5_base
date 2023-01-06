@@ -5,7 +5,7 @@ import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.toggleScreenOrientation
 import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.a_auto_size_button.*
 import vn.loitp.R
@@ -48,7 +48,7 @@ class AutoSizeButtonActivityFont : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            btRotate -> LActivityUtil.toggleScreenOrientation(this)
+            btRotate -> toggleScreenOrientation()
             bt0, bt1, bt2 -> showShortInformation("Click")
         }
     }

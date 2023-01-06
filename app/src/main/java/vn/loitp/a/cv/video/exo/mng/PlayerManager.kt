@@ -24,7 +24,8 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import com.google.android.exoplayer2.video.VideoListener
 import com.loitp.R
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.changeScreenLandscape
+import com.loitp.core.ext.changeScreenPortrait
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utils.AppUtils
 
@@ -210,11 +211,11 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
         if (LScreenUtil.isLandscape()) {
             // land -> port
             LScreenUtil.toggleFullscreen(activity = activity, isFullScreen = false)
-            LActivityUtil.changeScreenPortrait(activity)
+            activity.changeScreenPortrait()
         } else {
             // port -> land
             LScreenUtil.toggleFullscreen(activity = activity, isFullScreen = true)
-            LActivityUtil.changeScreenLandscape(activity)
+            activity.changeScreenLandscape()
         }
     }
 

@@ -1,12 +1,16 @@
 package com.loitp.core.ext
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ComponentName
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.net.Uri
 import android.provider.AlarmClock
 import android.provider.CalendarContract
+import android.view.WindowManager
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
 
@@ -76,4 +80,33 @@ fun Activity.uninstallApp(
     intent.data = Uri.parse("package:$packageName")
     this.startActivity(intent)
     LActivityUtil.tranIn(this)
+}
+
+fun Activity.toggleFullScreen() {
+    val attrs = this.window.attributes
+    attrs.flags = attrs.flags xor WindowManager.LayoutParams.FLAG_FULLSCREEN
+    this.window.attributes = attrs
+}
+
+@SuppressLint("SourceLockedOrientationActivity")
+fun Activity.toggleScreenOrientation() {
+    val s = getScreenOrientation()
+    if (s == Configuration.ORIENTATION_LANDSCAPE) {
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT
+    } else if (s == Configuration.ORIENTATION_PORTRAIT) {
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+    }
+}
+
+@SuppressLint("SourceLockedOrientationActivity")
+fun Activity.changeScreenPortrait() {
+    this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+}
+
+fun Activity.changeScreenLandscape() {
+    this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+}
+
+fun Activity.getScreenOrientation(): Int {
+    return this.resources.configuration.orientation
 }
