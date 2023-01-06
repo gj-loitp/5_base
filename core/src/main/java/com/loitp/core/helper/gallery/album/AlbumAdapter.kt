@@ -14,6 +14,7 @@ import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.setTextShadow
 import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
@@ -101,9 +102,9 @@ class AlbumAdapter(
             itemView.tvUpdate.text = update
             itemView.tvNumber.text = p.photos
 
-            LUIUtil.setTextShadow(textView = itemView.tvLabel, color = Color.BLACK)
-            LUIUtil.setTextShadow(textView = itemView.tvUpdate, color = Color.BLACK)
-            LUIUtil.setTextShadow(textView = itemView.tvNumber, color = Color.BLACK)
+            itemView.tvLabel.setTextShadow(color = Color.BLACK)
+            itemView.tvUpdate.setTextShadow(color = Color.BLACK)
+            itemView.tvNumber.setTextShadow(color = Color.BLACK)
 
             itemView.frameLayout.setOnClickListener {
                 callback?.onClick(bindingAdapterPosition)

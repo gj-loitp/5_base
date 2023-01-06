@@ -10,9 +10,10 @@ import android.widget.*
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.card.MaterialCardView
+import com.loitp.R
+import com.loitp.core.ext.setLastCursorEditText
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.ConvertUtils
-import com.loitp.R
 
 /**
  * Created by Loitp on 04,August,2022
@@ -131,7 +132,7 @@ class LEditText : RelativeLayout {
     }
 
     fun setLastCursorEditText() {
-        LUIUtil.setLastCursorEditText(editText)
+        editText.setLastCursorEditText()
     }
 
     fun setText(s: String) {

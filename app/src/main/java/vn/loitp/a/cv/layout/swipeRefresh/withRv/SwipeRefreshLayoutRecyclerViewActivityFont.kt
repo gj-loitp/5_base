@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setColorForSwipeRefreshLayout
 import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_layout_swipe_refresh_rv.*
@@ -45,7 +46,7 @@ class SwipeRefreshLayoutRecyclerViewActivityFont : BaseActivityFont() {
             this.tvTitle?.text = SwipeRefreshLayoutRecyclerViewActivityFont::class.java.simpleName
         }
         swipeRefreshLayout.setOnRefreshListener { refresh() }
-        LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout)
+        swipeRefreshLayout.setColorForSwipeRefreshLayout()
 
         mAdapter = MoviesAdapter(
             movieList,

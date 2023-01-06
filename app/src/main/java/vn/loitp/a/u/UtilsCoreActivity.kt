@@ -209,7 +209,7 @@ class UtilsCoreActivity : BaseActivityFont() {
         )
         LUIUtil.setTextBold(tv1)
         iv.setImageFromAsset("ic_gift.png")
-        LUIUtil.setProgressViewOffset(srl, 200)
+        srl.setProgressViewOffset(200)
         LUIUtil.setImeiActionSearch(et1) { }
         LUIUtil.setColorSeekBar(sb1, Color.RED)
         LUIUtil.setMarginsDp(sb1, 16, 16, 16, 16)

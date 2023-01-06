@@ -10,6 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
+import com.loitp.core.ext.setColorForSwipeRefreshLayout
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.f_coroutine_get_list_user.*
@@ -76,10 +77,9 @@ class FrmGetListUser : BaseFragment() {
             (activity as? BaseActivityFont)?.apply {
                 onBaseBackPressed()
             }
-            // findNavController().popBackStack()
         }
 
-        LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout)
+        swipeRefreshLayout.setColorForSwipeRefreshLayout()
         swipeRefreshLayout.setOnRefreshListener {
             logD("setOnRefreshListener")
             page = 1

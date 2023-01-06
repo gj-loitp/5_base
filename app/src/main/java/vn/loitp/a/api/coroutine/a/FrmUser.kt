@@ -6,6 +6,7 @@ import androidx.navigation.fragment.findNavController
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.setColorForSwipeRefreshLayout
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.sv.model.UserTest
@@ -33,7 +34,7 @@ class FrmUser : BaseFragment() {
             findNavController().popBackStack()
         }
 
-        LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout = swipeRefreshLayout)
+        swipeRefreshLayout.setColorForSwipeRefreshLayout()
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.isRefreshing = false
         }

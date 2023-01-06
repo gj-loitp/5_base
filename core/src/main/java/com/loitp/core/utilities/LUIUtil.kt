@@ -22,7 +22,6 @@ import androidx.cardview.widget.CardView
 import androidx.core.graphics.ColorUtils
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
@@ -117,49 +116,11 @@ class LUIUtil {
 
 
 
-        fun setLastCursorEditText(editText: EditText?) {
-            editText?.let {
-                if (it.text.toString().isNotEmpty()) {
-                    it.setSelection(it.text.length)
-                }
-            }
-        }
 
-        fun setColorForSwipeRefreshLayout(swipeRefreshLayout: SwipeRefreshLayout?) {
-            swipeRefreshLayout?.setColorSchemeResources(
-                R.color.colorPrimary,
-                R.color.vip1,
-                R.color.vip2,
-                R.color.vip3,
-                R.color.vip4,
-                R.color.vip5
-            )
-        }
 
-        fun setProgressViewOffset(
-            swipeRefreshLayout: SwipeRefreshLayout?,
-            topMargin: Int
-        ) {
-            swipeRefreshLayout?.setProgressViewOffset(false, 0, topMargin)
-        }
 
-        fun setTextShadow(
-            textView: TextView?,
-            color: Int?
-        ) {
-            val mColor: Int = color
-                ?: if (isDarkTheme()) {
-                    Color.BLACK
-                } else {
-                    Color.WHITE
-                }
-            textView?.setShadowLayer(
-                1f, // radius
-                1f, // dx
-                1f, // dy
-                mColor // shadow color
-            )
-        }
+
+
 
         fun setTextBold(textBold: TextView) {
             textBold.setTypeface(null, Typeface.BOLD)

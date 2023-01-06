@@ -10,10 +10,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.ext.loadGlide
-import com.loitp.core.ext.setDelay
-import com.loitp.core.ext.tranIn
-import com.loitp.core.ext.tranOut
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivity
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.AppUtils
@@ -54,9 +51,9 @@ class GalleryCoreSplashActivity : BaseActivityFont() {
             urlCoverSplashScreen = Constants.URL_IMG_2
         }
         ivBkg.loadGlide(any = urlCoverSplashScreen)
-        LUIUtil.setTextShadow(textView = tvCopyright, color = null)
+        tvCopyright.setTextShadow(color = null)
         tvName.text = AppUtils.appName
-        LUIUtil.setTextShadow(textView = tvName, color = null)
+        tvName.setTextShadow(color = null)
     }
 
     private fun goToHome() {

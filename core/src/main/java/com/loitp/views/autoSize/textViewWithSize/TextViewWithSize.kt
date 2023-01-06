@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatTextView
 import com.loitp.R
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setTextShadow
 
 /**
  * Created by Loitp on 04,August,2022
@@ -42,7 +42,7 @@ class TextViewWithSize : AppCompatTextView {
     }
 
     private fun init() {
-        LUIUtil.setTextShadow(textView = this, color = Color.RED)
+        this.setTextShadow(color = Color.RED)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

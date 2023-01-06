@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.setTextShadow
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import com.loitp.game.findNumber.db.Db.Companion.STATUS_LEVEL_WIN
@@ -41,7 +42,7 @@ class LevelAdapter : BaseAdapter() {
         fun bind(level: Level) {
 
             itemView.tvLevel.text = "${level.name}"
-            LUIUtil.setTextShadow(textView = itemView.tvLevel, color = Color.BLACK)
+            itemView.tvLevel.setTextShadow(color = Color.BLACK)
 
             if (level.status == STATUS_LEVEL_OPEN) {
                 itemView.layoutRootView.setBackgroundResource(R.drawable.bkg_blue_2)

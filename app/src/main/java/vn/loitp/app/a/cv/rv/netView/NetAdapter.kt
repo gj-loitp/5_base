@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setTextShadow
 import kotlinx.android.synthetic.main.view_item_net.view.*
 import vn.loitp.R
 
@@ -33,12 +33,8 @@ class NetAdapter : BaseAdapter() {
     inner class NetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(net: Net) {
-//            itemView.rootView.layoutParams.width = sizeW
-//            itemView.rootView.layoutParams.height = sizeH
-//            itemView.rootView.invalidate()
-
             itemView.textView.text = net.name
-            LUIUtil.setTextShadow(textView = itemView.textView, color = Color.BLACK)
+            itemView.textView.setTextShadow(color = Color.BLACK)
 
             // setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
 

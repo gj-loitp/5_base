@@ -1,10 +1,12 @@
 package com.loitp.core.ext
 
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.text.Html
 import android.text.TextUtils
 import android.widget.TextView
 import androidx.core.widget.TextViewCompat
+import com.loitp.core.utilities.LUIUtil
 
 /**
  * Created by Loitp on 06,January,2023
@@ -44,4 +46,21 @@ fun TextView?.setTextFromHTML(
     this?.let {
         it.text = Html.fromHtml(bodyData, Html.FROM_HTML_MODE_LEGACY)
     }
+}
+
+fun TextView.setTextShadow(
+    color: Int?
+) {
+    val mColor: Int = color
+        ?: if (LUIUtil.isDarkTheme()) {
+            Color.BLACK
+        } else {
+            Color.WHITE
+        }
+    this.setShadowLayer(
+        /* radius = */ 1f, // radius
+        /* dx = */ 1f, // dx
+        /* dy = */ 1f, // dy
+        /* color = */ mColor // shadow color
+    )
 }

@@ -12,10 +12,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.ext.isConnected
-import com.loitp.core.ext.setDelay
-import com.loitp.core.ext.tranIn
-import com.loitp.core.ext.tranOut
+import com.loitp.core.ext.*
 import com.loitp.core.utilities.*
 import com.loitp.model.App
 import com.permissionx.guolindev.PermissionX
@@ -58,7 +55,7 @@ class SplashActivity : BaseActivityFont() {
 
         tvPolicy.apply {
             LUIUtil.setTextUnderline(this)
-            LUIUtil.setTextShadow(textView = this, color = null)
+            this.setTextShadow(color = null)
             setOnClickListener {
                 LSocialUtil.openBrowserPolicy(context = this@SplashActivity)
             }
