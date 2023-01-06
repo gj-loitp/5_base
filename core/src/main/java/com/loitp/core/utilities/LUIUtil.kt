@@ -42,10 +42,7 @@ import com.loitp.func.wallpo.Wallpo
 import com.simmorsal.recolor_project.OnReColorFinish
 import com.simmorsal.recolor_project.ReColor
 import com.skydoves.elasticviews.elasticAnimation
-import io.github.inflationx.calligraphy3.CalligraphyConfig
-import io.github.inflationx.calligraphy3.CalligraphyInterceptor
 import io.github.inflationx.calligraphy3.CalligraphyUtils
-import io.github.inflationx.viewpump.ViewPump
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 import java.io.InputStream
 import java.util.*
@@ -113,25 +110,6 @@ class LUIUtil {
             R.color.default_selected_day_background_start_color,
             R.color.default_selection_bar_month_title_text_color
         )
-
-        @Suppress("unused")
-        var fontForAll: String? = null
-            set(fontForAll) {
-                field = fontForAll
-                ViewPump.init(
-                    ViewPump.builder()
-                        .addInterceptor(
-                            CalligraphyInterceptor(
-                                CalligraphyConfig.Builder()
-                                    .setDefaultFontPath(fontForAll)
-                                    .setFontAttrId(R.attr.fontPath)
-                                    .build()
-                            )
-                        )
-                        .build()
-                )
-            }
-
 
         @Suppress("DEPRECATION")
         fun setTextFromHTML(
