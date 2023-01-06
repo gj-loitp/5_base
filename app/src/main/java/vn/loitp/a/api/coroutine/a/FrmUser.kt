@@ -5,14 +5,14 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.sv.model.UserTest
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.f_coroutine_user.*
-import vn.loitp.a.api.coroutine.vm.TestViewModel
 import vn.loitp.R
+import vn.loitp.a.api.coroutine.vm.TestViewModel
 
 @LogTag("FrmUser")
 class FrmUser : BaseFragment() {
@@ -40,14 +40,11 @@ class FrmUser : BaseFragment() {
 
         val bundle = arguments
         bundle?.let { b ->
-            //TODO fix getSerializable
             val userTest = b.getSerializable(KEY_USER)
             if (userTest is UserTest) {
                 LUIUtil.printBeautyJson(o = userTest, textView = textView)
-                LImageUtil.load(
-                    context = activity,
+                imageView.loadGlide(
                     any = userTest.avatar,
-                    imageView = imageView,
                     transformation = CropCircleWithBorderTransformation()
                 )
             }

@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_iv_rounded.*
@@ -51,35 +51,23 @@ class RoundedIvActivityFont : BaseActivityFont() {
             }
             this.tvTitle?.text = RoundedIvActivityFont::class.java.simpleName
         }
-        LImageUtil.load(
-            context = this,
+        ivCircle.loadGlide(
             any = Constants.URL_IMG_1,
-            imageView = ivCircle,
         )
-        LImageUtil.load(
-            context = this,
+        iv.loadGlide(
             any = Constants.URL_IMG_1,
-            imageView = iv,
         )
-        LImageUtil.load(
-            context = this,
+        iv1.loadGlide(
             any = Constants.URL_IMG_1,
-            imageView = iv1,
         )
-        LImageUtil.load(
-            context = this,
+        iv2.loadGlide(
             any = Constants.URL_IMG_1,
-            imageView = iv2,
         )
-        LImageUtil.load(
-            context = this,
+        iv4.loadGlide(
             any = Constants.URL_IMG_1,
-            imageView = iv4,
         )
-        LImageUtil.load(
-            context = this,
+        iv5.loadGlide(
             any = Constants.URL_IMG_1,
-            imageView = iv5,
         )
     }
 }

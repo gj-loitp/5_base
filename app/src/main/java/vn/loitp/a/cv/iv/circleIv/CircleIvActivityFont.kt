@@ -5,7 +5,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LUIUtil
 import jp.wasabeef.glide.transformations.CropCircleTransformation
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
@@ -40,38 +40,30 @@ class CircleIvActivityFont : BaseActivityFont() {
             this.tvTitle?.text = CircleIvActivityFont::class.java.simpleName
         }
         val resPlaceHolder = R.color.red
-        LImageUtil.load(
-            context = this,
+        imageView.loadGlide(
             any = "https://kenh14cdn.com/2019/2/25/2-1551076391040835580731.jpg",
-            imageView = imageView,
             resPlaceHolder = resPlaceHolder,
             transformation = RoundedCornersTransformation(
-                45,
-                0,
-                RoundedCornersTransformation.CornerType.BOTTOM
+                /* radius = */ 45,
+                /* margin = */ 0,
+                /* cornerType = */ RoundedCornersTransformation.CornerType.BOTTOM
             )
         )
 
-        LImageUtil.load(
-            context = this,
+        iv1.loadGlide(
             any = "https://kenh14cdn.com/2019/2/25/2-1551076391040835580731.jpg",
-            imageView = iv1,
             resPlaceHolder = resPlaceHolder,
             transformation = CropCircleWithBorderTransformation()
         )
 
-        LImageUtil.load(
-            context = this,
+        iv2.loadGlide(
             any = Constants.URL_IMG_LARGE,
-            imageView = iv2,
             resPlaceHolder = resPlaceHolder,
             transformation = CropCircleTransformation()
         )
 
-        LImageUtil.load(
-            context = this,
+        iv.loadGlide(
             any = "https://kenh14cdn.com/2019/2/25/2-1551076391040835580731.jpg",
-            imageView = iv
         )
     }
 }

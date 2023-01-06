@@ -5,9 +5,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_dlg_slide_images.*
 import vn.loitp.R
@@ -47,9 +47,13 @@ class DialogSlideImagesActivityFont : BaseActivityFont() {
         imageList.add(url1)
         imageList.add(url2)
 
-        LImageUtil.load(context = this, any = url0, imageView = iv0)
-        LImageUtil.load(context = this, any = url1, imageView = iv1)
-        LImageUtil.load(context = this, any = url2, imageView = iv2)
+        iv0.loadGlide(any = url0)
+        iv1.loadGlide(
+            any = url1,
+        )
+        iv2.loadGlide(
+            any = url2,
+        )
 
         iv0.setSafeOnClickListener {
             LDialogUtil.showDialogSlide(

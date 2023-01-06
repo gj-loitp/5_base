@@ -4,7 +4,10 @@ import androidx.annotation.Keep
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import com.loitp.core.base.BaseModel
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.getFlickrLink100
+import com.loitp.core.ext.getFlickrLink1024
+import com.loitp.core.ext.getFlickrLink320
+import com.loitp.core.ext.getFlickrLink640
 
 /**
  * Created by Loitp on 04,August,2022
@@ -105,7 +108,7 @@ class Photo : BaseModel() {
             // gif extension have no link large
             urlO
         } else {
-            LImageUtil.getFlickrLink100(urlM)
+            getFlickrLink100(urlM)
         }
 
     @Suppress("unused")
@@ -115,7 +118,7 @@ class Photo : BaseModel() {
             // gif extension have no link large
             urlO
         } else {
-            LImageUtil.getFlickrLink640(urlM)
+            getFlickrLink640(urlM)
         }
 
     // gif extension have no link large
@@ -124,7 +127,7 @@ class Photo : BaseModel() {
             // gif extension have no link large
             urlO
         } else {
-            LImageUtil.getFlickrLink1024(urlM)
+            getFlickrLink1024(urlM)
         }
 
     @Suppress("unused")
@@ -134,7 +137,7 @@ class Photo : BaseModel() {
             // gif extension have no link large
             urlO
         } else {
-            LImageUtil.getFlickrLink320(urlM)
+            getFlickrLink320(urlM)
         }
 
     fun calculatorHeight(widthScreen: Int): Int {

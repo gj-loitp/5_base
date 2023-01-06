@@ -14,8 +14,8 @@ import com.bumptech.glide.request.target.Target
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import kotlinx.android.synthetic.main.l_i_flickr_photos_member.view.*
@@ -76,10 +76,8 @@ class MemberAdapter(
         fun bind(photo: Photo) {
 
             val color = LUIUtil.getRandomColorLight()
-            LImageUtil.load(
-                context = itemView.circleImageView.context,
+            itemView.circleImageView.loadGlide(
                 any = photo.urlO,
-                imageView = itemView.circleImageView,
                 resPlaceHolder = color,
                 resError = color,
                 drawableRequestListener = object : RequestListener<Drawable> {

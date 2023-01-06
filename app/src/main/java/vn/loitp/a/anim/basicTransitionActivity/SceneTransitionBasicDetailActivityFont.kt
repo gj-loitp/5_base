@@ -7,7 +7,7 @@ import androidx.core.view.ViewCompat
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import kotlinx.android.synthetic.main.a_animation_scene_transition_basic_details.*
 import vn.loitp.R
 
@@ -62,7 +62,7 @@ class SceneTransitionBasicDetailActivityFont : BaseActivityFont() {
      */
     private fun loadThumbnail() {
         mItem?.photoUrl?.let {
-            LImageUtil.load(context = this, any = it, imageView = imageViewHeader)
+            imageViewHeader.loadGlide(any = it)
         }
     }
 
@@ -71,7 +71,7 @@ class SceneTransitionBasicDetailActivityFont : BaseActivityFont() {
      */
     private fun loadFullSizeImage() {
         mItem?.photoUrl?.let {
-            LImageUtil.load(context = this, any = it, imageView = imageViewHeader)
+            imageViewHeader.loadGlide(any = it)
         }
     }
 

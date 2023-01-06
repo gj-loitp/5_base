@@ -15,8 +15,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.AppUtils
 import com.manojbhadane.QButton
@@ -191,7 +191,7 @@ class AdHelperActivity : BaseActivityFont() {
             val btOkay = layout.findViewById<QButton>(R.id.btOkay)
 
             adPage.urlAd?.let {
-                LImageUtil.load(context = this@AdHelperActivity, any = it, imageView = imageView)
+                imageView.loadGlide(any = it)
             }
 
             textView.text = adPage.title

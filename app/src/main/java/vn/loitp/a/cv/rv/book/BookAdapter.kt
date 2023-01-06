@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.i_book.view.*
@@ -74,7 +74,7 @@ class BookAdapter(
             )
             val url = movie.cover
             if (url != null) {
-                LImageUtil.load(context = context, any = url, imageView = itemView.imageView)
+                itemView.imageView.loadGlide(any = url)
             } else {
                 itemView.imageView.setImageResource(0)
                 itemView.textView.visibility = View.INVISIBLE

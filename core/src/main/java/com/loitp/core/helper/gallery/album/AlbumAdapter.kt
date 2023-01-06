@@ -13,8 +13,8 @@ import com.bumptech.glide.request.target.Target
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LDateUtil
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
 import kotlinx.android.synthetic.main.l_i_flickr_album_core.view.*
@@ -66,10 +66,8 @@ class AlbumAdapter(
         fun bind(p: Photoset) {
 
             val color = LUIUtil.getRandomColorLight()
-            LImageUtil.load(
-                context = itemView.imageView.context,
+            itemView.imageView.loadGlide(
                 any = p.flickrLinkO(),
-                imageView = itemView.imageView,
                 resPlaceHolder = color,
                 resError = color,
                 drawableRequestListener = object : RequestListener<Drawable> {

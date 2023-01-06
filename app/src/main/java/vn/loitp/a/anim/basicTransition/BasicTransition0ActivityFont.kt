@@ -10,7 +10,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_animation_basic_transition_0.*
 import vn.loitp.R
@@ -40,10 +40,8 @@ class BasicTransition0ActivityFont : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = BasicTransition0ActivityFont::class.java.simpleName
         }
-        LImageUtil.load(
-            context = this,
+        imageViewItem.loadGlide(
             any = Constants.URL_IMG_2,
-            imageView = imageViewItem,
         )
         imageViewItem.setOnClickListener {
             onClickIv()

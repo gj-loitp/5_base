@@ -5,7 +5,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_iv_touch.*
 import vn.loitp.R
@@ -37,10 +37,8 @@ class TouchIvActivityFont : BaseActivityFont() {
             this.tvTitle?.text = TouchIvActivityFont::class.java.simpleName
         }
         // note when use with glide, must have placeholder
-        LImageUtil.load(
-            context = this,
+        lTouchImageView.loadGlide(
             any = Constants.URL_IMG,
-            imageView = lTouchImageView,
             resPlaceHolder = R.color.colorPrimary
         )
     }

@@ -15,10 +15,10 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.play
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
@@ -88,10 +88,8 @@ class PhotosOnlyAdapter(
             )
 
             val color = LUIUtil.getRandomColorLight()
-            LImageUtil.load(
-                context = itemView.iv.context,
+            itemView.iv.loadGlide(
                 any = p.urlO,
-                imageView = itemView.iv,
                 resPlaceHolder = color,
                 resError = color,
                 drawableRequestListener = object : RequestListener<Drawable> {

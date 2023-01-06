@@ -8,7 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.a_func_sensor.*
 import vn.loitp.R
@@ -29,7 +29,7 @@ class SensorActivityFont : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = imageView)
+        imageView.loadGlide(any = Constants.URL_IMG)
         val w = LScreenUtil.screenWidth
         val h = w * 9 / 16
         setSizeRelativeLayout(rotateLayout, w, h)
@@ -68,7 +68,10 @@ class SensorActivityFont : BaseActivityFont() {
                 val w = LScreenUtil.screenWidth
                 val h = w * 9 / 16
                 setSizeRelativeLayout(rotateLayout, w, h)
-                LScreenUtil.toggleFullscreen(activity = this@SensorActivityFont, isFullScreen = false)
+                LScreenUtil.toggleFullscreen(
+                    activity = this@SensorActivityFont,
+                    isFullScreen = false
+                )
             } else if (orientation in 146..214 && rotation != rotation180) { // REVERSE PORTRAIT
                 rotation = rotation180
             } else if (orientation in 56..124 && rotation != rotation270) { // REVERSE LANDSCAPE
@@ -77,14 +80,20 @@ class SensorActivityFont : BaseActivityFont() {
                 val w = LScreenUtil.screenWidth
                 val h = LScreenUtil.getScreenHeightIncludeNavigationBar()
                 setSizeRelativeLayout(view = rotateLayout, w = w, h = h)
-                LScreenUtil.toggleFullscreen(activity = this@SensorActivityFont, isFullScreen = true)
+                LScreenUtil.toggleFullscreen(
+                    activity = this@SensorActivityFont,
+                    isFullScreen = true
+                )
             } else if (orientation in 236..304 && rotation != rotation90) { // LANDSCAPE
                 rotation = rotation90
                 rotateLayout.setAngle(-90)
                 val w = LScreenUtil.screenWidth
                 val h = LScreenUtil.getScreenHeightIncludeNavigationBar()
                 setSizeRelativeLayout(rotateLayout, w, h)
-                LScreenUtil.toggleFullscreen(activity = this@SensorActivityFont, isFullScreen = true)
+                LScreenUtil.toggleFullscreen(
+                    activity = this@SensorActivityFont,
+                    isFullScreen = true
+                )
             }
         }
     }

@@ -10,10 +10,10 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.tranIn
 import com.loitp.core.ext.tranOut
 import com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivity
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.AppUtils
 import com.loitp.restApi.restClient.RestClient
@@ -52,7 +52,7 @@ class GalleryCoreSplashActivity : BaseActivityFont() {
         if (urlCoverSplashScreen.isNullOrEmpty()) {
             urlCoverSplashScreen = Constants.URL_IMG_2
         }
-        LImageUtil.load(context = this, any = urlCoverSplashScreen, imageView = ivBkg)
+        ivBkg.loadGlide(any = urlCoverSplashScreen)
         LUIUtil.setTextShadow(textView = tvCopyright, color = null)
         tvName.text = AppUtils.appName
         LUIUtil.setTextShadow(textView = tvName, color = null)

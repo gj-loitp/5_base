@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LUIUtil
 import com.stfalcon.imageviewer.StfalconImageViewer
 import kotlinx.android.synthetic.main.a_iv_stfaicon_list.*
@@ -67,10 +67,8 @@ class ListActivityFont : BaseActivityFont() {
                         this@ListActivityFont,
                         moviesList
                     ) { imageView, mv ->
-                        LImageUtil.load(
-                            this@ListActivityFont,
+                        imageView.loadGlide(
                             mv.cover,
-                            imageView
                         )
                     }
                         .withBackgroundColorResource(R.color.black85)

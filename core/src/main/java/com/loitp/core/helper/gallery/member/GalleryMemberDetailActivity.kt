@@ -12,6 +12,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.transActivityNoAnimation
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
@@ -52,15 +53,12 @@ class GalleryMemberDetailActivity : BaseActivityFont() {
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
             override fun onViewPositionChanged(
-                mView: View?,
-                swipeBackFraction: Float,
-                swipeBackFactor: Float
+                mView: View?, swipeBackFraction: Float, swipeBackFactor: Float
             ) {
             }
 
             override fun onViewSwipeFinished(
-                mView: View?,
-                isEnd: Boolean
+                mView: View?, isEnd: Boolean
             ) {
                 if (isEnd) {
                     finish()//correct
@@ -72,17 +70,12 @@ class GalleryMemberDetailActivity : BaseActivityFont() {
 
     private fun loadItem(photo: Photo) {
         tvTitle.text = photo.title
-        LImageUtil.load(
-            context = this,
+        imageViewBlur.loadGlide(
             any = photo.urlS,
-            imageView = imageViewBlur,
             drawableRequestListener = null,
             transformation = BlurTransformation(25)
         )
-        LImageUtil.load(
-            context = this,
-            any = photo.urlO,
-            imageView = imageView,
+        imageView.loadGlide(any = photo.urlO,
             drawableRequestListener = object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
@@ -103,7 +96,6 @@ class GalleryMemberDetailActivity : BaseActivityFont() {
                     LImageUtil.setZoomFitWidthScreen(touchImageView = imageView)
                     return false
                 }
-            }
-        )
+            })
     }
 }

@@ -15,8 +15,8 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.tranOut
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utils.ConvertUtils
 import kotlinx.android.synthetic.main.l_a_l_gallery.*
 import java.io.File
@@ -146,10 +146,8 @@ class LGalleryActivity : BaseActivityFont(), View.OnClickListener {
                 RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, imgW.toInt())
             listHolder.layoutPhoto.layoutParams = params
             val file = File(listThumbsData[position])
-            LImageUtil.load(
-                context = this@LGalleryActivity,
+            listHolder.ivPhoto.loadGlide(
                 any = file,
-                imageView = listHolder.ivPhoto,
                 resPlaceHolder = R.color.colorPrimary,
                 resError = R.color.red,
                 transformation = null,

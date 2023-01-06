@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.i_news.view.*
 import vn.loitp.R
 import vn.loitp.a.cv.rv.concatAdapter.data.model.News
@@ -27,10 +27,8 @@ class NewsAdapter(
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(news: News) {
             itemView.textViewNews.text = news.title
-            LImageUtil.load(
-                context = itemView.imageView.context,
+            itemView.imageView.loadGlide(
                 any = news.image,
-                imageView = itemView.imageView
             )
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(news, bindingAdapterPosition)

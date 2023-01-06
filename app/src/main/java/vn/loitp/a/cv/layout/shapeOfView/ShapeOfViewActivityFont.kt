@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_layout_shape_of_view.*
@@ -60,6 +60,8 @@ class ShapeOfViewActivityFont : BaseActivityFont() {
             repeatMode = ValueAnimator.REVERSE
         }.start()
 
-        LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = kbv)
+        kbv.loadGlide(
+            any = Constants.URL_IMG,
+        )
     }
 }

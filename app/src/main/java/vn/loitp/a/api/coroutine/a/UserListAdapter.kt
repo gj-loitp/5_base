@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.sv.model.UserTest
 import kotlinx.android.synthetic.main.view_item_user_1.view.*
 import vn.loitp.R
@@ -23,10 +23,8 @@ class UserListAdapter(
         @SuppressLint("SetTextI18n")
         fun bind(userTest: UserTest) {
             userTest.avatar?.let {
-                LImageUtil.load(
-                    context = itemView.ivAvt.context,
+                itemView.ivAvt.loadGlide(
                     any = it,
-                    imageView = itemView.ivAvt
                 )
             }
             itemView.tvEmail.text = userTest.email

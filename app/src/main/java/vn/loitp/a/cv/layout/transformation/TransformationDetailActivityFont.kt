@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.skydoves.transformationlayout.TransformationCompat
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
@@ -41,7 +41,7 @@ class TransformationDetailActivityFont : BaseActivityFont() {
         super.onCreate(savedInstanceState)
 
         intent.getParcelableExtra<Poster>(posterExtraName)?.let {
-            LImageUtil.load(context = this, any = it.poster, imageView = ivProfileDetailBackground)
+            ivProfileDetailBackground.loadGlide(any = it.poster)
             tvDetailTitle.text = it.name
             tvDetailDescription.text = it.description
         }

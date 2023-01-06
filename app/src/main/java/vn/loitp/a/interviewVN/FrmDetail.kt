@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import com.loitp.annotation.LogTag
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.model.QA
 import kotlinx.android.synthetic.main.f_interview_vn_iq_detail.*
@@ -47,20 +47,16 @@ class FrmDetail(private val qa: QA) : BaseFragmentFlow() {
             ivQ.isVisible = false
         } else {
             ivQ.isVisible = true
-            LImageUtil.load(
-                context = activity,
+            ivQ.loadGlide(
                 any = qa.ivQ,
-                imageView = ivQ
             )
         }
         if (qa.ivA.isEmpty()) {
             ivA.isVisible = false
         } else {
             ivA.isVisible = true
-            LImageUtil.load(
-                context = activity,
+            ivA.loadGlide(
                 any = qa.ivA,
-                imageView = ivA
             )
         }
 

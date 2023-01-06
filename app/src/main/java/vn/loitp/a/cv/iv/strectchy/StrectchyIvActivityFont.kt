@@ -5,7 +5,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_iv_strectchy.*
 import vn.loitp.R
@@ -36,10 +36,8 @@ class StrectchyIvActivityFont : BaseActivityFont() {
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = StrectchyIvActivityFont::class.java.simpleName
         }
-        LImageUtil.load(
-            context = this,
+        lStretchyImageView.loadGlide(
             any = Constants.URL_IMG_LONG,
-            imageView = lStretchyImageView
         )
     }
 }

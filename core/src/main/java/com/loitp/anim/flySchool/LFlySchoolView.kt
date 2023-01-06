@@ -10,7 +10,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.loitp.R
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 
 class LFlySchoolView : RelativeLayout, ShapeSetter {
     private var ivGift: ImageView? = null
@@ -47,10 +47,8 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
     }
 
     override fun setShape(drawable: Int) {
-        LImageUtil.load(
-            context = context,
+        ivGift.loadGlide(
             any = drawable,
-            imageView = ivGift,
             resPlaceHolder = R.color.colorPrimary,
             resError = R.color.red,
             transformation = null,
@@ -68,10 +66,8 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
         if (drawableRes == 0) {
             try {
                 val urlGift = imgObject.url
-                LImageUtil.load(
-                    context = context,
+                ivGift.loadGlide(
                     any = urlGift,
-                    imageView = ivGift,
                     resPlaceHolder = R.color.colorPrimary,
                     resError = R.color.red,
                     transformation = null,
@@ -100,10 +96,8 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
                 e.printStackTrace()
             }
         } else {
-            LImageUtil.load(
-                context = context,
+            ivGift.loadGlide(
                 any = drawableRes,
-                imageView = ivGift,
                 resPlaceHolder = R.color.colorPrimary,
                 resError = R.color.red,
                 transformation = null,
@@ -111,10 +105,8 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
             )
         }
         val urlAvatar = imgObject.avatar
-        LImageUtil.load(
-            context = context,
+        ivAvatar.loadGlide(
             any = urlAvatar,
-            imageView = ivAvatar,
             resPlaceHolder = R.color.colorPrimary,
             resError = R.color.red,
             transformation = null,

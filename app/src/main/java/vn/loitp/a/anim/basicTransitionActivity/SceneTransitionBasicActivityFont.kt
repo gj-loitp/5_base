@@ -14,7 +14,7 @@ import androidx.core.util.Pair
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_animation_scene_transition_basic.*
 import vn.loitp.R
@@ -93,10 +93,8 @@ class SceneTransitionBasicActivityFont : BaseActivityFont(), AdapterView.OnItemC
             val item = getItem(position)
 
             val imageViewItem = view?.findViewById<ImageView>(R.id.imageViewItem)
-            LImageUtil.load(
-                context = this@SceneTransitionBasicActivityFont,
+            imageViewItem.loadGlide(
                 any = item.photoUrl,
-                imageView = imageViewItem
             )
 
             val textViewName = view?.findViewById<TextView>(R.id.textViewName)

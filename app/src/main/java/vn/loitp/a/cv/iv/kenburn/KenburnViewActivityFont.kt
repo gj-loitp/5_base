@@ -8,8 +8,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_kenburn_view.*
@@ -53,7 +53,9 @@ class KenburnViewActivityFont : BaseActivityFont() {
             }
             this.tvTitle?.text = EmptyActivityFont::class.java.simpleName
         }
-        LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = kbv)
+        kbv.loadGlide(
+            any = Constants.URL_IMG,
+        )
         kbv.setTransitionListener(object : KenBurnsView.TransitionListener {
             override fun onTransitionEnd(transition: Transition?) {
                 //

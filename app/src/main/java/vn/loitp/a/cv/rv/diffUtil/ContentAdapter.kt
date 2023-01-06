@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import kotlinx.android.synthetic.main.view_item_diff_util.view.*
 import vn.loitp.R
 import kotlin.properties.Delegates
@@ -37,7 +37,7 @@ class ContentAdapter : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), AutoUp
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(content: Content) = with(itemView) {
-            LImageUtil.load(context = context, any = content.image, imageView = image)
+            image.loadGlide(any = content.image)
             text.text = content.text
         }
     }

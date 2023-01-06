@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.i_user.view.*
 import vn.loitp.R
 import vn.loitp.a.cv.rv.concatAdapter.data.model.User
@@ -35,10 +35,8 @@ class UsersAdapter(
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: User) {
             itemView.textViewUserName.text = user.name
-            LImageUtil.load(
-                context = itemView.imageViewAvatar.context,
+            itemView.imageViewAvatar.loadGlide(
                 any = user.avatar,
-                imageView = itemView.imageViewAvatar
             )
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(user, bindingAdapterPosition)

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import kotlinx.android.synthetic.main.f_iv_pinch_to_zoom.*
 import vn.loitp.R
 
@@ -29,7 +29,9 @@ class FrmIvPinchToZoom : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         urlIv = arguments?.getString(KEY_URL)
         urlIv?.let { u ->
-            LImageUtil.load(context = view.context, any = u, imageView = imageView)
+            imageView.loadGlide(
+                any = u,
+            )
         }
     }
 }

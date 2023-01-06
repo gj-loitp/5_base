@@ -7,8 +7,8 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.game.findNumber.model.Level
 import com.tombayley.activitycircularreveal.CircularReveal
@@ -55,7 +55,7 @@ class SinglePlayActivity : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        LImageUtil.load(context = this, any = currentLevel?.bkg, imageView = ivBackground)
+        ivBackground.loadGlide(any = currentLevel?.bkg)
         frmFindNumberPlay?.let {
             LScreenUtil.replaceFragment(
                 activity = this,

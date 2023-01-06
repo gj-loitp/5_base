@@ -5,7 +5,7 @@ import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_func_glide.*
 import vn.loitp.R
@@ -46,22 +46,16 @@ class GlideActivityFont : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            bt0 -> LImageUtil.load(
-                context = this,
+            bt0 -> imageView.loadGlide(
                 any = urlLow,
-                imageView = imageView,
                 drawableRequestListener = null
             )
-            bt1 -> LImageUtil.load(
-                context = this,
+            bt1 -> imageView.loadGlide(
                 any = urlMedium,
-                imageView = imageView,
                 drawableRequestListener = null
             )
-            bt2 -> LImageUtil.load(
-                context = this,
+            bt2 -> imageView.loadGlide(
                 any = urlHigh,
-                imageView = imageView,
                 drawableRequestListener = null
             )
         }

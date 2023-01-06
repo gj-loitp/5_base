@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.R
+import com.loitp.core.ext.loadGlide
 import kotlinx.android.synthetic.main.l_f_image_slide.view.*
 
 /**
@@ -41,7 +41,7 @@ class LSlideAdapter(
 //        imageView.requestLayout()
         val url = stringList?.get(position)
 //        LImageUtil.load(context = mContext, any = url, imageView = iv, resPlaceHolder = screenW, resError = screenW * 9 / 16)
-        LImageUtil.load(context = mContext, any = url, imageView = layout.imageView)
+        layout.imageView.loadGlide(any = url)
 
         layout.ivClose.setOnClickListener {
             callback?.onClickClose()
