@@ -10,7 +10,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import com.loitp.core.utilities.LUIUtil
 import io.realm.Realm
 import kotlinx.android.synthetic.main.a_db_realm.*
@@ -52,7 +52,7 @@ class RealmActivityFont : BaseActivityFont() {
         btRealm.setSafeOnClickListener {
             val intent = Intent(this, EbookWithRealmActivityFont::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
         btAdd.setSafeOnClickListener {
             addMyBook()

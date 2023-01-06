@@ -8,7 +8,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_db_menu.*
 import vn.loitp.R
@@ -89,7 +89,7 @@ class MenuDatabaseActivityFont : BaseActivityFont(), OnClickListener {
         }
         intent?.let {
             startActivity(it)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
     }
 }

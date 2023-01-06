@@ -15,8 +15,9 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.tranIn
+import com.loitp.core.ext.transActivityNoAnimation
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.FlickrConst
@@ -87,7 +88,7 @@ class GalleryMemberActivity : BaseActivityFont() {
                         Intent(this@GalleryMemberActivity, GalleryMemberDetailActivity::class.java)
                     intent.putExtra(GalleryMemberDetailActivity.PHOTO, photo)
                     startActivity(intent)
-                    LActivityUtil.tranIn(this@GalleryMemberActivity)
+                    this@GalleryMemberActivity.tranIn()
                 }
 
                 override fun onLongClick(photo: Photo, pos: Int) {
@@ -129,7 +130,7 @@ class GalleryMemberActivity : BaseActivityFont() {
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryMemberActivity)
+                    this@GalleryMemberActivity.transActivityNoAnimation()
                 }
             }
         })

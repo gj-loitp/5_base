@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import com.loitp.R
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.tranIn
 import com.loitp.core.helper.fbComment.FbCommentActivity
 import com.loitp.core.utils.AppUtils
 import de.cketti.mailto.EmailIntentBuilder
@@ -35,7 +36,7 @@ class LSocialUtil {
                         Uri.parse("market://details?id=$packageName")
                     )
                 )
-                LActivityUtil.tranIn(activity)
+                activity.tranIn()
             } catch (e: android.content.ActivityNotFoundException) {
                 e.printStackTrace()
                 activity.startActivity(
@@ -44,7 +45,7 @@ class LSocialUtil {
                         Uri.parse("http://play.google.com/store/apps/details?id=$packageName")
                     )
                 )
-                LActivityUtil.tranIn(activity)
+                activity.tranIn()
             }
         }
 
@@ -55,7 +56,7 @@ class LSocialUtil {
             val uri = "https://play.google.com/store/apps/developer?id=$nameOfDeveloper"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
             activity.startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            activity.tranIn()
         }
 
         fun shareApp(
@@ -71,7 +72,7 @@ class LSocialUtil {
                     sAux + "https://play.google.com/store/apps/details?id=" + activity.packageName
                 intent.putExtra(Intent.EXTRA_TEXT, sAux)
                 activity.startActivity(Intent.createChooser(intent, "Vui lòng chọn"))
-                LActivityUtil.tranIn(activity)
+                activity.tranIn()
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -89,7 +90,7 @@ class LSocialUtil {
                 // sAux = sAux + "https://play.google.com/store/apps/details?id=" + activity.getPackageName();
                 intent.putExtra(Intent.EXTRA_TEXT, msg)
                 activity.startActivity(Intent.createChooser(intent, "Share via"))
-                LActivityUtil.tranIn(activity)
+                activity.tranIn()
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -104,7 +105,7 @@ class LSocialUtil {
                 val facebookUrl = getFacebookPageURL()
                 facebookIntent.data = Uri.parse(facebookUrl)
                 it.startActivity(facebookIntent)
-                LActivityUtil.tranIn(it)
+                activity.tranIn()
             }
         }
 
@@ -154,7 +155,7 @@ class LSocialUtil {
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 try {
                     activity.startActivity(intent)
-                    LActivityUtil.tranIn(activity)
+                    activity.tranIn()
                 } catch (e: Exception) {
                     e.printStackTrace()
                     LDialogUtil.showDialog1(
@@ -195,7 +196,7 @@ class LSocialUtil {
                 Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
             defaultBrowser.data = Uri.parse(url)
             context.startActivity(defaultBrowser)
-            LActivityUtil.tranIn(context)
+            context.tranIn()
         }
 
 //        fun openFacebookComment(
@@ -221,7 +222,7 @@ class LSocialUtil {
             val intent = Intent(context, FbCommentActivity::class.java)
             intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
             context.startActivity(intent)
-            LActivityUtil.tranIn(context)
+            context.tranIn()
         }
 
         fun sendEmail(

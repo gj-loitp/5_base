@@ -8,7 +8,7 @@ import androidx.viewpager.widget.ViewPager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import kotlinx.android.synthetic.main.activity_recycler_tab_layout.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.recyclerTabLayout.Demo
@@ -90,7 +90,7 @@ open class RvTabImitationLoopActivityFont : BaseActivityFont(), ViewPager.OnPage
             val intent = Intent(context, RvTabImitationLoopActivityFont::class.java)
             intent.putExtra(KEY_DEMO, demo.name)
             context.startActivity(intent)
-            LActivityUtil.tranIn(context)
+            context.tranIn()
         }
     }
 }

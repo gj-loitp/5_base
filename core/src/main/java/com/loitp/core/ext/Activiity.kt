@@ -11,7 +11,6 @@ import android.net.Uri
 import android.provider.AlarmClock
 import android.provider.CalendarContract
 import android.view.WindowManager
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
 
 //mo hop thoai de select launcher default
@@ -26,7 +25,7 @@ fun Activity.chooseLauncher(cls: Class<*>) {
     selector.addCategory(Intent.CATEGORY_HOME)
     selector.flags = Intent.FLAG_ACTIVITY_NEW_TASK
     this.startActivity(selector)
-    LActivityUtil.tranIn(this)
+    this.tranIn()
     this.packageManager.setComponentEnabledSetting(
         /* p0 = */ componentName,
         /* p1 = */ PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
@@ -44,7 +43,7 @@ fun Activity.searchIconPack() {
                 Uri.parse(url)
             )
         )
-        LActivityUtil.tranIn(this)
+        this.tranIn()
     } catch (ex: Exception) {
         ex.printStackTrace()
         LSocialUtil.moreApp(this)
@@ -56,7 +55,7 @@ fun Activity.launchClockApp() {
     try {
         val i = Intent(AlarmClock.ACTION_SHOW_ALARMS)
         this.startActivity(i)
-        LActivityUtil.tranIn(this)
+        this.tranIn()
     } catch (e: Exception) {
         e.printStackTrace()
     }
@@ -69,7 +68,7 @@ fun Activity.launchCalendar() {
         .appendPath("time")
         .build()
     this.startActivity(Intent(Intent.ACTION_VIEW, calendarUri))
-    LActivityUtil.tranIn(this)
+    this.tranIn()
 }
 
 //go mot app bat ky nao do
@@ -79,7 +78,7 @@ fun Activity.uninstallApp(
     val intent = Intent(Intent.ACTION_DELETE)
     intent.data = Uri.parse("package:$packageName")
     this.startActivity(intent)
-    LActivityUtil.tranIn(this)
+    this.tranIn()
 }
 
 fun Activity.toggleFullScreen() {

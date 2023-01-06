@@ -6,7 +6,7 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 
 /**
  * Created by Loitp on 04,August,2022
@@ -37,7 +37,7 @@ class TTTComicLoginActivity : BaseActivityFont() {
     private fun setupViewModels() {
         val intent = Intent(this, TTTComicActivity::class.java)
         startActivity(intent)
-        LActivityUtil.tranIn(context = this)
+        this.tranIn()
         finish()//correct
     }
 }

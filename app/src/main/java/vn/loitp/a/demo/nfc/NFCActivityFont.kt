@@ -12,7 +12,7 @@ import android.provider.Settings
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import com.loitp.core.utilities.LDateUtil
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
@@ -70,7 +70,7 @@ class NFCActivityFont : BaseActivityFont() {
                 button1 = "OK",
                 onClickButton1 = {
                     startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
-                    LActivityUtil.tranIn(this@NFCActivityFont)
+                    this@NFCActivityFont.tranIn()
                 }
             )
             dialog.setCancelable(false)

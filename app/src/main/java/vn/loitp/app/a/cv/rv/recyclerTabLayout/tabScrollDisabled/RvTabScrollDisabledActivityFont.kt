@@ -7,7 +7,7 @@ import android.view.MenuItem
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import kotlinx.android.synthetic.main.activity_recycler_tablayout_demo_tab_scroll_disabled.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.recyclerTabLayout.Demo
@@ -66,7 +66,7 @@ class RvTabScrollDisabledActivityFont : BaseActivityFont() {
             val intent = Intent(context, RvTabScrollDisabledActivityFont::class.java)
             intent.putExtra(KEY_DEMO, demo.name)
             context.startActivity(intent)
-            LActivityUtil.tranIn(context)
+            context.tranIn()
         }
     }
 }

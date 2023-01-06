@@ -16,8 +16,8 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.tranOut
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
@@ -365,7 +365,7 @@ class GalleryCorePhotosOnlyFrm(
                 } else {
                     activity?.let {
                         it.finish()//correct
-                        LActivityUtil.tranOut(it)
+                        it.tranOut()
                     }
                 }
             }

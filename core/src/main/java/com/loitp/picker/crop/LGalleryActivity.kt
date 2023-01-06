@@ -15,7 +15,7 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil.Companion.tranOut
+import com.loitp.core.ext.tranOut
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utils.ConvertUtils
 import kotlinx.android.synthetic.main.l_a_l_gallery.*
@@ -160,7 +160,7 @@ class LGalleryActivity : BaseActivityFont(), View.OnClickListener {
                 intent.putExtra(RETURN_VALUE, file.path)
                 setResult(RESULT_OK, intent)
                 finish()//correct
-                tranOut(this@LGalleryActivity)
+                this@LGalleryActivity.tranOut()
             }
         }
     }

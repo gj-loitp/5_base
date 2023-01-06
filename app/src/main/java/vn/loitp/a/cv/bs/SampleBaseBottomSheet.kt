@@ -8,8 +8,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseBottomSheetFragment
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.tranIn
 import com.loitp.core.helper.adHelper.AdHelperActivity
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_bottom_sheet_sample.*
@@ -61,7 +61,7 @@ class SampleBaseBottomSheet :
                     val intent = Intent(it, AdHelperActivity::class.java)
                     intent.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)
                     startActivity(intent)
-                    LActivityUtil.tranIn(it)
+                    it.tranIn()
                 }
                 btShowDialogProgress -> {
                     showDialogProgress()

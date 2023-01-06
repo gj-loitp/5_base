@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import com.loitp.R
+import com.loitp.core.ext.tranIn
 import com.loitp.func.epub.core.EpubReaderReadActivity
 import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.model.BookInfoData
@@ -73,7 +74,7 @@ class LReaderUtil {
             val intent = Intent(activity, EpubReaderReadActivity::class.java)
             BookInfoData.instance.bookInfo = bookInfo
             activity.startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            activity.tranIn()
         }
     }
 }

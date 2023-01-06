@@ -16,8 +16,8 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.transActivityNoAnimation
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
@@ -165,7 +165,7 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
             ) {
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryCorePhotosOnlyActivity)
+                    this@GalleryCorePhotosOnlyActivity.transActivityNoAnimation()
                 }
             }
         })

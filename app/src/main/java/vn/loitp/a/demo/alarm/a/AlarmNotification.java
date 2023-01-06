@@ -22,7 +22,6 @@ import androidx.core.app.NotificationCompat;
 import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
 import com.loitp.core.base.BaseActivityFont;
-import com.loitp.core.utilities.LActivityUtil;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -114,7 +113,6 @@ public class AlarmNotification extends BaseActivityFont {
 
     public void onDismissClick(View view) {
         finishAfterTransition();
-        LActivityUtil.tranIn(this);
     }
 
     private void readPreferences() {
@@ -162,16 +160,13 @@ public class AlarmNotification extends BaseActivityFont {
     @Override
     public void onBackPressed() {
         finish();//correct
-        LActivityUtil.tranIn(this);
     }
 
     private class PlayTimerTask extends TimerTask {
         @Override
         public void run() {
-            logD("AlarmNotification.PalyTimerTask.run()");
             addNotification(mAlarm);
             finish();//correct
-            LActivityUtil.tranIn(AlarmNotification.this);
         }
     }
 }

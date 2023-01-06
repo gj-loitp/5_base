@@ -38,6 +38,7 @@ import com.google.gson.GsonBuilder
 import com.loitp.R
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.tranIn
 import com.loitp.core.utils.ConvertUtils
 import com.loitp.func.wallpo.Wallpo
 import com.simmorsal.recolor_project.OnReColorFinish
@@ -752,7 +753,7 @@ class LUIUtil {
                     return
                 }
                 a.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
-                LActivityUtil.tranIn(a)
+                a.tranIn()
             }
         }
 

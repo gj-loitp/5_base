@@ -7,7 +7,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_example.*
@@ -52,13 +52,13 @@ class CornetSheetExampleActivityFont : BaseActivityFont() {
         main.setOnClickListener {
             val intent = Intent(this, BehaviorSampleActivityFont::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
 
         support_sample.setOnClickListener {
             val intent = Intent(this, ShopActivityFont::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
     }
 }

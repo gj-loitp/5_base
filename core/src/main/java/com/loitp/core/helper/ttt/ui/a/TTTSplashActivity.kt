@@ -9,7 +9,7 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import com.loitp.core.utilities.LUIUtil
 import com.permissionx.guolindev.PermissionX
 
@@ -45,7 +45,7 @@ class TTTSplashActivity : BaseActivityFont() {
             val intent = Intent(this, TTTComicLoginActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
             finish()//correct
         })
     }

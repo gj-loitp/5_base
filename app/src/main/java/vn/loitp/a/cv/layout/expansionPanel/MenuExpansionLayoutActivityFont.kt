@@ -8,7 +8,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_menu_expansion_panel.*
@@ -76,7 +76,7 @@ class MenuExpansionLayoutActivityFont : BaseActivityFont(), View.OnClickListener
         }
         intent?.let {
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
     }
 }

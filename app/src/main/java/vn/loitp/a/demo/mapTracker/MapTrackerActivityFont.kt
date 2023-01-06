@@ -24,7 +24,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranOut
 import com.loitp.core.utilities.LMathUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.LUIUtil.Companion.scrollToBottom
@@ -141,7 +141,7 @@ class MapTrackerActivityFont :
                     buildClient()
                 } else {
                     finish()//correct
-                    LActivityUtil.tranOut(this)
+                    this.tranOut()
                 }
             }
     }

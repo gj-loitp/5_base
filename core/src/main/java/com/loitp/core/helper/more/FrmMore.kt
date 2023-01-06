@@ -6,8 +6,8 @@ import android.view.View
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
+import com.loitp.core.ext.tranIn
 import com.loitp.core.helper.adHelper.AdHelperActivity
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_f_more.*
@@ -57,7 +57,7 @@ class FrmMore : BaseFragment(), View.OnClickListener {
                 btAdHelper -> {
                     val intent = Intent(it, AdHelperActivity::class.java)
                     startActivity(intent)
-                    LActivityUtil.tranIn(it)
+                    it.tranIn()
                 }
             }
         }

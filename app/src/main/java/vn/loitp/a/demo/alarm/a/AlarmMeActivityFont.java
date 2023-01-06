@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
 import com.loitp.core.base.BaseActivityFont;
-import com.loitp.core.utilities.LActivityUtil;
 import com.loitp.core.utilities.LUIUtil;
 
 import kotlin.Suppress;
@@ -82,7 +81,6 @@ public class AlarmMeActivityFont extends BaseActivityFont {
         mCurrentAlarm = new Alarm();
         mCurrentAlarm.toIntent(intent);
         AlarmMeActivityFont.this.startActivityForResult(intent, NEW_ALARM_ACTIVITY);
-        LActivityUtil.tranIn(this);
     }
 
     @Override
@@ -117,7 +115,6 @@ public class AlarmMeActivityFont extends BaseActivityFont {
         if (R.id.menu_settings == item.getItemId()) {
             Intent intent = new Intent(getBaseContext(), Preferences.class);
             startActivityForResult(intent, PREFERENCES_ACTIVITY);
-            LActivityUtil.tranIn(this);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -147,7 +144,6 @@ public class AlarmMeActivityFont extends BaseActivityFont {
             mCurrentAlarm = mAlarmListAdapter.getItem(info.position);
             mCurrentAlarm.toIntent(intent);
             startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
-            LActivityUtil.tranIn(this);
         } else if (index == CONTEXT_MENU_DELETE) {
             mAlarmListAdapter.delete(info.position);
         } else if (index == CONTEXT_MENU_DUPLICATE) {
@@ -170,7 +166,6 @@ public class AlarmMeActivityFont extends BaseActivityFont {
             mCurrentAlarm = mAlarmListAdapter.getItem(position);
             mCurrentAlarm.toIntent(intent);
             AlarmMeActivityFont.this.startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
-            LActivityUtil.tranIn(AlarmMeActivityFont.this);
         }
     };
 

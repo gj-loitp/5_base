@@ -6,7 +6,7 @@ import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_menu_calendar.*
 import vn.loitp.R
@@ -47,7 +47,7 @@ class MenuCalendarActivityFont : BaseActivityFont(), View.OnClickListener {
         }
         intent?.let {
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
     }
 }

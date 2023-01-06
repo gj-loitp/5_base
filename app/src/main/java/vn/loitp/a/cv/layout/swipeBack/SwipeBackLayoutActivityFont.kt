@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.transActivityNoAnimation
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
 import com.loitp.views.layout.swipeBack.SwipeBackLayout.OnSwipeBackListener
@@ -56,7 +56,7 @@ class SwipeBackLayoutActivityFont : BaseActivityFont() {
                 logD("onViewSwipeFinished")
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@SwipeBackLayoutActivityFont)
+                    this@SwipeBackLayoutActivityFont.transActivityNoAnimation()
                 }
             }
         })

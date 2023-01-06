@@ -21,7 +21,6 @@ import android.widget.TimePicker;
 import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
 import com.loitp.core.base.BaseActivityFont;
-import com.loitp.core.utilities.LActivityUtil;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -128,13 +127,11 @@ public class EditAlarmActivityFont extends BaseActivityFont {
         mAlarm.toIntent(intent);
         setResult(RESULT_OK, intent);
         finish();//correct
-        LActivityUtil.tranIn(this);
     }
 
     public void onCancelClick(View view) {
         setResult(RESULT_CANCELED, null);
         finish();//correct
-        LActivityUtil.tranIn(this);
     }
 
     private final DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {

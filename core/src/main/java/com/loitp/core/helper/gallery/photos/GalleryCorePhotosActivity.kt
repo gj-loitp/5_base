@@ -12,8 +12,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.tranIn
+import com.loitp.core.ext.transActivityNoAnimation
 import com.loitp.core.helper.gallery.slide.GalleryCoreSlideActivity
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.restApi.flickr.FlickrConst
@@ -85,7 +86,7 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
                         Intent(this@GalleryCorePhotosActivity, GalleryCoreSlideActivity::class.java)
                     intent.putExtra(Constants.SK_PHOTO_ID, photo.id)
                     startActivity(intent)
-                    LActivityUtil.tranIn(this@GalleryCorePhotosActivity)
+                    this@GalleryCorePhotosActivity.tranIn()
                 }
 
                 override fun onLongClick(photo: Photo, pos: Int) {
@@ -135,7 +136,7 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryCorePhotosActivity)
+                    this@GalleryCorePhotosActivity.transActivityNoAnimation()
                 }
             }
         })

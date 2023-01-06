@@ -12,8 +12,9 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.tranIn
+import com.loitp.core.ext.transActivityNoAnimation
 import com.loitp.core.helper.gallery.photos.GalleryCorePhotosActivity
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
@@ -76,7 +77,7 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
                         putExtra(Constants.SK_PHOTOSET_ID, listPhotoSet[pos].id)
                         putExtra(Constants.SK_PHOTOSET_SIZE, listPhotoSet[pos].photos)
                         startActivity(this)
-                        LActivityUtil.tranIn(this@GalleryCoreAlbumActivity)
+                        this@GalleryCoreAlbumActivity.tranIn()
                     }
                 }
 
@@ -111,7 +112,7 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryCoreAlbumActivity)
+                    this@GalleryCoreAlbumActivity.transActivityNoAnimation()
                 }
             }
         })

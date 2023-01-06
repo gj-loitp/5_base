@@ -20,6 +20,8 @@ import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.*
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.tranIn
+import com.loitp.core.ext.tranOut
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.loitp.core.utilities.LUIUtil.Companion.withBackground
@@ -158,7 +160,7 @@ abstract class BaseActivity : AppCompatActivity() {
 //        logE("onBaseBackPressed")
         finish()//correct
         if (isShowAnimWhenExit) {
-            LActivityUtil.tranOut(this)
+            this.tranOut()
         }
     }
 
@@ -448,7 +450,7 @@ abstract class BaseActivity : AppCompatActivity() {
         data?.invoke(intent)
         startActivity(intent)
         if (withAnim) {
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
     }
 
@@ -460,7 +462,7 @@ abstract class BaseActivity : AppCompatActivity() {
         val intent = Intent(/* packageContext = */ this, /* cls = */ cls)
         data?.invoke(intent)
         if (withAnim) {
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
     }
 
@@ -471,7 +473,7 @@ abstract class BaseActivity : AppCompatActivity() {
     ) {
         data?.invoke(intent)
         if (withAnim) {
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
     }
 

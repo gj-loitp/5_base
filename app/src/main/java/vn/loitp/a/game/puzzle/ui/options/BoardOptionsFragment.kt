@@ -14,7 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import vn.loitp.R
 import vn.loitp.a.game.puzzle.BoardActivityParams
 import vn.loitp.a.game.puzzle.GameActivityFont
@@ -111,7 +111,7 @@ class BoardOptionsFragment : androidx.fragment.app.Fragment() {
                         size = it.boardSize.value!!
                     )
                     startActivity(Intent(this.activity, GameActivityFont::class.java))
-                    LActivityUtil.tranIn(this.activity)
+                    this.activity?.tranIn()
                 }
             }
         }

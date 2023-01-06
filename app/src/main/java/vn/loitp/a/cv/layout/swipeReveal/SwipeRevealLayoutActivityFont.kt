@@ -8,7 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import kotlinx.android.synthetic.main.a_layout_swipe_reveal.*
 import vn.loitp.R
 import vn.loitp.a.cv.layout.swipeReveal.grid.SwipeRevealLayoutGridActivityFont
@@ -73,17 +73,17 @@ class SwipeRevealLayoutActivityFont : BaseActivityFont() {
         when (item.itemId) {
             R.id.actionRecyclerView -> {
                 startActivity(Intent(this, SwipeRevealLayoutRecyclerActivityFont::class.java))
-                LActivityUtil.tranIn(this)
+                this.tranIn()
                 return true
             }
             R.id.actionListView -> {
                 startActivity(Intent(this, SwipeRevealLayoutListActivityFont::class.java))
-                LActivityUtil.tranIn(this)
+                this.tranIn()
                 return true
             }
             R.id.actionGridView -> {
                 startActivity(Intent(this, SwipeRevealLayoutGridActivityFont::class.java))
-                LActivityUtil.tranIn(this)
+                this.tranIn()
                 return true
             }
         }

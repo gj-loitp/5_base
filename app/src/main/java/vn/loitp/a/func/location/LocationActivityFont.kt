@@ -20,7 +20,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranOut
 import com.loitp.core.utilities.LLocationUtil
 import com.loitp.core.utilities.LUIUtil
 import com.permissionx.guolindev.PermissionX
@@ -286,7 +286,7 @@ class LocationActivityFont : BaseActivityFont() {
                     startLocationUpdates()
                 } else {
                     finish()//correct
-                    LActivityUtil.tranOut(this)
+                    this.tranOut()
                 }
             }
     }

@@ -8,7 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_2.*
 import vn.loitp.R
@@ -42,13 +42,13 @@ class Activity2Font : BaseActivityFont() {
             val intent = Intent(this@Activity2Font, Activity1Font::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
         btGoTo3.setSafeOnClickListener {
             val intent = Intent(this@Activity2Font, Activity3Font::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
     }
 

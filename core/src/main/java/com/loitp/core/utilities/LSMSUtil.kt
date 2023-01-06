@@ -3,7 +3,7 @@ package com.loitp.core.utilities
 import android.app.Activity
 import android.content.Intent
 import android.provider.Telephony
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 
 /**
  * Created by Loitp on 04,August,2022
@@ -36,7 +36,7 @@ class LSMSUtil {
                 sendIntent.setPackage(defaultSmsPackageName)
             }
             activity.startActivity(sendIntent)
-            LActivityUtil.tranIn(activity)
+            activity.tranIn()
         }
     }
 }

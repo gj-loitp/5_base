@@ -13,6 +13,7 @@ import android.provider.Settings
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.loitp.core.base.BaseActivity
+import com.loitp.core.ext.tranIn
 import com.loitp.core.utils.FragmentUtils
 
 /**
@@ -366,7 +367,7 @@ class LScreenUtil {
                         intent.data = Uri.parse("package:" + context.packageName)
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         context.startActivity(intent)
-                        LActivityUtil.tranIn(context)
+                        context.tranIn()
                     }
                 )
                 return

@@ -12,6 +12,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.ext.tranIn
+import com.loitp.core.ext.tranOut
 import com.loitp.core.utilities.*
 import com.loitp.model.App
 import com.permissionx.guolindev.PermissionX
@@ -132,7 +134,7 @@ class SplashActivity : BaseActivityFont() {
                         }
                     } else {
                         finish()//correct
-                        LActivityUtil.tranOut(this)
+                        this.tranOut()
                     }
                     isShowDialogCheck = false
                 }
@@ -153,7 +155,7 @@ class SplashActivity : BaseActivityFont() {
                     intent.data = Uri.parse("package:$packageName")
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
-                    LActivityUtil.tranIn(this@SplashActivity)
+                    this@SplashActivity.tranIn()
                 },
                 onClickButton2 = {
                     onBaseBackPressed()
@@ -169,7 +171,7 @@ class SplashActivity : BaseActivityFont() {
         if (isAnimDone && isCheckReadyDone) {
             val intent = Intent(this, MenuActivityFont::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
             finish()
         }
     }

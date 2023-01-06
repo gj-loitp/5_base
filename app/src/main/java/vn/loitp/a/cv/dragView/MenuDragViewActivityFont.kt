@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_menu_drag_view.*
 import vn.loitp.R
@@ -38,15 +38,15 @@ class MenuDragViewActivityFont : BaseActivityFont() {
         }
         btnNormal.setSafeOnClickListener {
             startActivity(Intent(this, NormalActivityFont::class.java))
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
         btnCustom.setSafeOnClickListener {
             startActivity(Intent(this, DragViewCustomActivityFont::class.java))
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
         btnExoplayer.setSafeOnClickListener {
             startActivity(Intent(this, ExoPlayerActivityFont::class.java))
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
     }
 }

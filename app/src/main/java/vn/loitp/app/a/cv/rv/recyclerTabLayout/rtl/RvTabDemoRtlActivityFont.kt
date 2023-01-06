@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import kotlinx.android.synthetic.main.activity_recycler_tablayout_demo_rtl.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.recyclerTabLayout.Demo
@@ -56,7 +56,7 @@ class RvTabDemoRtlActivityFont : BaseActivityFont() {
             val intent = Intent(context, RvTabDemoRtlActivityFont::class.java)
             intent.putExtra(RvTabDemoBasicActivityFont.KEY_DEMO, demo.name)
             context.startActivity(intent)
-            LActivityUtil.tranIn(context)
+            context.tranIn()
         }
     }
 }

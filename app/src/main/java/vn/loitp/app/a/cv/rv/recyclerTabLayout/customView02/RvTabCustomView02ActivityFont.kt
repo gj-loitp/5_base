@@ -9,7 +9,7 @@ import androidx.viewpager.widget.ViewPager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import com.loitp.views.rv.recyclerTabLayout.RecyclerTabLayout
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.recyclerTabLayout.Demo
@@ -70,7 +70,7 @@ class RvTabCustomView02ActivityFont : BaseActivityFont() {
             val intent = Intent(context, RvTabCustomView02ActivityFont::class.java)
             intent.putExtra(KEY_DEMO, demo.name)
             context.startActivity(intent)
-            LActivityUtil.tranIn(context)
+            context.tranIn()
         }
     }
 }

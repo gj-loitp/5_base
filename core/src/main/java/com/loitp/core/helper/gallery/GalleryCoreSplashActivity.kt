@@ -10,8 +10,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.tranIn
+import com.loitp.core.ext.tranOut
 import com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivity
-import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.AppUtils
@@ -67,7 +68,7 @@ class GalleryCoreSplashActivity : BaseActivityFont() {
                     ?: ArrayList()
             )
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
             finish()//correct
         })
     }
@@ -107,7 +108,7 @@ class GalleryCoreSplashActivity : BaseActivityFont() {
                     goToHome()
                 } else {
                     finish()//correct
-                    LActivityUtil.tranOut(this)
+                    this.tranOut()
                 }
             }
     }
