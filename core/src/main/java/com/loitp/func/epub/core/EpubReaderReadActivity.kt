@@ -48,7 +48,7 @@ import kotlinx.android.synthetic.main.l_a_epub_reader_read.*
  */
 @LogTag("EpubReaderReadActivity")
 @IsFullScreen(false)
-class EpubReaderReadActivityFont : BaseActivityFont(), OnFragmentReadyListener {
+class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
 
     companion object {
         private const val idWebView = 696969

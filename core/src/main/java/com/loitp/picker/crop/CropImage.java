@@ -46,17 +46,17 @@ public final class CropImage {
     //region: Fields and Consts
 
     /**
-     * The key used to pass crop image source URI to {@link LCropImageActivityFont}.
+     * The key used to pass crop image source URI to {@link LCropImageActivity}.
      */
     public static final String CROP_IMAGE_EXTRA_SOURCE = "CROP_IMAGE_EXTRA_SOURCE";
 
     /**
-     * The key used to pass crop image options to {@link LCropImageActivityFont}.
+     * The key used to pass crop image options to {@link LCropImageActivity}.
      */
     public static final String CROP_IMAGE_EXTRA_OPTIONS = "CROP_IMAGE_EXTRA_OPTIONS";
 
     /**
-     * The key used to pass crop image result data back from {@link LCropImageActivityFont}.
+     * The key used to pass crop image result data back from {@link LCropImageActivity}.
      */
     public static final String CROP_IMAGE_EXTRA_RESULT = "CROP_IMAGE_EXTRA_RESULT";
 
@@ -78,13 +78,13 @@ public final class CropImage {
     public static final int CAMERA_CAPTURE_PERMISSIONS_REQUEST_CODE = 2011;
 
     /**
-     * The request code used to start {@link LCropImageActivityFont} to be used on result to identify the this specific
+     * The request code used to start {@link LCropImageActivity} to be used on result to identify the this specific
      * request.
      */
     public static final int CROP_IMAGE_ACTIVITY_REQUEST_CODE = 203;
 
     /**
-     * The result code used to return error from {@link LCropImageActivityFont}.
+     * The result code used to return error from {@link LCropImageActivity}.
      */
     public static final int CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE = 204;
     //endregion
@@ -374,14 +374,14 @@ public final class CropImage {
         }
 
         /**
-         * Get {@link LCropImageActivityFont} intent to start the activity.
+         * Get {@link LCropImageActivity} intent to start the activity.
          */
         public Intent getIntent(@NonNull Context context) {
-            return getIntent(context, LCropImageActivityFont.class);
+            return getIntent(context, LCropImageActivity.class);
         }
 
         /**
-         * Get {@link LCropImageActivityFont} intent to start the activity.
+         * Get {@link LCropImageActivity} intent to start the activity.
          */
         public Intent getIntent(@NonNull Context context, @Nullable Class<?> cls) {
             mOptions.validate();
@@ -394,7 +394,7 @@ public final class CropImage {
         }
 
         /**
-         * Start {@link LCropImageActivityFont}.
+         * Start {@link LCropImageActivity}.
          *
          * @param activity activity to receive result
          */
@@ -404,7 +404,7 @@ public final class CropImage {
         }
 
         /**
-         * Start {@link LCropImageActivityFont}.
+         * Start {@link LCropImageActivity}.
          *
          * @param activity activity to receive result
          */
@@ -414,7 +414,7 @@ public final class CropImage {
         }
 
         /**
-         * Start {@link LCropImageActivityFont}.
+         * Start {@link LCropImageActivity}.
          *
          * @param fragment fragment to receive result
          */
@@ -423,7 +423,7 @@ public final class CropImage {
         }
 
         /**
-         * Start {@link LCropImageActivityFont}.
+         * Start {@link LCropImageActivity}.
          *
          * @param fragment fragment to receive result
          */
@@ -692,7 +692,7 @@ public final class CropImage {
         }
 
         /**
-         * the title of the {@link LCropImageActivityFont}.<br>
+         * the title of the {@link LCropImageActivity}.<br>
          * <i>Default: ""</i>
          */
         @Suppress(names = "unused")

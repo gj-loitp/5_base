@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.l_a_find_number_single_play.*
 @LogTag("SinglePlayActivity")
 @IsFullScreen(true)
 @IsSwipeActivity(true)
-class SinglePlayActivityFont : BaseActivityFont() {
+class SinglePlayActivity : BaseActivityFont() {
 
     companion object {
         const val KEY_LEVEL = "KEY_LEVEL"

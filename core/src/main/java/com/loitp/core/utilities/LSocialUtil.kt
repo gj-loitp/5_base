@@ -8,7 +8,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import com.loitp.R
 import com.loitp.core.common.Constants
-import com.loitp.core.helper.fbComment.FbCommentActivityFont
+import com.loitp.core.helper.fbComment.FbCommentActivity
 import com.loitp.core.utils.AppUtils
 import de.cketti.mailto.EmailIntentBuilder
 
@@ -218,7 +218,7 @@ class LSocialUtil {
             if (context == null || url.isNullOrEmpty()) {
                 return
             }
-            val intent = Intent(context, FbCommentActivityFont::class.java)
+            val intent = Intent(context, FbCommentActivity::class.java)
             intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
             context.startActivity(intent)
             LActivityUtil.tranIn(context)

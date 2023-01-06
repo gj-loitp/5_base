@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.l_a_find_number_splash.*
 @SuppressLint("CustomSplashScreen")
 @LogTag("SplashActivity")
 @IsFullScreen(true)
-class SplashActivityFont : BaseActivityFont() {
+class SplashActivity : BaseActivityFont() {
 
     companion object {
         const val REQUEST_CODE = 69
@@ -58,7 +58,7 @@ class SplashActivityFont : BaseActivityFont() {
                 techniques = Techniques.ZoomIn,
                 onEnd = {
                     if (!this.isFinishing) {
-                        val intent = Intent(this, MenuActivityFont::class.java)
+                        val intent = Intent(this, MenuActivity::class.java)
                         val builder = CircularReveal.Builder(
                             this,
                             progressBar,
@@ -66,7 +66,7 @@ class SplashActivityFont : BaseActivityFont() {
                             1000
                         ).apply {
                             revealColor = ContextCompat.getColor(
-                                this@SplashActivityFont,
+                                this@SplashActivity,
                                 R.color.orange
                             )
                             requestCode = REQUEST_CODE

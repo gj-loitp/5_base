@@ -1,4 +1,4 @@
-package com.loitp.core.helper.gallery
+package com.loitp.core.helper.ttt.ui.a
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -9,15 +9,9 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
-import com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivityFont
 import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.core.utils.AppUtils
-import com.loitp.restApi.restClient.RestClient
 import com.permissionx.guolindev.PermissionX
-import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_splash.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -27,12 +21,12 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_splash.*
  * freuss47@gmail.com
  */
 @SuppressLint("CustomSplashScreen")
-@LogTag("GalleryCoreSplashActivity")
+@LogTag("TTTSplashActivity")
 @IsFullScreen(false)
-class GalleryCoreSplashActivityFont : BaseActivityFont() {
+class TTTSplashActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_flickr_gallery_core_splash
+        return R.layout.l_a_ttt_comic_splash
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,29 +37,13 @@ class GalleryCoreSplashActivityFont : BaseActivityFont() {
     }
 
     private fun setupViews() {
-
-//        setTransparentStatusNavigationBar()
-        RestClient.init(getString(R.string.flickr_URL))
-
-        var urlCoverSplashScreen: String? = intent.getStringExtra(Constants.BKG_SPLASH_SCREEN)
-        if (urlCoverSplashScreen.isNullOrEmpty()) {
-            urlCoverSplashScreen = Constants.URL_IMG_2
-        }
-        LImageUtil.load(context = this, any = urlCoverSplashScreen, imageView = ivBkg)
-        LUIUtil.setTextShadow(textView = tvCopyright, color = null)
-        tvName.text = AppUtils.appName
-        LUIUtil.setTextShadow(textView = tvName, color = null)
+        //do sth
     }
 
     private fun goToHome() {
-        val removeAlbumList = intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)
-        LUIUtil.setDelay(mls = 2000, runnable = {
-            val intent = Intent(this, GalleryCoreAlbumActivityFont::class.java)
-            intent.putStringArrayListExtra(
-                Constants.KEY_REMOVE_ALBUM_FLICKR_LIST,
-                removeAlbumList
-                    ?: ArrayList()
-            )
+        LUIUtil.setDelay(mls = 1500, runnable = {
+            val intent = Intent(this, TTTComicLoginActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             LActivityUtil.tranIn(this)
             finish()//correct
@@ -106,8 +84,7 @@ class GalleryCoreSplashActivityFont : BaseActivityFont() {
                 if (allGranted) {
                     goToHome()
                 } else {
-                    finish()//correct
-                    LActivityUtil.tranOut(this)
+                    onBaseBackPressed()
                 }
             }
     }

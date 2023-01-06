@@ -12,7 +12,7 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.helper.gallery.photos.GalleryCorePhotosActivityFont
+import com.loitp.core.helper.gallery.photos.GalleryCorePhotosActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.restApi.flickr.FlickrConst
@@ -36,7 +36,7 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_album.*
 @LogTag("GalleryCoreAlbumActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)
-class GalleryCoreAlbumActivityFont : BaseActivityFont() {
+class GalleryCoreAlbumActivity : BaseActivityFont() {
     private var albumAdapter: AlbumAdapter? = null
     private val listPhotoSet = ArrayList<Photoset>()
     private var listRemoveAlbum = ArrayList<String>()
@@ -62,7 +62,7 @@ class GalleryCoreAlbumActivityFont : BaseActivityFont() {
 
         recyclerView.apply {
             itemAnimator = animator
-            layoutManager = LinearLayoutManager(this@GalleryCoreAlbumActivityFont)
+            layoutManager = LinearLayoutManager(this@GalleryCoreAlbumActivity)
             setHasFixedSize(true)
         }
 
@@ -71,12 +71,12 @@ class GalleryCoreAlbumActivityFont : BaseActivityFont() {
             callback = object : AlbumAdapter.Callback {
                 override fun onClick(pos: Int) {
                     val intent =
-                        Intent(this@GalleryCoreAlbumActivityFont, GalleryCorePhotosActivityFont::class.java)
+                        Intent(this@GalleryCoreAlbumActivity, GalleryCorePhotosActivity::class.java)
                     intent.apply {
                         putExtra(Constants.SK_PHOTOSET_ID, listPhotoSet[pos].id)
                         putExtra(Constants.SK_PHOTOSET_SIZE, listPhotoSet[pos].photos)
                         startActivity(this)
-                        LActivityUtil.tranIn(this@GalleryCoreAlbumActivityFont)
+                        LActivityUtil.tranIn(this@GalleryCoreAlbumActivity)
                     }
                 }
 
@@ -111,7 +111,7 @@ class GalleryCoreAlbumActivityFont : BaseActivityFont() {
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryCoreAlbumActivityFont)
+                    LActivityUtil.transActivityNoAnimation(this@GalleryCoreAlbumActivity)
                 }
             }
         })

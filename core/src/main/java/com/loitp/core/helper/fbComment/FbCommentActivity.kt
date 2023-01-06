@@ -34,7 +34,7 @@ import kotlinx.android.synthetic.main.l_v_l_edit_text.view.*
  */
 @LogTag("FbCommentActivity")
 @IsSwipeActivity(true)
-class FbCommentActivityFont : BaseActivityFont() {
+class FbCommentActivity : BaseActivityFont() {
     internal var isLoading: Boolean = false
     private var postUrl: String? = null
     private var mWebViewPop: WebView? = null

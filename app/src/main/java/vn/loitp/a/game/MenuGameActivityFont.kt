@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.game.findNumber.ui.SplashActivityFont
+import com.loitp.game.findNumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.a_game_menu.*
 import vn.loitp.R
 import vn.loitp.a.game.osero.TopOseroActivityFont
@@ -50,7 +50,7 @@ class MenuGameActivityFont : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            btFindNumber -> launchActivity(SplashActivityFont::class.java)
+            btFindNumber -> launchActivity(SplashActivity::class.java)
             btOsero -> launchActivity(TopOseroActivityFont::class.java)
             btPong -> launchActivity(PongMainActivityFont::class.java)
             btPuzzle -> launchActivity(BoardOptionsActivityFont::class.java)

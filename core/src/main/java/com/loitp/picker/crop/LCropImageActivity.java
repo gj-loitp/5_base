@@ -31,7 +31,7 @@ import kotlin.Suppress;
 
 @LogTag("LCropImageActivity")
 @IsFullScreen(false)
-public class LCropImageActivityFont extends BaseActivityFont implements LCropImageView.OnSetImageUriCompleteListener, LCropImageView.OnCropImageCompleteListener,
+public class LCropImageActivity extends BaseActivityFont implements LCropImageView.OnSetImageUriCompleteListener, LCropImageView.OnCropImageCompleteListener,
         View.OnClickListener {
 
     private CropImageOptions cropImageOptions;

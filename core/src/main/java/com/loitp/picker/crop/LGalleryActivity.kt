@@ -30,7 +30,7 @@ import java.io.File
  */
 @LogTag("LGalleryActivity")
 @IsFullScreen(false)
-class LGalleryActivityFont : BaseActivityFont(), View.OnClickListener {
+class LGalleryActivity : BaseActivityFont(), View.OnClickListener {
 
     companion object {
         const val RETURN_VALUE = "RETURN_VALUE"
@@ -132,7 +132,7 @@ class LGalleryActivityFont : BaseActivityFont(), View.OnClickListener {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            val itemView = LayoutInflater.from(this@LGalleryActivityFont)
+            val itemView = LayoutInflater.from(this@LGalleryActivity)
                 .inflate(R.layout.l_v_l_gallery, parent, false)
             return PhotoItemHolder(itemView)
         }
@@ -147,7 +147,7 @@ class LGalleryActivityFont : BaseActivityFont(), View.OnClickListener {
             listHolder.layoutPhoto.layoutParams = params
             val file = File(listThumbsData[position])
             LImageUtil.load(
-                context = this@LGalleryActivityFont,
+                context = this@LGalleryActivity,
                 any = file,
                 imageView = listHolder.ivPhoto,
                 resPlaceHolder = R.color.colorPrimary,
@@ -160,7 +160,7 @@ class LGalleryActivityFont : BaseActivityFont(), View.OnClickListener {
                 intent.putExtra(RETURN_VALUE, file.path)
                 setResult(RESULT_OK, intent)
                 finish()//correct
-                tranOut(this@LGalleryActivityFont)
+                tranOut(this@LGalleryActivity)
             }
         }
     }

@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_slide.*
  */
 @LogTag("GalleryCoreSlideActivity")
 @IsFullScreen(false)
-class GalleryCoreSlideActivityFont : BaseActivityFont() {
+class GalleryCoreSlideActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_a_flickr_gallery_core_slide

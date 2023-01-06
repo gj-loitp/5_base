@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.l_a_find_number_menu.*
 @LogTag("MenuActivity")
 @IsFullScreen(true)
 @IsSwipeActivity(true)
-class MenuActivityFont : BaseActivityFont() {
+class MenuActivity : BaseActivityFont() {
 
     private var activityCircularReveal: CircularReveal? = null
 
@@ -66,7 +66,7 @@ class MenuActivityFont : BaseActivityFont() {
         LUIUtil.setSafeOnClickListenerElastic(
             view = btSinglePlayer,
             runnable = {
-                val intent = Intent(this, SingleLevelActivityFont::class.java)
+                val intent = Intent(this, SingleLevelActivity::class.java)
                 val builder = CircularReveal.Builder(
                     this,
                     btSinglePlayer,
@@ -74,10 +74,10 @@ class MenuActivityFont : BaseActivityFont() {
                     1000
                 ).apply {
                     revealColor = ContextCompat.getColor(
-                        this@MenuActivityFont,
+                        this@MenuActivity,
                         R.color.orange
                     )
-                    requestCode = SplashActivityFont.REQUEST_CODE
+                    requestCode = SplashActivity.REQUEST_CODE
                 }
                 CircularReveal.presentActivity(builder)
             }

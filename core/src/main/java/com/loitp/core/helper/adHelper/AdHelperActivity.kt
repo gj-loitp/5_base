@@ -31,7 +31,7 @@ import kotlinx.android.synthetic.main.l_a_ad_helper.*
  */
 @LogTag("AdHelperActivity")
 @IsFullScreen(false)
-class AdHelperActivityFont : BaseActivityFont() {
+class AdHelperActivity : BaseActivityFont() {
     private val adPageList = ArrayList<AdPage>()
     private var isEnglishLanguage: Boolean = false
     private var colorPrimary = 0
@@ -181,7 +181,7 @@ class AdHelperActivityFont : BaseActivityFont() {
             position: Int
         ): Any {
             val adPage = adPageList[position]
-            val inflater = LayoutInflater.from(this@AdHelperActivityFont)
+            val inflater = LayoutInflater.from(this@AdHelperActivity)
             val layout =
                 inflater.inflate(R.layout.l_i_photo_ad_helper, collection, false) as ViewGroup
 
@@ -191,7 +191,7 @@ class AdHelperActivityFont : BaseActivityFont() {
             val btOkay = layout.findViewById<QButton>(R.id.btOkay)
 
             adPage.urlAd?.let {
-                LImageUtil.load(context = this@AdHelperActivityFont, any = it, imageView = imageView)
+                LImageUtil.load(context = this@AdHelperActivity, any = it, imageView = imageView)
             }
 
             textView.text = adPage.title

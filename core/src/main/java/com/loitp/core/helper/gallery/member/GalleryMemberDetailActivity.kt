@@ -29,7 +29,7 @@ import kotlinx.android.synthetic.main.l_a_flickr_member_detail.*
 @LogTag("GalleryMemberDetailActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)
-class GalleryMemberDetailActivityFont : BaseActivityFont() {
+class GalleryMemberDetailActivity : BaseActivityFont() {
 
     companion object {
         const val PHOTO = "PHOTO"
@@ -64,7 +64,7 @@ class GalleryMemberDetailActivityFont : BaseActivityFont() {
             ) {
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryMemberDetailActivityFont)
+                    LActivityUtil.transActivityNoAnimation(this@GalleryMemberDetailActivity)
                 }
             }
         })

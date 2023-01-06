@@ -7,10 +7,10 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.helper.gallery.GalleryCoreSplashActivityFont
-import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivityFont
-import com.loitp.core.helper.gallery.member.GalleryMemberActivityFont
-import com.loitp.core.helper.ttt.ui.a.TTTSplashActivityFont
+import com.loitp.core.helper.gallery.GalleryCoreSplashActivity
+import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity
+import com.loitp.core.helper.gallery.member.GalleryMemberActivity
+import com.loitp.core.helper.ttt.ui.a.TTTSplashActivity
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_demo_menu.*
 import vn.loitp.BuildConfig
@@ -108,7 +108,7 @@ class MenuDemoActivityFont : BaseActivityFont(), View.OnClickListener {
             btFloatingVideo -> launchActivity(FloatingWidgetVideoActivityFont::class.java)
             btGalleryCore -> {
                 launchActivity(
-                    cls = GalleryCoreSplashActivityFont::class.java,
+                    cls = GalleryCoreSplashActivity::class.java,
                     withAnim = true,
                     data = {
                         it.putExtra(Constants.BKG_SPLASH_SCREEN, Constants.URL_IMG_11)
@@ -126,7 +126,7 @@ class MenuDemoActivityFont : BaseActivityFont(), View.OnClickListener {
             }
             btGalleryCoreAlbum -> {
                 launchActivity(
-                    cls = GalleryCorePhotosOnlyActivityFont::class.java,
+                    cls = GalleryCorePhotosOnlyActivity::class.java,
                     withAnim = true,
                     data = {
                         it.putExtra(
@@ -135,7 +135,7 @@ class MenuDemoActivityFont : BaseActivityFont(), View.OnClickListener {
                         )
                     })
             }
-            btGalleryMember -> launchActivity(GalleryMemberActivityFont::class.java)
+            btGalleryMember -> launchActivity(GalleryMemberActivity::class.java)
             btEpubReader -> launchActivity(MenuEpubReaderActivityFont::class.java)
             bt2InstanceActivity -> launchActivity(Activity1Font::class.java)
             btFragmentNavigation -> launchActivity(FragmentNavigationActivityFont::class.java)
@@ -146,7 +146,7 @@ class MenuDemoActivityFont : BaseActivityFont(), View.OnClickListener {
             btArchitectureComponent -> launchActivity(MenuArchitectureComponentActivityFont::class.java)
             btNFC -> launchActivity(NFCActivityFont::class.java)
             btMapTracker -> launchActivity(MapTrackerActivityFont::class.java)
-            btTTT -> launchActivity(TTTSplashActivityFont::class.java)
+            btTTT -> launchActivity(TTTSplashActivity::class.java)
             btRSS -> launchActivity(RSSActivityFont::class.java)
             btTrackingG1 -> launchActivity(TrackingG1ActivityFont::class.java)
             btFirebase -> launchActivity(FirebaseActivityFont::class.java)

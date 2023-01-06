@@ -31,7 +31,7 @@ import kotlinx.android.synthetic.main.l_a_find_number_single_level.*
 @LogTag("SingleLevelActivity")
 @IsFullScreen(true)
 @IsSwipeActivity(true)
-class SingleLevelActivityFont : BaseActivityFont() {
+class SingleLevelActivity : BaseActivityFont() {
     private var activityCircularReveal: CircularReveal? = null
     private var levelAdapter = LevelAdapter()
     private var findNumberViewModel: FindNumberViewModel? = null
@@ -166,9 +166,9 @@ class SingleLevelActivityFont : BaseActivityFont() {
 //        startActivity(intent)
 //        LActivityUtil.tranIn(this)
 
-        val intent = Intent(this, SinglePlayActivityFont::class.java)
+        val intent = Intent(this, SinglePlayActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        intent.putExtra(SinglePlayActivityFont.KEY_LEVEL, level)
+        intent.putExtra(SinglePlayActivity.KEY_LEVEL, level)
         val builder = CircularReveal.Builder(
             this,
             view,
@@ -176,7 +176,7 @@ class SingleLevelActivityFont : BaseActivityFont() {
             1000
         ).apply {
             revealColor = ContextCompat.getColor(
-                this@SingleLevelActivityFont,
+                this@SingleLevelActivity,
                 R.color.orange
             )
         }

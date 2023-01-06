@@ -5,7 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import com.loitp.R
-import com.loitp.func.epub.core.EpubReaderReadActivityFont
+import com.loitp.func.epub.core.EpubReaderReadActivity
 import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.model.BookInfoData
 
@@ -70,7 +70,7 @@ class LReaderUtil {
             if (activity == null || bookInfo == null) {
                 throw NullPointerException("activity == null || bookInfo == null")
             }
-            val intent = Intent(activity, EpubReaderReadActivityFont::class.java)
+            val intent = Intent(activity, EpubReaderReadActivity::class.java)
             BookInfoData.instance.bookInfo = bookInfo
             activity.startActivity(intent)
             LActivityUtil.tranIn(activity)

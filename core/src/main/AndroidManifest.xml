@@ -53,24 +53,24 @@
             android:value="2.1" />
 
         <activity
-            android:name=".core.helper.adHelper.AdHelperActivityFont"
+            android:name=".core.helper.adHelper.AdHelperActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".core.helper.gallery.GalleryCoreSplashActivityFont"
+            android:name=".core.helper.gallery.GalleryCoreSplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".core.helper.gallery.album.GalleryCoreAlbumActivityFont"
+            android:name=".core.helper.gallery.album.GalleryCoreAlbumActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
-            android:name=".core.helper.gallery.photos.GalleryCorePhotosActivityFont"
+            android:name=".core.helper.gallery.photos.GalleryCorePhotosActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
-            android:name=".core.helper.gallery.slide.GalleryCoreSlideActivityFont"
+            android:name=".core.helper.gallery.slide.GalleryCoreSlideActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".core.helper.fbComment.FbCommentActivityFont"
+            android:name=".core.helper.fbComment.FbCommentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
 
@@ -80,56 +80,56 @@
             android:exported="false" />
 
         <activity
-            android:name=".core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivityFont"
+            android:name=".core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
-            android:name=".core.helper.gallery.member.GalleryMemberActivityFont"
+            android:name=".core.helper.gallery.member.GalleryMemberActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
-            android:name=".core.helper.gallery.member.GalleryMemberDetailActivityFont"
+            android:name=".core.helper.gallery.member.GalleryMemberDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
-            android:name=".func.epub.core.EpubReaderReadActivityFont"
+            android:name=".func.epub.core.EpubReaderReadActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".picker.crop.LCropImageActivityFont"
+            android:name=".picker.crop.LCropImageActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".picker.crop.LGalleryActivityFont"
+            android:name=".picker.crop.LGalleryActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".game.findNumber.ui.SplashActivityFont"
+            android:name=".game.findNumber.ui.SplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findNumber.ui.MenuActivityFont"
+            android:name=".game.findNumber.ui.MenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findNumber.ui.SingleLevelActivityFont"
+            android:name=".game.findNumber.ui.SingleLevelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findNumber.ui.SinglePlayActivityFont"
+            android:name=".game.findNumber.ui.SinglePlayActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".game.findNumber.dlg.FindNumberWinActivityFont"
+            android:name=".game.findNumber.dlg.FindNumberWinActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.helper.ttt.ui.a.TTTSplashActivityFont"
+            android:name=".core.helper.ttt.ui.a.TTTSplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.helper.ttt.ui.a.TTTComicLoginActivityFont"
+            android:name=".core.helper.ttt.ui.a.TTTComicLoginActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.helper.ttt.ui.a.TTTComicActivityFont"
+            android:name=".core.helper.ttt.ui.a.TTTComicActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing" />

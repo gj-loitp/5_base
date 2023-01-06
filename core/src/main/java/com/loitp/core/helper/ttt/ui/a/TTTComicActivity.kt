@@ -31,7 +31,7 @@ import kotlinx.android.synthetic.main.l_a_ttt_comic.*
  */
 @LogTag("TTTComicActivity")
 @IsFullScreen(false)
-class TTTComicActivityFont : BaseActivityFont() {
+class TTTComicActivity : BaseActivityFont() {
 
     val listMenuComicTTT = ArrayList<MenuComicTTT>()
 
@@ -94,7 +94,7 @@ class TTTComicActivityFont : BaseActivityFont() {
 
             override fun onPageSelected(position: Int) {
                 expandableBottomBar.menu.select(listMenuComicTTT[position].itemId)
-                KeyboardUtils.hideSoftInput(this@TTTComicActivityFont)
+                KeyboardUtils.hideSoftInput(this@TTTComicActivity)
             }
         })
 

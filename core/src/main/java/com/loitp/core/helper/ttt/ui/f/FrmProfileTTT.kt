@@ -7,7 +7,7 @@ import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.helper.ttt.ui.a.TTTComicActivityFont
+import com.loitp.core.helper.ttt.ui.a.TTTComicActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LImageUtil
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
@@ -55,7 +55,7 @@ class FrmProfileTTT : BaseFragment() {
             val bottomSheetSettingTTTFragment = BottomSheetSettingTTTFragment()
             bottomSheetSettingTTTFragment.onSwitchTheme = {
                 activity?.let {
-                    val intent = Intent(it, TTTComicActivityFont::class.java)
+                    val intent = Intent(it, TTTComicActivity::class.java)
                     startActivity(intent)
                     LActivityUtil.tranIn(context = it)
                     it.finish()//correct

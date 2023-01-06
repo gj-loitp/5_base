@@ -17,7 +17,7 @@ import com.loitp.core.utilities.LActivityUtil
  */
 @LogTag("TTTComicLoginActivity")
 @IsFullScreen(false)
-class TTTComicLoginActivityFont : BaseActivityFont() {
+class TTTComicLoginActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_a_ttt_comic_login
@@ -35,7 +35,7 @@ class TTTComicLoginActivityFont : BaseActivityFont() {
     }
 
     private fun setupViewModels() {
-        val intent = Intent(this, TTTComicActivityFont::class.java)
+        val intent = Intent(this, TTTComicActivity::class.java)
         startActivity(intent)
         LActivityUtil.tranIn(context = this)
         finish()//correct

@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.l_d_find_number_win.*
 @LogTag("FindNumberWinActivity")
 @IsFullScreen(true)
 @IsSwipeActivity(true)
-class FindNumberWinActivityFont : BaseActivityFont() {
+class FindNumberWinActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_d_find_number_win
@@ -52,6 +52,6 @@ class FindNumberWinActivityFont : BaseActivityFont() {
     }
 
     private fun exit() {
-        ActivityCompat.finishAfterTransition(this@FindNumberWinActivityFont)
+        ActivityCompat.finishAfterTransition(this@FindNumberWinActivity)
     }
 }

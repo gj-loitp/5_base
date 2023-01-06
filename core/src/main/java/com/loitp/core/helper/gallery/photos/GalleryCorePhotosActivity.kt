@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.helper.gallery.slide.GalleryCoreSlideActivityFont
+import com.loitp.core.helper.gallery.slide.GalleryCoreSlideActivity
 import com.loitp.core.utilities.LActivityUtil
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LSocialUtil
@@ -35,7 +35,7 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_photos.*
  */
 @LogTag("GalleryCorePhotosActivity")
 @IsSwipeActivity(true)
-class GalleryCorePhotosActivityFont : BaseActivityFont() {
+class GalleryCorePhotosActivity : BaseActivityFont() {
     private var currentPage = 0
     private var totalPage = 1
     private var isLoading = false
@@ -82,14 +82,14 @@ class GalleryCorePhotosActivityFont : BaseActivityFont() {
             callback = object : PhotosAdapter.Callback {
                 override fun onClick(photo: Photo, pos: Int) {
                     val intent =
-                        Intent(this@GalleryCorePhotosActivityFont, GalleryCoreSlideActivityFont::class.java)
+                        Intent(this@GalleryCorePhotosActivity, GalleryCoreSlideActivity::class.java)
                     intent.putExtra(Constants.SK_PHOTO_ID, photo.id)
                     startActivity(intent)
-                    LActivityUtil.tranIn(this@GalleryCorePhotosActivityFont)
+                    LActivityUtil.tranIn(this@GalleryCorePhotosActivity)
                 }
 
                 override fun onLongClick(photo: Photo, pos: Int) {
-                    LSocialUtil.share(activity = this@GalleryCorePhotosActivityFont, msg = photo.urlO)
+                    LSocialUtil.share(activity = this@GalleryCorePhotosActivity, msg = photo.urlO)
                 }
             }
         )
@@ -135,7 +135,7 @@ class GalleryCorePhotosActivityFont : BaseActivityFont() {
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryCorePhotosActivityFont)
+                    LActivityUtil.transActivityNoAnimation(this@GalleryCorePhotosActivity)
                 }
             }
         })

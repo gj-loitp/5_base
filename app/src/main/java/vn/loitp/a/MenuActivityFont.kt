@@ -14,7 +14,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.helper.adHelper.AdHelperActivityFont
+import com.loitp.core.helper.adHelper.AdHelperActivity
 import com.loitp.core.utilities.LPrefUtil
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
@@ -198,7 +198,7 @@ class MenuActivityFont : BaseActivityFont(), View.OnClickListener {
                 )
             }
             btAdHelper -> {
-                launchActivity(cls = AdHelperActivityFont::class.java, data = {
+                launchActivity(cls = AdHelperActivity::class.java, data = {
                     it.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
                     it.putExtra(Constants.AD_HELPER_COLOR_PRIMARY, Color.RED)
                     it.putExtra(Constants.AD_HELPER_COLOR_BACKGROUND, Color.YELLOW)
