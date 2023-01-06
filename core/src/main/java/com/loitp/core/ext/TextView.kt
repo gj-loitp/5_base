@@ -1,6 +1,7 @@
 package com.loitp.core.ext
 
 import android.content.res.ColorStateList
+import android.text.TextUtils
 import android.widget.TextView
 import androidx.core.widget.TextViewCompat
 
@@ -16,4 +17,22 @@ fun TextView.setDrawableTint(
     color: Int
 ) {
     TextViewCompat.setCompoundDrawableTintList(this, ColorStateList.valueOf(color))
+}
+
+fun TextView?.setMarquee(
+    text: String?
+) {
+    this?.let { t ->
+        t.text = text
+        this.setMarquee()
+    }
+}
+
+fun TextView?.setMarquee() {
+    this?.let {
+        it.isSelected = true
+        it.ellipsize = TextUtils.TruncateAt.MARQUEE
+        it.isSingleLine = true
+        it.marqueeRepeatLimit = -1 // no limit loop
+    }
 }

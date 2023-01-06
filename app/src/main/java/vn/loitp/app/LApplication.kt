@@ -7,6 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.common.Constants
 import com.loitp.core.helper.ttt.db.TTTDatabase
+import com.loitp.core.utilities.LUIUtil
 import com.loitp.data.ActivityData
 import com.onesignal.OneSignal
 import io.realm.Realm
@@ -47,7 +48,7 @@ class LApplication : BaseApplication() {
         Realm.setDefaultConfiguration(realmConfiguration)
 
         // config font
-//        LUIUtil.fontForAll = Constants.FONT_PATH
+        LUIUtil.fontForAll = Constants.FONT_PATH
 
         //room database
         FNBDatabase.getInstance(this)

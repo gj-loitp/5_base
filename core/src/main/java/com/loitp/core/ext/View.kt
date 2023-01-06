@@ -1,13 +1,9 @@
 package com.loitp.core.ext
 
 import android.content.res.ColorStateList
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.ColorFilter
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
+import android.graphics.*
+import android.graphics.drawable.*
+import android.graphics.drawable.shapes.RectShape
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
@@ -18,6 +14,7 @@ import com.airbnb.lottie.LottieProperty
 import com.airbnb.lottie.SimpleColorFilter
 import com.airbnb.lottie.model.KeyPath
 import com.airbnb.lottie.value.LottieValueCallback
+import com.loitp.core.utilities.LStoreUtil
 
 val View.horizontalPadding: Int get() = this.paddingStart + this.paddingEnd
 val View.verticalPadding: Int get() = this.paddingTop + this.paddingBottom
@@ -141,4 +138,38 @@ fun View.showSystemUI() {
                     or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                     or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             )
+}
+
+fun View.setCircleViewWithColor(
+    colorMain: Int,
+    colorStroke: Int
+) {
+    try {
+        this.background = createGradientDrawableWithColor(colorMain, colorStroke)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+}
+
+fun View.setGradientBackground() {
+    val layers = arrayOfNulls<Drawable>(1)
+    val sf = object : ShapeDrawable.ShaderFactory() {
+        override fun resize(width: Int, height: Int): Shader {
+            return LinearGradient(
+                0f, 0f, 0f, this@setGradientBackground.height.toFloat(),
+                intArrayOf(
+                    LStoreUtil.randomColor,
+                    LStoreUtil.randomColor, LStoreUtil.randomColor, LStoreUtil.randomColor
+                ),
+                floatArrayOf(0f, 0.49f, 0.50f, 1f), Shader.TileMode.CLAMP
+            )
+        }
+    }
+    val p = PaintDrawable()
+    p.shape = RectShape()
+    p.shaderFactory = sf
+    p.setCornerRadii(floatArrayOf(5f, 5f, 5f, 5f, 0f, 0f, 0f, 0f))
+    layers[0] = p
+    val composite = LayerDrawable(layers)
+    this.background = composite
 }

@@ -7,14 +7,12 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.*
 import android.graphics.drawable.*
-import android.graphics.drawable.shapes.RectShape
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.Html
-import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.TypedValue
 import android.view.View
@@ -61,8 +59,6 @@ import java.util.*
  */
 class LUIUtil {
     companion object {
-//        private val logTag = LUIUtil::class.java.simpleName
-
         private var lastOffset = 0.0f
         private var isUp = false
 
@@ -136,83 +132,6 @@ class LUIUtil {
                 )
             }
 
-        fun setMarquee(
-            tv: TextView?,
-            text: String?
-        ) {
-            tv?.let { t ->
-                text?.let {
-                    t.text = it
-                }
-                setMarquee(t)
-            }
-        }
-
-        private fun setMarquee(tv: TextView?) {
-            tv?.let {
-                it.isSelected = true
-                it.ellipsize = TextUtils.TruncateAt.MARQUEE
-                it.isSingleLine = true
-                it.marqueeRepeatLimit = -1 // no limit loop
-            }
-        }
-
-        fun createGradientDrawableWithRandomColor(): GradientDrawable {
-            val color = LStoreUtil.randomColor
-            val gradientDrawable = GradientDrawable()
-            gradientDrawable.setColor(color)
-            gradientDrawable.cornerRadius = 0f
-            gradientDrawable.setStroke(1, color)
-            return gradientDrawable
-        }
-
-        fun createGradientDrawableWithColor(
-            colorMain: Int,
-            colorStroke: Int
-        ): GradientDrawable {
-            val gradientDrawable = GradientDrawable()
-            gradientDrawable.setColor(colorMain)
-            gradientDrawable.cornerRadius = 90f
-            gradientDrawable.setStroke(3, colorStroke)
-            return gradientDrawable
-        }
-
-        fun setCircleViewWithColor(
-            view: View,
-            colorMain: Int,
-            colorStroke: Int
-        ) {
-            try {
-//                view.setBackgroundDrawable(createGradientDrawableWithColor(colorMain, colorStroke))
-                view.background = createGradientDrawableWithColor(colorMain, colorStroke)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
-
-        fun setGradientBackground(v: View) {
-            val layers = arrayOfNulls<Drawable>(1)
-            val sf = object : ShapeDrawable.ShaderFactory() {
-                override fun resize(width: Int, height: Int): Shader {
-                    return LinearGradient(
-                        0f, 0f, 0f, v.height.toFloat(),
-                        intArrayOf(
-                            LStoreUtil.randomColor,
-                            LStoreUtil.randomColor, LStoreUtil.randomColor, LStoreUtil.randomColor
-                        ),
-                        floatArrayOf(0f, 0.49f, 0.50f, 1f), Shader.TileMode.CLAMP
-                    )
-                }
-            }
-            val p = PaintDrawable()
-            p.shape = RectShape()
-            p.shaderFactory = sf
-            p.setCornerRadii(floatArrayOf(5f, 5f, 5f, 5f, 0f, 0f, 0f, 0f))
-            layers[0] = p
-            val composite = LayerDrawable(layers)
-//            v.setBackgroundDrawable(composite)
-            v.background = composite
-        }
 
         @Suppress("DEPRECATION")
         fun setTextFromHTML(
