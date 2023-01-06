@@ -1,7 +1,6 @@
 package com.loitp.core.ext
 
 import androidx.viewpager.widget.ViewPager
-import com.loitp.core.utilities.LSoundUtil
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 
 /**
@@ -37,7 +36,7 @@ fun ViewPager.setPullLikeIOSHorizontal(
                 if (isUp) {
                     if (lastOffset > 1.8f) {
                         onUpOrLeftRefresh?.invoke(lastOffset)
-                        LSoundUtil.startMusicFromAsset("ting.ogg")
+                        context.startMusicFromAsset("ting.ogg")
                     } else {
                         onUpOrLeft?.invoke(lastOffset)
                     }

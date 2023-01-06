@@ -1,7 +1,6 @@
 package com.loitp.core.ext
 
 import androidx.recyclerview.widget.RecyclerView
-import com.loitp.core.utilities.LSoundUtil
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 
 /**
@@ -58,7 +57,7 @@ fun RecyclerView.setPullLikeIOSVertical(
                 if (isUp) {
                     if (lastOffset > 1.8f) {
                         onUpOrLeftRefresh?.invoke(lastOffset)
-                        LSoundUtil.startMusicFromAsset("ting.ogg")
+                        context.startMusicFromAsset("ting.ogg")
                     } else {
                         onUpOrLeft?.invoke(lastOffset)
                     }
