@@ -81,6 +81,7 @@ fun View.duplicateViewSizeContinuously(
     }
 }
 
+@Suppress("unused")
 fun LottieAnimationView.changeLayersColor(
     color: Int
 ) {

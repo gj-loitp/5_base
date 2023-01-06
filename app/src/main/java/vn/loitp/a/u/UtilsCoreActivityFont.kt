@@ -8,6 +8,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.isDefaultLauncher
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LUIUtil.Companion.scrollToBottom
@@ -213,6 +214,9 @@ class UtilsCoreActivityFont : BaseActivityFont() {
         btLValidateUtil.setSafeOnClickListener {
             onClickBtLValidateUtil()
         }
+        btLauncher.setSafeOnClickListener {
+            onClickBtLauncher()
+        }
 
         LUIUtil.setMarquee(tv, getString(R.string.large_dummy_text))
         //TODO fix setBackgroundDrawable
@@ -276,5 +280,11 @@ class UtilsCoreActivityFont : BaseActivityFont() {
         logD("isValidPassword 123456: ${LValidateUtil.isValidPassword("123456")}")
         logD("isValidPassword 123456abcd: ${LValidateUtil.isValidPassword("123456abcd")}")
         logD("isValidPassword 123456abcdA@: ${LValidateUtil.isValidPassword("123456abcdA@")}")
+    }
+
+    private fun onClickBtLauncher() {
+        val isDefaultLauncher = this.isDefaultLauncher()
+        showShortInformation("isDefaultLauncher $isDefaultLauncher")
+
     }
 }
