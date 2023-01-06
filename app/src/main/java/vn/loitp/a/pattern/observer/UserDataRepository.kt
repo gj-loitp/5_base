@@ -2,7 +2,7 @@ package vn.loitp.a.pattern.observer
 
 import android.os.Handler
 import android.os.Looper
-import com.loitp.core.utilities.LDeviceUtil
+import com.loitp.core.utilities.LStoreUtil.Companion.getRandomNumber
 
 class UserDataRepository private constructor() : Subject {
     companion object {
@@ -28,7 +28,7 @@ class UserDataRepository private constructor() : Subject {
             {
                 setUserData(
                     "Loitp ^^! +${System.currentTimeMillis()}",
-                    LDeviceUtil.getRandomNumber(100)
+                    getRandomNumber(100)
                 )
             },
             2000

@@ -124,15 +124,13 @@ class UtilsCoreActivity : BaseActivityFont() {
         }
         btLDeviceUtil.setSafeOnClickListener {
             showDialogMsg(
-                "isNavigationBarAvailable:${LDeviceUtil.isNavigationBarAvailable}" + "\nisTablet: ${LDeviceUtil.isTablet()}" + "\nisCanOverlay: ${LDeviceUtil.isCanOverlay()}" + "\nisEmulator: ${LDeviceUtil.isEmulator()}" + "\ngetDeviceId: ${
-                    LDeviceUtil.getDeviceId(
-                        this
-                    )
+                "isNavigationBarAvailable:${isNavigationBarAvailable()}" + "\nisTablet: ${isTablet()}" + "\nisCanOverlay: ${isCanOverlay()}" + "\nisEmulator: ${isEmulator()}" + "\ngetDeviceId: ${
+                    this.getDeviceId()
                 }"
             )
         }
         btSetClipboard.setSafeOnClickListener {
-            showShortInformation(LDeviceUtil.setClipboard("setClipboard ${System.currentTimeMillis()}"))
+            showShortInformation(this.setClipboard("setClipboard ${System.currentTimeMillis()}"))
         }
         btLDisplayUtil.setSafeOnClickListener {
             showDialogMsg(

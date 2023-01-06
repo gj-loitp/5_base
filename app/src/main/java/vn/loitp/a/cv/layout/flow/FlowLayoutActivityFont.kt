@@ -6,7 +6,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LDeviceUtil
+import com.loitp.core.ext.getRandomString
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_flow_layout.*
 import vn.loitp.R
@@ -38,7 +38,7 @@ class FlowLayoutActivityFont : BaseActivityFont() {
         }
         for (i in 0..20) {
             val tv = TextView(this)
-            tv.text = LDeviceUtil.getRandomString(maxLength = 15)
+            tv.text = getRandomString(15)
             tv.setBackgroundResource(R.drawable.bt_tag)
             flowLayout.addView(tv)
         }

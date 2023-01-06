@@ -6,7 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LDeviceUtil
+import com.loitp.core.utilities.LStoreUtil.Companion.getRandomNumber
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_layout_rotate.*
 import vn.loitp.R
@@ -37,7 +37,7 @@ class RotateLayoutActivityFont : BaseActivityFont() {
             this.tvTitle?.text = RotateLayoutActivityFont::class.java.simpleName
         }
         btRandomRotate.setSafeOnClickListener {
-            val angle = LDeviceUtil.getRandomNumber(360)
+            val angle = getRandomNumber(360)
             rotateLayout.setAngle(angle)
         }
     }

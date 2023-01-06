@@ -12,7 +12,7 @@ import android.view.* // ktlint-disable no-wildcard-imports
 import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.View.OnTouchListener
 import android.widget.RelativeLayout
-import com.loitp.core.utilities.LDeviceUtil
+import com.loitp.core.ext.vibrate
 import com.loitp.core.utilities.LScreenUtil
 import vn.loitp.R
 import kotlin.math.abs
@@ -217,7 +217,7 @@ class FloatingViewEdgeService : Service() {
             pos = tmpPos
             when (pos) {
                 POS.TOP_LEFT, POS.TOP_RIGHT, POS.BOTTOM_LEFT, POS.BOTTOM_RIGHT -> {
-                    LDeviceUtil.vibrate()
+                    vibrate()
                     viewBkgDestroy.visibility = View.VISIBLE
                 }
                 else -> if (viewBkgDestroy.visibility != View.GONE) {
@@ -386,7 +386,8 @@ class FloatingViewEdgeService : Service() {
 
     private fun openApp() {
         // Open the application  click.
-        val intent = Intent(this@FloatingViewEdgeService, FloatingWidgetVideoActivityFont::class.java)
+        val intent =
+            Intent(this@FloatingViewEdgeService, FloatingWidgetVideoActivityFont::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
 

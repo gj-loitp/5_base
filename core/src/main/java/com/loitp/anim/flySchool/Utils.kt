@@ -3,7 +3,7 @@ package com.loitp.anim.flySchool
 import android.content.res.Resources
 import android.graphics.PorterDuff
 import android.widget.ImageView
-import com.loitp.core.utilities.LDeviceUtil.Companion.getRandomNumber
+import com.loitp.core.ext.getRandomNumber
 import com.loitp.core.utilities.LStoreUtil.Companion.randomColor
 
 /**
@@ -27,7 +27,7 @@ object Utils {
 
     @JvmStatic
     fun setHeart(imageView: ImageView) {
-        val size = getRandomNumber(150) + 80
+        val size = 150.getRandomNumber() + 80
         imageView.layoutParams.height = size
         imageView.layoutParams.width = size
         imageView.requestLayout()
