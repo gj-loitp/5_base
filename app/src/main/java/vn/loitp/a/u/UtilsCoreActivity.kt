@@ -285,6 +285,5 @@ class UtilsCoreActivity : BaseActivityFont() {
     private fun onClickBtLauncher() {
         val isDefaultLauncher = this.isDefaultLauncher()
         showShortInformation("isDefaultLauncher $isDefaultLauncher")
-
     }
 }
