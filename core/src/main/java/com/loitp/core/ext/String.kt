@@ -1,5 +1,8 @@
 package com.loitp.core.ext
 
+import android.text.Html
+import android.text.Spanned
+import android.text.TextUtils
 import java.util.*
 
 /**
@@ -19,4 +22,12 @@ fun getRandomString(maxLength: Int): String {
         randomStringBuilder.append(tempChar)
     }
     return randomStringBuilder.toString()
+}
+
+fun String.convertHTMLTextToPlainText(): String {
+    val spanned: Spanned =
+        Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY)
+    val chars = CharArray(spanned.length)
+    TextUtils.getChars(spanned, 0, spanned.length, chars, 0)
+    return String(chars)
 }

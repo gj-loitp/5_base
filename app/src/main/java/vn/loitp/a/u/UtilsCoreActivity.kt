@@ -233,9 +233,8 @@ class UtilsCoreActivity : BaseActivityFont() {
 
     private fun onClickBtLStringUtil() {
         showShortInformation("Check logcat")
-        val s = LStringUtil.convertHTMLTextToPlainText(
-            "<p>This is Loitp<br />\n" + "Dep Trai<br />\n" + "Vip<br />\n" + "Pro No1</p>"
-        )
+        val s =
+            "<p>This is Loitp<br />\n" + "Dep Trai<br />\n" + "Vip<br />\n" + "Pro No1</p>".convertHTMLTextToPlainText()
         logD("s $s")
     }
 
