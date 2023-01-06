@@ -7,7 +7,7 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LAnimationUtil
+import com.loitp.core.ext.play
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_animation_view.*
 import vn.loitp.R
@@ -66,8 +66,7 @@ class AnimationViewActivityFont : BaseActivityFont() {
             LUIUtil.setDelay(
                 mls = 500,
                 runnable = {
-                    LAnimationUtil.play(
-                        view = tvAnim,
+                    tvAnim.play(
                         techniques = listAnim[position],
                         duration = 1_000
                     )

@@ -9,7 +9,7 @@ import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
 import com.github.mmin18.widget.RealtimeBlurView
 import com.loitp.R
-import com.loitp.core.utilities.LAnimationUtil
+import com.loitp.core.ext.play
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_v_bottom_bar.view.*
@@ -279,8 +279,8 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         textView: TextView
     ) {
         techniques?.let {
-            LAnimationUtil.play(view = imageView, techniques = it)
-            LAnimationUtil.play(view = textView, techniques = it)
+            imageView.play(techniques = it)
+            textView.play(techniques = it)
         }
 
         tvIcon0.setTextColor(LAppResource.getColor(this.colorIvOff))

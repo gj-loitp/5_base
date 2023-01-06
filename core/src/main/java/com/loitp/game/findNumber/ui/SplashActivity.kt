@@ -11,7 +11,7 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LAnimationUtil
+import com.loitp.core.ext.play
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.tombayley.activitycircularreveal.CircularReveal
@@ -52,8 +52,7 @@ class SplashActivity : BaseActivityFont() {
     private fun goToHome() {
         LUIUtil.setDelay(100) {
             ivFindTheNumber?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                view = ivFindTheNumber,
+            ivFindTheNumber?.play(
                 duration = 500,
                 techniques = Techniques.ZoomIn,
                 onEnd = {

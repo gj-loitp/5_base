@@ -24,6 +24,7 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.play
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LReaderUtil.Companion.defaultCover
@@ -150,7 +151,7 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
     }
 
     private fun handleZoomIn() {
-        LAnimationUtil.play(view = btZoomIn, techniques = Techniques.Pulse)
+        btZoomIn.play(techniques = Techniques.Pulse)
 
         sectionsPagerAdapter?.let { adapter ->
             try {
@@ -175,7 +176,7 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
     }
 
     private fun handleZoomOut() {
-        LAnimationUtil.play(view = btZoomOut, techniques = Techniques.Pulse)
+        btZoomOut.play(techniques = Techniques.Pulse)
         sectionsPagerAdapter?.let { adapter ->
             try {
                 val pageFragment = adapter.instantiateItem(viewPager, viewPager.currentItem)

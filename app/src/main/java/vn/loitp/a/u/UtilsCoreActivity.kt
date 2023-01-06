@@ -8,10 +8,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.hideSystemUI
-import com.loitp.core.ext.isDefaultLauncher
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.showSystemUI
+import com.loitp.core.ext.*
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.loitp.core.utilities.statusbar.StatusBarCompat
@@ -62,16 +59,16 @@ class UtilsCoreActivity : BaseActivityFont() {
             layoutRootView.showSystemUI()
         }
         btPlayRotate.setSafeOnClickListener {
-            LAnimationUtil.playRotate(it, null)
+            it.playRotate(null)
         }
         btSlideInDown.setSafeOnClickListener {
-            LAnimationUtil.slideInDown(it)
+            it.slideInDown()
         }
         btSlideInUp.setSafeOnClickListener {
-            LAnimationUtil.slideInUp(it)
+            it.slideInUp()
         }
         btPlayAnimRandomDuration.setSafeOnClickListener {
-            LAnimationUtil.playAnimRandomDuration(it)
+            it.playAnimRandomDuration()
         }
         btConvertNumberToStringFormat.setSafeOnClickListener {
             showShortInformation(LConvertUtil.convertNumberToStringFormat(System.currentTimeMillis()))

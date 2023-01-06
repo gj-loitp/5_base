@@ -12,16 +12,16 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.daimajia.androidanimations.library.Techniques
+import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.play
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
-import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.core.utilities.LImageUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
-import com.loitp.R
 import kotlinx.android.synthetic.main.l_i_flickr_photos_core_only.view.*
 import java.util.*
 
@@ -133,23 +133,23 @@ class PhotosOnlyAdapter(
                 true
             }
             itemView.btDownload.setSafeOnClickListener {
-                LAnimationUtil.play(view = it, techniques = Techniques.Flash)
+                it.play(techniques = Techniques.Flash)
                 callback?.onClickDownload(photo = p, pos = position)
             }
             itemView.btShare.setSafeOnClickListener {
-                LAnimationUtil.play(view = it, techniques = Techniques.Flash)
+                it.play(techniques = Techniques.Flash)
                 callback?.onClickShare(photo = p, pos = position)
             }
             itemView.btSetWallpaper.setSafeOnClickListener {
-                LAnimationUtil.play(view = it, techniques = Techniques.Flash)
+                it.play(techniques = Techniques.Flash)
                 callback?.onClickSetWallpaper(photo = p, pos = position, imageView = itemView.iv)
             }
             itemView.btReport.setSafeOnClickListener {
-                LAnimationUtil.play(view = it, techniques = Techniques.Flash)
+                it.play(techniques = Techniques.Flash)
                 callback?.onClickReport(photo = p, pos = position)
             }
             itemView.btCmt.setSafeOnClickListener {
-                LAnimationUtil.play(view = it, techniques = Techniques.Flash)
+                it.play(techniques = Techniques.Flash)
                 callback?.onClickCmt(photo = p, pos = position)
             }
         }

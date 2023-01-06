@@ -8,7 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.LAnimationUtil
+import com.loitp.core.ext.play
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.card.LCardView
@@ -51,11 +51,11 @@ class LCardViewActivityFont : BaseActivityFont() {
                 }
 
                 override fun onClickText(v: View) {
-                    LAnimationUtil.play(view = v, techniques = Techniques.Pulse)
+                    v.play(techniques = Techniques.Pulse)
                 }
 
                 override fun onLongClickText(v: View) {
-                    LAnimationUtil.play(view = v, techniques = Techniques.Pulse)
+                    v.play(techniques = Techniques.Pulse)
                 }
             }
             setText(System.currentTimeMillis().toString() + "")

@@ -11,7 +11,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LAnimationUtil
+import com.loitp.core.ext.play
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
@@ -67,29 +67,25 @@ class SingleLevelActivity : BaseActivityFont() {
 
         LUIUtil.setDelay(100) {
             tvLevels?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                view = tvLevels,
+            tvLevels?.play(
                 duration = 1000,
                 techniques = Techniques.ZoomInDown
             )
 
             ivBack?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                view = ivBack,
+            ivBack?.play(
                 duration = 1000,
                 techniques = Techniques.ZoomInUp
             )
 
             ivPlay?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                view = ivPlay,
+            ivPlay?.play(
                 duration = 1000,
                 techniques = Techniques.ZoomInUp
             )
 
             ivSpiral?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                view = ivSpiral,
+            ivSpiral?.play(
                 duration = 5000,
                 techniques = Techniques.RotateIn,
                 repeatCount = -1
@@ -130,8 +126,7 @@ class SingleLevelActivity : BaseActivityFont() {
 
                         LUIUtil.setDelay(mls = 100, runnable = {
                             layoutLevel?.visibility = View.VISIBLE
-                            LAnimationUtil.play(
-                                view = layoutLevel,
+                            layoutLevel?.play(
                                 duration = 1000,
                                 techniques = Techniques.FadeInUp
                             )

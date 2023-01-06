@@ -14,6 +14,7 @@ import android.widget.ProgressBar
 import androidx.viewpager.widget.ViewPager
 import com.daimajia.androidanimations.library.Techniques
 import com.loitp.R
+import com.loitp.core.ext.play
 import com.loitp.views.dlg.slideImages.LSlideAdapter
 import com.loitp.views.loading.window.WP10ProgressBar
 
@@ -297,8 +298,7 @@ class LDialogUtil {
 
                 it.attributes = wlp
                 it.setLayout(
-                    WindowManager.LayoutParams.MATCH_PARENT,
-                    WindowManager.LayoutParams.MATCH_PARENT
+                    WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT
                 )
             }
             return dialog
@@ -324,16 +324,14 @@ class LDialogUtil {
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog.setContentView(R.layout.l_d_slide_images)
             dialog.setCanceledOnTouchOutside(true)
-            val slideAdapter = LSlideAdapter(
-                mContext = context,
+            val slideAdapter = LSlideAdapter(mContext = context,
                 stringList = imgList,
                 isShowIconClose = isShowIconClose,
                 callback = object : LSlideAdapter.Callback {
                     override fun onClickClose() {
                         dialog.cancel()
                     }
-                }
-            )
+                })
             val viewPager = dialog.findViewById<ViewPager>(R.id.vp)
             viewPager.adapter = slideAdapter
             if (index != 0) {
@@ -350,14 +348,14 @@ class LDialogUtil {
                 ivPrev.visibility = View.INVISIBLE
             }
             ivNext.setOnClickListener { view ->
-                LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
+                view.play(techniques = Techniques.Pulse)
                 val next = viewPager.currentItem + 1
                 if (next < imgList.size) {
                     viewPager.currentItem = next
                 }
             }
             ivPrev.setOnClickListener { view ->
-                LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
+                view.play(techniques = Techniques.Pulse)
                 val prev = viewPager.currentItem - 1
                 if (prev >= 0) {
                     viewPager.currentItem = prev
@@ -374,8 +372,7 @@ class LDialogUtil {
                 wlp.flags = wlp.flags and WindowManager.LayoutParams.FLAG_DIM_BEHIND.inv()
                 it.attributes = wlp
                 it.setLayout(
-                    WindowManager.LayoutParams.MATCH_PARENT,
-                    WindowManager.LayoutParams.MATCH_PARENT
+                    WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT
                 )
             }
             dialog.show()

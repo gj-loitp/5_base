@@ -16,7 +16,7 @@ import com.loitp.anim.morphTransitions.MorphTransform
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
-import com.loitp.core.utilities.LAnimationUtil
+import com.loitp.core.ext.play
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.game.findNumber.dlg.FindNumberWinActivity
 import com.loitp.game.findNumber.model.Level
@@ -56,7 +56,7 @@ class FrmFindNumberPlay(
 
     private fun setupNumberTarget() {
         tvNumberTarget.text = "$numberTarget"
-        LAnimationUtil.play(view = tvNumberTarget, techniques = Techniques.Pulse)
+        tvNumberTarget.play(techniques = Techniques.Pulse)
     }
 
     private fun setupDataLevel() {
