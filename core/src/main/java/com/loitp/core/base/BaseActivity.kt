@@ -20,11 +20,8 @@ import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.*
 import com.loitp.core.common.Constants
-import com.loitp.core.ext.onNetworkConnectionChanged
-import com.loitp.core.ext.tranIn
-import com.loitp.core.ext.tranOut
+import com.loitp.core.ext.*
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LLog
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.loitp.core.utilities.LUIUtil.Companion.withBackground
@@ -353,13 +350,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun logD(msg: String) {
         logTag?.let {
-            LLog.d(it, msg)
+            d(it, msg)
         }
     }
 
     protected fun logE(msg: String) {
         logTag?.let {
-            LLog.e(it, msg)
+            e(it, msg)
         }
     }
 

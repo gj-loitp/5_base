@@ -12,7 +12,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.loitp.annotation.LogTag
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.d
+import com.loitp.core.ext.e
 
 /**
  * Created by Loitp on 04,August,2022
@@ -51,13 +52,13 @@ open class BaseBottomSheetFragment(
 
     protected fun logD(msg: String) {
         logTag?.let {
-            LLog.d(it, msg)
+            d(it, msg)
         }
     }
 
     protected fun logE(msg: String) {
         logTag?.let {
-            LLog.e(it, msg)
+            e(it, msg)
         }
     }
 

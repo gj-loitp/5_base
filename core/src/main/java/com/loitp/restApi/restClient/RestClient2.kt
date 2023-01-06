@@ -2,7 +2,7 @@ package com.loitp.restApi.restClient
 
 import android.text.TextUtils
 import com.google.gson.GsonBuilder
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.e
 import com.loitp.restApi.DateTypeDeserializer
 import com.moczul.ok2curl.CurlInterceptor
 import com.moczul.ok2curl.logger.Logger
@@ -45,7 +45,7 @@ object RestClient2 {
             .addInterceptor(restRequestInterceptor)
             .addInterceptor(CurlInterceptor(object : Logger {
                 override fun log(message: String) {
-                    LLog.e("Ok2Curl", message)
+                    e("Ok2Curl", message)
                 }
             }))
             .retryOnConnectionFailure(true)

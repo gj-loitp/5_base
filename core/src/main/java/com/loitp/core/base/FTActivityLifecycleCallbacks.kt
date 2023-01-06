@@ -3,7 +3,7 @@ package com.loitp.core.base
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.i
 
 /**
  * Created by Loitp on 29,September,2022
@@ -17,7 +17,7 @@ class FTActivityLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
     var currentActivity: Activity? = null
 
     private fun logI(msg: String) {
-        LLog.i(FTActivityLifecycleCallbacks::class.java.simpleName, msg)
+        i(FTActivityLifecycleCallbacks::class.java.simpleName, msg)
     }
 
     override fun onActivityPaused(activity: Activity) {

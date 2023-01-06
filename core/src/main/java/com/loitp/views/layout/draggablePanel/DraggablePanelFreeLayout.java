@@ -11,7 +11,6 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
-import com.loitp.core.utilities.LLog;
 import com.loitp.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -210,7 +209,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
             }
             case MotionEvent.ACTION_UP: {
                 if (isPositionBottom()) {
-                    LLog.d(logTag, "onTouchEvent ACTION_UP no slide");
+//                    "onTouchEvent ACTION_UP no slide"
                 } else {
                     if (mDragOffset < 0.5f) {
                         maximize();

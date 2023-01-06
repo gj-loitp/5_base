@@ -10,6 +10,7 @@ import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.ext.d
 import com.loitp.model.App
 import com.loitp.model.Pkg
 import okhttp3.*
@@ -32,7 +33,7 @@ class LStoreUtil {
         internal var logTag = LStoreUtil::class.java.simpleName
 
         private fun log(msg: String) {
-            LLog.d(logTag, msg)
+            d(logTag, msg)
         }
 
 //        const val FOLDER_TRANSLATE = ".Loitp"

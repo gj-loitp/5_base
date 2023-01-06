@@ -3,7 +3,7 @@ package vn.loitp.a.tut.rxjava2
 import android.annotation.SuppressLint
 import android.os.SystemClock
 import android.widget.TextView
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.d
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -23,7 +23,7 @@ class MyRxTask2(val tv: TextView?) {
         return Observable.just(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
             .doOnNext { it ->
                 it.forEach {
-                    LLog.d(logTag, "doInBackground $it")
+                    d(logTag, "doInBackground $it")
                     publishSubject.onNext(it)
                     SystemClock.sleep(1000)
                 }
@@ -34,12 +34,12 @@ class MyRxTask2(val tv: TextView?) {
                 tv?.append("onPostExecute\n")
             }*/
             .subscribe({
-                LLog.d(logTag, "onPostExecute onNext")
+                d(logTag, "onPostExecute onNext")
                 tv?.append("\nonPostExecute")
             }, {
-                LLog.d(logTag, "onPostExecute onError " + it.printStackTrace())
+                d(logTag, "onPostExecute onError " + it.printStackTrace())
             }, {
-                LLog.d(logTag, "onPostExecute onComplete")
+                d(logTag, "onPostExecute onComplete")
             })
     }
 

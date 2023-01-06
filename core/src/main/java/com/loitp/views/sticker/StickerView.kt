@@ -15,7 +15,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import com.loitp.R
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.d
 import com.loitp.core.utilities.LUIUtil.Companion.isDarkTheme
 import kotlin.math.*
 
@@ -296,7 +296,7 @@ abstract class StickerView : FrameLayout {
                     requestLayout()
                 }
                 MotionEvent.ACTION_UP -> {
-                    LLog.d(logTag, "iv_scale action up")
+                    d(logTag, "iv_scale action up")
                 }
             }
         }
@@ -317,14 +317,11 @@ abstract class StickerView : FrameLayout {
         absX: Float,
         absY: Float
     ): FloatArray {
-//        LLog.d("ken", "getRelativePos getX:" + (this.parent as View).x)
-//        LLog.d("ken", "getRelativePos getY:" + (this.parent as View).y)
         val pos = floatArrayOf(
             absX - (this.parent as View).x,
             absY - (this.parent as View).y
         )
-//        LLog.d(logTag, "getRelativePos absY:$absY")
-        LLog.d(logTag, "getRelativePos relativeY:" + pos[1])
+        d(logTag, "getRelativePos relativeY:" + pos[1])
         return pos
     }
 

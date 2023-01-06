@@ -14,8 +14,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.LogTag
+import com.loitp.core.ext.d
+import com.loitp.core.ext.e
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LLog
 import com.loitp.data.EventBusData
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
@@ -61,13 +62,13 @@ abstract class BaseFragment : Fragment() {
 
     protected fun logD(msg: String) {
         logTag?.let {
-            LLog.d(tag = it, msg = msg)
+            d(tag = it, msg = msg)
         }
     }
 
     protected fun logE(msg: String) {
         logTag?.let {
-            LLog.e(tag = it, msg = msg)
+            e(tag = it, msg = msg)
         }
     }
 
