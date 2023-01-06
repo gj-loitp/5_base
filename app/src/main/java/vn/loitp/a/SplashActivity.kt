@@ -26,7 +26,7 @@ import java.io.IOException
 @LogTag("SplashActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class SplashActivityFont : BaseActivityFont() {
+class SplashActivity : BaseActivityFont() {
 
     private var isAnimDone = false
     private var isCheckReadyDone = false
@@ -56,7 +56,7 @@ class SplashActivityFont : BaseActivityFont() {
             LUIUtil.setTextUnderline(this)
             LUIUtil.setTextShadow(textView = this, color = null)
             setOnClickListener {
-                LSocialUtil.openBrowserPolicy(context = this@SplashActivityFont)
+                LSocialUtil.openBrowserPolicy(context = this@SplashActivity)
             }
         }
 
@@ -153,7 +153,7 @@ class SplashActivityFont : BaseActivityFont() {
                     intent.data = Uri.parse("package:$packageName")
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
-                    LActivityUtil.tranIn(this@SplashActivityFont)
+                    LActivityUtil.tranIn(this@SplashActivity)
                 },
                 onClickButton2 = {
                     onBaseBackPressed()

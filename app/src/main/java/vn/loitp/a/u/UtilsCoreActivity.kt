@@ -20,7 +20,7 @@ import java.math.BigDecimal
 @LogTag("UtilsCoreActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class UtilsCoreActivityFont : BaseActivityFont() {
+class UtilsCoreActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_utils_core
@@ -42,7 +42,7 @@ class UtilsCoreActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = UtilsCoreActivityFont::class.java.simpleName
+            this.tvTitle?.text = UtilsCoreActivity::class.java.simpleName
         }
         btSetStatusBarColorAlpha.setSafeOnClickListener {
             StatusBarCompat.setStatusBarColor(this, Color.RED, 50)

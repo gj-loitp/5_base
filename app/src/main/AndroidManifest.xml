@@ -24,7 +24,7 @@
         tools:replace="android:name,android:allowBackup,android:theme">
 
         <activity
-            android:name=".a.SplashActivityFont"
+            android:name=".a.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:theme="@style/SplashTheme">
@@ -570,7 +570,7 @@
             android:name=".a.anim.lottie.MenuLottieActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.u.UtilsActivityFont"
+            android:name=".a.u.UtilsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.anim.valueAnimator.ValueAnimatorActivityFont"
@@ -1172,7 +1172,7 @@
             android:name=".a.cv.sb.vertical2.VerticalSeekBar2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.u.UtilsCoreActivityFont"
+            android:name=".a.u.UtilsCoreActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.arcView.ArcViewActivityFont"

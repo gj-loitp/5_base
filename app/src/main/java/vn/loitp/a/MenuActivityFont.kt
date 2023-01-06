@@ -35,8 +35,8 @@ import vn.loitp.a.picker.MenuPickerActivityFont
 import vn.loitp.a.sec.MenuSecurityActivityFont
 import vn.loitp.a.sv.MenuServiceActivityFont
 import vn.loitp.a.tut.MenuTutorialActivityFont
-import vn.loitp.a.u.UtilsActivityFont
-import vn.loitp.a.u.UtilsCoreActivityFont
+import vn.loitp.a.u.UtilsActivity
+import vn.loitp.a.u.UtilsCoreActivity
 
 @LogTag("MenuActivity")
 @IsFullScreen(false)
@@ -213,8 +213,8 @@ class MenuActivityFont : BaseActivityFont(), View.OnClickListener {
             btNetwork -> launchActivity(NetworkActivityFont::class.java)
             btSecurity -> launchActivity(MenuSecurityActivityFont::class.java)
             btService -> launchActivity(MenuServiceActivityFont::class.java)
-            btUtils -> launchActivity(UtilsActivityFont::class.java)
-            btUtilsCore -> launchActivity(UtilsCoreActivityFont::class.java)
+            btUtils -> launchActivity(UtilsActivity::class.java)
+            btUtilsCore -> launchActivity(UtilsCoreActivity::class.java)
             btFeedback -> {
                 LSocialUtil.sendEmail(
                     activity = this,

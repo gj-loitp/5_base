@@ -17,7 +17,7 @@ import vn.loitp.R
 @LogTag("UtilsActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class UtilsActivityFont : BaseActivityFont() {
+class UtilsActivity : BaseActivityFont() {
 
     private val listClass = ArrayList<String>()
 
@@ -41,7 +41,7 @@ class UtilsActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = UtilsActivityFont::class.java.simpleName
+            this.tvTitle?.text = UtilsActivity::class.java.simpleName
         }
         viewPager.adapter = SlidePagerAdapter(supportFragmentManager)
         tabLayout.setupWithViewPager(viewPager)
