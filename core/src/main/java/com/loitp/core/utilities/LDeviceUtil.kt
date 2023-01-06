@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
+import android.os.VibrationEffect
 import android.os.Vibrator
+import android.os.VibratorManager
 import android.provider.Settings
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
@@ -57,6 +59,27 @@ class LDeviceUtil {
         @JvmStatic
         fun vibrate() {
             vibrate(length = 200)
+        }
+
+        //rung device trong bao lau
+        fun vibrate(milliseconds: Long) {
+            val vib = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                val vibratorManager =
+                    LAppResource.application.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
+                vibratorManager.defaultVibrator
+            } else {
+                @Suppress("DEPRECATION")
+                LAppResource.application.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vib.vibrate(
+                    VibrationEffect.createOneShot(
+                        /* milliseconds = */ milliseconds,
+                        /* amplitude = */ VibrationEffect.DEFAULT_AMPLITUDE
+                    )
+                )
+            }
         }
 
         fun getRandomNumber(max: Int): Int {
