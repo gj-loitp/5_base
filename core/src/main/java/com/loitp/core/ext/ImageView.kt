@@ -17,7 +17,6 @@ import com.loitp.R
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LStoreUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.FileUtils
 import com.ortiz.touchview.TouchImageView
 import java.io.File
@@ -263,7 +262,7 @@ fun ImageView.loadHighQuality(
 fun TouchImageView.setZoomFitWidthScreen() {
     this.post {
         val maxZoomRatio =
-            LScreenUtil.screenWidth.toFloat() / LUIUtil.getWidthOfView(this).toFloat()
+            LScreenUtil.screenWidth.toFloat() / this.getWidthOfView().toFloat()
         this.setMaxZoomRatio(maxZoomRatio)
     }
 }

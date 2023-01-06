@@ -12,7 +12,7 @@ import com.loitp.R
 import com.loitp.core.ext.getColor
 import com.loitp.core.ext.play
 import com.loitp.core.ext.setMargins
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setRipple
 import kotlinx.android.synthetic.main.l_v_bottom_bar.view.*
 
 /**
@@ -64,20 +64,15 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     constructor(
-        context: Context,
-        attrs: AttributeSet
+        context: Context, attrs: AttributeSet
     ) : super(context, attrs) {
         init()
     }
 
     constructor(
-        context: Context,
-        attrs: AttributeSet,
-        defStyle: Int
+        context: Context, attrs: AttributeSet, defStyle: Int
     ) : super(
-        context,
-        attrs,
-        defStyle
+        context, attrs, defStyle
     ) {
         init()
     }
@@ -85,12 +80,12 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     private fun init() {
         View.inflate(context, R.layout.l_v_bottom_bar, this)
 
-        LUIUtil.setRipple(view = layoutIcon0)
-        LUIUtil.setRipple(view = layoutIcon1)
-        LUIUtil.setRipple(view = layoutIcon2)
-        LUIUtil.setRipple(view = layoutIcon3)
-        LUIUtil.setRipple(view = layoutIcon4)
-        LUIUtil.setRipple(view = layoutIicon5)
+        layoutIcon0.setRipple()
+        layoutIcon1.setRipple()
+        layoutIcon2.setRipple()
+        layoutIcon3.setRipple()
+        layoutIcon4.setRipple()
+        layoutIicon5.setRipple()
 
         layoutIcon0.setOnClickListener(this)
         layoutIcon1.setOnClickListener(this)
@@ -167,48 +162,42 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     fun setItem0(
-        resImg: Int,
-        name: String
+        resImg: Int, name: String
     ) {
         ivIcon0.setImageResource(resImg)
         tvIcon0.text = name
     }
 
     fun setItem1(
-        resImg: Int,
-        name: String
+        resImg: Int, name: String
     ) {
         ivIcon1.setImageResource(resImg)
         tvIcon1.text = name
     }
 
     fun setItem2(
-        resImg: Int,
-        name: String
+        resImg: Int, name: String
     ) {
         ivIcon2.setImageResource(resImg)
         tvIcon2.text = name
     }
 
     fun setItem3(
-        resImg: Int,
-        name: String
+        resImg: Int, name: String
     ) {
         ivIcon3.setImageResource(resImg)
         tvIcon3.text = name
     }
 
     fun setItem4(
-        resImg: Int,
-        name: String
+        resImg: Int, name: String
     ) {
         ivIcon4.setImageResource(resImg)
         tvIcon4.text = name
     }
 
     fun setItem5(
-        resImg: Int,
-        name: String
+        resImg: Int, name: String
     ) {
         ivIcon5.setImageResource(resImg)
         tvIcon5.text = name
@@ -276,8 +265,7 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     private fun updateView(
-        imageView: ImageView,
-        textView: TextView
+        imageView: ImageView, textView: TextView
     ) {
         techniques?.let {
             imageView.play(techniques = it)
@@ -352,8 +340,7 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     fun setPerformItemClick(
-        position: Int,
-        invokedOnClickItem: Boolean = true
+        position: Int, invokedOnClickItem: Boolean = true
     ) {
         previousPos = currentPos
         currentPos = position

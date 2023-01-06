@@ -209,11 +209,11 @@ class UtilsCoreActivity : BaseActivityFont() {
         sb1.setMarginsDp(
             leftDp = 16, topDp = 16, rightDp = 16, bottomDp = 16
         )
-        LUIUtil.setRandomBackground(layoutRootView)
-        LUIUtil.getAllChildren(layoutRootView).forEach {
+        layoutRootView.setRandomBackground()
+        layoutRootView.getAllChildren().forEach {
             logD(">>>getAllChildren ${it.id}")
         }
-        LUIUtil.setCheckBoxColor(cb1, Color.GREEN, Color.CYAN)
+        cb1.setCheckBoxColor(Color.GREEN, Color.CYAN)
         LUIUtil.setChangeStatusBarTintToDark(window, false)
         btScrollToBottom.setSafeOnClickListener {
             sv.scrollToBottom()

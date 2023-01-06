@@ -14,6 +14,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_animation_lottie.*
 import vn.loitp.R
@@ -52,7 +53,7 @@ class MenuLottieActivityFont : BaseActivityFont() {
         viewPager.adapter = slidePagerAdapter
         tabLayout.setupWithViewPager(viewPager)
 
-        LUIUtil.changeTabsFont(tabLayout = tabLayout, fontName = Constants.FONT_PATH)
+        tabLayout.changeTabsFont(fontName = Constants.FONT_PATH)
 
         sb.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {}

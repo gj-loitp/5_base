@@ -12,6 +12,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
@@ -36,6 +37,7 @@ class ViewPagerWithTabLayoutActivityFont : BaseActivityFont() {
         private const val FlipHorizontalTransformer = "FlipHorizontalTransformer"
         private const val FlipVerticalTransformer = "FlipVerticalTransformer"
         private const val ForegroundToBackgroundTransformer = "ForegroundToBackgroundTransformer"
+
         @Suppress("unused")
         private const val ParallaxPageTransformer = "ParallaxPageTransformer"
         private const val RotateUpTransformer = "RotateUpTransformer"
@@ -73,7 +75,7 @@ class ViewPagerWithTabLayoutActivityFont : BaseActivityFont() {
         }
         viewPager.adapter = SlidePagerAdapter()
         tabLayout.setupWithViewPager(viewPager)
-        LUIUtil.changeTabsFont(tabLayout, Constants.FONT_PATH)
+        tabLayout.changeTabsFont(Constants.FONT_PATH)
         btAnim.setOnClickListener {
             showDialogAnim()
         }

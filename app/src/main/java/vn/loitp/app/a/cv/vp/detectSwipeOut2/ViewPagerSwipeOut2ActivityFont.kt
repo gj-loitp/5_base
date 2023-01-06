@@ -8,6 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.vp.swipeOut.LSwipeOutViewPager
@@ -52,7 +53,7 @@ class ViewPagerSwipeOut2ActivityFont : BaseActivityFont() {
         })
         vp.setPullLikeIOSHorizontal()
         tabLayout.setupWithViewPager(vp)
-        LUIUtil.changeTabsFont(tabLayout, Constants.FONT_PATH)
+        tabLayout.changeTabsFont(Constants.FONT_PATH)
     }
 
     private inner class SamplePagerAdapter(fm: FragmentManager) :

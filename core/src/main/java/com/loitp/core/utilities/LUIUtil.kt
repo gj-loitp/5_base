@@ -1,31 +1,20 @@
 package com.loitp.core.utilities
 
-import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
-import android.content.res.ColorStateList
 import android.graphics.*
 import android.graphics.drawable.*
-import android.net.Uri
-import android.os.Build
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.TypedValue
 import android.view.View
-import android.view.ViewGroup
 import android.view.Window
 import android.widget.*
-import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.cardview.widget.CardView
 import androidx.core.graphics.ColorUtils
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
-import com.google.android.material.navigation.NavigationView
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.tabs.TabLayout
 import com.loitp.R
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.*
@@ -33,7 +22,6 @@ import com.loitp.func.wallpo.Wallpo
 import com.simmorsal.recolor_project.OnReColorFinish
 import com.simmorsal.recolor_project.ReColor
 import com.skydoves.elasticviews.elasticAnimation
-import io.github.inflationx.calligraphy3.CalligraphyUtils
 import java.util.*
 
 /**
@@ -46,151 +34,8 @@ import java.util.*
 class LUIUtil {
     companion object {
 
-        fun changeTabsFont(
-            tabLayout: TabLayout?,
-            fontName: String
-        ) {
-            tabLayout?.let {
-                val vg = it.getChildAt(0) as ViewGroup
-                val tabsCount = vg.childCount
-                for (j in 0 until tabsCount) {
-                    val vgTab = vg.getChildAt(j) as ViewGroup
-                    val tabChildsCount = vgTab.childCount
-                    for (i in 0 until tabChildsCount) {
-                        val tabViewChild = vgTab.getChildAt(i)
-                        if (tabViewChild is TextView) {
-                            CalligraphyUtils.applyFontToTextView(it.context, tabViewChild, fontName)
-                        }
-                    }
-                }
-            }
-        }
-
-        fun setRandomBackground(view: View?) {
-            view?.let {
-                val r = LStoreUtil.getRandomNumber(Constants.ARR_RANDOM_BKG.size)
-                val bkg = Constants.ARR_RANDOM_BKG[r]
-                it.setBackgroundResource(bkg)
-            }
-        }
-
-        @Suppress("unused")
-        fun setNavMenuItemThemeColors(
-            navigationView: NavigationView,
-            colorDefault: Int,
-            color: Int
-        ) {
-            // Setting default colors for menu item Text and Icon
-
-            // Defining ColorStateList for menu item Text
-            val navMenuTextList = ColorStateList(
-                arrayOf(
-                    intArrayOf(android.R.attr.state_checked),
-                    intArrayOf(android.R.attr.state_enabled),
-                    intArrayOf(android.R.attr.state_pressed),
-                    intArrayOf(android.R.attr.state_focused),
-                    intArrayOf(android.R.attr.state_pressed)
-                ),
-                intArrayOf(color, colorDefault, colorDefault, colorDefault, colorDefault)
-            )
-
-            // Defining ColorStateList for menu item Icon
-            val navMenuIconList = ColorStateList(
-                arrayOf(
-                    intArrayOf(android.R.attr.state_checked),
-                    intArrayOf(android.R.attr.state_enabled),
-                    intArrayOf(android.R.attr.state_pressed),
-                    intArrayOf(android.R.attr.state_focused),
-                    intArrayOf(android.R.attr.state_pressed)
-                ),
-                intArrayOf(color, colorDefault, colorDefault, colorDefault, colorDefault)
-            )
-            navigationView.itemTextColor = navMenuTextList
-            navigationView.itemIconTintList = navMenuIconList
-        }
-
-        fun getAllChildren(v: View): ArrayList<View> {
-            if (v !is ViewGroup) {
-                val viewArrayList = ArrayList<View>()
-                viewArrayList.add(v)
-                return viewArrayList
-            }
-            val result = ArrayList<View>()
-            for (i in 0 until v.childCount) {
-                val child = v.getChildAt(i)
-                val viewArrayList = ArrayList<View>()
-                viewArrayList.add(v)
-                viewArrayList.addAll(getAllChildren(child))
-                result.addAll(viewArrayList)
-            }
-            return result
-        }
-
-        fun getWidthOfView(view: View): Int {
-            view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
-            return view.measuredWidth
-        }
-
-        fun getHeightOfView(view: View): Int {
-            view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
-            return view.measuredHeight
-        }
-
-        // playYoutube(activity, "http://www.youtube.com/watch?v=Hxy8BZGQ5Jo");
-        fun playYoutube(
-            activity: Activity?,
-            url: String?
-        ) {
-            activity?.let { a ->
-                if (url.isNullOrEmpty()) {
-                    return
-                }
-                a.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
-                a.tranIn()
-            }
-        }
-
-        fun playYoutubeWithId(
-            activity: Activity?,
-            id: String
-        ) {
-            activity?.let { a ->
-                playYoutube(activity = a, url = "http://www.youtube.com/watch?v=$id")
-            }
-        }
-
-        @SuppressLint("ObsoleteSdkInt")
-        fun setRipple(view: View) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                val outValue = TypedValue()
-                view.context.theme.resolveAttribute(
-                    android.R.attr.selectableItemBackground,
-                    outValue,
-                    true
-                )
-                view.setBackgroundResource(outValue.resourceId)
-            }
-        }
-
-        @SuppressLint("RestrictedApi")
-        fun setCheckBoxColor(
-            checkBox: AppCompatCheckBox,
-            uncheckedColor: Int,
-            checkedColor: Int
-        ) {
-            val colorStateList = ColorStateList(
-                arrayOf(
-                    intArrayOf(-android.R.attr.state_checked), // unchecked
-                    intArrayOf(android.R.attr.state_checked) // checked
-                ),
-                intArrayOf(uncheckedColor, checkedColor)
-            )
-            checkBox.supportButtonTintList = colorStateList
-        }
-
         fun setChangeStatusBarTintToDark(
-            window: Window,
-            shouldChangeStatusBarTintToDark: Boolean
+            window: Window, shouldChangeStatusBarTintToDark: Boolean
         ) {
             val decor = window.decorView
             if (shouldChangeStatusBarTintToDark) {
@@ -204,9 +49,7 @@ class LUIUtil {
         }
 
         fun setSizeOfView(
-            view: View? = null,
-            width: Int? = null,
-            height: Int? = null
+            view: View? = null, width: Int? = null, height: Int? = null
         ) {
             view?.let { v ->
                 width?.let {
@@ -218,13 +61,6 @@ class LUIUtil {
                 v.requestLayout()
             }
         }
-
-        // ViewGroup.LayoutParams.MATCH_PARENT
-//        fun setSize(view: View, w: Int, h: Int) {
-//            view.layoutParams.width = w
-//            view.layoutParams.height = h
-//            view.requestLayout()
-//        }
 
         fun setScrollChange(
             recyclerView: RecyclerView,
@@ -266,9 +102,7 @@ class LUIUtil {
         }
 
         fun addTextChangedListener(
-            editText: EditText?,
-            delayInMls: Long,
-            afterTextChanged: (String) -> Unit
+            editText: EditText?, delayInMls: Long, afterTextChanged: (String) -> Unit
         ) {
             if (delayInMls > 0) {
                 editText?.let { et ->
@@ -286,28 +120,20 @@ class LUIUtil {
                                             }
                                         }
                                     }
-                                },
-                                delayInMls
+                                }, delayInMls
                             )
                         }
 
                         override fun beforeTextChanged(
-                            charSequence: CharSequence?,
-                            p1: Int,
-                            p2: Int,
-                            p3: Int
+                            charSequence: CharSequence?, p1: Int, p2: Int, p3: Int
                         ) {
                         }
 
                         override fun onTextChanged(
-                            charSequence: CharSequence?,
-                            p1: Int,
-                            p2: Int,
-                            p3: Int
+                            charSequence: CharSequence?, p1: Int, p2: Int, p3: Int
                         ) {
                         }
-                    }
-                    )
+                    })
                 }
             }
         }
@@ -352,9 +178,7 @@ class LUIUtil {
             view?.let { v ->
                 v.setOnClickListener {
                     val anim = v.elasticAnimation(
-                        scaleX = scaleX,
-                        scaleY = scaleY,
-                        duration = duration
+                        scaleX = scaleX, scaleY = scaleY, duration = duration
                     ) {
                         runnable?.run()
                     }
@@ -373,9 +197,7 @@ class LUIUtil {
             view?.let { v ->
                 v.setSafeOnClickListener {
                     val anim = v.elasticAnimation(
-                        scaleX = scaleX,
-                        scaleY = scaleY,
-                        duration = duration
+                        scaleX = scaleX, scaleY = scaleY, duration = duration
                     ) {
                         runnable?.run()
                     }
@@ -404,8 +226,7 @@ class LUIUtil {
         }
 
         fun setDrawableTintColor(
-            textView: TextView,
-            color: Int
+            textView: TextView, color: Int
         ) {
             for (drawable in textView.compoundDrawables) {
                 if (drawable != null) {
@@ -416,8 +237,7 @@ class LUIUtil {
 
         @Suppress("unused")
         fun setTypeface(
-            textView: TextView,
-            pathFontAsset: String
+            textView: TextView, pathFontAsset: String
         ) {
             val type = Typeface.createFromAsset(textView.context.assets, pathFontAsset)
             textView.typeface = type
@@ -464,8 +284,7 @@ class LUIUtil {
         }
 
         fun setAlphaComponent(
-            color: Int,
-            alpha: Int = 50
+            color: Int, alpha: Int = 50
         ): Int {
             return ColorUtils.setAlphaComponent(/* color = */ color, /* alpha = */ alpha)
         }
@@ -481,13 +300,11 @@ class LUIUtil {
             radiusBL: Float,
             radiusBR: Float,
         ) {
-            cardView.shapeAppearanceModel = cardView.shapeAppearanceModel
-                .toBuilder()
+            cardView.shapeAppearanceModel = cardView.shapeAppearanceModel.toBuilder()
                 .setTopLeftCorner(CornerFamily.ROUNDED, radiusTL)
                 .setTopRightCorner(CornerFamily.ROUNDED, radiusTR)
                 .setBottomRightCorner(CornerFamily.ROUNDED, radiusBL)
-                .setBottomLeftCorner(CornerFamily.ROUNDED, radiusBR)
-                .build()
+                .setBottomLeftCorner(CornerFamily.ROUNDED, radiusBR).build()
         }
 
         fun recolorStatusBarPulse(

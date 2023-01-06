@@ -15,8 +15,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.utilities.LPopupMenu
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_collapsingtoolbar_withtablayout.*
 import vn.loitp.R
 
@@ -54,7 +54,7 @@ class CollapsingToolbarWithTabLayoutActivityFont : BaseActivityFont(), OnClickLi
         viewPager.adapter = mSectionsPagerAdapter
 
         tabs.setupWithViewPager(viewPager)
-        LUIUtil.changeTabsFont(tabLayout = tabs, fontName = Constants.FONT_PATH)
+        tabs.changeTabsFont(fontName = Constants.FONT_PATH)
     }
 
     override fun onClick(v: View) {

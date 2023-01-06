@@ -8,6 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_view_pager_auto.*
 import vn.loitp.R
@@ -43,7 +44,7 @@ class ViewPagerAutoActivityFont : BaseActivityFont() {
         // viewPager.setIndeterminate(true)
         viewPager.setAutoScrollEnabled(true)
         tabLayout.setupWithViewPager(viewPager)
-        LUIUtil.changeTabsFont(tabLayout, Constants.FONT_PATH)
+        tabLayout.changeTabsFont(Constants.FONT_PATH)
     }
 
     private inner class SamplePagerAdapter(fm: FragmentManager) :

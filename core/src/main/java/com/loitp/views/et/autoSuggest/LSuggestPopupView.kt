@@ -11,8 +11,8 @@ import androidx.appcompat.widget.LinearLayoutCompat
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitp.R
 import com.loitp.core.ext.setPullLikeIOSVertical
+import com.loitp.core.ext.setRipple
 import com.loitp.core.ext.setTextSizePx
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.ConvertUtils
 import kotlin.math.hypot
 import kotlin.math.max
@@ -106,7 +106,7 @@ class LSuggestPopupView(
             button.setTextSizePx(
                 size = context.resources.getDimension(R.dimen.txt_medium)
             )
-            LUIUtil.setRipple(view = button)
+            button.setRipple()
             button.setOnClickListener {
                 callback?.onClick(s)
             }

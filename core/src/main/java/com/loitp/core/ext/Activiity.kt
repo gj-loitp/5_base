@@ -281,3 +281,20 @@ fun Activity.chatMessenger(
         }
     }
 }
+
+// playYoutube(activity, "http://www.youtube.com/watch?v=Hxy8BZGQ5Jo");
+fun Activity.playYoutube(
+    url: String?
+) {
+    if (url.isNullOrEmpty()) {
+        return
+    }
+    this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+    this.tranIn()
+}
+
+fun Activity.playYoutubeWithId(
+    id: String
+) {
+    this.playYoutube(url = "http://www.youtube.com/watch?v=$id")
+}

@@ -9,6 +9,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.*
 import kotlinx.android.synthetic.main.a_utils.*
@@ -45,7 +46,7 @@ class UtilsActivity : BaseActivityFont() {
         }
         viewPager.adapter = SlidePagerAdapter(supportFragmentManager)
         tabLayout.setupWithViewPager(viewPager)
-        LUIUtil.changeTabsFont(tabLayout, Constants.FONT_PATH)
+        tabLayout.changeTabsFont(Constants.FONT_PATH)
     }
 
     private fun setupData() {

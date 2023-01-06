@@ -1,9 +1,12 @@
 package com.loitp.core.ext
 
+import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.*
 import android.graphics.drawable.*
 import android.graphics.drawable.shapes.RectShape
+import android.os.Build
+import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -16,6 +19,7 @@ import com.airbnb.lottie.SimpleColorFilter
 import com.airbnb.lottie.model.KeyPath
 import com.airbnb.lottie.value.LottieValueCallback
 import com.google.android.material.tabs.TabLayout
+import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utils.ConvertUtils
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
@@ -241,5 +245,51 @@ fun View?.setMarginsDp(
             )
             it.requestLayout()
         }
+    }
+}
+
+fun View.setRandomBackground() {
+    val r = LStoreUtil.getRandomNumber(Constants.ARR_RANDOM_BKG.size)
+    val bkg = Constants.ARR_RANDOM_BKG[r]
+    this.setBackgroundResource(bkg)
+}
+
+fun View.getAllChildren(): ArrayList<View> {
+    if (this !is ViewGroup) {
+        val viewArrayList = ArrayList<View>()
+        viewArrayList.add(this)
+        return viewArrayList
+    }
+    val result = ArrayList<View>()
+    for (i in 0 until this.childCount) {
+        val child = this.getChildAt(i)
+        val viewArrayList = ArrayList<View>()
+        viewArrayList.add(this)
+        viewArrayList.addAll(child.getAllChildren())
+        result.addAll(viewArrayList)
+    }
+    return result
+}
+
+fun View.getWidthOfView(): Int {
+    this.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+    return this.measuredWidth
+}
+
+fun View.getHeightOfView(): Int {
+    this.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+    return this.measuredHeight
+}
+
+@SuppressLint("ObsoleteSdkInt")
+fun View.setRipple() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        val outValue = TypedValue()
+        this.context.theme.resolveAttribute(
+            /* resid = */ android.R.attr.selectableItemBackground,
+            /* outValue = */ outValue,
+            /* resolveRefs = */ true
+        )
+        this.setBackgroundResource(outValue.resourceId)
     }
 }
