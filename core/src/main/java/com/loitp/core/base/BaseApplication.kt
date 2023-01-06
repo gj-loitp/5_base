@@ -12,8 +12,8 @@ import com.google.gson.Gson
 import com.loitp.annotation.LogTag
 import com.loitp.core.ext.d
 import com.loitp.core.ext.e
+import com.loitp.core.ext.init
 import com.loitp.core.ext.initOnNetworkChange
-import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.Utils
 import com.loitp.game.findNumber.db.FindNumberDatabase
@@ -55,7 +55,9 @@ open class BaseApplication : MultiDexApplication(), LifecycleObserver {
         registerActivityLifecycleCallbacks(mFTActivityLifecycleCallbacks)
 
         logTag = javaClass.getAnnotation(LogTag::class.java)?.value
-        LAppResource.init(this)
+
+        this.init()
+
         Utils.init(this)
 
         // big image view

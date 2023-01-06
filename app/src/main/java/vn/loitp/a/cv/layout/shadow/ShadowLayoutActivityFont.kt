@@ -7,7 +7,6 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.ConvertUtils
@@ -58,7 +57,7 @@ class ShadowLayoutActivityFont : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            tvChangeOval -> slOval.setShadowColor(LAppResource.getColor(R.color.black50))
+            tvChangeOval -> slOval.setShadowColor(getColor(R.color.black50))
             tvChangeRadius -> slRectangle.setShadowColor(Color.parseColor("#EE00FF7F"))
             tvChangeRectangle -> slRadius.setShadowRadius(ConvertUtils.dp2px(12f).toFloat())
         }

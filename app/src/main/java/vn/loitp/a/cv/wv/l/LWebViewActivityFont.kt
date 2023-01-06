@@ -8,8 +8,8 @@ import android.webkit.WebView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.getDimenValue
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.wv.LWebViewAdblock
 import kotlinx.android.synthetic.main.a_wv.*
@@ -92,8 +92,8 @@ class LWebViewActivityFont : BaseActivityFont() {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
             onDetectClick()
-            val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
-            val paddingPx = LAppResource.getDimenValue(R.dimen.margin_padding_small)
+            val fontSizePx = getDimenValue(R.dimen.txt_small)
+            val paddingPx = getDimenValue(R.dimen.margin_padding_small)
             lWebView.loadDataString(
                 bodyContent = getString(R.string.large_dummy_text),
                 backgroundColor = "black",

@@ -14,7 +14,6 @@ import android.widget.TextView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_badge_tab_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
@@ -140,7 +139,7 @@ class BadgeTabExampleActivityFont : BaseActivityFont() {
         val titleContainer = commonNavigator.titleContainer // must after setNavigator
         titleContainer.showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE
         titleContainer.dividerPadding = UIUtil.dip2px(this, 15.0)
-        titleContainer.dividerDrawable = LAppResource.getDrawable(R.drawable.simple_splitter)
+        titleContainer.dividerDrawable = getDrawable(R.drawable.simple_splitter)
         ViewPagerHelper.bind(magicIndicator1, viewPager)
     }
 

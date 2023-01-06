@@ -10,6 +10,8 @@ import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.ext.LAppResource
+import com.loitp.core.ext.LAppResource.application
 import com.loitp.core.ext.d
 import com.loitp.model.App
 import com.loitp.model.Pkg
@@ -132,10 +134,9 @@ class LStoreUtil {
 //                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
 
 //                    C3
-                    val path =
-                        LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Android")
-                            ?.get(0)
-                            ?: ""
+                    val path = application.getExternalFilesDir(null)?.parent?.split("/Android")
+                        ?.get(0)
+                        ?: ""
                     val file = File("$path/$folderName")
 
                     log("file path ${file.path}")

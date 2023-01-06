@@ -1,6 +1,7 @@
 package com.loitp.core.utilities
 
 import android.media.MediaPlayer
+import com.loitp.core.ext.LAppResource.application
 import java.io.IOException
 
 /**
@@ -15,7 +16,7 @@ class LSoundUtil {
         fun startMusicFromAsset(fileName: String) {
             val mediaPlayer = MediaPlayer()
             try {
-                val assetFileDescriptor = LAppResource.application.assets.openFd(fileName)
+                val assetFileDescriptor = application.assets.openFd(fileName)
                 mediaPlayer.setDataSource(
                     assetFileDescriptor.fileDescriptor,
                     assetFileDescriptor.startOffset,

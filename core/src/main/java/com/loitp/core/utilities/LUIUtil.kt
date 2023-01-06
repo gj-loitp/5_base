@@ -480,7 +480,7 @@ class LUIUtil {
                     it.setTextColor(Color.WHITE)
                     setTextSize(
                         textView = it,
-                        size = LAppResource.getDimenValue(R.dimen.txt_medium).toFloat()
+                        size = getDimenValue(R.dimen.txt_medium).toFloat()
                     )
                     it.textAlignment = View.TEXT_ALIGNMENT_CENTER
                 }

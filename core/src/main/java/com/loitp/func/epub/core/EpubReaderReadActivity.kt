@@ -24,10 +24,7 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.play
-import com.loitp.core.ext.setDelay
-import com.loitp.core.ext.setPullLikeIOSHorizontal
-import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.*
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LReaderUtil.Companion.defaultCover
 import com.loitp.core.utils.ConvertUtils
@@ -318,8 +315,8 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
                 setEnableCopyContent(isEnableCopyContent = true)
                 id = idWebView
 //                logD(">>>setFragmentView data $data")
-                val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
-                val paddingPx = LAppResource.getDimenValue(R.dimen.margin_padding_small)
+                val fontSizePx = getDimenValue(R.dimen.txt_small)
+                val paddingPx = getDimenValue(R.dimen.margin_padding_small)
 //                logD(">>>setFragmentView fontSizePx $fontSizePx, paddingPx $paddingPx")
                 if (LUIUtil.isDarkTheme()) {
                     loadDataString(

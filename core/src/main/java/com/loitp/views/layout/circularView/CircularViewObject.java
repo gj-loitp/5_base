@@ -11,8 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-
-import com.loitp.core.utilities.LAppResource;
+import androidx.core.content.ContextCompat;
 
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -188,9 +187,7 @@ public class CircularViewObject {
      * @param resId Resource id of the drawable to display.
      */
     public void setSrc(final int resId) {
-//        setSrc(BitmapFactory.decodeResource(context.getResources(), resId));
-//        setSrc(context.getResources().getDrawable(resId));
-        setSrc(LAppResource.INSTANCE.getDrawable(resId));
+        setSrc(ContextCompat.getDrawable(context, resId));
     }
 
     /**

@@ -20,9 +20,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDialog
 import androidx.appcompat.widget.LinearLayoutCompat
-import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.R
+import com.loitp.core.ext.getColor
+import com.loitp.core.utilities.LUIUtil
 
 /**
  * Created by Loitp on 04,August,2022
@@ -161,7 +161,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setTitleColor(color: Int?): PrettyDialog {
-        tvTitle?.setTextColor(LAppResource.getColor(color ?: R.color.black))
+        tvTitle?.setTextColor(getColor(color ?: R.color.black))
         return this
     }
 
@@ -176,7 +176,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setMessageColor(color: Int?): PrettyDialog {
-        tvMessage?.setTextColor(LAppResource.getColor(color ?: R.color.black))
+        tvMessage?.setTextColor(getColor(color ?: R.color.black))
         return this
     }
 
@@ -190,7 +190,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
 
     fun setIconTint(color: Int?): PrettyDialog {
         ivIcon?.setColorFilter(
-            LAppResource.getColor(color ?: defaultIconTint),
+            getColor(color ?: defaultIconTint),
             PorterDuff.Mode.MULTIPLY
         )
         return this
@@ -228,7 +228,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
         ivIcon?.let {
             it.setImageResource(icon ?: R.drawable.ic_close_black_48dp)
             it.setColorFilter(
-                LAppResource.getColor(iconTint ?: defaultIconTint),
+                getColor(iconTint ?: defaultIconTint),
                 PorterDuff.Mode.MULTIPLY
             )
             it.setOnTouchListener(null)

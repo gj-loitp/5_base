@@ -12,6 +12,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
@@ -26,7 +27,6 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 
 import com.loitp.R;
-import com.loitp.core.utilities.LAppResource;
 import com.loitp.views.wwl.music.utils.LWWLMusicIllegal;
 import com.loitp.views.wwl.music.utils.LWWLMusicViewHelper;
 
@@ -173,8 +173,7 @@ public class LWWLVideo extends ViewGroup {
         LWWLMusicIllegal.INSTANCE.check(this.mViews.size() > 0, "contentViews cannot be empty");
         this.mPlayerView.setOnClickListener(new PlayerViewClickListener(this));
         this.mBgView = new View(getContext());
-//        this.mBgView.setBackgroundColor(getResources().getColor(android.R.color.black));
-        this.mBgView.setBackgroundColor(LAppResource.INSTANCE.getColor(R.color.black));
+        this.mBgView.setBackgroundColor(Color.BLACK);
         addView(this.mBgView);
         bringChildToFront(this.mBgView);
         if (this.mMetadataPanelView != null) {

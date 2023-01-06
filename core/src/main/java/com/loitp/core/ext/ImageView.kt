@@ -15,7 +15,6 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.loitp.R
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil

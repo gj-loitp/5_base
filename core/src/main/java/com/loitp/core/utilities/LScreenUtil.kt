@@ -13,6 +13,7 @@ import android.provider.Settings
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.loitp.core.base.BaseActivity
+import com.loitp.core.ext.LAppResource.application
 import com.loitp.core.ext.tranIn
 import com.loitp.core.utils.FragmentUtils
 
@@ -35,31 +36,31 @@ class LScreenUtil {
 
         fun getStatusBarHeight(): Int {
             var result = 0
-            val resourceId = LAppResource.application.resources.getIdentifier(
+            val resourceId = application.resources.getIdentifier(
                 "status_bar_height",
                 "dimen",
                 "android"
             )
             if (resourceId > 0) {
-                result = LAppResource.application.resources.getDimensionPixelSize(resourceId)
+                result = application.resources.getDimensionPixelSize(resourceId)
             }
             return result
         }
 
         fun getBottomBarHeight(): Int {
-            val hasMenuKey = ViewConfiguration.get(LAppResource.application).hasPermanentMenuKey()
+            val hasMenuKey = ViewConfiguration.get(application).hasPermanentMenuKey()
             val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
 
             if (!hasMenuKey && !hasBackKey) {
                 // Do whatever you need to do, this device has a navigation bar
                 var result = 0
-                val resourceId = LAppResource.application.resources.getIdentifier(
+                val resourceId = application.resources.getIdentifier(
                     "design_bottom_navigation_height",
                     "dimen",
-                    LAppResource.application.packageName
+                    application.packageName
                 )
                 if (resourceId > 0) {
-                    result = LAppResource.application.resources.getDimensionPixelSize(resourceId)
+                    result = application.resources.getDimensionPixelSize(resourceId)
                 }
                 // Log.d(TAG,"result botbar height: "+result);
                 return result
@@ -70,7 +71,7 @@ class LScreenUtil {
 
         fun getScreenHeightIncludeNavigationBar(): Int {
             val windowManager =
-                LAppResource.application.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+                application.getSystemService(Context.WINDOW_SERVICE) as WindowManager
             val display = windowManager.defaultDisplay
             val outPoint = Point()
             // include navigation bar
@@ -337,7 +338,7 @@ class LScreenUtil {
         }
 
         fun isLandscape(): Boolean {
-            return when ((LAppResource.application.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.rotation) {
+            return when ((application.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.rotation) {
                 Surface.ROTATION_0 -> false
                 Surface.ROTATION_90 -> true
                 Surface.ROTATION_180 -> false
@@ -409,7 +410,7 @@ class LScreenUtil {
         fun getCurrentBrightness(): Int {
             return try {
                 Settings.System.getInt(
-                    LAppResource.application.contentResolver,
+                    application.contentResolver,
                     Settings.System.SCREEN_BRIGHTNESS
                 )
             } catch (e: Exception) {
@@ -419,7 +420,7 @@ class LScreenUtil {
         }
 
         fun checkSystemWritePermission(): Boolean {
-            return Settings.System.canWrite(LAppResource.application)
+            return Settings.System.canWrite(application)
         }
     }
 }

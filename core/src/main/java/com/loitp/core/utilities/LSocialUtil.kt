@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import com.loitp.R
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.LAppResource.application
 import com.loitp.core.ext.tranIn
 import com.loitp.core.helper.fbComment.FbCommentActivity
 import com.loitp.core.utils.AppUtils
@@ -112,7 +113,7 @@ class LSocialUtil {
         private fun getFacebookPageURL(): String {
             val facebookUrl = "https://www.facebook.com/hoidammedocsach"
             val facebookPageId = "hoidammedocsach"
-            val packageManager = LAppResource.application.packageManager
+            val packageManager = application.packageManager
             return try {
                 val versionCode =
                     packageManager.getPackageInfo("com.facebook.katana", 0).versionCode

@@ -8,7 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
 import com.loitp.BuildConfig
 import com.loitp.R
-import com.loitp.core.utilities.LAppResource
+import com.loitp.core.ext.LAppResource.application
+import com.loitp.core.ext.getColor
 import com.loitp.core.utilities.LUIUtil
 
 /**
@@ -34,13 +35,13 @@ object LToast {
         }
         try {
             val inf =
-                LAppResource.application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val layout = inf.inflate(R.layout.l_v_toast, null)
             val textView = layout.findViewById<AppCompatTextView>(R.id.tvLoading)
             textView.text = msg
-            textView.setBackgroundColor(LAppResource.getColor(backgroundResColor))
-            textView.setTextColor(LAppResource.getColor(textResColor))
-            val toast = Toast(LAppResource.application)
+            textView.setBackgroundColor(getColor(backgroundResColor))
+            textView.setTextColor(getColor(textResColor))
+            val toast = Toast(application)
             if (isTopAnchor) {
                 toast.setGravity(Gravity.FILL_HORIZONTAL or Gravity.TOP, 0, 0)
             } else {

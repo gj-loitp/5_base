@@ -7,8 +7,8 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.widget.RelativeLayout
-import com.loitp.core.utilities.LAppResource
 import com.loitp.R
+import com.loitp.core.ext.getColor
 import kotlin.math.min
 
 /**
@@ -125,7 +125,7 @@ class LShadowLayout @JvmOverloads constructor(
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LShadowLayout)
         mShadowColor = typedArray.getColor(
             R.styleable.LShadowLayout_shadowColor,
-            LAppResource.getColor(R.color.black)
+            getColor(R.color.black)
         )
         mShadowRadius = typedArray.getDimension(R.styleable.LShadowLayout_shadowRadius, dip2px(0f))
         mShadowDx = typedArray.getDimension(R.styleable.LShadowLayout_shadowDx, dip2px(0f))

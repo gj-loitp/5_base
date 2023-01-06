@@ -11,8 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import com.loitp.R;
-import com.loitp.core.utilities.LAppResource;
 
 import kotlin.Suppress;
 
@@ -180,11 +181,11 @@ public class LVerticalMarqueeTextView extends ScrollView {
 
             this.textView.setTextColor(
                     array.getColor(R.styleable.LVerticalMarqueeTextView_textColor,
-                            LAppResource.INSTANCE.getColor(android.R.color.primary_text_light)));
+                            ContextCompat.getColor(context, android.R.color.primary_text_light)));
 
             final int textColorRes = array.getResourceId(R.styleable.LVerticalMarqueeTextView_textColor, 0);
             if (textColorRes > 0) {
-                this.textView.setTextColor(LAppResource.INSTANCE.getColor(textColorRes));
+                this.textView.setTextColor(ContextCompat.getColor(context, textColorRes));
             }
 
             final float textSize = array.getDimension(R.styleable.LVerticalMarqueeTextView_textSize, 0);

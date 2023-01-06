@@ -13,7 +13,7 @@ import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.IntRange
 import com.loitp.R
-import com.loitp.core.utilities.LAppResource.getColor
+import com.loitp.core.ext.getColor
 
 /**
  * Created by Loitp on 04,August,2022

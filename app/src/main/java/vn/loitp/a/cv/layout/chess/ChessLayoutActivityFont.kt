@@ -11,7 +11,6 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_layout_chess.*
 import vn.loitp.R
@@ -51,8 +50,8 @@ class ChessLayoutActivityFont : BaseActivityFont() {
         }
         listData.shuffle()
 
-        val color1 = LAppResource.getColor(R.color.green)
-        val color2 = LAppResource.getColor(R.color.orange)
+        val color1 = getColor(R.color.green)
+        val color2 = getColor(R.color.orange)
         var layoutParams: ConstraintLayout.LayoutParams
         var id: Int
         val idArray = Array(mRows) {

@@ -15,7 +15,6 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LPopupMenu
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_collapsingtoolbar_withtablayout.*
@@ -38,7 +37,7 @@ class CollapsingToolbarWithTabLayoutActivityFont : BaseActivityFont(), OnClickLi
     private fun setupViews() {
         setCustomStatusBar(
             colorStatusBar = Color.TRANSPARENT,
-            colorNavigationBar = LAppResource.getColor(R.color.colorPrimary)
+            colorNavigationBar = getColor(R.color.colorPrimary)
         )
 
         setSupportActionBar(toolbar)

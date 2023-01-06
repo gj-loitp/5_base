@@ -5,7 +5,6 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_q_button.*
 import vn.loitp.R
@@ -36,7 +35,7 @@ class QButtonActivityFont : BaseActivityFont() {
         btn.setStrokeWidth(5)
         btn.setStrokeDashGap(5)
         btn.setStrokeDashWidth(90)
-        btn.setBackgroundColor(LAppResource.getColor(R.color.colorPrimary))
-        btn.setStrokeColor(LAppResource.getColor(R.color.colorPrimaryDark))
+        btn.setBackgroundColor(getColor(R.color.colorPrimary))
+        btn.setStrokeColor(getColor(R.color.colorPrimaryDark))
     }
 }

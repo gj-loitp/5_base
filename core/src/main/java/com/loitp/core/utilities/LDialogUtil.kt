@@ -14,8 +14,7 @@ import android.widget.ProgressBar
 import androidx.viewpager.widget.ViewPager
 import com.daimajia.androidanimations.library.Techniques
 import com.loitp.R
-import com.loitp.core.ext.play
-import com.loitp.core.ext.setPullLikeIOSHorizontal
+import com.loitp.core.ext.*
 import com.loitp.views.dlg.slideImages.LSlideAdapter
 import com.loitp.views.loading.window.WP10ProgressBar
 
@@ -50,7 +49,7 @@ class LDialogUtil {
             context: Context,
             title: String? = null,
             msg: String? = null,
-            button1: String = LAppResource.getString(R.string.confirm),
+            button1: String = getString(R.string.confirm),
             onClickButton1: ((Unit) -> Unit)? = null
         ): AlertDialog {
 //            logD("showDialog1")
@@ -80,10 +79,10 @@ class LDialogUtil {
             dialog.show()
 
             if (LUIUtil.isDarkTheme()) {
-                val color = LAppResource.getColor(R.color.white)
+                val color = getColor(R.color.white)
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
             } else {
-                val color = LAppResource.getColor(R.color.colorPrimary)
+                val color = getColor(R.color.colorPrimary)
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
             }
 
@@ -125,11 +124,11 @@ class LDialogUtil {
             val dialog = builder.create()
             dialog.show()
             if (LUIUtil.isDarkTheme()) {
-                val colorPrimary = LAppResource.getColor(R.color.white)
+                val colorPrimary = getColor(R.color.white)
                 dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorPrimary)
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorPrimary)
             } else {
-                val colorPrimary = LAppResource.getColor(R.color.colorPrimary)
+                val colorPrimary = getColor(R.color.colorPrimary)
                 dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorPrimary)
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorPrimary)
             }
@@ -190,12 +189,12 @@ class LDialogUtil {
             val dialog = builder.create()
             dialog.show()
             if (LUIUtil.isDarkTheme()) {
-                val color = LAppResource.getColor(R.color.white)
+                val color = getColor(R.color.white)
                 dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color)
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
                 dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color)
             } else {
-                val color = LAppResource.getColor(R.color.colorPrimary)
+                val color = getColor(R.color.colorPrimary)
                 dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color)
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
                 dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color)
@@ -289,7 +288,7 @@ class LDialogUtil {
             progressBar.showProgressBar()
 
             dialog.window?.let {
-                it.setBackgroundDrawable(ColorDrawable(LAppResource.getColor(R.color.black65)))
+                it.setBackgroundDrawable(ColorDrawable(getColor(R.color.black65)))
 
                 val wlp = it.attributes
                 wlp.gravity = Gravity.CENTER
@@ -364,7 +363,7 @@ class LDialogUtil {
             }
             dialog.window?.let {
                 // it.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                it.setBackgroundDrawable(ColorDrawable(LAppResource.getColor(R.color.black65)))
+                it.setBackgroundDrawable(ColorDrawable(getColor(R.color.black65)))
                 it.setDimAmount(amount)
 
                 val wlp = it.attributes

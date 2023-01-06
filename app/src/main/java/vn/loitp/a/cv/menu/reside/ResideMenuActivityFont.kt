@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentTransaction
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LAppResource
 import com.loitp.views.menu.resideMenu.ResideMenu
 import com.loitp.views.menu.resideMenu.ResideMenuItem
 import kotlinx.android.synthetic.main.a_reside_menu.*
@@ -49,7 +48,7 @@ class ResideMenuActivityFont : BaseActivityFont(), View.OnClickListener {
         resideMenu = ResideMenu(this)
         resideMenu?.apply {
             this.realtimeBlurView.setBlurRadius(50f)
-            this.realtimeBlurView.setOverlayColor(LAppResource.getColor(R.color.black65))
+            this.realtimeBlurView.setOverlayColor(getColor(R.color.black65))
             this.setUse3D(true)
             this.setBackground(R.drawable.iv)
             this.attachToActivity(this@ResideMenuActivityFont)

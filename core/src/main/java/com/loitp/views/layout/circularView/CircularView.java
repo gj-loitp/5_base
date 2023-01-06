@@ -20,7 +20,6 @@ import android.view.SoundEffectConstants;
 import android.view.View;
 
 import com.loitp.R;
-import com.loitp.core.utilities.LAppResource;
 
 import java.util.ArrayList;
 
@@ -173,8 +172,7 @@ public class CircularView extends View {
                 @Override
                 public void setupMarker(int position, Marker marker) {
                     marker.setRadius(mEditModeMarkerRadius);
-//                    marker.setCenterBackgroundColor(getResources().getColor(android.R.color.black));
-                    marker.setCenterBackgroundColor(LAppResource.INSTANCE.getColor(android.R.color.black));
+                    marker.setCenterBackgroundColor(Color.BLACK);
                 }
             };
         }

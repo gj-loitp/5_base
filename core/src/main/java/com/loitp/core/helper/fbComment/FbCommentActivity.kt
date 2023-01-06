@@ -21,7 +21,6 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_a_fb_cmt_core.*
 import kotlinx.android.synthetic.main.l_v_l_edit_text.view.*
@@ -63,7 +62,7 @@ class FbCommentActivity : BaseActivityFont() {
 
         LUIUtil.setColorProgressBar(
             progressBar = progressBar,
-            color = LAppResource.getColor(R.color.colorPrimary)
+            color = getColor(R.color.colorPrimary)
         )
 
         postUrl = if (BuildConfig.DEBUG) {
@@ -86,7 +85,7 @@ class FbCommentActivity : BaseActivityFont() {
                 onBaseBackPressed()
             }
             this.ivRight?.isVisible = false
-            this.tvTitle?.text = LAppResource.getString(R.string.fb_comment)
+            this.tvTitle?.text = getString(R.string.fb_comment)
         }
     }
 

@@ -6,7 +6,6 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LAppResource
 import com.loitp.views.nav.LTextNavigationView
 import kotlinx.android.synthetic.main.a_navigation_view_with_text.*
 import vn.loitp.R
@@ -30,8 +29,8 @@ class NavigationViewWithTextActivityFont : BaseActivityFont() {
             setTextNext("Next")
             setTextPrev("Prev Prev Prev")
             setTextSize(dpPrev = 22f, dpText = 18f, dpNext = 22f)
-            colorOn = LAppResource.getColor(R.color.red)
-            colorOff = LAppResource.getColor(R.color.gray)
+            colorOn = getColor(R.color.red)
+            colorOff = getColor(R.color.gray)
             tv?.setTextColor(Color.BLACK)
         }
 

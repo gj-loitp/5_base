@@ -14,7 +14,7 @@ import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
 import com.loitp.R
-import com.loitp.core.utilities.LAppResource
+import com.loitp.core.ext.getDrawable
 
 /**
  * Created by Loitp on 04,August,2022
@@ -305,7 +305,7 @@ open class LMaterialTextField : FrameLayout {
             this.label?.setTextColor(labelColor)
         }
         if (imageDrawableId != -1) {
-            this.image?.setImageDrawable(LAppResource.getDrawable(imageDrawableId))
+            this.image?.setImageDrawable(getDrawable(imageDrawableId))
         }
     }
 }

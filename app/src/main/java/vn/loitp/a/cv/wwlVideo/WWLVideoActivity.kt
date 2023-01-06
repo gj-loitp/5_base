@@ -6,7 +6,6 @@ import android.widget.FrameLayout
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivity
-import com.loitp.core.utilities.LAppResource
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil
 import com.loitp.views.wwl.music.utils.LWWLMusicViewHelper
 import com.loitp.views.wwl.video.LWWLVideo
@@ -129,7 +128,7 @@ class WWLVideoActivity : BaseActivity(), LWWLVideo.Listener, FragmentHost {
     }
 
     private fun updateStatusBarAlpha(alpha: Float) {
-        val color = LAppResource.getColor(R.color.colorPrimaryDark)
+        val color = getColor(R.color.colorPrimaryDark)
         val color2 = Color.BLACK
         val color3 =
             LWWLMusicViewHelper.evaluateColorAlpha(max(0.0f, min(1.0f, alpha)), color, color2)

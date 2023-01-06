@@ -3,6 +3,7 @@ package com.loitp.core.utilities
 import android.content.Context
 import android.content.SharedPreferences
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.ext.LAppResource.application
 import com.loitp.core.utils.AppUtils
 import java.lang.reflect.Type
 
@@ -15,7 +16,7 @@ import java.lang.reflect.Type
  */
 class LSharedPrefsUtil private constructor() {
     private val mSharedPreferences: SharedPreferences =
-        LAppResource.application.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        application.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
     companion object {
         private val PREFS_NAME = AppUtils.appPackageName

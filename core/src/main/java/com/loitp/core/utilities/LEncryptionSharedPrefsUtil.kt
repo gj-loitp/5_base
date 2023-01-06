@@ -3,6 +3,7 @@ package com.loitp.core.utilities
 import android.content.Context
 import android.content.SharedPreferences
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.ext.LAppResource.application
 import com.loitp.core.utils.AppUtils
 import com.loitp.core.utils.DeviceUtils
 import java.lang.reflect.Type
@@ -16,7 +17,7 @@ import java.lang.reflect.Type
  */
 class LEncryptionSharedPrefsUtil private constructor() {
     private val mSharedPreferences: SharedPreferences =
-        LAppResource.application.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        application.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
     companion object {
         private const val logTag = "EncryptionSharedPrefs"

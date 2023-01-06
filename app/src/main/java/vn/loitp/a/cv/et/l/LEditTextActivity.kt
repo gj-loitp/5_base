@@ -12,7 +12,6 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.hideKeyboard
-import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.et.l.LEditText
@@ -45,9 +44,9 @@ class LEditTextActivity : BaseActivityFont() {
             this.tvTitle?.text = LEditTextActivity::class.java.simpleName
         }
         lEditTextId.apply {
-            colorFocus = LAppResource.getColor(R.color.black)
-            colorUnFocus = LAppResource.getColor(R.color.blue)
-            colorError = LAppResource.getColor(R.color.red)
+            colorFocus = getColor(R.color.black)
+            colorUnFocus = getColor(R.color.blue)
+            colorError = getColor(R.color.red)
             ivLeft.setImageResource(R.drawable.ic_launcher_loitp)
             ivRight.setImageResource(R.drawable.ic_close_black_48dp)
             setStrokeWidth(5)
@@ -88,9 +87,9 @@ class LEditTextActivity : BaseActivityFont() {
         }
         var isShowPw = false
         lEditTextPw.apply {
-            colorFocus = LAppResource.getColor(R.color.black)
-            colorUnFocus = LAppResource.getColor(R.color.blue)
-            colorError = LAppResource.getColor(R.color.red)
+            colorFocus = getColor(R.color.black)
+            colorUnFocus = getColor(R.color.blue)
+            colorError = getColor(R.color.red)
             ivLeft.setImageResource(R.drawable.ic_launcher_loitp)
             ivRight.setImageResource(R.drawable.ic_visibility_black_48dp)
             setStrokeWidth(5)

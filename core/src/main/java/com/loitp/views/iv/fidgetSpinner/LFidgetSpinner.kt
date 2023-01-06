@@ -11,7 +11,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.AttrRes
-import com.loitp.core.utilities.LAppResource
+import com.loitp.core.ext.getDrawable
 import kotlin.math.abs
 import kotlin.math.atan
 import kotlin.math.max
@@ -80,8 +80,7 @@ class LFidgetSpinner : FrameLayout {
     }
 
     fun setImageDrawable(id: Int) {
-//        fidgetSpinnerImageView?.setImageDrawable(context.resources.getDrawable(id))
-        fidgetSpinnerImageView?.setImageDrawable(LAppResource.getDrawable(id))
+        fidgetSpinnerImageView?.setImageDrawable(getDrawable(id))
     }
 
     private fun onActionMove(

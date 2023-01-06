@@ -7,7 +7,6 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setDelay
-import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.bottomBar.LBottomBar
@@ -60,10 +59,10 @@ class BottomBarActivityFont : BaseActivityFont() {
             })
         }
         btBlurViewRed.setOnClickListener {
-            bottomBar.getRealTimeBlurView().setOverlayColor(LAppResource.getColor(R.color.red50))
+            bottomBar.getRealTimeBlurView().setOverlayColor(getColor(R.color.red50))
         }
         btBlurViewGreen.setOnClickListener {
-            bottomBar.getRealTimeBlurView().setOverlayColor(LAppResource.getColor(R.color.green33))
+            bottomBar.getRealTimeBlurView().setOverlayColor(getColor(R.color.green33))
         }
         btCount1.setOnClickListener {
             bottomBar.setCount(1)

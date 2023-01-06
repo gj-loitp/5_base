@@ -5,14 +5,14 @@ import com.google.gson.reflect.TypeToken
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseViewModel
-import com.loitp.core.utilities.LAppResource
+import com.loitp.core.ext.LAppResource
 import com.loitp.core.utilities.LPrefUtil
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LStoreUtil.Companion.getListEpubFiles
-import com.loitp.func.epub.exception.ReadingException
-import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.CssStatus
 import com.loitp.func.epub.Reader
+import com.loitp.func.epub.exception.ReadingException
+import com.loitp.func.epub.model.BookInfo
 import com.loitp.sv.liveData.ActionData
 import com.loitp.sv.liveData.ActionLiveData
 import com.loitp.sv.model.ErrorResponse

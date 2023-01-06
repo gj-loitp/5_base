@@ -7,7 +7,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LAppResource
+import com.loitp.core.ext.getDimenValue
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_iv_shapeable.*
@@ -56,11 +56,11 @@ class ShapeableIvActivityFont : BaseActivityFont() {
             .toBuilder()
             .setTopRightCorner(
                 CornerFamily.ROUNDED,
-                LAppResource.getDimenValue(R.dimen.round_largest).toFloat()
+                getDimenValue(R.dimen.round_largest).toFloat()
             )
             .setBottomLeftCorner(
                 CornerFamily.ROUNDED,
-                LAppResource.getDimenValue(R.dimen.round_medium).toFloat()
+                getDimenValue(R.dimen.round_medium).toFloat()
             )
             .build()
     }

@@ -8,6 +8,8 @@ import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import com.loitp.core.ext.LAppResource
+import com.loitp.core.ext.LAppResource.application
 
 /**
  * Created by Loitp on 04,August,2022
@@ -40,14 +42,14 @@ object LNotification {
 //        )
         val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             PendingIntent.getActivity(
-                LAppResource.application,
+                application,
                 requestID,
                 notificationIntent,
                 PendingIntent.FLAG_MUTABLE
             )
         } else {
             PendingIntent.getActivity(
-                LAppResource.application,
+                application,
                 requestID,
                 notificationIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT

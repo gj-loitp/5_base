@@ -2,8 +2,10 @@ package com.loitp.core.utilities
 
 import android.content.Context
 import com.loitp.core.base.BaseApplication
-import com.loitp.model.App
+import com.loitp.core.ext.LAppResource
+import com.loitp.core.ext.LAppResource.application
 import com.loitp.core.utils.AppUtils
+import com.loitp.model.App
 
 /**
  * Created by Loitp on 04,August,2022
@@ -24,7 +26,7 @@ class LPrefUtil {
 
         //region object
         fun getGGAppSetting(): App {
-            val pref = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
+            val pref = application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
             return BaseApplication.gson.fromJson(
                 pref.getString(GG_APP_SETTING, ""),
                 App::class.java
@@ -33,7 +35,7 @@ class LPrefUtil {
 
         fun setGGAppSetting(user: App) {
             val editor =
-                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+                application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
             editor.putString(GG_APP_SETTING, BaseApplication.gson.toJson(user))
             editor.apply()
         }
