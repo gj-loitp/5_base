@@ -10,6 +10,7 @@ import android.content.res.Configuration
 import android.net.Uri
 import android.provider.AlarmClock
 import android.provider.CalendarContract
+import android.provider.Telephony
 import android.view.WindowManager
 import com.loitp.core.utilities.LSocialUtil
 
@@ -115,4 +116,28 @@ fun Activity.setSoftInputMode(
     mode: Int
 ) {
     this.window.setSoftInputMode(mode)
+}
+
+// https://gist.github.com/mustafasevgi/8c6b638ffd5fca90d45d
+fun Activity?.sendSMS(
+    text: String
+) {
+    if (this == null) {
+        return
+    }
+    val defaultSmsPackageName =
+        Telephony.Sms.getDefaultSmsPackage(this) // Need to change the build to API 19
+
+    val sendIntent = Intent(Intent.ACTION_SEND)
+    sendIntent.type = "text/plain"
+    sendIntent.putExtra(Intent.EXTRA_TEXT, text)
+
+    if (defaultSmsPackageName != null)
+    // Can be null in case that there is no default, then the user would be able to choose
+    // any app that support this intent.
+    {
+        sendIntent.setPackage(defaultSmsPackageName)
+    }
+    this.startActivity(sendIntent)
+    this.tranIn()
 }

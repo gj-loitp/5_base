@@ -176,7 +176,7 @@ class UtilsCoreActivity : BaseActivityFont() {
             showShortInformation("getCurrentBrightness: ${LScreenUtil.getCurrentBrightness()}")
         }
         btSendSMS.setSafeOnClickListener {
-            LSMSUtil.sendSMS(this, "sendSMS from Loitp ${System.currentTimeMillis()}")
+            this.sendSMS("sendSMS from Loitp ${System.currentTimeMillis()}")
         }
         btLStoreUtil.setSafeOnClickListener {
             onClickBtLStoreUtil()
