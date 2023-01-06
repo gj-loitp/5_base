@@ -34,12 +34,9 @@ class UtilsCoreActivity : BaseActivityFont() {
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = UtilsCoreActivity::class.java.simpleName
         }
@@ -71,81 +68,67 @@ class UtilsCoreActivity : BaseActivityFont() {
             it.playAnimRandomDuration()
         }
         btConvertNumberToStringFormat.setSafeOnClickListener {
-            showShortInformation(LConvertUtil.convertNumberToStringFormat(System.currentTimeMillis()))
+            showShortInformation(System.currentTimeMillis().convertNumberToStringFormat())
         }
         btConvertNumberToString.setSafeOnClickListener {
-            showShortInformation(LConvertUtil.convertNumberToString(System.currentTimeMillis()))
+            showShortInformation(System.currentTimeMillis().convertNumberToString())
         }
         btConvertNumberToPercent.setSafeOnClickListener {
-            showShortInformation(LConvertUtil.convertNumberToPercent(System.currentTimeMillis()))
+            showShortInformation(System.currentTimeMillis().convertNumberToPercent())
         }
         btRoundBigDecimal.setSafeOnClickListener {
             showShortInformation(
                 "roundBigDecimal: ${
-                    LConvertUtil.roundBigDecimal(
-                        BigDecimal(
-                            60.123456
-                        ), 3
-                    )
+                    BigDecimal(60.123456).roundBigDecimal(3)
                 }"
             )
         }
         btLDateUtil.setSafeOnClickListener {
             val msg =
-                "currentDate: ${LDateUtil.currentDate}" +
-                        "\ncurrentYearMonth: ${LDateUtil.currentYearMonth}" +
-                        "\ncurrentMonth: ${LDateUtil.currentMonth}" +
-                        "\nconvertFormatDate: ${
-                            LDateUtil.convertFormatDate(
-                                "12/03/2022 01:02:03",
-                                "dd/MM/yyyy Hh:mm:ss",
-                                "yyyy/MM/dd"
-                            )
-                        }" +
-                        "\nstringToDate: ${
-                            LDateUtil.stringToDate(
-                                "12/03/2022 01:02:03",
-                                "dd/MM/yyyy Hh:mm:ss"
-                            )
-                        }" +
-                        "\ndateToString: ${
-                            LDateUtil.dateToString(
-                                LDateUtil.getDate(year = 1993, month = 2, day = 4), "yyyy/MM/dd"
-                            )
-                        }" +
-                        "\nformatDatePicker: ${
-                            LDateUtil.formatDatePicker(
-                                year = 1993, month = 2, day = 4, format = "yyyy/MM/dd"
-                            )
-                        }" +
-                        "\ngetDateWithoutTime: ${LDateUtil.getDateWithoutTime("04/02/1993")}" +
-                        "\nconvertDateToTimestamp: ${LDateUtil.convertDateToTimestamp("14-09-2017")}" +
-                        "\nzeroTime: ${
-                            LDateUtil.zeroTime(
-                                LDateUtil.getDate(
-                                    year = 1993,
-                                    month = 2,
-                                    day = 4
-                                )
-                            )
-                        }" +
-                        "\nconvertDateToTimeStamp: ${LDateUtil.convertDateToTimeStamp("1993-02-04'T'11:22:33")}" +
-                        "\nconvertStringToCalendar: ${LDateUtil.convertStringToCalendar("1993-02-04")}" +
-                        "\nconvertStringDate: ${
-                            LDateUtil.convertStringDate(
-                                "02/04/1993",
-                                "MM/dd/yyyy"
-                            )
-                        }"
+                "currentDate: ${LDateUtil.currentDate}" + "\ncurrentYearMonth: ${LDateUtil.currentYearMonth}" + "\ncurrentMonth: ${LDateUtil.currentMonth}" + "\nconvertFormatDate: ${
+                    LDateUtil.convertFormatDate(
+                        "12/03/2022 01:02:03", "dd/MM/yyyy Hh:mm:ss", "yyyy/MM/dd"
+                    )
+                }" + "\nstringToDate: ${
+                    LDateUtil.stringToDate(
+                        "12/03/2022 01:02:03", "dd/MM/yyyy Hh:mm:ss"
+                    )
+                }" + "\ndateToString: ${
+                    LDateUtil.dateToString(
+                        LDateUtil.getDate(year = 1993, month = 2, day = 4), "yyyy/MM/dd"
+                    )
+                }" + "\nformatDatePicker: ${
+                    LDateUtil.formatDatePicker(
+                        year = 1993, month = 2, day = 4, format = "yyyy/MM/dd"
+                    )
+                }" + "\ngetDateWithoutTime: ${LDateUtil.getDateWithoutTime("04/02/1993")}" + "\nconvertDateToTimestamp: ${
+                    LDateUtil.convertDateToTimestamp(
+                        "14-09-2017"
+                    )
+                }" + "\nzeroTime: ${
+                    LDateUtil.zeroTime(
+                        LDateUtil.getDate(
+                            year = 1993, month = 2, day = 4
+                        )
+                    )
+                }" + "\nconvertDateToTimeStamp: ${LDateUtil.convertDateToTimeStamp("1993-02-04'T'11:22:33")}" + "\nconvertStringToCalendar: ${
+                    LDateUtil.convertStringToCalendar(
+                        "1993-02-04"
+                    )
+                }" + "\nconvertStringDate: ${
+                    LDateUtil.convertStringDate(
+                        "02/04/1993", "MM/dd/yyyy"
+                    )
+                }"
             showDialogMsg(msg)
         }
         btLDeviceUtil.setSafeOnClickListener {
             showDialogMsg(
-                "isNavigationBarAvailable:${LDeviceUtil.isNavigationBarAvailable}" +
-                        "\nisTablet: ${LDeviceUtil.isTablet()}" +
-                        "\nisCanOverlay: ${LDeviceUtil.isCanOverlay()}" +
-                        "\nisEmulator: ${LDeviceUtil.isEmulator()}" +
-                        "\ngetDeviceId: ${LDeviceUtil.getDeviceId(this)}"
+                "isNavigationBarAvailable:${LDeviceUtil.isNavigationBarAvailable}" + "\nisTablet: ${LDeviceUtil.isTablet()}" + "\nisCanOverlay: ${LDeviceUtil.isCanOverlay()}" + "\nisEmulator: ${LDeviceUtil.isEmulator()}" + "\ngetDeviceId: ${
+                    LDeviceUtil.getDeviceId(
+                        this
+                    )
+                }"
             )
         }
         btSetClipboard.setSafeOnClickListener {
@@ -153,12 +136,15 @@ class UtilsCoreActivity : BaseActivityFont() {
         }
         btLDisplayUtil.setSafeOnClickListener {
             showDialogMsg(
-                "px2dip: ${LDisplayUtil.px2dip(6.9f)}" +
-                        "\npx2sp: ${LDisplayUtil.px2sp(6.9f)}" +
-                        "\nsp2px: ${LDisplayUtil.sp2px(6.9f)}" +
-                        "\ngetDialogW: ${LDisplayUtil.getDialogW(this)}" +
-                        "\ngetScreenW: ${LDisplayUtil.getScreenW(this)}" +
-                        "\ngetScreenH: ${LDisplayUtil.getScreenH(this)}"
+                "px2dip: ${LDisplayUtil.px2dip(6.9f)}" + "\npx2sp: ${LDisplayUtil.px2sp(6.9f)}" + "\nsp2px: ${
+                    LDisplayUtil.sp2px(
+                        6.9f
+                    )
+                }" + "\ngetDialogW: ${LDisplayUtil.getDialogW(this)}" + "\ngetScreenW: ${
+                    LDisplayUtil.getScreenW(
+                        this
+                    )
+                }" + "\ngetScreenH: ${LDisplayUtil.getScreenH(this)}"
             )
         }
         btToggleKeyboard.setSafeOnClickListener {
@@ -171,12 +157,14 @@ class UtilsCoreActivity : BaseActivityFont() {
             showDialogMsg(
                 "roundBigDecimal ${
                     LMathUtil.roundBigDecimal(
-                        value = BigDecimal(6.123456),
-                        newScale = 3
+                        value = BigDecimal(6.123456), newScale = 3
                     )
-                }" +
-                        "\ngetUSCLN: ${LMathUtil.getUSCLN(6, 9)}" +
-                        "\ngetBSCNN: ${LMathUtil.getBSCNN(6, 9)}"
+                }" + "\ngetUSCLN: ${
+                    LMathUtil.getUSCLN(
+                        6,
+                        9
+                    )
+                }" + "\ngetBSCNN: ${LMathUtil.getBSCNN(6, 9)}"
             )
         }
         btShowStatusBar.setSafeOnClickListener {
@@ -224,10 +212,7 @@ class UtilsCoreActivity : BaseActivityFont() {
         LUIUtil.setCircleViewWithColor(v3, Color.GREEN, Color.CYAN)
         LUIUtil.setGradientBackground(v4)
         LUIUtil.setTextFromHTML(
-            tv1, "<p>This is Loitp<br />\n" +
-                    "Dep Trai<br />\n" +
-                    "Vip<br />\n" +
-                    "Pro No1</p>"
+            tv1, "<p>This is Loitp<br />\n" + "Dep Trai<br />\n" + "Vip<br />\n" + "Pro No1</p>"
         )
         LUIUtil.setTextBold(tv1)
         LUIUtil.setImageFromAsset("ic_gift.png", iv)
@@ -264,10 +249,7 @@ class UtilsCoreActivity : BaseActivityFont() {
     private fun onClickBtLStringUtil() {
         showShortInformation("Check logcat")
         val s = LStringUtil.convertHTMLTextToPlainText(
-            "<p>This is Loitp<br />\n" +
-                    "Dep Trai<br />\n" +
-                    "Vip<br />\n" +
-                    "Pro No1</p>"
+            "<p>This is Loitp<br />\n" + "Dep Trai<br />\n" + "Vip<br />\n" + "Pro No1</p>"
         )
         logD("s $s")
     }

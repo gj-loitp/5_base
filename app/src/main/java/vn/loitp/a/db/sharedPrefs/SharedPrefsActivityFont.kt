@@ -6,8 +6,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.ext.convertToPrice
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LConvertUtil
 import com.loitp.core.utilities.LSharedPrefsUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_db_shared_prefs.*
@@ -113,7 +113,9 @@ class SharedPrefsActivityFont : BaseActivityFont() {
         btGetNumber.setSafeOnClickListener {
             try {
                 val value = LSharedPrefsUtil.instance.getString(KEY_NUMBER)
-                showLongInformation("Value: $value -> " + LConvertUtil.convertToPrice(value.toBigDecimalOrNull()))
+                showLongInformation(
+                    "Value: $value -> " + value.toBigDecimalOrNull().convertToPrice()
+                )
             } catch (e: Exception) {
                 showShortError(e.toString())
             }
