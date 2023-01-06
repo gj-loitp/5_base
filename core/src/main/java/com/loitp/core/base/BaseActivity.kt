@@ -25,7 +25,6 @@ import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.loitp.core.utilities.LUIUtil.Companion.withBackground
-import com.loitp.core.utilities.LValidateUtil
 import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
@@ -149,7 +148,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
 
-        LValidateUtil.isValidPackageName()
+        isValidPackageName()
 
         onBackPressedDispatcher.addCallback(this) {
             onBaseBackPressed()

@@ -204,7 +204,7 @@ class UtilsCoreActivity : BaseActivityFont() {
         srl.setProgressViewOffset(200)
         et1.setImeiActionSearch() { }
         LUIUtil.setColorSeekBar(sb1, Color.RED)
-        LUIUtil.setMarginsDp(sb1, 16, 16, 16, 16)
+        LUIUtil.setMarginsDp(view = sb1, leftDp = 16, topDp = 16, rightDp = 16, bottomDp = 16)
         LUIUtil.setRandomBackground(layoutRootView)
         LUIUtil.getAllChildren(layoutRootView).forEach {
             logD(">>>getAllChildren ${it.id}")
@@ -241,11 +241,11 @@ class UtilsCoreActivity : BaseActivityFont() {
 
     private fun onClickBtLValidateUtil() {
         showShortInformation("Check logcat")
-        logD("isValidEmail freuss47: ${LValidateUtil.isValidEmail("freuss47")}")
-        logD("isValidEmail freuss47@gmail.com: ${LValidateUtil.isValidEmail("freuss47@gmail.com")}")
-        logD("isValidPassword 123456: ${LValidateUtil.isValidPassword("123456")}")
-        logD("isValidPassword 123456abcd: ${LValidateUtil.isValidPassword("123456abcd")}")
-        logD("isValidPassword 123456abcdA@: ${LValidateUtil.isValidPassword("123456abcdA@")}")
+        logD("isValidEmail freuss47: ${"freuss47".isValidEmail()}")
+        logD("isValidEmail freuss47@gmail.com: ${"freuss47@gmail.com".isValidEmail()}")
+        logD("isValidPassword 123456: ${("123456".isValidPassword())}")
+        logD("isValidPassword 123456abcd: ${"123456abcd".isValidPassword()}")
+        logD("isValidPassword 123456abcdA@: ${"123456abcdA@".isValidPassword()}")
     }
 
     private fun onClickBtLauncher() {
