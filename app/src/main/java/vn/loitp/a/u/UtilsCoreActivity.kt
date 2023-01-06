@@ -134,19 +134,15 @@ class UtilsCoreActivity : BaseActivityFont() {
         }
         btLDisplayUtil.setSafeOnClickListener {
             showDialogMsg(
-                "px2dip: ${LDisplayUtil.px2dip(6.9f)}" + "\npx2sp: ${LDisplayUtil.px2sp(6.9f)}" + "\nsp2px: ${
-                    LDisplayUtil.sp2px(
-                        6.9f
-                    )
-                }" + "\ngetDialogW: ${LDisplayUtil.getDialogW(this)}" + "\ngetScreenW: ${
-                    LDisplayUtil.getScreenW(
-                        this
-                    )
-                }" + "\ngetScreenH: ${LDisplayUtil.getScreenH(this)}"
+                "px2dip: ${this.px2dip(6.9f)}" + "\npx2sp: ${this.px2sp(6.9f)}" + "\nsp2px: ${
+                    this.sp2px(6.9f)
+                }" + "\ngetDialogW: ${this.getDialogW()}" + "\ngetScreenW: ${
+                    this.getScreenW()
+                }" + "\ngetScreenH: ${this.getScreenH()}"
             )
         }
         btToggleKeyboard.setSafeOnClickListener {
-            LDisplayUtil.toggleKeyboard()
+            this.toggleKeyboard()
         }
         btLImageUtil.setSafeOnClickListener {
             showDialogMsg("randomUrlFlickr: ${LImageUtil.randomUrlFlickr}")

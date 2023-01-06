@@ -6,7 +6,7 @@ import androidx.core.view.ViewCompat
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LDisplayUtil
+import com.loitp.core.ext.dip2px
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.shadowViewHelper.ShadowProperty
 import com.loitp.views.shadowViewHelper.ShadowViewDrawable
@@ -49,8 +49,8 @@ class ShadowViewHelperActivityFont : BaseActivityFont() {
         // all side shadow
         val sp = ShadowProperty()
             .setShadowColor(0x77000000)
-            .setShadowDy(LDisplayUtil.dip2px(dpValue = 0.5f))
-            .setShadowRadius(LDisplayUtil.dip2px(dpValue = 3f))
+            .setShadowDy(this.dip2px(dpValue = 0.5f))
+            .setShadowRadius(this.dip2px(dpValue = 3f))
             .setShadowSide(ShadowProperty.ALL)
         val sd = ShadowViewDrawable(sp, Color.WHITE, 0f, 0f)
         ViewCompat.setBackground(ll0, sd)
@@ -61,8 +61,8 @@ class ShadowViewHelperActivityFont : BaseActivityFont() {
         // only all sides except top shadow
         val sp = ShadowProperty()
             .setShadowColor(0x77ff0000)
-            .setShadowDy(LDisplayUtil.dip2px(dpValue = 0.5f))
-            .setShadowRadius(LDisplayUtil.dip2px(dpValue = 3f))
+            .setShadowDy(this.dip2px(dpValue = 0.5f))
+            .setShadowRadius(this.dip2px(dpValue = 3f))
             .setShadowSide(ShadowProperty.LEFT or ShadowProperty.RIGHT or ShadowProperty.BOTTOM)
         val sd = ShadowViewDrawable(sp, Color.TRANSPARENT, 0f, 0f)
         ViewCompat.setBackground(ll1, sd)
@@ -73,8 +73,8 @@ class ShadowViewHelperActivityFont : BaseActivityFont() {
         // only all sides except top shadow
         val sp = ShadowProperty()
             .setShadowColor(0x7700ff00)
-            .setShadowDy(LDisplayUtil.dip2px(dpValue = 0.5f))
-            .setShadowRadius(LDisplayUtil.dip2px(dpValue = 3f))
+            .setShadowDy(this.dip2px(dpValue = 0.5f))
+            .setShadowRadius(this.dip2px(dpValue = 3f))
             .setShadowSide(ShadowProperty.RIGHT or ShadowProperty.BOTTOM)
         val sd = ShadowViewDrawable(sp, Color.TRANSPARENT, 0f, 0f)
         ViewCompat.setBackground(imageView, sd)

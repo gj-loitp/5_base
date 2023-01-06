@@ -10,6 +10,7 @@ import android.os.VibratorManager
 import android.provider.Settings
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
+import android.view.inputmethod.InputMethodManager
 import java.util.*
 
 /**
@@ -102,4 +103,48 @@ fun Context?.getDeviceId(): String? {
         "35" + Build.BOARD.length % 10 + Build.BRAND.length % 10 + Build.DEVICE.length % 10 + Build.DISPLAY.length % 10 + Build.HOST.length % 10 + Build.ID.length % 10 + Build.MANUFACTURER.length % 10 + Build.MODEL.length % 10 + Build.PRODUCT.length % 10 + Build.TAGS.length % 10 + Build.TYPE.length % 10 + Build.USER.length % 10
     val serial = Build.getRadioVersion()
     return UUID(uniquePseudoID.hashCode().toLong(), serial.hashCode().toLong()).toString()
+}
+
+fun Context.dip2px(dpValue: Float): Int {
+    val scale = this.resources.displayMetrics.density
+    return (dpValue * scale + 0.5f).toInt()
+}
+
+fun Context.px2dip(pxValue: Float): Int {
+    val scale = this.resources.displayMetrics.density
+    return (pxValue / scale + 0.5f).toInt()
+}
+
+fun Context.px2sp(pxValue: Float): Int {
+    val fontScale = this.resources.displayMetrics.scaledDensity
+    return (pxValue / fontScale + 0.5f).toInt()
+}
+
+fun Context.sp2px(spValue: Float): Int {
+    val fontScale = this.resources.displayMetrics.scaledDensity
+    return (spValue * fontScale + 0.5f).toInt()
+}
+
+fun Context.getDialogW(): Int {
+    val dm = this.resources.displayMetrics
+    return dm.widthPixels - 100
+}
+
+fun Context.getScreenW(): Int {
+    val dm = this.resources.displayMetrics
+    return dm.widthPixels
+}
+
+fun Context.getScreenH(): Int {
+    val dm = this.resources.displayMetrics
+    return dm.heightPixels
+}
+
+fun Context.toggleKeyboard() {
+    val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    if (imm.isActive) {
+        imm.toggleSoftInput(
+            InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS
+        )
+    }
 }
