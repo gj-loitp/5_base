@@ -978,7 +978,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".a.demo.nfc.NFCActivityFont"
+            android:name=".a.demo.nfc.NFCActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--region map-->
         <meta-data

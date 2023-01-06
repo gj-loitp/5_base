@@ -15,10 +15,12 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.now
 import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.ext.tranIn
+import com.loitp.core.helper.nfc.TagWrapper
+import com.loitp.core.helper.nfc.buildMACAddressString
+import com.loitp.core.helper.nfc.bytesToHex
+import com.loitp.core.helper.nfc.bytesToHexAndString
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.core.utilities.nfc.LNFCUtil
-import com.loitp.core.utilities.nfc.TagWrapper
 import kotlinx.android.synthetic.main.a_demo_nfc.*
 import vn.loitp.R
 import java.io.UnsupportedEncodingException
@@ -27,7 +29,7 @@ import kotlin.experimental.and
 
 @LogTag("NFCActivity")
 @IsFullScreen(false)
-class NFCActivityFont : BaseActivityFont() {
+class NFCActivity : BaseActivityFont() {
     private val tags: ArrayList<TagWrapper> = ArrayList()
 
     private var nfcAdapter: NfcAdapter? = null
@@ -53,7 +55,7 @@ class NFCActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = NFCActivityFont::class.java.simpleName
+            this.tvTitle?.text = NFCActivity::class.java.simpleName
         }
         currentTagView.text = getString(R.string.loading)
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
@@ -71,7 +73,7 @@ class NFCActivityFont : BaseActivityFont() {
                 button1 = "OK",
                 onClickButton1 = {
                     startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
-                    this@NFCActivityFont.tranIn()
+                    this@NFCActivity.tranIn()
                 }
             )
             dialog.setCancelable(false)
@@ -99,9 +101,9 @@ class NFCActivityFont : BaseActivityFont() {
 
         //TODO fix getParcelableExtra
         val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
-        logD("buildMACAddressString " + LNFCUtil.buildMACAddressString(tag?.id))
+        logD("buildMACAddressString " + tag?.id.buildMACAddressString())
 
-        val tagId = LNFCUtil.bytesToHex(tag?.id)
+        val tagId = tag?.id.bytesToHex()
         tagId?.let {
             val tagWrapper = TagWrapper(id = it)
             val misc = ArrayList<String>()
@@ -161,15 +163,15 @@ class NFCActivityFont : BaseActivityFont() {
             "NfcA" -> {
                 info.add("aka ISO 14443-3A")
                 val nfcATag = NfcA.get(tag)
-                info.add("atqa: " + LNFCUtil.bytesToHexAndString(nfcATag.atqa))
+                info.add("atqa: " + nfcATag.atqa.bytesToHexAndString())
                 info.add("sak: " + nfcATag.sak)
                 info.add("maxTransceiveLength: " + nfcATag.maxTransceiveLength)
             }
             "NfcF" -> {
                 info.add("aka JIS 6319-4")
                 val nfcFTag = NfcF.get(tag)
-                info.add("manufacturer: " + LNFCUtil.bytesToHex(nfcFTag.manufacturer))
-                info.add("systemCode: " + LNFCUtil.bytesToHex(nfcFTag.systemCode))
+                info.add("manufacturer: " + nfcFTag.manufacturer.bytesToHex())
+                info.add("systemCode: " + nfcFTag.systemCode.bytesToHex())
                 info.add("maxTransceiveLength: " + nfcFTag.maxTransceiveLength)
             }
             "NfcV" -> {
@@ -187,13 +189,11 @@ class NFCActivityFont : BaseActivityFont() {
                     ndefMessage = ndefTag.ndefMessage
                     ndefTag.close()
                     for (record in ndefMessage.records) {
-                        val id = if (record.id.isEmpty()) "null" else LNFCUtil.bytesToHex(record.id)
+                        val id = if (record.id.isEmpty()) "null" else record.id.bytesToHex()
                         info.add("record[" + id + "].tnf: " + record.tnf)
-                        info.add("record[" + id + "].type: " + LNFCUtil.bytesToHexAndString(record.type))
+                        info.add("record[" + id + "].type: " + record.type.bytesToHexAndString())
                         info.add(
-                            "record[$id].payload: " + LNFCUtil.bytesToHexAndString(
-                                record.payload
-                            )
+                            "record[$id].payload: " + record.payload.bytesToHexAndString()
                         )
                     }
                     info.add("messageSize: " + ndefMessage.byteArrayLength)
@@ -225,8 +225,8 @@ class NFCActivityFont : BaseActivityFont() {
             "IsoDep" -> {
                 info.add("aka ISO 14443-4")
                 val isoDepTag = IsoDep.get(tag)
-                info.add("historicalBytes: " + LNFCUtil.bytesToHexAndString(isoDepTag.historicalBytes))
-                info.add("hiLayerResponse: " + LNFCUtil.bytesToHexAndString(isoDepTag.hiLayerResponse))
+                info.add("historicalBytes: " + isoDepTag.historicalBytes.bytesToHexAndString())
+                info.add("hiLayerResponse: " + isoDepTag.hiLayerResponse.bytesToHexAndString())
                 info.add("timeout: " + isoDepTag.timeout)
                 info.add("extendedLengthApduSupported: " + isoDepTag.isExtendedLengthApduSupported)
                 info.add("maxTransceiveLength: " + isoDepTag.maxTransceiveLength)

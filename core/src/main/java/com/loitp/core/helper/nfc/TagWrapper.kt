@@ -1,4 +1,4 @@
-package com.loitp.core.utilities.nfc
+package com.loitp.core.helper.nfc
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel
