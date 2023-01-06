@@ -19,6 +19,7 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
@@ -122,7 +123,7 @@ class FbCommentActivity : BaseActivityFont() {
         if (isLoading) {
             LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE)
         } else {
-            LUIUtil.setDelay(
+            setDelay(
                 mls = 1000,
                 runnable = {
                     LUIUtil.setProgressBarVisibility(

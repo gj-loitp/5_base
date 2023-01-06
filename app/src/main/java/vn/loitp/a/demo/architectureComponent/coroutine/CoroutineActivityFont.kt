@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_demo_coroutine.*
@@ -177,7 +178,7 @@ class CoroutineActivityFont : BaseActivityFont() {
     private fun convertAsyncTaskToCoroutine() {
         val coroutineTask = CoroutineTask()
         coroutineTask.startTask()
-        LUIUtil.setDelay(
+        setDelay(
             mls = 2000,
             runnable = Runnable {
                 // coroutineTask.cancel()

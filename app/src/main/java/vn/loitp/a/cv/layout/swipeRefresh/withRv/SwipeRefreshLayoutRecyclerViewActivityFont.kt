@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_layout_swipe_refresh_rv.*
 import vn.loitp.R
@@ -71,7 +72,7 @@ class SwipeRefreshLayoutRecyclerViewActivityFont : BaseActivityFont() {
     private fun refresh() {
         movieList.clear()
         mAdapter?.notifyDataSetChanged()
-        LUIUtil.setDelay(3000) {
+        setDelay(3000) {
             prepareMovieData()
             swipeRefreshLayout?.isRefreshing = false
             showShortInformation("Finish refresh", true)
@@ -81,7 +82,7 @@ class SwipeRefreshLayoutRecyclerViewActivityFont : BaseActivityFont() {
     @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
         swipeRefreshLayout.isRefreshing = true
-        LUIUtil.setDelay(2000) {
+        setDelay(2000) {
             swipeRefreshLayout?.isRefreshing = false
             val newSize = 5
             for (i in 0 until newSize) {

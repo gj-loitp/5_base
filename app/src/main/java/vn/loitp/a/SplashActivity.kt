@@ -13,6 +13,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.ext.isConnected
+import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.tranIn
 import com.loitp.core.ext.tranOut
 import com.loitp.core.utilities.*
@@ -49,7 +50,7 @@ class SplashActivity : BaseActivityFont() {
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
         konfettiView.start(Presets.festive())
-        LUIUtil.setDelay(mls = 2500, runnable = {
+        setDelay(mls = 2500, runnable = {
             isAnimDone = true
             goToHome()
         })

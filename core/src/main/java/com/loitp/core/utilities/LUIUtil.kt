@@ -9,10 +9,7 @@ import android.graphics.*
 import android.graphics.drawable.*
 import android.net.Uri
 import android.os.Build
-import android.os.Handler
-import android.os.Looper
 import android.text.Editable
-import android.text.Html
 import android.text.TextWatcher
 import android.util.TypedValue
 import android.view.View
@@ -44,7 +41,6 @@ import com.simmorsal.recolor_project.ReColor
 import com.skydoves.elasticviews.elasticAnimation
 import io.github.inflationx.calligraphy3.CalligraphyUtils
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
-import java.io.InputStream
 import java.util.*
 
 /**
@@ -111,76 +107,15 @@ class LUIUtil {
             R.color.default_selection_bar_month_title_text_color
         )
 
-        @Suppress("DEPRECATION")
-        fun setTextFromHTML(
-            textView: TextView?,
-            bodyData: String
-        ) {
-            textView?.let {
-                it.text = Html.fromHtml(bodyData, Html.FROM_HTML_MODE_LEGACY)
-            }
-        }
 
-        fun setImageFromAsset(
-            fileName: String,
-            imageView: ImageView?
-        ) {
-            imageView?.let { iv ->
-                run {
-                    val drawable: Drawable?
-                    var stream: InputStream? = null
-                    try {
-                        stream = LAppResource.application.assets.open("img/$fileName")
-                        drawable = Drawable.createFromStream(stream, null)
-                        drawable?.let {
-                            iv.setImageDrawable(it)
-                        }
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                    } finally {
-                        try {
-                            stream?.close()
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                        }
-                    }
-                }
-            }
-        }
 
-        @Suppress("unused")
-        fun fixSizeTabLayout(
-            tabLayout: TabLayout,
-            titleList: Array<String>
-        ) {
-            if (titleList.size > 3) {
-                tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
-            } else {
-                tabLayout.tabMode = TabLayout.MODE_FIXED
-                tabLayout.layoutParams = FrameLayout.LayoutParams(
-                    FrameLayout.LayoutParams.MATCH_PARENT,
-                    FrameLayout.LayoutParams.MATCH_PARENT
-                )
-            }
-        }
 
-        fun setDelay(
-            mls: Int,
-            runnable: Runnable
-        ) {
-            val handler = Handler(Looper.getMainLooper())
-            handler.postDelayed({ runnable.run() }, mls.toLong())
-        }
 
-        @Suppress("unused")
-        fun setSoftInputMode(
-            activity: Activity,
-            mode: Int
-        ) {
-            // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-            // activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
-            activity.window.setSoftInputMode(mode)
-        }
+
+
+
+
+
 
         fun setLastCursorEditText(editText: EditText?) {
             editText?.let {

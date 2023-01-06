@@ -18,6 +18,7 @@ import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_f_fb_cmt.*
@@ -108,7 +109,7 @@ class FrmFBComment : BaseFragment() {
         if (isLoading) {
             LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE)
         } else {
-            LUIUtil.setDelay(
+            setDelay(
                 mls = 1000,
                 runnable = {
                     LUIUtil.setProgressBarVisibility(

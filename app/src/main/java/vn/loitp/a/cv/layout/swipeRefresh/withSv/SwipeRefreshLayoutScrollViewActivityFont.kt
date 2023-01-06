@@ -5,6 +5,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_layout_swipe_refresh_sv.*
@@ -44,7 +45,7 @@ class SwipeRefreshLayoutScrollViewActivityFont : BaseActivityFont() {
     }
 
     private fun doTask() {
-        LUIUtil.setDelay(5000) {
+        setDelay(5000) {
             swipeRefreshLayout?.isRefreshing = false
             showShortInformation("Finish", true)
         }

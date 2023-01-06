@@ -11,6 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.tranIn
 import com.loitp.core.ext.tranOut
 import com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivity
@@ -60,7 +61,7 @@ class GalleryCoreSplashActivity : BaseActivityFont() {
 
     private fun goToHome() {
         val removeAlbumList = intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)
-        LUIUtil.setDelay(mls = 2000, runnable = {
+        setDelay(mls = 2000, runnable = {
             val intent = Intent(this, GalleryCoreAlbumActivity::class.java)
             intent.putStringArrayListExtra(
                 Constants.KEY_REMOVE_ALBUM_FLICKR_LIST,

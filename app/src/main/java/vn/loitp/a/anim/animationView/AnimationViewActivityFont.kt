@@ -8,6 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.play
+import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_animation_view.*
 import vn.loitp.R
@@ -63,7 +64,7 @@ class AnimationViewActivityFont : BaseActivityFont() {
             if (tvGuide.visibility != View.VISIBLE) {
                 tvGuide.visibility = View.VISIBLE
             }
-            LUIUtil.setDelay(
+            setDelay(
                 mls = 500,
                 runnable = {
                     tvAnim.play(

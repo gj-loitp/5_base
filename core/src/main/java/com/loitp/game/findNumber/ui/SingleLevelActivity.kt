@@ -12,6 +12,7 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.play
+import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LUIUtil
@@ -65,7 +66,7 @@ class SingleLevelActivity : BaseActivityFont() {
         rvLevel.layoutManager = GridLayoutManager(this, 4)
         rvLevel.adapter = levelAdapter
 
-        LUIUtil.setDelay(100) {
+        setDelay(100) {
             tvLevels?.visibility = View.VISIBLE
             tvLevels?.play(
                 duration = 1000,
@@ -124,7 +125,7 @@ class SingleLevelActivity : BaseActivityFont() {
                     actionData.data?.let { listLevel ->
                         levelAdapter.setListLevel(listLevel = listLevel)
 
-                        LUIUtil.setDelay(mls = 100, runnable = {
+                        setDelay(mls = 100, runnable = {
                             layoutLevel?.visibility = View.VISIBLE
                             layoutLevel?.play(
                                 duration = 1000,

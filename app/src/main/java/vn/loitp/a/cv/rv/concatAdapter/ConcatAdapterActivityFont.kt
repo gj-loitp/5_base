@@ -9,6 +9,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
@@ -187,7 +188,7 @@ class ConcatAdapterActivityFont : BaseActivityFont() {
                 recyclerView.scrollToPosition(it - 1)
             }
 
-            LUIUtil.setDelay(mls = 2000) {
+            setDelay(mls = 2000) {
                 val listNews = ArrayList<News>()
                 for (i in 0..10) {
                     val news = News(

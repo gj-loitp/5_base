@@ -109,3 +109,10 @@ fun Activity.changeScreenLandscape() {
 fun Activity.getScreenOrientation(): Int {
     return this.resources.configuration.orientation
 }
+
+@Suppress("unused")
+fun Activity.setSoftInputMode(
+    mode: Int
+) {
+    this.window.setSoftInputMode(mode)
+}

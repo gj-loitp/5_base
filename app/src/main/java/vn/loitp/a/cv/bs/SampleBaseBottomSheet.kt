@@ -8,10 +8,10 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseBottomSheetFragment
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.tranIn
 import com.loitp.core.helper.adHelper.AdHelperActivity
 import com.loitp.core.utilities.LSocialUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_bottom_sheet_sample.*
 import vn.loitp.R
 
@@ -65,7 +65,7 @@ class SampleBaseBottomSheet :
                 }
                 btShowDialogProgress -> {
                     showDialogProgress()
-                    LUIUtil.setDelay(2000) {
+                    setDelay(2000) {
                         hideDialogProgress()
                     }
                 }

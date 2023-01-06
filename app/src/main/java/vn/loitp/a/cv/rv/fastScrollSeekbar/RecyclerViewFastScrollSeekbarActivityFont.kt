@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_rv_fast_scroll_seek_bar.*
 import vn.loitp.R
@@ -107,7 +108,7 @@ class RecyclerViewFastScrollSeekbarActivityFont : BaseActivityFont() {
     }
 
     private fun loadMore() {
-        LUIUtil.setDelay(mls = 2000, runnable = {
+        setDelay(mls = 2000, runnable = {
             val newSize = 5
             for (i in 0 until newSize) {
                 val movie = Movie(

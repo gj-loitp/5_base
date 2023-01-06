@@ -5,6 +5,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_dlg_custom_progress.*
@@ -37,7 +38,7 @@ class CustomProgressDialogActivityFont : BaseActivityFont() {
         }
         bt0.setSafeOnClickListener {
             showDialogProgress()
-            LUIUtil.setDelay(mls = 4000, runnable = {
+            setDelay(mls = 4000, runnable = {
                 hideDialogProgress()
             })
         }

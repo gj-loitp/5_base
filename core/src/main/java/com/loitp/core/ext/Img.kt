@@ -15,12 +15,14 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.loitp.R
 import com.loitp.core.common.Constants
+import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LScreenUtil
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.FileUtils
 import com.ortiz.touchview.TouchImageView
 import java.io.File
+import java.io.InputStream
 import java.util.*
 import kotlin.math.min
 
@@ -253,10 +255,10 @@ fun ImageView.loadHighQuality(
     drawableRequestListener: RequestListener<Drawable>? = null
 ) {
     Glide.with(this).load(any).apply(
-            RequestOptions().placeholder(resPlaceHolder).error(resError).fitCenter()
-                .format(DecodeFormat.PREFER_ARGB_8888)
-                .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL)
-        ).listener(drawableRequestListener).into(this)
+        RequestOptions().placeholder(resPlaceHolder).error(resError).fitCenter()
+            .format(DecodeFormat.PREFER_ARGB_8888)
+            .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL)
+    ).listener(drawableRequestListener).into(this)
 }
 
 fun TouchImageView.setZoomFitWidthScreen() {
@@ -264,5 +266,31 @@ fun TouchImageView.setZoomFitWidthScreen() {
         val maxZoomRatio =
             LScreenUtil.screenWidth.toFloat() / LUIUtil.getWidthOfView(this).toFloat()
         this.setMaxZoomRatio(maxZoomRatio)
+    }
+}
+
+fun ImageView?.setImageFromAsset(
+    fileName: String,
+) {
+    this?.let { iv ->
+        run {
+            val drawable: Drawable?
+            var stream: InputStream? = null
+            try {
+                stream = LAppResource.application.assets.open("img/$fileName")
+                drawable = Drawable.createFromStream(stream, null)
+                drawable?.let {
+                    iv.setImageDrawable(it)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            } finally {
+                try {
+                    stream?.close()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        }
     }
 }

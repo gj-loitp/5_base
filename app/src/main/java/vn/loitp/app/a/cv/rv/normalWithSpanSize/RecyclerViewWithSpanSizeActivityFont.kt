@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LUIUtil
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view.*
@@ -86,7 +87,7 @@ class RecyclerViewWithSpanSizeActivityFont : BaseActivityFont() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
-        LUIUtil.setDelay(
+        setDelay(
             mls = 2000,
             runnable = {
                 val newSize = 5

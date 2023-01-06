@@ -1,6 +1,7 @@
 package com.loitp.core.ext
 
 import android.content.res.ColorStateList
+import android.text.Html
 import android.text.TextUtils
 import android.widget.TextView
 import androidx.core.widget.TextViewCompat
@@ -34,5 +35,13 @@ fun TextView?.setMarquee() {
         it.ellipsize = TextUtils.TruncateAt.MARQUEE
         it.isSingleLine = true
         it.marqueeRepeatLimit = -1 // no limit loop
+    }
+}
+
+fun TextView?.setTextFromHTML(
+    bodyData: String
+) {
+    this?.let {
+        it.text = Html.fromHtml(bodyData, Html.FROM_HTML_MODE_LEGACY)
     }
 }

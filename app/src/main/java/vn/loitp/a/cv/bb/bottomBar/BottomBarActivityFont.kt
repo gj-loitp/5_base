@@ -6,6 +6,7 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LAppResource
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
@@ -82,7 +83,7 @@ class BottomBarActivityFont : BaseActivityFont() {
         btHideText.setOnClickListener {
             bottomBar.isAlwaysShowText = false
         }
-        LUIUtil.setDelay(5000) {
+        setDelay(5000) {
             bottomBar?.setPerformItemClick(4)
         }
     }

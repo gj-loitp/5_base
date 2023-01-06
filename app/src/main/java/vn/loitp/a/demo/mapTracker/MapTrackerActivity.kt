@@ -24,6 +24,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.ext.roundDouble
+import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.tranOut
 import com.loitp.core.utilities.LUIUtil
@@ -281,19 +282,19 @@ class MapTrackerActivity :
         val list = ArrayList<LatLng>()
         list.add(LatLng(20.8785614, 80.8107979))
         drawPolyLineOnMap(list)
-        LUIUtil.setDelay(
+        setDelay(
             mls = 1000,
             runnable = {
                 list.add(LatLng(25.8785614, 85.8107979))
                 drawPolyLineOnMap(list)
 
-                LUIUtil.setDelay(
+                setDelay(
                     mls = 1000,
                     runnable = {
                         list.add(LatLng(30.8785614, 90.8107979))
                         drawPolyLineOnMap(list)
 
-                        LUIUtil.setDelay(
+                        setDelay(
                             mls = 1000,
                             runnable = {
                                 list.add(LatLng(35.8785614, 95.8107979))

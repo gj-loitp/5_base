@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LPopupMenu
@@ -123,7 +124,7 @@ class RecyclerViewFooterActivityFont : BaseActivityFont() {
 
     private fun loadMore() {
         LDialogUtil.showProgress(progressBar)
-        LUIUtil.setDelay(mls = 2000, runnable = {
+        setDelay(mls = 2000, runnable = {
             val newSize = 5
             for (i in 0 until newSize) {
                 val movie = Movie(

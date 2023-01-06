@@ -7,6 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LReaderUtil
 import com.loitp.core.utilities.LUIUtil
@@ -35,7 +36,7 @@ class MenuEpubReaderActivityFont : BaseActivityFont() {
 
         setupViews()
         setupViewModels()
-        LUIUtil.setDelay(mls = 500, runnable = {
+        setDelay(mls = 500, runnable = {
             ask()
         })
     }

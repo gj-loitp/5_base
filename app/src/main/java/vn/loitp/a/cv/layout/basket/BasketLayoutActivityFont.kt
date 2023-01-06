@@ -5,6 +5,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LUIUtil
 import com.yonder.basketlayout.BasketLayoutViewListener
 import kotlinx.android.synthetic.main.a_basket_layout.*
@@ -45,14 +46,14 @@ class BasketLayoutActivityFont : BaseActivityFont() {
 
                 override fun onClickDecreaseQuantity(quantity: Int) {
                     showShortInformation("Decrease quantity to $quantity")
-                    LUIUtil.setDelay(1000) {
+                    setDelay(1000) {
                         setBasketQuantity(quantity)
                     }
                 }
 
                 override fun onClickIncreaseQuantity(quantity: Int) {
                     showShortInformation("Increase quantity to $quantity")
-                    LUIUtil.setDelay(1000) {
+                    setDelay(1000) {
                         setBasketQuantity(quantity)
                     }
                 }

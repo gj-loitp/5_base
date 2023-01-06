@@ -25,6 +25,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.play
+import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.*
 import com.loitp.core.utilities.LReaderUtil.Companion.defaultCover
@@ -134,7 +135,7 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == false && isSuccess == true) {
-                    LUIUtil.setDelay(mls = 1000, runnable = {
+                    setDelay(mls = 1000, runnable = {
                         rlSplash.visibility = View.GONE
                     })
                     viewPager.adapter = sectionsPagerAdapter

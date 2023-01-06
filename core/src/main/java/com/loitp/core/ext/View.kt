@@ -6,6 +6,7 @@ import android.graphics.drawable.*
 import android.graphics.drawable.shapes.RectShape
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
@@ -14,6 +15,7 @@ import com.airbnb.lottie.LottieProperty
 import com.airbnb.lottie.SimpleColorFilter
 import com.airbnb.lottie.model.KeyPath
 import com.airbnb.lottie.value.LottieValueCallback
+import com.google.android.material.tabs.TabLayout
 import com.loitp.core.utilities.LStoreUtil
 
 val View.horizontalPadding: Int get() = this.paddingStart + this.paddingEnd
@@ -172,4 +174,21 @@ fun View.setGradientBackground() {
     layers[0] = p
     val composite = LayerDrawable(layers)
     this.background = composite
+}
+
+@Suppress("unused")
+fun TabLayout?.fixSizeTabLayout(
+    titleList: Array<String>
+) {
+    if (titleList.size > 3) {
+        this?.tabMode = TabLayout.MODE_SCROLLABLE
+    } else {
+        this?.apply {
+            tabMode = TabLayout.MODE_FIXED
+            layoutParams = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT
+            )
+        }
+    }
 }

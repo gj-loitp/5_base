@@ -12,8 +12,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.play
+import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_a_find_number_splash.*
 
@@ -50,7 +50,7 @@ class SplashActivity : BaseActivityFont() {
     }
 
     private fun goToHome() {
-        LUIUtil.setDelay(100) {
+        setDelay(100) {
             ivFindTheNumber?.visibility = View.VISIBLE
             ivFindTheNumber?.play(
                 duration = 500,

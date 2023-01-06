@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.loitp.core.ext.setDelay
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.toast.LToast
 import kotlinx.android.synthetic.main.frm_view_pager_refresh.*
 import vn.loitp.R
@@ -61,7 +61,7 @@ class FrmRefresh : Fragment() {
             LToast.show(msg = "loadData")
         }
 
-        LUIUtil.setDelay(
+        setDelay(
             mls = 1000,
             runnable = {
                 textView?.visibility = View.VISIBLE

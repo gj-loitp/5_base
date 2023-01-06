@@ -204,11 +204,11 @@ class UtilsCoreActivity : BaseActivityFont() {
         v2.setBackgroundDrawable(createGradientDrawableWithColor(Color.RED, Color.GREEN))
         v3.setCircleViewWithColor(Color.GREEN, Color.CYAN)
         v4.setGradientBackground()
-        LUIUtil.setTextFromHTML(
-            tv1, "<p>This is Loitp<br />\n" + "Dep Trai<br />\n" + "Vip<br />\n" + "Pro No1</p>"
+        tv1.setTextFromHTML(
+            "<p>This is Loitp<br />\n" + "Dep Trai<br />\n" + "Vip<br />\n" + "Pro No1</p>"
         )
         LUIUtil.setTextBold(tv1)
-        LUIUtil.setImageFromAsset("ic_gift.png", iv)
+        iv.setImageFromAsset("ic_gift.png")
         LUIUtil.setProgressViewOffset(srl, 200)
         LUIUtil.setImeiActionSearch(et1) { }
         LUIUtil.setColorSeekBar(sb1, Color.RED)

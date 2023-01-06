@@ -1,6 +1,6 @@
 package vn.loitp.a.pattern.mvp
 
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setDelay
 
 class DemoPresenter(var view: View?) {
     private val user: User = User()
@@ -17,7 +17,7 @@ class DemoPresenter(var view: View?) {
 
     fun doALongTask() {
         view?.showProgressBar()
-        LUIUtil.setDelay(
+        setDelay(
             mls = 5000,
             runnable = {
                 view?.let {
