@@ -8,7 +8,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LSocialUtil
+import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.dlg.prettyDialog.PrettyDialog
 import kotlinx.android.synthetic.main.a_dlg_pretty.*
@@ -41,8 +41,7 @@ class PrettyDialogActivityFont : BaseActivityFont(), OnClickListener {
                 LUIUtil.setSafeOnClickListenerElastic(
                     view = it,
                     runnable = {
-                        LSocialUtil.openUrlInBrowser(
-                            context = context,
+                        context.openUrlInBrowser(
                             url = "https://github.com/mjn1369/PrettyDialog"
                         )
                     }

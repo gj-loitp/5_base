@@ -3,6 +3,7 @@ package com.loitp.core.ext
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ComponentName
+import android.content.ContentUris
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
@@ -12,7 +13,9 @@ import android.provider.AlarmClock
 import android.provider.CalendarContract
 import android.provider.Telephony
 import android.view.WindowManager
-import com.loitp.core.utilities.LSocialUtil
+import com.loitp.R
+import com.loitp.core.utilities.LDialogUtil
+import com.loitp.core.utils.AppUtils
 
 //mo hop thoai de select launcher default
 fun Activity.chooseLauncher(cls: Class<*>) {
@@ -47,7 +50,7 @@ fun Activity.searchIconPack() {
         this.tranIn()
     } catch (ex: Exception) {
         ex.printStackTrace()
-        LSocialUtil.moreApp(this)
+        this.moreApp()
     }
 }
 
@@ -140,4 +143,141 @@ fun Activity?.sendSMS(
     }
     this.startActivity(sendIntent)
     this.tranIn()
+}
+
+fun Activity.rateApp(
+    packageName: String = AppUtils.appPackageName
+) {
+    try {
+        this.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("market://details?id=$packageName")
+            )
+        )
+        this.tranIn()
+    } catch (e: android.content.ActivityNotFoundException) {
+        e.printStackTrace()
+        this.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("http://play.google.com/store/apps/details?id=$packageName")
+            )
+        )
+        this.tranIn()
+    }
+}
+
+fun Activity.moreApp(
+    nameOfDeveloper: String = "Roy93Group"
+) {
+    val uri = "https://play.google.com/store/apps/developer?id=$nameOfDeveloper"
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+    this.startActivity(intent)
+    this.tranIn()
+}
+
+fun Activity.shareApp(
+) {
+    try {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_SUBJECT, this.getString(R.string.app_name))
+        var sAux =
+            "\nỨng dụng này rất bổ ích, thân mời bạn tải về cài đặt để trải nghiệm\n\n"
+        sAux =
+            sAux + "https://play.google.com/store/apps/details?id=" + this.packageName
+        intent.putExtra(Intent.EXTRA_TEXT, sAux)
+        this.startActivity(Intent.createChooser(intent, "Vui lòng chọn"))
+        this.tranIn()
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+}
+
+fun Activity.share(
+    msg: String
+) {
+    try {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_SUBJECT, this.getString(R.string.app_name))
+        // String sAux = "\nỨng dụng này rất bổ ích, thân mời bạn tải về cài đặt để trải nghiệm\n\n";
+        // sAux = sAux + "https://play.google.com/store/apps/details?id=" + activity.getPackageName();
+        intent.putExtra(Intent.EXTRA_TEXT, msg)
+        this.startActivity(Intent.createChooser(intent, "Share via"))
+        this.tranIn()
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+}
+
+// like fanpage
+fun Activity?.likeFacebookFanpage(
+) {
+    this?.apply {
+        val facebookIntent = Intent(Intent.ACTION_VIEW)
+        val facebookUrl = getFacebookPageURL()
+        facebookIntent.data = Uri.parse(facebookUrl)
+        startActivity(facebookIntent)
+        tranIn()
+    }
+}
+
+fun getFacebookPageURL(): String {
+    val facebookUrl = "https://www.facebook.com/hoidammedocsach"
+    val facebookPageId = "hoidammedocsach"
+    val packageManager = LAppResource.application.packageManager
+    return try {
+        val versionCode =
+            packageManager.getPackageInfo("com.facebook.katana", 0).versionCode
+        if (versionCode >= 3002850) {
+            "fb://facewebmodal/f?href=$facebookUrl"
+        } else {
+            "fb://page/$facebookPageId"
+        }
+    } catch (e: PackageManager.NameNotFoundException) {
+        e.printStackTrace()
+        facebookUrl
+    }
+}
+
+/*
+chat with fanpage Thugiannao
+ */
+fun Activity.chatMessenger(
+) {
+    val packageManager = this.packageManager
+    var isFBInstalled = false
+    try {
+        val versionCode = packageManager.getPackageInfo("com.facebook.orca", 0).versionCode
+        if (versionCode >= 0) isFBInstalled = true
+    } catch (e: PackageManager.NameNotFoundException) {
+        e.printStackTrace()
+    }
+
+    if (!isFBInstalled) {
+        LDialogUtil.showDialog1(
+            context = this,
+            title = this.getString(R.string.err),
+            msg = this.getString(R.string.cannot_find_messenger_app),
+            button1 = this.getString(R.string.ok)
+        )
+    } else {
+        var uri = Uri.parse("fb-messenger://user/")
+        uri = ContentUris.withAppendedId(uri, java.lang.Long.valueOf("947139732073591"))
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        try {
+            this.startActivity(intent)
+            this.tranIn()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            LDialogUtil.showDialog1(
+                context = this,
+                title = this.getString(R.string.err),
+                msg = this.getString(R.string.cannot_find_messenger_app),
+                button1 = this.getString(R.string.ok)
+            )
+        }
+    }
 }

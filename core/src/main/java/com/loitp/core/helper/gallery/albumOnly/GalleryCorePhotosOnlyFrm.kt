@@ -15,11 +15,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.common.Constants
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.tranOut
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
@@ -111,7 +109,7 @@ class GalleryCorePhotosOnlyFrm(
                     }
 
                     override fun onClickShare(photo: Photo, pos: Int) {
-                        LSocialUtil.share(activity = a, msg = photo.urlO)
+                        a.share(msg = photo.urlO)
                     }
 
                     override fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView) {
@@ -124,11 +122,11 @@ class GalleryCorePhotosOnlyFrm(
                     }
 
                     override fun onClickReport(photo: Photo, pos: Int) {
-                        LSocialUtil.sendEmail(context = a)
+                        a.sendEmail()
                     }
 
                     override fun onClickCmt(photo: Photo, pos: Int) {
-                        LSocialUtil.openFacebookComment(context = a, url = photo.urlO)
+                        a.openFacebookComment(url = photo.urlO)
                     }
                 }
             )

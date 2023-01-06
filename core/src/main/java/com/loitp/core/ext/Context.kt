@@ -9,7 +9,9 @@ import android.os.Build
 import android.provider.Settings
 import com.loitp.R
 import com.loitp.core.common.Constants
+import com.loitp.core.helper.fbComment.FbCommentActivity
 import com.loitp.data.ActivityData
+import de.cketti.mailto.EmailIntentBuilder
 
 //check xem app hien tai co phai la default launcher hay khong
 fun Context.isDefaultLauncher(): Boolean {
@@ -191,4 +193,68 @@ fun Context.diagonal() {
             R.anim.l_diagonal_right_exit
         )
     }
+}
+
+/*
+         * send email support
+         */
+fun Context?.sendEmail(
+) {
+    val emailIntent = Intent(Intent.ACTION_SENDTO)
+    emailIntent.data = Uri.parse("mailto: www.muathu@gmail.com")
+    this?.startActivity(Intent.createChooser(emailIntent, "Send feedback"))
+}
+
+fun Context.openBrowserPolicy(
+) {
+    this.openUrlInBrowser(url = Constants.URL_POLICY)
+}
+
+fun Context?.openUrlInBrowser(
+    url: String?
+) {
+    if (this == null || url.isNullOrEmpty()) {
+        return
+    }
+    val defaultBrowser =
+        Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
+    defaultBrowser.data = Uri.parse(url)
+    this.startActivity(defaultBrowser)
+    this.tranIn()
+}
+
+fun Context?.openFacebookComment(
+    url: String? = null,
+) {
+    if (this == null || url.isNullOrEmpty()) {
+        return
+    }
+    val intent = Intent(this, FbCommentActivity::class.java)
+    intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
+    this.startActivity(intent)
+    this.tranIn()
+}
+
+fun Context.sendEmail(
+    to: String,
+    cc: String? = null,
+    bcc: String? = null,
+    subject: String? = null,
+    body: String? = null,
+) {
+    val i = EmailIntentBuilder.from(this)
+    i.to(to)
+    cc?.let {
+        i.cc(it)
+    }
+    bcc?.let {
+        i.bcc(it)
+    }
+    subject?.let {
+        i.subject(it)
+    }
+    body?.let {
+        i.body(it)
+    }
+    i.start()
 }

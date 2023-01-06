@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import com.loitp.core.utilities.LSocialUtil
+import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.rss.RssConverterFactory
 import com.loitp.rss.RssFeed
 import com.loitp.rss.RssItem
@@ -58,7 +58,9 @@ class RssFragment :
 
     private fun setupViews() {
         mAdapter = RssItemsAdapter { rssItem ->
-            LSocialUtil.openUrlInBrowser(context = context, url = rssItem.link)
+            context.openUrlInBrowser(
+                url = rssItem.link
+            )
         }
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = mAdapter

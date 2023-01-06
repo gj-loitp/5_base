@@ -11,9 +11,10 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.sendEmail
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.share
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
-import com.loitp.core.utilities.LSocialUtil
 import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_slide.*
 
 /**
@@ -54,11 +55,11 @@ class GalleryCoreSlideActivity : BaseActivityFont() {
         }
         btShare.setSafeOnClickListener {
             instance.getPhoto(viewPager.currentItem)?.urlO?.let {
-                LSocialUtil.share(activity = this, msg = it)
+                this.share(msg = it)
             }
         }
         btReport.setSafeOnClickListener {
-            LSocialUtil.sendEmail(context = this)
+            this.sendEmail()
         }
     }
 

@@ -15,7 +15,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.LSocialUtil
+import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_iv_preview_image_collection.*
 import pereira.agnaldo.previewimgcol.ImageCollectionView
@@ -52,8 +52,7 @@ class PreviewImageCollectionActivityFont : BaseActivityFont() {
                 LUIUtil.setSafeOnClickListenerElastic(
                     view = it,
                     runnable = {
-                        LSocialUtil.openUrlInBrowser(
-                            context = context,
+                        context.openUrlInBrowser(
                             url = "https://github.com/AgnaldoNP/PreviewImageCollection"
                         )
                     }

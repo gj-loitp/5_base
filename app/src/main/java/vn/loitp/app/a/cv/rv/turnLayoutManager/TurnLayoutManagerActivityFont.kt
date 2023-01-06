@@ -16,7 +16,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LSocialUtil
+import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_turn_layout_manager.*
 import kotlinx.android.synthetic.main.view_controls_tlm.*
@@ -47,8 +47,8 @@ class TurnLayoutManagerActivityFont : BaseActivityFont() {
             })
             this.ivIconRight?.let {
                 LUIUtil.setSafeOnClickListenerElastic(view = it, runnable = {
-                    LSocialUtil.openUrlInBrowser(
-                        context = context, url = "https://github.com/cdflynn/turn-layout-manager"
+                    context.openUrlInBrowser(
+                        url = "https://github.com/cdflynn/turn-layout-manager"
                     )
                 })
                 it.isVisible = true

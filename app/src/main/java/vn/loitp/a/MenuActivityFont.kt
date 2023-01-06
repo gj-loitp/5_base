@@ -13,10 +13,9 @@ import com.loitp.annotation.IsKeepScreenOn
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.*
 import com.loitp.core.helper.adHelper.AdHelperActivity
 import com.loitp.core.utilities.LPrefUtil
-import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_menu.*
 import vn.loitp.R
@@ -67,8 +66,8 @@ class MenuActivityFont : BaseActivityFont(), View.OnClickListener {
         tvPolicy.apply {
             LUIUtil.setTextUnderline(this)
             setSafeOnClickListener {
-                LSocialUtil.openUrlInBrowser(
-                    context = this@MenuActivityFont, url = Constants.URL_POLICY
+                this@MenuActivityFont.openUrlInBrowser(
+                    url = Constants.URL_POLICY
                 )
             }
         }
@@ -185,16 +184,16 @@ class MenuActivityFont : BaseActivityFont(), View.OnClickListener {
             btAnimation -> launchActivity(MenuAnimationActivityFont::class.java)
             btCustomView -> launchActivity(MenuCustomViewsActivityFont::class.java)
             btDemo -> launchActivity(MenuDemoActivityFont::class.java)
-            btRateApp -> LSocialUtil.rateApp(this, packageName)
-            btMoreApp -> LSocialUtil.moreApp(this)
+            btRateApp -> this.rateApp(packageName)
+            btMoreApp -> this.moreApp()
             btFunction -> launchActivity(MenuFunctionActivityFont::class.java)
             btGame -> launchActivity(MenuGameActivityFont::class.java)
             btDatabase -> launchActivity(MenuDatabaseActivityFont::class.java)
             btPattern -> launchActivity(MenuPatternActivityFont::class.java)
-            btChat -> LSocialUtil.chatMessenger(this)
+            btChat -> this.chatMessenger()
             btGithub -> {
-                LSocialUtil.openUrlInBrowser(
-                    context = this, url = "https://github.com/tplloi/base"
+                this.openUrlInBrowser(
+                    url = "https://github.com/tplloi/base"
                 )
             }
             btAdHelper -> {
@@ -206,7 +205,7 @@ class MenuActivityFont : BaseActivityFont(), View.OnClickListener {
                     it.putExtra(Constants.AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
                 })
             }
-            btFbFanpage -> LSocialUtil.likeFacebookFanpage(this)
+            btFbFanpage -> this.likeFacebookFanpage()
             btFrmMore -> launchActivity(MoreActivityFont::class.java)
             btTutorial -> launchActivity(MenuTutorialActivityFont::class.java)
             btPicker -> launchActivity(MenuPickerActivityFont::class.java)
@@ -216,8 +215,7 @@ class MenuActivityFont : BaseActivityFont(), View.OnClickListener {
             btUtils -> launchActivity(UtilsActivity::class.java)
             btUtilsCore -> launchActivity(UtilsCoreActivity::class.java)
             btFeedback -> {
-                LSocialUtil.sendEmail(
-                    activity = this,
+                this.sendEmail(
                     to = "roy93group@gmail.com",
                     cc = "roy93group@gmail.com",
                     bcc = "roy93group@gmail.com",

@@ -16,10 +16,12 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.openFacebookComment
+import com.loitp.core.ext.sendEmail
+import com.loitp.core.ext.share
 import com.loitp.core.ext.transActivityNoAnimation
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
@@ -89,8 +91,7 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
                 }
 
                 override fun onClickShare(photo: Photo, pos: Int) {
-                    LSocialUtil.share(
-                        activity = this@GalleryCorePhotosOnlyActivity,
+                    this@GalleryCorePhotosOnlyActivity.share(
                         msg = photo.urlO
                     )
                 }
@@ -105,12 +106,11 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
                 }
 
                 override fun onClickReport(photo: Photo, pos: Int) {
-                    LSocialUtil.sendEmail(context = this@GalleryCorePhotosOnlyActivity)
+                    this@GalleryCorePhotosOnlyActivity.sendEmail()
                 }
 
                 override fun onClickCmt(photo: Photo, pos: Int) {
-                    LSocialUtil.openFacebookComment(
-                        context = this@GalleryCorePhotosOnlyActivity,
+                    this@GalleryCorePhotosOnlyActivity.openFacebookComment(
                         url = photo.urlO,
                     )
                 }

@@ -5,8 +5,8 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.openFacebookComment
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_facebook_comment.*
 import vn.loitp.R
@@ -37,8 +37,7 @@ class FacebookCommentActivityFont : BaseActivityFont() {
             this.tvTitle?.text = FacebookCommentActivityFont::class.java.simpleName
         }
         bt.setSafeOnClickListener {
-            LSocialUtil.openFacebookComment(
-                context = this,
+            this.openFacebookComment(
                 url = "http://truyentuan.com/one-piece-chuong-907/",
             )
         }

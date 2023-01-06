@@ -57,7 +57,7 @@ class SplashActivity : BaseActivityFont() {
             LUIUtil.setTextUnderline(this)
             this.setTextShadow(color = null)
             setOnClickListener {
-                LSocialUtil.openBrowserPolicy(context = this@SplashActivity)
+                this@SplashActivity.openBrowserPolicy()
             }
         }
 

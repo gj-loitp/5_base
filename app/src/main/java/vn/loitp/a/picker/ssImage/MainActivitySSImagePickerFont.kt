@@ -15,8 +15,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.picker.ssImage.PickerOptions
 import com.loitp.picker.ssImage.isAtLeast11
@@ -69,8 +69,7 @@ class MainActivitySSImagePickerFont : BaseActivityFont(),
                 LUIUtil.setSafeOnClickListenerElastic(
                     view = it,
                     runnable = {
-                        LSocialUtil.openUrlInBrowser(
-                            context = context,
+                        context.openUrlInBrowser(
                             url = "https://github.com/SimformSolutionsPvtLtd/SSImagePicker"
                         )
                     }

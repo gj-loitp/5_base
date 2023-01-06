@@ -12,11 +12,11 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.share
 import com.loitp.core.ext.tranIn
 import com.loitp.core.ext.transActivityNoAnimation
 import com.loitp.core.helper.gallery.slide.GalleryCoreSlideActivity
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LSocialUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
@@ -90,7 +90,7 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
                 }
 
                 override fun onLongClick(photo: Photo, pos: Int) {
-                    LSocialUtil.share(activity = this@GalleryCorePhotosActivity, msg = photo.urlO)
+                    this@GalleryCorePhotosActivity.share(msg = photo.urlO)
                 }
             }
         )

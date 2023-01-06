@@ -8,8 +8,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.tranIn
-import com.loitp.core.utilities.LSocialUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_menu_expansion_panel.*
 import vn.loitp.R
@@ -41,8 +41,7 @@ class MenuExpansionLayoutActivityFont : BaseActivityFont(), View.OnClickListener
                 LUIUtil.setSafeOnClickListenerElastic(
                     view = it,
                     runnable = {
-                        LSocialUtil.openUrlInBrowser(
-                            context = context,
+                        context.openUrlInBrowser(
                             url = "https://github.com/florent37/ExpansionPanel"
                         )
                     }

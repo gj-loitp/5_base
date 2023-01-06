@@ -17,7 +17,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFancyShowcase
-import com.loitp.core.utilities.LSocialUtil
+import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_fancy_showcase.*
 import me.toptas.fancyshowcase.FancyShowCaseView
@@ -60,8 +60,7 @@ class FancyShowcaseActivity : BaseActivityFancyShowcase() {
                 LUIUtil.setSafeOnClickListenerElastic(
                     view = this,
                     runnable = {
-                        LSocialUtil.openUrlInBrowser(
-                            context = context,
+                        context.openUrlInBrowser(
                             url = "https://github.com/faruktoptas/FancyShowCaseView"
                         )
                     }

@@ -8,7 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.loadGlide
-import com.loitp.core.utilities.LSocialUtil
+import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_layout_shape_of_view.*
 import vn.loitp.R
@@ -39,8 +39,7 @@ class ShapeOfViewActivityFont : BaseActivityFont() {
                 LUIUtil.setSafeOnClickListenerElastic(
                     view = it,
                     runnable = {
-                        LSocialUtil.openUrlInBrowser(
-                            context = context,
+                        context.openUrlInBrowser(
                             url = "https://github.com/florent37/ShapeOfView"
                         )
                     }
