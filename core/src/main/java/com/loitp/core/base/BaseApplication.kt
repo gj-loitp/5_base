@@ -10,12 +10,12 @@ import com.github.piasy.biv.BigImageViewer
 import com.github.piasy.biv.loader.glide.GlideImageLoader
 import com.google.gson.Gson
 import com.loitp.annotation.LogTag
+import com.loitp.core.ext.initOnNetworkChange
 import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LConnectivityUtil
 import com.loitp.core.utilities.LLog
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.game.findNumber.db.FindNumberDatabase
 import com.loitp.core.utils.Utils
+import com.loitp.game.findNumber.db.FindNumberDatabase
 
 
 /**
@@ -61,7 +61,7 @@ open class BaseApplication : MultiDexApplication(), LifecycleObserver {
         BigImageViewer.initialize(GlideImageLoader.with(applicationContext))
 
         // network
-        LConnectivityUtil.initOnNetworkChange()
+        this.initOnNetworkChange()
 
         // dark mode
         val isDarkTheme = LUIUtil.isDarkTheme()

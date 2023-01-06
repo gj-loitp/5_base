@@ -20,11 +20,15 @@ import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.*
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.onNetworkConnectionChanged
 import com.loitp.core.ext.tranIn
 import com.loitp.core.ext.tranOut
-import com.loitp.core.utilities.*
+import com.loitp.core.utilities.LDialogUtil
+import com.loitp.core.utilities.LLog
+import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.loitp.core.utilities.LUIUtil.Companion.withBackground
+import com.loitp.core.utilities.LValidateUtil
 import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
@@ -491,11 +495,11 @@ abstract class BaseActivity : AppCompatActivity() {
         CheckNetworkConnectionHelper.getInstance()
             .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
                 override fun onConnected() {
-                    LConnectivityUtil.onNetworkConnectionChanged(isConnected = true)
+                    onNetworkConnectionChanged(isConnected = true)
                 }
 
                 override fun onDisconnected() {
-                    LConnectivityUtil.onNetworkConnectionChanged(isConnected = false)
+                    onNetworkConnectionChanged(isConnected = false)
                 }
 
                 override fun getContext(): Context {

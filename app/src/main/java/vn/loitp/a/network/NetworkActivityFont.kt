@@ -5,8 +5,8 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.isConnected
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LConnectivityUtil
 import com.loitp.core.utilities.LUIUtil
 import com.loitp.data.EventBusData
 import com.loitp.func.network.TrafficUtils
@@ -43,7 +43,7 @@ class NetworkActivityFont : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = NetworkActivityFont::class.java.simpleName
         }
-        showStatus(LConnectivityUtil.isConnected())
+        showStatus(this.isConnected())
         btn.setSafeOnClickListener {
             doSomeWork()
         }

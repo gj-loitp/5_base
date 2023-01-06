@@ -12,6 +12,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.ext.isConnected
 import com.loitp.core.ext.tranIn
 import com.loitp.core.ext.tranOut
 import com.loitp.core.utilities.*
@@ -178,7 +179,7 @@ class SplashActivity : BaseActivityFont() {
 
     private fun showDialogNotReady() {
         runOnUiThread {
-            val title = if (LConnectivityUtil.isConnected()) {
+            val title = if (this.isConnected()) {
                 "This app is not available now"
             } else {
                 getString(R.string.check_ur_connection)
