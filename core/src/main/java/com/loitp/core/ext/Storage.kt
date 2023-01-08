@@ -1,14 +1,22 @@
 package com.loitp.core.ext
 
+import android.app.Activity
 import android.app.ActivityManager
 import android.content.ContentUris
 import android.content.Context
+import android.content.Intent
 import android.database.Cursor
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
+import com.loitp.R
 import com.loitp.core.base.BaseApplication
+import com.loitp.func.epub.core.EpubReaderReadActivity
+import com.loitp.func.epub.model.BookInfo
+import com.loitp.func.epub.model.BookInfoData
 import com.loitp.model.App
 import com.loitp.model.Pkg
 import okhttp3.*
@@ -568,4 +576,60 @@ private fun isMediaDocument(uri: Uri): Boolean {
  */
 private fun isGooglePhotosUri(uri: Uri): Boolean {
     return "com.google.android.apps.photos.content" == uri.authority
+}
+
+val defaultCover: Int
+    get() = R.drawable.l_df_cover_epub
+
+fun decodeBitmapFromByteArray(
+    coverImage: ByteArray,
+    reqWidth: Int,
+    reqHeight: Int
+): Bitmap {
+    // First decode with inJustDecodeBounds=true to check dimensions
+    val options = BitmapFactory.Options()
+    options.inJustDecodeBounds = true
+    BitmapFactory.decodeByteArray(coverImage, 0, coverImage.size, options)
+
+    // Calculate inSampleSize
+    options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight)
+
+    // Decode bitmap with inSampleSize set
+    options.inJustDecodeBounds = false
+    return BitmapFactory.decodeByteArray(coverImage, 0, coverImage.size, options)
+}
+
+private fun calculateInSampleSize(
+    options: BitmapFactory.Options,
+    reqWidth: Int,
+    reqHeight: Int
+): Int {
+    // Raw height and width of image
+    val height = options.outHeight
+    val width = options.outWidth
+    var inSampleSize = 1
+    if (height > reqHeight || width > reqWidth) {
+
+        val halfHeight = height / 2
+        val halfWidth = width / 2
+
+        // Calculate the largest inSampleSize value that is a power of 2 and keeps both
+        // height and width larger than the requested height and width.
+        while (halfHeight / inSampleSize > reqHeight && halfWidth / inSampleSize > reqWidth) {
+            inSampleSize *= 2
+        }
+    }
+    return inSampleSize
+}
+
+fun Activity?.readEpub(
+    bookInfo: BookInfo?
+) {
+    if (this == null || bookInfo == null) {
+        throw NullPointerException("activity == null || bookInfo == null")
+    }
+    val intent = Intent(this, EpubReaderReadActivity::class.java)
+    BookInfoData.instance.bookInfo = bookInfo
+    this.startActivity(intent)
+    this.tranIn()
 }

@@ -26,7 +26,6 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.*
 import com.loitp.core.utilities.*
-import com.loitp.core.utilities.LReaderUtil.Companion.defaultCover
 import com.loitp.core.utils.ConvertUtils
 import com.loitp.func.epub.BookSection
 import com.loitp.func.epub.Reader
@@ -218,7 +217,7 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
                         bi.isCoverImageNotExists = true
                         ivCover.setImageResource(defaultCover)
                     } else {
-                        val bitmap = LReaderUtil.decodeBitmapFromByteArray(
+                        val bitmap = decodeBitmapFromByteArray(
                             coverImage = coverImageAsBytes,
                             reqWidth = 100,
                             reqHeight = 200
