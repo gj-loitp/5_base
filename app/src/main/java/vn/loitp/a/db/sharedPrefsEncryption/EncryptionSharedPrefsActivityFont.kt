@@ -6,9 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LEncryptionSharedPrefsUtil
+import com.loitp.core.ext.*
 import kotlinx.android.synthetic.main.a_db_shared_prefs_encryption.*
 import vn.loitp.R
 import vn.loitp.a.pattern.mvp.User
@@ -58,28 +56,28 @@ class EncryptionSharedPrefsActivityFont : BaseActivityFont() {
         }
 
         btClearAll.setSafeOnClickListener {
-            LEncryptionSharedPrefsUtil.instance.clear()
+            this.clearPrefSecurity()
         }
 
         btPutString.setSafeOnClickListener {
-            LEncryptionSharedPrefsUtil.instance.put(
+            putPrefSecurity(
                 KEY_STRING,
                 "This is a string!!! " + System.currentTimeMillis()
             )
         }
         btGetString.setSafeOnClickListener {
-            val value = LEncryptionSharedPrefsUtil.instance.getString(KEY_STRING)
+            val value = getStringSecurity(KEY_STRING)
             showLongInformation(value)
         }
 
         btPutStringWithDefaultValue.setSafeOnClickListener {
-            LEncryptionSharedPrefsUtil.instance.put(
+            putPrefSecurity(
                 KEY_STRING_WITH_DEFAULT_VALUE,
                 "This is a string!!! " + System.currentTimeMillis()
             )
         }
         btGetStringWithDefaultValue.setSafeOnClickListener {
-            val value = LEncryptionSharedPrefsUtil.instance.getString(
+            val value = getStringSecurity(
                 KEY_STRING_WITH_DEFAULT_VALUE,
                 "Default value"
             )
@@ -87,34 +85,34 @@ class EncryptionSharedPrefsActivityFont : BaseActivityFont() {
         }
 
         btPutBoolean.setSafeOnClickListener {
-            LEncryptionSharedPrefsUtil.instance.put(KEY_BOOLEAN, true)
+            putPrefSecurity(KEY_BOOLEAN, true)
         }
         btGetBoolean.setSafeOnClickListener {
-            val value = LEncryptionSharedPrefsUtil.instance.getBoolean(KEY_BOOLEAN)
+            val value = getBooleanSecurity(KEY_BOOLEAN)
             showLongInformation("Value: $value")
         }
 
         btPutFloat.setSafeOnClickListener {
-            LEncryptionSharedPrefsUtil.instance.put(KEY_FLOAT, System.currentTimeMillis().toFloat())
+            putPrefSecurity(KEY_FLOAT, System.currentTimeMillis().toFloat())
         }
         btGetFloat.setSafeOnClickListener {
-            val value = LEncryptionSharedPrefsUtil.instance.getFloat(KEY_FLOAT)
+            val value = getFloatSecurity(KEY_FLOAT)
             showLongInformation("Value: $value")
         }
 
         btPutInt.setSafeOnClickListener {
-            LEncryptionSharedPrefsUtil.instance.put(KEY_INT, System.currentTimeMillis().toInt())
+            putPrefSecurity(KEY_INT, System.currentTimeMillis().toInt())
         }
         btGetInt.setSafeOnClickListener {
-            val value = LEncryptionSharedPrefsUtil.instance.getInt(KEY_INT)
+            val value = getIntSecurity(KEY_INT)
             showLongInformation("Value: $value")
         }
 
         btPutLong.setSafeOnClickListener {
-            LEncryptionSharedPrefsUtil.instance.put(KEY_LONG, System.currentTimeMillis())
+            putPrefSecurity(KEY_LONG, System.currentTimeMillis())
         }
         btGetLong.setSafeOnClickListener {
-            val value = LEncryptionSharedPrefsUtil.instance.getLong(KEY_LONG)
+            val value = getLongSecurity(KEY_LONG)
             showLongInformation("Value: $value")
         }
 
@@ -122,10 +120,10 @@ class EncryptionSharedPrefsActivityFont : BaseActivityFont() {
             val user = User()
             user.email = "Email ${System.currentTimeMillis()}"
             user.fullName = "Name ${System.currentTimeMillis()}"
-            LEncryptionSharedPrefsUtil.instance.put(KEY_OBJECT, user)
+            putPrefSecurity(KEY_OBJECT, user)
         }
         btGetObject.setSafeOnClickListener {
-            val value = LEncryptionSharedPrefsUtil.instance.getObject(KEY_OBJECT, User::class.java)
+            val value = getObjectSecurity(KEY_OBJECT, User::class.java)
             showLongInformation("Value: " + BaseApplication.gson.toJson(value))
         }
 
@@ -137,12 +135,12 @@ class EncryptionSharedPrefsActivityFont : BaseActivityFont() {
                 user.fullName = "Name ${System.currentTimeMillis()}"
                 list.add(user)
             }
-            LEncryptionSharedPrefsUtil.instance.put(KEY_LIST_OBJECT, list)
+            putPrefSecurity(KEY_LIST_OBJECT, list)
         }
         btListGetObject.setSafeOnClickListener {
             val type = object : TypeToken<List<User>>() {
             }.type
-            val value: ArrayList<User> = LEncryptionSharedPrefsUtil.instance.getObjectList(
+            val value: ArrayList<User> = getObjectListSecurity(
                 key = KEY_LIST_OBJECT,
                 typeOfT = type
             )
