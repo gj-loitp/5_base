@@ -15,11 +15,8 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.ext.isDarkTheme
-import com.loitp.core.ext.tranIn
-import com.loitp.core.ext.transActivityNoAnimation
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
-import com.loitp.core.utilities.LDialogUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
@@ -157,7 +154,7 @@ class GalleryMemberActivity : BaseActivityFont() {
     }
 
     private fun getPhotoSets() {
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -194,7 +191,7 @@ class GalleryMemberActivity : BaseActivityFont() {
                 }, { e ->
                     e.printStackTrace()
                     handleException(e)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 })
         )
     }
@@ -210,7 +207,7 @@ class GalleryMemberActivity : BaseActivityFont() {
         }
 //        logD("is calling photosetsGetPhotos $currentPage/$totalPage")
         isLoading = true
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -218,7 +215,7 @@ class GalleryMemberActivity : BaseActivityFont() {
         if (currentPage <= 0) {
 //            logD("currentPage <= 0 -> return")
             currentPage = 0
-            LDialogUtil.hideProgress(progressBar)
+            progressBar.hideProgress()
             return
         }
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
@@ -249,13 +246,13 @@ class GalleryMemberActivity : BaseActivityFont() {
                     }
                     updateAllViews()
 
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     isLoading = false
                     currentPage--
                 }, { e ->
                     e.printStackTrace()
                     handleException(e)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     isLoading = true
                 })
         )

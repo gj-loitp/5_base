@@ -143,8 +143,7 @@ class SplashActivity : BaseActivityFont() {
         if (isCanWriteSystem) {
             checkPer()
         } else {
-            val alertDialog = LDialogUtil.showDialog2(
-                context = this,
+            val alertDialog = this.showDialog2(
                 title = "Need Permissions",
                 msg = "This app needs permission to allow modifying system settings",
                 button1 = getString(R.string.ok),
@@ -182,8 +181,7 @@ class SplashActivity : BaseActivityFont() {
             } else {
                 getString(R.string.check_ur_connection)
             }
-            val alertDial = LDialogUtil.showDialog1(
-                context = this,
+            val alertDial = this.showDialog1(
                 title = "Warning",
                 msg = title,
                 button1 = "Ok",

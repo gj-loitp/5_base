@@ -11,11 +11,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.play
-import com.loitp.core.ext.setDelay
-import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.ext.toggleFullscreen
-import com.loitp.core.utilities.LDialogUtil
+import com.loitp.core.ext.*
 import com.loitp.game.findNumber.adt.LevelAdapter
 import com.loitp.game.findNumber.model.Level
 import com.loitp.game.findNumber.vm.FindNumberViewModel
@@ -113,9 +109,9 @@ class SingleLevelActivity : BaseActivityFont() {
             vm.listLevelActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
-                    LDialogUtil.showProgress(progressBar)
+                    progressBar.showProgress()
                 } else {
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 }
 
                 if (isDoing == false && actionData.isSuccess == true) {
@@ -136,9 +132,9 @@ class SingleLevelActivity : BaseActivityFont() {
             vm.firstLevelOpenActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
-                    LDialogUtil.showProgress(progressBar)
+                    progressBar.showProgress()
                 } else {
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 }
 
                 if (isDoing == false && actionData.isSuccess == true) {

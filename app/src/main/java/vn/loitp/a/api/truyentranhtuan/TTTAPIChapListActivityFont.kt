@@ -6,10 +6,11 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.hideProgress
 import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.ext.setSafeOnClickListenerElastic
+import com.loitp.core.ext.showProgress
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
-import com.loitp.core.utilities.LDialogUtil
 import kotlinx.android.synthetic.main.a_ttt_api_chap_list.*
 import vn.loitp.R
 
@@ -53,9 +54,9 @@ class TTTAPIChapListActivityFont : BaseActivityFont() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    LDialogUtil.showProgress(progressBar)
+                    progressBar.showProgress()
                 } else {
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     if (isSuccess == true) {
                         val tttChap = actionData.data
                         tttChap?.let {

@@ -10,11 +10,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.setDelay
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.ext.showPopup
-import com.loitp.core.utilities.LDialogUtil
+import com.loitp.core.ext.*
 import com.loitp.views.rv.itemDecoration.StickyFooterItemDecoration
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 import kotlinx.android.synthetic.main.a_rv_footer_2.*
@@ -125,7 +121,7 @@ class RecyclerViewFooter2Activity : BaseActivityFont() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         setDelay(mls = 2000, runnable = {
             val newSize = 5
             for (i in 0 until newSize) {
@@ -137,7 +133,7 @@ class RecyclerViewFooter2Activity : BaseActivityFont() {
                 )
                 instance.movieList.add(movie)
             }
-            LDialogUtil.hideProgress(progressBar)
+            progressBar.hideProgress()
             footer2Adapter?.notifyDataSetChanged()
             showShortInformation("Finish loadMore")
         })
@@ -157,6 +153,6 @@ class RecyclerViewFooter2Activity : BaseActivityFont() {
             }
         }
         footer2Adapter?.notifyDataSetChanged()
-        LDialogUtil.hideProgress(progressBar)
+        progressBar.hideProgress()
     }
 }

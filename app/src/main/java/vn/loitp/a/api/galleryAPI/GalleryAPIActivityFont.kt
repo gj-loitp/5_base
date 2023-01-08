@@ -7,10 +7,7 @@ import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.printBeautyJson
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LDialogUtil
+import com.loitp.core.ext.*
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
 import com.loitp.restApi.flickr.model.photoSetGetList.WrapperPhotosetGetlist
@@ -47,7 +44,7 @@ class GalleryAPIActivityFont : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = GalleryAPIActivityFont::class.java.simpleName
         }
-        LDialogUtil.hideProgress(progressBar)
+        progressBar.hideProgress()
         bt1.setSafeOnClickListener {
             getPhotoSets()
         }
@@ -57,7 +54,7 @@ class GalleryAPIActivityFont : BaseActivityFont() {
     }
 
     private fun getPhotoSets() {
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -86,12 +83,12 @@ class GalleryAPIActivityFont : BaseActivityFont() {
                     wrapperPhotosetGetlist?.let {
                         textView.printBeautyJson(it)
                     }
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     bt2.visibility = View.VISIBLE
                 }) { e: Throwable ->
                     e.printStackTrace()
                     handleException(e)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 }
         )
     }
@@ -119,7 +116,7 @@ class GalleryAPIActivityFont : BaseActivityFont() {
             return
         }
         textView.text = ""
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -148,11 +145,11 @@ class GalleryAPIActivityFont : BaseActivityFont() {
                     wrapperPhotosetGetlist?.let {
                         textView.printBeautyJson(it)
                     }
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     bt2.visibility = View.VISIBLE
                 }) { e: Throwable ->
                     handleException(e)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 }
         )
     }

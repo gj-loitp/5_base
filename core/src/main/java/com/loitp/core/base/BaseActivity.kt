@@ -21,7 +21,6 @@ import com.loitp.R
 import com.loitp.annotation.*
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.*
-import com.loitp.core.utilities.LDialogUtil
 import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
@@ -250,8 +249,6 @@ abstract class BaseActivity : AppCompatActivity() {
         unRegisterNetworkChangeListener()
         EventBus.getDefault().unregister(this)
         compositeDisposable.clear()
-        LDialogUtil.clearAll()
-        LDialogUtil.hide(dialog = alertDialogProgress)
         stopIdleTimeHandler()
         super.onDestroy()
     }
@@ -267,7 +264,7 @@ abstract class BaseActivity : AppCompatActivity() {
         if (errMsg.isNullOrEmpty()) {
             return
         }
-        val alertDialog = LDialogUtil.showDialog1(context = this,
+        val alertDialog = this.showDialog1(
             title = getString(R.string.warning),
             msg = errMsg,
             button1 = getString(R.string.confirm),
@@ -280,7 +277,7 @@ abstract class BaseActivity : AppCompatActivity() {
     protected fun showDialogMsg(
         errMsg: String, runnable: Runnable? = null
     ) {
-        LDialogUtil.showDialog1(context = this,
+        this.showDialog1(
             title = getString(R.string.app_name),
             msg = errMsg,
             button1 = getString(R.string.confirm),
@@ -433,13 +430,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showDialogProgress() {
         if (alertDialogProgress == null) {
-            alertDialogProgress = LDialogUtil.genCustomProgressDialog(context = this)
+            alertDialogProgress = this.genCustomProgressDialog()
         }
-        LDialogUtil.show(dialog = alertDialogProgress)
+        alertDialogProgress.show()
     }
 
     fun hideDialogProgress() {
-        LDialogUtil.hide(dialog = alertDialogProgress)
+        alertDialogProgress.hide()
     }
 
     fun launchActivity(

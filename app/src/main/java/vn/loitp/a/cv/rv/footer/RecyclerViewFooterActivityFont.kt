@@ -9,11 +9,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.setDelay
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.ext.showPopup
-import com.loitp.core.utilities.LDialogUtil
+import com.loitp.core.ext.*
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.a_rv_footer.*
 import vn.loitp.R
@@ -123,7 +119,7 @@ class RecyclerViewFooterActivityFont : BaseActivityFont() {
     }
 
     private fun loadMore() {
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         setDelay(mls = 2000, runnable = {
             val newSize = 5
             for (i in 0 until newSize) {
@@ -135,7 +131,7 @@ class RecyclerViewFooterActivityFont : BaseActivityFont() {
                 )
                 instance.movieList.add(movie)
             }
-            LDialogUtil.hideProgress(progressBar)
+            progressBar.hideProgress()
             moviesAdapter?.notifyAllViews()
             showShortInformation("Finish loadMore")
         })
@@ -154,6 +150,6 @@ class RecyclerViewFooterActivityFont : BaseActivityFont() {
             }
         }
         moviesAdapter?.notifyAllViews()
-        LDialogUtil.hideProgress(progressBar)
+        progressBar.hideProgress()
     }
 }

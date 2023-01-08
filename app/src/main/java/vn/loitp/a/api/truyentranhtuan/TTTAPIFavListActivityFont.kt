@@ -5,12 +5,9 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.printBeautyJson
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.setSafeOnClickListenerElastic
+import com.loitp.core.ext.*
 import com.loitp.core.helper.ttt.model.comic.Comic
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
-import com.loitp.core.utilities.LDialogUtil
 import kotlinx.android.synthetic.main.a_ttt_api_fav_list.*
 import vn.loitp.R
 
@@ -69,9 +66,9 @@ class TTTAPIFavListActivityFont : BaseActivityFont() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    LDialogUtil.showProgress(progressBar)
+                    progressBar.showProgress()
                 } else {
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     if (isSuccess == true) {
                         val listComicFav = actionData.data
                         listComicFav?.let {
@@ -86,9 +83,9 @@ class TTTAPIFavListActivityFont : BaseActivityFont() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    LDialogUtil.showProgress(progressBar)
+                    progressBar.showProgress()
                 } else {
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     if (isSuccess == true) {
                         val id = actionData.data
                         showLongInformation("Add success with id $id")
@@ -103,9 +100,9 @@ class TTTAPIFavListActivityFont : BaseActivityFont() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    LDialogUtil.showProgress(progressBar)
+                    progressBar.showProgress()
                 } else {
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     if (isSuccess == true) {
                         val comic = actionData.data
                         showLongInformation("Delete success ${comic?.title}")

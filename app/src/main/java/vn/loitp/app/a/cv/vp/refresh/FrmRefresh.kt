@@ -5,8 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.loitp.core.ext.hideProgress
 import com.loitp.core.ext.setDelay
-import com.loitp.core.utilities.LDialogUtil
+import com.loitp.core.ext.showProgress
 import com.loitp.views.toast.LToast
 import kotlinx.android.synthetic.main.frm_view_pager_refresh.*
 import vn.loitp.R
@@ -55,7 +56,7 @@ class FrmRefresh : Fragment() {
 
     private fun loadData() {
         textView.visibility = View.INVISIBLE
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
 
         context?.let {
             LToast.show(msg = "loadData")
@@ -65,7 +66,7 @@ class FrmRefresh : Fragment() {
             mls = 1000,
             runnable = {
                 textView?.visibility = View.VISIBLE
-                LDialogUtil.hideProgress(progressBar)
+                progressBar.hideProgress()
             }
         )
     }

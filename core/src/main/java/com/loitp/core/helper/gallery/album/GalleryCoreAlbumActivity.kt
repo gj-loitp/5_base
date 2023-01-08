@@ -12,10 +12,11 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.hideProgress
+import com.loitp.core.ext.showProgress
 import com.loitp.core.ext.tranIn
 import com.loitp.core.ext.transActivityNoAnimation
 import com.loitp.core.helper.gallery.photos.GalleryCorePhotosActivity
-import com.loitp.core.utilities.LDialogUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
 import com.loitp.restApi.flickr.service.FlickrService
@@ -120,7 +121,7 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
     }
 
     private fun getListPhotosets() {
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -166,10 +167,10 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
                     listPhotoSet.shuffle()
 
                     updateAllViews()
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 }, { throwable ->
                     handleException(throwable)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 })
         )
     }

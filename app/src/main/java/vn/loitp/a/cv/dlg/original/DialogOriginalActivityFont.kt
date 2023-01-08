@@ -12,8 +12,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LDialogUtil
+import com.loitp.core.ext.*
 import kotlinx.android.synthetic.main.a_dlg_original.*
 import vn.loitp.R
 
@@ -69,8 +68,7 @@ class DialogOriginalActivityFont : BaseActivityFont(), OnClickListener {
     }
 
     private fun show1() {
-        LDialogUtil.showDialog1(
-            context = this,
+        this.showDialog1(
             title = "Title",
             msg = "Msg",
             button1 = "Button 1",
@@ -81,8 +79,7 @@ class DialogOriginalActivityFont : BaseActivityFont(), OnClickListener {
     }
 
     private fun show2() {
-        LDialogUtil.showDialog2(
-            context = this,
+        this.showDialog2(
             title = "Title",
             msg = "Msg",
             button1 = "Button 1",
@@ -97,8 +94,7 @@ class DialogOriginalActivityFont : BaseActivityFont(), OnClickListener {
     }
 
     private fun show3() {
-        LDialogUtil.showDialog3(
-            context = this,
+        this.showDialog3(
             title = "Title",
             msg = "Msg",
             button1 = "Button 1",
@@ -122,8 +118,7 @@ class DialogOriginalActivityFont : BaseActivityFont(), OnClickListener {
         for (i in 0 until size) {
             arr[i] = "Item $i"
         }
-        LDialogUtil.showDialogList(
-            context = this,
+        this.showDialogList(
             title = "Title",
             arr = arr,
             onClick = { position ->
@@ -145,8 +140,7 @@ class DialogOriginalActivityFont : BaseActivityFont(), OnClickListener {
         @Deprecated("Deprecated in Java")
         override fun onPreExecute() {
             super.onPreExecute()
-            progressDialog = LDialogUtil.showProgressDialog(
-                context = context,
+            progressDialog = context.showProgressDialog(
                 max = 100,
                 title = "Title",
                 msg = "Message",

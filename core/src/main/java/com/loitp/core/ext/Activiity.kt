@@ -22,7 +22,6 @@ import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import com.loitp.R
 import com.loitp.core.base.BaseActivity
-import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utils.AppUtils
 import com.loitp.core.utils.FragmentUtils
 
@@ -258,8 +257,7 @@ fun Activity.chatMessenger(
     }
 
     if (!isFBInstalled) {
-        LDialogUtil.showDialog1(
-            context = this,
+        this.showDialog1(
             title = this.getString(R.string.err),
             msg = this.getString(R.string.cannot_find_messenger_app),
             button1 = this.getString(R.string.ok)
@@ -273,8 +271,7 @@ fun Activity.chatMessenger(
             this.tranIn()
         } catch (e: Exception) {
             e.printStackTrace()
-            LDialogUtil.showDialog1(
-                context = this,
+            this.showDialog1(
                 title = this.getString(R.string.err),
                 msg = this.getString(R.string.cannot_find_messenger_app),
                 button1 = this.getString(R.string.ok)
@@ -600,7 +597,7 @@ fun Context?.setBrightness(
     val isCanWriteSystem = checkSystemWritePermission()
 
     if (!isCanWriteSystem) {
-        LDialogUtil.showDialog1(context = this,
+        this.showDialog1(
             title = "Thông báo",
             msg = "Ứng dụng cần bạn cần cấp quyền điều chỉnh độ sáng màn hình",
             button1 = "Cấp phép",

@@ -7,13 +7,10 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.printBeautyJson
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.setSafeOnClickListenerElastic
+import com.loitp.core.ext.*
 import com.loitp.core.helper.ttt.helper.ComicUtils
 import com.loitp.core.helper.ttt.model.comictype.ComicType
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
-import com.loitp.core.utilities.LDialogUtil
 import kotlinx.android.synthetic.main.a_ttt_api_comic_list.*
 import vn.loitp.R
 
@@ -44,7 +41,7 @@ class TTTAPIComicListActivityFont : BaseActivityFont() {
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = TTTAPIComicListActivityFont::class.java.simpleName
         }
-        LDialogUtil.hideProgress(progressBar)
+        progressBar.hideProgress()
         comicTypeList.addAll(ComicUtils.comicTypeList)
 
         btSelect.setSafeOnClickListener {
@@ -72,9 +69,9 @@ class TTTAPIComicListActivityFont : BaseActivityFont() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    LDialogUtil.showProgress(progressBar)
+                    progressBar.showProgress()
                 } else {
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     if (isSuccess == true) {
                         val listComic = actionData.data
                         listComic?.let {

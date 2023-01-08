@@ -8,7 +8,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LDialogUtil
+import com.loitp.core.ext.showDialogSlide
 import kotlinx.android.synthetic.main.a_dlg_slide_images.*
 import vn.loitp.R
 
@@ -55,8 +55,7 @@ class DialogSlideImagesActivityFont : BaseActivityFont() {
         )
 
         iv0.setSafeOnClickListener {
-            LDialogUtil.showDialogSlide(
-                context = this,
+            this.showDialogSlide(
                 index = 0,
                 imgList = imageList,
                 amount = 0.5f,
@@ -65,8 +64,7 @@ class DialogSlideImagesActivityFont : BaseActivityFont() {
             )
         }
         iv1.setSafeOnClickListener {
-            LDialogUtil.showDialogSlide(
-                context = this,
+            this.showDialogSlide(
                 index = 1,
                 imgList = imageList,
                 amount = 0.5f,
@@ -75,8 +73,7 @@ class DialogSlideImagesActivityFont : BaseActivityFont() {
             )
         }
         iv2.setSafeOnClickListener {
-            LDialogUtil.showDialogSlide(
-                context = this,
+            this.showDialogSlide(
                 index = 2,
                 imgList = imageList,
                 amount = 0.5f,

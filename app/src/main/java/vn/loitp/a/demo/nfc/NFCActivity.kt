@@ -12,15 +12,11 @@ import android.provider.Settings
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.now
-import com.loitp.core.ext.printBeautyJson
-import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.ext.tranIn
+import com.loitp.core.ext.*
 import com.loitp.core.helper.nfc.TagWrapper
 import com.loitp.core.helper.nfc.buildMACAddressString
 import com.loitp.core.helper.nfc.bytesToHex
 import com.loitp.core.helper.nfc.bytesToHexAndString
-import com.loitp.core.utilities.LDialogUtil
 import kotlinx.android.synthetic.main.a_demo_nfc.*
 import vn.loitp.R
 import java.io.UnsupportedEncodingException
@@ -65,8 +61,7 @@ class NFCActivity : BaseActivityFont() {
         super.onResume()
 
         if (nfcAdapter?.isEnabled == false) {
-            val dialog = LDialogUtil.showDialog1(
-                context = this,
+            val dialog = this.showDialog1(
                 title = "NFC is disabled",
                 msg = "You must enable NFC to use this app.",
                 button1 = "OK",

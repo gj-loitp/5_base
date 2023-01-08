@@ -7,10 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.ext.readEpub
-import com.loitp.core.ext.setDelay
-import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LDialogUtil
+import com.loitp.core.ext.*
 import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.vm.EpubViewModel
 import kotlinx.android.synthetic.main.a_demo_epub_reader.*
@@ -68,9 +65,9 @@ class MenuEpubReaderActivityFont : BaseActivityFont() {
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
                 if (isDoing == true) {
-                    LDialogUtil.showProgress(progressBar = progressBar)
+                    progressBar.showProgress()
                 } else {
-                    LDialogUtil.hideProgress(progressBar = progressBar)
+                    progressBar.hideProgress()
                     if (isSuccess == true) {
                         actionData.data?.let { bookInfoList ->
                             val adapter = BookInfoGridAdapter(bookInfoList = bookInfoList)
@@ -88,9 +85,9 @@ class MenuEpubReaderActivityFont : BaseActivityFont() {
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
                 if (isDoing == true) {
-                    LDialogUtil.showProgress(progressBar = progressBar)
+                    progressBar.showProgress()
                 } else {
-                    LDialogUtil.hideProgress(progressBar = progressBar)
+                    progressBar.hideProgress()
                     if (isSuccess == true) {
                         actionData.data?.let { bookInfoList ->
                             val adapter = BookInfoGridAdapter(bookInfoList = bookInfoList)
@@ -103,8 +100,7 @@ class MenuEpubReaderActivityFont : BaseActivityFont() {
     }
 
     private fun ask() {
-        LDialogUtil.showDialog2(
-            context = this,
+        this.showDialog2(
             title = "Chọn",
             msg = "Có 2 option",
             button1 = "Load tất cả epub có trong device và 1 file ở asset",

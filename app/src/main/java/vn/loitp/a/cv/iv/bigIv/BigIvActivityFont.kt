@@ -7,9 +7,10 @@ import com.github.piasy.biv.view.GlideImageViewFactory
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.hideProgress
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LDialogUtil
+import com.loitp.core.ext.showProgress
 import kotlinx.android.synthetic.main.a_big_iv.*
 import vn.loitp.R
 import vn.loitp.common.Constants
@@ -41,7 +42,7 @@ class BigIvActivityFont : BaseActivityFont() {
             this.tvTitle?.text = BigIvActivityFont::class.java.simpleName
         }
 
-        LDialogUtil.hideProgress(progressBar)
+        progressBar.hideProgress()
         bigImageView.setImageViewFactory(GlideImageViewFactory())
         bigImageView.setImageLoaderCallback(object : ImageLoader.Callback {
             override fun onCacheHit(imageType: Int, image: File) {}
@@ -49,7 +50,7 @@ class BigIvActivityFont : BaseActivityFont() {
             override fun onCacheMiss(imageType: Int, image: File) {}
 
             override fun onStart() {
-                LDialogUtil.showProgress(progressBar)
+                progressBar.showProgress()
             }
 
             override fun onProgress(progress: Int) {
@@ -62,7 +63,7 @@ class BigIvActivityFont : BaseActivityFont() {
                 logD("onSuccess")
                 val ssiv = bigImageView.ssiv
                 ssiv?.isZoomEnabled = true
-                LDialogUtil.hideProgress(progressBar)
+                progressBar.hideProgress()
             }
 
             override fun onFail(error: Exception) {}

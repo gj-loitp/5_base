@@ -11,12 +11,8 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.share
-import com.loitp.core.ext.tranIn
-import com.loitp.core.ext.transActivityNoAnimation
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.slide.GalleryCoreSlideActivity
-import com.loitp.core.utilities.LDialogUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
@@ -148,8 +144,7 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
         for (i in 0 until size) {
             arr[i] = "Page " + (totalPage - i)
         }
-        LDialogUtil.showDialogList(
-            context = this,
+        this.showDialogList(
             title = "Select page",
             arr = arr,
             onClick = { position ->
@@ -166,14 +161,14 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
             return
         }
         isLoading = true
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
         val userID = FlickrConst.USER_KEY
         if (currentPage <= 0) {
             currentPage = 0
-            LDialogUtil.hideProgress(progressBar)
+            progressBar.hideProgress()
             isLoading = false
             return
         }
@@ -203,12 +198,12 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     btPage.visibility = View.VISIBLE
                     isLoading = false
                 }) { e: Throwable ->
                     handleException(e)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     isLoading = true
                 }
         )
