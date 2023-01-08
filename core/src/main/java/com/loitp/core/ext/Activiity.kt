@@ -18,6 +18,7 @@ import android.provider.CalendarContract
 import android.provider.Settings
 import android.provider.Telephony
 import android.view.*
+import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import com.loitp.R
 import com.loitp.core.base.BaseActivity
@@ -51,8 +52,7 @@ fun Activity.searchIconPack() {
     try {
         this.startActivity(
             Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse(url)
+                Intent.ACTION_VIEW, Uri.parse(url)
             )
         )
         this.tranIn()
@@ -75,10 +75,7 @@ fun Activity.launchClockApp() {
 
 //mo app calendar mac dinh cua device
 fun Activity.launchCalendar() {
-    val calendarUri = CalendarContract.CONTENT_URI
-        .buildUpon()
-        .appendPath("time")
-        .build()
+    val calendarUri = CalendarContract.CONTENT_URI.buildUpon().appendPath("time").build()
     this.startActivity(Intent(Intent.ACTION_VIEW, calendarUri))
     this.tranIn()
 }
@@ -159,8 +156,7 @@ fun Activity.rateApp(
     try {
         this.startActivity(
             Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("market://details?id=$packageName")
+                Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")
             )
         )
         this.tranIn()
@@ -191,10 +187,8 @@ fun Activity.shareApp(
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/plain"
         intent.putExtra(Intent.EXTRA_SUBJECT, this.getString(R.string.app_name))
-        var sAux =
-            "\nỨng dụng này rất bổ ích, thân mời bạn tải về cài đặt để trải nghiệm\n\n"
-        sAux =
-            sAux + "https://play.google.com/store/apps/details?id=" + this.packageName
+        var sAux = "\nỨng dụng này rất bổ ích, thân mời bạn tải về cài đặt để trải nghiệm\n\n"
+        sAux = sAux + "https://play.google.com/store/apps/details?id=" + this.packageName
         intent.putExtra(Intent.EXTRA_TEXT, sAux)
         this.startActivity(Intent.createChooser(intent, "Vui lòng chọn"))
         this.tranIn()
@@ -237,8 +231,7 @@ fun Context.getFacebookPageURL(): String {
     val facebookPageId = "hoidammedocsach"
     val packageManager = this.packageManager
     return try {
-        val versionCode =
-            packageManager.getPackageInfo("com.facebook.katana", 0).versionCode
+        val versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode
         if (versionCode >= 3002850) {
             "fb://facewebmodal/f?href=$facebookUrl"
         } else {
@@ -330,9 +323,7 @@ val screenHeight: Int
 fun Context.getStatusBarHeight(): Int {
     var result = 0
     val resourceId = this.resources.getIdentifier(
-        "status_bar_height",
-        "dimen",
-        "android"
+        "status_bar_height", "dimen", "android"
     )
     if (resourceId > 0) {
         result = this.resources.getDimensionPixelSize(resourceId)
@@ -348,9 +339,7 @@ fun Context.getBottomBarHeight(): Int {
         // Do whatever you need to do, this device has a navigation bar
         var result = 0
         val resourceId = this.resources.getIdentifier(
-            "design_bottom_navigation_height",
-            "dimen",
-            this.packageName
+            "design_bottom_navigation_height", "dimen", this.packageName
         )
         if (resourceId > 0) {
             result = LAppResource.application.resources.getDimensionPixelSize(resourceId)
@@ -362,8 +351,7 @@ fun Context.getBottomBarHeight(): Int {
 }
 
 fun Context.getScreenHeightIncludeNavigationBar(): Int {
-    val windowManager =
-        this.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    val windowManager = this.getSystemService(Context.WINDOW_SERVICE) as WindowManager
     val display = windowManager.defaultDisplay
     val outPoint = Point()
     // include navigation bar
@@ -397,8 +385,7 @@ fun Activity.hideStatusBar(
     // Hide Status Bar
     if (Build.VERSION.SDK_INT < 16) {
         this.window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
+            WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
     } else {
         val decorView = this.window.decorView
@@ -426,27 +413,18 @@ fun Activity.toggleFullscreen(
     isFullScreen: Boolean
 ) {
     if (isFullScreen) {
-        this.window
-            .decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
-                    View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        this.window.decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
     } else {
-        this.window
-            .decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+        this.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
     }
 }
 
 fun Activity.hideNavigationBar(
 ) {
     // set navigation bar status, remember to disable "setNavigationBarTintEnabled"
-    val flags = (
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-            )
+    val flags =
+        (View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
     // This work only for android 4.4+
     this.window.decorView.systemUiVisibility = flags
 
@@ -464,12 +442,8 @@ fun Activity.hideNavigationBar(
 fun Activity.showNavigationBar(
 ) {
     // set navigation bar status, remember to disable "setNavigationBarTintEnabled"
-    val flags = (
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-            )
+    val flags =
+        (View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
     // This work only for android 4.4+
     this.window.decorView.systemUiVisibility = flags
 
@@ -536,9 +510,7 @@ fun Activity.setScreenOrientation(
 }
 
 fun Activity.replaceFragment(
-    containerFrameLayoutIdRes: Int,
-    fragment: Fragment,
-    isAddToBackStack: Boolean
+    containerFrameLayoutIdRes: Int, fragment: Fragment, isAddToBackStack: Boolean
 ) {
     if (this is BaseActivity) {
         val transaction = this.supportFragmentManager.beginTransaction()
@@ -552,9 +524,7 @@ fun Activity.replaceFragment(
 }
 
 fun Activity.addFragment(
-    containerFrameLayoutIdRes: Int,
-    fragment: Fragment,
-    isAddToBackStack: Boolean
+    containerFrameLayoutIdRes: Int, fragment: Fragment, isAddToBackStack: Boolean
 ) {
     if (this is BaseActivity) {
         val transaction = this.supportFragmentManager.beginTransaction()
@@ -568,10 +538,7 @@ fun Activity.addFragment(
 }
 
 fun Activity.addFragment(
-    containerFrameLayoutIdRes: Int,
-    fragment: Fragment,
-    tag: String,
-    isAddToBackStack: Boolean
+    containerFrameLayoutIdRes: Int, fragment: Fragment, tag: String, isAddToBackStack: Boolean
 ) {
     if (this is BaseActivity) {
         val transaction = this.supportFragmentManager.beginTransaction()
@@ -599,8 +566,7 @@ fun Activity.removeFragmentByTag(
 ) {
     val fragment = this.findFragmentByTag(tag = tag)
     if (fragment != null) {
-        val transaction =
-            (this as BaseActivity).supportFragmentManager.beginTransaction()
+        val transaction = (this as BaseActivity).supportFragmentManager.beginTransaction()
         // transaction.setCustomAnimations(0, android.R.anim.fade_out)
         transaction.remove(fragment).commit()
     }
@@ -634,8 +600,7 @@ fun Context?.setBrightness(
     val isCanWriteSystem = checkSystemWritePermission()
 
     if (!isCanWriteSystem) {
-        LDialogUtil.showDialog1(
-            context = this,
+        LDialogUtil.showDialog1(context = this,
             title = "Thông báo",
             msg = "Ứng dụng cần bạn cần cấp quyền điều chỉnh độ sáng màn hình",
             button1 = "Cấp phép",
@@ -645,8 +610,7 @@ fun Context?.setBrightness(
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 this.startActivity(intent)
                 this.tranIn()
-            }
-        )
+            })
         return
     }
 
@@ -665,15 +629,12 @@ fun Context?.setBrightness(
             Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL
         ) // this will set the manual parrallaxMode (set the automatic parrallaxMode off)
         Settings.System.putInt(
-            this.contentResolver,
-            Settings.System.SCREEN_BRIGHTNESS,
-            brightness
+            this.contentResolver, Settings.System.SCREEN_BRIGHTNESS, brightness
         ) // this will set the brightness to maximum (255)
 
         // refreshes the screen
         val br = Settings.System.getInt(
-            this.contentResolver,
-            Settings.System.SCREEN_BRIGHTNESS
+            this.contentResolver, Settings.System.SCREEN_BRIGHTNESS
         )
         val lp = (this as Activity).window.attributes
         lp.screenBrightness = br.toFloat() / 255
@@ -686,8 +647,7 @@ fun Context?.setBrightness(
 fun Context.getCurrentBrightness(): Int {
     return try {
         Settings.System.getInt(
-            this.contentResolver,
-            Settings.System.SCREEN_BRIGHTNESS
+            this.contentResolver, Settings.System.SCREEN_BRIGHTNESS
         )
     } catch (e: Exception) {
         e.printStackTrace()
@@ -697,4 +657,18 @@ fun Context.getCurrentBrightness(): Int {
 
 fun Context.checkSystemWritePermission(): Boolean {
     return Settings.System.canWrite(this)
+}
+
+fun Activity.showPopup(
+    showOnView: View,
+    menuRes: Int,
+    callback: ((MenuItem) -> Unit)? = null,
+) {
+    val popup = PopupMenu(this, showOnView)
+    popup.menuInflater.inflate(menuRes, popup.menu)
+    popup.setOnMenuItemClickListener { menuItem ->
+        callback?.invoke(menuItem)
+        true
+    }
+    popup.show()
 }

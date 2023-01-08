@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LPopupMenu
+import com.loitp.core.ext.showPopup
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import kotlinx.android.synthetic.main.activity_recycler_view.*
@@ -95,8 +95,7 @@ class RecyclerViewActivityFont : BaseActivityFont() {
         }
         prepareMovieData()
         btSetting.setOnClickListener {
-            LPopupMenu.show(
-                activity = this,
+            this.showPopup(
                 showOnView = it,
                 menuRes = R.menu.menu_recycler_view,
                 callback = { menuItem ->

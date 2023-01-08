@@ -16,7 +16,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.changeTabsFont
-import com.loitp.core.utilities.LPopupMenu
+import com.loitp.core.ext.showPopup
 import kotlinx.android.synthetic.main.a_collapsingtoolbar_withtablayout.*
 import vn.loitp.R
 
@@ -64,8 +64,7 @@ class CollapsingToolbarWithTabLayoutActivityFont : BaseActivityFont(), OnClickLi
                     .setAction("Action", null).show()
             }
             btMenu -> {
-                LPopupMenu.show(
-                    activity = this,
+                this.showPopup(
                     showOnView = v,
                     menuRes = R.menu.menu_popup,
                     callback = { menuItem ->

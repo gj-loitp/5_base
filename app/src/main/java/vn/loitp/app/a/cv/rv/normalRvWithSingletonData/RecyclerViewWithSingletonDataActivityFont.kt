@@ -12,7 +12,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LPopupMenu
+import com.loitp.core.ext.showPopup
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 import vn.loitp.R
@@ -39,16 +39,13 @@ class RecyclerViewWithSingletonDataActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = RecyclerViewWithSingletonDataActivityFont::class.java.simpleName
         }
-        mAdapter = MoviesAdapter(
-            moviesList = instance.movieList,
+        mAdapter = MoviesAdapter(moviesList = instance.movieList,
             callback = object : MoviesAdapter.Callback {
                 override fun onClick(movie: Movie, position: Int) {
                     showShortInformation("Click " + movie.title)
@@ -67,8 +64,7 @@ class RecyclerViewWithSingletonDataActivityFont : BaseActivityFont() {
                 override fun onLoadMore() {
                     loadMore()
                 }
-            }
-        )
+            })
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
 //        rv.itemAnimator = DefaultItemAnimator()
@@ -90,9 +86,7 @@ class RecyclerViewWithSingletonDataActivityFont : BaseActivityFont() {
         // LUIUtil.setPullLikeIOSVertical(rv)
         prepareMovieData()
         btSetting.setOnClickListener {
-            LPopupMenu.show(
-                activity = this,
-                showOnView = it,
+            this.showPopup(showOnView = it,
                 menuRes = R.menu.menu_recycler_view,
                 callback = { menuItem ->
                     tvType.text = menuItem.title.toString()
@@ -110,21 +104,16 @@ class RecyclerViewWithSingletonDataActivityFont : BaseActivityFont() {
                             )
                             rv.layoutManager = lmHorizontal
                         }
-                        R.id.menuGridLayoutManager2 ->
-                            rv.layoutManager =
-                                GridLayoutManager(this@RecyclerViewWithSingletonDataActivityFont, 2)
-                        R.id.menuGridLayoutManager3 ->
-                            rv.layoutManager =
-                                GridLayoutManager(this@RecyclerViewWithSingletonDataActivityFont, 3)
-                        R.id.menuStaggeredGridLayoutManager2 ->
-                            rv.layoutManager =
-                                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-                        R.id.menuStaggeredGridLayoutManager4 ->
-                            rv.layoutManager =
-                                StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
+                        R.id.menuGridLayoutManager2 -> rv.layoutManager =
+                            GridLayoutManager(this@RecyclerViewWithSingletonDataActivityFont, 2)
+                        R.id.menuGridLayoutManager3 -> rv.layoutManager =
+                            GridLayoutManager(this@RecyclerViewWithSingletonDataActivityFont, 3)
+                        R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager =
+                            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                        R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager =
+                            StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
                     }
-                }
-            )
+                })
         }
     }
 

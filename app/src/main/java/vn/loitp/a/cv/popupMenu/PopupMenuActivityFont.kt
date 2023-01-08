@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LPopupMenu
+import com.loitp.core.ext.showPopup
 import kotlinx.android.synthetic.main.a_menu_popup.*
 import vn.loitp.R
 
@@ -49,8 +49,7 @@ class PopupMenuActivityFont : BaseActivityFont(), View.OnClickListener {
             btShow3,
             btShow4,
             btShow5 -> {
-                LPopupMenu.show(
-                    activity = this,
+                this.showPopup(
                     showOnView = v,
                     menuRes = R.menu.menu_popup,
                     callback = { menuItem ->

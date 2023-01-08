@@ -8,7 +8,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LPopupMenu
+import com.loitp.core.ext.showPopup
 import com.loitp.views.layout.appBar.LAppBarLayout
 import kotlinx.android.synthetic.main.a_collapsing_toolbar_layout_with_tab_layout.*
 import vn.loitp.R
@@ -63,8 +63,7 @@ class CollapsingToolbarLayoutActivityFont : BaseActivityFont(), OnClickListener 
 
     override fun onClick(v: View) {
         when (v) {
-            btMenu -> LPopupMenu.show(
-                activity = this,
+            btMenu -> this.showPopup(
                 showOnView = v,
                 menuRes = R.menu.menu_popup,
                 callback = { menuItem ->
