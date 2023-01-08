@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.dip2px
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.shadowViewHelper.ShadowProperty
 import com.loitp.views.shadowViewHelper.ShadowViewDrawable
 import kotlinx.android.synthetic.main.a_animation_shadow_view_helper.*
@@ -30,8 +30,7 @@ class ShadowViewHelperActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

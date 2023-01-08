@@ -14,13 +14,13 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.now
 import com.loitp.core.ext.printBeautyJson
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.tranIn
 import com.loitp.core.helper.nfc.TagWrapper
 import com.loitp.core.helper.nfc.buildMACAddressString
 import com.loitp.core.helper.nfc.bytesToHex
 import com.loitp.core.helper.nfc.bytesToHexAndString
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_demo_nfc.*
 import vn.loitp.R
 import java.io.UnsupportedEncodingException
@@ -48,8 +48,7 @@ class NFCActivity : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

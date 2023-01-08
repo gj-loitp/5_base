@@ -6,8 +6,9 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setCornerCardView
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_card_view.*
 import vn.loitp.R
 
@@ -28,8 +29,7 @@ class CardViewActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
@@ -44,8 +44,7 @@ class CardViewActivityFont : BaseActivityFont() {
             val radiusBL = resources.getDimension(R.dimen.round_large)
             val radiusBR = resources.getDimension(R.dimen.round_largest)
 
-            LUIUtil.setCornerCardView(
-                cardView = mcvTest,
+            mcvTest.setCornerCardView(
                 radiusTL = radiusTL,
                 radiusTR = radiusTR,
                 radiusBL = radiusBL,

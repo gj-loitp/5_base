@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.getDimenValue
 import com.loitp.core.ext.openUrlInBrowser
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_iv_shapeable.*
 import vn.loitp.R
 
@@ -30,15 +30,13 @@ class ShapeableIvActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.apply {
-                LUIUtil.setSafeOnClickListenerElastic(
-                    view = this,
+                this.setSafeOnClickListenerElastic(
                     runnable = {
                         context.openUrlInBrowser(
                             url = "https://viblo.asia/p/hien-thi-image-nhieu-hinh-dang-voi-shapeableimageview-3P0lPGJGZox"

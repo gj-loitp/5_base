@@ -17,7 +17,6 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.*
-import com.loitp.core.utilities.LUIUtil
 import io.devlight.xtreeivi.cornercutlinearlayout.CornerCutLinearLayout
 import kotlinx.android.synthetic.main.a_layout_corner_cut_linear.*
 import vn.loitp.R
@@ -63,15 +62,13 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.let {
-                LUIUtil.setSafeOnClickListenerElastic(
-                    view = it,
+                this.ivIconLeft.setSafeOnClickListenerElastic(
                     runnable = {
                         context.openUrlInBrowser(
                             url = "https://github.com/Devlight/CornerCutLinearLayout"

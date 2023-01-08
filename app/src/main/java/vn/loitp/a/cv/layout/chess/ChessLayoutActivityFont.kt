@@ -11,7 +11,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_layout_chess.*
 import vn.loitp.R
 
@@ -35,8 +35,7 @@ class ChessLayoutActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
@@ -75,9 +74,7 @@ class ChessLayoutActivityFont : BaseActivityFont() {
                 textView.gravity = Gravity.CENTER
                 textView.setTextColor(Color.WHITE)
                 textView.setBackgroundColor(if ((iRow + iCol) % 2 == 0) color1 else color2)
-
-                LUIUtil.setSafeOnClickListenerElastic(
-                    view = textView,
+                textView.setSafeOnClickListenerElastic(
                     runnable = {
                         showShortInformation("${textView.text}")
                     }

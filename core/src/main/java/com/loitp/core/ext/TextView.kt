@@ -2,8 +2,7 @@ package com.loitp.core.ext
 
 import android.annotation.SuppressLint
 import android.content.res.ColorStateList
-import android.graphics.Color
-import android.graphics.Typeface
+import android.graphics.*
 import android.text.Html
 import android.text.TextUtils
 import android.util.TypedValue
@@ -99,4 +98,26 @@ fun TextView?.setTextSizePx(
         return
     }
     this.setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
+}
+
+fun TextView.setDrawableTintColor(
+    color: Int
+) {
+    for (drawable in this.compoundDrawables) {
+        if (drawable != null) {
+            drawable.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)
+        }
+    }
+}
+
+@Suppress("unused")
+fun TextView.setTypeface(
+    pathFontAsset: String
+) {
+    val type = Typeface.createFromAsset(this.context.assets, pathFontAsset)
+    this.typeface = type
+}
+
+fun TextView.setTextUnderline() {
+    this.paintFlags = this.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 }

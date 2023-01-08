@@ -7,8 +7,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_dlg_slide_images.*
 import vn.loitp.R
 
@@ -28,8 +28,7 @@ class DialogSlideImagesActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

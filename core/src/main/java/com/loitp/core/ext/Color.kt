@@ -1,7 +1,16 @@
 package com.loitp.core.ext
 
+import android.content.Context
 import android.graphics.Color
+import android.view.View
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.core.graphics.ColorUtils
 import com.loitp.R
+import com.simmorsal.recolor_project.OnReColorFinish
+import com.simmorsal.recolor_project.ReColor
 import java.util.*
 
 /**
@@ -74,4 +83,133 @@ fun getRandomColorLight(): Int {
 fun getRandomColor(): Int {
     val rnd = Random()
     return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+}
+
+fun Int.setAlphaComponent(
+    alpha: Int = 50
+): Int {
+    return ColorUtils.setAlphaComponent(/* color = */ this, /* alpha = */ alpha)
+}
+
+fun Context.recolorStatusBarPulse(
+    pulseColor: Int,
+    pulseSpeed: Int = 300,
+    pulseCount: Int = 2,
+) {
+    val pulseColorString = java.lang.String.format("#%08X", -0x1 and pulseColor)
+    ReColor(this).pulseStatusBar(
+        pulseColorString,
+        pulseSpeed,
+        pulseCount,
+    )
+}
+
+fun Context.recolorStatusBar(
+    startColor: Int? = null,
+    endColor: Int,
+    duration: Int = 300,
+    onReColorFinish: OnReColorFinish? = null
+) {
+    // if starting color is null, color will be automatically retrieved from status bar
+    // same is true for navigation bar
+    var hexColorStart: String? = null
+    if (startColor == null) {
+        //do nothing
+    } else {
+        hexColorStart = java.lang.String.format("#%08X", -0x1 and startColor)
+    }
+    val hexColorEnd = java.lang.String.format("#%08X", -0x1 and endColor)
+    ReColor(this).setStatusBarColor(
+        /* startingColor = */ hexColorStart,
+        /* endingColor = */hexColorEnd,
+        /* duration = */duration
+    ).setOnReColorFinish(onReColorFinish)
+}
+
+fun Context.recolorNavigationBarPulse(
+    pulseColor: Int,
+    pulseSpeed: Int = 300,
+    pulseCount: Int = 2,
+) {
+    val pulseColorString = java.lang.String.format("#%08X", -0x1 and pulseColor)
+    ReColor(this).pulseNavigationBar(
+        pulseColorString,
+        pulseSpeed,
+        pulseCount,
+    )
+}
+
+fun Context.recolorNavigationBar(
+    startColor: Int? = null,
+    endColor: Int,
+    duration: Int = 300,
+    onReColorFinish: OnReColorFinish? = null
+) {
+    // if starting color is null, color will be automatically retrieved from status bar
+    // same is true for navigation bar
+    var hexColorStart: String? = null
+    if (startColor == null) {
+        //do nothing
+    } else {
+        hexColorStart = java.lang.String.format("#%08X", -0x1 and startColor)
+    }
+    val hexColorEnd = java.lang.String.format("#%08X", -0x1 and endColor)
+    ReColor(this).setNavigationBarColor(
+        /* startingColor = */ hexColorStart,
+        /* endingColor = */hexColorEnd,
+        /* duration = */duration
+    ).setOnReColorFinish(onReColorFinish)
+}
+
+fun View.recolor(
+    startColor: Int,
+    endColor: Int,
+    duration: Int = 300,
+    onReColorFinish: OnReColorFinish? = null
+) {
+    val hexColorStart = java.lang.String.format("#%08X", -0x1 and startColor)
+    val hexColorEnd = java.lang.String.format("#%08X", -0x1 and endColor)
+    when (this) {
+        is ImageButton -> {
+            ReColor(this.context).setImageButtonColorFilter(
+                this,
+                /* startingColor = */hexColorStart,
+                /* endingColor = */hexColorEnd,
+                /* duration = */duration
+            ).setOnReColorFinish(onReColorFinish)
+        }
+        is ImageView -> {
+            ReColor(this.context).setImageViewColorFilter(
+                /* imageView = */ this,
+                /* startingColor = */ hexColorStart,
+                /* endingColor = */ hexColorEnd,
+                /* duration = */ duration
+            ).setOnReColorFinish(onReColorFinish)
+        }
+        is TextView -> {
+            ReColor(this.context).setTextViewColor(
+                /* textView = */ this,
+                /* startingColor = */hexColorStart,
+                /* endingColor = */hexColorEnd,
+                /* duration = */duration
+            ).setOnReColorFinish(onReColorFinish)
+        }
+        is CardView -> {
+            ReColor(this.context).setCardViewColor(
+                this,
+                /* startingColor = */hexColorStart,
+                /* endingColor = */hexColorEnd,
+                /* duration = */duration
+            ).setOnReColorFinish(onReColorFinish)
+        }
+        else -> {
+            ReColor(this.context).setViewBackgroundColor(
+                /* view = */ this,
+                /* startingColor = */ hexColorStart,
+                /* endingColor = */ hexColorEnd,
+                /* duration = */ duration
+            ).setOnReColorFinish(onReColorFinish)
+        }
+    }
+
 }

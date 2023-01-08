@@ -18,7 +18,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFancyShowcase
 import com.loitp.core.ext.openUrlInBrowser
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_fancy_showcase.*
 import me.toptas.fancyshowcase.FancyShowCaseView
 import me.toptas.fancyshowcase.FocusShape
@@ -50,15 +50,13 @@ class FancyShowcaseActivity : BaseActivityFancyShowcase() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft?.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.apply {
-                LUIUtil.setSafeOnClickListenerElastic(
-                    view = this,
+                this.setSafeOnClickListenerElastic(
                     runnable = {
                         context.openUrlInBrowser(
                             url = "https://github.com/faruktoptas/FancyShowCaseView"

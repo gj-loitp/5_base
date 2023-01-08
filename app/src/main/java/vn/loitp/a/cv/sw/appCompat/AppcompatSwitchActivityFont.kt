@@ -6,8 +6,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.isDarkTheme
 import com.loitp.core.ext.setDarkTheme
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LStoreUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_sw_appcompat.*
 import vn.loitp.R
 
@@ -27,8 +27,7 @@ class AppcompatSwitchActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

@@ -9,7 +9,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_rv_drag_and_drop_demo.*
 import vn.loitp.R
 import vn.loitp.a.cv.rv.dragAndDropDemo.adt.SentenceAdapter
@@ -40,15 +40,13 @@ class DragAndDropDemoActivityFont : BaseActivityFont() {
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.let {
-                LUIUtil.setSafeOnClickListenerElastic(
-                    view = it,
+                it.setSafeOnClickListenerElastic(
                     runnable = {
                         context.openUrlInBrowser(
                             url = "https://github.com/robertlevonyan/drag-and-drop-demo"

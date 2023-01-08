@@ -8,9 +8,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.ext.setDelay
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LReaderUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.vm.EpubViewModel
 import kotlinx.android.synthetic.main.a_demo_epub_reader.*
@@ -43,8 +43,7 @@ class MenuEpubReaderActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

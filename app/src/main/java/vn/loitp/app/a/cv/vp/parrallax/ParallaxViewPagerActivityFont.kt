@@ -11,8 +11,8 @@ import androidx.viewpager.widget.PagerAdapter
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LStoreUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.vp.parrallax.ParallaxMode
 import kotlinx.android.synthetic.main.activity_view_pager_parallax.*
 import vn.loitp.R
@@ -34,8 +34,7 @@ class ParallaxViewPagerActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

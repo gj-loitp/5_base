@@ -11,7 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.sothree.slidinguppanel.PanelSlideListener
 import com.sothree.slidinguppanel.PanelState
 import kotlinx.android.synthetic.main.a_android_sliding_up_panel.*
@@ -36,11 +36,11 @@ class AndroidSlidingUpPanelActivityFont : BaseActivityFont() {
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
             this.ivIconRight?.let {
-                LUIUtil.setSafeOnClickListenerElastic(view = it, runnable = {
+                it.setSafeOnClickListenerElastic(runnable = {
                     context.openUrlInBrowser(
                         url = "https://github.com/hannesa2/AndroidSlidingUpPanel"
                     )

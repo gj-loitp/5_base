@@ -7,10 +7,10 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.helper.ttt.model.comic.Comic
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_ttt_api_fav_list.*
 import vn.loitp.R
 
@@ -35,8 +35,7 @@ class TTTAPIFavListActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

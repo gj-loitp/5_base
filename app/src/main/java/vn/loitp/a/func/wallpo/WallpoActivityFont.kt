@@ -8,11 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.ext.getRandomColor
-import com.loitp.core.ext.loadGlide
-import com.loitp.core.ext.openUrlInBrowser
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.*
 import kotlinx.android.synthetic.main.a_wallpo.*
 import vn.loitp.R
 
@@ -34,15 +30,13 @@ class WallpoActivityFont : BaseActivityFont() {
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.let {
-                LUIUtil.setSafeOnClickListenerElastic(
-                    view = it,
+                it.setSafeOnClickListenerElastic(
                     runnable = {
                         context.openUrlInBrowser(
                             url = "https://github.com/sayyedrizwan/wallpo"
@@ -62,26 +56,21 @@ class WallpoActivityFont : BaseActivityFont() {
         }
 
         btSetWallpaper.setSafeOnClickListener {
-            LUIUtil.setWallpaperAndLockScreen(
-                context = this,
-                imageView = ivPreview,
+            ivPreview.setWallpaperAndLockScreen(
                 isSetWallpaper = true,
                 isSetLockScreen = false,
             )
             showShortInformation("Wallpaper set successfully")
         }
         btSetLockscreen.setSafeOnClickListener {
-            LUIUtil.setWallpaperAndLockScreen(
-                context = this,
-                imageView = ivPreview,
+            ivPreview.setWallpaperAndLockScreen(
                 isSetWallpaper = false,
                 isSetLockScreen = true,
             )
             showShortInformation("Lock Screen Wallpaper set successfully")
         }
         btSetRandomColor.setSafeOnClickListener {
-            LUIUtil.setWallpaperAndLockScreen(
-                context = this,
+            this.setWallpaperAndLockScreen(
                 color = getRandomColor(),
                 isSetWallpaper = true,
                 isSetLockScreen = true,

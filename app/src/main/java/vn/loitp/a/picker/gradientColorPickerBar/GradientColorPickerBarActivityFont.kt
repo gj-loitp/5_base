@@ -10,7 +10,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.pk.gradientColorPickerBar.GradientColorPickerBar
 import kotlinx.android.synthetic.main.a_picker_gradient_color_picker_bar.*
 import vn.loitp.R
@@ -40,15 +40,13 @@ class GradientColorPickerBarActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.apply {
-                LUIUtil.setSafeOnClickListenerElastic(
-                    view = this,
+                this.setSafeOnClickListenerElastic(
                     runnable = {
                         context.openUrlInBrowser(
                             url = "https://github.com/wangpeiyuan/GradientColorPickerBar"

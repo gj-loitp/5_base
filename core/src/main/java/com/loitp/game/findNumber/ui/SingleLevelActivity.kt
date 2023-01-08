@@ -13,9 +13,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.play
 import com.loitp.core.ext.setDelay
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.game.findNumber.adt.LevelAdapter
 import com.loitp.game.findNumber.model.Level
 import com.loitp.game.findNumber.vm.FindNumberViewModel
@@ -92,17 +92,14 @@ class SingleLevelActivity : BaseActivityFont() {
                 repeatCount = -1
             )
         }
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = tvLevels
+        tvLevels.setSafeOnClickListenerElastic(
         )
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = ivBack,
+        ivBack.setSafeOnClickListenerElastic(
             runnable = {
                 onBaseBackPressed()
             }
         )
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = ivPlay,
+        ivPlay.setSafeOnClickListenerElastic(
             runnable = {
                 findNumberViewModel?.getFirstLevelOpen()
             }

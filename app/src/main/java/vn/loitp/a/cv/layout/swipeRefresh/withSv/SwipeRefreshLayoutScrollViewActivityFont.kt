@@ -7,8 +7,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setColorForSwipeRefreshLayout
 import com.loitp.core.ext.setDelay
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LStoreUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_layout_swipe_refresh_sv.*
 import vn.loitp.R
 
@@ -28,8 +28,7 @@ class SwipeRefreshLayoutScrollViewActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

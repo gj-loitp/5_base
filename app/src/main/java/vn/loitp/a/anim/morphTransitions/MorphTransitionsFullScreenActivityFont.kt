@@ -5,7 +5,7 @@ import com.loitp.anim.morphTransitions.FabTransform
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_morph_transitions_full_screen.*
 import vn.loitp.R
 
@@ -25,8 +25,7 @@ class MorphTransitionsFullScreenActivityFont : BaseActivityFont() {
     private fun setupViews() {
         FabTransform.setup(this, rootView)
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

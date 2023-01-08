@@ -54,7 +54,7 @@ class SplashActivity : BaseActivityFont() {
         textViewVersion.text = "Version ${BuildConfig.VERSION_NAME}"
 
         tvPolicy.apply {
-            LUIUtil.setTextUnderline(this)
+            this.setTextUnderline()
             this.setTextShadow(color = null)
             setOnClickListener {
                 this@SplashActivity.openBrowserPolicy()

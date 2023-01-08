@@ -11,8 +11,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_demo_fragment_flow.*
 import vn.loitp.R
 
@@ -46,8 +46,7 @@ class FragmentFlowActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

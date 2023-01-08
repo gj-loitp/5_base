@@ -10,6 +10,7 @@ import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
@@ -18,7 +19,9 @@ import com.airbnb.lottie.LottieProperty
 import com.airbnb.lottie.SimpleColorFilter
 import com.airbnb.lottie.model.KeyPath
 import com.airbnb.lottie.value.LottieValueCallback
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
+import com.loitp.R
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utils.ConvertUtils
@@ -323,5 +326,39 @@ fun View.setOnClickListenerElastic(
             runnable?.run()
         }
         anim.doAction()
+    }
+}
+
+fun View?.setSafeOnClickListenerElastic(
+    scaleX: Float = 0.8f,
+    scaleY: Float = 0.8f,
+    duration: Int = 50,
+    runnable: Runnable? = null
+) {
+    this?.setSafeOnClickListener {
+        val anim = this.elasticAnimation(
+            scaleX = scaleX, scaleY = scaleY, duration = duration
+        ) {
+            runnable?.run()
+        }
+        anim.doAction()
+    }
+}
+
+fun Snackbar.withBackground(resId: Int): Snackbar {
+    this.view.setBackgroundResource(resId)
+    return this
+}
+
+fun Snackbar.allowInfiniteLines(): Snackbar {
+    return apply {
+        (view.findViewById<View?>(R.id.snackbar_text) as? TextView?)?.let {
+            it.isSingleLine = false
+            it.setTextColor(Color.WHITE)
+            it.setTextSizePx(
+                size = getDimenValue(R.dimen.txt_medium).toFloat()
+            )
+            it.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        }
     }
 }

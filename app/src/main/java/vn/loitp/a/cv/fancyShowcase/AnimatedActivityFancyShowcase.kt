@@ -8,7 +8,8 @@ import android.os.Looper
 import android.view.View
 import android.view.animation.AnimationUtils
 import com.loitp.core.base.BaseActivityFancyShowcase
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.recolorNavigationBar
+import com.loitp.core.ext.recolorStatusBar
 import kotlinx.android.synthetic.main.a_fancy_showcase.*
 import kotlinx.android.synthetic.main.l_fancy_showcaseanimated_view.*
 import me.toptas.fancyshowcase.FancyShowCaseQueue
@@ -51,13 +52,11 @@ class AnimatedActivityFancyShowcase : BaseActivityFancyShowcase() {
             })
             .customView(R.layout.l_fancy_showcaseanimated_view, object : OnViewInflateListener {
                 override fun onViewInflated(view: View) {
-                    LUIUtil.recolorStatusBar(
-                        context = this@AnimatedActivityFancyShowcase,
+                    this@AnimatedActivityFancyShowcase.recolorStatusBar(
                         startColor = null,
                         endColor = Color.RED
                     )
-                    LUIUtil.recolorNavigationBar(
-                        context = this@AnimatedActivityFancyShowcase,
+                    this@AnimatedActivityFancyShowcase.recolorNavigationBar(
                         startColor = null,
                         endColor = Color.RED
                     )

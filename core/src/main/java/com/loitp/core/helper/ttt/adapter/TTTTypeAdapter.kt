@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.helper.ttt.model.comictype.ComicType
-import com.loitp.R
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_i_ttt_select_type.view.*
 
 /**
@@ -45,8 +45,7 @@ class TTTTypeAdapter : BaseAdapter() {
                 itemView.ivFav.visibility = View.GONE
             }
             itemView.tvType.text = comicType.type
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = itemView.cardView,
+            itemView.cardView.setSafeOnClickListenerElastic(
                 runnable = {
                     onClickRootListener?.invoke(comicType, bindingAdapterPosition)
                 }

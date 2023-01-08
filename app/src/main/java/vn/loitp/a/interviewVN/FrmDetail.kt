@@ -5,7 +5,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import com.loitp.annotation.LogTag
 import com.loitp.core.ext.loadGlide
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.model.QA
 import kotlinx.android.synthetic.main.f_interview_vn_iq_detail.*
 import vn.loitp.R
@@ -37,7 +37,7 @@ class FrmDetail(private val qa: QA) : BaseFragmentFlow() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 popThisFragment()
             })
             ivIconRight?.isVisible = false

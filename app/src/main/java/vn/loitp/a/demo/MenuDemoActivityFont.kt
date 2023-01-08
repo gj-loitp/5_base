@@ -7,11 +7,11 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.helper.gallery.GalleryCoreSplashActivity
 import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity
 import com.loitp.core.helper.gallery.member.GalleryMemberActivity
 import com.loitp.core.helper.ttt.ui.a.TTTSplashActivity
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_demo_menu.*
 import vn.loitp.BuildConfig
 import vn.loitp.R
@@ -51,8 +51,7 @@ class MenuDemoActivityFont : BaseActivityFont(), View.OnClickListener {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

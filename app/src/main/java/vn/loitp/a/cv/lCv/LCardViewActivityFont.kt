@@ -9,8 +9,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.play
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.views.card.LCardView
 import kotlinx.android.synthetic.main.a_l_card_view.*
 import vn.loitp.R
@@ -31,8 +31,7 @@ class LCardViewActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

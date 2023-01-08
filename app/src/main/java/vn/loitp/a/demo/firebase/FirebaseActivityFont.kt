@@ -12,8 +12,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.testCrash
-import com.loitp.core.utilities.LUIUtil
 import com.onesignal.OneSignal
 import com.onesignal.OneSignal.PostNotificationResponseHandler
 import kotlinx.android.synthetic.main.a_firebase.*
@@ -39,8 +39,7 @@ class FirebaseActivityFont : BaseActivityFont() {
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

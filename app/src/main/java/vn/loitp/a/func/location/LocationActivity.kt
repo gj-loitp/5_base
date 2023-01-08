@@ -19,11 +19,7 @@ import com.google.android.gms.location.*
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.getCityByLatLon
-import com.loitp.core.ext.isDarkTheme
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.tranOut
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.*
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.a_func_location.*
 import vn.loitp.BuildConfig
@@ -77,8 +73,7 @@ class LocationActivity : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

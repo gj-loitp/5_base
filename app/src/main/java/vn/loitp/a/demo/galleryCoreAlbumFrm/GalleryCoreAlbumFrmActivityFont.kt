@@ -5,9 +5,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyFrm
 import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_demo_gallery_core_album_frm.*
 import vn.loitp.R
 
@@ -27,8 +27,7 @@ class GalleryCoreAlbumFrmActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

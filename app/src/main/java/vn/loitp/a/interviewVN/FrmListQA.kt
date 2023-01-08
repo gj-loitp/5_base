@@ -6,8 +6,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.LogTag
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LStoreUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.f_interview_vn_iq_list_qa.*
 import kotlinx.android.synthetic.main.i_movie_list.*
 import vn.loitp.R
@@ -55,7 +55,7 @@ class FrmListQA(private val linkGGDrive: String?) : BaseFragmentFlow() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 popThisFragment()
             })
             ivIconRight?.isVisible = false

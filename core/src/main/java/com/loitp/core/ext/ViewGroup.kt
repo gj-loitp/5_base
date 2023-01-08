@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.get
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.shape.CornerFamily
 import com.google.android.material.tabs.TabLayout
 import io.github.inflationx.calligraphy3.CalligraphyUtils
 
@@ -68,4 +70,17 @@ fun NavigationView.setNavMenuItemThemeColors(
     )
     this.itemTextColor = navMenuTextList
     this.itemIconTintList = navMenuIconList
+}
+
+fun MaterialCardView.setCornerCardView(
+    radiusTL: Float,
+    radiusTR: Float,
+    radiusBL: Float,
+    radiusBR: Float,
+) {
+    this.shapeAppearanceModel = this.shapeAppearanceModel.toBuilder()
+        .setTopLeftCorner(CornerFamily.ROUNDED, radiusTL)
+        .setTopRightCorner(CornerFamily.ROUNDED, radiusTR)
+        .setBottomRightCorner(CornerFamily.ROUNDED, radiusBL)
+        .setBottomLeftCorner(CornerFamily.ROUNDED, radiusBR).build()
 }

@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.activity_menu_recycler_tablayout.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.recyclerTabLayout.autoSelect.RvTabAutoSelectActivityRvTabFont
@@ -36,8 +36,7 @@ class MenuRecyclerTabLayoutActivityFont : BaseActivityFont(), AdapterView.OnItem
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

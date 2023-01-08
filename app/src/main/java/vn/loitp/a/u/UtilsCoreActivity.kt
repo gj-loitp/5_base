@@ -33,7 +33,7 @@ class UtilsCoreActivity : BaseActivityFont() {
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
             this.ivIconRight?.isVisible = false
@@ -217,7 +217,7 @@ class UtilsCoreActivity : BaseActivityFont() {
         btScrollToBottom.setSafeOnClickListener {
             sv.scrollToBottom()
         }
-        LUIUtil.setDrawableTintColor(tv1, Color.CYAN)
+        tv1.setDrawableTintColor(Color.CYAN)
     }
 
     private fun onClickBtLStoreUtil() {

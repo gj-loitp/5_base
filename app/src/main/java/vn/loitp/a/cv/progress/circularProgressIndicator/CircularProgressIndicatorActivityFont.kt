@@ -10,7 +10,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.loading.circularProgressIndicator.CircularProgressIndicator
 import kotlinx.android.synthetic.main.a_progress_circular_progress_indicator.*
 import vn.loitp.BuildConfig
@@ -36,8 +36,7 @@ class CircularProgressIndicatorActivityFont :
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

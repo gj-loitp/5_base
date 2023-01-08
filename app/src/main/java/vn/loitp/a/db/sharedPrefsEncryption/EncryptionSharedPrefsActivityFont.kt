@@ -7,8 +7,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LEncryptionSharedPrefsUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_db_shared_prefs_encryption.*
 import vn.loitp.R
 import vn.loitp.a.pattern.mvp.User
@@ -48,8 +48,7 @@ class EncryptionSharedPrefsActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

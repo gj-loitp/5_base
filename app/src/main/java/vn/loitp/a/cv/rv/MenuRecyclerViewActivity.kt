@@ -7,7 +7,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_rv_menu.*
 import vn.loitp.R
 import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivityFont
@@ -54,7 +54,7 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
             this.ivIconRight?.isVisible = false
@@ -98,7 +98,9 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
                 RecyclerViewWithSingletonDataActivityFont::class.java
             )
             btGalleryLayoutManager -> launchActivity(GalleryLayoutManagerHorizontalActivityFont::class.java)
-            btGalleryLayoutManagerVertical -> launchActivity(GalleryLayoutManagerVerticalActivityFont::class.java)
+            btGalleryLayoutManagerVertical -> launchActivity(
+                GalleryLayoutManagerVerticalActivityFont::class.java
+            )
             btBookView -> launchActivity(BookViewActivityFont::class.java)
             btDiffUtil -> launchActivity(DiffUtilActivityFont::class.java)
             btRecyclerTabLayout -> launchActivity(MenuRecyclerTabLayoutActivityFont::class.java)
@@ -113,7 +115,9 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
             btDragDropSwipeRecyclerviewListHorizontal -> launchActivity(
                 DragDropSwipeListHorizontalRecyclerviewActivityFont::class.java
             )
-            btDragDropSwipeRecyclerviewGrid -> launchActivity(DragDropSwipeGridRecyclerviewActivityFont::class.java)
+            btDragDropSwipeRecyclerviewGrid -> launchActivity(
+                DragDropSwipeGridRecyclerviewActivityFont::class.java
+            )
             btFastScroll -> launchActivity(MenuFastScrollActivityFont::class.java)
             btFastScrollSeekBar -> launchActivity(RecyclerViewFastScrollSeekbarActivityFont::class.java)
             btTurnLayoutManagerActivity -> launchActivity(TurnLayoutManagerActivityFont::class.java)

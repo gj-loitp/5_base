@@ -9,7 +9,6 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.*
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.data.ActivityData
 import kotlinx.android.synthetic.main.a_animation_1.*
 import vn.loitp.R
@@ -30,8 +29,7 @@ class Animation1ActivityFont : BaseActivityFont(), OnClickListener {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft?.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

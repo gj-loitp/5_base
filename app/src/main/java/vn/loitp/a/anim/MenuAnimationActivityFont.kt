@@ -7,7 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_menu_animation.*
 import vn.loitp.R
 import vn.loitp.a.anim.activityTransition.Animation1ActivityFont
@@ -47,9 +47,10 @@ class MenuAnimationActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
-                onBaseBackPressed()
-            })
+            this.ivIconLeft.setSafeOnClickListenerElastic(
+                runnable = {
+                    onBaseBackPressed()
+                })
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = MenuAnimationActivityFont::class.java.simpleName
         }

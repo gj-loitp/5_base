@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.*
 import com.simmorsal.recolor_project.ReColor
 import kotlinx.android.synthetic.main.a_func_recolor.*
 import vn.loitp.R
@@ -40,8 +40,7 @@ class RecolorActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
@@ -54,8 +53,7 @@ class RecolorActivityFont : BaseActivityFont() {
         imageView.setOnClickListener {
             when (imageViewColorSetNumber) {
                 0 -> {
-                    LUIUtil.recolor(
-                        view = imageView,
+                    imageView.recolor(
                         startColor = Color.RED,
                         endColor = Color.YELLOW,
                         duration = 300
@@ -63,8 +61,7 @@ class RecolorActivityFont : BaseActivityFont() {
                     imageViewColorSetNumber = 1
                 }
                 1 -> {
-                    LUIUtil.recolor(
-                        view = imageView,
+                    imageView.recolor(
                         startColor = Color.YELLOW,
                         endColor = Color.GREEN,
                         duration = 300
@@ -72,8 +69,7 @@ class RecolorActivityFont : BaseActivityFont() {
                     imageViewColorSetNumber = 2
                 }
                 2 -> {
-                    LUIUtil.recolor(
-                        view = imageView,
+                    imageView.recolor(
                         startColor = Color.GREEN,
                         endColor = Color.BLUE,
                         duration = 300
@@ -81,8 +77,7 @@ class RecolorActivityFont : BaseActivityFont() {
                     imageViewColorSetNumber = 3
                 }
                 3 -> {
-                    LUIUtil.recolor(
-                        view = imageView,
+                    imageView.recolor(
                         startColor = Color.BLUE,
                         endColor = Color.RED,
                         duration = 300
@@ -96,8 +91,7 @@ class RecolorActivityFont : BaseActivityFont() {
         textView.setOnClickListener {
             when (textViewColorSetNumber) {
                 0 -> {
-                    LUIUtil.recolor(
-                        view = textView,
+                    textView.recolor(
                         startColor = Color.RED,
                         endColor = Color.YELLOW,
                         duration = 300
@@ -105,8 +99,7 @@ class RecolorActivityFont : BaseActivityFont() {
                     textViewColorSetNumber = 1
                 }
                 1 -> {
-                    LUIUtil.recolor(
-                        view = textView,
+                    textView.recolor(
                         startColor = Color.YELLOW,
                         endColor = Color.BLACK,
                         duration = 300
@@ -114,8 +107,7 @@ class RecolorActivityFont : BaseActivityFont() {
                     textViewColorSetNumber = 2
                 }
                 2 -> {
-                    LUIUtil.recolor(
-                        view = textView,
+                    textView.recolor(
                         startColor = Color.BLACK,
                         endColor = Color.WHITE,
                         duration = 300
@@ -123,8 +115,7 @@ class RecolorActivityFont : BaseActivityFont() {
                     textViewColorSetNumber = 3
                 }
                 3 -> {
-                    LUIUtil.recolor(
-                        view = textView,
+                    textView.recolor(
                         startColor = Color.WHITE,
                         endColor = Color.RED,
                         duration = 300
@@ -134,8 +125,7 @@ class RecolorActivityFont : BaseActivityFont() {
             }
         }
         linReColorBackground.setOnClickListener {
-            LUIUtil.recolor(
-                view = it,
+            it.recolor(
                 startColor = Color.RED,
                 endColor = Color.GREEN,
                 duration = 300,
@@ -146,8 +136,7 @@ class RecolorActivityFont : BaseActivityFont() {
         }
 
         theCardView.setOnClickListener {
-            LUIUtil.recolor(
-                view = it,
+            it.recolor(
                 startColor = Color.RED,
                 endColor = Color.GREEN,
                 duration = 300,
@@ -162,16 +151,14 @@ class RecolorActivityFont : BaseActivityFont() {
             isStatusBarColorChanged = if (!isStatusBarColorChanged) {
                 // if starting color is null, color will be automatically retrieved from status bar
                 // same is true for navigation bar
-                LUIUtil.recolorStatusBar(
-                    context = this,
+                this.recolorStatusBar(
                     startColor = null,
                     endColor = Color.RED,
                     duration = 300
                 )
                 !isStatusBarColorChanged
             } else {
-                LUIUtil.recolorStatusBar(
-                    context = this,
+                this.recolorStatusBar(
                     startColor = null,
                     endColor = Color.YELLOW,
                     duration = 300
@@ -183,16 +170,14 @@ class RecolorActivityFont : BaseActivityFont() {
         // changing navigationBar color
         linRecolorNavigationBar.setOnClickListener {
             isNavigationBarColorChanged = if (!isNavigationBarColorChanged) {
-                LUIUtil.recolorNavigationBar(
-                    context = this,
+                this.recolorNavigationBar(
                     startColor = null,
                     endColor = Color.YELLOW,
                     duration = 300
                 )
                 !isNavigationBarColorChanged
             } else {
-                LUIUtil.recolorNavigationBar(
-                    context = this,
+                this.recolorNavigationBar(
                     startColor = null,
                     endColor = Color.GREEN,
                     duration = 300
@@ -204,16 +189,14 @@ class RecolorActivityFont : BaseActivityFont() {
         // changing both statusBar and navigationBar colors
         linRecolorBoth.setOnClickListener {
             isStatusBarColorChanged = if (!isStatusBarColorChanged) {
-                LUIUtil.recolorStatusBar(
-                    context = this,
+                this.recolorStatusBar(
                     startColor = null,
                     endColor = Color.YELLOW,
                     duration = 300
                 )
                 !isStatusBarColorChanged
             } else {
-                LUIUtil.recolorStatusBar(
-                    context = this,
+                this.recolorStatusBar(
                     startColor = null,
                     endColor = Color.RED,
                     duration = 300
@@ -221,16 +204,14 @@ class RecolorActivityFont : BaseActivityFont() {
                 !isStatusBarColorChanged
             }
             isNavigationBarColorChanged = if (!isNavigationBarColorChanged) {
-                LUIUtil.recolorNavigationBar(
-                    context = this,
+                this.recolorNavigationBar(
                     startColor = null,
                     endColor = Color.YELLOW,
                     duration = 300
                 )
                 !isNavigationBarColorChanged
             } else {
-                LUIUtil.recolorNavigationBar(
-                    context = this,
+                this.recolorNavigationBar(
                     startColor = null,
                     endColor = Color.RED,
                     duration = 300
@@ -241,8 +222,7 @@ class RecolorActivityFont : BaseActivityFont() {
 
         // pulsing statusBar to an orange color for 2 times
         linPulseStatusBar.setOnClickListener {
-            LUIUtil.recolorStatusBarPulse(
-                context = this,
+            this.recolorStatusBarPulse(
                 pulseColor = Color.RED,
                 pulseSpeed = 200,
                 pulseCount = 2
@@ -251,8 +231,7 @@ class RecolorActivityFont : BaseActivityFont() {
 
         // pulsing navigationBar to an orange color for 2 times
         linPulseNavigationBar.setOnClickListener {
-            LUIUtil.recolorNavigationBarPulse(
-                context = this,
+            this.recolorNavigationBarPulse(
                 pulseColor = Color.RED,
                 pulseSpeed = 200,
                 pulseCount = 2
@@ -261,22 +240,19 @@ class RecolorActivityFont : BaseActivityFont() {
 
         // pulsing both colors' to an orange color for 5 times really fast
         linPulseBoth.setOnClickListener {
-            LUIUtil.recolorStatusBarPulse(
-                context = this,
+            this.recolorStatusBarPulse(
                 pulseColor = Color.RED,
                 pulseSpeed = 200,
                 pulseCount = 2
             )
-            LUIUtil.recolorNavigationBarPulse(
-                context = this,
+            this.recolorNavigationBarPulse(
                 pulseColor = Color.RED,
                 pulseSpeed = 200,
                 pulseCount = 2
             )
         }
         ib.setOnClickListener {
-            LUIUtil.recolor(
-                view = it,
+            it.recolor(
                 startColor = Color.WHITE,
                 endColor = Color.RED,
                 duration = 300

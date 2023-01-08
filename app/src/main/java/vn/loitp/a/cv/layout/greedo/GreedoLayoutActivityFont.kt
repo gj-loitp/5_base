@@ -10,7 +10,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_layout_greedo.*
 import vn.loitp.R
 
@@ -31,11 +31,11 @@ class GreedoLayoutActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
             this.ivIconRight?.let {
-                LUIUtil.setSafeOnClickListenerElastic(view = it, runnable = {
+                it.setSafeOnClickListenerElastic(runnable = {
                     context.openUrlInBrowser(
                         url = "https://github.com/500px/greedo-layout-for-android"
                     )

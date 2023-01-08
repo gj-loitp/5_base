@@ -11,6 +11,8 @@ import android.provider.Settings
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
+import com.loitp.func.wallpo.Wallpo
 import java.util.*
 
 /**
@@ -145,6 +147,43 @@ fun Context.toggleKeyboard() {
     if (imm.isActive) {
         imm.toggleSoftInput(
             InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS
+        )
+    }
+}
+
+fun ImageView.setWallpaperAndLockScreen(
+    isSetWallpaper: Boolean = true,
+    isSetLockScreen: Boolean = true,
+) {
+    if (isSetWallpaper) {
+        Wallpo.setMainScreenWallpaper(
+            context = this.context,
+            imageView = this,
+        )
+    }
+    if (isSetLockScreen) {
+        Wallpo.setLockScreenWallpaper(
+            context = this.context,
+            imageView = this,
+        )
+    }
+}
+
+fun Context.setWallpaperAndLockScreen(
+    color: Int,
+    isSetWallpaper: Boolean = true,
+    isSetLockScreen: Boolean = true,
+) {
+    if (isSetWallpaper) {
+        Wallpo.setMainScreenWallpaper(
+            context = this,
+            color = color,
+        )
+    }
+    if (isSetLockScreen) {
+        Wallpo.setLockScreenWallpaper(
+            context = this,
+            color = color,
         )
     }
 }

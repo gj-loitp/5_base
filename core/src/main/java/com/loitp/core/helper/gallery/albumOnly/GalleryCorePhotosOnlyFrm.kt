@@ -18,7 +18,6 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
@@ -113,9 +112,7 @@ class GalleryCorePhotosOnlyFrm(
                     }
 
                     override fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView) {
-                        LUIUtil.setWallpaperAndLockScreen(
-                            context = requireContext(),
-                            imageView = imageView,
+                        imageView.setWallpaperAndLockScreen(
                             isSetWallpaper = true,
                             isSetLockScreen = true,
                         )

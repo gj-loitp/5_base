@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.loitp.R
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.*
 
 /**
@@ -125,8 +125,7 @@ class BottomSheetOptionFragment(
                 dismiss()
             }
         }
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = ivClose,
+        ivClose.setSafeOnClickListenerElastic(
             runnable = {
                 dismiss()
             }

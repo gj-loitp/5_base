@@ -7,7 +7,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.playYoutube
 import com.loitp.core.ext.playYoutubeWithId
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_video_youtube.*
 import vn.loitp.R
 
@@ -27,8 +27,7 @@ class YoutubeActivityFont : BaseActivityFont() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

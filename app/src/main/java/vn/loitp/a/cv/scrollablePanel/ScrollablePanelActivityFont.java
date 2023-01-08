@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
 import com.loitp.core.base.BaseActivityFont;
-import com.loitp.core.utilities.LUIUtil;
 import com.loitp.views.ab.LActionBar;
 import com.loitp.views.scrollablePanel.LScrollablePanel;
 
@@ -51,13 +50,7 @@ public class ScrollablePanelActivityFont extends BaseActivityFont {
             if (lActionBar.getTvTitle() != null) {
                 lActionBar.getTvTitle().setText(getClass().getSimpleName());
             }
-            LUIUtil.Companion.setSafeOnClickListenerElastic(
-                    lActionBar.getIvIconLeft(),
-                    0.8f,
-                    0.8f,
-                    100,
-                    this::onBackPressed
-            );
+            Objects.requireNonNull(lActionBar.getIvIconLeft()).setOnClickListener(view -> onBackPressed());
         }
         final LScrollablePanel LScrollablePanel = findViewById(R.id.scrollablePanel);
         final ScrollablePanelAdapter scrollablePanelAdapter = new ScrollablePanelAdapter();

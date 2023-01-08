@@ -10,8 +10,8 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.moreApp
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_a_find_number_menu.*
 
@@ -51,20 +51,17 @@ class MenuActivity : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = ivBack,
+        ivBack.setSafeOnClickListenerElastic(
             runnable = {
                 onBaseBackPressed()
             }
         )
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = ivMore,
+        ivMore.setSafeOnClickListenerElastic(
             runnable = {
                 this.moreApp()
             }
         )
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = btSinglePlayer,
+        btSinglePlayer.setSafeOnClickListenerElastic(
             runnable = {
                 val intent = Intent(this, SingleLevelActivity::class.java)
                 val builder = CircularReveal.Builder(
@@ -82,8 +79,7 @@ class MenuActivity : BaseActivityFont() {
                 CircularReveal.presentActivity(builder)
             }
         )
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = btTwoPlayers,
+        btTwoPlayers.setSafeOnClickListenerElastic(
             runnable = {
                 // TODO 2 players
             }

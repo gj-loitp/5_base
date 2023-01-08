@@ -16,7 +16,6 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.*
 import com.loitp.core.helper.adHelper.AdHelperActivity
 import com.loitp.core.utilities.LPrefUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_menu.*
 import vn.loitp.R
 import vn.loitp.a.anim.MenuAnimationActivityFont
@@ -56,7 +55,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -64,7 +63,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
         }
 
         tvPolicy.apply {
-            LUIUtil.setTextUnderline(this)
+            this.setTextUnderline()
             setSafeOnClickListener {
                 this@MenuActivity.openUrlInBrowser(
                     url = Constants.URL_POLICY

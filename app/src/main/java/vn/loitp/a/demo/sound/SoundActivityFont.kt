@@ -6,8 +6,8 @@ import android.view.View.OnClickListener
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.startMusicFromAsset
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_demo_sound.*
 import vn.loitp.R
 
@@ -27,8 +27,7 @@ class SoundActivityFont : BaseActivityFont(), OnClickListener {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

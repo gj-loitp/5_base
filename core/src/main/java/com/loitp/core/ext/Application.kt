@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.annotation.*
 import androidx.core.content.ContextCompat
 import com.loitp.core.ext.LAppResource.application
-import com.loitp.core.utilities.LUIUtil
 
 /**
  * Created by Loitp on 04,August,2022
@@ -37,7 +36,7 @@ fun getColor(
     alpha: Int
 ): Int = application.let {
     val color = ContextCompat.getColor(it, colorRes)
-    return LUIUtil.setAlphaComponent(color = color, alpha = alpha)
+    return color.setAlphaComponent(alpha = alpha)
 }
 
 

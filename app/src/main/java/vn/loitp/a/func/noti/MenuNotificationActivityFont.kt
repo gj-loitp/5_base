@@ -14,8 +14,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LNotification
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.func.notification.Notti
 import com.loitp.func.notification.NottiFactory
 import com.loitp.func.notification.actions.ContentAction
@@ -50,8 +50,7 @@ class MenuNotificationActivityFont : BaseActivityFont(), View.OnClickListener {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }

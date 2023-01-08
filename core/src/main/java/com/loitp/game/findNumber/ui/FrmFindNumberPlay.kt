@@ -17,7 +17,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.play
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.game.findNumber.dlg.FindNumberWinActivity
 import com.loitp.game.findNumber.model.Level
 import com.loitp.views.tv.autoFit.LAutoFitTextView
@@ -102,8 +102,7 @@ class FrmFindNumberPlay(
                     lAutofitTextView.setMaxTextSize(TypedValue.COMPLEX_UNIT_PX, 100f)
                     lAutofitTextView.setMinTextSize(12)
 
-                    LUIUtil.setSafeOnClickListenerElastic(
-                        view = lAutofitTextView,
+                    lAutofitTextView.setSafeOnClickListenerElastic(
                         runnable = {
                             if (numberTarget == listData.size) {
                                 winGame(lAutofitTextView)

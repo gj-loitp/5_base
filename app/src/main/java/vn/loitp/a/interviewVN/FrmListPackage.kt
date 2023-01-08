@@ -6,8 +6,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.LogTag
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LStoreUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.f_interview_vn_iq_list_package.*
 import vn.loitp.R
 import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
@@ -50,10 +50,8 @@ class FrmListPackage : BaseFragmentFlow() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
-                if (activity is InterviewVNIQActivityFont) {
-                    (activity as InterviewVNIQActivityFont).onBaseBackPressed()
-                }
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                (activity as? InterviewVNIQActivityFont)?.onBaseBackPressed()
             })
             ivIconRight?.isVisible = false
             this.tvTitle?.text = FrmListPackage::class.java.simpleName

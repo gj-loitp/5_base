@@ -22,9 +22,6 @@ import com.loitp.annotation.*
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.*
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LUIUtil
-import com.loitp.core.utilities.LUIUtil.Companion.allowInfiniteLines
-import com.loitp.core.utilities.LUIUtil.Companion.withBackground
 import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
@@ -232,11 +229,15 @@ abstract class BaseActivity : AppCompatActivity() {
                 decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
         if (withRecolorEfx) {
-            LUIUtil.recolorStatusBar(
-                context = this, startColor = null, endColor = colorBackground, duration = 300
+            this.recolorStatusBar(
+                startColor = null,
+                endColor = colorBackground,
+                duration = 300
             )
-            LUIUtil.recolorNavigationBar(
-                context = this, startColor = null, endColor = colorBackground, duration = 300
+            this.recolorNavigationBar(
+                startColor = null,
+                endColor = colorBackground,
+                duration = 300
             )
         } else {
             this.setCustomStatusBar(
