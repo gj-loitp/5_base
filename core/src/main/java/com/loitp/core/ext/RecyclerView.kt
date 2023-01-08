@@ -74,3 +74,41 @@ fun RecyclerView.setPullLikeIOSVertical(
         }
     }
 }
+
+fun RecyclerView.setScrollChange(
+    onTop: ((Unit) -> Unit)? = null,
+    onBottom: ((Unit) -> Unit)? = null,
+    onScrolled: ((isScrollDown: Boolean) -> Unit)? = null
+) {
+    var isScrollDown = false
+    this.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+            super.onScrollStateChanged(recyclerView, newState)
+
+            if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                if (!recyclerView.canScrollVertically(1)) {
+                    onBottom?.invoke(Unit)
+                }
+                if (!recyclerView.canScrollVertically(-1)) {
+                    onTop?.invoke(Unit)
+                }
+            }
+        }
+
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+
+            if (dy < 0) {
+                if (isScrollDown) {
+                    isScrollDown = false
+                    onScrolled?.invoke(false)
+                }
+            } else if (dy > 0) {
+                if (!isScrollDown) {
+                    isScrollDown = true
+                    onScrolled?.invoke(true)
+                }
+            }
+        }
+    })
+}

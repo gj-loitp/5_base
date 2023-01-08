@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.isDarkTheme
 import com.loitp.core.utilities.LUIUtil
 import com.nex3z.togglebuttongroup.button.LabelToggle
 import kotlinx.android.synthetic.main.a_switch_tbg_flow_label.*
@@ -42,7 +43,7 @@ class TBGFlowLabelActivityFont : BaseActivityFont() {
         for (text in dummyText) {
             val toggle = LabelToggle(this)
             toggle.text = text
-            if (LUIUtil.isDarkTheme()) {
+            if (isDarkTheme()) {
                 toggle.setTextColor(Color.WHITE)
             } else {
                 toggle.setTextColor(Color.BLACK)

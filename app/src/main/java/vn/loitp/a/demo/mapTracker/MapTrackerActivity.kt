@@ -23,12 +23,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.ext.roundDouble
-import com.loitp.core.ext.setDelay
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.tranOut
+import com.loitp.core.ext.*
 import com.loitp.core.utilities.LUIUtil
-import com.loitp.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.a_map_tracker.*
 import vn.loitp.R
@@ -110,7 +106,7 @@ class MapTrackerActivity :
     }
 
     private fun checkPermission() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK

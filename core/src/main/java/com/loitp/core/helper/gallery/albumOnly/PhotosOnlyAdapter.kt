@@ -15,13 +15,9 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import com.loitp.core.ext.getRandomColorLight
-import com.loitp.core.ext.loadGlide
-import com.loitp.core.ext.play
-import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import kotlinx.android.synthetic.main.l_i_flickr_photos_core_only.view.*
 import java.util.*
@@ -82,8 +78,7 @@ class PhotosOnlyAdapter(
         ) {
 
             val screenHeight = p.calculatorHeight(widthScreen = widthScreen)
-            LUIUtil.setSizeOfView(
-                view = itemView.iv,
+            itemView.iv.setSizeOfView(
                 width = widthScreen,
                 height = screenHeight,
             )

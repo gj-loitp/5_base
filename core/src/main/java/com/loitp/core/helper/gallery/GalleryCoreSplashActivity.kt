@@ -12,7 +12,6 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivity
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.AppUtils
 import com.loitp.restApi.restClient.RestClient
 import com.permissionx.guolindev.PermissionX
@@ -72,7 +71,7 @@ class GalleryCoreSplashActivity : BaseActivityFont() {
     }
 
     private fun checkPermission() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK

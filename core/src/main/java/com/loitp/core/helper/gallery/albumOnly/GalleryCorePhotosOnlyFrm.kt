@@ -144,8 +144,7 @@ class GalleryCorePhotosOnlyFrm(
             recyclerView.adapter = animAdapter
         }
 
-        LUIUtil.setScrollChange(
-            recyclerView = recyclerView,
+        recyclerView.setScrollChange(
             onTop = {
                 onTop?.invoke(Unit)
             },
@@ -328,7 +327,7 @@ class GalleryCorePhotosOnlyFrm(
     }
 
     private fun checkPermission() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK

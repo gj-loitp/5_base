@@ -4,6 +4,8 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.isDarkTheme
+import com.loitp.core.ext.setDarkTheme
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_sw_appcompat.*
@@ -36,14 +38,14 @@ class AppcompatSwitchActivityFont : BaseActivityFont() {
         }
         textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.lswitch)
 
-        val isDarkTheme = LUIUtil.isDarkTheme()
+        val isDarkTheme = isDarkTheme()
         sw.isChecked = isDarkTheme
 
         sw.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                LUIUtil.setDarkTheme(isDarkTheme = true)
+                setDarkTheme(isDarkTheme = true)
             } else {
-                LUIUtil.setDarkTheme(isDarkTheme = false)
+                setDarkTheme(isDarkTheme = false)
             }
         }
     }

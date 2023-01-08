@@ -11,7 +11,6 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.*
 import com.loitp.core.helper.statusbar.StatusBarCompat
 import com.loitp.core.utilities.*
-import com.loitp.core.utilities.LUIUtil.Companion.scrollToBottom
 import kotlinx.android.synthetic.main.a_utils_core.*
 import vn.loitp.R
 import java.math.BigDecimal
@@ -214,7 +213,7 @@ class UtilsCoreActivity : BaseActivityFont() {
             logD(">>>getAllChildren ${it.id}")
         }
         cb1.setCheckBoxColor(Color.GREEN, Color.CYAN)
-        LUIUtil.setChangeStatusBarTintToDark(window, false)
+        this.setChangeStatusBarTintToDark(false)
         btScrollToBottom.setSafeOnClickListener {
             sv.scrollToBottom()
         }

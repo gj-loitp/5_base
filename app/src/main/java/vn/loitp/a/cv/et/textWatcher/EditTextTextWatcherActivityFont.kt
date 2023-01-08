@@ -5,6 +5,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.addTextChangedDelayListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_et_text_watcher.*
 import vn.loitp.R
@@ -35,9 +36,9 @@ class EditTextTextWatcherActivityFont : BaseActivityFont() {
             this.tvTitle?.text = EditTextTextWatcherActivityFont::class.java.simpleName
         }
         var text = ""
-        LUIUtil.addTextChangedListener(
-            editText = editText,
-            delayInMls = 1000, afterTextChanged = { s ->
+        editText.addTextChangedDelayListener(
+            delayInMls = 1000,
+            afterTextChanged = { s ->
                 text += s + "\n"
                 textView.text = text
             }

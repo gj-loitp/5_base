@@ -70,7 +70,7 @@ abstract class BaseActivity : AppCompatActivity() {
         val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
         logTag = "logTag" + tmpLogTag?.value
 
-        val isDarkTheme = LUIUtil.isDarkTheme()
+        val isDarkTheme = isDarkTheme()
 //        logD("onCreate isDarkTheme $isDarkTheme")
         val isSwipeActivity = javaClass.getAnnotation(IsSwipeActivity::class.java)?.value ?: false
 //        logD("onCreate isSwipeActivity $isSwipeActivity")

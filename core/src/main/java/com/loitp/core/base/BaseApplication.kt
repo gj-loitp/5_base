@@ -10,11 +10,7 @@ import com.github.piasy.biv.BigImageViewer
 import com.github.piasy.biv.loader.glide.GlideImageLoader
 import com.google.gson.Gson
 import com.loitp.annotation.LogTag
-import com.loitp.core.ext.d
-import com.loitp.core.ext.e
-import com.loitp.core.ext.init
-import com.loitp.core.ext.initOnNetworkChange
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.*
 import com.loitp.core.utils.Utils
 import com.loitp.game.findNumber.db.FindNumberDatabase
 
@@ -67,8 +63,8 @@ open class BaseApplication : MultiDexApplication(), LifecycleObserver {
         this.initOnNetworkChange()
 
         // dark mode
-        val isDarkTheme = LUIUtil.isDarkTheme()
-        LUIUtil.setDarkTheme(isDarkTheme = isDarkTheme)
+        val isDarkTheme = isDarkTheme()
+        setDarkTheme(isDarkTheme = isDarkTheme)
 
         //game find number database
         FindNumberDatabase.getInstance(this)

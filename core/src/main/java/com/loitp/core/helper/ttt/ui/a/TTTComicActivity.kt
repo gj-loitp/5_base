@@ -12,11 +12,11 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.isDarkTheme
 import com.loitp.core.helper.ttt.model.MenuComicTTT
 import com.loitp.core.helper.ttt.ui.f.FrmFavTTT
 import com.loitp.core.helper.ttt.ui.f.FrmHomeTTT
 import com.loitp.core.helper.ttt.ui.f.FrmProfileTTT
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.KeyboardUtils
 import com.loitp.views.vp.vpTransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.MenuItemDescriptor
@@ -47,7 +47,7 @@ class TTTComicActivity : BaseActivityFont() {
     }
 
     private fun setupData() {
-        val activeColor = if (LUIUtil.isDarkTheme()) {
+        val activeColor = if (isDarkTheme()) {
             Color.BLACK
         } else {
             Color.WHITE

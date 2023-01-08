@@ -20,6 +20,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.getCityByLatLon
+import com.loitp.core.ext.isDarkTheme
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.tranOut
 import com.loitp.core.utilities.LUIUtil
@@ -252,7 +253,7 @@ class LocationActivity : BaseActivityFont() {
     }
 
     private fun startLocationButtonClick() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK

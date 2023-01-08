@@ -73,12 +73,12 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
         }
 
         swDarkTheme.apply {
-            isChecked = LUIUtil.isDarkTheme()
+            isChecked = isDarkTheme()
             setOnCheckedChangeListener { _, isDarkTheme ->
                 if (isDarkTheme) {
-                    LUIUtil.setDarkTheme(isDarkTheme = true)
+                    setDarkTheme(isDarkTheme = true)
                 } else {
-                    LUIUtil.setDarkTheme(isDarkTheme = false)
+                    setDarkTheme(isDarkTheme = false)
                 }
                 finish()//correct
                 startActivity(Intent(this@MenuActivity, MenuActivity::class.java))

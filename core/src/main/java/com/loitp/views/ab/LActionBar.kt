@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.google.android.material.card.MaterialCardView
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.R
+import com.loitp.core.ext.isDarkTheme
 
 /**
  * Created by Loitp on 04,August,2022
@@ -52,7 +52,7 @@ class LActionBar : RelativeLayout {
         this.tvTitle = findViewById(R.id.tvTitle)
 
         if (!isInEditMode) {
-            if (LUIUtil.isDarkTheme()) {
+            if (isDarkTheme()) {
                 ivIconLeft?.setColorFilter(Color.WHITE)
                 ivIconRight?.setColorFilter(Color.WHITE)
                 tvTitle?.setTextColor(Color.WHITE)

@@ -55,7 +55,7 @@ class LDialogUtil {
 //            logD("showDialog1")
             clearAll()
 
-            val builder = if (LUIUtil.isDarkTheme()) {
+            val builder = if (isDarkTheme()) {
                 AlertDialog.Builder(ContextThemeWrapper(context, R.style.DarkAlertDialogCustom))
             } else {
                 AlertDialog.Builder(ContextThemeWrapper(context, R.style.LightAlertDialogCustom))
@@ -78,7 +78,7 @@ class LDialogUtil {
             val dialog = builder.create()
             dialog.show()
 
-            if (LUIUtil.isDarkTheme()) {
+            if (isDarkTheme()) {
                 val color = getColor(R.color.white)
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
             } else {
@@ -100,7 +100,7 @@ class LDialogUtil {
             onClickButton2: ((Unit) -> Unit)? = null
         ): AlertDialog {
             clearAll()
-            val builder = if (LUIUtil.isDarkTheme()) {
+            val builder = if (isDarkTheme()) {
                 AlertDialog.Builder(ContextThemeWrapper(context, R.style.DarkAlertDialogCustom))
             } else {
                 AlertDialog.Builder(ContextThemeWrapper(context, R.style.LightAlertDialogCustom))
@@ -123,7 +123,7 @@ class LDialogUtil {
             }
             val dialog = builder.create()
             dialog.show()
-            if (LUIUtil.isDarkTheme()) {
+            if (isDarkTheme()) {
                 val colorPrimary = getColor(R.color.white)
                 dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorPrimary)
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorPrimary)
@@ -149,7 +149,7 @@ class LDialogUtil {
             onClickButton3: ((Unit) -> Unit)? = null
         ): AlertDialog {
             clearAll()
-            val builder = if (LUIUtil.isDarkTheme()) {
+            val builder = if (isDarkTheme()) {
                 AlertDialog.Builder(ContextThemeWrapper(context, R.style.DarkAlertDialogCustom))
             } else {
                 AlertDialog.Builder(ContextThemeWrapper(context, R.style.LightAlertDialogCustom))
@@ -188,7 +188,7 @@ class LDialogUtil {
 
             val dialog = builder.create()
             dialog.show()
-            if (LUIUtil.isDarkTheme()) {
+            if (isDarkTheme()) {
                 val color = getColor(R.color.white)
                 dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color)
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
@@ -211,7 +211,7 @@ class LDialogUtil {
             onClick: ((Int) -> Unit)? = null
         ): AlertDialog {
             clearAll()
-            val builder = if (LUIUtil.isDarkTheme()) {
+            val builder = if (isDarkTheme()) {
                 AlertDialog.Builder(ContextThemeWrapper(context, R.style.DarkAlertDialogCustom))
             } else {
                 AlertDialog.Builder(ContextThemeWrapper(context, R.style.LightAlertDialogCustom))

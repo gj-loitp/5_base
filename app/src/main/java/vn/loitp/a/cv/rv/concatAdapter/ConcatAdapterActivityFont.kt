@@ -12,6 +12,7 @@ import com.loitp.core.common.Constants
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setScrollChange
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_rv_concat_adapter.*
 import vn.loitp.R
@@ -110,8 +111,7 @@ class ConcatAdapterActivityFont : BaseActivityFont() {
 
         recyclerView.adapter = concatAdapter
 
-        LUIUtil.setScrollChange(
-            recyclerView = recyclerView,
+        recyclerView.setScrollChange(
             onTop = {
                 logD("onTop")
             },

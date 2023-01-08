@@ -84,7 +84,7 @@ class SplashActivity : BaseActivityFont() {
 
         fun checkPer() {
             isShowDialogCheck = true
-            val color = if (LUIUtil.isDarkTheme()) {
+            val color = if (isDarkTheme()) {
                 Color.WHITE
             } else {
                 Color.BLACK

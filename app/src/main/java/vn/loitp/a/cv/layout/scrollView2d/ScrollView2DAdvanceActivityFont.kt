@@ -13,7 +13,7 @@ import android.widget.RelativeLayout
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSizeOfView
 import com.loitp.views.sv.LScrollView
 import kotlinx.android.synthetic.main.a_layout_scrollview_2d_advance.*
 import vn.loitp.R
@@ -75,13 +75,12 @@ class ScrollView2DAdvanceActivityFont : BaseActivityFont() {
             if (btGenLine.isClickable) {
                 btGenLine.isClickable = false
                 btGenLine.setTextColor(Color.GRAY)
-                LUIUtil.setSizeOfView(vg1, WIDTH_PX, HEIGHT_PX)
-                LUIUtil.setSizeOfView(vg2, ViewGroup.LayoutParams.MATCH_PARENT, HEIGHT_PX)
-                LUIUtil.setSizeOfView(vg3, WIDTH_PX, ViewGroup.LayoutParams.MATCH_PARENT)
-                LUIUtil.setSizeOfView(
-                    vg4,
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
+                vg1.setSizeOfView(width = WIDTH_PX, height = HEIGHT_PX)
+                vg1.setSizeOfView(width = ViewGroup.LayoutParams.MATCH_PARENT, height = HEIGHT_PX)
+                vg3.setSizeOfView(width = WIDTH_PX, height = ViewGroup.LayoutParams.MATCH_PARENT)
+                vg4.setSizeOfView(
+                    width = ViewGroup.LayoutParams.MATCH_PARENT,
+                    height = ViewGroup.LayoutParams.MATCH_PARENT
                 )
                 Render(30, 24).execute()
                 // new Render(7, 12).execute();

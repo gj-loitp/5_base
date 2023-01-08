@@ -3,20 +3,14 @@ package com.loitp.core.utilities
 import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.*
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
-import android.view.Window
 import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.core.graphics.ColorUtils
-import androidx.core.widget.NestedScrollView
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.snackbar.Snackbar
 import com.loitp.R
-import com.loitp.core.common.Constants
 import com.loitp.core.ext.*
 import com.loitp.func.wallpo.Wallpo
 import com.simmorsal.recolor_project.OnReColorFinish
@@ -33,159 +27,6 @@ import java.util.*
  */
 class LUIUtil {
     companion object {
-
-        fun setChangeStatusBarTintToDark(
-            window: Window, shouldChangeStatusBarTintToDark: Boolean
-        ) {
-            val decor = window.decorView
-            if (shouldChangeStatusBarTintToDark) {
-                decor.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-            } else {
-                // We want to change tint color to white again.
-                // You can also record the flags in advance so that you can turn UI back completely if
-                // you have set other flags before, such as translucent or full screen.
-                decor.systemUiVisibility = 0
-            }
-        }
-
-        fun setSizeOfView(
-            view: View? = null, width: Int? = null, height: Int? = null
-        ) {
-            view?.let { v ->
-                width?.let {
-                    v.layoutParams.width = width
-                }
-                height?.let {
-                    v.layoutParams.height = height
-                }
-                v.requestLayout()
-            }
-        }
-
-        fun setScrollChange(
-            recyclerView: RecyclerView,
-            onTop: ((Unit) -> Unit)? = null,
-            onBottom: ((Unit) -> Unit)? = null,
-            onScrolled: ((isScrollDown: Boolean) -> Unit)? = null
-        ) {
-            var isScrollDown = false
-            recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                    super.onScrollStateChanged(recyclerView, newState)
-
-                    if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                        if (!recyclerView.canScrollVertically(1)) {
-                            onBottom?.invoke(Unit)
-                        }
-                        if (!recyclerView.canScrollVertically(-1)) {
-                            onTop?.invoke(Unit)
-                        }
-                    }
-                }
-
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    super.onScrolled(recyclerView, dx, dy)
-
-                    if (dy < 0) {
-                        if (isScrollDown) {
-                            isScrollDown = false
-                            onScrolled?.invoke(false)
-                        }
-                    } else if (dy > 0) {
-                        if (!isScrollDown) {
-                            isScrollDown = true
-                            onScrolled?.invoke(true)
-                        }
-                    }
-                }
-            })
-        }
-
-        fun addTextChangedListener(
-            editText: EditText?, delayInMls: Long, afterTextChanged: (String) -> Unit
-        ) {
-            if (delayInMls > 0) {
-                editText?.let { et ->
-                    et.addTextChangedListener(object : TextWatcher {
-                        private var timer = Timer()
-                        override fun afterTextChanged(editable: Editable?) {
-                            timer.cancel()
-                            timer = Timer()
-                            timer.schedule(
-                                object : TimerTask() {
-                                    override fun run() {
-                                        editable?.let { e ->
-                                            et.post {
-                                                afterTextChanged.invoke(e.toString())
-                                            }
-                                        }
-                                    }
-                                }, delayInMls
-                            )
-                        }
-
-                        override fun beforeTextChanged(
-                            charSequence: CharSequence?, p1: Int, p2: Int, p3: Int
-                        ) {
-                        }
-
-                        override fun onTextChanged(
-                            charSequence: CharSequence?, p1: Int, p2: Int, p3: Int
-                        ) {
-                        }
-                    })
-                }
-            }
-        }
-
-        @Suppress("unused")
-        fun ScrollView.scrollToBottom() {
-            val lastChild = getChildAt(childCount - 1)
-            val bottom = lastChild.bottom + paddingBottom
-            val delta = bottom - (scrollY + height)
-            smoothScrollBy(0, delta)
-        }
-
-        fun NestedScrollView.scrollToBottom() {
-            val lastChild = getChildAt(childCount - 1)
-            val bottom = lastChild.bottom + paddingBottom
-            val delta = bottom - (scrollY + height)
-            smoothScrollBy(0, delta)
-        }
-
-        fun isDarkTheme(): Boolean {
-//            return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
-            return LSharedPrefsUtil.instance.getBoolean(Constants.IS_DARK_THEME, false)
-        }
-
-        fun setDarkTheme(isDarkTheme: Boolean) {
-            if (isDarkTheme) {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                LSharedPrefsUtil.instance.putBoolean(Constants.IS_DARK_THEME, true)
-            } else {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                LSharedPrefsUtil.instance.putBoolean(Constants.IS_DARK_THEME, false)
-            }
-        }
-
-        fun setOnClickListenerElastic(
-            view: View? = null,
-            scaleX: Float = 0.8f,
-            scaleY: Float = 0.8f,
-            duration: Int = 100,
-            runnable: Runnable? = null
-        ) {
-            view?.let { v ->
-                v.setOnClickListener {
-                    val anim = v.elasticAnimation(
-                        scaleX = scaleX, scaleY = scaleY, duration = duration
-                    ) {
-                        runnable?.run()
-                    }
-                    anim.doAction()
-                }
-            }
-        }
 
         fun setSafeOnClickListenerElastic(
             view: View? = null,

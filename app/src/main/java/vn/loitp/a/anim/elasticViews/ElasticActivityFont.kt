@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setOnClickListenerElastic
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_elastic_view.*
@@ -46,8 +47,7 @@ class ElasticActivityFont : BaseActivityFont() {
         }
         elasticCardView.setSafeOnClickListener {
         }
-        LUIUtil.setOnClickListenerElastic(
-            view = anyView,
+        anyView.setOnClickListenerElastic(
             runnable = {
                 showShortInformation("Finish setOnClickListenerElastic")
             }

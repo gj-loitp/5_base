@@ -10,7 +10,7 @@ import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.core.ext.LAppResource.application
 import com.loitp.core.ext.getColor
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.isDarkTheme
 
 /**
  * Created by Loitp on 04,August,2022
@@ -61,7 +61,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (LUIUtil.isDarkTheme()) {
+        if (isDarkTheme()) {
             textResColor = R.color.black
             backgroundResColor = R.color.whiteSmoke
         } else {
@@ -83,7 +83,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (LUIUtil.isDarkTheme()) {
+        if (isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.darkOrange
         } else {
@@ -105,7 +105,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (LUIUtil.isDarkTheme()) {
+        if (isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.red
         } else {
@@ -127,7 +127,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (LUIUtil.isDarkTheme()) {
+        if (isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.dark900
         } else {
@@ -149,7 +149,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (LUIUtil.isDarkTheme()) {
+        if (isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.darkOrange
         } else {
@@ -171,7 +171,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (LUIUtil.isDarkTheme()) {
+        if (isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.red
         } else {

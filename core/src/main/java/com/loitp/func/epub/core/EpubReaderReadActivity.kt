@@ -318,7 +318,7 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
                 val fontSizePx = getDimenValue(R.dimen.txt_small)
                 val paddingPx = getDimenValue(R.dimen.margin_padding_small)
 //                logD(">>>setFragmentView fontSizePx $fontSizePx, paddingPx $paddingPx")
-                if (LUIUtil.isDarkTheme()) {
+                if (isDarkTheme()) {
                     loadDataString(
                         bodyContent = data,
                         backgroundColor = "black",

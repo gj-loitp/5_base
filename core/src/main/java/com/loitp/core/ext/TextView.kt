@@ -10,7 +10,6 @@ import android.util.TypedValue
 import android.widget.TextView
 import androidx.core.widget.TextViewCompat
 import com.google.gson.GsonBuilder
-import com.loitp.core.utilities.LUIUtil
 
 /**
  * Created by Loitp on 06,January,2023
@@ -56,7 +55,7 @@ fun TextView.setTextShadow(
     color: Int?
 ) {
     val mColor: Int = color
-        ?: if (LUIUtil.isDarkTheme()) {
+        ?: if (isDarkTheme()) {
             Color.BLACK
         } else {
             Color.WHITE

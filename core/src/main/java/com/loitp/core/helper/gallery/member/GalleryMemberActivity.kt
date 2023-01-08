@@ -15,11 +15,11 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.isDarkTheme
 import com.loitp.core.ext.tranIn
 import com.loitp.core.ext.transActivityNoAnimation
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
@@ -267,7 +267,7 @@ class GalleryMemberActivity : BaseActivityFont() {
     }
 
     private fun checkPermission() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK

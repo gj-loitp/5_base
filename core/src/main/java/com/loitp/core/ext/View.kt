@@ -22,6 +22,7 @@ import com.google.android.material.tabs.TabLayout
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utils.ConvertUtils
+import com.skydoves.elasticviews.elasticAnimation
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 
 val View.horizontalPadding: Int get() = this.paddingStart + this.paddingEnd
@@ -281,6 +282,21 @@ fun View.getHeightOfView(): Int {
     return this.measuredHeight
 }
 
+fun View?.setSizeOfView(
+    width: Int? = null,
+    height: Int? = null
+) {
+    this?.let { v ->
+        width?.let {
+            v.layoutParams.width = width
+        }
+        height?.let {
+            v.layoutParams.height = height
+        }
+        v.requestLayout()
+    }
+}
+
 @SuppressLint("ObsoleteSdkInt")
 fun View.setRipple() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
@@ -291,5 +307,21 @@ fun View.setRipple() {
             /* resolveRefs = */ true
         )
         this.setBackgroundResource(outValue.resourceId)
+    }
+}
+
+fun View.setOnClickListenerElastic(
+    scaleX: Float = 0.8f,
+    scaleY: Float = 0.8f,
+    duration: Int = 100,
+    runnable: Runnable? = null
+) {
+    this.setOnClickListener {
+        val anim = this.elasticAnimation(
+            scaleX = scaleX, scaleY = scaleY, duration = duration
+        ) {
+            runnable?.run()
+        }
+        anim.doAction()
     }
 }

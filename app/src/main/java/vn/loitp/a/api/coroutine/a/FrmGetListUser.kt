@@ -12,7 +12,7 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setColorForSwipeRefreshLayout
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setScrollChange
 import kotlinx.android.synthetic.main.f_coroutine_get_list_user.*
 import vn.loitp.R
 import vn.loitp.a.api.coroutine.vm.TestViewModel
@@ -63,8 +63,7 @@ class FrmGetListUser : BaseFragment() {
         }
         rvUserTest.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rvUserTest.adapter = userListAdapter
-        LUIUtil.setScrollChange(
-            recyclerView = rvUserTest,
+        rvUserTest.setScrollChange(
             onBottom = {
                 logD("onBottom")
                 page += 1

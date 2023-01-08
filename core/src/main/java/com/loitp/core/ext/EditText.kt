@@ -1,8 +1,11 @@
 package com.loitp.core.ext
 
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
+import java.util.*
 
 /**
  * Created by Loitp on 06,January,2023
@@ -49,4 +52,40 @@ fun EditText.setImeiActionSearch(
             false
         }
     )
+}
+
+fun EditText.addTextChangedDelayListener(
+    delayInMls: Long,
+    afterTextChanged: (String) -> Unit
+) {
+    if (delayInMls > 0) {
+        this.addTextChangedListener(object : TextWatcher {
+            private var timer = Timer()
+            override fun afterTextChanged(editable: Editable?) {
+                timer.cancel()
+                timer = Timer()
+                timer.schedule(
+                    object : TimerTask() {
+                        override fun run() {
+                            editable?.let { e ->
+                                this@addTextChangedDelayListener.post {
+                                    afterTextChanged.invoke(e.toString())
+                                }
+                            }
+                        }
+                    }, delayInMls
+                )
+            }
+
+            override fun beforeTextChanged(
+                charSequence: CharSequence?, p1: Int, p2: Int, p3: Int
+            ) {
+            }
+
+            override fun onTextChanged(
+                charSequence: CharSequence?, p1: Int, p2: Int, p3: Int
+            ) {
+            }
+        })
+    }
 }

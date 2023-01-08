@@ -16,10 +16,7 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.ext.openFacebookComment
-import com.loitp.core.ext.sendEmail
-import com.loitp.core.ext.share
-import com.loitp.core.ext.transActivityNoAnimation
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utilities.LUIUtil
@@ -318,7 +315,7 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
     }
 
     private fun checkPermission() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK

@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.setOnClickListenerElastic
 import com.loitp.core.ext.setTextShadow
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.game.findNumber.db.Db.Companion.STATUS_LEVEL_OPEN
 import com.loitp.game.findNumber.db.Db.Companion.STATUS_LEVEL_WIN
 import com.loitp.game.findNumber.model.Level
@@ -50,8 +50,7 @@ class LevelAdapter : BaseAdapter() {
                 itemView.layoutRootView.setBackgroundResource(R.drawable.bkg_yellow)
             }
 
-            LUIUtil.setOnClickListenerElastic(
-                view = itemView.layoutRootView,
+            itemView.layoutRootView.setOnClickListenerElastic(
                 runnable = {
                     onClickRootView?.invoke(level, itemView.layoutRootView)
                 }

@@ -12,6 +12,7 @@ import android.net.Uri
 import android.provider.AlarmClock
 import android.provider.CalendarContract
 import android.provider.Telephony
+import android.view.View
 import android.view.WindowManager
 import com.loitp.R
 import com.loitp.core.utilities.LDialogUtil
@@ -297,4 +298,18 @@ fun Activity.playYoutubeWithId(
     id: String
 ) {
     this.playYoutube(url = "http://www.youtube.com/watch?v=$id")
+}
+
+fun Activity.setChangeStatusBarTintToDark(
+    shouldChangeStatusBarTintToDark: Boolean
+) {
+    val decor = this.window.decorView
+    if (shouldChangeStatusBarTintToDark) {
+        decor.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+    } else {
+        // We want to change tint color to white again.
+        // You can also record the flags in advance so that you can turn UI back completely if
+        // you have set other flags before, such as translucent or full screen.
+        decor.systemUiVisibility = 0
+    }
 }

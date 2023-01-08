@@ -16,7 +16,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import com.loitp.R
 import com.loitp.core.ext.d
-import com.loitp.core.utilities.LUIUtil.Companion.isDarkTheme
+import com.loitp.core.ext.isDarkTheme
 import kotlin.math.*
 
 /**

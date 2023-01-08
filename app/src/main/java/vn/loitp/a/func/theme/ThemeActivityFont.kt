@@ -4,6 +4,8 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.isDarkTheme
+import com.loitp.core.ext.setDarkTheme
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_theme.*
@@ -35,11 +37,11 @@ class ThemeActivityFont : BaseActivityFont() {
             this.tvTitle?.text = ThemeActivityFont::class.java.simpleName
         }
         btChangeTheme.setSafeOnClickListener {
-            val isDarkTheme = LUIUtil.isDarkTheme()
+            val isDarkTheme = isDarkTheme()
             if (isDarkTheme) {
-                LUIUtil.setDarkTheme(isDarkTheme = false)
+                setDarkTheme(isDarkTheme = false)
             } else {
-                LUIUtil.setDarkTheme(isDarkTheme = true)
+                setDarkTheme(isDarkTheme = true)
             }
             recreate()
         }

@@ -4,8 +4,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeAdapter
+import com.loitp.core.ext.setSizeOfView
 import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
 import vn.loitp.R
 
 class DragDropAdapter(
@@ -29,7 +29,7 @@ class DragDropAdapter(
     ) {
         // Here we update the contents of the view holder's views to reflect the item's data
         if (isHorizontal) {
-            LUIUtil.setSizeOfView(view = viewHolder.itemView, width = sizeWidth, height = null)
+            viewHolder.itemView.setSizeOfView(width = sizeWidth, height = null)
         }
         viewHolder.tv.text = item
     }
