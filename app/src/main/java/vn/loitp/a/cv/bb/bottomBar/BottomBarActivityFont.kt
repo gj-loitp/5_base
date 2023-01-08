@@ -6,9 +6,9 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.readTxtFromRawFolder
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LStoreUtil
 import com.loitp.views.bottomBar.LBottomBar
 import kotlinx.android.synthetic.main.a_bottom_bar_blur.*
 import vn.loitp.R
@@ -37,7 +37,7 @@ class BottomBarActivityFont : BaseActivityFont() {
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = BottomBarActivityFont::class.java.simpleName
         }
-        textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.loitp)
+        textView.text = readTxtFromRawFolder(nameOfRawFile = R.raw.loitp)
         with(bottomBar) {
             paddingOnInDp = context.resources.getDimension(R.dimen.w_10).toInt()
             paddingOffInDp = context.resources.getDimension(R.dimen.margin_padding_medium).toInt()

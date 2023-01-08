@@ -5,10 +5,10 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.readTxtFromRawFolder
 import com.loitp.core.ext.setColorForSwipeRefreshLayout
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LStoreUtil
 import kotlinx.android.synthetic.main.a_layout_swipe_refresh_sv.*
 import vn.loitp.R
 
@@ -40,7 +40,7 @@ class SwipeRefreshLayoutScrollViewActivityFont : BaseActivityFont() {
             doTask()
         }
         swipeRefreshLayout.setColorForSwipeRefreshLayout()
-        val poem = LStoreUtil.readTxtFromRawFolder(R.raw.loitp)
+        val poem = readTxtFromRawFolder(R.raw.loitp)
         textView.text = poem
     }
 

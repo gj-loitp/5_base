@@ -5,9 +5,9 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.getRandomNumber
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LStoreUtil.Companion.getRandomNumber
 import kotlinx.android.synthetic.main.a_layout_rotate.*
 import vn.loitp.R
 

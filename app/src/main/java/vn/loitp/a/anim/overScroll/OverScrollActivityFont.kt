@@ -4,9 +4,9 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.readTxtFromRawFolder
 import com.loitp.core.ext.setPullLikeIOSVertical
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LStoreUtil
 import kotlinx.android.synthetic.main.a_animation_over_scroll.*
 import vn.loitp.R
 
@@ -35,6 +35,6 @@ class OverScrollActivityFont : BaseActivityFont() {
         }
 
         nsv.setPullLikeIOSVertical()
-        textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.overscroll)
+        textView.text = this.readTxtFromRawFolder(nameOfRawFile = R.raw.overscroll)
     }
 }

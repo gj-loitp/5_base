@@ -5,9 +5,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.isDarkTheme
+import com.loitp.core.ext.readTxtFromRawFolder
 import com.loitp.core.ext.setDarkTheme
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LStoreUtil
 import kotlinx.android.synthetic.main.a_sw_appcompat.*
 import vn.loitp.R
 
@@ -35,7 +35,7 @@ class AppcompatSwitchActivityFont : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = AppcompatSwitchActivityFont::class.java.simpleName
         }
-        textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.lswitch)
+        textView.text = readTxtFromRawFolder(nameOfRawFile = R.raw.lswitch)
 
         val isDarkTheme = isDarkTheme()
         sw.isChecked = isDarkTheme

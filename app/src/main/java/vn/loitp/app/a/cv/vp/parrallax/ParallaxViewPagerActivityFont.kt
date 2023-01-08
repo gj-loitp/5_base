@@ -11,8 +11,8 @@ import androidx.viewpager.widget.PagerAdapter
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.getRandomColor
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LStoreUtil
 import com.loitp.views.vp.parrallax.ParallaxMode
 import kotlinx.android.synthetic.main.activity_view_pager_parallax.*
 import vn.loitp.R
@@ -43,7 +43,7 @@ class ParallaxViewPagerActivityFont : BaseActivityFont() {
             this.tvTitle?.text = ParallaxViewPagerActivityFont::class.java.simpleName
         }
         for (i in 0..19) {
-            resList.add(LStoreUtil.randomColor)
+            resList.add(getRandomColor())
         }
         viewPager.parrallaxMode = ParallaxMode.RIGHT_OVERLAY
         viewPager.adapter = SlidePagerAdapter()

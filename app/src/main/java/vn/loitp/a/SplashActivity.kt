@@ -210,7 +210,7 @@ class SplashActivity : BaseActivityFont() {
         //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
         val linkGGDriveConfigSetting =
             "https://drive.google.com/uc?export=download&id=16pwq28ZTeP5p1ZeJmgwjHsOofE12XRIf"
-        LStoreUtil.getSettingFromGGDrive(
+        getSettingFromGGDrive(
             linkGGDriveSetting = linkGGDriveConfigSetting,
             onGGFailure = { _: Call, _: IOException ->
                 showDialogNotReady()

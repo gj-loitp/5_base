@@ -6,8 +6,8 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.readTxtFromRawFolder
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LStoreUtil
 import kotlinx.android.synthetic.main.a_l_action_bar.*
 import vn.loitp.R
 
@@ -27,7 +27,7 @@ class LActionbarActivityFont : BaseActivityFont() {
 
     @SuppressLint("SetTextI18n")
     private fun setupActionBar() {
-        textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.lactionbar)
+        textView.text = readTxtFromRawFolder(nameOfRawFile = R.raw.lactionbar)
 
         lActionBar.apply {
             this.ivIconLeft?.setSafeOnClickListenerElastic(

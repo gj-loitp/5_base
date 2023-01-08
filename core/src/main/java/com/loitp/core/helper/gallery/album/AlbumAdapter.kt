@@ -14,8 +14,8 @@ import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.getDateCurrentTimeZone
-import com.loitp.core.ext.getRandomColorLight
 import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.randomColorLight
 import com.loitp.core.ext.setTextShadow
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
 import kotlinx.android.synthetic.main.l_i_flickr_album_core.view.*
@@ -66,7 +66,7 @@ class AlbumAdapter(
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         fun bind(p: Photoset) {
 
-            val color = getRandomColorLight()
+            val color = randomColorLight
             itemView.imageView.loadGlide(
                 any = p.flickrLinkO(),
                 resPlaceHolder = color,

@@ -13,8 +13,8 @@ import com.bumptech.glide.request.target.Target
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import com.loitp.core.ext.getRandomColorLight
 import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.randomColorLight
 import com.loitp.core.ext.setTextShadow
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
@@ -72,7 +72,7 @@ class PhotosAdapter internal constructor(
         @SuppressLint("SetTextI18n")
         fun bind(photo: Photo) {
 
-            val color = getRandomColorLight()
+            val color = randomColorLight
             itemView.imageView.loadGlide(
                 any = photo.flickrLink1024,
                 resPlaceHolder = color,

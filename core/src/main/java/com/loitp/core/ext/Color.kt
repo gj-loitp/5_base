@@ -74,11 +74,27 @@ val listColorLight = intArrayOf(
     R.color.default_selection_bar_month_title_text_color
 )
 
-fun getRandomColorLight(): Int {
-    val random = Random()
-    val index = random.nextInt(listColorLight.size)
-    return listColorLight[index]
-}
+//fun getRandomColorLight(): Int {
+//    val random = Random()
+//    val index = random.nextInt(listColorLight.size)
+//    return listColorLight[index]
+//}
+
+val randomColorLight: Int
+    get() {
+        val mRandom = Random(System.currentTimeMillis())
+        val baseColor = Color.WHITE
+
+        val baseRed = Color.red(baseColor)
+        val baseGreen = Color.green(baseColor)
+        val baseBlue = Color.blue(baseColor)
+
+        val red = (baseRed + mRandom.nextInt(256)) / 2
+        val green = (baseGreen + mRandom.nextInt(256)) / 2
+        val blue = (baseBlue + mRandom.nextInt(256)) / 2
+
+        return Color.rgb(red, green, blue)
+    }
 
 fun getRandomColor(): Int {
     val rnd = Random()
@@ -213,3 +229,27 @@ fun View.recolor(
     }
 
 }
+
+val colors: IntArray
+    get() = intArrayOf(
+        Color.parseColor("#1BFFFF"),
+        Color.parseColor("#2E3192"),
+        Color.parseColor("#ED1E79"),
+        Color.parseColor("#009E00"),
+        Color.parseColor("#FBB03B"),
+        Color.parseColor("#D4145A"),
+        Color.parseColor("#3AA17E"),
+        Color.parseColor("#00537E")
+    )
+
+val texts: Array<String>
+    get() = arrayOf(
+        "Relax, its only ONES and ZEROS !",
+        "Hardware: The parts of a computer system that can be kicked.",
+        "Computer dating is fine, if you're a computer.",
+        "Better to be a geek than an idiot.",
+        "If you don't want to be replaced by a computer, don't act like one.",
+        "I'm not anti-social; I'm just not user friendly",
+        "Those who can't write programs, write help files.",
+        "The more I C, the less I see.  "
+    )

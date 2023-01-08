@@ -23,7 +23,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.loitp.R
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utils.ConvertUtils
 import com.skydoves.elasticviews.elasticAnimation
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
@@ -170,8 +169,10 @@ fun View.setGradientBackground() {
             return LinearGradient(
                 0f, 0f, 0f, this@setGradientBackground.height.toFloat(),
                 intArrayOf(
-                    LStoreUtil.randomColor,
-                    LStoreUtil.randomColor, LStoreUtil.randomColor, LStoreUtil.randomColor
+                    getRandomColor(),
+                    getRandomColor(),
+                    getRandomColor(),
+                    getRandomColor()
                 ),
                 floatArrayOf(0f, 0.49f, 0.50f, 1f), Shader.TileMode.CLAMP
             )
@@ -253,7 +254,7 @@ fun View?.setMarginsDp(
 }
 
 fun View.setRandomBackground() {
-    val r = LStoreUtil.getRandomNumber(Constants.ARR_RANDOM_BKG.size)
+    val r = getRandomNumber(Constants.ARR_RANDOM_BKG.size)
     val bkg = Constants.ARR_RANDOM_BKG[r]
     this.setBackgroundResource(bkg)
 }

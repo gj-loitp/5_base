@@ -9,9 +9,9 @@ import com.huxq17.download.core.DownloadListener
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.getFolderPath
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LStoreUtil
 import com.loitp.task.AsyncTaskDownloadPdfStream
 import com.loitp.task.GetPdfCoroutine
 import kotlinx.android.synthetic.main.a_demo_pdf.*
@@ -149,7 +149,7 @@ class PdfDemoActivityFont : BaseActivityFont() {
         // val urlPdf = "http://www.pdf995.com/samples/pdf.pdf";
         // val urlPdf = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
         // val urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
-        val folderPath = LStoreUtil.getFolderPath(folderName = "ZZZDemoPDF")
+        val folderPath = getFolderPath(folderName = "ZZZDemoPDF")
         val folderName = "PDFDemo"
         getPdfCoroutine = GetPdfCoroutine()
         getPdfCoroutine?.startTask(

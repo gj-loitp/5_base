@@ -6,8 +6,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.LogTag
+import com.loitp.core.ext.getPkgFromGGDrive
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LStoreUtil
 import kotlinx.android.synthetic.main.f_interview_vn_iq_list_package.*
 import vn.loitp.R
 import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
@@ -68,7 +68,7 @@ class FrmListPackage : BaseFragmentFlow() {
 
     private fun setupData() {
         showDialogProgress()
-        LStoreUtil.getPkgFromGGDrive(
+        getPkgFromGGDrive(
             linkGGDriveSetting = "https://drive.google.com/uc?export=download&id=1bF_xmaIGsre7c-aGeDhgSnWH7IYoqq8K",
             onGGFailure = { _, e ->
                 hideDialogProgress()

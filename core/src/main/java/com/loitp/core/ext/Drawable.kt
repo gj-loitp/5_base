@@ -1,7 +1,6 @@
 package com.loitp.core.ext
 
 import android.graphics.drawable.GradientDrawable
-import com.loitp.core.utilities.LStoreUtil
 
 /**
  * Created by Loitp on 06,January,2023
@@ -11,7 +10,7 @@ import com.loitp.core.utilities.LStoreUtil
  * freuss47@gmail.com
  */
 fun createGradientDrawableWithRandomColor(): GradientDrawable {
-    val color = LStoreUtil.randomColor
+    val color = getRandomColor()
     val gradientDrawable = GradientDrawable()
     gradientDrawable.setColor(color)
     gradientDrawable.cornerRadius = 0f

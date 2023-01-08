@@ -7,9 +7,9 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.getRandomColor
 import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LStoreUtil
 import kotlinx.android.synthetic.main.activity_view_pager_detect_swipe_out.*
 import vn.loitp.R
 
@@ -41,7 +41,7 @@ class DetectViewPagerSwipeOutActivityFont : BaseActivityFont() {
         val max = 3
         for (i in 0 until max) {
             val vpPhoto = VPPhoto()
-            vpPhoto.color = LStoreUtil.randomColor
+            vpPhoto.color = getRandomColor()
             vpPhoto.string = "Page " + i + "/" + (max - 1)
             vpPhotoList.add(vpPhoto)
         }

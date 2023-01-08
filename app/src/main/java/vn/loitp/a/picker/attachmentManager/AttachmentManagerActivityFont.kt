@@ -8,10 +8,10 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.getRealPathFromURI
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LStoreUtil
 import com.mirza.attachmentmanager.managers.AttachmentManager
 import com.mirza.attachmentmanager.models.AttachmentDetail
 import kotlinx.android.synthetic.main.a_attachment_manager.*
@@ -45,7 +45,7 @@ class AttachmentManagerActivityFont : BaseActivityFont() {
             var s = ""
             allAttachments?.forEach {
 //                logD(">>> ${it.path}")
-                val realPath = LStoreUtil.getRealPathFromURI(this, it.uri)
+                val realPath = this.getRealPathFromURI(it.uri)
                 s += it.path + " ---> " + realPath + "\n\n\n"
             }
             tvPath.text = s

@@ -3,8 +3,8 @@ package com.loitp.anim.flySchool
 import android.content.res.Resources
 import android.graphics.PorterDuff
 import android.widget.ImageView
+import com.loitp.core.ext.getRandomColor
 import com.loitp.core.ext.getRandomNumber
-import com.loitp.core.utilities.LStoreUtil.Companion.randomColor
 
 /**
  * Utility class with simple utility functions
@@ -32,7 +32,7 @@ object Utils {
         imageView.layoutParams.width = size
         imageView.requestLayout()
 
-        val color = randomColor
+        val color = getRandomColor()
         imageView.setColorFilter(color, PorterDuff.Mode.MULTIPLY)
     }
 }

@@ -83,7 +83,7 @@ class PhotosOnlyAdapter(
                 height = screenHeight,
             )
 
-            val color = getRandomColorLight()
+            val color = randomColorLight
             itemView.iv.loadGlide(
                 any = p.urlO,
                 resPlaceHolder = color,

@@ -222,16 +222,16 @@ class UtilsCoreActivity : BaseActivityFont() {
 
     private fun onClickBtLStoreUtil() {
         showShortInformation("Check logcat")
-        logD("isSdPresent ${LStoreUtil.isSdPresent}")
-        logD("randomColorLight ${LStoreUtil.randomColorLight}")
-        val file = LStoreUtil.writeToFile(folder = "test", fileName = "test1.txt", body = "loitp")
+        logD("isSdPresent $isSdPresent")
+        logD("randomColorLight $randomColorLight")
+        val file = writeToFile(folder = "test", fileName = "test1.txt", body = "loitp")
         logD("writeToFile file ${file?.path}")
-        val text = LStoreUtil.readTxtFromFolder(folderName = "test", fileName = "test1.txt")
+        val text = readTxtFromFolder(folderName = "test", fileName = "test1.txt")
         logD("readTxtFromFolder text $text")
-        val textAsset = LStoreUtil.readTxtFromAsset("txt.txt")
+        val textAsset = readTxtFromAsset("txt.txt")
         logD("textAsset $textAsset")
-        logD("getAvailableSpaceInMb ${LStoreUtil.getAvailableSpaceInMb()}")
-        logD("getAvailableRAM ${LStoreUtil.getAvailableRAM()}")
+        logD("getAvailableSpaceInMb ${getAvailableSpaceInMb()}")
+        logD("getAvailableRAM ${getAvailableRAM()}")
     }
 
     private fun onClickBtLStringUtil() {

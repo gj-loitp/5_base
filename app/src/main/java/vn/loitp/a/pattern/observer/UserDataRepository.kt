@@ -2,7 +2,7 @@ package vn.loitp.a.pattern.observer
 
 import android.os.Handler
 import android.os.Looper
-import com.loitp.core.utilities.LStoreUtil.Companion.getRandomNumber
+import com.loitp.core.ext.getRandomNumber
 
 class UserDataRepository private constructor() : Subject {
     companion object {

@@ -16,7 +16,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.loitp.R
 import com.loitp.core.common.Constants
 import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LStoreUtil
 import com.loitp.core.utils.FileUtils
 import com.ortiz.touchview.TouchImageView
 import java.io.File
@@ -32,7 +31,7 @@ import kotlin.math.min
  * freuss47@gmail.com
  */
 fun randomUrlFlickr(): String {
-    val r = LStoreUtil.getRandomNumber(Constants.ARR_URL_BKG_FLICKR.size)
+    val r = getRandomNumber(Constants.ARR_URL_BKG_FLICKR.size)
     return Constants.ARR_URL_BKG_FLICKR[r]
 }
 
@@ -168,7 +167,7 @@ fun Context?.resizeImage(
     }
     try {
         val srcFilePath = file.path
-        val destFilePath = LStoreUtil.getFolderPath(folderName = folderPath) + "/" + file.name
+        val destFilePath = getFolderPath(folderName = folderPath) + "/" + file.name
         val resultCopy = FileUtils.copyFile(srcFilePath, destFilePath)
         print("resultCopy $resultCopy")
 

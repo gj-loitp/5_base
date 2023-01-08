@@ -13,9 +13,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.changeTabsFont
+import com.loitp.core.ext.getRandomColor
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LStoreUtil
 import com.loitp.views.vp.vpTransformers.*
 import kotlinx.android.synthetic.main.activity_view_pager_with_tablayout.*
 import vn.loitp.R
@@ -70,7 +70,7 @@ class ViewPagerWithTabLayoutActivityFont : BaseActivityFont() {
             this.tvTitle?.text = ViewPagerWithTabLayoutActivityFont::class.java.simpleName
         }
         for (i in 0..19) {
-            resList.add(LStoreUtil.randomColor)
+            resList.add(getRandomColor())
         }
         viewPager.adapter = SlidePagerAdapter()
         tabLayout.setupWithViewPager(viewPager)

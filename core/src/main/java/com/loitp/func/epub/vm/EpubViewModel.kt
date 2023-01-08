@@ -6,9 +6,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseViewModel
 import com.loitp.core.ext.LAppResource
+import com.loitp.core.ext.getListEpubFiles
 import com.loitp.core.utilities.LPrefUtil
-import com.loitp.core.utilities.LStoreUtil
-import com.loitp.core.utilities.LStoreUtil.Companion.getListEpubFiles
 import com.loitp.func.epub.CssStatus
 import com.loitp.func.epub.Reader
 import com.loitp.func.epub.exception.ReadingException
@@ -213,7 +212,7 @@ class EpubViewModel : BaseViewModel() {
                 getListEpubFiles(File(Environment.getExternalStorageDirectory().absolutePath))
 
             // only get 1 file from asset
-            val sampleFile = LStoreUtil.getFileFromAssets(fileName = "a (1).sqlite")
+            val sampleFile = getFileFromAssets(fileName = "a (1).sqlite")
             sampleFile?.let {
                 listFile.add(index = 0, element = it)
             }
