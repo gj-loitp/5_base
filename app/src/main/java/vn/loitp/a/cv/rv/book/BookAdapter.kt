@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setMargins
-import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.i_book.view.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
@@ -22,7 +22,7 @@ class BookAdapter(
     private val callback: Callback?
 ) : BaseAdapter() {
 
-    private val sizeW: Int = LScreenUtil.screenWidth / column
+    private val sizeW: Int = screenWidth / column
     private val sizeH: Int = sizeW * 15 / 9
     private val sizeMarginTopBottom: Int = sizeW / 5
     private val sizeMarginTopLeftRight: Int = sizeW / 10

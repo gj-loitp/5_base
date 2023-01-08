@@ -14,11 +14,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.widget.NestedScrollView
 import com.loitp.R
-import com.loitp.core.ext.getDateCurrentTimeZoneMls
-import com.loitp.core.ext.getDimenValue
-import com.loitp.core.ext.printBeautyJson
-import com.loitp.core.ext.setTextSizePx
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -81,8 +77,8 @@ class LDebugViewService : Service(), OnTouchListener {
         expandedView = mFloatingView?.findViewById(R.id.llExpanded)
 
         expandedView?.apply {
-            layoutParams.width = LScreenUtil.screenWidth / 2
-            layoutParams.height = LScreenUtil.screenHeight * 2 / 3
+            layoutParams.width = screenWidth / 2
+            layoutParams.height = screenHeight * 2 / 3
             requestLayout()
         }
 

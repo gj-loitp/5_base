@@ -17,7 +17,6 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
-import com.loitp.core.utilities.LScreenUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import kotlinx.android.synthetic.main.l_i_flickr_photos_core_only.view.*
 import java.util.*
@@ -34,7 +33,7 @@ class PhotosOnlyAdapter(
     private val callback: Callback?
 ) : BaseAdapter() {
 
-    private val widthScreen = LScreenUtil.screenWidth
+    private val widthScreen = screenWidth
 
     interface Callback {
         fun onClick(photo: Photo, pos: Int)

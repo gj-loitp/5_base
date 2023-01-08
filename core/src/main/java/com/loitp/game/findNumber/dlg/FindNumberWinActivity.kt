@@ -8,7 +8,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.toggleFullscreen
 import kotlinx.android.synthetic.main.l_d_find_number_win.*
 
 /**
@@ -30,7 +30,7 @@ class FindNumberWinActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
+        this.toggleFullscreen(isFullScreen = true)
         setupViews()
     }
 

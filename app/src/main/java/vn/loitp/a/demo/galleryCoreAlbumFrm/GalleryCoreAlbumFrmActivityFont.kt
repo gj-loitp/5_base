@@ -5,9 +5,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.addFragment
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyFrm
-import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.a_demo_gallery_core_album_frm.*
 import vn.loitp.R
 
@@ -50,8 +50,7 @@ class GalleryCoreAlbumFrmActivityFont : BaseActivityFont() {
         bundle.putString(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
         bundle.putBoolean(GalleryCorePhotosOnlyFrm.IS_SHOW_TITLE, false)
         frm.arguments = bundle
-        LScreenUtil.addFragment(
-            activity = this,
+        this.addFragment(
             containerFrameLayoutIdRes = R.id.flContainer,
             fragment = frm,
             isAddToBackStack = false

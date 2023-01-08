@@ -6,7 +6,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.toggleFullscreen
 import kotlinx.android.synthetic.main.a_dlg_custom.*
 import vn.loitp.R
 
@@ -38,7 +38,7 @@ class CustomDialogActivityFont : BaseActivityFont() {
         }
         btToggleFullScreen.setSafeOnClickListener {
             isFullScreen = !isFullScreen
-            LScreenUtil.toggleFullscreen(activity = this, isFullScreen = isFullScreen)
+            this.toggleFullscreen(isFullScreen = isFullScreen)
         }
         btDefault.setSafeOnClickListener {
             PositionDialog().showImmersivePos(

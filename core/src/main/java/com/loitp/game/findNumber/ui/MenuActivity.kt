@@ -11,7 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.moreApp
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.toggleFullscreen
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_a_find_number_menu.*
 
@@ -36,7 +36,7 @@ class MenuActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
+        this.toggleFullscreen(isFullScreen = true)
         activityCircularReveal = CircularReveal(rootView)
         activityCircularReveal?.onActivityCreate(intent)
 

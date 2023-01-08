@@ -13,7 +13,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.play
 import com.loitp.core.ext.setDelay
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.toggleFullscreen
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_a_find_number_splash.*
 
@@ -40,7 +40,7 @@ class SplashActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
+        this.toggleFullscreen(isFullScreen = true)
         setupViews()
         goToHome()
     }

@@ -5,7 +5,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.hideDefaultControls
 import vn.loitp.R
 import vn.loitp.a.game.pong.pong.Settings
 
@@ -26,7 +26,7 @@ class GameActivityFont : BaseActivityFont() {
 
 //        settings = intent.getSerializableExtra("settings") as Settings
 //        LScreenUtil.setScreenOrientation(this, false)
-        LScreenUtil.hideDefaultControls(this)
+        this.hideDefaultControls()
 //        setCustomStatusBar(Color.BLACK, Color.BLACK)
     }
 

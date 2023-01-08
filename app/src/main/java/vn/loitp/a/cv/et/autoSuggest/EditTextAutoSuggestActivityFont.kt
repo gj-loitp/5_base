@@ -8,8 +8,9 @@ import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.screenHeight
+import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LScreenUtil
 import com.loitp.views.et.autoSuggest.LAutoSuggestEditText
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -44,7 +45,7 @@ class EditTextAutoSuggestActivityFont : BaseActivityFont() {
             this.tvTitle?.text = EditTextAutoSuggestActivityFont::class.java.simpleName
         }
         aet0.apply {
-            this.popupHeight = LScreenUtil.screenHeight / 2
+            this.popupHeight = screenHeight / 2
             this.vertPos = RelativePopupWindow.VerticalPosition.BELOW
             this.horizPos = RelativePopupWindow.HorizontalPosition.CENTER
             this.setHintText("1/2 screen")
@@ -66,8 +67,8 @@ class EditTextAutoSuggestActivityFont : BaseActivityFont() {
         }
 
         aet1.apply {
-            this.popupWidth = LScreenUtil.screenWidth * 1 / 2
-            this.popupHeight = LScreenUtil.screenHeight * 1 / 4
+            this.popupWidth = screenWidth * 1 / 2
+            this.popupHeight = screenHeight * 1 / 4
             this.vertPos = RelativePopupWindow.VerticalPosition.ALIGN_BOTTOM
             this.horizPos = RelativePopupWindow.HorizontalPosition.RIGHT
             this.setHintText("3/4 screen")

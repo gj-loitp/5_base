@@ -57,7 +57,7 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
     private var isSkippedToPage = false
     private var sectionsPagerAdapter: SectionsPagerAdapter? = null
     private var pageCount = Int.MAX_VALUE
-    private val pxScreenWidth = LScreenUtil.screenWidth
+    private val pxScreenWidth = screenWidth
     private var bookInfo: BookInfo? = null
     private var epubViewModel: EpubViewModel? = null
 

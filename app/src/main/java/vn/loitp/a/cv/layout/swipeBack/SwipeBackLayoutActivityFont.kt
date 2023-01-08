@@ -7,8 +7,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.screenHeight
+import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.transActivityNoAnimation
-import com.loitp.core.utilities.LScreenUtil
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
 import com.loitp.views.layout.swipeBack.SwipeBackLayout.OnSwipeBackListener
 import kotlinx.android.synthetic.main.a_layout_swipe_back.*
@@ -30,8 +31,8 @@ class SwipeBackLayoutActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        screenW = LScreenUtil.screenWidth
-        screenH = LScreenUtil.screenHeight
+        screenW = screenWidth
+        screenH = screenHeight
 
         setupViews()
     }

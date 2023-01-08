@@ -8,20 +8,22 @@ import android.graphics.PixelFormat
 import android.os.Build
 import android.os.CountDownTimer
 import android.os.IBinder
-import android.view.* // ktlint-disable no-wildcard-imports
+import android.view.*
 import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.View.OnTouchListener
 import android.widget.RelativeLayout
+import com.loitp.core.ext.getStatusBarHeight
+import com.loitp.core.ext.screenHeight
+import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.vibrate
-import com.loitp.core.utilities.LScreenUtil
 import vn.loitp.R
 import kotlin.math.abs
 
 class FloatingViewEdgeService : Service() {
 
     private var mWindowManager: WindowManager? = null
-    private var screenWidth = 0
-    private var screenHeight = 0
+    private var screenW = 0
+    private var screenH = 0
     private var statusBarHeight = 0
 
     private lateinit var params: WindowManager.LayoutParams
@@ -37,9 +39,9 @@ class FloatingViewEdgeService : Service() {
     override fun onCreate() {
         super.onCreate()
 
-        screenWidth = LScreenUtil.screenWidth
-        screenHeight = LScreenUtil.screenHeight
-        statusBarHeight = LScreenUtil.getStatusBarHeight()
+        screenW = screenWidth
+        screenH = screenHeight
+        statusBarHeight = getStatusBarHeight()
 
         setupViews()
 
@@ -75,9 +77,9 @@ class FloatingViewEdgeService : Service() {
         params.apply {
             this.gravity =
                 Gravity.TOP or Gravity.START // Initially view will be added to top-left corner
-            this.x = screenWidth - moveViewWidth
+            this.x = screenW - moveViewWidth
             this.y =
-                screenHeight - moveViewHeight - statusBarHeight // dell hieu sao phai tru getBottomBarHeight thi moi dung position :(
+                screenH - moveViewHeight - statusBarHeight // dell hieu sao phai tru getBottomBarHeight thi moi dung position :(
         }
 
         // Add the view to the window
@@ -94,11 +96,11 @@ class FloatingViewEdgeService : Service() {
         videoH: Int
     ) {
         if (!isUpdatedUIVideoSize) {
-            val vW = screenWidth / 2
+            val vW = screenW / 2
             val vH = vW * videoH / videoW
             val newPosX = params.x
             val newPosY =
-                screenHeight - vH - statusBarHeight // dell hieu sao phai tru getBottomBarHeight thi moi dung position :(
+                screenH - vH - statusBarHeight // dell hieu sao phai tru getBottomBarHeight thi moi dung position :(
             updateUISlide(x = newPosX, y = newPosY)
             isUpdatedUIVideoSize = true
         }
@@ -241,19 +243,19 @@ class FloatingViewEdgeService : Service() {
                 centerY < 0 -> {
                     notiPos(POS.TOP_LEFT)
                 }
-                centerY > screenHeight -> {
+                centerY > screenH -> {
                     notiPos(POS.BOTTOM_LEFT)
                 }
                 else -> {
                     notiPos(POS.CENTER_LEFT)
                 }
             }
-        } else if (centerX > screenWidth) {
+        } else if (centerX > screenW) {
             when {
                 centerY < 0 -> {
                     notiPos(POS.TOP_RIGHT)
                 }
-                centerY > screenHeight -> {
+                centerY > screenH -> {
                     notiPos(POS.BOTTOM_RIGHT)
                 }
                 else -> {
@@ -265,20 +267,20 @@ class FloatingViewEdgeService : Service() {
                 centerY < 0 -> {
                     notiPos(POS.CENTER_TOP)
                 }
-                centerY > screenHeight -> {
+                centerY > screenH -> {
                     notiPos(POS.CENTER_BOTTOM)
                 }
                 else -> {
                     if (posLeft < 0) {
                         notiPos(POS.LEFT)
-                    } else if (posRight > screenWidth) {
+                    } else if (posRight > screenW) {
                         notiPos(POS.RIGHT)
                     } else {
                         when {
                             posTop < 0 -> {
                                 notiPos(POS.TOP)
                             }
-                            posBottom > screenHeight -> {
+                            posBottom > screenH -> {
                                 notiPos(POS.BOTTOM)
                             }
                             else -> {
@@ -304,48 +306,48 @@ class FloatingViewEdgeService : Service() {
             POS.TOP, POS.CENTER_TOP -> {
                 posX = params.x
                 centerPosX = posX + moveViewWidth / 2
-                if (centerPosX < screenWidth / 2) {
+                if (centerPosX < screenW / 2) {
                     slideToPosition(goToPosX = 0, goToPosY = 0)
                 } else {
-                    slideToPosition(goToPosX = screenWidth - moveViewWidth, goToPosY = 0)
+                    slideToPosition(goToPosX = screenW - moveViewWidth, goToPosY = 0)
                 }
             }
             POS.BOTTOM, POS.CENTER_BOTTOM -> {
                 posX = params.x
                 centerPosX = posX + moveViewWidth / 2
-                if (centerPosX < screenWidth / 2) {
+                if (centerPosX < screenW / 2) {
                     slideToPosition(
                         goToPosX = 0,
-                        goToPosY = screenHeight - moveViewHeight - statusBarHeight
+                        goToPosY = screenH - moveViewHeight - statusBarHeight
                     )
                 } else {
                     slideToPosition(
-                        goToPosX = screenWidth - moveViewWidth,
-                        goToPosY = screenHeight - moveViewHeight - statusBarHeight
+                        goToPosX = screenW - moveViewWidth,
+                        goToPosY = screenH - moveViewHeight - statusBarHeight
                     )
                 }
             }
             POS.LEFT, POS.CENTER_LEFT -> {
                 posY = params.y
                 centerPosY = posY + moveViewHeight / 2
-                if (centerPosY < screenHeight / 2) {
+                if (centerPosY < screenH / 2) {
                     slideToPosition(goToPosX = 0, goToPosY = 0)
                 } else {
                     slideToPosition(
                         goToPosX = 0,
-                        goToPosY = screenHeight - moveViewHeight - statusBarHeight
+                        goToPosY = screenH - moveViewHeight - statusBarHeight
                     )
                 }
             }
             POS.RIGHT, POS.CENTER_RIGHT -> {
                 posY = params.y
                 centerPosY = posY + moveViewHeight / 2
-                if (centerPosY < screenHeight / 2) {
-                    slideToPosition(goToPosX = screenWidth - moveViewWidth, goToPosY = 0)
+                if (centerPosY < screenH / 2) {
+                    slideToPosition(goToPosX = screenW - moveViewWidth, goToPosY = 0)
                 } else {
                     slideToPosition(
-                        goToPosX = screenWidth - moveViewWidth,
-                        goToPosY = screenHeight - moveViewHeight - statusBarHeight
+                        goToPosX = screenW - moveViewWidth,
+                        goToPosY = screenH - moveViewHeight - statusBarHeight
                     )
                 }
             }
@@ -354,22 +356,22 @@ class FloatingViewEdgeService : Service() {
                 posY = params.y
                 centerPosX = posX + moveViewWidth / 2
                 centerPosY = posY + moveViewHeight / 2
-                if (centerPosX < screenWidth / 2) {
-                    if (centerPosY < screenHeight / 2) {
+                if (centerPosX < screenW / 2) {
+                    if (centerPosY < screenH / 2) {
                         slideToPosition(goToPosX = 0, goToPosY = 0)
                     } else {
                         slideToPosition(
                             goToPosX = 0,
-                            goToPosY = screenHeight - moveViewHeight - statusBarHeight
+                            goToPosY = screenH - moveViewHeight - statusBarHeight
                         )
                     }
                 } else {
-                    if (centerPosY < screenHeight / 2) {
-                        slideToPosition(goToPosX = screenWidth - moveViewWidth, goToPosY = 0)
+                    if (centerPosY < screenH / 2) {
+                        slideToPosition(goToPosX = screenW - moveViewWidth, goToPosY = 0)
                     } else {
                         slideToPosition(
-                            goToPosX = screenWidth - moveViewWidth,
-                            goToPosY = screenHeight - moveViewHeight - statusBarHeight
+                            goToPosX = screenW - moveViewWidth,
+                            goToPosY = screenH - moveViewHeight - statusBarHeight
                         )
                     }
                 }
@@ -404,7 +406,7 @@ class FloatingViewEdgeService : Service() {
         var w = 0
         var h = 0
         if (isFirstSizeInit) {
-            w = screenWidth / 2
+            w = screenW / 2
             h = w * 9 / 16
         } else {
             // works fine

@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.addFragment
 import vn.loitp.R
 
 @LogTag("RSSActivity")
@@ -21,8 +21,7 @@ class RSSActivityFont : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        LScreenUtil.addFragment(
-            activity = this,
+        this.addFragment(
             containerFrameLayoutIdRes = R.id.rlContainer,
             fragment = RssFragment.newInstance("https://vnexpress.net/rss/tin-moi-nhat.rss/"),
             isAddToBackStack = false

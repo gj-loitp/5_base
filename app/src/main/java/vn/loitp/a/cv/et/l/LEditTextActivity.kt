@@ -12,8 +12,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.hideKeyboard
+import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LScreenUtil
 import com.loitp.views.et.l.LEditText
 import kotlinx.android.synthetic.main.a_et_l.*
 import vn.loitp.R
@@ -55,7 +55,7 @@ class LEditTextActivity : BaseActivityFont() {
             setPaddingDp(5f)
             editText.hint = "Account"
             setMaxLines(1)
-            setWidthRootView(LScreenUtil.screenWidth * 3 / 4)
+            setWidthRootView(screenWidth * 3 / 4)
             setHeightRootView(350)
             // disableEditing()
             setInputType(InputType.TYPE_CLASS_TEXT)

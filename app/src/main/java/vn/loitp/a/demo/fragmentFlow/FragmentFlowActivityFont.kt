@@ -10,9 +10,10 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener
+import com.loitp.core.ext.addFragment
+import com.loitp.core.ext.findFragmentByTag
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.a_demo_fragment_flow.*
 import vn.loitp.R
 
@@ -78,8 +79,7 @@ class FragmentFlowActivityFont : BaseActivityFont() {
     }
 
     fun showFragment(baseFragment: BaseFragment) {
-        LScreenUtil.addFragment(
-            activity = this,
+        this.addFragment(
             containerFrameLayoutIdRes = R.id.flContainer,
             fragment = baseFragment,
             tag = baseFragment.javaClass.simpleName,
@@ -89,17 +89,17 @@ class FragmentFlowActivityFont : BaseActivityFont() {
 
     private fun clearAllFragments() {
         val frmFlow0 =
-            LScreenUtil.findFragmentByTag(activity = this, tag = FrmFlow0::class.java.simpleName)
+            this.findFragmentByTag(tag = FrmFlow0::class.java.simpleName)
         frmFlow0?.let {
             (it as BaseFragmentFlow).popThisFragment()
         }
         val frmFlow1 =
-            LScreenUtil.findFragmentByTag(activity = this, tag = FrmFlow1::class.java.simpleName)
+            this.findFragmentByTag(tag = FrmFlow1::class.java.simpleName)
         frmFlow1?.let {
             (it as BaseFragmentFlow).popThisFragment()
         }
         val frmFlow2 =
-            LScreenUtil.findFragmentByTag(activity = this, tag = FrmFlow2::class.java.simpleName)
+            this.findFragmentByTag(tag = FrmFlow2::class.java.simpleName)
         frmFlow2?.let {
             (it as BaseFragmentFlow).popThisFragment()
         }

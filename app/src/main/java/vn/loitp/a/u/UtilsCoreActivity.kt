@@ -153,26 +153,26 @@ class UtilsCoreActivity : BaseActivityFont() {
             )
         }
         btShowStatusBar.setSafeOnClickListener {
-            LScreenUtil.showStatusBar(this)
+            this.showStatusBar()
         }
         btHideStatusBar.setSafeOnClickListener {
-            LScreenUtil.hideStatusBar(this)
+            this.hideStatusBar()
         }
         btHideNavigationBar.setSafeOnClickListener {
-            LScreenUtil.hideNavigationBar(this)
+            this.hideNavigationBar()
         }
         btShowNavigationBar.setSafeOnClickListener {
-            LScreenUtil.showNavigationBar(this)
+            this.showNavigationBar()
         }
         btHideDefaultControls.setSafeOnClickListener {
-            LScreenUtil.hideDefaultControls(this)
+            this.hideDefaultControls()
         }
         btShowDefaultControls.setSafeOnClickListener {
-            LScreenUtil.showDefaultControls(this)
+            this.showDefaultControls()
         }
         btSetBrightness.setSafeOnClickListener {
-            LScreenUtil.setBrightness(this, 99)
-            showShortInformation("getCurrentBrightness: ${LScreenUtil.getCurrentBrightness()}")
+            this.setBrightness(99)
+            showShortInformation("getCurrentBrightness: ${getCurrentBrightness()}")
         }
         btSendSMS.setSafeOnClickListener {
             this.sendSMS("sendSMS from Loitp ${System.currentTimeMillis()}")

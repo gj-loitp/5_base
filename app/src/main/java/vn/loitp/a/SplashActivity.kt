@@ -139,7 +139,7 @@ class SplashActivity : BaseActivityFont() {
                 }
         }
 
-        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
+        val isCanWriteSystem = checkSystemWritePermission()
         if (isCanWriteSystem) {
             checkPer()
         } else {

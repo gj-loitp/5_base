@@ -4,8 +4,8 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.addFragment
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.a_coordinator_layout_sample.*
 import vn.loitp.R
 
@@ -32,32 +32,27 @@ class CoordinatorLayoutSampleActivityFont : BaseActivityFont() {
 
         setupViews()
         when (intent.getStringExtra(KEY)) {
-            VALUE_0 -> LScreenUtil.addFragment(
-                activity = this,
+            VALUE_0 -> this.addFragment(
                 containerFrameLayoutIdRes = R.id.flContainer,
                 fragment = FrmCoordinator0(),
                 isAddToBackStack = false
             )
-            VALUE_1 -> LScreenUtil.addFragment(
-                activity = this,
+            VALUE_1 -> this.addFragment(
                 containerFrameLayoutIdRes = R.id.flContainer,
                 fragment = FrmCoordinator1(),
                 isAddToBackStack = false
             )
-            VALUE_2 -> LScreenUtil.addFragment(
-                activity = this,
+            VALUE_2 -> this.addFragment(
                 containerFrameLayoutIdRes = R.id.flContainer,
                 fragment = FrmCoordinator2(),
                 isAddToBackStack = false
             )
-            VALUE_3 -> LScreenUtil.addFragment(
-                activity = this,
+            VALUE_3 -> this.addFragment(
                 containerFrameLayoutIdRes = R.id.flContainer,
                 fragment = FrmCoordinator3(),
                 isAddToBackStack = false
             )
-            VALUE_4 -> LScreenUtil.addFragment(
-                activity = this,
+            VALUE_4 -> this.addFragment(
                 containerFrameLayoutIdRes = R.id.flContainer,
                 fragment = FrmCoordinator4(),
                 isAddToBackStack = false

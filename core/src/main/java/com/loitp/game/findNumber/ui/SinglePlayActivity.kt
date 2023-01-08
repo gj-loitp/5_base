@@ -8,8 +8,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.replaceFragment
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.toggleFullscreen
 import com.loitp.game.findNumber.model.Level
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_a_find_number_single_play.*
@@ -41,7 +42,7 @@ class SinglePlayActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
+        this.toggleFullscreen(isFullScreen = true)
         activityCircularReveal = CircularReveal(rootView)
         activityCircularReveal?.onActivityCreate(intent)
         setupData()
@@ -57,8 +58,7 @@ class SinglePlayActivity : BaseActivityFont() {
     private fun setupViews() {
         ivBackground.loadGlide(any = currentLevel?.bkg)
         frmFindNumberPlay?.let {
-            LScreenUtil.replaceFragment(
-                activity = this,
+            this.replaceFragment(
                 containerFrameLayoutIdRes = R.id.layoutContainer,
                 fragment = it,
                 isAddToBackStack = false

@@ -7,7 +7,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.hideDefaultControls
 import vn.loitp.R
 import vn.loitp.a.game.pong.pong.Settings
 
@@ -25,9 +25,7 @@ class PongMainActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        LScreenUtil.setScreenOrientation(this, false)
-        LScreenUtil.hideDefaultControls(this)
-//        setCustomStatusBar(Color.BLACK, Color.BLACK)
+        this.hideDefaultControls()
     }
 
     @Suppress("unused")

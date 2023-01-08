@@ -14,8 +14,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.play
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
+import com.loitp.core.ext.toggleFullscreen
 import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LScreenUtil
 import com.loitp.game.findNumber.adt.LevelAdapter
 import com.loitp.game.findNumber.model.Level
 import com.loitp.game.findNumber.vm.FindNumberViewModel
@@ -44,7 +44,7 @@ class SingleLevelActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
+        this.toggleFullscreen(isFullScreen = true)
         activityCircularReveal = CircularReveal(rootView)
         activityCircularReveal?.onActivityCreate(intent)
 

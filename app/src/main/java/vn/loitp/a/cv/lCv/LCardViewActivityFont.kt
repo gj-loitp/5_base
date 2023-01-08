@@ -9,8 +9,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.play
+import com.loitp.core.ext.screenHeight
+import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LScreenUtil
 import com.loitp.views.card.LCardView
 import kotlinx.android.synthetic.main.a_l_card_view.*
 import vn.loitp.R
@@ -59,14 +60,14 @@ class LCardViewActivityFont : BaseActivityFont() {
             }
             setText(System.currentTimeMillis().toString() + "")
             height = 300
-            width = LScreenUtil.screenWidth * 3 / 4
+            width = screenWidth * 3 / 4
             setRadius(30f)
             setCardElevation(10f)
             setImg(Constants.URL_IMG_2)
         }
         lCardView1.apply {
             setText(System.currentTimeMillis().toString() + "")
-            height = LScreenUtil.screenHeight * 3 / 2
+            height = screenHeight * 3 / 2
             setRadius(50f)
             setCardElevation(20f)
             setImg(Constants.URL_IMG_4)

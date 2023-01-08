@@ -4,8 +4,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeAdapter
+import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setSizeOfView
-import com.loitp.core.utilities.LScreenUtil
 import vn.loitp.R
 
 class DragDropAdapter(
@@ -13,7 +13,7 @@ class DragDropAdapter(
     private val isHorizontal: Boolean = false
 ) : DragDropSwipeAdapter<String, DragDropAdapter.ViewHolder>(dataSet) {
 
-    private val sizeWidth = LScreenUtil.screenWidth / 2
+    private val sizeWidth = screenWidth / 2
 
     class ViewHolder(itemView: View) : DragDropSwipeAdapter.ViewHolder(itemView) {
         val tv: TextView = itemView.findViewById(R.id.tv)

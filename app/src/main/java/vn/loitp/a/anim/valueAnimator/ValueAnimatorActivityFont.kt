@@ -8,9 +8,7 @@ import android.view.animation.DecelerateInterpolator
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.*
 import kotlinx.android.synthetic.main.a_animation_value_animator.*
 import vn.loitp.R
 
@@ -56,9 +54,9 @@ class ValueAnimatorActivityFont : BaseActivityFont() {
         valueAnimator?.let { va ->
             va.duration = duration.toLong()
             va.interpolator = DecelerateInterpolator()
-            val spaceW = (LScreenUtil.screenWidth - view.width) / range
+            val spaceW = (screenWidth - view.width) / range
             val spaceH =
-                (LScreenUtil.screenHeight - LScreenUtil.getStatusBarHeight() - LScreenUtil.getBottomBarHeight() - view.height) / range
+                (screenHeight - getStatusBarHeight() - getBottomBarHeight() - view.height) / range
 
             va.addUpdateListener { animation: ValueAnimator ->
                 val value = animation.animatedValue as Int

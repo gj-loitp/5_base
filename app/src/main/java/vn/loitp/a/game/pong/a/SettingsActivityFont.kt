@@ -9,7 +9,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.hideDefaultControls
 import kotlinx.android.synthetic.main.dialog_settings.*
 import vn.loitp.R
 import vn.loitp.a.game.pong.pong.Difficulty
@@ -32,7 +32,7 @@ class SettingsActivityFont : BaseActivityFont() {
         super.onCreate(savedInstanceState)
 
 //        LScreenUtil.setScreenOrientation(this, false)
-        LScreenUtil.hideDefaultControls(this)
+        this.hideDefaultControls()
 //        setCustomStatusBar(Color.BLACK, Color.BLACK)
 
         ArrayAdapter.createFromResource(this, R.array.modeTypes, R.layout.custom_spinner)

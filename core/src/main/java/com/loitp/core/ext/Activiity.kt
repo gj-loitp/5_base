@@ -4,19 +4,26 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ComponentName
 import android.content.ContentUris
+import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.content.res.Resources
+import android.graphics.Point
 import android.net.Uri
+import android.os.Build
 import android.provider.AlarmClock
 import android.provider.CalendarContract
+import android.provider.Settings
 import android.provider.Telephony
-import android.view.View
-import android.view.WindowManager
+import android.view.*
+import androidx.fragment.app.Fragment
 import com.loitp.R
+import com.loitp.core.base.BaseActivity
 import com.loitp.core.utilities.LDialogUtil
 import com.loitp.core.utils.AppUtils
+import com.loitp.core.utils.FragmentUtils
 
 //mo hop thoai de select launcher default
 fun Activity.chooseLauncher(cls: Class<*>) {
@@ -225,10 +232,10 @@ fun Activity?.likeFacebookFanpage(
     }
 }
 
-fun getFacebookPageURL(): String {
+fun Context.getFacebookPageURL(): String {
     val facebookUrl = "https://www.facebook.com/hoidammedocsach"
     val facebookPageId = "hoidammedocsach"
-    val packageManager = LAppResource.application.packageManager
+    val packageManager = this.packageManager
     return try {
         val versionCode =
             packageManager.getPackageInfo("com.facebook.katana", 0).versionCode
@@ -312,4 +319,382 @@ fun Activity.setChangeStatusBarTintToDark(
         // you have set other flags before, such as translucent or full screen.
         decor.systemUiVisibility = 0
     }
+}
+
+val screenWidth: Int
+    get() = Resources.getSystem().displayMetrics.widthPixels
+
+val screenHeight: Int
+    get() = Resources.getSystem().displayMetrics.heightPixels
+
+fun Context.getStatusBarHeight(): Int {
+    var result = 0
+    val resourceId = this.resources.getIdentifier(
+        "status_bar_height",
+        "dimen",
+        "android"
+    )
+    if (resourceId > 0) {
+        result = this.resources.getDimensionPixelSize(resourceId)
+    }
+    return result
+}
+
+fun Context.getBottomBarHeight(): Int {
+    val hasMenuKey = ViewConfiguration.get(this).hasPermanentMenuKey()
+    val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
+
+    if (!hasMenuKey && !hasBackKey) {
+        // Do whatever you need to do, this device has a navigation bar
+        var result = 0
+        val resourceId = this.resources.getIdentifier(
+            "design_bottom_navigation_height",
+            "dimen",
+            this.packageName
+        )
+        if (resourceId > 0) {
+            result = LAppResource.application.resources.getDimensionPixelSize(resourceId)
+        }
+        return result
+    }
+
+    return 0
+}
+
+fun Context.getScreenHeightIncludeNavigationBar(): Int {
+    val windowManager =
+        this.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    val display = windowManager.defaultDisplay
+    val outPoint = Point()
+    // include navigation bar
+    display.getRealSize(outPoint)
+    val mRealSizeHeight: Int = if (outPoint.y > outPoint.x) {
+        outPoint.y
+        // mRealSizeWidth = outPoint.x;
+    } else {
+        outPoint.x
+        // mRealSizeWidth = outPoint.y;
+    }
+    return mRealSizeHeight
+}
+
+@SuppressLint("ObsoleteSdkInt")
+fun Activity.showStatusBar(
+) {
+    if (Build.VERSION.SDK_INT < 16) {
+        this.window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+    } else {
+        val decorView = this.window.decorView
+        // Show Status Bar.
+        val uiOptions = View.SYSTEM_UI_FLAG_VISIBLE
+        decorView.systemUiVisibility = uiOptions
+    }
+}
+
+@SuppressLint("ObsoleteSdkInt")
+fun Activity.hideStatusBar(
+) {
+    // Hide Status Bar
+    if (Build.VERSION.SDK_INT < 16) {
+        this.window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+    } else {
+        val decorView = this.window.decorView
+        // Hide Status Bar.
+        val uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN
+        decorView.systemUiVisibility = uiOptions
+    }
+}
+
+fun Activity.toggleFullscreen(
+) {
+    val attrs = this.window.attributes
+    attrs.flags = attrs.flags xor WindowManager.LayoutParams.FLAG_FULLSCREEN
+    // attrs.flags ^= WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;
+    // attrs.flags ^= WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.SOFT_INPUT_IS_FORWARD_NAVIGATION | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;
+    this.window.attributes = attrs
+    /*if (isFullScreen(activity)) {
+        hideNavigationBar(activity)
+    } else {
+        showNavigationBar(activity)
+    }*/
+}
+
+fun Activity.toggleFullscreen(
+    isFullScreen: Boolean
+) {
+    if (isFullScreen) {
+        this.window
+            .decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                    View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+    } else {
+        this.window
+            .decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+    }
+}
+
+fun Activity.hideNavigationBar(
+) {
+    // set navigation bar status, remember to disable "setNavigationBarTintEnabled"
+    val flags = (
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            )
+    // This work only for android 4.4+
+    this.window.decorView.systemUiVisibility = flags
+
+    // Code below is to handle presses of Volume up or Volume down.
+    // Without this, after pressing volume buttons, the navigation bar will
+    // show up and won't hide
+    val decorView = this.window.decorView
+    decorView.setOnSystemUiVisibilityChangeListener { visibility ->
+        if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
+            decorView.systemUiVisibility = flags
+        }
+    }
+}
+
+fun Activity.showNavigationBar(
+) {
+    // set navigation bar status, remember to disable "setNavigationBarTintEnabled"
+    val flags = (
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            )
+    // This work only for android 4.4+
+    this.window.decorView.systemUiVisibility = flags
+
+    // Code below is to handle presses of Volume up or Volume down.
+    // Without this, after pressing volume buttons, the navigation bar will
+    // show up and won't hide
+    val decorView = this.window.decorView
+    decorView.setOnSystemUiVisibilityChangeListener { visibility ->
+        if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
+            decorView.systemUiVisibility = flags
+        }
+    }
+}
+
+@SuppressLint("ObsoleteSdkInt")
+fun Activity.hideDefaultControls(
+) {
+    val window = this.window ?: return
+    window.clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
+    window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+    val decorView = window.decorView
+    var uiOptions = decorView.systemUiVisibility
+    if (Build.VERSION.SDK_INT >= 14) {
+        uiOptions = uiOptions or View.SYSTEM_UI_FLAG_LOW_PROFILE
+    }
+    if (Build.VERSION.SDK_INT >= 16) {
+        uiOptions = uiOptions or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+    }
+    if (Build.VERSION.SDK_INT >= 19) {
+        uiOptions = uiOptions or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+    }
+    decorView.systemUiVisibility = uiOptions
+}
+
+@SuppressLint("ObsoleteSdkInt")
+fun Activity.showDefaultControls(
+) {
+    val window = this.window ?: return
+    window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+    window.addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
+    val decorView = window.decorView
+    var uiOptions = decorView.systemUiVisibility
+    if (Build.VERSION.SDK_INT >= 14) {
+        uiOptions = uiOptions and View.SYSTEM_UI_FLAG_LOW_PROFILE.inv()
+    }
+    if (Build.VERSION.SDK_INT >= 16) {
+        uiOptions = uiOptions and View.SYSTEM_UI_FLAG_HIDE_NAVIGATION.inv()
+    }
+    if (Build.VERSION.SDK_INT >= 19) {
+        uiOptions = uiOptions and View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY.inv()
+    }
+    decorView.systemUiVisibility = uiOptions
+}
+
+// rotate screen
+fun Activity.setScreenOrientation(
+    isPortrait: Boolean = true
+) {
+    if (isPortrait) {
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    } else {
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+    }
+}
+
+fun Activity.replaceFragment(
+    containerFrameLayoutIdRes: Int,
+    fragment: Fragment,
+    isAddToBackStack: Boolean
+) {
+    if (this is BaseActivity) {
+        val transaction = this.supportFragmentManager.beginTransaction()
+        // transaction.setCustomAnimations(android.R.anim.fade_in, 0);
+        transaction.replace(containerFrameLayoutIdRes, fragment)
+        if (isAddToBackStack) {
+            transaction.addToBackStack(null)
+        }
+        transaction.commit()
+    }
+}
+
+fun Activity.addFragment(
+    containerFrameLayoutIdRes: Int,
+    fragment: Fragment,
+    isAddToBackStack: Boolean
+) {
+    if (this is BaseActivity) {
+        val transaction = this.supportFragmentManager.beginTransaction()
+        // transaction.setCustomAnimations(android.R.anim.fade_in, 0)
+        transaction.add(containerFrameLayoutIdRes, fragment)
+        if (isAddToBackStack) {
+            transaction.addToBackStack(null)
+        }
+        transaction.commit()
+    }
+}
+
+fun Activity.addFragment(
+    containerFrameLayoutIdRes: Int,
+    fragment: Fragment,
+    tag: String,
+    isAddToBackStack: Boolean
+) {
+    if (this is BaseActivity) {
+        val transaction = this.supportFragmentManager.beginTransaction()
+        // transaction.setCustomAnimations(android.R.anim.fade_in, 0)
+        transaction.add(containerFrameLayoutIdRes, fragment, tag)
+        if (isAddToBackStack) {
+            transaction.addToBackStack(null)
+        }
+        transaction.commit()
+    }
+}
+
+fun Activity.findFragmentByTag(
+    tag: String
+): Fragment? {
+    if (this is BaseActivity) {
+        return this.supportFragmentManager.findFragmentByTag(tag)
+    }
+    return null
+}
+
+@Suppress("unused")
+fun Activity.removeFragmentByTag(
+    tag: String
+) {
+    val fragment = this.findFragmentByTag(tag = tag)
+    if (fragment != null) {
+        val transaction =
+            (this as BaseActivity).supportFragmentManager.beginTransaction()
+        // transaction.setCustomAnimations(0, android.R.anim.fade_out)
+        transaction.remove(fragment).commit()
+    }
+}
+
+@Suppress("unused")
+fun Activity.removeAllFragments(
+) {
+    if (this is BaseActivity) {
+        FragmentUtils.removeAllFragments(this.supportFragmentManager)
+    }
+}
+
+fun Context.isLandscape(): Boolean {
+    return when ((this.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.rotation) {
+        Surface.ROTATION_0 -> false
+        Surface.ROTATION_90 -> true
+        Surface.ROTATION_180 -> false
+        else -> true
+    }
+}
+
+// from 0 to 100
+fun Context?.setBrightness(
+    value: Int
+) {
+    if (this == null) {
+        return
+    }
+
+    val isCanWriteSystem = checkSystemWritePermission()
+
+    if (!isCanWriteSystem) {
+        LDialogUtil.showDialog1(
+            context = this,
+            title = "Thông báo",
+            msg = "Ứng dụng cần bạn cần cấp quyền điều chỉnh độ sáng màn hình",
+            button1 = "Cấp phép",
+            onClickButton1 = {
+                val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
+                intent.data = Uri.parse("package:" + this.packageName)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                this.startActivity(intent)
+                this.tranIn()
+            }
+        )
+        return
+    }
+
+    // constrain the value of brightness
+    val brightness: Int = when {
+        value < 0 -> 0
+        value > 100 -> 100
+        else -> value * 255 / 100
+    }
+
+    try {
+        // sets manual parrallaxMode and brightnes 255
+        Settings.System.putInt(
+            this.contentResolver,
+            Settings.System.SCREEN_BRIGHTNESS_MODE,
+            Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL
+        ) // this will set the manual parrallaxMode (set the automatic parrallaxMode off)
+        Settings.System.putInt(
+            this.contentResolver,
+            Settings.System.SCREEN_BRIGHTNESS,
+            brightness
+        ) // this will set the brightness to maximum (255)
+
+        // refreshes the screen
+        val br = Settings.System.getInt(
+            this.contentResolver,
+            Settings.System.SCREEN_BRIGHTNESS
+        )
+        val lp = (this as Activity).window.attributes
+        lp.screenBrightness = br.toFloat() / 255
+        this.window.attributes = lp
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+}
+
+fun Context.getCurrentBrightness(): Int {
+    return try {
+        Settings.System.getInt(
+            this.contentResolver,
+            Settings.System.SCREEN_BRIGHTNESS
+        )
+    } catch (e: Exception) {
+        e.printStackTrace()
+        0
+    }
+}
+
+fun Context.checkSystemWritePermission(): Boolean {
+    return Settings.System.canWrite(this)
 }

@@ -59,7 +59,7 @@ class FrmListPackage : BaseFragmentFlow() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         qaAdapter.onClickRootListener = { qa, _ ->
             if (activity is InterviewVNIQActivityFont) {
-                (activity as InterviewVNIQActivityFont).addFragment(FrmListQA(qa.nextLink))
+                (activity as InterviewVNIQActivityFont).addFrm(FrmListQA(qa.nextLink))
             }
         }
         concatAdapter.addAdapter(qaAdapter)

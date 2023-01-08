@@ -24,9 +24,7 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import com.google.android.exoplayer2.video.VideoListener
 import com.loitp.R
-import com.loitp.core.ext.changeScreenLandscape
-import com.loitp.core.ext.changeScreenPortrait
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.*
 import com.loitp.core.utils.AppUtils
 
 /**
@@ -54,7 +52,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
 
     constructor(context: Context) {
         this.adsLoader = null
-        this.screenW = LScreenUtil.screenWidth
+        this.screenW = screenWidth
         dataSourceFactory = DefaultDataSourceFactory(context, AppUtils.appName)
     }
 
@@ -62,7 +60,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
         if (urlIMAAd.isNotEmpty()) {
             adsLoader = ImaAdsLoader(context, Uri.parse(urlIMAAd))
         }
-        this.screenW = LScreenUtil.screenWidth
+        this.screenW = screenWidth
         dataSourceFactory = DefaultDataSourceFactory(context, AppUtils.appName)
     }
 
@@ -208,13 +206,13 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
     }
 
     fun toggleFullscreen(activity: Activity) {
-        if (LScreenUtil.isLandscape()) {
+        if (activity.isLandscape()) {
             // land -> port
-            LScreenUtil.toggleFullscreen(activity = activity, isFullScreen = false)
+            activity.toggleFullscreen(isFullScreen = false)
             activity.changeScreenPortrait()
         } else {
             // port -> land
-            LScreenUtil.toggleFullscreen(activity = activity, isFullScreen = true)
+            activity.toggleFullscreen(isFullScreen = true)
             activity.changeScreenLandscape()
         }
     }
@@ -224,7 +222,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
         playerView: PlayerView,
         exoFullscreen: ImageButton
     ) {
-        if (LScreenUtil.isLandscape()) {
+        if (playerView.context.isLandscape()) {
             playerView.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             playerView.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
             exoFullscreen.setImageResource(R.drawable.player_collapse)

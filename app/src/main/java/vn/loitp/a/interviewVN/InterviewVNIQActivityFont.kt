@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.addFragment
 import kotlinx.android.synthetic.main.a_interview_vn_iq.*
 import vn.loitp.R
 import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
@@ -44,7 +44,7 @@ class InterviewVNIQActivityFont : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        addFragment(FrmListPackage())
+        addFrm(FrmListPackage())
     }
 
     override fun onBaseBackPressed() {
@@ -62,9 +62,8 @@ class InterviewVNIQActivityFont : BaseActivityFont() {
         }, 2000)
     }
 
-    fun addFragment(baseFragment: BaseFragment) {
-        LScreenUtil.addFragment(
-            activity = this,
+    fun addFrm(baseFragment: BaseFragment) {
+        addFragment(
             containerFrameLayoutIdRes = R.id.flContainer,
             fragment = baseFragment,
             tag = baseFragment.javaClass.simpleName,

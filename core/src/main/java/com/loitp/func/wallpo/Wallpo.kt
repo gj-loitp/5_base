@@ -6,8 +6,9 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.widget.ImageView
+import com.loitp.core.ext.screenHeight
+import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.toBitmap
-import com.loitp.core.utilities.LScreenUtil
 import java.io.IOException
 
 
@@ -47,7 +48,7 @@ object Wallpo {
     ): Boolean {
         try {
             val cd = ColorDrawable(color)
-            cd.setBounds(0, 0, LScreenUtil.screenWidth, LScreenUtil.screenHeight)
+            cd.setBounds(0, 0, screenWidth, screenHeight)
             val bitmap = cd.toBitmap()
             WallpaperManager.getInstance(context).setBitmap(
                 /* fullImage = */ bitmap,
@@ -88,7 +89,7 @@ object Wallpo {
     ): Boolean {
         try {
             val cd = ColorDrawable(color)
-            cd.setBounds(0, 0, LScreenUtil.screenWidth, LScreenUtil.screenHeight)
+            cd.setBounds(0, 0, screenWidth, screenHeight)
             val bitmap = cd.toBitmap()
             WallpaperManager.getInstance(context).setBitmap(
                 /* fullImage = */ bitmap,
