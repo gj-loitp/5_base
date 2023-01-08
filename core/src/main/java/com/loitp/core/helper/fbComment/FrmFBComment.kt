@@ -14,12 +14,13 @@ import android.webkit.*
 import android.widget.FrameLayout
 import com.loitp.BuildConfig
 import com.loitp.R
-
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.getColor
+import com.loitp.core.ext.setColorProgressBar
+import com.loitp.core.ext.setDelay
+import com.loitp.core.ext.setProgressBarVisibility
 import kotlinx.android.synthetic.main.l_f_fb_cmt.*
 
 /**
@@ -57,9 +58,8 @@ class FrmFBComment : BaseFragment() {
         commentsWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
 
         context?.let {
-            LUIUtil.setColorProgressBar(
-                progressBar = progressBar,
-                color = LAppResource.getColor(R.color.colorPrimary)
+            progressBar.setColorProgressBar(
+                color = getColor(R.color.colorPrimary)
             )
         }
         val bundle = arguments ?: return
@@ -106,13 +106,12 @@ class FrmFBComment : BaseFragment() {
     private fun setLoading(isLoading: Boolean) {
         this.isLoading = isLoading
         if (isLoading) {
-            LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE)
+            progressBar.setProgressBarVisibility(View.VISIBLE)
         } else {
-            LUIUtil.setDelay(
+            setDelay(
                 mls = 1000,
                 runnable = {
-                    LUIUtil.setProgressBarVisibility(
-                        progressBar = progressBar,
+                    progressBar.setProgressBarVisibility(
                         visibility = View.GONE
                     )
                 }

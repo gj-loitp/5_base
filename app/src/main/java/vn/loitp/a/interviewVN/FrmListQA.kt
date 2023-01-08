@@ -6,8 +6,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.LogTag
-import com.loitp.core.utilities.LStoreUtil
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.getPkgFromGGDrive
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.f_interview_vn_iq_list_qa.*
 import kotlinx.android.synthetic.main.i_movie_list.*
 import vn.loitp.R
@@ -55,7 +55,7 @@ class FrmListQA(private val linkGGDrive: String?) : BaseFragmentFlow() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 popThisFragment()
             })
             ivIconRight?.isVisible = false
@@ -63,8 +63,8 @@ class FrmListQA(private val linkGGDrive: String?) : BaseFragmentFlow() {
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         qaAdapter.onClickRootListener = { qa, _ ->
-            if (activity is InterviewVNIQActivity) {
-                (activity as InterviewVNIQActivity).addFragment(FrmDetail(qa))
+            if (activity is InterviewVNIQActivityFont) {
+                (activity as InterviewVNIQActivityFont).addFrm(FrmDetail(qa))
             }
         }
         concatAdapter.addAdapter(qaAdapter)
@@ -76,7 +76,7 @@ class FrmListQA(private val linkGGDrive: String?) : BaseFragmentFlow() {
             return
         }
         showDialogProgress()
-        LStoreUtil.getPkgFromGGDrive(
+        getPkgFromGGDrive(
             linkGGDriveSetting = linkGGDrive,
             onGGFailure = { _, e ->
                 hideDialogProgress()

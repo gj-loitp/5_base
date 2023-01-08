@@ -4,7 +4,8 @@ import androidx.annotation.Keep
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import com.loitp.core.base.BaseModel
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.getFlickrLink1024
+import com.loitp.core.ext.getFlickrLink640
 
 /**
  * Created by Loitp on 04,August,2022
@@ -100,7 +101,7 @@ class Photoset : BaseModel() {
             // gif extension have no link large
             primaryPhotoExtras?.urlO ?: ""
         } else {
-            LImageUtil.getFlickrLink640(primaryPhotoExtras?.urlM ?: "")
+            getFlickrLink640(primaryPhotoExtras?.urlM ?: "")
         }
     }
 
@@ -110,7 +111,7 @@ class Photoset : BaseModel() {
             // gif extension have no link large
             primaryPhotoExtras?.urlO ?: ""
         } else {
-            LImageUtil.getFlickrLink1024(primaryPhotoExtras?.urlM ?: "")
+            getFlickrLink1024(primaryPhotoExtras?.urlM ?: "")
         }
     }
 

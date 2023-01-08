@@ -1,9 +1,11 @@
 package com.loitp.core.adapter
 
+import android.annotation.SuppressLint
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.BuildConfig
 import com.loitp.annotation.LogTag
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.d
+import com.loitp.core.ext.e
 import com.loitp.views.toast.LToast
 
 // https://github.com/wasabeef/recyclerview-animators
@@ -30,13 +32,13 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     protected fun logD(msg: String) {
         logTag?.let {
-            LLog.d(it, msg)
+            d(it, msg)
         }
     }
 
     protected fun logE(msg: String) {
         logTag?.let {
-            LLog.e(it, msg)
+            e(it, msg)
         }
     }
 
@@ -97,6 +99,15 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     protected fun showLongDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
             LToast.showLongInformation(msg)
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun notifyAllViews() {
+        try {
+            notifyItemRangeChanged(0, itemCount)
+        } catch (e: java.lang.Exception) {
+            notifyDataSetChanged()
         }
     }
 }

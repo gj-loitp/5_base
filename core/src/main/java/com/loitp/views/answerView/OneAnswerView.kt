@@ -5,8 +5,9 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
-import com.loitp.core.utilities.LAppResource
 import com.loitp.R
+import com.loitp.core.ext.getColor
+import com.loitp.core.ext.getDrawable
 import kotlinx.android.synthetic.main.l_v_answer_view.view.*
 
 /**
@@ -65,18 +66,18 @@ class OneAnswerView : LinearLayout {
             this.active = active
             if (active) {
                 if (lAnswerView.awShowTextWhenActive) {
-                    chooice.setTextColor(LAppResource.getColor(R.color.colorPrimary))
+                    chooice.setTextColor(getColor(R.color.colorPrimary))
                 } else {
                     chooice.visibility = INVISIBLE
                 }
-                getChildAt(0).background = LAppResource.getDrawable(R.drawable.l_answer_circle_ac)
+                getChildAt(0).background = getDrawable(R.drawable.l_answer_circle_ac)
             } else {
                 if (lAnswerView.awShowTextWhenActive) {
-                    chooice.setTextColor(LAppResource.getColor(R.color.black))
+                    chooice.setTextColor(getColor(R.color.black))
                 } else {
                     chooice.visibility = VISIBLE
                 }
-                getChildAt(0).background = LAppResource.getDrawable(R.drawable.l_answer_circle)
+                getChildAt(0).background = getDrawable(R.drawable.l_answer_circle)
             }
         }
     }

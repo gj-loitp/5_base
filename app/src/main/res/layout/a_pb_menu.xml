@@ -50,6 +50,11 @@
                 android:text="SegmentedProgressBar" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTileProgressView"
+                style="@style/ButtonMenu"
+                android:text="TileProgressView" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btWindow"
                 style="@style/ButtonMenu"
                 android:text="@string/window_progress" />

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.fivehundredpx.greedolayout.GreedoLayoutSizeCalculator.SizeCalculatorDelegate
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import vn.loitp.R
 import vn.loitp.a.cv.layout.greedo.PhotosAdapter.PhotoViewHolder
 
@@ -47,10 +47,8 @@ class PhotosAdapter(private val mContext: Context) : RecyclerView.Adapter<PhotoV
     }
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
-        LImageUtil.load(
-            context = mContext,
+        holder.mImageView.loadGlide(
             any = mImageResIds[getLoopedIndex(position)],
-            imageView = holder.mImageView,
             resPlaceHolder = R.color.transparent,
             resError = R.color.red,
             transformation = null,

@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import vn.loitp.R
 
 class DataAdapter(private var list: ArrayList<DataModel>) :
@@ -32,10 +32,8 @@ class DataAdapter(private var list: ArrayList<DataModel>) :
         holder: ViewHolder,
         position: Int
     ) {
-        LImageUtil.load(
-            context = holder.image.context,
+        holder.image.loadGlide(
             any = list[position].img,
-            imageView = holder.image,
         )
     }
 

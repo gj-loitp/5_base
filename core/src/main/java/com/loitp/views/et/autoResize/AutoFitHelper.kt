@@ -9,7 +9,7 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import com.loitp.R
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.d
 
 /**
  * Created by Loitp on 04,August,2022
@@ -151,7 +151,7 @@ class AutoFitHelper private constructor(view: TextView) {
                 lineCount = layout.lineCount
             }
             if (SPEW) {
-                LLog.d(
+                d(
                     TAG,
                     "low=$low high=$high mid=$mid target=$targetWidth maxLines=$maxLines lineCount=$lineCount"
                 )

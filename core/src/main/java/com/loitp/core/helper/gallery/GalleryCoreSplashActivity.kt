@@ -5,17 +5,15 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivity
-import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LImageUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.AppUtils
 import com.loitp.restApi.restClient.RestClient
-import com.loitp.R
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_splash.*
 
@@ -29,7 +27,7 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_splash.*
 @SuppressLint("CustomSplashScreen")
 @LogTag("GalleryCoreSplashActivity")
 @IsFullScreen(false)
-class GalleryCoreSplashActivity : BaseFontActivity() {
+class GalleryCoreSplashActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_a_flickr_gallery_core_splash
@@ -51,15 +49,15 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         if (urlCoverSplashScreen.isNullOrEmpty()) {
             urlCoverSplashScreen = Constants.URL_IMG_2
         }
-        LImageUtil.load(context = this, any = urlCoverSplashScreen, imageView = ivBkg)
-        LUIUtil.setTextShadow(textView = tvCopyright, color = null)
+        ivBkg.loadGlide(any = urlCoverSplashScreen)
+        tvCopyright.setTextShadow(color = null)
         tvName.text = AppUtils.appName
-        LUIUtil.setTextShadow(textView = tvName, color = null)
+        tvName.setTextShadow(color = null)
     }
 
     private fun goToHome() {
         val removeAlbumList = intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)
-        LUIUtil.setDelay(mls = 2000, runnable = {
+        setDelay(mls = 2000, runnable = {
             val intent = Intent(this, GalleryCoreAlbumActivity::class.java)
             intent.putStringArrayListExtra(
                 Constants.KEY_REMOVE_ALBUM_FLICKR_LIST,
@@ -67,13 +65,13 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
                     ?: ArrayList()
             )
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
             finish()//correct
         })
     }
 
     private fun checkPermission() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK
@@ -107,7 +105,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
                     goToHome()
                 } else {
                     finish()//correct
-                    LActivityUtil.tranOut(this)
+                    this.tranOut()
                 }
             }
     }

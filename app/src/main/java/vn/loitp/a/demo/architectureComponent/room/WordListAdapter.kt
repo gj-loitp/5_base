@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.printBeautyJson
 import kotlinx.android.synthetic.main.i_room_note.view.*
 import vn.loitp.R
 import vn.loitp.a.demo.architectureComponent.room.md.Word
@@ -22,7 +22,7 @@ class WordListAdapter(val callback: Callback?) :
 
     inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(word: Word) {
-            LUIUtil.printBeautyJson(o = word, textView = itemView.tvNote)
+            itemView.tvNote.printBeautyJson(o = word)
 
             itemView.ivDelete.setOnClickListener {
                 callback?.onDelete(word = word)

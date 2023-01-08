@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import android.widget.RelativeLayout
 import com.daimajia.androidanimations.library.Techniques
 import com.loitp.R
-import com.loitp.core.utilities.LAnimationUtil
+import com.loitp.core.ext.play
 import kotlinx.android.synthetic.main.l_v_count_down.view.*
 
 /**
@@ -69,16 +69,14 @@ class LCountDownView : RelativeLayout {
     @SuppressLint("SetTextI18n")
     private fun doPerSec() {
         tvCountDown.text = number.toString()
-        LAnimationUtil.play(
-            view = tvCountDown,
+        tvCountDown.play(
             techniques = Techniques.FlipInX,
             duration = 1000,
             onEnd = {
                 number--
                 if (number <= 0) {
                     tvCountDown.text = "GO"
-                    LAnimationUtil.play(
-                        view = tvCountDown,
+                    tvCountDown.play(
                         techniques = Techniques.Flash,
                         onEnd = {
                             tvCountDown?.visibility = GONE

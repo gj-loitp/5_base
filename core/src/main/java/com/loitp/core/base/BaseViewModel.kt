@@ -4,7 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.loitp.annotation.LogTag
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.d
+import com.loitp.core.ext.e
 import com.loitp.sv.RequestStatus
 import com.loitp.sv.liveData.ActionData
 import com.loitp.sv.model.ApiResponse
@@ -104,13 +105,13 @@ open class BaseViewModel : ViewModel() {
 
     protected fun logD(msg: String) {
         logTag?.let {
-            LLog.d(it, msg)
+            d(it, msg)
         }
     }
 
     protected fun logE(msg: String) {
         logTag?.let {
-            LLog.e(it, msg)
+            e(it, msg)
         }
     }
 }

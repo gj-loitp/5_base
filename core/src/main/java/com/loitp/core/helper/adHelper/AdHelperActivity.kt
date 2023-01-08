@@ -7,16 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LImageUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.core.utils.AppUtils
 import com.manojbhadane.QButton
 import kotlinx.android.synthetic.main.l_a_ad_helper.*
@@ -30,9 +31,13 @@ import kotlinx.android.synthetic.main.l_a_ad_helper.*
  */
 @LogTag("AdHelperActivity")
 @IsFullScreen(false)
-class AdHelperActivity : BaseFontActivity() {
+class AdHelperActivity : BaseActivityFont() {
     private val adPageList = ArrayList<AdPage>()
     private var isEnglishLanguage: Boolean = false
+    private var colorPrimary = 0
+    private var colorBackground = 0
+    private var colorStatusBar = 0
+    private var isLightIconStatusBar = true
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_a_ad_helper
@@ -42,6 +47,19 @@ class AdHelperActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         isEnglishLanguage = intent.getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)
+        colorPrimary = intent.getIntExtra(Constants.AD_HELPER_COLOR_PRIMARY, 0)
+        colorBackground = intent.getIntExtra(Constants.AD_HELPER_COLOR_BACKGROUND, 0)
+        colorStatusBar = intent.getIntExtra(Constants.AD_HELPER_COLOR_STATUS_BAR, 0)
+        isLightIconStatusBar =
+            intent.getBooleanExtra(Constants.AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
+
+        if (colorStatusBar != 0) {
+            changeStatusBarContrastStyle(
+                lightIcons = isLightIconStatusBar,
+                colorBackground = colorStatusBar,
+                withRecolorEfx = true
+            )
+        }
 
         setupData()
         setupViews()
@@ -118,7 +136,7 @@ class AdHelperActivity : BaseFontActivity() {
         }
 
         viewPager.adapter = SlidePagerAdapter()
-        LUIUtil.setPullLikeIOSHorizontal(viewPager)
+        viewPager.setPullLikeIOSHorizontal()
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,
@@ -145,6 +163,14 @@ class AdHelperActivity : BaseFontActivity() {
             }
         })
         tvPage.text = (viewPager.currentItem + 1).toString() + "/" + adPageList.size
+
+        if (colorPrimary != 0 && colorBackground != 0) {
+            layoutRootView.setBackgroundColor(colorBackground)
+            btBack.setColorFilter(colorPrimary)
+            btPrevScreen.setColorFilter(colorPrimary)
+            btNextScreen.setColorFilter(colorPrimary)
+            tvPage.setTextColor(colorPrimary)
+        }
     }
 
     private inner class SlidePagerAdapter : PagerAdapter() {
@@ -165,22 +191,22 @@ class AdHelperActivity : BaseFontActivity() {
             val btOkay = layout.findViewById<QButton>(R.id.btOkay)
 
             adPage.urlAd?.let {
-                LImageUtil.load(context = this@AdHelperActivity, any = it, imageView = imageView)
+                imageView.loadGlide(any = it)
             }
 
             textView.text = adPage.title
+            textView.setTextColor(colorPrimary)
             tvMsg.text = adPage.msg
+            tvMsg.setTextColor(colorPrimary)
 
             if (isEnglishLanguage) {
                 btOkay.text = "I understand"
             } else {
                 btOkay.text = "Tôi đã hiểu"
             }
-            if (position == adPageList.size - 1) {
-                btOkay.visibility = View.VISIBLE
-            } else {
-                btOkay.visibility = View.GONE
-            }
+            btOkay.isVisible = position == adPageList.size - 1
+            btOkay.setBackgroundColor(colorPrimary)
+            btOkay.setTextColor(colorBackground)
             btOkay.setSafeOnClickListener {
                 onBaseBackPressed()
             }

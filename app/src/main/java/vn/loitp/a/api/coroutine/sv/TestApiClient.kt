@@ -2,7 +2,7 @@ package vn.loitp.a.api.coroutine.sv
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.e
 import com.loitp.restApi.DateTypeDeserializer
 import com.loitp.restApi.restClient.RestRequestInterceptor
 import com.moczul.ok2curl.CurlInterceptor
@@ -36,7 +36,7 @@ object TestApiClient {
             writeTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
                 .addInterceptor(CurlInterceptor(object : Logger {
                     override fun log(message: String) {
-                        LLog.e("Ok2Curl", message)
+                        e("Ok2Curl", message)
                     }
                 }))
             restRequestInterceptor?.let { rri ->

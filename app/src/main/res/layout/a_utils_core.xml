@@ -33,6 +33,11 @@
                 android:paddingBottom="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btLauncher"
+                    style="@style/ButtonMenu"
+                    android:text="Launcher" />
+
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btScrollToBottom"
                     style="@style/ButtonMenu"
                     android:text="scrollToBottom" />

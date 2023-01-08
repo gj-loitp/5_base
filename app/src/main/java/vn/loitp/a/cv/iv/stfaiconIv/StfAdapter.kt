@@ -8,7 +8,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import kotlinx.android.synthetic.main.v_item_stf.view.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
@@ -32,7 +32,9 @@ class StfAdapter(
             itemView.textView.text = movie.title
 
             val url = movie.cover
-            LImageUtil.load(context = context, any = url, imageView = itemView.imageView)
+            itemView.imageView.loadGlide(
+                any = url,
+            )
 
             itemView.rootView.setOnClickListener {
                 callback?.onClick(itemView.imageView, movie, moviesList, bindingAdapterPosition)

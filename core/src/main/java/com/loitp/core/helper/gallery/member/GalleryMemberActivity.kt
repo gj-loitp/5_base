@@ -10,20 +10,18 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.loitp.R
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
-import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
 import com.loitp.restApi.restClient.RestClient
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
-import com.loitp.R
 import com.permissionx.guolindev.PermissionX
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -39,7 +37,7 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_photos_only.*
  */
 @LogTag("GalleryMemberActivity")
 @IsSwipeActivity(true)
-class GalleryMemberActivity : BaseFontActivity() {
+class GalleryMemberActivity : BaseActivityFont() {
     private var currentPage = 0
     private var totalPage = 1
     private var isLoading: Boolean = false
@@ -87,7 +85,7 @@ class GalleryMemberActivity : BaseFontActivity() {
                         Intent(this@GalleryMemberActivity, GalleryMemberDetailActivity::class.java)
                     intent.putExtra(GalleryMemberDetailActivity.PHOTO, photo)
                     startActivity(intent)
-                    LActivityUtil.tranIn(this@GalleryMemberActivity)
+                    this@GalleryMemberActivity.tranIn()
                 }
 
                 override fun onLongClick(photo: Photo, pos: Int) {
@@ -129,7 +127,7 @@ class GalleryMemberActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryMemberActivity)
+                    this@GalleryMemberActivity.transActivityNoAnimation()
                 }
             }
         })
@@ -156,7 +154,7 @@ class GalleryMemberActivity : BaseFontActivity() {
     }
 
     private fun getPhotoSets() {
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -193,7 +191,7 @@ class GalleryMemberActivity : BaseFontActivity() {
                 }, { e ->
                     e.printStackTrace()
                     handleException(e)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 })
         )
     }
@@ -209,7 +207,7 @@ class GalleryMemberActivity : BaseFontActivity() {
         }
 //        logD("is calling photosetsGetPhotos $currentPage/$totalPage")
         isLoading = true
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -217,7 +215,7 @@ class GalleryMemberActivity : BaseFontActivity() {
         if (currentPage <= 0) {
 //            logD("currentPage <= 0 -> return")
             currentPage = 0
-            LDialogUtil.hideProgress(progressBar)
+            progressBar.hideProgress()
             return
         }
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
@@ -248,13 +246,13 @@ class GalleryMemberActivity : BaseFontActivity() {
                     }
                     updateAllViews()
 
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     isLoading = false
                     currentPage--
                 }, { e ->
                     e.printStackTrace()
                     handleException(e)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     isLoading = true
                 })
         )
@@ -266,7 +264,7 @@ class GalleryMemberActivity : BaseFontActivity() {
     }
 
     private fun checkPermission() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK

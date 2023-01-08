@@ -23,10 +23,8 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.*
-import com.loitp.core.utilities.LReaderUtil.Companion.defaultCover
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.*
 import com.loitp.core.utils.ConvertUtils
 import com.loitp.func.epub.BookSection
 import com.loitp.func.epub.Reader
@@ -48,7 +46,7 @@ import kotlinx.android.synthetic.main.l_a_epub_reader_read.*
  */
 @LogTag("EpubReaderReadActivity")
 @IsFullScreen(false)
-class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
+class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
 
     companion object {
         private const val idWebView = 696969
@@ -58,7 +56,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     private var isSkippedToPage = false
     private var sectionsPagerAdapter: SectionsPagerAdapter? = null
     private var pageCount = Int.MAX_VALUE
-    private val pxScreenWidth = LScreenUtil.screenWidth
+    private val pxScreenWidth = screenWidth
     private var bookInfo: BookInfo? = null
     private var epubViewModel: EpubViewModel? = null
 
@@ -90,7 +88,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
         sectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
         viewPager.apply {
-            LUIUtil.setPullLikeIOSHorizontal(viewPager = this)
+            this.setPullLikeIOSHorizontal()
             this.offscreenPageLimit = 2
 //            this.setPageTransformer(true, ZoomOutSlideTransformer())
             this.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -133,7 +131,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == false && isSuccess == true) {
-                    LUIUtil.setDelay(mls = 1000, runnable = {
+                    setDelay(mls = 1000, runnable = {
                         rlSplash.visibility = View.GONE
                     })
                     viewPager.adapter = sectionsPagerAdapter
@@ -150,7 +148,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     }
 
     private fun handleZoomIn() {
-        LAnimationUtil.play(view = btZoomIn, techniques = Techniques.Pulse)
+        btZoomIn.play(techniques = Techniques.Pulse)
 
         sectionsPagerAdapter?.let { adapter ->
             try {
@@ -175,7 +173,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     }
 
     private fun handleZoomOut() {
-        LAnimationUtil.play(view = btZoomOut, techniques = Techniques.Pulse)
+        btZoomOut.play(techniques = Techniques.Pulse)
         sectionsPagerAdapter?.let { adapter ->
             try {
                 val pageFragment = adapter.instantiateItem(viewPager, viewPager.currentItem)
@@ -218,7 +216,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                         bi.isCoverImageNotExists = true
                         ivCover.setImageResource(defaultCover)
                     } else {
-                        val bitmap = LReaderUtil.decodeBitmapFromByteArray(
+                        val bitmap = decodeBitmapFromByteArray(
                             coverImage = coverImageAsBytes,
                             reqWidth = 100,
                             reqHeight = 200
@@ -315,10 +313,10 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                 setEnableCopyContent(isEnableCopyContent = true)
                 id = idWebView
 //                logD(">>>setFragmentView data $data")
-                val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
-                val paddingPx = LAppResource.getDimenValue(R.dimen.margin_padding_small)
+                val fontSizePx = getDimenValue(R.dimen.txt_small)
+                val paddingPx = getDimenValue(R.dimen.margin_padding_small)
 //                logD(">>>setFragmentView fontSizePx $fontSizePx, paddingPx $paddingPx")
-                if (LUIUtil.isDarkTheme()) {
+                if (isDarkTheme()) {
                     loadDataString(
                         bodyContent = data,
                         backgroundColor = "black",
@@ -340,7 +338,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
                 scrollBarSize = ConvertUtils.dp2px(2f)
                 this.layoutParams = layoutParams
-                lWebView.setTextSize(sizePercent = LPrefUtil.getTextSizePercentEpub())
+                lWebView.setTextSize(sizePercent = getTextSizePercentEpub())
                 callback = object : LWebViewAdblock.Callback {
                     override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
                     }
@@ -414,7 +412,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             if (size > 250) {
                 size = 250
             }
-            LPrefUtil.setTextSizePercentEpub(value = size)
+            setTextSizePercentEpub(value = size)
             webView.setTextSize(sizePercent = size)
         }
     }
@@ -434,7 +432,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             if (size < 50) {
                 size = 50
             }
-            LPrefUtil.setTextSizePercentEpub(value = size)
+            setTextSizePercentEpub(value = size)
             webView.setTextSize(sizePercent = size)
         }
     }

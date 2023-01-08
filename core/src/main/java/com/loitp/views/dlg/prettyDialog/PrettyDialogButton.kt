@@ -10,9 +10,9 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.R
+import com.loitp.core.ext.getColor
+import com.loitp.core.ext.setTextSizePx
 import kotlin.math.min
 
 /**
@@ -49,10 +49,10 @@ internal class PrettyDialogButton(
         tv?.let {
             it.text = text
             if (textColor == null) {
-                it.setTextColor(LAppResource.getColor(defaultTextColor))
+                it.setTextColor(getColor(defaultTextColor))
             } else {
                 textColor?.let { color ->
-                    it.setTextColor(LAppResource.getColor(color))
+                    it.setTextColor(getColor(color))
                 }
             }
         }
@@ -101,10 +101,10 @@ internal class PrettyDialogButton(
 
     private fun setBackground() {
         if (backgroundColor == null) {
-            setBackgroundDrawable(makeSelector(LAppResource.getColor(defaultBackgroundColor)))
+            setBackgroundDrawable(makeSelector(getColor(defaultBackgroundColor)))
         } else {
             backgroundColor?.let {
-                setBackgroundDrawable(makeSelector(LAppResource.getColor(it)))
+                setBackgroundDrawable(makeSelector(getColor(it)))
             }
         }
     }
@@ -142,6 +142,6 @@ internal class PrettyDialogButton(
     }
 
     fun setTextSize(size: Float) {
-        LUIUtil.setTextSize(textView = tv, size = size)
+        tv.setTextSizePx(size = size)
     }
 }

@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.appcompat.app.AppCompatActivity
 import com.loitp.R
-import com.loitp.core.utilities.LAppResource
+import com.loitp.core.ext.getColor
 import com.loitp.views.tv.selectable.CommonUtil.dpTpPx
 import com.loitp.views.tv.selectable.CustomTextView.OnCursorStateChangedListener
 
@@ -81,7 +81,7 @@ class LSelectableView : FrameLayout {
         saveBtn?.apply {
             this.gravity = Gravity.CENTER
             this.text = context.resources.getString(R.string.save_conversation)
-            this.setTextColor(LAppResource.getColor(R.color.deepPink))
+            this.setTextColor(getColor(R.color.deepPink))
             this.setBackgroundResource(R.drawable.selector_highlight_btn_bg)
             this.visibility = GONE
             this.setOnClickListener {

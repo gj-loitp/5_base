@@ -32,7 +32,7 @@ class TransformationHomeFragment : BaseFragment() {
             context?.let { c ->
                 val now = SystemClock.elapsedRealtime()
                 if (now - previousTime >= layoutItemPosterTransformation.duration) {
-                    TransformationDetailActivity.startActivity(
+                    TransformationDetailActivityFont.startActivity(
                         c,
                         layoutItemPosterTransformation,
                         poster

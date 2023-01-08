@@ -1,0 +1,81 @@
+package vn.loitp.a.game.puzzle
+
+import android.graphics.Bitmap
+import android.os.Bundle
+import android.util.Size
+import android.view.MenuItem
+import android.widget.Button
+import androidx.lifecycle.ViewModelProviders
+import com.loitp.annotation.IsAutoAnimation
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
+import com.loitp.core.base.BaseActivityFont
+import vn.loitp.R
+import vn.loitp.a.game.puzzle.ui.game.GameBoard
+import vn.loitp.a.game.puzzle.ui.options.BoardOptionsViewModel
+import vn.loitp.a.game.puzzle.ui.options.BoardTitledSize
+
+data class BoardActivityParams(
+    val bitmap: Bitmap, val size: BoardTitledSize
+)
+
+@LogTag("BoardOptionsActivity")
+@IsFullScreen(false)
+@IsAutoAnimation(true)
+class GameActivityFont : BaseActivityFont() {
+    companion object {
+        lateinit var initialConfig: BoardActivityParams
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_game_puzzle
+    }
+
+    private val viewModel: BoardOptionsViewModel by lazy {
+        ViewModelProviders.of(this)[BoardOptionsViewModel::class.java]
+    }
+
+    private fun mountBoard() {
+        val board = findViewById<GameBoard>(R.id.boardView)
+
+        viewModel.boardSize.observe(this) {
+            it?.let {
+                board.resize(
+                    Size(it.width, it.height), viewModel.boardImage.value
+                )
+            }
+        }
+
+        findViewById<Button>(R.id.shuffle).setOnClickListener {
+            board.shuffle()
+        }
+
+        findViewById<Button>(R.id.reset).setOnClickListener {
+            board.shuffle(true)
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        viewModel.apply {
+            boardSize.value = initialConfig.size
+            boardImage.value = initialConfig.bitmap
+        }
+
+        super.onCreate(savedInstanceState)
+
+        setSupportActionBar(findViewById(R.id.tbBoardOptions))
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        mountBoard()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+}

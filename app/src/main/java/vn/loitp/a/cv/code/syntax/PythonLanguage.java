@@ -1,11 +1,12 @@
 package vn.loitp.a.cv.code.syntax;
 
+import static com.loitp.core.ext.ApplicationKt.getColor;
+
 import android.content.Context;
 
 import com.amrdeveloper.codeview.Code;
 import com.amrdeveloper.codeview.CodeView;
 import com.amrdeveloper.codeview.Keyword;
-import com.loitp.core.utilities.LAppResource;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -44,22 +45,22 @@ public class PythonLanguage {
 //        Resources resources = context.getResources();
 
         //View Background
-        codeView.setBackgroundColor(LAppResource.INSTANCE.getColor(R.color.monokia_pro_black));
+        codeView.setBackgroundColor(getColor(R.color.monokia_pro_black));
 
         //Syntax Colors
-        codeView.addSyntaxPattern(PATTERN_HEX, LAppResource.INSTANCE.getColor(R.color.monokia_pro_purple));
-        codeView.addSyntaxPattern(PATTERN_CHAR, LAppResource.INSTANCE.getColor(R.color.monokia_pro_green));
-        codeView.addSyntaxPattern(PATTERN_STRING, LAppResource.INSTANCE.getColor(R.color.monokia_pro_orange));
-        codeView.addSyntaxPattern(PATTERN_NUMBERS, LAppResource.INSTANCE.getColor(R.color.monokia_pro_purple));
-        codeView.addSyntaxPattern(PATTERN_KEYWORDS, LAppResource.INSTANCE.getColor(R.color.monokia_pro_pink));
-        codeView.addSyntaxPattern(PATTERN_BUILTINS, LAppResource.INSTANCE.getColor(R.color.monokia_pro_white));
-        codeView.addSyntaxPattern(PATTERN_HASH_COMMENT, LAppResource.INSTANCE.getColor(R.color.monokia_pro_grey));
-        codeView.addSyntaxPattern(PATTERN_ATTRIBUTE, LAppResource.INSTANCE.getColor(R.color.monokia_pro_sky));
-        codeView.addSyntaxPattern(PATTERN_OPERATION, LAppResource.INSTANCE.getColor(R.color.monokia_pro_pink));
+        codeView.addSyntaxPattern(PATTERN_HEX, getColor(R.color.monokia_pro_purple));
+        codeView.addSyntaxPattern(PATTERN_CHAR, getColor(R.color.monokia_pro_green));
+        codeView.addSyntaxPattern(PATTERN_STRING, getColor(R.color.monokia_pro_orange));
+        codeView.addSyntaxPattern(PATTERN_NUMBERS, getColor(R.color.monokia_pro_purple));
+        codeView.addSyntaxPattern(PATTERN_KEYWORDS, getColor(R.color.monokia_pro_pink));
+        codeView.addSyntaxPattern(PATTERN_BUILTINS, getColor(R.color.monokia_pro_white));
+        codeView.addSyntaxPattern(PATTERN_HASH_COMMENT, getColor(R.color.monokia_pro_grey));
+        codeView.addSyntaxPattern(PATTERN_ATTRIBUTE, getColor(R.color.monokia_pro_sky));
+        codeView.addSyntaxPattern(PATTERN_OPERATION, getColor(R.color.monokia_pro_pink));
         //Default Color
-        codeView.setTextColor(LAppResource.INSTANCE.getColor(R.color.monokia_pro_white));
+        codeView.setTextColor(getColor(R.color.monokia_pro_white));
 
-        codeView.addSyntaxPattern(PATTERN_TODO_COMMENT, LAppResource.INSTANCE.getColor(R.color.gold));
+        codeView.addSyntaxPattern(PATTERN_TODO_COMMENT, getColor(R.color.gold));
 
         codeView.reHighlightSyntax();
     }
@@ -72,23 +73,23 @@ public class PythonLanguage {
 //        Resources resources = context.getResources();
 
         //View Background
-        codeView.setBackgroundColor(LAppResource.INSTANCE.getColor(R.color.noctis_white));
+        codeView.setBackgroundColor(getColor(R.color.noctis_white));
 
         //Syntax Colors
-        codeView.addSyntaxPattern(PATTERN_HEX, LAppResource.INSTANCE.getColor(R.color.noctis_purple));
-        codeView.addSyntaxPattern(PATTERN_CHAR, LAppResource.INSTANCE.getColor(R.color.noctis_green));
-        codeView.addSyntaxPattern(PATTERN_STRING, LAppResource.INSTANCE.getColor(R.color.noctis_green));
-        codeView.addSyntaxPattern(PATTERN_NUMBERS, LAppResource.INSTANCE.getColor(R.color.noctis_purple));
-        codeView.addSyntaxPattern(PATTERN_KEYWORDS, LAppResource.INSTANCE.getColor(R.color.noctis_pink));
-        codeView.addSyntaxPattern(PATTERN_BUILTINS, LAppResource.INSTANCE.getColor(R.color.noctis_dark_blue));
-        codeView.addSyntaxPattern(PATTERN_HASH_COMMENT, LAppResource.INSTANCE.getColor(R.color.noctis_grey));
-        codeView.addSyntaxPattern(PATTERN_ATTRIBUTE, LAppResource.INSTANCE.getColor(R.color.noctis_blue));
-        codeView.addSyntaxPattern(PATTERN_OPERATION, LAppResource.INSTANCE.getColor(R.color.monokia_pro_pink));
+        codeView.addSyntaxPattern(PATTERN_HEX, getColor(R.color.noctis_purple));
+        codeView.addSyntaxPattern(PATTERN_CHAR, getColor(R.color.noctis_green));
+        codeView.addSyntaxPattern(PATTERN_STRING, getColor(R.color.noctis_green));
+        codeView.addSyntaxPattern(PATTERN_NUMBERS, getColor(R.color.noctis_purple));
+        codeView.addSyntaxPattern(PATTERN_KEYWORDS, getColor(R.color.noctis_pink));
+        codeView.addSyntaxPattern(PATTERN_BUILTINS, getColor(R.color.noctis_dark_blue));
+        codeView.addSyntaxPattern(PATTERN_HASH_COMMENT, getColor(R.color.noctis_grey));
+        codeView.addSyntaxPattern(PATTERN_ATTRIBUTE, getColor(R.color.noctis_blue));
+        codeView.addSyntaxPattern(PATTERN_OPERATION, getColor(R.color.monokia_pro_pink));
 
         //Default Color
-        codeView.setTextColor(LAppResource.INSTANCE.getColor(R.color.noctis_orange));
+        codeView.setTextColor(getColor(R.color.noctis_orange));
 
-        codeView.addSyntaxPattern(PATTERN_TODO_COMMENT, LAppResource.INSTANCE.getColor(R.color.gold));
+        codeView.addSyntaxPattern(PATTERN_TODO_COMMENT, getColor(R.color.gold));
 
         codeView.reHighlightSyntax();
     }
@@ -101,23 +102,23 @@ public class PythonLanguage {
 //        Resources resources = context.getResources();
 
         //View Background
-        codeView.setBackgroundColor(LAppResource.INSTANCE.getColor(R.color.five_dark_black));
+        codeView.setBackgroundColor(getColor(R.color.five_dark_black));
 
         //Syntax Colors
-        codeView.addSyntaxPattern(PATTERN_HEX, LAppResource.INSTANCE.getColor(R.color.five_dark_purple));
-        codeView.addSyntaxPattern(PATTERN_CHAR, LAppResource.INSTANCE.getColor(R.color.five_dark_yellow));
-        codeView.addSyntaxPattern(PATTERN_STRING, LAppResource.INSTANCE.getColor(R.color.five_dark_yellow));
-        codeView.addSyntaxPattern(PATTERN_NUMBERS, LAppResource.INSTANCE.getColor(R.color.five_dark_purple));
-        codeView.addSyntaxPattern(PATTERN_KEYWORDS, LAppResource.INSTANCE.getColor(R.color.five_dark_purple));
-        codeView.addSyntaxPattern(PATTERN_BUILTINS, LAppResource.INSTANCE.getColor(R.color.five_dark_white));
-        codeView.addSyntaxPattern(PATTERN_HASH_COMMENT, LAppResource.INSTANCE.getColor(R.color.five_dark_grey));
-        codeView.addSyntaxPattern(PATTERN_ATTRIBUTE, LAppResource.INSTANCE.getColor(R.color.five_dark_blue));
-        codeView.addSyntaxPattern(PATTERN_OPERATION, LAppResource.INSTANCE.getColor(R.color.five_dark_purple));
+        codeView.addSyntaxPattern(PATTERN_HEX, getColor(R.color.five_dark_purple));
+        codeView.addSyntaxPattern(PATTERN_CHAR, getColor(R.color.five_dark_yellow));
+        codeView.addSyntaxPattern(PATTERN_STRING, getColor(R.color.five_dark_yellow));
+        codeView.addSyntaxPattern(PATTERN_NUMBERS, getColor(R.color.five_dark_purple));
+        codeView.addSyntaxPattern(PATTERN_KEYWORDS, getColor(R.color.five_dark_purple));
+        codeView.addSyntaxPattern(PATTERN_BUILTINS, getColor(R.color.five_dark_white));
+        codeView.addSyntaxPattern(PATTERN_HASH_COMMENT, getColor(R.color.five_dark_grey));
+        codeView.addSyntaxPattern(PATTERN_ATTRIBUTE, getColor(R.color.five_dark_blue));
+        codeView.addSyntaxPattern(PATTERN_OPERATION, getColor(R.color.five_dark_purple));
 
         //Default Color
-        codeView.setTextColor(LAppResource.INSTANCE.getColor(R.color.five_dark_white));
+        codeView.setTextColor(getColor(R.color.five_dark_white));
 
-        codeView.addSyntaxPattern(PATTERN_TODO_COMMENT, LAppResource.INSTANCE.getColor(R.color.gold));
+        codeView.addSyntaxPattern(PATTERN_TODO_COMMENT, getColor(R.color.gold));
 
         codeView.reHighlightSyntax();
     }
@@ -130,23 +131,23 @@ public class PythonLanguage {
 //        Resources resources = context.getResources();
 
         //View Background
-        codeView.setBackgroundColor(LAppResource.INSTANCE.getColor(R.color.orange_box_black));
+        codeView.setBackgroundColor(getColor(R.color.orange_box_black));
 
         //Syntax Colors
-        codeView.addSyntaxPattern(PATTERN_HEX, LAppResource.INSTANCE.getColor(R.color.gold));
-        codeView.addSyntaxPattern(PATTERN_CHAR, LAppResource.INSTANCE.getColor(R.color.orange_box_orange2));
-        codeView.addSyntaxPattern(PATTERN_STRING, LAppResource.INSTANCE.getColor(R.color.orange_box_orange2));
-        codeView.addSyntaxPattern(PATTERN_NUMBERS, LAppResource.INSTANCE.getColor(R.color.five_dark_purple));
-        codeView.addSyntaxPattern(PATTERN_KEYWORDS, LAppResource.INSTANCE.getColor(R.color.orange_box_orange1));
-        codeView.addSyntaxPattern(PATTERN_BUILTINS, LAppResource.INSTANCE.getColor(R.color.orange_box_grey));
-        codeView.addSyntaxPattern(PATTERN_HASH_COMMENT, LAppResource.INSTANCE.getColor(R.color.orange_box_dark_grey));
-        codeView.addSyntaxPattern(PATTERN_ATTRIBUTE, LAppResource.INSTANCE.getColor(R.color.orange_box_orange3));
-        codeView.addSyntaxPattern(PATTERN_OPERATION, LAppResource.INSTANCE.getColor(R.color.gold));
+        codeView.addSyntaxPattern(PATTERN_HEX, getColor(R.color.gold));
+        codeView.addSyntaxPattern(PATTERN_CHAR,getColor(R.color.orange_box_orange2));
+        codeView.addSyntaxPattern(PATTERN_STRING, getColor(R.color.orange_box_orange2));
+        codeView.addSyntaxPattern(PATTERN_NUMBERS, getColor(R.color.five_dark_purple));
+        codeView.addSyntaxPattern(PATTERN_KEYWORDS, getColor(R.color.orange_box_orange1));
+        codeView.addSyntaxPattern(PATTERN_BUILTINS, getColor(R.color.orange_box_grey));
+        codeView.addSyntaxPattern(PATTERN_HASH_COMMENT, getColor(R.color.orange_box_dark_grey));
+        codeView.addSyntaxPattern(PATTERN_ATTRIBUTE, getColor(R.color.orange_box_orange3));
+        codeView.addSyntaxPattern(PATTERN_OPERATION, getColor(R.color.gold));
 
         //Default Color
-        codeView.setTextColor(LAppResource.INSTANCE.getColor(R.color.five_dark_white));
+        codeView.setTextColor(getColor(R.color.five_dark_white));
 
-        codeView.addSyntaxPattern(PATTERN_TODO_COMMENT, LAppResource.INSTANCE.getColor(R.color.gold));
+        codeView.addSyntaxPattern(PATTERN_TODO_COMMENT, getColor(R.color.gold));
 
         codeView.reHighlightSyntax();
     }

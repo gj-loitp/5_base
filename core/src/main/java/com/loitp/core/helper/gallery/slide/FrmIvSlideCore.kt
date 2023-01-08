@@ -11,9 +11,10 @@ import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.GlideImageViewFactory
 import com.loitp.R
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.hideProgress
+import com.loitp.core.ext.setTextShadow
+import com.loitp.core.ext.showProgress
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
-import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_i_flickr_photo_slide_iv_core.*
 import java.io.File
 
@@ -48,7 +49,7 @@ class FrmIvSlideCore : Fragment() {
         val position = bundle.getInt(Constants.SK_PHOTO_PISITION)
         val photo = instance.getPhoto(position)
 
-        LUIUtil.setTextShadow(textView = tvProgress, color = null)
+        tvProgress.setTextShadow(color = null)
         biv.setImageViewFactory(GlideImageViewFactory())
 
         biv.setImageLoaderCallback(object : ImageLoader.Callback {
@@ -65,7 +66,7 @@ class FrmIvSlideCore : Fragment() {
             }
 
             override fun onStart() {
-                LDialogUtil.showProgress(progressBar)
+                progressBar.showProgress()
                 tvProgress.text = "0%"
             }
 
@@ -77,7 +78,7 @@ class FrmIvSlideCore : Fragment() {
 
             override fun onFinish() {}
             override fun onSuccess(image: File) {
-                LDialogUtil.hideProgress(progressBar)
+                progressBar.hideProgress()
                 tvProgress.visibility = View.GONE
             }
 

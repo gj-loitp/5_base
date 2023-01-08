@@ -20,9 +20,7 @@ import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.*
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.*
-import com.loitp.core.utilities.LUIUtil.Companion.allowInfiniteLines
-import com.loitp.core.utilities.LUIUtil.Companion.withBackground
+import com.loitp.core.ext.*
 import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
@@ -68,10 +66,9 @@ abstract class BaseActivity : AppCompatActivity() {
         val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
         logTag = "logTag" + tmpLogTag?.value
 
-        val isDarkTheme = LUIUtil.isDarkTheme()
+        val isDarkTheme = isDarkTheme()
 //        logD("onCreate isDarkTheme $isDarkTheme")
-        val isSwipeActivity = javaClass.getAnnotation(IsSwipeActivity::class.java)?.value
-            ?: false
+        val isSwipeActivity = javaClass.getAnnotation(IsSwipeActivity::class.java)?.value ?: false
 //        logD("onCreate isSwipeActivity $isSwipeActivity")
         if (isSwipeActivity) {
             if (isDarkTheme) {
@@ -134,36 +131,20 @@ abstract class BaseActivity : AppCompatActivity() {
             window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         }
 
-        CheckNetworkConnectionHelper
-            .getInstance()
-            .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
-                override fun onConnected() {
-                    LConnectivityUtil.onNetworkConnectionChanged(isConnected = true)
-                }
-
-                override fun onDisconnected() {
-                    LConnectivityUtil.onNetworkConnectionChanged(isConnected = false)
-                }
-
-                override fun getContext(): Context {
-                    return this@BaseActivity
-                }
-            })
+        registerNetworkChangeListener()
 
         // auto animation
-        val isAutoAnimation = javaClass.getAnnotation(IsAutoAnimation::class.java)?.value
-            ?: false
+        val isAutoAnimation = javaClass.getAnnotation(IsAutoAnimation::class.java)?.value ?: false
         if (isAutoAnimation) {
             SwitchAnimationUtil().startAnimation(
-                root = window.decorView,
-                type = SwitchAnimationUtil.AnimationType.ALPHA
+                root = window.decorView, type = SwitchAnimationUtil.AnimationType.ALPHA
 //                type = SwitchAnimationUtil.AnimationType.SCALE
 //                type = SwitchAnimationUtil.AnimationType.FLIP_VERTICAL
             )
         }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
 
-        LValidateUtil.isValidPackageName()
+        isValidPackageName()
 
         onBackPressedDispatcher.addCallback(this) {
             onBaseBackPressed()
@@ -175,7 +156,7 @@ abstract class BaseActivity : AppCompatActivity() {
 //        logE("onBaseBackPressed")
         finish()//correct
         if (isShowAnimWhenExit) {
-            LActivityUtil.tranOut(this)
+            this.tranOut()
         }
     }
 
@@ -194,8 +175,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     open fun onActivityUserIdleAfterTime(
-        delayMlsIdleTime: Long,
-        isIdleTime: Boolean
+        delayMlsIdleTime: Long, isIdleTime: Boolean
     ) {
         logD("onActivityUserIdleAfterTime delayMlsIdleTime: $delayMlsIdleTime, isIdleTime: $isIdleTime")
     }
@@ -216,8 +196,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun setCustomStatusBar(
-        colorStatusBar: Int,
-        colorNavigationBar: Int
+        colorStatusBar: Int, colorNavigationBar: Int
     ) {
         window.statusBarColor = colorStatusBar
         window.navigationBarColor = colorNavigationBar
@@ -235,13 +214,42 @@ abstract class BaseActivity : AppCompatActivity() {
 //        StatusBarCompat.translucentStatusBar(activity = this, hideStatusBarBackground = true)
     }
 
+    fun changeStatusBarContrastStyle(
+        lightIcons: Boolean,
+        colorBackground: Int,
+        withRecolorEfx: Boolean = true,
+    ) {
+        val decorView: View = this.window.decorView
+        if (lightIcons) {
+            decorView.systemUiVisibility =
+                decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+        } else {
+            decorView.systemUiVisibility =
+                decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        }
+        if (withRecolorEfx) {
+            this.recolorStatusBar(
+                startColor = null,
+                endColor = colorBackground,
+                duration = 300
+            )
+            this.recolorNavigationBar(
+                startColor = null,
+                endColor = colorBackground,
+                duration = 300
+            )
+        } else {
+            this.setCustomStatusBar(
+                colorStatusBar = colorBackground, colorNavigationBar = colorBackground
+            )
+        }
+    }
+
     override fun onDestroy() {
+        unRegisterNetworkChangeListener()
         EventBus.getDefault().unregister(this)
         compositeDisposable.clear()
-        LDialogUtil.clearAll()
-        LDialogUtil.hide(dialog = alertDialogProgress)
         stopIdleTimeHandler()
-        // AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
         super.onDestroy()
     }
 
@@ -251,37 +259,31 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showDialogError(
-        errMsg: String?,
-        runnable: Runnable? = null
+        errMsg: String?, runnable: Runnable? = null
     ) {
         if (errMsg.isNullOrEmpty()) {
             return
         }
-        val alertDialog = LDialogUtil.showDialog1(
-            context = this,
+        val alertDialog = this.showDialog1(
             title = getString(R.string.warning),
             msg = errMsg,
             button1 = getString(R.string.confirm),
             onClickButton1 = {
                 runnable?.run()
-            }
-        )
+            })
         alertDialog.setCancelable(false)
     }
 
     protected fun showDialogMsg(
-        errMsg: String,
-        runnable: Runnable? = null
+        errMsg: String, runnable: Runnable? = null
     ) {
-        LDialogUtil.showDialog1(
-            context = this,
+        this.showDialog1(
             title = getString(R.string.app_name),
             msg = errMsg,
             button1 = getString(R.string.confirm),
             onClickButton1 = {
                 runnable?.run()
-            }
-        )
+            })
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -292,43 +294,37 @@ abstract class BaseActivity : AppCompatActivity() {
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
     fun showShortInformation(
-        msg: String?,
-        isTopAnchor: Boolean = true
+        msg: String?, isTopAnchor: Boolean = true
     ) {
         LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     fun showShortWarning(
-        msg: String?,
-        isTopAnchor: Boolean = true
+        msg: String?, isTopAnchor: Boolean = true
     ) {
         LToast.showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     fun showShortError(
-        msg: String?,
-        isTopAnchor: Boolean = true
+        msg: String?, isTopAnchor: Boolean = true
     ) {
         LToast.showShortError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     fun showLongInformation(
-        msg: String?,
-        isTopAnchor: Boolean = true
+        msg: String?, isTopAnchor: Boolean = true
     ) {
         LToast.showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     fun showLongWarning(
-        msg: String?,
-        isTopAnchor: Boolean = true
+        msg: String?, isTopAnchor: Boolean = true
     ) {
         LToast.showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     fun showLongError(
-        msg: String?,
-        isTopAnchor: Boolean = true
+        msg: String?, isTopAnchor: Boolean = true
     ) {
         LToast.showLongError(msg = msg, isTopAnchor = isTopAnchor)
     }
@@ -351,13 +347,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun logD(msg: String) {
         logTag?.let {
-            LLog.d(it, msg)
+            d(it, msg)
         }
     }
 
     protected fun logE(msg: String) {
         logTag?.let {
-            LLog.e(it, msg)
+            e(it, msg)
         }
     }
 
@@ -391,16 +387,12 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showSnackBarInfor(
-        msg: String,
-        view: View? = null,
-        isFullWidth: Boolean = false
+        msg: String, view: View? = null, isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
             val anchorView = view ?: findViewById(android.R.id.content)
-            val snackBar = Snackbar
-                .make(anchorView, msg, Snackbar.LENGTH_LONG)
-                .withBackground(R.drawable.bg_toast_infor)
-                .allowInfiniteLines()
+            val snackBar = Snackbar.make(anchorView, msg, Snackbar.LENGTH_LONG)
+                .withBackground(R.drawable.bg_toast_infor).allowInfiniteLines()
             if (isFullWidth) {
                 snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             }
@@ -409,16 +401,12 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showSnackBarWarning(
-        msg: String,
-        view: View? = null,
-        isFullWidth: Boolean = false
+        msg: String, view: View? = null, isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
             val anchorView = view ?: findViewById(android.R.id.content)
-            val snackBar = Snackbar
-                .make(anchorView, msg, Snackbar.LENGTH_LONG)
-                .withBackground(R.drawable.bg_toast_warning)
-                .allowInfiniteLines()
+            val snackBar = Snackbar.make(anchorView, msg, Snackbar.LENGTH_LONG)
+                .withBackground(R.drawable.bg_toast_warning).allowInfiniteLines()
             if (isFullWidth) {
                 snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             }
@@ -427,16 +415,12 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showSnackBarError(
-        msg: String,
-        view: View? = null,
-        isFullWidth: Boolean = false
+        msg: String, view: View? = null, isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
             val anchorView = view ?: findViewById(android.R.id.content)
-            val snackBar = Snackbar
-                .make(anchorView, msg, Snackbar.LENGTH_LONG)
-                .withBackground(R.drawable.bg_toast_err)
-                .allowInfiniteLines()
+            val snackBar = Snackbar.make(anchorView, msg, Snackbar.LENGTH_LONG)
+                .withBackground(R.drawable.bg_toast_err).allowInfiniteLines()
             if (isFullWidth) {
                 snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             }
@@ -446,13 +430,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showDialogProgress() {
         if (alertDialogProgress == null) {
-            alertDialogProgress = LDialogUtil.genCustomProgressDialog(context = this)
+            alertDialogProgress = this.genCustomProgressDialog()
         }
-        LDialogUtil.show(dialog = alertDialogProgress)
+        alertDialogProgress.show()
     }
 
     fun hideDialogProgress() {
-        LDialogUtil.hide(dialog = alertDialogProgress)
+        alertDialogProgress.hide()
     }
 
     fun launchActivity(
@@ -464,7 +448,7 @@ abstract class BaseActivity : AppCompatActivity() {
         data?.invoke(intent)
         startActivity(intent)
         if (withAnim) {
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
     }
 
@@ -476,7 +460,7 @@ abstract class BaseActivity : AppCompatActivity() {
         val intent = Intent(/* packageContext = */ this, /* cls = */ cls)
         data?.invoke(intent)
         if (withAnim) {
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
     }
 
@@ -487,7 +471,7 @@ abstract class BaseActivity : AppCompatActivity() {
     ) {
         data?.invoke(intent)
         if (withAnim) {
-            LActivityUtil.tranIn(this)
+            this.tranIn()
         }
     }
 
@@ -500,4 +484,26 @@ abstract class BaseActivity : AppCompatActivity() {
         setResult(Activity.RESULT_OK, i)
         onBaseBackPressed()
     }
+
+    private fun registerNetworkChangeListener() {
+        CheckNetworkConnectionHelper.getInstance()
+            .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
+                override fun onConnected() {
+                    onNetworkConnectionChanged(isConnected = true)
+                }
+
+                override fun onDisconnected() {
+                    onNetworkConnectionChanged(isConnected = false)
+                }
+
+                override fun getContext(): Context {
+                    return this@BaseActivity
+                }
+            })
+    }
+
+    private fun unRegisterNetworkChangeListener() {
+//        AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
+    }
+
 }

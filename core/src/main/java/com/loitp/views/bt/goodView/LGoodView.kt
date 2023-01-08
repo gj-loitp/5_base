@@ -16,7 +16,7 @@ import android.view.animation.TranslateAnimation
 import android.widget.PopupWindow
 import android.widget.RelativeLayout
 import android.widget.TextView
-import com.loitp.core.utilities.LAppResource
+import com.loitp.core.ext.getDrawable
 
 /**
  * Created by Loitp on 04,August,2022
@@ -127,8 +127,7 @@ class LGoodView(
     }
 
     fun setImage(resId: Int) {
-//        setImage(mContext?.resources?.getDrawable(resId))
-        setImage(LAppResource.getDrawable(resId))
+        setImage(getDrawable(resId))
     }
 
     fun setImage(drawable: Drawable?) {

@@ -5,14 +5,13 @@ import com.google.gson.reflect.TypeToken
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseViewModel
-import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LPrefUtil
-import com.loitp.core.utilities.LStoreUtil
-import com.loitp.core.utilities.LStoreUtil.Companion.getListEpubFiles
-import com.loitp.func.epub.exception.ReadingException
-import com.loitp.func.epub.model.BookInfo
+import com.loitp.core.ext.LAppResource
+import com.loitp.core.ext.getJsonBookAsset
+import com.loitp.core.ext.getListEpubFiles
 import com.loitp.func.epub.CssStatus
 import com.loitp.func.epub.Reader
+import com.loitp.func.epub.exception.ReadingException
+import com.loitp.func.epub.model.BookInfo
 import com.loitp.sv.liveData.ActionData
 import com.loitp.sv.liveData.ActionLiveData
 import com.loitp.sv.model.ErrorResponse
@@ -144,7 +143,7 @@ class EpubViewModel : BaseViewModel() {
         ioScope.launch {
             val listBookInfo = ArrayList<BookInfo>()
 
-            val jsonBookAsset = LPrefUtil.getJsonBookAsset()
+            val jsonBookAsset = LAppResource.application.getJsonBookAsset()
             if (jsonBookAsset.isNullOrEmpty()) {
                 listBookInfo.addAll(
                     elements = searchForFilesAsset(
@@ -213,7 +212,7 @@ class EpubViewModel : BaseViewModel() {
                 getListEpubFiles(File(Environment.getExternalStorageDirectory().absolutePath))
 
             // only get 1 file from asset
-            val sampleFile = LStoreUtil.getFileFromAssets(fileName = "a (1).sqlite")
+            val sampleFile = getFileFromAssets(fileName = "a (1).sqlite")
             sampleFile?.let {
                 listFile.add(index = 0, element = it)
             }

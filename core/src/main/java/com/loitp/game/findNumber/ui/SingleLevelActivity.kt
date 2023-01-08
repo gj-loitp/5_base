@@ -6,15 +6,12 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.daimajia.androidanimations.library.Techniques
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LAnimationUtil
-import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
-import com.loitp.R
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.*
 import com.loitp.game.findNumber.adt.LevelAdapter
 import com.loitp.game.findNumber.model.Level
 import com.loitp.game.findNumber.vm.FindNumberViewModel
@@ -31,7 +28,7 @@ import kotlinx.android.synthetic.main.l_a_find_number_single_level.*
 @LogTag("SingleLevelActivity")
 @IsFullScreen(true)
 @IsSwipeActivity(true)
-class SingleLevelActivity : BaseFontActivity() {
+class SingleLevelActivity : BaseActivityFont() {
     private var activityCircularReveal: CircularReveal? = null
     private var levelAdapter = LevelAdapter()
     private var findNumberViewModel: FindNumberViewModel? = null
@@ -43,7 +40,7 @@ class SingleLevelActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
+        this.toggleFullscreen(isFullScreen = true)
         activityCircularReveal = CircularReveal(rootView)
         activityCircularReveal?.onActivityCreate(intent)
 
@@ -65,47 +62,40 @@ class SingleLevelActivity : BaseFontActivity() {
         rvLevel.layoutManager = GridLayoutManager(this, 4)
         rvLevel.adapter = levelAdapter
 
-        LUIUtil.setDelay(100) {
+        setDelay(100) {
             tvLevels?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                view = tvLevels,
+            tvLevels?.play(
                 duration = 1000,
                 techniques = Techniques.ZoomInDown
             )
 
             ivBack?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                view = ivBack,
+            ivBack?.play(
                 duration = 1000,
                 techniques = Techniques.ZoomInUp
             )
 
             ivPlay?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                view = ivPlay,
+            ivPlay?.play(
                 duration = 1000,
                 techniques = Techniques.ZoomInUp
             )
 
             ivSpiral?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                view = ivSpiral,
+            ivSpiral?.play(
                 duration = 5000,
                 techniques = Techniques.RotateIn,
                 repeatCount = -1
             )
         }
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = tvLevels
+        tvLevels.setSafeOnClickListenerElastic(
         )
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = ivBack,
+        ivBack.setSafeOnClickListenerElastic(
             runnable = {
                 onBaseBackPressed()
             }
         )
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = ivPlay,
+        ivPlay.setSafeOnClickListenerElastic(
             runnable = {
                 findNumberViewModel?.getFirstLevelOpen()
             }
@@ -119,19 +109,18 @@ class SingleLevelActivity : BaseFontActivity() {
             vm.listLevelActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
-                    LDialogUtil.showProgress(progressBar)
+                    progressBar.showProgress()
                 } else {
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 }
 
                 if (isDoing == false && actionData.isSuccess == true) {
                     actionData.data?.let { listLevel ->
                         levelAdapter.setListLevel(listLevel = listLevel)
 
-                        LUIUtil.setDelay(mls = 100, runnable = {
+                        setDelay(mls = 100, runnable = {
                             layoutLevel?.visibility = View.VISIBLE
-                            LAnimationUtil.play(
-                                view = layoutLevel,
+                            layoutLevel?.play(
                                 duration = 1000,
                                 techniques = Techniques.FadeInUp
                             )
@@ -143,9 +132,9 @@ class SingleLevelActivity : BaseFontActivity() {
             vm.firstLevelOpenActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
-                    LDialogUtil.showProgress(progressBar)
+                    progressBar.showProgress()
                 } else {
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 }
 
                 if (isDoing == false && actionData.isSuccess == true) {

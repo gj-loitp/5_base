@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
 import com.loitp.R;
 import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
-import com.loitp.core.base.BaseFontActivity;
+import com.loitp.core.base.BaseActivityFont;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +31,7 @@ import kotlin.Suppress;
 
 @LogTag("LCropImageActivity")
 @IsFullScreen(false)
-public class LCropImageActivity extends BaseFontActivity implements LCropImageView.OnSetImageUriCompleteListener, LCropImageView.OnCropImageCompleteListener,
+public class LCropImageActivity extends BaseActivityFont implements LCropImageView.OnSetImageUriCompleteListener, LCropImageView.OnCropImageCompleteListener,
         View.OnClickListener {
 
     private CropImageOptions cropImageOptions;

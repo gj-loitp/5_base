@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.adapter.BaseAdapter
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.skydoves.transformationlayout.TransformationLayout
 import kotlinx.android.synthetic.main.i_transformation_poster.view.*
 import vn.loitp.R
@@ -51,10 +51,8 @@ class PosterAdapter(
         fun bind(poster: Poster) {
 
             itemView.run {
-                LImageUtil.load(
-                    context = context,
+                ivItemPosterPost.loadGlide(
                     any = poster.poster,
-                    imageView = ivItemPosterPost
                 )
 
                 tvItemPosterTitle.text = poster.name

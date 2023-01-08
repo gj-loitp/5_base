@@ -4,10 +4,11 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.hideKeyboard
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LKeyBoardUtil
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setSafeOnClickListenerElastic
+import com.loitp.core.ext.showKeyboard
 import gun0912.tedkeyboardobserver.TedRxKeyboardObserver
 import kotlinx.android.synthetic.main.a_func_keyboard.*
 import vn.loitp.R
@@ -16,7 +17,7 @@ import vn.loitp.R
 
 @LogTag("KeyboardActivity")
 @IsFullScreen(false)
-class KeyboardActivity : BaseFontActivity() {
+class KeyboardActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_func_keyboard
@@ -32,8 +33,7 @@ class KeyboardActivity : BaseFontActivity() {
     @SuppressLint("CheckResult", "SetTextI18n")
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
@@ -48,10 +48,10 @@ class KeyboardActivity : BaseFontActivity() {
             }, { throwable -> throwable.printStackTrace() })
 
         btShow.setSafeOnClickListener {
-            LKeyBoardUtil.show(this)
+            this.showKeyboard()
         }
         btHide.setSafeOnClickListener {
-            LKeyBoardUtil.hide(this)
+            this.hideKeyboard()
         }
     }
 }

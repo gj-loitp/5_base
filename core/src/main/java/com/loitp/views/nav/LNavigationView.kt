@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
-import com.loitp.core.utilities.LAnimationUtil
 import com.loitp.R
+import com.loitp.core.ext.play
 
 /**
  * Created by Loitp on 04,August,2022
@@ -21,8 +21,10 @@ import com.loitp.R
 class LNavigationView : RelativeLayout, View.OnClickListener {
     @Suppress("unused")
     var ivPrev: ImageView? = null
+
     @Suppress("unused")
     var ivNext: ImageView? = null
+
     @Suppress("unused")
     var tv: TextView? = null
 
@@ -30,6 +32,7 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
     private var currentIndex = 0
     var colorOn = Color.BLACK
     var colorOff = Color.GRAY
+
     @Suppress("unused")
     var isEnableAnimation = true
 
@@ -119,7 +122,7 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
         val s = stringList[currentIndex]
         tv?.text = s
         if (isEnableAnimation) {
-            LAnimationUtil.play(view = tv, techniques = Techniques.FlipInX)
+            tv?.play(techniques = Techniques.FlipInX)
         }
         val size = stringList.size
         if (size == 1) {
@@ -147,13 +150,13 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
     override fun onClick(view: View) {
         if (view === ivPrev) {
             if (isEnableAnimation) {
-                LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
+                view.play(techniques = Techniques.Pulse)
             }
             currentIndex--
             updateUI()
         } else if (view === ivNext) {
             if (isEnableAnimation) {
-                LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
+                view.play(techniques = Techniques.Pulse)
             }
             currentIndex++
             updateUI()

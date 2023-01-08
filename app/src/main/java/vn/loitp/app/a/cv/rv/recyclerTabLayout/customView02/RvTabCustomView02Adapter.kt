@@ -9,7 +9,8 @@ import androidx.annotation.DrawableRes
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
-import com.loitp.core.utilities.LAppResource
+import com.loitp.core.ext.getColorStateList
+import com.loitp.core.ext.getDrawable
 import com.loitp.views.rv.recyclerTabLayout.RecyclerTabLayout
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.recyclerTabLayout.DemoImagePagerAdapter
@@ -33,8 +34,8 @@ class RvTabCustomView02Adapter internal constructor(viewPager: ViewPager) :
     }
 
     private fun loadIconWithTint(@DrawableRes resourceId: Int): Drawable {
-        var icon = LAppResource.getDrawable(resourceId)
-        val colorStateList = LAppResource.getColorStateList(R.color.custom_view02_tint)
+        var icon = getDrawable(resourceId)
+        val colorStateList = getColorStateList(R.color.custom_view02_tint)
         icon = DrawableCompat.wrap(icon!!)
         DrawableCompat.setTintList(icon, colorStateList)
         return icon

@@ -146,7 +146,7 @@ class EndlessService : Service() {
         }
 
         val pendingIntent: PendingIntent =
-            Intent(this, EndlessServiceActivity::class.java).let { notificationIntent ->
+            Intent(this, EndlessServiceActivityFont::class.java).let { notificationIntent ->
                 PendingIntent.getActivity(
                     /* context = */ this,
                     /* requestCode = */ 0,

@@ -9,13 +9,13 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
-        android:layout_width="@dimen/w_150"
-        android:layout_height="@dimen/w_150"
+        android:layout_width="@dimen/w_200"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/margin_padding_medium"
         android:contentDescription="@string/app_name"
-        android:scaleType="fitXY"
+        android:scaleType="center"
         tools:src="@drawable/ic_launcher" />
 
     <androidx.appcompat.widget.AppCompatTextView

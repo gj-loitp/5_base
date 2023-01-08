@@ -7,9 +7,9 @@ import android.view.View
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
-import com.loitp.core.utilities.LAnimationUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.R
+import com.loitp.core.ext.play
+import com.loitp.core.ext.setTextSizePx
 
 /**
  * Created by Loitp on 04,August,2022
@@ -119,7 +119,7 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
         val s = stringList[currentIndex]
         tv?.text = s
         if (isEnableAnimation) {
-            LAnimationUtil.play(view = tv, techniques = Techniques.FlipInX)
+            tv?.play(techniques = Techniques.FlipInX)
         }
         val size = stringList.size
         if (size == 1) {
@@ -147,13 +147,13 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
     override fun onClick(view: View) {
         if (view === tvPrev) {
             if (isEnableAnimation) {
-                LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
+                view.play(techniques = Techniques.Pulse)
             }
             currentIndex--
             updateUI()
         } else if (view === tvNext) {
             if (isEnableAnimation) {
-                LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
+                view.play(techniques = Techniques.Pulse)
             }
             currentIndex++
             updateUI()
@@ -183,8 +183,14 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
         dpText: Float,
         dpNext: Float
     ) {
-        LUIUtil.setTextSize(textView = tvPrev, size = dpPrev)
-        LUIUtil.setTextSize(textView = tv, size = dpText)
-        LUIUtil.setTextSize(textView = tvNext, size = dpNext)
+        tvPrev.setTextSizePx(
+            size = dpPrev
+        )
+        tv.setTextSizePx(
+            size = dpText
+        )
+        tvNext.setTextSizePx(
+            size = dpNext
+        )
     }
 }

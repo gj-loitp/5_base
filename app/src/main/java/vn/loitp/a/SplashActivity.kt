@@ -5,15 +5,14 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.*
+import com.loitp.core.ext.*
 import com.loitp.model.App
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.a_splash.*
@@ -27,7 +26,7 @@ import java.io.IOException
 @LogTag("SplashActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class SplashActivity : BaseFontActivity() {
+class SplashActivity : BaseActivityFont() {
 
     private var isAnimDone = false
     private var isCheckReadyDone = false
@@ -47,17 +46,17 @@ class SplashActivity : BaseFontActivity() {
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
         konfettiView.start(Presets.festive())
-        LUIUtil.setDelay(mls = 2500, runnable = {
+        setDelay(mls = 2500, runnable = {
             isAnimDone = true
             goToHome()
         })
         textViewVersion.text = "Version ${BuildConfig.VERSION_NAME}"
 
         tvPolicy.apply {
-            LUIUtil.setTextUnderline(this)
-            LUIUtil.setTextShadow(textView = this, color = null)
+            this.setTextUnderline()
+            this.setTextShadow(color = null)
             setOnClickListener {
-                LSocialUtil.openBrowserPolicy(context = this@SplashActivity)
+                this@SplashActivity.openBrowserPolicy()
             }
         }
 
@@ -84,7 +83,7 @@ class SplashActivity : BaseFontActivity() {
 
         fun checkPer() {
             isShowDialogCheck = true
-            val color = if (LUIUtil.isDarkTheme()) {
+            val color = if (isDarkTheme()) {
                 Color.WHITE
             } else {
                 Color.BLACK
@@ -97,9 +96,10 @@ class SplashActivity : BaseFontActivity() {
             //ACCESS_BACKGROUND_LOCATION publish len store rat kho khan, khong can thiet
             //ban build debug thi chi test de biet feat nay work
             //con ban release thi khong can dau
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && BuildConfig.DEBUG) {
-                listPer.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-            }
+            //nho uncomment per ACCESS_BACKGROUND_LOCATION trong manifest
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && BuildConfig.DEBUG) {
+//                listPer.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+//            }
 
             PermissionX.init(this)
                 .permissions(listPer)
@@ -132,18 +132,17 @@ class SplashActivity : BaseFontActivity() {
                         }
                     } else {
                         finish()//correct
-                        LActivityUtil.tranOut(this)
+                        this.tranOut()
                     }
                     isShowDialogCheck = false
                 }
         }
 
-        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
+        val isCanWriteSystem = checkSystemWritePermission()
         if (isCanWriteSystem) {
             checkPer()
         } else {
-            val alertDialog = LDialogUtil.showDialog2(
-                context = this,
+            val alertDialog = this.showDialog2(
                 title = "Need Permissions",
                 msg = "This app needs permission to allow modifying system settings",
                 button1 = getString(R.string.ok),
@@ -153,7 +152,7 @@ class SplashActivity : BaseFontActivity() {
                     intent.data = Uri.parse("package:$packageName")
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
-                    LActivityUtil.tranIn(this@SplashActivity)
+                    this@SplashActivity.tranIn()
                 },
                 onClickButton2 = {
                     onBaseBackPressed()
@@ -169,20 +168,19 @@ class SplashActivity : BaseFontActivity() {
         if (isAnimDone && isCheckReadyDone) {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
             finish()
         }
     }
 
     private fun showDialogNotReady() {
         runOnUiThread {
-            val title = if (LConnectivityUtil.isConnected()) {
+            val title = if (this.isConnected()) {
                 "This app is not available now"
             } else {
                 getString(R.string.check_ur_connection)
             }
-            val alertDial = LDialogUtil.showDialog1(
-                context = this,
+            val alertDial = this.showDialog1(
                 title = "Warning",
                 msg = title,
                 button1 = "Ok",
@@ -195,8 +193,8 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun checkReady() {
-        if (LPrefUtil.getCheckAppReady()) {
-            val app = LPrefUtil.getGGAppSetting()
+        if (getCheckAppReady()) {
+            val app = getGGAppSetting()
             val isFullData = app.config?.isFullData == true
             if (isFullData) {
                 isCheckReadyDone = true
@@ -209,7 +207,7 @@ class SplashActivity : BaseFontActivity() {
         //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
         val linkGGDriveConfigSetting =
             "https://drive.google.com/uc?export=download&id=16pwq28ZTeP5p1ZeJmgwjHsOofE12XRIf"
-        LStoreUtil.getSettingFromGGDrive(
+        getSettingFromGGDrive(
             linkGGDriveSetting = linkGGDriveConfigSetting,
             onGGFailure = { _: Call, _: IOException ->
                 showDialogNotReady()
@@ -219,8 +217,8 @@ class SplashActivity : BaseFontActivity() {
                 if (app == null || app.config?.isReady == false) {
                     showDialogNotReady()
                 } else {
-                    LPrefUtil.setCheckAppReady(true)
-                    LPrefUtil.setGGAppSetting(app)
+                    setCheckAppReady(true)
+                    setGGAppSetting(app)
                     isCheckReadyDone = true
                     goToHome()
                 }

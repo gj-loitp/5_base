@@ -13,9 +13,10 @@ import com.bumptech.glide.request.target.Target
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.randomColorLight
+import com.loitp.core.ext.setTextShadow
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
-import com.loitp.core.utilities.LImageUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import kotlinx.android.synthetic.main.l_i_flickr_photos_core.view.*
 
@@ -71,11 +72,9 @@ class PhotosAdapter internal constructor(
         @SuppressLint("SetTextI18n")
         fun bind(photo: Photo) {
 
-            val color = LUIUtil.getRandomColorLight()
-            LImageUtil.load(
-                context = itemView.imageView.context,
+            val color = randomColorLight
+            itemView.imageView.loadGlide(
                 any = photo.flickrLink1024,
-                imageView = itemView.imageView,
                 resPlaceHolder = color,
                 resError = color,
                 drawableRequestListener = object : RequestListener<Drawable> {
@@ -101,7 +100,7 @@ class PhotosAdapter internal constructor(
             )
 
             itemView.tvSize.text = "${photo.widthO} x ${photo.heightO}"
-            LUIUtil.setTextShadow(textView = itemView.tvSize, color = null)
+            itemView.tvSize.setTextShadow(color = null)
 
             itemView.layoutRootView.setOnClickListener {
                 callback?.onClick(photo = photo, pos = bindingAdapterPosition)

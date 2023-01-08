@@ -10,7 +10,8 @@ import androidx.annotation.AttrRes
 import androidx.core.view.MotionEventCompat
 import androidx.core.view.ViewCompat
 import androidx.customview.widget.ViewDragHelper
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.screenHeight
+import com.loitp.core.ext.screenWidth
 import vn.loitp.R
 
 class VDHView @JvmOverloads constructor(
@@ -64,8 +65,8 @@ class VDHView @JvmOverloads constructor(
     override fun onFinishInflate() {
         super.onFinishInflate()
 
-        screenW = LScreenUtil.screenWidth
-        screenH = LScreenUtil.screenHeight
+        screenW = screenWidth
+        screenH = screenHeight
 
         headerView = findViewById(R.id.headerView)
         bodyView = findViewById(R.id.bodyView)

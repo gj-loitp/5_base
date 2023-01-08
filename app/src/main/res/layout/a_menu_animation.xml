@@ -111,6 +111,11 @@
                 android:text="@string/shadow_view_helper" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSnowfall"
+                style="@style/ButtonMenu"
+                android:text="Snowfall" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btValueAnimator"
                 style="@style/ButtonMenu"
                 android:text="@string/value_animator" />

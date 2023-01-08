@@ -47,7 +47,7 @@ class LApplication : BaseApplication() {
         Realm.setDefaultConfiguration(realmConfiguration)
 
         // config font
-//        LUIUtil.fontForAll = Constants.FONT_PATH
+//        fontForAll = Constants.FONT_PATH
 
         //room database
         FNBDatabase.getInstance(this)
@@ -78,12 +78,12 @@ class LApplication : BaseApplication() {
 
     override fun onAppInBackground() {
         super.onAppInBackground()
-        logE("onAppInBackground")
+        logD("onAppInBackground")
     }
 
     override fun onAppInForeground() {
         super.onAppInForeground()
-        logE("onAppInForeground")
+        logD("onAppInForeground")
     }
 
     private fun setupOneSignal() {

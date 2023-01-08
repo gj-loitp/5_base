@@ -8,8 +8,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LImageUtil
 import com.loitp.model.QA
 import kotlinx.android.synthetic.main.i_qa.view.*
 import vn.loitp.R
@@ -60,10 +60,8 @@ class QAAdapter(
                 itemView.ivQ.isVisible = false
             } else {
                 itemView.ivQ.isVisible = true
-                LImageUtil.load(
-                    context = itemView.ivQ.context,
+                itemView.ivQ.loadGlide(
                     any = qa.ivQ,
-                    imageView = itemView.ivQ
                 )
             }
 

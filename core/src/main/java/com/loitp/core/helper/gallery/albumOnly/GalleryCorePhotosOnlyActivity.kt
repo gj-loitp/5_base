@@ -14,13 +14,10 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
-import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LSocialUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
@@ -42,7 +39,7 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_photos_only.*
 @LogTag("GalleryCorePhotosOnlyActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)
-class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
+class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
     companion object {
         private const val PER_PAGE_SIZE = 100
     }
@@ -89,28 +86,24 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 }
 
                 override fun onClickShare(photo: Photo, pos: Int) {
-                    LSocialUtil.share(
-                        activity = this@GalleryCorePhotosOnlyActivity,
+                    this@GalleryCorePhotosOnlyActivity.share(
                         msg = photo.urlO
                     )
                 }
 
                 override fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView) {
-                    LUIUtil.setWallpaperAndLockScreen(
-                        activity = this@GalleryCorePhotosOnlyActivity,
-                        imageView = imageView,
+                    imageView.setWallpaperAndLockScreen(
                         isSetWallpaper = true,
                         isSetLockScreen = true,
                     )
                 }
 
                 override fun onClickReport(photo: Photo, pos: Int) {
-                    LSocialUtil.sendEmail(context = this@GalleryCorePhotosOnlyActivity)
+                    this@GalleryCorePhotosOnlyActivity.sendEmail()
                 }
 
                 override fun onClickCmt(photo: Photo, pos: Int) {
-                    LSocialUtil.openFacebookComment(
-                        context = this@GalleryCorePhotosOnlyActivity,
+                    this@GalleryCorePhotosOnlyActivity.openFacebookComment(
                         url = photo.urlO,
                     )
                 }
@@ -165,7 +158,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             ) {
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryCorePhotosOnlyActivity)
+                    this@GalleryCorePhotosOnlyActivity.transActivityNoAnimation()
                 }
             }
         })
@@ -177,8 +170,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         for (i in 0 until size) {
             arr[i] = "Page " + (totalPage - i)
         }
-        LDialogUtil.showDialogList(
-            context = this,
+        this.showDialogList(
             title = "Select page",
             arr = arr,
             onClick = { position ->
@@ -215,7 +207,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     }
 
     private fun getListPhotoSets() {
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -251,7 +243,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                     }
                 }, { e ->
                     handleException(e)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 })
         )
     }
@@ -261,7 +253,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             return
         }
         isLoading = true
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -269,7 +261,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         if (currentPage <= 0) {
 //            logD("currentPage <= 0 -> return")
             currentPage = 0
-            LDialogUtil.hideProgress(progressBar)
+            progressBar.hideProgress()
             return
         }
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
@@ -300,13 +292,13 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                     }
                     updateAllViews()
 
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     btPage.visibility = View.VISIBLE
                     isLoading = false
                     currentPage--
                 }, { e ->
                     handleException(e)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     isLoading = true
                 })
         )
@@ -318,7 +310,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     }
 
     private fun checkPermission() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK

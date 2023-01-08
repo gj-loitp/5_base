@@ -1,5 +1,7 @@
 package vn.loitp.a.demo.alarm.adt;
 
+import static com.loitp.core.ext.ApplicationKt.getColor;
+
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -11,13 +13,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.loitp.core.utilities.LAppResource;
-
 import vn.loitp.R;
 import vn.loitp.a.demo.alarm.md.Alarm;
 import vn.loitp.a.demo.alarm.md.DataSource;
-import vn.loitp.a.demo.alarm.sv.AlarmReceiver;
 import vn.loitp.a.demo.alarm.md.DateTime;
+import vn.loitp.a.demo.alarm.sv.AlarmReceiver;
 
 public class AlarmListAdapter extends BaseAdapter {
 
@@ -35,8 +35,8 @@ public class AlarmListAdapter extends BaseAdapter {
         mInflater = LayoutInflater.from(context);
         mDateTime = new DateTime(context);
 
-        mColorOutdated = LAppResource.INSTANCE.getColor(R.color.gray);
-        mColorActive = LAppResource.INSTANCE.getColor(R.color.red);
+        mColorOutdated = getColor(R.color.gray);
+        mColorActive = getColor(R.color.red);
 
         mAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 

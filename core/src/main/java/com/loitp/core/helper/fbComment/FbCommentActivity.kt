@@ -13,15 +13,16 @@ import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
-import com.loitp.annotation.IsSwipeActivity
-import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.common.Constants
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.BuildConfig
 import com.loitp.R
+import com.loitp.annotation.IsSwipeActivity
+import com.loitp.annotation.LogTag
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.Constants
+import com.loitp.core.ext.setColorProgressBar
+import com.loitp.core.ext.setDelay
+import com.loitp.core.ext.setProgressBarVisibility
+import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_a_fb_cmt_core.*
 import kotlinx.android.synthetic.main.l_v_l_edit_text.view.*
 
@@ -34,7 +35,7 @@ import kotlinx.android.synthetic.main.l_v_l_edit_text.view.*
  */
 @LogTag("FbCommentActivity")
 @IsSwipeActivity(true)
-class FbCommentActivity : BaseFontActivity() {
+class FbCommentActivity : BaseActivityFont() {
     internal var isLoading: Boolean = false
     private var postUrl: String? = null
     private var mWebViewPop: WebView? = null
@@ -60,9 +61,8 @@ class FbCommentActivity : BaseFontActivity() {
     private fun setupViews() {
         setupActionBar()
 
-        LUIUtil.setColorProgressBar(
-            progressBar = progressBar,
-            color = LAppResource.getColor(R.color.colorPrimary)
+        progressBar.setColorProgressBar(
+            color = getColor(R.color.colorPrimary)
         )
 
         postUrl = if (BuildConfig.DEBUG) {
@@ -85,7 +85,7 @@ class FbCommentActivity : BaseFontActivity() {
                 onBaseBackPressed()
             }
             this.ivRight?.isVisible = false
-            this.tvTitle?.text = LAppResource.getString(R.string.fb_comment)
+            this.tvTitle?.text = getString(R.string.fb_comment)
         }
     }
 
@@ -120,13 +120,12 @@ class FbCommentActivity : BaseFontActivity() {
     private fun setLoading(isLoading: Boolean) {
         this.isLoading = isLoading
         if (isLoading) {
-            LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE)
+            progressBar.setProgressBarVisibility(View.VISIBLE)
         } else {
-            LUIUtil.setDelay(
+            setDelay(
                 mls = 1000,
                 runnable = {
-                    LUIUtil.setProgressBarVisibility(
-                        progressBar = progressBar,
+                    progressBar.setProgressBarVisibility(
                         visibility = View.GONE
                     )
                 }

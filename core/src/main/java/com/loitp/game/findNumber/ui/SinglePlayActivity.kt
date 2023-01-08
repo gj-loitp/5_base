@@ -5,11 +5,12 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.replaceFragment
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LImageUtil
-import com.loitp.core.utilities.LScreenUtil
+import com.loitp.core.ext.toggleFullscreen
 import com.loitp.game.findNumber.model.Level
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_a_find_number_single_play.*
@@ -24,7 +25,7 @@ import kotlinx.android.synthetic.main.l_a_find_number_single_play.*
 @LogTag("SinglePlayActivity")
 @IsFullScreen(true)
 @IsSwipeActivity(true)
-class SinglePlayActivity : BaseFontActivity() {
+class SinglePlayActivity : BaseActivityFont() {
 
     companion object {
         const val KEY_LEVEL = "KEY_LEVEL"
@@ -41,7 +42,7 @@ class SinglePlayActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
+        this.toggleFullscreen(isFullScreen = true)
         activityCircularReveal = CircularReveal(rootView)
         activityCircularReveal?.onActivityCreate(intent)
         setupData()
@@ -55,10 +56,9 @@ class SinglePlayActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        LImageUtil.load(context = this, any = currentLevel?.bkg, imageView = ivBackground)
+        ivBackground.loadGlide(any = currentLevel?.bkg)
         frmFindNumberPlay?.let {
-            LScreenUtil.replaceFragment(
-                activity = this,
+            this.replaceFragment(
                 containerFrameLayoutIdRes = R.id.layoutContainer,
                 fragment = it,
                 isAddToBackStack = false

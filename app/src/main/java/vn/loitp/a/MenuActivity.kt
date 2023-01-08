@@ -1,6 +1,7 @@
 package vn.loitp.a
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -10,30 +11,27 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsKeepScreenOn
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.*
 import com.loitp.core.helper.adHelper.AdHelperActivity
-import com.loitp.core.utilities.LPrefUtil
-import com.loitp.core.utilities.LSocialUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.a_menu.*
 import vn.loitp.R
-import vn.loitp.a.anim.MenuAnimationActivity
-import vn.loitp.a.api.MenuAPIActivity
+import vn.loitp.a.anim.MenuAnimationActivityFont
+import vn.loitp.a.api.MenuAPIActivityFont
 import vn.loitp.a.cv.MenuCustomViewsActivity
-import vn.loitp.a.db.MenuDatabaseActivity
-import vn.loitp.a.demo.MenuDemoActivity
-import vn.loitp.a.func.MenuFunctionActivity
-import vn.loitp.a.game.MenuGameActivity
-import vn.loitp.a.interviewVN.InterviewVNIQActivity
-import vn.loitp.a.more.MoreActivity
-import vn.loitp.a.network.NetworkActivity
-import vn.loitp.a.pattern.MenuPatternActivity
-import vn.loitp.a.picker.MenuPickerActivity
-import vn.loitp.a.sec.MenuSecurityActivity
-import vn.loitp.a.sv.MenuServiceActivity
-import vn.loitp.a.tut.MenuTutorialActivity
+import vn.loitp.a.db.MenuDatabaseActivityFont
+import vn.loitp.a.demo.MenuDemoActivityFont
+import vn.loitp.a.func.MenuFunctionActivityFont
+import vn.loitp.a.game.MenuGameActivityFont
+import vn.loitp.a.interviewVN.InterviewVNIQActivityFont
+import vn.loitp.a.more.MoreActivityFont
+import vn.loitp.a.network.NetworkActivityFont
+import vn.loitp.a.pattern.MenuPatternActivityFont
+import vn.loitp.a.picker.MenuPickerActivityFont
+import vn.loitp.a.sec.MenuSecurityActivityFont
+import vn.loitp.a.sv.MenuServiceActivityFont
+import vn.loitp.a.tut.MenuTutorialActivityFont
 import vn.loitp.a.u.UtilsActivity
 import vn.loitp.a.u.UtilsCoreActivity
 
@@ -41,7 +39,7 @@ import vn.loitp.a.u.UtilsCoreActivity
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 @IsKeepScreenOn(true)
-class MenuActivity : BaseFontActivity(), View.OnClickListener {
+class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu
@@ -56,7 +54,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
             this.ivIconRight?.setImageResource(R.color.transparent)
@@ -64,21 +62,21 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         }
 
         tvPolicy.apply {
-            LUIUtil.setTextUnderline(this)
+            this.setTextUnderline()
             setSafeOnClickListener {
-                LSocialUtil.openUrlInBrowser(
-                    context = this@MenuActivity, url = Constants.URL_POLICY
+                this@MenuActivity.openUrlInBrowser(
+                    url = Constants.URL_POLICY
                 )
             }
         }
 
         swDarkTheme.apply {
-            isChecked = LUIUtil.isDarkTheme()
+            isChecked = isDarkTheme()
             setOnCheckedChangeListener { _, isDarkTheme ->
                 if (isDarkTheme) {
-                    LUIUtil.setDarkTheme(isDarkTheme = true)
+                    setDarkTheme(isDarkTheme = true)
                 } else {
-                    LUIUtil.setDarkTheme(isDarkTheme = false)
+                    setDarkTheme(isDarkTheme = false)
                 }
                 finish()//correct
                 startActivity(Intent(this@MenuActivity, MenuActivity::class.java))
@@ -113,10 +111,8 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupConfigGoogle() {
-        val app = LPrefUtil.getGGAppSetting()
-//        logD(">>>setupConfigGoogle " + BaseApplication.gson.toJson(app))
+        val app = getGGAppSetting()
         val isFullData = app.config?.isFullData == true
-//        logD(">>>setupConfigGoogle isFullData $isFullData")
         if (isFullData) {
             btApi.isVisible = true
             btAnimation.isVisible = true
@@ -180,39 +176,42 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            btApi -> launchActivity(MenuAPIActivity::class.java)
-            btAnimation -> launchActivity(MenuAnimationActivity::class.java)
+            btApi -> launchActivity(MenuAPIActivityFont::class.java)
+            btAnimation -> launchActivity(MenuAnimationActivityFont::class.java)
             btCustomView -> launchActivity(MenuCustomViewsActivity::class.java)
-            btDemo -> launchActivity(MenuDemoActivity::class.java)
-            btRateApp -> LSocialUtil.rateApp(this, packageName)
-            btMoreApp -> LSocialUtil.moreApp(this)
-            btFunction -> launchActivity(MenuFunctionActivity::class.java)
-            btGame -> launchActivity(MenuGameActivity::class.java)
-            btDatabase -> launchActivity(MenuDatabaseActivity::class.java)
-            btPattern -> launchActivity(MenuPatternActivity::class.java)
-            btChat -> LSocialUtil.chatMessenger(this)
+            btDemo -> launchActivity(MenuDemoActivityFont::class.java)
+            btRateApp -> this.rateApp(packageName)
+            btMoreApp -> this.moreApp()
+            btFunction -> launchActivity(MenuFunctionActivityFont::class.java)
+            btGame -> launchActivity(MenuGameActivityFont::class.java)
+            btDatabase -> launchActivity(MenuDatabaseActivityFont::class.java)
+            btPattern -> launchActivity(MenuPatternActivityFont::class.java)
+            btChat -> this.chatMessenger()
             btGithub -> {
-                LSocialUtil.openUrlInBrowser(
-                    context = this, url = "https://github.com/tplloi/base"
+                this.openUrlInBrowser(
+                    url = "https://github.com/tplloi/base"
                 )
             }
             btAdHelper -> {
                 launchActivity(cls = AdHelperActivity::class.java, data = {
                     it.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
+                    it.putExtra(Constants.AD_HELPER_COLOR_PRIMARY, Color.RED)
+                    it.putExtra(Constants.AD_HELPER_COLOR_BACKGROUND, Color.YELLOW)
+                    it.putExtra(Constants.AD_HELPER_COLOR_STATUS_BAR, Color.GREEN)
+                    it.putExtra(Constants.AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
                 })
             }
-            btFbFanpage -> LSocialUtil.likeFacebookFanpage(this)
-            btFrmMore -> launchActivity(MoreActivity::class.java)
-            btTutorial -> launchActivity(MenuTutorialActivity::class.java)
-            btPicker -> launchActivity(MenuPickerActivity::class.java)
-            btNetwork -> launchActivity(NetworkActivity::class.java)
-            btSecurity -> launchActivity(MenuSecurityActivity::class.java)
-            btService -> launchActivity(MenuServiceActivity::class.java)
+            btFbFanpage -> this.likeFacebookFanpage()
+            btFrmMore -> launchActivity(MoreActivityFont::class.java)
+            btTutorial -> launchActivity(MenuTutorialActivityFont::class.java)
+            btPicker -> launchActivity(MenuPickerActivityFont::class.java)
+            btNetwork -> launchActivity(NetworkActivityFont::class.java)
+            btSecurity -> launchActivity(MenuSecurityActivityFont::class.java)
+            btService -> launchActivity(MenuServiceActivityFont::class.java)
             btUtils -> launchActivity(UtilsActivity::class.java)
             btUtilsCore -> launchActivity(UtilsCoreActivity::class.java)
             btFeedback -> {
-                LSocialUtil.sendEmail(
-                    activity = this,
+                this.sendEmail(
                     to = "roy93group@gmail.com",
                     cc = "roy93group@gmail.com",
                     bcc = "roy93group@gmail.com",
@@ -220,7 +219,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
                     body = "..."
                 )
             }
-            btInterviewVNIQActivity -> launchActivity(InterviewVNIQActivity::class.java)
+            btInterviewVNIQActivity -> launchActivity(InterviewVNIQActivityFont::class.java)
         }
     }
 }

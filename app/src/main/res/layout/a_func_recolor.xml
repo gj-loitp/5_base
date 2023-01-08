@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#004D40"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="@dimen/margin_padding_medium">
 
@@ -38,8 +38,8 @@
                 android:clickable="true"
                 android:contentDescription="@string/app_name"
                 android:focusable="true"
-                android:src="@drawable/ic_launcher_loitp"
-                android:tint="#fff" />
+                android:src="@drawable/ic_info_black_48dp"
+                android:tint="@color/red" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"
@@ -50,13 +50,14 @@
                 android:focusable="true"
                 android:gravity="center"
                 android:text="@string/a_simple_textview"
+                android:textColor="@color/red"
                 android:textSize="@dimen/txt_medium" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linReColorBackground"
                 android:layout_width="290dp"
                 android:layout_height="70dp"
-                android:background="#1d1d1d"
+                android:background="@color/red"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
@@ -74,14 +75,15 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/theCardView"
                 android:layout_width="290dp"
-                android:layout_height="70dp"
+                android:layout_height="120dp"
                 android:layout_marginTop="30dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackgroundBorderless"
-                app:cardBackgroundColor="#1E88E5"
+                app:cardBackgroundColor="@color/red"
                 app:cardCornerRadius="@dimen/round_medium"
-                app:cardElevation="10dp">
+                app:cardElevation="@dimen/margin_padding_small"
+                app:cardUseCompatPadding="true">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
@@ -218,6 +220,14 @@
                         android:textColor="@color/white" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/ib"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_100"
+                android:layout_marginTop="@dimen/margin_padding_medium"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/ic_launcher" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

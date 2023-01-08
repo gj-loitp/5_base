@@ -6,41 +6,41 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_rv_menu.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivity
-import vn.loitp.a.cv.rv.arcView.ArcViewActivity
-import vn.loitp.a.cv.rv.book.BookViewActivity
-import vn.loitp.a.cv.rv.carouselRv.CarouselRecyclerViewActivity
-import vn.loitp.a.cv.rv.concatAdapter.ConcatAdapterActivity
-import vn.loitp.app.a.cv.rv.diffUtil.DiffUtilActivity
-import vn.loitp.app.a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity
-import vn.loitp.app.a.cv.rv.dragDrop.MainActivityDragDrop
-import vn.loitp.app.a.cv.rv.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity
-import vn.loitp.app.a.cv.rv.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivity
-import vn.loitp.app.a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivity
-import vn.loitp.app.a.cv.rv.fastScroll.MenuFastScrollActivity
-import vn.loitp.app.a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivity
-import vn.loitp.app.a.cv.rv.fitGv.FitGridViewActivity
-import vn.loitp.app.a.cv.rv.footer.RecyclerViewFooterActivity
-import vn.loitp.app.a.cv.rv.footer2.RecyclerViewFooter2Activity
-import vn.loitp.app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity
-import vn.loitp.app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivity
-import vn.loitp.app.a.cv.rv.looping.LoopingLayoutActivity
-import vn.loitp.app.a.cv.rv.netView.NetViewActivity
-import vn.loitp.app.a.cv.rv.normalRv.RecyclerViewActivity
-import vn.loitp.app.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity
-import vn.loitp.app.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivity
-import vn.loitp.app.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivity
-import vn.loitp.app.a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivity
-import vn.loitp.app.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivity
+import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivityFont
+import vn.loitp.a.cv.rv.arcView.ArcViewActivityFont
+import vn.loitp.a.cv.rv.book.BookViewActivityFont
+import vn.loitp.a.cv.rv.carouselRv.CarouselRecyclerViewActivityFont
+import vn.loitp.a.cv.rv.concatAdapter.ConcatAdapterActivityFont
+import vn.loitp.a.cv.rv.diffUtil.DiffUtilActivityFont
+import vn.loitp.a.cv.rv.dragAndDropDemo.DragAndDropDemoActivityFont
+import vn.loitp.a.cv.rv.dragDrop.MainActivityDragDropFont
+import vn.loitp.a.cv.rv.dragDropSwipe.DragDropSwipeGridRecyclerviewActivityFont
+import vn.loitp.a.cv.rv.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivityFont
+import vn.loitp.a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivityFont
+import vn.loitp.a.cv.rv.fastScroll.MenuFastScrollActivityFont
+import vn.loitp.a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivityFont
+import vn.loitp.a.cv.rv.fitGv.FitGridViewActivityFont
+import vn.loitp.a.cv.rv.footer.RecyclerViewFooterActivityFont
+import vn.loitp.a.cv.rv.footer2.RecyclerViewFooter2Activity
+import vn.loitp.app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivityFont
+import vn.loitp.app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont
+import vn.loitp.app.a.cv.rv.looping.LoopingLayoutActivityFont
+import vn.loitp.app.a.cv.rv.netView.NetViewActivityFont
+import vn.loitp.app.a.cv.rv.normalRv.RecyclerViewActivityFont
+import vn.loitp.app.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivityFont
+import vn.loitp.app.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivityFont
+import vn.loitp.app.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivityFont
+import vn.loitp.app.a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivityFont
+import vn.loitp.app.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivityFont
 
 @LogTag("MenuRecyclerViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
+class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rv_menu
@@ -54,7 +54,7 @@ class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(view = this.ivIconLeft, runnable = {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
             this.ivIconRight?.isVisible = false
@@ -90,38 +90,42 @@ class MenuRecyclerViewActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            btArcViewActivity -> launchActivity(ArcViewActivity::class.java)
-            btParallaxRecyclerView -> launchActivity(ParallaxRecyclerViewActivity::class.java)
-            btNormalRecyclerView -> launchActivity(RecyclerViewActivity::class.java)
-            btNormalRecyclerViewWithSpanSize -> launchActivity(RecyclerViewWithSpanSizeActivity::class.java)
+            btArcViewActivity -> launchActivity(ArcViewActivityFont::class.java)
+            btParallaxRecyclerView -> launchActivity(ParallaxRecyclerViewActivityFont::class.java)
+            btNormalRecyclerView -> launchActivity(RecyclerViewActivityFont::class.java)
+            btNormalRecyclerViewWithSpanSize -> launchActivity(RecyclerViewWithSpanSizeActivityFont::class.java)
             btNormalRecyclerViewWithSingletonData -> launchActivity(
-                RecyclerViewWithSingletonDataActivity::class.java
+                RecyclerViewWithSingletonDataActivityFont::class.java
             )
-            btGalleryLayoutManager -> launchActivity(GalleryLayoutManagerHorizontalActivity::class.java)
-            btGalleryLayoutManagerVertical -> launchActivity(GalleryLayoutManagerVerticalActivity::class.java)
-            btBookView -> launchActivity(BookViewActivity::class.java)
-            btDiffUtil -> launchActivity(DiffUtilActivity::class.java)
-            btRecyclerTabLayout -> launchActivity(MenuRecyclerTabLayoutActivity::class.java)
-            btConcatAdapter -> launchActivity(ConcatAdapterActivity::class.java)
-            btFooter -> launchActivity(RecyclerViewFooterActivity::class.java)
+            btGalleryLayoutManager -> launchActivity(GalleryLayoutManagerHorizontalActivityFont::class.java)
+            btGalleryLayoutManagerVertical -> launchActivity(
+                GalleryLayoutManagerVerticalActivityFont::class.java
+            )
+            btBookView -> launchActivity(BookViewActivityFont::class.java)
+            btDiffUtil -> launchActivity(DiffUtilActivityFont::class.java)
+            btRecyclerTabLayout -> launchActivity(MenuRecyclerTabLayoutActivityFont::class.java)
+            btConcatAdapter -> launchActivity(ConcatAdapterActivityFont::class.java)
+            btFooter -> launchActivity(RecyclerViewFooterActivityFont::class.java)
             btFooter2 -> launchActivity(RecyclerViewFooter2Activity::class.java)
-            btNetView -> launchActivity(NetViewActivity::class.java)
-            btFitGridView -> launchActivity(FitGridViewActivity::class.java)
+            btNetView -> launchActivity(NetViewActivityFont::class.java)
+            btFitGridView -> launchActivity(FitGridViewActivityFont::class.java)
             btDragDropSwipeRecyclerviewListVertical -> launchActivity(
-                DragDropSwipeListVerticalRecyclerviewActivity::class.java
+                DragDropSwipeListVerticalRecyclerviewActivityFont::class.java
             )
             btDragDropSwipeRecyclerviewListHorizontal -> launchActivity(
-                DragDropSwipeListHorizontalRecyclerviewActivity::class.java
+                DragDropSwipeListHorizontalRecyclerviewActivityFont::class.java
             )
-            btDragDropSwipeRecyclerviewGrid -> launchActivity(DragDropSwipeGridRecyclerviewActivity::class.java)
-            btFastScroll -> launchActivity(MenuFastScrollActivity::class.java)
-            btFastScrollSeekBar -> launchActivity(RecyclerViewFastScrollSeekbarActivity::class.java)
-            btTurnLayoutManagerActivity -> launchActivity(TurnLayoutManagerActivity::class.java)
-            btCarouselRecyclerViewActivity -> launchActivity(CarouselRecyclerViewActivity::class.java)
-            btDragDrop -> launchActivity(MainActivityDragDrop::class.java)
-            btDragAndDropDemoActivity -> launchActivity(DragAndDropDemoActivity::class.java)
-            btLoopingLayout -> launchActivity(LoopingLayoutActivity::class.java)
-            btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
+            btDragDropSwipeRecyclerviewGrid -> launchActivity(
+                DragDropSwipeGridRecyclerviewActivityFont::class.java
+            )
+            btFastScroll -> launchActivity(MenuFastScrollActivityFont::class.java)
+            btFastScrollSeekBar -> launchActivity(RecyclerViewFastScrollSeekbarActivityFont::class.java)
+            btTurnLayoutManagerActivity -> launchActivity(TurnLayoutManagerActivityFont::class.java)
+            btCarouselRecyclerViewActivity -> launchActivity(CarouselRecyclerViewActivityFont::class.java)
+            btDragDrop -> launchActivity(MainActivityDragDropFont::class.java)
+            btDragAndDropDemoActivity -> launchActivity(DragAndDropDemoActivityFont::class.java)
+            btLoopingLayout -> launchActivity(LoopingLayoutActivityFont::class.java)
+            btGreedoLayout -> launchActivity(GreedoLayoutActivityFont::class.java)
         }
     }
 }

@@ -11,9 +11,10 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.setZoomFitWidthScreen
+import com.loitp.core.ext.transActivityNoAnimation
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
 import jp.wasabeef.glide.transformations.BlurTransformation
@@ -29,7 +30,7 @@ import kotlinx.android.synthetic.main.l_a_flickr_member_detail.*
 @LogTag("GalleryMemberDetailActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)
-class GalleryMemberDetailActivity : BaseFontActivity() {
+class GalleryMemberDetailActivity : BaseActivityFont() {
 
     companion object {
         const val PHOTO = "PHOTO"
@@ -52,19 +53,16 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
             override fun onViewPositionChanged(
-                mView: View?,
-                swipeBackFraction: Float,
-                swipeBackFactor: Float
+                mView: View?, swipeBackFraction: Float, swipeBackFactor: Float
             ) {
             }
 
             override fun onViewSwipeFinished(
-                mView: View?,
-                isEnd: Boolean
+                mView: View?, isEnd: Boolean
             ) {
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryMemberDetailActivity)
+                    this@GalleryMemberDetailActivity.transActivityNoAnimation()
                 }
             }
         })
@@ -72,17 +70,12 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
 
     private fun loadItem(photo: Photo) {
         tvTitle.text = photo.title
-        LImageUtil.load(
-            context = this,
+        imageViewBlur.loadGlide(
             any = photo.urlS,
-            imageView = imageViewBlur,
             drawableRequestListener = null,
             transformation = BlurTransformation(25)
         )
-        LImageUtil.load(
-            context = this,
-            any = photo.urlO,
-            imageView = imageView,
+        imageView.loadGlide(any = photo.urlO,
             drawableRequestListener = object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
@@ -100,10 +93,9 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
                     dataSource: DataSource,
                     isFirstResource: Boolean
                 ): Boolean {
-                    LImageUtil.setZoomFitWidthScreen(touchImageView = imageView)
+                    imageView.setZoomFitWidthScreen()
                     return false
                 }
-            }
-        )
+            })
     }
 }

@@ -9,8 +9,10 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.R
+import com.loitp.core.ext.setColorProgressBar
+import com.loitp.core.ext.setImeiActionEditText
+import com.loitp.core.ext.setLastCursorEditText
 
 /**
  * Created by Loitp on 04,August,2022
@@ -91,12 +93,12 @@ class LAutoSuggestEditText : RelativeLayout {
     }
 
     fun setColorProgressBar(color: Int) {
-        LUIUtil.setColorProgressBar(progressBar, color)
+        progressBar.setColorProgressBar(color)
     }
 
     @Suppress("unused")
     fun setLastCursorEditText() {
-        LUIUtil.setLastCursorEditText(editText)
+        editText.setLastCursorEditText()
     }
 
     fun setHintText(hinText: String) {
@@ -115,7 +117,7 @@ class LAutoSuggestEditText : RelativeLayout {
         imeOptions: Int,
         runnable: Runnable?
     ) {
-        LUIUtil.setImeiActionEditText(editText, imeOptions, runnable)
+        editText.setImeiActionEditText(imeOptions = imeOptions, runnable = runnable)
     }
 
     fun setResultList(resultList: ArrayList<String>) {
@@ -135,7 +137,7 @@ class LAutoSuggestEditText : RelativeLayout {
                         override fun onClick(s: String) {
                             hideSuggestPopup()
                             editText.setText(s)
-                            LUIUtil.setLastCursorEditText(editText)
+                            editText.setLastCursorEditText()
                         }
                     }
                 )

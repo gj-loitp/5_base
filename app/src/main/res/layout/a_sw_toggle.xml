@@ -53,6 +53,26 @@
                 android:textSize="@dimen/txt_medium"
                 app:colorBorder="@color/blue"
                 app:on="false" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/yellow"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center">
+
+                <com.loitp.views.sw.toggle.LabeledSwitch
+                    android:id="@+id/ls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_padding_medium"
+                    android:textSize="@dimen/txt_medium"
+                    app:colorBorder="@color/transparent"
+                    app:colorOff="@color/white"
+                    app:colorOn="@color/red"
+                    app:on="false" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>

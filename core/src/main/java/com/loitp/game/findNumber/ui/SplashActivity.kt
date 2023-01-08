@@ -7,13 +7,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.daimajia.androidanimations.library.Techniques
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LAnimationUtil
-import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
-import com.loitp.R
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.play
+import com.loitp.core.ext.setDelay
+import com.loitp.core.ext.toggleFullscreen
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_a_find_number_splash.*
 
@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.l_a_find_number_splash.*
 @SuppressLint("CustomSplashScreen")
 @LogTag("SplashActivity")
 @IsFullScreen(true)
-class SplashActivity : BaseFontActivity() {
+class SplashActivity : BaseActivityFont() {
 
     companion object {
         const val REQUEST_CODE = 69
@@ -40,7 +40,7 @@ class SplashActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
+        this.toggleFullscreen(isFullScreen = true)
         setupViews()
         goToHome()
     }
@@ -50,10 +50,9 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun goToHome() {
-        LUIUtil.setDelay(100) {
+        setDelay(100) {
             ivFindTheNumber?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                view = ivFindTheNumber,
+            ivFindTheNumber?.play(
                 duration = 500,
                 techniques = Techniques.ZoomIn,
                 onEnd = {

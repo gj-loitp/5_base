@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.NFC" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <!--    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />-->
 
     <uses-feature
         android:name="android.hardware.nfc"
@@ -38,170 +38,170 @@
             android:name=".a.MenuActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
-            android:name=".a.api.MenuAPIActivity"
+            android:name=".a.api.MenuAPIActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.MenuCustomViewsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.MenuDemoActivity"
+            android:name=".a.demo.MenuDemoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.galleryAPI.GalleryAPIActivity"
+            android:name=".a.api.galleryAPI.GalleryAPIActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.MenuViewPagerActivity"
+            android:name=".app.a.cv.vp.MenuViewPagerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.parrallax.ParallaxViewPagerActivity"
+            android:name=".app.a.cv.vp.parrallax.ParallaxViewPagerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.MenuButtonActivity"
+            android:name=".a.cv.bt.MenuButtonActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.shine.ShineButtonActivity"
+            android:name=".a.cv.bt.shine.ShineButtonActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.MenuAnimationActivity"
+            android:name=".a.anim.MenuAnimationActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.animationView.AnimationViewActivity"
+            android:name=".a.anim.animationView.AnimationViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.progress.MenuProgressActivity"
+            android:name=".a.cv.progress.MenuProgressActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.overScroll.OverScrollActivity"
+            android:name=".a.anim.overScroll.OverScrollActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivity"
+            android:name=".app.a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.MenuSwitchToggleActivity"
+            android:name=".a.cv.sw.MenuSwitchToggleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.appCompat.AppcompatSwitchActivity"
+            android:name=".a.cv.sw.appCompat.AppcompatSwitchActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.ab.l.LActionbarActivity"
+            android:name=".a.cv.ab.l.LActionbarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.MenuImageViewActivity"
+            android:name=".a.cv.iv.MenuImageViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.circleIv.CircleIvActivity"
+            android:name=".a.cv.iv.circleIv.CircleIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.MenuTextViewActivity"
+            android:name=".app.a.cv.tv.MenuTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.score.ScoreTextViewActivity"
+            android:name=".app.a.cv.tv.score.ScoreTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.MenuBottomNavigationActivity"
+            android:name=".a.cv.bb.MenuBottomNavigationActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.bottomBar.BottomBarActivity"
+            android:name=".a.cv.bb.bottomBar.BottomBarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.countDown.CountDownActivity"
+            android:name=".app.a.cv.tv.countDown.CountDownActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.strectchy.StrectchyIvActivity"
+            android:name=".a.cv.iv.strectchy.StrectchyIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.touch.TouchIvActivity"
+            android:name=".a.cv.iv.touch.TouchIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sticker.StickerActivity"
+            android:name=".a.cv.sticker.StickerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.MenuLayoutActivity"
+            android:name=".a.cv.layout.MenuLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.zoom.ZoomLayoutActivity"
+            android:name=".a.cv.layout.zoom.ZoomLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.zoom.ZoomIvActivity"
+            android:name=".a.cv.iv.zoom.ZoomIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.fidgetSpinner.FidgetSpinnerIvActivity"
+            android:name=".a.cv.iv.fidgetSpinner.FidgetSpinnerIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.color.ColorTextViewActivity"
+            android:name=".app.a.cv.tv.color.ColorTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.scrollNumber.ScrollNumberActivity"
+            android:name=".app.a.cv.tv.scrollNumber.ScrollNumberActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.zoom.ZoomTextViewActivity"
+            android:name=".app.a.cv.tv.zoom.ZoomTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.verticalMarquee.VerticalMarqueeTextViewActivity"
+            android:name=".app.a.cv.tv.verticalMarquee.VerticalMarqueeTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.pattern.mvp.MVPActivity"
+            android:name=".a.pattern.mvp.MVPActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularImageClick.CircularImageClickActivity"
+            android:name=".a.cv.bt.circularImageClick.CircularImageClickActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.et.MenuEditTextActivity"
+            android:name=".a.cv.et.MenuEditTextActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.et.materialTextField.MaterialTextFieldActivity"
+            android:name=".a.cv.et.materialTextField.MaterialTextFieldActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.video.MenuVideoViewActivity"
+            android:name=".a.cv.video.MenuVideoViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.typeWrite.TypeWriterTextViewActivity"
+            android:name=".app.a.cv.tv.typeWrite.TypeWriterTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.truyentranhtuan.MenuTTTAPIActivity"
+            android:name=".a.api.truyentranhtuan.MenuTTTAPIActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.truyentranhtuan.TTTAPIComicListActivity"
+            android:name=".a.api.truyentranhtuan.TTTAPIComicListActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.truyentranhtuan.TTTAPIChapListActivity"
+            android:name=".a.api.truyentranhtuan.TTTAPIChapListActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.truyentranhtuan.TTTAPIPageListActivity"
+            android:name=".a.api.truyentranhtuan.TTTAPIPageListActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.truyentranhtuan.TTTAPIFavListActivity"
+            android:name=".a.api.truyentranhtuan.TTTAPIFavListActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.ripple.RippleLayoutActivity"
+            android:name=".a.cv.layout.ripple.RippleLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.MenuRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".app.a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivity"
+            android:name=".a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivity"
+            android:name=".app.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.progress.circularPb.CircularProgressBarActivity"
+            android:name=".a.cv.progress.circularPb.CircularProgressBarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.sound.SoundActivity"
+            android:name=".a.demo.sound.SoundActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.tts.TextToSpeechActivity"
+            android:name=".a.demo.tts.TextToSpeechActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".a.cv.popupMenu.PopupMenuActivity"
+            android:name=".a.cv.popupMenu.PopupMenuActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.ab.MenuActionBarActivity"
+            android:name=".a.cv.ab.MenuActionBarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity android:name=".a.demo.alarm.a.AlarmMeActivity">
+        <activity android:name=".a.demo.alarm.a.AlarmMeActivityFont">
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -210,7 +210,7 @@
             -->
         </activity>
         <activity
-            android:name=".a.demo.alarm.a.EditAlarmActivity"
+            android:name=".a.demo.alarm.a.EditAlarmActivityFont"
             android:label="Edit alarm" />
         <!-- FOR ALARM DEMO APP -->
         <activity
@@ -220,250 +220,250 @@
             android:name=".a.demo.alarm.sv.Preferences"
             android:label="Preferences" />
         <activity
-            android:name=".a.cv.layout.swipeRefresh.withSv.SwipeRefreshLayoutScrollViewActivity"
+            android:name=".a.cv.layout.swipeRefresh.withSv.SwipeRefreshLayoutScrollViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.swipeRefresh.MenuSwipeRefreshLayoutActivity"
+            android:name=".a.cv.layout.swipeRefresh.MenuSwipeRefreshLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.swipeRefresh.withRv.SwipeRefreshLayoutRecyclerViewActivity"
+            android:name=".a.cv.layout.swipeRefresh.withRv.SwipeRefreshLayoutRecyclerViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.normalRv.RecyclerViewActivity"
+            android:name=".app.a.cv.rv.normalRv.RecyclerViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.textDecorator.TextDecoratorActivity"
+            android:name=".app.a.cv.tv.textDecorator.TextDecoratorActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.auto.ViewPagerAutoActivity"
+            android:name=".app.a.cv.vp.auto.ViewPagerAutoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.vpWithTabLayout.ViewPagerWithTabLayoutActivity"
+            android:name=".app.a.cv.vp.vpWithTabLayout.ViewPagerWithTabLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.selectable.SelectableTextViewActivity"
+            android:name=".app.a.cv.tv.selectable.SelectableTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivity"
+            android:name=".app.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.flySchool.FlySchoolActivity"
+            android:name=".a.anim.flySchool.FlySchoolActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dlg.MenuDialogActivity"
+            android:name=".a.cv.dlg.MenuDialogActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dlg.original.DialogOriginalActivity"
+            android:name=".a.cv.dlg.original.DialogOriginalActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.activityTransition.Animation1Activity"
+            android:name=".a.anim.activityTransition.Animation1ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.activityTransition.Animation2Activity"
+            android:name=".a.anim.activityTransition.Animation2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.ab.collapsingToolbarLayout.CollapsingToolbarLayoutActivity"
+            android:name=".a.cv.ab.collapsingToolbarLayout.CollapsingToolbarLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".a.cv.dlg.pretty.PrettyDialogActivity"
+            android:name=".a.cv.dlg.pretty.PrettyDialogActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sb.MenuSeekbarActivity"
+            android:name=".a.cv.sb.MenuSeekbarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- FOR ALARM DEMO APP -->
         <activity
-            android:name=".a.cv.et.autoResize.AutoResizeEditTextActivity"
+            android:name=".a.cv.et.autoResize.AutoResizeEditTextActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.ab.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivity"
+            android:name=".a.cv.ab.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".a.func.MenuFunctionActivity"
+            android:name=".a.func.MenuFunctionActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.simpleFingerGestures.SimpleFingerGesturesActivity"
+            android:name=".a.func.simpleFingerGestures.SimpleFingerGesturesActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.autoFit.AutoFitTextViewActivity"
+            android:name=".app.a.cv.tv.autoFit.AutoFitTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.ebookWithRealm.EbookWithRealmActivity"
+            android:name=".a.demo.ebookWithRealm.EbookWithRealmActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivity"
+            android:name=".a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.MenuDatabaseActivity"
+            android:name=".a.db.MenuDatabaseActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.realm.RealmActivity"
+            android:name=".a.db.realm.RealmActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.sqlite.SqliteActivity"
+            android:name=".a.db.sqlite.SqliteActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.scratchView.MenuScratchViewActivity"
+            android:name=".a.cv.scratchView.MenuScratchViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.scratchView.scratchViewIv.ScratchViewImageActivity"
+            android:name=".a.cv.scratchView.scratchViewIv.ScratchViewImageActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.scratchView.scratchViewTv.ScratchViewTextActivity"
+            android:name=".a.cv.scratchView.scratchViewTv.ScratchViewTextActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity"
+            android:name=".app.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.footer.RecyclerViewFooterActivity"
+            android:name=".a.cv.rv.footer.RecyclerViewFooterActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.footer2.RecyclerViewFooter2Activity"
+            android:name=".a.cv.rv.footer2.RecyclerViewFooter2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.navi.MenuNavigationActivity"
+            android:name=".a.cv.navi.MenuNavigationActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.navi.arc.ArcNavigationViewActivity"
+            android:name=".a.cv.navi.arc.ArcNavigationViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.continuousScrollable.ContinuousScrollableImageViewActivity"
+            android:name=".a.cv.iv.continuousScrollable.ContinuousScrollableImageViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.scrollParallax.ScrollParallaxIvActivity"
+            android:name=".a.cv.iv.scrollParallax.ScrollParallaxIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.pattern.MenuPatternActivity"
+            android:name=".a.pattern.MenuPatternActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.pattern.observer.ObserverPatternActivity"
+            android:name=".a.pattern.observer.ObserverPatternActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.panorama.PanoramaIvActivity"
+            android:name=".a.cv.iv.panorama.PanoramaIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.readSqliteAsset.ReadSqliteAssetActivity"
+            android:name=".a.db.readSqliteAsset.ReadSqliteAssetActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.draggableView.DraggableViewActivity"
+            android:name=".a.cv.layout.draggableView.DraggableViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.retrofit2.TestAPIRetrofit2Activity"
+            android:name=".a.api.retrofit2.TestAPIRetrofit2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.treeView.TreeViewActivity"
+            android:name=".a.cv.treeView.TreeViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.goodView.GoodViewActivity"
+            android:name=".a.cv.bt.goodView.GoodViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.draggableFlipView.DraggableFlipViewActivity"
+            android:name=".a.cv.draggableFlipView.DraggableFlipViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.shadowViewHelper.ShadowViewHelperActivity"
+            android:name=".a.anim.shadowViewHelper.ShadowViewHelperActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.answerView.AnswerViewActivity"
+            android:name=".a.cv.answerView.AnswerViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.draggablePanel.DraggablePanelActivity"
+            android:name=".a.cv.layout.draggablePanel.DraggablePanelActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.circularView.CircularViewActivity"
+            android:name=".a.cv.layout.circularView.CircularViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.toggle.ToggleActivity"
+            android:name=".a.cv.sw.toggle.ToggleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.autoLinear.AutoLinearLayoutActivity"
+            android:name=".a.cv.layout.autoLinear.AutoLinearLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.hashmap.HashMapActivity"
+            android:name=".a.func.hashmap.HashMapActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.dragDrop.DragDropSampleActivity"
+            android:name=".a.func.dragDrop.DragDropSampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.floatingWidget.FloatingWidgetActivity"
+            android:name=".a.demo.floatingWidget.FloatingWidgetActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.floatingVideo.FloatingWidgetVideoActivity"
+            android:name=".a.demo.floatingVideo.FloatingWidgetVideoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.fullScreen.FullScreenActivity"
+            android:name=".a.func.fullScreen.FullScreenActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sb.vertical.VerticalSeekbarActivity"
+            android:name=".a.cv.sb.vertical.VerticalSeekbarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bs.MenuBottomSheetActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-
-        <activity
-            android:name=".a.cv.layout.constraint.demo.ConstraintLayoutDemoActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name=".a.func.viewDragHelper.ViewDragHelperActivity"
+            android:name=".a.cv.bs.MenuBottomSheetActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.cv.sb.boxedVertical.BoxedVerticalSeekBarActivity"
+            android:name=".a.cv.layout.constraint.demo.ConstraintLayoutDemoActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.func.viewDragHelper.ViewDragHelperActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.cv.sb.sb.SeekbarActivity"
+            android:name=".a.cv.sb.boxedVertical.BoxedVerticalSeekBarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.func.recolor.RecolorActivity"
+            android:name=".a.cv.sb.sb.SeekbarActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
+        <activity
+            android:name=".a.func.recolor.RecolorActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity"
+            android:name=".app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivity"
+            android:name=".app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.scrollablePanel.ScrollablePanelActivity"
+            android:name=".a.cv.scrollablePanel.ScrollablePanelActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.book.BookViewActivity"
+            android:name=".a.cv.rv.book.BookViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.activityAndService.ActivityServiceCommunicateActivity"
+            android:name=".a.func.activityAndService.ActivityServiceCommunicateActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.swipeBack.SwipeBackLayoutActivity"
+            android:name=".a.cv.layout.swipeBack.SwipeBackLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.func.location.LocationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- Facebook Configuration -->
         <activity
-            android:name=".a.func.noti.MenuNotificationActivity"
+            android:name=".a.func.noti.MenuNotificationActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.cv.layout.heart.HeartLayoutActivity"
+            android:name=".a.cv.layout.heart.HeartLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.constraint.MenuConstraintLayoutActivity"
+            android:name=".a.cv.layout.constraint.MenuConstraintLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.constraint.fabAndSnackbar.FabAndSnackBarActivity"
+            android:name=".a.cv.layout.constraint.fabAndSnackbar.FabAndSnackBarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.constraint.fabFollowsWidget.FabFollowWidgetActivity"
+            android:name=".a.cv.layout.constraint.fabFollowsWidget.FabFollowWidgetActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.constraint.customBehavior.CustomBehaviorActivity"
+            android:name=".a.cv.layout.constraint.customBehavior.CustomBehaviorActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity"
+            android:name=".a.func.viewDragHelperSimple.ViewDragHelperSimpleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.floatDrag.FloatDragLayoutActivity"
+            android:name=".a.cv.layout.floatDrag.FloatDragLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.floatDrag.FloatDragFullScreenActivity"
@@ -476,243 +476,243 @@
         <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
         See README(https://goo.gl/l4GJaQ) for more. -->
         <activity
-            android:name=".a.cv.iv.bigIv.BigIvActivity"
+            android:name=".a.cv.iv.bigIv.BigIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
              notification message. See README(https://goo.gl/6BKBk7) for more. -->
         <activity
-            android:name=".a.cv.iv.bigIv.BigIvWithSvActivity"
+            android:name=".a.cv.iv.bigIv.BigIvWithSvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--end service for FCM-->
         <activity
-            android:name=".a.cv.fbCmt.FacebookCommentActivity"
+            android:name=".a.cv.fbCmt.FacebookCommentActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.wwlMusic.WWLActivityMusic"
+            android:name=".a.cv.wwlMusic.WWLActivityMusicFont"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
             android:name=".a.cv.wwlVideo.WWLVideoActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
-            android:name=".a.func.sensor.SensorActivity"
+            android:name=".a.func.sensor.SensorActivityFont"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
-            android:name=".a.cv.layout.rotate.RotateLayoutActivity"
+            android:name=".a.cv.layout.rotate.RotateLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.more.MoreActivity"
+            android:name=".a.more.MoreActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.l.LButtonActivity"
+            android:name=".a.cv.bt.l.LButtonActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.autoSize.AutoSizeButtonActivity"
+            android:name=".a.cv.bt.autoSize.AutoSizeButtonActivityFont"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
-            android:name=".a.cv.lDebug.LDebugViewActivity"
+            android:name=".a.cv.lDebug.LDebugViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2Activity"
+            android:name=".app.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.MenuMenuActivity"
+            android:name=".a.cv.menu.MenuMenuActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.reside.ResideMenuActivity"
+            android:name=".a.cv.menu.reside.ResideMenuActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.lCv.LCardViewActivity"
+            android:name=".a.cv.lCv.LCardViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.coordinator.CoordinatorLayoutWithImageViewActivity"
+            android:name=".a.cv.layout.coordinator.CoordinatorLayoutWithImageViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.basicTransitionFrm.BasicTransitionActivity"
+            android:name=".a.anim.basicTransitionFrm.BasicTransitionActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.basicTransitionActivity.SceneTransitionBasicActivity"
+            android:name=".a.anim.basicTransitionActivity.SceneTransitionBasicActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.basicTransitionActivity.SceneTransitionBasicDetailActivity"
+            android:name=".a.anim.basicTransitionActivity.SceneTransitionBasicDetailActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.square.SquareLayoutActivity"
+            android:name=".a.cv.layout.square.SquareLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.basicTransition.BasicTransition0Activity"
+            android:name=".a.anim.basicTransition.BasicTransition0ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.basicTransition.BasicTransition1Activity"
+            android:name=".a.anim.basicTransition.BasicTransition1ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.relativePopupWindow.RelativePopupWindowActivity"
+            android:name=".a.cv.layout.relativePopupWindow.RelativePopupWindowActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.epubReader.MenuEpubReaderActivity"
+            android:name=".a.demo.epubReader.MenuEpubReaderActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.glide.GlideActivity"
+            android:name=".a.func.glide.GlideActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.constraint.constraintSet.ConstraintSetActivity"
+            android:name=".a.cv.layout.constraint.constraintSet.ConstraintSetActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.video.exo.ExoPlayerActivity"
+            android:name=".a.cv.video.exo.ExoPlayerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.video.exo.ExoPlayerActivity2"
+            android:name=".a.cv.video.exo.ExoPlayerActivityFont2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.video.exo.ExoPlayerActivity3"
+            android:name=".a.cv.video.exo.ExoPlayerActivityFont3"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.anim.lottie.MenuLottieActivity"
+            android:name=".a.anim.lottie.MenuLottieActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.u.UtilsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.valueAnimator.ValueAnimatorActivity"
+            android:name=".a.anim.valueAnimator.ValueAnimatorActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.video.youtube.YoutubeActivity"
+            android:name=".a.cv.video.youtube.YoutubeActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.twoInstanceActivity.Activity1"
+            android:name=".a.demo.twoInstanceActivity.Activity1Font"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.twoInstanceActivity.Activity2"
+            android:name=".a.demo.twoInstanceActivity.Activity2Font"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.twoInstanceActivity.Activity3"
+            android:name=".a.demo.twoInstanceActivity.Activity3Font"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.coordinator.MenuCoordinatorLayoutActivity"
+            android:name=".a.cv.layout.coordinator.MenuCoordinatorLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.coordinator.CoordinatorLayoutSampleActivity"
+            android:name=".a.cv.layout.coordinator.CoordinatorLayoutSampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--start floating view-->
         <activity
-            android:name=".a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1"
+            android:name=".a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1Font"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity"
+            android:name=".a.cv.layout.draggablePanelFree.DraggablePanelFreeActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.lockable.LockableViewPagerActivity"
+            android:name=".app.a.cv.vp.lockable.LockableViewPagerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--end floating view-->
         <activity
-            android:name=".app.a.cv.vp.refresh.RefreshViewPagerActivity"
+            android:name=".app.a.cv.vp.refresh.RefreshViewPagerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dlg.customProgress.CustomProgressDialogActivity"
+            android:name=".a.cv.dlg.customProgress.CustomProgressDialogActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.ab.navigationView.NavigationViewActivity"
+            android:name=".a.cv.ab.navigationView.NavigationViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.ab.navigationViewWithText.NavigationViewWithTextActivity"
+            android:name=".a.cv.ab.navigationViewWithText.NavigationViewWithTextActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.diffUtil.DiffUtilActivity"
+            android:name=".a.cv.rv.diffUtil.DiffUtilActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.tut.MenuTutorialActivity"
+            android:name=".a.tut.MenuTutorialActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.tut.rxjava2.DisposableExampleActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-
-        <activity
-            android:name=".a.tut.rxjava2.MenuRxJava2Activity"
+            android:name=".a.tut.rxjava2.DisposableExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.tut.rxjava2.FlowAbleExampleActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name=".a.tut.rxjava2.IntervalExampleActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name=".a.pattern.mvvm.MVVMActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name=".a.tut.retrofit2.Retrofit2Activity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name=".a.tut.rxjava2.SingleObserverExampleActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name=".a.tut.rxjava2.CompletableObserverExampleActivity"
+            android:name=".a.tut.rxjava2.MenuRxJava2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.tut.rxjava2.MapExampleActivity"
+            android:name=".a.tut.rxjava2.FlowAbleExampleActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.tut.rxjava2.IntervalExampleActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.pattern.mvvm.MVVMActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.tut.retrofit2.Retrofit2ActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.tut.rxjava2.SingleObserverExampleActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.tut.rxjava2.CompletableObserverExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.tut.rxjava2.AsyncTaskRxActivity"
+            android:name=".a.tut.rxjava2.MapExampleActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
+        <activity
+            android:name=".a.tut.rxjava2.AsyncTaskRxActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.tut.rxjava2.TestRxActivity"
+            android:name=".a.tut.rxjava2.TestRxActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.MenuPickerActivity"
+            android:name=".a.picker.MenuPickerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.scrollView2d.ScrollView2DActivity"
+            android:name=".a.cv.layout.scrollView2d.ScrollView2DActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity"
+            android:name=".a.cv.layout.scrollView2d.ScrollView2DAdvanceActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.fragmentNavigation.FragmentNavigationActivity"
+            android:name=".a.demo.fragmentNavigation.FragmentNavigationActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.network.NetworkActivity"
+            android:name=".a.network.NetworkActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.extra.ExtraTextViewActivity"
+            android:name=".app.a.cv.tv.extra.ExtraTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.pdf.PdfDemoActivity"
+            android:name=".a.demo.pdf.PdfDemoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.swipeReveal.SwipeRevealLayoutActivity"
+            android:name=".a.cv.layout.swipeReveal.SwipeRevealLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.swipeReveal.grid.SwipeRevealLayoutGridActivity"
+            android:name=".a.cv.layout.swipeReveal.grid.SwipeRevealLayoutGridActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.swipeReveal.list.SwipeRevealLayoutListActivity"
+            android:name=".a.cv.layout.swipeReveal.list.SwipeRevealLayoutListActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.swipeReveal.rv.SwipeRevealLayoutRecyclerActivity"
+            android:name=".a.cv.layout.swipeReveal.rv.SwipeRevealLayoutRecyclerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dlg.slideImages.DialogSlideImagesActivity"
+            android:name=".a.cv.dlg.slideImages.DialogSlideImagesActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.func.keyboard.KeyboardActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.stroked.StrokedTextViewActivity"
+            android:name=".app.a.cv.tv.stroked.StrokedTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.et.autoSuggest.EditTextAutoSuggestActivity"
+            android:name=".a.cv.et.autoSuggest.EditTextAutoSuggestActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.et.l.LEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.fragmentFlow.FragmentFlowActivity"
+            android:name=".a.demo.fragmentFlow.FragmentFlowActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.shadow.ShadowLayoutActivity"
+            android:name=".a.cv.layout.shadow.ShadowLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <meta-data
@@ -752,88 +752,88 @@
             android:exported="false" />
 
         <activity
-            android:name=".a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivity"
+            android:name=".a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.pinchToZoom.PinchToZoomViewPagerActivity"
+            android:name=".a.cv.iv.pinchToZoom.PinchToZoomViewPagerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dlg.custom.CustomDialogActivity"
+            android:name=".a.cv.dlg.custom.CustomDialogActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.progress.window.WindowProgressActivity"
+            android:name=".a.cv.progress.window.WindowProgressActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity"
+            android:name=".a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.kenburn.KenburnViewActivity"
+            android:name=".a.cv.iv.kenburn.KenburnViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivity"
+            android:name=".app.a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.recyclerTabLayout.autoSelect.RvTabAutoSelectActivityRvTab"
+            android:name=".app.a.cv.rv.recyclerTabLayout.autoSelect.RvTabAutoSelectActivityRvTabFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.recyclerTabLayout.basic.RvTabDemoBasicActivity"
+            android:name=".app.a.cv.rv.recyclerTabLayout.basic.RvTabDemoBasicActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.recyclerTabLayout.customView01.RvTabCustomView01Activity"
+            android:name=".app.a.cv.rv.recyclerTabLayout.customView01.RvTabCustomView01ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.recyclerTabLayout.customView02.RvTabCustomView02Activity"
+            android:name=".app.a.cv.rv.recyclerTabLayout.customView02.RvTabCustomView02ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.recyclerTabLayout.imitationLoop.RvTabImitationLoopActivity"
+            android:name=".app.a.cv.rv.recyclerTabLayout.imitationLoop.RvTabImitationLoopActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.recyclerTabLayout.rtl.RvTabDemoRtlActivity"
+            android:name=".app.a.cv.rv.recyclerTabLayout.rtl.RvTabDemoRtlActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.recyclerTabLayout.tabOnScreenLimit.RvTabOnScreenLimitActivity"
+            android:name=".app.a.cv.rv.recyclerTabLayout.tabOnScreenLimit.RvTabOnScreenLimitActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.recyclerTabLayout.tabScrollDisabled.RvTabScrollDisabledActivity"
+            android:name=".app.a.cv.rv.recyclerTabLayout.tabScrollDisabled.RvTabScrollDisabledActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.recyclerTabLayout.years.RvTabYearsActivity"
+            android:name=".app.a.cv.rv.recyclerTabLayout.years.RvTabYearsActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.sec.MenuSecurityActivity"
+            android:name=".a.sec.MenuSecurityActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.sec.simple.SimpleEncryptDecryptStringActivity"
+            android:name=".a.sec.simple.SimpleEncryptDecryptStringActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.sharedPrefs.SharedPrefsActivity"
+            android:name=".a.db.sharedPrefs.SharedPrefsActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivity"
+            android:name=".a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.sqliteEncryption.SqliteEncryptionActivity"
+            android:name=".a.db.sqliteEncryption.SqliteEncryptionActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.EmptyActivity"
+            android:name=".app.EmptyActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.sqliteMultiTable.SqliteMultiTableActivity"
+            android:name=".a.db.sqliteMultiTable.SqliteMultiTableActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity"
+            android:name=".a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.sv.MenuServiceActivity"
+            android:name=".a.sv.MenuServiceActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.sv.endless.EndlessServiceActivity"
+            android:name=".a.sv.endless.EndlessServiceActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.looping.LoopingLayoutActivity"
+            android:name=".app.a.cv.rv.looping.LoopingLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.image.ImagePickerActivity"
+            android:name=".a.picker.image.ImagePickerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <provider
@@ -862,119 +862,119 @@
         <service android:name=".a.sv.demo.DemoService" />
 
         <activity
-            android:name=".a.sv.demo.DemoServiceActivity"
+            android:name=".a.sv.demo.DemoServiceActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.roundable.RoundableLayoutActivity"
+            android:name=".a.cv.layout.roundable.RoundableLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.q.QButtonActivity"
+            android:name=".a.cv.bt.q.QButtonActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.architectureComponent.MenuArchitectureComponentActivity"
+            android:name=".a.demo.architectureComponent.MenuArchitectureComponentActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity android:name=".a.demo.architectureComponent.vm.ViewModelActivity" />
+        <activity android:name=".a.demo.architectureComponent.vm.ViewModelActivityFont" />
         <activity
-            android:name=".a.demo.architectureComponent.room.WordActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name=".a.demo.architectureComponent.coroutine.CoroutineActivity"
+            android:name=".a.demo.architectureComponent.room.WordActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.cal.MenuCalendarActivity"
+            android:name=".a.demo.architectureComponent.coroutine.CoroutineActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.cal.cosmo.CosmoCalendarActivity"
+            android:name=".a.cv.cal.MenuCalendarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.coroutine.a.CoroutineAPIActivity"
+            android:name=".a.cv.cal.cosmo.CosmoCalendarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.et.textWatcher.EditTextTextWatcherActivity"
+            android:name=".a.api.coroutine.a.CoroutineAPIActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.expansionPanel.MenuExpansionLayoutActivity"
+            android:name=".a.cv.et.textWatcher.EditTextTextWatcherActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivity"
+            android:name=".a.cv.layout.expansionPanel.MenuExpansionLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivityProgrammatically"
+            android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivityRecycler"
+            android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivityProgrammaticallyFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivityViewGroup"
+            android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivityRecyclerFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.shapeOfView.ShapeOfViewActivity"
+            android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivityViewGroupFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.time.TimePickerActivity"
+            android:name=".a.cv.layout.shapeOfView.ShapeOfViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.flow.FlowLayoutActivity"
+            android:name=".a.picker.time.TimePickerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.toggleButtonGroup.TBGCustomButtonActivity"
+            android:name=".a.cv.layout.flow.FlowLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.toggleButtonGroup.TBGFlowLabelActivity"
+            android:name=".a.cv.sw.toggleButtonGroup.TBGCustomButtonActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.toggleButtonGroup.MenuTBGActivity"
+            android:name=".a.cv.sw.toggleButtonGroup.TBGFlowLabelActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.toggleButtonGroup.TBGMultiSelectActivity"
+            android:name=".a.cv.sw.toggleButtonGroup.MenuTBGActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.toggleButtonGroup.TBGSingleSelectActivity"
+            android:name=".a.cv.sw.toggleButtonGroup.TBGMultiSelectActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.number.NumberPickerActivity"
+            android:name=".a.cv.sw.toggleButtonGroup.TBGSingleSelectActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.DrawerBehaviorMainActivity"
+            android:name=".a.picker.number.NumberPickerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.Advance3DDrawer1Activity"
+            android:name=".a.cv.menu.drawerBehavior.DrawerBehaviorMainActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer1Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.Advance3DDrawer1ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer2Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer1ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer3Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer4Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer3ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer5Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer4ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer6Activity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer5ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.DefaultDrawerActivity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer6ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.splitPanel.SplitPanelLayoutActivity"
+            android:name=".a.cv.menu.drawerBehavior.drawer.DefaultDrawerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.aspectratio.AspectRatioLayoutActivity"
+            android:name=".a.cv.layout.splitPanel.SplitPanelLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.concatAdapter.ConcatAdapterActivity"
+            android:name=".a.cv.layout.aspectratio.AspectRatioLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.room.RoomActivity"
+            android:name=".a.cv.rv.concatAdapter.ConcatAdapterActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.et.currency.CurrencyEditTextActivity"
+            android:name=".a.db.room.RoomActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.cv.et.currency.CurrencyEditTextActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -990,136 +990,136 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--endregion-->
         <activity
-            android:name=".a.cv.wv.l.LWebViewActivity"
+            android:name=".a.cv.wv.l.LWebViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.theme.ThemeActivity"
+            android:name=".a.func.theme.ThemeActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.comic.ComicViewActivity"
+            android:name=".a.cv.iv.comic.ComicViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.stfaiconIv.ListActivity"
+            android:name=".a.cv.iv.stfaiconIv.ListActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.transformation.TransformationActivity"
+            android:name=".a.cv.layout.transformation.TransformationActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.transformation.TransformationDetailActivity"
+            android:name=".a.cv.layout.transformation.TransformationDetailActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.transformation.single.TransformationSingleActivity"
+            android:name=".a.cv.layout.transformation.single.TransformationSingleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.netView.NetViewActivity"
+            android:name=".app.a.cv.rv.netView.NetViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.fitGv.FitGridViewActivity"
+            android:name=".a.cv.rv.fitGv.FitGridViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.elasticViews.ElasticActivity"
+            android:name=".a.anim.elasticViews.ElasticActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.MenuMagicIndicatorActivity"
+            android:name=".a.cv.indicator.ex.MenuMagicIndicatorActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.ScrollableTabExampleActivity"
+            android:name=".a.cv.indicator.ex.ScrollableTabExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.FixedTabExampleActivity"
+            android:name=".a.cv.indicator.ex.FixedTabExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.DynamicTabExampleActivity"
+            android:name=".a.cv.indicator.ex.DynamicTabExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.NoTabOnlyIndicatorExampleActivity"
+            android:name=".a.cv.indicator.ex.NoTabOnlyIndicatorExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.FragmentContainerExampleActivity"
+            android:name=".a.cv.indicator.ex.FragmentContainerExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.BadgeTabExampleActivity"
+            android:name=".a.cv.indicator.ex.BadgeTabExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.CustomNavigatorExampleActivity"
+            android:name=".a.cv.indicator.ex.CustomNavigatorExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.LoadCustomLayoutExampleActivity"
+            android:name=".a.cv.indicator.ex.LoadCustomLayoutExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.morphTransitions.MorphTransitionsMainActivity"
+            android:name=".a.anim.morphTransitions.MorphTransitionsMainActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.morphTransitions.MorphTransitionsDialogActivity"
+            android:name=".a.anim.morphTransitions.MorphTransitionsDialogActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.morphTransitions.MorphTransitionsFullScreenActivity"
+            android:name=".a.anim.morphTransitions.MorphTransitionsFullScreenActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.activityTransitionReveal.RevealActivity2"
+            android:name=".a.anim.activityTransitionReveal.RevealActivity2Font"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.activityTransitionReveal.RevealActivity1"
+            android:name=".a.anim.activityTransitionReveal.RevealActivity1Font"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.chess.ChessLayoutActivity"
+            android:name=".a.cv.layout.chess.ChessLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.wheelSpiner.WheelSpinnerActivity"
+            android:name=".a.cv.wheelSpiner.WheelSpinnerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.rss.RSSActivity"
+            android:name=".a.demo.rss.RSSActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivity"
+            android:name=".a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivity"
+            android:name=".a.cv.rv.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity"
+            android:name=".a.cv.rv.dragDropSwipe.DragDropSwipeGridRecyclerviewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.fastScroll.MenuFastScrollActivity"
+            android:name=".a.cv.rv.fastScroll.MenuFastScrollActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.pump.PumpActivity"
+            android:name=".a.func.pump.PumpActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.vertical.ViewPagerVerticalActivity"
+            android:name=".app.a.cv.vp.vertical.ViewPagerVerticalActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.vp2.ViewPager2Activity"
+            android:name=".app.a.cv.vp.vp2.ViewPager2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dragView.MenuDragViewActivity"
+            android:name=".a.cv.dragView.MenuDragViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dragView.NormalActivity"
+            android:name=".a.cv.dragView.NormalActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dragView.DragViewCustomActivity"
+            android:name=".a.cv.dragView.DragViewCustomActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dragView.ExoPlayerActivity"
+            android:name=".a.cv.dragView.ExoPlayerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.pulsingView.PulsingViewActivity"
+            android:name=".a.anim.pulsingView.PulsingViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.unicornFile.UnicornFilePickerActivity"
+            android:name=".a.picker.unicornFile.UnicornFilePickerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.basket.BasketLayoutActivity"
+            android:name=".a.cv.layout.basket.BasketLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.justified.JustifiedTextViewActivity"
+            android:name=".app.a.cv.tv.justified.JustifiedTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.sequence.SequenceLayoutActivity"
+            android:name=".a.cv.layout.sequence.SequenceLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.attachmentManager.AttachmentManagerActivity"
+            android:name=".a.picker.attachmentManager.AttachmentManagerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <provider
@@ -1135,294 +1135,315 @@
         </provider>
 
         <activity
-            android:name=".app.a.cv.tv.autoComplete.AutoCompleteTextViewActivity"
+            android:name=".app.a.cv.tv.autoComplete.AutoCompleteTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.keyboardHeightProvider.KeyboardHeightProviderActivity"
+            android:name=".a.func.keyboardHeightProvider.KeyboardHeightProviderActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="adjustNothing" />
         <activity
-            android:name=".a.demo.trackingG1.TrackingG1Activity"
+            android:name=".a.demo.trackingG1.TrackingG1ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.idleTime.IdleTimeActivity"
+            android:name=".a.func.idleTime.IdleTimeActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.fingerPaintView.FingerPaintActivity"
+            android:name=".a.cv.fingerPaintView.FingerPaintActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.fading.FadingTextViewActivity"
+            android:name=".app.a.cv.tv.fading.FadingTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.easyFlip.EFVPActivity"
+            android:name=".app.a.cv.vp.easyFlip.EFVPActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.easyFlip.BookOnboardingActivity"
+            android:name=".app.a.cv.vp.easyFlip.BookOnboardingActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.vp.easyFlip.PokerCardDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.easyFlip.PictureGalleryDemoActivity"
+            android:name=".app.a.cv.vp.easyFlip.PictureGalleryDemoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.easyFlip.ViewPager2DemoActivity"
+            android:name=".app.a.cv.vp.easyFlip.ViewPager2DemoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sb.vertical2.VerticalSeekBar2Activity"
+            android:name=".a.cv.sb.vertical2.VerticalSeekBar2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.u.UtilsCoreActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.arcView.ArcViewActivity"
+            android:name=".a.cv.rv.arcView.ArcViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.stackExpandableView.StackExpandableViewActivity"
+            android:name=".a.cv.stackExpandableView.StackExpandableViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.androidParticles.AndroidParticlesActivity"
+            android:name=".a.anim.androidParticles.AndroidParticlesActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.graph.MenuGraphViewActivity"
+            android:name=".a.cv.graph.MenuGraphViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.graph.algorithms.FruchtermanReingoldActivity"
+            android:name=".a.cv.graph.algorithms.FruchtermanReingoldActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.graph.algorithms.BuchheimWalkerActivity"
+            android:name=".a.cv.graph.algorithms.BuchheimWalkerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.graph.algorithms.SugiyamaActivity"
+            android:name=".a.cv.graph.algorithms.SugiyamaActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.simpleRatingBar.SimpleRatingBarActivity"
+            android:name=".a.cv.simpleRatingBar.SimpleRatingBarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.typed.TypedTextViewActivity"
+            android:name=".app.a.cv.tv.typed.TypedTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.wv.MenuWebViewActivity"
+            android:name=".a.cv.wv.MenuWebViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.wv.wrapContent.WebViewWrapContentActivity"
+            android:name=".a.cv.wv.wrapContent.WebViewWrapContentActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.piano.PianoActivity"
+            android:name=".a.demo.piano.PianoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.konfetti.KonfettiActivity"
+            android:name=".a.anim.konfetti.KonfettiActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.code.CodeViewActivity"
+            android:name=".a.cv.code.CodeViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.game.MenuGameActivity"
+            android:name=".a.game.MenuGameActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.game.osero.TopOseroActivity"
+            android:name=".a.game.osero.TopOseroActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.game.osero.game.GameOseroActivity"
+            android:name=".a.game.osero.game.GameOseroActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.game.pong.a.PongMainActivity"
+            android:name=".a.game.pong.a.PongMainActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".a.game.pong.a.SettingsActivity"
+            android:name=".a.game.pong.a.SettingsActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".a.game.pong.a.GameActivity"
+            android:name=".a.game.pong.a.GameActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".a.cv.bt.fab.FabActivity"
+            android:name=".a.cv.bt.fab.FabActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.wheelView.WheelViewActivity"
+            android:name=".a.cv.wheelView.WheelViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sb.range.RangeSeekbarActivity"
+            android:name=".a.cv.sb.range.RangeSeekbarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.firebase.FirebaseActivity"
+            android:name=".a.demo.firebase.FirebaseActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.dropdown.DropdownTextViewActivity"
+            android:name=".app.a.cv.tv.dropdown.DropdownTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.ssImage.MainActivitySSImagePicker"
+            android:name=".a.picker.ssImage.MainActivitySSImagePickerFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.fadeOutParticle.FadeOutParticleActivity"
+            android:name=".a.anim.fadeOutParticle.FadeOutParticleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.progress.segmentedPb.StandardExampleActivity"
+            android:name=".a.cv.progress.segmentedPb.StandardExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivity"
+            android:name=".a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivity"
+            android:name=".app.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.luckyWheel.LuckyWheelActivity"
+            android:name=".a.cv.luckyWheel.LuckyWheelActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.textArc.TextArcActivity"
+            android:name=".app.a.cv.tv.textArc.TextArcActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.carouselRv.CarouselRecyclerViewActivity"
+            android:name=".a.cv.rv.carouselRv.CarouselRecyclerViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.reflection.ReflectionActivity"
+            android:name=".a.cv.iv.reflection.ReflectionActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.reflection.ReflectionLayoutActivity"
+            android:name=".a.cv.layout.reflection.ReflectionLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.cornerSheet.CornetSheetExampleActivity"
+            android:name=".a.cv.cornerSheet.CornetSheetExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.cornerSheet.BehaviorSampleActivity"
+            android:name=".a.cv.cornerSheet.BehaviorSampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.cornerSheet.sp.ShopActivity"
+            android:name=".a.cv.cornerSheet.sp.ShopActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.dragDrop.MainActivityDragDrop"
+            android:name=".a.cv.rv.dragDrop.MainActivityDragDropFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.game.puzzle.BoardOptionsActivity"
+            android:name=".a.game.puzzle.BoardOptionsActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.game.puzzle.GameActivity"
+            android:name=".a.game.puzzle.GameActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity"
+            android:name=".a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.ShowCaseActivity"
+            android:name=".a.cv.bb.expandable.ShowCaseActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.JavaActivity"
+            android:name=".a.cv.bb.expandable.screens.JavaActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.XmlDeclaredActivity"
+            android:name=".a.cv.bb.expandable.screens.XmlDeclaredActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bb.expandable.screens.ProgrammaticallyCreatedDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.CoordinatorLayoutActivity"
+            android:name=".a.cv.bb.expandable.screens.CoordinatorLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.ScrollableCoordinatorLayoutActivity"
+            android:name=".a.cv.bb.expandable.screens.ScrollableCoordinatorLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.navi.NavigationComponentActivity"
+            android:name=".a.cv.bb.expandable.screens.navi.NavigationComponentActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.StylesActivity"
+            android:name=".a.cv.bb.expandable.screens.StylesActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.NotificationBadgeActivity"
+            android:name=".a.cv.bb.expandable.screens.NotificationBadgeActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.animatedStarsView.AnimatedStarsViewActivity"
+            android:name=".a.anim.animatedStarsView.AnimatedStarsViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.sec.ssBiometricsAuthentication.SSBiometricsAuthenticationActivity"
+            android:name=".a.sec.ssBiometricsAuthentication.SSBiometricsAuthenticationActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.readMoreOption.ReadMoreOptionActivity"
+            android:name=".app.a.cv.tv.readMoreOption.ReadMoreOptionActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity"
+            android:name=".a.cv.rv.dragAndDropDemo.DragAndDropDemoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.fit.FitButtonActivity"
+            android:name=".a.cv.bt.fit.FitButtonActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.wallpo.WallpoActivity"
+            android:name=".a.func.wallpo.WallpoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.shiftColor.ShiftColorPickerActivity"
+            android:name=".a.picker.shiftColor.ShiftColorPickerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.roundedIv.RoundedIvActivity"
+            android:name=".a.cv.iv.roundedIv.RoundedIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity"
+            android:name=".a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularProgress.CPBActivity"
+            android:name=".a.cv.bt.circularProgress.CPBActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularProgress.Sample1Activity"
+            android:name=".a.cv.bt.circularProgress.Sample1ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularProgress.Sample2Activity"
+            android:name=".a.cv.bt.circularProgress.Sample2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularProgress.Sample3Activity"
+            android:name=".a.cv.bt.circularProgress.Sample3ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularProgress.Sample4Activity"
+            android:name=".a.cv.bt.circularProgress.Sample4ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularProgress.Sample5Activity"
+            android:name=".a.cv.bt.circularProgress.Sample5ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.greedo.GreedoLayoutActivity"
+            android:name=".a.cv.layout.greedo.GreedoLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.previewImageCollection.PreviewImageCollectionActivity"
+            android:name=".a.cv.iv.previewImageCollection.PreviewImageCollectionActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.autoScrollContent.AutoScrollContentActivity"
+            android:name=".a.cv.layout.autoScrollContent.AutoScrollContentActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.cv.CardViewActivity"
+            android:name=".a.cv.cv.CardViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.shapeableIv.ShapeableIvActivity"
+            android:name=".a.cv.iv.shapeableIv.ShapeableIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.interviewVN.InterviewVNIQActivity"
+            android:name=".a.interviewVN.InterviewVNIQActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.coil.CoilActivity"
+            android:name=".a.cv.iv.coil.CoilActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.androidRibbon.RibbonActivity"
+            android:name=".a.cv.androidRibbon.RibbonActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.androidRibbon.SecondActivity"
+            android:name=".a.cv.androidRibbon.SecondActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.floatLayout.FloatLayoutActivity"
+            android:name=".a.cv.layout.floatLayout.FloatLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <service android:name="io.hamed.floatinglayout.service.FloatingService" />
 
         <activity
-            android:name=".a.cv.spotlight.SpotlightActivity"
+            android:name=".a.cv.spotlight.SpotlightActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sb.rubberPicker.RubberPickerActivity"
+            android:name=".a.cv.sb.rubberPicker.RubberPickerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.gradientColorPickerBar.GradientColorPickerBarActivity"
+            android:name=".a.picker.gradientColorPickerBar.GradientColorPickerBarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.sec.rxbiometric.RxBiometricActivity"
+            android:name=".a.sec.rxbiometric.RxBiometricActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.et.otpView.OtpViewActivity"
+            android:name=".a.cv.et.otpView.OtpViewActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.func.processPhoenix.ProcessPhoenixActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.cv.progress.tileProgressView.TileProgressViewActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.anim.snowfall.SnowfallActivityFont"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.cv.fancyShowcase.FancyShowcaseActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.cv.fancyShowcase.SecondActivityFancyShowcase"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.cv.fancyShowcase.RecyclerViewActivityFontFancyShowcase"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".a.cv.fancyShowcase.AnimatedActivityFancyShowcase"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>

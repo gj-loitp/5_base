@@ -8,12 +8,12 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
-import android.text.style.* // ktlint-disable no-wildcard-imports
+import android.text.style.*
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import com.loitp.core.utilities.LAppResource
+import com.loitp.core.ext.getColor
 
 /**
  * Created by Loitp on 04,August,2022
@@ -82,7 +82,7 @@ class LTextDecorator private constructor(
     ): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(
-            ForegroundColorSpan(LAppResource.getColor(resColorId)),
+            ForegroundColorSpan(getColor(resColorId)),
             start,
             end,
             flags
@@ -101,7 +101,7 @@ class LTextDecorator private constructor(
             if (content.contains(text)) {
                 index = content.indexOf(text)
                 decoratedContent.setSpan(
-                    ForegroundColorSpan(LAppResource.getColor(resColorId)),
+                    ForegroundColorSpan(getColor(resColorId)),
                     index,
                     index + text.length,
                     flags
@@ -119,7 +119,7 @@ class LTextDecorator private constructor(
     ): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(
-            BackgroundColorSpan(LAppResource.getColor(colorResId)),
+            BackgroundColorSpan(getColor(colorResId)),
             start,
             end,
             0
@@ -138,7 +138,7 @@ class LTextDecorator private constructor(
             if (content.contains(text)) {
                 index = content.indexOf(text)
                 decoratedContent.setSpan(
-                    BackgroundColorSpan(LAppResource.getColor(colorResId)),
+                    BackgroundColorSpan(getColor(colorResId)),
                     index,
                     index + text.length,
                     flags
@@ -181,7 +181,7 @@ class LTextDecorator private constructor(
     ): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(
-            BulletSpan(gapWidth, LAppResource.getColor(colorResId)), start, end,
+            BulletSpan(gapWidth, getColor(colorResId)), start, end,
             flags
         )
 
@@ -323,7 +323,7 @@ class LTextDecorator private constructor(
     ): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
         decoratedContent.setSpan(
-            QuoteSpan(LAppResource.getColor(colorResId)), start, end,
+            QuoteSpan(getColor(colorResId)), start, end,
             flags
         )
 
@@ -341,7 +341,7 @@ class LTextDecorator private constructor(
             if (content.contains(text)) {
                 index = content.indexOf(text)
                 decoratedContent.setSpan(
-                    QuoteSpan(LAppResource.getColor(colorResId)),
+                    QuoteSpan(getColor(colorResId)),
                     index,
                     index + text.length,
                     flags

@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.core.view.ViewCompat
 import com.loitp.R
-import com.loitp.core.utilities.LAppResource
+import com.loitp.core.ext.getColor
 
 /**
  * Created by Loitp on 04,August,2022
@@ -49,7 +49,7 @@ class LShadowLayout2 @JvmOverloads constructor(
         mShadowRadius = typedArray.getDimension(R.styleable.LShadowLayout_shadowRadius, 0f)
         mShadowColor = typedArray.getColor(
             R.styleable.LShadowLayout_shadowColor,
-            LAppResource.getColor(R.color.black)
+            getColor(R.color.black)
         )
         mShadowDx = typedArray.getDimension(R.styleable.LShadowLayout_shadowDx, 0f)
         mShadowDy = typedArray.getDimension(R.styleable.LShadowLayout_shadowDy, 0f)

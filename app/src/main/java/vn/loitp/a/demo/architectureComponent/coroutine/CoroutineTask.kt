@@ -1,6 +1,6 @@
 package vn.loitp.a.demo.architectureComponent.coroutine
 
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.d
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
@@ -30,6 +30,6 @@ class CoroutineTask : CoroutineScope {
 
     // Runs in Main(UI) Thread
     private fun doUiStuff(result: String) {
-        LLog.d(logTag, "doUiStuff result: $result")
+        d(logTag, "doUiStuff result: $result")
     }
 }

@@ -9,13 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.R
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.slide.GalleryCoreSlideActivity
-import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LSocialUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
@@ -35,7 +32,7 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_photos.*
  */
 @LogTag("GalleryCorePhotosActivity")
 @IsSwipeActivity(true)
-class GalleryCorePhotosActivity : BaseFontActivity() {
+class GalleryCorePhotosActivity : BaseActivityFont() {
     private var currentPage = 0
     private var totalPage = 1
     private var isLoading = false
@@ -85,11 +82,11 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                         Intent(this@GalleryCorePhotosActivity, GalleryCoreSlideActivity::class.java)
                     intent.putExtra(Constants.SK_PHOTO_ID, photo.id)
                     startActivity(intent)
-                    LActivityUtil.tranIn(this@GalleryCorePhotosActivity)
+                    this@GalleryCorePhotosActivity.tranIn()
                 }
 
                 override fun onLongClick(photo: Photo, pos: Int) {
-                    LSocialUtil.share(activity = this@GalleryCorePhotosActivity, msg = photo.urlO)
+                    this@GalleryCorePhotosActivity.share(msg = photo.urlO)
                 }
             }
         )
@@ -135,7 +132,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryCorePhotosActivity)
+                    this@GalleryCorePhotosActivity.transActivityNoAnimation()
                 }
             }
         })
@@ -147,8 +144,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         for (i in 0 until size) {
             arr[i] = "Page " + (totalPage - i)
         }
-        LDialogUtil.showDialogList(
-            context = this,
+        this.showDialogList(
             title = "Select page",
             arr = arr,
             onClick = { position ->
@@ -165,14 +161,14 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
             return
         }
         isLoading = true
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
         val userID = FlickrConst.USER_KEY
         if (currentPage <= 0) {
             currentPage = 0
-            LDialogUtil.hideProgress(progressBar)
+            progressBar.hideProgress()
             isLoading = false
             return
         }
@@ -202,12 +198,12 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     btPage.visibility = View.VISIBLE
                     isLoading = false
                 }) { e: Throwable ->
                     handleException(e)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     isLoading = true
                 }
         )

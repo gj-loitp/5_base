@@ -25,8 +25,9 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 
+import androidx.core.content.ContextCompat;
+
 import com.loitp.R;
-import com.loitp.core.utilities.LAppResource;
 import com.loitp.views.wwl.music.utils.LWWLMusicIllegal;
 
 import java.util.LinkedList;
@@ -141,8 +142,7 @@ public class LWWLMusic extends ViewGroup {
         LWWLMusicIllegal.INSTANCE.check(this.mViews.size() > 0, "contentViews cannot be empty");
         this.mPlayerView.setOnClickListener(new PlayerViewClickListener(this));
         this.mBgView = new View(getContext());
-//        this.mBgView.setBackgroundColor(getResources().getColor(android.R.color.black));
-        this.mBgView.setBackgroundColor(LAppResource.INSTANCE.getColor(android.R.color.black));
+        this.mBgView.setBackgroundColor(ContextCompat.getColor(getContext(), android.R.color.black));
         addView(this.mBgView);
         bringChildToFront(this.mBgView);
         bringChildToFront(this.mMetadataView);

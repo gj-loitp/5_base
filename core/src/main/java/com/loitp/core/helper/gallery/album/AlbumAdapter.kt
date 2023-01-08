@@ -13,9 +13,10 @@ import com.bumptech.glide.request.target.Target
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import com.loitp.core.utilities.LDateUtil
-import com.loitp.core.utilities.LImageUtil
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.getDateCurrentTimeZone
+import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.randomColorLight
+import com.loitp.core.ext.setTextShadow
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
 import kotlinx.android.synthetic.main.l_i_flickr_album_core.view.*
 
@@ -65,11 +66,9 @@ class AlbumAdapter(
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         fun bind(p: Photoset) {
 
-            val color = LUIUtil.getRandomColorLight()
-            LImageUtil.load(
-                context = itemView.imageView.context,
+            val color = randomColorLight
+            itemView.imageView.loadGlide(
                 any = p.flickrLinkO(),
-                imageView = itemView.imageView,
                 resPlaceHolder = color,
                 resError = color,
                 drawableRequestListener = object : RequestListener<Drawable> {
@@ -96,16 +95,15 @@ class AlbumAdapter(
 
             itemView.tvLabel.text = p.title?.content
 
-            val update = LDateUtil.getDateCurrentTimeZone(
-                timestamp = p.dateUpdate,
+            val update = p.dateUpdate.getDateCurrentTimeZone(
                 format = "dd-MM-yyyy HH:mm:ss"
             )
             itemView.tvUpdate.text = update
             itemView.tvNumber.text = p.photos
 
-            LUIUtil.setTextShadow(textView = itemView.tvLabel, color = Color.BLACK)
-            LUIUtil.setTextShadow(textView = itemView.tvUpdate, color = Color.BLACK)
-            LUIUtil.setTextShadow(textView = itemView.tvNumber, color = Color.BLACK)
+            itemView.tvLabel.setTextShadow(color = Color.BLACK)
+            itemView.tvUpdate.setTextShadow(color = Color.BLACK)
+            itemView.tvNumber.setTextShadow(color = Color.BLACK)
 
             itemView.frameLayout.setOnClickListener {
                 callback?.onClick(bindingAdapterPosition)

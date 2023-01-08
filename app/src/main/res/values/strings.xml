@@ -1173,4 +1173,6 @@ Likewise may someone love you next.
     <string name="verification_code">Verification Code</string>
     <string name="show_error">SHOW ERROR</string>
     <string name="show_success">SHOW Success</string>
+    <string name="process_phoenix_des">Process Phoenix facilitates restarting your application process.\nThis should only be used for things like fundamental state changes in your debug builds (e.g., changing from staging to production).</string>
+    <string name="start_the_default_activity_in_a_new_process">Start the default activity in a new process</string>
 </resources>

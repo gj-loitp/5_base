@@ -93,6 +93,11 @@
                 android:text="@string/drag_view" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFancyShowcase"
+                style="@style/ButtonMenu"
+                android:text="Fancy showcase" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btEditText"
                 style="@style/ButtonMenu"
                 android:text="@string/edittext" />

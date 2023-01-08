@@ -21,13 +21,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LMathUtil
-import com.loitp.core.utilities.LUIUtil
-import com.loitp.core.utilities.LUIUtil.Companion.scrollToBottom
+import com.loitp.core.ext.*
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.a_map_tracker.*
 import vn.loitp.R
@@ -37,7 +33,7 @@ import java.util.*
 @LogTag("MapTrackerActivity")
 @IsFullScreen(false)
 class MapTrackerActivity :
-    BaseFontActivity(),
+    BaseActivityFont(),
     OnMapReadyCallback,
     GoogleApiClient.ConnectionCallbacks,
     GoogleApiClient.OnConnectionFailedListener {
@@ -71,8 +67,7 @@ class MapTrackerActivity :
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
@@ -109,7 +104,7 @@ class MapTrackerActivity :
     }
 
     private fun checkPermission() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK
@@ -141,7 +136,7 @@ class MapTrackerActivity :
                     buildClient()
                 } else {
                     finish()//correct
-                    LActivityUtil.tranOut(this)
+                    this.tranOut()
                 }
             }
     }
@@ -154,8 +149,8 @@ class MapTrackerActivity :
         currentLocationMarker?.remove()
         mCurrentLocation?.let { location ->
 
-            val latRound = LMathUtil.roundDouble(value = location.latitude, newScale = 4)
-            val lngRound = LMathUtil.roundDouble(value = location.longitude, newScale = 4)
+            val latRound = location.latitude.roundDouble(newScale = 4)
+            val lngRound = location.longitude.roundDouble(newScale = 4)
 
             val latLng = LatLng(latRound, lngRound)
 
@@ -281,19 +276,19 @@ class MapTrackerActivity :
         val list = ArrayList<LatLng>()
         list.add(LatLng(20.8785614, 80.8107979))
         drawPolyLineOnMap(list)
-        LUIUtil.setDelay(
+        setDelay(
             mls = 1000,
             runnable = {
                 list.add(LatLng(25.8785614, 85.8107979))
                 drawPolyLineOnMap(list)
 
-                LUIUtil.setDelay(
+                setDelay(
                     mls = 1000,
                     runnable = {
                         list.add(LatLng(30.8785614, 90.8107979))
                         drawPolyLineOnMap(list)
 
-                        LUIUtil.setDelay(
+                        setDelay(
                             mls = 1000,
                             runnable = {
                                 list.add(LatLng(35.8785614, 95.8107979))

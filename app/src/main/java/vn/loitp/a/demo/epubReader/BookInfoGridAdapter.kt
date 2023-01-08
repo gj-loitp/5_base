@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import com.loitp.core.utilities.LReaderUtil
+import com.loitp.core.ext.decodeBitmapFromByteArray
+import com.loitp.core.ext.defaultCover
 import com.loitp.func.epub.model.BookInfo
 import vn.loitp.R
 
@@ -54,16 +55,16 @@ class BookInfoGridAdapter(
         viewHolder.tvBookTitle?.text = bookInfoList[position].title
         val isCoverImageNotExists = bookInfoList[position].isCoverImageNotExists
         if (isCoverImageNotExists) {
-            viewHolder.ivCover?.setImageResource(LReaderUtil.defaultCover)
+            viewHolder.ivCover?.setImageResource(defaultCover)
         } else {
             val savedBitmap = bookInfoList[position].coverImageBitmap
             if (savedBitmap == null) {
                 val coverImageAsBytes = bookInfoList[position].coverImage
                 if (coverImageAsBytes == null) {
                     bookInfoList[position].isCoverImageNotExists = true
-                    viewHolder.ivCover?.setImageResource(LReaderUtil.defaultCover)
+                    viewHolder.ivCover?.setImageResource(defaultCover)
                 } else {
-                    val bitmap = LReaderUtil.decodeBitmapFromByteArray(
+                    val bitmap = decodeBitmapFromByteArray(
                         coverImage = coverImageAsBytes,
                         reqWidth = 100,
                         reqHeight = 200

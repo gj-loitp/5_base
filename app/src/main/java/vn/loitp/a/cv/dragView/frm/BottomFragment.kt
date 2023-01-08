@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.tuanhav95.drag.utils.inflate
 import kotlinx.android.synthetic.main.f_drag_view_bottom.*
 import kotlinx.android.synthetic.main.i_drag_view_normal.view.*
@@ -43,7 +43,9 @@ class BottomFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            LImageUtil.load(holder.itemView.context, R.drawable.loitp, holder.itemView.ivPhoto)
+            holder.itemView.ivPhoto.loadGlide(
+                R.drawable.loitp,
+            )
         }
     }
 

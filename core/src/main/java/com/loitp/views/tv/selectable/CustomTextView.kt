@@ -13,9 +13,10 @@ import android.view.ViewTreeObserver.OnTouchModeChangeListener
 import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.widget.AppCompatTextView
-import com.loitp.core.utilities.LAppResource
 import com.loitp.BuildConfig
 import com.loitp.R
+import com.loitp.core.ext.getColor
+import com.loitp.core.ext.getDrawable
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -62,7 +63,7 @@ class CustomTextView : AppCompatTextView {
     }
 
     private fun init() {
-        setDefaultSelectionColor(LAppResource.getColor(R.color.gray))
+        setDefaultSelectionColor(getColor(R.color.gray))
         cursorSelection = CustomInfo()
         mSelectionController = SelectionCursorController()
         val observer = viewTreeObserver
@@ -529,7 +530,7 @@ class CustomTextView : AppCompatTextView {
         private val mController: SelectionCursorController
     ) : View(this@CustomTextView.context) {
         private val mContainer: PopupWindow = PopupWindow(this)
-        private val mDrawable: Drawable? = LAppResource.getDrawable(R.drawable.l_cursor)
+        private val mDrawable: Drawable? = getDrawable(R.drawable.l_cursor)
         private var mIsDragging = false
         private val mHeight: Int
         private val mWidth: Int

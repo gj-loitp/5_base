@@ -14,10 +14,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
-import com.loitp.core.utilities.LActivityUtil
+import com.loitp.core.ext.tranIn
 import vn.loitp.R
 import vn.loitp.a.game.puzzle.BoardActivityParams
-import vn.loitp.a.game.puzzle.GameActivity
+import vn.loitp.a.game.puzzle.GameActivityFont
 
 class ImageCardsAdapterGridView(
     private val parentContext: Context,
@@ -106,12 +106,12 @@ class BoardOptionsFragment : androidx.fragment.app.Fragment() {
                 viewModel?.let {
                     it.boardImage.value = (view.tag as TitledCardInfo).image
 
-                    GameActivity.initialConfig = BoardActivityParams(
+                    GameActivityFont.initialConfig = BoardActivityParams(
                         bitmap = it.boardImage.value!!,
                         size = it.boardSize.value!!
                     )
-                    startActivity(Intent(this.activity, GameActivity::class.java))
-                    LActivityUtil.tranIn(this.activity)
+                    startActivity(Intent(this.activity, GameActivityFont::class.java))
+                    this.activity?.tranIn()
                 }
             }
         }

@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import com.loitp.core.utilities.LImageUtil
-import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.screenWidth
+import com.loitp.core.ext.setMargins
 import kotlinx.android.synthetic.main.i_book.view.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
@@ -22,7 +22,7 @@ class BookAdapter(
     private val callback: Callback?
 ) : BaseAdapter() {
 
-    private val sizeW: Int = LScreenUtil.screenWidth / column
+    private val sizeW: Int = screenWidth / column
     private val sizeH: Int = sizeW * 15 / 9
     private val sizeMarginTopBottom: Int = sizeW / 5
     private val sizeMarginTopLeftRight: Int = sizeW / 10
@@ -65,8 +65,7 @@ class BookAdapter(
                     itemView.bkg.setImageResource(R.drawable.l_grid_item_background_center)
                 }
             }
-            LUIUtil.setMargins(
-                view = itemView.imageView,
+            itemView.imageView.setMargins(
                 leftPx = sizeMarginTopLeftRight,
                 topPx = sizeMarginTopBottom,
                 rightPx = sizeMarginTopLeftRight,
@@ -74,7 +73,7 @@ class BookAdapter(
             )
             val url = movie.cover
             if (url != null) {
-                LImageUtil.load(context = context, any = url, imageView = itemView.imageView)
+                itemView.imageView.loadGlide(any = url)
             } else {
                 itemView.imageView.setImageResource(0)
                 itemView.textView.visibility = View.INVISIBLE

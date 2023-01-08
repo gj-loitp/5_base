@@ -9,9 +9,10 @@ import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
 import com.github.mmin18.widget.RealtimeBlurView
 import com.loitp.R
-import com.loitp.core.utilities.LAnimationUtil
-import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.getColor
+import com.loitp.core.ext.play
+import com.loitp.core.ext.setMargins
+import com.loitp.core.ext.setRipple
 import kotlinx.android.synthetic.main.l_v_bottom_bar.view.*
 
 /**
@@ -63,20 +64,15 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     constructor(
-        context: Context,
-        attrs: AttributeSet
+        context: Context, attrs: AttributeSet
     ) : super(context, attrs) {
         init()
     }
 
     constructor(
-        context: Context,
-        attrs: AttributeSet,
-        defStyle: Int
+        context: Context, attrs: AttributeSet, defStyle: Int
     ) : super(
-        context,
-        attrs,
-        defStyle
+        context, attrs, defStyle
     ) {
         init()
     }
@@ -84,12 +80,12 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     private fun init() {
         View.inflate(context, R.layout.l_v_bottom_bar, this)
 
-        LUIUtil.setRipple(view = layoutIcon0)
-        LUIUtil.setRipple(view = layoutIcon1)
-        LUIUtil.setRipple(view = layoutIcon2)
-        LUIUtil.setRipple(view = layoutIcon3)
-        LUIUtil.setRipple(view = layoutIcon4)
-        LUIUtil.setRipple(view = layoutIicon5)
+        layoutIcon0.setRipple()
+        layoutIcon1.setRipple()
+        layoutIcon2.setRipple()
+        layoutIcon3.setRipple()
+        layoutIcon4.setRipple()
+        layoutIicon5.setRipple()
 
         layoutIcon0.setOnClickListener(this)
         layoutIcon1.setOnClickListener(this)
@@ -166,48 +162,42 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     fun setItem0(
-        resImg: Int,
-        name: String
+        resImg: Int, name: String
     ) {
         ivIcon0.setImageResource(resImg)
         tvIcon0.text = name
     }
 
     fun setItem1(
-        resImg: Int,
-        name: String
+        resImg: Int, name: String
     ) {
         ivIcon1.setImageResource(resImg)
         tvIcon1.text = name
     }
 
     fun setItem2(
-        resImg: Int,
-        name: String
+        resImg: Int, name: String
     ) {
         ivIcon2.setImageResource(resImg)
         tvIcon2.text = name
     }
 
     fun setItem3(
-        resImg: Int,
-        name: String
+        resImg: Int, name: String
     ) {
         ivIcon3.setImageResource(resImg)
         tvIcon3.text = name
     }
 
     fun setItem4(
-        resImg: Int,
-        name: String
+        resImg: Int, name: String
     ) {
         ivIcon4.setImageResource(resImg)
         tvIcon4.text = name
     }
 
     fun setItem5(
-        resImg: Int,
-        name: String
+        resImg: Int, name: String
     ) {
         ivIcon5.setImageResource(resImg)
         tvIcon5.text = name
@@ -275,21 +265,20 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     private fun updateView(
-        imageView: ImageView,
-        textView: TextView
+        imageView: ImageView, textView: TextView
     ) {
         techniques?.let {
-            LAnimationUtil.play(view = imageView, techniques = it)
-            LAnimationUtil.play(view = textView, techniques = it)
+            imageView.play(techniques = it)
+            textView.play(techniques = it)
         }
 
-        tvIcon0.setTextColor(LAppResource.getColor(this.colorIvOff))
-        tvIcon1.setTextColor(LAppResource.getColor(this.colorIvOff))
-        tvIcon2.setTextColor(LAppResource.getColor(this.colorIvOff))
-        tvIcon3.setTextColor(LAppResource.getColor(this.colorIvOff))
-        tvIcon4.setTextColor(LAppResource.getColor(this.colorIvOff))
-        tvIcon5.setTextColor(LAppResource.getColor(this.colorIvOff))
-        textView.setTextColor(LAppResource.getColor(this.colorIvOn))
+        tvIcon0.setTextColor(getColor(this.colorIvOff))
+        tvIcon1.setTextColor(getColor(this.colorIvOff))
+        tvIcon2.setTextColor(getColor(this.colorIvOff))
+        tvIcon3.setTextColor(getColor(this.colorIvOff))
+        tvIcon4.setTextColor(getColor(this.colorIvOff))
+        tvIcon5.setTextColor(getColor(this.colorIvOff))
+        textView.setTextColor(getColor(this.colorIvOn))
 
         if (isAlwaysShowText) {
             tvIcon0.visibility = View.VISIBLE
@@ -307,32 +296,32 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
             tvIcon5.visibility = View.GONE
         }
         ivIcon0.let {
-            it.setColorFilter(LAppResource.getColor(this.colorIvOff))
+            it.setColorFilter(getColor(this.colorIvOff))
             it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
         }
         ivIcon1.let {
-            it.setColorFilter(LAppResource.getColor(this.colorIvOff))
+            it.setColorFilter(getColor(this.colorIvOff))
             it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
         }
         ivIcon2.let {
-            it.setColorFilter(LAppResource.getColor(this.colorIvOff))
+            it.setColorFilter(getColor(this.colorIvOff))
             it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
         }
         ivIcon3.let {
-            it.setColorFilter(LAppResource.getColor(this.colorIvOff))
+            it.setColorFilter(getColor(this.colorIvOff))
             it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
         }
         ivIcon4.let {
-            it.setColorFilter(LAppResource.getColor(this.colorIvOff))
+            it.setColorFilter(getColor(this.colorIvOff))
             it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
         }
         ivIcon5.let {
-            it.setColorFilter(LAppResource.getColor(this.colorIvOff))
+            it.setColorFilter(getColor(this.colorIvOff))
             it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
         }
 
         imageView.let {
-            it.setColorFilter(LAppResource.getColor(this.colorIvOn))
+            it.setColorFilter(getColor(this.colorIvOn))
             it.setPadding(paddingOnInDp, paddingOnInDp, paddingOnInDp, paddingOnInDp)
         }
         textView.visibility = View.VISIBLE
@@ -351,8 +340,7 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     fun setPerformItemClick(
-        position: Int,
-        invokedOnClickItem: Boolean = true
+        position: Int, invokedOnClickItem: Boolean = true
     ) {
         previousPos = currentPos
         currentPos = position
@@ -397,12 +385,24 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     fun setTextMarginBottom(bottomPx: Int) {
-        LUIUtil.setMargins(view = tvIcon0, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
-        LUIUtil.setMargins(view = tvIcon1, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
-        LUIUtil.setMargins(view = tvIcon2, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
-        LUIUtil.setMargins(view = tvIcon3, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
-        LUIUtil.setMargins(view = tvIcon4, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
-        LUIUtil.setMargins(view = tvIcon5, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx)
+        tvIcon0.setMargins(
+            leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx
+        )
+        tvIcon1.setMargins(
+            leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx
+        )
+        tvIcon2.setMargins(
+            leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx
+        )
+        tvIcon3.setMargins(
+            leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx
+        )
+        tvIcon4.setMargins(
+            leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx
+        )
+        tvIcon5.setMargins(
+            leftPx = 0, topPx = 0, rightPx = 0, bottomPx = bottomPx
+        )
     }
 
     @Suppress("unused")

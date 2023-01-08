@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.webkit.*
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.d
 import org.adblockplus.libadblockplus.android.webview.AdblockWebView
 
 /**
@@ -25,7 +25,7 @@ class LWebViewAdblock : AdblockWebView {
     }
 
     private fun logD(msg: String) {
-        LLog.d(logTag, msg)
+        d(logTag, msg)
     }
 
     interface Callback {

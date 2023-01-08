@@ -4,14 +4,14 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LSocialUtil
-import com.loitp.core.utilities.LUIUtil
-import com.loitp.R
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.moreApp
+import com.loitp.core.ext.setSafeOnClickListenerElastic
+import com.loitp.core.ext.toggleFullscreen
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_a_find_number_menu.*
 
@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.l_a_find_number_menu.*
 @LogTag("MenuActivity")
 @IsFullScreen(true)
 @IsSwipeActivity(true)
-class MenuActivity : BaseFontActivity() {
+class MenuActivity : BaseActivityFont() {
 
     private var activityCircularReveal: CircularReveal? = null
 
@@ -36,7 +36,7 @@ class MenuActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
+        this.toggleFullscreen(isFullScreen = true)
         activityCircularReveal = CircularReveal(rootView)
         activityCircularReveal?.onActivityCreate(intent)
 
@@ -51,20 +51,17 @@ class MenuActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = ivBack,
+        ivBack.setSafeOnClickListenerElastic(
             runnable = {
                 onBaseBackPressed()
             }
         )
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = ivMore,
+        ivMore.setSafeOnClickListenerElastic(
             runnable = {
-                LSocialUtil.moreApp(activity = this)
+                this.moreApp()
             }
         )
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = btSinglePlayer,
+        btSinglePlayer.setSafeOnClickListenerElastic(
             runnable = {
                 val intent = Intent(this, SingleLevelActivity::class.java)
                 val builder = CircularReveal.Builder(
@@ -82,8 +79,7 @@ class MenuActivity : BaseFontActivity() {
                 CircularReveal.presentActivity(builder)
             }
         )
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = btTwoPlayers,
+        btTwoPlayers.setSafeOnClickListenerElastic(
             runnable = {
                 // TODO 2 players
             }

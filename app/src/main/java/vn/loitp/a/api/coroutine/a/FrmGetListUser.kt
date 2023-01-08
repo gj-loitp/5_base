@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.LogTag
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.base.BaseFontActivity
 import com.loitp.core.base.BaseFragment
+import com.loitp.core.ext.setColorForSwipeRefreshLayout
 import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.setScrollChange
 import kotlinx.android.synthetic.main.f_coroutine_get_list_user.*
 import vn.loitp.R
 import vn.loitp.a.api.coroutine.vm.TestViewModel
@@ -62,8 +63,7 @@ class FrmGetListUser : BaseFragment() {
         }
         rvUserTest.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rvUserTest.adapter = userListAdapter
-        LUIUtil.setScrollChange(
-            recyclerView = rvUserTest,
+        rvUserTest.setScrollChange(
             onBottom = {
                 logD("onBottom")
                 page += 1
@@ -73,13 +73,12 @@ class FrmGetListUser : BaseFragment() {
 
         btBack.setSafeOnClickListener {
             logD("popBackStack")
-            (activity as? BaseFontActivity)?.apply {
+            (activity as? BaseActivityFont)?.apply {
                 onBaseBackPressed()
             }
-            // findNavController().popBackStack()
         }
 
-        LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout)
+        swipeRefreshLayout.setColorForSwipeRefreshLayout()
         swipeRefreshLayout.setOnRefreshListener {
             logD("setOnRefreshListener")
             page = 1

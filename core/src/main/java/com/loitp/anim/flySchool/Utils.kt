@@ -3,8 +3,8 @@ package com.loitp.anim.flySchool
 import android.content.res.Resources
 import android.graphics.PorterDuff
 import android.widget.ImageView
-import com.loitp.core.utilities.LDeviceUtil.Companion.getRandomNumber
-import com.loitp.core.utilities.LStoreUtil.Companion.randomColor
+import com.loitp.core.ext.getRandomColor
+import com.loitp.core.ext.getRandomNumber
 
 /**
  * Utility class with simple utility functions
@@ -27,12 +27,12 @@ object Utils {
 
     @JvmStatic
     fun setHeart(imageView: ImageView) {
-        val size = getRandomNumber(150) + 80
+        val size = 150.getRandomNumber() + 80
         imageView.layoutParams.height = size
         imageView.layoutParams.width = size
         imageView.requestLayout()
 
-        val color = randomColor
+        val color = getRandomColor()
         imageView.setColorFilter(color, PorterDuff.Mode.MULTIPLY)
     }
 }

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import kotlinx.android.synthetic.main.view_item_gallery.view.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
@@ -24,7 +24,7 @@ class GalleryAdapter internal constructor(
 
     inner class MovieViewHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(movie: Movie) {
-            LImageUtil.load(context = context, any = movie.cover, imageView = itemView.imageView)
+            itemView.imageView.loadGlide(any = movie.cover)
             itemView.rootView.setOnClickListener {
                 callback?.onClick(movie = movie, position = bindingAdapterPosition)
             }

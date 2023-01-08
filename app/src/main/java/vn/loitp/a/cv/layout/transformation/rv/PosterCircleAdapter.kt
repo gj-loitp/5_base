@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.adapter.BaseAdapter
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import kotlinx.android.synthetic.main.i_poster_circle.view.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.transformation.TransformationDetailActivity
+import vn.loitp.a.cv.layout.transformation.TransformationDetailActivityFont
 
 class PosterCircleAdapter : BaseAdapter() {
 
@@ -44,10 +44,8 @@ class PosterCircleAdapter : BaseAdapter() {
     inner class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(poster: Poster) {
             itemView.run {
-                LImageUtil.load(
-                    context = context,
+                ivItemPosterPost.loadGlide(
                     any = poster.poster,
-                    imageView = ivItemPosterPost
                 )
 
                 tvItemPosterTitle.text = poster.name
@@ -56,7 +54,7 @@ class PosterCircleAdapter : BaseAdapter() {
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
                     if (now - previousTime >= layoutItemPosterCircleTransformation.duration)
-                        TransformationDetailActivity.startActivity(
+                        TransformationDetailActivityFont.startActivity(
                             context,
                             layoutItemPosterCircleTransformation,
                             poster

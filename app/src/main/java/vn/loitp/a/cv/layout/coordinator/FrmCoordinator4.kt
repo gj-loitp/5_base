@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.getHeightOfView
 import kotlinx.android.synthetic.main.f_coordinator_4.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
@@ -44,6 +44,6 @@ class FrmCoordinator4 : BaseFragment() {
             movieList.add(movie)
         }
         mAdapter?.setList(movieList)
-        logD("getHeightOfView recyclerView " + LUIUtil.getHeightOfView(recyclerView))
+        logD("getHeightOfView recyclerView " + recyclerView.getHeightOfView())
     }
 }

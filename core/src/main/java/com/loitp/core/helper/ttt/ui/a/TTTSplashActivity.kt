@@ -8,9 +8,10 @@ import android.os.Bundle
 import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.isDarkTheme
+import com.loitp.core.ext.setDelay
+import com.loitp.core.ext.tranIn
 import com.permissionx.guolindev.PermissionX
 
 /**
@@ -23,7 +24,7 @@ import com.permissionx.guolindev.PermissionX
 @SuppressLint("CustomSplashScreen")
 @LogTag("TTTSplashActivity")
 @IsFullScreen(false)
-class TTTSplashActivity : BaseFontActivity() {
+class TTTSplashActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_a_ttt_comic_splash
@@ -41,17 +42,17 @@ class TTTSplashActivity : BaseFontActivity() {
     }
 
     private fun goToHome() {
-        LUIUtil.setDelay(mls = 1500, runnable = {
+        setDelay(mls = 1500, runnable = {
             val intent = Intent(this, TTTComicLoginActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
-            LActivityUtil.tranIn(this)
+            this.tranIn()
             finish()//correct
         })
     }
 
     private fun checkPermission() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK

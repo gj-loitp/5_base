@@ -1,7 +1,7 @@
 package vn.loitp.a.sv.endless
 
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.d
 
 fun log(msg: String) {
-    LLog.d("ENDLESS-SERVICE", msg)
+    d("ENDLESS-SERVICE", msg)
 }

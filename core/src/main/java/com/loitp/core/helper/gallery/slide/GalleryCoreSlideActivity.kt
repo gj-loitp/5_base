@@ -9,11 +9,12 @@ import com.huxq17.download.core.DownloadListener
 import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.sendEmail
 import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.share
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
-import com.loitp.core.utilities.LSocialUtil
 import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_slide.*
 
 /**
@@ -25,7 +26,7 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_slide.*
  */
 @LogTag("GalleryCoreSlideActivity")
 @IsFullScreen(false)
-class GalleryCoreSlideActivity : BaseFontActivity() {
+class GalleryCoreSlideActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_a_flickr_gallery_core_slide
@@ -54,11 +55,11 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
         }
         btShare.setSafeOnClickListener {
             instance.getPhoto(viewPager.currentItem)?.urlO?.let {
-                LSocialUtil.share(activity = this, msg = it)
+                this.share(msg = it)
             }
         }
         btReport.setSafeOnClickListener {
-            LSocialUtil.sendEmail(context = this)
+            this.sendEmail()
         }
     }
 

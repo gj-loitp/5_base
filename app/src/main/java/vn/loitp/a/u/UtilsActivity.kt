@@ -7,9 +7,10 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.changeTabsFont
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utils.*
 import kotlinx.android.synthetic.main.a_utils.*
 import vn.loitp.R
@@ -17,7 +18,7 @@ import vn.loitp.R
 @LogTag("UtilsActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class UtilsActivity : BaseFontActivity() {
+class UtilsActivity : BaseActivityFont() {
 
     private val listClass = ArrayList<String>()
 
@@ -34,8 +35,7 @@ class UtilsActivity : BaseFontActivity() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
@@ -45,7 +45,7 @@ class UtilsActivity : BaseFontActivity() {
         }
         viewPager.adapter = SlidePagerAdapter(supportFragmentManager)
         tabLayout.setupWithViewPager(viewPager)
-        LUIUtil.changeTabsFont(tabLayout, Constants.FONT_PATH)
+        tabLayout.changeTabsFont(Constants.FONT_PATH)
     }
 
     private fun setupData() {

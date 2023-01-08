@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.loitp.rss.RssItem
 import kotlinx.android.synthetic.main.i_rss.view.*
 import vn.loitp.R
@@ -54,10 +54,8 @@ class RssItemsAdapter(
             itemView.tvTitle.text = rssItem.title
             itemView.tvPubDate.text = rssItem.publishDate
 
-            LImageUtil.load(
-                context = itemView.ivThumb.context,
+            itemView.ivThumb.loadGlide(
                 any = rssItem.image,
-                imageView = itemView.ivThumb
             )
             itemView.cardView.setOnClickListener {
                 onClick?.invoke(rssItem)

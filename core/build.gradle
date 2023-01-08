@@ -84,14 +84,14 @@ dependencies {
 
 //    https://github.com/hoomanmmd/FadeOutParticle
     api 'com.github.hoomanmmd:fadeoutparticle:1.1.0'
+//    https://github.com/faruktoptas/FancyShowCaseView
+    api 'com.github.faruktoptas:FancyShowCaseView:1.3.9'
 
     //https://github.com/flavioarfaria/KenBurnsView
     api 'com.flaviofaria:kenburnsview:1.0.7'
     //https://github.com/kakajika/RelativePopupWindow
     api 'com.labo.kaji:relativepopupwindow:0.4.1'
 
-//    https://github.com/NicholasMata/Spotlight
-    api 'com.github.nicholasmata:spotlight:0.2.0'
     //https://github.com/stfalcon-studio/StfalconImageViewer
     api 'com.github.stfalcon:stfalcon-imageviewer:1.0.1'
 
@@ -201,6 +201,8 @@ dependencies {
 
     //https://github.com/MikeOrtiz/TouchImageView
     api 'com.github.MikeOrtiz:TouchImageView:3.2.1'
+//    https://github.com/iammert/TileProgressView
+    api 'com.github.iammert:TileProgressView:0.1'
 
     //https://github.com/manojbhadane/QButton
     api 'com.github.manojbhadane:QButton:v1.3'

@@ -13,9 +13,9 @@ import android.view.MotionEvent
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import androidx.core.content.res.ResourcesCompat
-import com.loitp.core.utilities.LAppResource
+import com.loitp.core.ext.getColor
 import vn.loitp.R
-import vn.loitp.a.game.pong.a.GameActivity
+import vn.loitp.a.game.pong.a.GameActivityFont
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -32,7 +32,7 @@ class GameView(
     private lateinit var paddleB: PaddleAbstract
     private lateinit var ball: Ball
     private lateinit var game: GameAbstract
-    private var settings: Settings = (context as GameActivity).settings
+    private var settings: Settings = (context as GameActivityFont).settings
     private val sharedPreferences: SharedPreferences =
         context.getSharedPreferences(settings.difficulty.toString(), Context.MODE_PRIVATE)
 
@@ -132,8 +132,7 @@ class GameView(
     override fun draw(canvas: Canvas?) {
         super.draw(canvas)
         canvas?.also {
-//            it.drawColor(resources.getColor(R.color.colorPrimaryDark))
-            it.drawColor(LAppResource.getColor(R.color.colorPrimaryDark))
+            it.drawColor(getColor(R.color.colorPrimaryDark))
             paddleA.draw(it)
             paddleB.draw(it)
             updateScore(it)

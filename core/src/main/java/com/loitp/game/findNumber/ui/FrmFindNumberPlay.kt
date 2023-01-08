@@ -16,8 +16,8 @@ import com.loitp.anim.morphTransitions.MorphTransform
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
-import com.loitp.core.utilities.LAnimationUtil
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.play
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.game.findNumber.dlg.FindNumberWinActivity
 import com.loitp.game.findNumber.model.Level
 import com.loitp.views.tv.autoFit.LAutoFitTextView
@@ -56,7 +56,7 @@ class FrmFindNumberPlay(
 
     private fun setupNumberTarget() {
         tvNumberTarget.text = "$numberTarget"
-        LAnimationUtil.play(view = tvNumberTarget, techniques = Techniques.Pulse)
+        tvNumberTarget.play(techniques = Techniques.Pulse)
     }
 
     private fun setupDataLevel() {
@@ -102,8 +102,7 @@ class FrmFindNumberPlay(
                     lAutofitTextView.setMaxTextSize(TypedValue.COMPLEX_UNIT_PX, 100f)
                     lAutofitTextView.setMinTextSize(12)
 
-                    LUIUtil.setSafeOnClickListenerElastic(
-                        view = lAutofitTextView,
+                    lAutofitTextView.setSafeOnClickListenerElastic(
                         runnable = {
                             if (numberTarget == listData.size) {
                                 winGame(lAutofitTextView)

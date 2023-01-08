@@ -3,7 +3,7 @@ package vn.loitp.a.cv.layout.transformation.single
 import android.os.Bundle
 import android.view.View
 import com.loitp.core.base.BaseFragment
-import com.loitp.core.utilities.LImageUtil
+import com.loitp.core.ext.loadGlide
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
 import kotlinx.android.synthetic.main.a_layout_transformation_detail.*
@@ -30,7 +30,10 @@ class TransformationSingleDetailFragment : BaseFragment() {
         onTransformationEndContainer(params)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         val poster = arguments?.getParcelable<Poster>(posterKey)
@@ -39,10 +42,8 @@ class TransformationSingleDetailFragment : BaseFragment() {
             // [Step2]: sets a transition name to the target view.
             layoutDetailContainer.transitionName = poster.name
 
-            LImageUtil.load(
-                context = context,
+            ivProfileDetailBackground.loadGlide(
                 any = it.poster,
-                imageView = ivProfileDetailBackground
             )
 
             tvDetailTitle.text = it.name

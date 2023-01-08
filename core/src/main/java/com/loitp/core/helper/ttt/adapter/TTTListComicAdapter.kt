@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
+import com.loitp.core.ext.loadGlide
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.helper.ttt.model.comic.Comic
-import com.loitp.core.utilities.LImageUtil
-import com.loitp.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_i_ttt_comic.view.*
 
 /**
@@ -39,15 +39,12 @@ class TTTListComicAdapter : BaseAdapter() {
                 itemView.ivCover.visibility = View.GONE
             } else {
                 itemView.ivCover.visibility = View.VISIBLE
-                LImageUtil.load(
-                    context = itemView.context,
+                itemView.ivCover.loadGlide(
                     any = comic.urlImg,
-                    imageView = itemView.ivCover
                 )
             }
             itemView.tvTitle.text = comic.title
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = itemView.cardView,
+            itemView.cardView.setSafeOnClickListenerElastic(
                 runnable = {
                     onClickRootListener?.invoke(comic, bindingAdapterPosition)
                 }

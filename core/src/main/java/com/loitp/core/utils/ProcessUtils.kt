@@ -9,7 +9,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.provider.Settings
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.d
 import com.loitp.core.utils.Utils.Companion.getContext
 
 /**
@@ -63,7 +63,7 @@ class ProcessUtils {
                                 info.packageName
                             ) != AppOpsManager.MODE_ALLOWED
                         ) {
-                            LLog.d("getForegroundApp", "没有打开\"有权查看使用权限的应用\"选项")
+                            d("getForegroundApp", "没有打开\"有权查看使用权限的应用\"选项")
                             return null
                         }
                         val usageStatsManager =

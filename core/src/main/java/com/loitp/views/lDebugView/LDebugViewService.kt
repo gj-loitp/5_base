@@ -14,10 +14,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.widget.NestedScrollView
 import com.loitp.R
-import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LDateUtil
-import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.ext.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -80,8 +77,8 @@ class LDebugViewService : Service(), OnTouchListener {
         expandedView = mFloatingView?.findViewById(R.id.llExpanded)
 
         expandedView?.apply {
-            layoutParams.width = LScreenUtil.screenWidth / 2
-            layoutParams.height = LScreenUtil.screenHeight * 2 / 3
+            layoutParams.width = screenWidth / 2
+            layoutParams.height = screenHeight * 2 / 3
             requestLayout()
         }
 
@@ -177,17 +174,17 @@ class LDebugViewService : Service(), OnTouchListener {
         if (msgFromActivity == null) {
             return
         }
-        val currentTime =
-            LDateUtil.getDateCurrentTimeZoneMls(System.currentTimeMillis(), "HH:mm:ss")
+        val currentTime = System.currentTimeMillis().getDateCurrentTimeZoneMls("HH:mm:ss")
         val textView = TextView(this)
-        LUIUtil.setTextSize(textView, LAppResource.getDimenValue(R.dimen.txt_medium).toFloat())
+        textView.setTextSizePx(
+            getDimenValue(R.dimen.txt_medium).toFloat()
+        )
         if (msgFromActivity.any == null) {
             textView.text = currentTime + " : " + msgFromActivity.msg
         } else {
-            LUIUtil.printBeautyJson(o = msgFromActivity.any, textView = textView, tag = currentTime)
+            textView.printBeautyJson(o = msgFromActivity.any, tag = currentTime)
         }
-        LUIUtil.setTextSize(
-            textView = textView,
+        textView.setTextSizePx(
             size = baseContext.resources.getDimension(R.dimen.txt_tiny)
         )
         when (msgFromActivity.type) {

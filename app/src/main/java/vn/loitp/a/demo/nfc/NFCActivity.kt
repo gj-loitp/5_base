@@ -11,13 +11,12 @@ import android.os.Bundle
 import android.provider.Settings
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LDateUtil
-import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LUIUtil
-import com.loitp.core.utilities.nfc.LNFCUtil
-import com.loitp.core.utilities.nfc.TagWrapper
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.*
+import com.loitp.core.helper.nfc.TagWrapper
+import com.loitp.core.helper.nfc.buildMACAddressString
+import com.loitp.core.helper.nfc.bytesToHex
+import com.loitp.core.helper.nfc.bytesToHexAndString
 import kotlinx.android.synthetic.main.a_demo_nfc.*
 import vn.loitp.R
 import java.io.UnsupportedEncodingException
@@ -26,7 +25,7 @@ import kotlin.experimental.and
 
 @LogTag("NFCActivity")
 @IsFullScreen(false)
-class NFCActivity : BaseFontActivity() {
+class NFCActivity : BaseActivityFont() {
     private val tags: ArrayList<TagWrapper> = ArrayList()
 
     private var nfcAdapter: NfcAdapter? = null
@@ -45,8 +44,7 @@ class NFCActivity : BaseFontActivity() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
@@ -63,14 +61,13 @@ class NFCActivity : BaseFontActivity() {
         super.onResume()
 
         if (nfcAdapter?.isEnabled == false) {
-            val dialog = LDialogUtil.showDialog1(
-                context = this,
+            val dialog = this.showDialog1(
                 title = "NFC is disabled",
                 msg = "You must enable NFC to use this app.",
                 button1 = "OK",
                 onClickButton1 = {
                     startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
-                    LActivityUtil.tranIn(this@NFCActivity)
+                    this@NFCActivity.tranIn()
                 }
             )
             dialog.setCancelable(false)
@@ -98,13 +95,13 @@ class NFCActivity : BaseFontActivity() {
 
         //TODO fix getParcelableExtra
         val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
-        logD("buildMACAddressString " + LNFCUtil.buildMACAddressString(tag?.id))
+        logD("buildMACAddressString " + tag?.id.buildMACAddressString())
 
-        val tagId = LNFCUtil.bytesToHex(tag?.id)
+        val tagId = tag?.id.bytesToHex()
         tagId?.let {
             val tagWrapper = TagWrapper(id = it)
             val misc = ArrayList<String>()
-            misc.add("scanned at: " + LDateUtil.now())
+            misc.add("scanned at: " + now())
 
             val rawMsg = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
             var tagData = ""
@@ -133,7 +130,7 @@ class NFCActivity : BaseFontActivity() {
             }
             tags.add(tagWrapper)
 
-            LUIUtil.printBeautyJson(o = tags, textView = tvResult)
+            tvResult.printBeautyJson(o = tags)
         }
     }
 
@@ -160,15 +157,15 @@ class NFCActivity : BaseFontActivity() {
             "NfcA" -> {
                 info.add("aka ISO 14443-3A")
                 val nfcATag = NfcA.get(tag)
-                info.add("atqa: " + LNFCUtil.bytesToHexAndString(nfcATag.atqa))
+                info.add("atqa: " + nfcATag.atqa.bytesToHexAndString())
                 info.add("sak: " + nfcATag.sak)
                 info.add("maxTransceiveLength: " + nfcATag.maxTransceiveLength)
             }
             "NfcF" -> {
                 info.add("aka JIS 6319-4")
                 val nfcFTag = NfcF.get(tag)
-                info.add("manufacturer: " + LNFCUtil.bytesToHex(nfcFTag.manufacturer))
-                info.add("systemCode: " + LNFCUtil.bytesToHex(nfcFTag.systemCode))
+                info.add("manufacturer: " + nfcFTag.manufacturer.bytesToHex())
+                info.add("systemCode: " + nfcFTag.systemCode.bytesToHex())
                 info.add("maxTransceiveLength: " + nfcFTag.maxTransceiveLength)
             }
             "NfcV" -> {
@@ -186,13 +183,11 @@ class NFCActivity : BaseFontActivity() {
                     ndefMessage = ndefTag.ndefMessage
                     ndefTag.close()
                     for (record in ndefMessage.records) {
-                        val id = if (record.id.isEmpty()) "null" else LNFCUtil.bytesToHex(record.id)
+                        val id = if (record.id.isEmpty()) "null" else record.id.bytesToHex()
                         info.add("record[" + id + "].tnf: " + record.tnf)
-                        info.add("record[" + id + "].type: " + LNFCUtil.bytesToHexAndString(record.type))
+                        info.add("record[" + id + "].type: " + record.type.bytesToHexAndString())
                         info.add(
-                            "record[$id].payload: " + LNFCUtil.bytesToHexAndString(
-                                record.payload
-                            )
+                            "record[$id].payload: " + record.payload.bytesToHexAndString()
                         )
                     }
                     info.add("messageSize: " + ndefMessage.byteArrayLength)
@@ -224,8 +219,8 @@ class NFCActivity : BaseFontActivity() {
             "IsoDep" -> {
                 info.add("aka ISO 14443-4")
                 val isoDepTag = IsoDep.get(tag)
-                info.add("historicalBytes: " + LNFCUtil.bytesToHexAndString(isoDepTag.historicalBytes))
-                info.add("hiLayerResponse: " + LNFCUtil.bytesToHexAndString(isoDepTag.hiLayerResponse))
+                info.add("historicalBytes: " + isoDepTag.historicalBytes.bytesToHexAndString())
+                info.add("hiLayerResponse: " + isoDepTag.hiLayerResponse.bytesToHexAndString())
                 info.add("timeout: " + isoDepTag.timeout)
                 info.add("extendedLengthApduSupported: " + isoDepTag.isExtendedLengthApduSupported)
                 info.add("maxTransceiveLength: " + isoDepTag.maxTransceiveLength)

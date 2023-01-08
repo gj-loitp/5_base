@@ -96,13 +96,15 @@ repositories {
 dependencies {
     api project(':core')
 //    https://github.com/tplloi/base
-//    api 'com.github.tplloi:base:4.6.10'
+//    api 'com.github.tplloi:base:4.6.20'
 
     api 'com.daimajia.androidanimations:library:2.4@aar'
 //    https://github.com/hannesa2/AndroidSlidingUpPanel
     api 'com.github.hannesa2:AndroidSlidingUpPanel:4.5.0'
 //    https://github.com/angelmmg90/AutoScrollContent
     api 'com.github.angelmmg90:AutoScrollContent:0.1.0'
+//    https://github.com/JetradarMobile/android-snowfall
+    api 'com.github.jetradarmobile:android-snowfall:1.2.1'
 //    https://github.com/ibrahimsn98/android-particles
     api 'com.github.ibrahimsn98:android-particles:2.0'
 //    https://github.com/barteksc/AndroidPdfViewer
@@ -160,6 +162,9 @@ dependencies {
     //https://github.com/rubensousa/PreviewSeekBar
     //api 'com.github.rubensousa:previewseekbar:2.0.0'
     //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
+
+//    https://github.com/JakeWharton/ProcessPhoenix
+    api 'com.jakewharton:process-phoenix:2.1.2'
 
 //    https://github.com/rosenpin/fading-text-view
     api 'com.github.rosenpin:fading-text-view:3.0'
@@ -228,6 +233,8 @@ dependencies {
     api 'com.github.TOrnelas:SegmentedProgressBar:0.0.3'
 //    https://github.com/fabiosassu/StackExpandableView
     api 'com.github.fabiosassu:StackExpandableView:1.0.2'
+//    https://github.com/NicholasMata/Spotlight
+    api 'com.github.nicholasmata:spotlight:0.2.0'
 
 //    https://github.com/AndroidLab/textarc
     api 'io.github.a.lab.develop:textarc:1.0.4'
@@ -260,5 +267,8 @@ dependencies {
 
 //    https://github.com/psuzn/WheelView
     api 'com.github.psuzn:WheelView:v1.0.2'
+
+    // debugImplementation because LeakCanary should only run in debug builds.
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.10'
 }
 //apply plugin: 'com.google.gms.google-services'

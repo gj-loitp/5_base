@@ -1,7 +1,7 @@
 package vn.loitp.a.tut.rxjava2
 
 import android.os.Looper
-import com.loitp.core.utilities.LLog
+import com.loitp.core.ext.d
 import io.reactivex.Single
 import io.reactivex.SingleEmitter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -64,6 +64,6 @@ class TestAsyncKotlin(private val count: Int) {
     }
 
     private fun log(s: String) {
-        LLog.d("TestAsyncKotlin", s + " ->isUI=" + (Looper.myLooper() == Looper.getMainLooper()))
+        d("TestAsyncKotlin", s + " ->isUI=" + (Looper.myLooper() == Looper.getMainLooper()))
     }
 }

@@ -10,18 +10,17 @@ import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LKeyBoardUtil
-import com.loitp.core.utilities.LScreenUtil
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.hideKeyboard
+import com.loitp.core.ext.screenWidth
+import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.et.l.LEditText
 import kotlinx.android.synthetic.main.a_et_l.*
 import vn.loitp.R
 
 @LogTag("LEditTextActivity")
 @IsFullScreen(false)
-class LEditTextActivity : BaseFontActivity() {
+class LEditTextActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_et_l
@@ -35,8 +34,7 @@ class LEditTextActivity : BaseFontActivity() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft?.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
@@ -45,9 +43,9 @@ class LEditTextActivity : BaseFontActivity() {
             this.tvTitle?.text = LEditTextActivity::class.java.simpleName
         }
         lEditTextId.apply {
-            colorFocus = LAppResource.getColor(R.color.black)
-            colorUnFocus = LAppResource.getColor(R.color.blue)
-            colorError = LAppResource.getColor(R.color.red)
+            colorFocus = getColor(R.color.black)
+            colorUnFocus = getColor(R.color.blue)
+            colorError = getColor(R.color.red)
             ivLeft.setImageResource(R.drawable.ic_launcher_loitp)
             ivRight.setImageResource(R.drawable.ic_close_black_48dp)
             setStrokeWidth(5)
@@ -57,7 +55,7 @@ class LEditTextActivity : BaseFontActivity() {
             setPaddingDp(5f)
             editText.hint = "Account"
             setMaxLines(1)
-            setWidthRootView(LScreenUtil.screenWidth * 3 / 4)
+            setWidthRootView(screenWidth * 3 / 4)
             setHeightRootView(350)
             // disableEditing()
             setInputType(InputType.TYPE_CLASS_TEXT)
@@ -88,9 +86,9 @@ class LEditTextActivity : BaseFontActivity() {
         }
         var isShowPw = false
         lEditTextPw.apply {
-            colorFocus = LAppResource.getColor(R.color.black)
-            colorUnFocus = LAppResource.getColor(R.color.blue)
-            colorError = LAppResource.getColor(R.color.red)
+            colorFocus = getColor(R.color.black)
+            colorUnFocus = getColor(R.color.blue)
+            colorError = getColor(R.color.red)
             ivLeft.setImageResource(R.drawable.ic_launcher_loitp)
             ivRight.setImageResource(R.drawable.ic_visibility_black_48dp)
             setStrokeWidth(5)
@@ -104,7 +102,7 @@ class LEditTextActivity : BaseFontActivity() {
             setImeiActionEditText(
                 imeOptions = EditorInfo.IME_ACTION_DONE,
                 runnable = {
-                    LKeyBoardUtil.hide(this@LEditTextActivity)
+                    this@LEditTextActivity.hideKeyboard()
                 }
             )
             callback = object : LEditText.Callback {

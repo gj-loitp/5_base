@@ -10,11 +10,13 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
+import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
+import com.loitp.core.ext.hideProgress
+import com.loitp.core.ext.showProgress
+import com.loitp.core.ext.tranIn
+import com.loitp.core.ext.transActivityNoAnimation
 import com.loitp.core.helper.gallery.photos.GalleryCorePhotosActivity
-import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LDialogUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
 import com.loitp.restApi.flickr.service.FlickrService
@@ -36,7 +38,7 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_album.*
 @LogTag("GalleryCoreAlbumActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)
-class GalleryCoreAlbumActivity : BaseFontActivity() {
+class GalleryCoreAlbumActivity : BaseActivityFont() {
     private var albumAdapter: AlbumAdapter? = null
     private val listPhotoSet = ArrayList<Photoset>()
     private var listRemoveAlbum = ArrayList<String>()
@@ -76,7 +78,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                         putExtra(Constants.SK_PHOTOSET_ID, listPhotoSet[pos].id)
                         putExtra(Constants.SK_PHOTOSET_SIZE, listPhotoSet[pos].photos)
                         startActivity(this)
-                        LActivityUtil.tranIn(this@GalleryCoreAlbumActivity)
+                        this@GalleryCoreAlbumActivity.tranIn()
                     }
                 }
 
@@ -111,7 +113,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
                     finish()//correct
-                    LActivityUtil.transActivityNoAnimation(this@GalleryCoreAlbumActivity)
+                    this@GalleryCoreAlbumActivity.transActivityNoAnimation()
                 }
             }
         })
@@ -119,7 +121,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     }
 
     private fun getListPhotosets() {
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -165,10 +167,10 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                     listPhotoSet.shuffle()
 
                     updateAllViews()
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 }, { throwable ->
                     handleException(throwable)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 })
         )
     }

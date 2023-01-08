@@ -18,11 +18,8 @@ import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
-import com.loitp.core.base.BaseFontActivity
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LLocationUtil
-import com.loitp.core.utilities.LUIUtil
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.*
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.a_func_location.*
 import vn.loitp.BuildConfig
@@ -32,7 +29,7 @@ import java.util.*
 
 @LogTag("LocationActivity")
 @IsFullScreen(false)
-class LocationActivity : BaseFontActivity() {
+class LocationActivity : BaseActivityFont() {
 
     companion object {
         // location updates interval - 10sec
@@ -76,8 +73,7 @@ class LocationActivity : BaseFontActivity() {
 
     private fun setupViews() {
         lActionBar.apply {
-            LUIUtil.setSafeOnClickListenerElastic(
-                view = this.ivIconLeft,
+            this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
@@ -149,10 +145,9 @@ class LocationActivity : BaseFontActivity() {
         mCurrentLocation?.let {
 
             var moreInfor = ""
-            LLocationUtil.getCityByLatLon(
-                this,
-                it.latitude,
-                it.longitude
+            this.getCityByLatLon(
+                latitude = it.latitude,
+                longitude = it.longitude
             ) { address: String?, city: String?, state: String?, country: String? ->
                 moreInfor += "$address - $city - $state - $country"
             }
@@ -253,7 +248,7 @@ class LocationActivity : BaseFontActivity() {
     }
 
     private fun startLocationButtonClick() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK
@@ -286,7 +281,7 @@ class LocationActivity : BaseFontActivity() {
                     startLocationUpdates()
                 } else {
                     finish()//correct
-                    LActivityUtil.tranOut(this)
+                    this.tranOut()
                 }
             }
     }

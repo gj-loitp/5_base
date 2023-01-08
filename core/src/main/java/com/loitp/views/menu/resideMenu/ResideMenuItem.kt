@@ -6,8 +6,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.loitp.R
-import com.loitp.core.utilities.LUIUtil.Companion.setTextShadow
-import com.loitp.core.utilities.LUIUtil.Companion.setTextSize
+import com.loitp.core.ext.setTextShadow
+import com.loitp.core.ext.setTextSizePx
 import com.loitp.core.utils.ConvertUtils
 
 /**
@@ -87,11 +87,11 @@ class ResideMenuItem : LinearLayout {
     }
 
     fun setTextSize(size: Float) {
-        setTextSize(textView = tvTitle, size = size)
+        tvTitle.setTextSizePx(size = size)
     }
 
     fun setTextShadow(color: Int) {
-        setTextShadow(textView = tvTitle, color = color)
+        tvTitle?.setTextShadow(color = color)
     }
 
     @Suppress("unused")

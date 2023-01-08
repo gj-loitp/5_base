@@ -10,12 +10,9 @@ import com.github.piasy.biv.BigImageViewer
 import com.github.piasy.biv.loader.glide.GlideImageLoader
 import com.google.gson.Gson
 import com.loitp.annotation.LogTag
-import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LConnectivityUtil
-import com.loitp.core.utilities.LLog
-import com.loitp.core.utilities.LUIUtil
-import com.loitp.game.findNumber.db.FindNumberDatabase
+import com.loitp.core.ext.*
 import com.loitp.core.utils.Utils
+import com.loitp.game.findNumber.db.FindNumberDatabase
 
 
 /**
@@ -54,18 +51,20 @@ open class BaseApplication : MultiDexApplication(), LifecycleObserver {
         registerActivityLifecycleCallbacks(mFTActivityLifecycleCallbacks)
 
         logTag = javaClass.getAnnotation(LogTag::class.java)?.value
-        LAppResource.init(this)
+
+        this.init()
+
         Utils.init(this)
 
         // big image view
         BigImageViewer.initialize(GlideImageLoader.with(applicationContext))
 
         // network
-        LConnectivityUtil.initOnNetworkChange()
+        this.initOnNetworkChange()
 
         // dark mode
-        val isDarkTheme = LUIUtil.isDarkTheme()
-        LUIUtil.setDarkTheme(isDarkTheme = isDarkTheme)
+        val isDarkTheme = isDarkTheme()
+        setDarkTheme(isDarkTheme = isDarkTheme)
 
         //game find number database
         FindNumberDatabase.getInstance(this)
@@ -73,13 +72,13 @@ open class BaseApplication : MultiDexApplication(), LifecycleObserver {
 
     protected fun logD(msg: String) {
         logTag?.let {
-            LLog.d(it, msg)
+            d(it, msg)
         }
     }
 
     protected fun logE(msg: String) {
         logTag?.let {
-            LLog.e(it, msg)
+            e(it, msg)
         }
     }
 

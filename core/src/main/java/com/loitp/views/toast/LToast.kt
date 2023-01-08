@@ -6,10 +6,11 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
-import com.loitp.core.utilities.LAppResource
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.BuildConfig
 import com.loitp.R
+import com.loitp.core.ext.LAppResource.application
+import com.loitp.core.ext.getColor
+import com.loitp.core.ext.isDarkTheme
 
 /**
  * Created by Loitp on 04,August,2022
@@ -19,9 +20,6 @@ import com.loitp.R
  * freuss47@gmail.com
  */
 object LToast {
-
-    private val toastList = ArrayList<Toast>()
-
     @JvmStatic
     @SuppressLint("InflateParams")
     @JvmOverloads
@@ -35,16 +33,15 @@ object LToast {
         if (msg.isNullOrEmpty()) {
             return
         }
-        clear()
         try {
             val inf =
-                LAppResource.application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val layout = inf.inflate(R.layout.l_v_toast, null)
             val textView = layout.findViewById<AppCompatTextView>(R.id.tvLoading)
             textView.text = msg
-            textView.setBackgroundColor(LAppResource.getColor(backgroundResColor))
-            textView.setTextColor(LAppResource.getColor(textResColor))
-            val toast = Toast(LAppResource.application)
+            textView.setBackgroundColor(getColor(backgroundResColor))
+            textView.setTextColor(getColor(textResColor))
+            val toast = Toast(application)
             if (isTopAnchor) {
                 toast.setGravity(Gravity.FILL_HORIZONTAL or Gravity.TOP, 0, 0)
             } else {
@@ -53,17 +50,9 @@ object LToast {
             toast.duration = length
             toast.view = layout
             toast.show()
-            toastList.add(toast)
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
-
-    private fun clear() {
-        for (i in toastList.indices) {
-            toastList[i].cancel()
-        }
-        toastList.clear()
     }
 
     fun showShortInformation(
@@ -72,7 +61,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (LUIUtil.isDarkTheme()) {
+        if (application.isDarkTheme()) {
             textResColor = R.color.black
             backgroundResColor = R.color.whiteSmoke
         } else {
@@ -94,7 +83,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (LUIUtil.isDarkTheme()) {
+        if (application.isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.darkOrange
         } else {
@@ -116,7 +105,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (LUIUtil.isDarkTheme()) {
+        if (application.isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.red
         } else {
@@ -138,7 +127,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (LUIUtil.isDarkTheme()) {
+        if (application.isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.dark900
         } else {
@@ -160,7 +149,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (LUIUtil.isDarkTheme()) {
+        if (application.isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.darkOrange
         } else {
@@ -182,7 +171,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (LUIUtil.isDarkTheme()) {
+        if (application.isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.red
         } else {

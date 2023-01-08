@@ -15,12 +15,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.common.Constants
-import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
-import com.loitp.core.utilities.LActivityUtil
-import com.loitp.core.utilities.LDialogUtil
-import com.loitp.core.utilities.LSocialUtil
-import com.loitp.core.utilities.LUIUtil
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
@@ -111,24 +107,22 @@ class GalleryCorePhotosOnlyFrm(
                     }
 
                     override fun onClickShare(photo: Photo, pos: Int) {
-                        LSocialUtil.share(activity = a, msg = photo.urlO)
+                        a.share(msg = photo.urlO)
                     }
 
                     override fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView) {
-                        LUIUtil.setWallpaperAndLockScreen(
-                            activity = requireActivity(),
-                            imageView = imageView,
+                        imageView.setWallpaperAndLockScreen(
                             isSetWallpaper = true,
                             isSetLockScreen = true,
                         )
                     }
 
                     override fun onClickReport(photo: Photo, pos: Int) {
-                        LSocialUtil.sendEmail(context = a)
+                        a.sendEmail()
                     }
 
                     override fun onClickCmt(photo: Photo, pos: Int) {
-                        LSocialUtil.openFacebookComment(context = a, url = photo.urlO)
+                        a.openFacebookComment(url = photo.urlO)
                     }
                 }
             )
@@ -146,8 +140,7 @@ class GalleryCorePhotosOnlyFrm(
             recyclerView.adapter = animAdapter
         }
 
-        LUIUtil.setScrollChange(
-            recyclerView = recyclerView,
+        recyclerView.setScrollChange(
             onTop = {
                 onTop?.invoke(Unit)
             },
@@ -174,8 +167,7 @@ class GalleryCorePhotosOnlyFrm(
             arr[i] = "Page " + (totalPage - i)
         }
         activity?.let {
-            LDialogUtil.showDialogList(
-                context = it,
+            it.showDialogList(
                 title = "Select page",
                 arr = arr,
                 onClick = { position ->
@@ -212,7 +204,7 @@ class GalleryCorePhotosOnlyFrm(
     }
 
     private fun getPhotosets() {
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -251,7 +243,7 @@ class GalleryCorePhotosOnlyFrm(
                 }, { e ->
                     e.printStackTrace()
                     handleException(e)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                 })
         )
     }
@@ -267,7 +259,7 @@ class GalleryCorePhotosOnlyFrm(
         }
         logD("is calling photosetsGetPhotos $currentPage/$totalPage")
         isLoading = true
-        LDialogUtil.showProgress(progressBar)
+        progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -275,7 +267,7 @@ class GalleryCorePhotosOnlyFrm(
         if (currentPage <= 0) {
             logD("currentPage <= 0 -> return")
             currentPage = 0
-            LDialogUtil.hideProgress(progressBar)
+            progressBar.hideProgress()
             return
         }
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
@@ -312,13 +304,13 @@ class GalleryCorePhotosOnlyFrm(
                     }
                     updateAllViews()
 
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     btPage.visibility = View.VISIBLE
                     isLoading = false
                     currentPage--
                 }, { e ->
                     handleException(e)
-                    LDialogUtil.hideProgress(progressBar)
+                    progressBar.hideProgress()
                     isLoading = true
                 })
         )
@@ -330,7 +322,7 @@ class GalleryCorePhotosOnlyFrm(
     }
 
     private fun checkPermission() {
-        val color = if (LUIUtil.isDarkTheme()) {
+        val color = if (requireContext().isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK
@@ -365,7 +357,7 @@ class GalleryCorePhotosOnlyFrm(
                 } else {
                     activity?.let {
                         it.finish()//correct
-                        LActivityUtil.tranOut(it)
+                        it.tranOut()
                     }
                 }
             }

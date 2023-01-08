@@ -11,7 +11,7 @@ import vn.loitp.R
 @LogTag("fragmentNavigationActivity")
 class FN1 : BaseFragment(), OnBackPressedListener {
 
-    private var fragmentNavigationActivity: FragmentNavigationActivity? = null
+    private var fragmentNavigationActivity: FragmentNavigationActivityFont? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.f_fn_1
@@ -19,7 +19,7 @@ class FN1 : BaseFragment(), OnBackPressedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        fragmentNavigationActivity = activity as FragmentNavigationActivity?
+        fragmentNavigationActivity = activity as FragmentNavigationActivityFont?
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
