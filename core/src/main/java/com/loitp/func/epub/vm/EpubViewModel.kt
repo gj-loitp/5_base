@@ -6,8 +6,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseViewModel
 import com.loitp.core.ext.LAppResource
+import com.loitp.core.ext.getJsonBookAsset
 import com.loitp.core.ext.getListEpubFiles
-import com.loitp.core.utilities.LPrefUtil
 import com.loitp.func.epub.CssStatus
 import com.loitp.func.epub.Reader
 import com.loitp.func.epub.exception.ReadingException
@@ -143,7 +143,7 @@ class EpubViewModel : BaseViewModel() {
         ioScope.launch {
             val listBookInfo = ArrayList<BookInfo>()
 
-            val jsonBookAsset = LPrefUtil.getJsonBookAsset()
+            val jsonBookAsset = LAppResource.application.getJsonBookAsset()
             if (jsonBookAsset.isNullOrEmpty()) {
                 listBookInfo.addAll(
                     elements = searchForFilesAsset(

@@ -1,5 +1,8 @@
 package vn.loitp.a.demo.ebookWithRealm;
 
+import static com.loitp.core.ext.PrefKt.getPreLoad;
+import static com.loitp.core.ext.PrefKt.setPreLoad;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
@@ -15,7 +18,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.loitp.annotation.IsFullScreen;
 import com.loitp.annotation.LogTag;
 import com.loitp.core.base.BaseActivityFont;
-import com.loitp.core.utilities.LPrefUtil;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -57,7 +59,7 @@ public class EbookWithRealmActivityFont extends BaseActivityFont {
 
         setupRecycler();
 
-        if (!LPrefUtil.Companion.getPreLoad()) {
+        if (!getPreLoad(this)) {
             setRealmData();
         }
 
@@ -146,7 +148,7 @@ public class EbookWithRealmActivityFont extends BaseActivityFont {
             realm.commitTransaction();
         }
 
-        LPrefUtil.Companion.setPreLoad(true);
+        setPreLoad(this, true);
     }
 
     @SuppressLint({"SetTextI18n", "NotifyDataSetChanged"})
@@ -240,7 +242,7 @@ public class EbookWithRealmActivityFont extends BaseActivityFont {
         realm.commitTransaction();
 
         if (results.size() == 0) {
-            LPrefUtil.Companion.setPreLoad(false);
+            setPreLoad(this, false);
         }
 
         booksAdapter.notifyItemRemoved(position);

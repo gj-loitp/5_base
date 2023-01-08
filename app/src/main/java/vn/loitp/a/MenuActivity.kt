@@ -15,7 +15,6 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.Constants
 import com.loitp.core.ext.*
 import com.loitp.core.helper.adHelper.AdHelperActivity
-import com.loitp.core.utilities.LPrefUtil
 import kotlinx.android.synthetic.main.a_menu.*
 import vn.loitp.R
 import vn.loitp.a.anim.MenuAnimationActivityFont
@@ -112,10 +111,8 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     }
 
     private fun setupConfigGoogle() {
-        val app = LPrefUtil.getGGAppSetting()
-//        logD(">>>setupConfigGoogle " + BaseApplication.gson.toJson(app))
+        val app = getGGAppSetting()
         val isFullData = app.config?.isFullData == true
-//        logD(">>>setupConfigGoogle isFullData $isFullData")
         if (isFullData) {
             btApi.isVisible = true
             btAnimation.isVisible = true

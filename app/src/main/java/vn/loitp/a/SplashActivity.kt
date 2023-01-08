@@ -194,8 +194,8 @@ class SplashActivity : BaseActivityFont() {
     }
 
     private fun checkReady() {
-        if (LPrefUtil.getCheckAppReady()) {
-            val app = LPrefUtil.getGGAppSetting()
+        if (getCheckAppReady()) {
+            val app = getGGAppSetting()
             val isFullData = app.config?.isFullData == true
             if (isFullData) {
                 isCheckReadyDone = true
@@ -218,8 +218,8 @@ class SplashActivity : BaseActivityFont() {
                 if (app == null || app.config?.isReady == false) {
                     showDialogNotReady()
                 } else {
-                    LPrefUtil.setCheckAppReady(true)
-                    LPrefUtil.setGGAppSetting(app)
+                    setCheckAppReady(true)
+                    setGGAppSetting(app)
                     isCheckReadyDone = true
                     goToHome()
                 }
