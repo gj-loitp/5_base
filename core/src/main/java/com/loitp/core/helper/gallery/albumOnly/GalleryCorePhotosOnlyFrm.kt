@@ -322,7 +322,7 @@ class GalleryCorePhotosOnlyFrm(
     }
 
     private fun checkPermission() {
-        val color = if (isDarkTheme()) {
+        val color = if (requireContext().isDarkTheme()) {
             Color.WHITE
         } else {
             Color.BLACK

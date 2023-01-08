@@ -6,10 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.ext.convertToPrice
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LSharedPrefsUtil
+import com.loitp.core.ext.*
 import kotlinx.android.synthetic.main.a_db_shared_prefs.*
 import vn.loitp.R
 import vn.loitp.a.pattern.mvp.User
@@ -52,66 +49,65 @@ class SharedPrefsActivityFont : BaseActivityFont() {
         }
 
         btPutString.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putString(
+            putString(
                 KEY_STRING,
                 "This is a string!!! " + System.currentTimeMillis()
             )
         }
         btGetString.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getString(KEY_STRING)
+            val value = getString(KEY_STRING)
             showLongInformation(value)
         }
 
         btPutStringWithDefaultValue.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putString(
+            putString(
                 KEY_STRING_WITH_DEFAULT_VALUE,
                 "This is a string!!! " + System.currentTimeMillis()
             )
         }
         btGetStringWithDefaultValue.setSafeOnClickListener {
-            val value =
-                LSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value")
+            val value = getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value")
             showLongInformation(value)
         }
 
         btPutBoolean.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putBoolean(KEY_BOOLEAN, true)
+            putBoolean(KEY_BOOLEAN, true)
         }
         btGetBoolean.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getBoolean(KEY_BOOLEAN)
+            val value = getBoolean(KEY_BOOLEAN)
             showLongInformation("Value: $value")
         }
 
         btPutFloat.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putFloat(KEY_FLOAT, System.currentTimeMillis().toFloat())
+            putFloat(KEY_FLOAT, System.currentTimeMillis().toFloat())
         }
         btGetFloat.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getFloat(KEY_FLOAT)
+            val value = getFloat(KEY_FLOAT)
             showLongInformation("Value: $value")
         }
 
         btPutInt.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putInt(KEY_INT, System.currentTimeMillis().toInt())
+            putInt(KEY_INT, System.currentTimeMillis().toInt())
         }
         btGetInt.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getInt(KEY_INT)
+            val value = getInt(KEY_INT)
             showLongInformation("Value: $value")
         }
 
         btPutLong.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putLong(KEY_LONG, System.currentTimeMillis())
+            putLong(KEY_LONG, System.currentTimeMillis())
         }
         btGetLong.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getLong(KEY_LONG)
+            val value = getLong(KEY_LONG)
             showLongInformation("Value: $value")
         }
 
         btPutNumber.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putString(KEY_NUMBER, 123456.789.toString())
+            putString(KEY_NUMBER, 123456.789.toString())
         }
         btGetNumber.setSafeOnClickListener {
             try {
-                val value = LSharedPrefsUtil.instance.getString(KEY_NUMBER)
+                val value = getString(KEY_NUMBER)
                 showLongInformation(
                     "Value: $value -> " + value.toBigDecimalOrNull().convertToPrice()
                 )
@@ -124,10 +120,10 @@ class SharedPrefsActivityFont : BaseActivityFont() {
             val user = User()
             user.email = "Email ${System.currentTimeMillis()}"
             user.fullName = "Name ${System.currentTimeMillis()}"
-            LSharedPrefsUtil.instance.putObject(KEY_OBJECT, user)
+            putObject(KEY_OBJECT, user)
         }
         btGetObject.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getObject(KEY_OBJECT, User::class.java)
+            val value = getObject(KEY_OBJECT, User::class.java)
             showLongInformation("Value: $value")
         }
 
@@ -139,13 +135,12 @@ class SharedPrefsActivityFont : BaseActivityFont() {
                 user.fullName = "Name ${System.currentTimeMillis()}"
                 list.add(user)
             }
-            LSharedPrefsUtil.instance.putObjectList(KEY_LIST_OBJECT, list)
+            putObjectList(KEY_LIST_OBJECT, list)
         }
         btGetListObject.setSafeOnClickListener {
             val type = object : TypeToken<List<User>>() {
             }.type
-            val value: ArrayList<User> =
-                LSharedPrefsUtil.instance.getObjectList(KEY_LIST_OBJECT, type)
+            val value: ArrayList<User> = getObjectList(KEY_LIST_OBJECT, type)
             logD("list size: " + value.size)
             for (i in value.indices) {
                 logD("$i -> ${value[i].fullName}")

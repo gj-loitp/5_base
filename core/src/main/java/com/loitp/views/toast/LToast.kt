@@ -61,7 +61,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (isDarkTheme()) {
+        if (application.isDarkTheme()) {
             textResColor = R.color.black
             backgroundResColor = R.color.whiteSmoke
         } else {
@@ -83,7 +83,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (isDarkTheme()) {
+        if (application.isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.darkOrange
         } else {
@@ -105,7 +105,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (isDarkTheme()) {
+        if (application.isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.red
         } else {
@@ -127,7 +127,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (isDarkTheme()) {
+        if (application.isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.dark900
         } else {
@@ -149,7 +149,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (isDarkTheme()) {
+        if (application.isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.darkOrange
         } else {
@@ -171,7 +171,7 @@ object LToast {
     ) {
         val textResColor: Int
         val backgroundResColor: Int
-        if (isDarkTheme()) {
+        if (application.isDarkTheme()) {
             textResColor = R.color.white
             backgroundResColor = R.color.red
         } else {

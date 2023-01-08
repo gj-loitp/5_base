@@ -46,7 +46,7 @@ class BottomSheetSettingTTTFragment : BaseBottomSheetFragment(
     }
 
     private fun setupViews() {
-        val isDarkTheme = isDarkTheme()
+        val isDarkTheme = requireContext().isDarkTheme()
         sw.isChecked = isDarkTheme
 
         sw.setOnCheckedChangeListener { _, isChecked ->
@@ -56,7 +56,7 @@ class BottomSheetSettingTTTFragment : BaseBottomSheetFragment(
 
     private fun handleSwitchDarkTheme(isChecked: Boolean) {
         context?.let { c ->
-            val isDarkTheme = isDarkTheme()
+            val isDarkTheme = c.isDarkTheme()
             if (isDarkTheme == isChecked) {
                 return@let
             }
@@ -67,13 +67,13 @@ class BottomSheetSettingTTTFragment : BaseBottomSheetFragment(
                 button1 = getString(R.string.cancel),
                 button2 = getString(R.string.ok),
                 onClickButton1 = {
-                    sw?.isChecked = isDarkTheme()
+                    sw?.isChecked = c.isDarkTheme()
                 },
                 onClickButton2 = {
                     if (isChecked) {
-                        setDarkTheme(isDarkTheme = true)
+                        c.setDarkTheme(isDarkTheme = true)
                     } else {
-                        setDarkTheme(isDarkTheme = false)
+                        c.setDarkTheme(isDarkTheme = false)
                     }
                     dialog?.dismiss()
                     this@BottomSheetSettingTTTFragment.dismiss()
@@ -81,7 +81,7 @@ class BottomSheetSettingTTTFragment : BaseBottomSheetFragment(
                 }
             )
             dialog?.setOnCancelListener {
-                sw?.isChecked = isDarkTheme()
+                sw?.isChecked = c.isDarkTheme()
             }
         }
     }

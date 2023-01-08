@@ -99,7 +99,7 @@ abstract class StickerView : FrameLayout {
         ivDelete?.setImageResource(R.drawable.ic_close_black_48dp)
         ivFlip?.setImageResource(R.drawable.ic_autorenew_black_48dp)
 
-        if (isDarkTheme()) {
+        if (context.isDarkTheme()) {
             ivScale?.setColorFilter(Color.WHITE)
             ivDelete?.setColorFilter(Color.WHITE)
             ivFlip?.setColorFilter(Color.WHITE)
@@ -378,7 +378,7 @@ abstract class StickerView : FrameLayout {
             border.bottom = this.bottom - params.bottomMargin
             val borderPaint = Paint()
             borderPaint.strokeWidth = 6f
-            if (isDarkTheme()) {
+            if (context.isDarkTheme()) {
                 borderPaint.color = Color.WHITE
             } else {
                 borderPaint.color = Color.BLACK

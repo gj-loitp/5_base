@@ -3,7 +3,6 @@ package com.loitp.core.ext
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import com.loitp.core.utilities.LSharedPrefsUtil
 import com.loitp.data.EventBusData
 
 /**
@@ -15,8 +14,8 @@ import com.loitp.data.EventBusData
  */
 fun Context.initOnNetworkChange() {
     val isConnected = isConnected()
-    LSharedPrefsUtil.instance.putBoolean(
-        LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK,
+    putBoolean(
+        KEY_BOOLEAN_IS_CONNECTED_NETWORK,
         isConnected
     )
 }
@@ -37,23 +36,23 @@ fun Context.isConnected(): Boolean {
     return result
 }
 
-fun onNetworkConnectionChanged(isConnected: Boolean?) {
+fun Context.onNetworkConnectionChanged(isConnected: Boolean?) {
     if (isConnected == true) {
         val prevIsConnectedNetwork =
-            LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK)
+            getBoolean(KEY_BOOLEAN_IS_CONNECTED_NETWORK)
         if (prevIsConnectedNetwork != isConnected) {
-            LSharedPrefsUtil.instance.putBoolean(
-                key = LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK,
+            putBoolean(
+                key = KEY_BOOLEAN_IS_CONNECTED_NETWORK,
                 data = true
             )
             EventBusData.instance.sendConnectChange(isConnected = true)
         }
     } else {
         val prevIsConnectedNetwork =
-            LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK)
+            getBoolean(KEY_BOOLEAN_IS_CONNECTED_NETWORK)
         if (prevIsConnectedNetwork != isConnected) {
-            LSharedPrefsUtil.instance.putBoolean(
-                key = LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK,
+            putBoolean(
+                key = KEY_BOOLEAN_IS_CONNECTED_NETWORK,
                 data = false
             )
             EventBusData.instance.sendConnectChange(isConnected = false)

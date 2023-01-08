@@ -54,7 +54,7 @@ fun TextView.setTextShadow(
     color: Int?
 ) {
     val mColor: Int = color
-        ?: if (isDarkTheme()) {
+        ?: if (context.isDarkTheme()) {
             Color.BLACK
         } else {
             Color.WHITE

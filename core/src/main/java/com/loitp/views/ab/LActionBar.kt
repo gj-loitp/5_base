@@ -52,7 +52,7 @@ class LActionBar : RelativeLayout {
         this.tvTitle = findViewById(R.id.tvTitle)
 
         if (!isInEditMode) {
-            if (isDarkTheme()) {
+            if (context.isDarkTheme()) {
                 ivIconLeft?.setColorFilter(Color.WHITE)
                 ivIconRight?.setColorFilter(Color.WHITE)
                 tvTitle?.setTextColor(Color.WHITE)
