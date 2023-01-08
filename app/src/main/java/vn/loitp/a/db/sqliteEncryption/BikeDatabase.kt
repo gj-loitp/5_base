@@ -4,7 +4,9 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.loitp.core.utilities.LEncryptionUtil
+import com.loitp.core.ext.decrypt
+import com.loitp.core.ext.encodeBase64
+import com.loitp.core.ext.encrypt
 import com.loitp.core.utils.DeviceUtils
 
 /**
@@ -32,6 +34,7 @@ class BikeDatabase(context: Context) :
         private const val KEY_IMG_PATH_0 = "imgPath0"
         private const val KEY_IMG_PATH_1 = "imgPath1"
         private const val KEY_IMG_PATH_2 = "imgPath2"
+
         @Suppress("unused")
         const val RESULT_SUCCESS: Long = 1
         const val RESULT_FAILED: Long = -1
@@ -39,7 +42,7 @@ class BikeDatabase(context: Context) :
 
     private val logTag = javaClass.simpleName
     private val pw =
-        LEncryptionUtil.encodeBase64(logTag + DeviceUtils.androidID + DeviceUtils.macAddress) + "1993"
+        (logTag + DeviceUtils.androidID + DeviceUtils.macAddress).encodeBase64() + "1993"
 
     // Getting All Bike
     val allBike: List<Bike>
@@ -53,13 +56,13 @@ class BikeDatabase(context: Context) :
                     val bike = Bike()
 
                     val id = cursor.getString(0).toLong()
-                    val decryptName = LEncryptionUtil.decrypt(cursor.getString(1), pw)
-                    val decryptBranch = LEncryptionUtil.decrypt(cursor.getString(2), pw)
-                    val decryptHp = LEncryptionUtil.decrypt(cursor.getString(3), pw)
-                    val decryptPrice = LEncryptionUtil.decrypt(cursor.getString(4), pw)
-                    val decryptImgPath0 = LEncryptionUtil.decrypt(cursor.getString(5), pw)
-                    val decryptImgPath1 = LEncryptionUtil.decrypt(cursor.getString(6), pw)
-                    val decryptImgPath2 = LEncryptionUtil.decrypt(cursor.getString(7), pw)
+                    val decryptName = cursor.getString(1).decrypt(pw)
+                    val decryptBranch = cursor.getString(2).decrypt(pw)
+                    val decryptHp = cursor.getString(3).decrypt(pw)
+                    val decryptPrice = cursor.getString(4).decrypt(pw)
+                    val decryptImgPath0 = cursor.getString(5).decrypt(pw)
+                    val decryptImgPath1 = cursor.getString(6).decrypt(pw)
+                    val decryptImgPath2 = cursor.getString(7).decrypt(pw)
 
                     bike.id = id
                     bike.name = decryptName
@@ -92,18 +95,8 @@ class BikeDatabase(context: Context) :
 
     // Creating Tables
     override fun onCreate(db: SQLiteDatabase) {
-        val query = (
-                "CREATE TABLE " + TABLE_BIKE + "(" +
-                        KEY_ID + " INTEGER PRIMARY KEY," +
-                        KEY_NAME + " TEXT NOT NULL, " +
-                        KEY_BRANCH + " TEXT NOT NULL, " +
-                        KEY_HP + " TEXT NOT NULL, " +
-                        KEY_PRICE + " TEXT NOT NULL, " +
-                        KEY_IMG_PATH_0 + " TEXT NOT NULL, " +
-                        KEY_IMG_PATH_1 + " TEXT NOT NULL, " +
-                        KEY_IMG_PATH_2 + " TEXT NOT NULL " +
-                        ")"
-                )
+        val query =
+            ("CREATE TABLE " + TABLE_BIKE + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT NOT NULL, " + KEY_BRANCH + " TEXT NOT NULL, " + KEY_HP + " TEXT NOT NULL, " + KEY_PRICE + " TEXT NOT NULL, " + KEY_IMG_PATH_0 + " TEXT NOT NULL, " + KEY_IMG_PATH_1 + " TEXT NOT NULL, " + KEY_IMG_PATH_2 + " TEXT NOT NULL " + ")")
         db.execSQL(query)
     }
 
@@ -124,13 +117,13 @@ class BikeDatabase(context: Context) :
         val db = this.writableDatabase
         val values = ContentValues()
 
-        val encryptName = LEncryptionUtil.encrypt(bike.name, pw)
-        val encryptBranch = LEncryptionUtil.encrypt(bike.branch, pw)
-        val encryptHp = LEncryptionUtil.encrypt(bike.hp.toString(), pw)
-        val encryptPrice = LEncryptionUtil.encrypt(bike.price.toString(), pw)
-        val encryptImgPath0 = LEncryptionUtil.encrypt(bike.imgPath0, pw)
-        val encryptImgPath1 = LEncryptionUtil.encrypt(bike.imgPath1, pw)
-        val encryptImgPath2 = LEncryptionUtil.encrypt(bike.imgPath2, pw)
+        val encryptName = bike.name.encrypt(pw)
+        val encryptBranch = bike.branch.encrypt(pw)
+        val encryptHp = bike.hp.toString().encrypt(pw)
+        val encryptPrice = bike.price.toString().encrypt(pw)
+        val encryptImgPath0 = bike.imgPath0.encrypt(pw)
+        val encryptImgPath1 = bike.imgPath1.encrypt(pw)
+        val encryptImgPath2 = bike.imgPath2.encrypt(pw)
 
         values.put(KEY_NAME, encryptName)
         values.put(KEY_BRANCH, encryptBranch)
@@ -150,8 +143,7 @@ class BikeDatabase(context: Context) :
         }
         val db = this.readableDatabase
         val cursor = db.query(
-            TABLE_BIKE,
-            arrayOf(
+            TABLE_BIKE, arrayOf(
                 KEY_ID,
                 KEY_NAME,
                 KEY_BRANCH,
@@ -160,22 +152,20 @@ class BikeDatabase(context: Context) :
                 KEY_IMG_PATH_0,
                 KEY_IMG_PATH_1,
                 KEY_IMG_PATH_2
-            ),
-            "$KEY_ID=?",
-            arrayOf(idBike.toString()), null, null, null, null
+            ), "$KEY_ID=?", arrayOf(idBike.toString()), null, null, null, null
         )
         if (cursor != null) {
             cursor.moveToFirst()
             if (cursor.count >= 1) {
                 val bike = Bike()
                 val id = cursor.getString(0).toLong()
-                val decryptName = LEncryptionUtil.decrypt(cursor.getString(1), pw)
-                val decryptBranch = LEncryptionUtil.decrypt(cursor.getString(2), pw)
-                val decryptHp = LEncryptionUtil.decrypt(cursor.getString(3), pw)
-                val decryptPrice = LEncryptionUtil.decrypt(cursor.getString(4), pw)
-                val decryptImgPath0 = LEncryptionUtil.decrypt(cursor.getString(5), pw)
-                val decryptImgPath1 = LEncryptionUtil.decrypt(cursor.getString(6), pw)
-                val decryptImgPath2 = LEncryptionUtil.decrypt(cursor.getString(7), pw)
+                val decryptName = cursor.getString(1).decrypt(pw)
+                val decryptBranch = cursor.getString(2).decrypt(pw)
+                val decryptHp = cursor.getString(3).decrypt(pw)
+                val decryptPrice = cursor.getString(4).decrypt(pw)
+                val decryptImgPath0 = cursor.getString(5).decrypt(pw)
+                val decryptImgPath1 = cursor.getString(6).decrypt(pw)
+                val decryptImgPath2 = cursor.getString(7).decrypt(pw)
 
                 bike.id = id
                 bike.name = decryptName
@@ -203,13 +193,13 @@ class BikeDatabase(context: Context) :
         val db = this.writableDatabase
         val values = ContentValues()
 
-        val encryptName = LEncryptionUtil.encrypt(bike.name, pw)
-        val encryptBranch = LEncryptionUtil.encrypt(bike.branch, pw)
-        val encryptHp = LEncryptionUtil.encrypt(bike.hp.toString(), pw)
-        val encryptPrice = LEncryptionUtil.encrypt(bike.price.toString(), pw)
-        val encryptImgPath0 = LEncryptionUtil.encrypt(bike.imgPath0, pw)
-        val encryptImgPath1 = LEncryptionUtil.encrypt(bike.imgPath1, pw)
-        val encryptImgPath2 = LEncryptionUtil.encrypt(bike.imgPath2, pw)
+        val encryptName = bike.name.encrypt(pw)
+        val encryptBranch = bike.branch.encrypt(pw)
+        val encryptHp = bike.hp.toString().encrypt(pw)
+        val encryptPrice = bike.price.toString().encrypt(pw)
+        val encryptImgPath0 = bike.imgPath0.encrypt(pw)
+        val encryptImgPath1 = bike.imgPath1.encrypt(pw)
+        val encryptImgPath2 = bike.imgPath2.encrypt(pw)
 
         values.put(KEY_NAME, encryptName)
         values.put(KEY_BRANCH, encryptBranch)

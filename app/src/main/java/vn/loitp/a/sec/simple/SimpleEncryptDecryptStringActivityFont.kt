@@ -6,9 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LEncryptionUtil
+import com.loitp.core.ext.*
 import kotlinx.android.synthetic.main.a_encrypt_decrypt_string.*
 import vn.loitp.R
 import vn.loitp.a.pattern.mvp.User
@@ -50,14 +48,14 @@ class SimpleEncryptDecryptStringActivityFont : BaseActivityFont() {
 
         btEncodeBase64.setSafeOnClickListener {
             val str = tvBase64.text.toString()
-            val newStr = LEncryptionUtil.encodeBase64(str)
+            val newStr = str.encodeBase64()
             tvBase64.text = newStr
             btEncodeBase64.visibility = View.GONE
             btDecodeBase64.visibility = View.VISIBLE
         }
         btDecodeBase64.setSafeOnClickListener {
             val str = tvBase64.text.toString()
-            val newStr = LEncryptionUtil.decodeBase64(str)
+            val newStr = str.decodeBase64()
             tvBase64.text = newStr
             btEncodeBase64.visibility = View.VISIBLE
             btDecodeBase64.visibility = View.GONE
@@ -70,7 +68,7 @@ class SimpleEncryptDecryptStringActivityFont : BaseActivityFont() {
             showShortInformation("Empty string")
             return
         }
-        val newStr = LEncryptionUtil.encrypt(plaintext = str, password = password)
+        val newStr = str.encrypt(password = password)
         tv1.text = newStr
         tv0.text = ""
     }
@@ -81,7 +79,7 @@ class SimpleEncryptDecryptStringActivityFont : BaseActivityFont() {
             showShortInformation("Empty string")
             return
         }
-        val newStr = LEncryptionUtil.decrypt(cipherText = str, password = password)
+        val newStr = str.decrypt(password = password)
         tv1.text = ""
         tv0.text = newStr
     }
