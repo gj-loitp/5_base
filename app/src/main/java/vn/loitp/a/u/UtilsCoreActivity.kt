@@ -10,7 +10,6 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.*
 import com.loitp.core.helper.statusbar.StatusBarCompat
-import com.loitp.core.utilities.*
 import kotlinx.android.synthetic.main.a_utils_core.*
 import vn.loitp.R
 import java.math.BigDecimal
