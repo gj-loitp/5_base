@@ -15,7 +15,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.utilities.LNotification
+import com.loitp.core.ext.showNotification
 import com.loitp.func.notification.Notti
 import com.loitp.func.notification.NottiFactory
 import com.loitp.func.notification.actions.ContentAction
@@ -187,7 +187,7 @@ class MenuNotificationActivityFont : BaseActivityFont(), View.OnClickListener {
                 // pendingIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
 
-                LNotification.showNotification(
+                this.showNotification(
                     title = title,
                     body = body,
                     iconRes = iconRes,
