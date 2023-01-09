@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.i_text_view.view.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.normalRv.Movie
+import vn.loitp.a.cv.rv.normalRv.Movie
 
 class GalleryAdapterVertical internal constructor(
     private val moviesList: List<Movie>,

@@ -30,9 +30,9 @@ import vn.loitp.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActiv
 import vn.loitp.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont
 import vn.loitp.a.cv.rv.looping.LoopingLayoutActivity
 import vn.loitp.a.cv.rv.netView.NetViewActivity
-import vn.loitp.app.a.cv.rv.normalRv.RecyclerViewActivityFont
-import vn.loitp.app.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivityFont
-import vn.loitp.app.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivityFont
+import vn.loitp.a.cv.rv.normalRv.RecyclerViewActivity
+import vn.loitp.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity
+import vn.loitp.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivity
 import vn.loitp.app.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivityFont
 import vn.loitp.app.a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivityFont
 import vn.loitp.app.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivityFont
@@ -92,10 +92,10 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
         when (v) {
             btArcViewActivity -> launchActivity(ArcViewActivity::class.java)
             btParallaxRecyclerView -> launchActivity(ParallaxRecyclerViewActivityFont::class.java)
-            btNormalRecyclerView -> launchActivity(RecyclerViewActivityFont::class.java)
-            btNormalRecyclerViewWithSpanSize -> launchActivity(RecyclerViewWithSpanSizeActivityFont::class.java)
+            btNormalRecyclerView -> launchActivity(RecyclerViewActivity::class.java)
+            btNormalRecyclerViewWithSpanSize -> launchActivity(RecyclerViewWithSpanSizeActivity::class.java)
             btNormalRecyclerViewWithSingletonData -> launchActivity(
-                RecyclerViewWithSingletonDataActivityFont::class.java
+                RecyclerViewWithSingletonDataActivity::class.java
             )
             btGalleryLayoutManager -> launchActivity(GalleryLayoutManagerHorizontalActivity::class.java)
             btGalleryLayoutManagerVertical -> launchActivity(

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.normalRv
+package vn.loitp.a.cv.rv.normalRv
 
 import android.view.LayoutInflater
 import android.view.View

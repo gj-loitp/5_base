@@ -1,6 +1,5 @@
-package vn.loitp.app.a.cv.rv.normalWithSpanSize
+package vn.loitp.a.cv.rv.normalWithSpanSize
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
@@ -11,20 +10,20 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
-import kotlinx.android.synthetic.main.activity_recycler_view.*
+import kotlinx.android.synthetic.main.a_rv.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.normalRv.Movie
-import vn.loitp.app.a.cv.rv.normalRv.MoviesAdapter
+import vn.loitp.a.cv.rv.normalRv.Movie
+import vn.loitp.a.cv.rv.normalRv.MoviesAdapter
 import vn.loitp.common.Constants
 
 @LogTag("RecyclerViewWithSpanSizeActivity")
 @IsFullScreen(false)
-class RecyclerViewWithSpanSizeActivityFont : BaseActivityFont() {
+class RecyclerViewWithSpanSizeActivity : BaseActivityFont() {
     private val movieList: MutableList<Movie> = ArrayList()
     private var moviesAdapter: MoviesAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view
+        return R.layout.a_rv
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +41,7 @@ class RecyclerViewWithSpanSizeActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = RecyclerViewWithSpanSizeActivityFont::class.java.simpleName
+            this.tvTitle?.text = RecyclerViewWithSpanSizeActivity::class.java.simpleName
         }
         moviesAdapter =
             MoviesAdapter(
@@ -84,7 +83,6 @@ class RecyclerViewWithSpanSizeActivityFont : BaseActivityFont() {
         // LUIUtil.setPullLikeIOSVertical(rv)
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
         setDelay(
             mls = 2000,
@@ -99,13 +97,12 @@ class RecyclerViewWithSpanSizeActivityFont : BaseActivityFont() {
                     )
                     movieList.add(movie)
                 }
-                moviesAdapter?.notifyDataSetChanged()
+                moviesAdapter?.notifyAllViews()
                 showShortInformation("Finish loadMore")
             }
         )
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         for (i in 0..99) {
             val movie = Movie(
@@ -116,6 +113,6 @@ class RecyclerViewWithSpanSizeActivityFont : BaseActivityFont() {
             )
             movieList.add(movie)
         }
-        moviesAdapter?.notifyDataSetChanged()
+        moviesAdapter?.notifyAllViews()
     }
 }

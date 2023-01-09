@@ -13,9 +13,9 @@ import com.loitp.core.ext.*
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.a_rv_footer.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.normalRv.Movie
-import vn.loitp.app.a.cv.rv.normalRv.MoviesAdapter
-import vn.loitp.app.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
+import vn.loitp.a.cv.rv.normalRv.Movie
+import vn.loitp.a.cv.rv.normalRv.MoviesAdapter
+import vn.loitp.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
 import vn.loitp.common.Constants
 
 @LogTag("RecyclerViewFooterActivity")

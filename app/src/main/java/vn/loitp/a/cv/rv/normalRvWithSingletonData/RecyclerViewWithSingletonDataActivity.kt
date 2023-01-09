@@ -1,6 +1,5 @@
-package vn.loitp.app.a.cv.rv.normalRvWithSingletonData
+package vn.loitp.a.cv.rv.normalRvWithSingletonData
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,21 +13,21 @@ import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.showPopup
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
-import kotlinx.android.synthetic.main.activity_recycler_view.*
+import kotlinx.android.synthetic.main.a_rv.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.normalRv.Movie
-import vn.loitp.app.a.cv.rv.normalRv.MoviesAdapter
-import vn.loitp.app.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
+import vn.loitp.a.cv.rv.normalRv.Movie
+import vn.loitp.a.cv.rv.normalRv.MoviesAdapter
+import vn.loitp.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
 import vn.loitp.common.Constants
 
 @LogTag("RecyclerViewWithSingletonDataActivity")
 @IsFullScreen(false)
-class RecyclerViewWithSingletonDataActivityFont : BaseActivityFont() {
+class RecyclerViewWithSingletonDataActivity : BaseActivityFont() {
 
     private var mAdapter: MoviesAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view
+        return R.layout.a_rv
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +42,7 @@ class RecyclerViewWithSingletonDataActivityFont : BaseActivityFont() {
                 onBaseBackPressed()
             })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = RecyclerViewWithSingletonDataActivityFont::class.java.simpleName
+            this.tvTitle?.text = RecyclerViewWithSingletonDataActivity::class.java.simpleName
         }
         mAdapter = MoviesAdapter(moviesList = instance.movieList,
             callback = object : MoviesAdapter.Callback {
@@ -93,21 +92,21 @@ class RecyclerViewWithSingletonDataActivityFont : BaseActivityFont() {
                     when (menuItem.itemId) {
                         R.id.menuLinearVertical -> {
                             val lmVertical: RecyclerView.LayoutManager =
-                                LinearLayoutManager(this@RecyclerViewWithSingletonDataActivityFont)
+                                LinearLayoutManager(this@RecyclerViewWithSingletonDataActivity)
                             rv.layoutManager = lmVertical
                         }
                         R.id.menuLinearHorizontal -> {
                             val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(
-                                this@RecyclerViewWithSingletonDataActivityFont,
+                                this@RecyclerViewWithSingletonDataActivity,
                                 LinearLayoutManager.HORIZONTAL,
                                 false
                             )
                             rv.layoutManager = lmHorizontal
                         }
                         R.id.menuGridLayoutManager2 -> rv.layoutManager =
-                            GridLayoutManager(this@RecyclerViewWithSingletonDataActivityFont, 2)
+                            GridLayoutManager(this@RecyclerViewWithSingletonDataActivity, 2)
                         R.id.menuGridLayoutManager3 -> rv.layoutManager =
-                            GridLayoutManager(this@RecyclerViewWithSingletonDataActivityFont, 3)
+                            GridLayoutManager(this@RecyclerViewWithSingletonDataActivity, 3)
                         R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager =
                             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                         R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager =
@@ -117,7 +116,6 @@ class RecyclerViewWithSingletonDataActivityFont : BaseActivityFont() {
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
         setDelay(mls = 2000, runnable = {
             val newSize = 5
@@ -130,12 +128,11 @@ class RecyclerViewWithSingletonDataActivityFont : BaseActivityFont() {
                 )
                 instance.movieList.add(movie)
             }
-            mAdapter?.notifyDataSetChanged()
+            mAdapter?.notifyAllViews()
             showShortInformation("Finish loadMore")
         })
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         if (instance.movieList.isEmpty()) {
             for (i in 0..9) {
@@ -148,6 +145,6 @@ class RecyclerViewWithSingletonDataActivityFont : BaseActivityFont() {
                 instance.movieList.add(movie)
             }
         }
-        mAdapter?.notifyDataSetChanged()
+        mAdapter?.notifyAllViews()
     }
 }

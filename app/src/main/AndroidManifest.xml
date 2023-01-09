@@ -229,7 +229,7 @@
             android:name=".a.cv.layout.swipeRefresh.withRv.SwipeRefreshLayoutRecyclerViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.normalRv.RecyclerViewActivityFont"
+            android:name=".a.cv.rv.normalRv.RecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.textDecorator.TextDecoratorActivityFont"
@@ -244,7 +244,7 @@
             android:name=".app.a.cv.tv.selectable.SelectableTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivityFont"
+            android:name=".a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.anim.flySchool.FlySchoolActivityFont"
@@ -313,7 +313,7 @@
             android:name=".a.cv.scratchView.scratchViewTv.ScratchViewTextActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivityFont"
+            android:name=".a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.footer.RecyclerViewFooterActivity"

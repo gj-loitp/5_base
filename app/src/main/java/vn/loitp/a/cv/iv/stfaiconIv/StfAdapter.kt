@@ -11,7 +11,7 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
 import kotlinx.android.synthetic.main.v_item_stf.view.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.normalRv.Movie
+import vn.loitp.a.cv.rv.normalRv.Movie
 
 @LogTag("BookAdapter")
 class StfAdapter(

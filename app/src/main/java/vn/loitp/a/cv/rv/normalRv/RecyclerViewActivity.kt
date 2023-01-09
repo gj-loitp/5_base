@@ -1,6 +1,5 @@
-package vn.loitp.app.a.cv.rv.normalRv
+package vn.loitp.a.cv.rv.normalRv
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,20 +14,20 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.showPopup
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
-import kotlinx.android.synthetic.main.activity_recycler_view.*
+import kotlinx.android.synthetic.main.a_rv.*
 import vn.loitp.R
 import vn.loitp.common.Constants
 
 // https://github.com/wasabeef/recyclerview-animators
 @LogTag("RecyclerViewActivity")
 @IsFullScreen(false)
-class RecyclerViewActivityFont : BaseActivityFont() {
+class RecyclerViewActivity : BaseActivityFont() {
 
     private val movieList: MutableList<Movie> = ArrayList()
     private var moviesAdapter: MoviesAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view
+        return R.layout.a_rv
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +44,7 @@ class RecyclerViewActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = RecyclerViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = RecyclerViewActivity::class.java.simpleName
         }
 
         val animator = SlideInRightAnimator(OvershootInterpolator(1f))
@@ -103,12 +102,12 @@ class RecyclerViewActivityFont : BaseActivityFont() {
                     when (menuItem.itemId) {
                         R.id.menuLinearVertical -> {
                             val lmVertical: RecyclerView.LayoutManager =
-                                LinearLayoutManager(this@RecyclerViewActivityFont)
+                                LinearLayoutManager(this@RecyclerViewActivity)
                             rv.layoutManager = lmVertical
                         }
                         R.id.menuLinearHorizontal -> {
                             val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(
-                                this@RecyclerViewActivityFont,
+                                this@RecyclerViewActivity,
                                 LinearLayoutManager.HORIZONTAL,
                                 false
                             )
@@ -116,10 +115,10 @@ class RecyclerViewActivityFont : BaseActivityFont() {
                         }
                         R.id.menuGridLayoutManager2 ->
                             rv.layoutManager =
-                                GridLayoutManager(this@RecyclerViewActivityFont, 2)
+                                GridLayoutManager(this@RecyclerViewActivity, 2)
                         R.id.menuGridLayoutManager3 ->
                             rv.layoutManager =
-                                GridLayoutManager(this@RecyclerViewActivityFont, 3)
+                                GridLayoutManager(this@RecyclerViewActivity, 3)
                         R.id.menuStaggeredGridLayoutManager2 ->
                             rv.layoutManager =
                                 StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
@@ -132,7 +131,6 @@ class RecyclerViewActivityFont : BaseActivityFont() {
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
         setDelay(
             mls = 2000,
@@ -147,13 +145,12 @@ class RecyclerViewActivityFont : BaseActivityFont() {
                     )
                     movieList.add(movie)
                 }
-                moviesAdapter?.notifyDataSetChanged()
+                moviesAdapter?.notifyAllViews()
                 showShortInformation("Finish loadMore")
             }
         )
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         for (i in 0..99) {
             val movie = Movie(
@@ -164,6 +161,6 @@ class RecyclerViewActivityFont : BaseActivityFont() {
             )
             movieList.add(movie)
         }
-        moviesAdapter?.notifyDataSetChanged()
+        moviesAdapter?.notifyAllViews()
     }
 }

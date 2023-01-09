@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.getHeightOfView
 import kotlinx.android.synthetic.main.f_coordinator_4.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.normalRv.Movie
+import vn.loitp.a.cv.rv.normalRv.Movie
 import vn.loitp.common.Constants
 
 @LogTag("FrmCoordinator4")

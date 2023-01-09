@@ -1,6 +1,6 @@
-package vn.loitp.app.a.cv.rv.normalRvWithSingletonData
+package vn.loitp.a.cv.rv.normalRvWithSingletonData
 
-import vn.loitp.app.a.cv.rv.normalRv.Movie
+import vn.loitp.a.cv.rv.normalRv.Movie
 
 class DummyData private constructor() {
 
