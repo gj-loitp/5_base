@@ -16,7 +16,7 @@ import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_simple_rating_bar.*
 import vn.loitp.R
-import vn.loitp.app.EmptyActivityFont
+import vn.loitp.app.EmptyActivity
 
 @LogTag("SimpleRatingBarActivity")
 @IsFullScreen(false)
@@ -51,7 +51,7 @@ class SimpleRatingBarActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = EmptyActivityFont::class.java.simpleName
+            this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }
         viewPager.adapter = SamplePagerAdapter(supportFragmentManager)
         tabLayout.addTab(tabLayout.newTab().setText("Animation Demo"))

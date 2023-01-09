@@ -13,7 +13,7 @@ import com.loitp.core.ext.tranIn
 import kotlinx.android.synthetic.main.a_example.*
 import vn.loitp.R
 import vn.loitp.a.cv.cornerSheet.sp.ShopActivityFont
-import vn.loitp.app.EmptyActivityFont
+import vn.loitp.app.EmptyActivity
 
 @LogTag("ExampleActivity")
 @IsFullScreen(false)
@@ -43,7 +43,7 @@ class CornetSheetExampleActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = EmptyActivityFont::class.java.simpleName
+            this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }
 
         main.setOnClickListener {

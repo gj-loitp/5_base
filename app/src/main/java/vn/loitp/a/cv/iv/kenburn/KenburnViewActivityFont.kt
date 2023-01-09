@@ -14,7 +14,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_kenburn_view.*
 import vn.loitp.R
-import vn.loitp.app.EmptyActivityFont
+import vn.loitp.app.EmptyActivity
 
 @LogTag("KenburnViewActivity")
 @IsFullScreen(false)
@@ -48,7 +48,7 @@ class KenburnViewActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = EmptyActivityFont::class.java.simpleName
+            this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }
         kbv.loadGlide(
             any = URL_IMG,

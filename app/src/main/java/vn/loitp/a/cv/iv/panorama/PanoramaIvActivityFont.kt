@@ -11,7 +11,7 @@ import com.loitp.views.iv.panorama.GyroscopeObserver
 import com.loitp.views.iv.panorama.LPanoramaImageView
 import kotlinx.android.synthetic.main.a_iv_panorama.*
 import vn.loitp.R
-import vn.loitp.app.EmptyActivityFont
+import vn.loitp.app.EmptyActivity
 
 @LogTag("PanoramaIvActivity")
 @IsFullScreen(false)
@@ -46,7 +46,7 @@ class PanoramaIvActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = EmptyActivityFont::class.java.simpleName
+            this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }
         gyroscopeObserver = GyroscopeObserver()
         // Set the maximum radian the device should rotate to show image's bounds.

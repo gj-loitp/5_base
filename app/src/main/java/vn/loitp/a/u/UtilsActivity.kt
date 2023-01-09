@@ -58,7 +58,7 @@ class UtilsActivity : BaseActivityFont() {
         listClass.add(CleanUtils::class.java.simpleName)
         listClass.add(BarUtils::class.java.simpleName)
         listClass.add(AppUtils::class.java.simpleName)
-        listClass.add(ActivityUtils::class.java.simpleName)
+        listClass.add("ActivityUtils")
 
         viewPager.adapter?.notifyDataSetChanged()
     }

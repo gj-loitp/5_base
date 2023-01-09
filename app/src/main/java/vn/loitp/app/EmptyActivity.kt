@@ -17,7 +17,7 @@ import vn.loitp.a.func.activityAndService.ActivityServiceCommunicateActivityFont
 @LogTag("EmptyActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class EmptyActivityFont : BaseActivityFont() {
+class EmptyActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_0
@@ -48,7 +48,7 @@ class EmptyActivityFont : BaseActivityFont() {
                 isVisible = true
                 setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = EmptyActivityFont::class.java.simpleName
+            this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }
     }
 

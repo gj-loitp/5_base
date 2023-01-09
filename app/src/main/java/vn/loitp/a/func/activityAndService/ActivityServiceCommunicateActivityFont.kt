@@ -16,7 +16,7 @@ import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import vn.loitp.R
 import vn.loitp.a.demo.floatingWidget.CommunicateMng
-import vn.loitp.app.EmptyActivityFont
+import vn.loitp.app.EmptyActivity
 
 @LogTag("ActivityServiceCommunicateActivity")
 @IsFullScreen(false)
@@ -88,7 +88,7 @@ class ActivityServiceCommunicateActivityFont : BaseActivityFont() {
 
     private fun launchActivityTest() {
         launchActivityForResult(
-            cls = EmptyActivityFont::class.java,
+            cls = EmptyActivity::class.java,
             withAnim = true,
             data = { intent ->
                 intent.putExtra(KEY_INPUT, "Hello Loitp ${System.currentTimeMillis()}")

@@ -815,7 +815,7 @@
             android:name=".a.db.sqliteEncryption.SqliteEncryptionActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.EmptyActivityFont"
+            android:name=".app.EmptyActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.db.sqliteMultiTable.SqliteMultiTableActivityFont"

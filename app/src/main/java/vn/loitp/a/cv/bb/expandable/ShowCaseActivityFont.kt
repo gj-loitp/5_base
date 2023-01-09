@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.a_showcase.*
 import vn.loitp.R
 import vn.loitp.a.cv.bb.expandable.screens.*
 import vn.loitp.a.cv.bb.expandable.screens.navi.NavigationComponentActivityFont
-import vn.loitp.app.EmptyActivityFont
+import vn.loitp.app.EmptyActivity
 
 @LogTag("ShowCaseActivity")
 @IsFullScreen(false)
@@ -82,7 +82,7 @@ class ShowCaseActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = EmptyActivityFont::class.java.simpleName
+            this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }
         val adapter = ShowCaseAdapter(showCaseInfos) { info ->
             val intent = Intent(this@ShowCaseActivityFont, info.toClass)
