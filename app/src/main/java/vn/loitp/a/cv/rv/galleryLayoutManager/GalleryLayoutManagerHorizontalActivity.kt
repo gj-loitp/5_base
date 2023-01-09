@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.galleryLayoutManager
+package vn.loitp.a.cv.rv.galleryLayoutManager
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,7 +14,7 @@ import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.rv.gallery.GalleryLayoutManager
 import com.loitp.views.rv.gallery.GalleryLayoutManager.ItemTransformer
-import kotlinx.android.synthetic.main.activity_recycler_view_menu_gallery_layout_manager.*
+import kotlinx.android.synthetic.main.a_rv_menu_gallery_layout_manager.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 import vn.loitp.app.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
@@ -23,11 +23,11 @@ import kotlin.math.abs
 
 @LogTag("GalleryLayoutManagerHorizontalActivity")
 @IsFullScreen(false)
-class GalleryLayoutManagerHorizontalActivityFont : BaseActivityFont() {
+class GalleryLayoutManagerHorizontalActivity : BaseActivityFont() {
     private var mAdapter: GalleryAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_menu_gallery_layout_manager
+        return R.layout.a_rv_menu_gallery_layout_manager
     }
 
     @SuppressLint("SetTextI18n")
@@ -56,7 +56,7 @@ class GalleryLayoutManagerHorizontalActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = GalleryLayoutManagerHorizontalActivityFont::class.java.simpleName
+            this.tvTitle?.text = GalleryLayoutManagerHorizontalActivity::class.java.simpleName
         }
 
         mAdapter = GalleryAdapter(
