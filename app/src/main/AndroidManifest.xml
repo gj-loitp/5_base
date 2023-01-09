@@ -509,7 +509,7 @@
             android:name=".a.cv.bt.autoSize.AutoSizeButtonActivityFont"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
-            android:name=".a.cv.lDebug.LDebugViewActivityFont"
+            android:name=".a.cv.lDebug.LDebugViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2ActivityFont"

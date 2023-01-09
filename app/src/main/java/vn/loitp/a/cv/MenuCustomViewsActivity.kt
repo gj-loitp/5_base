@@ -31,7 +31,7 @@ import vn.loitp.a.cv.fingerPaintView.FingerPaintActivityFont
 import vn.loitp.a.cv.graph.MenuGraphViewActivityFont
 import vn.loitp.a.cv.indicator.ex.MenuMagicIndicatorActivityFont
 import vn.loitp.a.cv.lCv.LCardViewActivityFont
-import vn.loitp.a.cv.lDebug.LDebugViewActivityFont
+import vn.loitp.a.cv.lDebug.LDebugViewActivity
 import vn.loitp.a.cv.layout.MenuLayoutActivityFont
 import vn.loitp.a.cv.luckyWheel.LuckyWheelActivityFont
 import vn.loitp.a.cv.menu.MenuMenuActivityFont
@@ -159,7 +159,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
             btFbCmt -> launchActivity(FacebookCommentActivityFont::class.java)
             btWwlMusic -> launchActivity(WWLActivityMusicFont::class.java)
             btWwlVideo -> launchActivity(WWLVideoActivity::class.java)
-            btLDebugView -> launchActivity(LDebugViewActivityFont::class.java)
+            btLDebugView -> launchActivity(LDebugViewActivity::class.java)
             btMenu -> launchActivity(MenuMenuActivityFont::class.java)
             btLCardView -> launchActivity(LCardViewActivityFont::class.java)
             btCalendar -> launchActivity(MenuCalendarActivityFont::class.java)

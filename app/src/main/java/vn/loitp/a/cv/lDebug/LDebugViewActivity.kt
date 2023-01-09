@@ -18,7 +18,7 @@ import vn.loitp.common.Constants.Companion.URL_IMG_2
 
 @LogTag("LDebugViewActivity")
 @IsFullScreen(false)
-class LDebugViewActivityFont : BaseActivityFont(), View.OnClickListener {
+class LDebugViewActivity : BaseActivityFont(), View.OnClickListener {
 
     private class User : BaseModel() {
         var avatar: String? = null
@@ -45,7 +45,7 @@ class LDebugViewActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = LDebugViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = LDebugViewActivity::class.java.simpleName
         }
         btStart.setOnClickListener(this)
         btStop.setOnClickListener(this)
@@ -70,7 +70,7 @@ class LDebugViewActivityFont : BaseActivityFont(), View.OnClickListener {
                 btSendObjectD.isEnabled = true
             }
             btStop -> {
-                LDebug.stop()
+                LDebug.stop(this@LDebugViewActivity)
                 btStop.isEnabled = false
                 btSendD.isEnabled = false
                 btSendI.isEnabled = false
@@ -105,6 +105,6 @@ class LDebugViewActivityFont : BaseActivityFont(), View.OnClickListener {
 
     private val resultOverlay =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            LDebug.start()
+            LDebug.start(this@LDebugViewActivity)
         }
 }
