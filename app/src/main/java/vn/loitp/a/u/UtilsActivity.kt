@@ -54,7 +54,7 @@ class UtilsActivity : BaseActivityFont() {
         listClass.add(DeviceUtils::class.java.simpleName)
         listClass.add(ConvertUtils::class.java.simpleName)
         listClass.add(CloseUtils::class.java.simpleName)
-        listClass.add(ClipboardUtils::class.java.simpleName)
+        listClass.add("ClipboardUtils")
         listClass.add(CleanUtils::class.java.simpleName)
         listClass.add(BarUtils::class.java.simpleName)
         listClass.add(AppUtils::class.java.simpleName)

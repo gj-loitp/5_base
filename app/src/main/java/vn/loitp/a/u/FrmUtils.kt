@@ -52,7 +52,7 @@ class FrmUtils : Fragment() {
                 CleanUtils::class.java.simpleName -> {
                     handleCleanUtils()
                 }
-                ClipboardUtils::class.java.simpleName -> {
+                "ClipboardUtils" -> {
                     handleClipboardUtils()
                 }
                 CloseUtils::class.java.simpleName -> {
