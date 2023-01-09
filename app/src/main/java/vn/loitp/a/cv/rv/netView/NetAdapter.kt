@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.netView
+package vn.loitp.a.cv.rv.netView
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.setTextShadow
-import kotlinx.android.synthetic.main.view_item_net.view.*
+import kotlinx.android.synthetic.main.i_net.view.*
 import vn.loitp.R
 
 @LogTag("NetAdapter")
@@ -46,7 +46,7 @@ class NetAdapter : BaseAdapter() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NetViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.view_item_net, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.i_net, parent, false)
         return NetViewHolder(itemView)
     }
 

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.netView
+package vn.loitp.a.cv.rv.netView
 
 import android.os.Bundle
 import android.view.MotionEvent
@@ -12,12 +12,12 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.setScreenOrientation
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
-import kotlinx.android.synthetic.main.activity_net_view.*
+import kotlinx.android.synthetic.main.a_net_view.*
 import vn.loitp.R
 
 @LogTag("NetViewActivity")
 @IsFullScreen(false)
-class NetViewActivityFont : BaseActivityFont() {
+class NetViewActivity : BaseActivityFont() {
     companion object {
         const val MAX_SIZE = 100
     }
@@ -26,7 +26,7 @@ class NetViewActivityFont : BaseActivityFont() {
     private val isEnableAnimation = true
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_net_view
+        return R.layout.a_net_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +44,7 @@ class NetViewActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = NetViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = NetViewActivity::class.java.simpleName
         }
         netAdapter.onClickRootView = { net ->
             showShortInformation(net.name)

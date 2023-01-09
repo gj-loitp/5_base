@@ -28,8 +28,8 @@ import vn.loitp.a.cv.rv.footer.RecyclerViewFooterActivity
 import vn.loitp.a.cv.rv.footer2.RecyclerViewFooter2Activity
 import vn.loitp.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity
 import vn.loitp.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont
-import vn.loitp.app.a.cv.rv.looping.LoopingLayoutActivityFont
-import vn.loitp.app.a.cv.rv.netView.NetViewActivityFont
+import vn.loitp.a.cv.rv.looping.LoopingLayoutActivity
+import vn.loitp.a.cv.rv.netView.NetViewActivity
 import vn.loitp.app.a.cv.rv.normalRv.RecyclerViewActivityFont
 import vn.loitp.app.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivityFont
 import vn.loitp.app.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivityFont
@@ -107,7 +107,7 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
             btConcatAdapter -> launchActivity(ConcatAdapterActivity::class.java)
             btFooter -> launchActivity(RecyclerViewFooterActivity::class.java)
             btFooter2 -> launchActivity(RecyclerViewFooter2Activity::class.java)
-            btNetView -> launchActivity(NetViewActivityFont::class.java)
+            btNetView -> launchActivity(NetViewActivity::class.java)
             btFitGridView -> launchActivity(FitGridViewActivity::class.java)
             btDragDropSwipeRecyclerviewListVertical -> launchActivity(
                 DragDropSwipeListVerticalRecyclerviewActivity::class.java
@@ -124,7 +124,7 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
             btCarouselRecyclerViewActivity -> launchActivity(CarouselRecyclerViewActivity::class.java)
             btDragDrop -> launchActivity(MainActivityDragDrop::class.java)
             btDragAndDropDemoActivity -> launchActivity(DragAndDropDemoActivity::class.java)
-            btLoopingLayout -> launchActivity(LoopingLayoutActivityFont::class.java)
+            btLoopingLayout -> launchActivity(LoopingLayoutActivity::class.java)
             btGreedoLayout -> launchActivity(GreedoLayoutActivityFont::class.java)
         }
     }

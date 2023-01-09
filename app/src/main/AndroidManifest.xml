@@ -830,7 +830,7 @@
             android:name=".a.sv.endless.EndlessServiceActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.looping.LoopingLayoutActivityFont"
+            android:name=".a.cv.rv.looping.LoopingLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.picker.image.ImagePickerActivityFont"
@@ -1011,7 +1011,7 @@
             android:name=".a.cv.layout.transformation.single.TransformationSingleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.netView.NetViewActivityFont"
+            android:name=".a.cv.rv.netView.NetViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.fitGv.FitGridViewActivity"

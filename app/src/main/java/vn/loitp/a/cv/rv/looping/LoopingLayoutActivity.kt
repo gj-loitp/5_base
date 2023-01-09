@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.looping
+package vn.loitp.a.cv.rv.looping
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_looping_layout.*
+import kotlinx.android.synthetic.main.a_looping_layout.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 import vn.loitp.app.a.cv.rv.normalRv.MoviesAdapter
@@ -19,13 +19,13 @@ import vn.loitp.common.Constants
 @LogTag("LoopingLayoutActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class LoopingLayoutActivityFont : BaseActivityFont() {
+class LoopingLayoutActivity : BaseActivityFont() {
 
     private val movieList: MutableList<Movie> = ArrayList()
     private var moviesAdapter: MoviesAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_looping_layout
+        return R.layout.a_looping_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +54,7 @@ class LoopingLayoutActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = LoopingLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = LoopingLayoutActivity::class.java.simpleName
         }
 
         moviesAdapter =
@@ -80,7 +80,7 @@ class LoopingLayoutActivityFont : BaseActivityFont() {
             )
         rvHorizontal.apply {
             this.layoutManager = LoopingLayoutManager(
-                context = this@LoopingLayoutActivityFont,
+                context = this@LoopingLayoutActivity,
                 orientation = LoopingLayoutManager.HORIZONTAL,
                 reverseLayout = false
             )
@@ -89,7 +89,7 @@ class LoopingLayoutActivityFont : BaseActivityFont() {
         }
         rvVertical.apply {
             this.layoutManager = LoopingLayoutManager(
-                context = this@LoopingLayoutActivityFont,
+                context = this@LoopingLayoutActivity,
                 orientation = LoopingLayoutManager.VERTICAL,
                 reverseLayout = false
             )
@@ -98,7 +98,6 @@ class LoopingLayoutActivityFont : BaseActivityFont() {
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         for (i in 0..5) {
             val movie = Movie(
@@ -109,7 +108,7 @@ class LoopingLayoutActivityFont : BaseActivityFont() {
             )
             movieList.add(movie)
         }
-        moviesAdapter?.notifyDataSetChanged()
+        moviesAdapter?.notifyAllViews()
     }
 
 }

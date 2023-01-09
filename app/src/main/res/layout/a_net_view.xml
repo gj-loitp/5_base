@@ -24,7 +24,7 @@
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:itemCount="5"
-            tools:listitem="@layout/view_item_net"
+            tools:listitem="@layout/i_net"
             tools:spanCount="3" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
