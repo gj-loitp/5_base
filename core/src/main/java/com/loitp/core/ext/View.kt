@@ -1,6 +1,7 @@
 package com.loitp.core.ext
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.*
 import android.graphics.drawable.*
@@ -9,6 +10,7 @@ import android.os.Build
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.core.view.ViewCompat
@@ -361,5 +363,14 @@ fun Snackbar.allowInfiniteLines(): Snackbar {
             )
             it.textAlignment = View.TEXT_ALIGNMENT_CENTER
         }
+    }
+}
+
+@Suppress("unused")
+fun View?.hideSoftInput(
+) {
+    this?.let {
+        val imm = it.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(this.windowToken, 0)
     }
 }

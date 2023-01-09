@@ -19,6 +19,7 @@ import android.provider.Settings
 import android.provider.Telephony
 import android.util.ArrayMap
 import android.view.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import com.loitp.R
@@ -738,3 +739,18 @@ val topActivity: Activity?
         }
         return null
     }
+
+fun Activity?.hideSoftInput() {
+    this?.let {
+        var view = it.currentFocus
+        if (view == null) view = View(it)
+        val imm = it.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+}
+
+@Suppress("unused")
+fun Context.toggleSoftInput() {
+    val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+    imm?.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+}

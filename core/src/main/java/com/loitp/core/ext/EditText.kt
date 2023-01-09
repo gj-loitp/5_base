@@ -1,8 +1,10 @@
 package com.loitp.core.ext
 
+import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import java.util.*
@@ -88,4 +90,13 @@ fun EditText.addTextChangedDelayListener(
             }
         })
     }
+}
+
+@Suppress("unused")
+fun EditText.showSoftInput() {
+    this.isFocusable = true
+    this.isFocusableInTouchMode = true
+    this.requestFocus()
+    val imm = this.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+    imm?.showSoftInput(this, 0)
 }

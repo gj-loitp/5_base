@@ -12,12 +12,12 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.hideSoftInput
 import com.loitp.core.ext.isDarkTheme
 import com.loitp.core.helper.ttt.model.MenuComicTTT
 import com.loitp.core.helper.ttt.ui.f.FrmFavTTT
 import com.loitp.core.helper.ttt.ui.f.FrmHomeTTT
 import com.loitp.core.helper.ttt.ui.f.FrmProfileTTT
-import com.loitp.core.utils.KeyboardUtils
 import com.loitp.views.vp.vpTransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.MenuItemDescriptor
 import kotlinx.android.synthetic.main.l_a_ttt_comic.*
@@ -86,15 +86,13 @@ class TTTComicActivity : BaseActivityFont() {
             }
 
             override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
+                position: Int, positionOffset: Float, positionOffsetPixels: Int
             ) {
             }
 
             override fun onPageSelected(position: Int) {
                 expandableBottomBar.menu.select(listMenuComicTTT[position].itemId)
-                KeyboardUtils.hideSoftInput(this@TTTComicActivity)
+                this@TTTComicActivity.hideSoftInput()
             }
         })
 
