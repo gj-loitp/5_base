@@ -3,27 +3,23 @@ package vn.loitp.a.cv.rv.dragDropSwipe
 import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
-import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemDragListener
-import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemSwipeListener
-import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnListScrollListener
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_rv_drag_drop_swipe_list_horizontal.*
+import kotlinx.android.synthetic.main.a_rv_drag_drop_swipe_list_vertical.*
 import vn.loitp.R
 
-@LogTag("DragDropSwipeListHorizontalRecyclerviewActivity")
+@LogTag("DragDropSwipeListVerticalRecyclerviewActivity")
 @IsFullScreen(false)
-class DragDropSwipeListHorizontalRecyclerviewActivityFont : BaseActivityFont() {
+class DragDropSwipeListVerticalRecyclerviewActivity : BaseActivityFont() {
 
     private var dragDropAdapter: DragDropAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv_drag_drop_swipe_list_horizontal
+        return R.layout.a_rv_drag_drop_swipe_list_vertical
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,18 +55,13 @@ class DragDropSwipeListHorizontalRecyclerviewActivityFont : BaseActivityFont() {
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text =
-                DragDropSwipeListHorizontalRecyclerviewActivityFont::class.java.simpleName
+                DragDropSwipeListVerticalRecyclerviewActivity::class.java.simpleName
         }
 
-        dragDropAdapter = DragDropAdapter(dataSet = setData(), isHorizontal = true)
+        dragDropAdapter = DragDropAdapter(setData())
 
-        dragDropSwipeRecyclerView.layoutManager =
-            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        dragDropSwipeRecyclerView.layoutManager = LinearLayoutManager(this) // list
         dragDropSwipeRecyclerView.adapter = dragDropAdapter
-
-        dragDropSwipeRecyclerView.swipeListener = onItemSwipeListener
-        dragDropSwipeRecyclerView.dragListener = onItemDragListener
-        dragDropSwipeRecyclerView.scrollListener = onListScrollListener
 
         setIsRestrictingDraggingDirections(isRestrictingDraggingDirections = false)
         setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems = false)
@@ -81,15 +72,17 @@ class DragDropSwipeListHorizontalRecyclerviewActivityFont : BaseActivityFont() {
         swLayoutBehind.setOnCheckedChangeListener { _, isChecked ->
             setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems = isChecked)
         }
+
+        // listener -> check DragDropSwipeListHorizontalRecyclerviewActivity
     }
 
     private fun setIsRestrictingDraggingDirections(isRestrictingDraggingDirections: Boolean) {
         if (isRestrictingDraggingDirections) {
             dragDropSwipeRecyclerView.orientation =
-                DragDropSwipeRecyclerView.ListOrientation.HORIZONTAL_LIST_WITH_HORIZONTAL_DRAGGING
+                DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_VERTICAL_DRAGGING
         } else {
             dragDropSwipeRecyclerView.orientation =
-                DragDropSwipeRecyclerView.ListOrientation.HORIZONTAL_LIST_WITH_UNCONSTRAINED_DRAGGING
+                DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_UNCONSTRAINED_DRAGGING
         }
     }
 
@@ -122,49 +115,6 @@ class DragDropSwipeListHorizontalRecyclerviewActivityFont : BaseActivityFont() {
             // In XML: app:behind_swiped_item_custom_layout_secondary="@layout/behind_swiped_vertical_list_secondary"
             dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId =
                 R.layout.layout_behind_swiped_vertical_list_secondary
-        }
-    }
-
-    private val onItemSwipeListener = object : OnItemSwipeListener<String> {
-        override fun onItemSwiped(
-            position: Int,
-            direction: OnItemSwipeListener.SwipeDirection,
-            item: String
-        ): Boolean {
-            when (direction) {
-                OnItemSwipeListener.SwipeDirection.RIGHT_TO_LEFT -> logD("onItemSwipeListener RIGHT_TO_LEFT")
-                OnItemSwipeListener.SwipeDirection.LEFT_TO_RIGHT -> logD("onItemSwipeListener LEFT_TO_RIGHT")
-                OnItemSwipeListener.SwipeDirection.DOWN_TO_UP -> logD("onItemSwipeListener DOWN_TO_UP")
-                OnItemSwipeListener.SwipeDirection.UP_TO_DOWN -> logD("onItemSwipeListener UP_TO_DOWN")
-            }
-            return false
-        }
-    }
-
-    private val onItemDragListener = object : OnItemDragListener<String> {
-        override fun onItemDragged(previousPosition: Int, newPosition: Int, item: String) {
-            // Handle action of item being dragged from one position to another
-            logD("onItemDragListener onItemDragged previousPosition $previousPosition, newPosition $newPosition, item $item")
-        }
-
-        override fun onItemDropped(initialPosition: Int, finalPosition: Int, item: String) {
-            // Handle action of item dropped
-            logD("onItemDragListener onItemDragged initialPosition $initialPosition, finalPosition $finalPosition, item $item")
-        }
-    }
-
-    private val onListScrollListener = object : OnListScrollListener {
-        override fun onListScrollStateChanged(scrollState: OnListScrollListener.ScrollState) {
-            // Handle change on list scroll state
-            logD("onListScrollListener onListScrollStateChanged scrollState $scrollState")
-        }
-
-        override fun onListScrolled(
-            scrollDirection: OnListScrollListener.ScrollDirection,
-            distance: Int
-        ) {
-            // Handle scrolling
-            logD("onListScrollListener onListScrolled scrollDirection $scrollDirection, distance $distance")
         }
     }
 }

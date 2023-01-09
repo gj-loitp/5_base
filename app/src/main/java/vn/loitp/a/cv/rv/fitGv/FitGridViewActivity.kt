@@ -13,7 +13,7 @@ import vn.loitp.R
 
 @LogTag("FitGridViewActivity")
 @IsFullScreen(false)
-class FitGridViewActivityFont : BaseActivityFont() {
+class FitGridViewActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_fit_grid_view
@@ -33,7 +33,7 @@ class FitGridViewActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = FitGridViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = FitGridViewActivity::class.java.simpleName
         }
         gridView.setFitGridAdapter(
             Adapter(this) { pos ->

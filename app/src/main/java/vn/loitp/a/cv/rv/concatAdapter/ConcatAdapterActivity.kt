@@ -20,7 +20,7 @@ import vn.loitp.a.cv.rv.concatAdapter.data.model.News
 
 @LogTag("MergeAdapterActivity")
 @IsFullScreen(false)
-class ConcatAdapterActivityFont : BaseActivityFont() {
+class ConcatAdapterActivity : BaseActivityFont() {
     private var concatAdapter: ConcatAdapter? = null
     private var aboutMeAdapter: AboutMeAdapter? = null
     private var usersAdapter: UsersAdapter? = null
@@ -56,7 +56,7 @@ class ConcatAdapterActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = ConcatAdapterActivityFont::class.java.simpleName
+            this.tvTitle?.text = ConcatAdapterActivity::class.java.simpleName
         }
 
         recyclerView.layoutManager = LinearLayoutManager(this)

@@ -15,7 +15,7 @@ import vn.loitp.common.Constants
 
 @LogTag("BookViewActivity")
 @IsFullScreen(false)
-class BookViewActivityFont : BaseActivityFont() {
+class BookViewActivity : BaseActivityFont() {
     private val movieList: MutableList<Movie> = ArrayList()
     private var bookAdapter: BookAdapter? = null
 
@@ -37,7 +37,7 @@ class BookViewActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = BookViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = BookViewActivity::class.java.simpleName
         }
         bookAdapter = BookAdapter(
             context = this, column = 3, moviesList = movieList,

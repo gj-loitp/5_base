@@ -15,7 +15,7 @@ import vn.loitp.R
 
 @LogTag("FastScrollMenuActivity")
 @IsFullScreen(false)
-class MenuFastScrollActivityFont : BaseActivityFont() {
+class MenuFastScrollActivity : BaseActivityFont() {
 
     enum class Samples(
         val title: String,
@@ -55,7 +55,7 @@ class MenuFastScrollActivityFont : BaseActivityFont() {
                                 .replace(
                                     R.id.layoutContainer,
                                     Fragment.instantiate(
-                                        this@MenuFastScrollActivityFont,
+                                        this@MenuFastScrollActivity,
                                         sample.fragmentClass.name
                                     )
                                 )

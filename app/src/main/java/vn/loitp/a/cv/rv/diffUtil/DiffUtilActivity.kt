@@ -15,7 +15,7 @@ import java.util.*
 
 @LogTag("DiffUtilActivity")
 @IsFullScreen(false)
-class DiffUtilActivityFont : BaseActivityFont() {
+class DiffUtilActivity : BaseActivityFont() {
 
     private var items: MutableList<Content> = mutableListOf()
 

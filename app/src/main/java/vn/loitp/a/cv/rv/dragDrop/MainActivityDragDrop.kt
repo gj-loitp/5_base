@@ -16,7 +16,7 @@ import vn.loitp.R
 @LogTag("MainActivityDragDrop")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MainActivityDragDropFont : BaseActivityFont(), CustomListener {
+class MainActivityDragDrop : BaseActivityFont(), CustomListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_main_drag_drop
@@ -32,7 +32,7 @@ class MainActivityDragDropFont : BaseActivityFont(), CustomListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = MainActivityDragDropFont::class.java.simpleName
+            this.tvTitle?.text = MainActivityDragDrop::class.java.simpleName
         }
         recyclerView1.init(listOf("A", "B", "C"), tvEmptyList1)
         recyclerView2.init(listOf("1", "2", "3"), tvEmptyList2)
@@ -43,7 +43,7 @@ class MainActivityDragDropFont : BaseActivityFont(), CustomListener {
         emptyTextView: TextView
     ) {
         this.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        val adapter = CustomAdapter(list, this@MainActivityDragDropFont)
+        val adapter = CustomAdapter(list, this@MainActivityDragDrop)
         this.adapter = adapter
         emptyTextView.setOnDragListener(adapter.dragInstance)
         this.setOnDragListener(adapter.dragInstance)

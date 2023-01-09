@@ -180,7 +180,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivityFont"
+            android:name=".a.cv.rv.fastScrollSeekbar.RvFastScrollSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivityFont"
@@ -316,7 +316,7 @@
             android:name=".app.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.footer.RecyclerViewFooterActivityFont"
+            android:name=".a.cv.rv.footer.RecyclerViewFooterActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.footer2.RecyclerViewFooter2Activity"
@@ -428,7 +428,7 @@
             android:name=".a.cv.scrollablePanel.ScrollablePanelActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.book.BookViewActivityFont"
+            android:name=".a.cv.rv.book.BookViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.func.activityAndService.ActivityServiceCommunicateActivityFont"
@@ -618,7 +618,7 @@
             android:name=".a.cv.ab.navigationViewWithText.NavigationViewWithTextActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.diffUtil.DiffUtilActivityFont"
+            android:name=".a.cv.rv.diffUtil.DiffUtilActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.tut.MenuTutorialActivityFont"
@@ -968,7 +968,7 @@
             android:name=".a.cv.layout.aspectratio.AspectRatioLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.concatAdapter.ConcatAdapterActivityFont"
+            android:name=".a.cv.rv.concatAdapter.ConcatAdapterActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.db.room.RoomActivityFont"
@@ -1014,7 +1014,7 @@
             android:name=".app.a.cv.rv.netView.NetViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.fitGv.FitGridViewActivityFont"
+            android:name=".a.cv.rv.fitGv.FitGridViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.anim.elasticViews.ElasticActivityFont"
@@ -1071,16 +1071,16 @@
             android:name=".a.demo.rss.RSSActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivityFont"
+            android:name=".a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivityFont"
+            android:name=".a.cv.rv.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.dragDropSwipe.DragDropSwipeGridRecyclerviewActivityFont"
+            android:name=".a.cv.rv.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.fastScroll.MenuFastScrollActivityFont"
+            android:name=".a.cv.rv.fastScroll.MenuFastScrollActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.func.pump.PumpActivityFont"
@@ -1175,7 +1175,7 @@
             android:name=".a.u.UtilsCoreActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.arcView.ArcViewActivityFont"
+            android:name=".a.cv.rv.arcView.ArcViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.stackExpandableView.StackExpandableViewActivityFont"
@@ -1275,7 +1275,7 @@
             android:name=".app.a.cv.tv.textArc.TextArcActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.carouselRv.CarouselRecyclerViewActivityFont"
+            android:name=".a.cv.rv.carouselRv.CarouselRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.reflection.ReflectionActivityFont"
@@ -1293,7 +1293,7 @@
             android:name=".a.cv.cornerSheet.sp.ShopActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.dragDrop.MainActivityDragDropFont"
+            android:name=".a.cv.rv.dragDrop.MainActivityDragDrop"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.game.puzzle.BoardOptionsActivityFont"
@@ -1341,7 +1341,7 @@
             android:name=".app.a.cv.tv.readMoreOption.ReadMoreOptionActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.dragAndDropDemo.DragAndDropDemoActivityFont"
+            android:name=".a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.fit.FitButtonActivityFont"

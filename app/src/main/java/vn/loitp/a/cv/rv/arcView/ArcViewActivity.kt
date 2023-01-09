@@ -18,7 +18,7 @@ import vn.loitp.R
 @LogTag("ArcViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class ArcViewActivityFont : BaseActivityFont(), View.OnClickListener {
+class ArcViewActivity : BaseActivityFont(), View.OnClickListener {
     private lateinit var strokeArc: ArcLinearLayout
     private lateinit var shadowArc: ArcLinearLayout
 
@@ -51,7 +51,7 @@ class ArcViewActivityFont : BaseActivityFont(), View.OnClickListener {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = ArcViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = ArcViewActivity::class.java.simpleName
         }
 
         btKickMe.setOnClickListener(this)

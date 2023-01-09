@@ -17,7 +17,7 @@ import vn.loitp.common.Constants
 
 @LogTag("RecyclerViewFastScrollSeekbarActivity")
 @IsFullScreen(false)
-class RecyclerViewFastScrollSeekbarActivityFont : BaseActivityFont() {
+class RvFastScrollSeekbarActivity : BaseActivityFont() {
 
     private val movieList: MutableList<Movie> = ArrayList()
     private var moviesAdapter: MoviesAdapter? = null
@@ -43,7 +43,7 @@ class RecyclerViewFastScrollSeekbarActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = RecyclerViewFastScrollSeekbarActivityFont::class.java.simpleName
+            this.tvTitle?.text = RvFastScrollSeekbarActivity::class.java.simpleName
         }
         moviesAdapter = MoviesAdapter(
             moviesList = movieList,

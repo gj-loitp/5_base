@@ -19,7 +19,7 @@ import vn.loitp.a.cv.rv.dragAndDropDemo.callback.DropListener
 @LogTag("DragAndDropDemoActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class DragAndDropDemoActivityFont : BaseActivityFont() {
+class DragAndDropDemoActivity : BaseActivityFont() {
 
     // values of the draggable views (usually this should come from a data source)
     private val words = mutableListOf("world", "a", "!", "What", "wonderful")
@@ -56,7 +56,7 @@ class DragAndDropDemoActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = DragAndDropDemoActivityFont::class.java.simpleName
+            this.tvTitle?.text = DragAndDropDemoActivity::class.java.simpleName
         }
 
         val sentenceAdapter = SentenceAdapter()

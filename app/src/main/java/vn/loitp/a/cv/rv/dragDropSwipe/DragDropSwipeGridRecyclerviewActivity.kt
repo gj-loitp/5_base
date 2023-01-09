@@ -14,7 +14,7 @@ import vn.loitp.R
 
 @LogTag("DragDropSwipeGridRecyclerviewActivity")
 @IsFullScreen(false)
-class DragDropSwipeGridRecyclerviewActivityFont : BaseActivityFont() {
+class DragDropSwipeGridRecyclerviewActivity : BaseActivityFont() {
 
     private var dragDropAdapter: DragDropAdapter? = null
     private val numberOfColumns = 2
@@ -55,7 +55,7 @@ class DragDropSwipeGridRecyclerviewActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = DragDropSwipeGridRecyclerviewActivityFont::class.java.simpleName
+            this.tvTitle?.text = DragDropSwipeGridRecyclerviewActivity::class.java.simpleName
         }
 
         dragDropAdapter = DragDropAdapter(setData())

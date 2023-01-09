@@ -16,7 +16,7 @@ import vn.loitp.R
 @LogTag("CarouselRecyclerViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class CarouselRecyclerViewActivityFont : BaseActivityFont() {
+class CarouselRecyclerViewActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rv_carousel
@@ -47,7 +47,7 @@ class CarouselRecyclerViewActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = CarouselRecyclerViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = CarouselRecyclerViewActivity::class.java.simpleName
         }
 
         val list = ArrayList<DataModel>()

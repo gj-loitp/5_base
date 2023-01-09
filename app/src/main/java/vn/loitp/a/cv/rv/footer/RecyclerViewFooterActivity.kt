@@ -20,7 +20,7 @@ import vn.loitp.common.Constants
 
 @LogTag("RecyclerViewFooterActivity")
 @IsFullScreen(false)
-class RecyclerViewFooterActivityFont : BaseActivityFont() {
+class RecyclerViewFooterActivity : BaseActivityFont() {
 
     private var moviesAdapter: MoviesAdapter? = null
 
@@ -40,7 +40,7 @@ class RecyclerViewFooterActivityFont : BaseActivityFont() {
                 onBaseBackPressed()
             })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = RecyclerViewFooterActivityFont::class.java.simpleName
+            this.tvTitle?.text = RecyclerViewFooterActivity::class.java.simpleName
         }
 
         moviesAdapter = MoviesAdapter(moviesList = instance.movieList,
@@ -90,21 +90,21 @@ class RecyclerViewFooterActivityFont : BaseActivityFont() {
                     when (menuItem.itemId) {
                         R.id.menuLinearVertical -> {
                             val lmVertical: RecyclerView.LayoutManager =
-                                LinearLayoutManager(this@RecyclerViewFooterActivityFont)
+                                LinearLayoutManager(this@RecyclerViewFooterActivity)
                             rv.layoutManager = lmVertical
                         }
                         R.id.menuLinearHorizontal -> {
                             val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(
-                                this@RecyclerViewFooterActivityFont,
+                                this@RecyclerViewFooterActivity,
                                 LinearLayoutManager.HORIZONTAL,
                                 false
                             )
                             rv.layoutManager = lmHorizontal
                         }
                         R.id.menuGridLayoutManager2 -> rv.layoutManager =
-                            GridLayoutManager(this@RecyclerViewFooterActivityFont, 2)
+                            GridLayoutManager(this@RecyclerViewFooterActivity, 2)
                         R.id.menuGridLayoutManager3 -> rv.layoutManager =
-                            GridLayoutManager(this@RecyclerViewFooterActivityFont, 3)
+                            GridLayoutManager(this@RecyclerViewFooterActivity, 3)
                         R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager =
                             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                         R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager =
