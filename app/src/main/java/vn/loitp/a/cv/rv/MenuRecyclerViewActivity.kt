@@ -33,8 +33,8 @@ import vn.loitp.a.cv.rv.netView.NetViewActivity
 import vn.loitp.a.cv.rv.normalRv.RecyclerViewActivity
 import vn.loitp.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity
 import vn.loitp.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivity
-import vn.loitp.app.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivityFont
-import vn.loitp.app.a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivityFont
+import vn.loitp.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivity
+import vn.loitp.a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivity
 import vn.loitp.app.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivityFont
 
 @LogTag("MenuRecyclerViewActivity")
@@ -91,7 +91,7 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v) {
             btArcViewActivity -> launchActivity(ArcViewActivity::class.java)
-            btParallaxRecyclerView -> launchActivity(ParallaxRecyclerViewActivityFont::class.java)
+            btParallaxRecyclerView -> launchActivity(ParallaxRecyclerViewActivity::class.java)
             btNormalRecyclerView -> launchActivity(RecyclerViewActivity::class.java)
             btNormalRecyclerViewWithSpanSize -> launchActivity(RecyclerViewWithSpanSizeActivity::class.java)
             btNormalRecyclerViewWithSingletonData -> launchActivity(
@@ -103,7 +103,7 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
             )
             btBookView -> launchActivity(BookViewActivity::class.java)
             btDiffUtil -> launchActivity(DiffUtilActivity::class.java)
-            btRecyclerTabLayout -> launchActivity(MenuRecyclerTabLayoutActivityFont::class.java)
+            btRecyclerTabLayout -> launchActivity(MenuRecyclerTabLayoutActivity::class.java)
             btConcatAdapter -> launchActivity(ConcatAdapterActivity::class.java)
             btFooter -> launchActivity(RecyclerViewFooterActivity::class.java)
             btFooter2 -> launchActivity(RecyclerViewFooter2Activity::class.java)
