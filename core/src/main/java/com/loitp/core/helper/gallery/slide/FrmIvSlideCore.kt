@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.GlideImageViewFactory
 import com.loitp.R
-import com.loitp.core.common.Constants
+import com.loitp.core.common.SK_PHOTO_PISITION
 import com.loitp.core.ext.hideProgress
 import com.loitp.core.ext.setTextShadow
 import com.loitp.core.ext.showProgress
@@ -46,7 +46,7 @@ class FrmIvSlideCore : Fragment() {
 
     private fun setupViews() {
         val bundle = arguments ?: return
-        val position = bundle.getInt(Constants.SK_PHOTO_PISITION)
+        val position = bundle.getInt(SK_PHOTO_PISITION)
         val photo = instance.getPhoto(position)
 
         tvProgress.setTextShadow(color = null)

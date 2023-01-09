@@ -1,6 +1,6 @@
 package vn.loitp.a.cv.rv.concatAdapter.data
 
-import com.loitp.core.common.Constants
+import com.loitp.core.common.URL_IMG_ANDROID
 import vn.loitp.R
 import vn.loitp.a.cv.rv.concatAdapter.data.model.Banner
 import vn.loitp.a.cv.rv.concatAdapter.data.model.User
@@ -9,7 +9,7 @@ object DataSource {
 
     fun getListUser() = ArrayList<User>().apply {
         for (i in 0..5) {
-            add(User(i, "Loitp$i", Constants.URL_IMG_ANDROID))
+            add(User(i, "Loitp$i", URL_IMG_ANDROID))
         }
     }
 

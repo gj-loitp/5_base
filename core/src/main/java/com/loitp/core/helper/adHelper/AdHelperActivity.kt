@@ -14,7 +14,7 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.*
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListener
@@ -46,12 +46,12 @@ class AdHelperActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        isEnglishLanguage = intent.getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)
-        colorPrimary = intent.getIntExtra(Constants.AD_HELPER_COLOR_PRIMARY, 0)
-        colorBackground = intent.getIntExtra(Constants.AD_HELPER_COLOR_BACKGROUND, 0)
-        colorStatusBar = intent.getIntExtra(Constants.AD_HELPER_COLOR_STATUS_BAR, 0)
+        isEnglishLanguage = intent.getBooleanExtra(AD_HELPER_IS_ENGLISH_LANGUAGE, false)
+        colorPrimary = intent.getIntExtra(AD_HELPER_COLOR_PRIMARY, 0)
+        colorBackground = intent.getIntExtra(AD_HELPER_COLOR_BACKGROUND, 0)
+        colorStatusBar = intent.getIntExtra(AD_HELPER_COLOR_STATUS_BAR, 0)
         isLightIconStatusBar =
-            intent.getBooleanExtra(Constants.AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
+            intent.getBooleanExtra(AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
 
         if (colorStatusBar != 0) {
             changeStatusBarContrastStyle(

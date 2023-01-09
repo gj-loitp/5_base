@@ -4,7 +4,9 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.URL_IMG_1
+import com.loitp.core.common.URL_IMG_2
+import com.loitp.core.common.URL_IMG_3
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -37,9 +39,9 @@ class DialogSlideImagesActivityFont : BaseActivityFont() {
             this.tvTitle?.text = DialogSlideImagesActivityFont::class.java.simpleName
         }
 
-        val url0 = Constants.URL_IMG_1
-        val url1 = Constants.URL_IMG_2
-        val url2 = Constants.URL_IMG_3
+        val url0 = URL_IMG_1
+        val url1 = URL_IMG_2
+        val url2 = URL_IMG_3
 
         val imageList = ArrayList<String>()
         imageList.add(url0)

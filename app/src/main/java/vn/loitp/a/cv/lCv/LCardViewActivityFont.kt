@@ -7,7 +7,8 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.URL_IMG_2
+import com.loitp.core.common.URL_IMG_4
 import com.loitp.core.ext.play
 import com.loitp.core.ext.screenHeight
 import com.loitp.core.ext.screenWidth
@@ -63,14 +64,14 @@ class LCardViewActivityFont : BaseActivityFont() {
             width = screenWidth * 3 / 4
             setRadius(30f)
             setCardElevation(10f)
-            setImg(Constants.URL_IMG_2)
+            setImg(URL_IMG_2)
         }
         lCardView1.apply {
             setText(System.currentTimeMillis().toString() + "")
             height = screenHeight * 3 / 2
             setRadius(50f)
             setCardElevation(20f)
-            setImg(Constants.URL_IMG_4)
+            setImg(URL_IMG_4)
         }
     }
 }

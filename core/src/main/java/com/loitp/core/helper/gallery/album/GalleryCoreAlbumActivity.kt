@@ -11,7 +11,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.KEY_REMOVE_ALBUM_FLICKR_LIST
+import com.loitp.core.common.SK_PHOTOSET_ID
+import com.loitp.core.common.SK_PHOTOSET_SIZE
 import com.loitp.core.ext.hideProgress
 import com.loitp.core.ext.showProgress
 import com.loitp.core.ext.tranIn
@@ -55,7 +57,7 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
 
     private fun setupViews() {
 
-        intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)?.let {
+        intent.getStringArrayListExtra(KEY_REMOVE_ALBUM_FLICKR_LIST)?.let {
             listRemoveAlbum.addAll(it)
         }
 
@@ -75,8 +77,8 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
                     val intent =
                         Intent(this@GalleryCoreAlbumActivity, GalleryCorePhotosActivity::class.java)
                     intent.apply {
-                        putExtra(Constants.SK_PHOTOSET_ID, listPhotoSet[pos].id)
-                        putExtra(Constants.SK_PHOTOSET_SIZE, listPhotoSet[pos].photos)
+                        putExtra(SK_PHOTOSET_ID, listPhotoSet[pos].id)
+                        putExtra(SK_PHOTOSET_SIZE, listPhotoSet[pos].photos)
                         startActivity(this)
                         this@GalleryCoreAlbumActivity.tranIn()
                     }

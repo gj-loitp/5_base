@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.rv.gallery.GalleryLayoutManager
@@ -19,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_recycler_view_menu_gallery_layout
 import vn.loitp.R
 import vn.loitp.app.a.cv.rv.normalRv.Movie
 import vn.loitp.app.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
+import vn.loitp.common.Constants.Companion.URL_IMG
 import kotlin.math.abs
 
 @LogTag("GalleryLayoutManagerHorizontalActivity")
@@ -104,7 +104,7 @@ class GalleryLayoutManagerHorizontalActivityFont : BaseActivityFont() {
                     title = "Loitp $i",
                     genre = "Action & Adventure $i",
                     year = "Year: $i",
-                    cover = Constants.URL_IMG
+                    cover = URL_IMG
                 )
                 instance.movieList.add(movie)
             }

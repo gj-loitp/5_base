@@ -22,7 +22,7 @@ import com.airbnb.lottie.value.LottieValueCallback
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.loitp.R
-import com.loitp.core.common.Constants
+import com.loitp.core.common.ARR_RANDOM_BKG
 import com.loitp.core.utils.ConvertUtils
 import com.skydoves.elasticviews.elasticAnimation
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
@@ -254,8 +254,8 @@ fun View?.setMarginsDp(
 }
 
 fun View.setRandomBackground() {
-    val r = getRandomNumber(Constants.ARR_RANDOM_BKG.size)
-    val bkg = Constants.ARR_RANDOM_BKG[r]
+    val r = getRandomNumber(ARR_RANDOM_BKG.size)
+    val bkg = ARR_RANDOM_BKG[r]
     this.setBackgroundResource(bkg)
 }
 

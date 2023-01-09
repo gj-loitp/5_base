@@ -6,7 +6,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.*
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.helper.gallery.GalleryCoreSplashActivity
 import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyActivity
@@ -110,15 +110,15 @@ class MenuDemoActivityFont : BaseActivityFont(), View.OnClickListener {
                     cls = GalleryCoreSplashActivity::class.java,
                     withAnim = true,
                     data = {
-                        it.putExtra(Constants.BKG_SPLASH_SCREEN, Constants.URL_IMG_11)
+                        it.putExtra(BKG_SPLASH_SCREEN, URL_IMG_11)
 
                         // neu muon remove albumn nao thi cu pass id cua album do
                         val removeAlbumFlickrList = ArrayList<String>()
-                        removeAlbumFlickrList.add(Constants.FLICKR_ID_STICKER)
-                        // removeAlbumFlickrList.add(Constants.FLICKR_ID_GIRL)
+                        removeAlbumFlickrList.add(FLICKR_ID_STICKER)
+                        // removeAlbumFlickrList.add(FLICKR_ID_GIRL)
 
                         it.putStringArrayListExtra(
-                            Constants.KEY_REMOVE_ALBUM_FLICKR_LIST,
+                            KEY_REMOVE_ALBUM_FLICKR_LIST,
                             removeAlbumFlickrList
                         )
                     })
@@ -129,8 +129,8 @@ class MenuDemoActivityFont : BaseActivityFont(), View.OnClickListener {
                     withAnim = true,
                     data = {
                         it.putExtra(
-                            Constants.SK_PHOTOSET_ID,
-                            Constants.FLICKR_ID_VN_CUNGHOANGDAOHEHEHORO
+                            SK_PHOTOSET_ID,
+                            FLICKR_ID_VN_CUNGHOANGDAOHEHEHORO
                         )
                     })
             }

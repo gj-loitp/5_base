@@ -15,7 +15,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.NOT_FOUND
+import com.loitp.core.common.SK_PHOTOSET_ID
+import com.loitp.core.common.SK_PHOTOSET_SIZE
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitp.restApi.flickr.FlickrConst
@@ -66,12 +68,12 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
         RestClient.init(getString(R.string.flickr_URL))
         PhotosDataCore.instance.clearData()
 
-        photoSetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
+        photoSetID = intent.getStringExtra(SK_PHOTOSET_ID)
         if (photoSetID.isNullOrEmpty()) {
             handleException(Exception(getString(R.string.err_unknown)))
             return
         }
-        photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
+        photosSize = intent.getIntExtra(SK_PHOTOSET_SIZE, NOT_FOUND)
         recyclerView.layoutManager = LinearLayoutManager(this)
         photosOnlyAdapter = PhotosOnlyAdapter(
             callback = object : PhotosOnlyAdapter.Callback {
@@ -185,7 +187,7 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
     }
 
     private fun goToHome() {
-        if (photosSize == Constants.NOT_FOUND) {
+        if (photosSize == NOT_FOUND) {
             getListPhotoSets()
         } else {
             init()

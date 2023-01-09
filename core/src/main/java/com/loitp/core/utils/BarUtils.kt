@@ -15,8 +15,8 @@ import androidx.annotation.ColorInt
 import androidx.annotation.IntRange
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.drawerlayout.widget.DrawerLayout
-import com.loitp.core.common.Constants
 import com.loitp.R
+import com.loitp.core.common.NOT_FOUND
 
 /**
  * Created by Loitp on 04,August,2022
@@ -578,7 +578,7 @@ class BarUtils private constructor() {
             activity: Activity?
         ): Int {
             if (activity == null) {
-                return Constants.NOT_FOUND
+                return NOT_FOUND
             }
             val tv = TypedValue()
             return if (activity.theme.resolveAttribute(R.attr.actionBarSize, tv, true)) {

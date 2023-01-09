@@ -2,7 +2,7 @@ package com.loitp.core.ext
 
 import android.annotation.SuppressLint
 import com.loitp.R
-import com.loitp.core.common.Constants
+import com.loitp.core.common.FCM_TOPIC
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -43,7 +43,7 @@ fun sendNotification(
         dataJson.put("body", body)
         dataJson.put("title", R.string.app_name)
         json.put("notification", dataJson)
-        json.put("to", Constants.FCM_TOPIC)
+        json.put("to", FCM_TOPIC)
         val jsonBody = json.toString().toRequestBody(sJson)
         val request = Request.Builder()
             .header("Authorization", "key=$key")

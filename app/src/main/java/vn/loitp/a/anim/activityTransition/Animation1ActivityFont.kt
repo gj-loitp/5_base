@@ -7,7 +7,7 @@ import android.view.View.OnClickListener
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.*
 import com.loitp.core.ext.*
 import com.loitp.data.ActivityData
 import kotlinx.android.synthetic.main.a_animation_1.*
@@ -55,46 +55,46 @@ class Animation1ActivityFont : BaseActivityFont(), OnClickListener {
         startActivity(intent)
         when (v) {
             btNoAnim -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
+                ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
                 this.transActivityNoAnimation()
             }
             btSystemDefault ->
                 ActivityData.instance.type =
-                    Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
+                    TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
             btSlideLeft -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
+                ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
                 this.slideLeft()
             }
             btSlideRight -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_RIGHT
+                ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_SLIDE_RIGHT
                 this.slideRight()
             }
             btSlideDown -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_DOWN
+                ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_SLIDE_DOWN
                 this.slideDown()
             }
             btSlideUp -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_UP
+                ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_SLIDE_UP
                 this.slideUp()
             }
             btFade -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_FADE
+                ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_FADE
                 this.fade()
             }
             btZoom -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_ZOOM
+                ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_ZOOM
                 this.zoom()
             }
             btWindMill -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL
+                ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_WINDMILL
                 this.windmill()
             }
             btDiagonal -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL
+                ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_DIAGONAL
                 this.diagonal()
             }
             btSpin -> {
-                ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SPIN
+                ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_SPIN
                 this.spin()
             }
         }

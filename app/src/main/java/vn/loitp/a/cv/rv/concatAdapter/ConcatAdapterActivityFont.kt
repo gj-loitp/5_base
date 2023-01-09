@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.URL_IMG_1
+import com.loitp.core.common.URL_IMG_10
 import com.loitp.core.ext.*
 import kotlinx.android.synthetic.main.a_rv_concat_adapter.*
 import vn.loitp.R
@@ -74,7 +75,7 @@ class ConcatAdapterActivityFont : BaseActivityFont() {
 
         usersAdapter?.let { ua ->
             ua.onClickRootListener = { user, position ->
-                user.avatar = Constants.URL_IMG_1
+                user.avatar = URL_IMG_1
                 user.name = System.currentTimeMillis().toString()
                 ua.notifyItemChanged(position)
             }
@@ -187,7 +188,7 @@ class ConcatAdapterActivityFont : BaseActivityFont() {
                     val news = News(
                         id = System.currentTimeMillis(),
                         title = "Title " + System.currentTimeMillis(),
-                        image = Constants.URL_IMG_10
+                        image = URL_IMG_10
                     )
                     listNews.add(news)
                 }

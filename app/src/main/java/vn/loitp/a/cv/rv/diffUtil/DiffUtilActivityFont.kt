@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.URL_IMG_ANDROID
 import com.loitp.core.ext.setSafeOnClickListener
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 import kotlinx.android.synthetic.main.a_rv_diff_util.*
@@ -29,7 +29,7 @@ class DiffUtilActivityFont : BaseActivityFont() {
             Content(
                 id = 1,
                 text = "Loitp ${System.currentTimeMillis()}",
-                image = Constants.URL_IMG_ANDROID
+                image = URL_IMG_ANDROID
             )
         )
 //        adapter.notifyDataSetChanged()
@@ -71,7 +71,7 @@ class DiffUtilActivityFont : BaseActivityFont() {
         rv.adapter = scaleAdapter
 
         for (i in 1..10) {
-            items.add(Content(i, "Item $i", Constants.URL_IMG_ANDROID))
+            items.add(Content(i, "Item $i", URL_IMG_ANDROID))
         }
         adapter.items = items
         bt.setSafeOnClickListener {

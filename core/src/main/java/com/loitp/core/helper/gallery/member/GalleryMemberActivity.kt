@@ -14,7 +14,7 @@ import com.loitp.R
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.*
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitp.restApi.flickr.FlickrConst
@@ -60,17 +60,17 @@ class GalleryMemberActivity : BaseActivityFont() {
         RestClient.init(getString(R.string.flickr_URL))
         PhotosDataCore.instance.clearData()
 
-        val resBkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
-        if (resBkgRootView != Constants.NOT_FOUND) {
+        val resBkgRootView = intent.getIntExtra(BKG_ROOT_VIEW, NOT_FOUND)
+        if (resBkgRootView != NOT_FOUND) {
             rootView.setBackgroundResource(resBkgRootView)
         }
 
-        photoSetID = Constants.FLICKR_ID_MEMBERS
+        photoSetID = FLICKR_ID_MEMBERS
         if (photoSetID?.isEmpty() == true) {
             handleException(Exception(getString(R.string.err_unknown)))
             return
         }
-        photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
+        photosSize = intent.getIntExtra(SK_PHOTOSET_SIZE, NOT_FOUND)
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         memberAdapter = MemberAdapter(
@@ -134,7 +134,7 @@ class GalleryMemberActivity : BaseActivityFont() {
     }
 
     private fun goToHome() {
-        if (photosSize == Constants.NOT_FOUND) {
+        if (photosSize == NOT_FOUND) {
             getPhotoSets()
         } else {
             init()
@@ -142,10 +142,10 @@ class GalleryMemberActivity : BaseActivityFont() {
     }
 
     private fun init() {
-        totalPage = if (photosSize % Constants.PER_PAGE_SIZE == 0) {
-            photosSize / Constants.PER_PAGE_SIZE
+        totalPage = if (photosSize % PER_PAGE_SIZE == 0) {
+            photosSize / PER_PAGE_SIZE
         } else {
-            photosSize / Constants.PER_PAGE_SIZE + 1
+            photosSize / PER_PAGE_SIZE + 1
         }
 
         currentPage = totalPage
@@ -229,7 +229,7 @@ class GalleryMemberActivity : BaseActivityFont() {
                 photosetId = photosetID,
                 userId = userID,
                 extras = primaryPhotoExtras,
-                perPage = Constants.PER_PAGE_SIZE,
+                perPage = PER_PAGE_SIZE,
                 page = currentPage,
                 format = format,
                 noJsonCallback = noJsonCallBack

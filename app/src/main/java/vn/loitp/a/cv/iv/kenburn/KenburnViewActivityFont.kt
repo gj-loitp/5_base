@@ -7,7 +7,7 @@ import com.flaviofaria.kenburnsview.Transition
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.URL_IMG
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
@@ -51,7 +51,7 @@ class KenburnViewActivityFont : BaseActivityFont() {
             this.tvTitle?.text = EmptyActivityFont::class.java.simpleName
         }
         kbv.loadGlide(
-            any = Constants.URL_IMG,
+            any = URL_IMG,
         )
         kbv.setTransitionListener(object : KenBurnsView.TransitionListener {
             override fun onTransitionEnd(transition: Transition?) {

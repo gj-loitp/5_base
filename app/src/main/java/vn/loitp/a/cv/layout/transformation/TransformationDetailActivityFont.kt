@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.activityTransitionName
 import com.loitp.core.ext.loadGlide
 import com.skydoves.transformationlayout.TransformationCompat
 import com.skydoves.transformationlayout.TransformationLayout
@@ -37,7 +37,7 @@ class TransformationDetailActivityFont : BaseActivityFont() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        onTransformationEndContainer(intent.getParcelableExtra(Constants.activityTransitionName))
+        onTransformationEndContainer(intent.getParcelableExtra(activityTransitionName))
         super.onCreate(savedInstanceState)
 
         intent.getParcelableExtra<Poster>(posterExtraName)?.let {

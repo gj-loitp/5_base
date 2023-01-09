@@ -14,7 +14,9 @@ import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
-import com.loitp.core.common.Constants
+import com.loitp.core.common.NOT_FOUND
+import com.loitp.core.common.SK_PHOTOSET_ID
+import com.loitp.core.common.SK_PHOTOSET_SIZE
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
 import com.loitp.restApi.flickr.FlickrConst
@@ -76,13 +78,13 @@ class GalleryCorePhotosOnlyFrm(
     private fun setupViews() {
         val bundle = arguments ?: return
         PhotosDataCore.instance.clearData()
-        photosetID = bundle.getString(Constants.SK_PHOTOSET_ID)
+        photosetID = bundle.getString(SK_PHOTOSET_ID)
         if (photosetID.isNullOrEmpty()) {
             handleException(Exception(getString(R.string.err_unknown)))
             return
         }
 //        logD("photosetID $photosetID")
-        photosSize = bundle.getInt(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
+        photosSize = bundle.getInt(SK_PHOTOSET_SIZE, NOT_FOUND)
 //        logD("photosSize $photosSize")
 
         val isShowTitle = bundle.getBoolean(IS_SHOW_TITLE)
@@ -182,7 +184,7 @@ class GalleryCorePhotosOnlyFrm(
     }
 
     private fun goToHome() {
-        if (photosSize == Constants.NOT_FOUND) {
+        if (photosSize == NOT_FOUND) {
             getPhotosets()
         } else {
             init()

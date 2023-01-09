@@ -8,7 +8,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseBottomSheetFragment
-import com.loitp.core.common.Constants
+import com.loitp.core.common.AD_HELPER_IS_ENGLISH_LANGUAGE
 import com.loitp.core.ext.*
 import com.loitp.core.helper.adHelper.AdHelperActivity
 import kotlinx.android.synthetic.main.l_f_ttt_information.*
@@ -58,7 +58,7 @@ class BottomSheetInformationTTTFragment :
                 btSupport -> it.chatMessenger()
                 btAdHelper -> {
                     val intent = Intent(it, AdHelperActivity::class.java)
-                    intent.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)
+                    intent.putExtra(AD_HELPER_IS_ENGLISH_LANGUAGE, false)
                     startActivity(intent)
                     it.tranIn()
                 }

@@ -12,7 +12,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsKeepScreenOn
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.*
 import com.loitp.core.ext.*
 import com.loitp.core.helper.adHelper.AdHelperActivity
 import kotlinx.android.synthetic.main.a_menu.*
@@ -65,7 +65,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             this.setTextUnderline()
             setSafeOnClickListener {
                 this@MenuActivity.openUrlInBrowser(
-                    url = Constants.URL_POLICY
+                    url = URL_POLICY
                 )
             }
         }
@@ -194,11 +194,11 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             }
             btAdHelper -> {
                 launchActivity(cls = AdHelperActivity::class.java, data = {
-                    it.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
-                    it.putExtra(Constants.AD_HELPER_COLOR_PRIMARY, Color.RED)
-                    it.putExtra(Constants.AD_HELPER_COLOR_BACKGROUND, Color.YELLOW)
-                    it.putExtra(Constants.AD_HELPER_COLOR_STATUS_BAR, Color.GREEN)
-                    it.putExtra(Constants.AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
+                    it.putExtra(AD_HELPER_IS_ENGLISH_LANGUAGE, true)
+                    it.putExtra(AD_HELPER_COLOR_PRIMARY, Color.RED)
+                    it.putExtra(AD_HELPER_COLOR_BACKGROUND, Color.YELLOW)
+                    it.putExtra(AD_HELPER_COLOR_STATUS_BAR, Color.GREEN)
+                    it.putExtra(AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
                 })
             }
             btFbFanpage -> this.likeFacebookFanpage()

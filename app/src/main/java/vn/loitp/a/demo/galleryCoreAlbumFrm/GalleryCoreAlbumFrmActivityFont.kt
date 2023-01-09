@@ -4,7 +4,8 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.FLICKR_ID_MANGA
+import com.loitp.core.common.SK_PHOTOSET_ID
 import com.loitp.core.ext.addFragment
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.helper.gallery.albumOnly.GalleryCorePhotosOnlyFrm
@@ -47,7 +48,7 @@ class GalleryCoreAlbumFrmActivityFont : BaseActivityFont() {
             }
         )
         val bundle = Bundle()
-        bundle.putString(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
+        bundle.putString(SK_PHOTOSET_ID, FLICKR_ID_MANGA)
         bundle.putBoolean(GalleryCorePhotosOnlyFrm.IS_SHOW_TITLE, false)
         frm.arguments = bundle
         this.addFragment(

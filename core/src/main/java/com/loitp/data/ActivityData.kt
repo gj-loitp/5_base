@@ -1,6 +1,6 @@
 package com.loitp.data
 
-import com.loitp.core.common.Constants
+import com.loitp.core.common.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
 
 /**
  * Created by Loitp on 04,August,2022
@@ -15,5 +15,5 @@ class ActivityData {
         val instance: ActivityData by lazy(LazyThreadSafetyMode.PUBLICATION) { ActivityData() }
     }
 
-    var type = Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
+    var type = TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
 }

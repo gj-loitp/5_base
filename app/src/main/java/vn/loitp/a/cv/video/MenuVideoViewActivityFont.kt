@@ -5,7 +5,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.KEY_VIDEO_LINK_IMA_AD
+import com.loitp.core.common.KEY_VIDEO_LINK_PLAY
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_video_menu.*
@@ -44,7 +45,7 @@ class MenuVideoViewActivityFont : BaseActivityFont() {
         btExoPlayer2.setSafeOnClickListener {
             launchActivity(cls = ExoPlayerActivityFont::class.java, withAnim = true, data = {
                 it.putExtra(
-                    Constants.KEY_VIDEO_LINK_PLAY,
+                    KEY_VIDEO_LINK_PLAY,
                     "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
                 )
             })
@@ -52,10 +53,10 @@ class MenuVideoViewActivityFont : BaseActivityFont() {
         btExoPlayer2IMA.setSafeOnClickListener {
             launchActivity(cls = ExoPlayerActivityFont::class.java, withAnim = true, data = {
                 it.putExtra(
-                    Constants.KEY_VIDEO_LINK_PLAY,
+                    KEY_VIDEO_LINK_PLAY,
                     "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
                 )
-                it.putExtra(Constants.KEY_VIDEO_LINK_IMA_AD, getString(R.string.ad_tag_url))
+                it.putExtra(KEY_VIDEO_LINK_IMA_AD, getString(R.string.ad_tag_url))
 
             })
         }

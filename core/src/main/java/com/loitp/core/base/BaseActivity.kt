@@ -19,7 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.*
-import com.loitp.core.common.Constants
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
@@ -102,7 +102,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
 
         val layoutId = setLayoutResourceId()
-        if (layoutId != Constants.NOT_FOUND) {
+        if (layoutId != NOT_FOUND) {
             setContentView(setLayoutResourceId())
         }
 

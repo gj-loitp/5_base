@@ -19,7 +19,7 @@ import androidx.core.view.isVisible
 import androidx.viewpager.widget.ViewPager
 import com.daimajia.androidanimations.library.Techniques
 import com.loitp.R
-import com.loitp.core.common.Constants
+import com.loitp.core.common.*
 import com.loitp.core.helper.fbComment.FbCommentActivity
 import com.loitp.data.ActivityData
 import com.loitp.views.dlg.slideImages.LSlideAdapter
@@ -62,37 +62,37 @@ fun Context.tranIn() {
         return
     }
     when (ActivityData.instance.type) {
-        Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM -> {
+        TYPE_ACTIVITY_TRANSITION_NO_ANIM -> {
             transActivityNoAnimation()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT -> {
+        TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT -> {
             // do nothing
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT -> {
+        TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT -> {
             slideLeft()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_RIGHT -> {
+        TYPE_ACTIVITY_TRANSITION_SLIDE_RIGHT -> {
             slideRight()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_DOWN -> {
+        TYPE_ACTIVITY_TRANSITION_SLIDE_DOWN -> {
             slideDown()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_UP -> {
+        TYPE_ACTIVITY_TRANSITION_SLIDE_UP -> {
             slideUp()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_FADE -> {
+        TYPE_ACTIVITY_TRANSITION_FADE -> {
             fade()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_ZOOM -> {
+        TYPE_ACTIVITY_TRANSITION_ZOOM -> {
             zoom()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL -> {
+        TYPE_ACTIVITY_TRANSITION_WINDMILL -> {
             windmill()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL -> {
+        TYPE_ACTIVITY_TRANSITION_DIAGONAL -> {
             diagonal()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_SPIN -> {
+        TYPE_ACTIVITY_TRANSITION_SPIN -> {
             spin()
         }
     }
@@ -103,37 +103,37 @@ fun Context.tranOut() {
         return
     }
     when (ActivityData.instance.type) {
-        Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM -> {
+        TYPE_ACTIVITY_TRANSITION_NO_ANIM -> {
             transActivityNoAnimation()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT -> {
+        TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT -> {
             // do nothing
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT -> {
+        TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT -> {
             slideRight()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_RIGHT -> {
+        TYPE_ACTIVITY_TRANSITION_SLIDE_RIGHT -> {
             slideLeft()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_DOWN -> {
+        TYPE_ACTIVITY_TRANSITION_SLIDE_DOWN -> {
             slideUp()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_UP -> {
+        TYPE_ACTIVITY_TRANSITION_SLIDE_UP -> {
             slideDown()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_FADE -> {
+        TYPE_ACTIVITY_TRANSITION_FADE -> {
             fade()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_ZOOM -> {
+        TYPE_ACTIVITY_TRANSITION_ZOOM -> {
             zoom()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL -> {
+        TYPE_ACTIVITY_TRANSITION_WINDMILL -> {
             windmill()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL -> {
+        TYPE_ACTIVITY_TRANSITION_DIAGONAL -> {
             diagonal()
         }
-        Constants.TYPE_ACTIVITY_TRANSITION_SPIN -> {
+        TYPE_ACTIVITY_TRANSITION_SPIN -> {
             spin()
         }
     }
@@ -220,7 +220,7 @@ fun Context?.sendEmail(
 
 fun Context.openBrowserPolicy(
 ) {
-    this.openUrlInBrowser(url = Constants.URL_POLICY)
+    this.openUrlInBrowser(url = URL_POLICY)
 }
 
 fun Context?.openUrlInBrowser(
@@ -243,7 +243,7 @@ fun Context?.openFacebookComment(
         return
     }
     val intent = Intent(this, FbCommentActivity::class.java)
-    intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
+    intent.putExtra(FACEBOOK_COMMENT_URL, url)
     this.startActivity(intent)
     this.tranIn()
 }

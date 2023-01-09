@@ -14,7 +14,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.URL_IMG
+import com.loitp.core.common.URL_IMG_1
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_iv_preview_image_collection.*
@@ -224,11 +225,11 @@ class PreviewImageCollectionActivityFont : BaseActivityFont() {
             )
         )
         imageCollectionView.addImage(
-            url = Constants.URL_IMG,
+            url = URL_IMG,
             placeHolder = pereira.agnaldo.previewimgcol.R.drawable.blur
         )
         imageCollectionView.addImage(
-            url = Constants.URL_IMG_1,
+            url = URL_IMG_1,
             placeHolder = pereira.agnaldo.previewimgcol.R.drawable.blur
         )
 

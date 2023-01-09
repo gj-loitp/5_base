@@ -18,7 +18,7 @@ import com.loitp.R
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.FACEBOOK_COMMENT_URL
 import com.loitp.core.ext.setColorProgressBar
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setProgressBarVisibility
@@ -68,7 +68,7 @@ class FbCommentActivity : BaseActivityFont() {
         postUrl = if (BuildConfig.DEBUG) {
             "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/"
         } else {
-            intent.getStringExtra(Constants.FACEBOOK_COMMENT_URL)
+            intent.getStringExtra(FACEBOOK_COMMENT_URL)
         }
 
         // finish the activity in case of empty url
