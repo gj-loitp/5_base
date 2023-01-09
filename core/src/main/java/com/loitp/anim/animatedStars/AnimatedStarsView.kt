@@ -5,9 +5,9 @@ import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.View
 import com.loitp.R
-import com.loitp.anim.animatedStars.entities.InterstellarFactory
 import com.loitp.anim.animatedStars.entities.Star
 import com.loitp.anim.animatedStars.entities.StarConstraints
+import com.loitp.anim.animatedStars.entities.create
 import com.loitp.anim.animatedStars.entities.meteor.Meteorite
 import com.loitp.anim.animatedStars.entities.stars.BaseStar
 import java.util.*
@@ -239,8 +239,7 @@ constructor(
         it: Int,
         starCompleteListener: BaseStar.StarCompleteListener
     ): Star {
-        return InterstellarFactory.create(
-            starConstraints = starConstraints,
+        return starConstraints.create(
             x = (Math.random() * viewWidth).roundToInt(),
             y = (Math.random() * viewHeight).roundToInt(),
             color = starColors[it % starColors.size],

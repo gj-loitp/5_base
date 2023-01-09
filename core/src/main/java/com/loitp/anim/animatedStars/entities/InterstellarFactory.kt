@@ -5,29 +5,24 @@ import com.loitp.anim.animatedStars.entities.stars.RoundyStar
 import com.loitp.anim.animatedStars.entities.stars.ShinyStar
 import com.loitp.anim.animatedStars.entities.stars.TinyStar
 
-object InterstellarFactory {
+fun StarConstraints.create(
+    x: Int,
+    y: Int,
+    color: Int,
+    listener: BaseStar.StarCompleteListener
+): Star {
+    val starSize = this.getRandomStarSize()
 
-    fun create(
-        starConstraints: StarConstraints,
-        x: Int,
-        y: Int,
-        color: Int,
-        listener: BaseStar.StarCompleteListener
-    ): Star {
-        val starSize = starConstraints.getRandomStarSize()
+    return if (starSize >= this.bigStarThreshold) {
 
-        return if (starSize >= starConstraints.bigStarThreshold) {
-
-            // big star ones randomly be Shiny or Round
-            if (Math.random() < 0.7) {
-                ShinyStar(starConstraints, x, y, color, listener)
-            } else {
-                RoundyStar(starConstraints, x, y, color, listener)
-            }
+        // big star ones randomly be Shiny or Round
+        if (Math.random() < 0.7) {
+            ShinyStar(starConstraints = this, x = x, y = y, color = color, listener = listener)
         } else {
-            // others will ne tiny
-            TinyStar(starConstraints, x, y, color, listener)
+            RoundyStar(starConstraints = this, x = x, y = y, color = color, listener = listener)
         }
+    } else {
+        // others will ne tiny
+        TinyStar(starConstraints = this, x = x, y = y, color = color, listener = listener)
     }
-
 }

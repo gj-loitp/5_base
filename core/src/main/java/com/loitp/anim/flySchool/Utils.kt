@@ -9,30 +9,21 @@ import com.loitp.core.ext.getRandomNumber
 /**
  * Utility class with simple utility functions
  */
-object Utils {
-    /**
-     * @param dp : Dimension in dp
-     * Calculates and returns the dimension value in pixels from dp
-     */
-    @JvmStatic
-    fun dpToPx(dp: Int): Int {
-        return (dp * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
-    }
-
-    /**
-     * Checks and tell us whether the android phone is on version < LOLLIPOP or not
-     */
-//    val isLowerThanLollipop: Boolean
-//        get() = false
-
-    @JvmStatic
-    fun setHeart(imageView: ImageView) {
-        val size = 150.getRandomNumber() + 80
-        imageView.layoutParams.height = size
-        imageView.layoutParams.width = size
-        imageView.requestLayout()
-
-        val color = getRandomColor()
-        imageView.setColorFilter(color, PorterDuff.Mode.MULTIPLY)
-    }
+/**
+ * @param dp : Dimension in dp
+ * Calculates and returns the dimension value in pixels from dp
+ */
+fun Int.dpToPx(): Int {
+    return (this * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
 }
+
+fun ImageView.setHeart() {
+    val size = 150.getRandomNumber() + 80
+    this.layoutParams.height = size
+    this.layoutParams.width = size
+    this.requestLayout()
+
+    val color = getRandomColor()
+    this.setColorFilter(color, PorterDuff.Mode.MULTIPLY)
+}
+
