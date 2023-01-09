@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.turnLayoutManager
+package vn.loitp.a.cv.rv.turnLayoutManager
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -18,19 +18,19 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_turn_layout_manager.*
+import kotlinx.android.synthetic.main.a_turn_layout_manager.*
 import kotlinx.android.synthetic.main.view_controls_tlm.*
 import vn.loitp.R
 
 @LogTag("TurnLayoutManagerActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class TurnLayoutManagerActivityFont : BaseActivityFont() {
+class TurnLayoutManagerActivity : BaseActivityFont() {
 
     private var layoutManager: TurnLayoutManager? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_turn_layout_manager
+        return R.layout.a_turn_layout_manager
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +54,7 @@ class TurnLayoutManagerActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = TurnLayoutManagerActivityFont::class.java.simpleName
+            this.tvTitle?.text = TurnLayoutManagerActivity::class.java.simpleName
         }
 
         val adapter = SampleAdapter(this)

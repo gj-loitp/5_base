@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.rv.turnLayoutManager
+package vn.loitp.a.cv.rv.turnLayoutManager
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.R
-import vn.loitp.app.a.cv.rv.turnLayoutManager.SampleAdapter.SampleViewHolder
+import vn.loitp.a.cv.rv.turnLayoutManager.SampleAdapter.SampleViewHolder
 
 class SampleAdapter(context: Context) : RecyclerView.Adapter<SampleViewHolder>() {
     private val layoutInflater: LayoutInflater
@@ -21,12 +21,15 @@ class SampleAdapter(context: Context) : RecyclerView.Adapter<SampleViewHolder>()
         parent: ViewGroup,
         viewType: Int
     ): SampleViewHolder {
-        val sampleView = layoutInflater.inflate(R.layout.view_sample_tlm, parent, false) as TextView
+        val sampleView = layoutInflater.inflate(R.layout.i_sample_tlm, parent, false) as TextView
         return SampleViewHolder(sampleView)
     }
 
     @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: SampleViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: SampleViewHolder,
+        position: Int
+    ) {
         holder.tv.text = "$position"
     }
 

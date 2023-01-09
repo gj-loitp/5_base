@@ -35,7 +35,7 @@ import vn.loitp.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataA
 import vn.loitp.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivity
 import vn.loitp.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivity
 import vn.loitp.a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivity
-import vn.loitp.app.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivityFont
+import vn.loitp.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivity
 
 @LogTag("MenuRecyclerViewActivity")
 @IsFullScreen(false)
@@ -120,7 +120,7 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
             )
             btFastScroll -> launchActivity(MenuFastScrollActivity::class.java)
             btFastScrollSeekBar -> launchActivity(RvFastScrollSeekbarActivity::class.java)
-            btTurnLayoutManagerActivity -> launchActivity(TurnLayoutManagerActivityFont::class.java)
+            btTurnLayoutManagerActivity -> launchActivity(TurnLayoutManagerActivity::class.java)
             btCarouselRecyclerViewActivity -> launchActivity(CarouselRecyclerViewActivity::class.java)
             btDragDrop -> launchActivity(MainActivityDragDrop::class.java)
             btDragAndDropDemoActivity -> launchActivity(DragAndDropDemoActivity::class.java)
