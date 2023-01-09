@@ -26,8 +26,8 @@ import vn.loitp.a.cv.rv.fastScrollSeekbar.RecyclerViewFastScrollSeekbarActivityF
 import vn.loitp.a.cv.rv.fitGv.FitGridViewActivityFont
 import vn.loitp.a.cv.rv.footer.RecyclerViewFooterActivityFont
 import vn.loitp.a.cv.rv.footer2.RecyclerViewFooter2Activity
-import vn.loitp.app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivityFont
-import vn.loitp.app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont
+import vn.loitp.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity
+import vn.loitp.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont
 import vn.loitp.app.a.cv.rv.looping.LoopingLayoutActivityFont
 import vn.loitp.app.a.cv.rv.netView.NetViewActivityFont
 import vn.loitp.app.a.cv.rv.normalRv.RecyclerViewActivityFont
@@ -97,7 +97,7 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
             btNormalRecyclerViewWithSingletonData -> launchActivity(
                 RecyclerViewWithSingletonDataActivityFont::class.java
             )
-            btGalleryLayoutManager -> launchActivity(GalleryLayoutManagerHorizontalActivityFont::class.java)
+            btGalleryLayoutManager -> launchActivity(GalleryLayoutManagerHorizontalActivity::class.java)
             btGalleryLayoutManagerVertical -> launchActivity(
                 GalleryLayoutManagerVerticalActivityFont::class.java
             )

@@ -419,10 +419,10 @@
             android:name=".a.func.recolor.RecolorActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivityFont"
+            android:name=".a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont"
+            android:name=".a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.scrollablePanel.ScrollablePanelActivityFont"
