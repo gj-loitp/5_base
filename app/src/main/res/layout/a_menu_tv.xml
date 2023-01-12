@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <androidx.core.widget.NestedScrollView
+    <com.factor.bouncy.BouncyNestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -120,6 +120,6 @@
                 android:text="@string/zoom_textview" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.core.widget.NestedScrollView>
+    </com.factor.bouncy.BouncyNestedScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

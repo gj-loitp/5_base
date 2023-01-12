@@ -16,7 +16,7 @@ import vn.loitp.a.cv.wv.wrapContent.WebViewWrapContentActivityFont
 @LogTag("MenuWebViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class MenuWebViewActivityFont : BaseActivityFont() {
+class MenuWebViewActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu_wv
@@ -36,7 +36,7 @@ class MenuWebViewActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = MenuWebViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuWebViewActivity::class.java.simpleName
         }
         btLWebView.setSafeOnClickListener {
             launchActivity(LWebViewActivityFont::class.java)

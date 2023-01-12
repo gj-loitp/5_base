@@ -47,13 +47,13 @@ import vn.loitp.a.cv.spotlight.SpotlightActivity
 import vn.loitp.a.cv.stackExpandableView.StackExpandableViewActivity
 import vn.loitp.a.cv.sticker.StickerActivity
 import vn.loitp.a.cv.sw.MenuSwitchToggleActivity
-import vn.loitp.a.cv.treeView.TreeViewActivityFont
+import vn.loitp.a.cv.treeView.TreeViewActivity
 import vn.loitp.a.cv.tv.MenuTextViewActivity
-import vn.loitp.a.cv.video.MenuVideoViewActivityFont
-import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivityFont
-import vn.loitp.a.cv.wheelView.WheelViewActivityFont
-import vn.loitp.a.cv.wv.MenuWebViewActivityFont
-import vn.loitp.a.cv.wwlMusic.WWLActivityMusicFont
+import vn.loitp.a.cv.video.MenuVideoViewActivity
+import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivity
+import vn.loitp.a.cv.wheelView.WheelViewActivity
+import vn.loitp.a.cv.wv.MenuWebViewActivity
+import vn.loitp.a.cv.wwlMusic.WWLActivityMusic
 import vn.loitp.a.cv.wwlVideo.WWLVideoActivity
 import vn.loitp.app.a.cv.vp.MenuViewPagerActivityFont
 
@@ -143,35 +143,35 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
             btSticker -> launchActivity(StickerActivity::class.java)
             btEditText -> launchActivity(MenuEditTextActivity::class.java)
             btLayout -> launchActivity(MenuLayoutActivity::class.java)
-            btVideoView -> launchActivity(MenuVideoViewActivityFont::class.java)
+            btVideoView -> launchActivity(MenuVideoViewActivity::class.java)
             btSeekBar -> launchActivity(MenuSeekbarActivity::class.java)
             btRecyclerView -> launchActivity(MenuRecyclerViewActivity::class.java)
             btDialog -> launchActivity(MenuDialogActivity::class.java)
             btPopupMenu -> launchActivity(PopupMenuActivity::class.java)
             btScratchView -> launchActivity(MenuScratchViewActivity::class.java)
             btNavigation -> launchActivity(MenuNavigationActivity::class.java)
-            btTreeView -> launchActivity(TreeViewActivityFont::class.java)
+            btTreeView -> launchActivity(TreeViewActivity::class.java)
             btDraggableFlipView -> launchActivity(DraggableFlipViewActivity::class.java)
             btDragView -> launchActivity(MenuDragViewActivity::class.java)
             btAnswerView -> launchActivity(AnswerViewActivity::class.java)
             btBottomSheet -> launchActivity(MenuBottomSheetActivity::class.java)
             btScrollablePanel -> launchActivity(ScrollablePanelActivity::class.java)
             btFbCmt -> launchActivity(FacebookCommentActivity::class.java)
-            btWwlMusic -> launchActivity(WWLActivityMusicFont::class.java)
+            btWwlMusic -> launchActivity(WWLActivityMusic::class.java)
             btWwlVideo -> launchActivity(WWLVideoActivity::class.java)
             btLDebugView -> launchActivity(LDebugViewActivity::class.java)
             btMenu -> launchActivity(MenuMenuActivity::class.java)
             btLCardView -> launchActivity(LCardViewActivity::class.java)
             btCalendar -> launchActivity(MenuCalendarActivity::class.java)
-            btWebView -> launchActivity(MenuWebViewActivityFont::class.java)
+            btWebView -> launchActivity(MenuWebViewActivity::class.java)
             btIndicator -> launchActivity(MenuMagicIndicatorActivityFont::class.java)
-            btWheelSpinner -> launchActivity(WheelSpinnerActivityFont::class.java)
+            btWheelSpinner -> launchActivity(WheelSpinnerActivity::class.java)
             btFingerPaintView -> launchActivity(FingerPaintActivity::class.java)
             btStackExpandableViewActivity -> launchActivity(StackExpandableViewActivity::class.java)
             btMenuGraphViewActivity -> launchActivity(MenuGraphViewActivity::class.java)
             btSimpleRatingBar -> launchActivity(SimpleRatingBarActivity::class.java)
             btCodeView -> launchActivity(CodeViewActivity::class.java)
-            btWheelView -> launchActivity(WheelViewActivityFont::class.java)
+            btWheelView -> launchActivity(WheelViewActivity::class.java)
             btLuckyWheelActivity -> launchActivity(LuckyWheelActivity::class.java)
             btCornerSheet -> launchActivity(CornetSheetExampleActivity::class.java)
             btCardView -> launchActivity(CardViewActivity::class.java)

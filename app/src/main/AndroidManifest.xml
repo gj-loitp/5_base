@@ -44,7 +44,7 @@
             android:name=".a.cv.MenuCustomViewsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.MenuDemoActivityFont"
+            android:name=".a.demo.MenuDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.api.galleryAPI.GalleryAPIActivityFont"
@@ -152,7 +152,7 @@
             android:name=".a.cv.et.materialTextField.MaterialTextFieldActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.video.MenuVideoViewActivityFont"
+            android:name=".a.cv.video.MenuVideoViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.typeWrite.TypeWriterTextViewActivityFont"
@@ -280,7 +280,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".a.func.MenuFunctionActivityFont"
+            android:name=".a.func.MenuFunctionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.func.simpleFingerGestures.SimpleFingerGesturesActivityFont"
@@ -295,7 +295,7 @@
             android:name=".a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.MenuDatabaseActivityFont"
+            android:name=".a.db.MenuDatabaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.db.realm.RealmActivityFont"
@@ -334,7 +334,7 @@
             android:name=".a.cv.iv.scrollParallax.ScrollParallaxIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.pattern.MenuPatternActivityFont"
+            android:name=".a.pattern.MenuPatternActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.pattern.observer.ObserverPatternActivityFont"
@@ -352,7 +352,7 @@
             android:name=".a.api.retrofit2.TestAPIRetrofit2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.treeView.TreeViewActivityFont"
+            android:name=".a.cv.treeView.TreeViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.goodView.GoodViewActivityFont"
@@ -488,7 +488,7 @@
             android:name=".a.cv.fbCmt.FacebookCommentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.wwlMusic.WWLActivityMusicFont"
+            android:name=".a.cv.wwlMusic.WWLActivityMusic"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
             android:name=".a.cv.wwlVideo.WWLVideoActivity"
@@ -500,7 +500,7 @@
             android:name=".a.cv.layout.rotate.RotateLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.more.MoreActivityFont"
+            android:name=".a.more.MoreActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.l.LButtonActivityFont"
@@ -621,7 +621,7 @@
             android:name=".a.cv.rv.diffUtil.DiffUtilActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.tut.MenuTutorialActivityFont"
+            android:name=".a.tut.MenuTutorialActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.tut.rxjava2.DisposableExampleActivityFont"
@@ -661,7 +661,7 @@
             android:name=".a.tut.rxjava2.TestRxActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.MenuPickerActivityFont"
+            android:name=".a.picker.MenuPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.scrollView2d.ScrollView2DActivityFont"
@@ -673,7 +673,7 @@
             android:name=".a.demo.fragmentNavigation.FragmentNavigationActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.network.NetworkActivityFont"
+            android:name=".a.network.NetworkActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.tv.extra.ExtraTextViewActivity"
@@ -800,7 +800,7 @@
             android:name=".a.cv.rv.recyclerTabLayout.years.RvTabYearsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.sec.MenuSecurityActivityFont"
+            android:name=".a.sec.MenuSecurityActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.sec.simple.SimpleEncryptDecryptStringActivityFont"
@@ -824,7 +824,7 @@
             android:name=".a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.sv.MenuServiceActivityFont"
+            android:name=".a.sv.MenuServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.sv.endless.EndlessServiceActivityFont"
@@ -1065,7 +1065,7 @@
             android:name=".a.cv.layout.chess.ChessLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.wheelSpiner.WheelSpinnerActivityFont"
+            android:name=".a.cv.wheelSpiner.WheelSpinnerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.demo.rss.RSSActivityFont"
@@ -1202,7 +1202,7 @@
             android:name=".app.a.cv.tv.typed.TypedTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.wv.MenuWebViewActivityFont"
+            android:name=".a.cv.wv.MenuWebViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.wv.wrapContent.WebViewWrapContentActivityFont"
@@ -1217,7 +1217,7 @@
             android:name=".a.cv.code.CodeViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.game.MenuGameActivityFont"
+            android:name=".a.game.MenuGameActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.game.osero.TopOseroActivityFont"
@@ -1242,7 +1242,7 @@
             android:name=".a.cv.bt.fab.FabActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.wheelView.WheelViewActivityFont"
+            android:name=".a.cv.wheelView.WheelViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.sb.range.RangeSeekbarActivityFont"
@@ -1392,7 +1392,7 @@
             android:name=".a.cv.iv.shapeableIv.ShapeableIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.interviewVN.InterviewVNIQActivityFont"
+            android:name=".a.interviewVN.InterviewVNIQActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.coil.CoilActivityFont"

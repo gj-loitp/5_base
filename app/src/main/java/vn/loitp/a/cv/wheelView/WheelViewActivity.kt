@@ -15,7 +15,7 @@ import vn.loitp.R
 @LogTag("WheelViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class WheelViewActivityFont : BaseActivityFont() {
+class WheelViewActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_wheel_view
@@ -46,7 +46,7 @@ class WheelViewActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = WheelViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = WheelViewActivity::class.java.simpleName
         }
 
         wheelView.setOnClickListener {

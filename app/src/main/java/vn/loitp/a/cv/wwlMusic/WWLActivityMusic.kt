@@ -18,7 +18,7 @@ import vn.loitp.a.cv.wwlMusic.utils.WWLMusicDataset
 // https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 @LogTag("WWLActivityMusic")
 @IsFullScreen(false)
-class WWLActivityMusicFont : BaseActivityFont(), LWWLMusic.Listener, FragmentHost {
+class WWLActivityMusic : BaseActivityFont(), LWWLMusic.Listener, FragmentHost {
 
     private var mLastAlpha = 0f
     private var frmWatch: WWLWatchFragment? = null

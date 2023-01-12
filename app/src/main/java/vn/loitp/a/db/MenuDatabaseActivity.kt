@@ -34,7 +34,7 @@ import vn.loitp.a.demo.architectureComponent.room.WordActivityFont
 @LogTag("MenuDatabaseActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuDatabaseActivityFont : BaseActivityFont(), OnClickListener {
+class MenuDatabaseActivity : BaseActivityFont(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_db_menu
@@ -54,7 +54,7 @@ class MenuDatabaseActivityFont : BaseActivityFont(), OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuDatabaseActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuDatabaseActivity::class.java.simpleName
         }
         btSqlite.setOnClickListener(this)
         btRealm.setOnClickListener(this)

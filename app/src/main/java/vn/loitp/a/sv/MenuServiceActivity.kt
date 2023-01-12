@@ -15,7 +15,7 @@ import vn.loitp.a.sv.endless.EndlessServiceActivityFont
 @LogTag("MenuServiceActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuServiceActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuServiceActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_sv_menu
@@ -35,7 +35,7 @@ class MenuServiceActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuServiceActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuServiceActivity::class.java.simpleName
         }
         btDemoService.setOnClickListener(this)
         btEndlessService.setOnClickListener(this)

@@ -18,7 +18,7 @@ import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
 @LogTag("InterviewVNIQActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class InterviewVNIQActivityFont : BaseActivityFont() {
+class InterviewVNIQActivity : BaseActivityFont() {
 
     var onBackClickListener: OnBackPressedListener? = null
     private var doubleBackToExitPressedOnce = false

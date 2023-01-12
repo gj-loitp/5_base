@@ -17,7 +17,7 @@ import vn.loitp.a.sec.ssBiometricsAuthentication.SSBiometricsAuthenticationActiv
 @LogTag("SecurityMenuActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuSecurityActivityFont : BaseActivityFont() {
+class MenuSecurityActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_sec_menu
@@ -35,7 +35,7 @@ class MenuSecurityActivityFont : BaseActivityFont() {
                 onBaseBackPressed()
             })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuSecurityActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuSecurityActivity::class.java.simpleName
         }
         btRxBiometric.setSafeOnClickListener {
             launchActivity(RxBiometricActivityFont::class.java)

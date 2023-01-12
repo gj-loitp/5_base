@@ -19,7 +19,7 @@ import vn.loitp.a.cv.video.youtube.YoutubeActivityFont
 @LogTag("VideoViewMenuActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuVideoViewActivityFont : BaseActivityFont() {
+class MenuVideoViewActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_video_menu
@@ -39,7 +39,7 @@ class MenuVideoViewActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuVideoViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuVideoViewActivity::class.java.simpleName
         }
 
         btExoPlayer2.setSafeOnClickListener {

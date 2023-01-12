@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit
 
 @LogTag("NetworkActivity")
 @IsFullScreen(false)
-class NetworkActivityFont : BaseActivityFont() {
+class NetworkActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_network
@@ -40,7 +40,7 @@ class NetworkActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = NetworkActivityFont::class.java.simpleName
+            this.tvTitle?.text = NetworkActivity::class.java.simpleName
         }
         showStatus(this.isConnected())
         btn.setSafeOnClickListener {
@@ -81,12 +81,12 @@ class NetworkActivityFont : BaseActivityFont() {
             @SuppressLint("SetTextI18n")
             override fun onNext(value: Long) {
                 logD("=============================onNext : $value")
-                logD("isWifiConnected ${TrafficUtils.isWifiConnected(this@NetworkActivityFont)}")
+                logD("isWifiConnected ${TrafficUtils.isWifiConnected(this@NetworkActivity)}")
                 logD("getNetworkSpeed ${TrafficUtils.getNetworkSpeed()}")
 
                 tv.post {
                     tv.text =
-                        "isWifiConnected ${TrafficUtils.isWifiConnected(this@NetworkActivityFont)}\ngetNetworkSpeed ${TrafficUtils.getNetworkSpeed()}"
+                        "isWifiConnected ${TrafficUtils.isWifiConnected(this@NetworkActivity)}\ngetNetworkSpeed ${TrafficUtils.getNetworkSpeed()}"
                 }
             }
 

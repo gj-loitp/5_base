@@ -12,7 +12,7 @@ import vn.loitp.R
 
 @LogTag("WheelSpinnerActivity")
 @IsFullScreen(false)
-class WheelSpinnerActivityFont : BaseActivityFont() {
+class WheelSpinnerActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_wheel_spinner

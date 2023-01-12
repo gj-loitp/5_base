@@ -20,18 +20,18 @@ import vn.loitp.R
 import vn.loitp.a.anim.MenuAnimationActivity
 import vn.loitp.a.api.MenuAPIActivity
 import vn.loitp.a.cv.MenuCustomViewsActivity
-import vn.loitp.a.db.MenuDatabaseActivityFont
-import vn.loitp.a.demo.MenuDemoActivityFont
-import vn.loitp.a.func.MenuFunctionActivityFont
-import vn.loitp.a.game.MenuGameActivityFont
-import vn.loitp.a.interviewVN.InterviewVNIQActivityFont
-import vn.loitp.a.more.MoreActivityFont
-import vn.loitp.a.network.NetworkActivityFont
-import vn.loitp.a.pattern.MenuPatternActivityFont
-import vn.loitp.a.picker.MenuPickerActivityFont
-import vn.loitp.a.sec.MenuSecurityActivityFont
-import vn.loitp.a.sv.MenuServiceActivityFont
-import vn.loitp.a.tut.MenuTutorialActivityFont
+import vn.loitp.a.db.MenuDatabaseActivity
+import vn.loitp.a.demo.MenuDemoActivity
+import vn.loitp.a.func.MenuFunctionActivity
+import vn.loitp.a.game.MenuGameActivity
+import vn.loitp.a.interviewVN.InterviewVNIQActivity
+import vn.loitp.a.more.MoreActivity
+import vn.loitp.a.network.NetworkActivity
+import vn.loitp.a.pattern.MenuPatternActivity
+import vn.loitp.a.picker.MenuPickerActivity
+import vn.loitp.a.sec.MenuSecurityActivity
+import vn.loitp.a.sv.MenuServiceActivity
+import vn.loitp.a.tut.MenuTutorialActivity
 import vn.loitp.a.u.UtilsActivity
 import vn.loitp.a.u.UtilsCoreActivity
 
@@ -179,13 +179,13 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             btApi -> launchActivity(MenuAPIActivity::class.java)
             btAnimation -> launchActivity(MenuAnimationActivity::class.java)
             btCustomView -> launchActivity(MenuCustomViewsActivity::class.java)
-            btDemo -> launchActivity(MenuDemoActivityFont::class.java)
+            btDemo -> launchActivity(MenuDemoActivity::class.java)
             btRateApp -> this.rateApp(packageName)
             btMoreApp -> this.moreApp()
-            btFunction -> launchActivity(MenuFunctionActivityFont::class.java)
-            btGame -> launchActivity(MenuGameActivityFont::class.java)
-            btDatabase -> launchActivity(MenuDatabaseActivityFont::class.java)
-            btPattern -> launchActivity(MenuPatternActivityFont::class.java)
+            btFunction -> launchActivity(MenuFunctionActivity::class.java)
+            btGame -> launchActivity(MenuGameActivity::class.java)
+            btDatabase -> launchActivity(MenuDatabaseActivity::class.java)
+            btPattern -> launchActivity(MenuPatternActivity::class.java)
             btChat -> this.chatMessenger()
             btGithub -> {
                 this.openUrlInBrowser(
@@ -202,12 +202,12 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                 })
             }
             btFbFanpage -> this.likeFacebookFanpage()
-            btFrmMore -> launchActivity(MoreActivityFont::class.java)
-            btTutorial -> launchActivity(MenuTutorialActivityFont::class.java)
-            btPicker -> launchActivity(MenuPickerActivityFont::class.java)
-            btNetwork -> launchActivity(NetworkActivityFont::class.java)
-            btSecurity -> launchActivity(MenuSecurityActivityFont::class.java)
-            btService -> launchActivity(MenuServiceActivityFont::class.java)
+            btFrmMore -> launchActivity(MoreActivity::class.java)
+            btTutorial -> launchActivity(MenuTutorialActivity::class.java)
+            btPicker -> launchActivity(MenuPickerActivity::class.java)
+            btNetwork -> launchActivity(NetworkActivity::class.java)
+            btSecurity -> launchActivity(MenuSecurityActivity::class.java)
+            btService -> launchActivity(MenuServiceActivity::class.java)
             btUtils -> launchActivity(UtilsActivity::class.java)
             btUtilsCore -> launchActivity(UtilsCoreActivity::class.java)
             btFeedback -> {
@@ -219,7 +219,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                     body = "..."
                 )
             }
-            btInterviewVNIQActivity -> launchActivity(InterviewVNIQActivityFont::class.java)
+            btInterviewVNIQActivity -> launchActivity(InterviewVNIQActivity::class.java)
         }
     }
 }

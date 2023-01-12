@@ -21,7 +21,7 @@ import vn.loitp.a.picker.unicornFile.UnicornFilePickerActivityFont
 @LogTag("MenuPickerActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuPickerActivityFont : BaseActivityFont() {
+class MenuPickerActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_picker_menu
@@ -41,7 +41,7 @@ class MenuPickerActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuPickerActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuPickerActivity::class.java.simpleName
         }
         btAttachmentManager.setSafeOnClickListener {
             launchActivity(AttachmentManagerActivityFont::class.java)

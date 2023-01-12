@@ -15,7 +15,7 @@ import vn.loitp.a.tut.rxjava2.MenuRxJava2ActivityFont
 @LogTag("MenuTutorialActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuTutorialActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuTutorialActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_tut_menu
@@ -35,7 +35,7 @@ class MenuTutorialActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuTutorialActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuTutorialActivity::class.java.simpleName
         }
         btRxJava2.setOnClickListener(this)
         btRetrofit2.setOnClickListener(this)

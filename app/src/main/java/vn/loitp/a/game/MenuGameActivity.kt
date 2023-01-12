@@ -17,7 +17,7 @@ import vn.loitp.a.game.puzzle.BoardOptionsActivityFont
 @LogTag("MenuGameActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuGameActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuGameActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_game_menu
@@ -37,7 +37,7 @@ class MenuGameActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuGameActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuGameActivity::class.java.simpleName
         }
 
         btFindNumber.setOnClickListener(this)

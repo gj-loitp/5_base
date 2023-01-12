@@ -33,7 +33,7 @@ import vn.loitp.a.func.wallpo.WallpoActivityFont
 @LogTag("MenuFunctionActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuFunctionActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_func_menu
@@ -53,7 +53,7 @@ class MenuFunctionActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuFunctionActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuFunctionActivity::class.java.simpleName
         }
         btSimpleFingerGesture.setOnClickListener(this)
         btHashMap.setOnClickListener(this)

@@ -18,7 +18,7 @@ import vn.loitp.a.pattern.observer.ObserverPatternActivityFont
 @LogTag("MenuPatternActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuPatternActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuPatternActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_pattern_menu
@@ -38,7 +38,7 @@ class MenuPatternActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuPatternActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuPatternActivity::class.java.simpleName
         }
         btObserver.setOnClickListener(this)
         btMVVM.setOnClickListener(this)

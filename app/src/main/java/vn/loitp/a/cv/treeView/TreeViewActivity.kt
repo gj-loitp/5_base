@@ -15,7 +15,7 @@ import vn.loitp.R
 // https://github.com/Team-Blox/TreeView
 @LogTag("TreeViewActivity")
 @IsFullScreen(false)
-class TreeViewActivityFont : BaseActivityFont() {
+class TreeViewActivity : BaseActivityFont() {
 
     private var nodeCount = 0
 
@@ -37,7 +37,7 @@ class TreeViewActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = TreeViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = TreeViewActivity::class.java.simpleName
         }
 
         val adapter: BaseTreeAdapter<*> =

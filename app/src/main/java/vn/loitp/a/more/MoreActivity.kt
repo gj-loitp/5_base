@@ -12,7 +12,7 @@ import vn.loitp.R
 
 @LogTag("MoreActivity")
 @IsFullScreen(false)
-class MoreActivityFont : BaseActivityFont() {
+class MoreActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_more
@@ -32,7 +32,7 @@ class MoreActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MoreActivityFont::class.java.simpleName
+            this.tvTitle?.text = MoreActivity::class.java.simpleName
         }
         this.addFragment(
             containerFrameLayoutIdRes = R.id.flContainer,

@@ -37,7 +37,7 @@ import vn.loitp.a.demo.twoInstanceActivity.Activity1Font
 @LogTag("MenuDemoActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuDemoActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_demo_menu
@@ -57,7 +57,7 @@ class MenuDemoActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuDemoActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuDemoActivity::class.java.simpleName
         }
         if (BuildConfig.DEBUG) {
             btGalleryCore.visibility = View.VISIBLE
