@@ -45,6 +45,11 @@
                 android:text="ComparingPerformanceBar" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btProgressView"
+                style="@style/ButtonMenu"
+                android:text="ProgressView" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSegmentedProgressBar"
                 style="@style/ButtonMenu"
                 android:text="SegmentedProgressBar" />

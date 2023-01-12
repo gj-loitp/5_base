@@ -12,6 +12,7 @@ import vn.loitp.R
 import vn.loitp.a.cv.progress.circularPb.CircularProgressBarActivityFont
 import vn.loitp.a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivityFont
 import vn.loitp.a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivityFont
+import vn.loitp.a.cv.progress.progressView.ProgressViewActivity
 import vn.loitp.a.cv.progress.segmentedPb.StandardExampleActivityFont
 import vn.loitp.a.cv.progress.tileProgressView.TileProgressViewActivityFont
 import vn.loitp.a.cv.progress.window.WindowProgressActivityFont
@@ -46,9 +47,6 @@ class MenuProgressActivityFont : BaseActivityFont() {
         btCircularProgressIndicator.setSafeOnClickListener {
             launchActivity(CircularProgressIndicatorActivityFont::class.java)
         }
-        btWindow.setSafeOnClickListener {
-            launchActivity(WindowProgressActivityFont::class.java)
-        }
         btSegmentedProgressBar.setSafeOnClickListener {
             launchActivity(StandardExampleActivityFont::class.java)
         }
@@ -57,6 +55,12 @@ class MenuProgressActivityFont : BaseActivityFont() {
         }
         btTileProgressView.setSafeOnClickListener {
             launchActivity(TileProgressViewActivityFont::class.java)
+        }
+        btWindow.setSafeOnClickListener {
+            launchActivity(WindowProgressActivityFont::class.java)
+        }
+        btProgressView.setSafeOnClickListener {
+            launchActivity(ProgressViewActivity::class.java)
         }
     }
 }
