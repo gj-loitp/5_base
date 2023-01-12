@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv.extra
+package vn.loitp.a.cv.tv.extra
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -6,16 +6,16 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.views.tv.extra.LToggleLExtraTextView
-import kotlinx.android.synthetic.main.activity_text_view_extra.*
+import kotlinx.android.synthetic.main.a_tv_extra.*
 import vn.loitp.R
 
 //https://github.com/chuross/extra-textview
 @LogTag("ExtraTextViewActivity")
 @IsFullScreen(false)
-class ExtraTextViewActivityFont : BaseActivityFont() {
+class ExtraTextViewActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_extra
+        return R.layout.a_tv_extra
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

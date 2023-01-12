@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv.fading
+package vn.loitp.a.cv.tv.fading
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,16 +9,16 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_fading_text_view.*
+import kotlinx.android.synthetic.main.a_tv_fading.*
 import vn.loitp.R
 
 @LogTag("FadingTextViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class FadingTextViewActivityFont : BaseActivityFont() {
+class FadingTextViewActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fading_text_view
+        return R.layout.a_tv_fading
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +46,7 @@ class FadingTextViewActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = FadingTextViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = FadingTextViewActivity::class.java.simpleName
         }
 
         val texts = arrayOf(

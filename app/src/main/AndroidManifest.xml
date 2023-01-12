@@ -104,7 +104,7 @@
             android:name=".a.cv.bb.bottomBar.BottomBarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.countDown.CountDownActivityFont"
+            android:name=".a.cv.tv.countDown.CountDownActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.strectchy.StrectchyIvActivityFont"
@@ -676,7 +676,7 @@
             android:name=".a.network.NetworkActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.extra.ExtraTextViewActivityFont"
+            android:name=".a.cv.tv.extra.ExtraTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.demo.pdf.PdfDemoActivityFont"
@@ -1151,7 +1151,7 @@
             android:name=".a.cv.fingerPaintView.FingerPaintActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.fading.FadingTextViewActivityFont"
+            android:name=".a.cv.tv.fading.FadingTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.vp.easyFlip.EFVPActivityFont"
@@ -1251,7 +1251,7 @@
             android:name=".a.demo.firebase.FirebaseActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.dropdown.DropdownTextViewActivityFont"
+            android:name=".a.cv.tv.dropdown.DropdownTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.picker.ssImage.MainActivitySSImagePickerFont"

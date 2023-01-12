@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv.dropdown
+package vn.loitp.a.cv.tv.dropdown
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,18 +11,18 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import hakobastvatsatryan.DropdownTextView
-import kotlinx.android.synthetic.main.activity_dropdown_text_view.*
+import kotlinx.android.synthetic.main.a_tv_dropdown.*
 import vn.loitp.R
 
 @LogTag("DropdownTextViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class DropdownTextViewActivityFont : BaseActivityFont() {
+class DropdownTextViewActivity : BaseActivityFont() {
 
     private val text = "Click to visit <a href=\"en/page\"> Page </a>"
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_dropdown_text_view
+        return R.layout.a_tv_dropdown
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +50,7 @@ class DropdownTextViewActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = DropdownTextViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = DropdownTextViewActivity::class.java.simpleName
         }
 
         secondDropdownTextView.setTitleText(R.string.dropdown_title_text)

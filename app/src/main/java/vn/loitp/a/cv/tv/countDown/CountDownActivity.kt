@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv.countDown
+package vn.loitp.a.cv.tv.countDown
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -7,15 +7,15 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.tv.countDown.LCountDownView
-import kotlinx.android.synthetic.main.activity_text_view_count_down.*
+import kotlinx.android.synthetic.main.a_tv_count_down.*
 import vn.loitp.R
 
 @LogTag("CountDownActivity")
 @IsFullScreen(false)
-class CountDownActivityFont : BaseActivityFont() {
+class CountDownActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_count_down
+        return R.layout.a_tv_count_down
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,7 @@ class CountDownActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = CountDownActivityFont::class.java.simpleName
+            this.tvTitle?.text = CountDownActivity::class.java.simpleName
         }
         countDownView.setShowOrHide(false)
         countDownView.setCallback(object : LCountDownView.Callback {

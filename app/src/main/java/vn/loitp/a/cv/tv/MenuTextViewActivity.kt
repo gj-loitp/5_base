@@ -14,10 +14,10 @@ import vn.loitp.R
 import vn.loitp.a.cv.tv.autoComplete.AutoCompleteTextViewActivity
 import vn.loitp.a.cv.tv.autoFit.AutoFitTextViewActivity
 import vn.loitp.a.cv.tv.color.ColorTextViewActivity
-import vn.loitp.app.a.cv.tv.countDown.CountDownActivityFont
-import vn.loitp.app.a.cv.tv.dropdown.DropdownTextViewActivityFont
-import vn.loitp.app.a.cv.tv.extra.ExtraTextViewActivityFont
-import vn.loitp.app.a.cv.tv.fading.FadingTextViewActivityFont
+import vn.loitp.a.cv.tv.countDown.CountDownActivity
+import vn.loitp.a.cv.tv.dropdown.DropdownTextViewActivity
+import vn.loitp.a.cv.tv.extra.ExtraTextViewActivity
+import vn.loitp.a.cv.tv.fading.FadingTextViewActivity
 import vn.loitp.app.a.cv.tv.justified.JustifiedTextViewActivityFont
 import vn.loitp.app.a.cv.tv.readMoreOption.ReadMoreOptionActivityFont
 import vn.loitp.app.a.cv.tv.score.ScoreTextViewActivityFont
@@ -82,7 +82,7 @@ class MenuTextViewActivity : BaseActivityFont(), OnClickListener {
             btAutoCompleteTextView -> launchActivity(AutoCompleteTextViewActivity::class.java)
             btAutofitTextView -> launchActivity(AutoFitTextViewActivity::class.java)
             btScoreText -> launchActivity(ScoreTextViewActivityFont::class.java)
-            btCountDown -> launchActivity(CountDownActivityFont::class.java)
+            btCountDown -> launchActivity(CountDownActivity::class.java)
             btColorTextView -> launchActivity(ColorTextViewActivity::class.java)
             btScrollNumber -> launchActivity(ScrollNumberActivityFont::class.java)
             btSelectableTextView -> launchActivity(SelectableTextViewActivityFont::class.java)
@@ -90,12 +90,12 @@ class MenuTextViewActivity : BaseActivityFont(), OnClickListener {
             btVerticalMarqueeTextView -> launchActivity(VerticalMarqueeTextViewActivityFont::class.java)
             btTypeWriterTextView -> launchActivity(TypeWriterTextViewActivityFont::class.java)
             btTextDecorator -> launchActivity(TextDecoratorActivityFont::class.java)
-            btExtraTextview -> launchActivity(ExtraTextViewActivityFont::class.java)
+            btExtraTextview -> launchActivity(ExtraTextViewActivity::class.java)
             btStrokedTextView -> launchActivity(StrokedTextViewActivityFont::class.java)
             btJustifiedTextViewActivity -> launchActivity(JustifiedTextViewActivityFont::class.java)
-            btFadingTextView -> launchActivity(FadingTextViewActivityFont::class.java)
+            btFadingTextView -> launchActivity(FadingTextViewActivity::class.java)
             btTypedTextView -> launchActivity(TypedTextViewActivityFont::class.java)
-            btDropdownTextView -> launchActivity(DropdownTextViewActivityFont::class.java)
+            btDropdownTextView -> launchActivity(DropdownTextViewActivity::class.java)
             btTextArcActivity -> launchActivity(TextArcActivityFont::class.java)
             btReadMoreOptionActivity -> launchActivity(ReadMoreOptionActivityFont::class.java)
         }
