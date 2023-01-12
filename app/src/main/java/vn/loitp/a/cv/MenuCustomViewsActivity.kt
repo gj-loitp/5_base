@@ -48,13 +48,13 @@ import vn.loitp.a.cv.stackExpandableView.StackExpandableViewActivityFont
 import vn.loitp.a.cv.sticker.StickerActivityFont
 import vn.loitp.a.cv.sw.MenuSwitchToggleActivityFont
 import vn.loitp.a.cv.treeView.TreeViewActivityFont
+import vn.loitp.a.cv.tv.MenuTextViewActivityFont
 import vn.loitp.a.cv.video.MenuVideoViewActivityFont
 import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivityFont
 import vn.loitp.a.cv.wheelView.WheelViewActivityFont
 import vn.loitp.a.cv.wv.MenuWebViewActivityFont
 import vn.loitp.a.cv.wwlMusic.WWLActivityMusicFont
 import vn.loitp.a.cv.wwlVideo.WWLVideoActivity
-import vn.loitp.app.a.cv.tv.MenuTextViewActivityFont
 import vn.loitp.app.a.cv.vp.MenuViewPagerActivityFont
 
 @LogTag("MenuCustomViewsActivity")

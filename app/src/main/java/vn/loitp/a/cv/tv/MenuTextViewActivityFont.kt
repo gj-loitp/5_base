@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv
+package vn.loitp.a.cv.tv
 
 import android.os.Bundle
 import android.view.View
@@ -9,7 +9,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_menu_text_view.*
+import kotlinx.android.synthetic.main.a_menu_tv.*
 import vn.loitp.R
 import vn.loitp.app.a.cv.tv.autoComplete.AutoCompleteTextViewActivityFont
 import vn.loitp.app.a.cv.tv.autoFit.AutoFitTextViewActivityFont
@@ -37,7 +37,7 @@ import vn.loitp.app.a.cv.tv.zoom.ZoomTextViewActivityFont
 class MenuTextViewActivityFont : BaseActivityFont(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_text_view
+        return R.layout.a_menu_tv
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
