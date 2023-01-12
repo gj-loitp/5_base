@@ -1,8 +1,8 @@
 package vn.loitp.a.cv.graph
 
-import vn.loitp.a.cv.graph.algorithms.BuchheimWalkerActivityFont
-import vn.loitp.a.cv.graph.algorithms.FruchtermanReingoldActivityFont
-import vn.loitp.a.cv.graph.algorithms.SugiyamaActivityFont
+import vn.loitp.a.cv.graph.algorithms.BuchheimWalkerActivity
+import vn.loitp.a.cv.graph.algorithms.FruchtermanReingoldActivity
+import vn.loitp.a.cv.graph.algorithms.SugiyamaActivity
 
 object MainContent {
     val ITEMS: MutableList<GraphItem> = ArrayList()
@@ -22,21 +22,21 @@ object MainContent {
             GraphItem(
                 "BuchheimWalker",
                 "Algorithm for drawing tree structures",
-                BuchheimWalkerActivityFont::class.java
+                BuchheimWalkerActivity::class.java
             )
         )
         ITEMS.add(
             GraphItem(
                 "FruchtermanReingold",
                 "Directed graph drawing by simulating attraction/repulsion forces",
-                FruchtermanReingoldActivityFont::class.java
+                FruchtermanReingoldActivity::class.java
             )
         )
         ITEMS.add(
             GraphItem(
                 "Sugiyama et al.",
                 "Algorithm for drawing multilayer graphs, taking advantage of the hierarchical structure of the graph.",
-                SugiyamaActivityFont::class.java
+                SugiyamaActivity::class.java
             )
         )
     }
