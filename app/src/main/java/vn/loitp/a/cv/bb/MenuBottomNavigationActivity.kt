@@ -15,7 +15,7 @@ import vn.loitp.a.cv.bb.expandable.ShowCaseActivityFont
 @LogTag("BottomNavigationMenuActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuBottomNavigationActivityFont : BaseActivityFont() {
+class MenuBottomNavigationActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu_bottom_navigation_bar
@@ -35,7 +35,7 @@ class MenuBottomNavigationActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuBottomNavigationActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuBottomNavigationActivity::class.java.simpleName
         }
         btBottomBarBlur.setSafeOnClickListener {
             launchActivity(BottomBarActivityFont::class.java)

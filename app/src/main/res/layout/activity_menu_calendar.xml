@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <androidx.core.widget.NestedScrollView
+    <com.factor.bouncy.BouncyNestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,7 +23,7 @@
                 android:text="@string/cosmo_calendar" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.core.widget.NestedScrollView>
+    </com.factor.bouncy.BouncyNestedScrollView>
 
     <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"

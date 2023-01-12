@@ -14,7 +14,7 @@ import vn.loitp.R
 @LogTag("SecondActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class SecondActivityFont : BaseActivityFont() {
+class SecondActivity : BaseActivityFont() {
     override fun setLayoutResourceId(): Int {
         return R.layout.a_ribbon_second
     }
@@ -23,7 +23,7 @@ class SecondActivityFont : BaseActivityFont() {
         super.onCreate(savedInstanceState)
 
         ribbonRecyclerView.addRibbon(
-            ribbonView = ribbonView(this@SecondActivityFont) {
+            ribbonView = ribbonView(this@SecondActivity) {
                 setText("item1")
                 setTextColor(Color.WHITE)
                 setRibbonBackgroundColorResource(R.color.colorPrimaryDark)
@@ -31,21 +31,21 @@ class SecondActivityFont : BaseActivityFont() {
             }
         )
         ribbonRecyclerView.addRibbon(
-            ribbonView = ribbonView(this@SecondActivityFont) {
+            ribbonView = ribbonView(this@SecondActivity) {
                 setText("item2")
                 setTextColor(Color.WHITE)
                 setRibbonBackgroundColorResource(R.color.purple)
             }
         )
         ribbonRecyclerView.addRibbon(
-            ribbonView = ribbonView(this@SecondActivityFont) {
+            ribbonView = ribbonView(this@SecondActivity) {
                 setText("item3")
                 setTextColor(Color.WHITE)
                 setRibbonBackgroundColorResource(R.color.deepPink)
             }
         )
         ribbonRecyclerView.addRibbon(
-            ribbonView = RibbonView.Builder(this@SecondActivityFont)
+            ribbonView = RibbonView.Builder(this@SecondActivity)
                 .setText("Item4")
                 .setTextColor(Color.WHITE)
                 .setRibbonBackgroundColorResource(R.color.darkCyan)

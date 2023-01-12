@@ -14,7 +14,7 @@ import vn.loitp.R
 @LogTag("RibbonActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class RibbonActivityFont : BaseActivityFont() {
+class RibbonActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_ribbon
@@ -44,26 +44,26 @@ class RibbonActivityFont : BaseActivityFont() {
                 isVisible = true
                 setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = RibbonActivityFont::class.java.simpleName
+            this.tvTitle?.text = RibbonActivity::class.java.simpleName
         }
 
-        ribbonLayout.ribbonHeader = RibbonFactory.getChristmasRibbonHeader(this@RibbonActivityFont)
-        ribbonLayout.ribbonBottom = RibbonFactory.getChristmasRibbonBottom(this@RibbonActivityFont)
+        ribbonLayout.ribbonHeader = RibbonFactory.getChristmasRibbonHeader(this@RibbonActivity)
+        ribbonLayout.ribbonBottom = RibbonFactory.getChristmasRibbonBottom(this@RibbonActivity)
         ribbonLayout01.ribbonHeader =
-            RibbonFactory.getChristmasPinkRibbonHeader(this@RibbonActivityFont)
+            RibbonFactory.getChristmasPinkRibbonHeader(this@RibbonActivity)
         ribbonLayout01.ribbonBottom =
-            RibbonFactory.getChristmasPinkRibbonBottom(this@RibbonActivityFont)
-        ribbonLayout02.ribbonHeader = RibbonFactory.getPresentRibbonHeader(this@RibbonActivityFont)
-        ribbonLayout02.ribbonBottom = RibbonFactory.getPresentRibbonBottom(this@RibbonActivityFont)
+            RibbonFactory.getChristmasPinkRibbonBottom(this@RibbonActivity)
+        ribbonLayout02.ribbonHeader = RibbonFactory.getPresentRibbonHeader(this@RibbonActivity)
+        ribbonLayout02.ribbonBottom = RibbonFactory.getPresentRibbonBottom(this@RibbonActivity)
 
         ribbonLayout.setOnClickListener {
-            launchActivity(SecondActivityFont::class.java)
+            launchActivity(SecondActivity::class.java)
         }
         ribbonLayout01.setOnClickListener {
-            launchActivity(SecondActivityFont::class.java)
+            launchActivity(SecondActivity::class.java)
         }
         ribbonLayout02.setOnClickListener {
-            launchActivity(SecondActivityFont::class.java)
+            launchActivity(SecondActivity::class.java)
         }
     }
 }

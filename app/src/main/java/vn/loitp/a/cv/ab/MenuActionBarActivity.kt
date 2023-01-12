@@ -18,7 +18,7 @@ import vn.loitp.a.cv.ab.navigationViewWithText.NavigationViewWithTextActivityFon
 @LogTag("MenuActionBarActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuActionBarActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuActionBarActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu_action_bar
@@ -38,7 +38,7 @@ class MenuActionBarActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuActionBarActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuActionBarActivity::class.java.simpleName
         }
         btCollapsingToolBarLayout.setOnClickListener(this)
         btLActionBar.setOnClickListener(this)

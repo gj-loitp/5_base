@@ -33,7 +33,7 @@ import vn.loitp.a.anim.valueAnimator.ValueAnimatorActivityFont
 @LogTag("MenuAnimationActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuAnimationActivityFont : BaseActivityFont() {
+class MenuAnimationActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu_animation
@@ -52,7 +52,7 @@ class MenuAnimationActivityFont : BaseActivityFont() {
                     onBaseBackPressed()
                 })
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = MenuAnimationActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuAnimationActivity::class.java.simpleName
         }
         btAnimationView.setSafeOnClickListener {
             launchActivity(AnimationViewActivityFont::class.java)

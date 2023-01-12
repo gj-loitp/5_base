@@ -38,7 +38,7 @@
             android:name=".a.MenuActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
-            android:name=".a.api.MenuAPIActivityFont"
+            android:name=".a.api.MenuAPIActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.MenuCustomViewsActivity"
@@ -56,13 +56,13 @@
             android:name=".app.a.cv.vp.parrallax.ParallaxViewPagerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.MenuButtonActivityFont"
+            android:name=".a.cv.bt.MenuButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.shine.ShineButtonActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.MenuAnimationActivityFont"
+            android:name=".a.anim.MenuAnimationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.anim.animationView.AnimationViewActivityFont"
@@ -98,7 +98,7 @@
             android:name=".app.a.cv.tv.score.ScoreTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.MenuBottomNavigationActivityFont"
+            android:name=".a.cv.bb.MenuBottomNavigationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bb.bottomBar.BottomBarActivityFont"
@@ -199,7 +199,7 @@
             android:name=".a.cv.popupMenu.PopupMenuActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.ab.MenuActionBarActivityFont"
+            android:name=".a.cv.ab.MenuActionBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity android:name=".a.demo.alarm.a.AlarmMeActivityFont">
             <!--
@@ -364,7 +364,7 @@
             android:name=".a.anim.shadowViewHelper.ShadowViewHelperActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.answerView.AnswerViewActivityFont"
+            android:name=".a.cv.answerView.AnswerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.draggablePanel.DraggablePanelActivityFont"
@@ -397,7 +397,7 @@
             android:name=".a.cv.sb.vertical.VerticalSeekbarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bs.MenuBottomSheetActivityFont"
+            android:name=".a.cv.bs.MenuBottomSheetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -881,7 +881,7 @@
             android:name=".a.demo.architectureComponent.coroutine.CoroutineActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.cal.MenuCalendarActivityFont"
+            android:name=".a.cv.cal.MenuCalendarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.cal.cosmo.CosmoCalendarActivityFont"
@@ -1398,10 +1398,10 @@
             android:name=".a.cv.iv.coil.CoilActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.androidRibbon.RibbonActivityFont"
+            android:name=".a.cv.androidRibbon.RibbonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.androidRibbon.SecondActivityFont"
+            android:name=".a.cv.androidRibbon.SecondActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.floatLayout.FloatLayoutActivityFont"

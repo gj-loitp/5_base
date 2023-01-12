@@ -12,7 +12,7 @@ import vn.loitp.R
 
 @LogTag("AnswerViewActivity")
 @IsFullScreen(false)
-class AnswerViewActivityFont : BaseActivityFont() {
+class AnswerViewActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_answer_view
@@ -36,7 +36,7 @@ class AnswerViewActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = AnswerViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = AnswerViewActivity::class.java.simpleName
         }
     }
 

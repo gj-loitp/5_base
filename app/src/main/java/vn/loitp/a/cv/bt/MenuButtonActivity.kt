@@ -21,7 +21,7 @@ import vn.loitp.a.cv.bt.shine.ShineButtonActivityFont
 
 @LogTag("MenuButtonActivity")
 @IsFullScreen(false)
-class MenuButtonActivityFont : BaseActivityFont(), OnClickListener {
+class MenuButtonActivity : BaseActivityFont(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_menu_button
@@ -41,7 +41,7 @@ class MenuButtonActivityFont : BaseActivityFont(), OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuButtonActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuButtonActivity::class.java.simpleName
         }
         btShineButton.setOnClickListener(this)
         btCircularImageClick.setOnClickListener(this)

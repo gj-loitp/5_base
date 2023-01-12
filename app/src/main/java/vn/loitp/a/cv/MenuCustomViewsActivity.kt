@@ -11,13 +11,13 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_menu_custom_view.*
 import vn.loitp.R
-import vn.loitp.a.cv.ab.MenuActionBarActivityFont
-import vn.loitp.a.cv.androidRibbon.RibbonActivityFont
-import vn.loitp.a.cv.answerView.AnswerViewActivityFont
-import vn.loitp.a.cv.bb.MenuBottomNavigationActivityFont
-import vn.loitp.a.cv.bs.MenuBottomSheetActivityFont
-import vn.loitp.a.cv.bt.MenuButtonActivityFont
-import vn.loitp.a.cv.cal.MenuCalendarActivityFont
+import vn.loitp.a.cv.ab.MenuActionBarActivity
+import vn.loitp.a.cv.androidRibbon.RibbonActivity
+import vn.loitp.a.cv.answerView.AnswerViewActivity
+import vn.loitp.a.cv.bb.MenuBottomNavigationActivity
+import vn.loitp.a.cv.bs.MenuBottomSheetActivity
+import vn.loitp.a.cv.bt.MenuButtonActivity
+import vn.loitp.a.cv.cal.MenuCalendarActivity
 import vn.loitp.a.cv.code.CodeViewActivityFont
 import vn.loitp.a.cv.cornerSheet.CornetSheetExampleActivityFont
 import vn.loitp.a.cv.cv.CardViewActivityFont
@@ -133,13 +133,13 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
     override fun onClick(v: View) {
         when (v) {
             btViewPager -> launchActivity(MenuViewPagerActivityFont::class.java)
-            btButton -> launchActivity(MenuButtonActivityFont::class.java)
+            btButton -> launchActivity(MenuButtonActivity::class.java)
             btProgressLoading -> launchActivity(MenuProgressActivityFont::class.java)
             btSwitch -> launchActivity(MenuSwitchToggleActivityFont::class.java)
-            btActionBar -> launchActivity(MenuActionBarActivityFont::class.java)
+            btActionBar -> launchActivity(MenuActionBarActivity::class.java)
             btImageView -> launchActivity(vn.loitp.a.cv.iv.MenuImageViewActivityFont::class.java)
             btTextView -> launchActivity(MenuTextViewActivity::class.java)
-            btBottomBarBlur -> launchActivity(MenuBottomNavigationActivityFont::class.java)
+            btBottomBarBlur -> launchActivity(MenuBottomNavigationActivity::class.java)
             btSticker -> launchActivity(StickerActivityFont::class.java)
             btEditText -> launchActivity(MenuEditTextActivityFont::class.java)
             btLayout -> launchActivity(MenuLayoutActivityFont::class.java)
@@ -153,8 +153,8 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
             btTreeView -> launchActivity(TreeViewActivityFont::class.java)
             btDraggableFlipView -> launchActivity(DraggableFlipViewActivityFont::class.java)
             btDragView -> launchActivity(MenuDragViewActivityFont::class.java)
-            btAnswerView -> launchActivity(AnswerViewActivityFont::class.java)
-            btBottomSheet -> launchActivity(MenuBottomSheetActivityFont::class.java)
+            btAnswerView -> launchActivity(AnswerViewActivity::class.java)
+            btBottomSheet -> launchActivity(MenuBottomSheetActivity::class.java)
             btScrollablePanel -> launchActivity(ScrollablePanelActivityFont::class.java)
             btFbCmt -> launchActivity(FacebookCommentActivityFont::class.java)
             btWwlMusic -> launchActivity(WWLActivityMusicFont::class.java)
@@ -162,7 +162,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
             btLDebugView -> launchActivity(LDebugViewActivity::class.java)
             btMenu -> launchActivity(MenuMenuActivityFont::class.java)
             btLCardView -> launchActivity(LCardViewActivityFont::class.java)
-            btCalendar -> launchActivity(MenuCalendarActivityFont::class.java)
+            btCalendar -> launchActivity(MenuCalendarActivity::class.java)
             btWebView -> launchActivity(MenuWebViewActivityFont::class.java)
             btIndicator -> launchActivity(MenuMagicIndicatorActivityFont::class.java)
             btWheelSpinner -> launchActivity(WheelSpinnerActivityFont::class.java)
@@ -175,7 +175,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
             btLuckyWheelActivity -> launchActivity(LuckyWheelActivityFont::class.java)
             btCornerSheet -> launchActivity(CornetSheetExampleActivityFont::class.java)
             btCardView -> launchActivity(CardViewActivityFont::class.java)
-            btAndroidRibbon -> launchActivity(RibbonActivityFont::class.java)
+            btAndroidRibbon -> launchActivity(RibbonActivity::class.java)
             btSpotlight -> launchActivity(SpotlightActivityFont::class.java)
             btFancyShowcase -> launchActivity(FancyShowcaseActivity::class.java)
         }

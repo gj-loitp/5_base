@@ -17,8 +17,8 @@ import com.loitp.core.ext.*
 import com.loitp.core.helper.adHelper.AdHelperActivity
 import kotlinx.android.synthetic.main.a_menu.*
 import vn.loitp.R
-import vn.loitp.a.anim.MenuAnimationActivityFont
-import vn.loitp.a.api.MenuAPIActivityFont
+import vn.loitp.a.anim.MenuAnimationActivity
+import vn.loitp.a.api.MenuAPIActivity
 import vn.loitp.a.cv.MenuCustomViewsActivity
 import vn.loitp.a.db.MenuDatabaseActivityFont
 import vn.loitp.a.demo.MenuDemoActivityFont
@@ -176,8 +176,8 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            btApi -> launchActivity(MenuAPIActivityFont::class.java)
-            btAnimation -> launchActivity(MenuAnimationActivityFont::class.java)
+            btApi -> launchActivity(MenuAPIActivity::class.java)
+            btAnimation -> launchActivity(MenuAnimationActivity::class.java)
             btCustomView -> launchActivity(MenuCustomViewsActivity::class.java)
             btDemo -> launchActivity(MenuDemoActivityFont::class.java)
             btRateApp -> this.rateApp(packageName)

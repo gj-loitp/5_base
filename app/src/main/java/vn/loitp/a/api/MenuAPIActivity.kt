@@ -18,7 +18,7 @@ import vn.loitp.a.api.truyentranhtuan.MenuTTTAPIActivityFont
 @LogTag("MenuAPIActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuAPIActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuAPIActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu_api
@@ -36,7 +36,7 @@ class MenuAPIActivityFont : BaseActivityFont(), View.OnClickListener {
                 onBaseBackPressed()
             })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuAPIActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuAPIActivity::class.java.simpleName
         }
         btCoroutineAPI.setOnClickListener(this)
         btGalleryAPI.setOnClickListener(this)

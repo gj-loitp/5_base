@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.core.widget.NestedScrollView
+    <com.factor.bouncy.BouncyNestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -50,5 +50,5 @@
                 style="@style/ButtonMenu"
                 android:text="@string/navigation_view_with_text" />
         </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.core.widget.NestedScrollView>
+    </com.factor.bouncy.BouncyNestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

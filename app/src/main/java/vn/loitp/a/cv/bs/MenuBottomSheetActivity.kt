@@ -26,7 +26,7 @@ import vn.loitp.R
  */
 @LogTag("MenuBottomSheetActivity")
 @IsFullScreen(false)
-class MenuBottomSheetActivityFont : BaseActivityFont() {
+class MenuBottomSheetActivity : BaseActivityFont() {
     private var bottomSheetBehavior: BottomSheetBehavior<*>? = null
 
     override fun setLayoutResourceId(): Int {
@@ -48,7 +48,7 @@ class MenuBottomSheetActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = MenuBottomSheetActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuBottomSheetActivity::class.java.simpleName
         }
         btPayment.setSafeOnClickListener {
             show("Click layoutBottomSheet R.id.bt_payment")

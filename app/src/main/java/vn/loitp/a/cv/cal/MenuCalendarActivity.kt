@@ -14,7 +14,7 @@ import vn.loitp.a.cv.cal.cosmo.CosmoCalendarActivityFont
 
 @LogTag("MenuCalendarActivity")
 @IsFullScreen(false)
-class MenuCalendarActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuCalendarActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_menu_calendar
@@ -34,7 +34,7 @@ class MenuCalendarActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuCalendarActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuCalendarActivity::class.java.simpleName
         }
         btCalendar.setOnClickListener(this)
     }
