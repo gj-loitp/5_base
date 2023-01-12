@@ -1,19 +1,19 @@
-package vn.loitp.app.a.cv.tv.color
+package vn.loitp.a.cv.tv.color
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_text_view_color.*
+import kotlinx.android.synthetic.main.a_tv_color.*
 import vn.loitp.R
 
 @LogTag("ColorTextViewActivity")
 @IsFullScreen(false)
-class ColorTextViewActivityFont : BaseActivityFont() {
+class ColorTextViewActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_color
+        return R.layout.a_tv_color
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class ColorTextViewActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ColorTextViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = ColorTextViewActivity::class.java.simpleName
         }
     }
 }

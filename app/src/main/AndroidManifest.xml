@@ -128,7 +128,7 @@
             android:name=".a.cv.iv.fidgetSpinner.FidgetSpinnerIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.color.ColorTextViewActivityFont"
+            android:name=".a.cv.tv.color.ColorTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.scrollNumber.ScrollNumberActivityFont"
@@ -286,7 +286,7 @@
             android:name=".a.func.simpleFingerGestures.SimpleFingerGesturesActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.autoFit.AutoFitTextViewActivityFont"
+            android:name=".a.cv.tv.autoFit.AutoFitTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.demo.ebookWithRealm.EbookWithRealmActivityFont"
