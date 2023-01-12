@@ -8,7 +8,7 @@
     android:animateLayoutChanges="false"
     android:background="?attr/themeBackgroundColor">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.factor.bouncy.BouncyRecyclerView
         android:id="@+id/recyclerView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
