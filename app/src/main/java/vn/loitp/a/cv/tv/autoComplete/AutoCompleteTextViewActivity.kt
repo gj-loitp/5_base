@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv.autoComplete
+package vn.loitp.a.cv.tv.autoComplete
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -9,15 +9,15 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_text_view_auto_complete.*
+import kotlinx.android.synthetic.main.a_tv_auto_complete.*
 import vn.loitp.R
 
 @LogTag("AutoCompleteTextViewActivity")
 @IsFullScreen(false)
-class AutoCompleteTextViewActivityFont : BaseActivityFont() {
+class AutoCompleteTextViewActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_auto_complete
+        return R.layout.a_tv_auto_complete
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class AutoCompleteTextViewActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = AutoCompleteTextViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = AutoCompleteTextViewActivity::class.java.simpleName
         }
 
         val fruits = arrayOf("Apple", "Banana", "Cherry", "Date", "Grape", "Kiwi", "Mango", "Pear")

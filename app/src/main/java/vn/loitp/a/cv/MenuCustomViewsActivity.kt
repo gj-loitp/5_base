@@ -48,7 +48,7 @@ import vn.loitp.a.cv.stackExpandableView.StackExpandableViewActivityFont
 import vn.loitp.a.cv.sticker.StickerActivityFont
 import vn.loitp.a.cv.sw.MenuSwitchToggleActivityFont
 import vn.loitp.a.cv.treeView.TreeViewActivityFont
-import vn.loitp.a.cv.tv.MenuTextViewActivityFont
+import vn.loitp.a.cv.tv.MenuTextViewActivity
 import vn.loitp.a.cv.video.MenuVideoViewActivityFont
 import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivityFont
 import vn.loitp.a.cv.wheelView.WheelViewActivityFont
@@ -138,7 +138,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
             btSwitch -> launchActivity(MenuSwitchToggleActivityFont::class.java)
             btActionBar -> launchActivity(MenuActionBarActivityFont::class.java)
             btImageView -> launchActivity(vn.loitp.a.cv.iv.MenuImageViewActivityFont::class.java)
-            btTextView -> launchActivity(MenuTextViewActivityFont::class.java)
+            btTextView -> launchActivity(MenuTextViewActivity::class.java)
             btBottomBarBlur -> launchActivity(MenuBottomNavigationActivityFont::class.java)
             btSticker -> launchActivity(StickerActivityFont::class.java)
             btEditText -> launchActivity(MenuEditTextActivityFont::class.java)

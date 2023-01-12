@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_menu_tv.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.tv.autoComplete.AutoCompleteTextViewActivityFont
+import vn.loitp.a.cv.tv.autoComplete.AutoCompleteTextViewActivity
 import vn.loitp.app.a.cv.tv.autoFit.AutoFitTextViewActivityFont
 import vn.loitp.app.a.cv.tv.color.ColorTextViewActivityFont
 import vn.loitp.app.a.cv.tv.countDown.CountDownActivityFont
@@ -34,7 +34,7 @@ import vn.loitp.app.a.cv.tv.zoom.ZoomTextViewActivityFont
 @LogTag("TextViewMenuActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class MenuTextViewActivityFont : BaseActivityFont(), OnClickListener {
+class MenuTextViewActivity : BaseActivityFont(), OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu_tv
@@ -54,7 +54,7 @@ class MenuTextViewActivityFont : BaseActivityFont(), OnClickListener {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = MenuTextViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuTextViewActivity::class.java.simpleName
         }
         btAutoCompleteTextView.setOnClickListener(this)
         btAutofitTextView.setOnClickListener(this)
@@ -79,7 +79,7 @@ class MenuTextViewActivityFont : BaseActivityFont(), OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            btAutoCompleteTextView -> launchActivity(AutoCompleteTextViewActivityFont::class.java)
+            btAutoCompleteTextView -> launchActivity(AutoCompleteTextViewActivity::class.java)
             btAutofitTextView -> launchActivity(AutoFitTextViewActivityFont::class.java)
             btScoreText -> launchActivity(ScoreTextViewActivityFont::class.java)
             btCountDown -> launchActivity(CountDownActivityFont::class.java)

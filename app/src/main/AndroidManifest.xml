@@ -92,7 +92,7 @@
             android:name=".a.cv.iv.circleIv.CircleIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.MenuTextViewActivityFont"
+            android:name=".a.cv.tv.MenuTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.score.ScoreTextViewActivityFont"
@@ -1135,7 +1135,7 @@
         </provider>
 
         <activity
-            android:name=".app.a.cv.tv.autoComplete.AutoCompleteTextViewActivityFont"
+            android:name=".a.cv.tv.autoComplete.AutoCompleteTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.func.keyboardHeightProvider.KeyboardHeightProviderActivityFont"
