@@ -6,7 +6,7 @@
     android:animateLayoutChanges="true"
     android:background="?attr/themeBackgroundColor">
 
-    <androidx.core.widget.NestedScrollView
+    <com.factor.bouncy.BouncyNestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -79,5 +79,5 @@
 
         </RelativeLayout>
 
-    </androidx.core.widget.NestedScrollView>
+    </com.factor.bouncy.BouncyNestedScrollView>
 </FrameLayout>
