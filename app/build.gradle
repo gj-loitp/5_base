@@ -96,7 +96,7 @@ repositories {
 dependencies {
     api project(':core')
 //    https://github.com/tplloi/base
-//    api 'com.github.tplloi:base:4.6.22'
+//    api 'com.github.tplloi:base:4.6.23'
 
     api 'com.daimajia.androidanimations:library:2.4@aar'
 //    https://github.com/hannesa2/AndroidSlidingUpPanel
@@ -208,7 +208,7 @@ dependencies {
 
 //    noinspection AnnotationProcessorOnCompilePath
     api 'io.realm:realm-android:0.82.1'
-    kapt "androidx.room:room-compiler:2.5.0-rc01"
+    kapt "androidx.room:room-compiler:2.5.0"
 //    https://github.com/devendroid/ReadMoreOption
     api 'com.github.devendroid:ReadMoreOption:1.0.2'
 //    https://github.com/rishabh876/RoundedImageView
