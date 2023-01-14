@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.loitp.core.ext.getLauncherActivity
+import com.loitp.core.ext.isActivityExists
+import com.loitp.core.ext.topActivity
 import com.loitp.core.utils.*
 import kotlinx.android.synthetic.main.f_utils.*
 import vn.loitp.R
@@ -37,7 +40,7 @@ class FrmUtils : Fragment() {
     private fun setupViews() {
         arguments?.let {
             when (it.getString(KEY_CLASS)) {
-                ActivityUtils::class.java.simpleName -> {
+                "ActivityUtils" -> {
                     handleActivityUtils()
                 }
                 AppUtils::class.java.simpleName -> {
@@ -46,10 +49,10 @@ class FrmUtils : Fragment() {
                 BarUtils::class.java.simpleName -> {
                     handleBarUtils()
                 }
-                CleanUtils::class.java.simpleName -> {
+                "CleanUtils" -> {
                     handleCleanUtils()
                 }
-                ClipboardUtils::class.java.simpleName -> {
+                "ClipboardUtils" -> {
                     handleClipboardUtils()
                 }
                 CloseUtils::class.java.simpleName -> {
@@ -291,12 +294,12 @@ class FrmUtils : Fragment() {
     private fun handleActivityUtils() {
         var text = ""
 
-        text += "\n$line isActivityExists UtilsActivity: " + ActivityUtils.isActivityExists(
+        text += "\n$line isActivityExists UtilsActivity: " + context.isActivityExists(
             packageName = activity?.packageName,
             className = "UtilsActivity"
         )
-        text += "\n$line getLauncherActivity: " + ActivityUtils.getLauncherActivity(activity?.packageName)
-        text += "\n$line getTopActivity: " + ActivityUtils.topActivity
+        text += "\n$line getLauncherActivity: " + getLauncherActivity(activity?.packageName)
+        text += "\n$line getTopActivity: $topActivity"
 
         textView.text = text
     }

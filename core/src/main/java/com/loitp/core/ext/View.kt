@@ -1,6 +1,7 @@
 package com.loitp.core.ext
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.*
 import android.graphics.drawable.*
@@ -9,6 +10,7 @@ import android.os.Build
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.core.view.ViewCompat
@@ -22,7 +24,7 @@ import com.airbnb.lottie.value.LottieValueCallback
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.loitp.R
-import com.loitp.core.common.Constants
+import com.loitp.core.common.ARR_RANDOM_BKG
 import com.loitp.core.utils.ConvertUtils
 import com.skydoves.elasticviews.elasticAnimation
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
@@ -254,8 +256,8 @@ fun View?.setMarginsDp(
 }
 
 fun View.setRandomBackground() {
-    val r = getRandomNumber(Constants.ARR_RANDOM_BKG.size)
-    val bkg = Constants.ARR_RANDOM_BKG[r]
+    val r = getRandomNumber(ARR_RANDOM_BKG.size)
+    val bkg = ARR_RANDOM_BKG[r]
     this.setBackgroundResource(bkg)
 }
 
@@ -361,5 +363,14 @@ fun Snackbar.allowInfiniteLines(): Snackbar {
             )
             it.textAlignment = View.TEXT_ALIGNMENT_CENTER
         }
+    }
+}
+
+@Suppress("unused")
+fun View?.hideSoftInput(
+) {
+    this?.let {
+        val imm = it.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(this.windowToken, 0)
     }
 }

@@ -10,7 +10,10 @@ import com.loitp.R
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.PER_PAGE_SIZE
+import com.loitp.core.common.SK_PHOTOSET_ID
+import com.loitp.core.common.SK_PHOTOSET_SIZE
+import com.loitp.core.common.SK_PHOTO_ID
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.slide.GalleryCoreSlideActivity
 import com.loitp.restApi.flickr.FlickrConst
@@ -52,8 +55,8 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
     private fun setupViews() {
         PhotosDataCore.instance.clearData()
 
-        photoSetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
-        val photosSize = intent.getStringExtra(Constants.SK_PHOTOSET_SIZE)
+        photoSetID = intent.getStringExtra(SK_PHOTOSET_ID)
+        val photosSize = intent.getStringExtra(SK_PHOTOSET_SIZE)
 
         val totalPhotos = try {
             photosSize?.toInt() ?: 0
@@ -66,10 +69,10 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
             showDialogError(getString(R.string.err_unknown))
             return
         }
-        totalPage = if (totalPhotos % Constants.PER_PAGE_SIZE == 0) {
-            totalPhotos / Constants.PER_PAGE_SIZE
+        totalPage = if (totalPhotos % PER_PAGE_SIZE == 0) {
+            totalPhotos / PER_PAGE_SIZE
         } else {
-            totalPhotos / Constants.PER_PAGE_SIZE + 1
+            totalPhotos / PER_PAGE_SIZE + 1
         }
         currentPage = totalPage
 
@@ -80,7 +83,7 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
                 override fun onClick(photo: Photo, pos: Int) {
                     val intent =
                         Intent(this@GalleryCorePhotosActivity, GalleryCoreSlideActivity::class.java)
-                    intent.putExtra(Constants.SK_PHOTO_ID, photo.id)
+                    intent.putExtra(SK_PHOTO_ID, photo.id)
                     startActivity(intent)
                     this@GalleryCorePhotosActivity.tranIn()
                 }
@@ -182,7 +185,7 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
                 photosetId = photosetID,
                 userId = userID,
                 extras = primaryPhotoExtras,
-                perPage = Constants.PER_PAGE_SIZE,
+                perPage = PER_PAGE_SIZE,
                 page = currentPage,
                 format = format,
                 noJsonCallback = noJsonCallBack

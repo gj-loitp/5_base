@@ -11,50 +11,50 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_menu_custom_view.*
 import vn.loitp.R
-import vn.loitp.a.cv.ab.MenuActionBarActivityFont
-import vn.loitp.a.cv.androidRibbon.RibbonActivityFont
-import vn.loitp.a.cv.answerView.AnswerViewActivityFont
-import vn.loitp.a.cv.bb.MenuBottomNavigationActivityFont
-import vn.loitp.a.cv.bs.MenuBottomSheetActivityFont
-import vn.loitp.a.cv.bt.MenuButtonActivityFont
-import vn.loitp.a.cv.cal.MenuCalendarActivityFont
-import vn.loitp.a.cv.code.CodeViewActivityFont
-import vn.loitp.a.cv.cornerSheet.CornetSheetExampleActivityFont
-import vn.loitp.a.cv.cv.CardViewActivityFont
-import vn.loitp.a.cv.dlg.MenuDialogActivityFont
-import vn.loitp.a.cv.dragView.MenuDragViewActivityFont
-import vn.loitp.a.cv.draggableFlipView.DraggableFlipViewActivityFont
-import vn.loitp.a.cv.et.MenuEditTextActivityFont
+import vn.loitp.a.cv.ab.MenuActionBarActivity
+import vn.loitp.a.cv.androidRibbon.RibbonActivity
+import vn.loitp.a.cv.answerView.AnswerViewActivity
+import vn.loitp.a.cv.bb.MenuBottomNavigationActivity
+import vn.loitp.a.cv.bs.MenuBottomSheetActivity
+import vn.loitp.a.cv.bt.MenuButtonActivity
+import vn.loitp.a.cv.cal.MenuCalendarActivity
+import vn.loitp.a.cv.code.CodeViewActivity
+import vn.loitp.a.cv.cornerSheet.CornetSheetExampleActivity
+import vn.loitp.a.cv.cv.CardViewActivity
+import vn.loitp.a.cv.dlg.MenuDialogActivity
+import vn.loitp.a.cv.dragView.MenuDragViewActivity
+import vn.loitp.a.cv.draggableFlipView.DraggableFlipViewActivity
+import vn.loitp.a.cv.et.MenuEditTextActivity
 import vn.loitp.a.cv.fancyShowcase.FancyShowcaseActivity
-import vn.loitp.a.cv.fbCmt.FacebookCommentActivityFont
-import vn.loitp.a.cv.fingerPaintView.FingerPaintActivityFont
-import vn.loitp.a.cv.graph.MenuGraphViewActivityFont
+import vn.loitp.a.cv.fbCmt.FacebookCommentActivity
+import vn.loitp.a.cv.fingerPaintView.FingerPaintActivity
+import vn.loitp.a.cv.graph.MenuGraphViewActivity
 import vn.loitp.a.cv.indicator.ex.MenuMagicIndicatorActivityFont
-import vn.loitp.a.cv.lCv.LCardViewActivityFont
-import vn.loitp.a.cv.lDebug.LDebugViewActivityFont
-import vn.loitp.a.cv.layout.MenuLayoutActivityFont
-import vn.loitp.a.cv.luckyWheel.LuckyWheelActivityFont
-import vn.loitp.a.cv.menu.MenuMenuActivityFont
-import vn.loitp.a.cv.navi.MenuNavigationActivityFont
-import vn.loitp.a.cv.popupMenu.PopupMenuActivityFont
-import vn.loitp.a.cv.progress.MenuProgressActivityFont
+import vn.loitp.a.cv.lCv.LCardViewActivity
+import vn.loitp.a.cv.lDebug.LDebugViewActivity
+import vn.loitp.a.cv.layout.MenuLayoutActivity
+import vn.loitp.a.cv.luckyWheel.LuckyWheelActivity
+import vn.loitp.a.cv.menu.MenuMenuActivity
+import vn.loitp.a.cv.navi.MenuNavigationActivity
+import vn.loitp.a.cv.popupMenu.PopupMenuActivity
+import vn.loitp.a.cv.progress.MenuProgressActivity
 import vn.loitp.a.cv.rv.MenuRecyclerViewActivity
-import vn.loitp.a.cv.sb.MenuSeekbarActivityFont
-import vn.loitp.a.cv.scratchView.MenuScratchViewActivityFont
-import vn.loitp.a.cv.scrollablePanel.ScrollablePanelActivityFont
-import vn.loitp.a.cv.simpleRatingBar.SimpleRatingBarActivityFont
-import vn.loitp.a.cv.spotlight.SpotlightActivityFont
-import vn.loitp.a.cv.stackExpandableView.StackExpandableViewActivityFont
-import vn.loitp.a.cv.sticker.StickerActivityFont
-import vn.loitp.a.cv.sw.MenuSwitchToggleActivityFont
-import vn.loitp.a.cv.treeView.TreeViewActivityFont
-import vn.loitp.a.cv.video.MenuVideoViewActivityFont
-import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivityFont
-import vn.loitp.a.cv.wheelView.WheelViewActivityFont
-import vn.loitp.a.cv.wv.MenuWebViewActivityFont
-import vn.loitp.a.cv.wwlMusic.WWLActivityMusicFont
+import vn.loitp.a.cv.sb.MenuSeekbarActivity
+import vn.loitp.a.cv.scratchView.MenuScratchViewActivity
+import vn.loitp.a.cv.scrollablePanel.ScrollablePanelActivity
+import vn.loitp.a.cv.simpleRatingBar.SimpleRatingBarActivity
+import vn.loitp.a.cv.spotlight.SpotlightActivity
+import vn.loitp.a.cv.stackExpandableView.StackExpandableViewActivity
+import vn.loitp.a.cv.sticker.StickerActivity
+import vn.loitp.a.cv.sw.MenuSwitchToggleActivity
+import vn.loitp.a.cv.treeView.TreeViewActivity
+import vn.loitp.a.cv.tv.MenuTextViewActivity
+import vn.loitp.a.cv.video.MenuVideoViewActivity
+import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivity
+import vn.loitp.a.cv.wheelView.WheelViewActivity
+import vn.loitp.a.cv.wv.MenuWebViewActivity
+import vn.loitp.a.cv.wwlMusic.WWLActivityMusic
 import vn.loitp.a.cv.wwlVideo.WWLVideoActivity
-import vn.loitp.app.a.cv.tv.MenuTextViewActivityFont
 import vn.loitp.app.a.cv.vp.MenuViewPagerActivityFont
 
 @LogTag("MenuCustomViewsActivity")
@@ -133,50 +133,50 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
     override fun onClick(v: View) {
         when (v) {
             btViewPager -> launchActivity(MenuViewPagerActivityFont::class.java)
-            btButton -> launchActivity(MenuButtonActivityFont::class.java)
-            btProgressLoading -> launchActivity(MenuProgressActivityFont::class.java)
-            btSwitch -> launchActivity(MenuSwitchToggleActivityFont::class.java)
-            btActionBar -> launchActivity(MenuActionBarActivityFont::class.java)
-            btImageView -> launchActivity(vn.loitp.a.cv.iv.MenuImageViewActivityFont::class.java)
-            btTextView -> launchActivity(MenuTextViewActivityFont::class.java)
-            btBottomBarBlur -> launchActivity(MenuBottomNavigationActivityFont::class.java)
-            btSticker -> launchActivity(StickerActivityFont::class.java)
-            btEditText -> launchActivity(MenuEditTextActivityFont::class.java)
-            btLayout -> launchActivity(MenuLayoutActivityFont::class.java)
-            btVideoView -> launchActivity(MenuVideoViewActivityFont::class.java)
-            btSeekBar -> launchActivity(MenuSeekbarActivityFont::class.java)
+            btButton -> launchActivity(MenuButtonActivity::class.java)
+            btProgressLoading -> launchActivity(MenuProgressActivity::class.java)
+            btSwitch -> launchActivity(MenuSwitchToggleActivity::class.java)
+            btActionBar -> launchActivity(MenuActionBarActivity::class.java)
+            btImageView -> launchActivity(vn.loitp.a.cv.iv.MenuImageViewActivity::class.java)
+            btTextView -> launchActivity(MenuTextViewActivity::class.java)
+            btBottomBarBlur -> launchActivity(MenuBottomNavigationActivity::class.java)
+            btSticker -> launchActivity(StickerActivity::class.java)
+            btEditText -> launchActivity(MenuEditTextActivity::class.java)
+            btLayout -> launchActivity(MenuLayoutActivity::class.java)
+            btVideoView -> launchActivity(MenuVideoViewActivity::class.java)
+            btSeekBar -> launchActivity(MenuSeekbarActivity::class.java)
             btRecyclerView -> launchActivity(MenuRecyclerViewActivity::class.java)
-            btDialog -> launchActivity(MenuDialogActivityFont::class.java)
-            btPopupMenu -> launchActivity(PopupMenuActivityFont::class.java)
-            btScratchView -> launchActivity(MenuScratchViewActivityFont::class.java)
-            btNavigation -> launchActivity(MenuNavigationActivityFont::class.java)
-            btTreeView -> launchActivity(TreeViewActivityFont::class.java)
-            btDraggableFlipView -> launchActivity(DraggableFlipViewActivityFont::class.java)
-            btDragView -> launchActivity(MenuDragViewActivityFont::class.java)
-            btAnswerView -> launchActivity(AnswerViewActivityFont::class.java)
-            btBottomSheet -> launchActivity(MenuBottomSheetActivityFont::class.java)
-            btScrollablePanel -> launchActivity(ScrollablePanelActivityFont::class.java)
-            btFbCmt -> launchActivity(FacebookCommentActivityFont::class.java)
-            btWwlMusic -> launchActivity(WWLActivityMusicFont::class.java)
+            btDialog -> launchActivity(MenuDialogActivity::class.java)
+            btPopupMenu -> launchActivity(PopupMenuActivity::class.java)
+            btScratchView -> launchActivity(MenuScratchViewActivity::class.java)
+            btNavigation -> launchActivity(MenuNavigationActivity::class.java)
+            btTreeView -> launchActivity(TreeViewActivity::class.java)
+            btDraggableFlipView -> launchActivity(DraggableFlipViewActivity::class.java)
+            btDragView -> launchActivity(MenuDragViewActivity::class.java)
+            btAnswerView -> launchActivity(AnswerViewActivity::class.java)
+            btBottomSheet -> launchActivity(MenuBottomSheetActivity::class.java)
+            btScrollablePanel -> launchActivity(ScrollablePanelActivity::class.java)
+            btFbCmt -> launchActivity(FacebookCommentActivity::class.java)
+            btWwlMusic -> launchActivity(WWLActivityMusic::class.java)
             btWwlVideo -> launchActivity(WWLVideoActivity::class.java)
-            btLDebugView -> launchActivity(LDebugViewActivityFont::class.java)
-            btMenu -> launchActivity(MenuMenuActivityFont::class.java)
-            btLCardView -> launchActivity(LCardViewActivityFont::class.java)
-            btCalendar -> launchActivity(MenuCalendarActivityFont::class.java)
-            btWebView -> launchActivity(MenuWebViewActivityFont::class.java)
+            btLDebugView -> launchActivity(LDebugViewActivity::class.java)
+            btMenu -> launchActivity(MenuMenuActivity::class.java)
+            btLCardView -> launchActivity(LCardViewActivity::class.java)
+            btCalendar -> launchActivity(MenuCalendarActivity::class.java)
+            btWebView -> launchActivity(MenuWebViewActivity::class.java)
             btIndicator -> launchActivity(MenuMagicIndicatorActivityFont::class.java)
-            btWheelSpinner -> launchActivity(WheelSpinnerActivityFont::class.java)
-            btFingerPaintView -> launchActivity(FingerPaintActivityFont::class.java)
-            btStackExpandableViewActivity -> launchActivity(StackExpandableViewActivityFont::class.java)
-            btMenuGraphViewActivity -> launchActivity(MenuGraphViewActivityFont::class.java)
-            btSimpleRatingBar -> launchActivity(SimpleRatingBarActivityFont::class.java)
-            btCodeView -> launchActivity(CodeViewActivityFont::class.java)
-            btWheelView -> launchActivity(WheelViewActivityFont::class.java)
-            btLuckyWheelActivity -> launchActivity(LuckyWheelActivityFont::class.java)
-            btCornerSheet -> launchActivity(CornetSheetExampleActivityFont::class.java)
-            btCardView -> launchActivity(CardViewActivityFont::class.java)
-            btAndroidRibbon -> launchActivity(RibbonActivityFont::class.java)
-            btSpotlight -> launchActivity(SpotlightActivityFont::class.java)
+            btWheelSpinner -> launchActivity(WheelSpinnerActivity::class.java)
+            btFingerPaintView -> launchActivity(FingerPaintActivity::class.java)
+            btStackExpandableViewActivity -> launchActivity(StackExpandableViewActivity::class.java)
+            btMenuGraphViewActivity -> launchActivity(MenuGraphViewActivity::class.java)
+            btSimpleRatingBar -> launchActivity(SimpleRatingBarActivity::class.java)
+            btCodeView -> launchActivity(CodeViewActivity::class.java)
+            btWheelView -> launchActivity(WheelViewActivity::class.java)
+            btLuckyWheelActivity -> launchActivity(LuckyWheelActivity::class.java)
+            btCornerSheet -> launchActivity(CornetSheetExampleActivity::class.java)
+            btCardView -> launchActivity(CardViewActivity::class.java)
+            btAndroidRibbon -> launchActivity(RibbonActivity::class.java)
+            btSpotlight -> launchActivity(SpotlightActivity::class.java)
             btFancyShowcase -> launchActivity(FancyShowcaseActivity::class.java)
         }
 

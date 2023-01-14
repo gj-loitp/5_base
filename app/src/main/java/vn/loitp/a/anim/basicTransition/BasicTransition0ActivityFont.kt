@@ -9,11 +9,11 @@ import androidx.core.util.Pair
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_animation_basic_transition_0.*
 import vn.loitp.R
+import vn.loitp.common.Constants.Companion.URL_IMG_2
 
 @LogTag("BasicTransition0Activity")
 @IsFullScreen(false)
@@ -40,7 +40,7 @@ class BasicTransition0ActivityFont : BaseActivityFont() {
             this.tvTitle?.text = BasicTransition0ActivityFont::class.java.simpleName
         }
         imageViewItem.loadGlide(
-            any = Constants.URL_IMG_2,
+            any = URL_IMG_2,
         )
         imageViewItem.setOnClickListener {
             onClickIv()

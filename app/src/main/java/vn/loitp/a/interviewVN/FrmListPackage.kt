@@ -51,15 +51,15 @@ class FrmListPackage : BaseFragmentFlow() {
     private fun setupViews() {
         lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
-                (activity as? InterviewVNIQActivityFont)?.onBaseBackPressed()
+                (activity as? InterviewVNIQActivity)?.onBaseBackPressed()
             })
             ivIconRight?.isVisible = false
             this.tvTitle?.text = FrmListPackage::class.java.simpleName
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         qaAdapter.onClickRootListener = { qa, _ ->
-            if (activity is InterviewVNIQActivityFont) {
-                (activity as InterviewVNIQActivityFont).addFrm(FrmListQA(qa.nextLink))
+            if (activity is InterviewVNIQActivity) {
+                (activity as InterviewVNIQActivity).addFrm(FrmListQA(qa.nextLink))
             }
         }
         concatAdapter.addAdapter(qaAdapter)

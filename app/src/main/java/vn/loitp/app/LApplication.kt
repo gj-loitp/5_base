@@ -5,7 +5,7 @@ import com.g1.onetargetsdk.core.Configuration
 import com.g1.onetargetsdk.core.IAM
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.common.Constants
+import com.loitp.core.common.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
 import com.loitp.core.helper.ttt.db.TTTDatabase
 import com.loitp.data.ActivityData
 import com.onesignal.OneSignal
@@ -36,7 +36,7 @@ class LApplication : BaseApplication() {
         super.onCreate()
 
         // config activity transition default
-        ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
+        ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
 
         // config realm
         val realmConfiguration = RealmConfiguration.Builder(this)

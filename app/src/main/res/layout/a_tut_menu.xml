@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.core.widget.NestedScrollView
+    <com.factor.bouncy.BouncyNestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,6 +36,6 @@
                 android:text="@string/rxjava_2" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.core.widget.NestedScrollView>
+    </com.factor.bouncy.BouncyNestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

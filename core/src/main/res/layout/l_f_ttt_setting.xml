@@ -21,7 +21,7 @@
         android:textSize="@dimen/txt_largest"
         android:textStyle="bold" />
 
-    <androidx.core.widget.NestedScrollView
+    <com.factor.bouncy.BouncyNestedScrollView
         android:id="@+id/nestedScrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
@@ -50,5 +50,5 @@
                 android:layout_height="@dimen/w_250" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.core.widget.NestedScrollView>
+    </com.factor.bouncy.BouncyNestedScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,6 +1,6 @@
 package com.loitp.core.ext
 
-import com.loitp.core.common.Constants
+import com.loitp.core.common.NOT_FOUND
 import java.text.DateFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -144,7 +144,7 @@ fun String.convertDateToTimestamp(): Long {
         date.time / 1000
     } catch (e: ParseException) {
         e.printStackTrace()
-        Constants.NOT_FOUND.toLong()
+        NOT_FOUND.toLong()
     }
 }
 

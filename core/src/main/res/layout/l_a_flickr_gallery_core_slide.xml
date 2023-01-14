@@ -46,8 +46,9 @@
                 android:tint="@color/black"
                 app:backgroundTint="@color/white"
                 app:borderWidth="@dimen/w_3"
-                app:elevation="@dimen/w_3"
-                app:fabSize="mini" />
+                app:elevation="@dimen/margin_padding_small"
+                app:fabSize="auto"
+                app:useCompatPadding="true" />
         </FrameLayout>
 
         <FrameLayout
@@ -66,8 +67,9 @@
                 android:tint="@color/black"
                 app:backgroundTint="@color/white"
                 app:borderWidth="@dimen/w_3"
-                app:elevation="@dimen/w_3"
-                app:fabSize="mini" />
+                app:elevation="@dimen/margin_padding_small"
+                app:fabSize="auto"
+                app:useCompatPadding="true" />
         </FrameLayout>
 
         <FrameLayout
@@ -86,8 +88,9 @@
                 android:tint="@color/black"
                 app:backgroundTint="@color/white"
                 app:borderWidth="@dimen/w_3"
-                app:elevation="@dimen/w_3"
-                app:fabSize="mini" />
+                app:elevation="@dimen/margin_padding_small"
+                app:fabSize="auto"
+                app:useCompatPadding="true" />
         </FrameLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat>

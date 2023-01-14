@@ -1,5 +1,7 @@
 package com.loitp.anim.flySchool;
 
+import static com.loitp.anim.flySchool.UtilsKt.dpToPx;
+
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -52,8 +54,8 @@ public class ShapeFlyer extends RelativeLayout {
     }
 
     private void init(AttributeSet attributeSet) {
-        mShapeWidth = Utils.dpToPx(50);
-        mShapeHeight = Utils.dpToPx(50);
+        mShapeWidth = dpToPx(50);
+        mShapeHeight = dpToPx(50);
         if (attributeSet != null) {
             TypedArray typedArray = getContext().obtainStyledAttributes(attributeSet, R.styleable.ShapeFlyer);
             mShapeWidth = typedArray.getDimensionPixelSize(R.styleable.ShapeFlyer_shape_width, mShapeWidth);

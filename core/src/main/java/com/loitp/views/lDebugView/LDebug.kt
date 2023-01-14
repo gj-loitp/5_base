@@ -1,10 +1,12 @@
 package com.loitp.views.lDebugView
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
-import com.loitp.core.utils.ServiceUtils
+import com.loitp.core.ext.startService
+import com.loitp.core.ext.stopService
 import com.loitp.views.lDebugView.LComunicateDebug.postFromActivity
 
 /**
@@ -32,18 +34,18 @@ object LDebug {
             )
             data?.invoke(intent)
         } else {
-            start()
+            start(activity)
         }
     }
 
     @JvmStatic
-    fun start() {
-        ServiceUtils.startService(LDebugViewService::class.java.name)
+    fun start(context: Context) {
+        context.startService(LDebugViewService::class.java.name)
     }
 
     @JvmStatic
-    fun stop() {
-        ServiceUtils.stopService(LDebugViewService::class.java.name)
+    fun stop(context: Context) {
+        context.stopService(LDebugViewService::class.java.name)
     }
 
     fun log(log: String?) {

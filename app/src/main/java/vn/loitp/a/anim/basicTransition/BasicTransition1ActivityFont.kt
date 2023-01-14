@@ -5,11 +5,11 @@ import androidx.core.view.ViewCompat
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_animation_basic_transition_1.*
 import vn.loitp.R
+import vn.loitp.common.Constants.Companion.URL_IMG_2
 
 @LogTag("BasicTransition1Activity")
 @IsFullScreen(false)
@@ -41,7 +41,7 @@ class BasicTransition1ActivityFont : BaseActivityFont() {
             this.tvTitle?.text = BasicTransition1ActivityFont::class.java.simpleName
         }
         imageViewItem.loadGlide(
-            any = Constants.URL_IMG_2,
+            any = URL_IMG_2,
         )
         ViewCompat.setTransitionName(imageViewItem, IV)
         ViewCompat.setTransitionName(textView, TV)

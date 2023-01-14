@@ -10,7 +10,7 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.pm.Signature
 import android.graphics.drawable.Drawable
-import com.loitp.core.ext.d
+import com.loitp.core.ext.*
 import java.io.File
 import java.util.*
 
@@ -471,13 +471,13 @@ class AppUtils private constructor() {
 
         @Suppress("unused")
         fun cleanAppData(vararg dirs: File?): Boolean {
-            var isSuccess = CleanUtils.cleanInternalCache()
-            isSuccess = isSuccess and CleanUtils.cleanInternalDbs()
-            isSuccess = isSuccess and CleanUtils.cleanInternalSP()
-            isSuccess = isSuccess and CleanUtils.cleanInternalFiles()
-            isSuccess = isSuccess and CleanUtils.cleanExternalCache()
+            var isSuccess = cleanInternalCache()
+            isSuccess = isSuccess and cleanInternalDbs()
+            isSuccess = isSuccess and cleanInternalSP()
+            isSuccess = isSuccess and cleanInternalFiles()
+            isSuccess = isSuccess and cleanExternalCache()
             for (dir in dirs) {
-                isSuccess = isSuccess and CleanUtils.cleanCustomCache(dir)
+                isSuccess = isSuccess and cleanCustomCache(dir)
             }
             return isSuccess
         }

@@ -9,7 +9,7 @@ import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_auto_linear_layout.*
 import vn.loitp.R
-import vn.loitp.app.EmptyActivityFont
+import vn.loitp.app.EmptyActivity
 
 @LogTag("AutoLinearLayoutActivity")
 @IsFullScreen(false)
@@ -43,7 +43,7 @@ class AutoLinearLayoutActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = EmptyActivityFont::class.java.simpleName
+            this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }
     }
 }

@@ -16,7 +16,7 @@ import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import com.loitp.core.common.Constants
+import com.loitp.core.common.FACEBOOK_COMMENT_URL
 import com.loitp.core.ext.getColor
 import com.loitp.core.ext.setColorProgressBar
 import com.loitp.core.ext.setDelay
@@ -63,7 +63,7 @@ class FrmFBComment : BaseFragment() {
             )
         }
         val bundle = arguments ?: return
-        postUrl = bundle.getString(Constants.FACEBOOK_COMMENT_URL)
+        postUrl = bundle.getString(FACEBOOK_COMMENT_URL)
         if (BuildConfig.DEBUG) {
             postUrl = "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/"
         }

@@ -3,7 +3,7 @@ package com.loitp.core.ext
 import android.content.Context
 import android.content.SharedPreferences
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.common.Constants
+import com.loitp.core.common.IS_DARK_THEME
 import com.loitp.core.utils.AppUtils
 import com.loitp.model.App
 import java.lang.reflect.Type
@@ -17,16 +17,16 @@ import java.lang.reflect.Type
  */
 fun Context.isDarkTheme(): Boolean {
 //            return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
-    return getBoolean(Constants.IS_DARK_THEME, false)
+    return getBoolean(IS_DARK_THEME, false)
 }
 
 fun Context.setDarkTheme(isDarkTheme: Boolean) {
     if (isDarkTheme) {
 //                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        putBoolean(Constants.IS_DARK_THEME, true)
+        putBoolean(IS_DARK_THEME, true)
     } else {
 //                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        putBoolean(Constants.IS_DARK_THEME, false)
+        putBoolean(IS_DARK_THEME, false)
     }
 }
 

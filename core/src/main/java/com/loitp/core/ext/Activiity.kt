@@ -17,15 +17,19 @@ import android.provider.AlarmClock
 import android.provider.CalendarContract
 import android.provider.Settings
 import android.provider.Telephony
+import android.util.ArrayMap
 import android.view.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import com.loitp.R
 import com.loitp.core.base.BaseActivity
 import com.loitp.core.utils.AppUtils
 import com.loitp.core.utils.FragmentUtils
+import com.loitp.core.utils.Utils
 
 //mo hop thoai de select launcher default
+@Suppress("unused")
 fun Activity.chooseLauncher(cls: Class<*>) {
     val componentName = ComponentName(this, cls)
     this.packageManager.setComponentEnabledSetting(
@@ -46,6 +50,7 @@ fun Activity.chooseLauncher(cls: Class<*>) {
 }
 
 //mo play store va search cac app ve icon
+@Suppress("unused")
 fun Activity.searchIconPack() {
     val url = "market://search?q=icon%20pack&c=apps"
     try {
@@ -62,6 +67,7 @@ fun Activity.searchIconPack() {
 }
 
 //mo app dong ho mac dinh cua device
+@Suppress("unused")
 fun Activity.launchClockApp() {
     try {
         val i = Intent(AlarmClock.ACTION_SHOW_ALARMS)
@@ -73,6 +79,7 @@ fun Activity.launchClockApp() {
 }
 
 //mo app calendar mac dinh cua device
+@Suppress("unused")
 fun Activity.launchCalendar() {
     val calendarUri = CalendarContract.CONTENT_URI.buildUpon().appendPath("time").build()
     this.startActivity(Intent(Intent.ACTION_VIEW, calendarUri))
@@ -80,6 +87,7 @@ fun Activity.launchCalendar() {
 }
 
 //go mot app bat ky nao do
+@Suppress("unused")
 fun Activity.uninstallApp(
     packageName: String
 ) {
@@ -668,4 +676,81 @@ fun Activity.showPopup(
         true
     }
     popup.show()
+}
+
+fun Context?.isActivityExists(
+    packageName: String?,
+    className: String?
+): Boolean {
+    if (this == null || packageName.isNullOrEmpty() || className.isNullOrEmpty()) {
+        return false
+    }
+    val intent = Intent()
+    intent.setClassName(packageName, className)
+    return !(
+            this.packageManager.resolveActivity(intent, 0) == null ||
+                    intent.resolveActivity(this.packageManager) == null ||
+                    this.packageManager.queryIntentActivities(intent, 0).size == 0
+            )
+}
+
+fun getLauncherActivity(
+    packageName: String?
+): String {
+    val intent = Intent(Intent.ACTION_MAIN, null)
+    intent.addCategory(Intent.CATEGORY_LAUNCHER)
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    val pm = Utils.getContext()?.packageManager
+    val info = pm?.queryIntentActivities(intent, 0)
+    info?.forEach { aInfo ->
+        if (aInfo.activityInfo.packageName == packageName) {
+            return aInfo.activityInfo.name
+        }
+    }
+    return "no $packageName"
+}
+
+@Suppress("unused")
+val topActivity: Activity?
+    @SuppressLint("PrivateApi")
+    get() {
+        try {
+            val activityThreadClass = Class.forName("android.app.ActivityThread")
+            val activityThread =
+                activityThreadClass.getMethod("currentActivityThread").invoke(null)
+            val activitiesField = activityThreadClass.getDeclaredField("mActivities")
+            activitiesField.isAccessible = true
+            val activities: Map<*, *> = activitiesField[activityThread] as ArrayMap<*, *>
+
+            for (activityRecord in activities.values) {
+                activityRecord?.let { ar ->
+                    val activityRecordClass: Class<*> = ar.javaClass
+                    val pausedField = activityRecordClass.getDeclaredField("paused")
+                    pausedField.isAccessible = true
+                    if (!pausedField.getBoolean(activityRecord)) {
+                        val activityField = activityRecordClass.getDeclaredField("activity")
+                        activityField.isAccessible = true
+                        return activityField[activityRecord] as Activity
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return null
+    }
+
+fun Activity?.hideSoftInput() {
+    this?.let {
+        var view = it.currentFocus
+        if (view == null) view = View(it)
+        val imm = it.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+}
+
+@Suppress("unused")
+fun Context.toggleSoftInput() {
+    val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+    imm?.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
 }

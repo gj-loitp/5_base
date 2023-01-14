@@ -14,7 +14,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.loitp.R
-import com.loitp.core.common.Constants
+import com.loitp.core.common.ARR_URL_BKG_FLICKR
 import com.loitp.core.utils.FileUtils
 import com.ortiz.touchview.TouchImageView
 import java.io.File
@@ -30,8 +30,8 @@ import kotlin.math.min
  * freuss47@gmail.com
  */
 fun randomUrlFlickr(): String {
-    val r = getRandomNumber(Constants.ARR_URL_BKG_FLICKR.size)
-    return Constants.ARR_URL_BKG_FLICKR[r]
+    val r = getRandomNumber(ARR_URL_BKG_FLICKR.size)
+    return ARR_URL_BKG_FLICKR[r]
 }
 
 // for flick api url_m -> url_b

@@ -9,7 +9,9 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.BKG_SPLASH_SCREEN
+import com.loitp.core.common.KEY_REMOVE_ALBUM_FLICKR_LIST
+import com.loitp.core.common.URL_IMG_2
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivity
 import com.loitp.core.utils.AppUtils
@@ -45,9 +47,9 @@ class GalleryCoreSplashActivity : BaseActivityFont() {
 //        setTransparentStatusNavigationBar()
         RestClient.init(getString(R.string.flickr_URL))
 
-        var urlCoverSplashScreen: String? = intent.getStringExtra(Constants.BKG_SPLASH_SCREEN)
+        var urlCoverSplashScreen: String? = intent.getStringExtra(BKG_SPLASH_SCREEN)
         if (urlCoverSplashScreen.isNullOrEmpty()) {
-            urlCoverSplashScreen = Constants.URL_IMG_2
+            urlCoverSplashScreen = URL_IMG_2
         }
         ivBkg.loadGlide(any = urlCoverSplashScreen)
         tvCopyright.setTextShadow(color = null)
@@ -56,11 +58,11 @@ class GalleryCoreSplashActivity : BaseActivityFont() {
     }
 
     private fun goToHome() {
-        val removeAlbumList = intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)
+        val removeAlbumList = intent.getStringArrayListExtra(KEY_REMOVE_ALBUM_FLICKR_LIST)
         setDelay(mls = 2000, runnable = {
             val intent = Intent(this, GalleryCoreAlbumActivity::class.java)
             intent.putStringArrayListExtra(
-                Constants.KEY_REMOVE_ALBUM_FLICKR_LIST,
+                KEY_REMOVE_ALBUM_FLICKR_LIST,
                 removeAlbumList
                     ?: ArrayList()
             )

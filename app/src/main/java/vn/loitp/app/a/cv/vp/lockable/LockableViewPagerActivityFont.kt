@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.FONT_PATH
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -41,7 +41,7 @@ class LockableViewPagerActivityFont : BaseActivityFont() {
         }
         vp.adapter = SamplePagerAdapter(supportFragmentManager)
         tabLayout.setupWithViewPager(vp)
-        tabLayout.changeTabsFont(fontName = Constants.FONT_PATH)
+        tabLayout.changeTabsFont(fontName = FONT_PATH)
         btEnable.setSafeOnClickListener {
             vp.swipeLocked = false
         }

@@ -11,7 +11,7 @@ import androidx.viewpager.widget.PagerAdapter
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.FONT_PATH
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.getRandomColor
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -74,7 +74,7 @@ class ViewPagerWithTabLayoutActivityFont : BaseActivityFont() {
         }
         viewPager.adapter = SlidePagerAdapter()
         tabLayout.setupWithViewPager(viewPager)
-        tabLayout.changeTabsFont(Constants.FONT_PATH)
+        tabLayout.changeTabsFont(FONT_PATH)
         btAnim.setOnClickListener {
             showDialogAnim()
         }

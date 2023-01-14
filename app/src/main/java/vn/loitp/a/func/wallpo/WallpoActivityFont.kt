@@ -7,7 +7,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.URL_IMG_1
 import com.loitp.core.ext.*
 import kotlinx.android.synthetic.main.a_wallpo.*
 import vn.loitp.R
@@ -51,7 +51,7 @@ class WallpoActivityFont : BaseActivityFont() {
 
         btChangeImageNetwork.setSafeOnClickListener {
             ivPreview.loadGlide(
-                any = Constants.URL_IMG_1,
+                any = URL_IMG_1,
             )
         }
 

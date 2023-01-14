@@ -10,7 +10,8 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.SK_PHOTO_ID
+import com.loitp.core.common.SK_PHOTO_PISITION
 import com.loitp.core.ext.sendEmail
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.share
@@ -43,7 +44,7 @@ class GalleryCoreSlideActivity : BaseActivityFont() {
         viewPager.adapter = slidePagerAdapter
 //        LUIUtil.setPullLikeIOSHorizontal(viewPager)
 //        viewPager.setPageTransformer(true, ZoomOutSlideTransformer())
-        val photoID = intent.getStringExtra(Constants.SK_PHOTO_ID) ?: ""
+        val photoID = intent.getStringExtra(SK_PHOTO_ID) ?: ""
         val position = instance.getPosition(photoID)
 
         viewPager.currentItem = position
@@ -70,7 +71,7 @@ class GalleryCoreSlideActivity : BaseActivityFont() {
 
             val frmIvSlideCore = FrmIvSlideCore()
             val bundle = Bundle()
-            bundle.putInt(Constants.SK_PHOTO_PISITION, position)
+            bundle.putInt(SK_PHOTO_PISITION, position)
             frmIvSlideCore.arguments = bundle
             return frmIvSlideCore
         }

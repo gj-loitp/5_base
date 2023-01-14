@@ -5,7 +5,8 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.KEY_VIDEO_LINK_IMA_AD
+import com.loitp.core.common.KEY_VIDEO_LINK_PLAY
 import com.loitp.core.ext.isLandscape
 import kotlinx.android.synthetic.main.a_video_exo_player.*
 import kotlinx.android.synthetic.main.exo_playback_control_view.*
@@ -26,8 +27,8 @@ class ExoPlayerActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        linkPlay = intent.getStringExtra(Constants.KEY_VIDEO_LINK_PLAY) ?: ""
-        val linkIMAAd = intent.getStringExtra(Constants.KEY_VIDEO_LINK_IMA_AD)
+        linkPlay = intent.getStringExtra(KEY_VIDEO_LINK_PLAY) ?: ""
+        val linkIMAAd = intent.getStringExtra(KEY_VIDEO_LINK_IMA_AD)
 
         playerManager = linkIMAAd?.let {
             PlayerManager(context = this, urlIMAAd = it)

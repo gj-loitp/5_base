@@ -6,7 +6,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.URL_IMG
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -58,7 +58,7 @@ class ShapeOfViewActivityFont : BaseActivityFont() {
         }.start()
 
         kbv.loadGlide(
-            any = Constants.URL_IMG,
+            any = URL_IMG,
         )
     }
 }

@@ -46,7 +46,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:visibility="visible" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.factor.bouncy.BouncyRecyclerView
             android:id="@+id/recyclerView"
             style="@style/ScrollVertical"
             android:layout_width="match_parent"

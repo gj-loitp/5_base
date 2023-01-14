@@ -7,8 +7,8 @@ abstract class BaseFragmentFlow : BaseFragment(), OnBackPressedListener {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        if (activity is InterviewVNIQActivityFont) {
-            (activity as InterviewVNIQActivityFont).onBackClickListener = null
+        if (activity is InterviewVNIQActivity) {
+            (activity as InterviewVNIQActivity).onBackClickListener = null
         }
     }
 
@@ -18,8 +18,8 @@ abstract class BaseFragmentFlow : BaseFragment(), OnBackPressedListener {
 
     // this function will be called when backstack
     open fun onFragmentResume() {
-        if (activity is InterviewVNIQActivityFont) {
-            (activity as InterviewVNIQActivityFont).onBackClickListener = this
+        if (activity is InterviewVNIQActivity) {
+            (activity as InterviewVNIQActivity).onBackClickListener = this
         }
     }
 }

@@ -6,7 +6,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.URL_IMG_1
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -49,22 +49,22 @@ class RoundedIvActivityFont : BaseActivityFont() {
             this.tvTitle?.text = RoundedIvActivityFont::class.java.simpleName
         }
         ivCircle.loadGlide(
-            any = Constants.URL_IMG_1,
+            any = URL_IMG_1,
         )
         iv.loadGlide(
-            any = Constants.URL_IMG_1,
+            any = URL_IMG_1,
         )
         iv1.loadGlide(
-            any = Constants.URL_IMG_1,
+            any = URL_IMG_1,
         )
         iv2.loadGlide(
-            any = Constants.URL_IMG_1,
+            any = URL_IMG_1,
         )
         iv4.loadGlide(
-            any = Constants.URL_IMG_1,
+            any = URL_IMG_1,
         )
         iv5.loadGlide(
-            any = Constants.URL_IMG_1,
+            any = URL_IMG_1,
         )
     }
 }

@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
 import com.loitp.R
-import com.loitp.anim.flySchool.Utils.setHeart
 
 class AppCompatShapeView : AppCompatImageView, ShapeSetter {
     constructor(context: Context) : super(context) {
@@ -36,7 +35,7 @@ class AppCompatShapeView : AppCompatImageView, ShapeSetter {
 
     override fun setShape(drawable: Int) {
         setImageResource(drawable)
-        setHeart(this)
+        this.setHeart()
     }
 
     override fun setShape(

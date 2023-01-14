@@ -8,7 +8,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.Constants
+import com.loitp.core.common.FONT_PATH
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utils.*
@@ -45,7 +45,7 @@ class UtilsActivity : BaseActivityFont() {
         }
         viewPager.adapter = SlidePagerAdapter(supportFragmentManager)
         tabLayout.setupWithViewPager(viewPager)
-        tabLayout.changeTabsFont(Constants.FONT_PATH)
+        tabLayout.changeTabsFont(FONT_PATH)
     }
 
     private fun setupData() {
@@ -54,11 +54,11 @@ class UtilsActivity : BaseActivityFont() {
         listClass.add(DeviceUtils::class.java.simpleName)
         listClass.add(ConvertUtils::class.java.simpleName)
         listClass.add(CloseUtils::class.java.simpleName)
-        listClass.add(ClipboardUtils::class.java.simpleName)
-        listClass.add(CleanUtils::class.java.simpleName)
+        listClass.add("ClipboardUtils")
+        listClass.add("CleanUtils")
         listClass.add(BarUtils::class.java.simpleName)
         listClass.add(AppUtils::class.java.simpleName)
-        listClass.add(ActivityUtils::class.java.simpleName)
+        listClass.add("ActivityUtils")
 
         viewPager.adapter?.notifyDataSetChanged()
     }

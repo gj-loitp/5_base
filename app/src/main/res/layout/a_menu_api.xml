@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.core.widget.NestedScrollView
+    <com.factor.bouncy.BouncyNestedScrollView
         android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
@@ -49,6 +49,6 @@
                 android:text="@string/truyen_tranh_api" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.core.widget.NestedScrollView>
+    </com.factor.bouncy.BouncyNestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

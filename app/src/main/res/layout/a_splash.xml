@@ -26,23 +26,26 @@
         android:layout_height="match_parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/ivLogo"
+        android:layout_width="@dimen/w_150"
+        android:layout_height="@dimen/w_150"
         android:alpha="0.5"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/loitp"
+        android:src="@drawable/ic_launcher_loitp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_medium"
         android:indeterminateTint="?attr/themeTextColor"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewVersion"

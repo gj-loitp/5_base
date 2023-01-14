@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lActionBar">
+
+        <com.skydoves.progressview.ProgressView
+            android:id="@+id/progressView"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_margin="@dimen/margin_padding_medium"
+            app:progressView_borderColor="@color/white"
+            app:progressView_borderWidth="2dp"
+            app:progressView_colorBackground="@android:color/transparent"
+            app:progressView_colorGradientEnd="@color/colorPrimaryDark"
+            app:progressView_colorGradientStart="@color/colorPrimary"
+            app:progressView_colorProgress="@color/skyBlue"
+            app:progressView_highlightAlpha="0.8"
+            app:progressView_highlightWidth="1dp"
+            app:progressView_labelColorInner="@color/white"
+            app:progressView_labelColorOuter="@color/black"
+            app:progressView_labelSize="13sp"
+            app:progressView_labelSpace="10dp"
+            app:progressView_labelText="heart 20%"
+            app:progressView_labelTypeface="bold"
+            app:progressView_progress="20"
+            app:progressView_radius="12dp" />
+
+        <com.skydoves.progressview.ProgressView
+            android:id="@+id/progressView1"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_margin="@dimen/margin_padding_medium"
+            app:progressView_colorBackground="@color/white"
+            app:progressView_colorGradientEnd="@color/md_yellow_200"
+            app:progressView_colorGradientStart="@color/md_yellow_100"
+            app:progressView_colorProgress="@color/md_green_100"
+            app:progressView_highlightAlpha="0.8"
+            app:progressView_highlightColor="@color/skyBlue"
+            app:progressView_highlightWidth="1dp"
+            app:progressView_labelColorInner="@color/black"
+            app:progressView_labelColorOuter="@color/black"
+            app:progressView_labelSize="13sp"
+            app:progressView_labelSpace="10dp"
+            app:progressView_labelText="star 40%"
+            app:progressView_labelTypeface="bold"
+            app:progressView_padding="1dp"
+            app:progressView_progress="40"
+            app:progressView_radius="12dp" />
+
+        <com.skydoves.progressview.ProgressView
+            android:id="@+id/progressView2"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_margin="@dimen/margin_padding_medium"
+            app:progressView_colorBackground="@color/white"
+            app:progressView_colorGradientEnd="@color/md_orange_200"
+            app:progressView_colorGradientStart="@color/md_orange_100"
+            app:progressView_colorProgress="@color/skyBlue"
+            app:progressView_highlightAlpha="0.8"
+            app:progressView_highlightColor="@color/skyBlue"
+            app:progressView_highlightWidth="1dp"
+            app:progressView_labelColorInner="@color/white"
+            app:progressView_labelColorOuter="@color/black"
+            app:progressView_labelSize="13sp"
+            app:progressView_labelSpace="10dp"
+            app:progressView_labelText="achieve 10%"
+            app:progressView_labelTypeface="bold"
+            app:progressView_padding="1dp"
+            app:progressView_progress="10"
+            app:progressView_radius="12dp" />
+
+        <com.skydoves.progressview.ProgressView
+            android:id="@+id/progressView3"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_margin="@dimen/margin_padding_medium"
+            app:progressView_colorBackground="@color/white"
+            app:progressView_colorGradientEnd="@color/md_green_200"
+            app:progressView_colorGradientStart="@color/md_green_100"
+            app:progressView_colorProgress="@color/skyBlue"
+            app:progressView_highlightAlpha="0.8"
+            app:progressView_highlightColor="@color/skyBlue"
+            app:progressView_highlightWidth="1dp"
+            app:progressView_labelColorInner="@color/white"
+            app:progressView_labelColorOuter="@color/black"
+            app:progressView_labelSize="13sp"
+            app:progressView_labelSpace="10dp"
+            app:progressView_labelText="score 50/100"
+            app:progressView_labelTypeface="bold"
+            app:progressView_padding="1dp"
+            app:progressView_progress="50"
+            app:progressView_radius="12dp" />
+
+        <com.skydoves.progressview.ProgressView
+            android:id="@+id/progressView4"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_margin="@dimen/margin_padding_medium"
+            app:progressView_colorBackground="@color/white"
+            app:progressView_colorGradientEnd="@color/md_blue_200"
+            app:progressView_colorGradientStart="@color/md_blue_100"
+            app:progressView_colorProgress="@color/skyBlue"
+            app:progressView_highlightAlpha="0.8"
+            app:progressView_highlightColor="@color/skyBlue"
+            app:progressView_highlightWidth="1dp"
+            app:progressView_labelColorInner="@color/white"
+            app:progressView_labelColorOuter="@color/black"
+            app:progressView_labelSize="13sp"
+            app:progressView_labelSpace="10dp"
+            app:progressView_labelText="achieve 70%"
+            app:progressView_labelTypeface="bold"
+            app:progressView_padding="1dp"
+            app:progressView_progress="70"
+            app:progressView_radius="12dp" />
+
+        <com.skydoves.progressview.ProgressView
+            android:id="@+id/progressView5"
+            android:layout_width="@dimen/w_25"
+            android:layout_height="@dimen/w_250"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_padding_medium"
+            app:progressView_colorBackground="@color/white"
+            app:progressView_colorGradientEnd="@color/md_purple_200"
+            app:progressView_colorGradientStart="@color/md_purple_100"
+            app:progressView_colorProgress="@color/skyBlue"
+            app:progressView_highlightAlpha="0.8"
+            app:progressView_highlightColor="@color/skyBlue"
+            app:progressView_highlightWidth="1dp"
+            app:progressView_labelColorInner="@color/white"
+            app:progressView_labelColorOuter="@color/black"
+            app:progressView_labelSize="13sp"
+            app:progressView_labelSpace="10dp"
+            app:progressView_labelText="achieve 30%"
+            app:progressView_labelTypeface="bold"
+            app:progressView_orientation="vertical"
+            app:progressView_padding="1dp"
+            app:progressView_progress="30"
+            app:progressView_radius="12dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_padding_medium"
+            android:text="progress" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>
