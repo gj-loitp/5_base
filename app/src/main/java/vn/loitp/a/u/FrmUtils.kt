@@ -49,7 +49,7 @@ class FrmUtils : Fragment() {
                 BarUtils::class.java.simpleName -> {
                     handleBarUtils()
                 }
-                CleanUtils::class.java.simpleName -> {
+                "CleanUtils" -> {
                     handleCleanUtils()
                 }
                 "ClipboardUtils" -> {

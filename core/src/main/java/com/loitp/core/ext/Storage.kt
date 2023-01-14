@@ -14,6 +14,9 @@ import android.provider.DocumentsContract
 import android.provider.MediaStore
 import com.loitp.R
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.utils.FileUtils
+import com.loitp.core.utils.SDCardUtils
+import com.loitp.core.utils.Utils
 import com.loitp.func.epub.core.EpubReaderReadActivity
 import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.model.BookInfoData
@@ -632,4 +635,40 @@ fun Activity?.readEpub(
     BookInfoData.instance.bookInfo = bookInfo
     this.startActivity(intent)
     this.tranIn()
+}
+
+fun cleanInternalCache(): Boolean {
+    return FileUtils.deleteFilesInDir(Utils.getContext()?.cacheDir)
+}
+
+fun cleanInternalFiles(): Boolean {
+    return FileUtils.deleteFilesInDir(Utils.getContext()?.filesDir)
+}
+
+fun cleanInternalDbs(): Boolean {
+    return FileUtils.deleteFilesInDir(Utils.getContext()?.filesDir?.parent + File.separator + "databases")
+}
+
+@Suppress("unused")
+fun cleanInternalDbByName(
+    dbName: String?
+): Boolean? {
+    return Utils.getContext()?.deleteDatabase(dbName)
+}
+
+fun cleanInternalSP(): Boolean {
+    return FileUtils.deleteFilesInDir(Utils.getContext()?.filesDir?.parent + File.separator + "shared_prefs")
+}
+
+fun cleanExternalCache(): Boolean {
+    return SDCardUtils.isSDCardEnable() && FileUtils.deleteFilesInDir(Utils.getContext()?.externalCacheDir)
+}
+
+@Suppress("unused")
+fun cleanCustomCache(dirPath: String?): Boolean {
+    return FileUtils.deleteFilesInDir(dirPath)
+}
+
+fun cleanCustomCache(dir: File?): Boolean {
+    return FileUtils.deleteFilesInDir(dir)
 }
