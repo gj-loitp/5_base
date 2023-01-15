@@ -75,7 +75,11 @@ var TYPE_ACTIVITY_TRANSITION_SPIN = 9
 //endregion
 
 const val FCM_TOPIC = "/topics/loitp"
-const val URL_POLICY = "https://loitp.wordpress.com/2018/06/10/privacy-policy/"
+
+@Deprecated("Use URL_POLICY_NOTION instead")
+const val URL_POLICY_WORDPRESS = "https://loitp.wordpress.com/2018/06/10/privacy-policy/"
+const val URL_POLICY_NOTION =
+    "https://loitp.notion.site/loitp/Privacy-Policy-319b1cd8783942fa8923d2a3c9bce60f/"
 
 //region flickr
 const val SK_PHOTOSET_ID = "SK_PHOTOSET_ID"
