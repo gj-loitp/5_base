@@ -65,7 +65,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             this.setTextUnderline()
             setSafeOnClickListener {
                 this@MenuActivity.openUrlInBrowser(
-                    url = URL_POLICY
+                    url = URL_POLICY_NOTION
                 )
             }
         }

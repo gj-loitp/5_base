@@ -220,7 +220,7 @@ fun Context?.sendEmail(
 
 fun Context.openBrowserPolicy(
 ) {
-    this.openUrlInBrowser(url = URL_POLICY)
+    this.openUrlInBrowser(url = URL_POLICY_NOTION)
 }
 
 fun Context?.openUrlInBrowser(
