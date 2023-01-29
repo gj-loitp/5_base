@@ -30,9 +30,9 @@ import vn.loitp.a.picker.MenuPickerActivity
 import vn.loitp.a.sec.MenuSecurityActivity
 import vn.loitp.a.sv.MenuServiceActivity
 import vn.loitp.a.tut.MenuTutorialActivity
-import vn.loitp.a.u.UtilsActivity
 import vn.loitp.databinding.AMenuBinding
 import vn.loitp.up.a.anim.MenuAnimationActivity
+import vn.loitp.up.a.u.UtilsActivity
 import vn.loitp.up.a.u.UtilsCoreActivity
 
 @LogTag("MenuActivity")
