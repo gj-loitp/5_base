@@ -131,7 +131,7 @@
             android:name=".a.cv.tv.color.ColorTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.scrollNumber.ScrollNumberActivityFont"
+            android:name=".a.cv.tv.scrollNumber.ScrollNumberActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.tv.zoom.ZoomTextViewActivityFont"
@@ -241,7 +241,7 @@
             android:name=".app.a.cv.vp.vpWithTabLayout.ViewPagerWithTabLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.selectable.SelectableTextViewActivityFont"
+            android:name=".a.cv.tv.selectable.SelectableTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivity"
@@ -700,7 +700,7 @@
             android:name=".a.func.keyboard.KeyboardActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.stroked.StrokedTextViewActivityFont"
+            android:name=".a.cv.tv.stroked.StrokedTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.et.autoSuggest.EditTextAutoSuggestActivityFont"

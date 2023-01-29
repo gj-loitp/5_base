@@ -1,11 +1,11 @@
-package vn.loitp.app.a.cv.tv.stroked
+package vn.loitp.a.cv.tv.stroked
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_text_view_stroked.*
+import kotlinx.android.synthetic.main.a_tv_stroked.*
 import vn.loitp.R
 
 // https://github.com/melihaksoy/StrokedTextView
@@ -15,7 +15,7 @@ import vn.loitp.R
 class StrokedTextViewActivityFont : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_stroked
+        return R.layout.a_tv_stroked
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

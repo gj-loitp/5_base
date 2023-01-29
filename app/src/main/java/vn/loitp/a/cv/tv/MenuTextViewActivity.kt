@@ -21,9 +21,9 @@ import vn.loitp.a.cv.tv.fading.FadingTextViewActivity
 import vn.loitp.a.cv.tv.justified.JustifiedTextViewActivityFont
 import vn.loitp.a.cv.tv.readMoreOption.ReadMoreOptionActivityFont
 import vn.loitp.a.cv.tv.score.ScoreTextViewActivityFont
-import vn.loitp.app.a.cv.tv.scrollNumber.ScrollNumberActivityFont
-import vn.loitp.app.a.cv.tv.selectable.SelectableTextViewActivityFont
-import vn.loitp.app.a.cv.tv.stroked.StrokedTextViewActivityFont
+import vn.loitp.a.cv.tv.scrollNumber.ScrollNumberActivityFont
+import vn.loitp.a.cv.tv.selectable.SelectableTextViewActivityFont
+import vn.loitp.a.cv.tv.stroked.StrokedTextViewActivityFont
 import vn.loitp.app.a.cv.tv.textArc.TextArcActivityFont
 import vn.loitp.app.a.cv.tv.textDecorator.TextDecoratorActivityFont
 import vn.loitp.app.a.cv.tv.typeWrite.TypeWriterTextViewActivityFont

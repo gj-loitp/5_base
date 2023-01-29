@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv.selectable
+package vn.loitp.a.cv.tv.selectable
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.tv.selectable.SelectableListener
-import kotlinx.android.synthetic.main.activity_text_view_selectable.*
+import kotlinx.android.synthetic.main.a_tv_selectable.*
 import vn.loitp.R
 
 @LogTag("SelectableTextViewActivity")
@@ -15,7 +15,7 @@ import vn.loitp.R
 class SelectableTextViewActivityFont : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_selectable
+        return R.layout.a_tv_selectable
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

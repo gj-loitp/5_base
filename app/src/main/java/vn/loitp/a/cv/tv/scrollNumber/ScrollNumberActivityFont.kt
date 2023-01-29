@@ -1,11 +1,11 @@
-package vn.loitp.app.a.cv.tv.scrollNumber
+package vn.loitp.a.cv.tv.scrollNumber
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_text_view_scroll_number.*
+import kotlinx.android.synthetic.main.a_tv_scroll_number.*
 import vn.loitp.R
 
 @LogTag("ScrollNumberActivity")
@@ -13,7 +13,7 @@ import vn.loitp.R
 class ScrollNumberActivityFont : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_scroll_number
+        return R.layout.a_tv_scroll_number
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
