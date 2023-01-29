@@ -19,8 +19,8 @@ import vn.loitp.a.cv.tv.dropdown.DropdownTextViewActivity
 import vn.loitp.a.cv.tv.extra.ExtraTextViewActivity
 import vn.loitp.a.cv.tv.fading.FadingTextViewActivity
 import vn.loitp.a.cv.tv.justified.JustifiedTextViewActivityFont
-import vn.loitp.app.a.cv.tv.readMoreOption.ReadMoreOptionActivityFont
-import vn.loitp.app.a.cv.tv.score.ScoreTextViewActivityFont
+import vn.loitp.a.cv.tv.readMoreOption.ReadMoreOptionActivityFont
+import vn.loitp.a.cv.tv.score.ScoreTextViewActivityFont
 import vn.loitp.app.a.cv.tv.scrollNumber.ScrollNumberActivityFont
 import vn.loitp.app.a.cv.tv.selectable.SelectableTextViewActivityFont
 import vn.loitp.app.a.cv.tv.stroked.StrokedTextViewActivityFont

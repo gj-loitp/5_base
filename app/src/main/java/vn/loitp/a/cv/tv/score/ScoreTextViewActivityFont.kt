@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv.score
+package vn.loitp.a.cv.tv.score
 
 import android.os.Bundle
 import android.os.Handler
@@ -9,7 +9,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_text_view_score.*
+import kotlinx.android.synthetic.main.a_tv_score.*
 import vn.loitp.R
 
 @LogTag("ScoreTextViewActivity")
@@ -24,7 +24,7 @@ class ScoreTextViewActivityFont : BaseActivityFont() {
     private val maxScore = 200
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_score
+        return R.layout.a_tv_score
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

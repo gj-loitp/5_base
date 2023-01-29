@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv.readMoreOption
+package vn.loitp.a.cv.tv.readMoreOption
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -11,7 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_read_more_option.*
+import kotlinx.android.synthetic.main.a_tv_read_more_option.*
 import vn.loitp.R
 
 @LogTag("ReadMoreOptionActivity")
@@ -20,7 +20,7 @@ import vn.loitp.R
 class ReadMoreOptionActivityFont : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_read_more_option
+        return R.layout.a_tv_read_more_option
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

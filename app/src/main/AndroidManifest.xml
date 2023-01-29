@@ -95,7 +95,7 @@
             android:name=".a.cv.tv.MenuTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.score.ScoreTextViewActivityFont"
+            android:name=".a.cv.tv.score.ScoreTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bb.MenuBottomNavigationActivity"
@@ -1338,7 +1338,7 @@
             android:name=".a.sec.ssBiometricsAuthentication.SSBiometricsAuthenticationActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.readMoreOption.ReadMoreOptionActivityFont"
+            android:name=".a.cv.tv.readMoreOption.ReadMoreOptionActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity"
