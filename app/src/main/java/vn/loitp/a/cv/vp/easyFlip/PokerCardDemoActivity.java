@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.easyFlip;
+package vn.loitp.a.cv.vp.easyFlip;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -25,7 +25,7 @@ public class PokerCardDemoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_poker_card_demo);
+        setContentView(R.layout.a_poker_card_demo);
 
         pokerViewPager = findViewById(R.id.pokerViewPager);
         PokerPagerAdapter pagerAdapter = new PokerPagerAdapter(this);

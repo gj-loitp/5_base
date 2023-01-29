@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.easyFlip
+package vn.loitp.a.cv.vp.easyFlip
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer
-import kotlinx.android.synthetic.main.activity_book_onboarding.*
+import kotlinx.android.synthetic.main.a_book_onboarding.*
 import vn.loitp.R
 
 @LogTag("BookOnboardingActivity")
@@ -21,7 +21,7 @@ class BookOnboardingActivityFont : BaseActivityFont() {
     private var mPagerAdapter: PagerAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_book_onboarding
+        return R.layout.a_book_onboarding
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

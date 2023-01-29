@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.easyFlip
+package vn.loitp.a.cv.vp.easyFlip
 
 import android.graphics.Color
 import androidx.fragment.app.Fragment

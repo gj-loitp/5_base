@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.easyFlip
+package vn.loitp.a.cv.vp.easyFlip
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.wajahatkarim3.easyflipviewpager.CardFlipPageTransformer
-import kotlinx.android.synthetic.main.activity_picture_gallery_demo.*
+import kotlinx.android.synthetic.main.a_picture_gallery_demo.*
 import vn.loitp.R
 
 @LogTag("PictureGalleryDemoActivity")
@@ -19,7 +19,7 @@ class PictureGalleryDemoActivityFont : BaseActivityFont() {
 
     lateinit var pagerAdapter: GalleryPagerAdapter
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_picture_gallery_demo
+        return R.layout.a_picture_gallery_demo
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

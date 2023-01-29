@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.parrallax
+package vn.loitp.a.cv.vp.parrallax
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,7 +14,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.getRandomColor
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.vp.parrallax.ParallaxMode
-import kotlinx.android.synthetic.main.activity_view_pager_parallax.*
+import kotlinx.android.synthetic.main.a_vp_parallax.*
 import vn.loitp.R
 
 @LogTag("ParallaxViewPagerActivity")
@@ -23,7 +23,7 @@ class ParallaxViewPagerActivityFont : BaseActivityFont() {
     private val resList: MutableList<Int> = ArrayList()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_view_pager_parallax
+        return R.layout.a_vp_parallax
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

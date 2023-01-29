@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.lockable
+package vn.loitp.a.cv.vp.lockable
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,7 +11,7 @@ import com.loitp.core.common.FONT_PATH
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_view_pager_lockable.*
+import kotlinx.android.synthetic.main.a_vp_lockable.*
 import vn.loitp.R
 import vn.loitp.a.cv.vp.auto.FrmIv
 
@@ -20,7 +20,7 @@ import vn.loitp.a.cv.vp.auto.FrmIv
 class LockableViewPagerActivityFont : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_view_pager_lockable
+        return R.layout.a_vp_lockable
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

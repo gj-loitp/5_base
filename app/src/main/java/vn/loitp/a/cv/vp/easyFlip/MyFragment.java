@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.easyFlip;
+package vn.loitp.a.cv.vp.easyFlip;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -31,7 +31,7 @@ public class MyFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_dummy_layout, container, false);
+        View rootView = inflater.inflate(R.layout.f_dummy_layout, container, false);
         rootView.findViewById(R.id.textView).setBackgroundColor(color);
         rootView.setTag(position);
         return rootView;

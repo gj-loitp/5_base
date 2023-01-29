@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.easyFlip
+package vn.loitp.a.cv.vp.easyFlip
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -13,7 +13,7 @@ class ScreenSlideRecyclerAdapter(private val itemsList: ArrayList<Int>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScreenSlideViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_dummy_layout, parent, false)
+            .inflate(R.layout.f_dummy_layout, parent, false)
         return ScreenSlideViewHolder(view)
     }
 

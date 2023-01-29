@@ -53,7 +53,7 @@
             android:name=".a.cv.vp.MenuViewPagerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.parrallax.ParallaxViewPagerActivityFont"
+            android:name=".a.cv.vp.parrallax.ParallaxViewPagerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.MenuButtonActivity"
@@ -602,7 +602,7 @@
             android:name=".a.cv.layout.draggablePanelFree.DraggablePanelFreeActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.lockable.LockableViewPagerActivityFont"
+            android:name=".a.cv.vp.lockable.LockableViewPagerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--end floating view-->
         <activity
@@ -1154,19 +1154,19 @@
             android:name=".a.cv.tv.fading.FadingTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.easyFlip.EFVPActivityFont"
+            android:name=".a.cv.vp.easyFlip.EFVPActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.easyFlip.BookOnboardingActivityFont"
+            android:name=".a.cv.vp.easyFlip.BookOnboardingActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.easyFlip.PokerCardDemoActivity"
+            android:name=".a.cv.vp.easyFlip.PokerCardDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.easyFlip.PictureGalleryDemoActivityFont"
+            android:name=".a.cv.vp.easyFlip.PictureGalleryDemoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.easyFlip.ViewPager2DemoActivityFont"
+            android:name=".a.cv.vp.easyFlip.ViewPager2DemoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.sb.vertical2.VerticalSeekBar2ActivityFont"

@@ -14,9 +14,9 @@ import vn.loitp.R
 import vn.loitp.a.cv.vp.auto.ViewPagerAutoActivityFont
 import vn.loitp.a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivityFont
 import vn.loitp.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2ActivityFont
-import vn.loitp.app.a.cv.vp.easyFlip.EFVPActivityFont
-import vn.loitp.app.a.cv.vp.lockable.LockableViewPagerActivityFont
-import vn.loitp.app.a.cv.vp.parrallax.ParallaxViewPagerActivityFont
+import vn.loitp.a.cv.vp.easyFlip.EFVPActivityFont
+import vn.loitp.a.cv.vp.lockable.LockableViewPagerActivityFont
+import vn.loitp.a.cv.vp.parrallax.ParallaxViewPagerActivityFont
 import vn.loitp.app.a.cv.vp.refresh.RefreshViewPagerActivityFont
 import vn.loitp.app.a.cv.vp.vertical.ViewPagerVerticalActivityFont
 import vn.loitp.app.a.cv.vp.vp2.ViewPager2ActivityFont

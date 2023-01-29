@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.easyFlip;
+package vn.loitp.a.cv.vp.easyFlip;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -42,7 +42,7 @@ public class BookPageIntroFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_book_page_layout, container, false);
+        View rootView = inflater.inflate(R.layout.f_book_page_layout, container, false);
 
         ImageView imageView = rootView.findViewById(R.id.imageView);
         TextView txtTitle = rootView.findViewById(R.id.textView2);

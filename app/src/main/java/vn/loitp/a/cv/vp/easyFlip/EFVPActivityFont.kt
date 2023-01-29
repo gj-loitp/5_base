@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.easyFlip
+package vn.loitp.a.cv.vp.easyFlip
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -16,7 +16,7 @@ import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer
 import com.wajahatkarim3.easyflipviewpager.CardFlipPageTransformer
-import kotlinx.android.synthetic.main.activity_efvp.*
+import kotlinx.android.synthetic.main.a_efvp.*
 import vn.loitp.R
 
 @LogTag("EFVPActivity")
@@ -30,7 +30,7 @@ class EFVPActivityFont : BaseActivityFont() {
     var cardFlipTransformer = CardFlipPageTransformer()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_efvp
+        return R.layout.a_efvp
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

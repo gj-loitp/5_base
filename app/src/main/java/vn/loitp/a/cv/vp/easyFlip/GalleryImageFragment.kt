@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.easyFlip
+package vn.loitp.a.cv.vp.easyFlip
 
 import android.content.Intent
 import android.os.Bundle
@@ -45,7 +45,7 @@ class GalleryImageFragment : Fragment() {
     ): View? {
 
         if (description != null) {
-            val rootView = inflater.inflate(R.layout.fragment_gallery_page_layout, container, false)
+            val rootView = inflater.inflate(R.layout.f_gallery_page_layout, container, false)
 
             val imageView = rootView.findViewById<ImageView>(R.id.imageView)
             val txtTitle = rootView.findViewById<TextView>(R.id.txtTitle)
