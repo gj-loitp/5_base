@@ -20,6 +20,7 @@ import okhttp3.Call
 import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.a.anim.konfetti.Presets
+import vn.loitp.databinding.ASplashBinding
 import java.io.IOException
 
 @SuppressLint("CustomSplashScreen")
@@ -27,6 +28,7 @@ import java.io.IOException
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class SplashActivity : BaseActivityFont() {
+    private lateinit var binding: ASplashBinding
 
     private var isAnimDone = false
     private var isCheckReadyDone = false
