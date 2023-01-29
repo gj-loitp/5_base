@@ -1,4 +1,4 @@
-package vn.loitp.a.anim
+package vn.loitp.up.a.anim
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -6,11 +6,9 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_menu_animation.*
-import vn.loitp.R
-import vn.loitp.a.anim.activityTransition.Animation1ActivityFont
 import vn.loitp.a.anim.activityTransitionReveal.RevealActivity1Font
 import vn.loitp.a.anim.androidParticles.AndroidParticlesActivityFont
 import vn.loitp.a.anim.animatedStarsView.AnimatedStarsViewActivityFont
@@ -29,24 +27,31 @@ import vn.loitp.a.anim.pulsingView.PulsingViewActivityFont
 import vn.loitp.a.anim.shadowViewHelper.ShadowViewHelperActivityFont
 import vn.loitp.a.anim.snowfall.SnowfallActivityFont
 import vn.loitp.a.anim.valueAnimator.ValueAnimatorActivityFont
+import vn.loitp.databinding.AMenuAnimationBinding
+import vn.loitp.up.a.anim.activityTransition.Animation1Activity
 
 @LogTag("MenuAnimationActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class MenuAnimationActivity : BaseActivityFont() {
 
+    private lateinit var binding: AMenuAnimationBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_menu_animation
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AMenuAnimationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -54,61 +59,61 @@ class MenuAnimationActivity : BaseActivityFont() {
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = MenuAnimationActivity::class.java.simpleName
         }
-        btAnimationView.setSafeOnClickListener {
+        binding.btAnimationView.setSafeOnClickListener {
             launchActivity(AnimationViewActivityFont::class.java)
         }
-        btOverScroll.setSafeOnClickListener {
+        binding.btOverScroll.setSafeOnClickListener {
             launchActivity(OverScrollActivityFont::class.java)
         }
-        btFlySchool.setSafeOnClickListener {
+        binding.btFlySchool.setSafeOnClickListener {
             launchActivity(FlySchoolActivityFont::class.java)
         }
-        btActivityTransition.setSafeOnClickListener {
-            launchActivity(Animation1ActivityFont::class.java)
+        binding.btActivityTransition.setSafeOnClickListener {
+            launchActivity(Animation1Activity::class.java)
         }
-        btShadowViewHelper.setSafeOnClickListener {
+        binding.btShadowViewHelper.setSafeOnClickListener {
             launchActivity(ShadowViewHelperActivityFont::class.java)
         }
-        btBasicTransitionFrm.setSafeOnClickListener {
+        binding.btBasicTransitionFrm.setSafeOnClickListener {
             launchActivity(BasicTransitionActivityFont::class.java)
         }
-        btBasicTransitionActivity.setSafeOnClickListener {
+        binding.btBasicTransitionActivity.setSafeOnClickListener {
             launchActivity(SceneTransitionBasicActivityFont::class.java)
         }
-        btBasicTransition.setSafeOnClickListener {
+        binding.btBasicTransition.setSafeOnClickListener {
             launchActivity(BasicTransition0ActivityFont::class.java)
         }
-        btLottie.setSafeOnClickListener {
+        binding.btLottie.setSafeOnClickListener {
             launchActivity(MenuLottieActivityFont::class.java)
         }
-        btValueAnimator.setSafeOnClickListener {
+        binding.btValueAnimator.setSafeOnClickListener {
             launchActivity(ValueAnimatorActivityFont::class.java)
         }
-        btElasticView.setSafeOnClickListener {
+        binding.btElasticView.setSafeOnClickListener {
             launchActivity(ElasticActivityFont::class.java)
         }
-        btMorphTransitions.setSafeOnClickListener {
+        binding.btMorphTransitions.setSafeOnClickListener {
             launchActivity(MorphTransitionsMainActivityFont::class.java)
         }
-        btActivityTransitionReveal.setSafeOnClickListener {
+        binding.btActivityTransitionReveal.setSafeOnClickListener {
             launchActivity(RevealActivity1Font::class.java)
         }
-        btPulsingView.setSafeOnClickListener {
+        binding.btPulsingView.setSafeOnClickListener {
             launchActivity(PulsingViewActivityFont::class.java)
         }
-        btAndroidParticlesActivity.setSafeOnClickListener {
+        binding.btAndroidParticlesActivity.setSafeOnClickListener {
             launchActivity(AndroidParticlesActivityFont::class.java)
         }
-        btKonfetti.setSafeOnClickListener {
+        binding.btKonfetti.setSafeOnClickListener {
             launchActivity(KonfettiActivityFont::class.java)
         }
-        btFadeOutParticleActivity.setSafeOnClickListener {
+        binding.btFadeOutParticleActivity.setSafeOnClickListener {
             launchActivity(FadeOutParticleActivityFont::class.java)
         }
-        btAnimatedStarsView.setSafeOnClickListener {
+        binding.btAnimatedStarsView.setSafeOnClickListener {
             launchActivity(AnimatedStarsViewActivityFont::class.java)
         }
-        btSnowfall.setSafeOnClickListener {
+        binding.btSnowfall.setSafeOnClickListener {
             launchActivity(SnowfallActivityFont::class.java)
         }
     }

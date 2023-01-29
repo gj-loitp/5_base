@@ -62,7 +62,7 @@
             android:name=".a.cv.bt.shine.ShineButtonActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.MenuAnimationActivity"
+            android:name=".up.a.anim.MenuAnimationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.anim.animationView.AnimationViewActivityFont"
@@ -256,10 +256,10 @@
             android:name=".a.cv.dlg.original.DialogOriginalActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.activityTransition.Animation1ActivityFont"
+            android:name=".up.a.anim.activityTransition.Animation1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.activityTransition.Animation2ActivityFont"
+            android:name=".up.a.anim.activityTransition.Animation2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.ab.collapsingToolbarLayout.CollapsingToolbarLayoutActivityFont"

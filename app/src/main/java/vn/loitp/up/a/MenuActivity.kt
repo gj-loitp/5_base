@@ -16,7 +16,6 @@ import com.loitp.core.common.*
 import com.loitp.core.ext.*
 import com.loitp.core.helper.adHelper.AdHelperActivity
 import vn.loitp.R
-import vn.loitp.a.anim.MenuAnimationActivity
 import vn.loitp.a.api.MenuAPIActivity
 import vn.loitp.a.cv.MenuCustomViewsActivity
 import vn.loitp.a.db.MenuDatabaseActivity
@@ -34,6 +33,7 @@ import vn.loitp.a.tut.MenuTutorialActivity
 import vn.loitp.a.u.UtilsActivity
 import vn.loitp.a.u.UtilsCoreActivity
 import vn.loitp.databinding.AMenuBinding
+import vn.loitp.up.a.anim.MenuAnimationActivity
 
 @LogTag("MenuActivity")
 @IsFullScreen(false)
