@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.activityTransitionReveal
+package vn.loitp.up.a.anim.activityTransitionReveal
 
 import android.app.Activity
 import android.content.Intent
@@ -8,53 +8,57 @@ import androidx.core.content.ContextCompat
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.tombayley.activitycircularreveal.CircularReveal
-import kotlinx.android.synthetic.main.a_reveal_1.*
 import vn.loitp.R
+import vn.loitp.databinding.AReveal1Binding
 
 @LogTag("MainActivity")
 @IsFullScreen(false)
-class RevealActivity1Font : BaseActivityFont() {
+class RevealActivity1 : BaseActivityFont() {
 
     companion object {
         const val REQUEST_CODE = 69
     }
 
+    private lateinit var binding: AReveal1Binding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_reveal_1
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AReveal1Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = RevealActivity1Font::class.java.simpleName
+            this.tvTitle?.text = RevealActivity1::class.java.simpleName
         }
-        fab.setSafeOnClickListener {
+        binding.fab.setSafeOnClickListener {
             show(it)
         }
-        tv.setSafeOnClickListener {
+        binding.tv.setSafeOnClickListener {
             show(it)
         }
-        iv.setSafeOnClickListener {
+        binding.iv.setSafeOnClickListener {
             show(it)
         }
-        bt.setSafeOnClickListener {
+        binding.bt.setSafeOnClickListener {
             show(it)
         }
-        ib.setSafeOnClickListener {
+        binding.ib.setSafeOnClickListener {
             show(it)
         }
     }
@@ -63,12 +67,11 @@ class RevealActivity1Font : BaseActivityFont() {
         val builder = CircularReveal.Builder(
             activity = this,
             viewClicked = view,
-            intent = Intent(this, RevealActivity2Font::class.java),
+            intent = Intent(this, RevealActivity2::class.java),
             duration = 1000
         ).apply {
             revealColor = ContextCompat.getColor(
-                this@RevealActivity1Font,
-                R.color.green
+                this@RevealActivity1, R.color.green
             )
             requestCode = REQUEST_CODE
         }
@@ -76,12 +79,11 @@ class RevealActivity1Font : BaseActivityFont() {
         CircularReveal.presentActivity(builder)
     }
 
-    //TODO fix onActivityResult
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            val msg = data?.getStringExtra(RevealActivity2Font.KEY_DATA_RETURN)
+            val msg = data?.getStringExtra(RevealActivity2.KEY_DATA_RETURN)
             showShortInformation("onActivityResult REQUEST_CODE $REQUEST_CODE -> msg $msg")
         }
     }

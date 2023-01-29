@@ -1056,10 +1056,10 @@
             android:name=".a.anim.morphTransitions.MorphTransitionsFullScreenActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.activityTransitionReveal.RevealActivity2Font"
+            android:name=".up.a.anim.activityTransitionReveal.RevealActivity2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.activityTransitionReveal.RevealActivity1Font"
+            android:name=".up.a.anim.activityTransitionReveal.RevealActivity1"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.chess.ChessLayoutActivityFont"

@@ -9,7 +9,6 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.a.anim.activityTransitionReveal.RevealActivity1Font
 import vn.loitp.a.anim.androidParticles.AndroidParticlesActivityFont
 import vn.loitp.a.anim.animatedStarsView.AnimatedStarsViewActivityFont
 import vn.loitp.a.anim.animationView.AnimationViewActivityFont
@@ -29,6 +28,7 @@ import vn.loitp.a.anim.snowfall.SnowfallActivityFont
 import vn.loitp.a.anim.valueAnimator.ValueAnimatorActivityFont
 import vn.loitp.databinding.AMenuAnimationBinding
 import vn.loitp.up.a.anim.activityTransition.Animation1Activity
+import vn.loitp.up.a.anim.activityTransitionReveal.RevealActivity1
 
 @LogTag("MenuAnimationActivity")
 @IsFullScreen(false)
@@ -96,7 +96,7 @@ class MenuAnimationActivity : BaseActivityFont() {
             launchActivity(MorphTransitionsMainActivityFont::class.java)
         }
         binding.btActivityTransitionReveal.setSafeOnClickListener {
-            launchActivity(RevealActivity1Font::class.java)
+            launchActivity(RevealActivity1::class.java)
         }
         binding.btPulsingView.setSafeOnClickListener {
             launchActivity(PulsingViewActivityFont::class.java)
