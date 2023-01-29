@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv.textArc
+package vn.loitp.a.cv.tv.textArc
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -11,7 +11,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_textarc.*
+import kotlinx.android.synthetic.main.a_textarc.*
 import vn.loitp.R
 
 @LogTag("TextArcActivity")
@@ -20,7 +20,7 @@ import vn.loitp.R
 class TextArcActivityFont : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_textarc
+        return R.layout.a_textarc
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

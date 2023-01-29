@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv.textDecorator
+package vn.loitp.a.cv.tv.textDecorator
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.tv.textDecorator.LTextDecorator
 import com.loitp.views.tv.textDecorator.OnTextClickListener
-import kotlinx.android.synthetic.main.activity_text_view_text_decorator.*
+import kotlinx.android.synthetic.main.a_tv_text_decorator.*
 import vn.loitp.R
 
 // https://github.com/nntuyen/text-decorator?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=4982
@@ -18,7 +18,7 @@ import vn.loitp.R
 class TextDecoratorActivityFont : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_text_decorator
+        return R.layout.a_tv_text_decorator
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

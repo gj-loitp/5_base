@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv.typeWrite
+package vn.loitp.a.cv.tv.typeWrite
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -6,7 +6,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_text_view_type_writer.*
+import kotlinx.android.synthetic.main.a_tv_type_writer.*
 import vn.loitp.R
 
 @LogTag("TypeWriterTextViewActivity")
@@ -14,7 +14,7 @@ import vn.loitp.R
 class TypeWriterTextViewActivityFont : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_type_writer
+        return R.layout.a_tv_type_writer
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

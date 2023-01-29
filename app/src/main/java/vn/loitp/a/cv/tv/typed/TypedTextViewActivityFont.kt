@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.tv.typed
+package vn.loitp.a.cv.tv.typed
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.prush.typedtextview.TypedTextView
-import kotlinx.android.synthetic.main.activity_typed_text_view.*
+import kotlinx.android.synthetic.main.a_tv_typed.*
 import vn.loitp.R
 
 @LogTag("TypedTextViewActivity")
@@ -19,7 +19,7 @@ import vn.loitp.R
 class TypedTextViewActivityFont : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_typed_text_view
+        return R.layout.a_tv_typed
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

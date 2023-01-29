@@ -24,10 +24,10 @@ import vn.loitp.a.cv.tv.score.ScoreTextViewActivityFont
 import vn.loitp.a.cv.tv.scrollNumber.ScrollNumberActivityFont
 import vn.loitp.a.cv.tv.selectable.SelectableTextViewActivityFont
 import vn.loitp.a.cv.tv.stroked.StrokedTextViewActivityFont
-import vn.loitp.app.a.cv.tv.textArc.TextArcActivityFont
-import vn.loitp.app.a.cv.tv.textDecorator.TextDecoratorActivityFont
-import vn.loitp.app.a.cv.tv.typeWrite.TypeWriterTextViewActivityFont
-import vn.loitp.app.a.cv.tv.typed.TypedTextViewActivityFont
+import vn.loitp.a.cv.tv.textArc.TextArcActivityFont
+import vn.loitp.a.cv.tv.textDecorator.TextDecoratorActivityFont
+import vn.loitp.a.cv.tv.typeWrite.TypeWriterTextViewActivityFont
+import vn.loitp.a.cv.tv.typed.TypedTextViewActivityFont
 import vn.loitp.app.a.cv.tv.verticalMarquee.VerticalMarqueeTextViewActivityFont
 import vn.loitp.app.a.cv.tv.zoom.ZoomTextViewActivityFont
 
