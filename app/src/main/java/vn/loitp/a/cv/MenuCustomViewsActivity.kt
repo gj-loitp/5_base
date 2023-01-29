@@ -50,12 +50,12 @@ import vn.loitp.a.cv.sw.MenuSwitchToggleActivity
 import vn.loitp.a.cv.treeView.TreeViewActivity
 import vn.loitp.a.cv.tv.MenuTextViewActivity
 import vn.loitp.a.cv.video.MenuVideoViewActivity
+import vn.loitp.a.cv.vp.MenuViewPagerActivityFont
 import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.a.cv.wheelView.WheelViewActivity
 import vn.loitp.a.cv.wv.MenuWebViewActivity
 import vn.loitp.a.cv.wwlMusic.WWLActivityMusic
 import vn.loitp.a.cv.wwlVideo.WWLVideoActivity
-import vn.loitp.app.a.cv.vp.MenuViewPagerActivityFont
 
 @LogTag("MenuCustomViewsActivity")
 @IsFullScreen(false)

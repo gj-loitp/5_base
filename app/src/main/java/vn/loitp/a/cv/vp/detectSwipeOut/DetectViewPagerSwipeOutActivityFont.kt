@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.detectSwipeOut
+package vn.loitp.a.cv.vp.detectSwipeOut
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.getRandomColor
 import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_view_pager_detect_swipe_out.*
+import kotlinx.android.synthetic.main.a_vp_detect_swipe_out.*
 import vn.loitp.R
 
 @LogTag("DetectViewPagerSwipeOutActivity")
@@ -19,7 +19,7 @@ class DetectViewPagerSwipeOutActivityFont : BaseActivityFont() {
     private val vpPhotoList: MutableList<VPPhoto> = ArrayList()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_view_pager_detect_swipe_out
+        return R.layout.a_vp_detect_swipe_out
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

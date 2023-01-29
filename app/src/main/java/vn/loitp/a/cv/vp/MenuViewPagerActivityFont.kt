@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp
+package vn.loitp.a.cv.vp
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,11 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.activity_menu_view_pager.*
+import kotlinx.android.synthetic.main.a_menu_vp.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.vp.auto.ViewPagerAutoActivityFont
-import vn.loitp.app.a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivityFont
-import vn.loitp.app.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2ActivityFont
+import vn.loitp.a.cv.vp.auto.ViewPagerAutoActivityFont
+import vn.loitp.a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivityFont
+import vn.loitp.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2ActivityFont
 import vn.loitp.app.a.cv.vp.easyFlip.EFVPActivityFont
 import vn.loitp.app.a.cv.vp.lockable.LockableViewPagerActivityFont
 import vn.loitp.app.a.cv.vp.parrallax.ParallaxViewPagerActivityFont
@@ -28,7 +28,7 @@ import vn.loitp.app.a.cv.vp.vpWithTabLayout.ViewPagerWithTabLayoutActivityFont
 class MenuViewPagerActivityFont : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_view_pager
+        return R.layout.a_menu_vp
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

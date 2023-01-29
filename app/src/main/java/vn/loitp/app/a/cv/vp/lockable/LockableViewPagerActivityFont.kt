@@ -13,7 +13,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.activity_view_pager_lockable.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.vp.auto.FrmIv
+import vn.loitp.a.cv.vp.auto.FrmIv
 
 @LogTag("LockableViewPagerActivity")
 @IsFullScreen(false)

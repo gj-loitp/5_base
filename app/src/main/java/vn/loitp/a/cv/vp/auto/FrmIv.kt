@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.auto
+package vn.loitp.a.cv.vp.auto
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,6 +20,6 @@ class FrmIv : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.frm_iv, container, false)
+        return inflater.inflate(R.layout.f_iv, container, false)
     }
 }

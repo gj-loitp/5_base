@@ -50,7 +50,7 @@
             android:name=".a.api.galleryAPI.GalleryAPIActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.MenuViewPagerActivityFont"
+            android:name=".a.cv.vp.MenuViewPagerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.vp.parrallax.ParallaxViewPagerActivityFont"
@@ -74,7 +74,7 @@
             android:name=".a.anim.overScroll.OverScrollActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivityFont"
+            android:name=".a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.sw.MenuSwitchToggleActivity"
@@ -235,7 +235,7 @@
             android:name=".a.cv.tv.textDecorator.TextDecoratorActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.auto.ViewPagerAutoActivityFont"
+            android:name=".a.cv.vp.auto.ViewPagerAutoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".app.a.cv.vp.vpWithTabLayout.ViewPagerWithTabLayoutActivityFont"
@@ -512,7 +512,7 @@
             android:name=".a.cv.lDebug.LDebugViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2ActivityFont"
+            android:name=".a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.menu.MenuMenuActivity"

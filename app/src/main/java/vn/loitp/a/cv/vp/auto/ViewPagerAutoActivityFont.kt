@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.auto
+package vn.loitp.a.cv.vp.auto
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,16 +10,16 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FONT_PATH
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_view_pager_auto.*
+import kotlinx.android.synthetic.main.a_vp_auto.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.vp.auto.FrmIv.Companion.newInstance
+import vn.loitp.a.cv.vp.auto.FrmIv.Companion.newInstance
 
 @LogTag("ViewPagerAutoActivity")
 @IsFullScreen(false)
 class ViewPagerAutoActivityFont : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_view_pager_auto
+        return R.layout.a_vp_auto
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

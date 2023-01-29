@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.detectSwipeOut2
+package vn.loitp.a.cv.vp.detectSwipeOut2
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,16 +12,16 @@ import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.vp.swipeOut.LSwipeOutViewPager
-import kotlinx.android.synthetic.main.activity_view_pager_swipe_out_2.*
+import kotlinx.android.synthetic.main.a_vp_swipe_out_2.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.vp.auto.FrmIv.Companion.newInstance
+import vn.loitp.a.cv.vp.auto.FrmIv.Companion.newInstance
 
 @LogTag("ViewPagerSwipeOut2Activity")
 @IsFullScreen(false)
 class ViewPagerSwipeOut2ActivityFont : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_view_pager_swipe_out_2
+        return R.layout.a_vp_swipe_out_2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
