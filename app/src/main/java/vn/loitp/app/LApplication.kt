@@ -15,9 +15,10 @@ import vn.loitp.BuildConfig
 import vn.loitp.a.db.room.db.FNBDatabase
 
 // build release de check
-// TODO service -> ko stop service dc
+//TODO service -> ko stop service dc
 //TODO why see ad khi nhan vao button Understand dang sai behaviour
 //TODO change link policy URL_POLICY_NOTION play console
+//TODO The 'kotlin-android-extensions' Gradle plugin is no longer supported
 
 // GIT
 // combine 2 commit gan nhat lam 1, co thay doi tren github
