@@ -170,6 +170,15 @@
                 style="@style/ButtonMenu"
                 android:text="Feedback" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMoreApp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_padding_medium"
+                android:text="@string/more_app_loitpp"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </com.factor.bouncy.BouncyNestedScrollView>
 

@@ -108,6 +108,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
         btGame.setOnClickListener(this)
         btFeedback.setOnClickListener(this)
         btInterviewVNIQActivity.setOnClickListener(this)
+        tvMoreApp.setOnClickListener(this)
     }
 
     private fun setupConfigGoogle() {
@@ -220,6 +221,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                 )
             }
             btInterviewVNIQActivity -> launchActivity(InterviewVNIQActivity::class.java)
+            tvMoreApp -> this.moreApp()
         }
     }
 }
