@@ -1,4 +1,4 @@
-package vn.loitp.a.u
+package vn.loitp.up.a.u
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -8,10 +8,11 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import com.loitp.core.helper.statusbar.StatusBarCompat
-import kotlinx.android.synthetic.main.a_utils_core.*
 import vn.loitp.R
+import vn.loitp.databinding.AUtilsCoreBinding
 import java.math.BigDecimal
 
 @LogTag("UtilsCoreActivity")
@@ -19,69 +20,73 @@ import java.math.BigDecimal
 @IsAutoAnimation(true)
 class UtilsCoreActivity : BaseActivityFont() {
 
+    private lateinit var binding: AUtilsCoreBinding
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_utils_core
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AUtilsCoreBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = UtilsCoreActivity::class.java.simpleName
         }
-        btSetStatusBarColorAlpha.setSafeOnClickListener {
+        binding.btSetStatusBarColorAlpha.setSafeOnClickListener {
             StatusBarCompat.setStatusBarColor(this, Color.RED, 50)
         }
-        btSetStatusBarColor.setSafeOnClickListener {
+        binding.btSetStatusBarColor.setSafeOnClickListener {
             StatusBarCompat.setStatusBarColor(this, Color.RED)
         }
-        btTranslucentStatusBar.setSafeOnClickListener {
+        binding.btTranslucentStatusBar.setSafeOnClickListener {
             StatusBarCompat.translucentStatusBar(this, true)
         }
-        btHideSystemUI.setSafeOnClickListener {
-            layoutRootView.hideSystemUI()
+        binding.btHideSystemUI.setSafeOnClickListener {
+            binding.layoutRootView.hideSystemUI()
         }
-        btShowSystemUI.setSafeOnClickListener {
-            layoutRootView.showSystemUI()
+        binding.btShowSystemUI.setSafeOnClickListener {
+            binding.layoutRootView.showSystemUI()
         }
-        btPlayRotate.setSafeOnClickListener {
+        binding.btPlayRotate.setSafeOnClickListener {
             it.playRotate(null)
         }
-        btSlideInDown.setSafeOnClickListener {
+        binding.btSlideInDown.setSafeOnClickListener {
             it.slideInDown()
         }
-        btSlideInUp.setSafeOnClickListener {
+        binding.btSlideInUp.setSafeOnClickListener {
             it.slideInUp()
         }
-        btPlayAnimRandomDuration.setSafeOnClickListener {
+        binding.btPlayAnimRandomDuration.setSafeOnClickListener {
             it.playAnimRandomDuration()
         }
-        btConvertNumberToStringFormat.setSafeOnClickListener {
+        binding.btConvertNumberToStringFormat.setSafeOnClickListener {
             showShortInformation(System.currentTimeMillis().convertNumberToStringFormat())
         }
-        btConvertNumberToString.setSafeOnClickListener {
+        binding.btConvertNumberToString.setSafeOnClickListener {
             showShortInformation(System.currentTimeMillis().convertNumberToString())
         }
-        btConvertNumberToPercent.setSafeOnClickListener {
+        binding.btConvertNumberToPercent.setSafeOnClickListener {
             showShortInformation(System.currentTimeMillis().convertNumberToPercent())
         }
-        btRoundBigDecimal.setSafeOnClickListener {
+        binding.btRoundBigDecimal.setSafeOnClickListener {
             showShortInformation(
                 "roundBigDecimal: ${
                     BigDecimal(60.123456).roundBigDecimal(3)
                 }"
             )
         }
-        btLDateUtil.setSafeOnClickListener {
+        binding.btLDateUtil.setSafeOnClickListener {
             val msg =
                 "currentDate: $currentDate\ncurrentYearMonth: $currentYearMonth\ncurrentMonth: $currentMonth" + "\nconvertFormatDate: ${
                     "12/03/2022 01:02:03".convertFormatDate(
@@ -112,17 +117,17 @@ class UtilsCoreActivity : BaseActivityFont() {
                 }"
             showDialogMsg(msg)
         }
-        btLDeviceUtil.setSafeOnClickListener {
+        binding.btLDeviceUtil.setSafeOnClickListener {
             showDialogMsg(
                 "isNavigationBarAvailable:${isNavigationBarAvailable()}" + "\nisTablet: ${isTablet()}" + "\nisCanOverlay: ${isCanOverlay()}" + "\nisEmulator: ${isEmulator()}" + "\ngetDeviceId: ${
                     this.getDeviceId()
                 }"
             )
         }
-        btSetClipboard.setSafeOnClickListener {
+        binding.btSetClipboard.setSafeOnClickListener {
             showShortInformation(this.setClipboard("setClipboard ${System.currentTimeMillis()}"))
         }
-        btLDisplayUtil.setSafeOnClickListener {
+        binding.btLDisplayUtil.setSafeOnClickListener {
             showDialogMsg(
                 "px2dip: ${this.px2dip(6.9f)}" + "\npx2sp: ${this.px2sp(6.9f)}" + "\nsp2px: ${
                     this.sp2px(6.9f)
@@ -131,13 +136,13 @@ class UtilsCoreActivity : BaseActivityFont() {
                 }" + "\ngetScreenH: ${this.getScreenH()}"
             )
         }
-        btToggleKeyboard.setSafeOnClickListener {
+        binding.btToggleKeyboard.setSafeOnClickListener {
             this.toggleKeyboard()
         }
-        btLImageUtil.setSafeOnClickListener {
+        binding.btLImageUtil.setSafeOnClickListener {
             showDialogMsg("randomUrlFlickr: ${randomUrlFlickr()}")
         }
-        btLMathUtil.setSafeOnClickListener {
+        binding.btLMathUtil.setSafeOnClickListener {
             showDialogMsg(
                 "roundBigDecimal ${
                     BigDecimal(6.123456).roundBigDecimal(
@@ -151,72 +156,70 @@ class UtilsCoreActivity : BaseActivityFont() {
                 }" + "\ngetBSCNN: ${getBSCNN(6, 9)}"
             )
         }
-        btShowStatusBar.setSafeOnClickListener {
+        binding.btShowStatusBar.setSafeOnClickListener {
             this.showStatusBar()
         }
-        btHideStatusBar.setSafeOnClickListener {
+        binding.btHideStatusBar.setSafeOnClickListener {
             this.hideStatusBar()
         }
-        btHideNavigationBar.setSafeOnClickListener {
+        binding.btHideNavigationBar.setSafeOnClickListener {
             this.hideNavigationBar()
         }
-        btShowNavigationBar.setSafeOnClickListener {
+        binding.btShowNavigationBar.setSafeOnClickListener {
             this.showNavigationBar()
         }
-        btHideDefaultControls.setSafeOnClickListener {
+        binding.btHideDefaultControls.setSafeOnClickListener {
             this.hideDefaultControls()
         }
-        btShowDefaultControls.setSafeOnClickListener {
+        binding.btShowDefaultControls.setSafeOnClickListener {
             this.showDefaultControls()
         }
-        btSetBrightness.setSafeOnClickListener {
+        binding.btSetBrightness.setSafeOnClickListener {
             this.setBrightness(99)
             showShortInformation("getCurrentBrightness: ${getCurrentBrightness()}")
         }
-        btSendSMS.setSafeOnClickListener {
+        binding.btSendSMS.setSafeOnClickListener {
             this.sendSMS("sendSMS from Loitp ${System.currentTimeMillis()}")
         }
-        btLStoreUtil.setSafeOnClickListener {
+        binding.btLStoreUtil.setSafeOnClickListener {
             onClickBtLStoreUtil()
         }
-        btLStringUtil.setSafeOnClickListener {
+        binding.btLStringUtil.setSafeOnClickListener {
             onClickBtLStringUtil()
         }
-        btLValidateUtil.setSafeOnClickListener {
+        binding.btLValidateUtil.setSafeOnClickListener {
             onClickBtLValidateUtil()
         }
-        btLauncher.setSafeOnClickListener {
+        binding.btLauncher.setSafeOnClickListener {
             onClickBtLauncher()
         }
 
-        tv.setMarquee(getString(R.string.large_dummy_text))
-        v1.setBackgroundDrawable(createGradientDrawableWithRandomColor())
-        v2.setBackgroundDrawable(createGradientDrawableWithColor(Color.RED, Color.GREEN))
-        v3.setCircleViewWithColor(Color.GREEN, Color.CYAN)
-        v4.setGradientBackground()
-        tv1.setTextFromHTML(
+        binding.tv.setMarquee(getString(R.string.large_dummy_text))
+        binding.v1.setBackgroundDrawable(createGradientDrawableWithRandomColor())
+        binding.v2.setBackgroundDrawable(createGradientDrawableWithColor(Color.RED, Color.GREEN))
+        binding.v3.setCircleViewWithColor(Color.GREEN, Color.CYAN)
+        binding.v4.setGradientBackground()
+        binding.tv1.setTextFromHTML(
             "<p>This is Loitp<br />\n" + "Dep Trai<br />\n" + "Vip<br />\n" + "Pro No1</p>"
         )
-        tv1.setTextBold()
-        iv.setImageFromAsset("ic_gift.png")
-        srl.setProgressViewOffset(200)
-        et1.setImeiActionSearch() { }
-        sb1.setColorSeekBar(
-            Color.RED
-        )
-        sb1.setMarginsDp(
+        binding.tv1.setTextBold()
+        binding.iv.setImageFromAsset("ic_gift.png")
+        binding.srl.setProgressViewOffset(200)
+        binding.et1.setImeiActionSearch() { }
+        binding.sb1.setColorSeekBar(Color.RED)
+        binding.sb1.setMarginsDp(
             leftDp = 16, topDp = 16, rightDp = 16, bottomDp = 16
         )
-        layoutRootView.setRandomBackground()
-        layoutRootView.getAllChildren().forEach {
+        binding.layoutRootView.setRandomBackground()
+        binding.layoutRootView.getAllChildren().forEach {
             logD(">>>getAllChildren ${it.id}")
         }
-        cb1.setCheckBoxColor(Color.GREEN, Color.CYAN)
+        binding.cb1.setCheckBoxColor(Color.GREEN, Color.CYAN)
         this.setChangeStatusBarTintToDark(false)
-        btScrollToBottom.setSafeOnClickListener {
-            sv.scrollToBottom()
+        binding.btScrollToBottom.setSafeOnClickListener {
+            binding.sv.scrollToBottom()
         }
-        tv1.setDrawableTintColor(Color.CYAN)
+        binding.tv1.setDrawableTintColor(Color.CYAN)
     }
 
     private fun onClickBtLStoreUtil() {

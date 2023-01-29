@@ -63,7 +63,6 @@ class UtilsActivity : BaseActivityFont() {
         viewPager.adapter?.notifyDataSetChanged()
     }
 
-    //TODO use view pager 2
     private inner class SlidePagerAdapter(fm: FragmentManager) :
         FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 

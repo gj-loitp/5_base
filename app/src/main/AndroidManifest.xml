@@ -1172,7 +1172,7 @@
             android:name=".a.cv.sb.vertical2.VerticalSeekBar2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.u.UtilsCoreActivity"
+            android:name=".up.a.u.UtilsCoreActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.arcView.ArcViewActivity"
