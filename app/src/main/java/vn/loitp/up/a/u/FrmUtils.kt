@@ -1,4 +1,4 @@
-package vn.loitp.a.u
+package vn.loitp.up.a.u
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +9,11 @@ import com.loitp.core.ext.getLauncherActivity
 import com.loitp.core.ext.isActivityExists
 import com.loitp.core.ext.topActivity
 import com.loitp.core.utils.*
-import kotlinx.android.synthetic.main.f_utils.*
-import vn.loitp.R
+import vn.loitp.databinding.FUtilsBinding
 
 class FrmUtils : Fragment() {
+
+    private lateinit var binding: FUtilsBinding
 
     companion object {
         const val KEY_CLASS = "KEY_CLASS"
@@ -24,8 +25,9 @@ class FrmUtils : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.f_utils, container, false)
+    ): View {
+        binding = FUtilsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(
@@ -173,7 +175,7 @@ class FrmUtils : Fragment() {
         text += "\n$line byte[] decryptAES(byte[] data, byte[] key)"
         text += "\n$line byte[] desTemplate(byte[] data, byte[] key, String algorithm, String transformation, boolean isEncrypt)"
 
-        textView.text = text
+        binding.textView.text = text
     }
 
     @Suppress("unused")
@@ -193,7 +195,7 @@ class FrmUtils : Fragment() {
         text += "\n$line String htmlEncode(CharSequence input)"
         text += "\n$line CharSequence htmlDecode(String input)"
 
-        textView.text = text
+        binding.textView.text = text
     }
 
     private fun handleDeviceUtils() {
@@ -211,7 +213,7 @@ class FrmUtils : Fragment() {
         text += "\n$line void reboot2Recovery()"
         text += "\n$line void reboot2Bootloader()"
 
-        textView.text = text
+        binding.textView.text = text
     }
 
     private fun handleConvertUtils() {
@@ -251,7 +253,7 @@ class FrmUtils : Fragment() {
         text += "\n$line int sp2px(float spValue) " + ConvertUtils.sp2px(69f)
         text += "\n$line int px2sp(float pxValue) " + ConvertUtils.px2sp(69f)
 
-        textView.text = text
+        binding.textView.text = text
     }
 
     private fun handleCloseUtils() {
@@ -260,7 +262,7 @@ class FrmUtils : Fragment() {
         text += "\n$line void closeIO(Closeable... closeables)"
         text += "\n$line void closeIOQuietly(Closeable... closeables)"
 
-        textView.text = text
+        binding.textView.text = text
     }
 
     private fun handleClipboardUtils() {
@@ -273,7 +275,7 @@ class FrmUtils : Fragment() {
         text += "\n$line void copyIntent(Intent intent)"
         text += "\n$line Intent getIntent()"
 
-        textView.text = text
+        binding.textView.text = text
     }
 
     private fun handleCleanUtils() {
@@ -288,7 +290,7 @@ class FrmUtils : Fragment() {
         text += "\n$line boolean cleanCustomCache(String dirPath)"
         text += "\n$line boolean cleanCustomCache(File dir)"
 
-        textView.text = text
+        binding.textView.text = text
     }
 
     private fun handleActivityUtils() {
@@ -301,7 +303,7 @@ class FrmUtils : Fragment() {
         text += "\n$line getLauncherActivity: " + getLauncherActivity(activity?.packageName)
         text += "\n$line getTopActivity: $topActivity"
 
-        textView.text = text
+        binding.textView.text = text
     }
 
     private fun handleAppUtils() {
@@ -353,7 +355,7 @@ class FrmUtils : Fragment() {
         text += "\n$line boolean cleanAppData(String... dirPaths)"
         text += "\n$line boolean cleanAppData(File... dirs)"
 
-        textView.text = text
+        binding.textView.text = text
     }
 
     private fun handleBarUtils() {
@@ -398,6 +400,6 @@ class FrmUtils : Fragment() {
         text += "\n$line void showNotificationBar(Context context, boolean isSettingPanel)"
         text += "\n$line void hideNotificationBar(Context context)"
 
-        textView.text = text
+        binding.textView.text = text
     }
 }

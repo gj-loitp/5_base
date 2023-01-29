@@ -14,7 +14,6 @@ import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utils.*
 import vn.loitp.R
-import vn.loitp.a.u.FrmUtils
 import vn.loitp.databinding.AUtilsBinding
 
 @LogTag("UtilsActivity")
