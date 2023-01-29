@@ -15,7 +15,6 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.*
 import com.loitp.core.ext.*
 import com.loitp.core.helper.adHelper.AdHelperActivity
-import kotlinx.android.synthetic.main.a_menu.*
 import vn.loitp.R
 import vn.loitp.a.anim.MenuAnimationActivity
 import vn.loitp.a.api.MenuAPIActivity
@@ -34,12 +33,15 @@ import vn.loitp.a.sv.MenuServiceActivity
 import vn.loitp.a.tut.MenuTutorialActivity
 import vn.loitp.a.u.UtilsActivity
 import vn.loitp.a.u.UtilsCoreActivity
+import vn.loitp.databinding.AMenuBinding
 
 @LogTag("MenuActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 @IsKeepScreenOn(true)
 class MenuActivity : BaseActivityFont(), View.OnClickListener {
+
+    private lateinit var binding: AMenuBinding
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu
@@ -48,20 +50,22 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
         setupConfigGoogle()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = MenuActivity::class.java.simpleName
         }
-
-        tvPolicy.apply {
+        binding.tvPolicy.apply {
             this.setTextUnderline()
             setSafeOnClickListener {
                 this@MenuActivity.openUrlInBrowser(
@@ -69,8 +73,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                 )
             }
         }
-
-        swDarkTheme.apply {
+        binding.swDarkTheme.apply {
             isChecked = isDarkTheme()
             setOnCheckedChangeListener { _, isDarkTheme ->
                 if (isDarkTheme) {
@@ -83,79 +86,78 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                 overridePendingTransition(0, 0)
             }
         }
-
-        btApi.setOnClickListener(this)
-        btAnimation.setOnClickListener(this)
-        btCustomView.setOnClickListener(this)
-        btDemo.setOnClickListener(this)
-        btFunction.setOnClickListener(this)
-        btRateApp.setOnClickListener(this)
-        btMoreApp.setOnClickListener(this)
-        btDatabase.setOnClickListener(this)
-        btPattern.setOnClickListener(this)
-        btChat.setOnClickListener(this)
-        btGithub.setOnClickListener(this)
-        btAdHelper.setOnClickListener(this)
-        btFbFanpage.setOnClickListener(this)
-        btFrmMore.setOnClickListener(this)
-        btTutorial.setOnClickListener(this)
-        btPicker.setOnClickListener(this)
-        btNetwork.setOnClickListener(this)
-        btSecurity.setOnClickListener(this)
-        btService.setOnClickListener(this)
-        btUtils.setOnClickListener(this)
-        btUtilsCore.setOnClickListener(this)
-        btGame.setOnClickListener(this)
-        btFeedback.setOnClickListener(this)
-        btInterviewVNIQActivity.setOnClickListener(this)
-        tvMoreApp.setOnClickListener(this)
+        binding.btApi.setOnClickListener(this)
+        binding.btAnimation.setOnClickListener(this)
+        binding.btCustomView.setOnClickListener(this)
+        binding.btDemo.setOnClickListener(this)
+        binding.btFunction.setOnClickListener(this)
+        binding.btRateApp.setOnClickListener(this)
+        binding.btMoreApp.setOnClickListener(this)
+        binding.btDatabase.setOnClickListener(this)
+        binding.btPattern.setOnClickListener(this)
+        binding.btChat.setOnClickListener(this)
+        binding.btGithub.setOnClickListener(this)
+        binding.btAdHelper.setOnClickListener(this)
+        binding.btFbFanpage.setOnClickListener(this)
+        binding.btFrmMore.setOnClickListener(this)
+        binding.btTutorial.setOnClickListener(this)
+        binding.btPicker.setOnClickListener(this)
+        binding.btNetwork.setOnClickListener(this)
+        binding.btSecurity.setOnClickListener(this)
+        binding.btService.setOnClickListener(this)
+        binding.btUtils.setOnClickListener(this)
+        binding.btUtilsCore.setOnClickListener(this)
+        binding.btGame.setOnClickListener(this)
+        binding.btFeedback.setOnClickListener(this)
+        binding.btInterviewVNIQActivity.setOnClickListener(this)
+        binding.tvMoreApp.setOnClickListener(this)
     }
 
     private fun setupConfigGoogle() {
         val app = getGGAppSetting()
         val isFullData = app.config?.isFullData == true
         if (isFullData) {
-            btApi.isVisible = true
-            btAnimation.isVisible = true
-            btCustomView.isVisible = true
-            btDemo.isVisible = true
-            btFunction.isVisible = true
-            btRateApp.isVisible = true
-            btMoreApp.isVisible = true
-            btDatabase.isVisible = true
-            btPattern.isVisible = true
-            btChat.isVisible = true
-            btGithub.isVisible = true
-            btAdHelper.isVisible = true
-            btFbFanpage.isVisible = true
-            btFrmMore.isVisible = true
-            btTutorial.isVisible = true
-            btPicker.isVisible = true
-            btNetwork.isVisible = true
-            btSecurity.isVisible = true
-            btService.isVisible = true
-            btUtils.isVisible = true
+            binding.btApi.isVisible = true
+            binding.btAnimation.isVisible = true
+            binding.btCustomView.isVisible = true
+            binding.btDemo.isVisible = true
+            binding.btFunction.isVisible = true
+            binding.btRateApp.isVisible = true
+            binding.btMoreApp.isVisible = true
+            binding.btDatabase.isVisible = true
+            binding.btPattern.isVisible = true
+            binding.btChat.isVisible = true
+            binding.btGithub.isVisible = true
+            binding.btAdHelper.isVisible = true
+            binding.btFbFanpage.isVisible = true
+            binding.btFrmMore.isVisible = true
+            binding.btTutorial.isVisible = true
+            binding.btPicker.isVisible = true
+            binding.btNetwork.isVisible = true
+            binding.btSecurity.isVisible = true
+            binding.btService.isVisible = true
+            binding.btUtils.isVisible = true
         } else {
-            btApi.isVisible = true
-            btAnimation.isVisible = false
-            btCustomView.isVisible = false
-            btDemo.isVisible = false
-            btFunction.isVisible = false
-            btRateApp.isVisible = true
-            btMoreApp.isVisible = true
-            btDatabase.isVisible = false
-            btPattern.isVisible = false
-            btChat.isVisible = false
-            btGithub.isVisible = false
-            btAdHelper.isVisible = false
-            btFbFanpage.isVisible = false
-            btFrmMore.isVisible = false
-            btTutorial.isVisible = false
-            btPicker.isVisible = false
-            btNetwork.isVisible = true
-            btSecurity.isVisible = false
-            btService.isVisible = false
-            btUtils.isVisible = false
+            binding.btApi.isVisible = true
+            binding.btAnimation.isVisible = false
+            binding.btCustomView.isVisible = false
+            binding.btDemo.isVisible = false
+            binding.btFunction.isVisible = false
+            binding.btRateApp.isVisible = true
+            binding.btMoreApp.isVisible = true
+            binding.btDatabase.isVisible = false
+            binding.btPattern.isVisible = false
+            binding.btChat.isVisible = false
+            binding.btGithub.isVisible = false
+            binding.btAdHelper.isVisible = false
+            binding.btFbFanpage.isVisible = false
+            binding.btFrmMore.isVisible = false
+            binding.btTutorial.isVisible = false
+            binding.btPicker.isVisible = false
+            binding.btNetwork.isVisible = true
+            binding.btSecurity.isVisible = false
+            binding.btService.isVisible = false
+            binding.btUtils.isVisible = false
         }
     }
 
@@ -177,23 +179,23 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            btApi -> launchActivity(MenuAPIActivity::class.java)
-            btAnimation -> launchActivity(MenuAnimationActivity::class.java)
-            btCustomView -> launchActivity(MenuCustomViewsActivity::class.java)
-            btDemo -> launchActivity(MenuDemoActivity::class.java)
-            btRateApp -> this.rateApp(packageName)
-            btMoreApp -> this.moreApp()
-            btFunction -> launchActivity(MenuFunctionActivity::class.java)
-            btGame -> launchActivity(MenuGameActivity::class.java)
-            btDatabase -> launchActivity(MenuDatabaseActivity::class.java)
-            btPattern -> launchActivity(MenuPatternActivity::class.java)
-            btChat -> this.chatMessenger()
-            btGithub -> {
+            binding.btApi -> launchActivity(MenuAPIActivity::class.java)
+            binding.btAnimation -> launchActivity(MenuAnimationActivity::class.java)
+            binding.btCustomView -> launchActivity(MenuCustomViewsActivity::class.java)
+            binding.btDemo -> launchActivity(MenuDemoActivity::class.java)
+            binding.btRateApp -> this.rateApp(packageName)
+            binding.btMoreApp -> this.moreApp()
+            binding.btFunction -> launchActivity(MenuFunctionActivity::class.java)
+            binding.btGame -> launchActivity(MenuGameActivity::class.java)
+            binding.btDatabase -> launchActivity(MenuDatabaseActivity::class.java)
+            binding.btPattern -> launchActivity(MenuPatternActivity::class.java)
+            binding.btChat -> this.chatMessenger()
+            binding.btGithub -> {
                 this.openUrlInBrowser(
                     url = "https://github.com/tplloi/base"
                 )
             }
-            btAdHelper -> {
+            binding.btAdHelper -> {
                 launchActivity(cls = AdHelperActivity::class.java, data = {
                     it.putExtra(AD_HELPER_IS_ENGLISH_LANGUAGE, true)
                     it.putExtra(AD_HELPER_COLOR_PRIMARY, Color.RED)
@@ -202,16 +204,16 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                     it.putExtra(AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
                 })
             }
-            btFbFanpage -> this.likeFacebookFanpage()
-            btFrmMore -> launchActivity(MoreActivity::class.java)
-            btTutorial -> launchActivity(MenuTutorialActivity::class.java)
-            btPicker -> launchActivity(MenuPickerActivity::class.java)
-            btNetwork -> launchActivity(NetworkActivity::class.java)
-            btSecurity -> launchActivity(MenuSecurityActivity::class.java)
-            btService -> launchActivity(MenuServiceActivity::class.java)
-            btUtils -> launchActivity(UtilsActivity::class.java)
-            btUtilsCore -> launchActivity(UtilsCoreActivity::class.java)
-            btFeedback -> {
+            binding.btFbFanpage -> this.likeFacebookFanpage()
+            binding.btFrmMore -> launchActivity(MoreActivity::class.java)
+            binding.btTutorial -> launchActivity(MenuTutorialActivity::class.java)
+            binding.btPicker -> launchActivity(MenuPickerActivity::class.java)
+            binding.btNetwork -> launchActivity(NetworkActivity::class.java)
+            binding.btSecurity -> launchActivity(MenuSecurityActivity::class.java)
+            binding.btService -> launchActivity(MenuServiceActivity::class.java)
+            binding.btUtils -> launchActivity(UtilsActivity::class.java)
+            binding.btUtilsCore -> launchActivity(UtilsCoreActivity::class.java)
+            binding.btFeedback -> {
                 this.sendEmail(
                     to = "roy93group@gmail.com",
                     cc = "roy93group@gmail.com",
@@ -220,8 +222,8 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                     body = "..."
                 )
             }
-            btInterviewVNIQActivity -> launchActivity(InterviewVNIQActivity::class.java)
-            tvMoreApp -> this.moreApp()
+            binding.btInterviewVNIQActivity -> launchActivity(InterviewVNIQActivity::class.java)
+            binding.tvMoreApp -> this.moreApp()
         }
     }
 }

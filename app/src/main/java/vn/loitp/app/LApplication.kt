@@ -15,6 +15,7 @@ import vn.loitp.BuildConfig
 import vn.loitp.a.db.room.db.FNBDatabase
 
 // build release de check
+
 //TODO service -> ko stop service dc
 //TODO why see ad khi nhan vao button Understand dang sai behaviour
 //TODO change link policy URL_POLICY_NOTION play console
