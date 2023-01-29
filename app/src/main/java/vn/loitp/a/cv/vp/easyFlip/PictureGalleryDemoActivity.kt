@@ -15,7 +15,7 @@ import vn.loitp.R
 @LogTag("PictureGalleryDemoActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class PictureGalleryDemoActivityFont : BaseActivityFont() {
+class PictureGalleryDemoActivity : BaseActivityFont() {
 
     lateinit var pagerAdapter: GalleryPagerAdapter
     override fun setLayoutResourceId(): Int {

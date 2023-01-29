@@ -15,7 +15,7 @@ import vn.loitp.R
 
 @LogTag("DetectViewPagerSwipeOutActivity")
 @IsFullScreen(false)
-class DetectViewPagerSwipeOutActivityFont : BaseActivityFont() {
+class DetectViewPagerSwipeOutActivity : BaseActivityFont() {
     private val vpPhotoList: MutableList<VPPhoto> = ArrayList()
 
     override fun setLayoutResourceId(): Int {
@@ -36,7 +36,7 @@ class DetectViewPagerSwipeOutActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = DetectViewPagerSwipeOutActivityFont::class.java.simpleName
+            this.tvTitle?.text = DetectViewPagerSwipeOutActivity::class.java.simpleName
         }
         val max = 3
         for (i in 0 until max) {

@@ -22,7 +22,7 @@ import vn.loitp.R
 @LogTag("EFVPActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class EFVPActivityFont : BaseActivityFont() {
+class EFVPActivity : BaseActivityFont() {
     private lateinit var mPager: ViewPager
     private var mPagerAdapter: PagerAdapter? = null
 
@@ -58,7 +58,7 @@ class EFVPActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = EFVPActivityFont::class.java.simpleName
+            this.tvTitle?.text = EFVPActivity::class.java.simpleName
         }
 
         // Book Flip Transformer

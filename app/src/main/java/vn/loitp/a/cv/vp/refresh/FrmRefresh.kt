@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.refresh
+package vn.loitp.a.cv.vp.refresh
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import com.loitp.core.ext.hideProgress
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.showProgress
 import com.loitp.views.toast.LToast
-import kotlinx.android.synthetic.main.frm_view_pager_refresh.*
+import kotlinx.android.synthetic.main.f_vp_refresh.*
 import vn.loitp.R
 
 class FrmRefresh : Fragment() {
@@ -28,7 +28,7 @@ class FrmRefresh : Fragment() {
         arguments?.let { bundle ->
             mPosition = bundle.getInt(KEY_POSITION)
         }
-        return inflater.inflate(R.layout.frm_view_pager_refresh, container, false)
+        return inflater.inflate(R.layout.f_vp_refresh, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.vp2
+package vn.loitp.a.cv.vp.vp2
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,18 +10,18 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_view_pager_2.*
+import kotlinx.android.synthetic.main.a_vp_2.*
 import vn.loitp.R
-import vn.loitp.app.a.cv.vp.vp2.FrmViewPager2.Companion.getInstance
+import vn.loitp.a.cv.vp.vp2.FrmViewPager2.Companion.getInstance
 
-class ViewPager2ActivityFont : BaseActivityFont() {
+class ViewPager2Activity : BaseActivityFont() {
 
     companion object {
         val tabName = arrayOf("1", "2", "3", "4", "5", "6", "7", "8", "9")
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_view_pager_2
+        return R.layout.a_vp_2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +38,7 @@ class ViewPager2ActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ViewPager2ActivityFont::class.java.simpleName
+            this.tvTitle?.text = ViewPager2Activity::class.java.simpleName
         }
         viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
         setUpViewPager()

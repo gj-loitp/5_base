@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.vp2
+package vn.loitp.a.cv.vp.vp2
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.frm_view_pager_2.*
+import kotlinx.android.synthetic.main.f_vp_2.*
 import vn.loitp.R
 
 class FrmViewPager2 : Fragment() {
@@ -30,7 +30,7 @@ class FrmViewPager2 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.frm_view_pager_2, container, false)
+        return inflater.inflate(R.layout.f_vp_2, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

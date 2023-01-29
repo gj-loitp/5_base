@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.auto
+package vn.loitp.a.cv.vp.detectSwipeOut2
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,17 +9,19 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FONT_PATH
 import com.loitp.core.ext.changeTabsFont
+import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_vp_auto.*
+import com.loitp.views.vp.swipeOut.LSwipeOutViewPager
+import kotlinx.android.synthetic.main.a_vp_swipe_out_2.*
 import vn.loitp.R
 import vn.loitp.a.cv.vp.auto.FrmIv.Companion.newInstance
 
-@LogTag("ViewPagerAutoActivity")
+@LogTag("ViewPagerSwipeOut2Activity")
 @IsFullScreen(false)
-class ViewPagerAutoActivityFont : BaseActivityFont() {
+class ViewPagerSwipeOut2Activity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_vp_auto
+        return R.layout.a_vp_swipe_out_2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,13 +38,20 @@ class ViewPagerAutoActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ViewPagerAutoActivityFont::class.java.simpleName
+            this.tvTitle?.text = ViewPagerSwipeOut2Activity::class.java.simpleName
         }
+        vp.adapter = SamplePagerAdapter(supportFragmentManager)
+        vp.setOnSwipeOutListener(object : LSwipeOutViewPager.OnSwipeOutListener {
+            override fun onSwipeOutAtStart() {
+                showShortInformation("onSwipeOutAtStart")
+            }
 
-        viewPager.adapter = SamplePagerAdapter(supportFragmentManager)
-        // viewPager.setIndeterminate(true)
-        viewPager.setAutoScrollEnabled(true)
-        tabLayout.setupWithViewPager(viewPager)
+            override fun onSwipeOutAtEnd() {
+                showShortInformation("onSwipeOutAtEnd")
+            }
+        })
+        vp.setPullLikeIOSHorizontal()
+        tabLayout.setupWithViewPager(vp)
         tabLayout.changeTabsFont(FONT_PATH)
     }
 

@@ -11,21 +11,21 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.tranIn
 import kotlinx.android.synthetic.main.a_menu_vp.*
 import vn.loitp.R
-import vn.loitp.a.cv.vp.auto.ViewPagerAutoActivityFont
-import vn.loitp.a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivityFont
-import vn.loitp.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2ActivityFont
-import vn.loitp.a.cv.vp.easyFlip.EFVPActivityFont
-import vn.loitp.a.cv.vp.lockable.LockableViewPagerActivityFont
-import vn.loitp.a.cv.vp.parrallax.ParallaxViewPagerActivityFont
-import vn.loitp.app.a.cv.vp.refresh.RefreshViewPagerActivityFont
-import vn.loitp.app.a.cv.vp.vertical.ViewPagerVerticalActivityFont
-import vn.loitp.app.a.cv.vp.vp2.ViewPager2ActivityFont
-import vn.loitp.app.a.cv.vp.vpWithTabLayout.ViewPagerWithTabLayoutActivityFont
+import vn.loitp.a.cv.vp.auto.ViewPagerAutoActivity
+import vn.loitp.a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivity
+import vn.loitp.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2Activity
+import vn.loitp.a.cv.vp.easyFlip.EFVPActivity
+import vn.loitp.a.cv.vp.lockable.LockableViewPagerActivity
+import vn.loitp.a.cv.vp.parrallax.ParallaxViewPagerActivity
+import vn.loitp.a.cv.vp.refresh.RefreshViewPagerActivity
+import vn.loitp.a.cv.vp.vertical.ViewPagerVerticalActivity
+import vn.loitp.a.cv.vp.vp2.ViewPager2Activity
+import vn.loitp.a.cv.vp.vpWithTabLayout.ViewPagerWithTabLayoutActivity
 
 @LogTag("MenuViewPagerActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuViewPagerActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuViewPagerActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu_vp
@@ -45,7 +45,7 @@ class MenuViewPagerActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuViewPagerActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuViewPagerActivity::class.java.simpleName
         }
         btAutoViewPager.setOnClickListener(this)
         btParallaxViewPager.setOnClickListener(this)
@@ -62,22 +62,22 @@ class MenuViewPagerActivityFont : BaseActivityFont(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btAutoViewPager -> intent = Intent(this, ViewPagerAutoActivityFont::class.java)
-            btParallaxViewPager -> intent = Intent(this, ParallaxViewPagerActivityFont::class.java)
+            btAutoViewPager -> intent = Intent(this, ViewPagerAutoActivity::class.java)
+            btParallaxViewPager -> intent = Intent(this, ParallaxViewPagerActivity::class.java)
             btDetectViewPagerSwipeOut ->
                 intent =
-                    Intent(this, DetectViewPagerSwipeOutActivityFont::class.java)
+                    Intent(this, DetectViewPagerSwipeOutActivity::class.java)
             btViewPagerTabLayout ->
                 intent =
-                    Intent(this, ViewPagerWithTabLayoutActivityFont::class.java)
+                    Intent(this, ViewPagerWithTabLayoutActivity::class.java)
             btDetectViewPagerSwipeOut2 ->
                 intent =
-                    Intent(this, ViewPagerSwipeOut2ActivityFont::class.java)
-            btLockableViewPager -> intent = Intent(this, LockableViewPagerActivityFont::class.java)
-            btVerticalViewPager -> intent = Intent(this, ViewPagerVerticalActivityFont::class.java)
-            btViewPager2 -> intent = Intent(this, ViewPager2ActivityFont::class.java)
-            btRefreshViewPager -> intent = Intent(this, RefreshViewPagerActivityFont::class.java)
-            btEasyFlipViewPager -> intent = Intent(this, EFVPActivityFont::class.java)
+                    Intent(this, ViewPagerSwipeOut2Activity::class.java)
+            btLockableViewPager -> intent = Intent(this, LockableViewPagerActivity::class.java)
+            btVerticalViewPager -> intent = Intent(this, ViewPagerVerticalActivity::class.java)
+            btViewPager2 -> intent = Intent(this, ViewPager2Activity::class.java)
+            btRefreshViewPager -> intent = Intent(this, RefreshViewPagerActivity::class.java)
+            btEasyFlipViewPager -> intent = Intent(this, EFVPActivity::class.java)
         }
         intent?.let {
             startActivity(it)

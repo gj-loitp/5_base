@@ -19,7 +19,7 @@ import vn.loitp.R
 
 @LogTag("ParallaxViewPagerActivity")
 @IsFullScreen(false)
-class ParallaxViewPagerActivityFont : BaseActivityFont() {
+class ParallaxViewPagerActivity : BaseActivityFont() {
     private val resList: MutableList<Int> = ArrayList()
 
     override fun setLayoutResourceId(): Int {
@@ -40,7 +40,7 @@ class ParallaxViewPagerActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ParallaxViewPagerActivityFont::class.java.simpleName
+            this.tvTitle?.text = ParallaxViewPagerActivity::class.java.simpleName
         }
         for (i in 0..19) {
             resList.add(getRandomColor())
@@ -54,7 +54,7 @@ class ParallaxViewPagerActivityFont : BaseActivityFont() {
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
             val res = resList[position]
             logD("res $res")
-            val inflater = LayoutInflater.from(this@ParallaxViewPagerActivityFont)
+            val inflater = LayoutInflater.from(this@ParallaxViewPagerActivity)
             val layout =
                 inflater.inflate(R.layout.item_photo_slide_iv, collection, false) as ViewGroup
             val imageView = layout.findViewById<ImageView>(R.id.imageView)

@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.vpWithTabLayout
+package vn.loitp.a.cv.vp.vpWithTabLayout
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -17,13 +17,13 @@ import com.loitp.core.ext.getRandomColor
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.showDialogList
 import com.loitp.views.vp.vpTransformers.*
-import kotlinx.android.synthetic.main.activity_view_pager_with_tablayout.*
+import kotlinx.android.synthetic.main.a_vp_with_tablayout.*
 import vn.loitp.R
 
 // https://github.com/geftimov/android-viewpager-transformers
 @LogTag("ViewPagerWithTabLayoutActivity")
 @IsFullScreen(false)
-class ViewPagerWithTabLayoutActivityFont : BaseActivityFont() {
+class ViewPagerWithTabLayoutActivity : BaseActivityFont() {
     private val resList: MutableList<Int> = ArrayList()
 
     companion object {
@@ -50,7 +50,7 @@ class ViewPagerWithTabLayoutActivityFont : BaseActivityFont() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_view_pager_with_tablayout
+        return R.layout.a_vp_with_tablayout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +67,7 @@ class ViewPagerWithTabLayoutActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ViewPagerWithTabLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = ViewPagerWithTabLayoutActivity::class.java.simpleName
         }
         for (i in 0..19) {
             resList.add(getRandomColor())
@@ -161,7 +161,7 @@ class ViewPagerWithTabLayoutActivityFont : BaseActivityFont() {
         @SuppressLint("SetTextI18n")
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
 //            val res = resList[position]
-            val inflater = LayoutInflater.from(this@ViewPagerWithTabLayoutActivityFont)
+            val inflater = LayoutInflater.from(this@ViewPagerWithTabLayoutActivity)
             val layout =
                 inflater.inflate(R.layout.item_photo_slide_iv, collection, false) as ViewGroup
             val imageView = layout.findViewById<ImageView>(R.id.imageView)

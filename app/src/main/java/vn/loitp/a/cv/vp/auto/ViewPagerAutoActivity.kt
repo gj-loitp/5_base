@@ -1,4 +1,4 @@
-package vn.loitp.app.a.cv.vp.refresh
+package vn.loitp.a.cv.vp.auto
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,17 +9,17 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FONT_PATH
 import com.loitp.core.ext.changeTabsFont
-import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_view_pager_refresh.*
+import kotlinx.android.synthetic.main.a_vp_auto.*
 import vn.loitp.R
+import vn.loitp.a.cv.vp.auto.FrmIv.Companion.newInstance
 
-@LogTag("RefreshViewPagerActivity")
+@LogTag("ViewPagerAutoActivity")
 @IsFullScreen(false)
-class RefreshViewPagerActivityFont : BaseActivityFont() {
+class ViewPagerAutoActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_view_pager_refresh
+        return R.layout.a_vp_auto
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,23 +36,20 @@ class RefreshViewPagerActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = RefreshViewPagerActivityFont::class.java.simpleName
+            this.tvTitle?.text = ViewPagerAutoActivity::class.java.simpleName
         }
-        vp.adapter = SamplePagerAdapter(supportFragmentManager)
-        vp.setPullLikeIOSHorizontal()
-        tabLayout.setupWithViewPager(vp)
+
+        viewPager.adapter = SamplePagerAdapter(supportFragmentManager)
+        // viewPager.setIndeterminate(true)
+        viewPager.setAutoScrollEnabled(true)
+        tabLayout.setupWithViewPager(viewPager)
         tabLayout.changeTabsFont(FONT_PATH)
     }
 
-    @Suppress("DEPRECATION")
     private inner class SamplePagerAdapter(fm: FragmentManager) :
-        FragmentStatePagerAdapter(fm, BEHAVIOR_SET_USER_VISIBLE_HINT) {
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
-            val frmRefresh = FrmRefresh()
-            val bundle = Bundle()
-            bundle.putInt(FrmRefresh.KEY_POSITION, position)
-            frmRefresh.arguments = bundle
-            return frmRefresh
+            return newInstance()
         }
 
         override fun getCount(): Int {

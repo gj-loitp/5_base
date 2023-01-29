@@ -50,7 +50,7 @@ import vn.loitp.a.cv.sw.MenuSwitchToggleActivity
 import vn.loitp.a.cv.treeView.TreeViewActivity
 import vn.loitp.a.cv.tv.MenuTextViewActivity
 import vn.loitp.a.cv.video.MenuVideoViewActivity
-import vn.loitp.a.cv.vp.MenuViewPagerActivityFont
+import vn.loitp.a.cv.vp.MenuViewPagerActivity
 import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.a.cv.wheelView.WheelViewActivity
 import vn.loitp.a.cv.wv.MenuWebViewActivity
@@ -132,7 +132,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            btViewPager -> launchActivity(MenuViewPagerActivityFont::class.java)
+            btViewPager -> launchActivity(MenuViewPagerActivity::class.java)
             btButton -> launchActivity(MenuButtonActivity::class.java)
             btProgressLoading -> launchActivity(MenuProgressActivity::class.java)
             btSwitch -> launchActivity(MenuSwitchToggleActivity::class.java)

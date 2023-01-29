@@ -15,7 +15,7 @@ import vn.loitp.R
 @LogTag("ViewPager2DemoActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class ViewPager2DemoActivityFont : BaseActivityFont() {
+class ViewPager2DemoActivity : BaseActivityFont() {
 
     private lateinit var rgOrientation: RadioGroup
     private val itemsList = arrayListOf<Int>()

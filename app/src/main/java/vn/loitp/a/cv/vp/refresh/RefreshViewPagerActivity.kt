@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.lockable
+package vn.loitp.a.cv.vp.refresh
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,18 +9,17 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FONT_PATH
 import com.loitp.core.ext.changeTabsFont
-import com.loitp.core.ext.setSafeOnClickListener
+import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_vp_lockable.*
+import kotlinx.android.synthetic.main.a_vp_refresh.*
 import vn.loitp.R
-import vn.loitp.a.cv.vp.auto.FrmIv
 
-@LogTag("LockableViewPagerActivity")
+@LogTag("RefreshViewPagerActivity")
 @IsFullScreen(false)
-class LockableViewPagerActivityFont : BaseActivityFont() {
+class RefreshViewPagerActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_vp_lockable
+        return R.layout.a_vp_refresh
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,23 +36,23 @@ class LockableViewPagerActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = LockableViewPagerActivityFont::class.java.simpleName
+            this.tvTitle?.text = RefreshViewPagerActivity::class.java.simpleName
         }
         vp.adapter = SamplePagerAdapter(supportFragmentManager)
+        vp.setPullLikeIOSHorizontal()
         tabLayout.setupWithViewPager(vp)
-        tabLayout.changeTabsFont(fontName = FONT_PATH)
-        btEnable.setSafeOnClickListener {
-            vp.swipeLocked = false
-        }
-        btDisable.setSafeOnClickListener {
-            vp.swipeLocked = true
-        }
+        tabLayout.changeTabsFont(FONT_PATH)
     }
 
+    @Suppress("DEPRECATION")
     private inner class SamplePagerAdapter(fm: FragmentManager) :
-        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+        FragmentStatePagerAdapter(fm, BEHAVIOR_SET_USER_VISIBLE_HINT) {
         override fun getItem(position: Int): Fragment {
-            return FrmIv.newInstance()
+            val frmRefresh = FrmRefresh()
+            val bundle = Bundle()
+            bundle.putInt(FrmRefresh.KEY_POSITION, position)
+            frmRefresh.arguments = bundle
+            return frmRefresh
         }
 
         override fun getCount(): Int {

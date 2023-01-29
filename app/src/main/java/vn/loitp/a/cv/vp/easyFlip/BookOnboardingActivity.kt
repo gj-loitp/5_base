@@ -16,7 +16,7 @@ import vn.loitp.R
 @LogTag("BookOnboardingActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class BookOnboardingActivityFont : BaseActivityFont() {
+class BookOnboardingActivity : BaseActivityFont() {
 
     private var mPagerAdapter: PagerAdapter? = null
 

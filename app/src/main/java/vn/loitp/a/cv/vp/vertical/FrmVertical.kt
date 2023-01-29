@@ -1,11 +1,11 @@
-package vn.loitp.app.a.cv.vp.vertical
+package vn.loitp.a.cv.vp.vertical
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.frm_view_pager_vertical.*
+import kotlinx.android.synthetic.main.f_vp_vertical.*
 import vn.loitp.R
 
 class FrmVertical : Fragment() {
@@ -36,7 +36,7 @@ class FrmVertical : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.frm_view_pager_vertical, container, false)
+        return inflater.inflate(R.layout.f_vp_vertical, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
