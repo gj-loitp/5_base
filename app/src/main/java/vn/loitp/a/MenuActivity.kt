@@ -44,7 +44,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     private lateinit var binding: AMenuBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_0
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

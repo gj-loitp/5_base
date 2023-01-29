@@ -12,6 +12,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import com.loitp.model.App
 import com.permissionx.guolindev.PermissionX
@@ -34,7 +35,7 @@ class SplashActivity : BaseActivityFont() {
     private var isShowDialogCheck = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_0
+        return NOT_FOUND
     }
 
     @SuppressLint("SetTextI18n")
