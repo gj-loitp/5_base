@@ -1,4 +1,4 @@
-package vn.loitp.app
+package vn.loitp.up.app
 
 import com.g1.onetargetsdk.core.Analytics
 import com.g1.onetargetsdk.core.Configuration
@@ -13,6 +13,7 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.BuildConfig
 import vn.loitp.a.db.room.db.FNBDatabase
+import vn.loitp.up.common.Constants
 
 // build release de check
 
@@ -92,7 +93,7 @@ class LApplication : BaseApplication() {
     private fun setupOneSignal() {
         OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE)
         OneSignal.initWithContext(this)
-        OneSignal.setAppId(vn.loitp.common.Constants.ONE_SIGNAL_KEY)
+        OneSignal.setAppId(Constants.ONE_SIGNAL_KEY)
         OneSignal.promptForPushNotifications()
     }
 

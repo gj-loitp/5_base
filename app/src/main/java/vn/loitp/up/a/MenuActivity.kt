@@ -1,4 +1,4 @@
-package vn.loitp.a
+package vn.loitp.up.a
 
 import android.content.Intent
 import android.graphics.Color

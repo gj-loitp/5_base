@@ -9,7 +9,7 @@ import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_iv_continuous_scrollable.*
 import vn.loitp.R
-import vn.loitp.app.EmptyActivity
+import vn.loitp.up.app.EmptyActivity
 
 @LogTag("ContinuousScrollableImageViewActivity")
 @IsFullScreen(false)

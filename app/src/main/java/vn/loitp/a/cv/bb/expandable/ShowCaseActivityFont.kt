@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.a_showcase.*
 import vn.loitp.R
 import vn.loitp.a.cv.bb.expandable.screens.*
 import vn.loitp.a.cv.bb.expandable.screens.navi.NavigationComponentActivityFont
-import vn.loitp.app.EmptyActivity
+import vn.loitp.up.app.EmptyActivity
 
 @LogTag("ShowCaseActivity")
 @IsFullScreen(false)

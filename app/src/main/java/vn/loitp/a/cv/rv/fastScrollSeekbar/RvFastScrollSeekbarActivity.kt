@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.a_rv_fast_scroll_seek_bar.*
 import vn.loitp.R
 import vn.loitp.a.cv.rv.normalRv.Movie
 import vn.loitp.a.cv.rv.normalRv.MoviesAdapter
-import vn.loitp.common.Constants
+import vn.loitp.up.common.Constants
 
 @LogTag("RecyclerViewFastScrollSeekbarActivity")
 @IsFullScreen(false)

@@ -13,8 +13,8 @@ import com.loitp.views.lDebugView.LComunicateDebug
 import com.loitp.views.lDebugView.LDebug
 import kotlinx.android.synthetic.main.a_l_debug_view.*
 import vn.loitp.R
-import vn.loitp.common.Constants.Companion.URL_IMG
-import vn.loitp.common.Constants.Companion.URL_IMG_2
+import vn.loitp.up.common.Constants.Companion.URL_IMG
+import vn.loitp.up.common.Constants.Companion.URL_IMG_2
 
 @LogTag("LDebugViewActivity")
 @IsFullScreen(false)

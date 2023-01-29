@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.a_iv_stfaicon_list.*
 import kotlinx.android.synthetic.main.v_stf_overlay.view.*
 import vn.loitp.R
 import vn.loitp.a.cv.rv.normalRv.Movie
-import vn.loitp.common.Constants
+import vn.loitp.up.common.Constants
 
 @LogTag("ListActivity")
 @IsFullScreen(false)

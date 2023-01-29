@@ -12,7 +12,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_pump.*
 import vn.loitp.R
-import vn.loitp.common.Constants
+import vn.loitp.up.common.Constants
 
 @LogTag("PumpActivity")
 @IsFullScreen(false)

@@ -16,7 +16,7 @@ import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_simple_rating_bar.*
 import vn.loitp.R
-import vn.loitp.app.EmptyActivity
+import vn.loitp.up.app.EmptyActivity
 
 @LogTag("SimpleRatingBarActivity")
 @IsFullScreen(false)

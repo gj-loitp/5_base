@@ -16,7 +16,7 @@ import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import kotlinx.android.synthetic.main.a_rv.*
 import vn.loitp.R
-import vn.loitp.common.Constants
+import vn.loitp.up.common.Constants
 
 // https://github.com/wasabeef/recyclerview-animators
 @LogTag("RecyclerViewActivity")

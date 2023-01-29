@@ -16,7 +16,7 @@ import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import vn.loitp.R
 import vn.loitp.a.demo.floatingWidget.CommunicateMng
-import vn.loitp.app.EmptyActivity
+import vn.loitp.up.app.EmptyActivity
 
 @LogTag("ActivityServiceCommunicateActivity")
 @IsFullScreen(false)

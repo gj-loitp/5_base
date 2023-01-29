@@ -13,7 +13,7 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.showProgress
 import kotlinx.android.synthetic.main.a_big_iv.*
 import vn.loitp.R
-import vn.loitp.common.Constants
+import vn.loitp.up.common.Constants
 import java.io.File
 
 // https://github.com/Piasy/BigImageViewer

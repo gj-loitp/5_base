@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.a_rv_menu_gallery_layout_manager.*
 import vn.loitp.R
 import vn.loitp.a.cv.rv.normalRv.Movie
 import vn.loitp.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
-import vn.loitp.common.Constants.Companion.URL_IMG
+import vn.loitp.up.common.Constants.Companion.URL_IMG
 import kotlin.math.abs
 
 @LogTag("GalleryLayoutManagerHorizontalActivity")

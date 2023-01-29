@@ -22,8 +22,8 @@ import com.loitp.picker.ssImage.PickerOptions
 import com.loitp.picker.ssImage.isAtLeast11
 import kotlinx.android.synthetic.main.a_main_ss_image_picker.*
 import vn.loitp.R
-import vn.loitp.a.MenuActivity
 import vn.loitp.databinding.AMainSsImagePickerBinding
+import vn.loitp.up.a.MenuActivity
 
 /**
  * MainActivity which displays all the functionality of the ImagePicker library. All the attributes are modified with the ui.
