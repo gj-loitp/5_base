@@ -28,8 +28,8 @@ import vn.loitp.a.cv.tv.textArc.TextArcActivityFont
 import vn.loitp.a.cv.tv.textDecorator.TextDecoratorActivityFont
 import vn.loitp.a.cv.tv.typeWrite.TypeWriterTextViewActivityFont
 import vn.loitp.a.cv.tv.typed.TypedTextViewActivityFont
-import vn.loitp.app.a.cv.tv.verticalMarquee.VerticalMarqueeTextViewActivityFont
-import vn.loitp.app.a.cv.tv.zoom.ZoomTextViewActivityFont
+import vn.loitp.a.cv.tv.verticalMarquee.VerticalMarqueeTextViewActivityFont
+import vn.loitp.a.cv.tv.zoom.ZoomTextViewActivityFont
 
 @LogTag("TextViewMenuActivity")
 @IsFullScreen(false)
