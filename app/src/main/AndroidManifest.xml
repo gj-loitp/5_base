@@ -1113,7 +1113,7 @@
             android:name=".a.cv.layout.basket.BasketLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".app.a.cv.tv.justified.JustifiedTextViewActivityFont"
+            android:name=".a.cv.tv.justified.JustifiedTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.sequence.SequenceLayoutActivityFont"
