@@ -15,7 +15,6 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.ext.*
 import com.loitp.model.App
 import com.permissionx.guolindev.PermissionX
-import kotlinx.android.synthetic.main.a_splash.*
 import okhttp3.Call
 import vn.loitp.BuildConfig
 import vn.loitp.R
@@ -35,26 +34,29 @@ class SplashActivity : BaseActivityFont() {
     private var isShowDialogCheck = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_splash
+        return R.layout.a_0
     }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ASplashBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        konfettiView.start(Presets.festive())
+        binding.konfettiView.start(Presets.festive())
         setDelay(mls = 2500, runnable = {
             isAnimDone = true
             goToHome()
         })
-        textViewVersion.text = "Version ${BuildConfig.VERSION_NAME}"
+        binding.textViewVersion.text = "Version ${BuildConfig.VERSION_NAME}"
 
-        tvPolicy.apply {
+        binding.tvPolicy.apply {
             this.setTextUnderline()
             this.setTextShadow(color = null)
             setOnClickListener {
