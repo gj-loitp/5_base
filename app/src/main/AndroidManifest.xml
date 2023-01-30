@@ -827,7 +827,7 @@
             android:name=".up.a.sv.MenuServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.sv.endless.EndlessServiceActivityFont"
+            android:name=".up.a.sv.endless.EndlessServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.looping.LoopingLayoutActivity"
@@ -848,11 +848,11 @@
                 tools:replace="android:resource" />
         </provider>
         <service
-            android:name=".a.sv.endless.EndlessService"
+            android:name=".up.a.sv.endless.EndlessService"
             android:enabled="true"
             android:exported="false" />
         <receiver
-            android:name=".a.sv.endless.RebootDeviceReceiver"
+            android:name=".up.a.sv.endless.RebootDeviceReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>

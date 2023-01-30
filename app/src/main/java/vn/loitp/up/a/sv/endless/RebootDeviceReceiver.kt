@@ -1,4 +1,4 @@
-package vn.loitp.a.sv.endless
+package vn.loitp.up.a.sv.endless
 
 import android.content.BroadcastReceiver
 import android.content.Context

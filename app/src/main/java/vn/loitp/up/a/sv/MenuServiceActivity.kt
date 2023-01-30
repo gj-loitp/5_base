@@ -9,9 +9,9 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.sv.endless.EndlessServiceActivityFont
 import vn.loitp.databinding.ASvMenuBinding
 import vn.loitp.up.a.sv.demo.DemoServiceActivity
+import vn.loitp.up.a.sv.endless.EndlessServiceActivity
 
 @LogTag("MenuServiceActivity")
 @IsFullScreen(false)
@@ -50,7 +50,7 @@ class MenuServiceActivity : BaseActivityFont(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v) {
             binding.btDemoService -> launchActivity(DemoServiceActivity::class.java)
-            binding.btEndlessService -> launchActivity(EndlessServiceActivityFont::class.java)
+            binding.btEndlessService -> launchActivity(EndlessServiceActivity::class.java)
         }
     }
 }

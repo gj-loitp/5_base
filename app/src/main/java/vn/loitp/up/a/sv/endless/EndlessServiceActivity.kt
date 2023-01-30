@@ -1,4 +1,4 @@
-package vn.loitp.a.sv.endless
+package vn.loitp.up.a.sv.endless
 
 import android.content.Intent
 import android.os.Build
@@ -6,40 +6,46 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_sv_endless.*
 import vn.loitp.R
+import vn.loitp.databinding.ASvEndlessBinding
 
 @LogTag("EndlessServiceActivity")
 @IsFullScreen(false)
-class EndlessServiceActivityFont : BaseActivityFont() {
+class EndlessServiceActivity : BaseActivityFont() {
+
+    private lateinit var binding: ASvEndlessBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_sv_endless
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ASvEndlessBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = EndlessServiceActivityFont::class.java.simpleName
+            this.tvTitle?.text = EndlessServiceActivity::class.java.simpleName
         }
-        btnStartService.setSafeOnClickListener {
+        binding.btnStartService.setSafeOnClickListener {
             log("START THE FOREGROUND SERVICE ON DEMAND")
             actionOnService(Actions.START)
         }
-        btnStopService.setSafeOnClickListener {
+        binding.btnStopService.setSafeOnClickListener {
             log("STOP THE FOREGROUND SERVICE ON DEMAND")
             actionOnService(Actions.STOP)
         }
