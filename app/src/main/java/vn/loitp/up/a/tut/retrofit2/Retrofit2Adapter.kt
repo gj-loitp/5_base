@@ -2,11 +2,10 @@ package vn.loitp.up.a.tut.retrofit2
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.i_retrofit2.view.*
-import vn.loitp.R
+import io.hamed.floatinglayout.service.FloatingService.view
+import vn.loitp.databinding.IRetrofit2Binding
 
 class Retrofit2Adapter(
     private val cryptoList: ArrayList<RetroCrypto>,
@@ -29,17 +28,16 @@ class Retrofit2Adapter(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.i_retrofit2, parent, false)
-        return ViewHolder(view)
+        val binding = IRetrofit2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(val binding: IRetrofit2Binding) : RecyclerView.ViewHolder(view) {
         @SuppressLint("SetTextI18n")
         fun bind(retroCrypto: RetroCrypto, listener: Listener) {
-            itemView.setOnClickListener { listener.onItemClick(retroCrypto) }
-            itemView.tvName.text = retroCrypto.currency + " " + System.currentTimeMillis()
-            itemView.tvPrice.text = retroCrypto.price + " " + System.currentTimeMillis()
+            binding.cl.setOnClickListener { listener.onItemClick(retroCrypto) }
+            binding.tvName.text = retroCrypto.currency + " " + System.currentTimeMillis()
+            binding.tvPrice.text = retroCrypto.price + " " + System.currentTimeMillis()
         }
     }
 }
