@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 
 class MyRxTask2(val tv: TextView?) {
-    val logTag: String = javaClass.simpleName
+    private val logTag: String = javaClass.simpleName
 
     @SuppressLint("CheckResult", "SetTextI18n")
     fun execute(): Disposable {

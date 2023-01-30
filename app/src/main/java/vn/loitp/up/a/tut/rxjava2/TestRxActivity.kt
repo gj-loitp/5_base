@@ -17,8 +17,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_rx_test.*
 import vn.loitp.R
+import vn.loitp.databinding.ARxTestBinding
 import vn.loitp.up.a.tut.rxjava2.md.Bike
 import java.util.concurrent.TimeUnit
 
@@ -27,6 +27,8 @@ import java.util.concurrent.TimeUnit
 @IsFullScreen(false)
 class TestRxActivity : BaseActivityFont(), View.OnClickListener {
 
+    private lateinit var binding: ARxTestBinding
+
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rx_test
     }
@@ -34,11 +36,14 @@ class TestRxActivity : BaseActivityFont(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARxTestBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -47,27 +52,27 @@ class TestRxActivity : BaseActivityFont(), View.OnClickListener {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = TestRxActivity::class.java.simpleName
         }
-        bt0.setOnClickListener(this)
-        bt1.setOnClickListener(this)
-        bt2.setOnClickListener(this)
-        bt3.setOnClickListener(this)
-        bt4.setOnClickListener(this)
-        bt5.setOnClickListener(this)
+        binding.bt0.setOnClickListener(this)
+        binding.bt1.setOnClickListener(this)
+        binding.bt2.setOnClickListener(this)
+        binding.bt3.setOnClickListener(this)
+        binding.bt4.setOnClickListener(this)
+        binding.bt5.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
         when (view) {
-            bt0 -> test0()
-            bt1 -> test1()
-            bt2 -> test2()
-            bt3 -> test3()
-            bt4 -> test4()
-            bt5 -> test5()
+            binding.bt0 -> test0()
+            binding.bt1 -> test1()
+            binding.bt2 -> test2()
+            binding.bt3 -> test3()
+            binding.bt4 -> test4()
+            binding.bt5 -> test5()
         }
     }
 
     private fun print(s: String) {
-        textView.append("$s -> isUIThread: $isUIThread\n")
+        binding.textView.append("$s -> isUIThread: $isUIThread\n")
     }
 
     private val bikeList: List<Bike>
@@ -82,7 +87,7 @@ class TestRxActivity : BaseActivityFont(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun test0() {
-        textView.text = "test0\n"
+        binding.textView.text = "test0\n"
         Observable.fromArray("Suzuki", "Ducati", "BMW", "Honda")
             .subscribe(object : Observer<String> {
                 override fun onSubscribe(d: Disposable) {
@@ -102,7 +107,7 @@ class TestRxActivity : BaseActivityFont(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun test1() {
-        textView.text = "test1\n"
+        binding.textView.text = "test1\n"
         Observable.just(bikeList).subscribe(object : Observer<List<Bike?>> {
             override fun onSubscribe(d: Disposable) {
                 print("onSubscribe")
@@ -123,7 +128,7 @@ class TestRxActivity : BaseActivityFont(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun test2() {
-        textView.text = "test2\n"
+        binding.textView.text = "test2\n"
         bike = Bike("Suzuki", "GSX R1000")
 
         // c1
@@ -152,7 +157,7 @@ class TestRxActivity : BaseActivityFont(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun test3() {
-        textView.text = "test3\n"
+        binding.textView.text = "test3\n"
         interValDisposable = Observable.interval(0, 1, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -175,7 +180,7 @@ class TestRxActivity : BaseActivityFont(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n", "CheckResult")
     private fun test4() {
-        textView.text = "test4\n"
+        binding.textView.text = "test4\n"
         Observable.create { emitter: ObservableEmitter<Bike?> ->
             val bikeList = bikeList
             for (bike in bikeList) {
@@ -211,7 +216,7 @@ class TestRxActivity : BaseActivityFont(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun test5() {
-        textView.text = "test5\n"
+        binding.textView.text = "test5\n"
 
         // map
         // ok
