@@ -12,8 +12,8 @@ import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_rxjava2_flowable.*
 import vn.loitp.R
+import vn.loitp.databinding.ARxjava2FlowableBinding
 import vn.loitp.up.a.tut.rxjava2.md.ApiUser
 import vn.loitp.up.a.tut.rxjava2.md.User
 import vn.loitp.up.a.tut.rxjava2.u.RxJavaUtils.Companion.apiUserList
@@ -24,6 +24,8 @@ import vn.loitp.up.a.tut.rxjava2.u.RxJavaUtils.Companion.convertApiUserListToUse
 @IsFullScreen(false)
 class MapExampleActivity : BaseActivityFont() {
 
+    private lateinit var binding: ARxjava2FlowableBinding
+
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rxjava2_flowable
     }
@@ -31,11 +33,14 @@ class MapExampleActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARxjava2FlowableBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -44,7 +49,7 @@ class MapExampleActivity : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = MapExampleActivity::class.java.simpleName
         }
-        btn.setSafeOnClickListener {
+        binding.btn.setSafeOnClickListener {
             doSomeWork()
         }
     }
@@ -80,18 +85,18 @@ class MapExampleActivity : BaseActivityFont() {
             }
 
             override fun onNext(userList: List<User>) {
-                textView.append("\nonNext")
+                binding.textView.append("\nonNext")
                 for (user in userList) {
-                    textView.append("\nfirstname : ${user.firstname}")
+                    binding.textView.append("\nfirstname : ${user.firstname}")
                 }
             }
 
             override fun onError(e: Throwable) {
-                textView.append("\nonError : ${e.message}")
+                binding.textView.append("\nonError : ${e.message}")
             }
 
             override fun onComplete() {
-                textView.append("\nonComplete")
+                binding.textView.append("\nonComplete")
             }
         }
 }

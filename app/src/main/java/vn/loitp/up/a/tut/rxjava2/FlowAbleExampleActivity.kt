@@ -4,13 +4,14 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import io.reactivex.Flowable
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
-import kotlinx.android.synthetic.main.a_rxjava2_flowable.*
 import vn.loitp.R
+import vn.loitp.databinding.ARxjava2FlowableBinding
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 
@@ -18,18 +19,23 @@ import vn.loitp.R
 @IsFullScreen(false)
 class FlowAbleExampleActivity : BaseActivityFont() {
 
+    private lateinit var binding: ARxjava2FlowableBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rxjava2_flowable
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARxjava2FlowableBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -38,7 +44,7 @@ class FlowAbleExampleActivity : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = FlowAbleExampleActivity::class.java.simpleName
         }
-        btn.setSafeOnClickListener {
+        binding.btn.setSafeOnClickListener {
             doSomeWork()
         }
     }
@@ -58,12 +64,12 @@ class FlowAbleExampleActivity : BaseActivityFont() {
             }
 
             override fun onSuccess(value: Int) {
-                textView.append("\nonSuccess : value : $value")
+                binding.textView.append("\nonSuccess : value : $value")
                 logD("onSuccess : value : $value")
             }
 
             override fun onError(e: Throwable) {
-                textView.append("\nonError : ${e.message}")
+                binding.textView.append("\nonError : ${e.message}")
                 logD("onError : " + e.message)
             }
         }
