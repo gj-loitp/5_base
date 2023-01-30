@@ -911,7 +911,7 @@
             android:name=".a.cv.layout.shapeOfView.ShapeOfViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.time.TimePickerActivityFont"
+            android:name=".up.a.picker.time.TimePickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.flow.FlowLayoutActivityFont"
