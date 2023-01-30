@@ -11,8 +11,8 @@ import io.reactivex.CompletableObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_rxjava2_flowable.*
 import vn.loitp.R
+import vn.loitp.databinding.ARxjava2FlowableBinding
 import java.util.concurrent.TimeUnit
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
@@ -21,6 +21,8 @@ import java.util.concurrent.TimeUnit
 @IsFullScreen(false)
 class CompletableObserverExampleActivity : BaseActivityFont() {
 
+    private lateinit var binding: ARxjava2FlowableBinding
+
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rxjava2_flowable
     }
@@ -28,11 +30,14 @@ class CompletableObserverExampleActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARxjava2FlowableBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -41,7 +46,7 @@ class CompletableObserverExampleActivity : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = CompletableObserverExampleActivity::class.java.simpleName
         }
-        btn.setSafeOnClickListener {
+        binding.btn.setSafeOnClickListener {
             doSomeWork()
         }
     }
@@ -64,12 +69,12 @@ class CompletableObserverExampleActivity : BaseActivityFont() {
             }
 
             override fun onComplete() {
-                textView.append("\nonComplete")
+                binding.textView.append("\nonComplete")
                 logD("onComplete")
             }
 
             override fun onError(e: Throwable) {
-                textView.append("\nonError : ${e.message}")
+                binding.textView.append("\nonError : ${e.message}")
                 logD("onError : " + e.message)
             }
         }

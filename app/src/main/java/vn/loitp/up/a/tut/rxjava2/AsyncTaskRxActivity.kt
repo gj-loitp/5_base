@@ -7,34 +7,40 @@ import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import io.reactivex.Single
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_rx_async_task.*
 import vn.loitp.R
+import vn.loitp.databinding.ARxAsyncTaskBinding
 import vn.loitp.up.a.tut.rxjava2.md.Bike
 
 @LogTag("AsyncTaskRxActivity")
 @IsFullScreen(false)
 class AsyncTaskRxActivity : BaseActivityFont(), View.OnClickListener {
+    private lateinit var binding: ARxAsyncTaskBinding
+
     private var taskTest1: TaskTest1? = null
     private var disposable: Disposable? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rx_async_task
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARxAsyncTaskBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -43,42 +49,42 @@ class AsyncTaskRxActivity : BaseActivityFont(), View.OnClickListener {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = AsyncTaskRxActivity::class.java.simpleName
         }
-        btAsyncTask.setOnClickListener(this)
-        btRx1.setOnClickListener(this)
-        btRx2.setOnClickListener(this)
-        btRx3.setOnClickListener(this)
-        btRx4.setOnClickListener(this)
+        binding.btAsyncTask.setOnClickListener(this)
+        binding.btRx1.setOnClickListener(this)
+        binding.btRx2.setOnClickListener(this)
+        binding.btRx3.setOnClickListener(this)
+        binding.btRx4.setOnClickListener(this)
     }
 
     @Suppress("DEPRECATION")
     override fun onClick(view: View) {
         when (view) {
-            btAsyncTask -> {
+            binding.btAsyncTask -> {
                 taskTest1?.cancel(true)
                 taskTest1 = TaskTest1()
                 taskTest1?.execute()
             }
-            btRx1 -> {
+            binding.btRx1 -> {
                 disposable?.dispose()
-                val myRxTask1 = MyRxTask1(textView)
+                val myRxTask1 = MyRxTask1(binding.textView)
                 disposable = myRxTask1.execute()
                 disposable?.let {
                     compositeDisposable.add(it)
                 }
             }
-            btRx2 -> {
+            binding.btRx2 -> {
                 disposable?.dispose()
-                val myRxTask2 = MyRxTask2(textView)
+                val myRxTask2 = MyRxTask2(binding.textView)
                 disposable = myRxTask2.execute()
                 disposable?.let {
                     compositeDisposable.add(it)
                 }
             }
-            btRx3 -> {
+            binding.btRx3 -> {
                 val test2 = Test2(6)
                 test2.apply()
             }
-            btRx4 -> testWithProgress()
+            binding.btRx4 -> testWithProgress()
         }
     }
 
@@ -95,7 +101,7 @@ class AsyncTaskRxActivity : BaseActivityFont(), View.OnClickListener {
         @SuppressLint("SetTextI18n")
         override fun onPreExecute() {
             super.onPreExecute()
-            textView.text = "onPreExecute"
+            binding.textView.text = "onPreExecute"
         }
 
         @Deprecated("Deprecated in Java")
@@ -121,26 +127,26 @@ class AsyncTaskRxActivity : BaseActivityFont(), View.OnClickListener {
         override fun onProgressUpdate(vararg values: Bike) {
             super.onProgressUpdate(*values)
             val bike = values[0]
-            textView.append("\n${bike.name} - ${bike.model}")
+            binding.textView.append("\n${bike.name} - ${bike.model}")
         }
 
         @Deprecated("Deprecated in Java")
         override fun onCancelled() {
             super.onCancelled()
-            textView.append("\nonCancelled")
+            binding.textView.append("\nonCancelled")
         }
 
         @Deprecated("Deprecated in Java")
         override fun onPostExecute(bikeList: List<Bike>) {
             super.onPostExecute(bikeList)
-            textView.append("\nPostExecute")
+            binding.textView.append("\nPostExecute")
         }
     }
 
     private inner class Test2(private val count: Int) {
         @SuppressLint("SetTextI18n")
         fun apply() {
-            textView.text = "Prev"
+            binding.textView.text = "Prev"
 
             Single.fromCallable<List<Bike>> {
                 val bikeList: MutableList<Bike> = ArrayList()
@@ -157,15 +163,15 @@ class AsyncTaskRxActivity : BaseActivityFont(), View.OnClickListener {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<List<Bike?>?> {
                     override fun onSubscribe(d: Disposable) {
-                        textView.append("\nonSubscribe")
+                        binding.textView.append("\nonSubscribe")
                     }
 
                     override fun onSuccess(bikes: List<Bike?>) {
-                        textView.append("\nonSuccess")
+                        binding.textView.append("\nonSuccess")
                     }
 
                     override fun onError(e: Throwable) {
-                        textView.append("\nonError: $e")
+                        binding.textView.append("\nonError: $e")
                     }
                 })
         }
@@ -173,28 +179,28 @@ class AsyncTaskRxActivity : BaseActivityFont(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun testWithProgress() {
-        textView.text = "prev testWithProgress\n"
+        binding.textView.text = "prev testWithProgress\n"
         compositeDisposable.clear()
         val count = 10
         val testAsyncKotlin = TestAsyncKotlin(count)
         val disProgress = testAsyncKotlin.subscribeProgression { integer: Int ->
             logD("Home -> subscribeProgression $integer")
-            textView.append("Home -> subscribeProgression $integer\n")
+            binding.textView.append("Home -> subscribeProgression $integer\n")
         }
         val dis = testAsyncKotlin.apply(
             { aBoolean: Boolean ->
                 logD("Home -> 1 aBoolean: $aBoolean")
-                textView.append("Home -> 1 aBoolean: $aBoolean\n")
+                binding.textView.append("Home -> 1 aBoolean: $aBoolean\n")
             }, { throwable: Throwable ->
                 logD("Home -> 2 throwable: $throwable")
-                textView.append("Home -> 2 throwable: $throwable\n")
+                binding.textView.append("Home -> 2 throwable: $throwable\n")
             }, {
                 logD("Home -> on disposed")
-                textView.append("Home -> on disposed\n")
+                binding.textView.append("Home -> on disposed\n")
             }
         ) {
             logD("Home -> 3 finished")
-            textView.append("Home -> 3 finished\n")
+            binding.textView.append("Home -> 3 finished\n")
         }
         compositeDisposable.add(disProgress)
         compositeDisposable.add(dis)
