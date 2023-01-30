@@ -1,4 +1,4 @@
-package vn.loitp.a.picker.unicornFile
+package vn.loitp.up.a.picker.unicornFile
 
 import abhishekti7.unicorn.filepicker.UnicornFilePicker
 import abhishekti7.unicorn.filepicker.utils.Constants
@@ -13,14 +13,15 @@ import androidx.core.app.ActivityCompat
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_unicorn_file_picker.*
 import vn.loitp.R
+import vn.loitp.databinding.AUnicornFilePickerBinding
 
 @LogTag("UnicornFilePickerActivity")
 @IsFullScreen(false)
-class UnicornFilePickerActivityFont : BaseActivityFont() {
+class UnicornFilePickerActivity : BaseActivityFont() {
 
     companion object {
         private const val REQUEST_CODE = 1
@@ -31,12 +32,17 @@ class UnicornFilePickerActivityFont : BaseActivityFont() {
         )
     }
 
+    private lateinit var binding: AUnicornFilePickerBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_unicorn_file_picker
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AUnicornFilePickerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -53,17 +59,17 @@ class UnicornFilePickerActivityFont : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = UnicornFilePickerActivityFont::class.java.simpleName
+            this.tvTitle?.text = UnicornFilePickerActivity::class.java.simpleName
         }
 
-        btPhoto.setSafeOnClickListener {
+        binding.btPhoto.setSafeOnClickListener {
             if (hasPermissions(*PERMISSIONS)) {
                 UnicornFilePicker.from(this)
                     .addConfigBuilder()
@@ -80,7 +86,7 @@ class UnicornFilePickerActivityFont : BaseActivityFont() {
                 showPermissionsErrorAndRequest()
             }
         }
-        btVideo.setSafeOnClickListener {
+        binding.btVideo.setSafeOnClickListener {
             if (hasPermissions(*PERMISSIONS)) {
                 UnicornFilePicker.from(this)
                     .addConfigBuilder()
@@ -120,7 +126,6 @@ class UnicornFilePickerActivityFont : BaseActivityFont() {
         return true
     }
 
-    //TODO onActivityResult
     override fun onActivityResult(
         requestCode: Int,
         resultCode: Int,
@@ -134,7 +139,7 @@ class UnicornFilePickerActivityFont : BaseActivityFont() {
             files?.forEach {
                 s = s + "\n" + it
             }
-            tv.text = s
+            binding.tv.text = s
         }
     }
 }

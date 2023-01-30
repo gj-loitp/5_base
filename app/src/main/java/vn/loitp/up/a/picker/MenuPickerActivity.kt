@@ -1,13 +1,13 @@
-package vn.loitp.a.picker
+package vn.loitp.up.a.picker
 
 import android.os.Bundle
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_picker_menu.*
 import vn.loitp.R
 import vn.loitp.a.picker.attachmentManager.AttachmentManagerActivityFont
 import vn.loitp.a.picker.gradientColorPickerBar.GradientColorPickerBarActivityFont
@@ -16,25 +16,31 @@ import vn.loitp.a.picker.number.NumberPickerActivityFont
 import vn.loitp.a.picker.shiftColor.ShiftColorPickerActivityFont
 import vn.loitp.a.picker.ssImage.MainActivitySSImagePickerFont
 import vn.loitp.a.picker.time.TimePickerActivityFont
-import vn.loitp.a.picker.unicornFile.UnicornFilePickerActivityFont
+import vn.loitp.databinding.APickerMenuBinding
+import vn.loitp.up.a.picker.unicornFile.UnicornFilePickerActivity
 
 @LogTag("MenuPickerActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class MenuPickerActivity : BaseActivityFont() {
 
+    private lateinit var binding: APickerMenuBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_picker_menu
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = APickerMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -43,28 +49,28 @@ class MenuPickerActivity : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = MenuPickerActivity::class.java.simpleName
         }
-        btAttachmentManager.setSafeOnClickListener {
+        binding.btAttachmentManager.setSafeOnClickListener {
             launchActivity(AttachmentManagerActivityFont::class.java)
         }
-        btGradientColorPickerBar.setSafeOnClickListener {
+        binding.btGradientColorPickerBar.setSafeOnClickListener {
             launchActivity(GradientColorPickerBarActivityFont::class.java)
         }
-        btTimePicker.setSafeOnClickListener {
+        binding.btTimePicker.setSafeOnClickListener {
             launchActivity(TimePickerActivityFont::class.java)
         }
-        btNumberPicker.setSafeOnClickListener {
+        binding.btNumberPicker.setSafeOnClickListener {
             launchActivity(NumberPickerActivityFont::class.java)
         }
-        btUnicornFilePickerActivity.setSafeOnClickListener {
-            launchActivity(UnicornFilePickerActivityFont::class.java)
+        binding.btUnicornFilePickerActivity.setSafeOnClickListener {
+            launchActivity(UnicornFilePickerActivity::class.java)
         }
-        btSSImagePicker.setSafeOnClickListener {
+        binding.btSSImagePicker.setSafeOnClickListener {
             launchActivity(MainActivitySSImagePickerFont::class.java)
         }
-        btShiftColorPickerActivity.setSafeOnClickListener {
+        binding.btShiftColorPickerActivity.setSafeOnClickListener {
             launchActivity(ShiftColorPickerActivityFont::class.java)
         }
-        btImagePicker.setSafeOnClickListener {
+        binding.btImagePicker.setSafeOnClickListener {
             launchActivity(ImagePickerActivityFont::class.java)
         }
     }
