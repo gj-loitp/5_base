@@ -1,4 +1,4 @@
-package vn.loitp.a.sec.ssBiometricsAuthentication
+package vn.loitp.up.a.sec.ssBiometricsAuthentication
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -12,17 +12,18 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_ss_biometrics_authentication.*
 import vn.loitp.R
+import vn.loitp.databinding.ASsBiometricsAuthenticationBinding
 import java.util.concurrent.Executor
 
 @LogTag("SSBiometricsAuthenticationActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class SSBiometricsAuthenticationActivityFont : BaseActivityFont() {
+class SSBiometricsAuthenticationActivity : BaseActivityFont() {
 
     companion object {
         const val RC_BIOMETRICS_ENROLL = 10
@@ -32,12 +33,17 @@ class SSBiometricsAuthenticationActivityFont : BaseActivityFont() {
     private lateinit var executor: Executor
     private lateinit var callBack: BiometricPrompt.AuthenticationCallback
 
+    private lateinit var binding: ASsBiometricsAuthenticationBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_ss_biometrics_authentication
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ASsBiometricsAuthenticationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         init()
         checkDeviceCanAuthenticateWithBiometrics()
@@ -46,27 +52,23 @@ class SSBiometricsAuthenticationActivityFont : BaseActivityFont() {
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.let {
-                it.setSafeOnClickListenerElastic(
-                    runnable = {
-                        context.openUrlInBrowser(
-                            url = "https://github.com/SimformSolutionsPvtLtd/SSBiometricsAuthentication"
-                        )
-                    }
-                )
+                it.setSafeOnClickListenerElastic(runnable = {
+                    context.openUrlInBrowser(
+                        url = "https://github.com/SimformSolutionsPvtLtd/SSBiometricsAuthentication"
+                    )
+                })
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = SSBiometricsAuthenticationActivityFont::class.java.simpleName
+            this.tvTitle?.text = SSBiometricsAuthenticationActivity::class.java.simpleName
         }
 
-        btUnlock.setSafeOnClickListener {
+        binding.btUnlock.setSafeOnClickListener {
             authenticateWithBiometrics()
         }
     }
@@ -100,7 +102,6 @@ class SSBiometricsAuthenticationActivityFont : BaseActivityFont() {
         val biometricManager = BiometricManager.from(this)
         when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK or BiometricManager.Authenticators.DEVICE_CREDENTIAL)) {
             BiometricManager.BIOMETRIC_SUCCESS -> {
-
             }
             BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> {
                 showShortError(getString(R.string.message_no_support_biometrics))
