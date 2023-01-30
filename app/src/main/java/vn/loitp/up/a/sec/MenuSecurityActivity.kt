@@ -9,8 +9,8 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.sec.rxbiometric.RxBiometricActivityFont
-import vn.loitp.a.sec.simple.SimpleEncryptDecryptStringActivityFont
+import vn.loitp.up.a.sec.rxbiometric.RxBiometricActivity
+import vn.loitp.up.a.sec.simple.SimpleEncryptDecryptStringActivity
 import vn.loitp.databinding.ASecMenuBinding
 import vn.loitp.up.a.sec.ssBiometricsAuthentication.SSBiometricsAuthenticationActivity
 
@@ -43,10 +43,10 @@ class MenuSecurityActivity : BaseActivityFont() {
             this.tvTitle?.text = MenuSecurityActivity::class.java.simpleName
         }
         binding.btRxBiometric.setSafeOnClickListener {
-            launchActivity(RxBiometricActivityFont::class.java)
+            launchActivity(RxBiometricActivity::class.java)
         }
         binding.btSimple.setSafeOnClickListener {
-            launchActivity(SimpleEncryptDecryptStringActivityFont::class.java)
+            launchActivity(SimpleEncryptDecryptStringActivity::class.java)
         }
         binding.btSSBiometricsAuthenticationActivity.setSafeOnClickListener {
             launchActivity(SSBiometricsAuthenticationActivity::class.java)

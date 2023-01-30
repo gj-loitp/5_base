@@ -803,7 +803,7 @@
             android:name=".up.a.sec.MenuSecurityActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.sec.simple.SimpleEncryptDecryptStringActivityFont"
+            android:name=".up.a.sec.simple.SimpleEncryptDecryptStringActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.db.sharedPrefs.SharedPrefsActivityFont"
@@ -1419,7 +1419,7 @@
             android:name=".a.picker.gradientColorPickerBar.GradientColorPickerBarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.sec.rxbiometric.RxBiometricActivityFont"
+            android:name=".up.a.sec.rxbiometric.RxBiometricActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.et.otpView.OtpViewActivityFont"
