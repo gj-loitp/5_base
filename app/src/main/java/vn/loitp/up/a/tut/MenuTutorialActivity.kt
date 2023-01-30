@@ -9,9 +9,9 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.tut.retrofit2.Retrofit2ActivityFont
 import vn.loitp.a.tut.rxjava2.MenuRxJava2ActivityFont
 import vn.loitp.databinding.ATutMenuBinding
+import vn.loitp.up.a.tut.retrofit2.Retrofit2Activity
 
 @LogTag("MenuTutorialActivity")
 @IsFullScreen(false)
@@ -47,7 +47,7 @@ class MenuTutorialActivity : BaseActivityFont() {
             launchActivity(MenuRxJava2ActivityFont::class.java)
         }
         binding.btRetrofit2.setSafeOnClickListener {
-            launchActivity(Retrofit2ActivityFont::class.java)
+            launchActivity(Retrofit2Activity::class.java)
         }
     }
 }

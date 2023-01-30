@@ -1,4 +1,4 @@
-package vn.loitp.a.tut.retrofit2
+package vn.loitp.up.a.tut.retrofit2
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

@@ -1,36 +1,42 @@
-package vn.loitp.a.tut.retrofit2
+package vn.loitp.up.a.tut.retrofit2
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.restApi.restClient.RestClient2
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_retrofit_2.*
 import vn.loitp.R
+import vn.loitp.databinding.ARetrofit2Binding
 
 // https://code.tutsplus.com/tutorials/connect-to-an-api-with-retrofit-rxjava-2-and-kotlin--cms-32133
 
 @LogTag("Retrofit2Activity")
 @IsFullScreen(false)
-class Retrofit2ActivityFont : BaseActivityFont(), Retrofit2Adapter.Listener {
+class Retrofit2Activity : BaseActivityFont(), Retrofit2Adapter.Listener {
+    private lateinit var binding: ARetrofit2Binding
     private var retrofit2Adapter: Retrofit2Adapter? = null
     private var retroCryptoArrayList = ArrayList<RetroCrypto>()
     private val baseURL = "https://api.nomics.com/v1/"
     private lateinit var sampleService: SampleService
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_retrofit_2
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ARetrofit2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         RestClient2.init(baseURL)
         sampleService = RestClient2.createService(SampleService::class.java)
@@ -39,22 +45,22 @@ class Retrofit2ActivityFont : BaseActivityFont(), Retrofit2Adapter.Listener {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = Retrofit2ActivityFont::class.java.simpleName
+            this.tvTitle?.text = Retrofit2Activity::class.java.simpleName
         }
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-        rv.layoutManager = layoutManager
+        binding.rv.layoutManager = layoutManager
     }
 
     private fun loadData() {
         logD("loadData")
-        pb.visibility = View.VISIBLE
+        binding.pb.visibility = View.VISIBLE
         compositeDisposable.add(
             sampleService.getData()
                 .subscribeOn(Schedulers.io())
@@ -65,12 +71,12 @@ class Retrofit2ActivityFont : BaseActivityFont(), Retrofit2Adapter.Listener {
                     retroCryptoArrayList.addAll(it)
                     retrofit2Adapter =
                         Retrofit2Adapter(cryptoList = retroCryptoArrayList, listener = this)
-                    rv.adapter = retrofit2Adapter
-                    pb.visibility = View.GONE
+                    binding.rv.adapter = retrofit2Adapter
+                    binding.pb.isVisible = false
                 }, {
                     logE("loadData error $it")
                     showShortError(it.toString())
-                    pb.visibility = View.GONE
+                    binding.pb.isVisible = false
                 })
         )
     }
