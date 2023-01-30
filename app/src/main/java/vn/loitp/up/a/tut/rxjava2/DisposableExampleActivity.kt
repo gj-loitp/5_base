@@ -1,4 +1,4 @@
-package vn.loitp.a.tut.rxjava2
+package vn.loitp.up.a.tut.rxjava2
 
 import android.os.Bundle
 import android.os.SystemClock
@@ -18,7 +18,7 @@ import vn.loitp.R
 
 @LogTag("DisposableExampleActivity")
 @IsFullScreen(false)
-class DisposableExampleActivityFont : BaseActivityFont() {
+class DisposableExampleActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rx_java2_disposable
@@ -38,7 +38,7 @@ class DisposableExampleActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = DisposableExampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = DisposableExampleActivity::class.java.simpleName
         }
         btn.setSafeOnClickListener {
             doSomeWork()

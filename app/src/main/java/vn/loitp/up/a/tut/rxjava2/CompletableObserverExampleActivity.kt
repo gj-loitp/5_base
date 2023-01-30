@@ -1,4 +1,4 @@
-package vn.loitp.a.tut.rxjava2
+package vn.loitp.up.a.tut.rxjava2
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit
 
 @LogTag("CompletableObserverExampleActivity")
 @IsFullScreen(false)
-class CompletableObserverExampleActivityFont : BaseActivityFont() {
+class CompletableObserverExampleActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rxjava2_flowable
@@ -39,7 +39,7 @@ class CompletableObserverExampleActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = CompletableObserverExampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = CompletableObserverExampleActivity::class.java.simpleName
         }
         btn.setSafeOnClickListener {
             doSomeWork()

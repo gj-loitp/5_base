@@ -1,4 +1,4 @@
-package vn.loitp.a.tut.rxjava2
+package vn.loitp.up.a.tut.rxjava2
 
 import android.content.Intent
 import android.os.Bundle
@@ -17,7 +17,7 @@ import vn.loitp.R
 @LogTag("MenuRxJava2Activity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuRxJava2ActivityFont : BaseActivityFont(), View.OnClickListener {
+class MenuRxJava2Activity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rx_java2_menu
@@ -37,7 +37,7 @@ class MenuRxJava2ActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuRxJava2ActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuRxJava2Activity::class.java.simpleName
         }
         btDisposableExampleActivity.setOnClickListener(this)
         btFlowableExampleActivity.setOnClickListener(this)
@@ -54,16 +54,16 @@ class MenuRxJava2ActivityFont : BaseActivityFont(), View.OnClickListener {
         when (v) {
             btDisposableExampleActivity ->
                 intent =
-                    Intent(this, DisposableExampleActivityFont::class.java)
-            btFlowableExampleActivity -> intent = Intent(this, FlowAbleExampleActivityFont::class.java)
-            btIntervalExampleActivity -> intent = Intent(this, IntervalExampleActivityFont::class.java)
+                    Intent(this, DisposableExampleActivity::class.java)
+            btFlowableExampleActivity -> intent = Intent(this, FlowAbleExampleActivity::class.java)
+            btIntervalExampleActivity -> intent = Intent(this, IntervalExampleActivity::class.java)
             btSingleObserverExampleActivity ->
                 intent =
-                    Intent(this, SingleObserverExampleActivityFont::class.java)
-            bt4 -> intent = Intent(this, CompletableObserverExampleActivityFont::class.java)
-            btMapExampleActivity -> intent = Intent(this, MapExampleActivityFont::class.java)
-            btAsyncTaskAndRx -> intent = Intent(this, AsyncTaskRxActivityFont::class.java)
-            btTestRx -> intent = Intent(this, TestRxActivityFont::class.java)
+                    Intent(this, SingleObserverExampleActivity::class.java)
+            bt4 -> intent = Intent(this, CompletableObserverExampleActivity::class.java)
+            btMapExampleActivity -> intent = Intent(this, MapExampleActivity::class.java)
+            btAsyncTaskAndRx -> intent = Intent(this, AsyncTaskRxActivity::class.java)
+            btTestRx -> intent = Intent(this, TestRxActivity::class.java)
         }
         intent?.let {
             startActivity(it)

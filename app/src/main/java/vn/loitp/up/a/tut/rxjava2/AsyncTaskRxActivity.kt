@@ -1,4 +1,4 @@
-package vn.loitp.a.tut.rxjava2
+package vn.loitp.up.a.tut.rxjava2
 
 import android.annotation.SuppressLint
 import android.os.AsyncTask
@@ -15,11 +15,11 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.a_rx_async_task.*
 import vn.loitp.R
-import vn.loitp.a.tut.rxjava2.md.Bike
+import vn.loitp.up.a.tut.rxjava2.md.Bike
 
 @LogTag("AsyncTaskRxActivity")
 @IsFullScreen(false)
-class AsyncTaskRxActivityFont : BaseActivityFont(), View.OnClickListener {
+class AsyncTaskRxActivity : BaseActivityFont(), View.OnClickListener {
     private var taskTest1: TaskTest1? = null
     private var disposable: Disposable? = null
 
@@ -41,7 +41,7 @@ class AsyncTaskRxActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = AsyncTaskRxActivityFont::class.java.simpleName
+            this.tvTitle?.text = AsyncTaskRxActivity::class.java.simpleName
         }
         btAsyncTask.setOnClickListener(this)
         btRx1.setOnClickListener(this)

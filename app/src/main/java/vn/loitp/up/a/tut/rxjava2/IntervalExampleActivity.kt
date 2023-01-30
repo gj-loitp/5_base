@@ -1,4 +1,4 @@
-package vn.loitp.a.tut.rxjava2
+package vn.loitp.up.a.tut.rxjava2
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit
 
 @LogTag("IntervalExampleActivity")
 @IsFullScreen(false)
-class IntervalExampleActivityFont : BaseActivityFont() {
+class IntervalExampleActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rxjava2_flowable
@@ -38,7 +38,7 @@ class IntervalExampleActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = IntervalExampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = IntervalExampleActivity::class.java.simpleName
         }
         btn.setSafeOnClickListener {
             doSomeWork()

@@ -1,4 +1,4 @@
-package vn.loitp.a.tut.rxjava2
+package vn.loitp.up.a.tut.rxjava2
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -14,15 +14,15 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.a_rxjava2_flowable.*
 import vn.loitp.R
-import vn.loitp.a.tut.rxjava2.md.ApiUser
-import vn.loitp.a.tut.rxjava2.md.User
-import vn.loitp.a.tut.rxjava2.u.RxJavaUtils.Companion.apiUserList
-import vn.loitp.a.tut.rxjava2.u.RxJavaUtils.Companion.convertApiUserListToUserList
+import vn.loitp.up.a.tut.rxjava2.md.ApiUser
+import vn.loitp.up.a.tut.rxjava2.md.User
+import vn.loitp.up.a.tut.rxjava2.u.RxJavaUtils.Companion.apiUserList
+import vn.loitp.up.a.tut.rxjava2.u.RxJavaUtils.Companion.convertApiUserListToUserList
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 @LogTag("MapExampleActivity")
 @IsFullScreen(false)
-class MapExampleActivityFont : BaseActivityFont() {
+class MapExampleActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rxjava2_flowable
@@ -42,7 +42,7 @@ class MapExampleActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MapExampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = MapExampleActivity::class.java.simpleName
         }
         btn.setSafeOnClickListener {
             doSomeWork()

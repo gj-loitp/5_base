@@ -1,4 +1,4 @@
-package vn.loitp.a.tut.rxjava2
+package vn.loitp.up.a.tut.rxjava2
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -19,13 +19,13 @@ import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.a_rx_test.*
 import vn.loitp.R
-import vn.loitp.a.tut.rxjava2.md.Bike
+import vn.loitp.up.a.tut.rxjava2.md.Bike
 import java.util.concurrent.TimeUnit
 
 // https://viblo.asia/p/cung-hoc-rxjava-phan-1-gioi-thieu-aRBeXWqgGWE
 @LogTag("TestRxActivity")
 @IsFullScreen(false)
-class TestRxActivityFont : BaseActivityFont(), View.OnClickListener {
+class TestRxActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rx_test
@@ -45,7 +45,7 @@ class TestRxActivityFont : BaseActivityFont(), View.OnClickListener {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = TestRxActivityFont::class.java.simpleName
+            this.tvTitle?.text = TestRxActivity::class.java.simpleName
         }
         bt0.setOnClickListener(this)
         bt1.setOnClickListener(this)

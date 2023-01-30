@@ -624,18 +624,18 @@
             android:name=".up.a.tut.MenuTutorialActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.tut.rxjava2.DisposableExampleActivityFont"
+            android:name=".up.a.tut.rxjava2.DisposableExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.tut.rxjava2.MenuRxJava2ActivityFont"
+            android:name=".up.a.tut.rxjava2.MenuRxJava2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.tut.rxjava2.FlowAbleExampleActivityFont"
+            android:name=".up.a.tut.rxjava2.FlowAbleExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.tut.rxjava2.IntervalExampleActivityFont"
+            android:name=".up.a.tut.rxjava2.IntervalExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.pattern.mvvm.MVVMActivityFont"
@@ -644,21 +644,21 @@
             android:name=".up.a.tut.retrofit2.Retrofit2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.tut.rxjava2.SingleObserverExampleActivityFont"
+            android:name=".up.a.tut.rxjava2.SingleObserverExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.tut.rxjava2.CompletableObserverExampleActivityFont"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-
-        <activity
-            android:name=".a.tut.rxjava2.MapExampleActivityFont"
+            android:name=".up.a.tut.rxjava2.CompletableObserverExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.tut.rxjava2.AsyncTaskRxActivityFont"
+            android:name=".up.a.tut.rxjava2.MapExampleActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
+        <activity
+            android:name=".up.a.tut.rxjava2.AsyncTaskRxActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.tut.rxjava2.TestRxActivityFont"
+            android:name=".up.a.tut.rxjava2.TestRxActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.picker.MenuPickerActivity"

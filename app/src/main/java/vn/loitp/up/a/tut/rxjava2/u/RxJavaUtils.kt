@@ -1,7 +1,7 @@
-package vn.loitp.a.tut.rxjava2.u
+package vn.loitp.up.a.tut.rxjava2.u
 
-import vn.loitp.a.tut.rxjava2.md.ApiUser
-import vn.loitp.a.tut.rxjava2.md.User
+import vn.loitp.up.a.tut.rxjava2.md.ApiUser
+import vn.loitp.up.a.tut.rxjava2.md.User
 
 class RxJavaUtils {
     companion object {

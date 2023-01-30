@@ -1,4 +1,4 @@
-package vn.loitp.a.tut.rxjava2
+package vn.loitp.up.a.tut.rxjava2
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -16,7 +16,7 @@ import vn.loitp.R
 
 @LogTag("SingleObserverExampleActivity")
 @IsFullScreen(false)
-class SingleObserverExampleActivityFont : BaseActivityFont() {
+class SingleObserverExampleActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_rxjava2_flowable
@@ -36,7 +36,7 @@ class SingleObserverExampleActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = SingleObserverExampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = SingleObserverExampleActivity::class.java.simpleName
         }
         btn.setSafeOnClickListener {
             doSomeWork()
