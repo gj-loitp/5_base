@@ -500,7 +500,7 @@
             android:name=".a.cv.layout.rotate.RotateLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.more.MoreActivity"
+            android:name=".up.a.more.MoreActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.l.LButtonActivityFont"
