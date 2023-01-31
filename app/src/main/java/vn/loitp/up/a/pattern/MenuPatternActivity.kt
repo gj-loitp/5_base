@@ -1,37 +1,41 @@
-package vn.loitp.a.pattern
+package vn.loitp.up.a.pattern
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.a_pattern_menu.*
 import vn.loitp.R
 import vn.loitp.a.pattern.mvp.MVPActivityFont
 import vn.loitp.a.pattern.mvvm.MVVMActivityFont
 import vn.loitp.a.pattern.observer.ObserverPatternActivityFont
+import vn.loitp.databinding.APatternMenuBinding
 
 @LogTag("MenuPatternActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuPatternActivity : BaseActivityFont(), View.OnClickListener {
+class MenuPatternActivity : BaseActivityFont() {
+
+    private lateinit var binding: APatternMenuBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_pattern_menu
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = APatternMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -40,21 +44,14 @@ class MenuPatternActivity : BaseActivityFont(), View.OnClickListener {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = MenuPatternActivity::class.java.simpleName
         }
-        btObserver.setOnClickListener(this)
-        btMVVM.setOnClickListener(this)
-        btMVP.setOnClickListener(this)
-    }
-
-    override fun onClick(v: View) {
-        var intent: Intent? = null
-        when (v) {
-            btObserver -> intent = Intent(this, ObserverPatternActivityFont::class.java)
-            btMVVM -> intent = Intent(this, MVVMActivityFont::class.java)
-            btMVP -> intent = Intent(this, MVPActivityFont::class.java)
+        binding.btObserver.setSafeOnClickListener {
+            launchActivity(ObserverPatternActivityFont::class.java)
         }
-        intent?.let {
-            startActivity(intent)
-            this.tranIn()
+        binding.btMVVM.setSafeOnClickListener {
+            launchActivity(MVVMActivityFont::class.java)
+        }
+        binding.btMVP.setSafeOnClickListener {
+            launchActivity(MVPActivityFont::class.java)
         }
     }
 }

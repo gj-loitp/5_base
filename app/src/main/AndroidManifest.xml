@@ -334,7 +334,7 @@
             android:name=".a.cv.iv.scrollParallax.ScrollParallaxIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.pattern.MenuPatternActivity"
+            android:name=".up.a.pattern.MenuPatternActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.pattern.observer.ObserverPatternActivityFont"

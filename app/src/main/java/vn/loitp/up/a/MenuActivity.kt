@@ -25,9 +25,9 @@ import vn.loitp.a.game.MenuGameActivity
 import vn.loitp.a.interviewVN.InterviewVNIQActivity
 import vn.loitp.a.more.MoreActivity
 import vn.loitp.a.network.NetworkActivity
-import vn.loitp.a.pattern.MenuPatternActivity
 import vn.loitp.databinding.AMenuBinding
 import vn.loitp.up.a.anim.MenuAnimationActivity
+import vn.loitp.up.a.pattern.MenuPatternActivity
 import vn.loitp.up.a.picker.MenuPickerActivity
 import vn.loitp.up.a.sec.MenuSecurityActivity
 import vn.loitp.up.a.sv.MenuServiceActivity
