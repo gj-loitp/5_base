@@ -337,7 +337,7 @@
             android:name=".up.a.pattern.MenuPatternActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.pattern.observer.ObserverPatternActivityFont"
+            android:name=".up.a.pattern.observer.ObserverPatternActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.panorama.PanoramaIvActivityFont"

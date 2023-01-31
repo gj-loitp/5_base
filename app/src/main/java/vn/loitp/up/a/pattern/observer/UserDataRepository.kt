@@ -1,4 +1,4 @@
-package vn.loitp.a.pattern.observer
+package vn.loitp.up.a.pattern.observer
 
 import android.os.Handler
 import android.os.Looper

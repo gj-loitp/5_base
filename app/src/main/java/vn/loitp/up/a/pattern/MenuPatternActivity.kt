@@ -11,8 +11,8 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.a.pattern.mvp.MVPActivityFont
 import vn.loitp.a.pattern.mvvm.MVVMActivityFont
-import vn.loitp.a.pattern.observer.ObserverPatternActivityFont
 import vn.loitp.databinding.APatternMenuBinding
+import vn.loitp.up.a.pattern.observer.ObserverPatternActivity
 
 @LogTag("MenuPatternActivity")
 @IsFullScreen(false)
@@ -45,7 +45,7 @@ class MenuPatternActivity : BaseActivityFont() {
             this.tvTitle?.text = MenuPatternActivity::class.java.simpleName
         }
         binding.btObserver.setSafeOnClickListener {
-            launchActivity(ObserverPatternActivityFont::class.java)
+            launchActivity(ObserverPatternActivity::class.java)
         }
         binding.btMVVM.setSafeOnClickListener {
             launchActivity(MVVMActivityFont::class.java)

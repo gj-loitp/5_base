@@ -1,4 +1,4 @@
-package vn.loitp.a.pattern.observer
+package vn.loitp.up.a.pattern.observer
 
 interface RepositoryObserver {
     fun onUserDataChanged(
