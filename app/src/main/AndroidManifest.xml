@@ -932,7 +932,7 @@
             android:name=".a.cv.sw.toggleButtonGroup.TBGSingleSelectActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.number.NumberPickerActivityFont"
+            android:name=".up.a.picker.number.NumberPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.menu.drawerBehavior.DrawerBehaviorMainActivityFont"
