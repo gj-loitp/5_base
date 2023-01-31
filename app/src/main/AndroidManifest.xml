@@ -1416,7 +1416,7 @@
             android:name=".a.cv.sb.rubberPicker.RubberPickerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.gradientColorPickerBar.GradientColorPickerBarActivityFont"
+            android:name=".up.a.picker.gradientColorPickerBar.GradientColorPickerBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.sec.rxbiometric.RxBiometricActivity"

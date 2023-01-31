@@ -1,4 +1,4 @@
-package vn.loitp.a.picker.gradientColorPickerBar
+package vn.loitp.up.a.picker.gradientColorPickerBar
 
 import android.content.res.Resources
 import android.graphics.Color
@@ -12,13 +12,15 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.pk.gradientColorPickerBar.GradientColorPickerBar
-import kotlinx.android.synthetic.main.a_picker_gradient_color_picker_bar.*
 import vn.loitp.R
+import vn.loitp.databinding.APickerGradientColorPickerBarBinding
 
 @LogTag("GradientColorPickerBarActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class GradientColorPickerBarActivityFont : BaseActivityFont() {
+class GradientColorPickerBarActivity : BaseActivityFont() {
+
+    private lateinit var binding: APickerGradientColorPickerBarBinding
 
     private val colorList: List<IntArray> by lazy {
         listOf(
@@ -35,11 +37,14 @@ class GradientColorPickerBarActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = APickerGradientColorPickerBarBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -56,36 +61,37 @@ class GradientColorPickerBarActivityFont : BaseActivityFont() {
                 isVisible = true
                 setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = GradientColorPickerBarActivityFont::class.java.simpleName
+            this.tvTitle?.text = GradientColorPickerBarActivity::class.java.simpleName
         }
 
-        changColor.setOnClickListener {
-            colorPickerBar.setColors(colorList.random())
+        binding.changColor.setOnClickListener {
+            binding.colorPickerBar.setColors(colorList.random())
         }
-        resetProgress.setOnClickListener {
-            colorPickerBar.setProgress(0f)
+        binding.resetProgress.setOnClickListener {
+            binding.colorPickerBar.setProgress(0f)
         }
-        changeBarStyle.setOnClickListener {
-            colorPickerBar.setBarStyle(10f.dp, 12f.dp)
+        binding.changeBarStyle.setOnClickListener {
+            binding.colorPickerBar.setBarStyle(10f.dp, 12f.dp)
         }
-        changeThumbStyle.setOnClickListener {
-            colorPickerBar.setThumbStyle(30f.dp, 15f.dp, Color.WHITE, 3f.dp)
+        binding.changeThumbStyle.setOnClickListener {
+            binding.colorPickerBar.setThumbStyle(30f.dp, 15f.dp, Color.WHITE, 3f.dp)
         }
-        changeOrientation.setOnClickListener {
-            colorPickerBar.setOrientation(
-                if (colorPickerBar.getOrientation() == GradientColorPickerBar.HORIZONTAL)
+        binding.changeOrientation.setOnClickListener {
+            binding.colorPickerBar.setOrientation(
+                if (binding.colorPickerBar.getOrientation() == GradientColorPickerBar.HORIZONTAL)
                     GradientColorPickerBar.VERTICAL else GradientColorPickerBar.HORIZONTAL
             )
         }
-        colorPickerBar.setOnChangeListener(object : GradientColorPickerBar.OnChangeListener {
+        binding.colorPickerBar.setOnChangeListener(object :
+            GradientColorPickerBar.OnChangeListener {
             override fun onProgressChanged(
                 gradientColorPickBar: GradientColorPickerBar,
                 progress: Float,
                 color: Int,
                 fromUser: Boolean
             ) {
-                tvColor.text = GradientColorPickerBar.parseColorInt(color)
-                tvColor.setTextColor(color)
+                binding.tvColor.text = GradientColorPickerBar.parseColorInt(color)
+                binding.tvColor.setTextColor(color)
             }
         })
     }
