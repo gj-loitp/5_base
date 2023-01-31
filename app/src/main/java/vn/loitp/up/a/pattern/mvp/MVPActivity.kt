@@ -1,47 +1,51 @@
-package vn.loitp.a.pattern.mvp
+package vn.loitp.up.a.pattern.mvp
 
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
+import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_pattern_mvp.*
 import vn.loitp.R
+import vn.loitp.databinding.APatternMvpBinding
 
 @LogTag("MVPActivity")
 @IsFullScreen(false)
-class MVPActivityFont : BaseActivityFont(), DemoPresenter.View {
-
+class MVPActivity : BaseActivityFont(), DemoPresenter.View {
+    private lateinit var binding: APatternMvpBinding
     private lateinit var demoPresenter: DemoPresenter
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_pattern_mvp
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = APatternMvpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MVPActivityFont::class.java.simpleName
+            this.tvTitle?.text = MVPActivity::class.java.simpleName
         }
 
         demoPresenter = DemoPresenter(this)
 
-        username.addTextChangedListener(object : TextWatcher {
+        binding.username.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
 
@@ -54,7 +58,7 @@ class MVPActivityFont : BaseActivityFont(), DemoPresenter.View {
             }
         })
 
-        email.addTextChangedListener(object : TextWatcher {
+        binding.email.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
 
@@ -67,25 +71,25 @@ class MVPActivityFont : BaseActivityFont(), DemoPresenter.View {
             }
         })
 
-        btLongTask.setSafeOnClickListener {
+        binding.btLongTask.setSafeOnClickListener {
             demoPresenter.doALongTask()
         }
     }
 
     override fun updateUserInfoTextView(info: String) {
-        textView.text = info
+        binding.textView.text = info
     }
 
     override fun showProgressBar() {
-        pb.visibility = View.VISIBLE
+        binding.pb.isVisible = true
     }
 
     override fun hideProgressBar() {
-        pb.visibility = View.INVISIBLE
+        binding.pb.isVisible = false
     }
 
     override fun onDoALongTask(result: String) {
-        tvDoAlongTask.text = result
+        binding.tvDoAlongTask.text = result
     }
 
     override fun onDestroy() {

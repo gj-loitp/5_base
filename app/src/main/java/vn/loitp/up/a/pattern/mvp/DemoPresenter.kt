@@ -1,4 +1,4 @@
-package vn.loitp.a.pattern.mvp
+package vn.loitp.up.a.pattern.mvp
 
 import com.loitp.core.ext.setDelay
 

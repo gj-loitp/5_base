@@ -9,7 +9,7 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.ext.*
 import kotlinx.android.synthetic.main.a_db_shared_prefs_encryption.*
 import vn.loitp.R
-import vn.loitp.a.pattern.mvp.User
+import vn.loitp.up.a.pattern.mvp.User
 
 /**
  * Created by Loitp on 15.09.2022

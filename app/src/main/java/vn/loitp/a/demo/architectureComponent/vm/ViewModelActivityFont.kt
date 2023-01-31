@@ -12,7 +12,7 @@ import com.loitp.core.ext.getDateCurrentTimeZoneMls
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_demo_view_model.*
 import vn.loitp.R
-import vn.loitp.a.pattern.mvp.User
+import vn.loitp.up.a.pattern.mvp.User
 import java.util.*
 
 // https://codinginfinite.com/architecture-component-viewmodel-example/

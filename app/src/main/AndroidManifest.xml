@@ -140,7 +140,7 @@
             android:name=".a.cv.tv.verticalMarquee.VerticalMarqueeTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.pattern.mvp.MVPActivityFont"
+            android:name=".up.a.pattern.mvp.MVPActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.circularImageClick.CircularImageClickActivityFont"

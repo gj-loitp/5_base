@@ -9,8 +9,8 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.pattern.mvp.MVPActivityFont
 import vn.loitp.databinding.APatternMenuBinding
+import vn.loitp.up.a.pattern.mvp.MVPActivity
 import vn.loitp.up.a.pattern.mvvm.MVVMActivity
 import vn.loitp.up.a.pattern.observer.ObserverPatternActivity
 
@@ -51,7 +51,7 @@ class MenuPatternActivity : BaseActivityFont() {
             launchActivity(MVVMActivity::class.java)
         }
         binding.btMVP.setSafeOnClickListener {
-            launchActivity(MVPActivityFont::class.java)
+            launchActivity(MVPActivity::class.java)
         }
     }
 }
