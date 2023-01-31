@@ -1,11 +1,11 @@
-package vn.loitp.a.game.osero.game
+package vn.loitp.up.a.game.osero.game
 
 import androidx.annotation.VisibleForTesting
-import vn.loitp.a.game.osero.md.OseroGame
-import vn.loitp.a.game.osero.md.Place
-import vn.loitp.a.game.osero.md.Stone
-import vn.loitp.a.game.osero.md.ai.AINone
-import vn.loitp.a.game.osero.md.ai.OseroAI
+import vn.loitp.up.a.game.osero.md.OseroGame
+import vn.loitp.up.a.game.osero.md.Place
+import vn.loitp.up.a.game.osero.md.Stone
+import vn.loitp.up.a.game.osero.md.ai.AINone
+import vn.loitp.up.a.game.osero.md.ai.OseroAI
 
 class GamePresenter {
     private val game: OseroGame = OseroGame()

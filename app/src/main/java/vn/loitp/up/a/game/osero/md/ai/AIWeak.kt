@@ -1,8 +1,8 @@
-package vn.loitp.a.game.osero.md.ai
+package vn.loitp.up.a.game.osero.md.ai
 
-import vn.loitp.a.game.osero.md.OseroGame
-import vn.loitp.a.game.osero.md.Place
-import vn.loitp.a.game.osero.md.Stone
+import vn.loitp.up.a.game.osero.md.OseroGame
+import vn.loitp.up.a.game.osero.md.Place
+import vn.loitp.up.a.game.osero.md.Stone
 
 /**
  * 先読みせず一番多く石が取れる手を選ぶ

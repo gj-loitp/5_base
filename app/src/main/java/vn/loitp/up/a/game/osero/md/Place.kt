@@ -1,4 +1,4 @@
-package vn.loitp.a.game.osero.md
+package vn.loitp.up.a.game.osero.md
 
 /**
  * マスの座標と状態を保持する
@@ -10,8 +10,8 @@ data class Place(
 ) {
 
     override fun equals(other: Any?): Boolean {
-        val other = other as? Place ?: return false
-        return x == other.x && y == other.y && stone == other.stone
+        val mOther = other as? Place ?: return false
+        return x == mOther.x && y == mOther.y && stone == mOther.stone
     }
 
     override fun hashCode(): Int {

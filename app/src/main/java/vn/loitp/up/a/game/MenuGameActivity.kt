@@ -9,8 +9,8 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.game.findNumber.ui.SplashActivity
 import vn.loitp.R
-import vn.loitp.a.game.osero.TopOseroActivityFont
 import vn.loitp.databinding.AGameMenuBinding
+import vn.loitp.up.a.game.osero.TopOseroActivity
 import vn.loitp.up.a.game.pong.a.PongMainActivity
 import vn.loitp.up.a.game.puzzle.BoardOptionsActivity
 
@@ -49,7 +49,7 @@ class MenuGameActivity : BaseActivityFont() {
             launchActivity(SplashActivity::class.java)
         }
         binding.btOsero.setSafeOnClickListener {
-            launchActivity(TopOseroActivityFont::class.java)
+            launchActivity(TopOseroActivity::class.java)
         }
         binding.btPong.setSafeOnClickListener {
             launchActivity(PongMainActivity::class.java)

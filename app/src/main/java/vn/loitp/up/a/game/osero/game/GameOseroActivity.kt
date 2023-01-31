@@ -1,4 +1,4 @@
-package vn.loitp.a.game.osero.game
+package vn.loitp.up.a.game.osero.game
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,54 +11,59 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_osero_game.*
 import vn.loitp.R
-import vn.loitp.a.game.osero.md.Place
-import vn.loitp.a.game.osero.md.Stone
-import vn.loitp.a.game.osero.md.ai.AINone
-import vn.loitp.a.game.osero.md.ai.OseroAI
+import vn.loitp.databinding.AOseroGameBinding
+import vn.loitp.up.a.game.osero.md.Place
+import vn.loitp.up.a.game.osero.md.Stone
+import vn.loitp.up.a.game.osero.md.ai.AINone
+import vn.loitp.up.a.game.osero.md.ai.OseroAI
 
 @LogTag("GameOseroActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class GameOseroActivityFont : BaseActivityFont(), GameView {
+class GameOseroActivity : BaseActivityFont(), GameView {
 
     companion object {
         const val EXTRA_NAME_AI = "extra_ai"
 
         fun createIntent(context: Context, ai: OseroAI = AINone()): Intent {
-            val intent = Intent(context, GameOseroActivityFont::class.java)
+            val intent = Intent(context, GameOseroActivity::class.java)
             intent.putExtra(EXTRA_NAME_AI, ai)
             return intent
         }
     }
 
+    private lateinit var binding: AOseroGameBinding
     private lateinit var placeList: List<List<ImageView>>
     private val presenter = GamePresenter()
     private val boardSize = presenter.boardSize
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_osero_game
+        return NOT_FOUND
     }
 
     @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AOseroGameBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     @SuppressLint("InflateParams")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = GameOseroActivityFont::class.java.simpleName
+            this.tvTitle?.text = GameOseroActivity::class.java.simpleName
         }
         // 二次元配列にマッピングしながらGridLayoutにマスを設定
         placeList = arrayOfNulls<List<ImageView>>(boardSize)
@@ -66,7 +71,7 @@ class GameOseroActivityFont : BaseActivityFont(), GameView {
                 arrayOfNulls<ImageView>(boardSize).mapIndexed { y, _ ->
                     val place = layoutInflater.inflate(R.layout.item_osero_grid_place, null)
                     place.setOnClickListener { presenter.onClickPlace(x, y) }
-                    gamePlacesGrid.addView(place)
+                    binding.gamePlacesGrid.addView(place)
                     place.findViewById(R.id.gamePlaceImageView) as ImageView
                 }
             }
@@ -90,7 +95,7 @@ class GameOseroActivityFont : BaseActivityFont(), GameView {
             Stone.WHITE -> "White"
             Stone.NONE -> throw IllegalArgumentException()
         }
-        gameCurrentPlayerText.text = getString(R.string.textGameCurrentPlayer, color)
+        binding.gameCurrentPlayerText.text = getString(R.string.textGameCurrentPlayer, color)
     }
 
     override fun showWinner(
