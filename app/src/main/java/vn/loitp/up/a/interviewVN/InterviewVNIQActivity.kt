@@ -10,16 +10,18 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.addFragment
-import kotlinx.android.synthetic.main.a_interview_vn_iq.*
 import vn.loitp.R
 import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
+import vn.loitp.databinding.AInterviewVnIqBinding
 
 @LogTag("InterviewVNIQActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class InterviewVNIQActivity : BaseActivityFont() {
 
+    private lateinit var binding: AInterviewVnIqBinding
     var onBackClickListener: OnBackPressedListener? = null
     private var doubleBackToExitPressedOnce = false
 
@@ -34,11 +36,15 @@ class InterviewVNIQActivity : BaseActivityFont() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_interview_vn_iq
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AInterviewVnIqBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         supportFragmentManager.addOnBackStackChangedListener(getListener())
         setupViews()
     }
