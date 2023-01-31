@@ -1,4 +1,4 @@
-package vn.loitp.a.game.pong.a
+package vn.loitp.up.a.game.pong.a
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,30 +7,34 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.hideDefaultControls
-import vn.loitp.R
-import vn.loitp.a.game.pong.pong.Settings
+import vn.loitp.databinding.APongMainBinding
+import vn.loitp.up.a.game.pong.pong.Settings
 
 @LogTag("PongMainActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class PongMainActivityFont : BaseActivityFont() {
-
+class PongMainActivity : BaseActivityFont() {
+    private lateinit var binding: APongMainBinding
     private var settings = Settings()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_pong_main
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = APongMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         this.hideDefaultControls()
     }
 
     @Suppress("unused")
     fun settingsActivity(view: View) {
-        Intent(this, SettingsActivityFont::class.java).also {
+        Intent(this, SettingsActivity::class.java).also {
             it.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
             startActivity(it)
         }
@@ -38,7 +42,7 @@ class PongMainActivityFont : BaseActivityFont() {
 
     @Suppress("unused")
     fun play(view: View) {
-        val intent = Intent(this, GameActivityFont::class.java)
+        val intent = Intent(this, GameActivity::class.java)
         intent.putExtra("settings", settings)
         startActivity(intent)
     }

@@ -1227,15 +1227,15 @@
             android:name=".a.game.osero.game.GameOseroActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.game.pong.a.PongMainActivityFont"
+            android:name=".up.a.game.pong.a.PongMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".a.game.pong.a.SettingsActivityFont"
+            android:name=".up.a.game.pong.a.SettingsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".a.game.pong.a.GameActivityFont"
+            android:name=".up.a.game.pong.a.GameActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity

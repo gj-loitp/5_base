@@ -1,4 +1,4 @@
-package vn.loitp.a.game.pong.pong
+package vn.loitp.up.a.game.pong.pong
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -15,10 +15,9 @@ import android.view.SurfaceView
 import androidx.core.content.res.ResourcesCompat
 import com.loitp.core.ext.getColor
 import vn.loitp.R
-import vn.loitp.a.game.pong.a.GameActivityFont
+import vn.loitp.up.a.game.pong.a.GameActivity
 import java.util.*
 import kotlin.concurrent.schedule
-
 
 class GameView(
     context: Context,
@@ -32,7 +31,7 @@ class GameView(
     private lateinit var paddleB: PaddleAbstract
     private lateinit var ball: Ball
     private lateinit var game: GameAbstract
-    private var settings: Settings = (context as GameActivityFont).settings
+    private var settings: Settings = (context as GameActivity).settings
     private val sharedPreferences: SharedPreferences =
         context.getSharedPreferences(settings.difficulty.toString(), Context.MODE_PRIVATE)
 

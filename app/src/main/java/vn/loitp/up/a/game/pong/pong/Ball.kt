@@ -1,4 +1,4 @@
-package vn.loitp.a.game.pong.pong
+package vn.loitp.up.a.game.pong.pong
 
 import android.graphics.Canvas
 import android.graphics.Paint

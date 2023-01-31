@@ -1,28 +1,33 @@
-package vn.loitp.a.game.pong.a
+package vn.loitp.up.a.game.pong.a
 
 import android.os.Bundle
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.hideDefaultControls
-import vn.loitp.R
-import vn.loitp.a.game.pong.pong.Settings
+import vn.loitp.databinding.APongGameBinding
+import vn.loitp.up.a.game.pong.pong.Settings
 
 @LogTag("GameActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class GameActivityFont : BaseActivityFont() {
+class GameActivity : BaseActivityFont() {
+    private lateinit var binding: APongGameBinding
 
     lateinit var settings: Settings
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_pong_game
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         settings = intent.getSerializableExtra("settings") as Settings
         super.onCreate(savedInstanceState)
+
+        binding = APongGameBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 //        settings = intent.getSerializableExtra("settings") as Settings
 //        LScreenUtil.setScreenOrientation(this, false)
