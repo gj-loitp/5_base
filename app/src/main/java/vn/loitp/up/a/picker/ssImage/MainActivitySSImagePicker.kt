@@ -1,10 +1,9 @@
-package vn.loitp.a.picker.ssImage
+package vn.loitp.up.a.picker.ssImage
 
 import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
 import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
 import com.app.imagepickerlibrary.ImagePicker
 import com.app.imagepickerlibrary.ImagePicker.Companion.registerImagePicker
 import com.app.imagepickerlibrary.listener.ImagePickerResultListener
@@ -15,6 +14,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -31,7 +31,7 @@ import vn.loitp.up.a.MenuActivity
 @LogTag("MainActivitySSImagePicker")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MainActivitySSImagePickerFont : BaseActivityFont(),
+class MainActivitySSImagePicker : BaseActivityFont(),
     SSPickerOptionsBottomSheet.ImagePickerClickListener,
     ImagePickerResultListener, PickerOptionsBottomSheet.PickerOptionsListener {
 
@@ -40,25 +40,30 @@ class MainActivitySSImagePickerFont : BaseActivityFont(),
     }
 
     private lateinit var binding: AMainSsImagePickerBinding
-    private val imagePicker: ImagePicker = registerImagePicker(this@MainActivitySSImagePickerFont)
+    private val imagePicker: ImagePicker = registerImagePicker(this@MainActivitySSImagePicker)
     private val imageList = mutableListOf<Uri>()
     private val imageDataAdapter = ImageDataAdapter(imageList)
     private var pickerOptions = PickerOptions.default()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_main_ss_image_picker
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.a_main_ss_image_picker)
+
+//        binding = DataBindingUtil.setContentView(this, R.layout.a_main_ss_image_picker)
+//        setUI(savedInstanceState)
+
+        binding = AMainSsImagePickerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setUI(savedInstanceState)
 
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     super.onBaseBackPressed()
@@ -78,13 +83,13 @@ class MainActivitySSImagePickerFont : BaseActivityFont(),
             this.tvTitle?.text = MenuActivity::class.java.simpleName
         }
 
-        options_button.setSafeOnClickListener {
+        binding.optionsButton.setSafeOnClickListener {
             openPickerOptions()
         }
-        open_picker_button.setSafeOnClickListener {
+        binding.openPickerButton.setSafeOnClickListener {
             openImagePicker()
         }
-        open_sheet_button.setSafeOnClickListener {
+        binding.openSheetButton.setSafeOnClickListener {
             val fragment =
                 SSPickerOptionsBottomSheet.newInstance(R.style.CustomPickerBottomSheet)
             fragment.show(supportFragmentManager, SSPickerOptionsBottomSheet.BOTTOM_SHEET_TAG)

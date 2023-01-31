@@ -1,4 +1,4 @@
-package vn.loitp.a.picker.ssImage
+package vn.loitp.up.a.picker.ssImage
 
 import android.app.Dialog
 import android.os.Bundle

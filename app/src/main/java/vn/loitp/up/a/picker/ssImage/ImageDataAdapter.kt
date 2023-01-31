@@ -1,4 +1,4 @@
-package vn.loitp.a.picker.ssImage
+package vn.loitp.up.a.picker.ssImage
 
 import android.net.Uri
 import android.view.LayoutInflater

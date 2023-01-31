@@ -30,7 +30,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/open_sheet_button"
+                android:id="@+id/openSheetButton"
                 style="@style/ButtonSelectorStyle"
                 android:text="@string/open_picker_sheet"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -38,15 +38,15 @@
                 app:layout_constraintTop_toBottomOf="@id/open_picker_button" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/options_button"
+                android:id="@+id/optionsButton"
                 style="@style/ButtonSelectorStyle"
                 android:text="@string/customize_picker_options"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/open_sheet_button" />
+                app:layout_constraintTop_toBottomOf="@id/openSheetButton" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/image_recycler_view"
+                android:id="@+id/imageRecyclerView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="@dimen/_8sdp"
@@ -57,7 +57,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/options_button"
+                app:layout_constraintTop_toBottomOf="@id/optionsButton"
                 app:spanCount="2"
                 tools:ignore="SpeakableTextPresentCheck"
                 tools:itemCount="8"
