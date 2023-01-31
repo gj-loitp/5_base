@@ -9,8 +9,8 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.picker.attachmentManager.AttachmentManagerActivityFont
 import vn.loitp.databinding.APickerMenuBinding
+import vn.loitp.up.a.picker.attachmentManager.AttachmentManagerActivity
 import vn.loitp.up.a.picker.gradientColorPickerBar.GradientColorPickerBarActivity
 import vn.loitp.up.a.picker.image.ImagePickerActivity
 import vn.loitp.up.a.picker.number.NumberPickerActivity
@@ -50,7 +50,7 @@ class MenuPickerActivity : BaseActivityFont() {
             this.tvTitle?.text = MenuPickerActivity::class.java.simpleName
         }
         binding.btAttachmentManager.setSafeOnClickListener {
-            launchActivity(AttachmentManagerActivityFont::class.java)
+            launchActivity(AttachmentManagerActivity::class.java)
         }
         binding.btGradientColorPickerBar.setSafeOnClickListener {
             launchActivity(GradientColorPickerBarActivity::class.java)

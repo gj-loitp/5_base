@@ -1119,7 +1119,7 @@
             android:name=".a.cv.layout.sequence.SequenceLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.attachmentManager.AttachmentManagerActivityFont"
+            android:name=".up.a.picker.attachmentManager.AttachmentManagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <provider

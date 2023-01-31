@@ -1,4 +1,4 @@
-package vn.loitp.a.picker.attachmentManager
+package vn.loitp.up.a.picker.attachmentManager
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,12 +14,14 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.mirza.attachmentmanager.managers.AttachmentManager
 import com.mirza.attachmentmanager.models.AttachmentDetail
-import kotlinx.android.synthetic.main.a_attachment_manager.*
 import vn.loitp.R
+import vn.loitp.databinding.AAttachmentManagerBinding
 
 @LogTag("AttachmentManagerActivity")
 @IsFullScreen(false)
-class AttachmentManagerActivityFont : BaseActivityFont() {
+class AttachmentManagerActivity : BaseActivityFont() {
+    private lateinit var binding: AAttachmentManagerBinding
+
     private var attachmentManager: AttachmentManager? = null
     private var allAttachments: ArrayList<AttachmentDetail>? = arrayListOf()
     private var mLauncher =
@@ -48,7 +50,7 @@ class AttachmentManagerActivityFont : BaseActivityFont() {
                 val realPath = this.getRealPathFromURI(it.uri)
                 s += it.path + " ---> " + realPath + "\n\n\n"
             }
-            tvPath.text = s
+            binding.tvPath.text = s
         }
     var gallery = arrayOf(
 //        "image/png",
@@ -72,6 +74,9 @@ class AttachmentManagerActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AAttachmentManagerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         attachmentManager = AttachmentManager.AttachmentBuilder(this) // must pass Context
             .fragment(null) // pass fragment reference if you are in fragment
             .setUiTitle(getString(R.string.m_choose)) // title of dialog or bottom sheet
@@ -90,7 +95,7 @@ class AttachmentManagerActivityFont : BaseActivityFont() {
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -107,18 +112,18 @@ class AttachmentManagerActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = AttachmentManagerActivityFont::class.java.simpleName
+            this.tvTitle?.text = AttachmentManagerActivity::class.java.simpleName
         }
-        btPick.setSafeOnClickListener {
+        binding.btPick.setSafeOnClickListener {
             attachmentManager?.openSelection(mLauncher)
         }
-        btCamera.setSafeOnClickListener {
+        binding.btCamera.setSafeOnClickListener {
             attachmentManager?.startCamera(mLauncher)
         }
-        btGallery.setSafeOnClickListener {
+        binding.btGallery.setSafeOnClickListener {
             attachmentManager?.openGallery(mLauncher)
         }
-        btFile.setSafeOnClickListener {
+        binding.btFile.setSafeOnClickListener {
             attachmentManager?.openFileSystem(mLauncher)
         }
     }
