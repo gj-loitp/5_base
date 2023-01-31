@@ -673,7 +673,7 @@
             android:name=".a.demo.fragmentNavigation.FragmentNavigationActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.network.NetworkActivity"
+            android:name=".up.a.network.NetworkActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.tv.extra.ExtraTextViewActivity"

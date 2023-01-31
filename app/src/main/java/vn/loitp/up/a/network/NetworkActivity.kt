@@ -1,10 +1,11 @@
-package vn.loitp.a.network
+package vn.loitp.up.a.network
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.isConnected
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -14,36 +15,39 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_network.*
 import vn.loitp.R
+import vn.loitp.databinding.ANetworkBinding
 import java.util.concurrent.TimeUnit
 
 @LogTag("NetworkActivity")
 @IsFullScreen(false)
 class NetworkActivity : BaseActivityFont() {
 
+    private lateinit var binding: ANetworkBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_network
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ANetworkBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = NetworkActivity::class.java.simpleName
         }
         showStatus(this.isConnected())
-        btn.setSafeOnClickListener {
+        binding.btn.setSafeOnClickListener {
             doSomeWork()
         }
     }
@@ -56,7 +60,7 @@ class NetworkActivity : BaseActivityFont() {
 
     @SuppressLint("SetTextI18n")
     private fun showStatus(isConnected: Boolean) {
-        textView.text = "isConnected: $isConnected"
+        binding.textView.text = "isConnected: $isConnected"
     }
 
     override fun onDestroy() {
@@ -66,10 +70,8 @@ class NetworkActivity : BaseActivityFont() {
 
     private fun doSomeWork() {
         compositeDisposable.add(
-            observable
-                .subscribeOn(Schedulers.io()) // Be notified on the main thread
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(observer)
+            observable.subscribeOn(Schedulers.io()) // Be notified on the main thread
+                .observeOn(AndroidSchedulers.mainThread()).subscribeWith(observer)
         )
     }
 
@@ -84,8 +86,8 @@ class NetworkActivity : BaseActivityFont() {
                 logD("isWifiConnected ${TrafficUtils.isWifiConnected(this@NetworkActivity)}")
                 logD("getNetworkSpeed ${TrafficUtils.getNetworkSpeed()}")
 
-                tv.post {
-                    tv.text =
+                binding.tv.post {
+                    binding.tv.text =
                         "isWifiConnected ${TrafficUtils.isWifiConnected(this@NetworkActivity)}\ngetNetworkSpeed ${TrafficUtils.getNetworkSpeed()}"
                 }
             }
