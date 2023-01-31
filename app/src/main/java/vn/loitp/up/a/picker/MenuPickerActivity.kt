@@ -13,8 +13,8 @@ import vn.loitp.a.picker.attachmentManager.AttachmentManagerActivityFont
 import vn.loitp.a.picker.gradientColorPickerBar.GradientColorPickerBarActivityFont
 import vn.loitp.a.picker.image.ImagePickerActivityFont
 import vn.loitp.a.picker.number.NumberPickerActivityFont
-import vn.loitp.a.picker.shiftColor.ShiftColorPickerActivityFont
 import vn.loitp.databinding.APickerMenuBinding
+import vn.loitp.up.a.picker.shiftColor.ShiftColorPickerActivity
 import vn.loitp.up.a.picker.ssImage.MainActivitySSImagePicker
 import vn.loitp.up.a.picker.time.TimePickerActivity
 import vn.loitp.up.a.picker.unicornFile.UnicornFilePickerActivity
@@ -68,7 +68,7 @@ class MenuPickerActivity : BaseActivityFont() {
             launchActivity(MainActivitySSImagePicker::class.java)
         }
         binding.btShiftColorPickerActivity.setSafeOnClickListener {
-            launchActivity(ShiftColorPickerActivityFont::class.java)
+            launchActivity(ShiftColorPickerActivity::class.java)
         }
         binding.btImagePicker.setSafeOnClickListener {
             launchActivity(ImagePickerActivityFont::class.java)

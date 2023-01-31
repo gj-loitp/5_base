@@ -1,4 +1,4 @@
-package vn.loitp.a.picker.shiftColor
+package vn.loitp.up.a.picker.shiftColor
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -8,31 +8,37 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.picker.shiftColor.OnColorChangedListener
-import kotlinx.android.synthetic.main.a_picker_shift_color.*
 import vn.loitp.R
+import vn.loitp.databinding.APickerShiftColorBinding
 
 @LogTag("ShiftColorPickerActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class ShiftColorPickerActivityFont : BaseActivityFont() {
+class ShiftColorPickerActivity : BaseActivityFont() {
+
+    private lateinit var binding: APickerShiftColorBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_picker_shift_color
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = APickerShiftColorBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -49,26 +55,26 @@ class ShiftColorPickerActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = ShiftColorPickerActivityFont::class.java.simpleName
+            this.tvTitle?.text = ShiftColorPickerActivity::class.java.simpleName
         }
 
-        colorPicker.setOnColorChangedListener(object : OnColorChangedListener {
+        binding.colorPicker.setOnColorChangedListener(object : OnColorChangedListener {
             override fun onColorChanged(c: Int) {
                 showShortInformation("Selected color " + Integer.toHexString(c))
             }
         })
 
-        btGetSelectedColor.setSafeOnClickListener {
+        binding.btGetSelectedColor.setSafeOnClickListener {
             showShortInformation(
-                msg = "Selected color: ${colorPicker.color} -> ${
+                msg = "Selected color: ${binding.colorPicker.color} -> ${
                     Integer.toHexString(
-                        colorPicker.color
+                        binding.colorPicker.color
                     )
                 }"
             )
         }
 
-        colorPicker2.apply {
+        binding.colorPicker2.apply {
             colors = intArrayOf(
                 Color.RED,
                 Color.GREEN,
@@ -85,11 +91,11 @@ class ShiftColorPickerActivityFont : BaseActivityFont() {
             })
         }
 
-        btGetSelectedColor2.setSafeOnClickListener {
+        binding.btGetSelectedColor2.setSafeOnClickListener {
             showShortInformation(
-                msg = "Selected color: ${colorPicker2.color} -> ${
+                msg = "Selected color: ${binding.colorPicker2.color} -> ${
                     Integer.toHexString(
-                        colorPicker2.color
+                        binding.colorPicker2.color
                     )
                 }"
             )

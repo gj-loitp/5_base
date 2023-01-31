@@ -1350,7 +1350,7 @@
             android:name=".a.func.wallpo.WallpoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.shiftColor.ShiftColorPickerActivityFont"
+            android:name=".up.a.picker.shiftColor.ShiftColorPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.roundedIv.RoundedIvActivityFont"
