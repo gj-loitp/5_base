@@ -1392,7 +1392,7 @@
             android:name=".a.cv.iv.shapeableIv.ShapeableIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.interviewVN.InterviewVNIQActivity"
+            android:name=".up.a.interviewVN.InterviewVNIQActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.coil.CoilActivityFont"

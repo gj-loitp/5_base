@@ -1,8 +1,7 @@
-package vn.loitp.a.interviewVN.adt
+package vn.loitp.up.a.interviewVN.adt
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
@@ -11,8 +10,7 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.model.QA
-import kotlinx.android.synthetic.main.i_qa.view.*
-import vn.loitp.R
+import vn.loitp.databinding.IQaBinding
 
 @LogTag("QAAdapter")
 class QAAdapter(
@@ -23,67 +21,63 @@ class QAAdapter(
 
     var onClickRootListener: ((QA, Int) -> Unit)? = null
 
-    @SuppressLint("NotifyDataSetChanged")
     fun setData(list: ArrayList<QA>) {
         this.listQA.clear()
         this.listQA.addAll(list)
         notifyDataSetChanged()
+//        notifyAllViews()
     }
 
-    inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class DataViewHolder(val binding: IQaBinding) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(qa: QA) {
-            itemView.tvQ.text = "${bindingAdapterPosition + 1} - ${qa.q}"
+            binding.tvQ.text = "${bindingAdapterPosition + 1} - ${qa.q}"
 
             if (isShowADefault) {
                 if (qa.a.isEmpty()) {
-                    itemView.tvA.isVisible = false
+                    binding.tvA.isVisible = false
                 } else {
-                    itemView.tvA.isVisible = true
-                    itemView.tvA.text = qa.a
+                    binding.tvA.isVisible = true
+                    binding.tvA.text = qa.a
                 }
             } else {
-                itemView.tvA.isVisible = false
+                binding.tvA.isVisible = false
             }
 
             if (isShowNextLink) {
                 if (qa.nextLink.isEmpty()) {
-                    itemView.tvNextLink.isVisible = false
+                    binding.tvNextLink.isVisible = false
                 } else {
-                    itemView.tvNextLink.isVisible = true
-                    itemView.tvNextLink.text = qa.nextLink
+                    binding.tvNextLink.isVisible = true
+                    binding.tvNextLink.text = qa.nextLink
                 }
             } else {
-                itemView.tvNextLink.isVisible = false
+                binding.tvNextLink.isVisible = false
             }
             if (qa.ivA.isEmpty()) {
-                itemView.ivQ.isVisible = false
+                binding.ivQ.isVisible = false
             } else {
-                itemView.ivQ.isVisible = true
-                itemView.ivQ.loadGlide(
+                binding.ivQ.isVisible = true
+                binding.ivQ.loadGlide(
                     any = qa.ivQ,
                 )
             }
 
-            itemView.layoutRoot.setSafeOnClickListener {
+            binding.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(qa, bindingAdapterPosition)
             }
         }
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup, viewType: Int
-    ) = DataViewHolder(
-        LayoutInflater.from(parent.context).inflate(
-            R.layout.i_qa, parent, false
-        )
-    )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val binding = IQaBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return DataViewHolder(binding)
+    }
 
     override fun getItemCount(): Int = listQA.size
 
     override fun onBindViewHolder(
-        holder: RecyclerView.ViewHolder,
-        position: Int
+        holder: RecyclerView.ViewHolder, position: Int
     ) {
         if (holder is DataViewHolder) {
             holder.bind(listQA[position])

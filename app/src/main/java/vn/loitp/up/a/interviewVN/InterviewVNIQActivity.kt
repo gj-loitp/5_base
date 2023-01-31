@@ -1,4 +1,4 @@
-package vn.loitp.a.interviewVN
+package vn.loitp.up.a.interviewVN
 
 import android.os.Bundle
 import android.os.Handler

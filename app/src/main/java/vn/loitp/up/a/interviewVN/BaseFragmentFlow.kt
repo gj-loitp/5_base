@@ -1,4 +1,4 @@
-package vn.loitp.a.interviewVN
+package vn.loitp.up.a.interviewVN
 
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener
