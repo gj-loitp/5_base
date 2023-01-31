@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <vn.loitp.a.game.puzzle.ui.game.GameBoard
+        <vn.loitp.up.a.game.puzzle.ui.game.GameBoard
             android:id="@+id/boardView"
             android:layout_width="0dp"
             android:layout_height="0dp"

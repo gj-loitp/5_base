@@ -1,6 +1,5 @@
-package vn.loitp.a.game.puzzle.ui.options
+package vn.loitp.up.a.game.puzzle.ui.options
 
-import `in`.srain.cube.views.GridViewWithHeaderAndFooter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -15,9 +14,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.loitp.core.ext.tranIn
+import `in`.srain.cube.views.GridViewWithHeaderAndFooter
 import vn.loitp.R
-import vn.loitp.a.game.puzzle.BoardActivityParams
-import vn.loitp.a.game.puzzle.GameActivityFont
+import vn.loitp.up.a.game.puzzle.BoardActivityParams
+import vn.loitp.up.a.game.puzzle.GameActivityFont
 
 class ImageCardsAdapterGridView(
     private val parentContext: Context,

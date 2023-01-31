@@ -1,4 +1,4 @@
-package vn.loitp.a.game.puzzle.ui.game
+package vn.loitp.up.a.game.puzzle.ui.game
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -11,7 +11,7 @@ import android.util.Size
 import android.view.View
 import androidx.core.content.ContextCompat
 import vn.loitp.R
-import vn.loitp.a.game.puzzle.ui.game.state.PuzzleGrid
+import vn.loitp.up.a.game.puzzle.ui.game.state.PuzzleGrid
 import kotlin.math.ceil
 
 @SuppressLint("ClickableViewAccessibility")

@@ -11,8 +11,8 @@ import com.loitp.game.findNumber.ui.SplashActivity
 import vn.loitp.R
 import vn.loitp.a.game.osero.TopOseroActivityFont
 import vn.loitp.a.game.pong.a.PongMainActivityFont
-import vn.loitp.a.game.puzzle.BoardOptionsActivityFont
 import vn.loitp.databinding.AGameMenuBinding
+import vn.loitp.up.a.game.puzzle.BoardOptionsActivity
 
 @LogTag("MenuGameActivity")
 @IsFullScreen(false)
@@ -55,7 +55,7 @@ class MenuGameActivity : BaseActivityFont() {
             launchActivity(PongMainActivityFont::class.java)
         }
         binding.btPuzzle.setSafeOnClickListener {
-            launchActivity(BoardOptionsActivityFont::class.java)
+            launchActivity(BoardOptionsActivity::class.java)
         }
 
     }

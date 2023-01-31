@@ -1,19 +1,19 @@
-package vn.loitp.a.game.puzzle
+package vn.loitp.up.a.game.puzzle
 
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Size
 import android.view.MenuItem
-import android.widget.Button
 import androidx.lifecycle.ViewModelProviders
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import vn.loitp.R
-import vn.loitp.a.game.puzzle.ui.game.GameBoard
-import vn.loitp.a.game.puzzle.ui.options.BoardOptionsViewModel
-import vn.loitp.a.game.puzzle.ui.options.BoardTitledSize
+import vn.loitp.databinding.ActivityGamePuzzleBinding
+import vn.loitp.up.a.game.puzzle.ui.options.BoardOptionsViewModel
+import vn.loitp.up.a.game.puzzle.ui.options.BoardTitledSize
 
 data class BoardActivityParams(
     val bitmap: Bitmap, val size: BoardTitledSize
@@ -27,8 +27,10 @@ class GameActivityFont : BaseActivityFont() {
         lateinit var initialConfig: BoardActivityParams
     }
 
+    private lateinit var binding: ActivityGamePuzzleBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_game_puzzle
+        return NOT_FOUND
     }
 
     private val viewModel: BoardOptionsViewModel by lazy {
@@ -36,22 +38,20 @@ class GameActivityFont : BaseActivityFont() {
     }
 
     private fun mountBoard() {
-        val board = findViewById<GameBoard>(R.id.boardView)
-
         viewModel.boardSize.observe(this) {
             it?.let {
-                board.resize(
+                binding.boardView.resize(
                     Size(it.width, it.height), viewModel.boardImage.value
                 )
             }
         }
 
-        findViewById<Button>(R.id.shuffle).setOnClickListener {
-            board.shuffle()
+        binding.shuffle.setOnClickListener {
+            binding.boardView.shuffle()
         }
 
-        findViewById<Button>(R.id.reset).setOnClickListener {
-            board.shuffle(true)
+        binding.reset.setOnClickListener {
+            binding.boardView.shuffle(true)
         }
     }
 
@@ -63,6 +63,9 @@ class GameActivityFont : BaseActivityFont() {
 
         super.onCreate(savedInstanceState)
 
+        binding = ActivityGamePuzzleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setSupportActionBar(findViewById(R.id.tbBoardOptions))
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -72,7 +75,7 @@ class GameActivityFont : BaseActivityFont() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                onBackPressed()
+                onBaseBackPressed()
                 return true
             }
         }

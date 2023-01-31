@@ -1,4 +1,4 @@
-package vn.loitp.a.game.puzzle.ui.game.u
+package vn.loitp.up.a.game.puzzle.ui.game.u
 
 import android.graphics.Bitmap
 import android.util.Size

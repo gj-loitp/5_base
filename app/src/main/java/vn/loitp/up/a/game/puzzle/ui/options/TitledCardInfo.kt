@@ -1,4 +1,4 @@
-package vn.loitp.a.game.puzzle.ui.options
+package vn.loitp.up.a.game.puzzle.ui.options
 
 import android.graphics.Bitmap
 

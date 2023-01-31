@@ -1296,10 +1296,10 @@
             android:name=".a.cv.rv.dragDrop.MainActivityDragDrop"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.game.puzzle.BoardOptionsActivityFont"
+            android:name=".up.a.game.puzzle.BoardOptionsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.game.puzzle.GameActivityFont"
+            android:name=".up.a.game.puzzle.GameActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivityFont"
