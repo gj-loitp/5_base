@@ -20,9 +20,9 @@ import vn.loitp.a.api.MenuAPIActivity
 import vn.loitp.a.cv.MenuCustomViewsActivity
 import vn.loitp.a.db.MenuDatabaseActivity
 import vn.loitp.a.demo.MenuDemoActivity
-import vn.loitp.a.func.MenuFunctionActivity
 import vn.loitp.databinding.AMenuBinding
 import vn.loitp.up.a.anim.MenuAnimationActivity
+import vn.loitp.up.a.func.MenuFunctionActivity
 import vn.loitp.up.a.game.MenuGameActivity
 import vn.loitp.up.a.interviewVN.InterviewVNIQActivity
 import vn.loitp.up.a.more.MoreActivity

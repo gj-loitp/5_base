@@ -280,7 +280,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".a.func.MenuFunctionActivity"
+            android:name=".up.a.func.MenuFunctionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.func.simpleFingerGestures.SimpleFingerGesturesActivityFont"
@@ -1347,7 +1347,7 @@
             android:name=".a.cv.bt.fit.FitButtonActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.wallpo.WallpoActivityFont"
+            android:name=".up.a.func.wallpo.WallpoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.picker.shiftColor.ShiftColorPickerActivity"

@@ -1,4 +1,4 @@
-package vn.loitp.a.func.wallpo
+package vn.loitp.up.a.func.wallpo
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,29 +7,35 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.common.URL_IMG_1
 import com.loitp.core.ext.*
-import kotlinx.android.synthetic.main.a_wallpo.*
 import vn.loitp.R
+import vn.loitp.databinding.AWallpoBinding
 
 @LogTag("WallpoActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class WallpoActivityFont : BaseActivityFont() {
+class WallpoActivity : BaseActivityFont() {
+
+    private lateinit var binding: AWallpoBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_wallpo
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AWallpoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -46,30 +52,29 @@ class WallpoActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = WallpoActivityFont::class.java.simpleName
+            this.tvTitle?.text = WallpoActivity::class.java.simpleName
         }
 
-        btChangeImageNetwork.setSafeOnClickListener {
-            ivPreview.loadGlide(
+        binding.btChangeImageNetwork.setSafeOnClickListener {
+            binding.ivPreview.loadGlide(
                 any = URL_IMG_1,
             )
         }
-
-        btSetWallpaper.setSafeOnClickListener {
-            ivPreview.setWallpaperAndLockScreen(
+        binding.btSetWallpaper.setSafeOnClickListener {
+            binding.ivPreview.setWallpaperAndLockScreen(
                 isSetWallpaper = true,
                 isSetLockScreen = false,
             )
             showShortInformation("Wallpaper set successfully")
         }
-        btSetLockscreen.setSafeOnClickListener {
-            ivPreview.setWallpaperAndLockScreen(
+        binding.btSetLockscreen.setSafeOnClickListener {
+            binding.ivPreview.setWallpaperAndLockScreen(
                 isSetWallpaper = false,
                 isSetLockScreen = true,
             )
             showShortInformation("Lock Screen Wallpaper set successfully")
         }
-        btSetRandomColor.setSafeOnClickListener {
+        binding.btSetRandomColor.setSafeOnClickListener {
             this.setWallpaperAndLockScreen(
                 color = getRandomColor(),
                 isSetWallpaper = true,
