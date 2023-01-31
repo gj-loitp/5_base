@@ -404,7 +404,7 @@
             android:name=".a.cv.layout.constraint.demo.ConstraintLayoutDemoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.viewDragHelper.ViewDragHelperActivityFont"
+            android:name=".up.a.func.viewDragHelper.ViewDragHelperActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity

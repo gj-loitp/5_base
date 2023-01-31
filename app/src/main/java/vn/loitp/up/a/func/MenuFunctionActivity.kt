@@ -25,8 +25,8 @@ import vn.loitp.a.func.recolor.RecolorActivityFont
 import vn.loitp.a.func.sensor.SensorActivityFont
 import vn.loitp.a.func.simpleFingerGestures.SimpleFingerGesturesActivityFont
 import vn.loitp.a.func.theme.ThemeActivityFont
-import vn.loitp.a.func.viewDragHelper.ViewDragHelperActivityFont
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.viewDragHelper.ViewDragHelperActivity
 import vn.loitp.up.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity
 import vn.loitp.up.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1
 import vn.loitp.up.a.func.wallpo.WallpoActivity
@@ -89,7 +89,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btIdleTime -> launchActivity(IdleTimeActivityFont::class.java)
             binding.btDragDropSample -> launchActivity(DragDropSampleActivityFont::class.java)
             binding.btToggleFullScreen -> launchActivity(FullScreenActivityFont::class.java)
-            binding.btViewDragHelper -> launchActivity(ViewDragHelperActivityFont::class.java)
+            binding.btViewDragHelper -> launchActivity(ViewDragHelperActivity::class.java)
             binding.btRecolor -> launchActivity(RecolorActivityFont::class.java)
             binding.btActivityServiceComunicate -> launchActivity(
                 ActivityServiceCommunicateActivityFont::class.java
