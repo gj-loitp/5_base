@@ -460,7 +460,7 @@
             android:name=".a.cv.layout.constraint.customBehavior.CustomBehaviorActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.viewDragHelperSimple.ViewDragHelperSimpleActivityFont"
+            android:name=".up.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.floatDrag.FloatDragLayoutActivityFont"
@@ -595,7 +595,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--start floating view-->
         <activity
-            android:name=".a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1Font"
+            android:name=".up.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity

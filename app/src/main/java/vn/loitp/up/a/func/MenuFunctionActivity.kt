@@ -26,9 +26,9 @@ import vn.loitp.a.func.sensor.SensorActivityFont
 import vn.loitp.a.func.simpleFingerGestures.SimpleFingerGesturesActivityFont
 import vn.loitp.a.func.theme.ThemeActivityFont
 import vn.loitp.a.func.viewDragHelper.ViewDragHelperActivityFont
-import vn.loitp.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1Font
-import vn.loitp.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivityFont
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity
+import vn.loitp.up.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1
 import vn.loitp.up.a.func.wallpo.WallpoActivity
 
 @LogTag("MenuFunctionActivity")
@@ -97,8 +97,8 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btLocation -> launchActivity(LocationActivity::class.java)
             binding.btNotification -> launchActivity(MenuNotificationActivityFont::class.java)
             binding.btPump -> launchActivity(PumpActivityFont::class.java)
-            binding.btViewDragHelperSimple -> launchActivity(ViewDragHelperSimpleActivityFont::class.java)
-            binding.btViewDragHelperSimple1 -> launchActivity(ViewDragHelperSimpleActivity1Font::class.java)
+            binding.btViewDragHelperSimple -> launchActivity(ViewDragHelperSimpleActivity::class.java)
+            binding.btViewDragHelperSimple1 -> launchActivity(ViewDragHelperSimpleActivity1::class.java)
             binding.btSensor -> launchActivity(SensorActivityFont::class.java)
             binding.btGlide -> launchActivity(GlideActivityFont::class.java)
             binding.btKeyboard -> launchActivity(KeyboardActivity::class.java)

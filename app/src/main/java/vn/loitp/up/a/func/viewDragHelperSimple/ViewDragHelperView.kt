@@ -1,4 +1,4 @@
-package vn.loitp.a.func.viewDragHelperSimple
+package vn.loitp.up.a.func.viewDragHelperSimple
 
 import android.annotation.SuppressLint
 import android.content.Context
