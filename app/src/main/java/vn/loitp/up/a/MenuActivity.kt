@@ -21,9 +21,9 @@ import vn.loitp.a.cv.MenuCustomViewsActivity
 import vn.loitp.a.db.MenuDatabaseActivity
 import vn.loitp.a.demo.MenuDemoActivity
 import vn.loitp.a.func.MenuFunctionActivity
-import vn.loitp.a.game.MenuGameActivity
 import vn.loitp.databinding.AMenuBinding
 import vn.loitp.up.a.anim.MenuAnimationActivity
+import vn.loitp.up.a.game.MenuGameActivity
 import vn.loitp.up.a.interviewVN.InterviewVNIQActivity
 import vn.loitp.up.a.more.MoreActivity
 import vn.loitp.up.a.network.NetworkActivity

@@ -1217,7 +1217,7 @@
             android:name=".a.cv.code.CodeViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.game.MenuGameActivity"
+            android:name=".up.a.game.MenuGameActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.game.osero.TopOseroActivityFont"
