@@ -638,7 +638,7 @@
             android:name=".up.a.tut.rxjava2.IntervalExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.pattern.mvvm.MVVMActivityFont"
+            android:name=".up.a.pattern.mvvm.MVVMActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.tut.retrofit2.Retrofit2Activity"

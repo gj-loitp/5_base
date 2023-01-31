@@ -1,10 +1,10 @@
-package vn.loitp.a.pattern.mvvm.vm
+package vn.loitp.up.a.pattern.mvvm.vm
 
 import android.view.View
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.databinding.library.baseAdapters.BR
-import vn.loitp.a.pattern.mvvm.md.User
+import vn.loitp.up.a.pattern.mvvm.md.User
 import java.util.*
 
 class UserViewModel(private val user: User) : Observer, BaseObservable() {

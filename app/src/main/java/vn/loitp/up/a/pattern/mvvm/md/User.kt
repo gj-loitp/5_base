@@ -1,4 +1,4 @@
-package vn.loitp.a.pattern.mvvm.md
+package vn.loitp.up.a.pattern.mvvm.md
 
 import androidx.annotation.Keep
 import java.util.* // ktlint-disable no-wildcard-imports

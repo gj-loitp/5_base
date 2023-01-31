@@ -1,4 +1,4 @@
-package vn.loitp.a.pattern.mvvm
+package vn.loitp.up.a.pattern.mvvm
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -8,12 +8,12 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import vn.loitp.BR
 import vn.loitp.R
-import vn.loitp.a.pattern.mvvm.md.User
-import vn.loitp.a.pattern.mvvm.vm.UserViewModel
+import vn.loitp.up.a.pattern.mvvm.md.User
+import vn.loitp.up.a.pattern.mvvm.vm.UserViewModel
 
 @LogTag("MVVMActivity")
 @IsFullScreen(false)
-class MVVMActivityFont : BaseActivityFont() {
+class MVVMActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_pattern_mvvm
