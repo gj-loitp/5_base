@@ -21,6 +21,7 @@ class QAAdapter(
 
     var onClickRootListener: ((QA, Int) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(list: ArrayList<QA>) {
         this.listQA.clear()
         this.listQA.addAll(list)
