@@ -1,4 +1,4 @@
-package vn.loitp.a.picker.image
+package vn.loitp.up.a.picker.image
 
 import android.annotation.SuppressLint
 import android.content.Context

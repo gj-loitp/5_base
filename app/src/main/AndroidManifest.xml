@@ -833,7 +833,7 @@
             android:name=".a.cv.rv.looping.LoopingLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.picker.image.ImagePickerActivityFont"
+            android:name=".up.a.picker.image.ImagePickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <provider

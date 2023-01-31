@@ -1,4 +1,4 @@
-package vn.loitp.a.picker.image
+package vn.loitp.up.a.picker.image
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -16,14 +16,15 @@ import com.nguyenhoanglam.imagepicker.model.Image
 import com.nguyenhoanglam.imagepicker.model.ImagePickerConfig
 import com.nguyenhoanglam.imagepicker.model.RootDirectory
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.registerImagePicker
-import kotlinx.android.synthetic.main.a_picker_image_demo.*
 import vn.loitp.R
+import vn.loitp.databinding.APickerImageDemoBinding
 
 @LogTag("ImagePickerActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class ImagePickerActivityFont : BaseActivityFont() {
+class ImagePickerActivity : BaseActivityFont() {
 
+    private lateinit var binding: APickerImageDemoBinding
     private var adapter: ImageAdapter? = null
     private var images = ArrayList<Image>()
 
@@ -39,12 +40,15 @@ class ImagePickerActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = APickerImageDemoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
@@ -57,28 +61,28 @@ class ImagePickerActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = ImagePickerActivityFont::class.java.simpleName
+            this.tvTitle?.text = ImagePickerActivity::class.java.simpleName
         }
         adapter = ImageAdapter(this)
-        recyclerView.layoutManager =
+        binding.recyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.adapter = adapter
+        binding.recyclerView.adapter = adapter
 
-        pickImageButton.setSafeOnClickListener {
+        binding.pickImageButton.setSafeOnClickListener {
             start()
         }
-        launchFragmentButton.setSafeOnClickListener {
+        binding.launchFragmentButton.setSafeOnClickListener {
             launchFragment()
         }
     }
 
     private fun start() {
-        val folderMode = folderModeSwitch.isChecked
-        val multipleMode = multipleModeSwitch.isChecked
-        val cameraOnly = cameraOnlySwitch.isChecked
-        val showCamera = showCameraSwitch.isChecked
-        val showNumberIndicator = showNumberIndicatorSwitch.isChecked
-        val alwaysShowDone = alwaysShowDoneSwitch.isChecked
+        val folderMode = binding.folderModeSwitch.isChecked
+        val multipleMode = binding.multipleModeSwitch.isChecked
+        val cameraOnly = binding.cameraOnlySwitch.isChecked
+        val showCamera = binding.showCameraSwitch.isChecked
+        val showNumberIndicator = binding.showNumberIndicatorSwitch.isChecked
+        val alwaysShowDone = binding.alwaysShowDoneSwitch.isChecked
 
         val config = ImagePickerConfig(
             statusBarColor = "#00796B",
@@ -110,12 +114,12 @@ class ImagePickerActivityFont : BaseActivityFont() {
     }
 
     private fun launchFragment() {
-        val folderMode = folderModeSwitch.isChecked
-        val multipleMode = multipleModeSwitch.isChecked
-        val cameraOnly = cameraOnlySwitch.isChecked
-        val showCamera = showCameraSwitch.isChecked
-        val showNumberIndicator = showNumberIndicatorSwitch.isChecked
-        val alwaysShowDone = alwaysShowDoneSwitch.isChecked
+        val folderMode = binding.folderModeSwitch.isChecked
+        val multipleMode = binding.multipleModeSwitch.isChecked
+        val cameraOnly = binding.cameraOnlySwitch.isChecked
+        val showCamera = binding.showCameraSwitch.isChecked
+        val showNumberIndicator = binding.showNumberIndicatorSwitch.isChecked
+        val alwaysShowDone = binding.alwaysShowDoneSwitch.isChecked
 
         val config = ImagePickerConfig(
             isFolderMode = folderMode,
