@@ -16,8 +16,8 @@ import vn.loitp.a.func.glide.GlideActivityFont
 import vn.loitp.a.func.hashmap.HashMapActivityFont
 import vn.loitp.a.func.idleTime.IdleTimeActivityFont
 import vn.loitp.a.func.keyboard.KeyboardActivity
-import vn.loitp.a.func.keyboardHeightProvider.KeyboardHeightProviderActivityFont
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity
 import vn.loitp.up.a.func.location.LocationActivity
 import vn.loitp.up.a.func.noti.MenuNotificationActivity
 import vn.loitp.up.a.func.processPhoenix.ProcessPhoenixActivity
@@ -102,7 +102,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btSensor -> launchActivity(SensorActivity::class.java)
             binding.btGlide -> launchActivity(GlideActivityFont::class.java)
             binding.btKeyboard -> launchActivity(KeyboardActivity::class.java)
-            binding.btKeyboardHeightProvider -> launchActivity(KeyboardHeightProviderActivityFont::class.java)
+            binding.btKeyboardHeightProvider -> launchActivity(KeyboardHeightProviderActivity::class.java)
             binding.btTheme -> launchActivity(ThemeActivity::class.java)
             binding.btWallpoActivity -> launchActivity(WallpoActivity::class.java)
             binding.btProcessPhoenix -> launchActivity(ProcessPhoenixActivity::class.java)

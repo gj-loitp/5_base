@@ -1,4 +1,4 @@
-package vn.loitp.a.func.keyboardHeightProvider
+package vn.loitp.up.a.func.keyboardHeightProvider
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,49 +6,53 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_kb_height_provider.*
-import vn.loitp.R
+import vn.loitp.databinding.AKbHeightProviderBinding
 
 @LogTag("KeyboardHeightProviderActivity")
 @IsFullScreen(false)
-class KeyboardHeightProviderActivityFont : BaseActivityFont() {
+class KeyboardHeightProviderActivity : BaseActivityFont() {
 
+    private lateinit var binding: AKbHeightProviderBinding
     private var keyboardHeightProvider: KeyboardHeightProvider? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_kb_height_provider
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AKbHeightProviderBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = KeyboardHeightProviderActivityFont::class.java.simpleName
+            this.tvTitle?.text = KeyboardHeightProviderActivity::class.java.simpleName
         }
         keyboardHeightProvider = KeyboardHeightProvider(this)
         keyboardHeightProvider?.addKeyboardListener(object :
             KeyboardHeightProvider.KeyboardListener {
             override fun onHeightChanged(height: Int) {
                 if (height == 0) {
-                    layoutKeyboardFake.isVisible = false
+                    binding.layoutKeyboardFake.isVisible = false
                 } else {
-                    if (layoutKeyboardFake.layoutParams.height != height) {
-                        layoutKeyboardFake.layoutParams.height = height
-                        layoutKeyboardFake.requestLayout()
+                    if (binding.layoutKeyboardFake.layoutParams.height != height) {
+                        binding.layoutKeyboardFake.layoutParams.height = height
+                        binding.layoutKeyboardFake.requestLayout()
                     }
-                    layoutKeyboardFake.isVisible = true
+                    binding.layoutKeyboardFake.isVisible = true
                 }
             }
         })
