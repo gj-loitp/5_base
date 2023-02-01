@@ -17,8 +17,8 @@ import vn.loitp.a.func.hashmap.HashMapActivityFont
 import vn.loitp.a.func.idleTime.IdleTimeActivityFont
 import vn.loitp.a.func.keyboard.KeyboardActivity
 import vn.loitp.a.func.keyboardHeightProvider.KeyboardHeightProviderActivityFont
-import vn.loitp.a.func.location.LocationActivity
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.location.LocationActivity
 import vn.loitp.up.a.func.noti.MenuNotificationActivity
 import vn.loitp.up.a.func.processPhoenix.ProcessPhoenixActivity
 import vn.loitp.up.a.func.pump.PumpActivity

@@ -1,4 +1,4 @@
-package vn.loitp.a.func.location
+package vn.loitp.up.a.func.location
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -19,11 +19,12 @@ import com.google.android.gms.location.*
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import com.permissionx.guolindev.PermissionX
-import kotlinx.android.synthetic.main.a_func_location.*
 import vn.loitp.BuildConfig
 import vn.loitp.R
+import vn.loitp.databinding.AFuncLocationBinding
 import java.text.DateFormat
 import java.util.*
 
@@ -42,6 +43,8 @@ class LocationActivity : BaseActivityFont() {
         private const val REQUEST_CHECK_SETTINGS = 100
     }
 
+    private lateinit var binding: AFuncLocationBinding
+
     // location last updated time
     private var mLastUpdateTime: String? = null
 
@@ -57,11 +60,14 @@ class LocationActivity : BaseActivityFont() {
     private var mRequestingLocationUpdates: Boolean? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_func_location
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AFuncLocationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // initialize the necessary libraries
         init()
@@ -72,7 +78,7 @@ class LocationActivity : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -81,13 +87,13 @@ class LocationActivity : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = LocationActivity::class.java.simpleName
         }
-        btStartLocationUpdates.setSafeOnClickListener {
+        binding.btStartLocationUpdates.setSafeOnClickListener {
             startLocationButtonClick()
         }
-        btStopLocationUpdates.setSafeOnClickListener {
+        binding.btStopLocationUpdates.setSafeOnClickListener {
             stopLocationButtonClick()
         }
-        btGetLastLocation.setSafeOnClickListener {
+        binding.btGetLastLocation.setSafeOnClickListener {
             showLastKnownLocation()
         }
     }
@@ -152,15 +158,15 @@ class LocationActivity : BaseActivityFont() {
                 moreInfor += "$address - $city - $state - $country"
             }
 
-            tvLocationResult.text =
+            binding.tvLocationResult.text =
                 "Lat: " + it.latitude + ", " + "Lng: " + it.longitude + ", more infor: $moreInfor"
 
             // giving a blink animation on TextView
-            tvLocationResult.alpha = 0f
-            tvLocationResult.animate().alpha(1f).duration = 300
+            binding.tvLocationResult.alpha = 0f
+            binding.tvLocationResult.animate().alpha(1f).duration = 300
 
             // location last updated time
-            tvUpdatedOn.text = "Last updated on: $mLastUpdateTime"
+            binding.tvUpdatedOn.text = "Last updated on: $mLastUpdateTime"
         }
         toggleButtons()
     }
@@ -176,11 +182,11 @@ class LocationActivity : BaseActivityFont() {
 
     private fun toggleButtons() {
         if (mRequestingLocationUpdates == true) {
-            btStartLocationUpdates.isEnabled = false
-            btStopLocationUpdates.isEnabled = true
+            binding.btStartLocationUpdates.isEnabled = false
+            binding.btStopLocationUpdates.isEnabled = true
         } else {
-            btStartLocationUpdates.isEnabled = true
-            btStopLocationUpdates.isEnabled = false
+            binding.btStartLocationUpdates.isEnabled = true
+            binding.btStopLocationUpdates.isEnabled = false
         }
     }
 
