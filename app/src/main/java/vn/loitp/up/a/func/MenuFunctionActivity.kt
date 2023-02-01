@@ -14,8 +14,8 @@ import vn.loitp.a.func.dragDrop.DragDropSampleActivityFont
 import vn.loitp.a.func.fullScreen.FullScreenActivityFont
 import vn.loitp.a.func.glide.GlideActivityFont
 import vn.loitp.a.func.hashmap.HashMapActivityFont
-import vn.loitp.a.func.idleTime.IdleTimeActivityFont
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.idleTime.IdleTimeActivity
 import vn.loitp.up.a.func.keyboard.KeyboardActivity
 import vn.loitp.up.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity
 import vn.loitp.up.a.func.location.LocationActivity
@@ -86,7 +86,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
         when (v) {
             binding.btSimpleFingerGesture -> launchActivity(SimpleFingerGesturesActivity::class.java)
             binding.btHashMap -> launchActivity(HashMapActivityFont::class.java)
-            binding.btIdleTime -> launchActivity(IdleTimeActivityFont::class.java)
+            binding.btIdleTime -> launchActivity(IdleTimeActivity::class.java)
             binding.btDragDropSample -> launchActivity(DragDropSampleActivityFont::class.java)
             binding.btToggleFullScreen -> launchActivity(FullScreenActivityFont::class.java)
             binding.btViewDragHelper -> launchActivity(ViewDragHelperActivity::class.java)

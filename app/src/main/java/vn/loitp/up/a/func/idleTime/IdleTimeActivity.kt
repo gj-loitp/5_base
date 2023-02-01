@@ -1,4 +1,4 @@
-package vn.loitp.a.func.idleTime
+package vn.loitp.up.a.func.idleTime
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,21 +8,26 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_idle_time.*
-import vn.loitp.R
+import vn.loitp.databinding.AIdleTimeBinding
 
 @LogTag("IdleTimeActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class IdleTimeActivityFont : BaseActivityFont() {
+class IdleTimeActivity : BaseActivityFont() {
+
+    private lateinit var binding: AIdleTimeBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_idle_time
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AIdleTimeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         startIdleTimeHandler(3 * 1000)
@@ -30,14 +35,14 @@ class IdleTimeActivityFont : BaseActivityFont() {
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = IdleTimeActivityFont::class.java.simpleName
+            this.tvTitle?.text = IdleTimeActivity::class.java.simpleName
         }
         updateText(delayMlsIdleTime = null, isIdleTime = null)
     }
@@ -59,6 +64,6 @@ class IdleTimeActivityFont : BaseActivityFont() {
         val tv = AppCompatTextView(this)
         tv.text =
             "onActivityUserIdleAfterTime delayMlsIdleTime $delayMlsIdleTime, isIdleTime $isIdleTime"
-        ll.addView(tv)
+        binding.ll.addView(tv)
     }
 }
