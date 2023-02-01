@@ -361,7 +361,7 @@
             android:name=".a.cv.draggableFlipView.DraggableFlipViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.shadowViewHelper.ShadowViewHelperActivityFont"
+            android:name=".up.a.anim.shadowViewHelper.ShadowViewHelperActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.answerView.AnswerViewActivity"

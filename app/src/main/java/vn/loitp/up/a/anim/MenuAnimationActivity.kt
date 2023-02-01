@@ -23,10 +23,10 @@ import vn.loitp.a.anim.lottie.MenuLottieActivityFont
 import vn.loitp.a.anim.morphTransitions.MorphTransitionsMainActivityFont
 import vn.loitp.a.anim.overScroll.OverScrollActivityFont
 import vn.loitp.a.anim.pulsingView.PulsingViewActivityFont
-import vn.loitp.a.anim.shadowViewHelper.ShadowViewHelperActivityFont
 import vn.loitp.databinding.AMenuAnimationBinding
 import vn.loitp.up.a.anim.activityTransition.Animation1Activity
 import vn.loitp.up.a.anim.activityTransitionReveal.RevealActivity1
+import vn.loitp.up.a.anim.shadowViewHelper.ShadowViewHelperActivity
 import vn.loitp.up.a.anim.snowfall.SnowfallActivity
 import vn.loitp.up.a.anim.valueAnimator.ValueAnimatorActivity
 
@@ -72,7 +72,7 @@ class MenuAnimationActivity : BaseActivityFont() {
             launchActivity(Animation1Activity::class.java)
         }
         binding.btShadowViewHelper.setSafeOnClickListener {
-            launchActivity(ShadowViewHelperActivityFont::class.java)
+            launchActivity(ShadowViewHelperActivity::class.java)
         }
         binding.btBasicTransitionFrm.setSafeOnClickListener {
             launchActivity(BasicTransitionActivityFont::class.java)
