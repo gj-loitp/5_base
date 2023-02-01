@@ -1431,7 +1431,7 @@
             android:name=".a.cv.progress.tileProgressView.TileProgressViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.snowfall.SnowfallActivityFont"
+            android:name=".up.a.anim.snowfall.SnowfallActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.fancyShowcase.FancyShowcaseActivity"

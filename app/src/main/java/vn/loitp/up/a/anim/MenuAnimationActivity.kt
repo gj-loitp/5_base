@@ -24,10 +24,10 @@ import vn.loitp.a.anim.morphTransitions.MorphTransitionsMainActivityFont
 import vn.loitp.a.anim.overScroll.OverScrollActivityFont
 import vn.loitp.a.anim.pulsingView.PulsingViewActivityFont
 import vn.loitp.a.anim.shadowViewHelper.ShadowViewHelperActivityFont
-import vn.loitp.a.anim.snowfall.SnowfallActivityFont
 import vn.loitp.databinding.AMenuAnimationBinding
 import vn.loitp.up.a.anim.activityTransition.Animation1Activity
 import vn.loitp.up.a.anim.activityTransitionReveal.RevealActivity1
+import vn.loitp.up.a.anim.snowfall.SnowfallActivity
 import vn.loitp.up.a.anim.valueAnimator.ValueAnimatorActivity
 
 @LogTag("MenuAnimationActivity")
@@ -114,7 +114,7 @@ class MenuAnimationActivity : BaseActivityFont() {
             launchActivity(AnimatedStarsViewActivityFont::class.java)
         }
         binding.btSnowfall.setSafeOnClickListener {
-            launchActivity(SnowfallActivityFont::class.java)
+            launchActivity(SnowfallActivity::class.java)
         }
     }
 }
