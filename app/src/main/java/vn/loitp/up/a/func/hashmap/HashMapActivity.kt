@@ -1,57 +1,63 @@
-package vn.loitp.a.func.hashmap
+package vn.loitp.up.a.func.hashmap
 
 import android.os.Bundle
 import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_func_hashmap.*
 import vn.loitp.R
+import vn.loitp.databinding.AFuncHashmapBinding
 
 @LogTag("HashMapActivity")
 @IsFullScreen(false)
-class HashMapActivityFont : BaseActivityFont(), View.OnClickListener {
+class HashMapActivity : BaseActivityFont(), View.OnClickListener {
+    private lateinit var binding: AFuncHashmapBinding
+
     private val map: MutableMap<String, String> = HashMap()
     private var autoKey = 0
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_func_hashmap
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AFuncHashmapBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = HashMapActivityFont::class.java.simpleName
+            this.tvTitle?.text = HashMapActivity::class.java.simpleName
         }
-        btAdd.setOnClickListener(this)
-        btGetKey0.setOnClickListener(this)
-        btRemoveKey0.setOnClickListener(this)
+        binding.btAdd.setOnClickListener(this)
+        binding.btGetKey0.setOnClickListener(this)
+        binding.btRemoveKey0.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when (v) {
-            btAdd -> {
+            binding.btAdd -> {
                 map[autoKey.toString()] = "Value $autoKey"
                 printMap()
                 autoKey++
             }
-            btGetKey0 -> {
+            binding.btGetKey0 -> {
                 val value = map[0.toString()]
                 showShortInformation("Click value= $value")
             }
-            btRemoveKey0 -> {
+            binding.btRemoveKey0 -> {
                 map.remove(0.toString())
                 printMap()
             }
@@ -63,6 +69,6 @@ class HashMapActivityFont : BaseActivityFont(), View.OnClickListener {
         for ((key, value) in map) {
             s += "$key -> $value"
         }
-        textView.text = s.ifEmpty { "No data" }
+        binding.textView.text = s.ifEmpty { "No data" }
     }
 }

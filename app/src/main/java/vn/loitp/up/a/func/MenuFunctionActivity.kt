@@ -13,8 +13,8 @@ import vn.loitp.a.func.activityAndService.ActivityServiceCommunicateActivityFont
 import vn.loitp.a.func.dragDrop.DragDropSampleActivityFont
 import vn.loitp.a.func.fullScreen.FullScreenActivityFont
 import vn.loitp.a.func.glide.GlideActivityFont
-import vn.loitp.a.func.hashmap.HashMapActivityFont
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.hashmap.HashMapActivity
 import vn.loitp.up.a.func.idleTime.IdleTimeActivity
 import vn.loitp.up.a.func.keyboard.KeyboardActivity
 import vn.loitp.up.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity
@@ -85,7 +85,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v) {
             binding.btSimpleFingerGesture -> launchActivity(SimpleFingerGesturesActivity::class.java)
-            binding.btHashMap -> launchActivity(HashMapActivityFont::class.java)
+            binding.btHashMap -> launchActivity(HashMapActivity::class.java)
             binding.btIdleTime -> launchActivity(IdleTimeActivity::class.java)
             binding.btDragDropSample -> launchActivity(DragDropSampleActivityFont::class.java)
             binding.btToggleFullScreen -> launchActivity(FullScreenActivityFont::class.java)
