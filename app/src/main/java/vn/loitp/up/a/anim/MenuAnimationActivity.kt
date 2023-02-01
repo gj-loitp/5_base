@@ -25,10 +25,10 @@ import vn.loitp.a.anim.overScroll.OverScrollActivityFont
 import vn.loitp.a.anim.pulsingView.PulsingViewActivityFont
 import vn.loitp.a.anim.shadowViewHelper.ShadowViewHelperActivityFont
 import vn.loitp.a.anim.snowfall.SnowfallActivityFont
-import vn.loitp.a.anim.valueAnimator.ValueAnimatorActivityFont
 import vn.loitp.databinding.AMenuAnimationBinding
 import vn.loitp.up.a.anim.activityTransition.Animation1Activity
 import vn.loitp.up.a.anim.activityTransitionReveal.RevealActivity1
+import vn.loitp.up.a.anim.valueAnimator.ValueAnimatorActivity
 
 @LogTag("MenuAnimationActivity")
 @IsFullScreen(false)
@@ -87,7 +87,7 @@ class MenuAnimationActivity : BaseActivityFont() {
             launchActivity(MenuLottieActivityFont::class.java)
         }
         binding.btValueAnimator.setSafeOnClickListener {
-            launchActivity(ValueAnimatorActivityFont::class.java)
+            launchActivity(ValueAnimatorActivity::class.java)
         }
         binding.btElasticView.setSafeOnClickListener {
             launchActivity(ElasticActivityFont::class.java)

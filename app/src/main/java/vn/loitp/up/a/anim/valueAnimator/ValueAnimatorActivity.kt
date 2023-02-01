@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.valueAnimator
+package vn.loitp.up.a.anim.valueAnimator
 
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
@@ -8,36 +8,42 @@ import android.view.animation.DecelerateInterpolator
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
-import kotlinx.android.synthetic.main.a_animation_value_animator.*
 import vn.loitp.R
+import vn.loitp.databinding.AAnimationValueAnimatorBinding
 
 // https://viblo.asia/p/custom-view-trong-android-gGJ59br9KX2
 @LogTag("ValueAnimatorActivity")
 @IsFullScreen(false)
-class ValueAnimatorActivityFont : BaseActivityFont() {
+class ValueAnimatorActivity : BaseActivityFont() {
+
+    private lateinit var binding: AAnimationValueAnimatorBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_animation_value_animator
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AAnimationValueAnimatorBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ValueAnimatorActivityFont::class.java.simpleName
+            this.tvTitle?.text = ValueAnimatorActivity::class.java.simpleName
         }
-        btStart.setSafeOnClickListener {
+        binding.btStart.setSafeOnClickListener {
             startAnim()
         }
     }
@@ -54,15 +60,15 @@ class ValueAnimatorActivityFont : BaseActivityFont() {
         valueAnimator?.let { va ->
             va.duration = duration.toLong()
             va.interpolator = DecelerateInterpolator()
-            val spaceW = (screenWidth - view.width) / range
+            val spaceW = (screenWidth - binding.view.width) / range
             val spaceH =
-                (screenHeight - getStatusBarHeight() - getBottomBarHeight() - view.height) / range
+                (screenHeight - getStatusBarHeight() - getBottomBarHeight() - binding.view.height) / range
 
             va.addUpdateListener { animation: ValueAnimator ->
                 val value = animation.animatedValue as Int
-                tvDebug.text =
+                binding.tvDebug.text =
                     "onAnimationUpdate: " + value + " -> " + spaceW * value + " x " + spaceH * value
-                updateUI(view = view, posX = spaceW * value, posY = spaceH * value)
+                updateUI(view = binding.view, posX = spaceW * value, posY = spaceH * value)
             }
             va.start()
         }

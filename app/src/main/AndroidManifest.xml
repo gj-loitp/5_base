@@ -573,7 +573,7 @@
             android:name=".up.a.u.UtilsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.valueAnimator.ValueAnimatorActivityFont"
+            android:name=".up.a.anim.valueAnimator.ValueAnimatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.video.youtube.YoutubeActivityFont"
