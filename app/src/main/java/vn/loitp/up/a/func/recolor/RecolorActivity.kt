@@ -1,31 +1,37 @@
-package vn.loitp.a.func.recolor
+package vn.loitp.up.a.func.recolor
 
 import android.graphics.Color
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import com.simmorsal.recolor_project.ReColor
-import kotlinx.android.synthetic.main.a_func_recolor.*
 import vn.loitp.R
+import vn.loitp.databinding.AFuncRecolorBinding
 
 // https://github.com/SIMMORSAL/ReColor
 
 @LogTag("RecolorActivity")
 @IsFullScreen(false)
-class RecolorActivityFont : BaseActivityFont() {
+class RecolorActivity : BaseActivityFont() {
+    private lateinit var binding: AFuncRecolorBinding
+
     private var imageViewColorSetNumber = 0
     private var textViewColorSetNumber = 0
     private var isStatusBarColorChanged = false
     private var isNavigationBarColorChanged = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_func_recolor
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AFuncRecolorBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         logAListOfColors()
@@ -39,21 +45,21 @@ class RecolorActivityFont : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = RecolorActivityFont::class.java.simpleName
+            this.tvTitle?.text = RecolorActivity::class.java.simpleName
         }
 
         // changing space_invaders' color
-        imageView.setOnClickListener {
+        binding.imageView.setOnClickListener {
             when (imageViewColorSetNumber) {
                 0 -> {
-                    imageView.recolor(
+                    binding.imageView.recolor(
                         startColor = Color.RED,
                         endColor = Color.YELLOW,
                         duration = 300
@@ -61,7 +67,7 @@ class RecolorActivityFont : BaseActivityFont() {
                     imageViewColorSetNumber = 1
                 }
                 1 -> {
-                    imageView.recolor(
+                    binding.imageView.recolor(
                         startColor = Color.YELLOW,
                         endColor = Color.GREEN,
                         duration = 300
@@ -69,7 +75,7 @@ class RecolorActivityFont : BaseActivityFont() {
                     imageViewColorSetNumber = 2
                 }
                 2 -> {
-                    imageView.recolor(
+                    binding.imageView.recolor(
                         startColor = Color.GREEN,
                         endColor = Color.BLUE,
                         duration = 300
@@ -77,7 +83,7 @@ class RecolorActivityFont : BaseActivityFont() {
                     imageViewColorSetNumber = 3
                 }
                 3 -> {
-                    imageView.recolor(
+                    binding.imageView.recolor(
                         startColor = Color.BLUE,
                         endColor = Color.RED,
                         duration = 300
@@ -88,10 +94,10 @@ class RecolorActivityFont : BaseActivityFont() {
         }
 
         // changing the color on the text view
-        textView.setOnClickListener {
+        binding.textView.setOnClickListener {
             when (textViewColorSetNumber) {
                 0 -> {
-                    textView.recolor(
+                    binding.textView.recolor(
                         startColor = Color.RED,
                         endColor = Color.YELLOW,
                         duration = 300
@@ -99,7 +105,7 @@ class RecolorActivityFont : BaseActivityFont() {
                     textViewColorSetNumber = 1
                 }
                 1 -> {
-                    textView.recolor(
+                    binding.textView.recolor(
                         startColor = Color.YELLOW,
                         endColor = Color.BLACK,
                         duration = 300
@@ -107,7 +113,7 @@ class RecolorActivityFont : BaseActivityFont() {
                     textViewColorSetNumber = 2
                 }
                 2 -> {
-                    textView.recolor(
+                    binding.textView.recolor(
                         startColor = Color.BLACK,
                         endColor = Color.WHITE,
                         duration = 300
@@ -115,7 +121,7 @@ class RecolorActivityFont : BaseActivityFont() {
                     textViewColorSetNumber = 3
                 }
                 3 -> {
-                    textView.recolor(
+                    binding.textView.recolor(
                         startColor = Color.WHITE,
                         endColor = Color.RED,
                         duration = 300
@@ -124,7 +130,7 @@ class RecolorActivityFont : BaseActivityFont() {
                 }
             }
         }
-        linReColorBackground.setOnClickListener {
+        binding.linReColorBackground.setOnClickListener {
             it.recolor(
                 startColor = Color.RED,
                 endColor = Color.GREEN,
@@ -135,7 +141,7 @@ class RecolorActivityFont : BaseActivityFont() {
             )
         }
 
-        theCardView.setOnClickListener {
+        binding.theCardView.setOnClickListener {
             it.recolor(
                 startColor = Color.RED,
                 endColor = Color.GREEN,
@@ -147,7 +153,7 @@ class RecolorActivityFont : BaseActivityFont() {
         }
 
         // changing statusBar color
-        linRecolorStatusBar.setOnClickListener {
+        binding.linRecolorStatusBar.setOnClickListener {
             isStatusBarColorChanged = if (!isStatusBarColorChanged) {
                 // if starting color is null, color will be automatically retrieved from status bar
                 // same is true for navigation bar
@@ -168,7 +174,7 @@ class RecolorActivityFont : BaseActivityFont() {
         }
 
         // changing navigationBar color
-        linRecolorNavigationBar.setOnClickListener {
+        binding.linRecolorNavigationBar.setOnClickListener {
             isNavigationBarColorChanged = if (!isNavigationBarColorChanged) {
                 this.recolorNavigationBar(
                     startColor = null,
@@ -187,7 +193,7 @@ class RecolorActivityFont : BaseActivityFont() {
         }
 
         // changing both statusBar and navigationBar colors
-        linRecolorBoth.setOnClickListener {
+        binding.linRecolorBoth.setOnClickListener {
             isStatusBarColorChanged = if (!isStatusBarColorChanged) {
                 this.recolorStatusBar(
                     startColor = null,
@@ -221,7 +227,7 @@ class RecolorActivityFont : BaseActivityFont() {
         }
 
         // pulsing statusBar to an orange color for 2 times
-        linPulseStatusBar.setOnClickListener {
+        binding.linPulseStatusBar.setOnClickListener {
             this.recolorStatusBarPulse(
                 pulseColor = Color.RED,
                 pulseSpeed = 200,
@@ -230,7 +236,7 @@ class RecolorActivityFont : BaseActivityFont() {
         }
 
         // pulsing navigationBar to an orange color for 2 times
-        linPulseNavigationBar.setOnClickListener {
+        binding.linPulseNavigationBar.setOnClickListener {
             this.recolorNavigationBarPulse(
                 pulseColor = Color.RED,
                 pulseSpeed = 200,
@@ -239,7 +245,7 @@ class RecolorActivityFont : BaseActivityFont() {
         }
 
         // pulsing both colors' to an orange color for 5 times really fast
-        linPulseBoth.setOnClickListener {
+        binding.linPulseBoth.setOnClickListener {
             this.recolorStatusBarPulse(
                 pulseColor = Color.RED,
                 pulseSpeed = 200,
@@ -251,7 +257,7 @@ class RecolorActivityFont : BaseActivityFont() {
                 pulseCount = 2
             )
         }
-        ib.setOnClickListener {
+        binding.ib.setOnClickListener {
             it.recolor(
                 startColor = Color.WHITE,
                 endColor = Color.RED,
