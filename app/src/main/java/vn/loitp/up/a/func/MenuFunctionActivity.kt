@@ -12,8 +12,8 @@ import vn.loitp.R
 import vn.loitp.a.func.activityAndService.ActivityServiceCommunicateActivityFont
 import vn.loitp.a.func.dragDrop.DragDropSampleActivityFont
 import vn.loitp.a.func.fullScreen.FullScreenActivityFont
-import vn.loitp.a.func.glide.GlideActivityFont
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.glide.GlideActivity
 import vn.loitp.up.a.func.hashmap.HashMapActivity
 import vn.loitp.up.a.func.idleTime.IdleTimeActivity
 import vn.loitp.up.a.func.keyboard.KeyboardActivity
@@ -100,7 +100,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btViewDragHelperSimple -> launchActivity(ViewDragHelperSimpleActivity::class.java)
             binding.btViewDragHelperSimple1 -> launchActivity(ViewDragHelperSimpleActivity1::class.java)
             binding.btSensor -> launchActivity(SensorActivity::class.java)
-            binding.btGlide -> launchActivity(GlideActivityFont::class.java)
+            binding.btGlide -> launchActivity(GlideActivity::class.java)
             binding.btKeyboard -> launchActivity(KeyboardActivity::class.java)
             binding.btKeyboardHeightProvider -> launchActivity(KeyboardHeightProviderActivity::class.java)
             binding.btTheme -> launchActivity(ThemeActivity::class.java)
