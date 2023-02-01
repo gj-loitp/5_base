@@ -1104,7 +1104,7 @@
             android:name=".a.cv.dragView.ExoPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.pulsingView.PulsingViewActivityFont"
+            android:name=".up.a.anim.pulsingView.PulsingViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.picker.unicornFile.UnicornFilePickerActivity"

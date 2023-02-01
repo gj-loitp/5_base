@@ -22,10 +22,10 @@ import vn.loitp.a.anim.konfetti.KonfettiActivityFont
 import vn.loitp.a.anim.lottie.MenuLottieActivityFont
 import vn.loitp.a.anim.morphTransitions.MorphTransitionsMainActivityFont
 import vn.loitp.a.anim.overScroll.OverScrollActivityFont
-import vn.loitp.a.anim.pulsingView.PulsingViewActivityFont
 import vn.loitp.databinding.AMenuAnimationBinding
 import vn.loitp.up.a.anim.activityTransition.Animation1Activity
 import vn.loitp.up.a.anim.activityTransitionReveal.RevealActivity1
+import vn.loitp.up.a.anim.pulsingView.PulsingViewActivity
 import vn.loitp.up.a.anim.shadowViewHelper.ShadowViewHelperActivity
 import vn.loitp.up.a.anim.snowfall.SnowfallActivity
 import vn.loitp.up.a.anim.valueAnimator.ValueAnimatorActivity
@@ -99,7 +99,7 @@ class MenuAnimationActivity : BaseActivityFont() {
             launchActivity(RevealActivity1::class.java)
         }
         binding.btPulsingView.setSafeOnClickListener {
-            launchActivity(PulsingViewActivityFont::class.java)
+            launchActivity(PulsingViewActivity::class.java)
         }
         binding.btAndroidParticlesActivity.setSafeOnClickListener {
             launchActivity(AndroidParticlesActivityFont::class.java)
