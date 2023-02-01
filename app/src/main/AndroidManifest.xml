@@ -697,7 +697,7 @@
             android:name=".a.cv.dlg.slideImages.DialogSlideImagesActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.keyboard.KeyboardActivity"
+            android:name=".up.a.func.keyboard.KeyboardActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.tv.stroked.StrokedTextViewActivityFont"

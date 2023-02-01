@@ -1,17 +1,18 @@
-package vn.loitp.a.func.keyboard
+package vn.loitp.up.a.func.keyboard
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.hideKeyboard
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.showKeyboard
 import gun0912.tedkeyboardobserver.TedRxKeyboardObserver
-import kotlinx.android.synthetic.main.a_func_keyboard.*
 import vn.loitp.R
+import vn.loitp.databinding.AFuncKeyboardBinding
 
 // https://github.com/ParkSangGwon/TedKeyboardObserver
 
@@ -19,20 +20,25 @@ import vn.loitp.R
 @IsFullScreen(false)
 class KeyboardActivity : BaseActivityFont() {
 
+    private lateinit var binding: AFuncKeyboardBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_func_keyboard
+        return NOT_FOUND
     }
 
     @SuppressLint("CheckResult", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AFuncKeyboardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     @SuppressLint("CheckResult", "SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -44,13 +50,13 @@ class KeyboardActivity : BaseActivityFont() {
         TedRxKeyboardObserver(this)
             .listen()
             .subscribe({ isShow ->
-                textView.text = "isShow $isShow"
+                binding.textView.text = "isShow $isShow"
             }, { throwable -> throwable.printStackTrace() })
 
-        btShow.setSafeOnClickListener {
+        binding.btShow.setSafeOnClickListener {
             this.showKeyboard()
         }
-        btHide.setSafeOnClickListener {
+        binding.btHide.setSafeOnClickListener {
             this.hideKeyboard()
         }
     }

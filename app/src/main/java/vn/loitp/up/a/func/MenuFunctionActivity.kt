@@ -15,8 +15,8 @@ import vn.loitp.a.func.fullScreen.FullScreenActivityFont
 import vn.loitp.a.func.glide.GlideActivityFont
 import vn.loitp.a.func.hashmap.HashMapActivityFont
 import vn.loitp.a.func.idleTime.IdleTimeActivityFont
-import vn.loitp.a.func.keyboard.KeyboardActivity
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.keyboard.KeyboardActivity
 import vn.loitp.up.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity
 import vn.loitp.up.a.func.location.LocationActivity
 import vn.loitp.up.a.func.noti.MenuNotificationActivity
