@@ -20,8 +20,8 @@ import vn.loitp.a.func.keyboardHeightProvider.KeyboardHeightProviderActivityFont
 import vn.loitp.a.func.location.LocationActivity
 import vn.loitp.a.func.noti.MenuNotificationActivityFont
 import vn.loitp.a.func.processPhoenix.ProcessPhoenixActivityFont
-import vn.loitp.a.func.pump.PumpActivityFont
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.pump.PumpActivity
 import vn.loitp.up.a.func.recolor.RecolorActivity
 import vn.loitp.up.a.func.sensor.SensorActivity
 import vn.loitp.up.a.func.simpleFingerGestures.SimpleFingerGesturesActivity
@@ -96,7 +96,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             )
             binding.btLocation -> launchActivity(LocationActivity::class.java)
             binding.btNotification -> launchActivity(MenuNotificationActivityFont::class.java)
-            binding.btPump -> launchActivity(PumpActivityFont::class.java)
+            binding.btPump -> launchActivity(PumpActivity::class.java)
             binding.btViewDragHelperSimple -> launchActivity(ViewDragHelperSimpleActivity::class.java)
             binding.btViewDragHelperSimple1 -> launchActivity(ViewDragHelperSimpleActivity1::class.java)
             binding.btSensor -> launchActivity(SensorActivity::class.java)

@@ -1,4 +1,4 @@
-package vn.loitp.a.func.pump
+package vn.loitp.up.a.func.pump
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,28 +8,34 @@ import com.huxq17.download.core.DownloadListener
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_pump.*
 import vn.loitp.R
+import vn.loitp.databinding.APumpBinding
 import vn.loitp.up.common.Constants
 
 @LogTag("PumpActivity")
 @IsFullScreen(false)
-class PumpActivityFont : BaseActivityFont() {
+class PumpActivity : BaseActivityFont() {
+
+    private lateinit var binding: APumpBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_pump
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = APumpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -44,10 +50,10 @@ class PumpActivityFont : BaseActivityFont() {
             .setMinUsableStorageSpace(4 * 1024L)
             .build()
 
-        btPicture.setSafeOnClickListener {
+        binding.btPicture.setSafeOnClickListener {
             handleDownloadPicture()
         }
-        btPdf.setSafeOnClickListener {
+        binding.btPdf.setSafeOnClickListener {
             handleDownloadPdf()
         }
     }
@@ -60,23 +66,22 @@ class PumpActivityFont : BaseActivityFont() {
 
     @SuppressLint("SetTextI18n")
     private fun handleDownloadPicture() {
-        //TODO fix pump deo chay :((
         Pump.newRequestToPicture(Constants.URL_IMG_1, "/loitp/pictures")
             .listener(object : DownloadListener() {
 
                 override fun onProgress(progress: Int) {
-                    tvStatus.text = "onProgress $progress%"
+                    binding.tvStatus.text = "onProgress $progress%"
                 }
 
                 override fun onSuccess() {
                     val filePath = downloadInfo.filePath
                     showShortInformation("Download Finished $filePath")
-                    tvStatus.text = "Download Finished $filePath"
+                    binding.tvStatus.text = "Download Finished $filePath"
                 }
 
                 override fun onFailed() {
                     showShortError("Download failed")
-                    tvStatus.text = "Download failed"
+                    binding.tvStatus.text = "Download failed"
                 }
             })
             // Optionally,Set whether to repeatedly download the downloaded file,default false.
@@ -93,18 +98,18 @@ class PumpActivityFont : BaseActivityFont() {
             .listener(object : DownloadListener() {
 
                 override fun onProgress(progress: Int) {
-                    tvStatus.text = "onProgress $progress%"
+                    binding.tvStatus.text = "onProgress $progress%"
                 }
 
                 override fun onSuccess() {
                     val filePath = downloadInfo.filePath
                     showShortInformation("Download Finished $filePath")
-                    tvStatus.text = "Download Finished $filePath"
+                    binding.tvStatus.text = "Download Finished $filePath"
                 }
 
                 override fun onFailed() {
                     showShortError("Download failed")
-                    tvStatus.text = "Download failed"
+                    binding.tvStatus.text = "Download failed"
                 }
             })
             // Optionally,Set whether to repeatedly download the downloaded file,default false.
