@@ -1,4 +1,4 @@
-package vn.loitp.a.func.simpleFingerGestures
+package vn.loitp.up.a.func.simpleFingerGestures
 
 import android.annotation.SuppressLint
 import android.graphics.Point
@@ -8,12 +8,14 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.func.simpleFingerGestures.SimpleFingerGestures
-import kotlinx.android.synthetic.main.a_func_simple_finger_gestures.*
 import vn.loitp.R
+import vn.loitp.databinding.AFuncSimpleFingerGesturesBinding
 
 @LogTag("SimpleFingerGesturesActivity")
 @IsFullScreen(false)
-class SimpleFingerGesturesActivityFont : BaseActivityFont() {
+class SimpleFingerGesturesActivity : BaseActivityFont() {
+
+    private lateinit var binding: AFuncSimpleFingerGesturesBinding
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_func_simple_finger_gestures
@@ -22,19 +24,22 @@ class SimpleFingerGesturesActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AFuncSimpleFingerGesturesBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = SimpleFingerGesturesActivityFont::class.java.simpleName
+            this.tvTitle?.text = SimpleFingerGesturesActivity::class.java.simpleName
         }
         val display = windowManager.defaultDisplay
         val size = Point()
@@ -49,7 +54,7 @@ class SimpleFingerGesturesActivityFont : BaseActivityFont() {
                 gestureDuration: Long,
                 gestureDistance: Double
             ): Boolean {
-                textView.text =
+                binding.textView.text =
                     "You swiped $fingers fingers  up $gestureDuration milliseconds $gestureDistance pixels far"
                 return false
             }
@@ -59,7 +64,7 @@ class SimpleFingerGesturesActivityFont : BaseActivityFont() {
                 gestureDuration: Long,
                 gestureDistance: Double
             ): Boolean {
-                textView.text =
+                binding.textView.text =
                     "You swiped $fingers fingers  down $gestureDuration milliseconds $gestureDistance pixels far"
                 return false
             }
@@ -69,7 +74,7 @@ class SimpleFingerGesturesActivityFont : BaseActivityFont() {
                 gestureDuration: Long,
                 gestureDistance: Double
             ): Boolean {
-                textView.text =
+                binding.textView.text =
                     "You swiped $fingers fingers  left $gestureDuration milliseconds $gestureDistance pixels far"
                 return false
             }
@@ -79,7 +84,7 @@ class SimpleFingerGesturesActivityFont : BaseActivityFont() {
                 gestureDuration: Long,
                 gestureDistance: Double
             ): Boolean {
-                textView.text =
+                binding.textView.text =
                     "You swiped $fingers fingers  right $gestureDuration milliseconds $gestureDistance pixels far"
                 return false
             }
@@ -89,7 +94,7 @@ class SimpleFingerGesturesActivityFont : BaseActivityFont() {
                 gestureDuration: Long,
                 gestureDistance: Double
             ): Boolean {
-                textView.text =
+                binding.textView.text =
                     "You pinched $fingers fingers $gestureDuration milliseconds $gestureDistance pixels far"
                 return false
             }
@@ -99,16 +104,16 @@ class SimpleFingerGesturesActivityFont : BaseActivityFont() {
                 gestureDuration: Long,
                 gestureDistance: Double
             ): Boolean {
-                textView.text =
+                binding.textView.text =
                     "You unpinched " + fingers + "fingers" + gestureDuration + " milliseconds " + gestureDistance + " pixels far"
                 return false
             }
 
             override fun onDoubleTap(fingers: Int): Boolean {
-                textView.text = "You double tapped"
+                binding.textView.text = "You double tapped"
                 return false
             }
         })
-        iv.setOnTouchListener(simpleFingerGestures)
+        binding.iv.setOnTouchListener(simpleFingerGestures)
     }
 }

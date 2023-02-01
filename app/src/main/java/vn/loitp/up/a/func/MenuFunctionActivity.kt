@@ -23,8 +23,8 @@ import vn.loitp.a.func.processPhoenix.ProcessPhoenixActivityFont
 import vn.loitp.a.func.pump.PumpActivityFont
 import vn.loitp.a.func.recolor.RecolorActivityFont
 import vn.loitp.a.func.sensor.SensorActivityFont
-import vn.loitp.a.func.simpleFingerGestures.SimpleFingerGesturesActivityFont
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.simpleFingerGestures.SimpleFingerGesturesActivity
 import vn.loitp.up.a.func.theme.ThemeActivity
 import vn.loitp.up.a.func.viewDragHelper.ViewDragHelperActivity
 import vn.loitp.up.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity
@@ -84,7 +84,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            binding.btSimpleFingerGesture -> launchActivity(SimpleFingerGesturesActivityFont::class.java)
+            binding.btSimpleFingerGesture -> launchActivity(SimpleFingerGesturesActivity::class.java)
             binding.btHashMap -> launchActivity(HashMapActivityFont::class.java)
             binding.btIdleTime -> launchActivity(IdleTimeActivityFont::class.java)
             binding.btDragDropSample -> launchActivity(DragDropSampleActivityFont::class.java)

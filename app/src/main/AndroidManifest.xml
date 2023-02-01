@@ -283,7 +283,7 @@
             android:name=".up.a.func.MenuFunctionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.simpleFingerGestures.SimpleFingerGesturesActivityFont"
+            android:name=".up.a.func.simpleFingerGestures.SimpleFingerGesturesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.tv.autoFit.AutoFitTextViewActivity"
