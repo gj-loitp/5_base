@@ -441,7 +441,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- Facebook Configuration -->
         <activity
-            android:name=".a.func.noti.MenuNotificationActivityFont"
+            android:name=".up.a.func.noti.MenuNotificationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -1425,7 +1425,7 @@
             android:name=".a.cv.et.otpView.OtpViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.processPhoenix.ProcessPhoenixActivityFont"
+            android:name=".up.a.func.processPhoenix.ProcessPhoenixActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.progress.tileProgressView.TileProgressViewActivityFont"

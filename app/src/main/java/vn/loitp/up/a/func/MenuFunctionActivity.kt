@@ -18,9 +18,9 @@ import vn.loitp.a.func.idleTime.IdleTimeActivityFont
 import vn.loitp.a.func.keyboard.KeyboardActivity
 import vn.loitp.a.func.keyboardHeightProvider.KeyboardHeightProviderActivityFont
 import vn.loitp.a.func.location.LocationActivity
-import vn.loitp.a.func.noti.MenuNotificationActivityFont
-import vn.loitp.a.func.processPhoenix.ProcessPhoenixActivityFont
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.noti.MenuNotificationActivity
+import vn.loitp.up.a.func.processPhoenix.ProcessPhoenixActivity
 import vn.loitp.up.a.func.pump.PumpActivity
 import vn.loitp.up.a.func.recolor.RecolorActivity
 import vn.loitp.up.a.func.sensor.SensorActivity
@@ -95,7 +95,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
                 ActivityServiceCommunicateActivityFont::class.java
             )
             binding.btLocation -> launchActivity(LocationActivity::class.java)
-            binding.btNotification -> launchActivity(MenuNotificationActivityFont::class.java)
+            binding.btNotification -> launchActivity(MenuNotificationActivity::class.java)
             binding.btPump -> launchActivity(PumpActivity::class.java)
             binding.btViewDragHelperSimple -> launchActivity(ViewDragHelperSimpleActivity::class.java)
             binding.btViewDragHelperSimple1 -> launchActivity(ViewDragHelperSimpleActivity1::class.java)
@@ -105,7 +105,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btKeyboardHeightProvider -> launchActivity(KeyboardHeightProviderActivityFont::class.java)
             binding.btTheme -> launchActivity(ThemeActivity::class.java)
             binding.btWallpoActivity -> launchActivity(WallpoActivity::class.java)
-            binding.btProcessPhoenix -> launchActivity(ProcessPhoenixActivityFont::class.java)
+            binding.btProcessPhoenix -> launchActivity(ProcessPhoenixActivity::class.java)
         }
     }
 }
