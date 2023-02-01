@@ -431,7 +431,7 @@
             android:name=".a.cv.rv.book.BookViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.activityAndService.ActivityServiceCommunicateActivityFont"
+            android:name=".up.a.func.activityAndService.ActivityServiceCommunicateActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.swipeBack.SwipeBackLayoutActivityFont"
@@ -739,7 +739,7 @@
             android:enabled="true"
             android:exported="false" />
         <service
-            android:name=".a.func.activityAndService.TestService"
+            android:name=".up.a.func.activityAndService.TestService"
             android:enabled="true"
             android:exported="false" />
         <service

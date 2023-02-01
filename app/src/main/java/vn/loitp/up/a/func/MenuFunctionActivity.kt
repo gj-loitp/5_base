@@ -9,8 +9,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.func.activityAndService.ActivityServiceCommunicateActivityFont
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.activityAndService.ActivityServiceCommunicateActivity
 import vn.loitp.up.a.func.dragDrop.DragDropSampleActivity
 import vn.loitp.up.a.func.fullScreen.FullScreenActivity
 import vn.loitp.up.a.func.glide.GlideActivity
@@ -92,7 +92,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btViewDragHelper -> launchActivity(ViewDragHelperActivity::class.java)
             binding.btRecolor -> launchActivity(RecolorActivity::class.java)
             binding.btActivityServiceComunicate -> launchActivity(
-                ActivityServiceCommunicateActivityFont::class.java
+                ActivityServiceCommunicateActivity::class.java
             )
             binding.btLocation -> launchActivity(LocationActivity::class.java)
             binding.btNotification -> launchActivity(MenuNotificationActivity::class.java)

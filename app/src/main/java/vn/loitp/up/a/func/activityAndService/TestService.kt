@@ -1,4 +1,4 @@
-package vn.loitp.a.func.activityAndService
+package vn.loitp.up.a.func.activityAndService
 
 import android.annotation.SuppressLint
 import android.app.Service

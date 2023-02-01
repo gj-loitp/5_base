@@ -1,4 +1,4 @@
-package vn.loitp.a.func.activityAndService
+package vn.loitp.up.a.func.activityAndService
 
 import android.app.Activity
 import android.content.Intent
@@ -11,21 +11,23 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_func_service_communicate.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import vn.loitp.R
 import vn.loitp.a.demo.floatingWidget.CommunicateMng
+import vn.loitp.databinding.AFuncServiceCommunicateBinding
 import vn.loitp.up.app.EmptyActivity
 
 @LogTag("ActivityServiceCommunicateActivity")
 @IsFullScreen(false)
-class ActivityServiceCommunicateActivityFont : BaseActivityFont() {
+class ActivityServiceCommunicateActivity : BaseActivityFont() {
 
     companion object {
         const val KEY_INPUT = "KEY_INPUT"
         const val KEY_OUTPUT = "KEY_OUTPUT"
     }
+
+    private lateinit var binding: AFuncServiceCommunicateBinding
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_func_service_communicate
@@ -34,30 +36,33 @@ class ActivityServiceCommunicateActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AFuncServiceCommunicateBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ActivityServiceCommunicateActivityFont::class.java.simpleName
+            this.tvTitle?.text = ActivityServiceCommunicateActivity::class.java.simpleName
         }
 
-        btNotifyMe.setSafeOnClickListener {
+        binding.btNotifyMe.setSafeOnClickListener {
             handleNotify()
         }
-        bt0.setSafeOnClickListener {
+        binding.bt0.setSafeOnClickListener {
             CommunicateMng.postFromActivity(
-                CommunicateMng.MsgFromActivity("${bt0.text} +${System.currentTimeMillis()}")
+                CommunicateMng.MsgFromActivity("${binding.bt0.text} +${System.currentTimeMillis()}")
             )
         }
 
-        btTestStartActivity4Result.setSafeOnClickListener {
+        binding.btTestStartActivity4Result.setSafeOnClickListener {
             launchActivityTest()
         }
     }
@@ -65,7 +70,7 @@ class ActivityServiceCommunicateActivityFont : BaseActivityFont() {
     private fun handleNotify() {
         if (Settings.canDrawOverlays(this)) {
             showShortInformation("onClick TestService")
-            textView.text = ""
+            binding.textView.text = ""
             startService(Intent(this, TestService::class.java))
         } else {
             launchActivityForResult(
@@ -83,7 +88,7 @@ class ActivityServiceCommunicateActivityFont : BaseActivityFont() {
     // listen msg from service
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(msg: CommunicateMng.MsgFromService) {
-        textView.text = msg.msg
+        binding.textView.text = msg.msg
     }
 
     private fun launchActivityTest() {

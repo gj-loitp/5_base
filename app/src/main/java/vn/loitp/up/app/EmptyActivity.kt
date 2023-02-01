@@ -12,8 +12,8 @@ import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.func.activityAndService.ActivityServiceCommunicateActivityFont
 import vn.loitp.databinding.A0Binding
+import vn.loitp.up.a.func.activityAndService.ActivityServiceCommunicateActivity
 
 @LogTag("EmptyActivity")
 @IsFullScreen(false)
@@ -56,7 +56,7 @@ class EmptyActivity : BaseActivityFont() {
 
     @SuppressLint("SetTextI18n")
     private fun testInputData() {
-        val input = intent.getStringExtra(ActivityServiceCommunicateActivityFont.KEY_INPUT)
+        val input = intent.getStringExtra(ActivityServiceCommunicateActivity.KEY_INPUT)
         if (input.isNullOrEmpty()) {
             //do nothing
         } else {
@@ -64,7 +64,7 @@ class EmptyActivity : BaseActivityFont() {
             binding.tv.setSafeOnClickListener {
                 setResultActivity { data ->
                     data.putExtra(
-                        /* name = */ ActivityServiceCommunicateActivityFont.KEY_OUTPUT,
+                        /* name = */ ActivityServiceCommunicateActivity.KEY_OUTPUT,
                         /* value = */ "You are the best!!! ${System.currentTimeMillis()}"
                     )
                 }
