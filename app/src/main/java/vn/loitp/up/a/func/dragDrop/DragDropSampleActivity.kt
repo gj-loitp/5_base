@@ -1,4 +1,4 @@
-package vn.loitp.a.func.dragDrop
+package vn.loitp.up.a.func.dragDrop
 
 import android.content.ClipData
 import android.os.Bundle
@@ -10,49 +10,55 @@ import android.widget.ImageView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_func_drag_drop_sample.*
 import vn.loitp.R
+import vn.loitp.databinding.AFuncDragDropSampleBinding
 
 @LogTag("DragDropSampleActivity")
 @IsFullScreen(false)
-class DragDropSampleActivityFont : BaseActivityFont() {
+class DragDropSampleActivity : BaseActivityFont() {
+
+    private lateinit var binding: AFuncDragDropSampleBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_func_drag_drop_sample
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AFuncDragDropSampleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = DragDropSampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = DragDropSampleActivity::class.java.simpleName
         }
 
-        ivPaper.tag = "paper"
-        ivTrash.tag = "trash"
+        binding.ivPaper.tag = "paper"
+        binding.ivTrash.tag = "trash"
 
-        ivTrash.setOnDragListener(
+        binding.ivTrash.setOnDragListener(
             TrashDragListener(
                 enterShape = R.drawable.ic_launcher_loitp,
                 normalShape = R.drawable.ic_search_black_48dp
             )
         )
-        ivTrash.setSafeOnClickListener {
-            ivPaper.visibility = View.VISIBLE
+        binding.ivTrash.setSafeOnClickListener {
+            binding.ivPaper.visibility = View.VISIBLE
         }
-        ivPaper.setOnLongClickListener { view: View ->
+        binding.ivPaper.setOnLongClickListener { view: View ->
             val data = ClipData.newPlainText("", "")
             val shadowBuilder = DragShadowBuilder(view)
             view.startDrag(data, shadowBuilder, view, 0)
