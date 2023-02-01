@@ -1,41 +1,47 @@
-package vn.loitp.a.func.theme
+package vn.loitp.up.a.func.theme
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.isDarkTheme
 import com.loitp.core.ext.setDarkTheme
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_theme.*
 import vn.loitp.R
+import vn.loitp.databinding.AThemeBinding
 
 @LogTag("ThemeActivity")
 @IsFullScreen(false)
-class ThemeActivityFont : BaseActivityFont() {
+class ThemeActivity : BaseActivityFont() {
+
+    private lateinit var binding: AThemeBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_theme
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AThemeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ThemeActivityFont::class.java.simpleName
+            this.tvTitle?.text = ThemeActivity::class.java.simpleName
         }
-        btChangeTheme.setSafeOnClickListener {
+        binding.btChangeTheme.setSafeOnClickListener {
             val isDarkTheme = isDarkTheme()
             if (isDarkTheme) {
                 setDarkTheme(isDarkTheme = false)

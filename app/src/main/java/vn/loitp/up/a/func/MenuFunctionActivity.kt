@@ -24,8 +24,8 @@ import vn.loitp.a.func.pump.PumpActivityFont
 import vn.loitp.a.func.recolor.RecolorActivityFont
 import vn.loitp.a.func.sensor.SensorActivityFont
 import vn.loitp.a.func.simpleFingerGestures.SimpleFingerGesturesActivityFont
-import vn.loitp.a.func.theme.ThemeActivityFont
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.theme.ThemeActivity
 import vn.loitp.up.a.func.viewDragHelper.ViewDragHelperActivity
 import vn.loitp.up.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity
 import vn.loitp.up.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity1
@@ -103,7 +103,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btGlide -> launchActivity(GlideActivityFont::class.java)
             binding.btKeyboard -> launchActivity(KeyboardActivity::class.java)
             binding.btKeyboardHeightProvider -> launchActivity(KeyboardHeightProviderActivityFont::class.java)
-            binding.btTheme -> launchActivity(ThemeActivityFont::class.java)
+            binding.btTheme -> launchActivity(ThemeActivity::class.java)
             binding.btWallpoActivity -> launchActivity(WallpoActivity::class.java)
             binding.btProcessPhoenix -> launchActivity(ProcessPhoenixActivityFont::class.java)
         }

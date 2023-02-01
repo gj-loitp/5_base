@@ -993,7 +993,7 @@
             android:name=".a.cv.wv.l.LWebViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.theme.ThemeActivityFont"
+            android:name=".up.a.func.theme.ThemeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.comic.ComicViewActivityFont"
