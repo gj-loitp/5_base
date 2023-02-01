@@ -71,7 +71,7 @@
             android:name=".a.cv.progress.MenuProgressActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.overScroll.OverScrollActivityFont"
+            android:name=".up.a.anim.overScroll.OverScrollActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivity"

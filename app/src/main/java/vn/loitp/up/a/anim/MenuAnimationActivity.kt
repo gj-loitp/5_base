@@ -21,10 +21,10 @@ import vn.loitp.a.anim.flySchool.FlySchoolActivityFont
 import vn.loitp.a.anim.konfetti.KonfettiActivityFont
 import vn.loitp.a.anim.lottie.MenuLottieActivityFont
 import vn.loitp.a.anim.morphTransitions.MorphTransitionsMainActivityFont
-import vn.loitp.a.anim.overScroll.OverScrollActivityFont
 import vn.loitp.databinding.AMenuAnimationBinding
 import vn.loitp.up.a.anim.activityTransition.Animation1Activity
 import vn.loitp.up.a.anim.activityTransitionReveal.RevealActivity1
+import vn.loitp.up.a.anim.overScroll.OverScrollActivity
 import vn.loitp.up.a.anim.pulsingView.PulsingViewActivity
 import vn.loitp.up.a.anim.shadowViewHelper.ShadowViewHelperActivity
 import vn.loitp.up.a.anim.snowfall.SnowfallActivity
@@ -63,7 +63,7 @@ class MenuAnimationActivity : BaseActivityFont() {
             launchActivity(AnimationViewActivityFont::class.java)
         }
         binding.btOverScroll.setSafeOnClickListener {
-            launchActivity(OverScrollActivityFont::class.java)
+            launchActivity(OverScrollActivity::class.java)
         }
         binding.btFlySchool.setSafeOnClickListener {
             launchActivity(FlySchoolActivityFont::class.java)
