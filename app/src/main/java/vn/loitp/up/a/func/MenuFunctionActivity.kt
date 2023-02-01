@@ -11,8 +11,8 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.a.func.activityAndService.ActivityServiceCommunicateActivityFont
 import vn.loitp.a.func.dragDrop.DragDropSampleActivityFont
-import vn.loitp.a.func.fullScreen.FullScreenActivityFont
 import vn.loitp.databinding.AFuncMenuBinding
+import vn.loitp.up.a.func.fullScreen.FullScreenActivity
 import vn.loitp.up.a.func.glide.GlideActivity
 import vn.loitp.up.a.func.hashmap.HashMapActivity
 import vn.loitp.up.a.func.idleTime.IdleTimeActivity
@@ -88,7 +88,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btHashMap -> launchActivity(HashMapActivity::class.java)
             binding.btIdleTime -> launchActivity(IdleTimeActivity::class.java)
             binding.btDragDropSample -> launchActivity(DragDropSampleActivityFont::class.java)
-            binding.btToggleFullScreen -> launchActivity(FullScreenActivityFont::class.java)
+            binding.btToggleFullScreen -> launchActivity(FullScreenActivity::class.java)
             binding.btViewDragHelper -> launchActivity(ViewDragHelperActivity::class.java)
             binding.btRecolor -> launchActivity(RecolorActivity::class.java)
             binding.btActivityServiceComunicate -> launchActivity(

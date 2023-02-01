@@ -391,7 +391,7 @@
             android:name=".a.demo.floatingVideo.FloatingWidgetVideoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.func.fullScreen.FullScreenActivityFont"
+            android:name=".up.a.func.fullScreen.FullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.sb.vertical.VerticalSeekbarActivityFont"
