@@ -1,4 +1,4 @@
-package vn.loitp.a.db.sqliteMultiTable
+package vn.loitp.up.a.db.sqliteMultiTable
 
 import android.os.Bundle
 import android.widget.TextView
@@ -8,11 +8,11 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.setTextSizePx
-import kotlinx.android.synthetic.main.a_db_sqlite_multi_table.*
 import vn.loitp.R
-import vn.loitp.a.db.sqliteMultiTable.helper.DatabaseHelper
-import vn.loitp.a.db.sqliteMultiTable.md.Note
-import vn.loitp.a.db.sqliteMultiTable.md.Tag
+import vn.loitp.databinding.ADbSqliteMultiTableBinding
+import vn.loitp.up.a.db.sqliteMultiTable.helper.DatabaseHelper
+import vn.loitp.up.a.db.sqliteMultiTable.md.Note
+import vn.loitp.up.a.db.sqliteMultiTable.md.Tag
 
 // https://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
 
@@ -26,8 +26,9 @@ import vn.loitp.a.db.sqliteMultiTable.md.Tag
 
 @LogTag("SqliteMultiTableActivity")
 @IsFullScreen(false)
-class SqliteMultiTableActivityFont : BaseActivityFont() {
+class SqliteMultiTableActivity : BaseActivityFont() {
     private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var binding: ADbSqliteMultiTableBinding
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_db_sqlite_multi_table
@@ -36,19 +37,20 @@ class SqliteMultiTableActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADbSqliteMultiTableBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
         test()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = SqliteMultiTableActivityFont::class.java.simpleName
+            this.tvTitle?.text = SqliteMultiTableActivity::class.java.simpleName
         }
     }
 
@@ -167,6 +169,6 @@ class SqliteMultiTableActivityFont : BaseActivityFont() {
         tv.setTextSizePx(
             size = resources.getDimension(R.dimen.txt_small)
         )
-        ll.addView(tv)
+        binding.ll.addView(tv)
     }
 }
