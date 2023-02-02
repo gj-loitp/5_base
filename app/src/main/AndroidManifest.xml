@@ -821,7 +821,7 @@
             android:name=".a.db.sqliteMultiTable.SqliteMultiTableActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivityFont"
+            android:name=".up.a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.sv.MenuServiceActivity"

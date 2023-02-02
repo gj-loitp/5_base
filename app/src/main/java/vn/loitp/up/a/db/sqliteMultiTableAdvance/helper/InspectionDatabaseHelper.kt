@@ -1,4 +1,4 @@
-package vn.loitp.a.db.sqliteMultiTableAdvance.helper
+package vn.loitp.up.a.db.sqliteMultiTableAdvance.helper
 
 import android.content.ContentValues
 import android.content.Context
@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.utils.AppUtils
-import vn.loitp.a.db.sqliteMultiTableAdvance.md.Action
-import vn.loitp.a.db.sqliteMultiTableAdvance.md.Inspection
+import vn.loitp.up.a.db.sqliteMultiTableAdvance.md.Action
+import vn.loitp.up.a.db.sqliteMultiTableAdvance.md.Inspection
 
 /**
  * Created by Loitp on 15.09.2022

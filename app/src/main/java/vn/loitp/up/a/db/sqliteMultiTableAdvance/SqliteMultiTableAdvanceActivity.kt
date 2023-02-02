@@ -1,4 +1,4 @@
-package vn.loitp.a.db.sqliteMultiTableAdvance
+package vn.loitp.up.a.db.sqliteMultiTableAdvance
 
 import android.graphics.Color
 import android.os.Bundle
@@ -8,13 +8,14 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.setTextSizePx
-import kotlinx.android.synthetic.main.a_db_sqlite_multi_table_advance.*
 import vn.loitp.R
-import vn.loitp.a.db.sqliteMultiTableAdvance.helper.InspectionDatabaseHelper
-import vn.loitp.a.db.sqliteMultiTableAdvance.md.Action
-import vn.loitp.a.db.sqliteMultiTableAdvance.md.Inspection
+import vn.loitp.databinding.ADbSqliteMultiTableAdvanceBinding
+import vn.loitp.up.a.db.sqliteMultiTableAdvance.helper.InspectionDatabaseHelper
+import vn.loitp.up.a.db.sqliteMultiTableAdvance.md.Action
+import vn.loitp.up.a.db.sqliteMultiTableAdvance.md.Inspection
 
 /**
  * Created by Loitp on 15.09.2022
@@ -26,46 +27,50 @@ import vn.loitp.a.db.sqliteMultiTableAdvance.md.Inspection
 
 @LogTag("SqliteMultiTableAdvanceActivity")
 @IsFullScreen(false)
-class SqliteMultiTableAdvanceActivityFont : BaseActivityFont(), View.OnClickListener {
+class SqliteMultiTableAdvanceActivity : BaseActivityFont(), View.OnClickListener {
 
     private lateinit var inspectionDatabaseHelper: InspectionDatabaseHelper
+    private lateinit var binding: ADbSqliteMultiTableAdvanceBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_db_sqlite_multi_table_advance
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ADbSqliteMultiTableAdvanceBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         inspectionDatabaseHelper = InspectionDatabaseHelper(applicationContext)
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = SqliteMultiTableAdvanceActivityFont::class.java.simpleName
+            this.tvTitle?.text = SqliteMultiTableAdvanceActivity::class.java.simpleName
         }
 
-        btClearUI.setOnClickListener(this)
-        btDeleteAllDatabase.setOnClickListener(this)
-        btGetInspectionList.setOnClickListener(this)
-        btGetInspectionCount.setOnClickListener(this)
-        btGetActionList.setOnClickListener(this)
-        btCreateInspection.setOnClickListener(this)
-        btGetInspection.setOnClickListener(this)
-        btUpdateInspection.setOnClickListener(this)
-        btDeleteInspection.setOnClickListener(this)
-        btCreateAction.setOnClickListener(this)
-        btUpdateAction.setOnClickListener(this)
-        btGetAction.setOnClickListener(this)
-        btDeleteAction.setOnClickListener(this)
-        btGetActionListByPage.setOnClickListener(this)
+        binding.btClearUI.setOnClickListener(this)
+        binding.btDeleteAllDatabase.setOnClickListener(this)
+        binding.btGetInspectionList.setOnClickListener(this)
+        binding.btGetInspectionCount.setOnClickListener(this)
+        binding.btGetActionList.setOnClickListener(this)
+        binding.btCreateInspection.setOnClickListener(this)
+        binding.btGetInspection.setOnClickListener(this)
+        binding.btUpdateInspection.setOnClickListener(this)
+        binding.btDeleteInspection.setOnClickListener(this)
+        binding.btCreateAction.setOnClickListener(this)
+        binding.btUpdateAction.setOnClickListener(this)
+        binding.btGetAction.setOnClickListener(this)
+        binding.btDeleteAction.setOnClickListener(this)
+        binding.btGetActionListByPage.setOnClickListener(this)
     }
 
     private fun showMsg(msg: String) {
@@ -76,13 +81,13 @@ class SqliteMultiTableAdvanceActivityFont : BaseActivityFont(), View.OnClickList
             size = resources.getDimension(R.dimen.txt_small)
         )
         tv.setTextColor(Color.RED)
-        ll.addView(tv)
+        binding.ll.addView(tv)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btClearUI -> {
-                ll.removeAllViews()
+                binding.ll.removeAllViews()
             }
             R.id.btDeleteAllDatabase -> {
                 inspectionDatabaseHelper.deleteAllDatabase()
