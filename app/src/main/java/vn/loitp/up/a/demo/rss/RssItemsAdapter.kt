@@ -2,15 +2,13 @@ package vn.loitp.up.a.demo.rss
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
 import com.loitp.rss.RssItem
-import kotlinx.android.synthetic.main.i_rss.view.*
-import vn.loitp.R
+import vn.loitp.databinding.IRssBinding
 
 @LogTag("RssItemsAdapter")
 class RssItemsAdapter(
@@ -30,9 +28,8 @@ class RssItemsAdapter(
         parent: ViewGroup,
         viewType: Int
     ): RSSViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.i_rss, parent, false)
-        return RSSViewHolder(itemView)
+        val binding = IRssBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return RSSViewHolder(binding)
     }
 
     override fun onBindViewHolder(
@@ -48,16 +45,16 @@ class RssItemsAdapter(
         return itemList.size
     }
 
-    inner class RSSViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class RSSViewHolder(val binding: IRssBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(rssItem: RssItem) {
-            itemView.tvTitle.text = rssItem.title
-            itemView.tvPubDate.text = rssItem.publishDate
+            binding.tvTitle.text = rssItem.title
+            binding.tvPubDate.text = rssItem.publishDate
 
-            itemView.ivThumb.loadGlide(
+            binding.ivThumb.loadGlide(
                 any = rssItem.image,
             )
-            itemView.cardView.setOnClickListener {
+            binding.cardView.setOnClickListener {
                 onClick?.invoke(rssItem)
             }
         }
