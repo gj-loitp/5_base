@@ -24,8 +24,8 @@ import vn.loitp.a.demo.fragmentFlow.FragmentFlowActivityFont
 import vn.loitp.a.demo.fragmentNavigation.FragmentNavigationActivityFont
 import vn.loitp.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivityFont
 import vn.loitp.a.demo.mapTracker.MapTrackerActivity
-import vn.loitp.a.demo.nfc.NFCActivity
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.nfc.NFCActivity
 import vn.loitp.up.a.demo.pdf.PdfDemoActivity
 import vn.loitp.up.a.demo.piano.PianoActivity
 import vn.loitp.up.a.demo.rss.RSSActivity

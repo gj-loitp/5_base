@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.nfc
+package vn.loitp.up.a.demo.nfc
 
 import android.annotation.SuppressLint
 import android.app.PendingIntent
@@ -12,13 +12,14 @@ import android.provider.Settings
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import com.loitp.core.helper.nfc.TagWrapper
 import com.loitp.core.helper.nfc.buildMACAddressString
 import com.loitp.core.helper.nfc.bytesToHex
 import com.loitp.core.helper.nfc.bytesToHexAndString
-import kotlinx.android.synthetic.main.a_demo_nfc.*
 import vn.loitp.R
+import vn.loitp.databinding.ADemoNfcBinding
 import java.io.UnsupportedEncodingException
 import java.nio.charset.Charset
 import kotlin.experimental.and
@@ -30,20 +31,24 @@ class NFCActivity : BaseActivityFont() {
 
     private var nfcAdapter: NfcAdapter? = null
     private var pendingIntent: PendingIntent? = null
+    private lateinit var binding: ADemoNfcBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_demo_nfc
+        return NOT_FOUND
     }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADemoNfcBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -52,7 +57,7 @@ class NFCActivity : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = NFCActivity::class.java.simpleName
         }
-        currentTagView.text = getString(R.string.loading)
+        binding.currentTagView.text = getString(R.string.loading)
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
     }
 
@@ -80,7 +85,7 @@ class NFCActivity : BaseActivityFont() {
 //                0
                 PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
-            currentTagView.text = "Scan a tag"
+            binding.currentTagView.text = "Scan a tag"
         }
         nfcAdapter?.enableForegroundDispatch(this, pendingIntent, null, null)
     }
@@ -93,7 +98,6 @@ class NFCActivity : BaseActivityFont() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
 
-        //TODO fix getParcelableExtra
         val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
         logD("buildMACAddressString " + tag?.id.buildMACAddressString())
 
@@ -130,7 +134,7 @@ class NFCActivity : BaseActivityFont() {
             }
             tags.add(tagWrapper)
 
-            tvResult.printBeautyJson(o = tags)
+            binding.tvResult.printBeautyJson(o = tags)
         }
     }
 
