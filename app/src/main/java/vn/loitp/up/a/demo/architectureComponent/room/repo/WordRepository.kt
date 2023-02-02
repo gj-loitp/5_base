@@ -1,8 +1,8 @@
-package vn.loitp.a.demo.architectureComponent.room.repo
+package vn.loitp.up.a.demo.architectureComponent.room.repo
 
 import androidx.lifecycle.LiveData
-import vn.loitp.a.demo.architectureComponent.room.dao.WordDao
-import vn.loitp.a.demo.architectureComponent.room.md.Word
+import vn.loitp.up.a.demo.architectureComponent.room.dao.WordDao
+import vn.loitp.up.a.demo.architectureComponent.room.md.Word
 
 class WordRepository(private val wordDao: WordDao) {
 

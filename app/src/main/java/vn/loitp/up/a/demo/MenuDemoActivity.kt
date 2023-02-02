@@ -15,8 +15,8 @@ import com.loitp.core.helper.ttt.ui.a.TTTSplashActivity
 import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.a.demo.alarm.a.AlarmMeActivityFont
-import vn.loitp.a.demo.architectureComponent.MenuArchitectureComponentActivityFont
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.architectureComponent.MenuArchitectureComponentActivity
 import vn.loitp.up.a.demo.epubReader.MenuEpubReaderActivity
 import vn.loitp.up.a.demo.firebase.FirebaseActivity
 import vn.loitp.up.a.demo.floatingVideo.FloatingWidgetVideoActivity
@@ -147,7 +147,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
             binding.btPiano -> launchActivity(PianoActivity::class.java)
             binding.btFragmentFlow -> launchActivity(FragmentFlowActivity::class.java)
             binding.btGalleryCoreAlbumFrm -> launchActivity(GalleryCoreAlbumFrmActivity::class.java)
-            binding.btArchitectureComponent -> launchActivity(MenuArchitectureComponentActivityFont::class.java)
+            binding.btArchitectureComponent -> launchActivity(MenuArchitectureComponentActivity::class.java)
             binding.btNFC -> launchActivity(NFCActivity::class.java)
             binding.btMapTracker -> launchActivity(MapTrackerActivity::class.java)
             binding.btTTT -> launchActivity(TTTSplashActivity::class.java)

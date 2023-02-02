@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.architectureComponent.room
+package vn.loitp.up.a.demo.architectureComponent.room
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.ext.printBeautyJson
 import kotlinx.android.synthetic.main.i_room_note.view.*
 import vn.loitp.R
-import vn.loitp.a.demo.architectureComponent.room.md.Word
+import vn.loitp.up.a.demo.architectureComponent.room.md.Word
 
 class WordListAdapter(val callback: Callback?) :
     RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {

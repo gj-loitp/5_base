@@ -21,7 +21,7 @@ import vn.loitp.a.db.sqlite.SqliteActivityFont
 import vn.loitp.a.db.sqliteEncryption.SqliteEncryptionActivityFont
 import vn.loitp.a.db.sqliteMultiTable.SqliteMultiTableActivityFont
 import vn.loitp.a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivityFont
-import vn.loitp.a.demo.architectureComponent.room.WordActivityFont
+import vn.loitp.up.a.demo.architectureComponent.room.WordActivityFont
 
 /**
  * Created by Loitp on 15.09.2022

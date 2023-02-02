@@ -871,14 +871,14 @@
             android:name=".a.cv.bt.q.QButtonActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.architectureComponent.MenuArchitectureComponentActivityFont"
+            android:name=".up.a.demo.architectureComponent.MenuArchitectureComponentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity android:name=".a.demo.architectureComponent.vm.ViewModelActivityFont" />
+        <activity android:name=".up.a.demo.architectureComponent.vm.ViewModelActivity" />
         <activity
-            android:name=".a.demo.architectureComponent.room.WordActivityFont"
+            android:name=".up.a.demo.architectureComponent.room.WordActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.architectureComponent.coroutine.CoroutineActivityFont"
+            android:name=".up.a.demo.architectureComponent.coroutine.CoroutineActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.cal.MenuCalendarActivity"

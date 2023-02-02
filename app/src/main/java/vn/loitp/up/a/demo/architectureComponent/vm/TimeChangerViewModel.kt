@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.architectureComponent.vm
+package vn.loitp.up.a.demo.architectureComponent.vm
 
 import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData

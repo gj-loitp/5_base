@@ -1,12 +1,12 @@
-package vn.loitp.a.demo.architectureComponent.room.db
+package vn.loitp.up.a.demo.architectureComponent.room.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import kotlinx.coroutines.CoroutineScope
-import vn.loitp.a.demo.architectureComponent.room.dao.WordDao
-import vn.loitp.a.demo.architectureComponent.room.md.Word
+import vn.loitp.up.a.demo.architectureComponent.room.dao.WordDao
+import vn.loitp.up.a.demo.architectureComponent.room.md.Word
 
 @Database(entities = [Word::class], version = 1, exportSchema = false)
 abstract class WordRoomDatabase : RoomDatabase() {

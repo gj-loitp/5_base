@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.architectureComponent.room.md
+package vn.loitp.up.a.demo.architectureComponent.room.md
 
 import androidx.annotation.Keep
 import androidx.room.ColumnInfo

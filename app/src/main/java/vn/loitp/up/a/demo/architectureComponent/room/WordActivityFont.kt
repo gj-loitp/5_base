@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.architectureComponent.room
+package vn.loitp.up.a.demo.architectureComponent.room
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
@@ -11,8 +11,8 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_demo_database_room_work.*
 import vn.loitp.R
-import vn.loitp.a.demo.architectureComponent.room.md.Word
-import vn.loitp.a.demo.architectureComponent.room.md.WordViewModel
+import vn.loitp.up.a.demo.architectureComponent.room.md.Word
+import vn.loitp.up.a.demo.architectureComponent.room.md.WordViewModel
 
 // https://codinginfinite.com/android-room-tutorial-persistence/
 // https://codinginfinite.com/android-room-persistent-rxjava/

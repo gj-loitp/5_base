@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.architectureComponent.coroutine
+package vn.loitp.up.a.demo.architectureComponent.coroutine
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
