@@ -385,7 +385,7 @@
             android:name=".up.a.func.dragDrop.DragDropSampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.floatingWidget.FloatingWidgetActivityFont"
+            android:name=".up.a.demo.floatingWidget.FloatingWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.demo.floatingVideo.FloatingWidgetVideoActivityFont"
@@ -735,7 +735,7 @@
         </receiver>
 
         <service
-            android:name=".a.demo.floatingWidget.FloatingViewService"
+            android:name=".up.a.demo.floatingWidget.FloatingViewService"
             android:enabled="true"
             android:exported="false" />
         <service

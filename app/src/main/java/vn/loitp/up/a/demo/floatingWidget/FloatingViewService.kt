@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.floatingWidget
+package vn.loitp.up.a.demo.floatingWidget
 
 import android.annotation.SuppressLint
 import android.app.Service
@@ -99,7 +99,7 @@ class FloatingViewService : Service() {
         // Open the application on thi button click
         ivOpenButton.setOnClickListener {
             // Open the application  click.
-            val intent = Intent(this@FloatingViewService, FloatingWidgetActivityFont::class.java)
+            val intent = Intent(this@FloatingViewService, FloatingWidgetActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
 

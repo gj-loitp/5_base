@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.floatingWidget
+package vn.loitp.up.a.demo.floatingWidget
 
 import android.content.Intent
 import android.net.Uri
@@ -8,39 +8,39 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_demo_floating_widget.*
-import kotlinx.android.synthetic.main.a_demo_floating_widget.btNotifyMe
-import kotlinx.android.synthetic.main.a_demo_floating_widget.lActionBar
-import kotlinx.android.synthetic.main.a_func_service_communicate.*
 import vn.loitp.R
+import vn.loitp.databinding.ADemoFloatingWidgetBinding
 
 @LogTag("FloatingWidgetActivity")
 @IsFullScreen(false)
-class FloatingWidgetActivityFont : BaseActivityFont() {
+class FloatingWidgetActivity : BaseActivityFont() {
 
+    private lateinit var binding: ADemoFloatingWidgetBinding
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_demo_floating_widget
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADemoFloatingWidgetBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = FloatingWidgetActivityFont::class.java.simpleName
+            this.tvTitle?.text = FloatingWidgetActivity::class.java.simpleName
         }
-        btNotifyMe.setSafeOnClickListener {
+        binding.btNotifyMe.setSafeOnClickListener {
             startService()
         }
     }
@@ -50,15 +50,11 @@ class FloatingWidgetActivityFont : BaseActivityFont() {
             startService(Intent(this, FloatingViewService::class.java))
             onBaseBackPressed()
         } else {
-            launchActivityForResult(
-                intent = Intent(
-                    Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                    Uri.parse("package:$packageName")
-                ),
-                withAnim = true,
-                data = { intent ->
-                    resultOverlay.launch(intent)
-                })
+            launchActivityForResult(intent = Intent(
+                Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName")
+            ), withAnim = true, data = { intent ->
+                resultOverlay.launch(intent)
+            })
         }
     }
 

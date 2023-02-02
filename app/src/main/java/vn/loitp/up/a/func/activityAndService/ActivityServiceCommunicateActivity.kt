@@ -14,8 +14,8 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import vn.loitp.R
-import vn.loitp.a.demo.floatingWidget.CommunicateMng
 import vn.loitp.databinding.AFuncServiceCommunicateBinding
+import vn.loitp.up.a.demo.floatingWidget.CommunicateMng
 import vn.loitp.up.app.EmptyActivity
 
 @LogTag("ActivityServiceCommunicateActivity")

@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.floatingWidget
+package vn.loitp.up.a.demo.floatingWidget
 
 import androidx.annotation.Keep
 import org.greenrobot.eventbus.EventBus
