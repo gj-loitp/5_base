@@ -11,7 +11,7 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AMenuDemoArchitectureComponentBinding
 import vn.loitp.up.a.demo.architectureComponent.coroutine.CoroutineActivityFont
-import vn.loitp.up.a.demo.architectureComponent.room.WordActivityFont
+import vn.loitp.up.a.demo.architectureComponent.room.WordActivity
 import vn.loitp.up.a.demo.architectureComponent.vm.ViewModelActivity
 
 @LogTag("MenuArchitectureComponentActivity")
@@ -48,7 +48,7 @@ class MenuArchitectureComponentActivity : BaseActivityFont() {
             launchActivity(CoroutineActivityFont::class.java)
         }
         binding.btRoom.setSafeOnClickListener {
-            launchActivity(WordActivityFont::class.java)
+            launchActivity(WordActivity::class.java)
         }
         binding.btViewModel.setSafeOnClickListener {
             launchActivity(ViewModelActivity::class.java)

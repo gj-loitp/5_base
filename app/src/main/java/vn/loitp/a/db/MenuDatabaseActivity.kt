@@ -21,7 +21,7 @@ import vn.loitp.a.db.sqlite.SqliteActivityFont
 import vn.loitp.a.db.sqliteEncryption.SqliteEncryptionActivityFont
 import vn.loitp.a.db.sqliteMultiTable.SqliteMultiTableActivityFont
 import vn.loitp.a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivityFont
-import vn.loitp.up.a.demo.architectureComponent.room.WordActivityFont
+import vn.loitp.up.a.demo.architectureComponent.room.WordActivity
 
 /**
  * Created by Loitp on 15.09.2022
@@ -83,7 +83,7 @@ class MenuDatabaseActivity : BaseActivityFont(), OnClickListener {
             btSqliteMultiTableAdvance ->
                 intent =
                     Intent(this, SqliteMultiTableAdvanceActivityFont::class.java)
-            btRoom -> intent = Intent(this, WordActivityFont::class.java)
+            btRoom -> intent = Intent(this, WordActivity::class.java)
             btRoom2 -> intent = Intent(this, RoomActivityFont::class.java)
         }
         intent?.let {

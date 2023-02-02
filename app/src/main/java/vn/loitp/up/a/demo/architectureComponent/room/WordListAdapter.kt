@@ -2,12 +2,10 @@ package vn.loitp.up.a.demo.architectureComponent.room
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.ext.printBeautyJson
-import kotlinx.android.synthetic.main.i_room_note.view.*
-import vn.loitp.R
+import vn.loitp.databinding.IRoomNoteBinding
 import vn.loitp.up.a.demo.architectureComponent.room.md.Word
 
 class WordListAdapter(val callback: Callback?) :
@@ -20,14 +18,15 @@ class WordListAdapter(val callback: Callback?) :
 
     private var words = emptyList<Word>()
 
-    inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class WordViewHolder(val binding: IRoomNoteBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(word: Word) {
-            itemView.tvNote.printBeautyJson(o = word)
+            binding.tvNote.printBeautyJson(o = word)
 
-            itemView.ivDelete.setOnClickListener {
+            binding.ivDelete.setOnClickListener {
                 callback?.onDelete(word = word)
             }
-            itemView.cardView.setOnClickListener {
+            binding.cardView.setOnClickListener {
                 callback?.onUpdate(word = word)
             }
         }
@@ -37,9 +36,9 @@ class WordListAdapter(val callback: Callback?) :
         parent: ViewGroup,
         viewType: Int
     ): WordViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.i_room_note, parent, false)
-        return WordViewHolder(itemView)
+        val binding =
+            IRoomNoteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return WordViewHolder(binding)
     }
 
     override fun onBindViewHolder(
