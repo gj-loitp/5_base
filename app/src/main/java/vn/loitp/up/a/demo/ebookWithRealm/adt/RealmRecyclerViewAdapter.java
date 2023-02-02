@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.ebookWithRealm.adt;
+package vn.loitp.up.a.demo.ebookWithRealm.adt;
 
 import androidx.recyclerview.widget.RecyclerView;
 

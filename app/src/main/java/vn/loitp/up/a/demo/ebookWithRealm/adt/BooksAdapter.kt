@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.ebookWithRealm.adt
+package vn.loitp.up.a.demo.ebookWithRealm.adt
 
 import android.content.Context
 import android.graphics.Color
@@ -11,7 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import vn.loitp.R
-import vn.loitp.a.demo.ebookWithRealm.md.Book
+import vn.loitp.up.a.demo.ebookWithRealm.md.Book
 
 class BooksAdapter(
     val context: Context,

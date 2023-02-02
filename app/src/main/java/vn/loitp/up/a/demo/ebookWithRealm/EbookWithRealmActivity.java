@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.ebookWithRealm;
+package vn.loitp.up.a.demo.ebookWithRealm;
 
 import static com.loitp.core.ext.PrefKt.getPreLoad;
 import static com.loitp.core.ext.PrefKt.setPreLoad;
@@ -27,17 +27,17 @@ import java.util.Objects;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import vn.loitp.R;
-import vn.loitp.a.demo.ebookWithRealm.adt.BooksAdapter;
-import vn.loitp.a.demo.ebookWithRealm.adt.RealmBooksAdapter;
-import vn.loitp.a.demo.ebookWithRealm.md.Book;
-import vn.loitp.a.demo.ebookWithRealm.realm.RealmController;
+import vn.loitp.up.a.demo.ebookWithRealm.adt.BooksAdapter;
+import vn.loitp.up.a.demo.ebookWithRealm.adt.RealmBooksAdapter;
+import vn.loitp.up.a.demo.ebookWithRealm.md.Book;
+import vn.loitp.up.a.demo.ebookWithRealm.realm.RealmController;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
 
 //8.1.2021 tried to retry kotlin
 @LogTag("EbookWithRealmActivity")
 @IsFullScreen(false)
-public class EbookWithRealmActivityFont extends BaseActivityFont {
+public class EbookWithRealmActivity extends BaseActivityFont {
     private BooksAdapter booksAdapter;
     private Realm realm;
     private LayoutInflater layoutInflater;

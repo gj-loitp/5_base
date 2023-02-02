@@ -15,7 +15,7 @@ import com.loitp.core.ext.tranIn
 import io.realm.Realm
 import kotlinx.android.synthetic.main.a_db_realm.*
 import vn.loitp.R
-import vn.loitp.a.demo.ebookWithRealm.EbookWithRealmActivityFont
+import vn.loitp.up.a.demo.ebookWithRealm.EbookWithRealmActivity
 
 @LogTag("RealmActivity")
 @IsFullScreen(false)
@@ -49,7 +49,7 @@ class RealmActivityFont : BaseActivityFont() {
             this.tvTitle?.text = RealmActivityFont::class.java.simpleName
         }
         btRealm.setSafeOnClickListener {
-            val intent = Intent(this, EbookWithRealmActivityFont::class.java)
+            val intent = Intent(this, EbookWithRealmActivity::class.java)
             startActivity(intent)
             this.tranIn()
         }

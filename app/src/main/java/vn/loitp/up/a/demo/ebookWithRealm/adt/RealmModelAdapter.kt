@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.ebookWithRealm.adt
+package vn.loitp.up.a.demo.ebookWithRealm.adt
 
 import android.content.Context
 import android.view.View

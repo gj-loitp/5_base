@@ -1,16 +1,16 @@
-package vn.loitp.a.demo.ebookWithRealm.realm
+package vn.loitp.up.a.demo.ebookWithRealm.realm
 
 import android.app.Activity
 import android.app.Application
 import androidx.fragment.app.Fragment
 import io.realm.Realm
 import io.realm.RealmResults
-import vn.loitp.a.demo.ebookWithRealm.md.Book
+import vn.loitp.up.a.demo.ebookWithRealm.md.Book
 
 class RealmController private constructor() {
     val realm: Realm = Realm.getDefaultInstance()
 
-    // Refresh the realm istance
+    // Refresh the realm instance
     fun refresh() {
         realm.refresh()
     }

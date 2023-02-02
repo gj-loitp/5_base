@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.ebookWithRealm.md
+package vn.loitp.up.a.demo.ebookWithRealm.md
 
 import androidx.annotation.Keep
 import io.realm.RealmObject
