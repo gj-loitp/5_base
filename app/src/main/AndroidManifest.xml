@@ -812,7 +812,7 @@
             android:name=".a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.sqliteEncryption.SqliteEncryptionActivityFont"
+            android:name=".up.a.db.sqliteEncryption.SqliteEncryptionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.app.EmptyActivity"

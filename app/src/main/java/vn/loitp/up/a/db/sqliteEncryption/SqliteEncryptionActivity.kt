@@ -1,4 +1,4 @@
-package vn.loitp.a.db.sqliteEncryption
+package vn.loitp.up.a.db.sqliteEncryption
 
 import android.os.Bundle
 import android.view.Gravity
@@ -8,13 +8,14 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_db_sqlite_encryption.*
 import vn.loitp.R
+import vn.loitp.databinding.ADbSqliteEncryptionBinding
 
 /**
  * Created by Loitp on 15.09.2022
@@ -26,15 +27,19 @@ import vn.loitp.R
 
 @LogTag("SqliteEncryptionActivity")
 @IsFullScreen(false)
-class SqliteEncryptionActivityFont : BaseActivityFont(), View.OnClickListener {
+class SqliteEncryptionActivity : BaseActivityFont(), View.OnClickListener {
     private lateinit var bikeDatabase: BikeDatabase
+    private lateinit var binding: ADbSqliteEncryptionBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_db_sqlite_encryption
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ADbSqliteEncryptionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         bikeDatabase = BikeDatabase(this)
 
@@ -43,26 +48,26 @@ class SqliteEncryptionActivityFont : BaseActivityFont(), View.OnClickListener {
     }
 
     private fun setupView() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = SqliteEncryptionActivityFont::class.java.simpleName
+            this.tvTitle?.text = SqliteEncryptionActivity::class.java.simpleName
         }
-        btAddBike.setOnClickListener(this)
-        btClearAll.setOnClickListener(this)
-        btGetBikeWithId.setOnClickListener(this)
+        binding.btAddBike.setOnClickListener(this)
+        binding.btClearAll.setOnClickListener(this)
+        binding.btGetBikeWithId.setOnClickListener(this)
     }
 
     private fun showProgress() {
-        pb.visibility = View.VISIBLE
+        binding.pb.visibility = View.VISIBLE
     }
 
     private fun hideProgress() {
-        pb.visibility = View.GONE
+        binding.pb.visibility = View.GONE
     }
 
     override fun onClick(v: View) {
@@ -126,7 +131,7 @@ class SqliteEncryptionActivityFont : BaseActivityFont(), View.OnClickListener {
                 deleteBike(bike, button)
                 true
             }
-            ll.addView(button)
+            binding.ll.addView(button)
         }
     }
 
@@ -168,7 +173,7 @@ class SqliteEncryptionActivityFont : BaseActivityFont(), View.OnClickListener {
 
     private fun clearAllBike() {
         logD("clearAllContact")
-        ll.removeAllViews()
+        binding.ll.removeAllViews()
         bikeDatabase.clearAllBike()
         getAllBike()
     }
@@ -237,6 +242,6 @@ class SqliteEncryptionActivityFont : BaseActivityFont(), View.OnClickListener {
     ) {
         val result = bikeDatabase.deleteBike(bike)
         logD("deleteContact result $result")
-        ll.removeView(button)
+        binding.ll.removeView(button)
     }
 }

@@ -15,8 +15,8 @@ import vn.loitp.a.db.room.RoomActivityFont
 import vn.loitp.a.db.sharedPrefs.SharedPrefsActivityFont
 import vn.loitp.a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivityFont
 import vn.loitp.a.db.sqlite.SqliteActivityFont
-import vn.loitp.a.db.sqliteEncryption.SqliteEncryptionActivityFont
 import vn.loitp.databinding.ADbMenuBinding
+import vn.loitp.up.a.db.sqliteEncryption.SqliteEncryptionActivity
 import vn.loitp.up.a.db.sqliteMultiTable.SqliteMultiTableActivity
 import vn.loitp.up.a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity
 import vn.loitp.up.a.demo.architectureComponent.room.WordActivity
@@ -76,7 +76,7 @@ class MenuDatabaseActivity : BaseActivityFont() {
         }
         binding.btSqliteEncryption.setSafeOnClickListener {
             launchActivity(
-                SqliteEncryptionActivityFont::class.java
+                SqliteEncryptionActivity::class.java
             )
         }
         binding.btSqliteMultiTable.setSafeOnClickListener {
