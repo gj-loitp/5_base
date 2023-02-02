@@ -30,8 +30,8 @@ import vn.loitp.a.demo.piano.PianoActivityFont
 import vn.loitp.a.demo.rss.RSSActivityFont
 import vn.loitp.a.demo.sound.SoundActivityFont
 import vn.loitp.a.demo.trackingG1.TrackingG1ActivityFont
-import vn.loitp.a.demo.tts.TextToSpeechActivityFont
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.tts.TextToSpeechActivity
 import vn.loitp.up.a.demo.twoInstanceActivity.Activity1
 
 @LogTag("MenuDemoActivity")
@@ -107,7 +107,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v) {
             binding.btSound -> launchActivity(SoundActivityFont::class.java)
-            binding.btTextToSpeech -> launchActivity(TextToSpeechActivityFont::class.java)
+            binding.btTextToSpeech -> launchActivity(TextToSpeechActivity::class.java)
             binding.btFloatingWidget -> launchActivity(FloatingWidgetActivityFont::class.java)
             binding.btFloatingVideo -> launchActivity(FloatingWidgetVideoActivityFont::class.java)
             binding.btGalleryCore -> {
