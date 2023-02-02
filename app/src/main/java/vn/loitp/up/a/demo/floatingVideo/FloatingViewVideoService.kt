@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.floatingVideo
+package vn.loitp.up.a.demo.floatingVideo
 
 import android.annotation.SuppressLint
 import android.app.Service
@@ -129,7 +129,7 @@ class FloatingViewVideoService : Service() {
     // Open the application on thi button click
     private fun openApp() {
         // Open the application  click.
-        val intent = Intent(this@FloatingViewVideoService, FloatingWidgetVideoActivityFont::class.java)
+        val intent = Intent(this@FloatingViewVideoService, FloatingWidgetVideoActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
 

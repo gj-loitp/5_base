@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.floatingVideo
+package vn.loitp.up.a.demo.floatingVideo
 
 import android.annotation.SuppressLint
 import android.app.Service
@@ -389,7 +389,7 @@ class FloatingViewEdgeService : Service() {
     private fun openApp() {
         // Open the application  click.
         val intent =
-            Intent(this@FloatingViewEdgeService, FloatingWidgetVideoActivityFont::class.java)
+            Intent(this@FloatingViewEdgeService, FloatingWidgetVideoActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
 

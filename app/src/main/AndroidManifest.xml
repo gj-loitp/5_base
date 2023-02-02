@@ -388,7 +388,7 @@
             android:name=".up.a.demo.floatingWidget.FloatingWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.floatingVideo.FloatingWidgetVideoActivityFont"
+            android:name=".up.a.demo.floatingVideo.FloatingWidgetVideoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.func.fullScreen.FullScreenActivity"
@@ -743,11 +743,11 @@
             android:enabled="true"
             android:exported="false" />
         <service
-            android:name=".a.demo.floatingVideo.FloatingViewVideoService"
+            android:name=".up.a.demo.floatingVideo.FloatingViewVideoService"
             android:enabled="true"
             android:exported="false" />
         <service
-            android:name=".a.demo.floatingVideo.FloatingViewEdgeService"
+            android:name=".up.a.demo.floatingVideo.FloatingViewEdgeService"
             android:enabled="true"
             android:exported="false" />
 

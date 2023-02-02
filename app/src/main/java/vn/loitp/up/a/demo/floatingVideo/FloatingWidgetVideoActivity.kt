@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.floatingVideo
+package vn.loitp.up.a.demo.floatingVideo
 
 import android.content.Intent
 import android.net.Uri
@@ -8,41 +8,45 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_demo_floating_video.*
-import kotlinx.android.synthetic.main.a_demo_floating_video.lActionBar
-import kotlinx.android.synthetic.main.a_func_service_communicate.*
 import vn.loitp.R
+import vn.loitp.databinding.ADemoFloatingVideoBinding
 
 @LogTag("FloatingWidgetVideoActivity")
 @IsFullScreen(false)
-class FloatingWidgetVideoActivityFont : BaseActivityFont() {
+class FloatingWidgetVideoActivity : BaseActivityFont() {
+
+    private lateinit var binding: ADemoFloatingVideoBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_demo_floating_video
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADemoFloatingVideoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = FloatingWidgetVideoActivityFont::class.java.simpleName
+            this.tvTitle?.text = FloatingWidgetVideoActivity::class.java.simpleName
         }
-        btShow.setSafeOnClickListener {
+        binding.btShow.setSafeOnClickListener {
             handleShow()
         }
-        btEdge.setSafeOnClickListener {
+        binding.btEdge.setSafeOnClickListener {
             handleEdge()
         }
     }

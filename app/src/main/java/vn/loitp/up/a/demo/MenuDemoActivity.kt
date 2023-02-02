@@ -18,8 +18,8 @@ import vn.loitp.a.demo.alarm.a.AlarmMeActivityFont
 import vn.loitp.a.demo.architectureComponent.MenuArchitectureComponentActivityFont
 import vn.loitp.a.demo.epubReader.MenuEpubReaderActivityFont
 import vn.loitp.a.demo.firebase.FirebaseActivityFont
-import vn.loitp.a.demo.floatingVideo.FloatingWidgetVideoActivityFont
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.floatingVideo.FloatingWidgetVideoActivity
 import vn.loitp.up.a.demo.floatingWidget.FloatingWidgetActivity
 import vn.loitp.up.a.demo.fragmentFlow.FragmentFlowActivity
 import vn.loitp.up.a.demo.fragmentNavigation.FragmentNavigationActivity
@@ -109,7 +109,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
             binding.btSound -> launchActivity(SoundActivity::class.java)
             binding.btTextToSpeech -> launchActivity(TextToSpeechActivity::class.java)
             binding.btFloatingWidget -> launchActivity(FloatingWidgetActivity::class.java)
-            binding.btFloatingVideo -> launchActivity(FloatingWidgetVideoActivityFont::class.java)
+            binding.btFloatingVideo -> launchActivity(FloatingWidgetVideoActivity::class.java)
             binding.btGalleryCore -> {
                 launchActivity(
                     cls = GalleryCoreSplashActivity::class.java,
