@@ -1208,7 +1208,7 @@
             android:name=".a.cv.wv.wrapContent.WebViewWrapContentActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.piano.PianoActivityFont"
+            android:name=".up.a.demo.piano.PianoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.anim.konfetti.KonfettiActivityFont"

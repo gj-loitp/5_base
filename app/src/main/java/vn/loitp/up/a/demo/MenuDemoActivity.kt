@@ -26,8 +26,8 @@ import vn.loitp.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivityFont
 import vn.loitp.a.demo.mapTracker.MapTrackerActivity
 import vn.loitp.a.demo.nfc.NFCActivity
 import vn.loitp.a.demo.pdf.PdfDemoActivityFont
-import vn.loitp.a.demo.piano.PianoActivityFont
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.piano.PianoActivity
 import vn.loitp.up.a.demo.rss.RSSActivity
 import vn.loitp.up.a.demo.sound.SoundActivity
 import vn.loitp.up.a.demo.trackingG1.TrackingG1Activity
@@ -144,7 +144,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
             binding.bt2InstanceActivity -> launchActivity(Activity1::class.java)
             binding.btFragmentNavigation -> launchActivity(FragmentNavigationActivityFont::class.java)
             binding.btPdf -> launchActivity(PdfDemoActivityFont::class.java)
-            binding.btPiano -> launchActivity(PianoActivityFont::class.java)
+            binding.btPiano -> launchActivity(PianoActivity::class.java)
             binding.btFragmentFlow -> launchActivity(FragmentFlowActivityFont::class.java)
             binding.btGalleryCoreAlbumFrm -> launchActivity(GalleryCoreAlbumFrmActivityFont::class.java)
             binding.btArchitectureComponent -> launchActivity(MenuArchitectureComponentActivityFont::class.java)

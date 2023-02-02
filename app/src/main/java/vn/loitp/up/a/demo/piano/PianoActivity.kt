@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.piano
+package vn.loitp.up.a.demo.piano
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -10,6 +10,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.hideDefaultControls
 import com.loitp.views.piano.entity.AutoPlayEntity
 import com.loitp.views.piano.entity.Piano
@@ -17,14 +18,14 @@ import com.loitp.views.piano.listener.OnLoadAudioListener
 import com.loitp.views.piano.listener.OnPianoAutoPlayListener
 import com.loitp.views.piano.listener.OnPianoListener
 import com.loitp.views.piano.utils.AutoPlayUtils
-import kotlinx.android.synthetic.main.a_piano.*
 import vn.loitp.R
+import vn.loitp.databinding.APianoBinding
 import java.io.IOException
 
 @LogTag("PianoActivity")
 @IsFullScreen(true)
 @IsAutoAnimation(false)
-class PianoActivityFont : BaseActivityFont(), OnPianoListener, OnLoadAudioListener,
+class PianoActivity : BaseActivityFont(), OnPianoListener, OnLoadAudioListener,
     OnSeekBarChangeListener,
     View.OnClickListener, OnPianoAutoPlayListener {
 
@@ -37,28 +38,33 @@ class PianoActivityFont : BaseActivityFont(), OnPianoListener, OnLoadAudioListen
     private val litterStartBreakShortTime: Long = 500
     private val litterStartBreakLongTime: Long = 1000
 
+    private lateinit var binding: APianoBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_piano
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = APianoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         this.hideDefaultControls()
         setupViews()
     }
 
     private fun setupViews() {
-        pv.setSoundPollMaxStream(10)
-        sb.thumbOffset = convertDpToPixel(seekbarOffsetSize).toInt()
+        binding.pv.setSoundPollMaxStream(10)
+        binding.sb.thumbOffset = convertDpToPixel(seekbarOffsetSize).toInt()
 
-        pv.setPianoListener(this)
-        pv.setAutoPlayListener(this)
-        pv.setLoadAudioListener(this)
-        sb.setOnSeekBarChangeListener(this)
-        ivRightArrow.setOnClickListener(this)
-        ivLeftArrow.setOnClickListener(this)
-        ivMusic.setOnClickListener(this)
+        binding.pv.setPianoListener(this)
+        binding.pv.setAutoPlayListener(this)
+        binding.pv.setLoadAudioListener(this)
+        binding.sb.setOnSeekBarChangeListener(this)
+        binding.ivRightArrow.setOnClickListener(this)
+        binding.ivLeftArrow.setOnClickListener(this)
+        binding.ivMusic.setOnClickListener(this)
 
         if (useConfigFile) {
             val assetManager = assets
@@ -445,7 +451,7 @@ class PianoActivityFont : BaseActivityFont(), OnPianoListener, OnLoadAudioListen
         i: Int,
         b: Boolean
     ) {
-        pv?.scroll(i)
+        binding.pv.scroll(i)
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -462,7 +468,7 @@ class PianoActivityFont : BaseActivityFont(), OnPianoListener, OnLoadAudioListen
     override fun onClick(view: View) {
         if (scrollProgress == 0) {
             try {
-                scrollProgress = pv.layoutWidth * 100 / pv.pianoWidth
+                scrollProgress = binding.pv.layoutWidth * 100 / binding.pv.pianoWidth
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -473,26 +479,26 @@ class PianoActivityFont : BaseActivityFont(), OnPianoListener, OnLoadAudioListen
                 if (scrollProgress == 0) {
                     progress = 0
                 } else {
-                    progress = sb.progress - scrollProgress
+                    progress = binding.sb.progress - scrollProgress
                     if (progress < 0) {
                         progress = 0
                     }
                 }
-                sb.progress = progress
+                binding.sb.progress = progress
             }
             R.id.ivRightArrow -> {
                 if (scrollProgress == 0) {
                     progress = 100
                 } else {
-                    progress = sb.progress + scrollProgress
+                    progress = binding.sb.progress + scrollProgress
                     if (progress > 100) {
                         progress = 100
                     }
                 }
-                sb.progress = progress
+                binding.sb.progress = progress
             }
             R.id.ivMusic -> if (!isPlay) {
-                pv.autoPlay(litterStarList)
+                binding.pv.autoPlay(litterStarList)
             }
         }
     }
@@ -515,6 +521,6 @@ class PianoActivityFont : BaseActivityFont(), OnPianoListener, OnLoadAudioListen
 
     override fun onDestroy() {
         super.onDestroy()
-        pv.releaseAutoPlay()
+        binding.pv.releaseAutoPlay()
     }
 }
