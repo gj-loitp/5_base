@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.twoInstanceActivity
+package vn.loitp.up.a.demo.twoInstanceActivity
 
 import android.app.ActivityManager
 import android.content.Context
@@ -7,44 +7,47 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.a_2.*
 import vn.loitp.R
+import vn.loitp.databinding.A2Binding
 
 @LogTag("Activity2")
 @IsFullScreen(false)
-class Activity2Font : BaseActivityFont() {
+class Activity2 : BaseActivityFont() {
+    private lateinit var binding: A2Binding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_2
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = A2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = Activity2Font::class.java.simpleName
+            this.tvTitle?.text = Activity2::class.java.simpleName
         }
-        btGoTo1.setSafeOnClickListener {
-            val intent = Intent(this@Activity2Font, Activity1Font::class.java)
+        binding.btGoTo1.setSafeOnClickListener {
+            val intent = Intent(this@Activity2, Activity1::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
             this.tranIn()
         }
-        btGoTo3.setSafeOnClickListener {
-            val intent = Intent(this@Activity2Font, Activity3Font::class.java)
+        binding.btGoTo3.setSafeOnClickListener {
+            val intent = Intent(this@Activity2, Activity3::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
             this.tranIn()

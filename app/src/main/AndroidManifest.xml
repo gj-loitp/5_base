@@ -579,13 +579,13 @@
             android:name=".a.cv.video.youtube.YoutubeActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.twoInstanceActivity.Activity1Font"
+            android:name=".up.a.demo.twoInstanceActivity.Activity1"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.twoInstanceActivity.Activity2Font"
+            android:name=".up.a.demo.twoInstanceActivity.Activity2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.twoInstanceActivity.Activity3Font"
+            android:name=".up.a.demo.twoInstanceActivity.Activity3"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.coordinator.MenuCoordinatorLayoutActivityFont"

@@ -31,8 +31,8 @@ import vn.loitp.a.demo.rss.RSSActivityFont
 import vn.loitp.a.demo.sound.SoundActivityFont
 import vn.loitp.a.demo.trackingG1.TrackingG1ActivityFont
 import vn.loitp.a.demo.tts.TextToSpeechActivityFont
-import vn.loitp.a.demo.twoInstanceActivity.Activity1Font
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.twoInstanceActivity.Activity1
 
 @LogTag("MenuDemoActivity")
 @IsFullScreen(false)
@@ -141,7 +141,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
             }
             binding.btGalleryMember -> launchActivity(GalleryMemberActivity::class.java)
             binding.btEpubReader -> launchActivity(MenuEpubReaderActivityFont::class.java)
-            binding.bt2InstanceActivity -> launchActivity(Activity1Font::class.java)
+            binding.bt2InstanceActivity -> launchActivity(Activity1::class.java)
             binding.btFragmentNavigation -> launchActivity(FragmentNavigationActivityFont::class.java)
             binding.btPdf -> launchActivity(PdfDemoActivityFont::class.java)
             binding.btPiano -> launchActivity(PianoActivityFont::class.java)
