@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.alarm.sv;
+package vn.loitp.up.a.demo.alarm.sv;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;

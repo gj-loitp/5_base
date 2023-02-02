@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.alarm.md;
+package vn.loitp.up.a.demo.alarm.md;
 
 import android.content.Context;
 import android.content.SharedPreferences;

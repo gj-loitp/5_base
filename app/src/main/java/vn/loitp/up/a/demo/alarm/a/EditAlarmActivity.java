@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.alarm.a;
+package vn.loitp.up.a.demo.alarm.a;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -26,12 +26,12 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import vn.loitp.R;
-import vn.loitp.a.demo.alarm.md.Alarm;
-import vn.loitp.a.demo.alarm.md.DateTime;
+import vn.loitp.up.a.demo.alarm.md.Alarm;
+import vn.loitp.up.a.demo.alarm.md.DateTime;
 
 @LogTag("EditAlarmActivity")
 @IsFullScreen(false)
-public class EditAlarmActivityFont extends BaseActivityFont {
+public class EditAlarmActivity extends BaseActivityFont {
     private EditText mTitle;
     private Button mDateButton;
     private Button mTimeButton;

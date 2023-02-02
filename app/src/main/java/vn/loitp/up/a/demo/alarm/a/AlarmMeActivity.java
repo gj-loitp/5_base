@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.alarm.a;
+package vn.loitp.up.a.demo.alarm.a;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,13 +19,13 @@ import com.loitp.core.base.BaseActivityFont;
 
 import kotlin.Suppress;
 import vn.loitp.R;
-import vn.loitp.a.demo.alarm.adt.AlarmListAdapter;
-import vn.loitp.a.demo.alarm.md.Alarm;
-import vn.loitp.a.demo.alarm.sv.Preferences;
+import vn.loitp.up.a.demo.alarm.adt.AlarmListAdapter;
+import vn.loitp.up.a.demo.alarm.md.Alarm;
+import vn.loitp.up.a.demo.alarm.sv.Preferences;
 
 @LogTag("AlarmMeActivity")
 @IsFullScreen(false)
-public class AlarmMeActivityFont extends BaseActivityFont {
+public class AlarmMeActivity extends BaseActivityFont {
     private AlarmListAdapter mAlarmListAdapter;
     private Alarm mCurrentAlarm;
 
@@ -75,10 +75,10 @@ public class AlarmMeActivityFont extends BaseActivityFont {
     }
 
     public void onAddAlarmClick(View view) {
-        Intent intent = new Intent(getBaseContext(), EditAlarmActivityFont.class);
+        Intent intent = new Intent(getBaseContext(), EditAlarmActivity.class);
         mCurrentAlarm = new Alarm();
         mCurrentAlarm.toIntent(intent);
-        AlarmMeActivityFont.this.startActivityForResult(intent, NEW_ALARM_ACTIVITY);
+        AlarmMeActivity.this.startActivityForResult(intent, NEW_ALARM_ACTIVITY);
     }
 
     @Override
@@ -137,7 +137,7 @@ public class AlarmMeActivityFont extends BaseActivityFont {
         int index = item.getItemId();
 
         if (index == CONTEXT_MENU_EDIT) {
-            Intent intent = new Intent(getBaseContext(), EditAlarmActivityFont.class);
+            Intent intent = new Intent(getBaseContext(), EditAlarmActivity.class);
 
             mCurrentAlarm = mAlarmListAdapter.getItem(info.position);
             mCurrentAlarm.toIntent(intent);
@@ -160,10 +160,10 @@ public class AlarmMeActivityFont extends BaseActivityFont {
 
     private final AdapterView.OnItemClickListener mListOnItemClickListener = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Intent intent = new Intent(getBaseContext(), EditAlarmActivityFont.class);
+            Intent intent = new Intent(getBaseContext(), EditAlarmActivity.class);
             mCurrentAlarm = mAlarmListAdapter.getItem(position);
             mCurrentAlarm.toIntent(intent);
-            AlarmMeActivityFont.this.startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
+            AlarmMeActivity.this.startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
         }
     };
 

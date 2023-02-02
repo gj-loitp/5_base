@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.alarm.adt;
+package vn.loitp.up.a.demo.alarm.adt;
 
 import static com.loitp.core.ext.ApplicationKt.getColor;
 
@@ -14,10 +14,10 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import vn.loitp.R;
-import vn.loitp.a.demo.alarm.md.Alarm;
-import vn.loitp.a.demo.alarm.md.DataSource;
-import vn.loitp.a.demo.alarm.md.DateTime;
-import vn.loitp.a.demo.alarm.sv.AlarmReceiver;
+import vn.loitp.up.a.demo.alarm.md.Alarm;
+import vn.loitp.up.a.demo.alarm.md.DataSource;
+import vn.loitp.up.a.demo.alarm.md.DateTime;
+import vn.loitp.up.a.demo.alarm.sv.AlarmReceiver;
 
 public class AlarmListAdapter extends BaseAdapter {
 

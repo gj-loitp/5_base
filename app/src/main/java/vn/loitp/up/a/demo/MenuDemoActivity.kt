@@ -14,8 +14,8 @@ import com.loitp.core.helper.gallery.member.GalleryMemberActivity
 import com.loitp.core.helper.ttt.ui.a.TTTSplashActivity
 import vn.loitp.BuildConfig
 import vn.loitp.R
-import vn.loitp.a.demo.alarm.a.AlarmMeActivityFont
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.alarm.a.AlarmMeActivity
 import vn.loitp.up.a.demo.architectureComponent.MenuArchitectureComponentActivity
 import vn.loitp.up.a.demo.epubReader.MenuEpubReaderActivity
 import vn.loitp.up.a.demo.firebase.FirebaseActivity
@@ -154,7 +154,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
             binding.btRSS -> launchActivity(RSSActivity::class.java)
             binding.btTrackingG1 -> launchActivity(TrackingG1Activity::class.java)
             binding.btFirebase -> launchActivity(FirebaseActivity::class.java)
-            binding.btAlarm -> launchActivity(AlarmMeActivityFont::class.java)
+            binding.btAlarm -> launchActivity(AlarmMeActivity::class.java)
         }
     }
 }

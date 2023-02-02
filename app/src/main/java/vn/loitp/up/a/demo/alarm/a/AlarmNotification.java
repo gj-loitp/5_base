@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.alarm.a;
+package vn.loitp.up.a.demo.alarm.a;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -27,8 +27,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import vn.loitp.R;
-import vn.loitp.a.demo.alarm.md.Alarm;
-import vn.loitp.a.demo.alarm.md.DateTime;
+import vn.loitp.up.a.demo.alarm.md.Alarm;
+import vn.loitp.up.a.demo.alarm.md.DateTime;
 
 @LogTag("AlarmNotification")
 @IsFullScreen(false)
@@ -132,7 +132,7 @@ public class AlarmNotification extends BaseActivityFont {
 
         logD("AlarmNotification.addNotification(" + alarm.getId() + ", '" + alarm.getTitle() + "', '" + mDateTime.formatDetails(alarm) + "')");
 
-        intent = new Intent(this.getApplicationContext(), AlarmMeActivityFont.class);
+        intent = new Intent(this.getApplicationContext(), AlarmMeActivity.class);
         intent.setAction(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
 
