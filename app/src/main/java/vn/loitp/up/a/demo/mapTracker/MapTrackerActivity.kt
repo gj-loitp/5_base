@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.mapTracker
+package vn.loitp.up.a.demo.mapTracker
 
 import android.Manifest
 import android.content.Context
@@ -23,10 +23,11 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import com.permissionx.guolindev.PermissionX
-import kotlinx.android.synthetic.main.a_map_tracker.*
 import vn.loitp.R
+import vn.loitp.databinding.AMapTrackerBinding
 import java.io.IOException
 import java.util.*
 
@@ -53,20 +54,24 @@ class MapTrackerActivity :
     private var mLocationCallback: LocationCallback? = null
     private var mCurrentLocation: Location? = null
     private val listLoc = ArrayList<Loc>()
+    private lateinit var binding: AMapTrackerBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_map_tracker
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AMapTrackerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         checkPermission()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -81,21 +86,21 @@ class MapTrackerActivity :
 
         initLocation()
 
-        btLocation.setSafeOnClickListener {
+        binding.btLocation.setSafeOnClickListener {
             startLocationUpdates()
         }
-        btAddMaker.setSafeOnClickListener {
+        binding.btAddMaker.setSafeOnClickListener {
             addMakerSydney()
         }
-        btRouter.setSafeOnClickListener {
+        binding.btRouter.setSafeOnClickListener {
             drawRouter()
         }
 
-        btRouterAnim.setSafeOnClickListener {
+        binding.btRouterAnim.setSafeOnClickListener {
             drawRouterAnim()
         }
 
-        btDistance.setSafeOnClickListener {
+        binding.btDistance.setSafeOnClickListener {
             val startLatLng = LatLng(10.8785614, 106.8107979)
             val endLatLng = LatLng(30.8785614, 145.8107979)
             val distance = getDistance(startLatLng = startLatLng, endLatLng = endLatLng)
@@ -168,8 +173,8 @@ class MapTrackerActivity :
             listLoc.forEach {
                 log += "\n\n\n${it.beforeTimestamp} : ${it.beforeLatLng?.latitude} - ${it.beforeLatLng?.longitude} ~ ${it.afterLatLng?.latitude} - ${it.afterLatLng?.longitude} -> ${it.getDistance()}(m) - ${it.getTimeInSecond()}(s) -> ${it.getSpeed()}(m/s)"
             }
-            tvLog.text = log
-            nsv.scrollToBottom()
+            binding.tvLog.text = log
+            binding.nsv.scrollToBottom()
 
             val markerOptions = MarkerOptions()
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
