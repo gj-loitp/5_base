@@ -22,8 +22,8 @@ import vn.loitp.a.demo.floatingVideo.FloatingWidgetVideoActivityFont
 import vn.loitp.a.demo.floatingWidget.FloatingWidgetActivityFont
 import vn.loitp.a.demo.fragmentFlow.FragmentFlowActivityFont
 import vn.loitp.a.demo.fragmentNavigation.FragmentNavigationActivityFont
-import vn.loitp.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivityFont
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity
 import vn.loitp.up.a.demo.mapTracker.MapTrackerActivity
 import vn.loitp.up.a.demo.nfc.NFCActivity
 import vn.loitp.up.a.demo.pdf.PdfDemoActivity
@@ -146,7 +146,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
             binding.btPdf -> launchActivity(PdfDemoActivity::class.java)
             binding.btPiano -> launchActivity(PianoActivity::class.java)
             binding.btFragmentFlow -> launchActivity(FragmentFlowActivityFont::class.java)
-            binding.btGalleryCoreAlbumFrm -> launchActivity(GalleryCoreAlbumFrmActivityFont::class.java)
+            binding.btGalleryCoreAlbumFrm -> launchActivity(GalleryCoreAlbumFrmActivity::class.java)
             binding.btArchitectureComponent -> launchActivity(MenuArchitectureComponentActivityFont::class.java)
             binding.btNFC -> launchActivity(NFCActivity::class.java)
             binding.btMapTracker -> launchActivity(MapTrackerActivity::class.java)

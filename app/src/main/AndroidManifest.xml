@@ -764,7 +764,7 @@
             android:name=".a.cv.progress.window.WindowProgressActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivityFont"
+            android:name=".up.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.kenburn.KenburnViewActivityFont"
