@@ -28,8 +28,8 @@ import vn.loitp.a.demo.nfc.NFCActivity
 import vn.loitp.a.demo.pdf.PdfDemoActivityFont
 import vn.loitp.a.demo.piano.PianoActivityFont
 import vn.loitp.a.demo.rss.RSSActivityFont
-import vn.loitp.a.demo.sound.SoundActivityFont
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.sound.SoundActivity
 import vn.loitp.up.a.demo.trackingG1.TrackingG1Activity
 import vn.loitp.up.a.demo.tts.TextToSpeechActivity
 import vn.loitp.up.a.demo.twoInstanceActivity.Activity1
@@ -106,7 +106,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            binding.btSound -> launchActivity(SoundActivityFont::class.java)
+            binding.btSound -> launchActivity(SoundActivity::class.java)
             binding.btTextToSpeech -> launchActivity(TextToSpeechActivity::class.java)
             binding.btFloatingWidget -> launchActivity(FloatingWidgetActivityFont::class.java)
             binding.btFloatingVideo -> launchActivity(FloatingWidgetVideoActivityFont::class.java)

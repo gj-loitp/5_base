@@ -189,7 +189,7 @@
             android:name=".a.cv.progress.circularPb.CircularProgressBarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.sound.SoundActivityFont"
+            android:name=".up.a.demo.sound.SoundActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.demo.tts.TextToSpeechActivity"
