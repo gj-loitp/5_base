@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.rss
+package vn.loitp.up.a.demo.rss
 
 import android.os.Bundle
 import android.view.View

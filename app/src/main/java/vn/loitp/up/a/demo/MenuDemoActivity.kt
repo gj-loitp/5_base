@@ -27,8 +27,8 @@ import vn.loitp.a.demo.mapTracker.MapTrackerActivity
 import vn.loitp.a.demo.nfc.NFCActivity
 import vn.loitp.a.demo.pdf.PdfDemoActivityFont
 import vn.loitp.a.demo.piano.PianoActivityFont
-import vn.loitp.a.demo.rss.RSSActivityFont
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.rss.RSSActivity
 import vn.loitp.up.a.demo.sound.SoundActivity
 import vn.loitp.up.a.demo.trackingG1.TrackingG1Activity
 import vn.loitp.up.a.demo.tts.TextToSpeechActivity
@@ -151,7 +151,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
             binding.btNFC -> launchActivity(NFCActivity::class.java)
             binding.btMapTracker -> launchActivity(MapTrackerActivity::class.java)
             binding.btTTT -> launchActivity(TTTSplashActivity::class.java)
-            binding.btRSS -> launchActivity(RSSActivityFont::class.java)
+            binding.btRSS -> launchActivity(RSSActivity::class.java)
             binding.btTrackingG1 -> launchActivity(TrackingG1Activity::class.java)
             binding.btFirebase -> launchActivity(FirebaseActivityFont::class.java)
             binding.btAlarm -> launchActivity(AlarmMeActivityFont::class.java)

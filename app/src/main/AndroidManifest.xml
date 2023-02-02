@@ -1068,7 +1068,7 @@
             android:name=".a.cv.wheelSpiner.WheelSpinnerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.rss.RSSActivityFont"
+            android:name=".up.a.demo.rss.RSSActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivity"
