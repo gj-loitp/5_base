@@ -18,9 +18,9 @@ import com.loitp.core.helper.adHelper.AdHelperActivity
 import vn.loitp.R
 import vn.loitp.a.api.MenuAPIActivity
 import vn.loitp.a.cv.MenuCustomViewsActivity
-import vn.loitp.a.db.MenuDatabaseActivity
 import vn.loitp.databinding.AMenuBinding
 import vn.loitp.up.a.anim.MenuAnimationActivity
+import vn.loitp.up.a.db.MenuDatabaseActivity
 import vn.loitp.up.a.demo.MenuDemoActivity
 import vn.loitp.up.a.func.MenuFunctionActivity
 import vn.loitp.up.a.game.MenuGameActivity

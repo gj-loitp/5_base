@@ -295,7 +295,7 @@
             android:name=".a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.MenuDatabaseActivity"
+            android:name=".up.a.db.MenuDatabaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.db.realm.RealmActivityFont"
