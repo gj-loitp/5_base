@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.pdf
+package vn.loitp.up.a.demo.pdf
 
 import android.os.Bundle
 import android.view.View
@@ -14,17 +14,18 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.task.AsyncTaskDownloadPdfStream
 import com.loitp.task.GetPdfCoroutine
-import kotlinx.android.synthetic.main.a_demo_pdf.*
 import vn.loitp.R
+import vn.loitp.databinding.ADemoPdfBinding
 import java.io.File
 
 // https://github.com/barteksc/AndroidPdfViewer
 @LogTag("PdfDemoActivity")
 @IsFullScreen(false)
-class PdfDemoActivityFont : BaseActivityFont() {
+class PdfDemoActivity : BaseActivityFont() {
     private var asyncTaskDownloadPdfStream: AsyncTaskDownloadPdfStream? = null
     private var getPdfCoroutine: GetPdfCoroutine? = null
     private var pdfStreamCoroutine: PdfStreamCoroutine? = null
+    private lateinit var binding: ADemoPdfBinding
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_demo_pdf
@@ -33,30 +34,33 @@ class PdfDemoActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADemoPdfBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = PdfDemoActivityFont::class.java.simpleName
+            this.tvTitle?.text = PdfDemoActivity::class.java.simpleName
         }
-        btFileAsyncTask.setSafeOnClickListener {
+        binding.btFileAsyncTask.setSafeOnClickListener {
             callAsyncTaskFile()
         }
-        btFileCoroutine.setSafeOnClickListener {
+        binding.btFileCoroutine.setSafeOnClickListener {
             //TODO deo chay :((
             callCoroutineFile()
         }
-        btStreamAsyncTask.setSafeOnClickListener {
+        binding.btStreamAsyncTask.setSafeOnClickListener {
             callAsyncTaskStream()
         }
-        btStreamCoroutine.setSafeOnClickListener {
+        binding.btStreamCoroutine.setSafeOnClickListener {
             callCoroutineStream()
         }
         showDialogMsg(
@@ -73,19 +77,19 @@ class PdfDemoActivityFont : BaseActivityFont() {
 
     private fun updateUIProgress(isLoading: Boolean) {
         if (isLoading) {
-            pb.visibility = View.VISIBLE
-            pb.progress = 0
-            pdfView.visibility = View.GONE
-            btFileAsyncTask.visibility = View.GONE
-            btFileCoroutine.visibility = View.GONE
-            btStreamAsyncTask.visibility = View.GONE
-            btStreamCoroutine.visibility = View.GONE
+            binding.pb.visibility = View.VISIBLE
+            binding.pb.progress = 0
+            binding.pdfView.visibility = View.GONE
+            binding.btFileAsyncTask.visibility = View.GONE
+            binding.btFileCoroutine.visibility = View.GONE
+            binding.btStreamAsyncTask.visibility = View.GONE
+            binding.btStreamCoroutine.visibility = View.GONE
         } else {
-            pb.visibility = View.GONE
-            btFileAsyncTask.visibility = View.VISIBLE
-            btFileCoroutine.visibility = View.VISIBLE
-            btStreamAsyncTask.visibility = View.VISIBLE
-            btStreamCoroutine.visibility = View.VISIBLE
+            binding.pb.visibility = View.GONE
+            binding.btFileAsyncTask.visibility = View.VISIBLE
+            binding.btFileCoroutine.visibility = View.VISIBLE
+            binding.btStreamAsyncTask.visibility = View.VISIBLE
+            binding.btStreamCoroutine.visibility = View.VISIBLE
         }
     }
 
@@ -98,14 +102,14 @@ class PdfDemoActivityFont : BaseActivityFont() {
             .listener(object : DownloadListener() {
 
                 override fun onProgress(progress: Int) {
-                    pb.progress = progress
+                    binding.pb.progress = progress
                 }
 
                 override fun onSuccess() {
                     val filePath = downloadInfo.downloadFile.file
                     showShortInformation("Download Finished ${downloadInfo?.filePath}")
 
-                    pdfView.visibility = View.VISIBLE
+                    binding.pdfView.visibility = View.VISIBLE
                     filePath?.let {
                         showPDF(file = filePath)
                     }
@@ -131,9 +135,9 @@ class PdfDemoActivityFont : BaseActivityFont() {
         // val url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
         // val url = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
         updateUIProgress(isLoading = true)
-        btStreamCoroutine.visibility = View.GONE
+        binding.btStreamCoroutine.visibility = View.GONE
         asyncTaskDownloadPdfStream = AsyncTaskDownloadPdfStream(result = { inputStream ->
-            pdfView?.let {
+            binding.pdfView?.let {
                 it.visibility = View.VISIBLE
                 it.fromStream(inputStream).load()
             }
@@ -158,12 +162,12 @@ class PdfDemoActivityFont : BaseActivityFont() {
             folderName = folderName,
             resultPercent = { percent ->
                 percent?.let {
-                    pb.progress = it.toInt()
+                    binding.pb.progress = it.toInt()
                 }
             },
             resultFile = { file ->
                 logD("GetPdfTask ${file?.path}")
-                pdfView.visibility = View.VISIBLE
+                binding.pdfView.visibility = View.VISIBLE
                 file?.let { f ->
                     showPDF(f)
                 }
@@ -178,8 +182,8 @@ class PdfDemoActivityFont : BaseActivityFont() {
         pdfStreamCoroutine?.startTask(
             urlPdf = "http://www.pdf995.com/samples/pdf.pdf",
             result = { inputStream ->
-                pdfView.visibility = View.VISIBLE
-                pdfView.fromStream(inputStream).load()
+                binding.pdfView.visibility = View.VISIBLE
+                binding.pdfView.fromStream(inputStream).load()
                 updateUIProgress(isLoading = false)
             }
         )
@@ -227,7 +231,7 @@ class PdfDemoActivityFont : BaseActivityFont() {
         //                .load();
 
         // Option 3 horizontal scroll
-        pdfView.fromFile(file)
+        binding.pdfView.fromFile(file)
             // .pages(0) // all pages are displayed by default
             .enableSwipe(true) // allows to block changing pages using swipe
             .swipeHorizontal(true)

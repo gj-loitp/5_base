@@ -25,8 +25,8 @@ import vn.loitp.a.demo.fragmentNavigation.FragmentNavigationActivityFont
 import vn.loitp.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivityFont
 import vn.loitp.a.demo.mapTracker.MapTrackerActivity
 import vn.loitp.a.demo.nfc.NFCActivity
-import vn.loitp.a.demo.pdf.PdfDemoActivityFont
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.pdf.PdfDemoActivity
 import vn.loitp.up.a.demo.piano.PianoActivity
 import vn.loitp.up.a.demo.rss.RSSActivity
 import vn.loitp.up.a.demo.sound.SoundActivity
@@ -143,7 +143,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
             binding.btEpubReader -> launchActivity(MenuEpubReaderActivityFont::class.java)
             binding.bt2InstanceActivity -> launchActivity(Activity1::class.java)
             binding.btFragmentNavigation -> launchActivity(FragmentNavigationActivityFont::class.java)
-            binding.btPdf -> launchActivity(PdfDemoActivityFont::class.java)
+            binding.btPdf -> launchActivity(PdfDemoActivity::class.java)
             binding.btPiano -> launchActivity(PianoActivity::class.java)
             binding.btFragmentFlow -> launchActivity(FragmentFlowActivityFont::class.java)
             binding.btGalleryCoreAlbumFrm -> launchActivity(GalleryCoreAlbumFrmActivityFont::class.java)

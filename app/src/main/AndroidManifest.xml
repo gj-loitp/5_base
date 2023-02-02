@@ -679,7 +679,7 @@
             android:name=".a.cv.tv.extra.ExtraTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.pdf.PdfDemoActivityFont"
+            android:name=".up.a.demo.pdf.PdfDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.swipeReveal.SwipeRevealLayoutActivityFont"
