@@ -4,12 +4,13 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_demo_coroutine.*
 import kotlinx.coroutines.*
 import vn.loitp.R
+import vn.loitp.databinding.ADemoCoroutineBinding
 import kotlin.system.measureTimeMillis
 
 // https://viblo.asia/p/cung-hoc-kotlin-coroutine-phan-1-gioi-thieu-kotlin-coroutine-va-ky-thuat-lap-trinh-bat-dong-bo-gGJ59xajlX2
@@ -21,47 +22,52 @@ import kotlin.system.measureTimeMillis
 // https://medium.com/androiddevelopers/coroutines-on-android-part-ii-getting-started-3bff117176dd
 @LogTag("CoroutineActivity")
 @IsFullScreen(false)
-class CoroutineActivityFont : BaseActivityFont() {
+class CoroutineActivity : BaseActivityFont() {
+
+    private lateinit var binding: ADemoCoroutineBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_demo_coroutine
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADemoCoroutineBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = CoroutineActivityFont::class.java.simpleName
+            this.tvTitle?.text = CoroutineActivity::class.java.simpleName
         }
-        btTestBlocking.setSafeOnClickListener {
+        binding.btTestBlocking.setSafeOnClickListener {
             testBlocking()
         }
-        btTestWithContext.setSafeOnClickListener {
+        binding.btTestWithContext.setSafeOnClickListener {
             testWithContext()
         }
-        btTestJoin.setSafeOnClickListener {
+        binding.btTestJoin.setSafeOnClickListener {
             testJoin()
         }
-        btTestCancel.setSafeOnClickListener {
+        binding.btTestCancel.setSafeOnClickListener {
             testCancel()
         }
-        btTestCompose.setSafeOnClickListener {
+        binding.btTestCompose.setSafeOnClickListener {
             testCompose()
         }
-        btTestTimeOut.setSafeOnClickListener {
+        binding.btTestTimeOut.setSafeOnClickListener {
             testTimeOut()
         }
-        btTestConvertAsyncTaskToCoroutine.setSafeOnClickListener {
+        binding.btTestConvertAsyncTaskToCoroutine.setSafeOnClickListener {
             convertAsyncTaskToCoroutine()
         }
     }

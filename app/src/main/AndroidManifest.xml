@@ -878,7 +878,7 @@
             android:name=".up.a.demo.architectureComponent.room.WordActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.demo.architectureComponent.coroutine.CoroutineActivityFont"
+            android:name=".up.a.demo.architectureComponent.coroutine.CoroutineActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.cal.MenuCalendarActivity"

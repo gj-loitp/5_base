@@ -10,7 +10,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AMenuDemoArchitectureComponentBinding
-import vn.loitp.up.a.demo.architectureComponent.coroutine.CoroutineActivityFont
+import vn.loitp.up.a.demo.architectureComponent.coroutine.CoroutineActivity
 import vn.loitp.up.a.demo.architectureComponent.room.WordActivity
 import vn.loitp.up.a.demo.architectureComponent.vm.ViewModelActivity
 
@@ -45,7 +45,7 @@ class MenuArchitectureComponentActivity : BaseActivityFont() {
             this.tvTitle?.text = MenuArchitectureComponentActivity::class.java.simpleName
         }
         binding.btCoroutine.setSafeOnClickListener {
-            launchActivity(CoroutineActivityFont::class.java)
+            launchActivity(CoroutineActivity::class.java)
         }
         binding.btRoom.setSafeOnClickListener {
             launchActivity(WordActivity::class.java)
