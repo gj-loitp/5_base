@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.trackingG1
+package vn.loitp.up.a.demo.trackingG1
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -11,41 +11,45 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_tracking_g1.*
-import vn.loitp.R
+import vn.loitp.databinding.ATrackingG1Binding
 
 @LogTag("TrackingG1Activity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class TrackingG1ActivityFont : BaseActivityFont() {
+class TrackingG1Activity : BaseActivityFont() {
+    private lateinit var binding: ATrackingG1Binding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_tracking_g1
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ATrackingG1Binding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = TrackingG1ActivityFont::class.java.simpleName
+            this.tvTitle?.text = TrackingG1Activity::class.java.simpleName
         }
-        btTestTrackingByParams?.setOnClickListener {
+        binding.btTestTrackingByParams.setOnClickListener {
             trackEventByParams()
         }
-        btTestTrackingByObjects?.setOnClickListener {
+        binding.btTestTrackingByObjects.setOnClickListener {
             trackEventByObject()
         }
     }
@@ -83,18 +87,18 @@ class TrackingG1ActivityFont : BaseActivityFont() {
             eventName = eventName,
             eventData = eventData,
             onPreExecute = { input ->
-                tvInput.printBeautyJson(input)
-                tvOutput?.text = "Loading..."
+                binding.tvInput.printBeautyJson(input)
+                binding.tvOutput.text = "Loading..."
             },
             onResponse = { isSuccessful, code, response ->
-                tvOutput?.text =
+                binding.tvOutput.text =
                     "onResponse" +
                             "\nisSuccessful: $isSuccessful" +
                             "\ncode: $code" +
                             "\nresponse body: ${Gson().toJson(response)}"
             },
             onFailure = { t ->
-                tvOutput?.text = "onFailure $t"
+                binding.tvOutput.text = "onFailure $t"
             }
         )
     }
@@ -134,18 +138,18 @@ class TrackingG1ActivityFont : BaseActivityFont() {
         Analytics.trackEvent(
             monitorEvent = monitorEvent,
             onPreExecute = { input ->
-                tvInput.printBeautyJson(input)
-                tvOutput?.text = "Loading..."
+                binding.tvInput.printBeautyJson(input)
+                binding.tvOutput.text = "Loading..."
             },
             onResponse = { isSuccessful, code, response ->
-                tvOutput?.text =
+                binding.tvOutput.text =
                     "onResponse" +
                             "\nisSuccessful: $isSuccessful" +
                             "\ncode: $code" +
                             "\nresponse body: ${Gson().toJson(response)}"
             },
             onFailure = { t ->
-                tvOutput?.text = "onFailure $t"
+                binding.tvOutput.text = "onFailure $t"
             }
         )
     }
