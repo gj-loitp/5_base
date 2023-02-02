@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.epubReader
+package vn.loitp.up.a.demo.epubReader
 
 import android.os.Bundle
 import android.view.View
@@ -10,12 +10,14 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.ext.*
 import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.vm.EpubViewModel
-import kotlinx.android.synthetic.main.a_demo_epub_reader.*
 import vn.loitp.R
+import vn.loitp.databinding.ADemoEpubReaderBinding
 
 @LogTag("MenuEpubReaderActivity")
 @IsFullScreen(false)
-class MenuEpubReaderActivityFont : BaseActivityFont() {
+class MenuEpubReaderActivity : BaseActivityFont() {
+
+    private lateinit var binding: ADemoEpubReaderBinding
 
     companion object {
         private const val MAX_BOOK_ASSET = 1
@@ -31,6 +33,9 @@ class MenuEpubReaderActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADemoEpubReaderBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
         setupViewModels()
         setDelay(mls = 500, runnable = {
@@ -39,16 +44,16 @@ class MenuEpubReaderActivityFont : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuEpubReaderActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuEpubReaderActivity::class.java.simpleName
         }
-        gridBookInfo.onItemClickListener =
+        binding.gridBookInfo.onItemClickListener =
             AdapterView.OnItemClickListener { adapterView: AdapterView<*>, _: View?, i: Int, _: Long ->
                 val bookInfo = adapterView.adapter.getItem(i) as BookInfo
                 this.readEpub(
@@ -65,13 +70,13 @@ class MenuEpubReaderActivityFont : BaseActivityFont() {
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
                 if (isDoing == true) {
-                    progressBar.showProgress()
+                    binding.progressBar.showProgress()
                 } else {
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                     if (isSuccess == true) {
                         actionData.data?.let { bookInfoList ->
                             val adapter = BookInfoGridAdapter(bookInfoList = bookInfoList)
-                            gridBookInfo.adapter = adapter
+                            binding.gridBookInfo.adapter = adapter
                         }
                     }
                 }
@@ -85,13 +90,13 @@ class MenuEpubReaderActivityFont : BaseActivityFont() {
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
                 if (isDoing == true) {
-                    progressBar.showProgress()
+                    binding.progressBar.showProgress()
                 } else {
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                     if (isSuccess == true) {
                         actionData.data?.let { bookInfoList ->
                             val adapter = BookInfoGridAdapter(bookInfoList = bookInfoList)
-                            gridBookInfo.adapter = adapter
+                            binding.gridBookInfo.adapter = adapter
                         }
                     }
                 }

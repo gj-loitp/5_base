@@ -16,8 +16,8 @@ import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.a.demo.alarm.a.AlarmMeActivityFont
 import vn.loitp.a.demo.architectureComponent.MenuArchitectureComponentActivityFont
-import vn.loitp.a.demo.epubReader.MenuEpubReaderActivityFont
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.epubReader.MenuEpubReaderActivity
 import vn.loitp.up.a.demo.firebase.FirebaseActivity
 import vn.loitp.up.a.demo.floatingVideo.FloatingWidgetVideoActivity
 import vn.loitp.up.a.demo.floatingWidget.FloatingWidgetActivity
@@ -140,7 +140,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
                     })
             }
             binding.btGalleryMember -> launchActivity(GalleryMemberActivity::class.java)
-            binding.btEpubReader -> launchActivity(MenuEpubReaderActivityFont::class.java)
+            binding.btEpubReader -> launchActivity(MenuEpubReaderActivity::class.java)
             binding.bt2InstanceActivity -> launchActivity(Activity1::class.java)
             binding.btFragmentNavigation -> launchActivity(FragmentNavigationActivity::class.java)
             binding.btPdf -> launchActivity(PdfDemoActivity::class.java)

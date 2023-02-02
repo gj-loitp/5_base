@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.epubReader
+package vn.loitp.up.a.demo.epubReader
 
 import android.content.Context
 import android.view.LayoutInflater

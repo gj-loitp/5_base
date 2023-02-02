@@ -548,7 +548,7 @@
             android:name=".a.cv.layout.relativePopupWindow.RelativePopupWindowActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.epubReader.MenuEpubReaderActivityFont"
+            android:name=".up.a.demo.epubReader.MenuEpubReaderActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.func.glide.GlideActivity"
