@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.firebase
+package vn.loitp.up.a.demo.firebase
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -16,15 +16,16 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.testCrash
 import com.onesignal.OneSignal
 import com.onesignal.OneSignal.PostNotificationResponseHandler
-import kotlinx.android.synthetic.main.a_firebase.*
 import org.json.JSONObject
 import vn.loitp.BuildConfig
 import vn.loitp.R
+import vn.loitp.databinding.AFirebaseBinding
 
 @LogTag("FirebaseActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class FirebaseActivityFont : BaseActivityFont() {
+class FirebaseActivity : BaseActivityFont() {
+    private lateinit var binding: AFirebaseBinding
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_firebase
@@ -33,31 +34,34 @@ class FirebaseActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AFirebaseBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = FirebaseActivityFont::class.java.simpleName
+            this.tvTitle?.text = FirebaseActivity::class.java.simpleName
         }
 
-        btTestCrashFirebase.isVisible = BuildConfig.DEBUG
-        btTestCrashFirebase.setSafeOnClickListener {
+        binding.btTestCrashFirebase.isVisible = BuildConfig.DEBUG
+        binding.btTestCrashFirebase.setSafeOnClickListener {
             testCrash()
         }
 
-        btRemoteConfig.setSafeOnClickListener {
+        binding.btRemoteConfig.setSafeOnClickListener {
             testRemoteConfig()
         }
 
-        btPushOneSignal.setSafeOnClickListener {
+        binding.btPushOneSignal.setSafeOnClickListener {
             pushNotiByOneSignal()
         }
     }
@@ -75,7 +79,7 @@ class FirebaseActivityFont : BaseActivityFont() {
                 if (task.isSuccessful) {
                     val updated = task.result
                     showShortInformation("Fetch and activate succeeded updated $updated")
-                    btRemoteConfig.text = remoteConfig["key_test"].asString()
+                    binding.btRemoteConfig.text = remoteConfig["key_test"].asString()
                 } else {
                     showShortError("Fetch failed")
                 }

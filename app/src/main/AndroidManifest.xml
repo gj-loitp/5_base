@@ -1248,7 +1248,7 @@
             android:name=".a.cv.sb.range.RangeSeekbarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.firebase.FirebaseActivityFont"
+            android:name=".up.a.demo.firebase.FirebaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.tv.dropdown.DropdownTextViewActivity"
