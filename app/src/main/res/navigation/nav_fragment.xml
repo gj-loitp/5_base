@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fn_1"
-        android:name="vn.loitp.a.demo.fragmentNavigation.FN1"
+        android:name="vn.loitp.up.a.demo.fragmentNavigation.FN1"
         android:label="label_1"
         tools:layout="@layout/f_fn_1">
         <action
@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/fn_2"
-        android:name="vn.loitp.a.demo.fragmentNavigation.FN2"
+        android:name="vn.loitp.up.a.demo.fragmentNavigation.FN2"
         android:label="label_2"
         tools:layout="@layout/f_fn_2">
         <action
@@ -42,7 +42,7 @@
 
     <fragment
         android:id="@+id/fn_3"
-        android:name="vn.loitp.a.demo.fragmentNavigation.FN3"
+        android:name="vn.loitp.up.a.demo.fragmentNavigation.FN3"
         android:label="label_3"
         tools:layout="@layout/f_fn_3">
         <action
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/fn_4"
-        android:name="vn.loitp.a.demo.fragmentNavigation.FN4"
+        android:name="vn.loitp.up.a.demo.fragmentNavigation.FN4"
         android:label="label_4"
         tools:layout="@layout/f_fn_4">
 

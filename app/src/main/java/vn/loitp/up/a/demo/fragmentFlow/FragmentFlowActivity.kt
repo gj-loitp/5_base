@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.fragmentFlow
+package vn.loitp.up.a.demo.fragmentFlow
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,19 +10,21 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.addFragment
 import com.loitp.core.ext.findFragmentByTag
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_demo_fragment_flow.*
 import vn.loitp.R
+import vn.loitp.databinding.ADemoFragmentFlowBinding
 
 @LogTag("FragmentFlowActivity")
 @IsFullScreen(false)
-class FragmentFlowActivityFont : BaseActivityFont() {
+class FragmentFlowActivity : BaseActivityFont() {
 
     var onBackClickListener: OnBackPressedListener? = null
     private var doubleBackToExitPressedOnce = false
+    private lateinit var binding: ADemoFragmentFlowBinding
 
     private fun getListener(): FragmentManager.OnBackStackChangedListener {
         return FragmentManager.OnBackStackChangedListener {
@@ -35,30 +37,33 @@ class FragmentFlowActivityFont : BaseActivityFont() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_demo_fragment_flow
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportFragmentManager.addOnBackStackChangedListener(getListener())
 
+        binding = ADemoFragmentFlowBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = FragmentFlowActivityFont::class.java.simpleName
+            this.tvTitle?.text = FragmentFlowActivity::class.java.simpleName
         }
-        btAddFrmFlow0.setSafeOnClickListener {
+        binding.btAddFrmFlow0.setSafeOnClickListener {
             showFragment(FrmFlow0())
         }
-        btClearAllFrm.setSafeOnClickListener {
+        binding.btClearAllFrm.setSafeOnClickListener {
             clearAllFragments()
         }
     }
@@ -107,6 +112,6 @@ class FragmentFlowActivityFont : BaseActivityFont() {
 
     @SuppressLint("SetTextI18n")
     fun print(msg: String) {
-        tvInformation.text = tvInformation.text.toString() + "\n" + msg
+        binding.tvInformation.text = binding.tvInformation.text.toString() + "\n" + msg
     }
 }

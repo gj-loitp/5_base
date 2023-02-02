@@ -13,8 +13,8 @@ import com.loitp.core.base.OnBackPressedListener
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.addFragment
 import vn.loitp.R
-import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
 import vn.loitp.databinding.AInterviewVnIqBinding
+import vn.loitp.up.a.demo.fragmentFlow.BaseFragmentFlow
 
 @LogTag("InterviewVNIQActivity")
 @IsFullScreen(false)

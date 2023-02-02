@@ -20,9 +20,9 @@ import vn.loitp.a.demo.epubReader.MenuEpubReaderActivityFont
 import vn.loitp.a.demo.firebase.FirebaseActivityFont
 import vn.loitp.a.demo.floatingVideo.FloatingWidgetVideoActivityFont
 import vn.loitp.a.demo.floatingWidget.FloatingWidgetActivityFont
-import vn.loitp.a.demo.fragmentFlow.FragmentFlowActivityFont
-import vn.loitp.a.demo.fragmentNavigation.FragmentNavigationActivityFont
 import vn.loitp.databinding.ADemoMenuBinding
+import vn.loitp.up.a.demo.fragmentFlow.FragmentFlowActivity
+import vn.loitp.up.a.demo.fragmentNavigation.FragmentNavigationActivity
 import vn.loitp.up.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity
 import vn.loitp.up.a.demo.mapTracker.MapTrackerActivity
 import vn.loitp.up.a.demo.nfc.NFCActivity
@@ -142,10 +142,10 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
             binding.btGalleryMember -> launchActivity(GalleryMemberActivity::class.java)
             binding.btEpubReader -> launchActivity(MenuEpubReaderActivityFont::class.java)
             binding.bt2InstanceActivity -> launchActivity(Activity1::class.java)
-            binding.btFragmentNavigation -> launchActivity(FragmentNavigationActivityFont::class.java)
+            binding.btFragmentNavigation -> launchActivity(FragmentNavigationActivity::class.java)
             binding.btPdf -> launchActivity(PdfDemoActivity::class.java)
             binding.btPiano -> launchActivity(PianoActivity::class.java)
-            binding.btFragmentFlow -> launchActivity(FragmentFlowActivityFont::class.java)
+            binding.btFragmentFlow -> launchActivity(FragmentFlowActivity::class.java)
             binding.btGalleryCoreAlbumFrm -> launchActivity(GalleryCoreAlbumFrmActivity::class.java)
             binding.btArchitectureComponent -> launchActivity(MenuArchitectureComponentActivityFont::class.java)
             binding.btNFC -> launchActivity(NFCActivity::class.java)

@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.fragmentNavigation
+package vn.loitp.up.a.demo.fragmentNavigation
 
 import android.os.Bundle
 import android.view.View
@@ -10,7 +10,7 @@ import vn.loitp.R
 @LogTag("fragmentNavigationActivity")
 class FN4 : BaseFragment(), OnBackPressedListener {
 
-    private var fragmentNavigationActivity: FragmentNavigationActivityFont? = null
+    private var fragmentNavigationActivity: FragmentNavigationActivity? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.f_fn_4
@@ -18,7 +18,7 @@ class FN4 : BaseFragment(), OnBackPressedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        fragmentNavigationActivity = activity as FragmentNavigationActivityFont?
+        fragmentNavigationActivity = activity as FragmentNavigationActivity?
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {}

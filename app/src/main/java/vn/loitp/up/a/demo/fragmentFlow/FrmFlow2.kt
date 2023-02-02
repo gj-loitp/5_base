@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.fragmentFlow
+package vn.loitp.up.a.demo.fragmentFlow
 
 import android.os.Bundle
 import android.view.View
@@ -40,6 +40,6 @@ class FrmFlow2 : BaseFragmentFlow() {
     }
 
     private fun print(msg: String) {
-        (activity as FragmentFlowActivityFont).print("FrmFlow2: $msg")
+        (activity as FragmentFlowActivity).print("FrmFlow2: $msg")
     }
 }

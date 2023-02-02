@@ -10,7 +10,7 @@ import com.loitp.core.ext.getPkgFromGGDrive
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.f_interview_vn_iq_list_package.*
 import vn.loitp.R
-import vn.loitp.a.demo.fragmentFlow.BaseFragmentFlow
+import vn.loitp.up.a.demo.fragmentFlow.BaseFragmentFlow
 import vn.loitp.up.a.interviewVN.adt.QAAdapter
 
 //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9

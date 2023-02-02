@@ -670,7 +670,7 @@
             android:name=".a.cv.layout.scrollView2d.ScrollView2DAdvanceActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.fragmentNavigation.FragmentNavigationActivityFont"
+            android:name=".up.a.demo.fragmentNavigation.FragmentNavigationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.network.NetworkActivity"
@@ -709,7 +709,7 @@
             android:name=".a.cv.et.l.LEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.demo.fragmentFlow.FragmentFlowActivityFont"
+            android:name=".up.a.demo.fragmentFlow.FragmentFlowActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.shadow.ShadowLayoutActivityFont"

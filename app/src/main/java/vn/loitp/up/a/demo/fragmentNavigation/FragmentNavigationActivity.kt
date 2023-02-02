@@ -1,4 +1,4 @@
-package vn.loitp.a.demo.fragmentNavigation
+package vn.loitp.up.a.demo.fragmentNavigation
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -10,13 +10,14 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.OnBackPressedListener
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_frm_navigation.*
 import vn.loitp.R
+import vn.loitp.databinding.AFrmNavigationBinding
 
 @LogTag("FragmentNavigationActivity")
 @IsFullScreen(false)
-class FragmentNavigationActivityFont :
+class FragmentNavigationActivity :
     BaseActivityFont(),
     NavigationView.OnNavigationItemSelectedListener {
 
@@ -25,25 +26,30 @@ class FragmentNavigationActivityFont :
     val navController: NavController
         get() = Navigation.findNavController(this, R.id.fragmentContainerView)
 
+    private lateinit var binding: AFrmNavigationBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_frm_navigation
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AFrmNavigationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = FragmentNavigationActivityFont::class.java.simpleName
+            this.tvTitle?.text = FragmentNavigationActivity::class.java.simpleName
         }
     }
 
