@@ -1,4 +1,4 @@
-package vn.loitp.a.db.sharedPrefs
+package vn.loitp.up.a.db.sharedPrefs
 
 import android.os.Bundle
 import com.google.gson.reflect.TypeToken
@@ -6,14 +6,15 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
-import kotlinx.android.synthetic.main.a_db_shared_prefs.*
 import vn.loitp.R
+import vn.loitp.databinding.ADbSharedPrefsBinding
 import vn.loitp.up.a.pattern.mvp.User
 
 @LogTag("SharedPrefsActivity")
 @IsFullScreen(false)
-class SharedPrefsActivityFont : BaseActivityFont() {
+class SharedPrefsActivity : BaseActivityFont() {
 
     companion object {
         const val KEY_STRING = "KEY_STRING"
@@ -27,85 +28,91 @@ class SharedPrefsActivityFont : BaseActivityFont() {
         const val KEY_LIST_OBJECT = "KEY_LIST_OBJECT"
     }
 
+    private lateinit var binding: ADbSharedPrefsBinding
+
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_db_shared_prefs
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADbSharedPrefsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = SharedPrefsActivityFont::class.java.simpleName
+            this.tvTitle?.text = SharedPrefsActivity::class.java.simpleName
         }
 
-        btPutString.setSafeOnClickListener {
+        binding.btPutString.setSafeOnClickListener {
             putString(
                 KEY_STRING,
                 "This is a string!!! " + System.currentTimeMillis()
             )
         }
-        btGetString.setSafeOnClickListener {
+        binding.btGetString.setSafeOnClickListener {
             val value = getString(KEY_STRING)
             showLongInformation(value)
         }
 
-        btPutStringWithDefaultValue.setSafeOnClickListener {
+        binding.btPutStringWithDefaultValue.setSafeOnClickListener {
             putString(
                 KEY_STRING_WITH_DEFAULT_VALUE,
                 "This is a string!!! " + System.currentTimeMillis()
             )
         }
-        btGetStringWithDefaultValue.setSafeOnClickListener {
+        binding.btGetStringWithDefaultValue.setSafeOnClickListener {
             val value = getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value")
             showLongInformation(value)
         }
 
-        btPutBoolean.setSafeOnClickListener {
+        binding.btPutBoolean.setSafeOnClickListener {
             putBoolean(KEY_BOOLEAN, true)
         }
-        btGetBoolean.setSafeOnClickListener {
+        binding.btGetBoolean.setSafeOnClickListener {
             val value = getBoolean(KEY_BOOLEAN)
             showLongInformation("Value: $value")
         }
 
-        btPutFloat.setSafeOnClickListener {
+        binding.btPutFloat.setSafeOnClickListener {
             putFloat(KEY_FLOAT, System.currentTimeMillis().toFloat())
         }
-        btGetFloat.setSafeOnClickListener {
+        binding.btGetFloat.setSafeOnClickListener {
             val value = getFloat(KEY_FLOAT)
             showLongInformation("Value: $value")
         }
 
-        btPutInt.setSafeOnClickListener {
+        binding.btPutInt.setSafeOnClickListener {
             putInt(KEY_INT, System.currentTimeMillis().toInt())
         }
-        btGetInt.setSafeOnClickListener {
+        binding.btGetInt.setSafeOnClickListener {
             val value = getInt(KEY_INT)
             showLongInformation("Value: $value")
         }
 
-        btPutLong.setSafeOnClickListener {
+        binding.btPutLong.setSafeOnClickListener {
             putLong(KEY_LONG, System.currentTimeMillis())
         }
-        btGetLong.setSafeOnClickListener {
+        binding.btGetLong.setSafeOnClickListener {
             val value = getLong(KEY_LONG)
             showLongInformation("Value: $value")
         }
 
-        btPutNumber.setSafeOnClickListener {
+        binding.btPutNumber.setSafeOnClickListener {
             putString(KEY_NUMBER, 123456.789.toString())
         }
-        btGetNumber.setSafeOnClickListener {
+        binding.btGetNumber.setSafeOnClickListener {
             try {
                 val value = getString(KEY_NUMBER)
                 showLongInformation(
@@ -116,18 +123,18 @@ class SharedPrefsActivityFont : BaseActivityFont() {
             }
         }
 
-        btPutObject.setSafeOnClickListener {
+        binding.btPutObject.setSafeOnClickListener {
             val user = User()
             user.email = "Email ${System.currentTimeMillis()}"
             user.fullName = "Name ${System.currentTimeMillis()}"
             putObject(KEY_OBJECT, user)
         }
-        btGetObject.setSafeOnClickListener {
+        binding.btGetObject.setSafeOnClickListener {
             val value = getObject(KEY_OBJECT, User::class.java)
             showLongInformation("Value: $value")
         }
 
-        btPutListObject.setSafeOnClickListener {
+        binding.btPutListObject.setSafeOnClickListener {
             val list = ArrayList<User>()
             for (i in 0..10) {
                 val user = User()
@@ -137,7 +144,7 @@ class SharedPrefsActivityFont : BaseActivityFont() {
             }
             putObjectList(KEY_LIST_OBJECT, list)
         }
-        btGetListObject.setSafeOnClickListener {
+        binding.btGetListObject.setSafeOnClickListener {
             val type = object : TypeToken<List<User>>() {
             }.type
             val value: ArrayList<User> = getObjectList(KEY_LIST_OBJECT, type)

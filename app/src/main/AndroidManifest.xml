@@ -806,7 +806,7 @@
             android:name=".up.a.sec.simple.SimpleEncryptDecryptStringActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.sharedPrefs.SharedPrefsActivityFont"
+            android:name=".up.a.db.sharedPrefs.SharedPrefsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivity"
