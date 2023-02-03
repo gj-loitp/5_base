@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.morphTransitions
+package vn.loitp.up.a.anim.morphTransitions
 
 import android.content.Context
 import android.content.Intent
@@ -11,13 +11,14 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import kotlinx.android.synthetic.main.a_morph_transtions_dialog.*
+import com.loitp.core.common.NOT_FOUND
 import vn.loitp.R
+import vn.loitp.databinding.AMorphTranstionsDialogBinding
 
 @LogTag("DialogActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)
-class MorphTransitionsDialogActivityFont : BaseActivityFont() {
+class MorphTransitionsDialogActivity : BaseActivityFont() {
 
     companion object {
         private const val EXTRA_TYPE = "type"
@@ -25,29 +26,34 @@ class MorphTransitionsDialogActivityFont : BaseActivityFont() {
         const val TYPE_BUTTON = 2
 
         fun newIntent(context: Context, type: Int): Intent {
-            val intent = Intent(context, MorphTransitionsDialogActivityFont::class.java)
+            val intent = Intent(context, MorphTransitionsDialogActivity::class.java)
             intent.putExtra(EXTRA_TYPE, type)
             return intent
         }
     }
 
+    private lateinit var binding: AMorphTranstionsDialogBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_morph_transtions_dialog
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        rootView.setOnClickListener {
-            ActivityCompat.finishAfterTransition(this@MorphTransitionsDialogActivityFont)
+        binding = AMorphTranstionsDialogBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.rootView.setOnClickListener {
+            ActivityCompat.finishAfterTransition(this@MorphTransitionsDialogActivity)
         }
         when (intent.getIntExtra(EXTRA_TYPE, -1)) {
-            TYPE_FAB -> FabTransform.setup(this, container)
+            TYPE_FAB -> FabTransform.setup(this, binding.container)
             TYPE_BUTTON -> MorphTransform.setup(
-                this,
-                container,
-                Color.WHITE,
-                resources.getDimensionPixelSize(R.dimen.round_medium)
+                activity = this,
+                target = binding.container,
+                endColor = Color.WHITE,
+                endCornerRadius = resources.getDimensionPixelSize(R.dimen.round_medium)
             )
         }
     }

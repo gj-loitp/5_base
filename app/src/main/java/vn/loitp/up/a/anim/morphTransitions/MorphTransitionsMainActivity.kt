@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.morphTransitions
+package vn.loitp.up.a.anim.morphTransitions
 
 import android.app.ActivityOptions
 import android.content.Intent
@@ -11,12 +11,13 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.a_morph_transitions_main.*
 import vn.loitp.R
+import vn.loitp.databinding.AMorphTransitionsMainBinding
 
 @LogTag("MainActivity")
 @IsFullScreen(false)
-class MorphTransitionsMainActivityFont : BaseActivityFont() {
+class MorphTransitionsMainActivity : BaseActivityFont() {
+    private lateinit var binding: AMorphTransitionsMainBinding
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_morph_transitions_main
@@ -25,62 +26,65 @@ class MorphTransitionsMainActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AMorphTransitionsMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        toolbar.setTitle(R.string.app_name)
+        binding.toolbar.setTitle(R.string.app_name)
 
-        fab.setSafeOnClickListener {
-            val intent: Intent = if (switchFullScreen.isChecked) {
+        binding.fab.setSafeOnClickListener {
+            val intent: Intent = if (binding.switchFullScreen.isChecked) {
                 Intent(
-                    this@MorphTransitionsMainActivityFont,
-                    MorphTransitionsFullScreenActivityFont::class.java
+                    this@MorphTransitionsMainActivity,
+                    MorphTransitionsFullScreenActivity::class.java
                 )
             } else {
-                MorphTransitionsDialogActivityFont.newIntent(
-                    this@MorphTransitionsMainActivityFont,
-                    MorphTransitionsDialogActivityFont.TYPE_FAB
+                MorphTransitionsDialogActivity.newIntent(
+                    this@MorphTransitionsMainActivity,
+                    MorphTransitionsDialogActivity.TYPE_FAB
                 )
             }
             FabTransform.addExtras(
                 intent,
-                ContextCompat.getColor(this@MorphTransitionsMainActivityFont, R.color.colorAccent),
+                ContextCompat.getColor(this@MorphTransitionsMainActivity, R.color.colorAccent),
                 R.drawable.ic_account_circle_black_48dp,
             )
             val options = ActivityOptions.makeSceneTransitionAnimation(
-                this@MorphTransitionsMainActivityFont,
-                fab,
+                this@MorphTransitionsMainActivity,
+                binding.fab,
                 getString(R.string.transition_morph)
             )
             startActivity(intent, options.toBundle())
         }
-        button.setSafeOnClickListener {
+        binding.button.setSafeOnClickListener {
             show(it)
         }
-        button1.setSafeOnClickListener {
+        binding.button1.setSafeOnClickListener {
             show(it)
         }
-        button2.setSafeOnClickListener {
+        binding.button2.setSafeOnClickListener {
             show(it)
         }
-        button3.setSafeOnClickListener {
+        binding.button3.setSafeOnClickListener {
             show(it)
         }
     }
 
     private fun show(view: View) {
-        val intent = MorphTransitionsDialogActivityFont.newIntent(
-            this@MorphTransitionsMainActivityFont,
-            MorphTransitionsDialogActivityFont.TYPE_BUTTON
+        val intent = MorphTransitionsDialogActivity.newIntent(
+            this@MorphTransitionsMainActivity,
+            MorphTransitionsDialogActivity.TYPE_BUTTON
         )
         MorphTransform.addExtras(
             intent,
-            ContextCompat.getColor(this@MorphTransitionsMainActivityFont, R.color.colorAccent),
+            ContextCompat.getColor(this@MorphTransitionsMainActivity, R.color.colorAccent),
             resources.getDimensionPixelSize(R.dimen.round_medium)
         )
         val options = ActivityOptions.makeSceneTransitionAnimation(
-            this@MorphTransitionsMainActivityFont,
+            this@MorphTransitionsMainActivity,
             view,
             getString(R.string.transition_morph)
         )

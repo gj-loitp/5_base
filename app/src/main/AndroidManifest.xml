@@ -1047,13 +1047,13 @@
             android:name=".a.cv.indicator.ex.LoadCustomLayoutExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.morphTransitions.MorphTransitionsMainActivityFont"
+            android:name=".up.a.anim.morphTransitions.MorphTransitionsMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.morphTransitions.MorphTransitionsDialogActivityFont"
+            android:name=".up.a.anim.morphTransitions.MorphTransitionsDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.morphTransitions.MorphTransitionsFullScreenActivityFont"
+            android:name=".up.a.anim.morphTransitions.MorphTransitionsFullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.activityTransitionReveal.RevealActivity2"
