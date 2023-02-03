@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.flySchool
+package vn.loitp.up.a.anim.flySchool
 
 import android.os.Bundle
 import com.loitp.anim.flySchool.ImgObject
@@ -6,57 +6,62 @@ import com.loitp.anim.flySchool.PATHS
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_animation_fly_school.*
 import vn.loitp.R
+import vn.loitp.databinding.AAnimationFlySchoolBinding
 
 // https://github.com/cipherthinkers/shapeflyer?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5370
 @LogTag("FlySchoolActivity")
 @IsFullScreen(false)
-class FlySchoolActivityFont : BaseActivityFont() {
+class FlySchoolActivity : BaseActivityFont() {
+    private lateinit var binding: AAnimationFlySchoolBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_animation_fly_school
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AAnimationFlySchoolBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = FlySchoolActivityFont::class.java.simpleName
+            this.tvTitle?.text = FlySchoolActivity::class.java.simpleName
         }
 
-        floatingContainer.addPath(PATHS.S_INVERTED_BOTTOM_RIGHT)
+        binding.floatingContainer.addPath(PATHS.S_INVERTED_BOTTOM_RIGHT)
         // mShapeFlyer.addPath(PATHS.S_BOTTOM_LEFT)
-        btPlay1.setOnClickListener {
+        binding.btPlay1.setOnClickListener {
             val imgObject = ImgObject()
             imgObject.avatar = "https://kenh14cdn.com/2016/photo-1-1472659093342.jpg"
             imgObject.url = "https://kenh14cdn.com/2016/photo-1-1472659093342.jpg"
             play1(imgObject)
         }
-        btPlay2.setOnClickListener {
+        binding.btPlay2.setOnClickListener {
             val imgObject = ImgObject()
             imgObject.avatar = "https://kenh14cdn.com/2016/photo-9-1472659093718.jpg"
             imgObject.url = "https://kenh14cdn.com/2016/photo-9-1472659093718.jpg"
             play2(imgObject)
         }
-        btPlay3.setOnClickListener {
+        binding.btPlay3.setOnClickListener {
             play3()
         }
     }
 
     override fun onDestroy() {
-        floatingContainer?.release()
+        binding.floatingContainer.release()
         super.onDestroy()
     }
 
@@ -66,17 +71,17 @@ class FlySchoolActivityFont : BaseActivityFont() {
         // mShapeFlyer.startAnimation(R.drawable.l_heart_icon);
 
         imgObject?.let {
-            floatingContainer?.startAnimation(it, 0)
+            binding.floatingContainer.startAnimation(it, 0)
         }
     }
 
     private fun play2(imgObject: ImgObject?) {
         imgObject?.let {
-            floatingContainer.startAnimation(it, R.drawable.logo)
+            binding.floatingContainer.startAnimation(it, R.drawable.logo)
         }
     }
 
     private fun play3() {
-        floatingContainer?.startAnimation(R.drawable.logo)
+        binding.floatingContainer.startAnimation(R.drawable.logo)
     }
 }
