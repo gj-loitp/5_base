@@ -1,9 +1,9 @@
-package vn.loitp.a.db.room.converter
+package vn.loitp.up.a.db.room.converter
 
 import androidx.room.TypeConverter
 import com.google.gson.reflect.TypeToken
 import com.loitp.core.base.BaseApplication
-import vn.loitp.a.db.room.md.Area
+import vn.loitp.up.a.db.room.md.Area
 import java.lang.reflect.Type
 
 class AreaConverter {

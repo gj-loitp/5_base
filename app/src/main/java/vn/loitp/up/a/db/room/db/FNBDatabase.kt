@@ -1,12 +1,12 @@
-package vn.loitp.a.db.room.db
+package vn.loitp.up.a.db.room.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import vn.loitp.a.db.room.converter.AreaConverter
-import vn.loitp.a.db.room.md.FloorPlan
+import vn.loitp.up.a.db.room.converter.AreaConverter
+import vn.loitp.up.a.db.room.md.FloorPlan
 
 @Database(entities = [FloorPlan::class], version = 2)
 abstract class FNBDatabase : RoomDatabase() {

@@ -1,4 +1,4 @@
-package vn.loitp.a.db.room
+package vn.loitp.up.a.db.room
 
 import android.os.Bundle
 import android.view.View
@@ -12,7 +12,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_db_room2.*
 import vn.loitp.R
-import vn.loitp.a.db.room.md.FloorPlan
+import vn.loitp.up.a.db.room.md.FloorPlan
 
 @LogTag("RoomActivity")
 @IsFullScreen(false)

@@ -11,8 +11,8 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.a.db.readSqliteAsset.ReadSqliteAssetActivityFont
 import vn.loitp.a.db.realm.RealmActivityFont
-import vn.loitp.a.db.room.RoomActivityFont
 import vn.loitp.databinding.ADbMenuBinding
+import vn.loitp.up.a.db.room.RoomActivityFont
 import vn.loitp.up.a.db.sharedPrefs.SharedPrefsActivity
 import vn.loitp.up.a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivity
 import vn.loitp.up.a.db.sqlite.SqliteActivity
