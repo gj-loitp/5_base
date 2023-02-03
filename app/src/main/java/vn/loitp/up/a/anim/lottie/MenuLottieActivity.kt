@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.lottie
+package vn.loitp.up.a.anim.lottie
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,57 +14,62 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FONT_PATH
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_animation_lottie.*
 import vn.loitp.R
+import vn.loitp.databinding.AAnimationLottieBinding
 import java.io.IOException
 
 // https://www.lottiefiles.com/?page=1
 @LogTag("MenuLottieActivity")
 @IsFullScreen(false)
-class MenuLottieActivityFont : BaseActivityFont() {
+class MenuLottieActivity : BaseActivityFont() {
     private val lottieItemList: MutableList<LottieItem> = ArrayList()
+    private lateinit var binding: AAnimationLottieBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_animation_lottie
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AAnimationLottieBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         prepareData()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuLottieActivityFont::class.java.simpleName
+            this.tvTitle?.text = MenuLottieActivity::class.java.simpleName
         }
 
         val slidePagerAdapter = SlidePagerAdapter()
-        viewPager.adapter = slidePagerAdapter
-        tabLayout.setupWithViewPager(viewPager)
+        binding.viewPager.adapter = slidePagerAdapter
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
 
-        tabLayout.changeTabsFont(fontName = FONT_PATH)
+        binding.tabLayout.changeTabsFont(fontName = FONT_PATH)
 
-        sb.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+        binding.sb.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {}
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
             override fun onStopTrackingTouch(seekBar: SeekBar) {
-                viewPager.currentItem = seekBar.progress
+                binding.viewPager.currentItem = seekBar.progress
             }
         })
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(i: Int, v: Float, i1: Int) {}
             override fun onPageSelected(i: Int) {
-                sb.progress = i
+                binding.sb.progress = i
             }
 
             override fun onPageScrollStateChanged(i: Int) {}
@@ -81,8 +86,8 @@ class MenuLottieActivityFont : BaseActivityFont() {
                 )
             )
         }
-        sb.max = lottieItemList.size
-        viewPager.adapter?.notifyDataSetChanged()
+        binding.sb.max = lottieItemList.size
+        binding.viewPager.adapter?.notifyDataSetChanged()
     }
 
     private val stringList: MutableList<String> = ArrayList()
@@ -109,7 +114,7 @@ class MenuLottieActivityFont : BaseActivityFont() {
     private inner class SlidePagerAdapter : PagerAdapter() {
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
             val lottieItem = lottieItemList[position]
-            val inflater = LayoutInflater.from(this@MenuLottieActivityFont)
+            val inflater = LayoutInflater.from(this@MenuLottieActivity)
             val layout = inflater.inflate(R.layout.i_lottie_view, collection, false) as ViewGroup
             val rl = layout.findViewById<ViewGroup>(R.id.rl)
             val animationView: LottieAnimationView = layout.findViewById(R.id.animationView)

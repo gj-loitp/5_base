@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.lottie
+package vn.loitp.up.a.anim.lottie
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel

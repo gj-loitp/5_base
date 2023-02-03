@@ -567,7 +567,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.anim.lottie.MenuLottieActivityFont"
+            android:name=".up.a.anim.lottie.MenuLottieActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.u.UtilsActivity"
