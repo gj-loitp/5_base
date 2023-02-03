@@ -1,37 +1,43 @@
-package vn.loitp.a.db.readSqliteAsset
+package vn.loitp.up.a.db.readSqliteAsset
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.printBeautyJson
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_read_sqlite_asset.*
 import vn.loitp.R
+import vn.loitp.databinding.AReadSqliteAssetBinding
 
 @LogTag("ReadSqliteAssetActivity")
 @IsFullScreen(false)
-class ReadSqliteAssetActivityFont : BaseActivityFont() {
+class ReadSqliteAssetActivity : BaseActivityFont() {
+
+    private lateinit var binding: AReadSqliteAssetBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_read_sqlite_asset
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AReadSqliteAssetBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ReadSqliteAssetActivityFont::class.java.simpleName
+            this.tvTitle?.text = ReadSqliteAssetActivity::class.java.simpleName
         }
 
         val vocabularyManager = VocabularyManager(this)
@@ -49,9 +55,9 @@ class ReadSqliteAssetActivityFont : BaseActivityFont() {
         logD("size: " + vocabularyList.size)
 
         try {
-            textView.printBeautyJson(o = vocabularyList[0])
+            binding.textView.printBeautyJson(o = vocabularyList[0])
         } catch (e: Exception) {
-            textView.text = "$e"
+            binding.textView.text = "$e"
         }
     }
 }

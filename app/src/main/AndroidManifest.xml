@@ -343,7 +343,7 @@
             android:name=".a.cv.iv.panorama.PanoramaIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.readSqliteAsset.ReadSqliteAssetActivityFont"
+            android:name=".up.a.db.readSqliteAsset.ReadSqliteAssetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.draggableView.DraggableViewActivityFont"

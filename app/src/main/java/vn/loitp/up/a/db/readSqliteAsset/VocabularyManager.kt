@@ -1,4 +1,4 @@
-package vn.loitp.a.db.readSqliteAsset
+package vn.loitp.up.a.db.readSqliteAsset
 
 import android.annotation.SuppressLint
 import android.content.Context

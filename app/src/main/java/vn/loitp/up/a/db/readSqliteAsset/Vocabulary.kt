@@ -1,4 +1,4 @@
-package vn.loitp.a.db.readSqliteAsset
+package vn.loitp.up.a.db.readSqliteAsset
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel
