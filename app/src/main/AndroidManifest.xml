@@ -301,7 +301,7 @@
             android:name=".a.db.realm.RealmActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.db.sqlite.SqliteActivityFont"
+            android:name=".up.a.db.sqlite.SqliteActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.scratchView.MenuScratchViewActivity"

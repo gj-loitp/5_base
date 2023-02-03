@@ -14,8 +14,8 @@ import vn.loitp.a.db.realm.RealmActivityFont
 import vn.loitp.a.db.room.RoomActivityFont
 import vn.loitp.a.db.sharedPrefs.SharedPrefsActivityFont
 import vn.loitp.a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivityFont
-import vn.loitp.a.db.sqlite.SqliteActivityFont
 import vn.loitp.databinding.ADbMenuBinding
+import vn.loitp.up.a.db.sqlite.SqliteActivity
 import vn.loitp.up.a.db.sqliteEncryption.SqliteEncryptionActivity
 import vn.loitp.up.a.db.sqliteMultiTable.SqliteMultiTableActivity
 import vn.loitp.up.a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity
@@ -58,7 +58,7 @@ class MenuDatabaseActivity : BaseActivityFont() {
             this.tvTitle?.text = MenuDatabaseActivity::class.java.simpleName
         }
         binding.btSqlite.setSafeOnClickListener {
-            launchActivity(SqliteActivityFont::class.java)
+            launchActivity(SqliteActivity::class.java)
         }
         binding.btRealm.setSafeOnClickListener {
             launchActivity(RealmActivityFont::class.java)

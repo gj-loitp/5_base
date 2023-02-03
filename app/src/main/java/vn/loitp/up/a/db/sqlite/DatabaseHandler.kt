@@ -1,4 +1,4 @@
-package vn.loitp.a.db.sqlite
+package vn.loitp.up.a.db.sqlite
 
 import android.content.ContentValues
 import android.content.Context

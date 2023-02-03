@@ -1,4 +1,4 @@
-package vn.loitp.a.db.sqlite
+package vn.loitp.up.a.db.sqlite
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,9 +8,10 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication.Companion.gson
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_db_sqlite.*
 import vn.loitp.R
+import vn.loitp.databinding.ADbSqliteBinding
 
 /**
  * Created by Loitp on 15.09.2022
@@ -22,46 +23,50 @@ import vn.loitp.R
 
 @LogTag("SqliteActivity")
 @IsFullScreen(false)
-class SqliteActivityFont : BaseActivityFont(), View.OnClickListener {
+class SqliteActivity : BaseActivityFont(), View.OnClickListener {
 
     private var databaseHandler: DatabaseHandler? = null
+    private lateinit var binding: ADbSqliteBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_db_sqlite
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADbSqliteBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = SqliteActivityFont::class.java.simpleName
+            this.tvTitle?.text = SqliteActivity::class.java.simpleName
         }
         databaseHandler = DatabaseHandler(this)
-        btAdd.setOnClickListener(this)
-        btClearAll.setOnClickListener(this)
-        btGetContactWithId.setOnClickListener(this)
-        btGetContactListPage1.setOnClickListener(this)
-        btAdd100.setOnClickListener(this)
+        binding.btAdd.setOnClickListener(this)
+        binding.btClearAll.setOnClickListener(this)
+        binding.btGetContactWithId.setOnClickListener(this)
+        binding.btGetContactListPage1.setOnClickListener(this)
+        binding.btAdd100.setOnClickListener(this)
         allContact
     }
 
     override fun onClick(v: View) {
         when (v) {
-            btAdd -> addContact()
-            btAdd100 -> add100Contact()
-            btClearAll -> clearAllContact()
-            btGetContactWithId -> getContactWithId(2)
-            btGetContactListPage1 -> getContactListPage(1)
+            binding.btAdd -> addContact()
+            binding.btAdd100 -> add100Contact()
+            binding.btClearAll -> clearAllContact()
+            binding.btGetContactWithId -> getContactWithId(2)
+            binding.btGetContactListPage1 -> getContactListPage(1)
         }
     }
 
@@ -84,7 +89,7 @@ class SqliteActivityFont : BaseActivityFont(), View.OnClickListener {
             deleteContact(contact, button)
             true
         }
-        ll.addView(button)
+        binding.ll.addView(button)
     }
 
     @SuppressLint("SetTextI18n")
@@ -101,7 +106,7 @@ class SqliteActivityFont : BaseActivityFont(), View.OnClickListener {
                     deleteContact(contact, button)
                     true
                 }
-                ll.addView(button)
+                binding.ll.addView(button)
             }
         }
     }
@@ -131,7 +136,7 @@ class SqliteActivityFont : BaseActivityFont(), View.OnClickListener {
     }
 
     private fun clearAllContact() {
-        ll.removeAllViews()
+        binding.ll.removeAllViews()
         databaseHandler?.clearAllContact()
         allContact
     }
@@ -160,7 +165,7 @@ class SqliteActivityFont : BaseActivityFont(), View.OnClickListener {
     private fun deleteContact(contact: Contact, button: Button) {
         val result = databaseHandler?.deleteContact(contact)
         logD("deleteContact $result")
-        ll.removeView(button)
+        binding.ll.removeView(button)
     }
 
     @Suppress("unused")
