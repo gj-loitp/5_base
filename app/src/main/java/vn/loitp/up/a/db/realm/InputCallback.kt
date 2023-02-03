@@ -1,4 +1,4 @@
-package vn.loitp.a.db.realm
+package vn.loitp.up.a.db.realm
 
 interface InputCallback {
     fun onText(text: String?)

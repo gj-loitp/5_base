@@ -10,8 +10,8 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.a.db.readSqliteAsset.ReadSqliteAssetActivityFont
-import vn.loitp.a.db.realm.RealmActivityFont
 import vn.loitp.databinding.ADbMenuBinding
+import vn.loitp.up.a.db.realm.RealmActivity
 import vn.loitp.up.a.db.room.RoomActivity
 import vn.loitp.up.a.db.sharedPrefs.SharedPrefsActivity
 import vn.loitp.up.a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivity
@@ -61,7 +61,7 @@ class MenuDatabaseActivity : BaseActivityFont() {
             launchActivity(SqliteActivity::class.java)
         }
         binding.btRealm.setSafeOnClickListener {
-            launchActivity(RealmActivityFont::class.java)
+            launchActivity(RealmActivity::class.java)
         }
         binding.btSqliteAsset.setSafeOnClickListener {
             launchActivity(ReadSqliteAssetActivityFont::class.java)

@@ -1,4 +1,4 @@
-package vn.loitp.a.db.realm
+package vn.loitp.up.a.db.realm
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -9,25 +9,30 @@ import android.widget.EditText
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.tranIn
 import io.realm.Realm
-import kotlinx.android.synthetic.main.a_db_realm.*
 import vn.loitp.R
+import vn.loitp.databinding.ADbRealmBinding
 import vn.loitp.up.a.demo.ebookWithRealm.EbookWithRealmActivity
 
 @LogTag("RealmActivity")
 @IsFullScreen(false)
-class RealmActivityFont : BaseActivityFont() {
+class RealmActivity : BaseActivityFont() {
     private lateinit var mRealm: Realm
+    private lateinit var binding: ADbRealmBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_db_realm
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ADbRealmBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         mRealm = RealmController.with(application).realm
 
@@ -39,29 +44,29 @@ class RealmActivityFont : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = RealmActivityFont::class.java.simpleName
+            this.tvTitle?.text = RealmActivity::class.java.simpleName
         }
-        btRealm.setSafeOnClickListener {
+        binding.btRealm.setSafeOnClickListener {
             val intent = Intent(this, EbookWithRealmActivity::class.java)
             startActivity(intent)
             this.tranIn()
         }
-        btAdd.setSafeOnClickListener {
+        binding.btAdd.setSafeOnClickListener {
             addMyBook()
         }
-        btClearAll.setSafeOnClickListener {
+        binding.btClearAll.setSafeOnClickListener {
             clearUI()
             RealmController.getInstance(this).clearAllMyBook()
             getAllMyBook()
         }
-        btSearchById.setSafeOnClickListener {
+        binding.btSearchById.setSafeOnClickListener {
             searchById()
         }
     }
@@ -92,14 +97,14 @@ class RealmActivityFont : BaseActivityFont() {
             removeMyBook(myBook, button)
             true
         }
-        ll.addView(button)
+        binding.ll.addView(button)
     }
 
     private fun clearUI() {
-        val viewList = ll.touchables
+        val viewList = binding.ll.touchables
         for (view in viewList) {
             if (view is Button) {
-                ll.removeView(view)
+                binding.ll.removeView(view)
             }
         }
     }
@@ -125,7 +130,7 @@ class RealmActivityFont : BaseActivityFont() {
             }
         }
         mRealm.commitTransaction()
-        ll.removeView(button)
+        binding.ll.removeView(button)
         printTotalSize()
     }
 
@@ -167,7 +172,7 @@ class RealmActivityFont : BaseActivityFont() {
                     logD("searchById $it")
                     try {
                         val id: Long = it.toLong()
-                        val mb = RealmController.getInstance(this@RealmActivityFont).getMyBook(id)
+                        val mb = RealmController.getInstance(this@RealmActivity).getMyBook(id)
                         showShortInformation("searchById -> ${mb.title}")
                     } catch (e: Exception) {
                         showShortError("searchById $e")
