@@ -1,4 +1,4 @@
-package vn.loitp.a.db.sharedPrefsEncryption
+package vn.loitp.up.a.db.sharedPrefsEncryption
 
 import android.os.Bundle
 import com.google.gson.reflect.TypeToken
@@ -6,9 +6,10 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
-import kotlinx.android.synthetic.main.a_db_shared_prefs_encryption.*
 import vn.loitp.R
+import vn.loitp.databinding.ADbSharedPrefsEncryptionBinding
 import vn.loitp.up.a.pattern.mvp.User
 
 /**
@@ -21,7 +22,7 @@ import vn.loitp.up.a.pattern.mvp.User
 
 @LogTag("EncryptionSharedPrefsActivity")
 @IsFullScreen(false)
-class EncryptionSharedPrefsActivityFont : BaseActivityFont() {
+class EncryptionSharedPrefsActivity : BaseActivityFont() {
 
     companion object {
         const val KEY_STRING = "KEY_STRING"
@@ -34,49 +35,54 @@ class EncryptionSharedPrefsActivityFont : BaseActivityFont() {
         const val KEY_LIST_OBJECT = "KEY_LIST_OBJECT"
     }
 
+    private lateinit var binding: ADbSharedPrefsEncryptionBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_db_shared_prefs_encryption
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADbSharedPrefsEncryptionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = EncryptionSharedPrefsActivityFont::class.java.simpleName
+            this.tvTitle?.text = EncryptionSharedPrefsActivity::class.java.simpleName
         }
 
-        btClearAll.setSafeOnClickListener {
+        binding.btClearAll.setSafeOnClickListener {
             this.clearPrefSecurity()
         }
 
-        btPutString.setSafeOnClickListener {
+        binding.btPutString.setSafeOnClickListener {
             putPrefSecurity(
                 KEY_STRING,
                 "This is a string!!! " + System.currentTimeMillis()
             )
         }
-        btGetString.setSafeOnClickListener {
+        binding.btGetString.setSafeOnClickListener {
             val value = getStringSecurity(KEY_STRING)
             showLongInformation(value)
         }
 
-        btPutStringWithDefaultValue.setSafeOnClickListener {
+        binding.btPutStringWithDefaultValue.setSafeOnClickListener {
             putPrefSecurity(
                 KEY_STRING_WITH_DEFAULT_VALUE,
                 "This is a string!!! " + System.currentTimeMillis()
             )
         }
-        btGetStringWithDefaultValue.setSafeOnClickListener {
+        binding.btGetStringWithDefaultValue.setSafeOnClickListener {
             val value = getStringSecurity(
                 KEY_STRING_WITH_DEFAULT_VALUE,
                 "Default value"
@@ -84,50 +90,50 @@ class EncryptionSharedPrefsActivityFont : BaseActivityFont() {
             showLongInformation(value)
         }
 
-        btPutBoolean.setSafeOnClickListener {
+        binding.btPutBoolean.setSafeOnClickListener {
             putPrefSecurity(KEY_BOOLEAN, true)
         }
-        btGetBoolean.setSafeOnClickListener {
+        binding.btGetBoolean.setSafeOnClickListener {
             val value = getBooleanSecurity(KEY_BOOLEAN)
             showLongInformation("Value: $value")
         }
 
-        btPutFloat.setSafeOnClickListener {
+        binding.btPutFloat.setSafeOnClickListener {
             putPrefSecurity(KEY_FLOAT, System.currentTimeMillis().toFloat())
         }
-        btGetFloat.setSafeOnClickListener {
+        binding.btGetFloat.setSafeOnClickListener {
             val value = getFloatSecurity(KEY_FLOAT)
             showLongInformation("Value: $value")
         }
 
-        btPutInt.setSafeOnClickListener {
+        binding.btPutInt.setSafeOnClickListener {
             putPrefSecurity(KEY_INT, System.currentTimeMillis().toInt())
         }
-        btGetInt.setSafeOnClickListener {
+        binding.btGetInt.setSafeOnClickListener {
             val value = getIntSecurity(KEY_INT)
             showLongInformation("Value: $value")
         }
 
-        btPutLong.setSafeOnClickListener {
+        binding.btPutLong.setSafeOnClickListener {
             putPrefSecurity(KEY_LONG, System.currentTimeMillis())
         }
-        btGetLong.setSafeOnClickListener {
+        binding.btGetLong.setSafeOnClickListener {
             val value = getLongSecurity(KEY_LONG)
             showLongInformation("Value: $value")
         }
 
-        btPutObject.setSafeOnClickListener {
+        binding.btPutObject.setSafeOnClickListener {
             val user = User()
             user.email = "Email ${System.currentTimeMillis()}"
             user.fullName = "Name ${System.currentTimeMillis()}"
             putPrefSecurity(KEY_OBJECT, user)
         }
-        btGetObject.setSafeOnClickListener {
+        binding.btGetObject.setSafeOnClickListener {
             val value = getObjectSecurity(KEY_OBJECT, User::class.java)
             showLongInformation("Value: " + BaseApplication.gson.toJson(value))
         }
 
-        btPutListObject.setSafeOnClickListener {
+        binding.btPutListObject.setSafeOnClickListener {
             val list = ArrayList<User>()
             for (i in 0..10) {
                 val user = User()
@@ -137,7 +143,7 @@ class EncryptionSharedPrefsActivityFont : BaseActivityFont() {
             }
             putPrefSecurity(KEY_LIST_OBJECT, list)
         }
-        btListGetObject.setSafeOnClickListener {
+        binding.btListGetObject.setSafeOnClickListener {
             val type = object : TypeToken<List<User>>() {
             }.type
             val value: ArrayList<User> = getObjectListSecurity(
