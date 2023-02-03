@@ -8,38 +8,43 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_db_room2.*
 import vn.loitp.R
+import vn.loitp.databinding.ADbRoom2Binding
 import vn.loitp.up.a.db.room.md.FloorPlan
 
 @LogTag("RoomActivity")
 @IsFullScreen(false)
-class RoomActivityFont : BaseActivityFont() {
+class RoomActivity : BaseActivityFont() {
     private var floorPlanAdapter: FloorPlanAdapter? = null
     private var homeViewModel: HomeViewModel? = null
+    private lateinit var binding: ADbRoom2Binding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_db_room2
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ADbRoom2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupView()
         setupViewModels()
     }
 
     private fun setupView() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = RoomActivityFont::class.java.simpleName
+            this.tvTitle?.text = RoomActivity::class.java.simpleName
         }
 
         floorPlanAdapter = FloorPlanAdapter()
@@ -55,29 +60,34 @@ class RoomActivityFont : BaseActivityFont() {
                 handleDelete(it)
             }
         }
-        rvFloorPlan.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
-        rvFloorPlan.layoutManager = LinearLayoutManager(this)
-        rvFloorPlan.adapter = floorPlanAdapter
+        binding.rvFloorPlan.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                DividerItemDecoration.VERTICAL
+            )
+        )
+        binding.rvFloorPlan.layoutManager = LinearLayoutManager(this)
+        binding.rvFloorPlan.adapter = floorPlanAdapter
 
-        btInsert.setSafeOnClickListener {
+        binding.btInsert.setSafeOnClickListener {
             handleInsert()
         }
-        btSaveListFrom0To10.setSafeOnClickListener {
+        binding.btSaveListFrom0To10.setSafeOnClickListener {
             handleSaveListFrom0To10()
         }
-        btSaveListFrom10To20.setSafeOnClickListener {
+        binding.btSaveListFrom10To20.setSafeOnClickListener {
             handleSaveListFrom10To20()
         }
-        btGetList.setSafeOnClickListener {
+        binding.btGetList.setSafeOnClickListener {
             handleGetList()
         }
-        btGetListFrom3To5.setSafeOnClickListener {
+        binding.btGetListFrom3To5.setSafeOnClickListener {
             handleGetListFrom3To5()
         }
-        btDeleteAll.setSafeOnClickListener {
+        binding.btDeleteAll.setSafeOnClickListener {
             handleDeleteAll()
         }
-        btFind1.setSafeOnClickListener {
+        binding.btFind1.setSafeOnClickListener {
             handleFind1()
         }
     }
@@ -90,9 +100,9 @@ class RoomActivityFont : BaseActivityFont() {
                 observer = { actionData ->
                     actionData.isDoing?.let {
                         if (it) {
-                            progressBar.visibility = View.VISIBLE
+                            binding.progressBar.visibility = View.VISIBLE
                         } else {
-                            progressBar.visibility = View.GONE
+                            binding.progressBar.visibility = View.GONE
                         }
                     }
                     actionData.data?.let {
@@ -107,9 +117,9 @@ class RoomActivityFont : BaseActivityFont() {
                 observer = { actionData ->
                     actionData.isDoing?.let {
                         if (it) {
-                            progressBar.visibility = View.VISIBLE
+                            binding.progressBar.visibility = View.VISIBLE
                         } else {
-                            progressBar.visibility = View.GONE
+                            binding.progressBar.visibility = View.GONE
                         }
                     }
                     actionData.data?.let {
@@ -124,9 +134,9 @@ class RoomActivityFont : BaseActivityFont() {
                 observer = { actionData ->
                     actionData.isDoing?.let {
                         if (it) {
-                            progressBar.visibility = View.VISIBLE
+                            binding.progressBar.visibility = View.VISIBLE
                         } else {
-                            progressBar.visibility = View.GONE
+                            binding.progressBar.visibility = View.GONE
                         }
                     }
                     actionData.data?.let {
@@ -149,9 +159,9 @@ class RoomActivityFont : BaseActivityFont() {
                 observer = { actionData ->
                     actionData.isDoing?.let {
                         if (it) {
-                            progressBar.visibility = View.VISIBLE
+                            binding.progressBar.visibility = View.VISIBLE
                         } else {
-                            progressBar.visibility = View.GONE
+                            binding.progressBar.visibility = View.GONE
                         }
                     }
                     actionData.data?.let {
@@ -165,9 +175,9 @@ class RoomActivityFont : BaseActivityFont() {
                 observer = { actionData ->
                     actionData.isDoing?.let {
                         if (it) {
-                            progressBar.visibility = View.VISIBLE
+                            binding.progressBar.visibility = View.VISIBLE
                         } else {
-                            progressBar.visibility = View.GONE
+                            binding.progressBar.visibility = View.GONE
                         }
                     }
                     actionData.data?.let {
@@ -181,9 +191,9 @@ class RoomActivityFont : BaseActivityFont() {
                 observer = { actionData ->
                     actionData.isDoing?.let {
                         if (it) {
-                            progressBar.visibility = View.VISIBLE
+                            binding.progressBar.visibility = View.VISIBLE
                         } else {
-                            progressBar.visibility = View.GONE
+                            binding.progressBar.visibility = View.GONE
                         }
                     }
                     actionData.data?.let {
@@ -199,9 +209,9 @@ class RoomActivityFont : BaseActivityFont() {
                 observer = { actionData ->
                     actionData.isDoing?.let {
                         if (it) {
-                            progressBar.visibility = View.VISIBLE
+                            binding.progressBar.visibility = View.VISIBLE
                         } else {
-                            progressBar.visibility = View.GONE
+                            binding.progressBar.visibility = View.GONE
                         }
                     }
                     actionData.data?.let {
@@ -216,9 +226,9 @@ class RoomActivityFont : BaseActivityFont() {
                     val isDoing = actionData.isDoing
                     isDoing?.let {
                         if (it) {
-                            progressBar.visibility = View.VISIBLE
+                            binding.progressBar.visibility = View.VISIBLE
                         } else {
-                            progressBar.visibility = View.GONE
+                            binding.progressBar.visibility = View.GONE
                         }
                     }
                     // val data = actionData.data

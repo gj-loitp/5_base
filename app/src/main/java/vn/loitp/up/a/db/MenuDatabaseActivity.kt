@@ -12,7 +12,7 @@ import vn.loitp.R
 import vn.loitp.a.db.readSqliteAsset.ReadSqliteAssetActivityFont
 import vn.loitp.a.db.realm.RealmActivityFont
 import vn.loitp.databinding.ADbMenuBinding
-import vn.loitp.up.a.db.room.RoomActivityFont
+import vn.loitp.up.a.db.room.RoomActivity
 import vn.loitp.up.a.db.sharedPrefs.SharedPrefsActivity
 import vn.loitp.up.a.db.sharedPrefsEncryption.EncryptionSharedPrefsActivity
 import vn.loitp.up.a.db.sqlite.SqliteActivity
@@ -93,7 +93,7 @@ class MenuDatabaseActivity : BaseActivityFont() {
             launchActivity(WordActivity::class.java)
         }
         binding.btRoom2.setSafeOnClickListener {
-            launchActivity(RoomActivityFont::class.java)
+            launchActivity(RoomActivity::class.java)
         }
     }
 }
