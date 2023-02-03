@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.konfetti
+package vn.loitp.up.a.anim.konfetti
 
 import nl.dionsegijn.konfetti.core.*
 import nl.dionsegijn.konfetti.core.emitter.Emitter

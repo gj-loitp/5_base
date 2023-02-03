@@ -19,8 +19,8 @@ import com.permissionx.guolindev.PermissionX
 import okhttp3.Call
 import vn.loitp.BuildConfig
 import vn.loitp.R
-import vn.loitp.a.anim.konfetti.Presets
 import vn.loitp.databinding.ASplashBinding
+import vn.loitp.up.a.anim.konfetti.Presets
 import java.io.IOException
 
 @SuppressLint("CustomSplashScreen")

@@ -18,10 +18,10 @@ import vn.loitp.a.anim.basicTransitionFrm.BasicTransitionActivityFont
 import vn.loitp.a.anim.elasticViews.ElasticActivityFont
 import vn.loitp.a.anim.fadeOutParticle.FadeOutParticleActivityFont
 import vn.loitp.a.anim.flySchool.FlySchoolActivityFont
-import vn.loitp.a.anim.konfetti.KonfettiActivityFont
 import vn.loitp.databinding.AMenuAnimationBinding
 import vn.loitp.up.a.anim.activityTransition.Animation1Activity
 import vn.loitp.up.a.anim.activityTransitionReveal.RevealActivity1
+import vn.loitp.up.a.anim.konfetti.KonfettiActivity
 import vn.loitp.up.a.anim.lottie.MenuLottieActivity
 import vn.loitp.up.a.anim.morphTransitions.MorphTransitionsMainActivity
 import vn.loitp.up.a.anim.overScroll.OverScrollActivity
@@ -105,7 +105,7 @@ class MenuAnimationActivity : BaseActivityFont() {
             launchActivity(AndroidParticlesActivityFont::class.java)
         }
         binding.btKonfetti.setSafeOnClickListener {
-            launchActivity(KonfettiActivityFont::class.java)
+            launchActivity(KonfettiActivity::class.java)
         }
         binding.btFadeOutParticleActivity.setSafeOnClickListener {
             launchActivity(FadeOutParticleActivityFont::class.java)
