@@ -1257,7 +1257,7 @@
             android:name=".up.a.picker.ssImage.MainActivitySSImagePicker"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.fadeOutParticle.FadeOutParticleActivityFont"
+            android:name=".up.a.anim.fadeOutParticle.FadeOutParticleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.progress.segmentedPb.StandardExampleActivityFont"

@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.fadeOutParticle
+package vn.loitp.up.a.anim.fadeOutParticle
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,29 +7,35 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_fade_out_particle.*
 import vn.loitp.R
+import vn.loitp.databinding.AFadeOutParticleBinding
 
 @LogTag("FadeOutParticleActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class FadeOutParticleActivityFont : BaseActivityFont() {
+class FadeOutParticleActivity : BaseActivityFont() {
+
+    private lateinit var binding: AFadeOutParticleBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_fade_out_particle
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AFadeOutParticleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -46,15 +52,15 @@ class FadeOutParticleActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = FadeOutParticleActivityFont::class.java.simpleName
+            this.tvTitle?.text = FadeOutParticleActivity::class.java.simpleName
         }
 
-        btStart.setOnClickListener {
-            fadeOutParticle.startAnimation()
+        binding.btStart.setOnClickListener {
+            binding.fadeOutParticle.startAnimation()
         }
 
-        btReset.setOnClickListener {
-            fadeOutParticle.reset()
+        binding.btReset.setOnClickListener {
+            binding.fadeOutParticle.reset()
         }
     }
 }

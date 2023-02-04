@@ -16,10 +16,10 @@ import vn.loitp.a.anim.basicTransition.BasicTransition0ActivityFont
 import vn.loitp.a.anim.basicTransitionActivity.SceneTransitionBasicActivityFont
 import vn.loitp.a.anim.basicTransitionFrm.BasicTransitionActivityFont
 import vn.loitp.a.anim.elasticViews.ElasticActivityFont
-import vn.loitp.a.anim.fadeOutParticle.FadeOutParticleActivityFont
 import vn.loitp.databinding.AMenuAnimationBinding
 import vn.loitp.up.a.anim.activityTransition.Animation1Activity
 import vn.loitp.up.a.anim.activityTransitionReveal.RevealActivity1
+import vn.loitp.up.a.anim.fadeOutParticle.FadeOutParticleActivity
 import vn.loitp.up.a.anim.flySchool.FlySchoolActivity
 import vn.loitp.up.a.anim.konfetti.KonfettiActivity
 import vn.loitp.up.a.anim.lottie.MenuLottieActivity
@@ -108,7 +108,7 @@ class MenuAnimationActivity : BaseActivityFont() {
             launchActivity(KonfettiActivity::class.java)
         }
         binding.btFadeOutParticleActivity.setSafeOnClickListener {
-            launchActivity(FadeOutParticleActivityFont::class.java)
+            launchActivity(FadeOutParticleActivity::class.java)
         }
         binding.btAnimatedStarsView.setSafeOnClickListener {
             launchActivity(AnimatedStarsViewActivityFont::class.java)
