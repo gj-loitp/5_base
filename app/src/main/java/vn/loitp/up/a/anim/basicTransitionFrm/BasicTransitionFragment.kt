@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.basicTransitionFrm
+package vn.loitp.up.a.anim.basicTransitionFrm
 
 import android.os.Bundle
 import android.transition.Scene

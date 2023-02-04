@@ -1,24 +1,30 @@
-package vn.loitp.a.anim.basicTransitionFrm
+package vn.loitp.up.a.anim.basicTransitionFrm
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_basic_transition.*
 import vn.loitp.R
+import vn.loitp.databinding.ABasicTransitionBinding
 
 // https://github.com/googlesamples/android-BasicTransition/#readme
 @LogTag("BasicTransitionActivity")
 @IsFullScreen(false)
-class BasicTransitionActivityFont : BaseActivityFont() {
+class BasicTransitionActivity : BaseActivityFont() {
+
+    private lateinit var binding: ABasicTransitionBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_basic_transition
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ABasicTransitionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         if (savedInstanceState == null) {
             val transaction = supportFragmentManager.beginTransaction()
@@ -31,14 +37,14 @@ class BasicTransitionActivityFont : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = BasicTransitionActivityFont::class.java.simpleName
+            this.tvTitle?.text = BasicTransitionActivity::class.java.simpleName
         }
     }
 }
