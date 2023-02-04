@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.basicTransitionActivity
+package vn.loitp.up.a.anim.basicTransitionActivity
 
 import android.os.Bundle
 import android.transition.Transition
@@ -7,13 +7,14 @@ import androidx.core.view.ViewCompat
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.loadGlide
-import kotlinx.android.synthetic.main.a_animation_scene_transition_basic_details.*
 import vn.loitp.R
+import vn.loitp.databinding.AAnimationSceneTransitionBasicDetailsBinding
 
 @LogTag("SceneTransitionBasicDetailActivity")
 @IsFullScreen(false)
-class SceneTransitionBasicDetailActivityFont : BaseActivityFont() {
+class SceneTransitionBasicDetailActivity : BaseActivityFont() {
 
     companion object {
 
@@ -28,13 +29,17 @@ class SceneTransitionBasicDetailActivityFont : BaseActivityFont() {
     }
 
     private var mItem: Item? = null
+    private lateinit var binding: AAnimationSceneTransitionBasicDetailsBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_animation_scene_transition_basic_details
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AAnimationSceneTransitionBasicDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         loadItem()
@@ -43,13 +48,13 @@ class SceneTransitionBasicDetailActivityFont : BaseActivityFont() {
     private fun setupViews() {
         mItem = Item.getItem(intent.getIntExtra(EXTRA_PARAM_ID, 0))
 
-        ViewCompat.setTransitionName(imageViewHeader, VIEW_NAME_HEADER_IMAGE)
-        ViewCompat.setTransitionName(textViewTitle, VIEW_NAME_HEADER_TITLE)
+        ViewCompat.setTransitionName(binding.imageViewHeader, VIEW_NAME_HEADER_IMAGE)
+        ViewCompat.setTransitionName(binding.textViewTitle, VIEW_NAME_HEADER_TITLE)
     }
 
     private fun loadItem() {
 
-        textViewTitle.text = getString(R.string.image_header, mItem?.name, mItem?.author)
+        binding.textViewTitle.text = getString(R.string.image_header, mItem?.name, mItem?.author)
 
         // If we're running on Lollipop and we have added a listener to the shared element
         // transition, load the thumbnail. The listener will load the full-size image when
@@ -62,7 +67,7 @@ class SceneTransitionBasicDetailActivityFont : BaseActivityFont() {
      */
     private fun loadThumbnail() {
         mItem?.photoUrl?.let {
-            imageViewHeader.loadGlide(any = it)
+            binding.imageViewHeader.loadGlide(any = it)
         }
     }
 
@@ -71,7 +76,7 @@ class SceneTransitionBasicDetailActivityFont : BaseActivityFont() {
      */
     private fun loadFullSizeImage() {
         mItem?.photoUrl?.let {
-            imageViewHeader.loadGlide(any = it)
+            binding.imageViewHeader.loadGlide(any = it)
         }
     }
 

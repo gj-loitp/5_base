@@ -530,10 +530,10 @@
             android:name=".a.anim.basicTransitionFrm.BasicTransitionActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.basicTransitionActivity.SceneTransitionBasicActivityFont"
+            android:name=".up.a.anim.basicTransitionActivity.SceneTransitionBasicActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.basicTransitionActivity.SceneTransitionBasicDetailActivityFont"
+            android:name=".up.a.anim.basicTransitionActivity.SceneTransitionBasicDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.square.SquareLayoutActivityFont"

@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.basicTransitionActivity
+package vn.loitp.up.a.anim.basicTransitionActivity
 
 import androidx.annotation.Keep
 

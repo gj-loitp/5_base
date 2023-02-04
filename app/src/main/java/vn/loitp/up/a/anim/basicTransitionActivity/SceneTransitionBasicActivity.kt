@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.basicTransitionActivity
+package vn.loitp.up.a.anim.basicTransitionActivity
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,44 +14,48 @@ import androidx.core.util.Pair
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_animation_scene_transition_basic.*
 import vn.loitp.R
+import vn.loitp.databinding.AAnimationSceneTransitionBasicBinding
 
 @LogTag("SceneTransitionBasicActivity")
 @IsFullScreen(false)
-class SceneTransitionBasicActivityFont : BaseActivityFont(), AdapterView.OnItemClickListener {
+class SceneTransitionBasicActivity : BaseActivityFont(), AdapterView.OnItemClickListener {
+
+    private lateinit var binding: AAnimationSceneTransitionBasicBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_animation_scene_transition_basic
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AAnimationSceneTransitionBasicBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = SceneTransitionBasicActivityFont::class.java.simpleName
+            this.tvTitle?.text = SceneTransitionBasicActivity::class.java.simpleName
         }
-        gridView.onItemClickListener = this
+        binding.gridView.onItemClickListener = this
         val gridAdapter = GridAdapter()
-        gridView.adapter = gridAdapter
+        binding.gridView.adapter = gridAdapter
     }
 
     override fun onItemClick(adapterView: AdapterView<*>, view: View, position: Int, id: Long) {
         val item = adapterView.getItemAtPosition(position) as Item
-        val intent = Intent(this, SceneTransitionBasicDetailActivityFont::class.java)
-        intent.putExtra(SceneTransitionBasicDetailActivityFont.EXTRA_PARAM_ID, item.id)
+        val intent = Intent(this, SceneTransitionBasicDetailActivity::class.java)
+        intent.putExtra(SceneTransitionBasicDetailActivity.EXTRA_PARAM_ID, item.id)
         val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
             this,
 
@@ -59,11 +63,10 @@ class SceneTransitionBasicActivityFont : BaseActivityFont(), AdapterView.OnItemC
             // from, and the name of the view it is transitioning to, in the launched activity
             Pair(
                 view.findViewById(R.id.imageViewItem),
-                SceneTransitionBasicDetailActivityFont.VIEW_NAME_HEADER_IMAGE
-            ),
-            Pair(
+                SceneTransitionBasicDetailActivity.VIEW_NAME_HEADER_IMAGE
+            ), Pair(
                 view.findViewById(R.id.textViewName),
-                SceneTransitionBasicDetailActivityFont.VIEW_NAME_HEADER_TITLE
+                SceneTransitionBasicDetailActivity.VIEW_NAME_HEADER_TITLE
             )
         )
         ActivityCompat.startActivity(this, intent, activityOptions.toBundle())
