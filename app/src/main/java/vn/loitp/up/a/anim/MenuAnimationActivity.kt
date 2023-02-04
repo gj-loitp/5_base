@@ -9,7 +9,6 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.a.anim.androidParticles.AndroidParticlesActivityFont
 import vn.loitp.a.anim.animatedStarsView.AnimatedStarsViewActivityFont
 import vn.loitp.a.anim.animationView.AnimationViewActivityFont
 import vn.loitp.a.anim.basicTransition.BasicTransition0ActivityFont
@@ -19,6 +18,7 @@ import vn.loitp.a.anim.elasticViews.ElasticActivityFont
 import vn.loitp.databinding.AMenuAnimationBinding
 import vn.loitp.up.a.anim.activityTransition.Animation1Activity
 import vn.loitp.up.a.anim.activityTransitionReveal.RevealActivity1
+import vn.loitp.up.a.anim.androidParticles.AndroidParticlesActivity
 import vn.loitp.up.a.anim.fadeOutParticle.FadeOutParticleActivity
 import vn.loitp.up.a.anim.flySchool.FlySchoolActivity
 import vn.loitp.up.a.anim.konfetti.KonfettiActivity
@@ -102,7 +102,7 @@ class MenuAnimationActivity : BaseActivityFont() {
             launchActivity(PulsingViewActivity::class.java)
         }
         binding.btAndroidParticlesActivity.setSafeOnClickListener {
-            launchActivity(AndroidParticlesActivityFont::class.java)
+            launchActivity(AndroidParticlesActivity::class.java)
         }
         binding.btKonfetti.setSafeOnClickListener {
             launchActivity(KonfettiActivity::class.java)
