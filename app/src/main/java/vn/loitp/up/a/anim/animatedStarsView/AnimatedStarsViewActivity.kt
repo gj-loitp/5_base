@@ -1,4 +1,4 @@
-package vn.loitp.a.anim.animatedStarsView
+package vn.loitp.up.a.anim.animatedStarsView
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,29 +7,35 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_animated_stars_android.*
 import vn.loitp.R
+import vn.loitp.databinding.AAnimatedStarsAndroidBinding
 
 @LogTag("AnimatedStarsViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class AnimatedStarsViewActivityFont : BaseActivityFont() {
+class AnimatedStarsViewActivity : BaseActivityFont() {
+
+    private lateinit var binding: AAnimatedStarsAndroidBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_animated_stars_android
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AAnimatedStarsAndroidBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -46,17 +52,17 @@ class AnimatedStarsViewActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = AnimatedStarsViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = AnimatedStarsViewActivity::class.java.simpleName
         }
     }
 
     override fun onStart() {
         super.onStart()
-        stars.onStart()
+        binding.stars.onStart()
     }
 
     override fun onStop() {
-        stars.onStop()
+        binding.stars.onStop()
         super.onStop()
     }
 }

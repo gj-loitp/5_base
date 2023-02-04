@@ -1332,7 +1332,7 @@
             android:name=".a.cv.bb.expandable.screens.NotificationBadgeActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.animatedStarsView.AnimatedStarsViewActivityFont"
+            android:name=".up.a.anim.animatedStarsView.AnimatedStarsViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.sec.ssBiometricsAuthentication.SSBiometricsAuthenticationActivity"
