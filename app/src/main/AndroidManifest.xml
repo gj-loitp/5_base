@@ -539,10 +539,10 @@
             android:name=".a.cv.layout.square.SquareLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.basicTransition.BasicTransition0ActivityFont"
+            android:name=".up.a.anim.basicTransition.BasicTransition0Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.basicTransition.BasicTransition1ActivityFont"
+            android:name=".up.a.anim.basicTransition.BasicTransition1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.relativePopupWindow.RelativePopupWindowActivityFont"

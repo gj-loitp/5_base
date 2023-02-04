@@ -9,7 +9,6 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.a.anim.basicTransition.BasicTransition0ActivityFont
 import vn.loitp.a.anim.basicTransitionActivity.SceneTransitionBasicActivityFont
 import vn.loitp.a.anim.basicTransitionFrm.BasicTransitionActivityFont
 import vn.loitp.databinding.AMenuAnimationBinding
@@ -18,6 +17,7 @@ import vn.loitp.up.a.anim.activityTransitionReveal.RevealActivity1
 import vn.loitp.up.a.anim.androidParticles.AndroidParticlesActivity
 import vn.loitp.up.a.anim.animatedStarsView.AnimatedStarsViewActivity
 import vn.loitp.up.a.anim.animationView.AnimationViewActivity
+import vn.loitp.up.a.anim.basicTransition.BasicTransition0Activity
 import vn.loitp.up.a.anim.elasticViews.ElasticActivity
 import vn.loitp.up.a.anim.fadeOutParticle.FadeOutParticleActivity
 import vn.loitp.up.a.anim.flySchool.FlySchoolActivity
@@ -81,7 +81,7 @@ class MenuAnimationActivity : BaseActivityFont() {
             launchActivity(SceneTransitionBasicActivityFont::class.java)
         }
         binding.btBasicTransition.setSafeOnClickListener {
-            launchActivity(BasicTransition0ActivityFont::class.java)
+            launchActivity(BasicTransition0Activity::class.java)
         }
         binding.btLottie.setSafeOnClickListener {
             launchActivity(MenuLottieActivity::class.java)
