@@ -18,6 +18,7 @@ import vn.loitp.up.a.func.hashmap.HashMapActivity
 import vn.loitp.up.a.func.idleTime.IdleTimeActivity
 import vn.loitp.up.a.func.keyboard.KeyboardActivity
 import vn.loitp.up.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity
+import vn.loitp.up.a.func.keyboardVisibility.KeyboardVisibilityActivity
 import vn.loitp.up.a.func.location.LocationActivity
 import vn.loitp.up.a.func.noti.MenuNotificationActivity
 import vn.loitp.up.a.func.processPhoenix.ProcessPhoenixActivity
@@ -80,6 +81,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
         binding.btTheme.setOnClickListener(this)
         binding.btWallpoActivity.setOnClickListener(this)
         binding.btProcessPhoenix.setOnClickListener(this)
+        binding.btKeyboardVisibility.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -106,6 +108,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btTheme -> launchActivity(ThemeActivity::class.java)
             binding.btWallpoActivity -> launchActivity(WallpoActivity::class.java)
             binding.btProcessPhoenix -> launchActivity(ProcessPhoenixActivity::class.java)
+            binding.btKeyboardVisibility -> launchActivity(KeyboardVisibilityActivity::class.java)
         }
     }
 }
