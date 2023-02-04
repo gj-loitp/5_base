@@ -14,11 +14,11 @@ import vn.loitp.a.anim.animationView.AnimationViewActivityFont
 import vn.loitp.a.anim.basicTransition.BasicTransition0ActivityFont
 import vn.loitp.a.anim.basicTransitionActivity.SceneTransitionBasicActivityFont
 import vn.loitp.a.anim.basicTransitionFrm.BasicTransitionActivityFont
-import vn.loitp.a.anim.elasticViews.ElasticActivityFont
 import vn.loitp.databinding.AMenuAnimationBinding
 import vn.loitp.up.a.anim.activityTransition.Animation1Activity
 import vn.loitp.up.a.anim.activityTransitionReveal.RevealActivity1
 import vn.loitp.up.a.anim.androidParticles.AndroidParticlesActivity
+import vn.loitp.up.a.anim.elasticViews.ElasticActivity
 import vn.loitp.up.a.anim.fadeOutParticle.FadeOutParticleActivity
 import vn.loitp.up.a.anim.flySchool.FlySchoolActivity
 import vn.loitp.up.a.anim.konfetti.KonfettiActivity
@@ -90,7 +90,7 @@ class MenuAnimationActivity : BaseActivityFont() {
             launchActivity(ValueAnimatorActivity::class.java)
         }
         binding.btElasticView.setSafeOnClickListener {
-            launchActivity(ElasticActivityFont::class.java)
+            launchActivity(ElasticActivity::class.java)
         }
         binding.btMorphTransitions.setSafeOnClickListener {
             launchActivity(MorphTransitionsMainActivity::class.java)

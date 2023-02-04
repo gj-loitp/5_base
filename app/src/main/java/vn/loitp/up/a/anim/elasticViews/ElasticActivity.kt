@@ -1,57 +1,62 @@
-package vn.loitp.a.anim.elasticViews
+package vn.loitp.up.a.anim.elasticViews
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setOnClickListenerElastic
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_elastic_view.*
 import vn.loitp.R
+import vn.loitp.databinding.AElasticViewBinding
 
 @LogTag("ElasticActivity")
 @IsFullScreen(false)
-class ElasticActivityFont : BaseActivityFont() {
+class ElasticActivity : BaseActivityFont() {
+    private lateinit var binding: AElasticViewBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_elastic_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AElasticViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ElasticActivityFont::class.java.simpleName
+            this.tvTitle?.text = ElasticActivity::class.java.simpleName
         }
 
         // don't remove this code below
-        elasticButton.setSafeOnClickListener {
+        binding.elasticButton.setSafeOnClickListener {
         }
-        elasticCheckButton.setSafeOnClickListener {
+        binding.elasticCheckButton.setSafeOnClickListener {
         }
-        elasticImageView.setSafeOnClickListener {
+        binding.elasticImageView.setSafeOnClickListener {
         }
-        elasticFloatingActionButton.setSafeOnClickListener {
+        binding.elasticFloatingActionButton.setSafeOnClickListener {
         }
-        elasticCardView.setSafeOnClickListener {
+        binding.elasticCardView.setSafeOnClickListener {
         }
-        anyView.setOnClickListenerElastic(
+        binding.anyView.setOnClickListenerElastic(
             runnable = {
                 showShortInformation("Finish setOnClickListenerElastic")
             }
         )
-        anyView2.setSafeOnClickListenerElastic(
+        binding.anyView2.setSafeOnClickListenerElastic(
             runnable = {
                 showShortInformation("Finish setSafeOnClickListenerElastic")
             }

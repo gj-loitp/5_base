@@ -1017,7 +1017,7 @@
             android:name=".a.cv.rv.fitGv.FitGridViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.anim.elasticViews.ElasticActivityFont"
+            android:name=".up.a.anim.elasticViews.ElasticActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.indicator.ex.MenuMagicIndicatorActivityFont"
