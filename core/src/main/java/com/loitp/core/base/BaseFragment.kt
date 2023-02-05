@@ -30,7 +30,6 @@ import org.greenrobot.eventbus.ThreadMode
  * +840766040293
  * freuss47@gmail.com
  */
-@Deprecated("Use BaseFragment2 instead")
 abstract class BaseFragment : Fragment() {
     protected var logTag: String? = null
     protected var compositeDisposable = CompositeDisposable()

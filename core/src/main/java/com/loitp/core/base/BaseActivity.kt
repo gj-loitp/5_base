@@ -40,7 +40,6 @@ import org.greenrobot.eventbus.ThreadMode
  * freuss47@gmail.com
  */
 // animation https://github.com/dkmeteor/SmoothTransition
-@Deprecated("Use BaseActivity2 instead")
 abstract class BaseActivity : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
     protected var logTag: String? = null

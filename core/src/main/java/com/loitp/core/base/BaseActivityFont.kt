@@ -10,7 +10,6 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper
  * +840766040293
  * freuss47@gmail.com
  */
-@Deprecated("Use BaseActivityFont2 instead")
 abstract class BaseActivityFont : BaseActivity() {
 
     override fun attachBaseContext(newBase: Context) {

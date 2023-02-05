@@ -2,7 +2,6 @@ package com.loitp.core.base
 
 import me.toptas.fancyshowcase.FancyShowCaseView
 
-@Deprecated("Use BaseActivityFancyShowcase2 instead")
 abstract class BaseActivityFancyShowcase : BaseActivityFont() {
 
     override fun onBaseBackPressed() {
