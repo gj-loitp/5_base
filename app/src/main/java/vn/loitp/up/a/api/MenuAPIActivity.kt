@@ -10,8 +10,8 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.restApi.restClient.RestClient
 import vn.loitp.R
-import vn.loitp.a.api.coroutine.a.CoroutineAPIActivityFont
 import vn.loitp.databinding.AMenuApiBinding
+import vn.loitp.up.a.api.coroutine.a.CoroutineAPIActivityFont
 import vn.loitp.up.a.api.galleryAPI.GalleryAPIActivity
 import vn.loitp.up.a.api.retrofit2.TestAPIRetrofit2Activity
 import vn.loitp.up.a.api.truyentranhtuan.MenuTTTAPIActivity

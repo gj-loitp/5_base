@@ -1,4 +1,4 @@
-package vn.loitp.a.api.coroutine.a
+package vn.loitp.up.a.api.coroutine.a
 
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag

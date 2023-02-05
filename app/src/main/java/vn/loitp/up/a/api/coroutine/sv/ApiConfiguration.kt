@@ -1,4 +1,4 @@
-package vn.loitp.a.api.coroutine.sv
+package vn.loitp.up.a.api.coroutine.sv
 
 object ApiConfiguration {
     // authentication

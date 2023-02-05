@@ -1,4 +1,4 @@
-package vn.loitp.a.api.coroutine.vm
+package vn.loitp.up.a.api.coroutine.vm
 
 import androidx.lifecycle.MutableLiveData
 import com.loitp.core.base.BaseViewModel
@@ -6,8 +6,8 @@ import com.loitp.sv.liveData.ActionData
 import com.loitp.sv.liveData.ActionLiveData
 import com.loitp.sv.model.UserTest
 import kotlinx.coroutines.launch
-import vn.loitp.a.api.coroutine.repo.TestRepository
-import vn.loitp.a.api.coroutine.sv.TestApiClient
+import vn.loitp.up.a.api.coroutine.repo.TestRepository
+import vn.loitp.up.a.api.coroutine.sv.TestApiClient
 
 class TestViewModel : BaseViewModel() {
     private val repository: TestRepository = TestRepository(TestApiClient.apiService)
