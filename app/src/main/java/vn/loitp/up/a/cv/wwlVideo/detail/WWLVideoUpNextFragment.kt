@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.wwlVideo.detail
+package vn.loitp.up.a.cv.wwlVideo.detail
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -16,8 +16,8 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil
 import kotlinx.android.synthetic.main.f_wwl_video_up_next.*
 import vn.loitp.R
-import vn.loitp.a.cv.wwlVideo.itf.FragmentHost
-import vn.loitp.a.cv.wwlVideo.utils.WWLVideoDataset
+import vn.loitp.up.a.cv.wwlVideo.itf.FragmentHost
+import vn.loitp.up.a.cv.wwlVideo.utils.WWLVideoDataset
 
 @LogTag("WWLVideoUpNextFragment")
 class WWLVideoUpNextFragment : BaseFragment() {

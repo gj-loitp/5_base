@@ -1,26 +1,27 @@
-package vn.loitp.a.cv.wwlVideo.detail
+package vn.loitp.up.a.cv.wwlVideo.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.f_wwl_video_meta_info.*
-import vn.loitp.R
-import vn.loitp.a.cv.wwlVideo.utils.WWLVideoDataset
+import vn.loitp.databinding.FWwlVideoMetaInfoBinding
+import vn.loitp.up.a.cv.wwlVideo.utils.WWLVideoDataset
 
 class WWLVideoMetaInfoFragment : Fragment() {
+    private lateinit var binding: FWwlVideoMetaInfoBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.f_wwl_video_meta_info, container, false)
+        binding = FWwlVideoMetaInfoBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     fun updateItem(item: WWLVideoDataset.DatasetItem) {
-        liTitle.text = item.title
-        liSubtitle.text = item.subtitle
+        binding.liTitle.text = item.title
+        binding.liSubtitle.text = item.subtitle
     }
 }

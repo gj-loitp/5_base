@@ -491,7 +491,7 @@
             android:name=".a.cv.wwlMusic.WWLActivityMusic"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
-            android:name=".a.cv.wwlVideo.WWLVideoActivity"
+            android:name=".up.a.cv.wwlVideo.WWLVideoActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
             android:name=".up.a.func.sensor.SensorActivity"

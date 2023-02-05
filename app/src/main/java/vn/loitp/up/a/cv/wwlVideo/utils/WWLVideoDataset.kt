@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.wwlVideo.utils
+package vn.loitp.up.a.cv.wwlVideo.utils
 
 import com.loitp.core.utils.AppUtils.Companion.appPackageName
 import vn.loitp.R

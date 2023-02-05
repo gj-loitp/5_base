@@ -1,9 +1,9 @@
-package vn.loitp.a.cv.wwlVideo.detail
+package vn.loitp.up.a.cv.wwlVideo.detail
 
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import vn.loitp.R
-import vn.loitp.a.cv.wwlVideo.utils.WWLVideoDataset
+import vn.loitp.up.a.cv.wwlVideo.utils.WWLVideoDataset
 
 @LogTag("DatabaseFirebaseSignInActivity")
 class WWLVideoPlayerFragment : BaseFragment() {

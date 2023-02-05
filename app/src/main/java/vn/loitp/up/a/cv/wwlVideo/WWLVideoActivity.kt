@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.wwlVideo
+package vn.loitp.up.a.cv.wwlVideo
 
 import android.graphics.Color
 import android.os.Bundle
@@ -6,16 +6,17 @@ import android.widget.FrameLayout
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivity
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil
 import com.loitp.views.wwl.music.utils.LWWLMusicViewHelper
 import com.loitp.views.wwl.video.LWWLVideo
-import kotlinx.android.synthetic.main.a_wwl_video.*
 import vn.loitp.R
-import vn.loitp.a.cv.wwlVideo.detail.WWLVideoMetaInfoFragment
-import vn.loitp.a.cv.wwlVideo.detail.WWLVideoPlayerFragment
-import vn.loitp.a.cv.wwlVideo.detail.WWLVideoUpNextFragment
-import vn.loitp.a.cv.wwlVideo.itf.FragmentHost
-import vn.loitp.a.cv.wwlVideo.utils.WWLVideoDataset
+import vn.loitp.databinding.AWwlVideoBinding
+import vn.loitp.up.a.cv.wwlVideo.detail.WWLVideoMetaInfoFragment
+import vn.loitp.up.a.cv.wwlVideo.detail.WWLVideoPlayerFragment
+import vn.loitp.up.a.cv.wwlVideo.detail.WWLVideoUpNextFragment
+import vn.loitp.up.a.cv.wwlVideo.itf.FragmentHost
+import vn.loitp.up.a.cv.wwlVideo.utils.WWLVideoDataset
 import kotlin.math.max
 import kotlin.math.min
 
@@ -28,19 +29,23 @@ class WWLVideoActivity : BaseActivity(), LWWLVideo.Listener, FragmentHost {
     private var frmPlayer: WWLVideoPlayerFragment? = null
     private var frmUpNext: WWLVideoUpNextFragment? = null
     private var frmMetaInfo: WWLVideoMetaInfoFragment? = null
+    private lateinit var binding: AWwlVideoBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_wwl_video
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AWwlVideoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        watchWhileLayout.setListener(this)
+        binding.watchWhileLayout.setListener(this)
         frmPlayer =
             supportFragmentManager.findFragmentById(R.id.frmPlayer) as WWLVideoPlayerFragment?
         frmUpNext =
@@ -68,10 +73,10 @@ class WWLVideoActivity : BaseActivity(), LWWLVideo.Listener, FragmentHost {
     }
 
     override fun WWL_onClicked() {
-        if (watchWhileLayout.mState == LWWLVideo.STATE_MINIMIZED) {
-            watchWhileLayout.maximize(false)
+        if (binding.watchWhileLayout.mState == LWWLVideo.STATE_MINIMIZED) {
+            binding.watchWhileLayout.maximize(false)
         }
-        if (watchWhileLayout.mState == LWWLVideo.STATE_MAXIMIZED) {
+        if (binding.watchWhileLayout.mState == LWWLVideo.STATE_MAXIMIZED) {
             frmPlayer?.toggleControls()
         }
     }
@@ -95,15 +100,15 @@ class WWLVideoActivity : BaseActivity(), LWWLVideo.Listener, FragmentHost {
     }
 
     override fun goToDetail(item: WWLVideoDataset.DatasetItem) {
-        if (watchWhileLayout.mState == LWWLVideo.STATE_HIDED) {
-            watchWhileLayout.mState = LWWLVideo.STATE_MAXIMIZED
-            watchWhileLayout.mIsFullscreen = false
-            if (watchWhileLayout.canAnimate()) {
-                watchWhileLayout.setAnimatePos(watchWhileLayout.mMaxY)
+        if (binding.watchWhileLayout.mState == LWWLVideo.STATE_HIDED) {
+            binding.watchWhileLayout.mState = LWWLVideo.STATE_MAXIMIZED
+            binding.watchWhileLayout.mIsFullscreen = false
+            if (binding.watchWhileLayout.canAnimate()) {
+                binding.watchWhileLayout.setAnimatePos(binding.watchWhileLayout.mMaxY)
             }
-            watchWhileLayout.reset()
+            binding.watchWhileLayout.reset()
         }
-        watchWhileLayout.maximize(false)
+        binding.watchWhileLayout.maximize(false)
         frmPlayer?.startPlay(item)
         frmUpNext?.updateItem(item)
         frmMetaInfo?.updateItem(item)
@@ -111,18 +116,18 @@ class WWLVideoActivity : BaseActivity(), LWWLVideo.Listener, FragmentHost {
 
     override fun onVideoCollapse() {
         LWWLMusicUiUtil.showSystemUI(this)
-        watchWhileLayout.exitFullscreenToMinimize()
+        binding.watchWhileLayout.exitFullscreenToMinimize()
         frmPlayer?.switchFullscreen(false)
-        watchWhileLayout.minimize(false)
+        binding.watchWhileLayout.minimize(false)
     }
 
     override fun onVideoFullscreen(selected: Boolean) {
         if (selected) {
             LWWLMusicUiUtil.hideSystemUI(this)
-            watchWhileLayout.enterFullscreen()
+            binding.watchWhileLayout.enterFullscreen()
         } else {
             LWWLMusicUiUtil.showSystemUI(this)
-            watchWhileLayout.exitFullscreen()
+            binding.watchWhileLayout.exitFullscreen()
         }
         frmPlayer?.switchFullscreen(selected)
     }

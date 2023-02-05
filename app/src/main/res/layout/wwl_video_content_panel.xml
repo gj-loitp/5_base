@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/frmHome"
-        android:name="vn.loitp.a.cv.wwlVideo.HomeFragment"
+        android:name="vn.loitp.up.a.cv.wwlVideo.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
