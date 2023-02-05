@@ -12,8 +12,8 @@ import com.loitp.restApi.restClient.RestClient
 import vn.loitp.R
 import vn.loitp.a.api.coroutine.a.CoroutineAPIActivityFont
 import vn.loitp.a.api.galleryAPI.GalleryAPIActivityFont
-import vn.loitp.a.api.retrofit2.TestAPIRetrofit2ActivityFont
 import vn.loitp.databinding.AMenuApiBinding
+import vn.loitp.up.a.api.retrofit2.TestAPIRetrofit2Activity
 import vn.loitp.up.a.api.truyentranhtuan.MenuTTTAPIActivity
 
 @LogTag("MenuAPIActivity")
@@ -59,7 +59,7 @@ class MenuAPIActivity : BaseActivityFont(), View.OnClickListener {
                 launchActivity(GalleryAPIActivityFont::class.java)
             }
             binding.btComicAPI -> launchActivity(MenuTTTAPIActivity::class.java)
-            binding.btTestRetrofit2 -> launchActivity(TestAPIRetrofit2ActivityFont::class.java)
+            binding.btTestRetrofit2 -> launchActivity(TestAPIRetrofit2Activity::class.java)
         }
     }
 }

@@ -1,4 +1,4 @@
-package vn.loitp.a.api.retrofit2.md
+package vn.loitp.up.a.api.retrofit2.md
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.Expose

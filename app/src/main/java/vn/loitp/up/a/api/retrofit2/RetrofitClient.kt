@@ -1,4 +1,4 @@
-package vn.loitp.a.api.retrofit2
+package vn.loitp.up.a.api.retrofit2
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

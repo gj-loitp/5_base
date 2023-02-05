@@ -1,4 +1,4 @@
-package vn.loitp.a.api.retrofit2
+package vn.loitp.up.a.api.retrofit2
 
 class ApiUtils {
     companion object {
