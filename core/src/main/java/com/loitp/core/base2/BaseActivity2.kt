@@ -1,4 +1,4 @@
-package com.loitp.core.base
+package com.loitp.core.base2
 
 import android.app.Activity
 import android.app.Dialog
@@ -40,8 +40,7 @@ import org.greenrobot.eventbus.ThreadMode
  * freuss47@gmail.com
  */
 // animation https://github.com/dkmeteor/SmoothTransition
-@Deprecated("Use BaseActivity2 instead")
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity2 : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
     protected var logTag: String? = null
 
@@ -499,7 +498,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 }
 
                 override fun getContext(): Context {
-                    return this@BaseActivity
+                    return this@BaseActivity2
                 }
             })
     }

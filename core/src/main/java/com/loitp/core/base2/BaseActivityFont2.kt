@@ -1,4 +1,4 @@
-package com.loitp.core.base
+package com.loitp.core.base2
 
 import android.content.Context
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
@@ -10,8 +10,7 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper
  * +840766040293
  * freuss47@gmail.com
  */
-@Deprecated("Use BaseActivityFont2 instead")
-abstract class BaseActivityFont : BaseActivity() {
+abstract class BaseActivityFont2 : BaseActivity2() {
 
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))

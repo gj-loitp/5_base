@@ -1,4 +1,4 @@
-package com.loitp.core.base
+package com.loitp.core.base2
 
 import android.content.res.Resources
 import android.os.Bundle
@@ -30,8 +30,7 @@ import org.greenrobot.eventbus.ThreadMode
  * +840766040293
  * freuss47@gmail.com
  */
-@Deprecated("Use BaseFragment2 instead")
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment2 : Fragment() {
     protected var logTag: String? = null
     protected var compositeDisposable = CompositeDisposable()
     protected var frmRootView: View? = null
@@ -167,69 +166,53 @@ abstract class BaseFragment : Fragment() {
         msg: String?,
         isTopAnchor: Boolean = true
     ) {
-        if (activity is BaseActivity) {
-            (activity as BaseActivity).showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
-        }
+        (activity as? BaseActivity2)?.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     protected fun showShortWarning(
         msg: String?,
         isTopAnchor: Boolean = true
     ) {
-        if (activity is BaseActivity) {
-            (activity as BaseActivity).showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
-        }
+        (activity as? BaseActivity2)?.showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     protected fun showShortError(
         msg: String?,
         isTopAnchor: Boolean = true
     ) {
-        if (activity is BaseActivity) {
-            (activity as BaseActivity).showShortError(msg = msg, isTopAnchor = isTopAnchor)
-        }
+        (activity as? BaseActivity2)?.showShortError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     protected fun showLongInformation(
         msg: String?,
         isTopAnchor: Boolean = true
     ) {
-        if (activity is BaseActivity) {
-            (activity as BaseActivity).showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
-        }
+        (activity as? BaseActivity2)?.showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     protected fun showLongWarning(
         msg: String?,
         isTopAnchor: Boolean = true
     ) {
-        if (activity is BaseActivity) {
-            (activity as BaseActivity).showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
-        }
+        (activity as? BaseActivity2)?.showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     protected fun showLongError(
         msg: String?,
         isTopAnchor: Boolean = true
     ) {
-        if (activity is BaseActivity) {
-            (activity as BaseActivity).showLongError(msg = msg, isTopAnchor = isTopAnchor)
-        }
+        (activity as? BaseActivity2)?.showLongError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     protected fun showShortDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
-            if (activity is BaseActivity) {
-                (activity as BaseActivity).showShortDebug(msg = msg)
-            }
+            (activity as? BaseActivity2)?.showShortDebug(msg = msg)
         }
     }
 
     protected fun showLongDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
-            if (activity is BaseActivity) {
-                (activity as BaseActivity).showLongInformation(msg = msg)
-            }
+            (activity as? BaseActivity2)?.showLongInformation(msg = msg)
         }
     }
 
@@ -264,49 +247,47 @@ abstract class BaseFragment : Fragment() {
         onClickButton3: ((Unit) -> Unit)? = null,
         onDismiss: ((Unit) -> Unit)? = null
     ) {
-        if (activity is BaseActivity) {
-            (activity as BaseActivity).showBottomSheetOptionFragment(
-                isCancelableFragment = isCancelableFragment,
-                isShowIvClose = isShowIvClose,
-                title = title,
-                message = message,
-                textButton1 = textButton1,
-                textButton2 = textButton2,
-                textButton3 = textButton3,
-                onClickButton1 = onClickButton1,
-                onClickButton2 = onClickButton2,
-                onClickButton3 = onClickButton3,
-                onDismiss = onDismiss
-            )
-        }
+        (activity as? BaseActivity2)?.showBottomSheetOptionFragment(
+            isCancelableFragment = isCancelableFragment,
+            isShowIvClose = isShowIvClose,
+            title = title,
+            message = message,
+            textButton1 = textButton1,
+            textButton2 = textButton2,
+            textButton3 = textButton3,
+            onClickButton1 = onClickButton1,
+            onClickButton2 = onClickButton2,
+            onClickButton3 = onClickButton3,
+            onDismiss = onDismiss
+        )
     }
 
     fun showSnackBarInfor(
         msg: String,
         isFullWidth: Boolean = false
     ) {
-        (activity as? BaseActivity)?.showSnackBarInfor(msg = msg, isFullWidth = isFullWidth)
+        (activity as? BaseActivity2)?.showSnackBarInfor(msg = msg, isFullWidth = isFullWidth)
     }
 
     fun showSnackBarWarning(
         msg: String,
         isFullWidth: Boolean = false
     ) {
-        (activity as? BaseActivity)?.showSnackBarWarning(msg = msg, isFullWidth = isFullWidth)
+        (activity as? BaseActivity2)?.showSnackBarWarning(msg = msg, isFullWidth = isFullWidth)
     }
 
     fun showSnackBarError(
         msg: String,
         isFullWidth: Boolean = false
     ) {
-        (activity as? BaseActivity)?.showSnackBarError(msg = msg, isFullWidth = isFullWidth)
+        (activity as? BaseActivity2)?.showSnackBarError(msg = msg, isFullWidth = isFullWidth)
     }
 
     fun showDialogProgress() {
-        (activity as? BaseActivity)?.showDialogProgress()
+        (activity as? BaseActivity2)?.showDialogProgress()
     }
 
     fun hideDialogProgress() {
-        (activity as? BaseActivity)?.hideDialogProgress()
+        (activity as? BaseActivity2)?.hideDialogProgress()
     }
 }
