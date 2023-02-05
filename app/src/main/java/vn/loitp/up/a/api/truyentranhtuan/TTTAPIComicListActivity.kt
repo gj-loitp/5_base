@@ -1,4 +1,4 @@
-package vn.loitp.a.api.truyentranhtuan
+package vn.loitp.up.a.api.truyentranhtuan
 
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -7,47 +7,51 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import com.loitp.core.helper.ttt.helper.ComicUtils
 import com.loitp.core.helper.ttt.model.comictype.ComicType
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
-import kotlinx.android.synthetic.main.a_ttt_api_comic_list.*
-import vn.loitp.R
+import vn.loitp.databinding.ATttApiComicListBinding
 
 @LogTag("TTTAPIComicListActivity")
 @IsFullScreen(false)
-class TTTAPIComicListActivityFont : BaseActivityFont() {
+class TTTAPIComicListActivity : BaseActivityFont() {
     private var tttViewModel: TTTViewModel? = null
     private var comicTypeList = ArrayList<ComicType>()
+    private lateinit var binding: ATttApiComicListBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_ttt_api_comic_list
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ATttApiComicListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         setupViewModels()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = TTTAPIComicListActivityFont::class.java.simpleName
+            this.tvTitle?.text = TTTAPIComicListActivity::class.java.simpleName
         }
-        progressBar.hideProgress()
+        binding.progressBar.hideProgress()
         comicTypeList.addAll(ComicUtils.comicTypeList)
 
-        btSelect.setSafeOnClickListener {
+        binding.btSelect.setSafeOnClickListener {
             showDialogSelect()
         }
-        btTestQueuedMutableLiveData.setSafeOnClickListener {
+        binding.btTestQueuedMutableLiveData.setSafeOnClickListener {
             for (i in 0..10) {
                 tttViewModel?.setStringQueued("Number $i")
             }
@@ -69,13 +73,13 @@ class TTTAPIComicListActivityFont : BaseActivityFont() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    progressBar.showProgress()
+                    binding.progressBar.showProgress()
                 } else {
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                     if (isSuccess == true) {
                         val listComic = actionData.data
                         listComic?.let {
-                            textView.printBeautyJson(o = it)
+                            binding.textView.printBeautyJson(o = it)
                         }
                     }
                 }

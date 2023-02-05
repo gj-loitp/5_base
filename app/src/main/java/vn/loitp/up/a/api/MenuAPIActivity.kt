@@ -13,8 +13,8 @@ import vn.loitp.R
 import vn.loitp.a.api.coroutine.a.CoroutineAPIActivityFont
 import vn.loitp.a.api.galleryAPI.GalleryAPIActivityFont
 import vn.loitp.a.api.retrofit2.TestAPIRetrofit2ActivityFont
-import vn.loitp.a.api.truyentranhtuan.MenuTTTAPIActivityFont
 import vn.loitp.databinding.AMenuApiBinding
+import vn.loitp.up.a.api.truyentranhtuan.MenuTTTAPIActivity
 
 @LogTag("MenuAPIActivity")
 @IsFullScreen(false)
@@ -58,7 +58,7 @@ class MenuAPIActivity : BaseActivityFont(), View.OnClickListener {
                 RestClient.init(baseApiUrl = getString(R.string.flickr_URL))
                 launchActivity(GalleryAPIActivityFont::class.java)
             }
-            binding.btComicAPI -> launchActivity(MenuTTTAPIActivityFont::class.java)
+            binding.btComicAPI -> launchActivity(MenuTTTAPIActivity::class.java)
             binding.btTestRetrofit2 -> launchActivity(TestAPIRetrofit2ActivityFont::class.java)
         }
     }

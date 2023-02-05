@@ -1,28 +1,32 @@
-package vn.loitp.a.api.truyentranhtuan
+package vn.loitp.up.a.api.truyentranhtuan
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import com.loitp.core.helper.ttt.model.comic.Comic
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
-import kotlinx.android.synthetic.main.a_ttt_api_fav_list.*
-import vn.loitp.R
+import vn.loitp.databinding.ATttApiFavListBinding
 
 @LogTag("TTTAPIFavListActivity")
 @IsFullScreen(false)
-class TTTAPIFavListActivityFont : BaseActivityFont() {
+class TTTAPIFavListActivity : BaseActivityFont() {
 
+    private lateinit var binding: ATttApiFavListBinding
     private var tttViewModel: TTTViewModel? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_ttt_api_fav_list
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ATttApiFavListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViewModels()
         setupViews()
@@ -31,16 +35,14 @@ class TTTAPIFavListActivityFont : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = TTTAPIFavListActivityFont::class.java.simpleName
+            this.tvTitle?.text = TTTAPIFavListActivity::class.java.simpleName
         }
-        btAdd.setSafeOnClickListener {
+        binding.btAdd.setSafeOnClickListener {
             val comic = Comic()
             comic.date = "29.07.2014"
             comic.url = "http://truyentuan.com/vuong-phong-loi-i/"
@@ -48,7 +50,7 @@ class TTTAPIFavListActivityFont : BaseActivityFont() {
             comic.isFav = true
             tttViewModel?.favComic(comic = comic)
         }
-        btRemove.setSafeOnClickListener {
+        binding.btRemove.setSafeOnClickListener {
             val comic = Comic()
             comic.date = "29.07.2014"
             comic.url = "http://truyentuan.com/vuong-phong-loi-i/"
@@ -66,13 +68,13 @@ class TTTAPIFavListActivityFont : BaseActivityFont() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    progressBar.showProgress()
+                    binding.progressBar.showProgress()
                 } else {
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                     if (isSuccess == true) {
                         val listComicFav = actionData.data
                         listComicFav?.let {
-                            textView.printBeautyJson(o = it)
+                            binding.textView.printBeautyJson(o = it)
                         }
                     }
                 }
@@ -83,9 +85,9 @@ class TTTAPIFavListActivityFont : BaseActivityFont() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    progressBar.showProgress()
+                    binding.progressBar.showProgress()
                 } else {
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                     if (isSuccess == true) {
                         val id = actionData.data
                         showLongInformation("Add success with id $id")
@@ -100,9 +102,9 @@ class TTTAPIFavListActivityFont : BaseActivityFont() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    progressBar.showProgress()
+                    binding.progressBar.showProgress()
                 } else {
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                     if (isSuccess == true) {
                         val comic = actionData.data
                         showLongInformation("Delete success ${comic?.title}")

@@ -158,19 +158,19 @@
             android:name=".a.cv.tv.typeWrite.TypeWriterTextViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.truyentranhtuan.MenuTTTAPIActivityFont"
+            android:name=".up.a.api.truyentranhtuan.MenuTTTAPIActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.truyentranhtuan.TTTAPIComicListActivityFont"
+            android:name=".up.a.api.truyentranhtuan.TTTAPIComicListActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.truyentranhtuan.TTTAPIChapListActivityFont"
+            android:name=".up.a.api.truyentranhtuan.TTTAPIChapListActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.truyentranhtuan.TTTAPIPageListActivityFont"
+            android:name=".up.a.api.truyentranhtuan.TTTAPIPageListActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.api.truyentranhtuan.TTTAPIFavListActivityFont"
+            android:name=".up.a.api.truyentranhtuan.TTTAPIFavListActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.ripple.RippleLayoutActivityFont"
