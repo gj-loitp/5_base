@@ -41,7 +41,7 @@
             android:name=".up.a.api.MenuAPIActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.MenuCustomViewsActivity"
+            android:name=".up.a.cv.MenuCustomViewsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.demo.MenuDemoActivity"
