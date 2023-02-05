@@ -887,7 +887,7 @@
             android:name=".a.cv.cal.cosmo.CosmoCalendarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.api.coroutine.a.CoroutineAPIActivityFont"
+            android:name=".up.a.api.coroutine.a.CoroutineAPIActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.et.textWatcher.EditTextTextWatcherActivityFont"

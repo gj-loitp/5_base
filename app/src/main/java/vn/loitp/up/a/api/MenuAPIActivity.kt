@@ -11,7 +11,7 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.restApi.restClient.RestClient
 import vn.loitp.R
 import vn.loitp.databinding.AMenuApiBinding
-import vn.loitp.up.a.api.coroutine.a.CoroutineAPIActivityFont
+import vn.loitp.up.a.api.coroutine.a.CoroutineAPIActivity
 import vn.loitp.up.a.api.galleryAPI.GalleryAPIActivity
 import vn.loitp.up.a.api.retrofit2.TestAPIRetrofit2Activity
 import vn.loitp.up.a.api.truyentranhtuan.MenuTTTAPIActivity
@@ -53,7 +53,7 @@ class MenuAPIActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v) {
-            binding.btCoroutineAPI -> launchActivity(CoroutineAPIActivityFont::class.java)
+            binding.btCoroutineAPI -> launchActivity(CoroutineAPIActivity::class.java)
             binding.btGalleryAPI -> {
                 RestClient.init(baseApiUrl = getString(R.string.flickr_URL))
                 launchActivity(GalleryAPIActivity::class.java)

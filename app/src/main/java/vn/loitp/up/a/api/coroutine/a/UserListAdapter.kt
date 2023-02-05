@@ -2,14 +2,12 @@ package vn.loitp.up.a.api.coroutine.a
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.sv.model.UserTest
-import kotlinx.android.synthetic.main.view_item_user_1.view.*
-import vn.loitp.R
+import vn.loitp.databinding.ViewItemUser1Binding
 
 class UserListAdapter(
     private val callback: (Int, UserTest) -> Unit,
@@ -18,20 +16,21 @@ class UserListAdapter(
 
     private var userTestList = ArrayList<UserTest>()
 
-    inner class UserTestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class UserTestViewHolder(val binding: ViewItemUser1Binding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
         fun bind(userTest: UserTest) {
             userTest.avatar?.let {
-                itemView.ivAvt.loadGlide(
+                binding.ivAvt.loadGlide(
                     any = it,
                 )
             }
-            itemView.tvEmail.text = userTest.email
-            itemView.tvFirstName.text = userTest.firstName
-            itemView.tvId.text = "Id ${userTest.id}"
-            itemView.tvLastName.text = userTest.lastName
-            itemView.rootView.setSafeOnClickListener {
+            binding.tvEmail.text = userTest.email
+            binding.tvFirstName.text = userTest.firstName
+            binding.tvId.text = "Id ${userTest.id}"
+            binding.tvLastName.text = userTest.lastName
+            binding.rootView.setSafeOnClickListener {
                 callback.invoke(bindingAdapterPosition, userTest)
             }
         }
@@ -41,9 +40,9 @@ class UserListAdapter(
         parent: ViewGroup,
         viewType: Int
     ): UserTestViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.view_item_user_1, parent, false)
-        return UserTestViewHolder(itemView)
+        val binding =
+            ViewItemUser1Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return UserTestViewHolder(binding)
     }
 
     override fun onBindViewHolder(
