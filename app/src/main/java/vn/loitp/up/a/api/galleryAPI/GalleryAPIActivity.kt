@@ -1,4 +1,4 @@
-package vn.loitp.a.api.galleryAPI
+package vn.loitp.up.a.api.galleryAPI
 
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -7,6 +7,7 @@ import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
@@ -16,45 +17,49 @@ import com.loitp.restApi.flickr.service.FlickrService
 import com.loitp.restApi.restClient.RestClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_api_gallery.*
 import vn.loitp.R
+import vn.loitp.databinding.AApiGalleryBinding
 
 @LogTag("GalleryAPIActivity")
 @IsFullScreen(false)
-class GalleryAPIActivityFont : BaseActivityFont() {
+class GalleryAPIActivity : BaseActivityFont() {
     private var mWrapperPhotoSetGetList: WrapperPhotosetGetlist? = null
+    private lateinit var binding: AApiGalleryBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_api_gallery
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AApiGalleryBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = GalleryAPIActivityFont::class.java.simpleName
+            this.tvTitle?.text = GalleryAPIActivity::class.java.simpleName
         }
-        progressBar.hideProgress()
-        bt1.setSafeOnClickListener {
+        binding.progressBar.hideProgress()
+        binding.bt1.setSafeOnClickListener {
             getPhotoSets()
         }
-        bt2.setSafeOnClickListener {
+        binding.bt2.setSafeOnClickListener {
             showDialogSelectPhotoset()
         }
     }
 
     private fun getPhotoSets() {
-        progressBar.showProgress()
+        binding.progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -81,14 +86,14 @@ class GalleryAPIActivityFont : BaseActivityFont() {
                 .subscribe({ wrapperPhotosetGetlist: WrapperPhotosetGetlist? ->
                     mWrapperPhotoSetGetList = wrapperPhotosetGetlist
                     wrapperPhotosetGetlist?.let {
-                        textView.printBeautyJson(it)
+                        binding.textView.printBeautyJson(it)
                     }
-                    progressBar.hideProgress()
-                    bt2.visibility = View.VISIBLE
+                    binding.progressBar.hideProgress()
+                    binding.bt2.visibility = View.VISIBLE
                 }) { e: Throwable ->
                     e.printStackTrace()
                     handleException(e)
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                 }
         )
     }
@@ -115,8 +120,8 @@ class GalleryAPIActivityFont : BaseActivityFont() {
         if (photosetID.isNullOrEmpty()) {
             return
         }
-        textView.text = ""
-        progressBar.showProgress()
+        binding.textView.text = ""
+        binding.progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -143,13 +148,13 @@ class GalleryAPIActivityFont : BaseActivityFont() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist: WrapperPhotosetGetPhotos? ->
                     wrapperPhotosetGetlist?.let {
-                        textView.printBeautyJson(it)
+                        binding.textView.printBeautyJson(it)
                     }
-                    progressBar.hideProgress()
-                    bt2.visibility = View.VISIBLE
+                    binding.progressBar.hideProgress()
+                    binding.bt2.visibility = View.VISIBLE
                 }) { e: Throwable ->
                     handleException(e)
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                 }
         )
     }
