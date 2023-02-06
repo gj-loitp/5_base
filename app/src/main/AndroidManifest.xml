@@ -488,7 +488,7 @@
             android:name=".a.cv.fbCmt.FacebookCommentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.wwlMusic.WWLActivityMusic"
+            android:name=".up.a.cv.wwlMusic.WWLActivityMusic"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
             android:name=".up.a.cv.wwlVideo.WWLVideoActivity"

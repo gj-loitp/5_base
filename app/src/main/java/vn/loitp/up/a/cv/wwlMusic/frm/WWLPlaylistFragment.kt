@@ -1,32 +1,28 @@
-package vn.loitp.a.cv.wwlMusic.frm
+package vn.loitp.up.a.cv.wwlMusic.frm
 
-import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import com.loitp.views.wwl.music.utils.LWWLMusicUiUtil.getGridColumnCount
-import kotlinx.android.synthetic.main.f_wwl_music_home.*
+import kotlinx.android.synthetic.main.f_wwl_music_playlist.*
 import vn.loitp.R
-import vn.loitp.a.cv.wwlMusic.itf.FragmentHost
-import vn.loitp.a.cv.wwlMusic.utils.WWLMusicDataset
+import vn.loitp.up.a.cv.wwlMusic.itf.FragmentHost
+import vn.loitp.up.a.cv.wwlMusic.utils.WWLMusicDataset
 
-@LogTag("WWLHomeFragment")
-class WWLHomeFragment : BaseFragment() {
-
-    private var mLayoutManager: GridLayoutManager? = null
-    private var customAdapter: CustomAdapter? = null
+@LogTag("WWLPlaylistFragment")
+class WWLPlaylistFragment : BaseFragment() {
+    private var mLayoutManager: LinearLayoutManager? = null
+    private var mAdapter: CustomAdapter? = null
     private var mFragmentHost: FragmentHost? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.f_wwl_music_home
+        return R.layout.f_wwl_music_playlist
     }
 
     override fun onViewCreated(
@@ -36,14 +32,14 @@ class WWLHomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()
-        updateLayoutIfNeed()
     }
 
     private fun setupViews() {
-        mLayoutManager = GridLayoutManager(activity, getGridColumnCount(resources))
+        mLayoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = mLayoutManager
-        customAdapter = CustomAdapter(WWLMusicDataset.datasetItems)
-        recyclerView.adapter = customAdapter
+        recyclerView.scrollToPosition(0)
+        mAdapter = CustomAdapter(WWLMusicDataset.datasetItems)
+        recyclerView.adapter = mAdapter
     }
 
     @Deprecated("Deprecated in Java")
@@ -52,32 +48,29 @@ class WWLHomeFragment : BaseFragment() {
         mFragmentHost = activity as FragmentHost
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        updateLayoutIfNeed()
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    private fun updateLayoutIfNeed() {
-        mLayoutManager?.spanCount = getGridColumnCount(resources)
-        customAdapter?.notifyDataSetChanged()
-    }
-
     private fun onItemClicked(item: WWLMusicDataset.DatasetItem) {
         mFragmentHost?.goToDetail(item)
     }
 
+    fun updateItem(item: WWLMusicDataset.DatasetItem) {
+        liTitle.text = item.title
+        liSubtitle.text = item.subtitle
+    }
+
     private inner class CustomAdapter(private val mDataSet: ArrayList<WWLMusicDataset.DatasetItem>) :
-        RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             val v = LayoutInflater.from(parent.context)
-                .inflate(R.layout.wwl_music_card_row_item, parent, false)
+                .inflate(R.layout.wwl_music_playlist_item, parent, false)
             return ViewHolder(v)
         }
 
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.liTitle.text = mDataSet[position].title
-            holder.liSubtitle.text = mDataSet[position].subtitle
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+            if (holder is ViewHolder) {
+                holder.liTitle.text = mDataSet[position].title
+                holder.liSubtitle.text = mDataSet[position].subtitle
+            }
         }
 
         override fun getItemCount(): Int {

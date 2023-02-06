@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.wwlMusic.frm
+package vn.loitp.up.a.cv.wwlMusic.frm
 
 import android.app.Activity
 import android.content.Context
@@ -16,9 +16,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import kotlinx.android.synthetic.main.f_wwl_music_watch.*
 import vn.loitp.R
-import vn.loitp.a.cv.wwlMusic.itf.FragmentHost
-import vn.loitp.a.cv.wwlMusic.layout.WWLMusicControlsOverlay
-import vn.loitp.a.cv.wwlMusic.utils.WWLMusicDataset
+import vn.loitp.up.a.cv.wwlMusic.itf.FragmentHost
+import vn.loitp.up.a.cv.wwlMusic.layout.WWLMusicControlsOverlay
+import vn.loitp.up.a.cv.wwlMusic.utils.WWLMusicDataset
 
 @LogTag("WWLWatchFragment")
 class WWLWatchFragment : BaseFragment(), SurfaceTextureListener, WWLMusicControlsOverlay.Listener {
@@ -47,9 +47,7 @@ class WWLWatchFragment : BaseFragment(), SurfaceTextureListener, WWLMusicControl
         mPlayerWWLMusicControlsOverlay = WWLMusicControlsOverlay(requireContext())
         mPlayerWWLMusicControlsOverlay?.setListener(this)
 
-        if (frmRootView is ViewGroup) {
-            (frmRootView as ViewGroup).addView(mPlayerWWLMusicControlsOverlay)
-        }
+        (frmRootView as? ViewGroup)?.addView(mPlayerWWLMusicControlsOverlay)
     }
 
     @Deprecated("Deprecated in Java")
@@ -88,7 +86,8 @@ class WWLWatchFragment : BaseFragment(), SurfaceTextureListener, WWLMusicControl
         surface: SurfaceTexture,
         width: Int,
         height: Int
-    ) {}
+    ) {
+    }
 
     override fun onSurfaceTextureDestroyed(surface: SurfaceTexture): Boolean {
         mSurfaceView = null

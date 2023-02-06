@@ -53,8 +53,8 @@ import vn.loitp.a.cv.vp.MenuViewPagerActivity
 import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.a.cv.wheelView.WheelViewActivity
 import vn.loitp.a.cv.wv.MenuWebViewActivity
-import vn.loitp.a.cv.wwlMusic.WWLActivityMusic
 import vn.loitp.databinding.AMenuCustomViewBinding
+import vn.loitp.up.a.cv.wwlMusic.WWLActivityMusic
 import vn.loitp.up.a.cv.wwlVideo.WWLVideoActivity
 
 @LogTag("MenuCustomViewsActivity")
