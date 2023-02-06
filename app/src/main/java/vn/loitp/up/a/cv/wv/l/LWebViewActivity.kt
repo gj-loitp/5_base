@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.wv.l
+package vn.loitp.up.a.cv.wv.l
 
 import android.os.Bundle
 import android.view.KeyEvent
@@ -8,42 +8,45 @@ import android.webkit.WebView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.getDimenValue
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.wv.LWebViewAdblock
-import kotlinx.android.synthetic.main.a_wv.*
 import vn.loitp.R
+import vn.loitp.databinding.AWvBinding
 
 @LogTag("LWebViewActivity")
 @IsFullScreen(false)
-class LWebViewActivityFont : BaseActivityFont() {
+class LWebViewActivity : BaseActivityFont() {
 
     private var isDetectButtonClickAsset = false
     private var isDetectButtonClickWeb = false
+    private lateinit var binding: AWvBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_wv
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AWvBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         onDetectClick()
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = LWebViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = LWebViewActivity::class.java.simpleName
         }
-        lWebView.callback = object : LWebViewAdblock.Callback {
+        binding.lWebView.callback = object : LWebViewAdblock.Callback {
             override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
             }
 
@@ -57,12 +60,12 @@ class LWebViewActivityFont : BaseActivityFont() {
 
             override fun onProgressChanged(progress: Int) {
                 logD("onProgressChanged $progress")
-                pb.progress = progress
+                binding.pb.progress = progress
                 if (progress == 100) {
-                    pb.visibility = View.GONE
-                    logD(">>>onProgressChanged finish ${lWebView.url}")
+                    binding.pb.visibility = View.GONE
+                    logD(">>>onProgressChanged finish ${binding.lWebView.url}")
                 } else {
-                    pb.visibility = View.VISIBLE
+                    binding.pb.visibility = View.VISIBLE
                 }
             }
 
@@ -75,25 +78,25 @@ class LWebViewActivityFont : BaseActivityFont() {
             }
         }
 
-        btLoadUrl.setSafeOnClickListener {
+        binding.btLoadUrl.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
             onDetectClick()
-            lWebView.loadUrl("https://vnexpress.net/facebook-hay-google-manh-hon-4226827.html/")
+            binding.lWebView.loadUrl("https://vnexpress.net/facebook-hay-google-manh-hon-4226827.html/")
         }
-        btLoadData.setSafeOnClickListener {
+        binding.btLoadData.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
             onDetectClick()
-            lWebView.loadDataString(bodyContent = "Hello, world!")
+            binding.lWebView.loadDataString(bodyContent = "Hello, world!")
         }
-        btLoadDataCustom.setSafeOnClickListener {
+        binding.btLoadDataCustom.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
             onDetectClick()
             val fontSizePx = getDimenValue(R.dimen.txt_small)
             val paddingPx = getDimenValue(R.dimen.margin_padding_small)
-            lWebView.loadDataString(
+            binding.lWebView.loadDataString(
                 bodyContent = getString(R.string.large_dummy_text),
                 backgroundColor = "black",
                 textColor = "white",
@@ -102,31 +105,31 @@ class LWebViewActivityFont : BaseActivityFont() {
                 paddingPx = paddingPx
             )
         }
-        btLoadDataFromAsset.setSafeOnClickListener {
+        binding.btLoadDataFromAsset.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
             onDetectClick()
-            lWebView.loadUrl("file:///android_asset/web/policy.html")
+            binding.lWebView.loadUrl("file:///android_asset/web/policy.html")
         }
-        btLoadDataFromAssetAndClick.setSafeOnClickListener {
+        binding.btLoadDataFromAssetAndClick.setSafeOnClickListener {
             isDetectButtonClickAsset = true
             isDetectButtonClickWeb = false
             onDetectClick()
-            lWebView.loadUrl("file:///android_asset/web/index.html")
+            binding.lWebView.loadUrl("file:///android_asset/web/index.html")
         }
-        btLoadDataFromWebAndClick.setSafeOnClickListener {
+        binding.btLoadDataFromWebAndClick.setSafeOnClickListener {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = true
             onDetectClick()
             logE(">>>btLoadDataFromWebAndClick")
-            lWebView.loadUrl("https://bizman.dikauri.com/signin")
+            binding.lWebView.loadUrl("https://bizman.dikauri.com/signin")
         }
-        swEnableCopyContent.setOnCheckedChangeListener { _, isChecked ->
-            lWebView.setEnableCopyContent(isChecked)
+        binding.swEnableCopyContent.setOnCheckedChangeListener { _, isChecked ->
+            binding.lWebView.setEnableCopyContent(isChecked)
         }
-        swEnableDarkMode.setOnCheckedChangeListener { _, isChecked ->
+        binding.swEnableDarkMode.setOnCheckedChangeListener { _, isChecked ->
             try {
-                lWebView.setDarkMode(isChecked)
+                binding.lWebView.setDarkMode(isChecked)
             } catch (e: Exception) {
                 showSnackBarError("setOnCheckedChangeListener $e")
             }
@@ -134,8 +137,8 @@ class LWebViewActivityFont : BaseActivityFont() {
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && lWebView.canGoBack()) {
-            lWebView.goBack()
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && binding.lWebView.canGoBack()) {
+            binding.lWebView.goBack()
             return true
         }
         return super.onKeyDown(keyCode, event)
@@ -145,7 +148,7 @@ class LWebViewActivityFont : BaseActivityFont() {
         logE(">>>onDetectClick")
         // detect click button submit
         if (isDetectButtonClickAsset) {
-            lWebView.addJavascriptInterface(object : Any() {
+            binding.lWebView.addJavascriptInterface(object : Any() {
                 @JavascriptInterface
                 @Throws(java.lang.Exception::class)
                 @Suppress("unused")
@@ -156,7 +159,7 @@ class LWebViewActivityFont : BaseActivityFont() {
         }
 
         if (isDetectButtonClickWeb) {
-            lWebView.addJavascriptInterface(object : Any() {
+            binding.lWebView.addJavascriptInterface(object : Any() {
                 @JavascriptInterface
                 @Throws(java.lang.Exception::class)
                 @Suppress("unused")
