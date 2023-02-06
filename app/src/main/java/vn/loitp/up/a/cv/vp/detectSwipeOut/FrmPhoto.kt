@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.detectSwipeOut
+package vn.loitp.up.a.cv.vp.detectSwipeOut
 
 import android.os.Bundle
 import android.view.View
@@ -18,7 +18,6 @@ class FrmPhoto : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let { bundle ->
-            //TODO fix getSerializable
             val vpPhoto = bundle.getSerializable("vpphoto") as VPPhoto?
             vpPhoto?.let {
                 relativeLayoutParent.setBackgroundColor(it.color)

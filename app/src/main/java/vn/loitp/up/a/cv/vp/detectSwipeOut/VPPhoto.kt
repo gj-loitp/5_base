@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.detectSwipeOut
+package vn.loitp.up.a.cv.vp.detectSwipeOut
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel
