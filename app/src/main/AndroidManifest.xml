@@ -1154,19 +1154,19 @@
             android:name=".a.cv.tv.fading.FadingTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.vp.easyFlip.EFVPActivity"
+            android:name=".up.a.cv.vp.easyFlip.EFVPActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.vp.easyFlip.BookOnboardingActivity"
+            android:name=".up.a.cv.vp.easyFlip.BookOnboardingActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.vp.easyFlip.PokerCardDemoActivity"
+            android:name=".up.a.cv.vp.easyFlip.PokerCardDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.vp.easyFlip.PictureGalleryDemoActivity"
+            android:name=".up.a.cv.vp.easyFlip.PictureGalleryDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.vp.easyFlip.ViewPager2DemoActivity"
+            android:name=".up.a.cv.vp.easyFlip.ViewPager2DemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.sb.vertical2.VerticalSeekBar2ActivityFont"

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.easyFlip
+package vn.loitp.up.a.cv.vp.easyFlip
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,30 +8,34 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.wajahatkarim3.easyflipviewpager.CardFlipPageTransformer
-import kotlinx.android.synthetic.main.a_picture_gallery_demo.*
 import vn.loitp.R
+import vn.loitp.databinding.APictureGalleryDemoBinding
 
 @LogTag("PictureGalleryDemoActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class PictureGalleryDemoActivity : BaseActivityFont() {
-
+    private lateinit var binding: APictureGalleryDemoBinding
     lateinit var pagerAdapter: GalleryPagerAdapter
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_picture_gallery_demo
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = APictureGalleryDemoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         pagerAdapter = GalleryPagerAdapter(supportFragmentManager)
-        galleryViewPager.adapter = pagerAdapter
+        binding.galleryViewPager.adapter = pagerAdapter
 
         val pageTransformer = CardFlipPageTransformer()
         pageTransformer.flipOrientation = CardFlipPageTransformer.VERTICAL
         pageTransformer.isScalable = true
-        galleryViewPager.setPageTransformer(true, pageTransformer)
+        binding.galleryViewPager.setPageTransformer(true, pageTransformer)
     }
 
     class GalleryPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {

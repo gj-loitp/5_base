@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.easyFlip;
+package vn.loitp.up.a.cv.vp.easyFlip;
 
 import android.graphics.Color;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.easyFlip
+package vn.loitp.up.a.cv.vp.easyFlip
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,17 +12,20 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer
 import com.wajahatkarim3.easyflipviewpager.CardFlipPageTransformer
-import kotlinx.android.synthetic.main.a_efvp.*
 import vn.loitp.R
+import vn.loitp.databinding.AEfvpBinding
 
 @LogTag("EFVPActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class EFVPActivity : BaseActivityFont() {
+    private lateinit var binding: AEfvpBinding
+
     private lateinit var mPager: ViewPager
     private var mPagerAdapter: PagerAdapter? = null
 
@@ -30,18 +33,21 @@ class EFVPActivity : BaseActivityFont() {
     var cardFlipTransformer = CardFlipPageTransformer()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_efvp
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AEfvpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -77,23 +83,23 @@ class EFVPActivity : BaseActivityFont() {
 
         updatePagerConfigs()
 
-        rgFlipAnimation.setOnCheckedChangeListener { _, _ ->
+        binding.rgFlipAnimation.setOnCheckedChangeListener { _, _ ->
             updatePagerConfigs()
         }
 
-        checkEnableScale.setOnCheckedChangeListener { _, _ ->
+        binding.checkEnableScale.setOnCheckedChangeListener { _, _ ->
             updatePagerConfigs()
         }
     }
 
     private fun updatePagerConfigs() {
-        when (rgFlipAnimation.checkedRadioButtonId) {
+        when (binding.rgFlipAnimation.checkedRadioButtonId) {
             R.id.radioBookFlip -> {
-                bookFlipTransformer.isEnableScale = checkEnableScale.isChecked
+                bookFlipTransformer.isEnableScale = binding.checkEnableScale.isChecked
                 mPager.setPageTransformer(true, bookFlipTransformer)
             }
             R.id.radioCardFlip -> {
-                cardFlipTransformer.isScalable = checkEnableScale.isChecked
+                cardFlipTransformer.isScalable = binding.checkEnableScale.isChecked
                 mPager.setPageTransformer(true, cardFlipTransformer)
             }
         }

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.easyFlip
+package vn.loitp.up.a.cv.vp.easyFlip
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,28 +9,32 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer
-import kotlinx.android.synthetic.main.a_book_onboarding.*
 import vn.loitp.R
+import vn.loitp.databinding.ABookOnboardingBinding
 
 @LogTag("BookOnboardingActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class BookOnboardingActivity : BaseActivityFont() {
-
+    private lateinit var binding: ABookOnboardingBinding
     private var mPagerAdapter: PagerAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_book_onboarding
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ABookOnboardingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         mPagerAdapter = BookOnboardingPagerAdapter(supportFragmentManager)
-        pager.adapter = mPagerAdapter
-        pager.clipToPadding = true
-        pager.setPageTransformer(true, BookFlipPageTransformer())
+        binding.pager.adapter = mPagerAdapter
+        binding.pager.clipToPadding = true
+        binding.pager.setPageTransformer(true, BookFlipPageTransformer())
     }
 
     class BookOnboardingPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {

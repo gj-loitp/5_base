@@ -12,8 +12,8 @@ import vn.loitp.R
 import vn.loitp.a.cv.vp.auto.ViewPagerAutoActivity
 import vn.loitp.a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivity
 import vn.loitp.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2Activity
-import vn.loitp.a.cv.vp.easyFlip.EFVPActivity
 import vn.loitp.databinding.AMenuVpBinding
+import vn.loitp.up.a.cv.vp.easyFlip.EFVPActivity
 import vn.loitp.up.a.cv.vp.lockable.LockableViewPagerActivity
 import vn.loitp.up.a.cv.vp.parrallax.ParallaxViewPagerActivity
 import vn.loitp.up.a.cv.vp.refresh.RefreshViewPagerActivity

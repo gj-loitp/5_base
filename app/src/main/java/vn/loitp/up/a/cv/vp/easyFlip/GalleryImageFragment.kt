@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.easyFlip
+package vn.loitp.up.a.cv.vp.easyFlip
 
 import android.content.Intent
 import android.os.Bundle
