@@ -92,7 +92,7 @@
             android:name=".a.cv.iv.circleIv.CircleIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.MenuTextViewActivity"
+            android:name=".up.a.cv.tv.MenuTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.tv.score.ScoreTextViewActivityFont"
