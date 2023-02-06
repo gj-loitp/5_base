@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.vpWithTabLayout
+package vn.loitp.up.a.cv.vp.vpWithTabLayout
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,13 +12,14 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FONT_PATH
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.getRandomColor
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.showDialogList
 import com.loitp.views.vp.vpTransformers.*
-import kotlinx.android.synthetic.main.a_vp_with_tablayout.*
 import vn.loitp.R
+import vn.loitp.databinding.AVpWithTablayoutBinding
 
 // https://github.com/geftimov/android-viewpager-transformers
 @LogTag("ViewPagerWithTabLayoutActivity")
@@ -49,18 +50,23 @@ class ViewPagerWithTabLayoutActivity : BaseActivityFont() {
         private const val ZoomOutTranformer = "ZoomOutTranformer"
     }
 
+    private lateinit var binding: AVpWithTablayoutBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_vp_with_tablayout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AVpWithTablayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -72,10 +78,10 @@ class ViewPagerWithTabLayoutActivity : BaseActivityFont() {
         for (i in 0..19) {
             resList.add(getRandomColor())
         }
-        viewPager.adapter = SlidePagerAdapter()
-        tabLayout.setupWithViewPager(viewPager)
-        tabLayout.changeTabsFont(FONT_PATH)
-        btAnim.setOnClickListener {
+        binding.viewPager.adapter = SlidePagerAdapter()
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
+        binding.tabLayout.changeTabsFont(FONT_PATH)
+        binding.btAnim.setOnClickListener {
             showDialogAnim()
         }
     }
@@ -108,50 +114,74 @@ class ViewPagerWithTabLayoutActivity : BaseActivityFont() {
             onClick = { position ->
                 showShortInformation("Click position " + position + ", item: " + arr[position])
                 when (stringList[position]) {
-                    AccordionTransformer -> viewPager.setPageTransformer(
+                    AccordionTransformer -> binding.viewPager.setPageTransformer(
                         true,
                         AccordionTransformer()
                     )
-                    BackgroundToForegroundTransformer -> viewPager.setPageTransformer(
+                    BackgroundToForegroundTransformer -> binding.viewPager.setPageTransformer(
                         true,
                         BackgroundToForegroundTransformer()
                     )
-                    CubeInTransformer -> viewPager.setPageTransformer(true, CubeInTransformer())
-                    CubeOutTransformer -> viewPager.setPageTransformer(true, CubeOutTransformer())
-                    DefaultTransformer -> viewPager.setPageTransformer(true, DefaultTransformer())
-                    DepthPageTransformer -> viewPager.setPageTransformer(
+                    CubeInTransformer -> binding.viewPager.setPageTransformer(
+                        true,
+                        CubeInTransformer()
+                    )
+                    CubeOutTransformer -> binding.viewPager.setPageTransformer(
+                        true,
+                        CubeOutTransformer()
+                    )
+                    DefaultTransformer -> binding.viewPager.setPageTransformer(
+                        true,
+                        DefaultTransformer()
+                    )
+                    DepthPageTransformer -> binding.viewPager.setPageTransformer(
                         true,
                         DepthPageTransformer()
                     )
-                    DrawFromBackTransformer -> viewPager.setPageTransformer(
+                    DrawFromBackTransformer -> binding.viewPager.setPageTransformer(
                         true,
                         DrawFromBackTransformer()
                     )
-                    FlipHorizontalTransformer -> viewPager.setPageTransformer(
+                    FlipHorizontalTransformer -> binding.viewPager.setPageTransformer(
                         true,
                         FlipHorizontalTransformer()
                     )
-                    FlipVerticalTransformer -> viewPager.setPageTransformer(
+                    FlipVerticalTransformer -> binding.viewPager.setPageTransformer(
                         true,
                         FlipVerticalTransformer()
                     )
-                    ForegroundToBackgroundTransformer -> viewPager.setPageTransformer(
+                    ForegroundToBackgroundTransformer -> binding.viewPager.setPageTransformer(
                         true,
                         ForegroundToBackgroundTransformer()
                     )
-                    RotateDownTransformer -> viewPager.setPageTransformer(
+                    RotateDownTransformer -> binding.viewPager.setPageTransformer(
                         true,
                         RotateDownTransformer()
                     )
-                    RotateUpTransformer -> viewPager.setPageTransformer(true, RotateUpTransformer())
-                    StackTransformer -> viewPager.setPageTransformer(true, StackTransformer())
-                    TabletTransformer -> viewPager.setPageTransformer(true, TabletTransformer())
-                    ZoomInTransformer -> viewPager.setPageTransformer(true, ZoomInTransformer())
-                    ZoomOutSlideTransformer -> viewPager.setPageTransformer(
+                    RotateUpTransformer -> binding.viewPager.setPageTransformer(
+                        true,
+                        RotateUpTransformer()
+                    )
+                    StackTransformer -> binding.viewPager.setPageTransformer(
+                        true,
+                        StackTransformer()
+                    )
+                    TabletTransformer -> binding.viewPager.setPageTransformer(
+                        true,
+                        TabletTransformer()
+                    )
+                    ZoomInTransformer -> binding.viewPager.setPageTransformer(
+                        true,
+                        ZoomInTransformer()
+                    )
+                    ZoomOutSlideTransformer -> binding.viewPager.setPageTransformer(
                         true,
                         ZoomOutSlideTransformer()
                     )
-                    ZoomOutTranformer -> viewPager.setPageTransformer(true, ZoomOutTransformer())
+                    ZoomOutTranformer -> binding.viewPager.setPageTransformer(
+                        true,
+                        ZoomOutTransformer()
+                    )
                 }
             }
         )

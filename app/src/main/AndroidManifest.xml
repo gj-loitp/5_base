@@ -238,7 +238,7 @@
             android:name=".a.cv.vp.auto.ViewPagerAutoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.vp.vpWithTabLayout.ViewPagerWithTabLayoutActivity"
+            android:name=".up.a.cv.vp.vpWithTabLayout.ViewPagerWithTabLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.tv.selectable.SelectableTextViewActivityFont"
