@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.vp2
+package vn.loitp.up.a.cv.vp.vp2
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.f_vp_2.*
 import vn.loitp.R
+import vn.loitp.databinding.FVp2Binding
 
 class FrmViewPager2 : Fragment() {
 
@@ -25,15 +25,18 @@ class FrmViewPager2 : Fragment() {
         }
     }
 
+    private lateinit var binding: FVp2Binding
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.f_vp_2, container, false)
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        binding = FVp2Binding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View, savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()
@@ -45,11 +48,11 @@ class FrmViewPager2 : Fragment() {
             count = arguments?.getInt(ARGS_KEY, -1) ?: -1
         }
         if (count != -1) {
-            tv.text = getString(R.string.app_name)
+            binding.tv.text = getString(R.string.app_name)
             for (i in 0 until count) {
                 val imageView = ImageView(activity)
                 imageView.setImageResource(R.drawable.ic_account_circle_black_48dp)
-                ll.addView(imageView)
+                binding.ll.addView(imageView)
             }
         }
     }

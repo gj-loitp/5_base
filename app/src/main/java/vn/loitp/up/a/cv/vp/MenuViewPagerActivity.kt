@@ -17,8 +17,8 @@ import vn.loitp.a.cv.vp.lockable.LockableViewPagerActivity
 import vn.loitp.a.cv.vp.parrallax.ParallaxViewPagerActivity
 import vn.loitp.a.cv.vp.refresh.RefreshViewPagerActivity
 import vn.loitp.a.cv.vp.vertical.ViewPagerVerticalActivity
-import vn.loitp.a.cv.vp.vp2.ViewPager2Activity
 import vn.loitp.databinding.AMenuVpBinding
+import vn.loitp.up.a.cv.vp.vp2.ViewPager2Activity
 import vn.loitp.up.a.cv.vp.vpWithTabLayout.ViewPagerWithTabLayoutActivity
 
 @LogTag("MenuViewPagerActivity")
