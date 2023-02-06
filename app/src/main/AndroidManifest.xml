@@ -512,7 +512,7 @@
             android:name=".a.cv.lDebug.LDebugViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2Activity"
+            android:name=".up.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.menu.MenuMenuActivity"

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.detectSwipeOut2
+package vn.loitp.up.a.cv.vp.detectSwipeOut2
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,40 +8,43 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FONT_PATH
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.vp.swipeOut.LSwipeOutViewPager
-import kotlinx.android.synthetic.main.a_vp_swipe_out_2.*
 import vn.loitp.R
 import vn.loitp.a.cv.vp.auto.FrmIv.Companion.newInstance
+import vn.loitp.databinding.AVpSwipeOut2Binding
 
 @LogTag("ViewPagerSwipeOut2Activity")
 @IsFullScreen(false)
 class ViewPagerSwipeOut2Activity : BaseActivityFont() {
+    private lateinit var binding: AVpSwipeOut2Binding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_vp_swipe_out_2
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AVpSwipeOut2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = ViewPagerSwipeOut2Activity::class.java.simpleName
         }
-        vp.adapter = SamplePagerAdapter(supportFragmentManager)
-        vp.setOnSwipeOutListener(object : LSwipeOutViewPager.OnSwipeOutListener {
+        binding.vp.adapter = SamplePagerAdapter(supportFragmentManager)
+        binding.vp.setOnSwipeOutListener(object : LSwipeOutViewPager.OnSwipeOutListener {
             override fun onSwipeOutAtStart() {
                 showShortInformation("onSwipeOutAtStart")
             }
@@ -50,9 +53,9 @@ class ViewPagerSwipeOut2Activity : BaseActivityFont() {
                 showShortInformation("onSwipeOutAtEnd")
             }
         })
-        vp.setPullLikeIOSHorizontal()
-        tabLayout.setupWithViewPager(vp)
-        tabLayout.changeTabsFont(FONT_PATH)
+        binding.vp.setPullLikeIOSHorizontal()
+        binding.tabLayout.setupWithViewPager(binding.vp)
+        binding.tabLayout.changeTabsFont(FONT_PATH)
     }
 
     private inner class SamplePagerAdapter(fm: FragmentManager) :
