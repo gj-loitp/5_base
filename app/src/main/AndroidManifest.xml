@@ -606,7 +606,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--end floating view-->
         <activity
-            android:name=".a.cv.vp.refresh.RefreshViewPagerActivity"
+            android:name=".up.a.cv.vp.refresh.RefreshViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.dlg.customProgress.CustomProgressDialogActivityFont"

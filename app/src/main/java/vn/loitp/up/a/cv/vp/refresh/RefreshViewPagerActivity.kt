@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.refresh
+package vn.loitp.up.a.cv.vp.refresh
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,40 +8,44 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FONT_PATH
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_vp_refresh.*
 import vn.loitp.R
+import vn.loitp.databinding.AVpRefreshBinding
 
 @LogTag("RefreshViewPagerActivity")
 @IsFullScreen(false)
 class RefreshViewPagerActivity : BaseActivityFont() {
 
+    private lateinit var binding: AVpRefreshBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_vp_refresh
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AVpRefreshBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = RefreshViewPagerActivity::class.java.simpleName
         }
-        vp.adapter = SamplePagerAdapter(supportFragmentManager)
-        vp.setPullLikeIOSHorizontal()
-        tabLayout.setupWithViewPager(vp)
-        tabLayout.changeTabsFont(FONT_PATH)
+        binding.vp.adapter = SamplePagerAdapter(supportFragmentManager)
+        binding.vp.setPullLikeIOSHorizontal()
+        binding.tabLayout.setupWithViewPager(binding.vp)
+        binding.tabLayout.changeTabsFont(FONT_PATH)
     }
 
     @Suppress("DEPRECATION")

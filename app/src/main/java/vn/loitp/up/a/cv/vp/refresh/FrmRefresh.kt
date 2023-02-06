@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.refresh
+package vn.loitp.up.a.cv.vp.refresh
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,7 @@ import com.loitp.core.ext.hideProgress
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.showProgress
 import com.loitp.views.toast.LToast
-import kotlinx.android.synthetic.main.f_vp_refresh.*
-import vn.loitp.R
+import vn.loitp.databinding.FVpRefreshBinding
 
 class FrmRefresh : Fragment() {
 
@@ -18,17 +17,20 @@ class FrmRefresh : Fragment() {
         const val KEY_POSITION = "KEY_POSITION"
     }
 
+    private lateinit var binding: FVpRefreshBinding
+
     private var mPosition = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         arguments?.let { bundle ->
             mPosition = bundle.getInt(KEY_POSITION)
         }
-        return inflater.inflate(R.layout.f_vp_refresh, container, false)
+        binding = FVpRefreshBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,7 +45,6 @@ class FrmRefresh : Fragment() {
     private var isLoaded = false
     private var isVisibleToUser = false
 
-    //TODO fix setUserVisibleHint
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
 
@@ -55,8 +56,8 @@ class FrmRefresh : Fragment() {
     }
 
     private fun loadData() {
-        textView.visibility = View.INVISIBLE
-        progressBar.showProgress()
+        binding.textView.visibility = View.INVISIBLE
+        binding.progressBar.showProgress()
 
         context?.let {
             LToast.show(msg = "loadData")
@@ -65,8 +66,8 @@ class FrmRefresh : Fragment() {
         setDelay(
             mls = 1000,
             runnable = {
-                textView?.visibility = View.VISIBLE
-                progressBar.hideProgress()
+                binding.textView.visibility = View.VISIBLE
+                binding.progressBar.hideProgress()
             }
         )
     }
