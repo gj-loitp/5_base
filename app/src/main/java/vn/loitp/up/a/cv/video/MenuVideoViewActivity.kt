@@ -13,8 +13,8 @@ import vn.loitp.R
 import vn.loitp.a.cv.video.exo.ExoPlayerActivityFont
 import vn.loitp.a.cv.video.exo.ExoPlayerActivityFont2
 import vn.loitp.a.cv.video.exo.ExoPlayerActivityFont3
-import vn.loitp.a.cv.video.youtube.YoutubeActivityFont
 import vn.loitp.databinding.AVideoMenuBinding
+import vn.loitp.up.a.cv.video.youtube.YoutubeActivity
 
 @LogTag("VideoViewMenuActivity")
 @IsFullScreen(false)
@@ -72,7 +72,7 @@ class MenuVideoViewActivity : BaseActivityFont() {
             launchActivity(ExoPlayerActivityFont3::class.java)
         }
         binding.btYoutube.setSafeOnClickListener {
-            launchActivity(YoutubeActivityFont::class.java)
+            launchActivity(YoutubeActivity::class.java)
         }
     }
 

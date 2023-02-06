@@ -576,7 +576,7 @@
             android:name=".up.a.anim.valueAnimator.ValueAnimatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.video.youtube.YoutubeActivityFont"
+            android:name=".up.a.cv.video.youtube.YoutubeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.demo.twoInstanceActivity.Activity1"
