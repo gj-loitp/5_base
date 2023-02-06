@@ -602,7 +602,7 @@
             android:name=".a.cv.layout.draggablePanelFree.DraggablePanelFreeActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.vp.lockable.LockableViewPagerActivity"
+            android:name=".up.a.cv.vp.lockable.LockableViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--end floating view-->
         <activity
