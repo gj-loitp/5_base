@@ -9,8 +9,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.cv.vp.auto.ViewPagerAutoActivity
 import vn.loitp.databinding.AMenuVpBinding
+import vn.loitp.up.a.cv.vp.auto.ViewPagerAutoActivity
 import vn.loitp.up.a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivity
 import vn.loitp.up.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2Activity
 import vn.loitp.up.a.cv.vp.easyFlip.EFVPActivity

@@ -13,8 +13,8 @@ import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.cv.vp.auto.FrmIv
 import vn.loitp.databinding.AVpLockableBinding
+import vn.loitp.up.a.cv.vp.auto.FrmIv
 
 @LogTag("LockableViewPagerActivity")
 @IsFullScreen(false)

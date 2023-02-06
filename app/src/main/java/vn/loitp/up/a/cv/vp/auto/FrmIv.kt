@@ -1,11 +1,11 @@
-package vn.loitp.a.cv.vp.auto
+package vn.loitp.up.a.cv.vp.auto
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import vn.loitp.R
+import vn.loitp.databinding.FIvBinding
 
 class FrmIv : Fragment() {
 
@@ -15,11 +15,14 @@ class FrmIv : Fragment() {
         }
     }
 
+    private lateinit var binding: FIvBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.f_iv, container, false)
+        binding = FIvBinding.inflate(inflater, container, false)
+        return binding.root
     }
 }

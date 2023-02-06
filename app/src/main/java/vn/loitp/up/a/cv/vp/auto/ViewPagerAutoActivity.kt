@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.auto
+package vn.loitp.up.a.cv.vp.auto
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,28 +8,33 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FONT_PATH
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_vp_auto.*
 import vn.loitp.R
-import vn.loitp.a.cv.vp.auto.FrmIv.Companion.newInstance
+import vn.loitp.databinding.AVpAutoBinding
+import vn.loitp.up.a.cv.vp.auto.FrmIv.Companion.newInstance
 
 @LogTag("ViewPagerAutoActivity")
 @IsFullScreen(false)
 class ViewPagerAutoActivity : BaseActivityFont() {
+    private lateinit var binding: AVpAutoBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_vp_auto
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AVpAutoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -39,11 +44,10 @@ class ViewPagerAutoActivity : BaseActivityFont() {
             this.tvTitle?.text = ViewPagerAutoActivity::class.java.simpleName
         }
 
-        viewPager.adapter = SamplePagerAdapter(supportFragmentManager)
-        // viewPager.setIndeterminate(true)
-        viewPager.setAutoScrollEnabled(true)
-        tabLayout.setupWithViewPager(viewPager)
-        tabLayout.changeTabsFont(FONT_PATH)
+        binding.viewPager.adapter = SamplePagerAdapter(supportFragmentManager)
+        binding.viewPager.setAutoScrollEnabled(true)
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
+        binding.tabLayout.changeTabsFont(FONT_PATH)
     }
 
     private inner class SamplePagerAdapter(fm: FragmentManager) :

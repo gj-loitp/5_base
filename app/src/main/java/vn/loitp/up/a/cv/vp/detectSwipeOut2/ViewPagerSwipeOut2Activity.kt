@@ -14,8 +14,8 @@ import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.vp.swipeOut.LSwipeOutViewPager
 import vn.loitp.R
-import vn.loitp.a.cv.vp.auto.FrmIv.Companion.newInstance
 import vn.loitp.databinding.AVpSwipeOut2Binding
+import vn.loitp.up.a.cv.vp.auto.FrmIv.Companion.newInstance
 
 @LogTag("ViewPagerSwipeOut2Activity")
 @IsFullScreen(false)
