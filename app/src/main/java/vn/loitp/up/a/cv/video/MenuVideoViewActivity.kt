@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.video
+package vn.loitp.up.a.cv.video
 
 import android.os.Bundle
 import com.loitp.annotation.IsAutoAnimation
@@ -9,17 +9,19 @@ import com.loitp.core.common.KEY_VIDEO_LINK_IMA_AD
 import com.loitp.core.common.KEY_VIDEO_LINK_PLAY
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_video_menu.*
 import vn.loitp.R
 import vn.loitp.a.cv.video.exo.ExoPlayerActivityFont
 import vn.loitp.a.cv.video.exo.ExoPlayerActivityFont2
 import vn.loitp.a.cv.video.exo.ExoPlayerActivityFont3
 import vn.loitp.a.cv.video.youtube.YoutubeActivityFont
+import vn.loitp.databinding.AVideoMenuBinding
 
 @LogTag("VideoViewMenuActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class MenuVideoViewActivity : BaseActivityFont() {
+
+    private lateinit var binding: AVideoMenuBinding
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_video_menu
@@ -28,11 +30,14 @@ class MenuVideoViewActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AVideoMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -42,7 +47,7 @@ class MenuVideoViewActivity : BaseActivityFont() {
             this.tvTitle?.text = MenuVideoViewActivity::class.java.simpleName
         }
 
-        btExoPlayer2.setSafeOnClickListener {
+        binding.btExoPlayer2.setSafeOnClickListener {
             launchActivity(cls = ExoPlayerActivityFont::class.java, withAnim = true, data = {
                 it.putExtra(
                     KEY_VIDEO_LINK_PLAY,
@@ -50,7 +55,7 @@ class MenuVideoViewActivity : BaseActivityFont() {
                 )
             })
         }
-        btExoPlayer2IMA.setSafeOnClickListener {
+        binding.btExoPlayer2IMA.setSafeOnClickListener {
             launchActivity(cls = ExoPlayerActivityFont::class.java, withAnim = true, data = {
                 it.putExtra(
                     KEY_VIDEO_LINK_PLAY,
@@ -60,13 +65,13 @@ class MenuVideoViewActivity : BaseActivityFont() {
 
             })
         }
-        bt2.setSafeOnClickListener {
+        binding.bt2.setSafeOnClickListener {
             launchActivity(ExoPlayerActivityFont2::class.java)
         }
-        bt3.setSafeOnClickListener {
+        binding.bt3.setSafeOnClickListener {
             launchActivity(ExoPlayerActivityFont3::class.java)
         }
-        btYoutube.setSafeOnClickListener {
+        binding.btYoutube.setSafeOnClickListener {
             launchActivity(YoutubeActivityFont::class.java)
         }
     }

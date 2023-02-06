@@ -152,7 +152,7 @@
             android:name=".a.cv.et.materialTextField.MaterialTextFieldActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.video.MenuVideoViewActivity"
+            android:name=".up.a.cv.video.MenuVideoViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.tv.typeWrite.TypeWriterTextViewActivityFont"

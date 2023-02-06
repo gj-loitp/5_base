@@ -48,8 +48,8 @@ import vn.loitp.a.cv.sticker.StickerActivity
 import vn.loitp.a.cv.sw.MenuSwitchToggleActivity
 import vn.loitp.a.cv.treeView.TreeViewActivity
 import vn.loitp.a.cv.tv.MenuTextViewActivity
-import vn.loitp.a.cv.video.MenuVideoViewActivity
 import vn.loitp.databinding.AMenuCustomViewBinding
+import vn.loitp.up.a.cv.video.MenuVideoViewActivity
 import vn.loitp.up.a.cv.vp.MenuViewPagerActivity
 import vn.loitp.up.a.cv.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.up.a.cv.wheelView.WheelViewActivity
