@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.wheelSpiner
+package vn.loitp.up.a.cv.wheelSpiner
 
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -6,20 +6,26 @@ import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.a_wheel_spinner.*
 import vn.loitp.R
+import vn.loitp.databinding.AWheelSpinnerBinding
 
 @LogTag("WheelSpinnerActivity")
 @IsFullScreen(false)
 class WheelSpinnerActivity : BaseActivityFont() {
 
+    private lateinit var binding: AWheelSpinnerBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_wheel_spinner
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AWheelSpinnerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -33,16 +39,16 @@ class WheelSpinnerActivity : BaseActivityFont() {
         listImg.add(R.drawable.tatoo_5)
         listImg.add(R.drawable.tatoo_6)
 
-        wheelSpinner.setArrowPointer(ivArrow)
-        wheelSpinner.setBitmapsId(listImg)
-        wheelSpinner.setOnItemSelectListener { bitmap: Bitmap? ->
-            ivSelectedTattoo.setImageBitmap(bitmap)
-            ivSelectedTattoo.visibility = View.VISIBLE
+        binding.wheelSpinner.setArrowPointer(binding.ivArrow)
+        binding.wheelSpinner.setBitmapsId(listImg)
+        binding.wheelSpinner.setOnItemSelectListener { bitmap: Bitmap? ->
+            binding.ivSelectedTattoo.setImageBitmap(bitmap)
+            binding.ivSelectedTattoo.visibility = View.VISIBLE
         }
 
-        btnSpin.setSafeOnClickListener {
-            ivSelectedTattoo.visibility = View.GONE
-            wheelSpinner.rotateWheel()
+        binding.btnSpin.setSafeOnClickListener {
+            binding.ivSelectedTattoo.visibility = View.GONE
+            binding.wheelSpinner.rotateWheel()
         }
     }
 }

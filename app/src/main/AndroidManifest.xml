@@ -1065,7 +1065,7 @@
             android:name=".a.cv.layout.chess.ChessLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.wheelSpiner.WheelSpinnerActivity"
+            android:name=".up.a.cv.wheelSpiner.WheelSpinnerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.demo.rss.RSSActivity"

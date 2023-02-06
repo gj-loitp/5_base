@@ -50,8 +50,8 @@ import vn.loitp.a.cv.treeView.TreeViewActivity
 import vn.loitp.a.cv.tv.MenuTextViewActivity
 import vn.loitp.a.cv.video.MenuVideoViewActivity
 import vn.loitp.a.cv.vp.MenuViewPagerActivity
-import vn.loitp.a.cv.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.databinding.AMenuCustomViewBinding
+import vn.loitp.up.a.cv.wheelSpiner.WheelSpinnerActivity
 import vn.loitp.up.a.cv.wheelView.WheelViewActivity
 import vn.loitp.up.a.cv.wv.MenuWebViewActivity
 import vn.loitp.up.a.cv.wwlMusic.WWLActivityMusic
