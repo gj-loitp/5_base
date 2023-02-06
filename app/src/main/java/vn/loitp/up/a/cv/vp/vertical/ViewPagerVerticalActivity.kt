@@ -1,25 +1,29 @@
-package vn.loitp.a.cv.vp.vertical
+package vn.loitp.up.a.cv.vp.vertical
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_vp_vertical.*
 import vn.loitp.R
+import vn.loitp.databinding.AVpVerticalBinding
 
 @LogTag("ViewPagerVerticalActivity")
 @IsFullScreen(false)
 class ViewPagerVerticalActivity : BaseActivityFont() {
-
+    private lateinit var binding: AVpVerticalBinding
     private val stringList: MutableList<String> = ArrayList()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_vp_vertical
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AVpVerticalBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         addData()
         setupViews()
@@ -32,7 +36,7 @@ class ViewPagerVerticalActivity : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -41,7 +45,7 @@ class ViewPagerVerticalActivity : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = ViewPagerVerticalActivity::class.java.simpleName
         }
-        viewPager.adapter = VerticalAdapter(
+        binding.viewPager.adapter = VerticalAdapter(
             supportFragmentManager,
             stringList
         )

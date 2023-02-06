@@ -1086,7 +1086,7 @@
             android:name=".up.a.func.pump.PumpActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.vp.vertical.ViewPagerVerticalActivity"
+            android:name=".up.a.cv.vp.vertical.ViewPagerVerticalActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.vp.vp2.ViewPager2Activity"

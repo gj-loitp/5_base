@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.vertical
+package vn.loitp.up.a.cv.vp.vertical
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

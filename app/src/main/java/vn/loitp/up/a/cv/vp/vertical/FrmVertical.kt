@@ -1,12 +1,11 @@
-package vn.loitp.a.cv.vp.vertical
+package vn.loitp.up.a.cv.vp.vertical
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.f_vp_vertical.*
-import vn.loitp.R
+import vn.loitp.databinding.FVpVerticalBinding
 
 class FrmVertical : Fragment() {
 
@@ -23,6 +22,8 @@ class FrmVertical : Fragment() {
         }
     }
 
+    private lateinit var binding: FVpVerticalBinding
+
     var text: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,11 +33,10 @@ class FrmVertical : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.f_vp_vertical, container, false)
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        binding = FVpVerticalBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,6 +46,6 @@ class FrmVertical : Fragment() {
     }
 
     private fun setupViews() {
-        tv.text = text
+        binding.tv.text = text
     }
 }
