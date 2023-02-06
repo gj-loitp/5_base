@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.vp.parrallax
+package vn.loitp.up.a.cv.vp.parrallax
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,29 +11,34 @@ import androidx.viewpager.widget.PagerAdapter
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.getRandomColor
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.vp.parrallax.ParallaxMode
-import kotlinx.android.synthetic.main.a_vp_parallax.*
 import vn.loitp.R
+import vn.loitp.databinding.AVpParallaxBinding
 
 @LogTag("ParallaxViewPagerActivity")
 @IsFullScreen(false)
 class ParallaxViewPagerActivity : BaseActivityFont() {
     private val resList: MutableList<Int> = ArrayList()
+    private lateinit var binding: AVpParallaxBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_vp_parallax
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AVpParallaxBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -45,8 +50,8 @@ class ParallaxViewPagerActivity : BaseActivityFont() {
         for (i in 0..19) {
             resList.add(getRandomColor())
         }
-        viewPager.parrallaxMode = ParallaxMode.RIGHT_OVERLAY
-        viewPager.adapter = SlidePagerAdapter()
+        binding.viewPager.parrallaxMode = ParallaxMode.RIGHT_OVERLAY
+        binding.viewPager.adapter = SlidePagerAdapter()
     }
 
     private inner class SlidePagerAdapter : PagerAdapter() {
