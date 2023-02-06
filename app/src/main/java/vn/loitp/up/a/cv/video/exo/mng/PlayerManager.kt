@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.video.exo.mng
+package vn.loitp.up.a.cv.video.exo.mng
 
 import android.app.Activity
 import android.content.Context

@@ -1,27 +1,31 @@
-package vn.loitp.a.cv.video.exo
+package vn.loitp.up.a.cv.video.exo
 
 import android.os.Bundle
 import com.google.android.exoplayer2.ui.PlayerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.isLandscape
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.a_video_exo_player3.*
-import vn.loitp.R
-import vn.loitp.a.cv.video.exo.mng.PlayerManager
+import vn.loitp.databinding.AVideoExoPlayer3Binding
+import vn.loitp.up.a.cv.video.exo.mng.PlayerManager
 
 @LogTag("ExoPlayerActivity3")
 @IsFullScreen(false)
-class ExoPlayerActivityFont3 : BaseActivityFont() {
+class ExoPlayerActivity3 : BaseActivityFont() {
     private var playerManager: PlayerManager? = null
+    private lateinit var binding: AVideoExoPlayer3Binding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_video_exo_player3
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AVideoExoPlayer3Binding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -30,23 +34,23 @@ class ExoPlayerActivityFont3 : BaseActivityFont() {
         val linkPlay =
             "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
         playerManager = PlayerManager(this)
-        playerManager?.init(context = this, playerView = playerView0, linkPlay = linkPlay)
+        playerManager?.init(context = this, playerView = binding.playerView0, linkPlay = linkPlay)
 
-        bt0To1.setSafeOnClickListener {
-            playerView0.player?.let { p ->
+        binding.bt0To1.setSafeOnClickListener {
+            binding.playerView0.player?.let { p ->
                 PlayerView.switchTargetView(
-                    p,
-                    playerView0,
-                    playerView1
+                    /* player = */ p,
+                    /* oldPlayerView = */ binding.playerView0,
+                    /* newPlayerView = */ binding.playerView1
                 )
             }
         }
-        bt1To0.setSafeOnClickListener {
-            playerView1.player?.let { p ->
+        binding.bt1To0.setSafeOnClickListener {
+            binding.playerView1.player?.let { p ->
                 PlayerView.switchTargetView(
-                    p,
-                    playerView1,
-                    playerView0
+                    /* player = */ p,
+                    /* oldPlayerView = */ binding.playerView1,
+                    /* newPlayerView = */ binding.playerView0
                 )
             }
         }

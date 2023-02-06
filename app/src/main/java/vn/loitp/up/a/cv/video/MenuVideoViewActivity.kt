@@ -10,10 +10,10 @@ import com.loitp.core.common.KEY_VIDEO_LINK_PLAY
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.cv.video.exo.ExoPlayerActivityFont
-import vn.loitp.a.cv.video.exo.ExoPlayerActivityFont2
-import vn.loitp.a.cv.video.exo.ExoPlayerActivityFont3
 import vn.loitp.databinding.AVideoMenuBinding
+import vn.loitp.up.a.cv.video.exo.ExoPlayerActivity
+import vn.loitp.up.a.cv.video.exo.ExoPlayerActivity2
+import vn.loitp.up.a.cv.video.exo.ExoPlayerActivity3
 import vn.loitp.up.a.cv.video.youtube.YoutubeActivity
 
 @LogTag("VideoViewMenuActivity")
@@ -48,7 +48,7 @@ class MenuVideoViewActivity : BaseActivityFont() {
         }
 
         binding.btExoPlayer2.setSafeOnClickListener {
-            launchActivity(cls = ExoPlayerActivityFont::class.java, withAnim = true, data = {
+            launchActivity(cls = ExoPlayerActivity::class.java, withAnim = true, data = {
                 it.putExtra(
                     KEY_VIDEO_LINK_PLAY,
                     "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
@@ -56,7 +56,7 @@ class MenuVideoViewActivity : BaseActivityFont() {
             })
         }
         binding.btExoPlayer2IMA.setSafeOnClickListener {
-            launchActivity(cls = ExoPlayerActivityFont::class.java, withAnim = true, data = {
+            launchActivity(cls = ExoPlayerActivity::class.java, withAnim = true, data = {
                 it.putExtra(
                     KEY_VIDEO_LINK_PLAY,
                     "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
@@ -66,10 +66,10 @@ class MenuVideoViewActivity : BaseActivityFont() {
             })
         }
         binding.bt2.setSafeOnClickListener {
-            launchActivity(ExoPlayerActivityFont2::class.java)
+            launchActivity(ExoPlayerActivity2::class.java)
         }
         binding.bt3.setSafeOnClickListener {
-            launchActivity(ExoPlayerActivityFont3::class.java)
+            launchActivity(ExoPlayerActivity3::class.java)
         }
         binding.btYoutube.setSafeOnClickListener {
             launchActivity(YoutubeActivity::class.java)

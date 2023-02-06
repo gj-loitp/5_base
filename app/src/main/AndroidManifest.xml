@@ -557,13 +557,13 @@
             android:name=".a.cv.layout.constraint.constraintSet.ConstraintSetActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.video.exo.ExoPlayerActivityFont"
+            android:name=".up.a.cv.video.exo.ExoPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.video.exo.ExoPlayerActivityFont2"
+            android:name=".up.a.cv.video.exo.ExoPlayerActivity2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.video.exo.ExoPlayerActivityFont3"
+            android:name=".up.a.cv.video.exo.ExoPlayerActivity3"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity

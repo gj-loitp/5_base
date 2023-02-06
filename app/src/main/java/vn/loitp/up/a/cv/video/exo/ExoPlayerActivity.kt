@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.video.exo
+package vn.loitp.up.a.cv.video.exo
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -7,25 +7,29 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.KEY_VIDEO_LINK_IMA_AD
 import com.loitp.core.common.KEY_VIDEO_LINK_PLAY
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.isLandscape
-import kotlinx.android.synthetic.main.a_video_exo_player.*
 import kotlinx.android.synthetic.main.exo_playback_control_view.*
-import vn.loitp.R
-import vn.loitp.a.cv.video.exo.mng.PlayerManager
+import vn.loitp.databinding.AVideoExoPlayerBinding
+import vn.loitp.up.a.cv.video.exo.mng.PlayerManager
 
 // custom UI exo_playback_control_view.xml
 @LogTag("ExoPlayerActivity")
 @IsFullScreen(false)
-class ExoPlayerActivityFont : BaseActivityFont() {
+class ExoPlayerActivity : BaseActivityFont() {
     private var playerManager: PlayerManager? = null
     private var linkPlay = ""
+    private lateinit var binding: AVideoExoPlayerBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_video_exo_player
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AVideoExoPlayerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         linkPlay = intent.getStringExtra(KEY_VIDEO_LINK_PLAY) ?: ""
         val linkIMAAd = intent.getStringExtra(KEY_VIDEO_LINK_IMA_AD)
@@ -35,7 +39,11 @@ class ExoPlayerActivityFont : BaseActivityFont() {
         } ?: PlayerManager(this)
 
         // warning: do not change id exo_fullscreen, exo_fullscreen
-        playerManager?.updateSizePlayerView(playerView = playerView, exoFullscreen = exo_fullscreen)
+
+        playerManager?.updateSizePlayerView(
+            playerView = binding.playerView,
+            exoFullscreen = exo_fullscreen
+        )
         exo_fullscreen.setOnClickListener {
             playerManager?.toggleFullscreen(this)
         }
@@ -43,7 +51,7 @@ class ExoPlayerActivityFont : BaseActivityFont() {
 
     public override fun onResume() {
         super.onResume()
-        playerManager?.init(context = this, playerView = playerView, linkPlay = linkPlay)
+        playerManager?.init(context = this, playerView = binding.playerView, linkPlay = linkPlay)
     }
 
     public override fun onPause() {
@@ -69,12 +77,12 @@ class ExoPlayerActivityFont : BaseActivityFont() {
 
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             playerManager?.updateSizePlayerView(
-                playerView = playerView,
+                playerView = binding.playerView,
                 exoFullscreen = exo_fullscreen
             )
         } else {
             playerManager?.updateSizePlayerView(
-                playerView = playerView,
+                playerView = binding.playerView,
                 exoFullscreen = exo_fullscreen
             )
         }
