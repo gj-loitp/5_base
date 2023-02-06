@@ -1242,7 +1242,7 @@
             android:name=".a.cv.bt.fab.FabActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.wheelView.WheelViewActivity"
+            android:name=".up.a.cv.wheelView.WheelViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.sb.range.RangeSeekbarActivityFont"
