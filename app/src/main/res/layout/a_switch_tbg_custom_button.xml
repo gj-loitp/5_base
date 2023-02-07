@@ -70,14 +70,14 @@
         android:padding="@dimen/margin_padding_medium"
         app:tbgChildSpacing="8dp">
 
-        <vn.loitp.a.cv.sw.toggleButtonGroup.bt.CustomCompoundButton
+        <vn.loitp.up.a.cv.sw.toggleButtonGroup.bt.CustomCompoundButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:gravity="center"
             android:text="@string/_lorem"
             android:textColor="?attr/themeTextColor" />
 
-        <vn.loitp.a.cv.sw.toggleButtonGroup.bt.CustomCompoundButton
+        <vn.loitp.up.a.cv.sw.toggleButtonGroup.bt.CustomCompoundButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin_padding_medium"
@@ -85,7 +85,7 @@
             android:text="@string/ipsum"
             android:textColor="?attr/themeTextColor" />
 
-        <vn.loitp.a.cv.sw.toggleButtonGroup.bt.CustomCompoundButton
+        <vn.loitp.up.a.cv.sw.toggleButtonGroup.bt.CustomCompoundButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin_padding_medium"
@@ -109,7 +109,7 @@
         android:padding="@dimen/margin_padding_medium"
         app:tbgChildSpacing="8dp">
 
-        <vn.loitp.a.cv.sw.toggleButtonGroup.bt.CustomToggleButton
+        <vn.loitp.up.a.cv.sw.toggleButtonGroup.bt.CustomToggleButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:background="@drawable/selector_bg_radio_button"
@@ -117,7 +117,7 @@
             android:text="@string/_lorem"
             android:textColor="@color/selector_text_radio_button" />
 
-        <vn.loitp.a.cv.sw.toggleButtonGroup.bt.CustomToggleButton
+        <vn.loitp.up.a.cv.sw.toggleButtonGroup.bt.CustomToggleButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin_padding_medium"
@@ -126,7 +126,7 @@
             android:text="@string/ipsum"
             android:textColor="@color/selector_text_radio_button" />
 
-        <vn.loitp.a.cv.sw.toggleButtonGroup.bt.CustomToggleButton
+        <vn.loitp.up.a.cv.sw.toggleButtonGroup.bt.CustomToggleButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin_padding_medium"
@@ -152,25 +152,25 @@
         android:paddingEnd="@dimen/margin_padding_medium"
         app:tbgChildSpacing="auto">
 
-        <vn.loitp.a.cv.sw.toggleButtonGroup.bt.CustomCompoundToggleButton
+        <vn.loitp.up.a.cv.sw.toggleButtonGroup.bt.CustomCompoundToggleButton
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             app:tbgBackImage="@drawable/card_a"
             app:tbgFrontImage="@drawable/card_back" />
 
-        <vn.loitp.a.cv.sw.toggleButtonGroup.bt.CustomCompoundToggleButton
+        <vn.loitp.up.a.cv.sw.toggleButtonGroup.bt.CustomCompoundToggleButton
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             app:tbgBackImage="@drawable/card_2"
             app:tbgFrontImage="@drawable/card_back" />
 
-        <vn.loitp.a.cv.sw.toggleButtonGroup.bt.CustomCompoundToggleButton
+        <vn.loitp.up.a.cv.sw.toggleButtonGroup.bt.CustomCompoundToggleButton
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             app:tbgBackImage="@drawable/card_3"
             app:tbgFrontImage="@drawable/card_back" />
 
-        <vn.loitp.a.cv.sw.toggleButtonGroup.bt.CustomCompoundToggleButton
+        <vn.loitp.up.a.cv.sw.toggleButtonGroup.bt.CustomCompoundToggleButton
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             app:tbgBackImage="@drawable/card_4"

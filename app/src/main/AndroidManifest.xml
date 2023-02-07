@@ -917,19 +917,19 @@
             android:name=".a.cv.layout.flow.FlowLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.toggleButtonGroup.TBGCustomButtonActivityFont"
+            android:name=".up.a.cv.sw.toggleButtonGroup.TBGCustomButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.toggleButtonGroup.TBGFlowLabelActivityFont"
+            android:name=".up.a.cv.sw.toggleButtonGroup.TBGFlowLabelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.toggleButtonGroup.MenuTBGActivityFont"
+            android:name=".up.a.cv.sw.toggleButtonGroup.MenuTBGActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.toggleButtonGroup.TBGMultiSelectActivityFont"
+            android:name=".up.a.cv.sw.toggleButtonGroup.TBGMultiSelectActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.toggleButtonGroup.TBGSingleSelectActivityFont"
+            android:name=".up.a.cv.sw.toggleButtonGroup.TBGSingleSelectActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.picker.number.NumberPickerActivity"

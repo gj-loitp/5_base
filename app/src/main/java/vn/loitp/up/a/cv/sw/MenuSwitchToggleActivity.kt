@@ -11,8 +11,8 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.a.cv.sw.appCompat.AppcompatSwitchActivityFont
 import vn.loitp.a.cv.sw.toggle.ToggleActivityFont
-import vn.loitp.a.cv.sw.toggleButtonGroup.MenuTBGActivityFont
 import vn.loitp.databinding.ASwMenuBinding
+import vn.loitp.up.a.cv.sw.toggleButtonGroup.MenuTBGActivity
 
 @LogTag("SwitchToggleMenuActivity")
 @IsFullScreen(false)
@@ -52,7 +52,7 @@ class MenuSwitchToggleActivity : BaseActivityFont() {
             launchActivity(ToggleActivityFont::class.java)
         }
         binding.btToggleButtonGroup.setSafeOnClickListener {
-            launchActivity(MenuTBGActivityFont::class.java)
+            launchActivity(MenuTBGActivity::class.java)
         }
     }
 }

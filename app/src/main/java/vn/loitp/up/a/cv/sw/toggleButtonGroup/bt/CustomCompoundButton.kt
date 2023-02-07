@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.sw.toggleButtonGroup.bt
+package vn.loitp.up.a.cv.sw.toggleButtonGroup.bt
 
 import android.content.Context
 import android.util.AttributeSet

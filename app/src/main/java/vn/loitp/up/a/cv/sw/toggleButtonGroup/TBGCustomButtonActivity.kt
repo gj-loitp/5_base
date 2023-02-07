@@ -1,44 +1,51 @@
-package vn.loitp.a.cv.sw.toggleButtonGroup
+package vn.loitp.up.a.cv.sw.toggleButtonGroup
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup.OnCheckedStateChangeListener
 import com.nex3z.togglebuttongroup.SingleSelectToggleGroup
-import kotlinx.android.synthetic.main.a_switch_tbg_custom_button.*
 import vn.loitp.R
+import vn.loitp.databinding.ASwitchTbgCustomButtonBinding
 
 @LogTag("TBGCustomButtonActivity")
 @IsFullScreen(false)
-class TBGCustomButtonActivityFont : BaseActivityFont() {
+class TBGCustomButtonActivity : BaseActivityFont() {
+    private lateinit var binding: ASwitchTbgCustomButtonBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_switch_tbg_custom_button
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ASwitchTbgCustomButtonBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = TBGCustomButtonActivityFont::class.java.simpleName
+            this.tvTitle?.text = TBGCustomButtonActivity::class.java.simpleName
         }
-        groupSingleRadioButton.setOnCheckedChangeListener(SingleSelectListener())
-        groupMultiCustomCompoundButton.setOnCheckedChangeListener(MultiSelectListener())
-        groupMultiCustomToggleButton.setOnCheckedChangeListener(MultiSelectListener())
-        groupSingleCustomCompoundToggleButton.setOnCheckedChangeListener(SingleSelectListener())
+        binding.groupSingleRadioButton.setOnCheckedChangeListener(SingleSelectListener())
+        binding.groupMultiCustomCompoundButton.setOnCheckedChangeListener(MultiSelectListener())
+        binding.groupMultiCustomToggleButton.setOnCheckedChangeListener(MultiSelectListener())
+        binding.groupSingleCustomCompoundToggleButton.setOnCheckedChangeListener(
+            SingleSelectListener()
+        )
     }
 
     private inner class SingleSelectListener : SingleSelectToggleGroup.OnCheckedChangeListener {
