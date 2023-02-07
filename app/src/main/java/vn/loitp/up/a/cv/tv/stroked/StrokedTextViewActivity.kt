@@ -1,38 +1,43 @@
-package vn.loitp.a.cv.tv.stroked
+package vn.loitp.up.a.cv.tv.stroked
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_tv_stroked.*
 import vn.loitp.R
+import vn.loitp.databinding.ATvStrokedBinding
 
 // https://github.com/melihaksoy/StrokedTextView
 
 @LogTag("StrokedTextViewActivity")
 @IsFullScreen(false)
-class StrokedTextViewActivityFont : BaseActivityFont() {
+class StrokedTextViewActivity : BaseActivityFont() {
+    private lateinit var binding: ATvStrokedBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_tv_stroked
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ATvStrokedBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = StrokedTextViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = StrokedTextViewActivity::class.java.simpleName
         }
     }
 }

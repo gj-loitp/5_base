@@ -232,7 +232,7 @@
             android:name=".a.cv.rv.normalRv.RecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.textDecorator.TextDecoratorActivityFont"
+            android:name=".up.a.cv.tv.textDecorator.TextDecoratorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.vp.auto.ViewPagerAutoActivity"
@@ -700,7 +700,7 @@
             android:name=".up.a.func.keyboard.KeyboardActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.stroked.StrokedTextViewActivityFont"
+            android:name=".up.a.cv.tv.stroked.StrokedTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.et.autoSuggest.EditTextAutoSuggestActivityFont"
@@ -1199,7 +1199,7 @@
             android:name=".a.cv.simpleRatingBar.SimpleRatingBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.typed.TypedTextViewActivityFont"
+            android:name=".up.a.cv.tv.typed.TypedTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.wv.MenuWebViewActivity"
@@ -1272,7 +1272,7 @@
             android:name=".a.cv.luckyWheel.LuckyWheelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.textArc.TextArcActivityFont"
+            android:name=".up.a.cv.tv.textArc.TextArcActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.carouselRv.CarouselRecyclerViewActivity"

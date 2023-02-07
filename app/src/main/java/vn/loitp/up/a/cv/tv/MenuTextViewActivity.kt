@@ -22,12 +22,12 @@ import vn.loitp.a.cv.tv.readMoreOption.ReadMoreOptionActivityFont
 import vn.loitp.a.cv.tv.score.ScoreTextViewActivityFont
 import vn.loitp.a.cv.tv.scrollNumber.ScrollNumberActivityFont
 import vn.loitp.a.cv.tv.selectable.SelectableTextViewActivityFont
-import vn.loitp.a.cv.tv.stroked.StrokedTextViewActivityFont
-import vn.loitp.a.cv.tv.textArc.TextArcActivityFont
-import vn.loitp.a.cv.tv.textDecorator.TextDecoratorActivityFont
-import vn.loitp.a.cv.tv.typed.TypedTextViewActivityFont
 import vn.loitp.databinding.AMenuTvBinding
+import vn.loitp.up.a.cv.tv.stroked.StrokedTextViewActivity
+import vn.loitp.up.a.cv.tv.textArc.TextArcActivity
+import vn.loitp.up.a.cv.tv.textDecorator.TextDecoratorActivity
 import vn.loitp.up.a.cv.tv.typeWrite.TypeWriterTextViewActivity
+import vn.loitp.up.a.cv.tv.typed.TypedTextViewActivity
 import vn.loitp.up.a.cv.tv.verticalMarquee.VerticalMarqueeTextViewActivity
 import vn.loitp.up.a.cv.tv.zoom.ZoomTextViewActivity
 
@@ -93,14 +93,14 @@ class MenuTextViewActivity : BaseActivityFont(), OnClickListener {
             binding.btZoomTextView -> launchActivity(ZoomTextViewActivity::class.java)
             binding.btVerticalMarqueeTextView -> launchActivity(VerticalMarqueeTextViewActivity::class.java)
             binding.btTypeWriterTextView -> launchActivity(TypeWriterTextViewActivity::class.java)
-            binding.btTextDecorator -> launchActivity(TextDecoratorActivityFont::class.java)
+            binding.btTextDecorator -> launchActivity(TextDecoratorActivity::class.java)
             binding.btExtraTextview -> launchActivity(ExtraTextViewActivity::class.java)
-            binding.btStrokedTextView -> launchActivity(StrokedTextViewActivityFont::class.java)
+            binding.btStrokedTextView -> launchActivity(StrokedTextViewActivity::class.java)
             binding.btJustifiedTextViewActivity -> launchActivity(JustifiedTextViewActivityFont::class.java)
             binding.btFadingTextView -> launchActivity(FadingTextViewActivity::class.java)
-            binding.btTypedTextView -> launchActivity(TypedTextViewActivityFont::class.java)
+            binding.btTypedTextView -> launchActivity(TypedTextViewActivity::class.java)
             binding.btDropdownTextView -> launchActivity(DropdownTextViewActivity::class.java)
-            binding.btTextArcActivity -> launchActivity(TextArcActivityFont::class.java)
+            binding.btTextArcActivity -> launchActivity(TextArcActivity::class.java)
             binding.btReadMoreOptionActivity -> launchActivity(ReadMoreOptionActivityFont::class.java)
         }
     }

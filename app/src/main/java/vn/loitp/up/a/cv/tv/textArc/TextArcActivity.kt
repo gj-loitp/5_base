@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.tv.textArc
+package vn.loitp.up.a.cv.tv.textArc
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -9,29 +9,34 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_textarc.*
 import vn.loitp.R
+import vn.loitp.databinding.ATextarcBinding
 
 @LogTag("TextArcActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class TextArcActivityFont : BaseActivityFont() {
+class TextArcActivity : BaseActivityFont() {
+    private lateinit var binding: ATextarcBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_textarc
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ATextarcBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -48,7 +53,7 @@ class TextArcActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = TextArcActivityFont::class.java.simpleName
+            this.tvTitle?.text = TextArcActivity::class.java.simpleName
         }
 
         val textArc = TextArc(this)
@@ -58,6 +63,6 @@ class TextArcActivityFont : BaseActivityFont() {
         textArc.setTextColor(Color.GREEN)
         textArc.setTextSize(72)
 
-        ll.addView(textArc)
+        binding.ll.addView(textArc)
     }
 }
