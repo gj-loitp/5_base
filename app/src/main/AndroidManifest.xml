@@ -80,7 +80,7 @@
             android:name=".up.a.cv.sw.MenuSwitchToggleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.appCompat.AppcompatSwitchActivityFont"
+            android:name=".up.a.cv.sw.appCompat.AppcompatSwitchActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.ab.l.LActionbarActivityFont"
@@ -113,7 +113,7 @@
             android:name=".a.cv.iv.touch.TouchIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sticker.StickerActivity"
+            android:name=".up.a.cv.sticker.StickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.MenuLayoutActivity"
@@ -373,7 +373,7 @@
             android:name=".a.cv.layout.circularView.CircularViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.toggle.ToggleActivityFont"
+            android:name=".up.a.cv.sw.toggle.ToggleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.autoLinear.AutoLinearLayoutActivityFont"

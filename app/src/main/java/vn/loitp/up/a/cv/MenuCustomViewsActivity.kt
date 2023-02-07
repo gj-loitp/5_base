@@ -44,8 +44,8 @@ import vn.loitp.a.cv.scrollablePanel.ScrollablePanelActivity
 import vn.loitp.a.cv.simpleRatingBar.SimpleRatingBarActivity
 import vn.loitp.a.cv.spotlight.SpotlightActivity
 import vn.loitp.a.cv.stackExpandableView.StackExpandableViewActivity
-import vn.loitp.a.cv.sticker.StickerActivity
 import vn.loitp.databinding.AMenuCustomViewBinding
+import vn.loitp.up.a.cv.sticker.StickerActivity
 import vn.loitp.up.a.cv.sw.MenuSwitchToggleActivity
 import vn.loitp.up.a.cv.treeView.TreeViewActivity
 import vn.loitp.up.a.cv.tv.MenuTextViewActivity

@@ -9,9 +9,9 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.cv.sw.appCompat.AppcompatSwitchActivityFont
-import vn.loitp.a.cv.sw.toggle.ToggleActivityFont
 import vn.loitp.databinding.ASwMenuBinding
+import vn.loitp.up.a.cv.sw.appCompat.AppcompatSwitchActivity
+import vn.loitp.up.a.cv.sw.toggle.ToggleActivity
 import vn.loitp.up.a.cv.sw.toggleButtonGroup.MenuTBGActivity
 
 @LogTag("SwitchToggleMenuActivity")
@@ -46,10 +46,10 @@ class MenuSwitchToggleActivity : BaseActivityFont() {
         }
 
         binding.btAppcompatSwitch.setSafeOnClickListener {
-            launchActivity(AppcompatSwitchActivityFont::class.java)
+            launchActivity(AppcompatSwitchActivity::class.java)
         }
         binding.btToggle.setSafeOnClickListener {
-            launchActivity(ToggleActivityFont::class.java)
+            launchActivity(ToggleActivity::class.java)
         }
         binding.btToggleButtonGroup.setSafeOnClickListener {
             launchActivity(MenuTBGActivity::class.java)

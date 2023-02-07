@@ -1,31 +1,36 @@
-package vn.loitp.a.cv.sticker
+package vn.loitp.up.a.cv.sticker
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.sticker.StickerImageView
 import com.loitp.views.sticker.StickerTextView
-import kotlinx.android.synthetic.main.a_sticker.*
 import vn.loitp.R
+import vn.loitp.databinding.AStickerBinding
 
 @LogTag("StickerActivity")
 @IsFullScreen(false)
 class StickerActivity : BaseActivityFont() {
+    private lateinit var binding: AStickerBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_sticker
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AStickerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -37,11 +42,11 @@ class StickerActivity : BaseActivityFont() {
         // add a stickerImage to canvas
         val ivSticker = StickerImageView(this)
         ivSticker.setBackgroundResource(R.drawable.logo)
-        flCanvas.addView(ivSticker)
+        binding.flCanvas.addView(ivSticker)
 
         // add a stickerText to canvas
         val tvSticker = StickerTextView(this)
         tvSticker.text = "Demo StickerText"
-        flCanvas.addView(tvSticker)
+        binding.flCanvas.addView(tvSticker)
     }
 }
