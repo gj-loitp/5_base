@@ -95,7 +95,7 @@
             android:name=".up.a.cv.tv.MenuTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.score.ScoreTextViewActivityFont"
+            android:name=".up.a.cv.tv.score.ScoreTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bb.MenuBottomNavigationActivity"
@@ -131,7 +131,7 @@
             android:name=".a.cv.tv.color.ColorTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.scrollNumber.ScrollNumberActivityFont"
+            android:name=".up.a.cv.tv.scrollNumber.ScrollNumberActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.tv.zoom.ZoomTextViewActivity"
@@ -241,7 +241,7 @@
             android:name=".up.a.cv.vp.vpWithTabLayout.ViewPagerWithTabLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.selectable.SelectableTextViewActivityFont"
+            android:name=".up.a.cv.tv.selectable.SelectableTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivity"
@@ -1113,7 +1113,7 @@
             android:name=".a.cv.layout.basket.BasketLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.justified.JustifiedTextViewActivityFont"
+            android:name=".up.a.cv.tv.justified.JustifiedTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.sequence.SequenceLayoutActivityFont"
@@ -1338,7 +1338,7 @@
             android:name=".up.a.sec.ssBiometricsAuthentication.SSBiometricsAuthenticationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.readMoreOption.ReadMoreOptionActivityFont"
+            android:name=".up.a.cv.tv.readMoreOption.ReadMoreOptionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity"

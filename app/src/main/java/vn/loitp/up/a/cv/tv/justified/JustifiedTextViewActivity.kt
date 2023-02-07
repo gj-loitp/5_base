@@ -1,36 +1,41 @@
-package vn.loitp.a.cv.tv.justified
+package vn.loitp.up.a.cv.tv.justified
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_tv_justified.*
 import vn.loitp.R
+import vn.loitp.databinding.ATvJustifiedBinding
 
 @LogTag("JustifiedTextViewActivity")
 @IsFullScreen(false)
-class JustifiedTextViewActivityFont : BaseActivityFont() {
+class JustifiedTextViewActivity : BaseActivityFont() {
+    private lateinit var binding: ATvJustifiedBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_tv_justified
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ATvJustifiedBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = JustifiedTextViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = JustifiedTextViewActivity::class.java.simpleName
         }
     }
 }
