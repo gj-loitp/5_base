@@ -1,34 +1,39 @@
-package vn.loitp.a.cv.tv.zoom
+package vn.loitp.up.a.cv.tv.zoom
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_tv_zoom.*
 import vn.loitp.R
+import vn.loitp.databinding.ATvZoomBinding
 
 @LogTag("ZoomTextViewActivity")
 @IsFullScreen(false)
-class ZoomTextViewActivityFont : BaseActivityFont() {
+class ZoomTextViewActivity : BaseActivityFont() {
+    private lateinit var binding: ATvZoomBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_tv_zoom
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ATvZoomBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ZoomTextViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = ZoomTextViewActivity::class.java.simpleName
         }
     }
 }

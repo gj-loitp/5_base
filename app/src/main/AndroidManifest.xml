@@ -134,10 +134,10 @@
             android:name=".a.cv.tv.scrollNumber.ScrollNumberActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.zoom.ZoomTextViewActivityFont"
+            android:name=".up.a.cv.tv.zoom.ZoomTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.verticalMarquee.VerticalMarqueeTextViewActivityFont"
+            android:name=".up.a.cv.tv.verticalMarquee.VerticalMarqueeTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.pattern.mvp.MVPActivity"
@@ -155,7 +155,7 @@
             android:name=".up.a.cv.video.MenuVideoViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.typeWrite.TypeWriterTextViewActivityFont"
+            android:name=".up.a.cv.tv.typeWrite.TypeWriterTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.api.truyentranhtuan.MenuTTTAPIActivity"

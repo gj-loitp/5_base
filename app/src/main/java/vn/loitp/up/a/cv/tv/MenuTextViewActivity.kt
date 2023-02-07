@@ -25,11 +25,11 @@ import vn.loitp.a.cv.tv.selectable.SelectableTextViewActivityFont
 import vn.loitp.a.cv.tv.stroked.StrokedTextViewActivityFont
 import vn.loitp.a.cv.tv.textArc.TextArcActivityFont
 import vn.loitp.a.cv.tv.textDecorator.TextDecoratorActivityFont
-import vn.loitp.a.cv.tv.typeWrite.TypeWriterTextViewActivityFont
 import vn.loitp.a.cv.tv.typed.TypedTextViewActivityFont
-import vn.loitp.a.cv.tv.verticalMarquee.VerticalMarqueeTextViewActivityFont
-import vn.loitp.a.cv.tv.zoom.ZoomTextViewActivityFont
 import vn.loitp.databinding.AMenuTvBinding
+import vn.loitp.up.a.cv.tv.typeWrite.TypeWriterTextViewActivity
+import vn.loitp.up.a.cv.tv.verticalMarquee.VerticalMarqueeTextViewActivity
+import vn.loitp.up.a.cv.tv.zoom.ZoomTextViewActivity
 
 @LogTag("TextViewMenuActivity")
 @IsFullScreen(false)
@@ -90,9 +90,9 @@ class MenuTextViewActivity : BaseActivityFont(), OnClickListener {
             binding.btColorTextView -> launchActivity(ColorTextViewActivity::class.java)
             binding.btScrollNumber -> launchActivity(ScrollNumberActivityFont::class.java)
             binding.btSelectableTextView -> launchActivity(SelectableTextViewActivityFont::class.java)
-            binding.btZoomTextView -> launchActivity(ZoomTextViewActivityFont::class.java)
-            binding.btVerticalMarqueeTextView -> launchActivity(VerticalMarqueeTextViewActivityFont::class.java)
-            binding.btTypeWriterTextView -> launchActivity(TypeWriterTextViewActivityFont::class.java)
+            binding.btZoomTextView -> launchActivity(ZoomTextViewActivity::class.java)
+            binding.btVerticalMarqueeTextView -> launchActivity(VerticalMarqueeTextViewActivity::class.java)
+            binding.btTypeWriterTextView -> launchActivity(TypeWriterTextViewActivity::class.java)
             binding.btTextDecorator -> launchActivity(TextDecoratorActivityFont::class.java)
             binding.btExtraTextview -> launchActivity(ExtraTextViewActivity::class.java)
             binding.btStrokedTextView -> launchActivity(StrokedTextViewActivityFont::class.java)
