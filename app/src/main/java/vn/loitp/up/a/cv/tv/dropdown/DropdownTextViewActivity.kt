@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.tv.dropdown
+package vn.loitp.up.a.cv.tv.dropdown
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,32 +8,37 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import hakobastvatsatryan.DropdownTextView
-import kotlinx.android.synthetic.main.a_tv_dropdown.*
 import vn.loitp.R
+import vn.loitp.databinding.ATvDropdownBinding
 
 @LogTag("DropdownTextViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class DropdownTextViewActivity : BaseActivityFont() {
+    private lateinit var binding: ATvDropdownBinding
 
     private val text = "Click to visit <a href=\"en/page\"> Page </a>"
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_tv_dropdown
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ATvDropdownBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -53,8 +58,8 @@ class DropdownTextViewActivity : BaseActivityFont() {
             this.tvTitle?.text = DropdownTextViewActivity::class.java.simpleName
         }
 
-        secondDropdownTextView.setTitleText(R.string.dropdown_title_text)
-        secondDropdownTextView.setContentText(R.string.dropdown_content_text)
+        binding.secondDropdownTextView.setTitleText(R.string.dropdown_title_text)
+        binding.secondDropdownTextView.setContentText(R.string.dropdown_content_text)
         val thirdDropdownTextViewSecond = DropdownTextView.Builder(this)
             .setTitleTextColorRes(R.color.third_drop_down_text_view_title)
             .setTitleTextColorExpandedRes(R.color.third_drop_down_text_view_title_expanded)
@@ -69,7 +74,7 @@ class DropdownTextViewActivity : BaseActivityFont() {
             .setExpandedBackgroundDrawableRes(R.drawable.bg_third_dropdown_text_view_expanded)
             .build()
 
-        rootView.addView(
+        binding.rootView.addView(
             thirdDropdownTextViewSecond,
             LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
