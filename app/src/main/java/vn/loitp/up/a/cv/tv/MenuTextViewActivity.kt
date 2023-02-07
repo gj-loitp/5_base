@@ -10,9 +10,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.a.cv.tv.autoComplete.AutoCompleteTextViewActivity
-import vn.loitp.a.cv.tv.autoFit.AutoFitTextViewActivity
 import vn.loitp.databinding.AMenuTvBinding
+import vn.loitp.up.a.cv.tv.autoComplete.AutoCompleteTextViewActivity
+import vn.loitp.up.a.cv.tv.autoFit.AutoFitTextViewActivity
 import vn.loitp.up.a.cv.tv.color.ColorTextViewActivity
 import vn.loitp.up.a.cv.tv.countDown.CountDownActivity
 import vn.loitp.up.a.cv.tv.dropdown.DropdownTextViewActivity

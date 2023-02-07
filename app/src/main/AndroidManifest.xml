@@ -77,7 +77,7 @@
             android:name=".up.a.cv.vp.detectSwipeOut.DetectViewPagerSwipeOutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sw.MenuSwitchToggleActivity"
+            android:name=".up.a.cv.sw.MenuSwitchToggleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.sw.appCompat.AppcompatSwitchActivityFont"
@@ -286,7 +286,7 @@
             android:name=".up.a.func.simpleFingerGestures.SimpleFingerGesturesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.tv.autoFit.AutoFitTextViewActivity"
+            android:name=".up.a.cv.tv.autoFit.AutoFitTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.demo.ebookWithRealm.EbookWithRealmActivity"
@@ -352,7 +352,7 @@
             android:name=".up.a.api.retrofit2.TestAPIRetrofit2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.treeView.TreeViewActivity"
+            android:name=".up.a.cv.treeView.TreeViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.goodView.GoodViewActivityFont"
@@ -1135,7 +1135,7 @@
         </provider>
 
         <activity
-            android:name=".a.cv.tv.autoComplete.AutoCompleteTextViewActivity"
+            android:name=".up.a.cv.tv.autoComplete.AutoCompleteTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity"
