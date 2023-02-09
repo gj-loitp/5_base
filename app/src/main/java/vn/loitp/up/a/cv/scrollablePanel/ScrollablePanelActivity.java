@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.scrollablePanel;
+package vn.loitp.up.a.cv.scrollablePanel;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
