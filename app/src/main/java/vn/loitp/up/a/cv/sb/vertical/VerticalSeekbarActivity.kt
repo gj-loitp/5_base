@@ -1,39 +1,48 @@
-package vn.loitp.a.cv.sb.sb
+package vn.loitp.up.a.cv.sb.vertical
 
 import android.os.Bundle
 import android.widget.SeekBar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_sb.*
 import vn.loitp.R
+import vn.loitp.databinding.ASbVertBinding
 
-@LogTag("SeekbarActivity")
+// https://github.com/h6ah4i/android-verticalseekbar
+
+@LogTag("VerticalSeekbarActivity")
 @IsFullScreen(false)
-class SeekbarActivityFont : BaseActivityFont() {
+class VerticalSeekbarActivity : BaseActivityFont() {
+    private lateinit var binding: ASbVertBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_sb
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ASbVertBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = SeekbarActivityFont::class.java.simpleName
+            this.tvTitle?.text = VerticalSeekbarActivity::class.java.simpleName
         }
-        sb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+
+        binding.seekBar1.max = 100
+        binding.seekBar1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 logD("onProgressChanged $progress")
             }
@@ -46,5 +55,8 @@ class SeekbarActivityFont : BaseActivityFont() {
                 logD("onStopTrackingTouch")
             }
         })
+        binding.btSetProgress.setOnClickListener {
+            binding.seekBar1.progress = 30
+        }
     }
 }

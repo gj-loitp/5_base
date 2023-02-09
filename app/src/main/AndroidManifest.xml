@@ -269,7 +269,7 @@
             android:name=".a.cv.dlg.pretty.PrettyDialogActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sb.MenuSeekbarActivity"
+            android:name=".up.a.cv.sb.MenuSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- FOR ALARM DEMO APP -->
         <activity
@@ -304,13 +304,13 @@
             android:name=".up.a.db.sqlite.SqliteActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.scratchView.MenuScratchViewActivity"
+            android:name=".up.a.cv.scratchView.MenuScratchViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.scratchView.scratchViewIv.ScratchViewImageActivityFont"
+            android:name=".up.a.cv.scratchView.scratchViewIv.ScratchViewImageActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.scratchView.scratchViewTv.ScratchViewTextActivityFont"
+            android:name=".up.a.cv.scratchView.scratchViewTv.ScratchViewTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity"
@@ -394,7 +394,7 @@
             android:name=".up.a.func.fullScreen.FullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sb.vertical.VerticalSeekbarActivityFont"
+            android:name=".up.a.cv.sb.vertical.VerticalSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bs.MenuBottomSheetActivity"
@@ -412,7 +412,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.cv.sb.sb.SeekbarActivityFont"
+            android:name=".up.a.cv.sb.sb.SeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -1169,7 +1169,7 @@
             android:name=".up.a.cv.vp.easyFlip.ViewPager2DemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sb.vertical2.VerticalSeekBar2ActivityFont"
+            android:name=".up.a.cv.sb.vertical2.VerticalSeekBar2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.u.UtilsCoreActivity"
