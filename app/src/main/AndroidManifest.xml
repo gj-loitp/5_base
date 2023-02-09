@@ -176,7 +176,7 @@
             android:name=".a.cv.layout.ripple.RippleLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.MenuRecyclerViewActivity"
+            android:name=".up.a.cv.rv.MenuRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -408,7 +408,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.cv.sb.boxedVertical.BoxedVerticalSeekBarActivityFont"
+            android:name=".up.a.cv.sb.boxedVertical.BoxedVerticalSeekBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
@@ -1245,7 +1245,7 @@
             android:name=".up.a.cv.wheelView.WheelViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sb.range.RangeSeekbarActivityFont"
+            android:name=".up.a.cv.sb.range.RangeSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.demo.firebase.FirebaseActivity"
@@ -1266,7 +1266,7 @@
             android:name=".a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.turnLayoutManager.TurnLayoutManagerActivity"
+            android:name=".up.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.luckyWheel.LuckyWheelActivity"
@@ -1413,7 +1413,7 @@
             android:name=".up.a.cv.spotlight.SpotlightActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.sb.rubberPicker.RubberPickerActivityFont"
+            android:name=".up.a.cv.sb.rubberPicker.RubberPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.picker.gradientColorPickerBar.GradientColorPickerBarActivity"

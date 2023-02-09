@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.turnLayoutManager
+package vn.loitp.up.a.cv.rv.turnLayoutManager
 
 import android.annotation.SuppressLint
 import android.content.Context

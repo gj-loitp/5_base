@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.sb.range
+package vn.loitp.up.a.cv.sb.range
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,6 +7,7 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -14,27 +15,31 @@ import com.loitp.views.sb.range.DoubleValueSeekBarView
 import com.loitp.views.sb.range.OnDoubleValueSeekBarChangeListener
 import com.loitp.views.sb.range.OnRangeSeekBarChangeListener
 import com.loitp.views.sb.range.RangeSeekBarView
-import kotlinx.android.synthetic.main.a_sb_range.*
 import vn.loitp.R
+import vn.loitp.databinding.ASbRangeBinding
 
 @LogTag("RangeSeekbarActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class RangeSeekbarActivityFont : BaseActivityFont() {
+class RangeSeekbarActivity : BaseActivityFont() {
+    private lateinit var binding: ASbRangeBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_sb_range
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ASbRangeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
@@ -47,33 +52,34 @@ class RangeSeekbarActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = RangeSeekbarActivityFont::class.java.simpleName
+            this.tvTitle?.text = RangeSeekbarActivity::class.java.simpleName
         }
 
-        rangeSeekbar1.currentValue = 20
-        rangeSeekbar1.step = 5
+        binding.rangeSeekbar1.currentValue = 20
+        binding.rangeSeekbar1.step = 5
 
-        rangeSeekbar2.currentValue = 30
-        rangeSeekbar2.step = 10
+        binding.rangeSeekbar2.currentValue = 30
+        binding.rangeSeekbar2.step = 10
 
-        rangeSeekbar3.currentValue = 40
-        rangeSeekbar3.step = 15
+        binding.rangeSeekbar3.currentValue = 40
+        binding.rangeSeekbar3.step = 15
 
-        rangeSeekbar4.currentValue = 50
-        rangeSeekbar4.step = 15
+        binding.rangeSeekbar4.currentValue = 50
+        binding.rangeSeekbar4.step = 15
 
-        rangeSeekbar.currentMinValue = 50
-        rangeSeekbar.minStep = 10
+        binding.rangeSeekbar.currentMinValue = 50
+        binding.rangeSeekbar.minStep = 10
 
-        rangeSeekbar.currentMaxValue = 140
-        rangeSeekbar.maxStep = 20
+        binding.rangeSeekbar.currentMaxValue = 140
+        binding.rangeSeekbar.maxStep = 20
 
-        rangeSeekbar1.setAnimated(true, 3000L)
-        rangeSeekbar2.setAnimated(true, 3000L)
-        rangeSeekbar3.setAnimated(true, 3000L)
-        rangeSeekbar4.setAnimated(true, 3000L)
+        binding.rangeSeekbar1.setAnimated(true, 3000L)
+        binding.rangeSeekbar2.setAnimated(true, 3000L)
+        binding.rangeSeekbar3.setAnimated(true, 3000L)
+        binding.rangeSeekbar4.setAnimated(true, 3000L)
 
-        rangeSeekbar1.setOnRangeSeekBarViewChangeListener(object : OnRangeSeekBarChangeListener {
+        binding.rangeSeekbar1.setOnRangeSeekBarViewChangeListener(object :
+            OnRangeSeekBarChangeListener {
             override fun onProgressChanged(
                 seekBar: RangeSeekBarView?, progress: Int, fromUser: Boolean
             ) {
@@ -91,7 +97,8 @@ class RangeSeekbarActivityFont : BaseActivityFont() {
         })
 
 
-        rangeSeekbar2.setOnRangeSeekBarViewChangeListener(object : OnRangeSeekBarChangeListener {
+        binding.rangeSeekbar2.setOnRangeSeekBarViewChangeListener(object :
+            OnRangeSeekBarChangeListener {
             override fun onProgressChanged(
                 seekBar: RangeSeekBarView?, progress: Int, fromUser: Boolean
             ) {
@@ -110,7 +117,8 @@ class RangeSeekbarActivityFont : BaseActivityFont() {
 
         })
 
-        rangeSeekbar3.setOnRangeSeekBarViewChangeListener(object : OnRangeSeekBarChangeListener {
+        binding.rangeSeekbar3.setOnRangeSeekBarViewChangeListener(object :
+            OnRangeSeekBarChangeListener {
             override fun onProgressChanged(
                 seekBar: RangeSeekBarView?, progress: Int, fromUser: Boolean
             ) {
@@ -130,7 +138,8 @@ class RangeSeekbarActivityFont : BaseActivityFont() {
         })
 
 
-        rangeSeekbar4.setOnRangeSeekBarViewChangeListener(object : OnRangeSeekBarChangeListener {
+        binding.rangeSeekbar4.setOnRangeSeekBarViewChangeListener(object :
+            OnRangeSeekBarChangeListener {
             override fun onProgressChanged(
                 seekBar: RangeSeekBarView?, progress: Int, fromUser: Boolean
             ) {
@@ -148,7 +157,7 @@ class RangeSeekbarActivityFont : BaseActivityFont() {
 
         })
 
-        rangeSeekbar.setOnRangeSeekBarViewChangeListener(object :
+        binding.rangeSeekbar.setOnRangeSeekBarViewChangeListener(object :
             OnDoubleValueSeekBarChangeListener {
             override fun onValueChanged(
                 seekBar: DoubleValueSeekBarView?, min: Int, max: Int, fromUser: Boolean
@@ -169,12 +178,12 @@ class RangeSeekbarActivityFont : BaseActivityFont() {
 
         })
 
-        btnValue.setSafeOnClickListener {
+        binding.btnValue.setSafeOnClickListener {
             getValues()
         }
     }
 
     private fun getValues() {
-        showShortInformation("1->${rangeSeekbar1.currentValue}\n" + "2->${rangeSeekbar2.currentValue}\n" + "3->${rangeSeekbar3.currentValue}\n" + "4->${rangeSeekbar4.currentValue}\n" + "min->${rangeSeekbar.currentMinValue} max->${rangeSeekbar.currentMaxValue}")
+        showShortInformation("1->${binding.rangeSeekbar1.currentValue}\n" + "2->${binding.rangeSeekbar2.currentValue}\n" + "3->${binding.rangeSeekbar3.currentValue}\n" + "4->${binding.rangeSeekbar4.currentValue}\n" + "min->${binding.rangeSeekbar.currentMinValue} max->${binding.rangeSeekbar.currentMaxValue}")
     }
 }

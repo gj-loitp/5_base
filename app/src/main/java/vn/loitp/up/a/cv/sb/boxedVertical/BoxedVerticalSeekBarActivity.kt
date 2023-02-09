@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.sb.boxedVertical
+package vn.loitp.up.a.cv.sb.boxedVertical
 
 import abak.tr.com.boxedverticalseekbar.BoxedVertical
 import android.graphics.Color
@@ -6,38 +6,44 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_sb_boxed_vertical.*
 import vn.loitp.R
+import vn.loitp.databinding.ASbBoxedVerticalBinding
 
 // https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291
 @LogTag("BoxedVerticalSeekBarActivity")
 @IsFullScreen(false)
-class BoxedVerticalSeekBarActivityFont : BaseActivityFont() {
+class BoxedVerticalSeekBarActivity : BaseActivityFont() {
     private val stringList = ArrayList<String>()
+    private lateinit var binding: ASbBoxedVerticalBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_sb_boxed_vertical
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ASbBoxedVerticalBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = BoxedVerticalSeekBarActivityFont::class.java.simpleName
+            this.tvTitle?.text = BoxedVerticalSeekBarActivity::class.java.simpleName
         }
 
-        boxedVertical.setOnBoxedPointsChangeListener(object : BoxedVertical.OnValuesChangeListener {
+        binding.boxedVertical.setOnBoxedPointsChangeListener(object :
+            BoxedVertical.OnValuesChangeListener {
             override fun onPointsChanged(boxedPoints: BoxedVertical, value: Int) {
                 logD("onPointsChanged $value")
                 stringList.add(index = 0, element = "onPointsChanged $value")
@@ -54,7 +60,7 @@ class BoxedVerticalSeekBarActivityFont : BaseActivityFont() {
                 logD("onStopTrackingTouch")
                 stringList.add(index = 0, element = "onStopTrackingTouch")
                 print()
-                boxedVertical.setBackgroundColor(Color.RED)
+                binding.boxedVertical.setBackgroundColor(Color.RED)
             }
         })
     }
@@ -67,6 +73,6 @@ class BoxedVerticalSeekBarActivityFont : BaseActivityFont() {
         for (s in stringList) {
             x += "\n" + s
         }
-        textView?.text = x
+        binding.textView.text = x
     }
 }

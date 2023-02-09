@@ -9,10 +9,10 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.cv.sb.boxedVertical.BoxedVerticalSeekBarActivityFont
-import vn.loitp.a.cv.sb.range.RangeSeekbarActivityFont
-import vn.loitp.a.cv.sb.rubberPicker.RubberPickerActivityFont
 import vn.loitp.databinding.ASbMenuBinding
+import vn.loitp.up.a.cv.sb.boxedVertical.BoxedVerticalSeekBarActivity
+import vn.loitp.up.a.cv.sb.range.RangeSeekbarActivity
+import vn.loitp.up.a.cv.sb.rubberPicker.RubberPickerActivity
 import vn.loitp.up.a.cv.sb.sb.SeekbarActivity
 import vn.loitp.up.a.cv.sb.vertical.VerticalSeekbarActivity
 import vn.loitp.up.a.cv.sb.vertical2.VerticalSeekBar2Activity
@@ -48,7 +48,7 @@ class MenuSeekbarActivity : BaseActivityFont() {
             this.tvTitle?.text = MenuSeekbarActivity::class.java.simpleName
         }
         binding.btBoxedVerticalSeekbar.setSafeOnClickListener {
-            launchActivity(BoxedVerticalSeekBarActivityFont::class.java)
+            launchActivity(BoxedVerticalSeekBarActivity::class.java)
         }
         binding.btVerticalSeekBar.setSafeOnClickListener {
             launchActivity(VerticalSeekbarActivity::class.java)
@@ -60,10 +60,10 @@ class MenuSeekbarActivity : BaseActivityFont() {
             launchActivity(VerticalSeekBar2Activity::class.java)
         }
         binding.btRangeSeekBar.setSafeOnClickListener {
-            launchActivity(RangeSeekbarActivityFont::class.java)
+            launchActivity(RangeSeekbarActivity::class.java)
         }
         binding.btRubberPicker.setSafeOnClickListener {
-            launchActivity(RubberPickerActivityFont::class.java)
+            launchActivity(RubberPickerActivity::class.java)
         }
     }
 }

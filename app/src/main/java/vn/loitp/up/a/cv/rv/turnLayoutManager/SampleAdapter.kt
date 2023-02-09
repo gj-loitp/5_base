@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.turnLayoutManager
+package vn.loitp.up.a.cv.rv.turnLayoutManager
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.R
-import vn.loitp.a.cv.rv.turnLayoutManager.SampleAdapter.SampleViewHolder
+import vn.loitp.up.a.cv.rv.turnLayoutManager.SampleAdapter.SampleViewHolder
 
 class SampleAdapter(context: Context) : RecyclerView.Adapter<SampleViewHolder>() {
     private val layoutInflater: LayoutInflater
