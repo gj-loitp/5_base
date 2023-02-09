@@ -19,7 +19,6 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_turn_layout_manager.*
-import kotlinx.android.synthetic.main.view_controls_tlm.*
 import vn.loitp.R
 
 @LogTag("TurnLayoutManagerActivity")
@@ -161,8 +160,8 @@ class TurnLayoutManagerActivity : BaseActivityFont() {
 
     private val controlsHandleClickListener = View.OnClickListener {
         val translationY =
-            if (control_panel.translationY == 0f) control_panel.height.toFloat() else 0f
-        control_panel.animate().translationY(translationY).start()
+            if (rlControlPanel.translationY == 0f) rlControlPanel.height.toFloat() else 0f
+        rlControlPanel.animate().translationY(translationY).start()
         tvControlHandle.animate().translationY(translationY).start()
     }
 
