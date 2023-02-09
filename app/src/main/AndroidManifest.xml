@@ -1178,7 +1178,7 @@
             android:name=".a.cv.rv.arcView.ArcViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.stackExpandableView.StackExpandableViewActivity"
+            android:name=".up.a.cv.stackExpandableView.StackExpandableViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.androidParticles.AndroidParticlesActivity"
@@ -1196,7 +1196,7 @@
             android:name=".a.cv.graph.algorithms.SugiyamaActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.simpleRatingBar.SimpleRatingBarActivity"
+            android:name=".up.a.cv.simpleRatingBar.SimpleRatingBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.tv.typed.TypedTextViewActivity"
@@ -1410,7 +1410,7 @@
         <service android:name="io.hamed.floatinglayout.service.FloatingService" />
 
         <activity
-            android:name=".a.cv.spotlight.SpotlightActivity"
+            android:name=".up.a.cv.spotlight.SpotlightActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.sb.rubberPicker.RubberPickerActivityFont"

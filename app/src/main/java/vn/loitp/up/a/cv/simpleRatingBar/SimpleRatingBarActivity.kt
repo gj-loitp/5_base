@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.simpleRatingBar
+package vn.loitp.up.a.cv.simpleRatingBar
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -12,63 +12,63 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_simple_rating_bar.*
 import vn.loitp.R
+import vn.loitp.databinding.ASimpleRatingBarBinding
 import vn.loitp.up.app.EmptyActivity
 
 @LogTag("SimpleRatingBarActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class SimpleRatingBarActivity : BaseActivityFont() {
+    private lateinit var binding: ASimpleRatingBarBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_simple_rating_bar
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ASimpleRatingBarBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.let {
-                it.setSafeOnClickListenerElastic(
-                    runnable = {
-                        context.openUrlInBrowser(
-                            url = "https://github.com/williamyyu/SimpleRatingBar"
-                        )
-                    }
-                )
+                it.setSafeOnClickListenerElastic(runnable = {
+                    context.openUrlInBrowser(
+                        url = "https://github.com/williamyyu/SimpleRatingBar"
+                    )
+                })
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }
-        viewPager.adapter = SamplePagerAdapter(supportFragmentManager)
-        tabLayout.addTab(tabLayout.newTab().setText("Animation Demo"))
-        tabLayout.addTab(tabLayout.newTab().setText("RecyclerView Demo"))
-        tabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
+        binding.viewPager.adapter = SamplePagerAdapter(supportFragmentManager)
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Animation Demo"))
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("RecyclerView Demo"))
+        binding.tabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-                viewPager.currentItem = tab.position
+                binding.viewPager.currentItem = tab.position
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
-        viewPager.addOnPageChangeListener(TabLayoutOnPageChangeListener(tabLayout))
+        binding.viewPager.addOnPageChangeListener(TabLayoutOnPageChangeListener(binding.tabLayout))
     }
 
-    inner class SamplePagerAdapter(fm: FragmentManager) :
-        FragmentStatePagerAdapter(fm) {
+    inner class SamplePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
         private val fragments: MutableList<Fragment>
 
         init {

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.stackExpandableView
+package vn.loitp.up.a.cv.stackExpandableView
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,10 +10,11 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_stack_expandable_view.*
 import vn.loitp.R
+import vn.loitp.databinding.AStackExpandableViewBinding
 
 @LogTag("StackExpandableViewActivity")
 @IsFullScreen(false)
@@ -23,21 +24,25 @@ class StackExpandableViewActivity : BaseActivityFont() {
         const val STARTING_ITEM_NUMBER = 30
     }
 
+    private lateinit var binding: AStackExpandableViewBinding
     private var counter = STARTING_ITEM_NUMBER
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_stack_expandable_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AStackExpandableViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -56,13 +61,13 @@ class StackExpandableViewActivity : BaseActivityFont() {
             }
             this.tvTitle?.text = StackExpandableViewActivity::class.java.simpleName
         }
-        horizontalStack.setWidgets(getLayouts(false))
-        verticalStack.setWidgets(getLayouts())
+        binding.horizontalStack.setWidgets(getLayouts(false))
+        binding.verticalStack.setWidgets(getLayouts())
         // add items on button click
-        addGroupBtn.setOnClickListener {
+        binding.addGroupBtn.setOnClickListener {
             counter++
-            verticalStack.addWidget(getLayout(counter))
-            horizontalStack.addWidget(getLayout(counter, false))
+            binding.verticalStack.addWidget(getLayout(counter))
+            binding.horizontalStack.addWidget(getLayout(counter, false))
         }
     }
 

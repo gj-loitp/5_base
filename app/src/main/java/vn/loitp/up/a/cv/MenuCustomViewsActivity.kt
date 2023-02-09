@@ -41,10 +41,10 @@ import vn.loitp.a.cv.rv.MenuRecyclerViewActivity
 import vn.loitp.a.cv.sb.MenuSeekbarActivity
 import vn.loitp.a.cv.scratchView.MenuScratchViewActivity
 import vn.loitp.a.cv.scrollablePanel.ScrollablePanelActivity
-import vn.loitp.a.cv.simpleRatingBar.SimpleRatingBarActivity
-import vn.loitp.a.cv.spotlight.SpotlightActivity
-import vn.loitp.a.cv.stackExpandableView.StackExpandableViewActivity
 import vn.loitp.databinding.AMenuCustomViewBinding
+import vn.loitp.up.a.cv.simpleRatingBar.SimpleRatingBarActivity
+import vn.loitp.up.a.cv.spotlight.SpotlightActivity
+import vn.loitp.up.a.cv.stackExpandableView.StackExpandableViewActivity
 import vn.loitp.up.a.cv.sticker.StickerActivity
 import vn.loitp.up.a.cv.sw.MenuSwitchToggleActivity
 import vn.loitp.up.a.cv.treeView.TreeViewActivity
