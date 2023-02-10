@@ -8,25 +8,29 @@ import androidx.viewpager.widget.ViewPager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.a_recycler_tab_layout.*
-import vn.loitp.R
+import vn.loitp.databinding.ARecyclerTabLayoutBinding
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
 
 @LogTag("RvTabImitationLoopActivity")
 @IsFullScreen(false)
 open class RvTabImitationLoopActivity : BaseActivityFont(), ViewPager.OnPageChangeListener {
+    private lateinit var binding: ARecyclerTabLayoutBinding
 
     private var mScrollState: Int = 0
     private lateinit var mAdapterTab: RvTabImitationLoopPagerAdapter
     private var mItems = ArrayList<String>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_recycler_tab_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ARecyclerTabLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -39,8 +43,8 @@ open class RvTabImitationLoopActivity : BaseActivityFont(), ViewPager.OnPageChan
         }
         val demo = Demo.valueOf(keyDemo)
 
-        toolbar.setTitle(demo.titleResId)
-        setSupportActionBar(toolbar)
+        binding.toolbar.setTitle(demo.titleResId)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         mItems.add(":)")
@@ -51,11 +55,11 @@ open class RvTabImitationLoopActivity : BaseActivityFont(), ViewPager.OnPageChan
         mAdapterTab = RvTabImitationLoopPagerAdapter()
         mAdapterTab.addAll(mItems)
 
-        viewPager.adapter = mAdapterTab
-        viewPager.currentItem = mAdapterTab.getCenterPosition(0)
-        viewPager.addOnPageChangeListener(this)
+        binding.viewPager.adapter = mAdapterTab
+        binding.viewPager.currentItem = mAdapterTab.getCenterPosition(0)
+        binding.viewPager.addOnPageChangeListener(this)
 
-        recyclerTabLayout.setUpWithViewPager(viewPager)
+        binding.recyclerTabLayout.setUpWithViewPager(binding.viewPager)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -74,7 +78,7 @@ open class RvTabImitationLoopActivity : BaseActivityFont(), ViewPager.OnPageChan
         val nearLeftEdge = position <= mItems.size
         val nearRightEdge = position >= mAdapterTab.count - mItems.size
         if (nearLeftEdge || nearRightEdge) {
-            viewPager.setCurrentItem(mAdapterTab.getCenterPosition(0), false)
+            binding.viewPager.setCurrentItem(mAdapterTab.getCenterPosition(0), false)
         }
     }
 

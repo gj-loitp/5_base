@@ -20,7 +20,7 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <com.loitp.views.rv.recyclerTabLayout.RecyclerTabLayout
-            android:id="@+id/recycler_tab_layout"
+            android:id="@+id/recyclerTabLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tab_height"
             app:rtl_tabBackground="@color/red"

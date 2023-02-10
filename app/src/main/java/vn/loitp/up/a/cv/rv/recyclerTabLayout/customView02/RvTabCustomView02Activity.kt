@@ -4,14 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.widget.Toolbar
-import androidx.viewpager.widget.ViewPager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.tranIn
-import com.loitp.views.rv.recyclerTabLayout.RecyclerTabLayout
-import vn.loitp.R
+import vn.loitp.databinding.ARecyclerTabLayoutDemoCustomView02Binding
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.DemoImagePagerAdapter
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
@@ -19,13 +17,17 @@ import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
 @LogTag("RvTabCustomView02Activity")
 @IsFullScreen(false)
 class RvTabCustomView02Activity : BaseActivityFont() {
+    private lateinit var binding: ARecyclerTabLayoutDemoCustomView02Binding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_recycler_tab_layout_demo_custom_view02
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ARecyclerTabLayoutDemoCustomView02Binding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -38,20 +40,17 @@ class RvTabCustomView02Activity : BaseActivityFont() {
         }
         val demo = Demo.valueOf(keyDemo)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.setTitle(demo.titleResId)
-        setSupportActionBar(toolbar)
+        binding.toolbar.setTitle(demo.titleResId)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val adapter = DemoImagePagerAdapter()
         adapter.addAll(DemoData.loadImageResourceList())
 
-        val viewPager = findViewById<ViewPager>(R.id.viewPager)
-        viewPager.adapter = adapter
+        binding.viewPager.adapter = adapter
 
-        val recyclerTabLayout = findViewById<RecyclerTabLayout>(R.id.recycler_tab_layout)
-        recyclerTabLayout.setUpWithAdapter(RvTabCustomView02Adapter(viewPager))
-        recyclerTabLayout.setPositionThreshold(0.5f)
+        binding.recyclerTabLayout.setUpWithAdapter(RvTabCustomView02Adapter(binding.viewPager))
+        binding.recyclerTabLayout.setPositionThreshold(0.5f)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -6,9 +6,9 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.a_recycler_tab_layout_demo_rtl.*
-import vn.loitp.R
+import vn.loitp.databinding.ARecyclerTabLayoutDemoRtlBinding
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.basic.RvTabDemoBasicActivity
@@ -17,13 +17,17 @@ import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
 @LogTag("RvTabDemoRtlActivity")
 @IsFullScreen(false)
 class RvTabDemoRtlActivity : BaseActivityFont() {
+    private lateinit var binding: ARecyclerTabLayoutDemoRtlBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_recycler_tab_layout_demo_rtl
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ARecyclerTabLayoutDemoRtlBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -36,8 +40,8 @@ class RvTabDemoRtlActivity : BaseActivityFont() {
         }
         val demo = Demo.valueOf(keyDemo)
 
-        toolbar.setTitle(demo.titleResId)
-        setSupportActionBar(toolbar)
+        binding.toolbar.setTitle(demo.titleResId)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val items = DemoData.loadDemoColorItems(this)
@@ -45,9 +49,9 @@ class RvTabDemoRtlActivity : BaseActivityFont() {
 
         val adapter = DemoColorPagerAdapter()
         adapter.addAll(items)
-        viewPager.adapter = adapter
+        binding.viewPager.adapter = adapter
 
-        recyclerTabLayout.setUpWithViewPager(viewPager)
+        binding.recyclerTabLayout.setUpWithViewPager(binding.viewPager)
     }
 
     companion object {

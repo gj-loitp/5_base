@@ -7,9 +7,9 @@ import android.view.MenuItem
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.a_recycler_tab_layout_demo_tab_scroll_disabled.*
-import vn.loitp.R
+import vn.loitp.databinding.ARecyclerTabLayoutDemoTabScrollDisabledBinding
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
@@ -17,13 +17,17 @@ import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
 @LogTag("RvTabScrollDisabledActivity")
 @IsFullScreen(false)
 class RvTabScrollDisabledActivity : BaseActivityFont() {
+    private lateinit var binding: ARecyclerTabLayoutDemoTabScrollDisabledBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_recycler_tab_layout_demo_tab_scroll_disabled
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ARecyclerTabLayoutDemoTabScrollDisabledBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -36,8 +40,8 @@ class RvTabScrollDisabledActivity : BaseActivityFont() {
         }
         val demo = Demo.valueOf(keyDemo)
 
-        toolbar.setTitle(demo.titleResId)
-        setSupportActionBar(toolbar)
+        binding.toolbar.setTitle(demo.titleResId)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val items = DemoData.loadDemoColorItems(this)
@@ -45,9 +49,9 @@ class RvTabScrollDisabledActivity : BaseActivityFont() {
 
         val demoColorPagerAdapter = DemoColorPagerAdapter()
         demoColorPagerAdapter.addAll(items)
-        viewPager.adapter = demoColorPagerAdapter
+        binding.viewPager.adapter = demoColorPagerAdapter
 
-        recyclerTabLayout.setUpWithViewPager(viewPager)
+        binding.recyclerTabLayout.setUpWithViewPager(binding.viewPager)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
