@@ -183,7 +183,7 @@
             android:name=".a.cv.rv.fastScrollSeekbar.RvFastScrollSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.parallaxRv.ParallaxRecyclerViewActivity"
+            android:name=".up.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.progress.circularPb.CircularProgressBarActivityFont"
@@ -244,7 +244,7 @@
             android:name=".up.a.cv.tv.selectable.SelectableTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivity"
+            android:name=".up.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.flySchool.FlySchoolActivity"
@@ -313,7 +313,7 @@
             android:name=".up.a.cv.scratchView.scratchViewTv.ScratchViewTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity"
+            android:name=".up.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.footer.RecyclerViewFooterActivity"

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.normalRvWithSingletonData
+package vn.loitp.up.a.cv.rv.normalRvWithSingletonData
 
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
@@ -9,15 +9,16 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.showPopup
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
-import kotlinx.android.synthetic.main.a_rv.*
 import vn.loitp.R
 import vn.loitp.a.cv.rv.normalRv.Movie
 import vn.loitp.a.cv.rv.normalRv.MoviesAdapter
-import vn.loitp.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
+import vn.loitp.databinding.ARvBinding
+import vn.loitp.up.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
 import vn.loitp.up.common.Constants
 
 @LogTag("RecyclerViewWithSingletonDataActivity")
@@ -25,19 +26,23 @@ import vn.loitp.up.common.Constants
 class RecyclerViewWithSingletonDataActivity : BaseActivityFont() {
 
     private var mAdapter: MoviesAdapter? = null
+    private lateinit var binding: ARvBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARvBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
@@ -65,7 +70,7 @@ class RecyclerViewWithSingletonDataActivity : BaseActivityFont() {
                 }
             })
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-        rv.layoutManager = mLayoutManager
+        binding.rv.layoutManager = mLayoutManager
 //        rv.itemAnimator = DefaultItemAnimator()
 //        rv.adapter = mAdapter
 
@@ -79,21 +84,21 @@ class RecyclerViewWithSingletonDataActivity : BaseActivityFont() {
             animAdapter.setDuration(1000)
             animAdapter.setInterpolator(OvershootInterpolator())
             animAdapter.setFirstOnly(true)
-            rv.adapter = animAdapter
+            binding.rv.adapter = animAdapter
         }
 
         // LUIUtil.setPullLikeIOSVertical(rv)
         prepareMovieData()
-        btSetting.setOnClickListener {
+        binding.btSetting.setOnClickListener {
             this.showPopup(showOnView = it,
                 menuRes = R.menu.menu_recycler_view,
                 callback = { menuItem ->
-                    tvType.text = menuItem.title.toString()
+                    binding.tvType.text = menuItem.title.toString()
                     when (menuItem.itemId) {
                         R.id.menuLinearVertical -> {
                             val lmVertical: RecyclerView.LayoutManager =
                                 LinearLayoutManager(this@RecyclerViewWithSingletonDataActivity)
-                            rv.layoutManager = lmVertical
+                            binding.rv.layoutManager = lmVertical
                         }
                         R.id.menuLinearHorizontal -> {
                             val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(
@@ -101,15 +106,15 @@ class RecyclerViewWithSingletonDataActivity : BaseActivityFont() {
                                 LinearLayoutManager.HORIZONTAL,
                                 false
                             )
-                            rv.layoutManager = lmHorizontal
+                            binding.rv.layoutManager = lmHorizontal
                         }
-                        R.id.menuGridLayoutManager2 -> rv.layoutManager =
+                        R.id.menuGridLayoutManager2 -> binding.rv.layoutManager =
                             GridLayoutManager(this@RecyclerViewWithSingletonDataActivity, 2)
-                        R.id.menuGridLayoutManager3 -> rv.layoutManager =
+                        R.id.menuGridLayoutManager3 -> binding.rv.layoutManager =
                             GridLayoutManager(this@RecyclerViewWithSingletonDataActivity, 3)
-                        R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager =
+                        R.id.menuStaggeredGridLayoutManager2 -> binding.rv.layoutManager =
                             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-                        R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager =
+                        R.id.menuStaggeredGridLayoutManager4 -> binding.rv.layoutManager =
                             StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
                     }
                 })

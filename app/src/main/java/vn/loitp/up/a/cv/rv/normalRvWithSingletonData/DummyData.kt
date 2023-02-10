@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.normalRvWithSingletonData
+package vn.loitp.up.a.cv.rv.normalRvWithSingletonData
 
 import vn.loitp.a.cv.rv.normalRv.Movie
 

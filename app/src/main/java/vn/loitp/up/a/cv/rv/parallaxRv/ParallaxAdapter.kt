@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.parallaxRv
+package vn.loitp.up.a.cv.rv.parallaxRv
 
 import android.content.Context
 import android.view.LayoutInflater

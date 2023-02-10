@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.normalWithSpanSize
+package vn.loitp.up.a.cv.rv.normalWithSpanSize
 
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
@@ -7,13 +7,14 @@ import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
-import kotlinx.android.synthetic.main.a_rv.*
 import vn.loitp.R
 import vn.loitp.a.cv.rv.normalRv.Movie
 import vn.loitp.a.cv.rv.normalRv.MoviesAdapter
+import vn.loitp.databinding.ARvBinding
 import vn.loitp.up.common.Constants
 
 @LogTag("RecyclerViewWithSpanSizeActivity")
@@ -21,20 +22,24 @@ import vn.loitp.up.common.Constants
 class RecyclerViewWithSpanSizeActivity : BaseActivityFont() {
     private val movieList: MutableList<Movie> = ArrayList()
     private var moviesAdapter: MoviesAdapter? = null
+    private lateinit var binding: ARvBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ARvBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         prepareMovieData()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -58,7 +63,7 @@ class RecyclerViewWithSpanSizeActivity : BaseActivityFont() {
                 }
             )
         val gridLayoutManager = GridLayoutManager(this, 2)
-        rv.layoutManager = gridLayoutManager
+        binding.rv.layoutManager = gridLayoutManager
 //        rv.itemAnimator = DefaultItemAnimator()
 //        rv.adapter = moviesAdapter
         moviesAdapter?.let {
@@ -71,7 +76,7 @@ class RecyclerViewWithSpanSizeActivity : BaseActivityFont() {
             animAdapter.setDuration(1000)
             animAdapter.setInterpolator(OvershootInterpolator())
             animAdapter.setFirstOnly(true)
-            rv.adapter = animAdapter
+            binding.rv.adapter = animAdapter
         }
         gridLayoutManager.spanSizeLookup = object : SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
