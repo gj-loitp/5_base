@@ -3,9 +3,9 @@ package vn.loitp.up.a.cv.rv.recyclerTabLayout.autoSelect
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.a_recycler_tab_layout.*
-import vn.loitp.R
+import vn.loitp.databinding.ARecyclerTabLayoutBinding
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.basic.RvTabDemoBasicActivity
 
@@ -21,17 +21,22 @@ class RvTabAutoSelectActivityRvTab : RvTabDemoBasicActivity() {
         }
     }
 
+    private lateinit var binding: ARecyclerTabLayoutBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_recycler_tab_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARecyclerTabLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        recyclerTabLayout.setAutoSelectionMode(true)
+        binding.recyclerTabLayout.setAutoSelectionMode(true)
     }
 }

@@ -7,9 +7,9 @@ import android.view.MenuItem
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.a_recycler_tab_layout_demo_custom_view01.*
-import vn.loitp.R
+import vn.loitp.databinding.ARecyclerTabLayoutDemoCustomView01Binding
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
 import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
@@ -17,13 +17,17 @@ import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
 @LogTag("RvTabCustomView01Activity")
 @IsFullScreen(false)
 class RvTabCustomView01Activity : BaseActivityFont() {
+    private lateinit var binding: ARecyclerTabLayoutDemoCustomView01Binding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_recycler_tab_layout_demo_custom_view01
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ARecyclerTabLayoutDemoCustomView01Binding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -36,8 +40,8 @@ class RvTabCustomView01Activity : BaseActivityFont() {
         }
         val demo = Demo.valueOf(keyDemo)
 
-        toolbar.setTitle(demo.titleResId)
-        setSupportActionBar(toolbar)
+        binding.toolbar.setTitle(demo.titleResId)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val items = DemoData.loadDemoColorItems(this)
@@ -46,8 +50,8 @@ class RvTabCustomView01Activity : BaseActivityFont() {
         val demoColorPagerAdapter = DemoColorPagerAdapter()
         demoColorPagerAdapter.addAll(items)
 
-        viewPager.adapter = demoColorPagerAdapter
-        recyclerTabLayout.setUpWithAdapter(RvTabCustomView01Adapter(viewPager))
+        binding.viewPager.adapter = demoColorPagerAdapter
+        binding.recyclerTabLayout.setUpWithAdapter(RvTabCustomView01Adapter(binding.viewPager))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
