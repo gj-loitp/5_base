@@ -33,8 +33,8 @@ import vn.loitp.a.cv.rv.normalRv.RecyclerViewActivity
 import vn.loitp.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity
 import vn.loitp.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivity
 import vn.loitp.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivity
-import vn.loitp.a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivity
 import vn.loitp.databinding.ARvMenuBinding
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivity
 import vn.loitp.up.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivity
 
 @LogTag("MenuRecyclerViewActivity")

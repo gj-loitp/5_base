@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout.basic
+package vn.loitp.up.a.cv.rv.recyclerTabLayout.tabOnScreenLimit
 
 import android.content.Context
 import android.content.Intent
@@ -8,18 +8,18 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.a_recycler_tab_layout.*
+import kotlinx.android.synthetic.main.a_recycler_tab_layout_demo_tab_on_screen_limit.*
 import vn.loitp.R
-import vn.loitp.a.cv.rv.recyclerTabLayout.Demo
-import vn.loitp.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
-import vn.loitp.a.cv.rv.recyclerTabLayout.utils.DemoData
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
 
-@LogTag("RvTabDemoBasicActivity")
+@LogTag("RvTabOnScreenLimitActivity")
 @IsFullScreen(false)
-open class RvTabDemoBasicActivity : BaseActivityFont() {
+class RvTabOnScreenLimitActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_recycler_tab_layout
+        return R.layout.a_recycler_tab_layout_demo_tab_on_screen_limit
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,8 +45,8 @@ open class RvTabDemoBasicActivity : BaseActivityFont() {
 
         val demoColorPagerAdapter = DemoColorPagerAdapter()
         demoColorPagerAdapter.addAll(items)
-
         viewPager.adapter = demoColorPagerAdapter
+
         recyclerTabLayout.setUpWithViewPager(viewPager)
     }
 
@@ -59,10 +59,11 @@ open class RvTabDemoBasicActivity : BaseActivityFont() {
     }
 
     companion object {
-        const val KEY_DEMO = "demo"
+
+        private const val KEY_DEMO = "demo"
 
         fun startActivity(context: Context, demo: Demo) {
-            val intent = Intent(context, RvTabDemoBasicActivity::class.java)
+            val intent = Intent(context, RvTabOnScreenLimitActivity::class.java)
             intent.putExtra(KEY_DEMO, demo.name)
             context.startActivity(intent)
             context.tranIn()

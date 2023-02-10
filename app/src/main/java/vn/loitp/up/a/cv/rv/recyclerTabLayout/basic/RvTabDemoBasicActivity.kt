@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout.years
+package vn.loitp.up.a.cv.rv.recyclerTabLayout.basic
 
 import android.content.Context
 import android.content.Intent
@@ -10,12 +10,13 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.tranIn
 import kotlinx.android.synthetic.main.a_recycler_tab_layout.*
 import vn.loitp.R
-import vn.loitp.a.cv.rv.recyclerTabLayout.Demo
-import java.util.* // ktlint-disable no-wildcard-imports
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
 
-@LogTag("RvTabYearsActivity")
+@LogTag("RvTabDemoBasicActivity")
 @IsFullScreen(false)
-class RvTabYearsActivity : BaseActivityFont() {
+open class RvTabDemoBasicActivity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_recycler_tab_layout
@@ -39,21 +40,13 @@ class RvTabYearsActivity : BaseActivityFont() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val startYear = 1900
-        val endYear = 3000
-        val initialYear = Calendar.getInstance().get(Calendar.YEAR)
+        val items = DemoData.loadDemoColorItems(this)
+        items.sortedWith { lhs, rhs -> lhs.name.compareTo(rhs.name) }
 
-        val items = ArrayList<String>()
-        for (i in startYear..endYear) {
-            items.add(i.toString())
-        }
+        val demoColorPagerAdapter = DemoColorPagerAdapter()
+        demoColorPagerAdapter.addAll(items)
 
-        val demoYearsPagerAdapter = YearsPagerAdapter()
-        demoYearsPagerAdapter.addAll(items)
-
-        viewPager.adapter = demoYearsPagerAdapter
-        viewPager.currentItem = initialYear - startYear
-
+        viewPager.adapter = demoColorPagerAdapter
         recyclerTabLayout.setUpWithViewPager(viewPager)
     }
 
@@ -66,11 +59,10 @@ class RvTabYearsActivity : BaseActivityFont() {
     }
 
     companion object {
-
-        private const val KEY_DEMO = "demo"
+        const val KEY_DEMO = "demo"
 
         fun startActivity(context: Context, demo: Demo) {
-            val intent = Intent(context, RvTabYearsActivity::class.java)
+            val intent = Intent(context, RvTabDemoBasicActivity::class.java)
             intent.putExtra(KEY_DEMO, demo.name)
             context.startActivity(intent)
             context.tranIn()

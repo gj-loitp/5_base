@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout.years
+package vn.loitp.up.a.cv.rv.recyclerTabLayout.imitationLoop
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,7 +8,11 @@ import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import vn.loitp.R
 
-class YearsPagerAdapter : PagerAdapter() {
+class RvTabImitationLoopPagerAdapter : PagerAdapter() {
+
+    companion object {
+        private const val NUMBER_OF_LOOPS = 10000
+    }
 
     private var mItems: List<String> = ArrayList()
 
@@ -21,7 +25,7 @@ class YearsPagerAdapter : PagerAdapter() {
             .inflate(R.layout.i_tab_layout_page, container, false)
 
         val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
-        tvTitle.text = "Page: " + mItems[position]
+        tvTitle.text = "Page: " + getValueAt(position)
         container.addView(view)
 
         return view
@@ -30,27 +34,37 @@ class YearsPagerAdapter : PagerAdapter() {
     override fun destroyItem(
         container: ViewGroup,
         position: Int,
-        ob: Any
+        `object`: Any
     ) {
-        container.removeView(ob as View)
+        container.removeView(`object` as View)
     }
 
     override fun getCount(): Int {
-        return mItems.size
+        return mItems.size * NUMBER_OF_LOOPS
     }
 
     override fun isViewFromObject(
         view: View,
-        ob: Any
+        `object`: Any
     ): Boolean {
-        return view === ob
+        return view === `object`
     }
 
-    override fun getPageTitle(position: Int): String {
-        return mItems[position]
+    override fun getPageTitle(position: Int): String? {
+        return getValueAt(position)
     }
 
     fun addAll(items: List<String>) {
         mItems = ArrayList(items)
+    }
+
+    fun getCenterPosition(position: Int): Int {
+        return mItems.size * NUMBER_OF_LOOPS / 2 + position
+    }
+
+    private fun getValueAt(position: Int): String? {
+        return if (mItems.isEmpty()) {
+            null
+        } else mItems[position % mItems.size]
     }
 }

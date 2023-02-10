@@ -1,25 +1,27 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout.tabOnScreenLimit
+package vn.loitp.up.a.cv.rv.recyclerTabLayout.customView02
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
+import androidx.viewpager.widget.ViewPager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.a_recycler_tab_layout_demo_tab_on_screen_limit.*
+import com.loitp.views.rv.recyclerTabLayout.RecyclerTabLayout
 import vn.loitp.R
-import vn.loitp.a.cv.rv.recyclerTabLayout.Demo
-import vn.loitp.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
-import vn.loitp.a.cv.rv.recyclerTabLayout.utils.DemoData
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.DemoImagePagerAdapter
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
 
-@LogTag("RvTabOnScreenLimitActivity")
+@LogTag("RvTabCustomView02Activity")
 @IsFullScreen(false)
-class RvTabOnScreenLimitActivity : BaseActivityFont() {
+class RvTabCustomView02Activity : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_recycler_tab_layout_demo_tab_on_screen_limit
+        return R.layout.a_recycler_tab_layout_demo_custom_view02
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,18 +38,20 @@ class RvTabOnScreenLimitActivity : BaseActivityFont() {
         }
         val demo = Demo.valueOf(keyDemo)
 
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toolbar.setTitle(demo.titleResId)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val items = DemoData.loadDemoColorItems(this)
-        items.sortedWith { lhs, rhs -> lhs.name.compareTo(rhs.name) }
+        val adapter = DemoImagePagerAdapter()
+        adapter.addAll(DemoData.loadImageResourceList())
 
-        val demoColorPagerAdapter = DemoColorPagerAdapter()
-        demoColorPagerAdapter.addAll(items)
-        viewPager.adapter = demoColorPagerAdapter
+        val viewPager = findViewById<ViewPager>(R.id.viewPager)
+        viewPager.adapter = adapter
 
-        recyclerTabLayout.setUpWithViewPager(viewPager)
+        val recyclerTabLayout = findViewById<RecyclerTabLayout>(R.id.recycler_tab_layout)
+        recyclerTabLayout.setUpWithAdapter(RvTabCustomView02Adapter(viewPager))
+        recyclerTabLayout.setPositionThreshold(0.5f)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -63,7 +67,7 @@ class RvTabOnScreenLimitActivity : BaseActivityFont() {
         private const val KEY_DEMO = "demo"
 
         fun startActivity(context: Context, demo: Demo) {
-            val intent = Intent(context, RvTabOnScreenLimitActivity::class.java)
+            val intent = Intent(context, RvTabCustomView02Activity::class.java)
             intent.putExtra(KEY_DEMO, demo.name)
             context.startActivity(intent)
             context.tranIn()

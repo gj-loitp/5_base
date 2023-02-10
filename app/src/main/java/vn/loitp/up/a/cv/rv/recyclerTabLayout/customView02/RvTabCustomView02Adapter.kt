@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout.customView02
+package vn.loitp.up.a.cv.rv.recyclerTabLayout.customView02
 
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
@@ -13,7 +13,7 @@ import com.loitp.core.ext.getColorStateList
 import com.loitp.core.ext.getDrawable
 import com.loitp.views.rv.recyclerTabLayout.RecyclerTabLayout
 import vn.loitp.R
-import vn.loitp.a.cv.rv.recyclerTabLayout.DemoImagePagerAdapter
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.DemoImagePagerAdapter
 
 class RvTabCustomView02Adapter internal constructor(viewPager: ViewPager) :
     RecyclerTabLayout.Adapter<RvTabCustomView02Adapter.ViewHolder>(viewPager) {

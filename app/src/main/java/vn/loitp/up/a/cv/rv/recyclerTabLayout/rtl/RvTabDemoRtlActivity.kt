@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout.rtl
+package vn.loitp.up.a.cv.rv.recyclerTabLayout.rtl
 
 import android.content.Context
 import android.content.Intent
@@ -9,10 +9,10 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.tranIn
 import kotlinx.android.synthetic.main.a_recycler_tab_layout_demo_rtl.*
 import vn.loitp.R
-import vn.loitp.a.cv.rv.recyclerTabLayout.Demo
-import vn.loitp.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
-import vn.loitp.a.cv.rv.recyclerTabLayout.basic.RvTabDemoBasicActivity
-import vn.loitp.a.cv.rv.recyclerTabLayout.utils.DemoData
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.basic.RvTabDemoBasicActivity
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
 
 @LogTag("RvTabDemoRtlActivity")
 @IsFullScreen(false)

@@ -770,34 +770,34 @@
             android:name=".a.cv.iv.kenburn.KenburnViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivity"
+            android:name=".up.a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.recyclerTabLayout.autoSelect.RvTabAutoSelectActivityRvTab"
+            android:name=".up.a.cv.rv.recyclerTabLayout.autoSelect.RvTabAutoSelectActivityRvTab"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.recyclerTabLayout.basic.RvTabDemoBasicActivity"
+            android:name=".up.a.cv.rv.recyclerTabLayout.basic.RvTabDemoBasicActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.recyclerTabLayout.customView01.RvTabCustomView01Activity"
+            android:name=".up.a.cv.rv.recyclerTabLayout.customView01.RvTabCustomView01Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.recyclerTabLayout.customView02.RvTabCustomView02Activity"
+            android:name=".up.a.cv.rv.recyclerTabLayout.customView02.RvTabCustomView02Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.recyclerTabLayout.imitationLoop.RvTabImitationLoopActivity"
+            android:name=".up.a.cv.rv.recyclerTabLayout.imitationLoop.RvTabImitationLoopActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.recyclerTabLayout.rtl.RvTabDemoRtlActivity"
+            android:name=".up.a.cv.rv.recyclerTabLayout.rtl.RvTabDemoRtlActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.recyclerTabLayout.tabOnScreenLimit.RvTabOnScreenLimitActivity"
+            android:name=".up.a.cv.rv.recyclerTabLayout.tabOnScreenLimit.RvTabOnScreenLimitActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.recyclerTabLayout.tabScrollDisabled.RvTabScrollDisabledActivity"
+            android:name=".up.a.cv.rv.recyclerTabLayout.tabScrollDisabled.RvTabScrollDisabledActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.recyclerTabLayout.years.RvTabYearsActivity"
+            android:name=".up.a.cv.rv.recyclerTabLayout.years.RvTabYearsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.sec.MenuSecurityActivity"

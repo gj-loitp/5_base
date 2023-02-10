@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout.imitationLoop
+package vn.loitp.up.a.cv.rv.recyclerTabLayout.imitationLoop
 
 import android.content.Context
 import android.content.Intent
@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.tranIn
 import kotlinx.android.synthetic.main.a_recycler_tab_layout.*
 import vn.loitp.R
-import vn.loitp.a.cv.rv.recyclerTabLayout.Demo
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
 
 @LogTag("RvTabImitationLoopActivity")
 @IsFullScreen(false)

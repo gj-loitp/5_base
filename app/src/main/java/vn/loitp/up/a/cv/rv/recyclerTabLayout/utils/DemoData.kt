@@ -1,11 +1,11 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout.utils
+package vn.loitp.up.a.cv.rv.recyclerTabLayout.utils
 
 import android.content.Context
 import android.graphics.Color
 import org.json.JSONException
 import org.json.JSONObject
 import vn.loitp.R
-import vn.loitp.a.cv.rv.recyclerTabLayout.ColorItem
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.ColorItem
 import java.io.IOException
 import java.nio.charset.Charset
 

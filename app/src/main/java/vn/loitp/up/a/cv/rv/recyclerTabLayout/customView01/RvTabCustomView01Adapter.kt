@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout.customView01
+package vn.loitp.up.a.cv.rv.recyclerTabLayout.customView01
 
 import android.graphics.Typeface
 import android.text.SpannableString
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.loitp.views.rv.recyclerTabLayout.RecyclerTabLayout
 import vn.loitp.R
-import vn.loitp.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
 
 class RvTabCustomView01Adapter internal constructor(viewPager: ViewPager) :
     RecyclerTabLayout.Adapter<RvTabCustomView01Adapter.ViewHolder>(viewPager) {

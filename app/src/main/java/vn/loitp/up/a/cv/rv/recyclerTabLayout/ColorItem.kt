@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout
+package vn.loitp.up.a.cv.rv.recyclerTabLayout
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel

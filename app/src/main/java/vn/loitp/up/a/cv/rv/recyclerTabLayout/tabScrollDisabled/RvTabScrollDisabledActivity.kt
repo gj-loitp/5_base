@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout.tabScrollDisabled
+package vn.loitp.up.a.cv.rv.recyclerTabLayout.tabScrollDisabled
 
 import android.content.Context
 import android.content.Intent
@@ -10,9 +10,9 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.tranIn
 import kotlinx.android.synthetic.main.a_recycler_tab_layout_demo_tab_scroll_disabled.*
 import vn.loitp.R
-import vn.loitp.a.cv.rv.recyclerTabLayout.Demo
-import vn.loitp.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
-import vn.loitp.a.cv.rv.recyclerTabLayout.utils.DemoData
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.DemoColorPagerAdapter
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
 
 @LogTag("RvTabScrollDisabledActivity")
 @IsFullScreen(false)

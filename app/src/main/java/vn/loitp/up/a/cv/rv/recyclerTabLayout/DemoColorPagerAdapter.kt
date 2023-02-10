@@ -1,11 +1,11 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout
+package vn.loitp.up.a.cv.rv.recyclerTabLayout
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
-import kotlinx.android.synthetic.main.i_tab_layout_page.view.*
 import vn.loitp.R
 
 class DemoColorPagerAdapter : PagerAdapter() {
@@ -20,7 +20,8 @@ class DemoColorPagerAdapter : PagerAdapter() {
         val view = LayoutInflater.from(container.context)
             .inflate(R.layout.i_tab_layout_page, container, false)
 
-        view.tvTitle.text = "Page: " + mItems[position].hex
+        val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
+        tvTitle.text = "Page: " + mItems[position].hex
         container.addView(view)
 
         return view

@@ -1,31 +1,32 @@
-package vn.loitp.a.cv.rv.recyclerTabLayout.customView02
+package vn.loitp.up.a.cv.rv.recyclerTabLayout.years
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.widget.Toolbar
-import androidx.viewpager.widget.ViewPager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.tranIn
-import com.loitp.views.rv.recyclerTabLayout.RecyclerTabLayout
-import vn.loitp.R
-import vn.loitp.a.cv.rv.recyclerTabLayout.Demo
-import vn.loitp.a.cv.rv.recyclerTabLayout.DemoImagePagerAdapter
-import vn.loitp.a.cv.rv.recyclerTabLayout.utils.DemoData
+import vn.loitp.databinding.ARecyclerTabLayoutBinding
+import vn.loitp.up.a.cv.rv.recyclerTabLayout.Demo
+import java.util.*
 
-@LogTag("RvTabCustomView02Activity")
+@LogTag("RvTabYearsActivity")
 @IsFullScreen(false)
-class RvTabCustomView02Activity : BaseActivityFont() {
+class RvTabYearsActivity : BaseActivityFont() {
+    private lateinit var binding: ARecyclerTabLayoutBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_recycler_tab_layout_demo_custom_view02
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ARecyclerTabLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -38,20 +39,26 @@ class RvTabCustomView02Activity : BaseActivityFont() {
         }
         val demo = Demo.valueOf(keyDemo)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.setTitle(demo.titleResId)
-        setSupportActionBar(toolbar)
+        binding.toolbar.setTitle(demo.titleResId)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adapter = DemoImagePagerAdapter()
-        adapter.addAll(DemoData.loadImageResourceList())
+        val startYear = 1900
+        val endYear = 3000
+        val initialYear = Calendar.getInstance().get(Calendar.YEAR)
 
-        val viewPager = findViewById<ViewPager>(R.id.viewPager)
-        viewPager.adapter = adapter
+        val items = ArrayList<String>()
+        for (i in startYear..endYear) {
+            items.add(i.toString())
+        }
 
-        val recyclerTabLayout = findViewById<RecyclerTabLayout>(R.id.recycler_tab_layout)
-        recyclerTabLayout.setUpWithAdapter(RvTabCustomView02Adapter(viewPager))
-        recyclerTabLayout.setPositionThreshold(0.5f)
+        val demoYearsPagerAdapter = YearsPagerAdapter()
+        demoYearsPagerAdapter.addAll(items)
+
+        binding.viewPager.adapter = demoYearsPagerAdapter
+        binding.viewPager.currentItem = initialYear - startYear
+
+        binding.recyclerTabLayout.setUpWithViewPager(binding.viewPager)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -67,7 +74,7 @@ class RvTabCustomView02Activity : BaseActivityFont() {
         private const val KEY_DEMO = "demo"
 
         fun startActivity(context: Context, demo: Demo) {
-            val intent = Intent(context, RvTabCustomView02Activity::class.java)
+            val intent = Intent(context, RvTabYearsActivity::class.java)
             intent.putExtra(KEY_DEMO, demo.name)
             context.startActivity(intent)
             context.tranIn()
