@@ -180,7 +180,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.cv.rv.fastScrollSeekbar.RvFastScrollSeekbarActivity"
+            android:name=".up.a.cv.rv.fastScrollSeekbar.RvFastScrollSeekbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivity"
@@ -1080,7 +1080,7 @@
             android:name=".a.cv.rv.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.fastScroll.MenuFastScrollActivity"
+            android:name=".up.a.cv.rv.fastScroll.MenuFastScrollActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.func.pump.PumpActivity"

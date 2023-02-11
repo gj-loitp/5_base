@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.fastScroll
+package vn.loitp.up.a.cv.rv.fastScroll
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,21 +7,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
-import kotlinx.android.synthetic.main.f_fast_scroll_sample_styled.*
-import vn.loitp.R
-import vn.loitp.a.cv.rv.fastScroll.adt.SampleAdapter
-import vn.loitp.a.cv.rv.fastScroll.db.ListItem
-import vn.loitp.a.cv.rv.fastScroll.db.SAMPLE_DATA_TEXT
+import vn.loitp.databinding.FFastScrollSampleStyledBinding
+import vn.loitp.up.a.cv.rv.fastScroll.adt.SampleAdapter
+import vn.loitp.up.a.cv.rv.fastScroll.db.ListItem
+import vn.loitp.up.a.cv.rv.fastScroll.db.SAMPLE_DATA_TEXT
 import java.util.*
 
 class StyledFragment : Fragment() {
+    private lateinit var binding: FFastScrollSampleStyledBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.f_fast_scroll_sample_styled, container, false)
+        binding = FFastScrollSampleStyledBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,14 +34,14 @@ class StyledFragment : Fragment() {
     private fun setupViews() {
         val data = SAMPLE_DATA_TEXT
 
-        recyclerView.apply {
+        binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = SampleAdapter(data)
         }
 
-        fastScrollerView.apply {
+        binding.fastScrollerView.apply {
             setupWithRecyclerView(
-                recyclerView,
+                binding.recyclerView,
                 { position ->
                     data[position]
                         .takeIf(ListItem::showInFastScroll)
@@ -56,8 +57,8 @@ class StyledFragment : Fragment() {
             )
         }
 
-        fastScrollerThumbView.apply {
-            setupWithFastScroller(fastScrollerView = fastScrollerView)
+        binding.fastScrollerThumbView.apply {
+            setupWithFastScroller(fastScrollerView = binding.fastScrollerView)
         }
     }
 }

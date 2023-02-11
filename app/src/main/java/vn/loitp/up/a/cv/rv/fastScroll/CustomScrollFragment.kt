@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.fastScroll
+package vn.loitp.up.a.cv.rv.fastScroll
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,21 +9,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.reddit.indicatorfastscroll.FastScrollerView
-import kotlinx.android.synthetic.main.f_fast_scroll_sample_basic.*
-import vn.loitp.R
-import vn.loitp.a.cv.rv.fastScroll.adt.SampleAdapter
-import vn.loitp.a.cv.rv.fastScroll.db.ListItem
-import vn.loitp.a.cv.rv.fastScroll.db.SAMPLE_DATA_TEXT
+import vn.loitp.databinding.FFastScrollSampleBasicBinding
+import vn.loitp.up.a.cv.rv.fastScroll.adt.SampleAdapter
+import vn.loitp.up.a.cv.rv.fastScroll.db.ListItem
+import vn.loitp.up.a.cv.rv.fastScroll.db.SAMPLE_DATA_TEXT
 import java.util.*
 
 class CustomScrollFragment : Fragment() {
+    private lateinit var binding: FFastScrollSampleBasicBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.f_fast_scroll_sample_basic, container, false)
+        binding = FFastScrollSampleBasicBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(
@@ -44,14 +45,14 @@ class CustomScrollFragment : Fragment() {
         ) + SAMPLE_DATA_TEXT
 
         val linearLayoutManager = LinearLayoutManager(context)
-        recyclerView.apply {
+        binding.recyclerView.apply {
             layoutManager = linearLayoutManager
             adapter = SampleAdapter(data)
         }
 
-        fastScrollerView.apply {
+        binding.fastScrollerView.apply {
             setupWithRecyclerView(
-                recyclerView,
+                binding.recyclerView,
                 { position ->
                     data[position]
                         .takeIf(ListItem::showInFastScroll)
@@ -76,15 +77,15 @@ class CustomScrollFragment : Fragment() {
                     indicatorCenterY: Int,
                     itemPosition: Int
                 ) {
-                    recyclerView.stopScroll()
+                    binding.recyclerView.stopScroll()
                     smoothScroller.targetPosition = itemPosition
                     linearLayoutManager.startSmoothScroll(smoothScroller)
                 }
             }
         }
 
-        fastScrollerThumbView.apply {
-            setupWithFastScroller(fastScrollerView = fastScrollerView)
+        binding.fastScrollerThumbView.apply {
+            setupWithFastScroller(fastScrollerView = binding.fastScrollerView)
         }
     }
 }

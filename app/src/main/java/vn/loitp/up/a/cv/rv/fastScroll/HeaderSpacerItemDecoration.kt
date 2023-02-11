@@ -1,10 +1,10 @@
-package vn.loitp.a.cv.rv.fastScroll
+package vn.loitp.up.a.cv.rv.fastScroll
 
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.R
-import vn.loitp.a.cv.rv.fastScroll.db.ListItem
+import vn.loitp.up.a.cv.rv.fastScroll.db.ListItem
 
 class HeaderSpacerItemDecoration(
     val getListItem: (Int) -> ListItem

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.fastScroll.adt
+package vn.loitp.up.a.cv.rv.fastScroll.adt
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.core.view.updatePaddingRelative
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.R
-import vn.loitp.a.cv.rv.fastScroll.db.ListItem
+import vn.loitp.up.a.cv.rv.fastScroll.db.ListItem
 
 class SampleAdapter(
     private val listItem: List<ListItem>

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.fastScroll.db
+package vn.loitp.up.a.cv.rv.fastScroll.db
 
 import com.thedeanda.lorem.LoremIpsum
 import vn.loitp.R

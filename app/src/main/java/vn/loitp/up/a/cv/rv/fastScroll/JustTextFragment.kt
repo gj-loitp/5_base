@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.fastScroll
+package vn.loitp.up.a.cv.rv.fastScroll
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,48 +7,43 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
-import kotlinx.android.synthetic.main.f_fast_scroll_sample_basic.*
-import vn.loitp.R
-import vn.loitp.a.cv.rv.fastScroll.adt.SampleAdapter
-import vn.loitp.a.cv.rv.fastScroll.db.ListItem
-import vn.loitp.a.cv.rv.fastScroll.db.SAMPLE_DATA_TEXT
+import vn.loitp.databinding.FFastScrollSampleBasicBinding
+import vn.loitp.up.a.cv.rv.fastScroll.adt.SampleAdapter
+import vn.loitp.up.a.cv.rv.fastScroll.db.ListItem
+import vn.loitp.up.a.cv.rv.fastScroll.db.SAMPLE_DATA_TEXT
 import java.util.*
 
-class FilteredFragment : Fragment() {
+class JustTextFragment : Fragment() {
+
+    private lateinit var binding: FFastScrollSampleBasicBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.f_fast_scroll_sample_basic, container, false)
+
+        binding = FFastScrollSampleBasicBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onViewCreated(
-        view: View,
-        savedInstanceState: Bundle?
-    ) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()
     }
 
     private fun setupViews() {
-        val data = listOf(
-            ListItem.DataItem(
-                "Every other indicator will be hidden!",
-                showInFastScroll = false
-            )
-        ) + SAMPLE_DATA_TEXT
+        val data = SAMPLE_DATA_TEXT
 
-        recyclerView.apply {
+        binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = SampleAdapter(data)
         }
 
-        fastScrollerView.apply {
+        binding.fastScrollerView.apply {
             setupWithRecyclerView(
-                recyclerView,
+                binding.recyclerView,
                 { position ->
                     data[position]
                         .takeIf(ListItem::showInFastScroll)
@@ -60,16 +55,12 @@ class FilteredFragment : Fragment() {
                                     .uppercase(Locale.getDefault())
                             )
                         }
-                },
-                showIndicator = { _, indicatorPosition, _ ->
-                    // Hide every other indicator
-                    indicatorPosition % 2 == 0
                 }
             )
         }
 
-        fastScrollerThumbView.apply {
-            setupWithFastScroller(fastScrollerView = fastScrollerView)
+        binding.fastScrollerThumbView.apply {
+            setupWithFastScroller(fastScrollerView = binding.fastScrollerView)
         }
     }
 }

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.fastScrollSeekbar
+package vn.loitp.up.a.cv.rv.fastScrollSeekbar
 
 import abak.tr.com.boxedverticalseekbar.BoxedVertical
 import android.os.Bundle
@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_rv_fast_scroll_seek_bar.*
 import vn.loitp.R
+import vn.loitp.databinding.ARvFastScrollSeekBarBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 import vn.loitp.up.a.cv.rv.normalRv.MoviesAdapter
 import vn.loitp.up.common.Constants
@@ -24,19 +25,23 @@ class RvFastScrollSeekbarActivity : BaseActivityFont() {
     private var tmpPositionSeekBar = 0
     private var tmpPositionRecyclerView = 0
     private var isOnTracking = false
+    private lateinit var binding: ARvFastScrollSeekBarBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv_fast_scroll_seek_bar
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARvFastScrollSeekBarBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -61,8 +66,8 @@ class RvFastScrollSeekbarActivity : BaseActivityFont() {
             }
         )
         val layoutManager = LinearLayoutManager(this)
-        rv.layoutManager = layoutManager
-        rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.rv.layoutManager = layoutManager
+        binding.rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
 
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
@@ -71,22 +76,23 @@ class RvFastScrollSeekbarActivity : BaseActivityFont() {
                     val lastElementPosition = layoutManager.findLastVisibleItemPosition()
                     if (tmpPositionRecyclerView != lastElementPosition) {
                         logD("addOnScrollListener lastElementPosition $lastElementPosition")
-                        boxedVertical.value = movieList.size - lastElementPosition
+                        binding.boxedVertical.value = movieList.size - lastElementPosition
                         tmpPositionRecyclerView = lastElementPosition
                     }
                 }
             }
         })
         moviesAdapter?.let {
-            rv.adapter = it
+            binding.rv.adapter = it
         }
 
-        boxedVertical.setOnBoxedPointsChangeListener(object : BoxedVertical.OnValuesChangeListener {
+        binding.boxedVertical.setOnBoxedPointsChangeListener(object :
+            BoxedVertical.OnValuesChangeListener {
             override fun onPointsChanged(boxedPoints: BoxedVertical, value: Int) {
                 if (tmpPositionSeekBar != value) {
                     if (isOnTracking) {
                         logD("onPointsChanged $value")
-                        rv.scrollToPosition(movieList.size - value)
+                        binding.rv.scrollToPosition(movieList.size - value)
                         tmpPositionSeekBar = value
                     }
                 }
@@ -139,6 +145,6 @@ class RvFastScrollSeekbarActivity : BaseActivityFont() {
     }
 
     private fun bindSeekbarMax() {
-        boxedVertical.max = movieList.size
+        binding.boxedVertical.max = movieList.size
     }
 }

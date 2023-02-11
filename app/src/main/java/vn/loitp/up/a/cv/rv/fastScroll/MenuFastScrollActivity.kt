@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.fastScroll
+package vn.loitp.up.a.cv.rv.fastScroll
 
 import android.os.AsyncTask
 import android.os.Bundle
@@ -8,10 +8,11 @@ import androidx.fragment.app.Fragment
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.thedeanda.lorem.LoremIpsum
-import kotlinx.android.synthetic.main.a_menu_fast_scroll.*
 import vn.loitp.R
+import vn.loitp.databinding.AMenuFastScrollBinding
 
 @LogTag("FastScrollMenuActivity")
 @IsFullScreen(false)
@@ -28,24 +29,33 @@ class MenuFastScrollActivity : BaseActivityFont() {
         CustomScroll(title = "Custom scroll", fragmentClass = CustomScrollFragment::class.java)
     }
 
+    private lateinit var binding: AMenuFastScrollBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_menu_fast_scroll
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AMenuFastScrollBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        toolbar.setNavigationOnClickListener {
+        binding.toolbar.setNavigationOnClickListener {
             supportFragmentManager.popBackStack()
         }
 
         Samples.values().forEach { sample ->
             val button =
-                layoutInflater.inflate(R.layout.layout_fast_scroll_menu_button, rootView, false)
+                layoutInflater.inflate(
+                    R.layout.layout_fast_scroll_menu_button,
+                    binding.rootView,
+                    false
+                )
                     .apply {
                         this as Button
                         text = sample.title
@@ -63,15 +73,15 @@ class MenuFastScrollActivity : BaseActivityFont() {
                                 .commit()
                         }
                     }
-            layoutButtons.addView(button)
+            binding.layoutButtons.addView(button)
         }
 
         fun updateViews() {
             val sampleFragment = supportFragmentManager.findFragmentById(R.id.layoutContainer)
             val isShowingSample = (sampleFragment != null)
-            layoutMenuView.isGone = isShowingSample
-            toolbar.isGone = !isShowingSample
-            toolbar.title = sampleFragment?.let {
+            binding.layoutMenuView.isGone = isShowingSample
+            binding.toolbar.isGone = !isShowingSample
+            binding.toolbar.title = sampleFragment?.let {
                 Samples.values().find { it.fragmentClass == sampleFragment::class.java }?.title
             }
         }
