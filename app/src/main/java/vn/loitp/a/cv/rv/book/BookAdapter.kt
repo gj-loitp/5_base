@@ -12,7 +12,7 @@ import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setMargins
 import kotlinx.android.synthetic.main.i_book.view.*
 import vn.loitp.R
-import vn.loitp.a.cv.rv.normalRv.Movie
+import vn.loitp.up.a.cv.rv.normalRv.Movie
 
 @LogTag("BookAdapter")
 class BookAdapter(

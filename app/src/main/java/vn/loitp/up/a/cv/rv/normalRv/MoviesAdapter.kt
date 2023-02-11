@@ -1,13 +1,11 @@
-package vn.loitp.a.cv.rv.normalRv
+package vn.loitp.up.a.cv.rv.normalRv
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import kotlinx.android.synthetic.main.i_movie_list.view.*
-import vn.loitp.R
+import vn.loitp.databinding.IMovieListBinding
 
 @LogTag("MoviesAdapter")
 class MoviesAdapter(
@@ -29,15 +27,16 @@ class MoviesAdapter(
         fun onLoadMore()
     }
 
-    inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class MovieViewHolder(val binding: IMovieListBinding) :
+        RecyclerView.ViewHolder(binding.rootView) {
         fun bind(movie: Movie) {
-            itemView.title.text = movie.title
-            itemView.genre.text = movie.genre
-            itemView.year.text = movie.year
-            itemView.rootView.setOnClickListener {
+            binding.title.text = movie.title
+            binding.genre.text = movie.genre
+            binding.year.text = movie.year
+            binding.rootView.setOnClickListener {
                 callback?.onClick(movie = movie, position = bindingAdapterPosition)
             }
-            itemView.rootView.setOnLongClickListener {
+            binding.rootView.setOnLongClickListener {
                 callback?.onLongClick(movie = movie, position = bindingAdapterPosition)
                 true
             }
@@ -51,9 +50,9 @@ class MoviesAdapter(
         parent: ViewGroup,
         viewType: Int
     ): MovieViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.i_movie_list, parent, false)
-        return MovieViewHolder(itemView)
+        val binding =
+            IMovieListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MovieViewHolder(binding)
     }
 
     override fun getItemCount(): Int {

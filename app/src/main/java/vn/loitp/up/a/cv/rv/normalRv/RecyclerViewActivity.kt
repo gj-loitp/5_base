@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.normalRv
+package vn.loitp.up.a.cv.rv.normalRv
 
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
@@ -9,35 +9,40 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.showPopup
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
-import kotlinx.android.synthetic.main.a_rv.*
 import vn.loitp.R
+import vn.loitp.databinding.ARvBinding
 import vn.loitp.up.common.Constants
 
 // https://github.com/wasabeef/recyclerview-animators
 @LogTag("RecyclerViewActivity")
 @IsFullScreen(false)
 class RecyclerViewActivity : BaseActivityFont() {
+    private lateinit var binding: ARvBinding
 
     private val movieList: MutableList<Movie> = ArrayList()
     private var moviesAdapter: MoviesAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARvBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -49,8 +54,8 @@ class RecyclerViewActivity : BaseActivityFont() {
 
         val animator = SlideInRightAnimator(OvershootInterpolator(1f))
         animator.addDuration = 300
-        rv.itemAnimator = animator
-        btAdd3.setOnClickListener {
+        binding.rv.itemAnimator = animator
+        binding.btAdd3.setOnClickListener {
             val movie = Movie()
             movie.title = "Add TITLE 3"
             movie.year = "Add YEAR 3"
@@ -58,7 +63,7 @@ class RecyclerViewActivity : BaseActivityFont() {
             movieList.add(index = 3, element = movie)
             moviesAdapter?.notifyItemInserted(3)
         }
-        btRemove1.setOnClickListener {
+        binding.btRemove1.setOnClickListener {
             movieList.removeAt(index = 1)
             moviesAdapter?.notifyItemRemoved(1)
         }
@@ -83,27 +88,27 @@ class RecyclerViewActivity : BaseActivityFont() {
             }
         )
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-        rv.layoutManager = mLayoutManager
+        binding.rv.layoutManager = mLayoutManager
 
         moviesAdapter?.let {
             val scaleAdapter = ScaleInAnimationAdapter(it)
             scaleAdapter.setDuration(1000)
             scaleAdapter.setInterpolator(OvershootInterpolator())
             scaleAdapter.setFirstOnly(true)
-            rv.adapter = scaleAdapter
+            binding.rv.adapter = scaleAdapter
         }
         prepareMovieData()
-        btSetting.setOnClickListener {
+        binding.btSetting.setOnClickListener {
             this.showPopup(
                 showOnView = it,
                 menuRes = R.menu.menu_recycler_view,
                 callback = { menuItem ->
-                    tvType.text = menuItem.title.toString()
+                    binding.tvType.text = menuItem.title.toString()
                     when (menuItem.itemId) {
                         R.id.menuLinearVertical -> {
                             val lmVertical: RecyclerView.LayoutManager =
                                 LinearLayoutManager(this@RecyclerViewActivity)
-                            rv.layoutManager = lmVertical
+                            binding.rv.layoutManager = lmVertical
                         }
                         R.id.menuLinearHorizontal -> {
                             val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(
@@ -111,19 +116,19 @@ class RecyclerViewActivity : BaseActivityFont() {
                                 LinearLayoutManager.HORIZONTAL,
                                 false
                             )
-                            rv.layoutManager = lmHorizontal
+                            binding.rv.layoutManager = lmHorizontal
                         }
                         R.id.menuGridLayoutManager2 ->
-                            rv.layoutManager =
+                            binding.rv.layoutManager =
                                 GridLayoutManager(this@RecyclerViewActivity, 2)
                         R.id.menuGridLayoutManager3 ->
-                            rv.layoutManager =
+                            binding.rv.layoutManager =
                                 GridLayoutManager(this@RecyclerViewActivity, 3)
                         R.id.menuStaggeredGridLayoutManager2 ->
-                            rv.layoutManager =
+                            binding.rv.layoutManager =
                                 StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                         R.id.menuStaggeredGridLayoutManager4 ->
-                            rv.layoutManager =
+                            binding.rv.layoutManager =
                                 StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
                     }
                 }

@@ -10,7 +10,7 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.a_rv_book_view.*
 import vn.loitp.R
-import vn.loitp.a.cv.rv.normalRv.Movie
+import vn.loitp.up.a.cv.rv.normalRv.Movie
 import vn.loitp.up.common.Constants
 
 @LogTag("BookViewActivity")

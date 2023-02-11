@@ -1,16 +1,14 @@
-package vn.loitp.a.cv.rv.netView
+package vn.loitp.up.a.cv.rv.netView
 
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.setTextShadow
-import kotlinx.android.synthetic.main.i_net.view.*
-import vn.loitp.R
+import vn.loitp.databinding.INetBinding
 
 @LogTag("NetAdapter")
 class NetAdapter : BaseAdapter() {
@@ -30,24 +28,24 @@ class NetAdapter : BaseAdapter() {
 
     var onClickRootView: ((Net) -> Unit)? = null
 
-    inner class NetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class NetViewHolder(val binding: INetBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(net: Net) {
-            itemView.textView.text = net.name
-            itemView.textView.setTextShadow(color = Color.BLACK)
+            binding.textView.text = net.name
+            binding.textView.setTextShadow(color = Color.BLACK)
 
             // setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
 
-            itemView.layoutRootView.setOnClickListener {
+            binding.layoutRootView.setOnClickListener {
                 onClickRootView?.invoke(net)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NetViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.i_net, parent, false)
-        return NetViewHolder(itemView)
+        val binding =
+            INetBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return NetViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

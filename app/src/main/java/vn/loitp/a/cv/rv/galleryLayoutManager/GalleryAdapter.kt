@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.ext.loadGlide
 import kotlinx.android.synthetic.main.i_gallery.view.*
 import vn.loitp.R
-import vn.loitp.a.cv.rv.normalRv.Movie
+import vn.loitp.up.a.cv.rv.normalRv.Movie
 
 class GalleryAdapter internal constructor(
     private val context: Context,

@@ -28,9 +28,9 @@ import vn.loitp.a.cv.rv.footer2.RecyclerViewFooter2Activity
 import vn.loitp.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity
 import vn.loitp.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont
 import vn.loitp.a.cv.rv.looping.LoopingLayoutActivity
-import vn.loitp.a.cv.rv.netView.NetViewActivity
-import vn.loitp.a.cv.rv.normalRv.RecyclerViewActivity
 import vn.loitp.databinding.ARvMenuBinding
+import vn.loitp.up.a.cv.rv.netView.NetViewActivity
+import vn.loitp.up.a.cv.rv.normalRv.RecyclerViewActivity
 import vn.loitp.up.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity
 import vn.loitp.up.a.cv.rv.normalWithSpanSize.RecyclerViewWithSpanSizeActivity
 import vn.loitp.up.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivity

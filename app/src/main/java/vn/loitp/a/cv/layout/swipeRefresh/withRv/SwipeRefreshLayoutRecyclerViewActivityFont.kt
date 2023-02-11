@@ -14,8 +14,8 @@ import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_layout_swipe_refresh_rv.*
 import vn.loitp.R
-import vn.loitp.a.cv.rv.normalRv.Movie
-import vn.loitp.a.cv.rv.normalRv.MoviesAdapter
+import vn.loitp.up.a.cv.rv.normalRv.Movie
+import vn.loitp.up.a.cv.rv.normalRv.MoviesAdapter
 import vn.loitp.up.common.Constants.Companion.URL_IMG
 
 @LogTag("SwipeRefreshLayoutRecyclerViewActivity")

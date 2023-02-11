@@ -229,7 +229,7 @@
             android:name=".a.cv.layout.swipeRefresh.withRv.SwipeRefreshLayoutRecyclerViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.normalRv.RecyclerViewActivity"
+            android:name=".up.a.cv.rv.normalRv.RecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.tv.textDecorator.TextDecoratorActivity"
@@ -1011,7 +1011,7 @@
             android:name=".a.cv.layout.transformation.single.TransformationSingleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.netView.NetViewActivity"
+            android:name=".up.a.cv.rv.netView.NetViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.rv.fitGv.FitGridViewActivity"

@@ -10,7 +10,7 @@ import com.loitp.core.adapter.BaseAdapter
 import kotlinx.android.synthetic.main.i_about_me.view.*
 import kotlinx.android.synthetic.main.i_movie_list.view.*
 import vn.loitp.R
-import vn.loitp.a.cv.rv.normalRv.Movie
+import vn.loitp.up.a.cv.rv.normalRv.Movie
 
 @LogTag("Footer2Adapter")
 class Footer2Adapter(

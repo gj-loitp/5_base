@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.normalRv
+package vn.loitp.up.a.cv.rv.normalRv
 
 import androidx.annotation.Keep
 import com.loitp.core.base.BaseModel
