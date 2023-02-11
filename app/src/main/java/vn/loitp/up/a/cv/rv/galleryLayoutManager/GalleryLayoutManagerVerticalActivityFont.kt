@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.galleryLayoutManager
+package vn.loitp.up.a.cv.rv.galleryLayoutManager
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,12 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.rv.gallery.GalleryLayoutManager
 import com.loitp.views.rv.gallery.GalleryLayoutManager.ItemTransformer
-import kotlinx.android.synthetic.main.a_rv_menu_gallery_layout_manager.*
 import vn.loitp.R
+import vn.loitp.databinding.ARvMenuGalleryLayoutManagerBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 import vn.loitp.up.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
 import vn.loitp.up.common.Constants
@@ -25,20 +26,24 @@ import kotlin.math.abs
 @IsFullScreen(false)
 class GalleryLayoutManagerVerticalActivityFont : BaseActivityFont() {
     private var galleryAdapterVertical: GalleryAdapterVertical? = null
+    private lateinit var binding: ARvMenuGalleryLayoutManagerBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv_menu_gallery_layout_manager
+        return NOT_FOUND
     }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARvMenuGalleryLayoutManagerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -75,21 +80,21 @@ class GalleryLayoutManagerVerticalActivityFont : BaseActivityFont() {
                 }
             )
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-        rv.layoutManager = mLayoutManager
-        rv.itemAnimator = DefaultItemAnimator()
+        binding.rv.layoutManager = mLayoutManager
+        binding.rv.itemAnimator = DefaultItemAnimator()
         // recyclerView.setAdapter(mAdapter);
         val layoutManager = GalleryLayoutManager(GalleryLayoutManager.VERTICAL)
         // layoutManager.attach(recyclerView);  //default selected position is 0
-        layoutManager.attach(rv, 5)
+        layoutManager.attach(binding.rv, 5)
 
         // ...
         // setup adapter for your RecycleView
-        rv.adapter = galleryAdapterVertical
+        binding.rv.adapter = galleryAdapterVertical
         layoutManager.setCallbackInFling(true) // should receive callback when flinging, default is false
 
         layoutManager.setOnItemSelectedListener { _: RecyclerView?, _: View?, position: Int ->
             @SuppressLint("SetTextI18n")
-            textView.text = position.toString() + "/" + galleryAdapterVertical?.itemCount
+            binding.textView.text = position.toString() + "/" + galleryAdapterVertical?.itemCount
         }
 
         // Apply ItemTransformer just like ViewPager

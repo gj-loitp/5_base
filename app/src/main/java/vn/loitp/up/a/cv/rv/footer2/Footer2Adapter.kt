@@ -1,15 +1,13 @@
-package vn.loitp.a.cv.rv.footer2
+package vn.loitp.up.a.cv.rv.footer2
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
-import kotlinx.android.synthetic.main.i_about_me.view.*
-import kotlinx.android.synthetic.main.i_movie_list.view.*
-import vn.loitp.R
+import vn.loitp.databinding.IAboutMeBinding
+import vn.loitp.databinding.IMovieListBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 
 @LogTag("Footer2Adapter")
@@ -30,27 +28,29 @@ class Footer2Adapter(
         fun onLoadMore()
     }
 
-    inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class MovieViewHolder(val binding: IMovieListBinding) :
+        RecyclerView.ViewHolder(binding.rootView) {
         fun bind(movie: Movie) {
-            itemView.title.text = movie.title
-            itemView.genre.text = movie.genre
-            itemView.year.text = movie.year
-            itemView.rootView.setOnClickListener {
+            binding.title.text = movie.title
+            binding.genre.text = movie.genre
+            binding.year.text = movie.year
+            binding.rootView.setOnClickListener {
                 callback?.onClick(movie = movie, position = bindingAdapterPosition)
             }
-            itemView.rootView.setOnLongClickListener {
+            binding.rootView.setOnLongClickListener {
                 callback?.onLongClick(movie = movie, position = bindingAdapterPosition)
                 true
             }
         }
     }
 
-    inner class BannerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class BannerViewHolder(val binding: IAboutMeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(movie: Movie) {
 //            logD("bind BannerViewHolder: $bindingAdapterPosition")
-            itemView.textViewUser.text = "BANNER-" + movie.title
-            itemView.textViewAboutMe.text = movie.cover
+            binding.textViewUser.text = "BANNER-" + movie.title
+            binding.textViewAboutMe.text = movie.cover
             if (bindingAdapterPosition == moviesList.size - 1) {
                 callback?.onLoadMore()
             }
@@ -62,13 +62,13 @@ class Footer2Adapter(
         viewType: Int
     ): RecyclerView.ViewHolder {
         return if (viewType == TYPE_BANNER) {
-            val itemView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.i_about_me, parent, false)
-            BannerViewHolder(itemView)
+            val binding =
+                IAboutMeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            BannerViewHolder(binding)
         } else {
-            val itemView =
-                LayoutInflater.from(parent.context).inflate(R.layout.i_movie_list, parent, false)
-            MovieViewHolder(itemView)
+            val binding =
+                IMovieListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            return MovieViewHolder(binding)
         }
     }
 

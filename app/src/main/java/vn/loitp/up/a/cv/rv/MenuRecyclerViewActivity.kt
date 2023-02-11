@@ -24,11 +24,11 @@ import vn.loitp.a.cv.rv.fastScroll.MenuFastScrollActivity
 import vn.loitp.a.cv.rv.fastScrollSeekbar.RvFastScrollSeekbarActivity
 import vn.loitp.a.cv.rv.fitGv.FitGridViewActivity
 import vn.loitp.a.cv.rv.footer.RecyclerViewFooterActivity
-import vn.loitp.a.cv.rv.footer2.RecyclerViewFooter2Activity
-import vn.loitp.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity
-import vn.loitp.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont
-import vn.loitp.a.cv.rv.looping.LoopingLayoutActivity
 import vn.loitp.databinding.ARvMenuBinding
+import vn.loitp.up.a.cv.rv.footer2.RecyclerViewFooter2Activity
+import vn.loitp.up.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity
+import vn.loitp.up.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont
+import vn.loitp.up.a.cv.rv.looping.LoopingLayoutActivity
 import vn.loitp.up.a.cv.rv.netView.NetViewActivity
 import vn.loitp.up.a.cv.rv.normalRv.RecyclerViewActivity
 import vn.loitp.up.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity

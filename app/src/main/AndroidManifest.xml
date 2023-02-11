@@ -319,7 +319,7 @@
             android:name=".a.cv.rv.footer.RecyclerViewFooterActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.footer2.RecyclerViewFooter2Activity"
+            android:name=".up.a.cv.rv.footer2.RecyclerViewFooter2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.navi.MenuNavigationActivity"
@@ -419,10 +419,10 @@
             android:name=".up.a.func.recolor.RecolorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity"
+            android:name=".up.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont"
+            android:name=".up.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.scrollablePanel.ScrollablePanelActivity"
@@ -830,7 +830,7 @@
             android:name=".up.a.sv.endless.EndlessServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.looping.LoopingLayoutActivity"
+            android:name=".up.a.cv.rv.looping.LoopingLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.picker.image.ImagePickerActivity"

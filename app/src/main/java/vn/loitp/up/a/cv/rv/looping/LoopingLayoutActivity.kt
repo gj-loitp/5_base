@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.looping
+package vn.loitp.up.a.cv.rv.looping
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,10 +8,11 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_looping_layout.*
 import vn.loitp.R
+import vn.loitp.databinding.ALoopingLayoutBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 import vn.loitp.up.a.cv.rv.normalRv.MoviesAdapter
 import vn.loitp.up.common.Constants
@@ -20,16 +21,19 @@ import vn.loitp.up.common.Constants
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class LoopingLayoutActivity : BaseActivityFont() {
-
+    private lateinit var binding: ALoopingLayoutBinding
     private val movieList: MutableList<Movie> = ArrayList()
     private var moviesAdapter: MoviesAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_looping_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ALoopingLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         prepareMovieData()
@@ -37,7 +41,7 @@ class LoopingLayoutActivity : BaseActivityFont() {
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -78,7 +82,7 @@ class LoopingLayoutActivity : BaseActivityFont() {
                     }
                 }
             )
-        rvHorizontal.apply {
+        binding.rvHorizontal.apply {
             this.layoutManager = LoopingLayoutManager(
                 context = this@LoopingLayoutActivity,
                 orientation = LoopingLayoutManager.HORIZONTAL,
@@ -87,7 +91,7 @@ class LoopingLayoutActivity : BaseActivityFont() {
             this.adapter = moviesAdapter
             this.setHasFixedSize(true)
         }
-        rvVertical.apply {
+        binding.rvVertical.apply {
             this.layoutManager = LoopingLayoutManager(
                 context = this@LoopingLayoutActivity,
                 orientation = LoopingLayoutManager.VERTICAL,

@@ -1,13 +1,11 @@
-package vn.loitp.a.cv.rv.galleryLayoutManager
+package vn.loitp.up.a.cv.rv.galleryLayoutManager
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.ext.loadGlide
-import kotlinx.android.synthetic.main.i_gallery.view.*
-import vn.loitp.R
+import vn.loitp.databinding.IGalleryBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 
 class GalleryAdapter internal constructor(
@@ -22,13 +20,14 @@ class GalleryAdapter internal constructor(
         fun onLoadMore()
     }
 
-    inner class MovieViewHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
+    inner class MovieViewHolder internal constructor(val binding: IGalleryBinding) :
+        RecyclerView.ViewHolder(binding.rootView) {
         fun bind(movie: Movie) {
-            itemView.imageView.loadGlide(any = movie.cover)
-            itemView.rootView.setOnClickListener {
+            binding.imageView.loadGlide(any = movie.cover)
+            binding.rootView.setOnClickListener {
                 callback?.onClick(movie = movie, position = bindingAdapterPosition)
             }
-            itemView.rootView.setOnLongClickListener {
+            binding.rootView.setOnLongClickListener {
                 callback?.onLongClick(movie = movie, position = bindingAdapterPosition)
                 true
             }
@@ -39,9 +38,9 @@ class GalleryAdapter internal constructor(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.i_gallery, parent, false)
-        return MovieViewHolder(itemView)
+        val binding =
+            IGalleryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MovieViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
