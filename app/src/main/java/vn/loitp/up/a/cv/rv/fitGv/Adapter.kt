@@ -1,10 +1,10 @@
-package vn.loitp.a.cv.rv.fitGv
+package vn.loitp.up.a.cv.rv.fitGv
 
 import android.content.Context
 import android.view.View
+import androidx.appcompat.widget.AppCompatImageView
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.views.rv.fitGridView.FitGridAdapter
-import kotlinx.android.synthetic.main.view_item_grid.view.*
 import vn.loitp.R
 
 internal class Adapter(
@@ -31,9 +31,9 @@ internal class Adapter(
     )
 
     override fun onBindView(position: Int, view: View) {
-        view.ivGridItem?.setImageResource(drawables[position])
-
-        view.ivGridItem?.setSafeOnClickListener {
+        val ivGridItem = view.findViewById<AppCompatImageView>(R.id.ivGridItem)
+        ivGridItem.setImageResource(drawables[position])
+        ivGridItem.setSafeOnClickListener {
             onClick?.invoke(position)
         }
     }

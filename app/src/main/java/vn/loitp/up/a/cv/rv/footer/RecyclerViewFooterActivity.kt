@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.footer
+package vn.loitp.up.a.cv.rv.footer
 
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
-import kotlinx.android.synthetic.main.a_rv_footer.*
 import vn.loitp.R
+import vn.loitp.databinding.ARvFooterBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 import vn.loitp.up.a.cv.rv.normalRv.MoviesAdapter
 import vn.loitp.up.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
@@ -21,21 +22,25 @@ import vn.loitp.up.common.Constants
 @LogTag("RecyclerViewFooterActivity")
 @IsFullScreen(false)
 class RecyclerViewFooterActivity : BaseActivityFont() {
+    private lateinit var binding: ARvFooterBinding
 
     private var moviesAdapter: MoviesAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv_footer
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARvFooterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
@@ -63,7 +68,7 @@ class RecyclerViewFooterActivity : BaseActivityFont() {
                 }
             })
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-        rv.layoutManager = mLayoutManager
+        binding.rv.layoutManager = mLayoutManager
 //        rv.adapter = moviesAdapter
 
         moviesAdapter?.let {
@@ -76,22 +81,22 @@ class RecyclerViewFooterActivity : BaseActivityFont() {
             animAdapter.setDuration(1000)
             animAdapter.setInterpolator(OvershootInterpolator())
             animAdapter.setFirstOnly(true)
-            rv.adapter = animAdapter
+            binding.rv.adapter = animAdapter
         }
 
         prepareMovieData()
 
-        btSetting.setSafeOnClickListener {
+        binding.btSetting.setSafeOnClickListener {
             this.showPopup(
                 showOnView = it,
                 menuRes = R.menu.menu_recycler_view,
                 callback = { menuItem ->
-                    tvType.text = menuItem.title.toString()
+                    binding.tvType.text = menuItem.title.toString()
                     when (menuItem.itemId) {
                         R.id.menuLinearVertical -> {
                             val lmVertical: RecyclerView.LayoutManager =
                                 LinearLayoutManager(this@RecyclerViewFooterActivity)
-                            rv.layoutManager = lmVertical
+                            binding.rv.layoutManager = lmVertical
                         }
                         R.id.menuLinearHorizontal -> {
                             val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(
@@ -99,27 +104,27 @@ class RecyclerViewFooterActivity : BaseActivityFont() {
                                 LinearLayoutManager.HORIZONTAL,
                                 false
                             )
-                            rv.layoutManager = lmHorizontal
+                            binding.rv.layoutManager = lmHorizontal
                         }
-                        R.id.menuGridLayoutManager2 -> rv.layoutManager =
+                        R.id.menuGridLayoutManager2 -> binding.rv.layoutManager =
                             GridLayoutManager(this@RecyclerViewFooterActivity, 2)
-                        R.id.menuGridLayoutManager3 -> rv.layoutManager =
+                        R.id.menuGridLayoutManager3 -> binding.rv.layoutManager =
                             GridLayoutManager(this@RecyclerViewFooterActivity, 3)
-                        R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager =
+                        R.id.menuStaggeredGridLayoutManager2 -> binding.rv.layoutManager =
                             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-                        R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager =
+                        R.id.menuStaggeredGridLayoutManager4 -> binding.rv.layoutManager =
                             StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
                     }
                 })
         }
 
-        btAddMore.setSafeOnClickListener {
+        binding.btAddMore.setSafeOnClickListener {
             loadMore()
         }
     }
 
     private fun loadMore() {
-        progressBar.showProgress()
+        binding.progressBar.showProgress()
         setDelay(mls = 2000, runnable = {
             val newSize = 5
             for (i in 0 until newSize) {
@@ -131,7 +136,7 @@ class RecyclerViewFooterActivity : BaseActivityFont() {
                 )
                 instance.movieList.add(movie)
             }
-            progressBar.hideProgress()
+            binding.progressBar.hideProgress()
             moviesAdapter?.notifyAllViews()
             showShortInformation("Finish loadMore")
         })
@@ -150,6 +155,6 @@ class RecyclerViewFooterActivity : BaseActivityFont() {
             }
         }
         moviesAdapter?.notifyAllViews()
-        progressBar.hideProgress()
+        binding.progressBar.hideProgress()
     }
 }

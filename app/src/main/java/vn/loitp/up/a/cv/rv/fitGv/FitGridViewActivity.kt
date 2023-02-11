@@ -1,32 +1,37 @@
-package vn.loitp.a.cv.rv.fitGv
+package vn.loitp.up.a.cv.rv.fitGv
 
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.rv.fitGridView.FitGridView
-import kotlinx.android.synthetic.main.a_fit_grid_view.*
 import vn.loitp.R
+import vn.loitp.databinding.AFitGridViewBinding
 
 @LogTag("FitGridViewActivity")
 @IsFullScreen(false)
 class FitGridViewActivity : BaseActivityFont() {
+    private lateinit var binding: AFitGridViewBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_fit_grid_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AFitGridViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -35,15 +40,15 @@ class FitGridViewActivity : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = FitGridViewActivity::class.java.simpleName
         }
-        gridView.setFitGridAdapter(
+        binding.gridView.setFitGridAdapter(
             Adapter(this) { pos ->
                 showShortInformation("Click $pos")
             }
         )
-        btShowInDialog.setSafeOnClickListener {
+        binding.btShowInDialog.setSafeOnClickListener {
             showAlert()
         }
-        btChangeSize.setSafeOnClickListener {
+        binding.btChangeSize.setSafeOnClickListener {
             changeSize()
         }
     }
@@ -84,8 +89,8 @@ class FitGridViewActivity : BaseActivityFont() {
         row: Int,
         column: Int
     ) {
-        gridView.numRows = row
-        gridView.numColumns = column
-        gridView.update()
+        binding.gridView.numRows = row
+        binding.gridView.numColumns = column
+        binding.gridView.update()
     }
 }

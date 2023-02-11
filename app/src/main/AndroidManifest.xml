@@ -316,7 +316,7 @@
             android:name=".up.a.cv.rv.normalRvWithSingletonData.RecyclerViewWithSingletonDataActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.footer.RecyclerViewFooterActivity"
+            android:name=".up.a.cv.rv.footer.RecyclerViewFooterActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.rv.footer2.RecyclerViewFooter2Activity"
@@ -1014,7 +1014,7 @@
             android:name=".up.a.cv.rv.netView.NetViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.fitGv.FitGridViewActivity"
+            android:name=".up.a.cv.rv.fitGv.FitGridViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.elasticViews.ElasticActivity"
