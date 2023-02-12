@@ -10,8 +10,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivityFont
-import vn.loitp.a.cv.rv.arcView.ArcViewActivity
 import vn.loitp.databinding.ARvMenuBinding
+import vn.loitp.up.a.cv.rv.arcView.ArcViewActivity
 import vn.loitp.up.a.cv.rv.book.BookViewActivity
 import vn.loitp.up.a.cv.rv.carouselRv.CarouselRecyclerViewActivity
 import vn.loitp.up.a.cv.rv.concatAdapter.ConcatAdapterActivity

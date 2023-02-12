@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.arcView
+package vn.loitp.up.a.cv.rv.arcView
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,11 +9,12 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_rv_arc_view.*
 import kotlinx.android.synthetic.main.layout_include_arc_button.*
 import vn.loitp.R
+import vn.loitp.databinding.ARvArcViewBinding
 
 @LogTag("ArcViewActivity")
 @IsFullScreen(false)
@@ -21,20 +22,24 @@ import vn.loitp.R
 class ArcViewActivity : BaseActivityFont(), View.OnClickListener {
     private lateinit var strokeArc: ArcLinearLayout
     private lateinit var shadowArc: ArcLinearLayout
+    private lateinit var binding: ARvArcViewBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv_arc_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ARvArcViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -54,39 +59,39 @@ class ArcViewActivity : BaseActivityFont(), View.OnClickListener {
             this.tvTitle?.text = ArcViewActivity::class.java.simpleName
         }
 
-        btKickMe.setOnClickListener(this)
-        btKickSwapped.setOnClickListener(this)
-        includeButtonsStroke.setOnClickListener(this)
+        binding.btKickMe.setOnClickListener(this)
+        binding.btKickSwapped.setOnClickListener(this)
+        binding.layoutIncludeArcButton.includeButtonsStroke.setOnClickListener(this)
         includeButtonsShadow.setOnClickListener(this)
         strokeArc = layoutInflater.inflate(
             R.layout.stroke_arc_linear_layout,
-            includeArcButtonsTempArc,
+            binding.layoutIncludeArcButton.includeArcButtonsTempArc,
             false
         ) as ArcLinearLayout
         shadowArc = layoutInflater.inflate(
             R.layout.shadow_arc_linear_layout,
-            includeArcButtonsTempArc,
+            binding.layoutIncludeArcButton.includeArcButtonsTempArc,
             false
         ) as ArcLinearLayout
     }
 
     override fun onClick(v: View?) {
         when (v) {
-            btKickMe -> {
-                if (includeButtonsScrollView.isKnockedIn) {
-                    includeButtonsScrollView.knockout()
+            binding.btKickMe -> {
+                if (binding.layoutIncludeArcButton.includeButtonsScrollView.isKnockedIn) {
+                    binding.layoutIncludeArcButton.includeButtonsScrollView.knockout()
                 } else {
-                    includeButtonsScrollView.knockIn()
+                    binding.layoutIncludeArcButton.includeButtonsScrollView.knockIn()
                 }
             }
-            btKickSwapped -> {
-                includeArcButtonsTempArc.swapView(null)
+            binding.btKickSwapped -> {
+                binding.layoutIncludeArcButton.includeArcButtonsTempArc.swapView(null)
             }
-            includeButtonsShadow -> {
-                includeArcButtonsTempArc.swapView(shadowArc)
+            binding.layoutIncludeArcButton.includeButtonsShadow -> {
+                binding.layoutIncludeArcButton.includeArcButtonsTempArc.swapView(shadowArc)
             }
-            includeButtonsStroke -> {
-                includeArcButtonsTempArc.swapView(strokeArc)
+            binding.layoutIncludeArcButton.includeButtonsStroke -> {
+                binding.layoutIncludeArcButton.includeArcButtonsTempArc.swapView(strokeArc)
             }
         }
     }

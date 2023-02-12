@@ -39,6 +39,7 @@
             android:layout_weight="1" />
 
         <include
+            android:id="@+id/layoutIncludeArcButton"
             layout="@layout/layout_include_arc_button"
             tools:ignore="IncludeLayoutParam" />
     </androidx.appcompat.widget.LinearLayoutCompat>
