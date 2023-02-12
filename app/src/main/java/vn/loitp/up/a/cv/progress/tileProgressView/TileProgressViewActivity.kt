@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.progress.tileProgressView
+package vn.loitp.up.a.cv.progress.tileProgressView
 
 import android.graphics.Color
 import android.os.Bundle
@@ -7,28 +7,33 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_tile_progress_view.*
 import vn.loitp.R
+import vn.loitp.databinding.ATileProgressViewBinding
 
 @LogTag("TileProgressViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class TileProgressViewActivityFont : BaseActivityFont() {
+class TileProgressViewActivity : BaseActivityFont() {
+    private lateinit var binding: ATileProgressViewBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_tile_progress_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ATileProgressViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -45,11 +50,11 @@ class TileProgressViewActivityFont : BaseActivityFont() {
                 isVisible = true
                 setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = TileProgressViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = TileProgressViewActivity::class.java.simpleName
         }
 
-        tileProgressView.setProgress(69f)
-        tileProgressView.setColor(Color.RED)
+        binding.tileProgressView.setProgress(69f)
+        binding.tileProgressView.setColor(Color.RED)
 //        tileProgressView.setBackgroundColor(Color.GREEN)
 //        tileProgressView.setLoadingColor(Color.YELLOW)
     }

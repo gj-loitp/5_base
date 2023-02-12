@@ -68,7 +68,7 @@
             android:name=".up.a.anim.animationView.AnimationViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.progress.MenuProgressActivity"
+            android:name=".up.a.cv.progress.MenuProgressActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.overScroll.OverScrollActivity"
@@ -761,7 +761,7 @@
             android:name=".a.cv.dlg.custom.CustomDialogActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.progress.window.WindowProgressActivityFont"
+            android:name=".up.a.cv.progress.window.WindowProgressActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity"
@@ -1428,7 +1428,7 @@
             android:name=".up.a.func.processPhoenix.ProcessPhoenixActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.progress.tileProgressView.TileProgressViewActivityFont"
+            android:name=".up.a.cv.progress.tileProgressView.TileProgressViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.snowfall.SnowfallActivity"
