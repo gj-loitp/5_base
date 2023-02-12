@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.dragAndDropDemo.callback
+package vn.loitp.up.a.cv.rv.dragAndDropDemo.callback
 
 import androidx.recyclerview.widget.DiffUtil
 

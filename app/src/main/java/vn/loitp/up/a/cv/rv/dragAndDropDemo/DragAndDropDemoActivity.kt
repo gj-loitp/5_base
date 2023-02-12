@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.dragAndDropDemo
+package vn.loitp.up.a.cv.rv.dragAndDropDemo
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,13 +8,14 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_rv_drag_and_drop_demo.*
 import vn.loitp.R
-import vn.loitp.a.cv.rv.dragAndDropDemo.adt.SentenceAdapter
-import vn.loitp.a.cv.rv.dragAndDropDemo.adt.WordsAdapter
-import vn.loitp.a.cv.rv.dragAndDropDemo.callback.DropListener
+import vn.loitp.databinding.ARvDragAndDropDemoBinding
+import vn.loitp.up.a.cv.rv.dragAndDropDemo.adt.SentenceAdapter
+import vn.loitp.up.a.cv.rv.dragAndDropDemo.adt.WordsAdapter
+import vn.loitp.up.a.cv.rv.dragAndDropDemo.callback.DropListener
 
 @LogTag("DragAndDropDemoActivity")
 @IsFullScreen(false)
@@ -26,20 +27,24 @@ class DragAndDropDemoActivity : BaseActivityFont() {
 
     // last selected word
     private var selectedWord = ""
+    private lateinit var binding: ARvDragAndDropDemoBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv_drag_and_drop_demo
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ARvDragAndDropDemoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -72,7 +77,7 @@ class DragAndDropDemoActivity : BaseActivityFont() {
 //                /* orientation = */ LinearLayoutManager.HORIZONTAL,
 //                /* reverseLayout = */ false
 //            )
-        rvSentence.layoutManager = FlexboxLayoutManager(
+        binding.rvSentence.layoutManager = FlexboxLayoutManager(
             /* context = */ this,
             /* flexDirection = */ FlexDirection.ROW,
             /* flexWrap = */ FlexWrap.NOWRAP
@@ -80,16 +85,16 @@ class DragAndDropDemoActivity : BaseActivityFont() {
             justifyContent = JustifyContent.FLEX_START
             alignItems = AlignItems.FLEX_START
         }
-        rvSentence.adapter = sentenceAdapter
+        binding.rvSentence.adapter = sentenceAdapter
 
-        rvSentence.setOnDragListener(
+        binding.rvSentence.setOnDragListener(
             DropListener {
                 wordsAdapter.removeItem(selectedWord)
                 sentenceAdapter.addItem(selectedWord)
             }
         )
 
-        rvWords.layoutManager = FlexboxLayoutManager(
+        binding.rvWords.layoutManager = FlexboxLayoutManager(
             /* context = */ this,
             /* flexDirection = */ FlexDirection.ROW,
             /* flexWrap = */ FlexWrap.WRAP
@@ -98,6 +103,6 @@ class DragAndDropDemoActivity : BaseActivityFont() {
             alignItems = AlignItems.CENTER
         }
 
-        rvWords.adapter = wordsAdapter
+        binding.rvWords.adapter = wordsAdapter
     }
 }

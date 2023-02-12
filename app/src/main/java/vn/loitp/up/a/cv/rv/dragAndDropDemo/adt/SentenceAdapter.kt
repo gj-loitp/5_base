@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.dragAndDropDemo.adt
+package vn.loitp.up.a.cv.rv.dragAndDropDemo.adt
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.R
-import vn.loitp.a.cv.rv.dragAndDropDemo.callback.WordsDiffCallback
+import vn.loitp.up.a.cv.rv.dragAndDropDemo.callback.WordsDiffCallback
 
 /**
  * A @androidx.recyclerview.widget.RecyclerView adapter to show dropped items

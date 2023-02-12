@@ -1341,7 +1341,7 @@
             android:name=".up.a.cv.tv.readMoreOption.ReadMoreOptionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity"
+            android:name=".up.a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.fit.FitButtonActivityFont"
