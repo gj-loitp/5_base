@@ -1,9 +1,9 @@
-package vn.loitp.a.cv.rv.concatAdapter.data
+package vn.loitp.up.a.cv.rv.concatAdapter.data
 
 import com.loitp.core.common.URL_IMG_ANDROID
 import vn.loitp.R
-import vn.loitp.a.cv.rv.concatAdapter.data.model.Banner
-import vn.loitp.a.cv.rv.concatAdapter.data.model.User
+import vn.loitp.up.a.cv.rv.concatAdapter.data.model.Banner
+import vn.loitp.up.a.cv.rv.concatAdapter.data.model.User
 
 object DataSource {
 

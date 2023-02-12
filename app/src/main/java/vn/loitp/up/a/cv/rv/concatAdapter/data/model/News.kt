@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.concatAdapter.data.model
+package vn.loitp.up.a.cv.rv.concatAdapter.data.model
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName

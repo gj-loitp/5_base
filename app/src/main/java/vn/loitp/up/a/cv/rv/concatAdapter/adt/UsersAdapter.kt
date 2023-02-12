@@ -1,16 +1,14 @@
-package vn.loitp.a.cv.rv.concatAdapter.adt
+package vn.loitp.up.a.cv.rv.concatAdapter.adt
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.i_user.view.*
-import vn.loitp.R
-import vn.loitp.a.cv.rv.concatAdapter.data.model.User
+import vn.loitp.databinding.IUserBinding
+import vn.loitp.up.a.cv.rv.concatAdapter.data.model.User
 
 @LogTag("UsersAdapter")
 class UsersAdapter(
@@ -32,29 +30,22 @@ class UsersAdapter(
 
     }
 
-    inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class DataViewHolder(val binding: IUserBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) {
-            itemView.textViewUserName.text = user.name
-            itemView.imageViewAvatar.loadGlide(
+            binding.textViewUserName.text = user.name
+            binding.imageViewAvatar.loadGlide(
                 any = user.avatar,
             )
-            itemView.layoutRoot.setSafeOnClickListener {
+            binding.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(user, bindingAdapterPosition)
             }
         }
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ) =
-        DataViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                /* resource = */ R.layout.i_user,
-                /* root = */ parent,
-                /* attachToRoot = */ false
-            )
-        )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val binding = IUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return DataViewHolder(binding)
+    }
 
     override fun getItemCount(): Int = listUser.size
     override fun onBindViewHolder(

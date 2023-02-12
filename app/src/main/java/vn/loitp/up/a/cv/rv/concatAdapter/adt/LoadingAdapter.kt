@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.concatAdapter.adt
+package vn.loitp.up.a.cv.rv.concatAdapter.adt
 
 import android.view.LayoutInflater
 import android.view.View

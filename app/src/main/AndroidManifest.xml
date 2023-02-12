@@ -968,7 +968,7 @@
             android:name=".a.cv.layout.aspectratio.AspectRatioLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.concatAdapter.ConcatAdapterActivity"
+            android:name=".up.a.cv.rv.concatAdapter.ConcatAdapterActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.db.room.RoomActivity"

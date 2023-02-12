@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.concatAdapter
+package vn.loitp.up.a.cv.rv.concatAdapter
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -8,19 +8,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.common.URL_IMG_1
 import com.loitp.core.common.URL_IMG_10
 import com.loitp.core.ext.*
-import kotlinx.android.synthetic.main.a_rv_concat_adapter.*
 import vn.loitp.R
-import vn.loitp.a.cv.rv.concatAdapter.adt.*
-import vn.loitp.a.cv.rv.concatAdapter.data.DataSource
-import vn.loitp.a.cv.rv.concatAdapter.data.model.AboutMe
-import vn.loitp.a.cv.rv.concatAdapter.data.model.News
+import vn.loitp.databinding.ARvConcatAdapterBinding
+import vn.loitp.up.a.cv.rv.concatAdapter.adt.*
+import vn.loitp.up.a.cv.rv.concatAdapter.data.DataSource
+import vn.loitp.up.a.cv.rv.concatAdapter.data.model.AboutMe
+import vn.loitp.up.a.cv.rv.concatAdapter.data.model.News
 
 @LogTag("MergeAdapterActivity")
 @IsFullScreen(false)
 class ConcatAdapterActivity : BaseActivityFont() {
+    private lateinit var binding: ARvConcatAdapterBinding
+
     private var concatAdapter: ConcatAdapter? = null
     private var aboutMeAdapter: AboutMeAdapter? = null
     private var usersAdapter: UsersAdapter? = null
@@ -29,17 +32,20 @@ class ConcatAdapterActivity : BaseActivityFont() {
     private val loadingAdapter = LoadingAdapter()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv_concat_adapter
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARvConcatAdapterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -59,7 +65,7 @@ class ConcatAdapterActivity : BaseActivityFont() {
             this.tvTitle?.text = ConcatAdapterActivity::class.java.simpleName
         }
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
 
         aboutMeAdapter = AboutMeAdapter(ArrayList())
         usersAdapter = UsersAdapter(ArrayList())
@@ -104,9 +110,9 @@ class ConcatAdapterActivity : BaseActivityFont() {
             }
         }
 
-        recyclerView.adapter = concatAdapter
+        binding.recyclerView.adapter = concatAdapter
 
-        recyclerView.setScrollChange(
+        binding.recyclerView.setScrollChange(
             onTop = {
                 logD("onTop")
             },
@@ -117,7 +123,7 @@ class ConcatAdapterActivity : BaseActivityFont() {
             }
         )
 
-        btClearAll.setSafeOnClickListener {
+        binding.btClearAll.setSafeOnClickListener {
             concatAdapter?.let { a ->
                 a.adapters.let { list ->
                     list.forEach { childAdapter ->
@@ -125,29 +131,29 @@ class ConcatAdapterActivity : BaseActivityFont() {
                     }
                 }
                 showShortInformation("removeAdapter success")
-                btGenAboutMe.isVisible = false
-                btGenListUser.isVisible = false
-                btGenBanner.isVisible = false
+                binding.btGenAboutMe.isVisible = false
+                binding.btGenListUser.isVisible = false
+                binding.btGenBanner.isVisible = false
             }
         }
-        btGenAboutMe.setSafeOnClickListener {
+        binding.btGenAboutMe.setSafeOnClickListener {
             val aboutMe = AboutMe(1, "Loitp93", "I'm a developer ${System.currentTimeMillis()}")
             val listAboutMe = ArrayList<AboutMe>()
             listAboutMe.add(aboutMe)
             aboutMeAdapter?.setData(listAboutMe)
         }
-        btGenListUser.setSafeOnClickListener {
+        binding.btGenListUser.setSafeOnClickListener {
             usersAdapter?.setData(DataSource.getListUser())
         }
-        btGenBanner.setSafeOnClickListener {
+        binding.btGenBanner.setSafeOnClickListener {
             bannerAdapter?.setData(DataSource.getBanner())
         }
-        btAddBannerAt0.setSafeOnClickListener {
+        binding.btAddBannerAt0.setSafeOnClickListener {
             val newBannerAdapter = BannerAdapter(ArrayList())
             newBannerAdapter.setData(DataSource.getBanner())
             concatAdapter?.addAdapter(0, newBannerAdapter)
         }
-        btAddAboutMeAtLast.setSafeOnClickListener {
+        binding.btAddAboutMeAtLast.setSafeOnClickListener {
             val newAboutMeAdapter = AboutMeAdapter(ArrayList())
             val aboutMe = AboutMe(1, "Loitp ^^!", "Hello world!!!")
             val listAboutMe = ArrayList<AboutMe>()
@@ -155,7 +161,7 @@ class ConcatAdapterActivity : BaseActivityFont() {
             newAboutMeAdapter.setData(listAboutMe)
             concatAdapter?.addAdapter(newAboutMeAdapter)
         }
-        btRemoveAdapterListUser.setSafeOnClickListener {
+        binding.btRemoveAdapterListUser.setSafeOnClickListener {
             usersAdapter?.let { ua ->
                 concatAdapter?.removeAdapter(ua)
             }
@@ -179,7 +185,7 @@ class ConcatAdapterActivity : BaseActivityFont() {
         if (!isLoading()) {
             concatAdapter?.addAdapter(loadingAdapter)
             concatAdapter?.itemCount?.let {
-                recyclerView.scrollToPosition(it - 1)
+                binding.recyclerView.scrollToPosition(it - 1)
             }
 
             setDelay(mls = 2000) {

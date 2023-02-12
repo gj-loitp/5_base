@@ -1,15 +1,13 @@
-package vn.loitp.a.cv.rv.concatAdapter.adt
+package vn.loitp.up.a.cv.rv.concatAdapter.adt
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.i_about_me.view.*
-import vn.loitp.R
-import vn.loitp.a.cv.rv.concatAdapter.data.model.AboutMe
+import vn.loitp.databinding.IAboutMeBinding
+import vn.loitp.up.a.cv.rv.concatAdapter.data.model.AboutMe
 
 @LogTag("AboutMeAdapter")
 class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : BaseAdapter() {
@@ -25,28 +23,23 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : BaseAdapter(
 //        notifyDataSetChanged()
     }
 
-    inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class DataViewHolder(val binding: IAboutMeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(aboutMe: AboutMe) {
-            itemView.textViewUser.text = aboutMe.name
-            itemView.textViewAboutMe.text = aboutMe.aboutMe
+            binding.textViewUser.text = aboutMe.name
+            binding.textViewAboutMe.text = aboutMe.aboutMe
 
-            itemView.layoutRoot.setSafeOnClickListener {
+            binding.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(aboutMe, bindingAdapterPosition)
             }
         }
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ) = DataViewHolder(
-        LayoutInflater.from(parent.context).inflate(
-            /* resource = */ R.layout.i_about_me,
-            /* root = */ parent,
-            /* attachToRoot = */ false
-        )
-    )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val binding = IAboutMeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return DataViewHolder(binding)
+    }
 
     override fun getItemCount(): Int = listAboutMe.size
 

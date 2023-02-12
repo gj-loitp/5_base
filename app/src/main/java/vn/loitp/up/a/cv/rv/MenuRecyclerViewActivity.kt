@@ -13,8 +13,8 @@ import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivityFont
 import vn.loitp.a.cv.rv.arcView.ArcViewActivity
 import vn.loitp.a.cv.rv.book.BookViewActivity
 import vn.loitp.a.cv.rv.carouselRv.CarouselRecyclerViewActivity
-import vn.loitp.a.cv.rv.concatAdapter.ConcatAdapterActivity
 import vn.loitp.databinding.ARvMenuBinding
+import vn.loitp.up.a.cv.rv.concatAdapter.ConcatAdapterActivity
 import vn.loitp.up.a.cv.rv.diffUtil.DiffUtilActivity
 import vn.loitp.up.a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity
 import vn.loitp.up.a.cv.rv.dragDrop.MainActivityDragDrop
