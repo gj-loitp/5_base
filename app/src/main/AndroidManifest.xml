@@ -1263,7 +1263,7 @@
             android:name=".up.a.cv.progress.segmentedPb.StandardExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivityFont"
+            android:name=".up.a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivity"
@@ -1446,7 +1446,7 @@
             android:name=".a.cv.fancyShowcase.AnimatedActivityFancyShowcase"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.progress.progressView.ProgressViewActivity"
+            android:name=".up.a.cv.progress.progressView.ProgressViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.func.keyboardVisibility.KeyboardVisibilityActivity"

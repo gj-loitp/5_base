@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.progress.progressView
+package vn.loitp.up.a.cv.progress.progressView
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -6,9 +6,9 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_pv.*
 import vn.loitp.R
 import vn.loitp.databinding.APvBinding
 
@@ -16,16 +16,18 @@ import vn.loitp.databinding.APvBinding
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class ProgressViewActivity : BaseActivityFont() {
+    private lateinit var binding: APvBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_pv
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding = APvBinding.inflate(layoutInflater)
+        binding = APvBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         with(binding) {
             progressView.setOnProgressChangeListener {
                 progressView.labelText = "heart ${it.toInt()}%"
@@ -68,7 +70,7 @@ class ProgressViewActivity : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()

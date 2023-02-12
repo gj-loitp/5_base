@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.progress.comparingPerformanceBar
+package vn.loitp.up.a.cv.progress.comparingPerformanceBar
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,29 +7,34 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_comparing_performance_bar.*
 import vn.loitp.R
+import vn.loitp.databinding.AComparingPerformanceBarBinding
 
 @LogTag("ComparingPerformanceBarActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class ComparingPerformanceBarActivityFont : BaseActivityFont() {
+class ComparingPerformanceBarActivity : BaseActivityFont() {
+    private lateinit var binding: AComparingPerformanceBarBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_comparing_performance_bar
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AComparingPerformanceBarBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -46,11 +51,11 @@ class ComparingPerformanceBarActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = ComparingPerformanceBarActivityFont::class.java.simpleName
+            this.tvTitle?.text = ComparingPerformanceBarActivity::class.java.simpleName
         }
 
-        percentageProgressBar.setProgress(30.0f)
-        valuesProgressBar.setValues(100.0f, 20.0f)
-        valuesProgressBarPercent.setValues(10.0f, 7.0f)
+        binding.percentageProgressBar.setProgress(30.0f)
+        binding.valuesProgressBar.setValues(100.0f, 20.0f)
+        binding.valuesProgressBarPercent.setValues(10.0f, 7.0f)
     }
 }
