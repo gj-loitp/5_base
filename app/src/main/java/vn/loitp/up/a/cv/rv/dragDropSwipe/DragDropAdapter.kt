@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.dragDropSwipe
+package vn.loitp.up.a.cv.rv.dragDropSwipe
 
 import android.view.View
 import android.widget.ImageView

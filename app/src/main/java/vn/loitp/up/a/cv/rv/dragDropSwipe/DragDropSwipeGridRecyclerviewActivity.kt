@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.dragDropSwipe
+package vn.loitp.up.a.cv.rv.dragDropSwipe
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -7,24 +7,29 @@ import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_rv_drag_drop_swipe_grid.*
 import vn.loitp.R
+import vn.loitp.databinding.ARvDragDropSwipeGridBinding
 
 @LogTag("DragDropSwipeGridRecyclerviewActivity")
 @IsFullScreen(false)
 class DragDropSwipeGridRecyclerviewActivity : BaseActivityFont() {
+    private lateinit var binding: ARvDragDropSwipeGridBinding
 
     private var dragDropAdapter: DragDropAdapter? = null
     private val numberOfColumns = 2
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv_drag_drop_swipe_grid
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ARvDragDropSwipeGridBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -38,7 +43,7 @@ class DragDropSwipeGridRecyclerviewActivity : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -60,13 +65,13 @@ class DragDropSwipeGridRecyclerviewActivity : BaseActivityFont() {
 
         dragDropAdapter = DragDropAdapter(setData())
 
-        dragDropSwipeRecyclerView.layoutManager = GridLayoutManager(this, numberOfColumns)
-        dragDropSwipeRecyclerView.adapter = dragDropAdapter
+        binding.dragDropSwipeRecyclerView.layoutManager = GridLayoutManager(this, numberOfColumns)
+        binding.dragDropSwipeRecyclerView.adapter = dragDropAdapter
 
         setIsRestrictingDraggingDirections()
         setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems = false)
 
-        swLayoutBehind.setOnCheckedChangeListener { _, isChecked ->
+        binding.swLayoutBehind.setOnCheckedChangeListener { _, isChecked ->
             setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems = isChecked)
         }
 
@@ -74,39 +79,39 @@ class DragDropSwipeGridRecyclerviewActivity : BaseActivityFont() {
     }
 
     private fun setIsRestrictingDraggingDirections() {
-        dragDropSwipeRecyclerView.orientation =
+        binding.dragDropSwipeRecyclerView.orientation =
             DragDropSwipeRecyclerView.ListOrientation.GRID_LIST_WITH_HORIZONTAL_SWIPING
-        dragDropSwipeRecyclerView.numOfColumnsPerRowInGridList = numberOfColumns
+        binding.dragDropSwipeRecyclerView.numOfColumnsPerRowInGridList = numberOfColumns
     }
 
     private fun setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems: Boolean) {
         // We set to null all the properties that can be used to display something behind swiped items
         // In XML: app:behind_swiped_item_bg_color="@null"
-        dragDropSwipeRecyclerView.behindSwipedItemBackgroundColor = null
+        binding.dragDropSwipeRecyclerView.behindSwipedItemBackgroundColor = null
 
         // In XML: app:behind_swiped_item_bg_color_secondary="@null"
-        dragDropSwipeRecyclerView.behindSwipedItemBackgroundSecondaryColor = null
+        binding.dragDropSwipeRecyclerView.behindSwipedItemBackgroundSecondaryColor = null
 
         // In XML: app:behind_swiped_item_icon="@null"
-        dragDropSwipeRecyclerView.behindSwipedItemIconDrawableId = null
+        binding.dragDropSwipeRecyclerView.behindSwipedItemIconDrawableId = null
 
         // In XML: app:behind_swiped_item_icon_secondary="@null"
-        dragDropSwipeRecyclerView.behindSwipedItemIconSecondaryDrawableId = null
+        binding.dragDropSwipeRecyclerView.behindSwipedItemIconSecondaryDrawableId = null
 
         // In XML: app:behind_swiped_item_custom_layout="@null"
-        dragDropSwipeRecyclerView.behindSwipedItemLayoutId = null
+        binding.dragDropSwipeRecyclerView.behindSwipedItemLayoutId = null
 
         // In XML: app:behind_swiped_item_custom_layout_secondary="@null"
-        dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId = null
+        binding.dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId = null
 
         if (isDrawingBehindSwipedItems) {
             // We set our custom layouts to be displayed behind swiped items
             // In XML: app:behind_swiped_item_custom_layout="@layout/behind_swiped_vertical_list"
-            dragDropSwipeRecyclerView.behindSwipedItemLayoutId =
+            binding.dragDropSwipeRecyclerView.behindSwipedItemLayoutId =
                 R.layout.layout_behind_swiped_vertical_list
 
             // In XML: app:behind_swiped_item_custom_layout_secondary="@layout/behind_swiped_vertical_list_secondary"
-            dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId =
+            binding.dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId =
                 R.layout.layout_behind_swiped_vertical_list_secondary
         }
     }
