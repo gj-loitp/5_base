@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.diffUtil
+package vn.loitp.up.a.cv.rv.diffUtil
 
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
@@ -6,16 +6,17 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.common.URL_IMG_ANDROID
 import com.loitp.core.ext.setSafeOnClickListener
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
-import kotlinx.android.synthetic.main.a_rv_diff_util.*
-import vn.loitp.R
+import vn.loitp.databinding.ARvDiffUtilBinding
 import java.util.*
 
 @LogTag("DiffUtilActivity")
 @IsFullScreen(false)
 class DiffUtilActivity : BaseActivityFont() {
+    private lateinit var binding: ARvDiffUtilBinding
 
     private var items: MutableList<Content> = mutableListOf()
 
@@ -45,17 +46,20 @@ class DiffUtilActivity : BaseActivityFont() {
     val adapter = ContentAdapter()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv_diff_util
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARvDiffUtilBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        rv.layoutManager = GridLayoutManager(this, 3)
+        binding.rv.layoutManager = GridLayoutManager(this, 3)
 
 //        rv.adapter = adapter
 
@@ -68,19 +72,19 @@ class DiffUtilActivity : BaseActivityFont() {
         scaleAdapter.setDuration(1000)
         scaleAdapter.setInterpolator(OvershootInterpolator())
         scaleAdapter.setFirstOnly(true)
-        rv.adapter = scaleAdapter
+        binding.rv.adapter = scaleAdapter
 
         for (i in 1..10) {
             items.add(Content(i, "Item $i", URL_IMG_ANDROID))
         }
         adapter.items = items
-        bt.setSafeOnClickListener {
+        binding.bt.setSafeOnClickListener {
             adapter.items = generate()
         }
-        btAdd.setSafeOnClickListener {
+        binding.btAdd.setSafeOnClickListener {
             adapter.items = add()
         }
-        btShuffle.setSafeOnClickListener {
+        binding.btShuffle.setSafeOnClickListener {
             adapter.items = shuffle()
         }
     }

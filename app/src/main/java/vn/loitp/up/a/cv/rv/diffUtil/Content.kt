@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.diffUtil
+package vn.loitp.up.a.cv.rv.diffUtil
 
 import androidx.annotation.Keep
 import java.io.Serializable

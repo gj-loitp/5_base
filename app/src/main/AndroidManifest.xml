@@ -618,7 +618,7 @@
             android:name=".a.cv.ab.navigationViewWithText.NavigationViewWithTextActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.rv.diffUtil.DiffUtilActivity"
+            android:name=".up.a.cv.rv.diffUtil.DiffUtilActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.tut.MenuTutorialActivity"
