@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.progress.segmentedPb.pager
+package vn.loitp.up.a.cv.progress.segmentedPb.pager
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter

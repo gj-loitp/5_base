@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.progress.segmentedPb.pager
+package vn.loitp.up.a.cv.progress.segmentedPb.pager
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -11,8 +11,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import kotlinx.android.synthetic.main.f_page.*
-import vn.loitp.R
+import vn.loitp.databinding.FPageBinding
 
 private const val PAGE_INDEX = "PAGE_INDEX"
 
@@ -28,6 +27,8 @@ class PageFragment : Fragment(), RequestListener<Drawable> {
             }
     }
 
+    private lateinit var binding: FPageBinding
+
     private var pageIndex: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +42,10 @@ class PageFragment : Fragment(), RequestListener<Drawable> {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.f_page, container, false)
+    ): View {
+        binding = FPageBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(
         view: View,
@@ -49,13 +53,13 @@ class PageFragment : Fragment(), RequestListener<Drawable> {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        progressBar.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.VISIBLE
         val aleatoryIndex = (1..50).random()
 
         Glide.with(this)
             .load("https://picsum.photos/id/${pageIndex + aleatoryIndex}/400/600")
             .listener(this)
-            .into(image)
+            .into(binding.image)
     }
 
     override fun onLoadFailed(
@@ -74,7 +78,7 @@ class PageFragment : Fragment(), RequestListener<Drawable> {
         dataSource: DataSource?,
         isFirstResource: Boolean
     ): Boolean {
-        progressBar.visibility = View.GONE
+        binding.progressBar.visibility = View.GONE
         return false
     }
 }

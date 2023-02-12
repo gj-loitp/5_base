@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.progress.segmentedPb
+package vn.loitp.up.a.cv.progress.segmentedPb
 
 /**
  * Returns a list with random size between 1 and 15

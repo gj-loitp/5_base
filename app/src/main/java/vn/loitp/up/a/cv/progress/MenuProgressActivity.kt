@@ -12,8 +12,8 @@ import vn.loitp.a.cv.progress.circularPb.CircularProgressBarActivityFont
 import vn.loitp.a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivityFont
 import vn.loitp.a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivityFont
 import vn.loitp.a.cv.progress.progressView.ProgressViewActivity
-import vn.loitp.a.cv.progress.segmentedPb.StandardExampleActivityFont
 import vn.loitp.databinding.APbMenuBinding
+import vn.loitp.up.a.cv.progress.segmentedPb.StandardExampleActivity
 import vn.loitp.up.a.cv.progress.tileProgressView.TileProgressViewActivity
 import vn.loitp.up.a.cv.progress.window.WindowProgressActivity
 
@@ -52,7 +52,7 @@ class MenuProgressActivity : BaseActivityFont() {
             launchActivity(CircularProgressIndicatorActivityFont::class.java)
         }
         binding.btSegmentedProgressBar.setSafeOnClickListener {
-            launchActivity(StandardExampleActivityFont::class.java)
+            launchActivity(StandardExampleActivity::class.java)
         }
         binding.btComparingPerformanceBar.setSafeOnClickListener {
             launchActivity(ComparingPerformanceBarActivityFont::class.java)

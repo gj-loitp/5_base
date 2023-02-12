@@ -1260,7 +1260,7 @@
             android:name=".up.a.anim.fadeOutParticle.FadeOutParticleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.progress.segmentedPb.StandardExampleActivityFont"
+            android:name=".up.a.cv.progress.segmentedPb.StandardExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivityFont"
