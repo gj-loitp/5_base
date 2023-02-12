@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.carouselRv
+package vn.loitp.up.a.cv.rv.carouselRv
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,30 +7,35 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_rv_carousel.*
 import vn.loitp.R
+import vn.loitp.databinding.ARvCarouselBinding
 
 @LogTag("CarouselRecyclerViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class CarouselRecyclerViewActivity : BaseActivityFont() {
+    private lateinit var binding: ARvCarouselBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv_carousel
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ARvCarouselBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -58,7 +63,7 @@ class CarouselRecyclerViewActivity : BaseActivityFont() {
 
         val adapter = DataAdapter(list)
 
-        recycler.apply {
+        binding.recycler.apply {
             this.adapter = adapter
             set3DItem(true)
             setAlpha(true)
@@ -66,7 +71,7 @@ class CarouselRecyclerViewActivity : BaseActivityFont() {
             setIsScrollingEnabled(true)
         }
 
-        button.setSafeOnClickListener {
+        binding.button.setSafeOnClickListener {
             adapter.removeData()
         }
     }

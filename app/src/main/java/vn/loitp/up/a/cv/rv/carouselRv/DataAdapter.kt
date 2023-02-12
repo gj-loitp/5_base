@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.carouselRv
+package vn.loitp.up.a.cv.rv.carouselRv
 
 import android.view.LayoutInflater
 import android.view.View

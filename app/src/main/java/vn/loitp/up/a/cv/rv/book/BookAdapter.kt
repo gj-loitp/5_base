@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.book
+package vn.loitp.up.a.cv.rv.book
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,8 +10,8 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setMargins
-import kotlinx.android.synthetic.main.i_book.view.*
 import vn.loitp.R
+import vn.loitp.databinding.IBookBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 
 @LogTag("BookAdapter")
@@ -45,27 +45,28 @@ class BookAdapter(
         }
     }
 
-    inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class MovieViewHolder(val binding: IBookBinding) :
+        RecyclerView.ViewHolder(binding.rootView) {
 
         fun bind(movie: Movie) {
-            itemView.rootView.layoutParams.width = sizeW
-            itemView.rootView.layoutParams.height = sizeH
-            itemView.rootView.invalidate()
+            binding.rootView.layoutParams.width = sizeW
+            binding.rootView.layoutParams.height = sizeH
+            binding.rootView.invalidate()
             val indexEachColumn = bindingAdapterPosition % column
-            itemView.textView.text = movie.title
-            itemView.textView.visibility = View.VISIBLE
+            binding.textView.text = movie.title
+            binding.textView.visibility = View.VISIBLE
             when (indexEachColumn) {
                 0 -> {
-                    itemView.bkg.setImageResource(R.drawable.l_grid_item_background_left)
+                    binding.bkg.setImageResource(R.drawable.l_grid_item_background_left)
                 }
                 column - 1 -> {
-                    itemView.bkg.setImageResource(R.drawable.l_grid_item_background_right)
+                    binding.bkg.setImageResource(R.drawable.l_grid_item_background_right)
                 }
                 else -> {
-                    itemView.bkg.setImageResource(R.drawable.l_grid_item_background_center)
+                    binding.bkg.setImageResource(R.drawable.l_grid_item_background_center)
                 }
             }
-            itemView.imageView.setMargins(
+            binding.imageView.setMargins(
                 leftPx = sizeMarginTopLeftRight,
                 topPx = sizeMarginTopBottom,
                 rightPx = sizeMarginTopLeftRight,
@@ -73,15 +74,15 @@ class BookAdapter(
             )
             val url = movie.cover
             if (url != null) {
-                itemView.imageView.loadGlide(any = url)
+                binding.imageView.loadGlide(any = url)
             } else {
-                itemView.imageView.setImageResource(0)
-                itemView.textView.visibility = View.INVISIBLE
+                binding.imageView.setImageResource(0)
+                binding.textView.visibility = View.INVISIBLE
             }
-            itemView.rootView.setOnClickListener {
+            binding.rootView.setOnClickListener {
                 callback?.onClick(movie, bindingAdapterPosition)
             }
-            itemView.rootView.setOnLongClickListener {
+            binding.rootView.setOnLongClickListener {
                 callback?.onLongClick(movie, bindingAdapterPosition)
                 true
             }
@@ -91,10 +92,9 @@ class BookAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.i_book, parent, false)
-        return MovieViewHolder(itemView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val binding = IBookBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MovieViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

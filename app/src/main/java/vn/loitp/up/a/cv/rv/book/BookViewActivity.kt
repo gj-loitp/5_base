@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.book
+package vn.loitp.up.a.cv.rv.book
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
-import kotlinx.android.synthetic.main.a_rv_book_view.*
-import vn.loitp.R
+import vn.loitp.databinding.ARvBookViewBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 import vn.loitp.up.common.Constants
 
@@ -18,19 +18,23 @@ import vn.loitp.up.common.Constants
 class BookViewActivity : BaseActivityFont() {
     private val movieList: MutableList<Movie> = ArrayList()
     private var bookAdapter: BookAdapter? = null
+    private lateinit var binding: ARvBookViewBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_rv_book_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ARvBookViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -60,7 +64,7 @@ class BookViewActivity : BaseActivityFont() {
                 override fun onLoadMore() {}
             }
         )
-        rv.layoutManager = GridLayoutManager(this, 3)
+        binding.rv.layoutManager = GridLayoutManager(this, 3)
         bookAdapter?.let {
 //            val scaleAdapter = AlphaInAnimationAdapter(it)
             val scaleAdapter = ScaleInAnimationAdapter(it)
@@ -70,7 +74,7 @@ class BookViewActivity : BaseActivityFont() {
             scaleAdapter.setDuration(1000)
 //            scaleAdapter.setInterpolator(OvershootInterpolator())
             scaleAdapter.setFirstOnly(true)
-            rv.adapter = scaleAdapter
+            binding.rv.adapter = scaleAdapter
         }
         prepareMovieData()
     }
