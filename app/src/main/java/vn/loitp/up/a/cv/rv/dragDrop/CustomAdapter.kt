@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.dragDrop
+package vn.loitp.up.a.cv.rv.dragDrop
 
 import android.annotation.SuppressLint
 import android.content.ClipData

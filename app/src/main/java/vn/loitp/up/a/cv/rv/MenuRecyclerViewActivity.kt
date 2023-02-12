@@ -16,8 +16,8 @@ import vn.loitp.a.cv.rv.carouselRv.CarouselRecyclerViewActivity
 import vn.loitp.a.cv.rv.concatAdapter.ConcatAdapterActivity
 import vn.loitp.a.cv.rv.diffUtil.DiffUtilActivity
 import vn.loitp.a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity
-import vn.loitp.a.cv.rv.dragDrop.MainActivityDragDrop
 import vn.loitp.databinding.ARvMenuBinding
+import vn.loitp.up.a.cv.rv.dragDrop.MainActivityDragDrop
 import vn.loitp.up.a.cv.rv.dragDropSwipe.DragDropSwipeGridRecyclerviewActivity
 import vn.loitp.up.a.cv.rv.dragDropSwipe.DragDropSwipeListHorizontalRecyclerviewActivity
 import vn.loitp.up.a.cv.rv.dragDropSwipe.DragDropSwipeListVerticalRecyclerviewActivity

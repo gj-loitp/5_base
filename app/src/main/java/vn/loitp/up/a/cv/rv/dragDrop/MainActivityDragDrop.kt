@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.rv.dragDrop
+package vn.loitp.up.a.cv.rv.dragDrop
 
 import android.os.Bundle
 import android.widget.TextView
@@ -9,23 +9,28 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_main_drag_drop.*
-import vn.loitp.R
+import vn.loitp.databinding.AMainDragDropBinding
 
 @LogTag("MainActivityDragDrop")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class MainActivityDragDrop : BaseActivityFont(), CustomListener {
 
+    private lateinit var binding: AMainDragDropBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_main_drag_drop
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        lActionBar.apply {
+        binding = AMainDragDropBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -34,8 +39,8 @@ class MainActivityDragDrop : BaseActivityFont(), CustomListener {
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = MainActivityDragDrop::class.java.simpleName
         }
-        recyclerView1.init(listOf("A", "B", "C"), tvEmptyList1)
-        recyclerView2.init(listOf("1", "2", "3"), tvEmptyList2)
+        binding.recyclerView1.init(listOf("A", "B", "C"), binding.tvEmptyList1)
+        binding.recyclerView2.init(listOf("1", "2", "3"), binding.tvEmptyList2)
     }
 
     private fun RecyclerView.init(
