@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.menu.reside
+package vn.loitp.up.a.cv.menu.reside
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,14 +9,16 @@ import androidx.fragment.app.FragmentTransaction
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.views.menu.resideMenu.ResideMenu
 import com.loitp.views.menu.resideMenu.ResideMenuItem
-import kotlinx.android.synthetic.main.a_reside_menu.*
 import vn.loitp.R
+import vn.loitp.databinding.AResideMenuBinding
 
 @LogTag("ResideMenuActivity")
 @IsFullScreen(false)
-class ResideMenuActivityFont : BaseActivityFont(), View.OnClickListener {
+class ResideMenuActivity : BaseActivityFont(), View.OnClickListener {
+    private lateinit var binding: AResideMenuBinding
 
     var resideMenu: ResideMenu? = null
     private var itemHome: ResideMenuItem? = null
@@ -25,11 +27,14 @@ class ResideMenuActivityFont : BaseActivityFont(), View.OnClickListener {
     private var itemSettings: ResideMenuItem? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_reside_menu
+        return NOT_FOUND
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AResideMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setUpMenu()
         if (savedInstanceState == null) {
@@ -51,7 +56,7 @@ class ResideMenuActivityFont : BaseActivityFont(), View.OnClickListener {
             this.realtimeBlurView.setOverlayColor(getColor(R.color.black65))
             this.setUse3D(true)
             this.setBackground(R.drawable.iv)
-            this.attachToActivity(this@ResideMenuActivityFont)
+            this.attachToActivity(this@ResideMenuActivity)
             this.menuListener = menuListener
             // valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
             this.setScaleValue(0.6f)
@@ -90,10 +95,10 @@ class ResideMenuActivityFont : BaseActivityFont(), View.OnClickListener {
 
         // You can disable a direction by setting ->
         // resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
-        titleBarLeftMenu.setOnClickListener {
+        binding.titleBarLeftMenu.setOnClickListener {
             resideMenu?.openMenu(ResideMenu.DIRECTION_LEFT)
         }
-        titleBarRightMenu.setOnClickListener {
+        binding.titleBarRightMenu.setOnClickListener {
             resideMenu?.openMenu(ResideMenu.DIRECTION_RIGHT)
         }
     }

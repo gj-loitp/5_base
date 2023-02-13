@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.menu.reside
+package vn.loitp.up.a.cv.menu.reside
 
 import android.os.Bundle
 import android.view.View
@@ -24,7 +24,7 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setUpViews() {
-        val parentActivity = activity as ResideMenuActivityFont
+        val parentActivity = activity as ResideMenuActivity
         resideMenu = parentActivity.resideMenu
 
         btOpenMenu.setOnClickListener {

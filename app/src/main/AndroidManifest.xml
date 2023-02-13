@@ -515,10 +515,10 @@
             android:name=".up.a.cv.vp.detectSwipeOut2.ViewPagerSwipeOut2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.MenuMenuActivity"
+            android:name=".up.a.cv.menu.MenuMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.reside.ResideMenuActivityFont"
+            android:name=".up.a.cv.menu.reside.ResideMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.lCv.LCardViewActivity"

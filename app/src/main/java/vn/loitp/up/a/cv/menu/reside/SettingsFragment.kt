@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.menu.reside
+package vn.loitp.up.a.cv.menu.reside
 
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
