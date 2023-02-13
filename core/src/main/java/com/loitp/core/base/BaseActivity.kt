@@ -52,6 +52,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private var alertDialogProgress: Dialog? = null
 
+    //TODO delete soon, use view binding instead
     protected abstract fun setLayoutResourceId(): Int
 
     protected fun setTransparentStatusNavigationBar() {

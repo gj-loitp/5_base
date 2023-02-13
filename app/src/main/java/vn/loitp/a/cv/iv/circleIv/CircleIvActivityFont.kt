@@ -12,7 +12,7 @@ import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import kotlinx.android.synthetic.main.a_iv_circle.*
 import vn.loitp.R
-import vn.loitp.common.Constants
+import vn.loitp.up.common.Constants
 
 @LogTag("CircleImageViewActivity")
 @IsFullScreen(false)

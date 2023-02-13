@@ -9,7 +9,7 @@ import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_iv_strectchy.*
 import vn.loitp.R
-import vn.loitp.common.Constants
+import vn.loitp.up.common.Constants
 
 @LogTag("StrectchyImageViewActivity")
 @IsFullScreen(false)

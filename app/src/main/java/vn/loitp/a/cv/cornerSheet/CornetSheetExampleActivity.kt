@@ -13,7 +13,7 @@ import com.loitp.core.ext.tranIn
 import kotlinx.android.synthetic.main.a_example.*
 import vn.loitp.R
 import vn.loitp.a.cv.cornerSheet.sp.ShopActivityFont
-import vn.loitp.app.EmptyActivity
+import vn.loitp.up.app.EmptyActivity
 
 @LogTag("ExampleActivity")
 @IsFullScreen(false)

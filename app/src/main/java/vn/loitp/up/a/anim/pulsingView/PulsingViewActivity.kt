@@ -1,0 +1,42 @@
+package vn.loitp.up.a.anim.pulsingView
+
+import android.os.Bundle
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.LogTag
+import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
+import com.loitp.core.ext.setSafeOnClickListenerElastic
+import vn.loitp.R
+import vn.loitp.databinding.APulsingViewBinding
+
+@LogTag("PulsingViewActivity")
+@IsFullScreen(false)
+class PulsingViewActivity : BaseActivityFont() {
+
+    private lateinit var binding: APulsingViewBinding
+
+    override fun setLayoutResourceId(): Int {
+        return NOT_FOUND
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding = APulsingViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(
+                runnable = {
+                    onBaseBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.tvTitle?.text = PulsingViewActivity::class.java.simpleName
+        }
+    }
+}

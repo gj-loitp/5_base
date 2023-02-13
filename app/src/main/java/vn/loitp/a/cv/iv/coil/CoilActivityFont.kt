@@ -14,7 +14,7 @@ import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_coil.*
 import vn.loitp.R
-import vn.loitp.common.Constants.Companion.URL_IMG_2
+import vn.loitp.up.common.Constants.Companion.URL_IMG_2
 
 @LogTag("CoilActivity")
 @IsFullScreen(false)

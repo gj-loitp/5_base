@@ -12,7 +12,7 @@ import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_iv_pinch_to_zoom_vp.*
 import vn.loitp.R
-import vn.loitp.common.Constants
+import vn.loitp.up.common.Constants
 
 @LogTag("PinchToZoomViewPagerActivity")
 @IsFullScreen(false)

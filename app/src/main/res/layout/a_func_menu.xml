@@ -70,6 +70,11 @@
                 android:text="KeyboardHeightProviderActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btKeyboardVisibility"
+                style="@style/ButtonMenu"
+                android:text="Keyboard Visibility" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btLocation"
                 style="@style/ButtonMenu"
                 android:text="@string/location" />

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <vn.loitp.a.func.viewDragHelperSimple.ViewDragHelperView
+    <vn.loitp.up.a.func.viewDragHelperSimple.ViewDragHelperView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="center"
@@ -54,5 +54,5 @@
             android:text="@string/edage_to_ctrl_me"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_medium" />
-    </vn.loitp.a.func.viewDragHelperSimple.ViewDragHelperView>
+    </vn.loitp.up.a.func.viewDragHelperSimple.ViewDragHelperView>
 </androidx.constraintlayout.widget.ConstraintLayout>

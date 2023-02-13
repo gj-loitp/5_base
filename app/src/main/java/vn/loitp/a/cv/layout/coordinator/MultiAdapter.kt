@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.R
-import vn.loitp.a.cv.rv.normalRv.Movie
+import vn.loitp.up.a.cv.rv.normalRv.Movie
 
 class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val moviesList = ArrayList<Movie>()

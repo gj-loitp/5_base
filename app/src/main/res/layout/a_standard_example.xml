@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/layout_pager" />
+    <include
+        android:id="@+id/layoutPager"
+        layout="@layout/layout_pager" />
 
     <pt.tornelas.segmentedprogressbar.SegmentedProgressBar
         android:id="@+id/spb"

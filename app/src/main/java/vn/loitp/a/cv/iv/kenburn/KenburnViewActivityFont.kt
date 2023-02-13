@@ -14,7 +14,7 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_kenburn_view.*
 import vn.loitp.R
-import vn.loitp.app.EmptyActivity
+import vn.loitp.up.app.EmptyActivity
 
 @LogTag("KenburnViewActivity")
 @IsFullScreen(false)
