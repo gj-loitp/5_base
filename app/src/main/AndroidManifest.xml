@@ -956,10 +956,10 @@
             android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer5Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer6ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer6Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.menu.drawerBehavior.drawer.DefaultDrawerActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.DefaultDrawerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.splitPanel.SplitPanelLayoutActivityFont"

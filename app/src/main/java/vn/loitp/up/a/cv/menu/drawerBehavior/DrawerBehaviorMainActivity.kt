@@ -43,7 +43,7 @@ class DrawerBehaviorMainActivity : BaseActivityFont() {
             this.tvTitle?.text = DrawerBehaviorMainActivity::class.java.simpleName
         }
         binding.buttonDefault.setSafeOnClickListener {
-            launchActivity(DefaultDrawerActivityFont::class.java)
+            launchActivity(DefaultDrawerActivity::class.java)
         }
         binding.buttonAdvance1.setSafeOnClickListener {
             launchActivity(AdvanceDrawer1Activity::class.java)
@@ -61,7 +61,7 @@ class DrawerBehaviorMainActivity : BaseActivityFont() {
             launchActivity(AdvanceDrawer5Activity::class.java)
         }
         binding.buttonAdvance6.setSafeOnClickListener {
-            launchActivity(AdvanceDrawer6ActivityFont::class.java)
+            launchActivity(AdvanceDrawer6Activity::class.java)
         }
         binding.buttonAdvance3d1.setSafeOnClickListener {
             launchActivity(Advance3DDrawer1Activity::class.java)
