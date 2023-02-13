@@ -11,45 +11,50 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.a_drawer_behavior_advance3.*
-import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.R
+import vn.loitp.databinding.ADrawerBehaviorAdvance5Binding
 
-@LogTag("AdvanceDrawer3Activity")
+@LogTag("ExtraTextViewActivity")
 @IsFullScreen(false)
-class AdvanceDrawer3ActivityFont : BaseActivityFont(), NavigationView.OnNavigationItemSelectedListener {
+class AdvanceDrawer5Activity : BaseActivityFont(), NavigationView.OnNavigationItemSelectedListener {
+
+    private lateinit var binding: ADrawerBehaviorAdvance5Binding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_drawer_behavior_advance3
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADrawerBehaviorAdvance5Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        setSupportActionBar(toolbar)
-        fab.setSafeOnClickListener { view ->
+        setSupportActionBar(binding.layoutDrawer.toolbar)
+        binding.layoutDrawer.fab.setSafeOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
         val toggle = ActionBarDrawerToggle(
             /* activity = */ this,
-            /* drawerLayout = */ drawerLayout,
-            /* toolbar = */ toolbar,
+            /* drawerLayout = */  binding.drawerLayout,
+            /* toolbar = */  binding.layoutDrawer.toolbar,
             /* openDrawerContentDescRes = */ R.string.navigation_drawer_open,
             /* closeDrawerContentDescRes = */ R.string.navigation_drawer_close
         )
-        drawerLayout?.addDrawerListener(toggle)
+        binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        navView.setNavigationItemSelectedListener(this)
-        drawerLayout?.apply {
+        binding.navView.setNavigationItemSelectedListener(this)
+        binding.drawerLayout.apply {
             setViewScale(Gravity.START, 0.9f)
+            setRadius(Gravity.START, 35f)
             setViewElevation(Gravity.START, 20f)
-            useCustomBehavior(Gravity.END)
         }
     }
 
@@ -62,8 +67,8 @@ class AdvanceDrawer3ActivityFont : BaseActivityFont(), NavigationView.OnNavigati
 //    }
 
     override fun onBaseBackPressed() {
-        if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
-            drawerLayout?.closeDrawer(GravityCompat.START)
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBaseBackPressed()
         }
@@ -71,7 +76,7 @@ class AdvanceDrawer3ActivityFont : BaseActivityFont(), NavigationView.OnNavigati
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
-        drawerLayout?.closeDrawer(GravityCompat.START)
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 
@@ -83,7 +88,7 @@ class AdvanceDrawer3ActivityFont : BaseActivityFont(), NavigationView.OnNavigati
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.actionRightDrawer -> {
-                drawerLayout?.openDrawer(GravityCompat.END)
+                binding.drawerLayout.openDrawer(GravityCompat.END)
                 return true
             }
         }

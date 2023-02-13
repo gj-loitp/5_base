@@ -10,6 +10,7 @@
     tools:openDrawer="start">
 
     <include
+        android:id="@+id/layoutDrawer"
         layout="@layout/view_drawer_behavior_app_bar_default"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

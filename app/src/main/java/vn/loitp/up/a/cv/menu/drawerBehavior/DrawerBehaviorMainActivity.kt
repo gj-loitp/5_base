@@ -52,13 +52,13 @@ class DrawerBehaviorMainActivity : BaseActivityFont() {
             launchActivity(AdvanceDrawer2Activity::class.java)
         }
         binding.buttonAdvance3.setSafeOnClickListener {
-            launchActivity(AdvanceDrawer3ActivityFont::class.java)
+            launchActivity(AdvanceDrawer3Activity::class.java)
         }
         binding.buttonAdvance4.setSafeOnClickListener {
-            launchActivity(AdvanceDrawer4ActivityFont::class.java)
+            launchActivity(AdvanceDrawer4Activity::class.java)
         }
         binding.buttonAdvance5.setSafeOnClickListener {
-            launchActivity(AdvanceDrawer5ActivityFont::class.java)
+            launchActivity(AdvanceDrawer5Activity::class.java)
         }
         binding.buttonAdvance6.setSafeOnClickListener {
             launchActivity(AdvanceDrawer6ActivityFont::class.java)

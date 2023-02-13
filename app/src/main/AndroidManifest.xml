@@ -947,13 +947,13 @@
             android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer3ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer3Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer4ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer4Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer5ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer5Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer6ActivityFont"
