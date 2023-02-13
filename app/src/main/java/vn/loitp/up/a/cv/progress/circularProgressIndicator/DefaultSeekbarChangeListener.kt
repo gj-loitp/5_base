@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.progress.circularProgressIndicator
+package vn.loitp.up.a.cv.progress.circularProgressIndicator
 
 import android.widget.SeekBar
 

@@ -752,7 +752,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivityFont"
+            android:name=".up.a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.pinchToZoom.PinchToZoomViewPagerActivityFont"

@@ -9,8 +9,8 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.a.cv.progress.circularPb.CircularProgressBarActivityFont
-import vn.loitp.a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivityFont
 import vn.loitp.databinding.APbMenuBinding
+import vn.loitp.up.a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivity
 import vn.loitp.up.a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivity
 import vn.loitp.up.a.cv.progress.progressView.ProgressViewActivity
 import vn.loitp.up.a.cv.progress.segmentedPb.StandardExampleActivity
@@ -49,7 +49,7 @@ class MenuProgressActivity : BaseActivityFont() {
             launchActivity(CircularProgressBarActivityFont::class.java)
         }
         binding.btCircularProgressIndicator.setSafeOnClickListener {
-            launchActivity(CircularProgressIndicatorActivityFont::class.java)
+            launchActivity(CircularProgressIndicatorActivity::class.java)
         }
         binding.btSegmentedProgressBar.setSafeOnClickListener {
             launchActivity(StandardExampleActivity::class.java)

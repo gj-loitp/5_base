@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.progress.circularProgressIndicator
+package vn.loitp.up.a.cv.progress.circularProgressIndicator
 
 import android.graphics.Color
 import android.os.Bundle
@@ -10,86 +10,92 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.loading.circularProgressIndicator.CircularProgressIndicator
-import kotlinx.android.synthetic.main.a_progress_circular_progress_indicator.*
 import vn.loitp.BuildConfig
 import vn.loitp.R
+import vn.loitp.databinding.AProgressCircularProgressIndicatorBinding
 
 @LogTag("CircularProgressIndicatorActivity")
 @IsFullScreen(false)
-class CircularProgressIndicatorActivityFont :
+class CircularProgressIndicatorActivity :
     BaseActivityFont(),
     View.OnClickListener,
     SeekBar.OnSeekBarChangeListener,
     ColorPickerDialogFragment.OnColorSelectedListener {
 
+    private lateinit var binding: AProgressCircularProgressIndicatorBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_progress_circular_progress_indicator
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AProgressCircularProgressIndicatorBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = CircularProgressIndicatorActivityFont::class.java.simpleName
+            this.tvTitle?.text = CircularProgressIndicatorActivity::class.java.simpleName
         }
 
-        circularProgress.maxProgress = 10000.0
+        binding.circularProgress.maxProgress = 10000.0
 
-        progressColor.setOnClickListener(this)
-        progressBackgroundColor.setOnClickListener(this)
-        textColor.setOnClickListener(this)
-        dotColor.setOnClickListener(this)
+        binding.progressColor.setOnClickListener(this)
+        binding.progressBackgroundColor.setOnClickListener(this)
+        binding.textColor.setOnClickListener(this)
+        binding.dotColor.setOnClickListener(this)
 
-        progress.setOnSeekBarChangeListener(this)
-        progressStrokeWidth.setOnSeekBarChangeListener(this)
-        progressBackgroundStrokeWidth.setOnSeekBarChangeListener(this)
-        textSize.setOnSeekBarChangeListener(this)
-        dotWidth.setOnSeekBarChangeListener(this)
+        binding.progress.setOnSeekBarChangeListener(this)
+        binding.progressStrokeWidth.setOnSeekBarChangeListener(this)
+        binding.progressBackgroundStrokeWidth.setOnSeekBarChangeListener(this)
+        binding.textSize.setOnSeekBarChangeListener(this)
+        binding.dotWidth.setOnSeekBarChangeListener(this)
 
-        drawDot.setOnCheckedChangeListener { _, isChecked ->
-            circularProgress.setShouldDrawDot(isChecked)
-            dotWidth.isEnabled = isChecked
-            dotColor.isEnabled = isChecked
+        binding.drawDot.setOnCheckedChangeListener { _, isChecked ->
+            binding.circularProgress.setShouldDrawDot(isChecked)
+            binding.dotWidth.isEnabled = isChecked
+            binding.dotColor.isEnabled = isChecked
         }
-        useCustomTextAdapter.setOnCheckedChangeListener { _, isChecked ->
-            circularProgress.setProgressTextAdapter(
+        binding.useCustomTextAdapter.setOnCheckedChangeListener { _, isChecked ->
+            binding.circularProgress.setProgressTextAdapter(
                 if (isChecked) timeTextAdapter else null
             )
         }
-        fillBackground.setOnCheckedChangeListener { _, isChecked ->
-            circularProgress.isFillBackgroundEnabled = isChecked
+        binding.fillBackground.setOnCheckedChangeListener { _, isChecked ->
+            binding.circularProgress.isFillBackgroundEnabled = isChecked
         }
 
-        progressCap.setOnCheckedChangeListener { _, checkedId ->
+        binding.progressCap.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.rbCapButt ->
-                    circularProgress.progressStrokeCap =
+                    binding.circularProgress.progressStrokeCap =
                         CircularProgressIndicator.CAP_BUTT
                 R.id.rbCapRound ->
-                    circularProgress.progressStrokeCap =
+                    binding.circularProgress.progressStrokeCap =
                         CircularProgressIndicator.CAP_ROUND
             }
         }
 
-        circularProgress.onProgressChangeListener =
+        binding.circularProgress.onProgressChangeListener =
             CircularProgressIndicator.OnProgressChangeListener { progress, maxProgress ->
                 logD(String.format("Current: %1$.0f, max: %2$.0f", progress, maxProgress))
             }
 
-        animationSwitch.setOnCheckedChangeListener { _, isChecked ->
-            circularProgress.isAnimationEnabled = isChecked
+        binding.animationSwitch.setOnCheckedChangeListener { _, isChecked ->
+            binding.circularProgress.isAnimationEnabled = isChecked
         }
 
         val listGradient = ArrayList<HashMap<String, String>>()
@@ -113,7 +119,7 @@ class CircularProgressIndicatorActivityFont :
         gradient["value"] = "3"
         listGradient.add(gradient)
 
-        gradientType.adapter = SimpleAdapter(
+        binding.gradientType.adapter = SimpleAdapter(
             this,
             listGradient,
             android.R.layout.simple_dropdown_item_1line,
@@ -121,7 +127,7 @@ class CircularProgressIndicatorActivityFont :
             intArrayOf(android.R.id.text1)
         )
 
-        gradientType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.gradientType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
                 view: View,
@@ -129,7 +135,7 @@ class CircularProgressIndicatorActivityFont :
                 id: Long
             ) {
                 listGradient[position]["value"]?.let { v ->
-                    circularProgress.setGradient(Integer.parseInt(v), Color.MAGENTA)
+                    binding.circularProgress.setGradient(Integer.parseInt(v), Color.MAGENTA)
                 }
             }
 
@@ -157,11 +163,11 @@ class CircularProgressIndicatorActivityFont :
         fromUser: Boolean
     ) {
         when (seekBar.id) {
-            R.id.progress -> circularProgress.setCurrentProgress(progress.toDouble())
-            R.id.progressStrokeWidth -> circularProgress.setProgressStrokeWidthDp(progress)
-            R.id.dotWidth -> circularProgress.setDotWidthDp(progress)
-            R.id.textSize -> circularProgress.setTextSizeSp(progress)
-            R.id.progressBackgroundStrokeWidth -> circularProgress.setProgressBackgroundStrokeWidthDp(
+            R.id.progress -> binding.circularProgress.setCurrentProgress(progress.toDouble())
+            R.id.progressStrokeWidth -> binding.circularProgress.setProgressStrokeWidthDp(progress)
+            R.id.dotWidth -> binding.circularProgress.setDotWidthDp(progress)
+            R.id.textSize -> binding.circularProgress.setTextSizeSp(progress)
+            R.id.progressBackgroundStrokeWidth -> binding.circularProgress.setProgressBackgroundStrokeWidthDp(
                 progress
             )
         }
@@ -185,10 +191,10 @@ class CircularProgressIndicatorActivityFont :
         }
 
         when (tag) {
-            "progressColor" -> circularProgress.progressColor = color
-            "progressBackgroundColor" -> circularProgress.progressBackgroundColor = color
-            "textColor" -> circularProgress.textColor = color
-            "dotColor" -> circularProgress.dotColor = color
+            "progressColor" -> binding.circularProgress.progressColor = color
+            "progressBackgroundColor" -> binding.circularProgress.progressBackgroundColor = color
+            "textColor" -> binding.circularProgress.textColor = color
+            "dotColor" -> binding.circularProgress.dotColor = color
         }
     }
 
