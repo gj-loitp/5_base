@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.navi.arc
+package vn.loitp.up.a.cv.navi.arc
 
 import android.os.Bundle
 import android.view.Menu
@@ -10,29 +10,34 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import kotlinx.android.synthetic.main.a_navi_arc_navigation_view.*
-import kotlinx.android.synthetic.main.menu_arc_navigation_view_main.*
+import com.loitp.core.common.NOT_FOUND
 import vn.loitp.R
+import vn.loitp.databinding.ANaviArcNavigationViewBinding
 
 @LogTag("ArcNavigationViewActivity")
 @IsFullScreen(false)
-class ArcNavigationViewActivityFont :
+class ArcNavigationViewActivity :
     BaseActivityFont(),
     NavigationView.OnNavigationItemSelectedListener {
 
+    private lateinit var binding: ANaviArcNavigationViewBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_navi_arc_navigation_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ANaviArcNavigationViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        setSupportActionBar(toolbar)
-        fab.setOnClickListener { view ->
+        setSupportActionBar(binding.layoutNavigation.toolbar)
+        binding.layoutNavigation.fab.setOnClickListener { view ->
             Snackbar.make(
                 view,
                 "Replace with your own action",
@@ -41,16 +46,16 @@ class ArcNavigationViewActivityFont :
         }
 
         val toggle = ActionBarDrawerToggle(
-            this,
-            drawerLayout,
-            toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
+            /* activity = */ this,
+            /* drawerLayout = */ binding.drawerLayout,
+            /* toolbar = */ binding.layoutNavigation.toolbar,
+            /* openDrawerContentDescRes = */ R.string.navigation_drawer_open,
+            /* closeDrawerContentDescRes = */ R.string.navigation_drawer_close
         )
         toggle.syncState()
 
-        navViewRight.setNavigationItemSelectedListener(this)
-        navView.setNavigationItemSelectedListener(this)
+        binding.navViewRight.setNavigationItemSelectedListener(this)
+        binding.navView.setNavigationItemSelectedListener(this)
     }
 
 //    override fun onBackPressed() {
@@ -69,11 +74,11 @@ class ArcNavigationViewActivityFont :
 
     override fun onBaseBackPressed() {
         when {
-            drawerLayout.isDrawerOpen(GravityCompat.START) -> {
-                drawerLayout.closeDrawer(GravityCompat.START)
+            binding.drawerLayout.isDrawerOpen(GravityCompat.START) -> {
+                binding.drawerLayout.closeDrawer(GravityCompat.START)
             }
-            drawerLayout.isDrawerOpen(GravityCompat.END) -> {
-                drawerLayout.closeDrawer(GravityCompat.END)
+            binding.drawerLayout.isDrawerOpen(GravityCompat.END) -> {
+                binding.drawerLayout.closeDrawer(GravityCompat.END)
             }
             else -> {
                 super.onBaseBackPressed()
@@ -89,10 +94,10 @@ class ArcNavigationViewActivityFont :
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         if (id == R.id.itemActionRightMenu) {
-            if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
-                drawerLayout.closeDrawer(GravityCompat.END)
+            if (binding.drawerLayout.isDrawerOpen(GravityCompat.END)) {
+                binding.drawerLayout.closeDrawer(GravityCompat.END)
             } else {
-                drawerLayout.openDrawer(GravityCompat.END)
+                binding.drawerLayout.openDrawer(GravityCompat.END)
             }
             return true
         }
@@ -116,7 +121,7 @@ class ArcNavigationViewActivityFont :
             R.id.navSend -> {
             }
         }
-        drawerLayout.closeDrawer(GravityCompat.START)
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 }

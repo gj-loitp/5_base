@@ -322,10 +322,10 @@
             android:name=".up.a.cv.rv.footer2.RecyclerViewFooter2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.navi.MenuNavigationActivity"
+            android:name=".up.a.cv.navi.MenuNavigationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.navi.arc.ArcNavigationViewActivityFont"
+            android:name=".up.a.cv.navi.arc.ArcNavigationViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.continuousScrollable.ContinuousScrollableImageViewActivityFont"
