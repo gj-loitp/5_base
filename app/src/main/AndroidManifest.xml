@@ -941,10 +941,10 @@
             android:name=".up.a.cv.menu.drawerBehavior.drawer.Advance3DDrawer1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer1ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer2ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer3ActivityFont"
