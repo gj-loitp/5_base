@@ -9,8 +9,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.a.cv.menu.drawerBehavior.DrawerBehaviorMainActivityFont
 import vn.loitp.databinding.AMenuMenuBinding
+import vn.loitp.up.a.cv.menu.drawerBehavior.DrawerBehaviorMainActivity
 import vn.loitp.up.a.cv.menu.reside.ResideMenuActivity
 
 @LogTag("MenuMenuActivity")
@@ -44,7 +44,7 @@ class MenuMenuActivity : BaseActivityFont() {
             launchActivity(ResideMenuActivity::class.java)
         }
         binding.btDrawerBehavior.setSafeOnClickListener {
-            launchActivity(DrawerBehaviorMainActivityFont::class.java)
+            launchActivity(DrawerBehaviorMainActivity::class.java)
         }
     }
 }

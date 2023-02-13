@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.menu.drawerBehavior.drawer
+package vn.loitp.up.a.cv.menu.drawerBehavior.drawer
 
 import android.os.Bundle
 import android.view.Gravity

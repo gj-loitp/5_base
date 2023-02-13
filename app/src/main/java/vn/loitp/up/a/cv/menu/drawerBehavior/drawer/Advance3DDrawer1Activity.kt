@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.menu.drawerBehavior.drawer
+package vn.loitp.up.a.cv.menu.drawerBehavior.drawer
 
 import android.os.Bundle
 import android.view.Gravity
@@ -11,58 +11,61 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.a_drawer_behavior_advance2.*
-import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
+import com.loitp.core.common.NOT_FOUND
 import vn.loitp.R
+import vn.loitp.databinding.ADrawerBehaviorAdvance3d1Binding
 
-@LogTag("AdvanceDrawer2Activity")
+@LogTag("Advance3DDrawer1Activity")
 @IsFullScreen(false)
-class AdvanceDrawer2ActivityFont : BaseActivityFont(), NavigationView.OnNavigationItemSelectedListener {
+class Advance3DDrawer1Activity : BaseActivityFont(),
+    NavigationView.OnNavigationItemSelectedListener {
+
+    private lateinit var binding: ADrawerBehaviorAdvance3d1Binding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_drawer_behavior_advance2
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADrawerBehaviorAdvance3d1Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        setSupportActionBar(toolbar)
-        fab.setSafeOnClickListener { view ->
+        setSupportActionBar(binding.layoutDrawer.toolbar)
+
+        binding.layoutDrawer.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
         val toggle = ActionBarDrawerToggle(
             this,
-            drawerLayout,
-            toolbar,
+            binding.drawerLayout,
+            binding.layoutDrawer.toolbar,
             R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
         )
-        drawerLayout?.addDrawerListener(toggle)
+        binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        navView.setNavigationItemSelectedListener(this)
-        drawerLayout?.apply {
-            setViewScale(Gravity.START, 0.9f)
-            setViewElevation(Gravity.START, 20f)
+
+        binding.navView.setNavigationItemSelectedListener(this)
+
+        binding.drawerLayout.apply {
+            setViewScale(Gravity.START, 0.96f)
+            setRadius(Gravity.START, 20f)
+            setViewElevation(Gravity.START, 8f)
+            setViewRotation(Gravity.START, 15f)
         }
     }
 
-//    override fun onBackPressed() {
-//        if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
-//            drawerLayout?.closeDrawer(GravityCompat.START)
-//        } else {
-//            super.onBackPressed()
-//        }
-//    }
-
     override fun onBaseBackPressed() {
-        if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
-            drawerLayout?.closeDrawer(GravityCompat.START)
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBaseBackPressed()
         }
@@ -70,7 +73,7 @@ class AdvanceDrawer2ActivityFont : BaseActivityFont(), NavigationView.OnNavigati
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
-        drawerLayout?.closeDrawer(GravityCompat.START)
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 
@@ -82,7 +85,7 @@ class AdvanceDrawer2ActivityFont : BaseActivityFont(), NavigationView.OnNavigati
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.actionRightDrawer -> {
-                drawerLayout?.openDrawer(GravityCompat.END)
+                binding.drawerLayout.openDrawer(GravityCompat.END)
                 return true
             }
         }

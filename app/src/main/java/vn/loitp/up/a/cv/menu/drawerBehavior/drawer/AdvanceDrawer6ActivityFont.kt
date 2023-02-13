@@ -1,28 +1,28 @@
-package vn.loitp.a.cv.menu.drawerBehavior.drawer
+package vn.loitp.up.a.cv.menu.drawerBehavior.drawer
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.core.view.ViewCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import kotlinx.android.synthetic.main.a_drawer_behavior_advance_3d_1.*
+import com.loitp.core.ext.setSafeOnClickListener
+import kotlinx.android.synthetic.main.a_drawer_behavior_advance6.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.R
 
-@LogTag("Advance3DDrawer1Activity")
+@LogTag("AdvanceDrawer6Activity")
 @IsFullScreen(false)
-class Advance3DDrawer1ActivityFont :
-    BaseActivityFont(),
-    NavigationView.OnNavigationItemSelectedListener {
+class AdvanceDrawer6ActivityFont : BaseActivityFont(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_drawer_behavior_advance_3d_1
+        return R.layout.a_drawer_behavior_advance6
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,31 +33,46 @@ class Advance3DDrawer1ActivityFont :
 
     private fun setupViews() {
         setSupportActionBar(toolbar)
-
-        fab.setOnClickListener { view ->
+        fab.setSafeOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+        drawerLayout?.let {
+            ViewCompat.setLayoutDirection(it, View.LAYOUT_DIRECTION_RTL)
+        }
 
         val toggle = ActionBarDrawerToggle(
-            this,
-            drawerLayout,
-            toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
+            /* activity = */ this,
+            /* drawerLayout = */ drawerLayout,
+            /* toolbar = */ toolbar,
+            /* openDrawerContentDescRes = */ R.string.navigation_drawer_open,
+            /* closeDrawerContentDescRes = */ R.string.navigation_drawer_close
         )
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
-
         navView.setNavigationItemSelectedListener(this)
-
         drawerLayout?.apply {
-            setViewScale(Gravity.START, 0.96f)
-            setRadius(Gravity.START, 20f)
-            setViewElevation(Gravity.START, 8f)
-            setViewRotation(Gravity.START, 15f)
+            setViewScale(GravityCompat.START, 0.9f)
+            setRadius(GravityCompat.START, 35f)
+            setViewElevation(GravityCompat.START, 20f)
         }
     }
+
+//    private fun setLocale(locale: Locale) {
+//        val resources = resources
+//        val configuration = resources.configuration
+//        val displayMetrics = resources.displayMetrics
+//        configuration.setLocale(locale)
+//        applicationContext.createConfigurationContext(configuration)
+//    }
+
+//    override fun onBackPressed() {
+//        if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
+//            drawerLayout?.closeDrawer(GravityCompat.START)
+//        } else {
+//            super.onBackPressed()
+//        }
+//    }
 
     override fun onBaseBackPressed() {
         if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {

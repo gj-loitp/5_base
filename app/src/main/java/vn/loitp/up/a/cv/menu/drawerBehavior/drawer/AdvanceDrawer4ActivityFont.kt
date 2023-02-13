@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.menu.drawerBehavior.drawer
+package vn.loitp.up.a.cv.menu.drawerBehavior.drawer
 
 import android.os.Bundle
 import android.view.Gravity
@@ -12,16 +12,16 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.a_drawer_behavior_advance1.*
+import kotlinx.android.synthetic.main.a_drawer_behavior_advance4.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.R
 
-@LogTag("AdvanceDrawer1Activity")
+@LogTag("AdvanceDrawer4Activity")
 @IsFullScreen(false)
-class AdvanceDrawer1ActivityFont : BaseActivityFont(), NavigationView.OnNavigationItemSelectedListener {
+class AdvanceDrawer4ActivityFont : BaseActivityFont(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_drawer_behavior_advance1
+        return R.layout.a_drawer_behavior_advance4
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,6 @@ class AdvanceDrawer1ActivityFont : BaseActivityFont(), NavigationView.OnNavigati
 
     private fun setupViews() {
         setSupportActionBar(toolbar)
-
         fab.setSafeOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
@@ -47,8 +46,10 @@ class AdvanceDrawer1ActivityFont : BaseActivityFont(), NavigationView.OnNavigati
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
-        drawerLayout?.useCustomBehavior(Gravity.START)
-        drawerLayout?.useCustomBehavior(Gravity.END)
+        drawerLayout?.apply {
+            setViewScale(Gravity.END, 0.9f)
+            setViewElevation(Gravity.END, 20f)
+        }
     }
 
 //    override fun onBackPressed() {

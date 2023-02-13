@@ -63,7 +63,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonAdvance3d_1"
+                android:id="@+id/buttonAdvance3d1"
                 style="@style/ButtonMenu"
                 android:text="@string/advance_3d" />
         </androidx.appcompat.widget.LinearLayoutCompat>

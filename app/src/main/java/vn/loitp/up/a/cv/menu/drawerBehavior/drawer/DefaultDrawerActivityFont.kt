@@ -1,7 +1,6 @@
-package vn.loitp.a.cv.menu.drawerBehavior.drawer
+package vn.loitp.up.a.cv.menu.drawerBehavior.drawer
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -12,16 +11,16 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.a_drawer_behavior_advance5.*
+import kotlinx.android.synthetic.main.a_drawer_behavior_default.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.R
 
-@LogTag("ExtraTextViewActivity")
+@LogTag("DefaultDrawerActivity")
 @IsFullScreen(false)
-class AdvanceDrawer5ActivityFont : BaseActivityFont(), NavigationView.OnNavigationItemSelectedListener {
+class DefaultDrawerActivityFont : BaseActivityFont(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_drawer_behavior_advance5
+        return R.layout.a_drawer_behavior_default
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,20 +45,7 @@ class AdvanceDrawer5ActivityFont : BaseActivityFont(), NavigationView.OnNavigati
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
-        drawerLayout?.apply {
-            setViewScale(Gravity.START, 0.9f)
-            setRadius(Gravity.START, 35f)
-            setViewElevation(Gravity.START, 20f)
-        }
     }
-
-//    override fun onBackPressed() {
-//        if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
-//            drawerLayout?.closeDrawer(GravityCompat.START)
-//        } else {
-//            super.onBackPressed()
-//        }
-//    }
 
     override fun onBaseBackPressed() {
         if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {

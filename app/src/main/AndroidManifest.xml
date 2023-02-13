@@ -935,31 +935,31 @@
             android:name=".up.a.picker.number.NumberPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.DrawerBehaviorMainActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.DrawerBehaviorMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.Advance3DDrawer1ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.Advance3DDrawer1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer1ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer1ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer2ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer2ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer3ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer3ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer4ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer4ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer5ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer5ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.AdvanceDrawer6ActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.AdvanceDrawer6ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.menu.drawerBehavior.drawer.DefaultDrawerActivityFont"
+            android:name=".up.a.cv.menu.drawerBehavior.drawer.DefaultDrawerActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.splitPanel.SplitPanelLayoutActivityFont"
