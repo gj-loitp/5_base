@@ -8,8 +8,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.a.cv.progress.circularPb.CircularProgressBarActivityFont
 import vn.loitp.databinding.APbMenuBinding
+import vn.loitp.up.a.cv.progress.circularPb.CircularProgressBarActivity
 import vn.loitp.up.a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivity
 import vn.loitp.up.a.cv.progress.comparingPerformanceBar.ComparingPerformanceBarActivity
 import vn.loitp.up.a.cv.progress.progressView.ProgressViewActivity
@@ -46,7 +46,7 @@ class MenuProgressActivity : BaseActivityFont() {
             this.tvTitle?.text = MenuProgressActivity::class.java.simpleName
         }
         binding.btCircularProgressBar.setSafeOnClickListener {
-            launchActivity(CircularProgressBarActivityFont::class.java)
+            launchActivity(CircularProgressBarActivity::class.java)
         }
         binding.btCircularProgressIndicator.setSafeOnClickListener {
             launchActivity(CircularProgressIndicatorActivity::class.java)

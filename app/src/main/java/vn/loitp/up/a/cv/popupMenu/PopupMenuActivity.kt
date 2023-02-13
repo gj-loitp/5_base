@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.popupMenu
+package vn.loitp.up.a.cv.popupMenu
 
 import android.os.Bundle
 import android.view.View
@@ -6,27 +6,33 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.showPopup
-import kotlinx.android.synthetic.main.a_menu_popup.*
 import vn.loitp.R
+import vn.loitp.databinding.AMenuPopupBinding
 
 @LogTag("PopupMenuActivity")
 @IsFullScreen(false)
 class PopupMenuActivity : BaseActivityFont(), View.OnClickListener {
 
+    private lateinit var binding: AMenuPopupBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_menu_popup
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AMenuPopupBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -35,20 +41,20 @@ class PopupMenuActivity : BaseActivityFont(), View.OnClickListener {
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = PopupMenuActivity::class.java.simpleName
         }
-        btShow1.setOnClickListener(this)
-        btShow2.setOnClickListener(this)
-        btShow3.setOnClickListener(this)
-        btShow4.setOnClickListener(this)
-        btShow5.setOnClickListener(this)
+        binding.btShow1.setOnClickListener(this)
+        binding.btShow2.setOnClickListener(this)
+        binding.btShow3.setOnClickListener(this)
+        binding.btShow4.setOnClickListener(this)
+        binding.btShow5.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when (v) {
-            btShow1,
-            btShow2,
-            btShow3,
-            btShow4,
-            btShow5 -> {
+            binding.btShow1,
+            binding.btShow2,
+            binding.btShow3,
+            binding.btShow4,
+            binding.btShow5 -> {
                 this.showPopup(
                     showOnView = v,
                     menuRes = R.menu.menu_popup,

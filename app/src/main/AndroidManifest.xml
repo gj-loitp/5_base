@@ -186,7 +186,7 @@
             android:name=".up.a.cv.rv.parallaxRv.ParallaxRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.progress.circularPb.CircularProgressBarActivityFont"
+            android:name=".up.a.cv.progress.circularPb.CircularProgressBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.demo.sound.SoundActivity"
@@ -196,7 +196,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".a.cv.popupMenu.PopupMenuActivity"
+            android:name=".up.a.cv.popupMenu.PopupMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.ab.MenuActionBarActivity"
