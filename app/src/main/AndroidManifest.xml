@@ -1008,7 +1008,7 @@
             android:name=".up.a.cv.layout.transformation.TransformationDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.layout.transformation.single.TransformationSingleActivityFont"
+            android:name=".up.a.cv.layout.transformation.single.TransformationSingleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.rv.netView.NetViewActivity"

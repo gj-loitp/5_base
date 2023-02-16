@@ -44,7 +44,7 @@ import vn.loitp.a.cv.layout.swipeRefresh.MenuSwipeRefreshLayoutActivityFont
 import vn.loitp.a.cv.layout.swipeReveal.SwipeRevealLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
 import vn.loitp.up.a.cv.layout.transformation.TransformationActivity
-import vn.loitp.up.a.cv.layout.transformation.single.TransformationSingleActivityFont
+import vn.loitp.up.a.cv.layout.transformation.single.TransformationSingleActivity
 import vn.loitp.up.a.cv.layout.zoom.ZoomLayoutActivity
 
 @LogTag("MenuLayoutActivity")
@@ -145,7 +145,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btFlowLayout -> launchActivity(FlowLayoutActivityFont::class.java)
             binding.btSplitPanelLayout -> launchActivity(SplitPanelLayoutActivityFont::class.java)
             binding.btTramsformationLayout -> launchActivity(TransformationActivity::class.java)
-            binding.btTramsformationLayoutSingle -> launchActivity(TransformationSingleActivityFont::class.java)
+            binding.btTramsformationLayoutSingle -> launchActivity(TransformationSingleActivity::class.java)
             binding.btChessLayout -> launchActivity(ChessLayoutActivityFont::class.java)
             binding.btBasketLayoutActivity -> launchActivity(BasketLayoutActivityFont::class.java)
             binding.btSequenceLayoutActivity -> launchActivity(SequenceLayoutActivityFont::class.java)
