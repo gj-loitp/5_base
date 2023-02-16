@@ -521,7 +521,7 @@
             android:name=".up.a.cv.menu.reside.ResideMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.lCv.LCardViewActivity"
+            android:name=".up.a.cv.lCv.LCardViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.coordinator.CoordinatorLayoutWithImageViewActivityFont"

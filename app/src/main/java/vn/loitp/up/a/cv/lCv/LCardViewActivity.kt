@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.lCv
+package vn.loitp.up.a.cv.lCv
 
 import android.os.Bundle
 import android.view.View
@@ -7,6 +7,7 @@ import com.daimajia.androidanimations.library.Techniques
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.common.URL_IMG_2
 import com.loitp.core.common.URL_IMG_4
 import com.loitp.core.ext.play
@@ -14,25 +15,29 @@ import com.loitp.core.ext.screenHeight
 import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.card.LCardView
-import kotlinx.android.synthetic.main.a_l_card_view.*
-import vn.loitp.R
+import vn.loitp.databinding.ALCardViewBinding
 
 @LogTag("LCardViewActivity")
 @IsFullScreen(false)
 class LCardViewActivity : BaseActivityFont() {
 
+    private lateinit var binding: ALCardViewBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_l_card_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ALCardViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -41,7 +46,7 @@ class LCardViewActivity : BaseActivityFont() {
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = LCardViewActivity::class.java.simpleName
         }
-        lCardView0.apply {
+        binding.lCardView0.apply {
             callback = object : LCardView.Callback {
                 override fun onClickRoot(v: View) {
                     // LAnimationUtil.play(v, Techniques.Pulse)
@@ -66,7 +71,7 @@ class LCardViewActivity : BaseActivityFont() {
             setCardElevation(10f)
             setImg(URL_IMG_2)
         }
-        lCardView1.apply {
+        binding.lCardView1.apply {
             setText(System.currentTimeMillis().toString() + "")
             height = screenHeight * 3 / 2
             setRadius(50f)
