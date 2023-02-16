@@ -1,6 +1,6 @@
-package vn.loitp.a.cv.layout.transformation
+package vn.loitp.up.a.cv.layout.transformation
 
-import vn.loitp.a.cv.layout.transformation.rv.Poster
+import vn.loitp.up.a.cv.layout.transformation.rv.Poster
 
 object TransformationMockUtil {
 

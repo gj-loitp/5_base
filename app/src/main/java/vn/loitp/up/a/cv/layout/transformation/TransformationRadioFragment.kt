@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.transformation
+package vn.loitp.up.a.cv.layout.transformation
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,7 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.f_transformation_radio.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.transformation.rv.PosterCircleAdapter
+import vn.loitp.up.a.cv.layout.transformation.rv.PosterCircleAdapter
 
 class TransformationRadioFragment : BaseFragment() {
 
@@ -29,7 +29,7 @@ class TransformationRadioFragment : BaseFragment() {
         }
 
         fab.setSafeOnClickListener {
-            TransformationDetailActivityFont.startActivity(
+            TransformationDetailActivity.startActivity(
                 requireContext(),
                 transformationLayoutFab,
                 TransformationMockUtil.getMockPoster()

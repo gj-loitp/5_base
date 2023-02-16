@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.transformation.single
+package vn.loitp.up.a.cv.layout.transformation.single
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
 import kotlinx.android.synthetic.main.a_layout_transformation_detail.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.transformation.rv.Poster
+import vn.loitp.up.a.cv.layout.transformation.rv.Poster
 
 class TransformationSingleDetailFragment : BaseFragment() {
 

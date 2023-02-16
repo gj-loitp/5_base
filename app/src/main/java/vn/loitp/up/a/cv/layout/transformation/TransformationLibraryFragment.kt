@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.transformation
+package vn.loitp.up.a.cv.layout.transformation
 
 import android.os.Bundle
 import android.view.View
@@ -6,8 +6,8 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.f_transformation_library.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.transformation.TransformationMockUtil.getMockPosters
-import vn.loitp.a.cv.layout.transformation.rv.PosterLineAdapter
+import vn.loitp.up.a.cv.layout.transformation.TransformationMockUtil.getMockPosters
+import vn.loitp.up.a.cv.layout.transformation.rv.PosterLineAdapter
 
 class TransformationLibraryFragment : BaseFragment() {
     override fun setLayoutResourceId(): Int {

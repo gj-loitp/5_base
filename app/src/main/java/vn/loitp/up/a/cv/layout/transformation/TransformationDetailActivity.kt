@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.transformation
+package vn.loitp.up.a.cv.layout.transformation
 
 import android.content.Context
 import android.content.Intent
@@ -6,18 +6,18 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.common.activityTransitionName
 import com.loitp.core.ext.loadGlide
 import com.skydoves.transformationlayout.TransformationCompat
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
-import kotlinx.android.synthetic.main.a_layout_transformation_detail.*
-import vn.loitp.R
-import vn.loitp.a.cv.layout.transformation.rv.Poster
+import vn.loitp.databinding.ALayoutTransformationDetailBinding
+import vn.loitp.up.a.cv.layout.transformation.rv.Poster
 
 @LogTag("DetailActivity")
 @IsFullScreen(false)
-class TransformationDetailActivityFont : BaseActivityFont() {
+class TransformationDetailActivity : BaseActivityFont() {
 
     companion object {
         const val posterExtraName = "posterExtraName"
@@ -26,24 +26,29 @@ class TransformationDetailActivityFont : BaseActivityFont() {
             transformationLayout: TransformationLayout,
             poster: Poster
         ) {
-            val intent = Intent(context, TransformationDetailActivityFont::class.java)
+            val intent = Intent(context, TransformationDetailActivity::class.java)
             intent.putExtra(posterExtraName, poster)
             TransformationCompat.startActivity(transformationLayout, intent)
         }
     }
 
+    private lateinit var binding: ALayoutTransformationDetailBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_transformation_detail
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         onTransformationEndContainer(intent.getParcelableExtra(activityTransitionName))
         super.onCreate(savedInstanceState)
 
+        binding = ALayoutTransformationDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         intent.getParcelableExtra<Poster>(posterExtraName)?.let {
-            ivProfileDetailBackground.loadGlide(any = it.poster)
-            tvDetailTitle.text = it.name
-            tvDetailDescription.text = it.description
+            binding.ivProfileDetailBackground.loadGlide(any = it.poster)
+            binding.tvDetailTitle.text = it.name
+            binding.tvDetailDescription.text = it.description
         }
     }
 }

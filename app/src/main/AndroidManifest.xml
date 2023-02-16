@@ -119,7 +119,7 @@
             android:name=".up.a.cv.layout.MenuLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.zoom.ZoomLayoutActivityFont"
+            android:name=".up.a.cv.layout.zoom.ZoomLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.zoom.ZoomIvActivityFont"
@@ -1002,13 +1002,13 @@
             android:name=".a.cv.iv.stfaiconIv.ListActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.transformation.TransformationActivityFont"
+            android:name=".up.a.cv.layout.transformation.TransformationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.transformation.TransformationDetailActivityFont"
+            android:name=".up.a.cv.layout.transformation.TransformationDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.transformation.single.TransformationSingleActivityFont"
+            android:name=".up.a.cv.layout.transformation.single.TransformationSingleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.rv.netView.NetViewActivity"

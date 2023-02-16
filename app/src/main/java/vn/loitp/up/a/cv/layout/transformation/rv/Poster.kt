@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.transformation.rv
+package vn.loitp.up.a.cv.layout.transformation.rv
 
 import android.os.Parcelable
 import androidx.annotation.Keep

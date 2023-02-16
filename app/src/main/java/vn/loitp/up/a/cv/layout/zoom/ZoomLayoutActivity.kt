@@ -1,32 +1,38 @@
-package vn.loitp.a.cv.layout.zoom
+package vn.loitp.up.a.cv.layout.zoom
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_layout_zoom.*
 import vn.loitp.R
+import vn.loitp.databinding.ALayoutZoomBinding
 
 @LogTag("ZoomLayoutActivity")
 @IsFullScreen(false)
-class ZoomLayoutActivityFont : BaseActivityFont() {
+class ZoomLayoutActivity : BaseActivityFont() {
+
+    private lateinit var binding: ALayoutZoomBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_zoom
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ALayoutZoomBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -43,12 +49,12 @@ class ZoomLayoutActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = ZoomLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = ZoomLayoutActivity::class.java.simpleName
         }
-        bt1.setSafeOnClickListener {
+        binding.bt1.setSafeOnClickListener {
             showShortInformation("Click button bt_1")
         }
-        bt2.setSafeOnClickListener {
+        binding.bt2.setSafeOnClickListener {
             showShortInformation("Click button bt_2")
         }
 

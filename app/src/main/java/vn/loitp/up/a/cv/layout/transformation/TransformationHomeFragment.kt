@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.transformation
+package vn.loitp.up.a.cv.layout.transformation
 
 import android.os.Bundle
 import android.os.SystemClock
@@ -7,9 +7,9 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.setSafeOnClickListener
 import kotlinx.android.synthetic.main.f_transformation_home.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.transformation.TransformationMockUtil.getMockPosters
-import vn.loitp.a.cv.layout.transformation.rv.PosterAdapter
-import vn.loitp.a.cv.layout.transformation.rv.PosterMenuAdapter
+import vn.loitp.up.a.cv.layout.transformation.TransformationMockUtil.getMockPosters
+import vn.loitp.up.a.cv.layout.transformation.rv.PosterAdapter
+import vn.loitp.up.a.cv.layout.transformation.rv.PosterMenuAdapter
 
 class TransformationHomeFragment : BaseFragment() {
 
@@ -32,7 +32,7 @@ class TransformationHomeFragment : BaseFragment() {
             context?.let { c ->
                 val now = SystemClock.elapsedRealtime()
                 if (now - previousTime >= layoutItemPosterTransformation.duration) {
-                    TransformationDetailActivityFont.startActivity(
+                    TransformationDetailActivity.startActivity(
                         c,
                         layoutItemPosterTransformation,
                         poster

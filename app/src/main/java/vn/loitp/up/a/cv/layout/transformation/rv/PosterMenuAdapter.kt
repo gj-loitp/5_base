@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.transformation.rv
+package vn.loitp.up.a.cv.layout.transformation.rv
 
 import android.os.SystemClock
 import android.view.LayoutInflater
@@ -7,17 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
-import com.skydoves.transformationlayout.TransformationLayout
-import kotlinx.android.synthetic.main.i_transformation_poster.view.*
+import kotlinx.android.synthetic.main.i_transformation_poster_menu.view.*
 import vn.loitp.R
+import vn.loitp.up.a.cv.layout.transformation.TransformationDetailActivity
 
-class PosterSingleAdapter constructor(
-    private val delegate: PosterDelegate
-) : BaseAdapter() {
-
-    interface PosterDelegate {
-        fun onItemClick(poster: Poster, itemView: TransformationLayout)
-    }
+class PosterMenuAdapter : BaseAdapter() {
 
     private val listPoster = mutableListOf<Poster>()
     private var previousTime = SystemClock.elapsedRealtime()
@@ -29,7 +23,7 @@ class PosterSingleAdapter constructor(
         val inflater = LayoutInflater.from(parent.context)
         return PosterViewHolder(
             inflater.inflate(
-                /* resource = */ R.layout.i_transformation_poster,
+                /* resource = */ R.layout.i_transformation_poster_menu,
                 /* root = */ parent,
                 /* attachToRoot = */ false
             )
@@ -54,24 +48,21 @@ class PosterSingleAdapter constructor(
     override fun getItemCount() = listPoster.size
 
     inner class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
         fun bind(poster: Poster) {
             itemView.run {
                 ivItemPosterPost.loadGlide(
                     any = poster.poster,
                 )
-
                 tvItemPosterTitle.text = poster.name
-                tvItemPosterRunningTime.text = poster.playtime
-
-                // sets a transition name to the transformation layout.
-                // this code must not be in listener.
-                layoutItemPosterTransformation.transitionName = poster.name
 
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
-                    if (now - previousTime >= layoutItemPosterTransformation.duration) {
-                        delegate.onItemClick(poster, layoutItemPosterTransformation)
+                    if (now - previousTime >= layoutItemPosterMenuTransformation.duration) {
+                        TransformationDetailActivity.startActivity(
+                            context,
+                            layoutItemPosterMenuTransformation,
+                            poster
+                        )
                         previousTime = now
                     }
                 }

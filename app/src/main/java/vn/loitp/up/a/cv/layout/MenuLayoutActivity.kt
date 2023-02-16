@@ -42,10 +42,10 @@ import vn.loitp.a.cv.layout.square.SquareLayoutActivityFont
 import vn.loitp.a.cv.layout.swipeBack.SwipeBackLayoutActivityFont
 import vn.loitp.a.cv.layout.swipeRefresh.MenuSwipeRefreshLayoutActivityFont
 import vn.loitp.a.cv.layout.swipeReveal.SwipeRevealLayoutActivityFont
-import vn.loitp.a.cv.layout.transformation.TransformationActivityFont
-import vn.loitp.a.cv.layout.transformation.single.TransformationSingleActivityFont
-import vn.loitp.a.cv.layout.zoom.ZoomLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.transformation.TransformationActivity
+import vn.loitp.up.a.cv.layout.transformation.single.TransformationSingleActivityFont
+import vn.loitp.up.a.cv.layout.zoom.ZoomLayoutActivity
 
 @LogTag("MenuLayoutActivity")
 @IsFullScreen(false)
@@ -122,7 +122,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btDraggablePanel -> launchActivity(DraggablePanelActivityFont::class.java)
             binding.btDraggablePanelFree -> launchActivity(DraggablePanelFreeActivityFont::class.java)
             binding.btDraggableView -> launchActivity(DraggableViewActivityFont::class.java)
-            binding.btZoomLayout -> launchActivity(ZoomLayoutActivityFont::class.java)
+            binding.btZoomLayout -> launchActivity(ZoomLayoutActivity::class.java)
             binding.btRippleLayout -> launchActivity(RippleLayoutActivityFont::class.java)
             binding.btSwipeRefreshLayout -> launchActivity(MenuSwipeRefreshLayoutActivityFont::class.java)
             binding.btCircularView -> launchActivity(CircularViewActivityFont::class.java)
@@ -144,7 +144,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btRoundableLayout -> launchActivity(RoundableLayoutActivityFont::class.java)
             binding.btFlowLayout -> launchActivity(FlowLayoutActivityFont::class.java)
             binding.btSplitPanelLayout -> launchActivity(SplitPanelLayoutActivityFont::class.java)
-            binding.btTramsformationLayout -> launchActivity(TransformationActivityFont::class.java)
+            binding.btTramsformationLayout -> launchActivity(TransformationActivity::class.java)
             binding.btTramsformationLayoutSingle -> launchActivity(TransformationSingleActivityFont::class.java)
             binding.btChessLayout -> launchActivity(ChessLayoutActivityFont::class.java)
             binding.btBasketLayoutActivity -> launchActivity(BasketLayoutActivityFont::class.java)

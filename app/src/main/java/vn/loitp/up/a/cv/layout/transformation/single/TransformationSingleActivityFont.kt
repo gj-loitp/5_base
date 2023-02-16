@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.transformation.single
+package vn.loitp.up.a.cv.layout.transformation.single
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen

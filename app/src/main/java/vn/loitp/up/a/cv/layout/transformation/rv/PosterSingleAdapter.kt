@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.transformation.rv
+package vn.loitp.up.a.cv.layout.transformation.rv
 
 import android.os.SystemClock
 import android.view.LayoutInflater
@@ -7,11 +7,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
-import kotlinx.android.synthetic.main.i_poster_circle.view.*
+import com.skydoves.transformationlayout.TransformationLayout
+import kotlinx.android.synthetic.main.i_transformation_poster.view.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.transformation.TransformationDetailActivityFont
 
-class PosterCircleAdapter : BaseAdapter() {
+class PosterSingleAdapter constructor(
+    private val delegate: PosterDelegate
+) : BaseAdapter() {
+
+    interface PosterDelegate {
+        fun onItemClick(poster: Poster, itemView: TransformationLayout)
+    }
 
     private val listPoster = mutableListOf<Poster>()
     private var previousTime = SystemClock.elapsedRealtime()
@@ -21,7 +27,13 @@ class PosterCircleAdapter : BaseAdapter() {
         viewType: Int
     ): PosterViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return PosterViewHolder(inflater.inflate(R.layout.i_poster_circle, parent, false))
+        return PosterViewHolder(
+            inflater.inflate(
+                /* resource = */ R.layout.i_transformation_poster,
+                /* root = */ parent,
+                /* attachToRoot = */ false
+            )
+        )
     }
 
     override fun onBindViewHolder(
@@ -33,15 +45,16 @@ class PosterCircleAdapter : BaseAdapter() {
         }
     }
 
-    fun addPosterList(list: List<Poster>) {
-        listPoster.clear()
-        listPoster.addAll(list)
+    fun addPosterList(listPoster: List<Poster>) {
+        this.listPoster.clear()
+        this.listPoster.addAll(listPoster)
         notifyItemRangeChanged(0, itemCount)
     }
 
     override fun getItemCount() = listPoster.size
 
     inner class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
         fun bind(poster: Poster) {
             itemView.run {
                 ivItemPosterPost.loadGlide(
@@ -51,15 +64,16 @@ class PosterCircleAdapter : BaseAdapter() {
                 tvItemPosterTitle.text = poster.name
                 tvItemPosterRunningTime.text = poster.playtime
 
+                // sets a transition name to the transformation layout.
+                // this code must not be in listener.
+                layoutItemPosterTransformation.transitionName = poster.name
+
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
-                    if (now - previousTime >= layoutItemPosterCircleTransformation.duration)
-                        TransformationDetailActivityFont.startActivity(
-                            context,
-                            layoutItemPosterCircleTransformation,
-                            poster
-                        )
-                    previousTime = now
+                    if (now - previousTime >= layoutItemPosterTransformation.duration) {
+                        delegate.onItemClick(poster, layoutItemPosterTransformation)
+                        previousTime = now
+                    }
                 }
             }
         }

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.transformation.single
+package vn.loitp.up.a.cv.layout.transformation.single
 
 import android.os.Bundle
 import android.view.View
@@ -8,10 +8,10 @@ import com.skydoves.transformationlayout.addTransformation
 import com.skydoves.transformationlayout.onTransformationStartContainer
 import kotlinx.android.synthetic.main.f_transformation_home.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.transformation.TransformationMockUtil.getMockPosters
-import vn.loitp.a.cv.layout.transformation.rv.Poster
-import vn.loitp.a.cv.layout.transformation.rv.PosterMenuAdapter
-import vn.loitp.a.cv.layout.transformation.rv.PosterSingleAdapter
+import vn.loitp.up.a.cv.layout.transformation.TransformationMockUtil.getMockPosters
+import vn.loitp.up.a.cv.layout.transformation.rv.Poster
+import vn.loitp.up.a.cv.layout.transformation.rv.PosterMenuAdapter
+import vn.loitp.up.a.cv.layout.transformation.rv.PosterSingleAdapter
 
 class TransformationSingleFragment : BaseFragment(), PosterSingleAdapter.PosterDelegate {
 

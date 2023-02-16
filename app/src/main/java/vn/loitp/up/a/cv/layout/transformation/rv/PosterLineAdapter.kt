@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.transformation.rv
+package vn.loitp.up.a.cv.layout.transformation.rv
 
 import android.os.SystemClock
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
-import kotlinx.android.synthetic.main.i_transformation_poster_menu.view.*
+import kotlinx.android.synthetic.main.i_transformation_poster_line.view.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.transformation.TransformationDetailActivityFont
+import vn.loitp.up.a.cv.layout.transformation.TransformationDetailActivity
 
-class PosterMenuAdapter : BaseAdapter() {
+class PosterLineAdapter : BaseAdapter() {
 
     private val listPoster = mutableListOf<Poster>()
     private var previousTime = SystemClock.elapsedRealtime()
@@ -23,7 +23,7 @@ class PosterMenuAdapter : BaseAdapter() {
         val inflater = LayoutInflater.from(parent.context)
         return PosterViewHolder(
             inflater.inflate(
-                /* resource = */ R.layout.i_transformation_poster_menu,
+                /* resource = */ R.layout.i_transformation_poster_line,
                 /* root = */ parent,
                 /* attachToRoot = */ false
             )
@@ -53,14 +53,16 @@ class PosterMenuAdapter : BaseAdapter() {
                 ivItemPosterPost.loadGlide(
                     any = poster.poster,
                 )
+
                 tvItemPosterTitle.text = poster.name
+                tvItemPosterRunningTime.text = poster.playtime
 
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
-                    if (now - previousTime >= layoutItemPosterMenuTransformation.duration) {
-                        TransformationDetailActivityFont.startActivity(
+                    if (now - previousTime >= layoutItemPosterLineTransformation.duration) {
+                        TransformationDetailActivity.startActivity(
                             context,
-                            layoutItemPosterMenuTransformation,
+                            layoutItemPosterLineTransformation,
                             poster
                         )
                         previousTime = now
