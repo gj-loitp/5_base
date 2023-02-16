@@ -2,13 +2,11 @@ package vn.loitp.up.a.cv.layout.transformation.rv
 
 import android.os.SystemClock
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
-import kotlinx.android.synthetic.main.i_transformation_poster_line.view.*
-import vn.loitp.R
+import vn.loitp.databinding.ITransformationPosterLineBinding
 import vn.loitp.up.a.cv.layout.transformation.TransformationDetailActivity
 
 class PosterLineAdapter : BaseAdapter() {
@@ -16,18 +14,13 @@ class PosterLineAdapter : BaseAdapter() {
     private val listPoster = mutableListOf<Poster>()
     private var previousTime = SystemClock.elapsedRealtime()
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): PosterViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        return PosterViewHolder(
-            inflater.inflate(
-                /* resource = */ R.layout.i_transformation_poster_line,
-                /* root = */ parent,
-                /* attachToRoot = */ false
-            )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val binding = ITransformationPosterLineBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
         )
+        return PosterViewHolder(binding)
     }
 
     override fun onBindViewHolder(
@@ -47,23 +40,24 @@ class PosterLineAdapter : BaseAdapter() {
 
     override fun getItemCount() = listPoster.size
 
-    inner class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class PosterViewHolder(val binding: ITransformationPosterLineBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(poster: Poster) {
             itemView.run {
-                ivItemPosterPost.loadGlide(
+                binding.ivItemPosterPost.loadGlide(
                     any = poster.poster,
                 )
 
-                tvItemPosterTitle.text = poster.name
-                tvItemPosterRunningTime.text = poster.playtime
+                binding.tvItemPosterTitle.text = poster.name
+                binding.tvItemPosterRunningTime.text = poster.playtime
 
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
-                    if (now - previousTime >= layoutItemPosterLineTransformation.duration) {
+                    if (now - previousTime >= binding.layoutItemPosterLineTransformation.duration) {
                         TransformationDetailActivity.startActivity(
-                            context,
-                            layoutItemPosterLineTransformation,
-                            poster
+                            context = context,
+                            transformationLayout = binding.layoutItemPosterLineTransformation,
+                            poster = poster
                         )
                         previousTime = now
                     }
