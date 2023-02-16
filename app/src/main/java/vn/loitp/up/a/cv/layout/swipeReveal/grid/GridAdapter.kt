@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.swipeReveal.grid
+package vn.loitp.up.a.cv.layout.swipeReveal.grid
 
 import android.content.Context
 import android.os.Bundle

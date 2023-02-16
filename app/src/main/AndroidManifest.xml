@@ -682,16 +682,16 @@
             android:name=".up.a.demo.pdf.PdfDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.swipeReveal.SwipeRevealLayoutActivityFont"
+            android:name=".up.a.cv.layout.swipeReveal.SwipeRevealLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.swipeReveal.grid.SwipeRevealLayoutGridActivityFont"
+            android:name=".up.a.cv.layout.swipeReveal.grid.SwipeRevealLayoutGridActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.swipeReveal.list.SwipeRevealLayoutListActivityFont"
+            android:name=".up.a.cv.layout.swipeReveal.list.SwipeRevealLayoutListActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.swipeReveal.rv.SwipeRevealLayoutRecyclerActivityFont"
+            android:name=".up.a.cv.layout.swipeReveal.rv.SwipeRevealLayoutRecyclerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.dlg.slideImages.DialogSlideImagesActivityFont"

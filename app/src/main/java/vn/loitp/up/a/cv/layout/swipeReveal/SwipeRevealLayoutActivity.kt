@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.swipeReveal
+package vn.loitp.up.a.cv.layout.swipeReveal
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,59 +7,65 @@ import android.view.MenuItem
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.a_layout_swipe_reveal.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.swipeReveal.grid.SwipeRevealLayoutGridActivityFont
-import vn.loitp.a.cv.layout.swipeReveal.list.SwipeRevealLayoutListActivityFont
-import vn.loitp.a.cv.layout.swipeReveal.rv.SwipeRevealLayoutRecyclerActivityFont
+import vn.loitp.databinding.ALayoutSwipeRevealBinding
+import vn.loitp.up.a.cv.layout.swipeReveal.grid.SwipeRevealLayoutGridActivity
+import vn.loitp.up.a.cv.layout.swipeReveal.list.SwipeRevealLayoutListActivity
+import vn.loitp.up.a.cv.layout.swipeReveal.rv.SwipeRevealLayoutRecyclerActivity
 
 // https://github.com/chthai64/SwipeRevealLayout
 @LogTag("SwipeRevealLayoutActivity")
 @IsFullScreen(false)
-class SwipeRevealLayoutActivityFont : BaseActivityFont() {
+class SwipeRevealLayoutActivity : BaseActivityFont() {
+
+    private lateinit var binding: ALayoutSwipeRevealBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_swipe_reveal
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ALayoutSwipeRevealBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        setSupportActionBar(toolbar)
-        tv1.setSafeOnClickListener {
+        setSupportActionBar(binding.toolbar)
+        binding.tv1.setSafeOnClickListener {
             moreOnClick()
         }
-        tv1Delete.setSafeOnClickListener {
+        binding.tv1Delete.setSafeOnClickListener {
             deleteOnClick()
         }
-        fl1.setSafeOnClickListener {
+        binding.fl1.setSafeOnClickListener {
             layoutOneOnClick()
         }
-        tv2.setSafeOnClickListener {
+        binding.tv2.setSafeOnClickListener {
             archiveOnClick()
         }
-        tv2Help.setSafeOnClickListener {
+        binding.tv2Help.setSafeOnClickListener {
             helpOnClick()
         }
-        fl2.setSafeOnClickListener {
+        binding.fl2.setSafeOnClickListener {
             layoutTwoOnClick()
         }
-        flSearch.setSafeOnClickListener {
+        binding.flSearch.setSafeOnClickListener {
             searchOnClick()
         }
-        fl3.setSafeOnClickListener {
+        binding.fl3.setSafeOnClickListener {
             layoutThreeOnClick()
         }
-        flStart.setSafeOnClickListener {
+        binding.flStart.setSafeOnClickListener {
             starOnClick()
         }
-        fl4.setSafeOnClickListener {
+        binding.fl4.setSafeOnClickListener {
             layoutFourOnClick()
         }
     }
@@ -72,17 +78,17 @@ class SwipeRevealLayoutActivityFont : BaseActivityFont() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.actionRecyclerView -> {
-                startActivity(Intent(this, SwipeRevealLayoutRecyclerActivityFont::class.java))
+                startActivity(Intent(this, SwipeRevealLayoutRecyclerActivity::class.java))
                 this.tranIn()
                 return true
             }
             R.id.actionListView -> {
-                startActivity(Intent(this, SwipeRevealLayoutListActivityFont::class.java))
+                startActivity(Intent(this, SwipeRevealLayoutListActivity::class.java))
                 this.tranIn()
                 return true
             }
             R.id.actionGridView -> {
-                startActivity(Intent(this, SwipeRevealLayoutGridActivityFont::class.java))
+                startActivity(Intent(this, SwipeRevealLayoutGridActivity::class.java))
                 this.tranIn()
                 return true
             }

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.swipeReveal.rv;
+package vn.loitp.up.a.cv.layout.swipeReveal.rv;
 
 import android.content.Context;
 import android.os.Bundle;

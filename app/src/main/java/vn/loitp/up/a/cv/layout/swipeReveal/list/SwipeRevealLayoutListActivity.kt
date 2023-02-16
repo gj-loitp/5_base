@@ -1,46 +1,51 @@
-package vn.loitp.a.cv.layout.swipeReveal.grid
+package vn.loitp.up.a.cv.layout.swipeReveal.list
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import kotlinx.android.synthetic.main.a_swipe_reveal_layout_grid.*
-import vn.loitp.R
+import com.loitp.core.common.NOT_FOUND
+import vn.loitp.databinding.ASwipeRevealLayoutListBinding
 
-@LogTag("SwipeRevealLayoutGridActivity")
+@LogTag("SwipeRevealLayoutListActivity")
 @IsFullScreen(false)
-class SwipeRevealLayoutGridActivityFont : BaseActivityFont() {
-
-    private var gridAdapter: GridAdapter? = null
+class SwipeRevealLayoutListActivity : BaseActivityFont() {
+    private lateinit var binding: ASwipeRevealLayoutListBinding
+    private var listAdapter: ListAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_swipe_reveal_layout_grid
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ASwipeRevealLayoutListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupActionBar()
-        setupGrid()
+        setupList()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+
         // Only if you need to restore open/close state when
         // the orientation is changed
-        gridAdapter?.saveStates(outState)
+        listAdapter?.saveStates(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
+
         // Only if you need to restore open/close state when
         // the orientation is changed
-        gridAdapter?.restoreStates(savedInstanceState)
+        listAdapter?.restoreStates(savedInstanceState)
     }
 
-    private fun setupGrid() {
-        gridAdapter = GridAdapter(this, createList(20))
-        gridView.adapter = gridAdapter
+    private fun setupList() {
+        listAdapter = ListAdapter(this, createList(20))
+        binding.listView.adapter = listAdapter
     }
 
     @Suppress("unused")
@@ -53,11 +58,11 @@ class SwipeRevealLayoutGridActivityFont : BaseActivityFont() {
     }
 
     private fun setupActionBar() {
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.let {
             it.setDisplayHomeAsUpEnabled(true)
             it.setDisplayShowHomeEnabled(true)
-            toolbar.setNavigationOnClickListener {
+            binding.toolbar.setNavigationOnClickListener {
                 onBaseBackPressed()
             }
         }
