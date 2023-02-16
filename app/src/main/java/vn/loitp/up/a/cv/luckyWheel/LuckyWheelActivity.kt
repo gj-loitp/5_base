@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.luckyWheel
+package vn.loitp.up.a.cv.luckyWheel
 
 import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
@@ -10,24 +10,28 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_lucky_wheel.*
 import vn.loitp.R
+import vn.loitp.databinding.ALuckyWheelBinding
 
 @LogTag("LuckyWheelActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class LuckyWheelActivity : BaseActivityFont() {
-
+    private lateinit var binding: ALuckyWheelBinding
     private var wheelItems = ArrayList<WheelItem>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_lucky_wheel
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ALuckyWheelBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         generateWheelItems()
         setupViews()
@@ -35,7 +39,7 @@ class LuckyWheelActivity : BaseActivityFont() {
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
@@ -51,14 +55,14 @@ class LuckyWheelActivity : BaseActivityFont() {
             this.tvTitle?.text = LuckyWheelActivity::class.java.simpleName
         }
 
-        lw.addWheelItems(wheelItems)
-        lw.setTarget(1)
-        lw.setLuckyWheelReachTheTarget {
+        binding.lw.addWheelItems(wheelItems)
+        binding.lw.setTarget(1)
+        binding.lw.setLuckyWheelReachTheTarget {
             showShortInformation("Target Reached")
         }
 
-        start.setOnClickListener {
-            lw.rotateWheelTo(1)
+        binding.start.setOnClickListener {
+            binding.lw.rotateWheelTo(1)
         }
     }
 

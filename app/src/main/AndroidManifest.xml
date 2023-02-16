@@ -1269,7 +1269,7 @@
             android:name=".up.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.luckyWheel.LuckyWheelActivity"
+            android:name=".up.a.cv.luckyWheel.LuckyWheelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.tv.textArc.TextArcActivity"
