@@ -1,37 +1,41 @@
-package vn.loitp.a.cv.layout.roundable
+package vn.loitp.up.a.cv.layout.roundable
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_layout_roundable.*
-import vn.loitp.R
+import vn.loitp.databinding.ALayoutRoundableBinding
 
 @LogTag("RoundableLayoutActivity")
 @IsFullScreen(false)
-class RoundableLayoutActivityFont : BaseActivityFont() {
+class RoundableLayoutActivity : BaseActivityFont() {
+    private lateinit var binding: ALayoutRoundableBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_roundable
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ALayoutRoundableBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = RoundableLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = RoundableLayoutActivity::class.java.simpleName
         }
     }
 }

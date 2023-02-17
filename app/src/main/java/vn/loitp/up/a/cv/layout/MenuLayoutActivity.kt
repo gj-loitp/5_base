@@ -31,8 +31,8 @@ import vn.loitp.a.cv.layout.reflection.ReflectionLayoutActivityFont
 import vn.loitp.a.cv.layout.relativePopupWindow.RelativePopupWindowActivityFont
 import vn.loitp.a.cv.layout.ripple.RippleLayoutActivityFont
 import vn.loitp.a.cv.layout.rotate.RotateLayoutActivityFont
-import vn.loitp.a.cv.layout.roundable.RoundableLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.roundable.RoundableLayoutActivity
 import vn.loitp.up.a.cv.layout.scrollView2d.ScrollView2DActivity
 import vn.loitp.up.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity
 import vn.loitp.up.a.cv.layout.sequence.SequenceLayoutActivity
@@ -141,7 +141,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btSwipeRevealLayout -> launchActivity(SwipeRevealLayoutActivity::class.java)
             binding.btShadowLayout -> launchActivity(ShadowLayoutActivity::class.java)
             binding.btShapeOfView -> launchActivity(ShapeOfViewActivity::class.java)
-            binding.btRoundableLayout -> launchActivity(RoundableLayoutActivityFont::class.java)
+            binding.btRoundableLayout -> launchActivity(RoundableLayoutActivity::class.java)
             binding.btFlowLayout -> launchActivity(FlowLayoutActivityFont::class.java)
             binding.btSplitPanelLayout -> launchActivity(SplitPanelLayoutActivity::class.java)
             binding.btTramsformationLayout -> launchActivity(TransformationActivity::class.java)

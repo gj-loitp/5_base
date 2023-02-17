@@ -865,7 +865,7 @@
             android:name=".up.a.sv.demo.DemoServiceActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.roundable.RoundableLayoutActivityFont"
+            android:name=".up.a.cv.layout.roundable.RoundableLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.q.QButtonActivityFont"
