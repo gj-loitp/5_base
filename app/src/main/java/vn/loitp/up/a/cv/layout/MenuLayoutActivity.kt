@@ -40,8 +40,8 @@ import vn.loitp.a.cv.layout.shapeOfView.ShapeOfViewActivityFont
 import vn.loitp.a.cv.layout.splitPanel.SplitPanelLayoutActivityFont
 import vn.loitp.a.cv.layout.square.SquareLayoutActivityFont
 import vn.loitp.a.cv.layout.swipeBack.SwipeBackLayoutActivityFont
-import vn.loitp.a.cv.layout.swipeRefresh.MenuSwipeRefreshLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.swipeRefresh.MenuSwipeRefreshLayoutActivity
 import vn.loitp.up.a.cv.layout.swipeReveal.SwipeRevealLayoutActivity
 import vn.loitp.up.a.cv.layout.transformation.TransformationActivity
 import vn.loitp.up.a.cv.layout.transformation.single.TransformationSingleActivity
@@ -124,7 +124,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btDraggableView -> launchActivity(DraggableViewActivityFont::class.java)
             binding.btZoomLayout -> launchActivity(ZoomLayoutActivity::class.java)
             binding.btRippleLayout -> launchActivity(RippleLayoutActivityFont::class.java)
-            binding.btSwipeRefreshLayout -> launchActivity(MenuSwipeRefreshLayoutActivityFont::class.java)
+            binding.btSwipeRefreshLayout -> launchActivity(MenuSwipeRefreshLayoutActivity::class.java)
             binding.btCircularView -> launchActivity(CircularViewActivityFont::class.java)
             binding.btAutoLinearLayout -> launchActivity(AutoLinearLayoutActivityFont::class.java)
             binding.btConstraintLayout -> launchActivity(MenuConstraintLayoutActivityFont::class.java)

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.swipeRefresh.withRv
+package vn.loitp.up.a.cv.layout.swipeRefresh.withRv
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,43 +9,47 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setColorForSwipeRefreshLayout
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_layout_swipe_refresh_rv.*
-import vn.loitp.R
+import vn.loitp.databinding.ALayoutSwipeRefreshRvBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 import vn.loitp.up.a.cv.rv.normalRv.MoviesAdapter
 import vn.loitp.up.common.Constants.Companion.URL_IMG
 
 @LogTag("SwipeRefreshLayoutRecyclerViewActivity")
 @IsFullScreen(false)
-class SwipeRefreshLayoutRecyclerViewActivityFont : BaseActivityFont() {
+class SwipeRefreshLayoutRecyclerViewActivity : BaseActivityFont() {
     private val movieList: MutableList<Movie> = ArrayList()
     private var mAdapter: MoviesAdapter? = null
+    private lateinit var binding: ALayoutSwipeRefreshRvBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_swipe_refresh_rv
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ALayoutSwipeRefreshRvBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = SwipeRefreshLayoutRecyclerViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = SwipeRefreshLayoutRecyclerViewActivity::class.java.simpleName
         }
-        swipeRefreshLayout.setOnRefreshListener { refresh() }
-        swipeRefreshLayout.setColorForSwipeRefreshLayout()
+        binding.swipeRefreshLayout.setOnRefreshListener { refresh() }
+        binding.swipeRefreshLayout.setColorForSwipeRefreshLayout()
 
         mAdapter = MoviesAdapter(
             movieList,
@@ -61,9 +65,9 @@ class SwipeRefreshLayoutRecyclerViewActivityFont : BaseActivityFont() {
             }
         )
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(applicationContext)
-        rv.layoutManager = layoutManager
-        rv.itemAnimator = DefaultItemAnimator()
-        rv.adapter = mAdapter
+        binding.rv.layoutManager = layoutManager
+        binding.rv.itemAnimator = DefaultItemAnimator()
+        binding.rv.adapter = mAdapter
 
         prepareMovieData()
     }
@@ -74,16 +78,16 @@ class SwipeRefreshLayoutRecyclerViewActivityFont : BaseActivityFont() {
         mAdapter?.notifyDataSetChanged()
         setDelay(3000) {
             prepareMovieData()
-            swipeRefreshLayout?.isRefreshing = false
+            binding.swipeRefreshLayout.isRefreshing = false
             showShortInformation("Finish refresh", true)
         }
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
-        swipeRefreshLayout.isRefreshing = true
+        binding.swipeRefreshLayout.isRefreshing = true
         setDelay(2000) {
-            swipeRefreshLayout?.isRefreshing = false
+            binding.swipeRefreshLayout.isRefreshing = false
             val newSize = 5
             for (i in 0 until newSize) {
                 val movie = Movie("Add new $i", "Add new $i", "Add new: $i", URL_IMG)
