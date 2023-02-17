@@ -1281,7 +1281,7 @@
             android:name=".a.cv.iv.reflection.ReflectionActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.reflection.ReflectionLayoutActivityFont"
+            android:name=".up.a.cv.layout.reflection.ReflectionLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.cornerSheet.CornetSheetExampleActivity"

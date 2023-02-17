@@ -27,8 +27,8 @@ import vn.loitp.a.cv.layout.floatLayout.FloatLayoutActivityFont
 import vn.loitp.a.cv.layout.flow.FlowLayoutActivityFont
 import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivityFont
 import vn.loitp.a.cv.layout.heart.HeartLayoutActivityFont
-import vn.loitp.a.cv.layout.reflection.ReflectionLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.reflection.ReflectionLayoutActivity
 import vn.loitp.up.a.cv.layout.relativePopupWindow.RelativePopupWindowActivity
 import vn.loitp.up.a.cv.layout.ripple.RippleLayoutActivity
 import vn.loitp.up.a.cv.layout.rotate.RotateLayoutActivity
@@ -149,7 +149,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btChessLayout -> launchActivity(ChessLayoutActivityFont::class.java)
             binding.btBasketLayoutActivity -> launchActivity(BasketLayoutActivityFont::class.java)
             binding.btSequenceLayoutActivity -> launchActivity(SequenceLayoutActivity::class.java)
-            binding.btReflectionLayoutActivity -> launchActivity(ReflectionLayoutActivityFont::class.java)
+            binding.btReflectionLayoutActivity -> launchActivity(ReflectionLayoutActivity::class.java)
             binding.btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivityFont::class.java)
             binding.btGreedoLayout -> launchActivity(GreedoLayoutActivityFont::class.java)
             binding.btAutoScrollContent -> launchActivity(AutoScrollContentActivityFont::class.java)
