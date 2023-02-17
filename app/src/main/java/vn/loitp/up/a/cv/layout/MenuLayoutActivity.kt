@@ -32,9 +32,9 @@ import vn.loitp.a.cv.layout.relativePopupWindow.RelativePopupWindowActivityFont
 import vn.loitp.a.cv.layout.ripple.RippleLayoutActivityFont
 import vn.loitp.a.cv.layout.rotate.RotateLayoutActivityFont
 import vn.loitp.a.cv.layout.roundable.RoundableLayoutActivityFont
-import vn.loitp.a.cv.layout.scrollView2d.ScrollView2DActivityFont
-import vn.loitp.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.scrollView2d.ScrollView2DActivity
+import vn.loitp.up.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity
 import vn.loitp.up.a.cv.layout.sequence.SequenceLayoutActivity
 import vn.loitp.up.a.cv.layout.shadow.ShadowLayoutActivity
 import vn.loitp.up.a.cv.layout.shapeOfView.ShapeOfViewActivity
@@ -136,8 +136,8 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btSquareLayout -> launchActivity(SquareLayoutActivity::class.java)
             binding.btRelativePopupWindow -> launchActivity(RelativePopupWindowActivityFont::class.java)
             binding.btExpansionPanel -> launchActivity(MenuExpansionLayoutActivityFont::class.java)
-            binding.btScrollView2d -> launchActivity(ScrollView2DActivityFont::class.java)
-            binding.btScrollView2dAdvance -> launchActivity(ScrollView2DAdvanceActivityFont::class.java)
+            binding.btScrollView2d -> launchActivity(ScrollView2DActivity::class.java)
+            binding.btScrollView2dAdvance -> launchActivity(ScrollView2DAdvanceActivity::class.java)
             binding.btSwipeRevealLayout -> launchActivity(SwipeRevealLayoutActivity::class.java)
             binding.btShadowLayout -> launchActivity(ShadowLayoutActivity::class.java)
             binding.btShapeOfView -> launchActivity(ShapeOfViewActivity::class.java)

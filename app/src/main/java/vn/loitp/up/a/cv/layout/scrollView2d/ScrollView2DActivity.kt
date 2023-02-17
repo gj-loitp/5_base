@@ -1,46 +1,50 @@
-package vn.loitp.a.cv.layout.scrollView2d
+package vn.loitp.up.a.cv.layout.scrollView2d
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_layout_scroll_view_2d.*
-import vn.loitp.R
+import vn.loitp.databinding.ALayoutScrollView2dBinding
 
 @LogTag("ScrollView2DActivity")
 @IsFullScreen(false)
-class ScrollView2DActivityFont : BaseActivityFont() {
+class ScrollView2DActivity : BaseActivityFont() {
+    private lateinit var binding: ALayoutScrollView2dBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_scroll_view_2d
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ALayoutScrollView2dBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = ScrollView2DActivityFont::class.java.simpleName
+            this.tvTitle?.text = ScrollView2DActivity::class.java.simpleName
         }
-        twoDScrollView.setScrollChangeListener { _, x, y, oldX, oldY ->
+        binding.twoDScrollView.setScrollChangeListener { _, x, y, oldX, oldY ->
             logD("setScrollChangeListener $x - $y - $oldX - $oldY")
         }
         setDelay(
             mls = 2000,
             runnable = {
-                twoDScrollView.smoothScrollTo(300, 300)
+                binding.twoDScrollView.smoothScrollTo(300, 300)
             }
         )
     }
