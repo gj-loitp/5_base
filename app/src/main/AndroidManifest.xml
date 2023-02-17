@@ -712,7 +712,7 @@
             android:name=".up.a.demo.fragmentFlow.FragmentFlowActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.shadow.ShadowLayoutActivityFont"
+            android:name=".up.a.cv.layout.shadow.ShadowLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <meta-data
@@ -908,7 +908,7 @@
             android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivityViewGroupFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.shapeOfView.ShapeOfViewActivityFont"
+            android:name=".up.a.cv.layout.shapeOfView.ShapeOfViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.picker.time.TimePickerActivity"
@@ -1116,7 +1116,7 @@
             android:name=".up.a.cv.tv.justified.JustifiedTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.sequence.SequenceLayoutActivityFont"
+            android:name=".up.a.cv.layout.sequence.SequenceLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.picker.attachmentManager.AttachmentManagerActivity"

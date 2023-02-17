@@ -1,37 +1,42 @@
-package vn.loitp.a.cv.layout.sequence
+package vn.loitp.up.a.cv.layout.sequence
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_layout_sequence.*
 import vn.loitp.R
+import vn.loitp.databinding.ALayoutSequenceBinding
 
 @LogTag("SequenceLayoutActivity")
 @IsFullScreen(false)
 // https://github.com/transferwise/sequence-layout
-class SequenceLayoutActivityFont : BaseActivityFont() {
+class SequenceLayoutActivity : BaseActivityFont() {
+    private lateinit var binding: ALayoutSequenceBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_sequence
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ALayoutSequenceBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = SequenceLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = SequenceLayoutActivity::class.java.simpleName
         }
     }
 }

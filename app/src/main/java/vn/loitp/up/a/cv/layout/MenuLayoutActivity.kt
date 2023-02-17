@@ -34,10 +34,10 @@ import vn.loitp.a.cv.layout.rotate.RotateLayoutActivityFont
 import vn.loitp.a.cv.layout.roundable.RoundableLayoutActivityFont
 import vn.loitp.a.cv.layout.scrollView2d.ScrollView2DActivityFont
 import vn.loitp.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivityFont
-import vn.loitp.a.cv.layout.sequence.SequenceLayoutActivityFont
-import vn.loitp.a.cv.layout.shadow.ShadowLayoutActivityFont
-import vn.loitp.a.cv.layout.shapeOfView.ShapeOfViewActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.sequence.SequenceLayoutActivity
+import vn.loitp.up.a.cv.layout.shadow.ShadowLayoutActivity
+import vn.loitp.up.a.cv.layout.shapeOfView.ShapeOfViewActivity
 import vn.loitp.up.a.cv.layout.splitPanel.SplitPanelLayoutActivity
 import vn.loitp.up.a.cv.layout.square.SquareLayoutActivity
 import vn.loitp.up.a.cv.layout.swipeBack.SwipeBackLayoutActivity
@@ -139,8 +139,8 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btScrollView2d -> launchActivity(ScrollView2DActivityFont::class.java)
             binding.btScrollView2dAdvance -> launchActivity(ScrollView2DAdvanceActivityFont::class.java)
             binding.btSwipeRevealLayout -> launchActivity(SwipeRevealLayoutActivity::class.java)
-            binding.btShadowLayout -> launchActivity(ShadowLayoutActivityFont::class.java)
-            binding.btShapeOfView -> launchActivity(ShapeOfViewActivityFont::class.java)
+            binding.btShadowLayout -> launchActivity(ShadowLayoutActivity::class.java)
+            binding.btShapeOfView -> launchActivity(ShapeOfViewActivity::class.java)
             binding.btRoundableLayout -> launchActivity(RoundableLayoutActivityFont::class.java)
             binding.btFlowLayout -> launchActivity(FlowLayoutActivityFont::class.java)
             binding.btSplitPanelLayout -> launchActivity(SplitPanelLayoutActivity::class.java)
@@ -148,7 +148,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btTramsformationLayoutSingle -> launchActivity(TransformationSingleActivity::class.java)
             binding.btChessLayout -> launchActivity(ChessLayoutActivityFont::class.java)
             binding.btBasketLayoutActivity -> launchActivity(BasketLayoutActivityFont::class.java)
-            binding.btSequenceLayoutActivity -> launchActivity(SequenceLayoutActivityFont::class.java)
+            binding.btSequenceLayoutActivity -> launchActivity(SequenceLayoutActivity::class.java)
             binding.btReflectionLayoutActivity -> launchActivity(ReflectionLayoutActivityFont::class.java)
             binding.btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivityFont::class.java)
             binding.btGreedoLayout -> launchActivity(GreedoLayoutActivityFont::class.java)
