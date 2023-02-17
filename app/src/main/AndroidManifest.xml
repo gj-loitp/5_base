@@ -434,7 +434,7 @@
             android:name=".up.a.func.activityAndService.ActivityServiceCommunicateActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.swipeBack.SwipeBackLayoutActivityFont"
+            android:name=".up.a.cv.layout.swipeBack.SwipeBackLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.func.location.LocationActivity"
