@@ -1,37 +1,41 @@
-package vn.loitp.a.cv.layout.ripple
+package vn.loitp.up.a.cv.layout.ripple
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_layout_ripple.*
-import vn.loitp.R
+import vn.loitp.databinding.ALayoutRippleBinding
 
 @LogTag("RippleLayoutActivity")
 @IsFullScreen(false)
-class RippleLayoutActivityFont : BaseActivityFont() {
+class RippleLayoutActivity : BaseActivityFont() {
+    private lateinit var binding: ALayoutRippleBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_ripple
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ALayoutRippleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = RippleLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = RippleLayoutActivity::class.java.simpleName
         }
     }
 }

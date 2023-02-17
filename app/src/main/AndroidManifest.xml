@@ -173,7 +173,7 @@
             android:name=".up.a.api.truyentranhtuan.TTTAPIFavListActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.ripple.RippleLayoutActivityFont"
+            android:name=".up.a.cv.layout.ripple.RippleLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.rv.MenuRecyclerViewActivity"
@@ -497,7 +497,7 @@
             android:name=".up.a.func.sensor.SensorActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
-            android:name=".a.cv.layout.rotate.RotateLayoutActivityFont"
+            android:name=".up.a.cv.layout.rotate.RotateLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.more.MoreActivity"
@@ -545,7 +545,7 @@
             android:name=".up.a.anim.basicTransition.BasicTransition1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.relativePopupWindow.RelativePopupWindowActivityFont"
+            android:name=".up.a.cv.layout.relativePopupWindow.RelativePopupWindowActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.demo.epubReader.MenuEpubReaderActivity"

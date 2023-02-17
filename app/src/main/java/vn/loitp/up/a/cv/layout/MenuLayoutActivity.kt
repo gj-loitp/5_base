@@ -28,10 +28,10 @@ import vn.loitp.a.cv.layout.flow.FlowLayoutActivityFont
 import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivityFont
 import vn.loitp.a.cv.layout.heart.HeartLayoutActivityFont
 import vn.loitp.a.cv.layout.reflection.ReflectionLayoutActivityFont
-import vn.loitp.a.cv.layout.relativePopupWindow.RelativePopupWindowActivityFont
-import vn.loitp.a.cv.layout.ripple.RippleLayoutActivityFont
-import vn.loitp.a.cv.layout.rotate.RotateLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.relativePopupWindow.RelativePopupWindowActivityFont
+import vn.loitp.up.a.cv.layout.ripple.RippleLayoutActivity
+import vn.loitp.up.a.cv.layout.rotate.RotateLayoutActivity
 import vn.loitp.up.a.cv.layout.roundable.RoundableLayoutActivity
 import vn.loitp.up.a.cv.layout.scrollView2d.ScrollView2DActivity
 import vn.loitp.up.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity
@@ -123,7 +123,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btDraggablePanelFree -> launchActivity(DraggablePanelFreeActivityFont::class.java)
             binding.btDraggableView -> launchActivity(DraggableViewActivityFont::class.java)
             binding.btZoomLayout -> launchActivity(ZoomLayoutActivity::class.java)
-            binding.btRippleLayout -> launchActivity(RippleLayoutActivityFont::class.java)
+            binding.btRippleLayout -> launchActivity(RippleLayoutActivity::class.java)
             binding.btSwipeRefreshLayout -> launchActivity(MenuSwipeRefreshLayoutActivity::class.java)
             binding.btCircularView -> launchActivity(CircularViewActivityFont::class.java)
             binding.btAutoLinearLayout -> launchActivity(AutoLinearLayoutActivityFont::class.java)
@@ -131,7 +131,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btSwipebackLayout -> launchActivity(SwipeBackLayoutActivity::class.java)
             binding.btHeartLayout -> launchActivity(HeartLayoutActivityFont::class.java)
             binding.btFloatDragLayout -> launchActivity(FloatDragLayoutActivityFont::class.java)
-            binding.btRotateLayout -> launchActivity(RotateLayoutActivityFont::class.java)
+            binding.btRotateLayout -> launchActivity(RotateLayoutActivity::class.java)
             binding.btCoordinatorLayout -> launchActivity(MenuCoordinatorLayoutActivityFont::class.java)
             binding.btSquareLayout -> launchActivity(SquareLayoutActivity::class.java)
             binding.btRelativePopupWindow -> launchActivity(RelativePopupWindowActivityFont::class.java)
