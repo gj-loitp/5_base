@@ -7,9 +7,9 @@ import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.LinearLayoutCompat
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitp.views.toast.LToast
-import kotlinx.android.synthetic.main.dlg_card.view.*
 import vn.loitp.R
 
 @SuppressLint("InflateParams")
@@ -63,7 +63,7 @@ class ExampleCardPopup internal constructor(context: Context?) : RelativePopupWi
         // Disable default animation for circular reveal
         animationStyle = 0
 
-        layout.ll.setOnClickListener {
+        layout.findViewById<LinearLayoutCompat>(R.id.ll).setOnClickListener {
             LToast.showShortInformation(msg = "On Click", isTopAnchor = true)
         }
     }
