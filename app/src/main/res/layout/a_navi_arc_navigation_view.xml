@@ -10,6 +10,7 @@
     tools:openDrawer="start">
 
     <include
+        android:id="@+id/layoutNavigation"
         layout="@layout/menu_arc_navigation_view_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

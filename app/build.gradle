@@ -19,8 +19,8 @@ android {
         applicationId "com.roygroup.base"
         minSdkVersion 24
         targetSdk 33
-        versionCode 20221010
-        versionName "2022.10.10"
+        versionCode 20230317
+        versionName "2023.03.17"
         multiDexEnabled true
 
         renderscriptTargetApi 19
