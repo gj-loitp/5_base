@@ -137,6 +137,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             binding.btSecurity.isVisible = true
             binding.btService.isVisible = true
             binding.btUtils.isVisible = true
+            binding.btGame.isVisible = true
         } else {
             binding.btApi.isVisible = true
             binding.btAnimation.isVisible = false
@@ -158,6 +159,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             binding.btSecurity.isVisible = false
             binding.btService.isVisible = false
             binding.btUtils.isVisible = false
+            binding.btGame.isVisible = false
         }
     }
 
