@@ -463,15 +463,15 @@
             android:name=".up.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.floatDrag.FloatDragLayoutActivityFont"
+            android:name=".up.a.cv.layout.floatDrag.FloatDragLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.floatDrag.FloatDragFullScreenActivity"
+            android:name=".up.a.cv.layout.floatDrag.FloatDragFullScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
         <!--service for FCM-->
-        <activity android:name=".a.cv.layout.floatDrag.FloatDragNoTitleActivity" />
+        <activity android:name=".up.a.cv.layout.floatDrag.FloatDragNoTitleActivity" />
         <activity
-            android:name=".a.cv.layout.floatDrag.FloatDragWindowModeActivity"
+            android:name=".up.a.cv.layout.floatDrag.FloatDragWindowModeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
         See README(https://goo.gl/l4GJaQ) for more. -->
@@ -1404,7 +1404,7 @@
             android:name=".a.cv.androidRibbon.SecondActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.floatLayout.FloatLayoutActivityFont"
+            android:name=".up.a.cv.layout.floatLayout.FloatLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <service android:name="io.hamed.floatinglayout.service.FloatingService" />

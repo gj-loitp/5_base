@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.floatDrag
+package vn.loitp.up.a.cv.layout.floatDrag
 
 import android.os.Bundle
 import android.view.Gravity
@@ -8,29 +8,34 @@ import android.widget.FrameLayout
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivity
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.layout.floatDrag.DisplayUtil
 import com.loitp.views.layout.floatDrag.FloatDragLayout
-import kotlinx.android.synthetic.main.a_0.*
 import vn.loitp.R
+import vn.loitp.databinding.A0Binding
 
 @LogTag("FloatDragNoTitleActivity")
 @IsFullScreen(true)
 class FloatDragNoTitleActivity : BaseActivity() {
     private var mDecorView: View? = null
+    private lateinit var binding: A0Binding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_0
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = A0Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()

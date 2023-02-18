@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.floatLayout
+package vn.loitp.up.a.cv.layout.floatLayout
 
 import android.content.Intent
 import android.net.Uri
@@ -12,32 +12,36 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import io.hamed.floatinglayout.FloatingLayout
 import io.hamed.floatinglayout.callback.FloatingListener
-import kotlinx.android.synthetic.main.a_layout_float.*
-import kotlinx.android.synthetic.main.l_float_layout.*
 import vn.loitp.R
+import vn.loitp.databinding.ALayoutFloatBinding
 
 @LogTag("FloatLayoutActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class FloatLayoutActivityFont : BaseActivityFont() {
+class FloatLayoutActivity : BaseActivityFont() {
+    private lateinit var binding: ALayoutFloatBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_float
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ALayoutFloatBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -54,17 +58,17 @@ class FloatLayoutActivityFont : BaseActivityFont() {
                 isVisible = true
                 setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = FloatLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = FloatLayoutActivity::class.java.simpleName
         }
 
-        btnOpen.setSafeOnClickListener {
+        binding.btnOpen.setSafeOnClickListener {
             if (isNeedPermission()) {
                 showShortInformation("Need permission")
             } else {
                 showFloating()
             }
         }
-        btnPermission.setSafeOnClickListener {
+        binding.btnPermission.setSafeOnClickListener {
             if (isNeedPermission()) {
                 requestPermission()
             }

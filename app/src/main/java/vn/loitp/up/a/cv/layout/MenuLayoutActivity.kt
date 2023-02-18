@@ -22,9 +22,9 @@ import vn.loitp.a.cv.layout.draggablePanel.DraggablePanelActivityFont
 import vn.loitp.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivityFont
 import vn.loitp.a.cv.layout.draggableView.DraggableViewActivityFont
 import vn.loitp.a.cv.layout.expansionPanel.MenuExpansionLayoutActivityFont
-import vn.loitp.a.cv.layout.floatDrag.FloatDragLayoutActivityFont
-import vn.loitp.a.cv.layout.floatLayout.FloatLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.floatDrag.FloatDragLayoutActivity
+import vn.loitp.up.a.cv.layout.floatLayout.FloatLayoutActivity
 import vn.loitp.up.a.cv.layout.flow.FlowLayoutActivity
 import vn.loitp.up.a.cv.layout.greedo.GreedoLayoutActivity
 import vn.loitp.up.a.cv.layout.heart.HeartLayoutActivity
@@ -130,7 +130,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btConstraintLayout -> launchActivity(MenuConstraintLayoutActivityFont::class.java)
             binding.btSwipebackLayout -> launchActivity(SwipeBackLayoutActivity::class.java)
             binding.btHeartLayout -> launchActivity(HeartLayoutActivity::class.java)
-            binding.btFloatDragLayout -> launchActivity(FloatDragLayoutActivityFont::class.java)
+            binding.btFloatDragLayout -> launchActivity(FloatDragLayoutActivity::class.java)
             binding.btRotateLayout -> launchActivity(RotateLayoutActivity::class.java)
             binding.btCoordinatorLayout -> launchActivity(MenuCoordinatorLayoutActivityFont::class.java)
             binding.btSquareLayout -> launchActivity(SquareLayoutActivity::class.java)
@@ -153,7 +153,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivityFont::class.java)
             binding.btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
             binding.btAutoScrollContent -> launchActivity(AutoScrollContentActivityFont::class.java)
-            binding.btFloatLayout -> launchActivity(FloatLayoutActivityFont::class.java)
+            binding.btFloatLayout -> launchActivity(FloatLayoutActivity::class.java)
         }
     }
 }

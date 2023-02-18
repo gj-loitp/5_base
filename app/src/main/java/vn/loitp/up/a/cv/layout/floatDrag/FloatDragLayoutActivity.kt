@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.floatDrag
+package vn.loitp.up.a.cv.layout.floatDrag
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,38 +11,42 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.layout.floatDrag.DisplayUtil
 import com.loitp.views.layout.floatDrag.FloatDragLayout
 import com.loitp.views.layout.floatDrag.FloatDragPopupWindow
-import kotlinx.android.synthetic.main.a_float_drag_layout.*
 import vn.loitp.R
+import vn.loitp.databinding.AFloatDragLayoutBinding
 
 @LogTag("FloatDragLayoutActivity")
 @IsFullScreen(false)
-class FloatDragLayoutActivityFont : BaseActivityFont(), View.OnClickListener {
-
+class FloatDragLayoutActivity : BaseActivityFont(), View.OnClickListener {
+    private lateinit var binding: AFloatDragLayoutBinding
     private var floatDragPopupWindow: FloatDragPopupWindow? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_float_drag_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AFloatDragLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = FloatDragLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = FloatDragLayoutActivity::class.java.simpleName
         }
         var rootView = window.decorView as ViewGroup
         rootView = rootView.findViewById(android.R.id.content)
@@ -58,28 +62,33 @@ class FloatDragLayoutActivityFont : BaseActivityFont(), View.OnClickListener {
         floatDragLayout.setOnClickListener {
             showShortInformation("Click on the hover and drag buttons", true)
         }
-        btChangeToFullScreen.setOnClickListener(this)
-        btChangeToNoTitle.setOnClickListener(this)
-        btChangeToWindows.setOnClickListener(this)
-        btShowFloatDragPopupWindow.setOnClickListener(this)
+        binding.btChangeToFullScreen.setOnClickListener(this)
+        binding.btChangeToNoTitle.setOnClickListener(this)
+        binding.btChangeToWindows.setOnClickListener(this)
+        binding.btShowFloatDragPopupWindow.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
         when (view) {
-            btChangeToFullScreen -> startActivity(
+            binding.btChangeToFullScreen -> startActivity(
                 Intent(
                     this,
                     FloatDragFullScreenActivity::class.java
                 )
             )
-            btChangeToNoTitle -> startActivity(Intent(this, FloatDragNoTitleActivity::class.java))
-            btChangeToWindows -> startActivity(
+            binding.btChangeToNoTitle -> startActivity(
+                Intent(
+                    this,
+                    FloatDragNoTitleActivity::class.java
+                )
+            )
+            binding.btChangeToWindows -> startActivity(
                 Intent(
                     this,
                     FloatDragWindowModeActivity::class.java
                 )
             )
-            btShowFloatDragPopupWindow -> showFloatDragPopupWindow()
+            binding.btShowFloatDragPopupWindow -> showFloatDragPopupWindow()
         }
     }
 
