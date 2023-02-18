@@ -893,19 +893,19 @@
             android:name=".a.cv.et.textWatcher.EditTextTextWatcherActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.expansionPanel.MenuExpansionLayoutActivityFont"
+            android:name=".up.a.cv.layout.expansionPanel.MenuExpansionLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivityFont"
+            android:name=".up.a.cv.layout.expansionPanel.ExpansionPanelSampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivityProgrammaticallyFont"
+            android:name=".up.a.cv.layout.expansionPanel.ExpansionPanelSampleActivityProgrammatically"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivityRecyclerFont"
+            android:name=".up.a.cv.layout.expansionPanel.ExpansionPanelSampleActivityRecycler"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.expansionPanel.ExpansionPanelSampleActivityViewGroupFont"
+            android:name=".up.a.cv.layout.expansionPanel.ExpansionPanelSampleActivityViewGroup"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.layout.shapeOfView.ShapeOfViewActivity"

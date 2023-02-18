@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.expansionPanel
+package vn.loitp.up.a.cv.layout.expansionPanel
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,39 +12,44 @@ import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_expansion_panel_sample_recycler.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.expansionPanel.ExpansionPanelSampleActivityRecyclerFont.RecyclerAdapter.RecyclerHolder
+import vn.loitp.databinding.AExpansionPanelSampleRecyclerBinding
+import vn.loitp.up.a.cv.layout.expansionPanel.ExpansionPanelSampleActivityRecycler.RecyclerAdapter.RecyclerHolder
 
 @LogTag("ExpansionPanelSampleActivityRecycler")
 @IsFullScreen(false)
-class ExpansionPanelSampleActivityRecyclerFont : BaseActivityFont() {
+class ExpansionPanelSampleActivityRecycler : BaseActivityFont() {
+    private lateinit var binding: AExpansionPanelSampleRecyclerBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_expansion_panel_sample_recycler
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AExpansionPanelSampleRecyclerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ExpansionPanelSampleActivityRecyclerFont::class.java.simpleName
+            this.tvTitle?.text = ExpansionPanelSampleActivityRecycler::class.java.simpleName
         }
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = RecyclerAdapter()
-        recyclerView.adapter = adapter
+        binding.recyclerView.adapter = adapter
         // fill with empty objects
         val list = ArrayList<String>()
         for (i in 0..29) {

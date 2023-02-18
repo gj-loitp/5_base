@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.expansionPanel
+package vn.loitp.up.a.cv.layout.expansionPanel
 
 import android.content.Context
 import android.util.DisplayMetrics

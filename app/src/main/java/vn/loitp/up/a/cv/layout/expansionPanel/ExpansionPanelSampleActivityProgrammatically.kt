@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.expansionPanel
+package vn.loitp.up.a.cv.layout.expansionPanel
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -17,34 +17,39 @@ import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_expansion_panel_sample_programmatically.*
 import vn.loitp.R
-import vn.loitp.a.cv.layout.expansionPanel.Utils.dpToPx
+import vn.loitp.databinding.AExpansionPanelSampleProgrammaticallyBinding
+import vn.loitp.up.a.cv.layout.expansionPanel.Utils.dpToPx
 
 @LogTag("ExpansionPanelSampleActivityProgrammatically")
 @IsFullScreen(false)
-class ExpansionPanelSampleActivityProgrammaticallyFont : BaseActivityFont() {
+class ExpansionPanelSampleActivityProgrammatically : BaseActivityFont() {
+    private lateinit var binding: AExpansionPanelSampleProgrammaticallyBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_expansion_panel_sample_programmatically
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AExpansionPanelSampleProgrammaticallyBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ExpansionPanelSampleActivityProgrammaticallyFont::class.java.simpleName
+            this.tvTitle?.text = ExpansionPanelSampleActivityProgrammatically::class.java.simpleName
         }
 
         val ex1 = addDynamicLayout()
@@ -60,13 +65,13 @@ class ExpansionPanelSampleActivityProgrammaticallyFont : BaseActivityFont() {
 
     private fun addDynamicLayout(): ExpansionLayout {
         val expansionHeader = createExpansionHeader()
-        dynamicLayoutContainer.addView(
+        binding.dynamicLayoutContainer.addView(
             expansionHeader,
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         val expansionLayout = createExpansionLayout()
-        dynamicLayoutContainer.addView(
+        binding.dynamicLayoutContainer.addView(
             expansionLayout,
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -92,7 +97,7 @@ class ExpansionPanelSampleActivityProgrammaticallyFont : BaseActivityFont() {
         text.setBackgroundColor(Color.parseColor("#EEEEEE"))
         layout.addView(text, ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(this, 200f))
         text.setOnClickListener {
-            val child = TextView(this@ExpansionPanelSampleActivityProgrammaticallyFont)
+            val child = TextView(this@ExpansionPanelSampleActivityProgrammatically)
             child.setBackgroundColor(Color.GRAY)
             child.text = System.currentTimeMillis().toString()
             child.setTextColor(Color.WHITE)

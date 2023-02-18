@@ -21,8 +21,8 @@ import vn.loitp.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivityFont
 import vn.loitp.a.cv.layout.draggablePanel.DraggablePanelActivityFont
 import vn.loitp.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivityFont
 import vn.loitp.a.cv.layout.draggableView.DraggableViewActivityFont
-import vn.loitp.a.cv.layout.expansionPanel.MenuExpansionLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.expansionPanel.MenuExpansionLayoutActivity
 import vn.loitp.up.a.cv.layout.floatDrag.FloatDragLayoutActivity
 import vn.loitp.up.a.cv.layout.floatLayout.FloatLayoutActivity
 import vn.loitp.up.a.cv.layout.flow.FlowLayoutActivity
@@ -135,7 +135,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btCoordinatorLayout -> launchActivity(MenuCoordinatorLayoutActivityFont::class.java)
             binding.btSquareLayout -> launchActivity(SquareLayoutActivity::class.java)
             binding.btRelativePopupWindow -> launchActivity(RelativePopupWindowActivity::class.java)
-            binding.btExpansionPanel -> launchActivity(MenuExpansionLayoutActivityFont::class.java)
+            binding.btExpansionPanel -> launchActivity(MenuExpansionLayoutActivity::class.java)
             binding.btScrollView2d -> launchActivity(ScrollView2DActivity::class.java)
             binding.btScrollView2dAdvance -> launchActivity(ScrollView2DAdvanceActivity::class.java)
             binding.btSwipeRevealLayout -> launchActivity(SwipeRevealLayoutActivity::class.java)
