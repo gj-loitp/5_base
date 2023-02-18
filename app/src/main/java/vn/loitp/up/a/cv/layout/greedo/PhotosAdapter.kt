@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.greedo
+package vn.loitp.up.a.cv.layout.greedo
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fivehundredpx.greedolayout.GreedoLayoutSizeCalculator.SizeCalculatorDelegate
 import com.loitp.core.ext.loadGlide
 import vn.loitp.R
-import vn.loitp.a.cv.layout.greedo.PhotosAdapter.PhotoViewHolder
+import vn.loitp.up.a.cv.layout.greedo.PhotosAdapter.PhotoViewHolder
 
 class PhotosAdapter(private val mContext: Context) : RecyclerView.Adapter<PhotoViewHolder>(),
     SizeCalculatorDelegate {

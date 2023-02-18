@@ -24,10 +24,10 @@ import vn.loitp.a.cv.layout.draggableView.DraggableViewActivityFont
 import vn.loitp.a.cv.layout.expansionPanel.MenuExpansionLayoutActivityFont
 import vn.loitp.a.cv.layout.floatDrag.FloatDragLayoutActivityFont
 import vn.loitp.a.cv.layout.floatLayout.FloatLayoutActivityFont
-import vn.loitp.a.cv.layout.flow.FlowLayoutActivityFont
-import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivityFont
-import vn.loitp.a.cv.layout.heart.HeartLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.flow.FlowLayoutActivity
+import vn.loitp.up.a.cv.layout.greedo.GreedoLayoutActivity
+import vn.loitp.up.a.cv.layout.heart.HeartLayoutActivity
 import vn.loitp.up.a.cv.layout.reflection.ReflectionLayoutActivity
 import vn.loitp.up.a.cv.layout.relativePopupWindow.RelativePopupWindowActivity
 import vn.loitp.up.a.cv.layout.ripple.RippleLayoutActivity
@@ -129,7 +129,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btAutoLinearLayout -> launchActivity(AutoLinearLayoutActivityFont::class.java)
             binding.btConstraintLayout -> launchActivity(MenuConstraintLayoutActivityFont::class.java)
             binding.btSwipebackLayout -> launchActivity(SwipeBackLayoutActivity::class.java)
-            binding.btHeartLayout -> launchActivity(HeartLayoutActivityFont::class.java)
+            binding.btHeartLayout -> launchActivity(HeartLayoutActivity::class.java)
             binding.btFloatDragLayout -> launchActivity(FloatDragLayoutActivityFont::class.java)
             binding.btRotateLayout -> launchActivity(RotateLayoutActivity::class.java)
             binding.btCoordinatorLayout -> launchActivity(MenuCoordinatorLayoutActivityFont::class.java)
@@ -142,7 +142,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btShadowLayout -> launchActivity(ShadowLayoutActivity::class.java)
             binding.btShapeOfView -> launchActivity(ShapeOfViewActivity::class.java)
             binding.btRoundableLayout -> launchActivity(RoundableLayoutActivity::class.java)
-            binding.btFlowLayout -> launchActivity(FlowLayoutActivityFont::class.java)
+            binding.btFlowLayout -> launchActivity(FlowLayoutActivity::class.java)
             binding.btSplitPanelLayout -> launchActivity(SplitPanelLayoutActivity::class.java)
             binding.btTramsformationLayout -> launchActivity(TransformationActivity::class.java)
             binding.btTramsformationLayoutSingle -> launchActivity(TransformationSingleActivity::class.java)
@@ -151,7 +151,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btSequenceLayoutActivity -> launchActivity(SequenceLayoutActivity::class.java)
             binding.btReflectionLayoutActivity -> launchActivity(ReflectionLayoutActivity::class.java)
             binding.btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivityFont::class.java)
-            binding.btGreedoLayout -> launchActivity(GreedoLayoutActivityFont::class.java)
+            binding.btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
             binding.btAutoScrollContent -> launchActivity(AutoScrollContentActivityFont::class.java)
             binding.btFloatLayout -> launchActivity(FloatLayoutActivityFont::class.java)
         }

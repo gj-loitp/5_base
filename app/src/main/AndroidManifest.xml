@@ -445,7 +445,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.cv.layout.heart.HeartLayoutActivityFont"
+            android:name=".up.a.cv.layout.heart.HeartLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.constraint.MenuConstraintLayoutActivityFont"
@@ -914,7 +914,7 @@
             android:name=".up.a.picker.time.TimePickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.flow.FlowLayoutActivityFont"
+            android:name=".up.a.cv.layout.flow.FlowLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.sw.toggleButtonGroup.TBGCustomButtonActivity"
@@ -1377,7 +1377,7 @@
             android:name=".a.cv.bt.circularProgress.Sample5ActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.greedo.GreedoLayoutActivityFont"
+            android:name=".up.a.cv.layout.greedo.GreedoLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.iv.previewImageCollection.PreviewImageCollectionActivityFont"

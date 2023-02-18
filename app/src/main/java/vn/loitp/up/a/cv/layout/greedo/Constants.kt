@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.greedo
+package vn.loitp.up.a.cv.layout.greedo
 
 import androidx.annotation.DrawableRes
 import vn.loitp.R

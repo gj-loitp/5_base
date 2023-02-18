@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.heart
+package vn.loitp.up.a.cv.layout.heart
 
 import android.graphics.Color
 import android.os.Bundle
@@ -7,14 +7,15 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_layout_heart.*
 import vn.loitp.R
+import vn.loitp.databinding.ALayoutHeartBinding
 import java.util.*
 
 @LogTag("HeartLayoutActivity")
 @IsFullScreen(false)
-class HeartLayoutActivityFont : BaseActivityFont() {
+class HeartLayoutActivity : BaseActivityFont() {
     private val mRandom = Random()
+    private lateinit var binding: ALayoutHeartBinding
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_layout_heart
@@ -23,21 +24,24 @@ class HeartLayoutActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ALayoutHeartBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = HeartLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = HeartLayoutActivity::class.java.simpleName
         }
-        rootView.setOnClickListener {
-            heartLayout.addHeart(randomColor())
+        binding.rootView.setOnClickListener {
+            binding.heartLayout.addHeart(randomColor())
         }
     }
 
