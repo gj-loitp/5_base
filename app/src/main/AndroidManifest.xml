@@ -346,7 +346,7 @@
             android:name=".up.a.db.readSqliteAsset.ReadSqliteAssetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.draggableView.DraggableViewActivityFont"
+            android:name=".up.a.cv.layout.draggableView.DraggableViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.api.retrofit2.TestAPIRetrofit2Activity"
@@ -599,7 +599,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.cv.layout.draggablePanelFree.DraggablePanelFreeActivityFont"
+            android:name=".up.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.vp.lockable.LockableViewPagerActivity"

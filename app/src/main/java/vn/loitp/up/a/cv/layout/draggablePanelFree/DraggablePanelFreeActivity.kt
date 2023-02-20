@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.draggablePanelFree
+package vn.loitp.up.a.cv.layout.draggablePanelFree
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,45 +6,49 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_draggable_panel_free.*
-import vn.loitp.R
+import vn.loitp.databinding.ADraggablePanelFreeBinding
 
 @LogTag("DraggablePanelFreeActivity")
 @IsFullScreen(false)
-class DraggablePanelFreeActivityFont : BaseActivityFont() {
+class DraggablePanelFreeActivity : BaseActivityFont() {
+    private lateinit var binding: ADraggablePanelFreeBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_draggable_panel_free
+        return NOT_FOUND
     }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADraggablePanelFreeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = DraggablePanelFreeActivityFont::class.java.simpleName
+            this.tvTitle?.text = DraggablePanelFreeActivity::class.java.simpleName
         }
-        btMaximize.setSafeOnClickListener {
-            dpfl.maximize()
+        binding.btMaximize.setSafeOnClickListener {
+            binding.dpfl.maximize()
         }
-        btMinimize.setSafeOnClickListener {
-            dpfl.minimize()
+        binding.btMinimize.setSafeOnClickListener {
+            binding.dpfl.minimize()
         }
-        dpfl?.setCallback { state ->
-            tvState.text = "onStateChange " + state.name
+        binding.dpfl.setCallback { state ->
+            binding.tvState.text = "onStateChange " + state.name
         }
     }
 }

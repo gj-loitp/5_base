@@ -19,9 +19,9 @@ import vn.loitp.a.cv.layout.constraint.MenuConstraintLayoutActivityFont
 import vn.loitp.a.cv.layout.coordinator.MenuCoordinatorLayoutActivityFont
 import vn.loitp.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivityFont
 import vn.loitp.a.cv.layout.draggablePanel.DraggablePanelActivityFont
-import vn.loitp.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivityFont
-import vn.loitp.a.cv.layout.draggableView.DraggableViewActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity
+import vn.loitp.up.a.cv.layout.draggableView.DraggableViewActivity
 import vn.loitp.up.a.cv.layout.expansionPanel.MenuExpansionLayoutActivity
 import vn.loitp.up.a.cv.layout.floatDrag.FloatDragLayoutActivity
 import vn.loitp.up.a.cv.layout.floatLayout.FloatLayoutActivity
@@ -120,8 +120,8 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btAndroidSlidingUpPanel -> launchActivity(AndroidSlidingUpPanelActivityFont::class.java)
             binding.btAspectRatioLayout -> launchActivity(AspectRatioLayoutActivityFont::class.java)
             binding.btDraggablePanel -> launchActivity(DraggablePanelActivityFont::class.java)
-            binding.btDraggablePanelFree -> launchActivity(DraggablePanelFreeActivityFont::class.java)
-            binding.btDraggableView -> launchActivity(DraggableViewActivityFont::class.java)
+            binding.btDraggablePanelFree -> launchActivity(DraggablePanelFreeActivity::class.java)
+            binding.btDraggableView -> launchActivity(DraggableViewActivity::class.java)
             binding.btZoomLayout -> launchActivity(ZoomLayoutActivity::class.java)
             binding.btRippleLayout -> launchActivity(RippleLayoutActivity::class.java)
             binding.btSwipeRefreshLayout -> launchActivity(MenuSwipeRefreshLayoutActivity::class.java)
