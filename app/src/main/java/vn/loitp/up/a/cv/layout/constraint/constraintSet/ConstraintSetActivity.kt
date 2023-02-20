@@ -9,13 +9,14 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_constraint_set.*
 import vn.loitp.R
+import vn.loitp.databinding.AConstraintSetBinding
 
 @LogTag("ConstraintSetActivity")
 @IsFullScreen(false)
-class ConstraintSetActivityFont : BaseActivityFont() {
+class ConstraintSetActivity : BaseActivityFont() {
 
     companion object {
         private const val SHOW_BIG_IMAGE = "showBigImage"
@@ -24,28 +25,32 @@ class ConstraintSetActivityFont : BaseActivityFont() {
     private var mShowBigImage = false
     private val mConstraintSetNormal = ConstraintSet()
     private val mConstraintSetBig = ConstraintSet()
+    private lateinit var binding: AConstraintSetBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_constraint_set
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AConstraintSetBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews(savedInstanceState)
     }
 
     private fun setupViews(savedInstanceState: Bundle?) {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = ConstraintSetActivityFont::class.java.simpleName
+            this.tvTitle?.text = ConstraintSetActivity::class.java.simpleName
         }
-        mConstraintSetNormal.clone(layoutConstrainRoot)
+        mConstraintSetNormal.clone(binding.layoutConstrainRoot)
         mConstraintSetBig.load(this, R.layout.l_constraint_set_example_big)
         if (savedInstanceState != null) {
             val previous = savedInstanceState.getBoolean(SHOW_BIG_IMAGE)
@@ -54,8 +59,8 @@ class ConstraintSetActivityFont : BaseActivityFont() {
                 applyConfig()
             }
         }
-        tvContent.text = getString(R.string.large_text)
-        imageView.setOnClickListener {
+        binding.tvContent.text = getString(R.string.large_text)
+        binding.imageView.setOnClickListener {
             toggleMode()
         }
     }
@@ -68,7 +73,7 @@ class ConstraintSetActivityFont : BaseActivityFont() {
     @SuppressLint("ObsoleteSdkInt")
     fun toggleMode() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            TransitionManager.beginDelayedTransition(layoutConstrainRoot)
+            TransitionManager.beginDelayedTransition(binding.layoutConstrainRoot)
         }
         mShowBigImage = !mShowBigImage
         applyConfig()
@@ -76,9 +81,9 @@ class ConstraintSetActivityFont : BaseActivityFont() {
 
     private fun applyConfig() {
         if (mShowBigImage) {
-            mConstraintSetBig.applyTo(layoutConstrainRoot)
+            mConstraintSetBig.applyTo(binding.layoutConstrainRoot)
         } else {
-            mConstraintSetNormal.applyTo(layoutConstrainRoot)
+            mConstraintSetNormal.applyTo(binding.layoutConstrainRoot)
         }
     }
 }

@@ -6,43 +6,48 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_constraint_layout_demo.*
-import vn.loitp.R
+import vn.loitp.databinding.AConstraintLayoutDemoBinding
 
 @LogTag("ConstraintLayoutDemoActivity")
 @IsFullScreen(false)
-class ConstraintLayoutDemoActivityFont : BaseActivityFont() {
+class ConstraintLayoutDemoActivity : BaseActivityFont() {
+
+    private lateinit var binding: AConstraintLayoutDemoBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_constraint_layout_demo
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AConstraintLayoutDemoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = ConstraintLayoutDemoActivityFont::class.java.simpleName
+            this.tvTitle?.text = ConstraintLayoutDemoActivity::class.java.simpleName
         }
-        button.setSafeOnClickListener {
+        binding.button.setSafeOnClickListener {
             it.visibility = View.GONE
         }
-        bt0.setSafeOnClickListener {
-            bt2.visibility = View.GONE
+        binding.bt0.setSafeOnClickListener {
+            binding.bt2.visibility = View.GONE
         }
-        bt1.setSafeOnClickListener {
-            bt2.visibility = View.VISIBLE
+        binding.bt1.setSafeOnClickListener {
+            binding.bt2.visibility = View.VISIBLE
         }
     }
 }

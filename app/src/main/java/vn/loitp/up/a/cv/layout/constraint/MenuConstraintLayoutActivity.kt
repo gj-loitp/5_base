@@ -10,9 +10,9 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.databinding.AMenuConstraintLayoutBinding
-import vn.loitp.up.a.cv.layout.constraint.constraintSet.ConstraintSetActivityFont
-import vn.loitp.up.a.cv.layout.constraint.customBehavior.CustomBehaviorActivityFont
-import vn.loitp.up.a.cv.layout.constraint.demo.ConstraintLayoutDemoActivityFont
+import vn.loitp.up.a.cv.layout.constraint.constraintSet.ConstraintSetActivity
+import vn.loitp.up.a.cv.layout.constraint.customBehavior.CustomBehaviorActivity
+import vn.loitp.up.a.cv.layout.constraint.demo.ConstraintLayoutDemoActivity
 import vn.loitp.up.a.cv.layout.constraint.fabAndSnackbar.FabAndSnackBarActivity
 import vn.loitp.up.a.cv.layout.constraint.fabFollowsWidget.FabFollowWidgetActivity
 
@@ -46,10 +46,10 @@ class MenuConstraintLayoutActivity : BaseActivityFont() {
             this.tvTitle?.text = MenuConstraintLayoutActivity::class.java.simpleName
         }
         binding.btConstraintSet.setSafeOnClickListener {
-            launchActivity(ConstraintSetActivityFont::class.java)
+            launchActivity(ConstraintSetActivity::class.java)
         }
         binding.btDemo.setSafeOnClickListener {
-            launchActivity(ConstraintLayoutDemoActivityFont::class.java)
+            launchActivity(ConstraintLayoutDemoActivity::class.java)
         }
         binding.btFabAndSnackBar.setSafeOnClickListener {
             launchActivity(FabAndSnackBarActivity::class.java)
@@ -58,7 +58,7 @@ class MenuConstraintLayoutActivity : BaseActivityFont() {
             launchActivity(FabFollowWidgetActivity::class.java)
         }
         binding.btCustomBehavior.setSafeOnClickListener {
-            launchActivity(CustomBehaviorActivityFont::class.java)
+            launchActivity(CustomBehaviorActivity::class.java)
         }
     }
 
