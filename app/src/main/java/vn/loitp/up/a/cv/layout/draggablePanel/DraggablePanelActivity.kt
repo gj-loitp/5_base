@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.draggablePanel
+package vn.loitp.up.a.cv.layout.draggablePanel
 
 import android.content.res.Resources
 import android.os.Bundle
@@ -6,37 +6,41 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.layout.draggablePanel.DraggableListener
-import kotlinx.android.synthetic.main.a_draggable_panel.*
-import vn.loitp.R
+import vn.loitp.databinding.ADraggablePanelBinding
 
 @LogTag("DraggablePanelActivity")
 @IsFullScreen(false)
-class DraggablePanelActivityFont : BaseActivityFont() {
+class DraggablePanelActivity : BaseActivityFont() {
+    private lateinit var binding: ADraggablePanelBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_draggable_panel
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADraggablePanelBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = DraggablePanelActivityFont::class.java.simpleName
+            this.tvTitle?.text = DraggablePanelActivity::class.java.simpleName
         }
         initializeDraggablePanel()
-        draggablePanel.setDraggableListener(object : DraggableListener {
+        binding.draggablePanel.setDraggableListener(object : DraggableListener {
             override fun onMaximized() {}
             override fun onMinimized() {}
             override fun onClosedToLeft() {}
@@ -49,7 +53,7 @@ class DraggablePanelActivityFont : BaseActivityFont() {
         val frmTop = FrmTestTop()
         val frmBottom = FrmTestBottom()
 
-        draggablePanel?.apply {
+        binding.draggablePanel.apply {
             this.setFragmentManager(supportFragmentManager)
             this.setTopFragment(frmTop)
             this.setBottomFragment(frmBottom)

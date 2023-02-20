@@ -17,9 +17,9 @@ import vn.loitp.a.cv.layout.chess.ChessLayoutActivityFont
 import vn.loitp.a.cv.layout.circularView.CircularViewActivityFont
 import vn.loitp.a.cv.layout.constraint.MenuConstraintLayoutActivityFont
 import vn.loitp.a.cv.layout.coordinator.MenuCoordinatorLayoutActivityFont
-import vn.loitp.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivityFont
-import vn.loitp.a.cv.layout.draggablePanel.DraggablePanelActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity
+import vn.loitp.up.a.cv.layout.draggablePanel.DraggablePanelActivity
 import vn.loitp.up.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity
 import vn.loitp.up.a.cv.layout.draggableView.DraggableViewActivity
 import vn.loitp.up.a.cv.layout.expansionPanel.MenuExpansionLayoutActivity
@@ -119,7 +119,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
         when (v) {
             binding.btAndroidSlidingUpPanel -> launchActivity(AndroidSlidingUpPanelActivityFont::class.java)
             binding.btAspectRatioLayout -> launchActivity(AspectRatioLayoutActivityFont::class.java)
-            binding.btDraggablePanel -> launchActivity(DraggablePanelActivityFont::class.java)
+            binding.btDraggablePanel -> launchActivity(DraggablePanelActivity::class.java)
             binding.btDraggablePanelFree -> launchActivity(DraggablePanelFreeActivity::class.java)
             binding.btDraggableView -> launchActivity(DraggableViewActivity::class.java)
             binding.btZoomLayout -> launchActivity(ZoomLayoutActivity::class.java)
@@ -150,7 +150,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btBasketLayoutActivity -> launchActivity(BasketLayoutActivityFont::class.java)
             binding.btSequenceLayoutActivity -> launchActivity(SequenceLayoutActivity::class.java)
             binding.btReflectionLayoutActivity -> launchActivity(ReflectionLayoutActivity::class.java)
-            binding.btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivityFont::class.java)
+            binding.btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivity::class.java)
             binding.btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
             binding.btAutoScrollContent -> launchActivity(AutoScrollContentActivityFont::class.java)
             binding.btFloatLayout -> launchActivity(FloatLayoutActivity::class.java)

@@ -367,7 +367,7 @@
             android:name=".a.cv.answerView.AnswerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.draggablePanel.DraggablePanelActivityFont"
+            android:name=".up.a.cv.layout.draggablePanel.DraggablePanelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.layout.circularView.CircularViewActivityFont"
@@ -1356,7 +1356,7 @@
             android:name=".a.cv.iv.roundedIv.RoundedIvActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivityFont"
+            android:name=".up.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.circularProgress.CPBActivityFont"

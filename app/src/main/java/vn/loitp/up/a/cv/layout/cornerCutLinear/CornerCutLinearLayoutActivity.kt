@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.cornerCutLinear
+package vn.loitp.up.a.cv.layout.cornerCutLinear
 
 import android.annotation.SuppressLint
 import android.graphics.*
@@ -18,7 +18,6 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.*
 import io.devlight.xtreeivi.cornercutlinearlayout.CornerCutLinearLayout
-import kotlinx.android.synthetic.main.a_layout_corner_cut_linear.*
 import vn.loitp.R
 import vn.loitp.databinding.ALayoutCornerCutLinearBinding
 import kotlin.math.hypot
@@ -29,15 +28,15 @@ import kotlin.math.sqrt
 @LogTag("CornerCutLinearLayoutActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
+class CornerCutLinearLayoutActivity : BaseActivityFont() {
 
-    private lateinit var viewBinding: ALayoutCornerCutLinearBinding
+    private lateinit var binding: ALayoutCornerCutLinearBinding
 
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var runnable: Runnable
     private val lineCountRunnable = object : Runnable {
         override fun run() {
-            with(viewBinding.txtShowcaseCustomViewAreaProvider) {
+            with(binding.txtShowcaseCustomViewAreaProvider) {
                 maxLines = maxLines.let {
                     if ((it + 1) <= 5) it + 1
                     else 1
@@ -54,14 +53,14 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewBinding = ALayoutCornerCutLinearBinding.inflate(layoutInflater)
-        setContentView(viewBinding.root)
+        binding = ALayoutCornerCutLinearBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -78,7 +77,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = CornerCutLinearLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = CornerCutLinearLayoutActivity::class.java.simpleName
         }
 
         //region Custom Corner Cut
@@ -86,7 +85,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
         val eyeRadius = resources.displayMetrics.density * 3
         val halfOpenMouthAngle = 35.0F
         val pacmanMouthPath = Path()
-        viewBinding.ccllShowcaseCustomLtRb.setCornerCutProvider { _, cutout, cutEdge, rectF ->
+        binding.ccllShowcaseCustomLtRb.setCornerCutProvider { _, cutout, cutEdge, rectF ->
             when (cutEdge) {
                 CornerCutLinearLayout.CornerCutFlag.START_TOP -> {
                     rectF.inset(inset, inset)
@@ -140,7 +139,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
         var lastMillis = -1L
         var isClockwise = true
         val rotationDuration = 2000L
-        viewBinding.ccllShowcaseCustomLtExceedBounds.setCornerCutProvider(
+        binding.ccllShowcaseCustomLtExceedBounds.setCornerCutProvider(
             { view, _, _, _ ->
                 val matrix = Matrix()
                 val pb = view.paddedBounds
@@ -183,7 +182,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
                     currentRotationAngle = maxMouthOpenHalfAngle
                     isClockwise = false
                 }
-                viewBinding.ccllShowcaseCustomLtExceedBounds.invalidateCornerCutPath()
+                binding.ccllShowcaseCustomLtExceedBounds.invalidateCornerCutPath()
                 handler.removeCallbacks(this)
                 handler.postDelayed(this, 32L)
             }
@@ -191,7 +190,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
         //endregion
 
         //region Custom Child Corner Cut
-        viewBinding.ccllShowcaseCustomChildCutProvider.setChildCornerCutProvider { view, cutout, _, rectF, _, _ ->
+        binding.ccllShowcaseCustomChildCutProvider.setChildCornerCutProvider { view, cutout, _, rectF, _, _ ->
             //rectF.inset(-40.0F, 0.0F)
             cutout.moveTo(rectF.centerX(), rectF.top)
             cutout.arcTo(
@@ -228,7 +227,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
             true
         }
 
-        viewBinding.ccllShowcaseCustomChildCutProviderMixed.setChildCornerCutProvider(
+        binding.ccllShowcaseCustomChildCutProviderMixed.setChildCornerCutProvider(
             { _: CornerCutLinearLayout, _: Path, cutSide: Int, rectF: RectF, _: View?, _: View? ->
                 val matrix = Matrix()
                 when (cutSide) {
@@ -292,7 +291,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
             }
         )
 
-        viewBinding.ccllShowcaseCustomViewAreaProvider.setCustomViewAreaProvider { view, path, rectF ->
+        binding.ccllShowcaseCustomViewAreaProvider.setCustomViewAreaProvider { view, path, rectF ->
             val offset = view[0].marginEnd
             val cornerRadius = rectF.height() / 4.0F
             val tailCircleRadius = cornerRadius / 2.0F
@@ -362,7 +361,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
         val tempPath = Path()
         val tempRectF = RectF()
 
-        viewBinding.ccllShowcaseCustomViewAreaProvider2.setCustomViewAreaProvider { view, path, _ ->
+        binding.ccllShowcaseCustomViewAreaProvider2.setCustomViewAreaProvider { view, path, _ ->
             view.forEach {
                 tempPath.rewind()
                 if (it is CornerCutLinearLayout) {
@@ -396,7 +395,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
             }
         }
 
-        viewBinding.ccllShowcaseCustomViewAreaProvider2Child1.addCustomCutoutProvider { _, cutout, rectF ->
+        binding.ccllShowcaseCustomViewAreaProvider2Child1.addCustomCutoutProvider { _, cutout, rectF ->
             val width = rectF.width()
             val height = rectF.height()
             cutout.moveTo(rectF.centerX(), rectF.top)
@@ -415,7 +414,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
         val waveLineHeight = resources.getDimension(R.dimen.offset_48)
         val halfWaveLineHeight = waveLineHeight / 2.0F
         val halfWaveLineCutWidth = waveLineCutWidth / 2.0F
-        viewBinding.ccllShowcaseCustomViewAreaProvider2.addCustomCutoutProvider { _, cutout, rectF ->
+        binding.ccllShowcaseCustomViewAreaProvider2.addCustomCutoutProvider { _, cutout, rectF ->
             cutout.moveTo(rectF.left, rectF.centerY() - halfWaveLineCutWidth)
             cutout.lineTo(
                 rectF.left + rectF.width() / 4.0F,
@@ -440,7 +439,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
         }
 
 
-        viewBinding.ccllShowcaseCustomViewAreaProvider2.doOnNonNullSizeLayout {
+        binding.ccllShowcaseCustomViewAreaProvider2.doOnNonNullSizeLayout {
             val firstChild = it[0]
             val lastChild = it[2]
             val middleChild = it[1]
@@ -486,7 +485,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
                     .setInterpolator(CycleInterpolator(0.5F))
                     .setDuration(4000L)
                     .setUpdateListener {
-                        viewBinding.ccllShowcaseCustomViewAreaProvider2.invalidateCornerCutPath()
+                        binding.ccllShowcaseCustomViewAreaProvider2.invalidateCornerCutPath()
                     }
                     .withEndAction {
                         animateLastChild()
@@ -500,29 +499,29 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
         //endregion
 
         //region Cut Properties
-        viewBinding.ccllShowcaseDepthAndLength.doOnNonNullSizeLayout {
+        binding.ccllShowcaseDepthAndLength.doOnNonNullSizeLayout {
             val depth =
-                (viewBinding.ccllShowcaseDepthAndLength.width - viewBinding.ccllShowcaseDepthAndLength.paddingEnd - viewBinding.ccllShowcaseDepthAndLength.childEndSideCornerCutDepth / 2.0F).roundToInt()
-            viewBinding.vShowcaseBoundsDepthOffset.updateLayoutParams<FrameLayout.LayoutParams> {
+                (binding.ccllShowcaseDepthAndLength.width - binding.ccllShowcaseDepthAndLength.paddingEnd - binding.ccllShowcaseDepthAndLength.childEndSideCornerCutDepth / 2.0F).roundToInt()
+            binding.vShowcaseBoundsDepthOffset.updateLayoutParams<FrameLayout.LayoutParams> {
                 marginStart = depth
             }
         }
 
-        viewBinding.ccllShowcaseDepthAndLengthOffset.doOnNonNullSizeLayout {
-            viewBinding.ccllShowcaseDepthAndLengthOffset.childEndSideCornerCutDepthOffset =
+        binding.ccllShowcaseDepthAndLengthOffset.doOnNonNullSizeLayout {
+            binding.ccllShowcaseDepthAndLengthOffset.childEndSideCornerCutDepthOffset =
                 it.paddedBounds.width() - it.childStartSideCornerCutDepth
         }
 
-        viewBinding.vShowcaseMaxCut.duplicateViewSizeContinuously(
-            viewBinding.ccllShowcaseMaxCut,
-            transformWidth = { (viewBinding.ccllShowcaseMaxCut.paddedBounds.width() / 2).roundToInt() },
-            transformHeight = { (viewBinding.ccllShowcaseMaxCut.paddedBounds.height() / 2).roundToInt() },
+        binding.vShowcaseMaxCut.duplicateViewSizeContinuously(
+            binding.ccllShowcaseMaxCut,
+            transformWidth = { (binding.ccllShowcaseMaxCut.paddedBounds.width() / 2).roundToInt() },
+            transformHeight = { (binding.ccllShowcaseMaxCut.paddedBounds.height() / 2).roundToInt() },
         )
 
-        viewBinding.vShowcaseMaxCutEqual.duplicateViewSizeContinuously(
-            viewBinding.ccllShowcaseMaxCutEqual,
+        binding.vShowcaseMaxCutEqual.duplicateViewSizeContinuously(
+            binding.ccllShowcaseMaxCutEqual,
             transformWidth = {
-                viewBinding.ccllShowcaseMaxCutEqual.paddedBounds.let {
+                binding.ccllShowcaseMaxCutEqual.paddedBounds.let {
                     min(
                         it.width(),
                         it.height()
@@ -531,7 +530,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
                     .roundToInt()
             },
             transformHeight = {
-                viewBinding.ccllShowcaseMaxCutEqual.paddedBounds.let {
+                binding.ccllShowcaseMaxCutEqual.paddedBounds.let {
                     min(
                         it.width(),
                         it.height()
@@ -568,8 +567,8 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
                 playAnimation()
             }
         }
-        viewBinding.ccllShowcaseMaxCut.doOnNonNullSizeLayout(action)
-        viewBinding.ccllShowcaseMaxCutEqual.doOnNonNullSizeLayout(action)
+        binding.ccllShowcaseMaxCut.doOnNonNullSizeLayout(action)
+        binding.ccllShowcaseMaxCutEqual.doOnNonNullSizeLayout(action)
         //endregion
 
         //region Custom Divider
@@ -602,9 +601,9 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
         diamondDotDividerPath.close()
         diamondDotDividerPath.offset(-triangleBaseWidth / 2.0F, 0.0F)
 
-        viewBinding.ccllShowcaseCustomDividerProvider.doOnNonNullSizeLayout {
-            val pb = viewBinding.ccllShowcaseCustomDividerProvider.paddedBounds
-            viewBinding.ccllShowcaseCustomDividerProvider.customDividerProviderPaint.shader =
+        binding.ccllShowcaseCustomDividerProvider.doOnNonNullSizeLayout {
+            val pb = binding.ccllShowcaseCustomDividerProvider.paddedBounds
+            binding.ccllShowcaseCustomDividerProvider.customDividerProviderPaint.shader =
                 RadialGradient(
                     pb.centerX(),
                     pb.centerY(),
@@ -615,7 +614,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
                 )
         }
 
-        viewBinding.ccllShowcaseCustomDividerProvider.setCustomDividerProvider { _, dividerPath, dividerPaint, showDividerFlag, dividerTypeIndex, rectF ->
+        binding.ccllShowcaseCustomDividerProvider.setCustomDividerProvider { _, dividerPath, dividerPaint, showDividerFlag, dividerTypeIndex, rectF ->
             when (showDividerFlag) {
                 CornerCutLinearLayout.CustomDividerShowFlag.CONTAINER_BEGINNING -> {
                     dividerPaint.style = Paint.Style.STROKE
@@ -686,7 +685,7 @@ class CornerCutLinearLayoutActivityFont : BaseActivityFont() {
             true
         )
 
-        viewBinding.ccllShowcaseCustomDividerProviderMixed.setCustomDividerProvider { _, dividerPath, dividerPaint, showDividerFlag, dividerTypeIndex, rectF ->
+        binding.ccllShowcaseCustomDividerProviderMixed.setCustomDividerProvider { _, dividerPath, dividerPaint, showDividerFlag, dividerTypeIndex, rectF ->
             when (showDividerFlag) {
                 CornerCutLinearLayout.CustomDividerShowFlag.MIDDLE -> {
                     dividerPaint.style = Paint.Style.STROKE
