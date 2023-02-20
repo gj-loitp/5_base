@@ -15,8 +15,8 @@ import vn.loitp.a.cv.layout.autoScrollContent.AutoScrollContentActivityFont
 import vn.loitp.a.cv.layout.basket.BasketLayoutActivityFont
 import vn.loitp.a.cv.layout.chess.ChessLayoutActivityFont
 import vn.loitp.a.cv.layout.circularView.CircularViewActivityFont
-import vn.loitp.a.cv.layout.constraint.MenuConstraintLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.constraint.MenuConstraintLayoutActivity
 import vn.loitp.up.a.cv.layout.coordinator.MenuCoordinatorLayoutActivity
 import vn.loitp.up.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity
 import vn.loitp.up.a.cv.layout.draggablePanel.DraggablePanelActivity
@@ -127,7 +127,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btSwipeRefreshLayout -> launchActivity(MenuSwipeRefreshLayoutActivity::class.java)
             binding.btCircularView -> launchActivity(CircularViewActivityFont::class.java)
             binding.btAutoLinearLayout -> launchActivity(AutoLinearLayoutActivityFont::class.java)
-            binding.btConstraintLayout -> launchActivity(MenuConstraintLayoutActivityFont::class.java)
+            binding.btConstraintLayout -> launchActivity(MenuConstraintLayoutActivity::class.java)
             binding.btSwipebackLayout -> launchActivity(SwipeBackLayoutActivity::class.java)
             binding.btHeartLayout -> launchActivity(HeartLayoutActivity::class.java)
             binding.btFloatDragLayout -> launchActivity(FloatDragLayoutActivity::class.java)

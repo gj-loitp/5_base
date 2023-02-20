@@ -401,7 +401,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".a.cv.layout.constraint.demo.ConstraintLayoutDemoActivityFont"
+            android:name=".up.a.cv.layout.constraint.demo.ConstraintLayoutDemoActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.func.viewDragHelper.ViewDragHelperActivity"
@@ -448,16 +448,16 @@
             android:name=".up.a.cv.layout.heart.HeartLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.constraint.MenuConstraintLayoutActivityFont"
+            android:name=".up.a.cv.layout.constraint.MenuConstraintLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.constraint.fabAndSnackbar.FabAndSnackBarActivityFont"
+            android:name=".up.a.cv.layout.constraint.fabAndSnackbar.FabAndSnackBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.constraint.fabFollowsWidget.FabFollowWidgetActivityFont"
+            android:name=".up.a.cv.layout.constraint.fabFollowsWidget.FabFollowWidgetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.constraint.customBehavior.CustomBehaviorActivityFont"
+            android:name=".up.a.cv.layout.constraint.customBehavior.CustomBehaviorActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.func.viewDragHelperSimple.ViewDragHelperSimpleActivity"
@@ -554,7 +554,7 @@
             android:name=".up.a.func.glide.GlideActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.constraint.constraintSet.ConstraintSetActivityFont"
+            android:name=".up.a.cv.layout.constraint.constraintSet.ConstraintSetActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.video.exo.ExoPlayerActivity"

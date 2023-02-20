@@ -1,22 +1,22 @@
-package vn.loitp.a.cv.layout.constraint.demo
+package vn.loitp.up.a.cv.layout.constraint.customBehavior
 
 import android.os.Bundle
-import android.view.View
 import androidx.core.view.isVisible
+import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_constraint_layout_demo.*
+import kotlinx.android.synthetic.main.a_custom_behavior.*
 import vn.loitp.R
 
-@LogTag("ConstraintLayoutDemoActivity")
+@LogTag("CustomBehaviorActivity")
 @IsFullScreen(false)
-class ConstraintLayoutDemoActivityFont : BaseActivityFont() {
+class CustomBehaviorActivityFont : BaseActivityFont() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_constraint_layout_demo
+        return R.layout.a_custom_behavior
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,16 +33,16 @@ class ConstraintLayoutDemoActivityFont : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = ConstraintLayoutDemoActivityFont::class.java.simpleName
+            this.tvTitle?.text = CustomBehaviorActivityFont::class.java.simpleName
         }
-        button.setSafeOnClickListener {
-            it.visibility = View.GONE
-        }
-        bt0.setSafeOnClickListener {
-            bt2.visibility = View.GONE
-        }
-        bt1.setSafeOnClickListener {
-            bt2.visibility = View.VISIBLE
+        fab.setSafeOnClickListener {
+            Snackbar.make(
+                coordinatorLayout,
+                "This is a simple Snackbar", Snackbar.LENGTH_LONG
+            )
+                .setAction("CLOSE") {
+                    // do sth
+                }.show()
         }
     }
 }
