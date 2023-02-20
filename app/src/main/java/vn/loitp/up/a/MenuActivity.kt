@@ -86,6 +86,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                 overridePendingTransition(0, 0)
             }
         }
+        binding.btFlutter.setOnClickListener(this)
         binding.btApi.setOnClickListener(this)
         binding.btAnimation.setOnClickListener(this)
         binding.btCustomView.setOnClickListener(this)
@@ -181,6 +182,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
+            binding.btFlutter -> rateApp(packageName = "com.roy93group.fullter_tutorial")
             binding.btApi -> launchActivity(MenuAPIActivity::class.java)
             binding.btAnimation -> launchActivity(MenuAnimationActivity::class.java)
             binding.btCustomView -> launchActivity(MenuCustomViewsActivity::class.java)
