@@ -1,18 +1,19 @@
-package vn.loitp.a.cv.layout.coordinator
+package vn.loitp.up.a.cv.layout.coordinator
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.addFragment
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_coordinator_layout_sample.*
 import vn.loitp.R
+import vn.loitp.databinding.ACoordinatorLayoutSampleBinding
 
 // http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
 @LogTag("CoordinatorLayoutSampleActivity")
 @IsFullScreen(false)
-class CoordinatorLayoutSampleActivityFont : BaseActivityFont() {
+class CoordinatorLayoutSampleActivity : BaseActivityFont() {
 
     companion object {
         const val KEY = "KEY"
@@ -23,12 +24,17 @@ class CoordinatorLayoutSampleActivityFont : BaseActivityFont() {
         const val VALUE_4 = "Recyclerview"
     }
 
+    private lateinit var binding: ACoordinatorLayoutSampleBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_coordinator_layout_sample
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ACoordinatorLayoutSampleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         when (intent.getStringExtra(KEY)) {
@@ -61,14 +67,14 @@ class CoordinatorLayoutSampleActivityFont : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = CoordinatorLayoutSampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = CoordinatorLayoutSampleActivity::class.java.simpleName
         }
     }
 }

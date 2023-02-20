@@ -16,8 +16,8 @@ import vn.loitp.a.cv.layout.basket.BasketLayoutActivityFont
 import vn.loitp.a.cv.layout.chess.ChessLayoutActivityFont
 import vn.loitp.a.cv.layout.circularView.CircularViewActivityFont
 import vn.loitp.a.cv.layout.constraint.MenuConstraintLayoutActivityFont
-import vn.loitp.a.cv.layout.coordinator.MenuCoordinatorLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.coordinator.MenuCoordinatorLayoutActivity
 import vn.loitp.up.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity
 import vn.loitp.up.a.cv.layout.draggablePanel.DraggablePanelActivity
 import vn.loitp.up.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity
@@ -132,7 +132,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btHeartLayout -> launchActivity(HeartLayoutActivity::class.java)
             binding.btFloatDragLayout -> launchActivity(FloatDragLayoutActivity::class.java)
             binding.btRotateLayout -> launchActivity(RotateLayoutActivity::class.java)
-            binding.btCoordinatorLayout -> launchActivity(MenuCoordinatorLayoutActivityFont::class.java)
+            binding.btCoordinatorLayout -> launchActivity(MenuCoordinatorLayoutActivity::class.java)
             binding.btSquareLayout -> launchActivity(SquareLayoutActivity::class.java)
             binding.btRelativePopupWindow -> launchActivity(RelativePopupWindowActivity::class.java)
             binding.btExpansionPanel -> launchActivity(MenuExpansionLayoutActivity::class.java)

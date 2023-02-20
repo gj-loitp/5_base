@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.coordinator
+package vn.loitp.up.a.cv.layout.coordinator
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

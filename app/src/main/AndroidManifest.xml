@@ -524,7 +524,7 @@
             android:name=".up.a.cv.lCv.LCardViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.coordinator.CoordinatorLayoutWithImageViewActivityFont"
+            android:name=".up.a.cv.layout.coordinator.CoordinatorLayoutWithImageViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.basicTransitionFrm.BasicTransitionActivity"
@@ -588,10 +588,10 @@
             android:name=".up.a.demo.twoInstanceActivity.Activity3"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.coordinator.MenuCoordinatorLayoutActivityFont"
+            android:name=".up.a.cv.layout.coordinator.MenuCoordinatorLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.coordinator.CoordinatorLayoutSampleActivityFont"
+            android:name=".up.a.cv.layout.coordinator.CoordinatorLayoutSampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--start floating view-->
         <activity

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.coordinator
+package vn.loitp.up.a.cv.layout.coordinator
 
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment

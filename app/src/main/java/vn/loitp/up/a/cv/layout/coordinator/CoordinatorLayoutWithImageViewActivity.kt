@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.coordinator
+package vn.loitp.up.a.cv.layout.coordinator
 
 import android.graphics.Matrix
 import android.os.Bundle
@@ -7,40 +7,46 @@ import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import kotlinx.android.synthetic.main.a_coordinator_layout.*
-import vn.loitp.R
+import com.loitp.core.common.NOT_FOUND
+import vn.loitp.databinding.ACoordinatorLayoutBinding
 import kotlin.math.roundToInt
 
 @LogTag("CoordinatorLayoutWithImageViewActivity")
 @IsFullScreen(false)
-class CoordinatorLayoutWithImageViewActivityFont : BaseActivityFont() {
+class CoordinatorLayoutWithImageViewActivity : BaseActivityFont() {
+    private lateinit var binding: ACoordinatorLayoutBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_coordinator_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ACoordinatorLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        appBarLayout.addOnOffsetChangedListener { _: AppBarLayout?, verticalOffset: Int ->
-            val matrix = Matrix(imgCover.imageMatrix)
+        binding.appBarLayout.addOnOffsetChangedListener { _: AppBarLayout?, verticalOffset: Int ->
+            val matrix = Matrix(binding.imgCover.imageMatrix)
 
             // get image's width and height
-            val dWidth = imgCover.drawable.intrinsicWidth
-            val dHeight = imgCover.drawable.intrinsicHeight
+            val dWidth = binding.imgCover.drawable.intrinsicWidth
+            val dHeight = binding.imgCover.drawable.intrinsicHeight
 
             // get view's width and height
-            val vWidth = imgCover.width - imgCover.paddingLeft - imgCover.paddingRight
-            var vHeight = imgCover.height - imgCover.paddingTop - imgCover.paddingBottom
+            val vWidth =
+                binding.imgCover.width - binding.imgCover.paddingLeft - binding.imgCover.paddingRight
+            var vHeight =
+                binding.imgCover.height - binding.imgCover.paddingTop - binding.imgCover.paddingBottom
             val scale: Float
             var dx = 0f
             val dy: Float
             val parallaxMultiplier =
-                (imgCover.layoutParams as CollapsingToolbarLayout.LayoutParams).parallaxMultiplier
+                (binding.imgCover.layoutParams as CollapsingToolbarLayout.LayoutParams).parallaxMultiplier
 
             // maintain the image's aspect ratio depending on offset
             if (dWidth * vHeight > vWidth * dHeight) {
@@ -59,7 +65,7 @@ class CoordinatorLayoutWithImageViewActivityFont : BaseActivityFont() {
             if (vWidth <= currentWidth) { // compare view width and drawable width to decide, should we scale more or not
                 matrix.setScale(scale, scale)
                 matrix.postTranslate(dx.roundToInt().toFloat(), dy.roundToInt().toFloat())
-                imgCover.imageMatrix = matrix
+                binding.imgCover.imageMatrix = matrix
             }
         }
     }
