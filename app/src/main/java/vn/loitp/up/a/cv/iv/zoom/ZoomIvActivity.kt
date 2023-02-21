@@ -1,40 +1,44 @@
-package vn.loitp.a.cv.iv.zoom
+package vn.loitp.up.a.cv.iv.zoom
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.iv.zoom.ColorGridDrawable
-import kotlinx.android.synthetic.main.a_iv_zoom.*
-import vn.loitp.R
+import vn.loitp.databinding.AIvZoomBinding
 
 @LogTag("ZoomImageViewActivity")
 @IsFullScreen(false)
-class ZoomIvActivityFont : BaseActivityFont() {
+class ZoomIvActivity : BaseActivityFont() {
+    private lateinit var binding: AIvZoomBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_iv_zoom
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AIvZoomBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = ZoomIvActivityFont::class.java.simpleName
+            this.tvTitle?.text = ZoomIvActivity::class.java.simpleName
         }
-        zoomImageView.setImageDrawable(ColorGridDrawable())
+        binding.zoomImageView.setImageDrawable(ColorGridDrawable())
 
 //        zoomImageView.getEngine().panTo(x, y, true);
 //        zoomImageView.getEngine().panBy(deltaX, deltaY, true);
