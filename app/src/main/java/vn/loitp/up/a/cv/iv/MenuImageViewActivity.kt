@@ -23,7 +23,7 @@ import vn.loitp.a.cv.iv.previewImageCollection.PreviewImageCollectionActivityFon
 import vn.loitp.a.cv.iv.reflection.ReflectionActivityFont
 import vn.loitp.a.cv.iv.roundedIv.RoundedIvActivityFont
 import vn.loitp.a.cv.iv.scrollParallax.ScrollParallaxIvActivityFont
-import vn.loitp.a.cv.iv.shapeableIv.ShapeableIvActivityFont
+import vn.loitp.up.a.cv.iv.shapeableIv.ShapeableIvActivity
 import vn.loitp.a.cv.iv.stfaiconIv.ListActivityFont
 import vn.loitp.databinding.AIvMenuBinding
 import vn.loitp.up.a.cv.iv.strectchy.StrectchyIvActivity
@@ -100,7 +100,7 @@ class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
             binding.btReflection -> launchActivity(ReflectionActivityFont::class.java)
             binding.btRoundedImageView -> launchActivity(RoundedIvActivityFont::class.java)
             binding.btPreviewImageCollection -> launchActivity(PreviewImageCollectionActivityFont::class.java)
-            binding.btShapeableImageViewActivity -> launchActivity(ShapeableIvActivityFont::class.java)
+            binding.btShapeableImageViewActivity -> launchActivity(ShapeableIvActivity::class.java)
             binding.btCoil -> launchActivity(CoilActivityFont::class.java)
         }
     }

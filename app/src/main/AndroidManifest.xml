@@ -1389,7 +1389,7 @@
             android:name=".a.cv.cv.CardViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.shapeableIv.ShapeableIvActivityFont"
+            android:name=".up.a.cv.iv.shapeableIv.ShapeableIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.interviewVN.InterviewVNIQActivity"
