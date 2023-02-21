@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.IsShowAnimWhenExit
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
@@ -17,6 +18,7 @@ import vn.loitp.up.a.cv.layout.transformation.rv.Poster
 
 @LogTag("DetailActivity")
 @IsFullScreen(false)
+@IsShowAnimWhenExit(false)
 class TransformationDetailActivity : BaseActivityFont() {
 
     companion object {

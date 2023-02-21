@@ -155,7 +155,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     open fun onBaseBackPressed() {
 //        logE("onBaseBackPressed")
-        finish()//correct
+//        finish()//correct
+        finishAfterTransition()
         if (isShowAnimWhenExit) {
             this.tranOut()
         }
