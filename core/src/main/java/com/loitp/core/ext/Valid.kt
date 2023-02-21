@@ -67,9 +67,11 @@ fun String.isValidPassword(): String? {
 private val listPkg = listOf(
     "loitp93.basemaster",
     "loitp.khotruyenvuive",
+
     "com.roygroup.base",
     "com.roygroup.vnexpress",
     "com.roygroup.base.demo",
+
     "com.roy93group.todo",
     "com.roy93group.vocabulary",
     "com.roy93group.tictactoe",
@@ -77,11 +79,12 @@ private val listPkg = listOf(
     "com.roy93group.asyetcndt",
     "com.roy93group.reversi",
     "com.roy93group.cintalauncher",
+    "com.roy93group.forecast",
+    "com.roy93group.joblogictest",
+
     "com.bizman.bizman_dikauri",//for thanos bizman
     "com.songnob.adsplayer",//for thanos table tap
     "com.songnob.adsplayer2",//for thanos order top,
-    "com.roy93group.forecast",
-    "com.roy93group.joblogictest",
 )
 
 fun isValidPackageName(): Boolean {
