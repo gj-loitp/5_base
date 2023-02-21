@@ -142,7 +142,7 @@
             android:layout_gravity="bottom|start"
             android:layout_margin="@dimen/w_30"
             android:src="@drawable/iv"
-            app:layout_behavior="vn.loitp.a.cv.layout.constraint.customBehavior.CustomBehavior" />
+            app:layout_behavior="vn.loitp.up.a.cv.layout.constraint.customBehavior.CustomBehavior" />
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="wrap_content"

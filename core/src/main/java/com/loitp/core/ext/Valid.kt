@@ -79,7 +79,9 @@ private val listPkg = listOf(
     "com.roy93group.cintalauncher",
     "com.bizman.bizman_dikauri",//for thanos bizman
     "com.songnob.adsplayer",//for thanos table tap
-    "com.songnob.adsplayer2",//for thanos order top
+    "com.songnob.adsplayer2",//for thanos order top,
+    "com.roy93group.forecast",
+    "com.roy93group.joblogictest",
 )
 
 fun isValidPackageName(): Boolean {

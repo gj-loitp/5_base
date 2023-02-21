@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Dark theme"
+                android:text="@string/dark_theme"
                 android:textColor="?attr/themeTextColor"
                 app:bgOffColor="@color/vip1"
                 app:bgOnColor="@color/vip2"
@@ -51,8 +51,14 @@
                 tools:ignore="UnusedAttribute" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFlutter"
+                style="@style/ButtonMenu"
+                android:text="@string/flutter_tutorial" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAnimation"
                 style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_padding_large"
                 android:text="@string/animation" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -83,12 +89,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGame"
                 style="@style/ButtonMenu"
-                android:text="Game" />
+                android:text="@string/game" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btInterviewVNIQActivity"
                 style="@style/ButtonMenu"
-                android:text="InterviewVNIQActivity IQ" />
+                android:text="@string/interviewvniqactivity_iq" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNetwork"
@@ -108,12 +114,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSecurity"
                 style="@style/ButtonMenu"
-                android:text="Security" />
+                android:text="@string/security" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btService"
                 style="@style/ButtonMenu"
-                android:text="Service" />
+                android:text="@string/service" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTutorial"
@@ -123,12 +129,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btUtils"
                 style="@style/ButtonMenu"
-                android:text="Utils" />
+                android:text="@string/utils" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btUtilsCore"
                 style="@style/ButtonMenu"
-                android:text="Utils Core" />
+                android:text="@string/utils_core" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRateApp"
@@ -153,7 +159,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAdHelper"
                 style="@style/ButtonMenu"
-                android:text="Vì sao bạn thấy quảng cáo?" />
+                android:text="@string/why_u_see_ad_en" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFrmMore"
@@ -168,7 +174,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFeedback"
                 style="@style/ButtonMenu"
-                android:text="Feedback" />
+                android:text="@string/feedback" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvMoreApp"

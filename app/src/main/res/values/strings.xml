@@ -1175,4 +1175,12 @@ Likewise may someone love you next.
     <string name="show_success">SHOW Success</string>
     <string name="process_phoenix_des">Process Phoenix facilitates restarting your application process.\nThis should only be used for things like fundamental state changes in your debug builds (e.g., changing from staging to production).</string>
     <string name="start_the_default_activity_in_a_new_process">Start the default activity in a new process</string>
+    <string name="game">Game</string>
+    <string name="interviewvniqactivity_iq">InterviewVNIQActivity IQ</string>
+    <string name="security">Security</string>
+    <string name="service">Service</string>
+    <string name="utils">Utils</string>
+    <string name="utils_core">Utils Core</string>
+    <string name="feedback">Feedback</string>
+    <string name="flutter_tutorial">Flutter Tutorial</string>
 </resources>

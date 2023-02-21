@@ -8,33 +8,33 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivityFont
-import vn.loitp.a.cv.layout.aspectratio.AspectRatioLayoutActivityFont
-import vn.loitp.a.cv.layout.autoLinear.AutoLinearLayoutActivityFont
-import vn.loitp.a.cv.layout.autoScrollContent.AutoScrollContentActivityFont
-import vn.loitp.a.cv.layout.basket.BasketLayoutActivityFont
-import vn.loitp.a.cv.layout.chess.ChessLayoutActivityFont
-import vn.loitp.a.cv.layout.circularView.CircularViewActivityFont
-import vn.loitp.a.cv.layout.constraint.MenuConstraintLayoutActivityFont
-import vn.loitp.a.cv.layout.coordinator.MenuCoordinatorLayoutActivityFont
-import vn.loitp.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivityFont
-import vn.loitp.a.cv.layout.draggablePanel.DraggablePanelActivityFont
-import vn.loitp.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivityFont
-import vn.loitp.a.cv.layout.draggableView.DraggableViewActivityFont
-import vn.loitp.a.cv.layout.expansionPanel.MenuExpansionLayoutActivityFont
-import vn.loitp.a.cv.layout.floatDrag.FloatDragLayoutActivityFont
-import vn.loitp.a.cv.layout.floatLayout.FloatLayoutActivityFont
-import vn.loitp.a.cv.layout.flow.FlowLayoutActivityFont
-import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivityFont
-import vn.loitp.a.cv.layout.heart.HeartLayoutActivityFont
-import vn.loitp.a.cv.layout.reflection.ReflectionLayoutActivityFont
-import vn.loitp.a.cv.layout.relativePopupWindow.RelativePopupWindowActivityFont
-import vn.loitp.a.cv.layout.ripple.RippleLayoutActivityFont
-import vn.loitp.a.cv.layout.rotate.RotateLayoutActivityFont
-import vn.loitp.a.cv.layout.roundable.RoundableLayoutActivityFont
-import vn.loitp.a.cv.layout.scrollView2d.ScrollView2DActivityFont
-import vn.loitp.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity
+import vn.loitp.up.a.cv.layout.aspectratio.AspectRatioLayoutActivity
+import vn.loitp.up.a.cv.layout.autoLinear.AutoLinearLayoutActivity
+import vn.loitp.up.a.cv.layout.autoScrollContent.AutoScrollContentActivity
+import vn.loitp.up.a.cv.layout.basket.BasketLayoutActivity
+import vn.loitp.up.a.cv.layout.chess.ChessLayoutActivity
+import vn.loitp.up.a.cv.layout.circularView.CircularViewActivity
+import vn.loitp.up.a.cv.layout.constraint.MenuConstraintLayoutActivity
+import vn.loitp.up.a.cv.layout.coordinator.MenuCoordinatorLayoutActivity
+import vn.loitp.up.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity
+import vn.loitp.up.a.cv.layout.draggablePanel.DraggablePanelActivity
+import vn.loitp.up.a.cv.layout.draggablePanelFree.DraggablePanelFreeActivity
+import vn.loitp.up.a.cv.layout.draggableView.DraggableViewActivity
+import vn.loitp.up.a.cv.layout.expansionPanel.MenuExpansionLayoutActivity
+import vn.loitp.up.a.cv.layout.floatDrag.FloatDragLayoutActivity
+import vn.loitp.up.a.cv.layout.floatLayout.FloatLayoutActivity
+import vn.loitp.up.a.cv.layout.flow.FlowLayoutActivity
+import vn.loitp.up.a.cv.layout.greedo.GreedoLayoutActivity
+import vn.loitp.up.a.cv.layout.heart.HeartLayoutActivity
+import vn.loitp.up.a.cv.layout.reflection.ReflectionLayoutActivity
+import vn.loitp.up.a.cv.layout.relativePopupWindow.RelativePopupWindowActivity
+import vn.loitp.up.a.cv.layout.ripple.RippleLayoutActivity
+import vn.loitp.up.a.cv.layout.rotate.RotateLayoutActivity
+import vn.loitp.up.a.cv.layout.roundable.RoundableLayoutActivity
+import vn.loitp.up.a.cv.layout.scrollView2d.ScrollView2DActivity
+import vn.loitp.up.a.cv.layout.scrollView2d.ScrollView2DAdvanceActivity
 import vn.loitp.up.a.cv.layout.sequence.SequenceLayoutActivity
 import vn.loitp.up.a.cv.layout.shadow.ShadowLayoutActivity
 import vn.loitp.up.a.cv.layout.shapeOfView.ShapeOfViewActivity
@@ -117,43 +117,43 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            binding.btAndroidSlidingUpPanel -> launchActivity(AndroidSlidingUpPanelActivityFont::class.java)
-            binding.btAspectRatioLayout -> launchActivity(AspectRatioLayoutActivityFont::class.java)
-            binding.btDraggablePanel -> launchActivity(DraggablePanelActivityFont::class.java)
-            binding.btDraggablePanelFree -> launchActivity(DraggablePanelFreeActivityFont::class.java)
-            binding.btDraggableView -> launchActivity(DraggableViewActivityFont::class.java)
+            binding.btAndroidSlidingUpPanel -> launchActivity(AndroidSlidingUpPanelActivity::class.java)
+            binding.btAspectRatioLayout -> launchActivity(AspectRatioLayoutActivity::class.java)
+            binding.btDraggablePanel -> launchActivity(DraggablePanelActivity::class.java)
+            binding.btDraggablePanelFree -> launchActivity(DraggablePanelFreeActivity::class.java)
+            binding.btDraggableView -> launchActivity(DraggableViewActivity::class.java)
             binding.btZoomLayout -> launchActivity(ZoomLayoutActivity::class.java)
-            binding.btRippleLayout -> launchActivity(RippleLayoutActivityFont::class.java)
+            binding.btRippleLayout -> launchActivity(RippleLayoutActivity::class.java)
             binding.btSwipeRefreshLayout -> launchActivity(MenuSwipeRefreshLayoutActivity::class.java)
-            binding.btCircularView -> launchActivity(CircularViewActivityFont::class.java)
-            binding.btAutoLinearLayout -> launchActivity(AutoLinearLayoutActivityFont::class.java)
-            binding.btConstraintLayout -> launchActivity(MenuConstraintLayoutActivityFont::class.java)
+            binding.btCircularView -> launchActivity(CircularViewActivity::class.java)
+            binding.btAutoLinearLayout -> launchActivity(AutoLinearLayoutActivity::class.java)
+            binding.btConstraintLayout -> launchActivity(MenuConstraintLayoutActivity::class.java)
             binding.btSwipebackLayout -> launchActivity(SwipeBackLayoutActivity::class.java)
-            binding.btHeartLayout -> launchActivity(HeartLayoutActivityFont::class.java)
-            binding.btFloatDragLayout -> launchActivity(FloatDragLayoutActivityFont::class.java)
-            binding.btRotateLayout -> launchActivity(RotateLayoutActivityFont::class.java)
-            binding.btCoordinatorLayout -> launchActivity(MenuCoordinatorLayoutActivityFont::class.java)
+            binding.btHeartLayout -> launchActivity(HeartLayoutActivity::class.java)
+            binding.btFloatDragLayout -> launchActivity(FloatDragLayoutActivity::class.java)
+            binding.btRotateLayout -> launchActivity(RotateLayoutActivity::class.java)
+            binding.btCoordinatorLayout -> launchActivity(MenuCoordinatorLayoutActivity::class.java)
             binding.btSquareLayout -> launchActivity(SquareLayoutActivity::class.java)
-            binding.btRelativePopupWindow -> launchActivity(RelativePopupWindowActivityFont::class.java)
-            binding.btExpansionPanel -> launchActivity(MenuExpansionLayoutActivityFont::class.java)
-            binding.btScrollView2d -> launchActivity(ScrollView2DActivityFont::class.java)
-            binding.btScrollView2dAdvance -> launchActivity(ScrollView2DAdvanceActivityFont::class.java)
+            binding.btRelativePopupWindow -> launchActivity(RelativePopupWindowActivity::class.java)
+            binding.btExpansionPanel -> launchActivity(MenuExpansionLayoutActivity::class.java)
+            binding.btScrollView2d -> launchActivity(ScrollView2DActivity::class.java)
+            binding.btScrollView2dAdvance -> launchActivity(ScrollView2DAdvanceActivity::class.java)
             binding.btSwipeRevealLayout -> launchActivity(SwipeRevealLayoutActivity::class.java)
             binding.btShadowLayout -> launchActivity(ShadowLayoutActivity::class.java)
             binding.btShapeOfView -> launchActivity(ShapeOfViewActivity::class.java)
-            binding.btRoundableLayout -> launchActivity(RoundableLayoutActivityFont::class.java)
-            binding.btFlowLayout -> launchActivity(FlowLayoutActivityFont::class.java)
+            binding.btRoundableLayout -> launchActivity(RoundableLayoutActivity::class.java)
+            binding.btFlowLayout -> launchActivity(FlowLayoutActivity::class.java)
             binding.btSplitPanelLayout -> launchActivity(SplitPanelLayoutActivity::class.java)
             binding.btTramsformationLayout -> launchActivity(TransformationActivity::class.java)
             binding.btTramsformationLayoutSingle -> launchActivity(TransformationSingleActivity::class.java)
-            binding.btChessLayout -> launchActivity(ChessLayoutActivityFont::class.java)
-            binding.btBasketLayoutActivity -> launchActivity(BasketLayoutActivityFont::class.java)
+            binding.btChessLayout -> launchActivity(ChessLayoutActivity::class.java)
+            binding.btBasketLayoutActivity -> launchActivity(BasketLayoutActivity::class.java)
             binding.btSequenceLayoutActivity -> launchActivity(SequenceLayoutActivity::class.java)
-            binding.btReflectionLayoutActivity -> launchActivity(ReflectionLayoutActivityFont::class.java)
-            binding.btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivityFont::class.java)
-            binding.btGreedoLayout -> launchActivity(GreedoLayoutActivityFont::class.java)
-            binding.btAutoScrollContent -> launchActivity(AutoScrollContentActivityFont::class.java)
-            binding.btFloatLayout -> launchActivity(FloatLayoutActivityFont::class.java)
+            binding.btReflectionLayoutActivity -> launchActivity(ReflectionLayoutActivity::class.java)
+            binding.btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivity::class.java)
+            binding.btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
+            binding.btAutoScrollContent -> launchActivity(AutoScrollContentActivity::class.java)
+            binding.btFloatLayout -> launchActivity(FloatLayoutActivity::class.java)
         }
     }
 }

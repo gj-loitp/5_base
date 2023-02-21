@@ -9,8 +9,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.a.cv.layout.greedo.GreedoLayoutActivityFont
 import vn.loitp.databinding.ARvMenuBinding
+import vn.loitp.up.a.cv.layout.greedo.GreedoLayoutActivity
 import vn.loitp.up.a.cv.rv.arcView.ArcViewActivity
 import vn.loitp.up.a.cv.rv.book.BookViewActivity
 import vn.loitp.up.a.cv.rv.carouselRv.CarouselRecyclerViewActivity
@@ -131,7 +131,7 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
             binding.btDragDrop -> launchActivity(MainActivityDragDrop::class.java)
             binding.btDragAndDropDemoActivity -> launchActivity(DragAndDropDemoActivity::class.java)
             binding.btLoopingLayout -> launchActivity(LoopingLayoutActivity::class.java)
-            binding.btGreedoLayout -> launchActivity(GreedoLayoutActivityFont::class.java)
+            binding.btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
         }
     }
 }

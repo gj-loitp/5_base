@@ -86,6 +86,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                 overridePendingTransition(0, 0)
             }
         }
+        binding.btFlutter.setOnClickListener(this)
         binding.btApi.setOnClickListener(this)
         binding.btAnimation.setOnClickListener(this)
         binding.btCustomView.setOnClickListener(this)
@@ -137,6 +138,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             binding.btSecurity.isVisible = true
             binding.btService.isVisible = true
             binding.btUtils.isVisible = true
+            binding.btGame.isVisible = true
         } else {
             binding.btApi.isVisible = true
             binding.btAnimation.isVisible = false
@@ -158,6 +160,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             binding.btSecurity.isVisible = false
             binding.btService.isVisible = false
             binding.btUtils.isVisible = false
+            binding.btGame.isVisible = false
         }
     }
 
@@ -179,6 +182,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
+            binding.btFlutter -> rateApp(packageName = "com.roy93group.fullter_tutorial")
             binding.btApi -> launchActivity(MenuAPIActivity::class.java)
             binding.btAnimation -> launchActivity(MenuAnimationActivity::class.java)
             binding.btCustomView -> launchActivity(MenuCustomViewsActivity::class.java)

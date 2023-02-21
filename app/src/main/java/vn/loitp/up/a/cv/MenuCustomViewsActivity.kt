@@ -30,6 +30,7 @@ import vn.loitp.a.cv.fingerPaintView.FingerPaintActivity
 import vn.loitp.a.cv.graph.MenuGraphViewActivity
 import vn.loitp.a.cv.indicator.ex.MenuMagicIndicatorActivityFont
 import vn.loitp.databinding.AMenuCustomViewBinding
+import vn.loitp.up.a.cv.iv.MenuImageViewActivity
 import vn.loitp.up.a.cv.lCv.LCardViewActivity
 import vn.loitp.up.a.cv.lDebug.LDebugViewActivity
 import vn.loitp.up.a.cv.layout.MenuLayoutActivity
@@ -141,7 +142,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
             binding.btProgressLoading -> launchActivity(MenuProgressActivity::class.java)
             binding.btSwitch -> launchActivity(MenuSwitchToggleActivity::class.java)
             binding.btActionBar -> launchActivity(MenuActionBarActivity::class.java)
-            binding.btImageView -> launchActivity(vn.loitp.a.cv.iv.MenuImageViewActivity::class.java)
+            binding.btImageView -> launchActivity(MenuImageViewActivity::class.java)
             binding.btTextView -> launchActivity(MenuTextViewActivity::class.java)
             binding.btBottomBarBlur -> launchActivity(MenuBottomNavigationActivity::class.java)
             binding.btSticker -> launchActivity(StickerActivity::class.java)
