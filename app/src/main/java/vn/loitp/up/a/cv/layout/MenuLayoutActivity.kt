@@ -8,10 +8,10 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivityFont
-import vn.loitp.a.cv.layout.aspectratio.AspectRatioLayoutActivityFont
-import vn.loitp.a.cv.layout.autoLinear.AutoLinearLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity
+import vn.loitp.up.a.cv.layout.aspectratio.AspectRatioLayoutActivity
+import vn.loitp.up.a.cv.layout.autoLinear.AutoLinearLayoutActivity
 import vn.loitp.up.a.cv.layout.autoScrollContent.AutoScrollContentActivity
 import vn.loitp.up.a.cv.layout.basket.BasketLayoutActivity
 import vn.loitp.up.a.cv.layout.chess.ChessLayoutActivity
@@ -117,8 +117,8 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            binding.btAndroidSlidingUpPanel -> launchActivity(AndroidSlidingUpPanelActivityFont::class.java)
-            binding.btAspectRatioLayout -> launchActivity(AspectRatioLayoutActivityFont::class.java)
+            binding.btAndroidSlidingUpPanel -> launchActivity(AndroidSlidingUpPanelActivity::class.java)
+            binding.btAspectRatioLayout -> launchActivity(AspectRatioLayoutActivity::class.java)
             binding.btDraggablePanel -> launchActivity(DraggablePanelActivity::class.java)
             binding.btDraggablePanelFree -> launchActivity(DraggablePanelFreeActivity::class.java)
             binding.btDraggableView -> launchActivity(DraggableViewActivity::class.java)
@@ -126,7 +126,7 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btRippleLayout -> launchActivity(RippleLayoutActivity::class.java)
             binding.btSwipeRefreshLayout -> launchActivity(MenuSwipeRefreshLayoutActivity::class.java)
             binding.btCircularView -> launchActivity(CircularViewActivity::class.java)
-            binding.btAutoLinearLayout -> launchActivity(AutoLinearLayoutActivityFont::class.java)
+            binding.btAutoLinearLayout -> launchActivity(AutoLinearLayoutActivity::class.java)
             binding.btConstraintLayout -> launchActivity(MenuConstraintLayoutActivity::class.java)
             binding.btSwipebackLayout -> launchActivity(SwipeBackLayoutActivity::class.java)
             binding.btHeartLayout -> launchActivity(HeartLayoutActivity::class.java)

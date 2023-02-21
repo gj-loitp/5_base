@@ -376,7 +376,7 @@
             android:name=".up.a.cv.sw.toggle.ToggleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.autoLinear.AutoLinearLayoutActivityFont"
+            android:name=".up.a.cv.layout.autoLinear.AutoLinearLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.func.hashmap.HashMapActivity"
@@ -965,7 +965,7 @@
             android:name=".up.a.cv.layout.splitPanel.SplitPanelLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.aspectratio.AspectRatioLayoutActivityFont"
+            android:name=".up.a.cv.layout.aspectratio.AspectRatioLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.rv.concatAdapter.ConcatAdapterActivity"
@@ -1302,7 +1302,7 @@
             android:name=".up.a.game.puzzle.GameActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivityFont"
+            android:name=".up.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bb.expandable.ShowCaseActivityFont"

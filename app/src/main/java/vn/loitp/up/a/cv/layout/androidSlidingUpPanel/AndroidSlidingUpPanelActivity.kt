@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.androidSlidingUpPanel
+package vn.loitp.up.a.cv.layout.androidSlidingUpPanel
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,33 +9,38 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.sothree.slidinguppanel.PanelSlideListener
 import com.sothree.slidinguppanel.PanelState
-import kotlinx.android.synthetic.main.a_android_sliding_up_panel.*
 import vn.loitp.R
+import vn.loitp.databinding.AAndroidSlidingUpPanelBinding
 import java.util.*
 
 @LogTag("AndroidSlidingUpPanelActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class AndroidSlidingUpPanelActivityFont : BaseActivityFont() {
+class AndroidSlidingUpPanelActivity : BaseActivityFont() {
+    private lateinit var binding: AAndroidSlidingUpPanelBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_android_sliding_up_panel
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AAndroidSlidingUpPanelBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
@@ -48,13 +53,12 @@ class AndroidSlidingUpPanelActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = AndroidSlidingUpPanelActivityFont::class.java.simpleName
+            this.tvTitle?.text = AndroidSlidingUpPanelActivity::class.java.simpleName
         }
 
-        listView.onItemClickListener =
-            AdapterView.OnItemClickListener { _, _, _, _ ->
-                showShortInformation("onItemClick")
-            }
+        binding.listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, _, _ ->
+            showShortInformation("onItemClick")
+        }
         val yourArrayList = listOf(
             "This",
             "Is",
@@ -82,47 +86,43 @@ class AndroidSlidingUpPanelActivityFont : BaseActivityFont() {
             "SlidingUpPanelLayout"
         )
         val arrayAdapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_list_item_1,
-            yourArrayList
+            this, android.R.layout.simple_list_item_1, yourArrayList
         )
-        listView.adapter = arrayAdapter
-        slidingUpPanelLayout.addPanelSlideListener(object : PanelSlideListener {
+        binding.listView.adapter = arrayAdapter
+        binding.slidingUpPanelLayout.addPanelSlideListener(object : PanelSlideListener {
             override fun onPanelSlide(panel: View, slideOffset: Float) {
             }
 
             override fun onPanelStateChanged(
-                panel: View,
-                previousState: PanelState,
-                newState: PanelState
+                panel: View, previousState: PanelState, newState: PanelState
             ) {
             }
         })
-        slidingUpPanelLayout.setFadeOnClickListener {
-            slidingUpPanelLayout.panelState = PanelState.COLLAPSED
+        binding.slidingUpPanelLayout.setFadeOnClickListener {
+            binding.slidingUpPanelLayout.panelState = PanelState.COLLAPSED
         }
 
-        btActionToggle.setSafeOnClickListener {
-            if (slidingUpPanelLayout.panelState != PanelState.HIDDEN) {
-                slidingUpPanelLayout.panelState = PanelState.HIDDEN
+        binding.btActionToggle.setSafeOnClickListener {
+            if (binding.slidingUpPanelLayout.panelState != PanelState.HIDDEN) {
+                binding.slidingUpPanelLayout.panelState = PanelState.HIDDEN
             } else {
-                slidingUpPanelLayout.panelState = PanelState.COLLAPSED
+                binding.slidingUpPanelLayout.panelState = PanelState.COLLAPSED
             }
         }
-        btActionAnchor.setSafeOnClickListener {
-            if (slidingUpPanelLayout.anchorPoint == 1.0f) {
-                slidingUpPanelLayout.anchorPoint = 0.7f
-                slidingUpPanelLayout.panelState = PanelState.ANCHORED
+        binding.btActionAnchor.setSafeOnClickListener {
+            if (binding.slidingUpPanelLayout.anchorPoint == 1.0f) {
+                binding.slidingUpPanelLayout.anchorPoint = 0.7f
+                binding.slidingUpPanelLayout.panelState = PanelState.ANCHORED
             } else {
-                slidingUpPanelLayout.anchorPoint = 1.0f
-                slidingUpPanelLayout.panelState = PanelState.COLLAPSED
+                binding.slidingUpPanelLayout.anchorPoint = 1.0f
+                binding.slidingUpPanelLayout.panelState = PanelState.COLLAPSED
             }
         }
     }
 
     override fun onBaseBackPressed() {
-        if ((slidingUpPanelLayout.panelState == PanelState.EXPANDED || slidingUpPanelLayout.panelState == PanelState.ANCHORED)) {
-            slidingUpPanelLayout.panelState = PanelState.COLLAPSED
+        if ((binding.slidingUpPanelLayout.panelState == PanelState.EXPANDED || binding.slidingUpPanelLayout.panelState == PanelState.ANCHORED)) {
+            binding.slidingUpPanelLayout.panelState = PanelState.COLLAPSED
         } else {
             super.onBaseBackPressed()
         }

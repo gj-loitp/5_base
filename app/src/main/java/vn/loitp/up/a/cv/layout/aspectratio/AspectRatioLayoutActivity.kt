@@ -1,37 +1,41 @@
-package vn.loitp.a.cv.layout.aspectratio
+package vn.loitp.up.a.cv.layout.aspectratio
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_aspect_ratio_layout.*
-import vn.loitp.R
+import vn.loitp.databinding.AAspectRatioLayoutBinding
 
 @LogTag("AspectRatioLayoutActivity")
 @IsFullScreen(false)
-class AspectRatioLayoutActivityFont : BaseActivityFont() {
+class AspectRatioLayoutActivity : BaseActivityFont() {
+    private lateinit var binding: AAspectRatioLayoutBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_aspect_ratio_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AAspectRatioLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = AspectRatioLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = AspectRatioLayoutActivity::class.java.simpleName
         }
     }
 }
