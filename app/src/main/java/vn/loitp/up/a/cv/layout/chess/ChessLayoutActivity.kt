@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.chess
+package vn.loitp.up.a.cv.layout.chess
 
 import android.graphics.Color
 import android.os.Bundle
@@ -11,16 +11,18 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_layout_chess.*
 import vn.loitp.R
+import vn.loitp.databinding.ALayoutChessBinding
 
 @LogTag("ChessLayoutActivity")
 @IsFullScreen(false)
-class ChessLayoutActivityFont : BaseActivityFont() {
+class ChessLayoutActivity : BaseActivityFont() {
+    private lateinit var binding: ALayoutChessBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_chess
+        return NOT_FOUND
     }
 
     private var mRows = 10
@@ -30,18 +32,21 @@ class ChessLayoutActivityFont : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ALayoutChessBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = ChessLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = ChessLayoutActivity::class.java.simpleName
         }
         val size = mRows * mCols
         for (i in 0..size) {
@@ -79,11 +84,11 @@ class ChessLayoutActivityFont : BaseActivityFont() {
                         showShortInformation("${textView.text}")
                     }
                 )
-                layoutRootView.addView(textView, layoutParams)
+                binding.layoutRootView.addView(textView, layoutParams)
             }
         }
 
-        constraintSet.clone(layoutRootView)
+        constraintSet.clone(binding.layoutRootView)
         val gridFrameId = R.id.gridFrame
         constraintSet.setDimensionRatio(gridFrameId, "$mCols:$mRows")
         for (iRow in 0 until mRows) {
@@ -107,6 +112,6 @@ class ChessLayoutActivityFont : BaseActivityFont() {
                 idArray[iRow], null, ConstraintSet.CHAIN_PACKED
             )
         }
-        constraintSet.applyTo(layoutRootView)
+        constraintSet.applyTo(binding.layoutRootView)
     }
 }

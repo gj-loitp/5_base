@@ -370,7 +370,7 @@
             android:name=".up.a.cv.layout.draggablePanel.DraggablePanelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.circularView.CircularViewActivityFont"
+            android:name=".up.a.cv.layout.circularView.CircularViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.sw.toggle.ToggleActivity"
@@ -1062,7 +1062,7 @@
             android:name=".up.a.anim.activityTransitionReveal.RevealActivity1"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.chess.ChessLayoutActivityFont"
+            android:name=".up.a.cv.layout.chess.ChessLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.wheelSpiner.WheelSpinnerActivity"

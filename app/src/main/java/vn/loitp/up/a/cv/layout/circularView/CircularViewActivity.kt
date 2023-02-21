@@ -1,33 +1,38 @@
-package vn.loitp.a.cv.layout.circularView
+package vn.loitp.up.a.cv.layout.circularView
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.layout.circularView.CircularView
 import com.loitp.views.layout.circularView.Marker
-import kotlinx.android.synthetic.main.a_layout_circular_view.*
 import vn.loitp.R
+import vn.loitp.databinding.ALayoutCircularViewBinding
 
 @LogTag("CircularViewActivity")
 @IsFullScreen(false)
-class CircularViewActivityFont : BaseActivityFont() {
+class CircularViewActivity : BaseActivityFont() {
+    private lateinit var binding: ALayoutCircularViewBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_circular_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ALayoutCircularViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -44,11 +49,12 @@ class CircularViewActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = CircularViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = CircularViewActivity::class.java.simpleName
         }
         val simpleCircularViewAdapter = SimpleCircularViewAdapter()
-        circularView.adapter = simpleCircularViewAdapter
-        circularView.setOnCircularViewObjectClickListener(object : CircularView.OnClickListener {
+        binding.circularView.adapter = simpleCircularViewAdapter
+        binding.circularView.setOnCircularViewObjectClickListener(object :
+            CircularView.OnClickListener {
             override fun onClick(view: CircularView, isLongClick: Boolean) {
                 showShortInformation("onClick")
             }
