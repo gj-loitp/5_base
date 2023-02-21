@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.layout.autoScrollContent
+package vn.loitp.up.a.cv.layout.autoScrollContent
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,14 +12,13 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_auto_scroll_content.*
 import vn.loitp.R
 import vn.loitp.databinding.AAutoScrollContentBinding
 
 @LogTag("AutoScrollContentActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class AutoScrollContentActivityFont : BaseActivityFont() {
+class AutoScrollContentActivity : BaseActivityFont() {
 
     private lateinit var binding: AAutoScrollContentBinding
     private val lm = LinearLayoutManager(this)
@@ -43,7 +42,7 @@ class AutoScrollContentActivityFont : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -60,7 +59,7 @@ class AutoScrollContentActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = AutoScrollContentActivityFont::class.java.simpleName
+            this.tvTitle?.text = AutoScrollContentActivity::class.java.simpleName
         }
 
         lm.orientation = LinearLayoutManager.HORIZONTAL

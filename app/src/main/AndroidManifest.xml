@@ -1110,7 +1110,7 @@
             android:name=".up.a.picker.unicornFile.UnicornFilePickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.basket.BasketLayoutActivityFont"
+            android:name=".up.a.cv.layout.basket.BasketLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.tv.justified.JustifiedTextViewActivity"
@@ -1383,7 +1383,7 @@
             android:name=".a.cv.iv.previewImageCollection.PreviewImageCollectionActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.layout.autoScrollContent.AutoScrollContentActivityFont"
+            android:name=".up.a.cv.layout.autoScrollContent.AutoScrollContentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.cv.CardViewActivity"

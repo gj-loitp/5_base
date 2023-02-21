@@ -11,9 +11,9 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivityFont
 import vn.loitp.a.cv.layout.aspectratio.AspectRatioLayoutActivityFont
 import vn.loitp.a.cv.layout.autoLinear.AutoLinearLayoutActivityFont
-import vn.loitp.a.cv.layout.autoScrollContent.AutoScrollContentActivityFont
-import vn.loitp.a.cv.layout.basket.BasketLayoutActivityFont
 import vn.loitp.databinding.ALayoutMenuBinding
+import vn.loitp.up.a.cv.layout.autoScrollContent.AutoScrollContentActivity
+import vn.loitp.up.a.cv.layout.basket.BasketLayoutActivity
 import vn.loitp.up.a.cv.layout.chess.ChessLayoutActivity
 import vn.loitp.up.a.cv.layout.circularView.CircularViewActivity
 import vn.loitp.up.a.cv.layout.constraint.MenuConstraintLayoutActivity
@@ -147,12 +147,12 @@ class MenuLayoutActivity : BaseActivityFont(), View.OnClickListener {
             binding.btTramsformationLayout -> launchActivity(TransformationActivity::class.java)
             binding.btTramsformationLayoutSingle -> launchActivity(TransformationSingleActivity::class.java)
             binding.btChessLayout -> launchActivity(ChessLayoutActivity::class.java)
-            binding.btBasketLayoutActivity -> launchActivity(BasketLayoutActivityFont::class.java)
+            binding.btBasketLayoutActivity -> launchActivity(BasketLayoutActivity::class.java)
             binding.btSequenceLayoutActivity -> launchActivity(SequenceLayoutActivity::class.java)
             binding.btReflectionLayoutActivity -> launchActivity(ReflectionLayoutActivity::class.java)
             binding.btCornerCutLinearLayout -> launchActivity(CornerCutLinearLayoutActivity::class.java)
             binding.btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
-            binding.btAutoScrollContent -> launchActivity(AutoScrollContentActivityFont::class.java)
+            binding.btAutoScrollContent -> launchActivity(AutoScrollContentActivity::class.java)
             binding.btFloatLayout -> launchActivity(FloatLayoutActivity::class.java)
         }
     }

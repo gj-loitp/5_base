@@ -1,41 +1,45 @@
-package vn.loitp.a.cv.layout.basket
+package vn.loitp.up.a.cv.layout.basket
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.yonder.basketlayout.BasketLayoutViewListener
-import kotlinx.android.synthetic.main.a_basket_layout.*
-import vn.loitp.R
+import vn.loitp.databinding.ABasketLayoutBinding
 
 @LogTag("BasketLayoutActivity")
 @IsFullScreen(false)
-class BasketLayoutActivityFont : BaseActivityFont() {
+class BasketLayoutActivity : BaseActivityFont() {
+    private lateinit var binding: ABasketLayoutBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_basket_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ABasketLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = BasketLayoutActivityFont::class.java.simpleName
+            this.tvTitle?.text = BasketLayoutActivity::class.java.simpleName
         }
-        basketView.apply {
+        binding.basketView.apply {
             setBasketQuantity(quantity = 2)
             setMaxQuantity(maxQuantity = 5)
             setBasketLayoutListener(object : BasketLayoutViewListener {
