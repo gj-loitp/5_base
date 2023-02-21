@@ -25,9 +25,9 @@ import vn.loitp.a.cv.iv.roundedIv.RoundedIvActivityFont
 import vn.loitp.a.cv.iv.scrollParallax.ScrollParallaxIvActivityFont
 import vn.loitp.a.cv.iv.shapeableIv.ShapeableIvActivityFont
 import vn.loitp.a.cv.iv.stfaiconIv.ListActivityFont
-import vn.loitp.a.cv.iv.strectchy.StrectchyIvActivityFont
-import vn.loitp.a.cv.iv.touch.TouchIvActivityFont
 import vn.loitp.databinding.AIvMenuBinding
+import vn.loitp.up.a.cv.iv.strectchy.StrectchyIvActivity
+import vn.loitp.up.a.cv.iv.touch.TouchIvActivity
 import vn.loitp.up.a.cv.iv.zoom.ZoomIvActivity
 
 @LogTag("ImageViewMenuActivity")
@@ -82,8 +82,8 @@ class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
     override fun onClick(v: View) {
         when (v) {
             binding.btCirleImageView -> launchActivity(CircleIvActivityFont::class.java)
-            binding.btStretchyImageView -> launchActivity(StrectchyIvActivityFont::class.java)
-            binding.btTouchImageView -> launchActivity(TouchIvActivityFont::class.java)
+            binding.btStretchyImageView -> launchActivity(StrectchyIvActivity::class.java)
+            binding.btTouchImageView -> launchActivity(TouchIvActivity::class.java)
             binding.btZoomImageView -> launchActivity(ZoomIvActivity::class.java)
             binding.btFidgetSpinner -> launchActivity(FidgetSpinnerIvActivityFont::class.java)
             binding.btContinuousScrollableImageView -> launchActivity(

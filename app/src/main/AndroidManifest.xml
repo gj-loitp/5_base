@@ -107,10 +107,10 @@
             android:name=".up.a.cv.tv.countDown.CountDownActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.strectchy.StrectchyIvActivityFont"
+            android:name=".up.a.cv.iv.strectchy.StrectchyIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.touch.TouchIvActivityFont"
+            android:name=".up.a.cv.iv.touch.TouchIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.sticker.StickerActivity"
