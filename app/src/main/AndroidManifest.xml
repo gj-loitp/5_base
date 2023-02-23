@@ -125,7 +125,7 @@
             android:name=".up.a.cv.iv.zoom.ZoomIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.fidgetSpinner.FidgetSpinnerIvActivityFont"
+            android:name=".up.a.cv.iv.fidgetSpinner.FidgetSpinnerIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.tv.color.ColorTextViewActivity"
@@ -328,7 +328,7 @@
             android:name=".up.a.cv.navi.arc.ArcNavigationViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.continuousScrollable.ContinuousScrollableImageViewActivityFont"
+            android:name=".up.a.cv.iv.continuousScrollable.ContinuousScrollableImageViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.iv.scrollParallax.ScrollParallaxIvActivity"
@@ -996,7 +996,7 @@
             android:name=".up.a.func.theme.ThemeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.comic.ComicViewActivityFont"
+            android:name=".up.a.cv.iv.comic.ComicViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.iv.stfaiconIv.ListActivity"

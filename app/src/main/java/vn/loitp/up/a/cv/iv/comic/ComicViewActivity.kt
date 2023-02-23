@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.iv.comic
+package vn.loitp.up.a.cv.iv.comic
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,34 +10,39 @@ import com.bumptech.glide.Glide
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_comic_view.*
 import vn.loitp.R
+import vn.loitp.databinding.AComicViewBinding
 
 // https://github.com/nahzur-h/ScollZoomListView
 @LogTag("ComicViewActivity")
 @IsFullScreen(false)
-class ComicViewActivityFont : BaseActivityFont() {
+class ComicViewActivity : BaseActivityFont() {
+    private lateinit var binding: AComicViewBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_comic_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AComicViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ComicViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = ComicViewActivity::class.java.simpleName
         }
         initData()
     }
@@ -51,7 +56,7 @@ class ComicViewActivityFont : BaseActivityFont() {
         list.add("http://truyentuan.com/manga2/onepunch-man/182-8/img-00005.jpg")
 
         val comicAdapter = ComicAdapter()
-        comicView.adapter = comicAdapter
+        binding.comicView.adapter = comicAdapter
         comicAdapter.setData(data = list)
     }
 

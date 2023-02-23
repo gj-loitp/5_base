@@ -1,32 +1,37 @@
-package vn.loitp.a.cv.iv.continuousScrollable
+package vn.loitp.up.a.cv.iv.continuousScrollable
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_iv_continuous_scrollable.*
 import vn.loitp.R
+import vn.loitp.databinding.AIvContinuousScrollableBinding
 import vn.loitp.up.app.EmptyActivity
 
 @LogTag("ContinuousScrollableImageViewActivity")
 @IsFullScreen(false)
-class ContinuousScrollableImageViewActivityFont : BaseActivityFont() {
+class ContinuousScrollableImageViewActivity : BaseActivityFont() {
+    private lateinit var binding: AIvContinuousScrollableBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_iv_continuous_scrollable
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AIvContinuousScrollableBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
