@@ -9,10 +9,10 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.a.cv.iv.bigIv.BigIvActivityFont
-import vn.loitp.a.cv.iv.bigIv.BigIvWithSvActivityFont
-import vn.loitp.a.cv.iv.circleIv.CircleIvActivityFont
-import vn.loitp.a.cv.iv.coil.CoilActivityFont
+import vn.loitp.up.a.cv.iv.bigIv.BigIvActivity
+import vn.loitp.up.a.cv.iv.bigIv.BigIvWithSvActivity
+import vn.loitp.up.a.cv.iv.circleIv.CircleIvActivity
+import vn.loitp.up.a.cv.iv.coil.CoilActivity
 import vn.loitp.up.a.cv.iv.comic.ComicViewActivity
 import vn.loitp.up.a.cv.iv.continuousScrollable.ContinuousScrollableImageViewActivity
 import vn.loitp.up.a.cv.iv.fidgetSpinner.FidgetSpinnerIvActivity
@@ -81,7 +81,7 @@ class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            binding.btCirleImageView -> launchActivity(CircleIvActivityFont::class.java)
+            binding.btCirleImageView -> launchActivity(CircleIvActivity::class.java)
             binding.btStretchyImageView -> launchActivity(StrectchyIvActivity::class.java)
             binding.btTouchImageView -> launchActivity(TouchIvActivity::class.java)
             binding.btZoomImageView -> launchActivity(ZoomIvActivity::class.java)
@@ -91,8 +91,8 @@ class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
             )
             binding.btScrollParallaxImageView -> launchActivity(ScrollParallaxIvActivity::class.java)
             binding.btPanoramaImageView -> launchActivity(PanoramaIvActivity::class.java)
-            binding.btBigImageView -> launchActivity(BigIvActivityFont::class.java)
-            binding.btBigImageViewWithScrollView -> launchActivity(BigIvWithSvActivityFont::class.java)
+            binding.btBigImageView -> launchActivity(BigIvActivity::class.java)
+            binding.btBigImageViewWithScrollView -> launchActivity(BigIvWithSvActivity::class.java)
             binding.btTouchImageViewWithViewPager -> launchActivity(PinchToZoomViewPagerActivity::class.java)
             binding.btKenburnView -> launchActivity(KenburnViewActivity::class.java)
             binding.btComicView -> launchActivity(ComicViewActivity::class.java)
@@ -101,7 +101,7 @@ class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
             binding.btRoundedImageView -> launchActivity(RoundedIvActivity::class.java)
             binding.btPreviewImageCollection -> launchActivity(PreviewImageCollectionActivity::class.java)
             binding.btShapeableImageViewActivity -> launchActivity(ShapeableIvActivity::class.java)
-            binding.btCoil -> launchActivity(CoilActivityFont::class.java)
+            binding.btCoil -> launchActivity(CoilActivity::class.java)
         }
     }
 }

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.iv.bigIv
+package vn.loitp.up.a.cv.iv.bigIv
 
 import android.net.Uri
 import android.os.Bundle
@@ -7,50 +7,55 @@ import com.github.piasy.biv.view.GlideImageViewFactory
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.hideProgress
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.showProgress
-import kotlinx.android.synthetic.main.a_big_iv.*
 import vn.loitp.R
+import vn.loitp.databinding.ABigIvBinding
 import vn.loitp.up.common.Constants
 import java.io.File
 
 // https://github.com/Piasy/BigImageViewer
 @LogTag("BigImageViewActivity")
 @IsFullScreen(false)
-class BigIvActivityFont : BaseActivityFont() {
+class BigIvActivity : BaseActivityFont() {
+    private lateinit var binding: ABigIvBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_big_iv
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ABigIvBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = BigIvActivityFont::class.java.simpleName
+            this.tvTitle?.text = BigIvActivity::class.java.simpleName
         }
 
-        progressBar.hideProgress()
-        bigImageView.setImageViewFactory(GlideImageViewFactory())
-        bigImageView.setImageLoaderCallback(object : ImageLoader.Callback {
+        binding.progressBar.hideProgress()
+        binding.bigImageView.setImageViewFactory(GlideImageViewFactory())
+        binding.bigImageView.setImageLoaderCallback(object : ImageLoader.Callback {
             override fun onCacheHit(imageType: Int, image: File) {}
 
             override fun onCacheMiss(imageType: Int, image: File) {}
 
             override fun onStart() {
-                progressBar.showProgress()
+                binding.progressBar.showProgress()
             }
 
             override fun onProgress(progress: Int) {
@@ -61,31 +66,31 @@ class BigIvActivityFont : BaseActivityFont() {
 
             override fun onSuccess(image: File) {
                 logD("onSuccess")
-                val ssiv = bigImageView.ssiv
+                val ssiv = binding.bigImageView.ssiv
                 ssiv?.isZoomEnabled = true
-                progressBar.hideProgress()
+                binding.progressBar.hideProgress()
             }
 
             override fun onFail(error: Exception) {}
         })
 
-        bt0.setSafeOnClickListener {
-            bigImageView.showImage(
+        binding.bt0.setSafeOnClickListener {
+            binding.bigImageView.showImage(
                 Uri.parse(Constants.URL_IMG_LARGE_LAND_S),
                 Uri.parse(Constants.URL_IMG_LARGE_LAND_O)
             )
         }
-        bt1.setSafeOnClickListener {
-            bigImageView.showImage(
+        binding.bt1.setSafeOnClickListener {
+            binding.bigImageView.showImage(
                 Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_S),
                 Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_O)
             )
         }
-        bt2.setSafeOnClickListener {
-            bigImageView.showImage(Uri.parse(Constants.URL_IMG_LONG))
+        binding.bt2.setSafeOnClickListener {
+            binding.bigImageView.showImage(Uri.parse(Constants.URL_IMG_LONG))
         }
-        bt3.setSafeOnClickListener {
-            bigImageView.showImage(Uri.parse(Constants.URL_IMG_GIFT))
+        binding.bt3.setSafeOnClickListener {
+            binding.bigImageView.showImage(Uri.parse(Constants.URL_IMG_GIFT))
         }
     }
 }

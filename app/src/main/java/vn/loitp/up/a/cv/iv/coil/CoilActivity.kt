@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.iv.coil
+package vn.loitp.up.a.cv.iv.coil
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -9,30 +9,35 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.common.URL_IMG_1
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_coil.*
 import vn.loitp.R
+import vn.loitp.databinding.ACoilBinding
 import vn.loitp.up.common.Constants.Companion.URL_IMG_2
 
 @LogTag("CoilActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class CoilActivityFont : BaseActivityFont() {
+class CoilActivity : BaseActivityFont() {
+    private lateinit var binding: ACoilBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_coil
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ACoilBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -49,16 +54,16 @@ class CoilActivityFont : BaseActivityFont() {
                 isVisible = true
                 setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = CoilActivityFont::class.java.simpleName
+            this.tvTitle?.text = CoilActivity::class.java.simpleName
         }
 
-        iv0.load(URL_IMG_1)
-        iv1.load(URL_IMG_2) {
+        binding.iv0.load(URL_IMG_1)
+        binding.iv1.load(URL_IMG_2) {
             crossfade(true)
             placeholder(R.drawable.circle)
             transformations(CircleCropTransformation())
         }
-        iv2.load(URL_IMG_2) {
+        binding.iv2.load(URL_IMG_2) {
             crossfade(true)
             placeholder(R.drawable.circle)
             transformations(
