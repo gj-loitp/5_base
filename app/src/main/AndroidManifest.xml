@@ -1278,7 +1278,7 @@
             android:name=".up.a.cv.rv.carouselRv.CarouselRecyclerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.reflection.ReflectionActivityFont"
+            android:name=".up.a.cv.iv.reflection.ReflectionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.layout.reflection.ReflectionLayoutActivity"
@@ -1353,7 +1353,7 @@
             android:name=".up.a.picker.shiftColor.ShiftColorPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.roundedIv.RoundedIvActivityFont"
+            android:name=".up.a.cv.iv.roundedIv.RoundedIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity"

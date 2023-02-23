@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.iv.reflection
+package vn.loitp.up.a.cv.iv.reflection
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,29 +7,34 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_iv_reflection.*
 import vn.loitp.R
+import vn.loitp.databinding.AIvReflectionBinding
 
 @LogTag("ReflectionActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class ReflectionActivityFont : BaseActivityFont() {
+class ReflectionActivity : BaseActivityFont() {
+    private lateinit var binding: AIvReflectionBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_iv_reflection
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AIvReflectionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft?.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -46,7 +51,7 @@ class ReflectionActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = ReflectionActivityFont::class.java.simpleName
+            this.tvTitle?.text = ReflectionActivity::class.java.simpleName
         }
     }
 }

@@ -20,8 +20,8 @@ import vn.loitp.a.cv.iv.kenburn.KenburnViewActivityFont
 import vn.loitp.a.cv.iv.panorama.PanoramaIvActivityFont
 import vn.loitp.a.cv.iv.pinchToZoom.PinchToZoomViewPagerActivityFont
 import vn.loitp.a.cv.iv.previewImageCollection.PreviewImageCollectionActivityFont
-import vn.loitp.a.cv.iv.reflection.ReflectionActivityFont
-import vn.loitp.a.cv.iv.roundedIv.RoundedIvActivityFont
+import vn.loitp.up.a.cv.iv.reflection.ReflectionActivity
+import vn.loitp.up.a.cv.iv.roundedIv.RoundedIvActivity
 import vn.loitp.up.a.cv.iv.scrollParallax.ScrollParallaxIvActivity
 import vn.loitp.up.a.cv.iv.shapeableIv.ShapeableIvActivity
 import vn.loitp.up.a.cv.iv.stfaiconIv.ListActivity
@@ -97,8 +97,8 @@ class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
             binding.btKenburnView -> launchActivity(KenburnViewActivityFont::class.java)
             binding.btComicView -> launchActivity(ComicViewActivityFont::class.java)
             binding.btStfalconImageViewer -> launchActivity(ListActivity::class.java)
-            binding.btReflection -> launchActivity(ReflectionActivityFont::class.java)
-            binding.btRoundedImageView -> launchActivity(RoundedIvActivityFont::class.java)
+            binding.btReflection -> launchActivity(ReflectionActivity::class.java)
+            binding.btRoundedImageView -> launchActivity(RoundedIvActivity::class.java)
             binding.btPreviewImageCollection -> launchActivity(PreviewImageCollectionActivityFont::class.java)
             binding.btShapeableImageViewActivity -> launchActivity(ShapeableIvActivity::class.java)
             binding.btCoil -> launchActivity(CoilActivityFont::class.java)
