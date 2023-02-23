@@ -340,7 +340,7 @@
             android:name=".up.a.pattern.observer.ObserverPatternActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.panorama.PanoramaIvActivityFont"
+            android:name=".up.a.cv.iv.panorama.PanoramaIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.db.readSqliteAsset.ReadSqliteAssetActivity"
@@ -755,7 +755,7 @@
             android:name=".up.a.cv.progress.circularProgressIndicator.CircularProgressIndicatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.pinchToZoom.PinchToZoomViewPagerActivityFont"
+            android:name=".up.a.cv.iv.pinchToZoom.PinchToZoomViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.dlg.custom.CustomDialogActivityFont"
@@ -767,7 +767,7 @@
             android:name=".up.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.kenburn.KenburnViewActivityFont"
+            android:name=".up.a.cv.iv.kenburn.KenburnViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.rv.recyclerTabLayout.MenuRecyclerTabLayoutActivity"
@@ -1380,7 +1380,7 @@
             android:name=".up.a.cv.layout.greedo.GreedoLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.previewImageCollection.PreviewImageCollectionActivityFont"
+            android:name=".up.a.cv.iv.previewImageCollection.PreviewImageCollectionActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.layout.autoScrollContent.AutoScrollContentActivity"

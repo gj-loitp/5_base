@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.iv.pinchToZoom
+package vn.loitp.up.a.cv.iv.pinchToZoom
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.loitp.core.ext.loadGlide
-import kotlinx.android.synthetic.main.f_iv_pinch_to_zoom.*
-import vn.loitp.R
+import vn.loitp.databinding.FIvPinchToZoomBinding
 
 class FrmIvPinchToZoom : Fragment() {
 
@@ -15,23 +14,23 @@ class FrmIvPinchToZoom : Fragment() {
         const val KEY_URL = "KEY_URL"
     }
 
+    private lateinit var binding: FIvPinchToZoomBinding
     private var urlIv: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.f_iv_pinch_to_zoom, container, false)
+    ): View {
+        binding = FIvPinchToZoomBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         urlIv = arguments?.getString(KEY_URL)
         urlIv?.let { u ->
-            imageView.loadGlide(
-                any = u,
-            )
+            binding.imageView.loadGlide(any = u)
         }
     }
 }

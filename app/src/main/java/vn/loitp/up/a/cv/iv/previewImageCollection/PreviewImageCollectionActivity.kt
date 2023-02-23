@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.iv.previewImageCollection
+package vn.loitp.up.a.cv.iv.previewImageCollection
 
 import android.annotation.SuppressLint
 import android.content.res.Resources
@@ -14,35 +14,41 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.common.URL_IMG
 import com.loitp.core.common.URL_IMG_1
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_iv_preview_image_collection.*
 import pereira.agnaldo.previewimgcol.ImageCollectionView
 import vn.loitp.R
+import vn.loitp.databinding.AIvPreviewImageCollectionBinding
 
 @LogTag("PreviewImageCollectionActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class PreviewImageCollectionActivityFont : BaseActivityFont() {
+class PreviewImageCollectionActivity : BaseActivityFont() {
 
     val Int.px: Int
         get() = (this * Resources.getSystem().displayMetrics.density).toInt()
 
+    private lateinit var binding: AIvPreviewImageCollectionBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_iv_preview_image_collection
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AIvPreviewImageCollectionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -59,13 +65,14 @@ class PreviewImageCollectionActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = PreviewImageCollectionActivityFont::class.java.simpleName
+            this.tvTitle?.text = PreviewImageCollectionActivity::class.java.simpleName
         }
 
-        color.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.color.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                imageCollectionView.mBackgroundColor = if (progress == 0) Color.TRANSPARENT else
-                    Color.HSVToColor(floatArrayOf(progress.toFloat(), 100f, 100f))
+                binding.imageCollectionView.mBackgroundColor =
+                    if (progress == 0) Color.TRANSPARENT else
+                        Color.HSVToColor(floatArrayOf(progress.toFloat(), 100f, 100f))
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -75,9 +82,10 @@ class PreviewImageCollectionActivityFont : BaseActivityFont() {
             }
         })
 
-        baseRowHeight.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.baseRowHeight.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                imageCollectionView.baseImageHeight = if (progress <= 2) 120.px else progress.px
+                binding.imageCollectionView.baseImageHeight =
+                    if (progress <= 2) 120.px else progress.px
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -87,9 +95,9 @@ class PreviewImageCollectionActivityFont : BaseActivityFont() {
             }
         })
 
-        imageMargin.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.imageMargin.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                imageCollectionView.imageMargin = progress.px
+                binding.imageCollectionView.imageMargin = progress.px
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -99,9 +107,9 @@ class PreviewImageCollectionActivityFont : BaseActivityFont() {
             }
         })
 
-        maxImagePerRow.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.maxImagePerRow.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                imageCollectionView.maxImagePerRow = if (progress == 0) 3 else progress
+                binding.imageCollectionView.maxImagePerRow = if (progress == 0) 3 else progress
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -111,9 +119,9 @@ class PreviewImageCollectionActivityFont : BaseActivityFont() {
             }
         })
 
-        maxRows.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.maxRows.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                imageCollectionView.maxRows =
+                binding.imageCollectionView.maxRows =
                     if (progress == 0) ImageCollectionView.NO_ROW_LIMITS else progress
             }
 
@@ -124,10 +132,10 @@ class PreviewImageCollectionActivityFont : BaseActivityFont() {
             }
         })
 
-        cornerRadius.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.cornerRadius.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                imageCollectionView.previewCornerRadius =
-                    (imageCollectionView.width * (progress / 100F)).toInt()
+                binding.imageCollectionView.previewCornerRadius =
+                    (binding.imageCollectionView.width * (progress / 100F)).toInt()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -137,19 +145,19 @@ class PreviewImageCollectionActivityFont : BaseActivityFont() {
             }
         })
 
-        pinchToZoom.setOnCheckedChangeListener { _, isChecked ->
-            imageCollectionView.pinchToZoom = isChecked
+        binding.pinchToZoom.setOnCheckedChangeListener { _, isChecked ->
+            binding.imageCollectionView.pinchToZoom = isChecked
         }
 
-        showExternalBorderMargins.setOnCheckedChangeListener { _, isChecked ->
-            imageCollectionView.showExternalBorderMargins = isChecked
+        binding.showExternalBorderMargins.setOnCheckedChangeListener { _, isChecked ->
+            binding.imageCollectionView.showExternalBorderMargins = isChecked
         }
 
-        distributeEvenly.setOnCheckedChangeListener { _, isChecked ->
-            imageCollectionView.previewDistributeEvenly = isChecked
+        binding.distributeEvenly.setOnCheckedChangeListener { _, isChecked ->
+            binding.imageCollectionView.previewDistributeEvenly = isChecked
         }
 
-        btAddPhoto.setOnClickListener {
+        binding.btAddPhoto.setOnClickListener {
             PhotoBarcodeScannerBuilder()
                 .withActivity(this)
                 .withTakingPictureMode()
@@ -162,17 +170,17 @@ class PreviewImageCollectionActivityFont : BaseActivityFont() {
                 .withPictureListener { file ->
                     if (file.exists()) {
                         val bitmap = BitmapFactory.decodeFile(file.absolutePath)
-                        imageCollectionView.addImage(bitmap)
+                        binding.imageCollectionView.addImage(bitmap)
                         file.delete()
                     }
                 }.build().start()
         }
 
-        btClearPhotos.setOnClickListener {
-            imageCollectionView.clearImages()
+        binding.btClearPhotos.setOnClickListener {
+            binding.imageCollectionView.clearImages()
         }
 
-        imageCollectionView.addImage(
+        binding.imageCollectionView.addImage(
             bitmap = BitmapFactory.decodeResource(resources, R.drawable.bkg_1),
             onClick = object : ImageCollectionView.OnImageClickListener {
                 override fun onClick(bitmap: Bitmap, imageView: ImageView) {
@@ -180,7 +188,7 @@ class PreviewImageCollectionActivityFont : BaseActivityFont() {
                 }
             }
         )
-        imageCollectionView.addImage(
+        binding.imageCollectionView.addImage(
             bitmap = BitmapFactory.decodeResource(resources, R.drawable.bkg_2),
             onLongClick = object : ImageCollectionView.OnImageLongClickListener {
                 override fun onLongClick(bitmap: Bitmap, imageView: ImageView) {
@@ -188,58 +196,59 @@ class PreviewImageCollectionActivityFont : BaseActivityFont() {
                 }
             }
         )
-        imageCollectionView.addImageK(
+        binding.imageCollectionView.addImageK(
             drawableRes = R.drawable.bkg_3,
             onClickUnit = { _: Bitmap?, _: ImageView? ->
                 showShortInformation("landscape_02")
             }
         )
-        imageCollectionView.addImage(
+        binding.imageCollectionView.addImage(
             bitmap = BitmapFactory.decodeResource(
                 /* res = */ resources,
                 /* id = */ R.drawable.loitp
             )
         )
-        imageCollectionView.addImage(
+        binding.imageCollectionView.addImage(
             bitmap = BitmapFactory.decodeResource(
                 /* res = */ resources,
                 /* id = */ R.drawable.iv
             )
         )
-        imageCollectionView.addImage(
+        binding.imageCollectionView.addImage(
             bitmap = BitmapFactory.decodeResource(
                 /* res = */ resources,
                 /* id = */ R.drawable.logo
             )
         )
-        imageCollectionView.addImage(
+        binding.imageCollectionView.addImage(
             bitmap = BitmapFactory.decodeResource(
                 /* res = */ resources,
                 /* id = */ R.drawable.bkg_1
             )
         )
-        imageCollectionView.addImage(
+        binding.imageCollectionView.addImage(
             bitmap = BitmapFactory.decodeResource(
                 /* res = */ resources,
                 /* id = */ R.drawable.bkg_2
             )
         )
-        imageCollectionView.addImage(
+        binding.imageCollectionView.addImage(
             url = URL_IMG,
             placeHolder = pereira.agnaldo.previewimgcol.R.drawable.blur
         )
-        imageCollectionView.addImage(
+        binding.imageCollectionView.addImage(
             url = URL_IMG_1,
             placeHolder = pereira.agnaldo.previewimgcol.R.drawable.blur
         )
 
-        imageCollectionView.setOnMoreClicked(object : ImageCollectionView.OnMoreClickListener {
+        binding.imageCollectionView.setOnMoreClicked(object :
+            ImageCollectionView.OnMoreClickListener {
             override fun onMoreClicked(bitmaps: List<Bitmap>) {
                 showShortInformation("oi oi oi oi ")
             }
         })
 
-        imageCollectionView.setOnMoreClicked {
+        binding.imageCollectionView.setOnMoreClicked {
 
         }
     }

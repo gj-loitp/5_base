@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.iv.pinchToZoom
+package vn.loitp.up.a.cv.iv.pinchToZoom
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -8,37 +8,41 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_iv_pinch_to_zoom_vp.*
-import vn.loitp.R
+import vn.loitp.databinding.AIvPinchToZoomVpBinding
 import vn.loitp.up.common.Constants
 
 @LogTag("PinchToZoomViewPagerActivity")
 @IsFullScreen(false)
-class PinchToZoomViewPagerActivityFont : BaseActivityFont() {
+class PinchToZoomViewPagerActivity : BaseActivityFont() {
 
     private val list = ArrayList<String>()
+    private lateinit var binding: AIvPinchToZoomVpBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_iv_pinch_to_zoom_vp
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AIvPinchToZoomVpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = PinchToZoomViewPagerActivityFont::class.java.simpleName
+            this.tvTitle?.text = PinchToZoomViewPagerActivity::class.java.simpleName
         }
         list.add(Constants.URL_IMG)
         list.add(Constants.URL_IMG_1)
@@ -48,8 +52,8 @@ class PinchToZoomViewPagerActivityFont : BaseActivityFont() {
         list.add(Constants.URL_IMG_LARGE_LAND_M)
         list.add(Constants.URL_IMG_LONG)
         list.add(Constants.URL_IMG_LARGE_PORTRAIT_O)
-        vp.adapter = SamplePagerAdapter(supportFragmentManager)
-        vp.setPullLikeIOSHorizontal()
+        binding.vp.adapter = SamplePagerAdapter(supportFragmentManager)
+        binding.vp.setPullLikeIOSHorizontal()
     }
 
     private inner class SamplePagerAdapter(fm: FragmentManager) :

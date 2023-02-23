@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.iv.kenburn
+package vn.loitp.up.a.cv.iv.kenburn
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -7,31 +7,36 @@ import com.flaviofaria.kenburnsview.Transition
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.common.URL_IMG
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_kenburn_view.*
 import vn.loitp.R
+import vn.loitp.databinding.AKenburnViewBinding
 import vn.loitp.up.app.EmptyActivity
 
 @LogTag("KenburnViewActivity")
 @IsFullScreen(false)
-class KenburnViewActivityFont : BaseActivityFont() {
+class KenburnViewActivity : BaseActivityFont() {
+    private lateinit var binding: AKenburnViewBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_kenburn_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AKenburnViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -50,10 +55,10 @@ class KenburnViewActivityFont : BaseActivityFont() {
             }
             this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }
-        kbv.loadGlide(
+        binding.kbv.loadGlide(
             any = URL_IMG,
         )
-        kbv.setTransitionListener(object : KenBurnsView.TransitionListener {
+        binding.kbv.setTransitionListener(object : KenBurnsView.TransitionListener {
             override fun onTransitionEnd(transition: Transition?) {
                 //
             }
@@ -62,11 +67,11 @@ class KenburnViewActivityFont : BaseActivityFont() {
                 //
             }
         })
-        btPause.setSafeOnClickListener {
-            kbv.pause()
+        binding.btPause.setSafeOnClickListener {
+            binding.kbv.pause()
         }
-        btResume.setSafeOnClickListener {
-            kbv.resume()
+        binding.btResume.setSafeOnClickListener {
+            binding.kbv.resume()
         }
     }
 }

@@ -1,35 +1,40 @@
-package vn.loitp.a.cv.iv.panorama
+package vn.loitp.up.a.cv.iv.panorama
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.iv.panorama.GyroscopeObserver
 import com.loitp.views.iv.panorama.LPanoramaImageView
-import kotlinx.android.synthetic.main.a_iv_panorama.*
 import vn.loitp.R
+import vn.loitp.databinding.AIvPanoramaBinding
 import vn.loitp.up.app.EmptyActivity
 
 @LogTag("PanoramaIvActivity")
 @IsFullScreen(false)
-class PanoramaIvActivityFont : BaseActivityFont() {
+class PanoramaIvActivity : BaseActivityFont() {
     private var gyroscopeObserver: GyroscopeObserver? = null
+    private lateinit var binding: AIvPanoramaBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_iv_panorama
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AIvPanoramaBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft?.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -59,9 +64,9 @@ class PanoramaIvActivityFont : BaseActivityFont() {
         // panoramaImageView.setEnableScrollbar(true);
         // panoramaImageView.setInvertScrollDirection(false);
         // Set GyroscopeObserver for PanoramaImageView.
-        panoramaImageView.setGyroscopeObserver(gyroscopeObserver)
+        binding.panoramaImageView.setGyroscopeObserver(gyroscopeObserver)
 
-        panoramaImageView.setOnPanoramaScrollListener(object :
+        binding.panoramaImageView.setOnPanoramaScrollListener(object :
             LPanoramaImageView.OnPanoramaScrollListener {
             override fun onScrolled(view: LPanoramaImageView?, offsetProgress: Float) {
                 logD("onScrolled offsetProgress $offsetProgress")
