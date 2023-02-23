@@ -22,9 +22,9 @@ import vn.loitp.a.cv.iv.pinchToZoom.PinchToZoomViewPagerActivityFont
 import vn.loitp.a.cv.iv.previewImageCollection.PreviewImageCollectionActivityFont
 import vn.loitp.a.cv.iv.reflection.ReflectionActivityFont
 import vn.loitp.a.cv.iv.roundedIv.RoundedIvActivityFont
-import vn.loitp.a.cv.iv.scrollParallax.ScrollParallaxIvActivityFont
+import vn.loitp.up.a.cv.iv.scrollParallax.ScrollParallaxIvActivity
 import vn.loitp.up.a.cv.iv.shapeableIv.ShapeableIvActivity
-import vn.loitp.a.cv.iv.stfaiconIv.ListActivityFont
+import vn.loitp.up.a.cv.iv.stfaiconIv.ListActivity
 import vn.loitp.databinding.AIvMenuBinding
 import vn.loitp.up.a.cv.iv.strectchy.StrectchyIvActivity
 import vn.loitp.up.a.cv.iv.touch.TouchIvActivity
@@ -89,14 +89,14 @@ class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
             binding.btContinuousScrollableImageView -> launchActivity(
                 ContinuousScrollableImageViewActivityFont::class.java
             )
-            binding.btScrollParallaxImageView -> launchActivity(ScrollParallaxIvActivityFont::class.java)
+            binding.btScrollParallaxImageView -> launchActivity(ScrollParallaxIvActivity::class.java)
             binding.btPanoramaImageView -> launchActivity(PanoramaIvActivityFont::class.java)
             binding.btBigImageView -> launchActivity(BigIvActivityFont::class.java)
             binding.btBigImageViewWithScrollView -> launchActivity(BigIvWithSvActivityFont::class.java)
             binding.btTouchImageViewWithViewPager -> launchActivity(PinchToZoomViewPagerActivityFont::class.java)
             binding.btKenburnView -> launchActivity(KenburnViewActivityFont::class.java)
             binding.btComicView -> launchActivity(ComicViewActivityFont::class.java)
-            binding.btStfalconImageViewer -> launchActivity(ListActivityFont::class.java)
+            binding.btStfalconImageViewer -> launchActivity(ListActivity::class.java)
             binding.btReflection -> launchActivity(ReflectionActivityFont::class.java)
             binding.btRoundedImageView -> launchActivity(RoundedIvActivityFont::class.java)
             binding.btPreviewImageCollection -> launchActivity(PreviewImageCollectionActivityFont::class.java)

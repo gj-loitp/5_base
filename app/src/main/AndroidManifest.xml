@@ -331,7 +331,7 @@
             android:name=".a.cv.iv.continuousScrollable.ContinuousScrollableImageViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.scrollParallax.ScrollParallaxIvActivityFont"
+            android:name=".up.a.cv.iv.scrollParallax.ScrollParallaxIvActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.pattern.MenuPatternActivity"
@@ -999,7 +999,7 @@
             android:name=".a.cv.iv.comic.ComicViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.iv.stfaiconIv.ListActivityFont"
+            android:name=".up.a.cv.iv.stfaiconIv.ListActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.layout.transformation.TransformationActivity"

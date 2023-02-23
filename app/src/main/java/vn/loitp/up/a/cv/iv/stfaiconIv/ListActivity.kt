@@ -1,52 +1,56 @@
-package vn.loitp.a.cv.iv.stfaiconIv
+package vn.loitp.up.a.cv.iv.stfaiconIv
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.ImageView
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.stfalcon.imageviewer.StfalconImageViewer
-import kotlinx.android.synthetic.main.a_iv_stfaicon_list.*
-import kotlinx.android.synthetic.main.v_stf_overlay.view.*
 import vn.loitp.R
+import vn.loitp.databinding.AIvStfaiconListBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 import vn.loitp.up.common.Constants
 
 @LogTag("ListActivity")
 @IsFullScreen(false)
-class ListActivityFont : BaseActivityFont() {
+class ListActivity : BaseActivityFont() {
     private val movieList: MutableList<Movie> = ArrayList()
     private var stfAdapter: StfAdapter? = null
+    private lateinit var binding: AIvStfaiconListBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_iv_stfaicon_list
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AIvStfaiconListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     private var stf: StfalconImageViewer<Movie>? = null
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = ListActivityFont::class.java.simpleName
+            this.tvTitle?.text = ListActivity::class.java.simpleName
         }
         stfAdapter = StfAdapter(
-            context = this,
             moviesList = movieList,
             callback = object : StfAdapter.Callback {
                 @SuppressLint("InflateParams")
@@ -56,14 +60,15 @@ class ListActivityFont : BaseActivityFont() {
                     moviesList: MutableList<Movie>,
                     position: Int
                 ) {
-                    val viewOverLay = LayoutInflater.from(this@ListActivityFont)
+                    val viewOverLay = LayoutInflater.from(this@ListActivity)
                         .inflate(R.layout.v_stf_overlay, null)
-                    viewOverLay.bt.setOnClickListener {
+                    val bt = viewOverLay.findViewById<AppCompatButton>(R.id.bt)
+                    bt.setOnClickListener {
                         showShortInformation("Click " + stf?.currentPosition())
                     }
 
                     stf = StfalconImageViewer.Builder(
-                        this@ListActivityFont,
+                        this@ListActivity,
                         moviesList
                     ) { imageView, mv ->
                         imageView.loadGlide(
@@ -80,7 +85,7 @@ class ListActivityFont : BaseActivityFont() {
                         .withImageChangeListener { pos ->
                             logD("withImageChangeListener pos $pos")
 
-                            val updateIv = rv.layoutManager?.findViewByPosition(pos)
+                            val updateIv = binding.rv.layoutManager?.findViewByPosition(pos)
                                 ?.findViewById(R.id.imageView) as ImageView?
                             updateIv?.let {
                                 stf?.updateTransitionImage(it)
@@ -107,8 +112,8 @@ class ListActivityFont : BaseActivityFont() {
                 }
             }
         )
-        rv.layoutManager = GridLayoutManager(this, 5)
-        rv.adapter = stfAdapter
+        binding.rv.layoutManager = GridLayoutManager(this, 5)
+        binding.rv.adapter = stfAdapter
 
         prepareMovieData()
     }

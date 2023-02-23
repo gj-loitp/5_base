@@ -1,21 +1,17 @@
-package vn.loitp.a.cv.iv.stfaiconIv
+package vn.loitp.up.a.cv.iv.stfaiconIv
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
-import kotlinx.android.synthetic.main.v_item_stf.view.*
-import vn.loitp.R
+import vn.loitp.databinding.VItemStfBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 
 @LogTag("BookAdapter")
 class StfAdapter(
-    private val context: Context,
     private val moviesList: MutableList<Movie>,
     private val callback: Callback?
 ) : BaseAdapter() {
@@ -26,20 +22,21 @@ class StfAdapter(
         fun onLoadMore()
     }
 
-    inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class MovieViewHolder(val binding: VItemStfBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: Movie) {
-            itemView.textView.text = movie.title
+            binding.textView.text = movie.title
 
             val url = movie.cover
-            itemView.imageView.loadGlide(
+            binding.imageView.loadGlide(
                 any = url,
             )
 
-            itemView.rootView.setOnClickListener {
-                callback?.onClick(itemView.imageView, movie, moviesList, bindingAdapterPosition)
+            binding.rootView.setOnClickListener {
+                callback?.onClick(binding.imageView, movie, moviesList, bindingAdapterPosition)
             }
-            itemView.rootView.setOnLongClickListener {
+            binding.rootView.setOnLongClickListener {
                 callback?.onLongClick(movie, bindingAdapterPosition)
                 true
             }
@@ -53,9 +50,8 @@ class StfAdapter(
         parent: ViewGroup,
         viewType: Int
     ): MovieViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.v_item_stf, parent, false)
-        return MovieViewHolder(itemView)
+        val binding = VItemStfBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MovieViewHolder(binding)
     }
 
     override fun onBindViewHolder(
