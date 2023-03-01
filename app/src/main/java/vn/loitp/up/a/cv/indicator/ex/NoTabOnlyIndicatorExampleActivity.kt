@@ -6,8 +6,8 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_no_tab_only_indicator_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
@@ -18,10 +18,11 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.Li
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.TriangularPagerIndicator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.DummyPagerTitleView
 import vn.loitp.R
+import vn.loitp.databinding.ANoTabOnlyIndicatorExampleLayoutBinding
 
 @LogTag("NoTabOnlyIndicatorExampleActivity")
 @IsFullScreen(false)
-class NoTabOnlyIndicatorExampleActivityFont : BaseActivityFont() {
+class NoTabOnlyIndicatorExampleActivity : BaseActivityFont() {
 
     companion object {
         private val CHANNELS =
@@ -30,34 +31,38 @@ class NoTabOnlyIndicatorExampleActivityFont : BaseActivityFont() {
 
     private val mDataList = mutableListOf(*CHANNELS)
     private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
+    private lateinit var binding: ANoTabOnlyIndicatorExampleLayoutBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_no_tab_only_indicator_example_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ANoTabOnlyIndicatorExampleLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = NoTabOnlyIndicatorExampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = NoTabOnlyIndicatorExampleActivity::class.java.simpleName
         }
-        viewPager.adapter = mExamplePagerAdapter
+        binding.viewPager.adapter = mExamplePagerAdapter
         initMagicIndicator1()
         initMagicIndicator2()
     }
 
     private fun initMagicIndicator1() {
-        magicIndicator1.setBackgroundColor(Color.LTGRAY)
+        binding.magicIndicator1.setBackgroundColor(Color.LTGRAY)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.isAdjustMode = true
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
@@ -77,8 +82,8 @@ class NoTabOnlyIndicatorExampleActivityFont : BaseActivityFont() {
                 return linePagerIndicator
             }
         }
-        magicIndicator1.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator1, viewPager)
+        binding.magicIndicator1.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator1, binding.viewPager)
     }
 
     private fun initMagicIndicator2() {
@@ -104,7 +109,7 @@ class NoTabOnlyIndicatorExampleActivityFont : BaseActivityFont() {
                 return triangularPagerIndicator
             }
         }
-        magicIndicator2.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator2, viewPager)
+        binding.magicIndicator2.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator2, binding.viewPager)
     }
 }

@@ -8,8 +8,8 @@ import android.view.animation.DecelerateInterpolator
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_scrollable_indicator_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
@@ -24,12 +24,13 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPa
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView
 import vn.loitp.R
+import vn.loitp.databinding.AScrollableIndicatorExampleLayoutBinding
 import vn.loitp.up.a.cv.indicator.ext.titles.ColorFlipPagerTitleView
 import vn.loitp.up.a.cv.indicator.ext.titles.ScaleTransitionPagerTitleView
 
 @LogTag("ScrollableTabExampleActivity")
 @IsFullScreen(false)
-class ScrollableTabExampleActivityFont : BaseActivityFont() {
+class ScrollableTabExampleActivity : BaseActivityFont() {
 
     companion object {
         private val CHANNELS = arrayOf(
@@ -47,31 +48,37 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
         )
     }
 
+    private lateinit var binding: AScrollableIndicatorExampleLayoutBinding
+
     private val mDataList = mutableListOf(*CHANNELS)
     private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_scrollable_indicator_example_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+        binding = AScrollableIndicatorExampleLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = ScrollableTabExampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = ScrollableTabExampleActivity::class.java.simpleName
         }
 
-        viewPager.adapter = mExamplePagerAdapter
+        binding.viewPager.adapter = mExamplePagerAdapter
         initMagicIndicator1()
         initMagicIndicator2()
         initMagicIndicator3()
@@ -84,7 +91,7 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
     }
 
     private fun initMagicIndicator1() {
-        magicIndicator1.setBackgroundColor(Color.parseColor("#d43d3d"))
+        binding.magicIndicator1.setBackgroundColor(Color.parseColor("#d43d3d"))
         val commonNavigator = CommonNavigator(this)
         commonNavigator.isSkimOver = true
         val padding = UIUtil.getScreenWidth(this) / 2
@@ -102,7 +109,7 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 clipPagerTitleView.textColor = Color.parseColor("#f2c4c4")
                 clipPagerTitleView.clipColor = Color.WHITE
                 clipPagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return clipPagerTitleView
             }
@@ -111,12 +118,12 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 return null
             }
         }
-        magicIndicator1.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator1, viewPager)
+        binding.magicIndicator1.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator1, binding.viewPager)
     }
 
     private fun initMagicIndicator2() {
-        magicIndicator2.setBackgroundColor(Color.parseColor("#00c853"))
+        binding.magicIndicator2.setBackgroundColor(Color.parseColor("#00c853"))
         val commonNavigator = CommonNavigator(this)
         commonNavigator.scrollPivotX = 0.25f
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
@@ -131,7 +138,7 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 simplePagerTitleView.selectedColor = Color.WHITE
                 simplePagerTitleView.textSize = 12f
                 simplePagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return simplePagerTitleView
             }
@@ -144,12 +151,12 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 return indicator
             }
         }
-        magicIndicator2.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator2, viewPager)
+        binding.magicIndicator2.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator2, binding.viewPager)
     }
 
     private fun initMagicIndicator3() {
-        magicIndicator3.setBackgroundColor(Color.BLACK)
+        binding.magicIndicator3.setBackgroundColor(Color.BLACK)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {
@@ -163,7 +170,7 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 simplePagerTitleView.selectedColor = Color.WHITE
                 simplePagerTitleView.text = mDataList[index]
                 simplePagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return simplePagerTitleView
             }
@@ -175,12 +182,12 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 return linePagerIndicator
             }
         }
-        magicIndicator3.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator3, viewPager)
+        binding.magicIndicator3.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator3, binding.viewPager)
     }
 
     private fun initMagicIndicator4() {
-        magicIndicator4.setBackgroundColor(Color.parseColor("#455a64"))
+        binding.magicIndicator4.setBackgroundColor(Color.parseColor("#455a64"))
         val commonNavigator = CommonNavigator(this)
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {
@@ -194,7 +201,7 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 simplePagerTitleView.normalColor = Color.parseColor("#88ffffff")
                 simplePagerTitleView.selectedColor = Color.WHITE
                 simplePagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return simplePagerTitleView
             }
@@ -205,12 +212,12 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 return indicator
             }
         }
-        magicIndicator4.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator4, viewPager)
+        binding.magicIndicator4.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator4, binding.viewPager)
     }
 
     private fun initMagicIndicator5() {
-        magicIndicator5.setBackgroundColor(Color.WHITE)
+        binding.magicIndicator5.setBackgroundColor(Color.WHITE)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.scrollPivotX = 0.8f
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
@@ -226,7 +233,7 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 simplePagerTitleView.normalColor = Color.parseColor("#616161")
                 simplePagerTitleView.selectedColor = Color.parseColor("#f57c00")
                 simplePagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return simplePagerTitleView
             }
@@ -241,12 +248,12 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 return linePagerIndicator
             }
         }
-        magicIndicator5.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator5, viewPager)
+        binding.magicIndicator5.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator5, binding.viewPager)
     }
 
     private fun initMagicIndicator6() {
-        magicIndicator6.setBackgroundColor(Color.WHITE)
+        binding.magicIndicator6.setBackgroundColor(Color.WHITE)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {
@@ -261,7 +268,7 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 simplePagerTitleView.normalColor = Color.GRAY
                 simplePagerTitleView.selectedColor = Color.BLACK
                 simplePagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return simplePagerTitleView
             }
@@ -278,12 +285,12 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 return bezierPagerIndicator
             }
         }
-        magicIndicator6.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator6, viewPager)
+        binding.magicIndicator6.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator6, binding.viewPager)
     }
 
     private fun initMagicIndicator7() {
-        magicIndicator7.setBackgroundColor(Color.parseColor("#fafafa"))
+        binding.magicIndicator7.setBackgroundColor(Color.parseColor("#fafafa"))
         val commonNavigator7 = CommonNavigator(this)
         commonNavigator7.scrollPivotX = 0.65f
         commonNavigator7.adapter = object : CommonNavigatorAdapter() {
@@ -297,7 +304,7 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 simplePagerTitleView.normalColor = Color.parseColor("#9e9e9e")
                 simplePagerTitleView.selectedColor = Color.parseColor("#00c853")
                 simplePagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return simplePagerTitleView
             }
@@ -314,12 +321,12 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 return indicator
             }
         }
-        magicIndicator7.navigator = commonNavigator7
-        ViewPagerHelper.bind(magicIndicator7, viewPager)
+        binding.magicIndicator7.navigator = commonNavigator7
+        ViewPagerHelper.bind(binding.magicIndicator7, binding.viewPager)
     }
 
     private fun initMagicIndicator8() {
-        magicIndicator8.setBackgroundColor(Color.WHITE)
+        binding.magicIndicator8.setBackgroundColor(Color.WHITE)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.scrollPivotX = 0.35f
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
@@ -333,7 +340,7 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 simplePagerTitleView.normalColor = Color.parseColor("#333333")
                 simplePagerTitleView.selectedColor = Color.parseColor("#e94220")
                 simplePagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return simplePagerTitleView
             }
@@ -344,12 +351,12 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 return wrapPagerIndicator
             }
         }
-        magicIndicator8.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator8, viewPager)
+        binding.magicIndicator8.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator8, binding.viewPager)
     }
 
     private fun initMagicIndicator9() {
-        magicIndicator9.setBackgroundColor(Color.WHITE)
+        binding.magicIndicator9.setBackgroundColor(Color.WHITE)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.scrollPivotX = 0.15f
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
@@ -363,7 +370,7 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 simplePagerTitleView.normalColor = Color.parseColor("#333333")
                 simplePagerTitleView.selectedColor = Color.parseColor("#e94220")
                 simplePagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return simplePagerTitleView
             }
@@ -374,7 +381,7 @@ class ScrollableTabExampleActivityFont : BaseActivityFont() {
                 return triangularPagerIndicator
             }
         }
-        magicIndicator9.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator9, viewPager)
+        binding.magicIndicator9.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator9, binding.viewPager)
     }
 }

@@ -42,13 +42,13 @@ class MenuMagicIndicatorActivityFont : BaseActivityFont() {
 
     fun onClick(view: View) {
         when (view) {
-            btScrollableTab -> startActivity(Intent(this, ScrollableTabExampleActivityFont::class.java))
+            btScrollableTab -> startActivity(Intent(this, ScrollableTabExampleActivity::class.java))
             btFixedTab -> startActivity(Intent(this, FixedTabExampleActivityFont::class.java))
             btDynamicTab -> startActivity(Intent(this, DynamicTabExampleActivityFont::class.java))
             btNoTabOnlyIndicator -> startActivity(
                 Intent(
                     this,
-                    NoTabOnlyIndicatorExampleActivityFont::class.java
+                    NoTabOnlyIndicatorExampleActivity::class.java
                 )
             )
             btTabWithBadgeView -> startActivity(Intent(this, BadgeTabExampleActivityFont::class.java))

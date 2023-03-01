@@ -1023,7 +1023,7 @@
             android:name=".up.a.cv.indicator.ex.MenuMagicIndicatorActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.indicator.ex.ScrollableTabExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.ScrollableTabExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.indicator.ex.FixedTabExampleActivityFont"
@@ -1032,7 +1032,7 @@
             android:name=".up.a.cv.indicator.ex.DynamicTabExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.indicator.ex.NoTabOnlyIndicatorExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.NoTabOnlyIndicatorExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.indicator.ex.FragmentContainerExampleActivityFont"
