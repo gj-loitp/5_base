@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.indicator.ext.indicators
+package vn.loitp.up.a.cv.indicator.ext.indicators
 
 import android.content.Context
 import android.graphics.Canvas

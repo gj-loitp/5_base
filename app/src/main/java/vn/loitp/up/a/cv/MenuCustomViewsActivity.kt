@@ -28,7 +28,7 @@ import vn.loitp.a.cv.fancyShowcase.FancyShowcaseActivity
 import vn.loitp.a.cv.fbCmt.FacebookCommentActivity
 import vn.loitp.a.cv.fingerPaintView.FingerPaintActivity
 import vn.loitp.a.cv.graph.MenuGraphViewActivity
-import vn.loitp.a.cv.indicator.ex.MenuMagicIndicatorActivityFont
+import vn.loitp.up.a.cv.indicator.ex.MenuMagicIndicatorActivityFont
 import vn.loitp.databinding.AMenuCustomViewBinding
 import vn.loitp.up.a.cv.iv.MenuImageViewActivity
 import vn.loitp.up.a.cv.lCv.LCardViewActivity

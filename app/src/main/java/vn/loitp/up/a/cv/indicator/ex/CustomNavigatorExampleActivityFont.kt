@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.indicator.ex
+package vn.loitp.up.a.cv.indicator.ex
 
 import android.graphics.Color
 import android.os.Bundle
@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.a_custom_navigator_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.circlenavigator.CircleNavigator
 import vn.loitp.R
-import vn.loitp.a.cv.indicator.ext.navi.ScaleCircleNavigator
+import vn.loitp.up.a.cv.indicator.ext.navi.ScaleCircleNavigator
 
 @LogTag("CustomNavigatorExampleActivity")
 @IsFullScreen(false)

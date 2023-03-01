@@ -1020,31 +1020,31 @@
             android:name=".up.a.anim.elasticViews.ElasticActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.MenuMagicIndicatorActivityFont"
+            android:name=".up.a.cv.indicator.ex.MenuMagicIndicatorActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.ScrollableTabExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.ScrollableTabExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.FixedTabExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.FixedTabExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.DynamicTabExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.DynamicTabExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.NoTabOnlyIndicatorExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.NoTabOnlyIndicatorExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.FragmentContainerExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.FragmentContainerExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.BadgeTabExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.BadgeTabExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.CustomNavigatorExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.CustomNavigatorExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.LoadCustomLayoutExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.LoadCustomLayoutExampleActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.morphTransitions.MorphTransitionsMainActivity"

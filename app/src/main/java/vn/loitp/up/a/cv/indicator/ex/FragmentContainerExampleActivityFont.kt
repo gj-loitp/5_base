@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.indicator.ex
+package vn.loitp.up.a.cv.indicator.ex
 
 import android.content.Context
 import android.graphics.Color

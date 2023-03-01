@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.indicator.ex
+package vn.loitp.up.a.cv.indicator.ex
 
 import android.content.Context
 import android.graphics.Color
@@ -24,8 +24,8 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPa
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView
 import vn.loitp.R
-import vn.loitp.a.cv.indicator.ext.titles.ColorFlipPagerTitleView
-import vn.loitp.a.cv.indicator.ext.titles.ScaleTransitionPagerTitleView
+import vn.loitp.up.a.cv.indicator.ext.titles.ColorFlipPagerTitleView
+import vn.loitp.up.a.cv.indicator.ext.titles.ScaleTransitionPagerTitleView
 
 @LogTag("ScrollableTabExampleActivity")
 @IsFullScreen(false)

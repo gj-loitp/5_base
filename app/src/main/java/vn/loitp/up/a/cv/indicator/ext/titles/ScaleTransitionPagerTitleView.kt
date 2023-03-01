@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.indicator.ext.titles
+package vn.loitp.up.a.cv.indicator.ext.titles
 
 import android.content.Context
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView

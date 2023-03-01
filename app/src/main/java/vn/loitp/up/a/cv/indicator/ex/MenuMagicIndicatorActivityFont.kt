@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.indicator.ex
+package vn.loitp.up.a.cv.indicator.ex
 
 import android.content.Intent
 import android.os.Bundle
