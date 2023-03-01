@@ -6,9 +6,9 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_dynamic_tab_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
@@ -16,11 +16,12 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerInd
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView
 import vn.loitp.R
+import vn.loitp.databinding.ADynamicTabExampleLayoutBinding
 import java.util.*
 
 @LogTag("DynamicTabExampleActivity")
 @IsFullScreen(false)
-class DynamicTabExampleActivityFont : BaseActivityFont() {
+class DynamicTabExampleActivity : BaseActivityFont() {
 
     companion object {
         private val CHANNELS = arrayOf(
@@ -38,32 +39,37 @@ class DynamicTabExampleActivityFont : BaseActivityFont() {
         )
     }
 
+    private lateinit var binding: ADynamicTabExampleLayoutBinding
+
     private val mDataList = ArrayList(mutableListOf(*CHANNELS))
     private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
     private var mCommonNavigator: CommonNavigator? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_dynamic_tab_example_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADynamicTabExampleLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = DynamicTabExampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = DynamicTabExampleActivity::class.java.simpleName
         }
-        viewPager.adapter = mExamplePagerAdapter
-        magicIndicator1.setBackgroundColor(Color.parseColor("#d43d3d"))
+        binding.viewPager.adapter = mExamplePagerAdapter
+        binding.magicIndicator1.setBackgroundColor(Color.parseColor("#d43d3d"))
         mCommonNavigator = CommonNavigator(this)
         mCommonNavigator?.isSkimOver = true
         mCommonNavigator?.adapter = object : CommonNavigatorAdapter() {
@@ -77,7 +83,7 @@ class DynamicTabExampleActivityFont : BaseActivityFont() {
                 clipPagerTitleView.textColor = Color.parseColor("#f2c4c4")
                 clipPagerTitleView.clipColor = Color.WHITE
                 clipPagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return clipPagerTitleView
             }
@@ -86,10 +92,10 @@ class DynamicTabExampleActivityFont : BaseActivityFont() {
                 return null
             }
         }
-        magicIndicator1.navigator = mCommonNavigator
-        ViewPagerHelper.bind(magicIndicator1, viewPager)
+        binding.magicIndicator1.navigator = mCommonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator1, binding.viewPager)
 
-        btRandomPage.setSafeOnClickListener {
+        binding.btRandomPage.setSafeOnClickListener {
             randomPage()
         }
     }

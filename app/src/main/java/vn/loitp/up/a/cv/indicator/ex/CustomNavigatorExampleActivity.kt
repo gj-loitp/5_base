@@ -5,16 +5,17 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_custom_navigator_example_layout.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.circlenavigator.CircleNavigator
 import vn.loitp.R
+import vn.loitp.databinding.ACustomNavigatorExampleLayoutBinding
 import vn.loitp.up.a.cv.indicator.ext.navi.ScaleCircleNavigator
 
 @LogTag("CustomNavigatorExampleActivity")
 @IsFullScreen(false)
-class CustomNavigatorExampleActivityFont : BaseActivityFont() {
+class CustomNavigatorExampleActivity : BaseActivityFont() {
 
     companion object {
         private val CHANNELS = arrayOf(
@@ -32,30 +33,32 @@ class CustomNavigatorExampleActivityFont : BaseActivityFont() {
         )
     }
 
+    private lateinit var binding: ACustomNavigatorExampleLayoutBinding
     private val mDataList = mutableListOf(*CHANNELS)
     private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_custom_navigator_example_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ACustomNavigatorExampleLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = CustomNavigatorExampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = CustomNavigatorExampleActivity::class.java.simpleName
         }
-        viewPager.adapter = mExamplePagerAdapter
+        binding.viewPager.adapter = mExamplePagerAdapter
         initMagicIndicator1()
         initMagicIndicator2()
         initMagicIndicator3()
@@ -66,10 +69,10 @@ class CustomNavigatorExampleActivityFont : BaseActivityFont() {
         circleNavigator.circleCount = CHANNELS.size
         circleNavigator.circleColor = Color.RED
         circleNavigator.circleClickListener = CircleNavigator.OnCircleClickListener { index: Int ->
-            viewPager.currentItem = index
+            binding.viewPager.currentItem = index
         }
-        magicIndicator1.navigator = circleNavigator
-        ViewPagerHelper.bind(magicIndicator1, viewPager)
+        binding.magicIndicator1.navigator = circleNavigator
+        ViewPagerHelper.bind(binding.magicIndicator1, binding.viewPager)
     }
 
     private fun initMagicIndicator2() {
@@ -78,10 +81,10 @@ class CustomNavigatorExampleActivityFont : BaseActivityFont() {
         circleNavigator.circleCount = CHANNELS.size
         circleNavigator.circleColor = Color.RED
         circleNavigator.circleClickListener = CircleNavigator.OnCircleClickListener { index: Int ->
-            viewPager.currentItem = index
+            binding.viewPager.currentItem = index
         }
-        magicIndicator2.navigator = circleNavigator
-        ViewPagerHelper.bind(magicIndicator2, viewPager)
+        binding.magicIndicator2.navigator = circleNavigator
+        ViewPagerHelper.bind(binding.magicIndicator2, binding.viewPager)
     }
 
     private fun initMagicIndicator3() {
@@ -92,10 +95,10 @@ class CustomNavigatorExampleActivityFont : BaseActivityFont() {
         scaleCircleNavigator.setCircleClickListener(object :
             ScaleCircleNavigator.OnCircleClickListener {
             override fun onClick(index: Int) {
-                viewPager.currentItem = index
+                binding.viewPager.currentItem = index
             }
         })
-        magicIndicator3.navigator = scaleCircleNavigator
-        ViewPagerHelper.bind(magicIndicator3, viewPager)
+        binding.magicIndicator3.navigator = scaleCircleNavigator
+        ViewPagerHelper.bind(binding.magicIndicator3, binding.viewPager)
     }
 }

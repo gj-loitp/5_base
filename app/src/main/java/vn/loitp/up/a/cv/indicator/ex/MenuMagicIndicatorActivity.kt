@@ -47,14 +47,14 @@ class MenuMagicIndicatorActivity : BaseActivityFont() {
         when (view) {
             binding.btScrollableTab -> launchActivity(ScrollableTabExampleActivity::class.java)
             binding.btFixedTab -> launchActivity(FixedTabExampleActivity::class.java)
-            binding.btDynamicTab -> launchActivity(DynamicTabExampleActivityFont::class.java)
+            binding.btDynamicTab -> launchActivity(DynamicTabExampleActivity::class.java)
             binding.btNoTabOnlyIndicator -> launchActivity(NoTabOnlyIndicatorExampleActivity::class.java)
-            binding.btTabWithBadgeView -> launchActivity(BadgeTabExampleActivityFont::class.java)
+            binding.btTabWithBadgeView -> launchActivity(BadgeTabExampleActivity::class.java)
             binding.btWorkWithFragmentContainer -> launchActivity(
                 FragmentContainerExampleActivity::class.java
             )
             binding.btLoadCustomLayout -> launchActivity(LoadCustomLayoutExampleActivity::class.java)
-            binding.btCustomNavigator -> launchActivity(CustomNavigatorExampleActivityFont::class.java)
+            binding.btCustomNavigator -> launchActivity(CustomNavigatorExampleActivity::class.java)
         }
     }
 }

@@ -1029,7 +1029,7 @@
             android:name=".up.a.cv.indicator.ex.FixedTabExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.indicator.ex.DynamicTabExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.DynamicTabExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.indicator.ex.NoTabOnlyIndicatorExampleActivity"
@@ -1038,10 +1038,10 @@
             android:name=".up.a.cv.indicator.ex.FragmentContainerExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.indicator.ex.BadgeTabExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.BadgeTabExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.indicator.ex.CustomNavigatorExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.CustomNavigatorExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.indicator.ex.LoadCustomLayoutExampleActivity"
