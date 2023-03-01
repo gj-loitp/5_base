@@ -12,8 +12,8 @@ import androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_fixed_tab_example_layout.*
 import net.lucode.hackware.magicindicator.FragmentContainerHelper
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
@@ -26,40 +26,46 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPa
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView
 import vn.loitp.R
+import vn.loitp.databinding.AFixedTabExampleLayoutBinding
 import vn.loitp.up.a.cv.indicator.ext.titles.ScaleTransitionPagerTitleView
 
 @LogTag("FixedTabExampleActivity")
 @IsFullScreen(false)
-class FixedTabExampleActivityFont : BaseActivityFont() {
+class FixedTabExampleActivity : BaseActivityFont() {
 
     companion object {
         private val CHANNELS = arrayOf("KITKAT", "NOUGAT", "DONUT")
     }
 
+    private lateinit var binding: AFixedTabExampleLayoutBinding
+
     private val mDataList = mutableListOf(*CHANNELS)
     private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_fixed_tab_example_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AFixedTabExampleLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = FixedTabExampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = FixedTabExampleActivity::class.java.simpleName
         }
-        viewPager.adapter = mExamplePagerAdapter
+        binding.viewPager.adapter = mExamplePagerAdapter
         initMagicIndicator1()
         initMagicIndicator2()
         initMagicIndicator3()
@@ -80,7 +86,7 @@ class FixedTabExampleActivityFont : BaseActivityFont() {
                 simplePagerTitleView.normalColor = Color.parseColor("#88ffffff")
                 simplePagerTitleView.selectedColor = Color.WHITE
                 simplePagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return simplePagerTitleView
             }
@@ -91,16 +97,16 @@ class FixedTabExampleActivityFont : BaseActivityFont() {
                 return linePagerIndicator
             }
         }
-        magicIndicator1.navigator = commonNavigator
+        binding.magicIndicator1.navigator = commonNavigator
         val titleContainer = commonNavigator.titleContainer // must after setNavigator
         titleContainer.showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE
         titleContainer.dividerPadding = UIUtil.dip2px(this, 15.0)
         titleContainer.dividerDrawable = getDrawable(R.drawable.simple_splitter)
-        ViewPagerHelper.bind(magicIndicator1, viewPager)
+        ViewPagerHelper.bind(binding.magicIndicator1, binding.viewPager)
     }
 
     private fun initMagicIndicator2() {
-        magicIndicator2.setBackgroundColor(Color.WHITE)
+        binding.magicIndicator2.setBackgroundColor(Color.WHITE)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.isAdjustMode = true
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
@@ -116,7 +122,7 @@ class FixedTabExampleActivityFont : BaseActivityFont() {
                 simplePagerTitleView.normalColor = Color.parseColor("#616161")
                 simplePagerTitleView.selectedColor = Color.parseColor("#f57c00")
                 simplePagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return simplePagerTitleView
             }
@@ -145,12 +151,12 @@ class FixedTabExampleActivityFont : BaseActivityFont() {
                 }
             }
         }
-        magicIndicator2.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator2, viewPager)
+        binding.magicIndicator2.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator2, binding.viewPager)
     }
 
     private fun initMagicIndicator3() {
-        magicIndicator3.setBackgroundResource(R.drawable.round_indicator_bg)
+        binding.magicIndicator3.setBackgroundResource(R.drawable.round_indicator_bg)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {
@@ -163,7 +169,7 @@ class FixedTabExampleActivityFont : BaseActivityFont() {
                 clipPagerTitleView.textColor = Color.parseColor("#e94220")
                 clipPagerTitleView.clipColor = Color.WHITE
                 clipPagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return clipPagerTitleView
             }
@@ -181,8 +187,8 @@ class FixedTabExampleActivityFont : BaseActivityFont() {
                 return linePagerIndicator
             }
         }
-        magicIndicator3.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator3, viewPager)
+        binding.magicIndicator3.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator3, binding.viewPager)
     }
 
     private fun initMagicIndicator4() {
@@ -199,7 +205,7 @@ class FixedTabExampleActivityFont : BaseActivityFont() {
                 simplePagerTitleView.selectedColor = Color.WHITE
                 simplePagerTitleView.text = mDataList[index]
                 simplePagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return simplePagerTitleView
             }
@@ -212,18 +218,18 @@ class FixedTabExampleActivityFont : BaseActivityFont() {
                 return linePagerIndicator
             }
         }
-        magicIndicator4.navigator = commonNavigator
+        binding.magicIndicator4.navigator = commonNavigator
         val titleContainer = commonNavigator.titleContainer // must after setNavigator
         titleContainer.showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE
         titleContainer.dividerDrawable = object : ColorDrawable() {
             override fun getIntrinsicWidth(): Int {
-                return UIUtil.dip2px(this@FixedTabExampleActivityFont, 15.0)
+                return UIUtil.dip2px(this@FixedTabExampleActivity, 15.0)
             }
         }
-        val fragmentContainerHelper = FragmentContainerHelper(magicIndicator4)
+        val fragmentContainerHelper = FragmentContainerHelper(binding.magicIndicator4)
         fragmentContainerHelper.setInterpolator(OvershootInterpolator(2.0f))
         fragmentContainerHelper.setDuration(300)
-        viewPager.addOnPageChangeListener(object : SimpleOnPageChangeListener() {
+        binding.viewPager.addOnPageChangeListener(object : SimpleOnPageChangeListener() {
             override fun onPageSelected(position: Int) {
                 fragmentContainerHelper.handlePageSelected(position)
             }

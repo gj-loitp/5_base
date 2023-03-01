@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_fragment_container_example_layout.*
 import net.lucode.hackware.magicindicator.FragmentContainerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
@@ -18,38 +18,44 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTit
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView
 import vn.loitp.R
+import vn.loitp.databinding.AFragmentContainerExampleLayoutBinding
 
 @LogTag("FragmentContainerExampleActivity")
 @IsFullScreen(false)
-class FragmentContainerExampleActivityFont : BaseActivityFont() {
+class FragmentContainerExampleActivity : BaseActivityFont() {
 
     companion object {
         private val CHANNELS = arrayOf("KITKAT", "NOUGAT", "DONUT")
     }
 
+    private lateinit var binding: AFragmentContainerExampleLayoutBinding
+
     private val mFragments: MutableList<Fragment> = ArrayList()
     private val mFragmentContainerHelper = FragmentContainerHelper()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_fragment_container_example_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AFragmentContainerExampleLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = FragmentContainerExampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = FragmentContainerExampleActivity::class.java.simpleName
         }
         initFragments()
         initMagicIndicator1()
@@ -94,7 +100,7 @@ class FragmentContainerExampleActivityFont : BaseActivityFont() {
     }
 
     private fun initMagicIndicator1() {
-        magicIndicator1.setBackgroundResource(R.drawable.round_indicator_bg)
+        binding.magicIndicator1.setBackgroundResource(R.drawable.round_indicator_bg)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {
@@ -126,7 +132,7 @@ class FragmentContainerExampleActivityFont : BaseActivityFont() {
                 return indicator
             }
         }
-        magicIndicator1.navigator = commonNavigator
-        mFragmentContainerHelper.attachMagicIndicator(magicIndicator1)
+        binding.magicIndicator1.navigator = commonNavigator
+        mFragmentContainerHelper.attachMagicIndicator(binding.magicIndicator1)
     }
 }

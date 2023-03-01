@@ -10,8 +10,8 @@ import android.widget.TextView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.activity_load_custom_layout_example.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
@@ -20,44 +20,50 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTit
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.CommonPagerTitleView
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.CommonPagerTitleView.OnPagerTitleChangeListener
 import vn.loitp.R
+import vn.loitp.databinding.ActivityLoadCustomLayoutExampleBinding
 
 @LogTag("LoadCustomLayoutExampleActivity")
 @IsFullScreen(false)
-class LoadCustomLayoutExampleActivityFont : BaseActivityFont() {
+class LoadCustomLayoutExampleActivity : BaseActivityFont() {
 
     companion object {
         private val CHANNELS = arrayOf("NOUGAT", "DONUT", "ECLAIR", "KITKAT")
     }
 
+    private lateinit var binding: ActivityLoadCustomLayoutExampleBinding
+
     private val mDataList = mutableListOf(*CHANNELS)
     private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_load_custom_layout_example
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ActivityLoadCustomLayoutExampleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = LoadCustomLayoutExampleActivityFont::class.java.simpleName
+            this.tvTitle?.text = LoadCustomLayoutExampleActivity::class.java.simpleName
         }
-        viewPager.adapter = mExamplePagerAdapter
+        binding.viewPager.adapter = mExamplePagerAdapter
         initMagicIndicator1()
     }
 
     private fun initMagicIndicator1() {
-        magicIndicator1.setBackgroundColor(Color.BLACK)
+        binding.magicIndicator1.setBackgroundColor(Color.BLACK)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.isAdjustMode = true
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
@@ -108,7 +114,7 @@ class LoadCustomLayoutExampleActivityFont : BaseActivityFont() {
                         }
                     }
                 commonPagerTitleView.setOnClickListener {
-                    viewPager.currentItem = index
+                    binding.viewPager.currentItem = index
                 }
                 return commonPagerTitleView
             }
@@ -117,7 +123,7 @@ class LoadCustomLayoutExampleActivityFont : BaseActivityFont() {
                 return null
             }
         }
-        magicIndicator1.navigator = commonNavigator
-        ViewPagerHelper.bind(magicIndicator1, viewPager)
+        binding.magicIndicator1.navigator = commonNavigator
+        ViewPagerHelper.bind(binding.magicIndicator1, binding.viewPager)
     }
 }
