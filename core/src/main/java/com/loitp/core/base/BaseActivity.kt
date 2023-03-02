@@ -506,7 +506,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun unRegisterNetworkChangeListener() {
-        AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
+//        AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
     }
 
 }
