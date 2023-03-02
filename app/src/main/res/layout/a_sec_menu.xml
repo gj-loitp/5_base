@@ -26,6 +26,11 @@
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btBiometric"
+                style="@style/ButtonMenu"
+                android:text="Biometric" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRxBiometric"
                 style="@style/ButtonMenu"
                 android:text="RxBiometric" />
