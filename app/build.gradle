@@ -122,6 +122,9 @@ dependencies {
     api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'
 //    https://github.com/SimformSolutionsPvtLtd/SSBiometricsAuthentication
     api "androidx.biometric:biometric:1.2.0-alpha05"
+//    https://github.com/lopspower/Biometric
+    api 'com.mikhaellopez:biometric:1.1.0'
+
 
 //    https://github.com/sparrow007/CarouselRecyclerview
     api 'com.github.sparrow007:carouselrecyclerview:1.2.5'

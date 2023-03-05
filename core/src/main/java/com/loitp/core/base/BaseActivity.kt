@@ -25,6 +25,7 @@ import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
 import com.loitp.views.toast.LToast
+import com.veyo.autorefreshnetworkconnection.AutoRefreshNetworkUtil
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import io.reactivex.disposables.CompositeDisposable
@@ -99,7 +100,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
         val isFullScreen = javaClass.getAnnotation(IsFullScreen::class.java)?.value ?: false
         if (isFullScreen) {
-            requestWindowFeature(Window.FEATURE_NO_TITLE) // requestFeature() must be called before adding content
+            supportRequestWindowFeature(Window.FEATURE_NO_TITLE) // requestFeature() must be called before adding content
         }
 
         val layoutId = setLayoutResourceId()
@@ -333,13 +334,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showShortDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
-            LToast.showShortDebug(msg)
+            LToast.showShortDebug("Debug: $msg")
         }
     }
 
     fun showLongDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
-            LToast.showLongDebug(msg)
+            LToast.showLongDebug("Debug: $msg")
         }
     }
 

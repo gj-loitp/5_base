@@ -25,10 +25,10 @@ import vn.loitp.a.cv.dragView.MenuDragViewActivity
 import vn.loitp.a.cv.draggableFlipView.DraggableFlipViewActivity
 import vn.loitp.a.cv.et.MenuEditTextActivity
 import vn.loitp.a.cv.fancyShowcase.FancyShowcaseActivity
-import vn.loitp.a.cv.fbCmt.FacebookCommentActivity
-import vn.loitp.a.cv.fingerPaintView.FingerPaintActivity
-import vn.loitp.a.cv.graph.MenuGraphViewActivity
-import vn.loitp.a.cv.indicator.ex.MenuMagicIndicatorActivityFont
+import vn.loitp.up.a.cv.fbCmt.FacebookCommentActivity
+import vn.loitp.up.a.cv.fingerPaintView.FingerPaintActivity
+import vn.loitp.up.a.cv.graph.MenuGraphViewActivity
+import vn.loitp.up.a.cv.indicator.ex.MenuMagicIndicatorActivity
 import vn.loitp.databinding.AMenuCustomViewBinding
 import vn.loitp.up.a.cv.iv.MenuImageViewActivity
 import vn.loitp.up.a.cv.lCv.LCardViewActivity
@@ -169,7 +169,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
             binding.btLCardView -> launchActivity(LCardViewActivity::class.java)
             binding.btCalendar -> launchActivity(MenuCalendarActivity::class.java)
             binding.btWebView -> launchActivity(MenuWebViewActivity::class.java)
-            binding.btIndicator -> launchActivity(MenuMagicIndicatorActivityFont::class.java)
+            binding.btIndicator -> launchActivity(MenuMagicIndicatorActivity::class.java)
             binding.btWheelSpinner -> launchActivity(WheelSpinnerActivity::class.java)
             binding.btFingerPaintView -> launchActivity(FingerPaintActivity::class.java)
             binding.btStackExpandableViewActivity -> launchActivity(StackExpandableViewActivity::class.java)

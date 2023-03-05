@@ -485,7 +485,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--end service for FCM-->
         <activity
-            android:name=".a.cv.fbCmt.FacebookCommentActivity"
+            android:name=".up.a.cv.fbCmt.FacebookCommentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.wwlMusic.WWLActivityMusic"
@@ -1020,31 +1020,31 @@
             android:name=".up.a.anim.elasticViews.ElasticActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.MenuMagicIndicatorActivityFont"
+            android:name=".up.a.cv.indicator.ex.MenuMagicIndicatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.ScrollableTabExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.ScrollableTabExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.FixedTabExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.FixedTabExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.DynamicTabExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.DynamicTabExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.NoTabOnlyIndicatorExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.NoTabOnlyIndicatorExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.FragmentContainerExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.FragmentContainerExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.BadgeTabExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.BadgeTabExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.CustomNavigatorExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.CustomNavigatorExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.indicator.ex.LoadCustomLayoutExampleActivityFont"
+            android:name=".up.a.cv.indicator.ex.LoadCustomLayoutExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.morphTransitions.MorphTransitionsMainActivity"
@@ -1148,7 +1148,7 @@
             android:name=".up.a.func.idleTime.IdleTimeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.fingerPaintView.FingerPaintActivity"
+            android:name=".up.a.cv.fingerPaintView.FingerPaintActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.tv.fading.FadingTextViewActivity"
@@ -1184,16 +1184,16 @@
             android:name=".up.a.anim.androidParticles.AndroidParticlesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.graph.MenuGraphViewActivity"
+            android:name=".up.a.cv.graph.MenuGraphViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.graph.algorithms.FruchtermanReingoldActivity"
+            android:name=".up.a.cv.graph.algorithms.FruchtermanReingoldActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.graph.algorithms.BuchheimWalkerActivity"
+            android:name=".up.a.cv.graph.algorithms.BuchheimWalkerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.graph.algorithms.SugiyamaActivity"
+            android:name=".up.a.cv.graph.algorithms.SugiyamaActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.simpleRatingBar.SimpleRatingBarActivity"
@@ -1450,6 +1450,12 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.func.keyboardVisibility.KeyboardVisibilityActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".up.a.sec.biometric.BiometricActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".up.a.sec.biometricLopez.BiometricLopezActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>

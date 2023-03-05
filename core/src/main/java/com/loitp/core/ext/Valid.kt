@@ -81,6 +81,8 @@ private val listPkg = listOf(
     "com.roy93group.cintalauncher",
     "com.roy93group.forecast",
     "com.roy93group.joblogictest",
+    "com.roy93group.androidinterview",
+    "com.roy93group.flutterinterview",
 
     "com.bizman.bizman_dikauri",//for thanos bizman
     "com.songnob.adsplayer",//for thanos table tap

@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import com.loitp.annotation.IsAutoAnimation
@@ -70,8 +71,7 @@ class SplashActivity : BaseActivityFont() {
     }
 
     override fun onActivityUserIdleAfterTime(
-        delayMlsIdleTime: Long,
-        isIdleTime: Boolean
+        delayMlsIdleTime: Long, isIdleTime: Boolean
     ) {
         super.onActivityUserIdleAfterTime(delayMlsIdleTime, isIdleTime)
         showShortInformation("onActivityUserIdleAfterTime delayMlsIdleTime $delayMlsIdleTime, isIdleTime: $isIdleTime")
@@ -85,70 +85,69 @@ class SplashActivity : BaseActivityFont() {
     }
 
     private fun checkPermission() {
+        isShowDialogCheck = true
+        val color = if (isDarkTheme()) {
+            Color.WHITE
+        } else {
+            Color.BLACK
+        }
 
-        fun checkPer() {
-            isShowDialogCheck = true
-            val color = if (isDarkTheme()) {
-                Color.WHITE
-            } else {
-                Color.BLACK
-            }
+        val listPer = ArrayList<String>()
+        listPer.add(Manifest.permission.ACCESS_FINE_LOCATION)
+        listPer.add(Manifest.permission.CAMERA)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            listPer.add(Manifest.permission.POST_NOTIFICATIONS)
+        }
 
-            val listPer = ArrayList<String>()
-            listPer.add(Manifest.permission.ACCESS_FINE_LOCATION)
-            listPer.add(Manifest.permission.CAMERA)
-
-            //ACCESS_BACKGROUND_LOCATION publish len store rat kho khan, khong can thiet
-            //ban build debug thi chi test de biet feat nay work
-            //con ban release thi khong can dau
-            //nho uncomment per ACCESS_BACKGROUND_LOCATION trong manifest
+        //ACCESS_BACKGROUND_LOCATION publish len store rat kho khan, khong can thiet
+        //ban build debug thi chi test de biet feat nay work
+        //con ban release thi khong can dau
+        //nho uncomment per ACCESS_BACKGROUND_LOCATION trong manifest
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && BuildConfig.DEBUG) {
 //                listPer.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
 //            }
 
-            PermissionX.init(this)
-                .permissions(listPer)
-                .setDialogTintColor(color, color)
-                .onExplainRequestReason { scope, deniedList, _ ->
-                    val message = getString(R.string.app_name) + getString(R.string.needs_per)
-                    scope.showRequestReasonDialog(
-                        permissions = deniedList,
-                        message = message,
-                        positiveText = getString(R.string.allow),
-                        negativeText = getString(R.string.deny)
-                    )
-                }
-                .onForwardToSettings { scope, deniedList ->
-                    scope.showForwardToSettingsDialog(
-                        permissions = deniedList,
-                        message = getString(R.string.per_manually_msg),
-                        positiveText = getString(R.string.ok),
-                        negativeText = getString(R.string.cancel)
-                    )
-                }
-                .request { allGranted, _, _ ->
-                    if (allGranted) {
-                        val isNeedCheckReady = true
-                        if (isNeedCheckReady) {
-                            checkReady()
-                        } else {
-                            isCheckReadyDone = true
-                            goToHome()
-                        }
+        PermissionX.init(this).permissions(listPer).setDialogTintColor(color, color)
+            .onExplainRequestReason { scope, deniedList, _ ->
+                val message = getString(R.string.app_name) + getString(R.string.needs_per)
+                scope.showRequestReasonDialog(
+                    permissions = deniedList,
+                    message = message,
+                    positiveText = getString(R.string.allow),
+                    negativeText = getString(R.string.deny)
+                )
+            }.onForwardToSettings { scope, deniedList ->
+                scope.showForwardToSettingsDialog(
+                    permissions = deniedList,
+                    message = getString(R.string.per_manually_msg),
+                    positiveText = getString(R.string.ok),
+                    negativeText = getString(R.string.cancel)
+                )
+            }.request { allGranted, _, _ ->
+                if (allGranted) {
+                    val isNeedCheckReady = true
+                    if (isNeedCheckReady) {
+                        checkReady()
                     } else {
-                        finish()//correct
-                        this.tranOut()
+                        isCheckReadyDone = true
+                        goToHome()
                     }
-                    isShowDialogCheck = false
+                } else {
+                    finish()//correct
+                    this.tranOut()
                 }
-        }
+                isShowDialogCheck = false
+            }
+    }
 
+    private fun isCanWriteSystem(
+        onSuccess: Runnable
+    ) {
         val isCanWriteSystem = checkSystemWritePermission()
         if (isCanWriteSystem) {
-            checkPer()
+            onSuccess.run()
         } else {
-            val alertDialog = this.showDialog2(
-                title = "Need Permissions",
+            val alertDialog = this.showDialog2(title = "Need Permissions",
                 msg = "This app needs permission to allow modifying system settings",
                 button1 = getString(R.string.ok),
                 button2 = getString(R.string.cancel),
@@ -161,20 +160,22 @@ class SplashActivity : BaseActivityFont() {
                 },
                 onClickButton2 = {
                     onBaseBackPressed()
-                }
-            )
+                })
             alertDialog.setCancelable(false)
         }
     }
 
     private fun goToHome() {
         logD("goToHome isAnimDone $isAnimDone, isCheckReadyDone $isCheckReadyDone")
-
         if (isAnimDone && isCheckReadyDone) {
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
-            this.tranIn()
-            finish()
+            runOnUiThread {
+                isCanWriteSystem(onSuccess = {
+                    val intent = Intent(this, MenuActivity::class.java)
+                    startActivity(intent)
+                    this.tranIn()
+                    finish()
+                })
+            }
         }
     }
 
@@ -185,14 +186,10 @@ class SplashActivity : BaseActivityFont() {
             } else {
                 getString(R.string.check_ur_connection)
             }
-            val alertDial = this.showDialog1(
-                title = "Warning",
-                msg = title,
-                button1 = "Ok",
-                onClickButton1 = {
+            val alertDial =
+                this.showDialog1(title = "Warning", msg = title, button1 = "Ok", onClickButton1 = {
                     onBaseBackPressed()
-                }
-            )
+                })
             alertDial.setCancelable(false)
         }
     }
@@ -212,8 +209,7 @@ class SplashActivity : BaseActivityFont() {
         //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
         val linkGGDriveConfigSetting =
             "https://drive.google.com/uc?export=download&id=16pwq28ZTeP5p1ZeJmgwjHsOofE12XRIf"
-        getSettingFromGGDrive(
-            linkGGDriveSetting = linkGGDriveConfigSetting,
+        getSettingFromGGDrive(linkGGDriveSetting = linkGGDriveConfigSetting,
             onGGFailure = { _: Call, _: IOException ->
                 showDialogNotReady()
             },
@@ -227,7 +223,6 @@ class SplashActivity : BaseActivityFont() {
                     isCheckReadyDone = true
                     goToHome()
                 }
-            }
-        )
+            })
     }
 }

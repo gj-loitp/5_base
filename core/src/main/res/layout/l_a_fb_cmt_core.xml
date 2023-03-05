@@ -13,11 +13,11 @@
         android:background="?attr/themeBackgroundColor"
         android:fitsSystemWindows="true">
 
-        <com.loitp.views.ab.LActionBar
-            android:id="@+id/lActionBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <com.loitp.views.ab.LActionBar-->
+<!--            android:id="@+id/lActionBar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <RelativeLayout
             android:id="@+id/rlWebview"
