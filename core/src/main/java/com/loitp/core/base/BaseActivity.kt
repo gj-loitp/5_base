@@ -334,13 +334,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showShortDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
-            LToast.showShortDebug(msg)
+            LToast.showShortDebug("Debug: $msg")
         }
     }
 
     fun showLongDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
-            LToast.showLongDebug(msg)
+            LToast.showLongDebug("Debug: $msg")
         }
     }
 
