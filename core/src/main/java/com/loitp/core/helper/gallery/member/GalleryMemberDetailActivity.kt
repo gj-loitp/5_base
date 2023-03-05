@@ -12,6 +12,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.getSerializableCompat
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setZoomFitWidthScreen
 import com.loitp.core.ext.transActivityNoAnimation
@@ -47,9 +48,10 @@ class GalleryMemberDetailActivity : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        //TODO fix getSerializableExtra
-        val photo = intent.getSerializableExtra(PHOTO) as Photo
-        loadItem(photo = photo)
+        val photo = intent?.extras?.getSerializableCompat(PHOTO, Photo::class.java)
+        photo?.let {
+            loadItem(photo = it)
+        }
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
             override fun onViewPositionChanged(
@@ -75,7 +77,8 @@ class GalleryMemberDetailActivity : BaseActivityFont() {
             drawableRequestListener = null,
             transformation = BlurTransformation(25)
         )
-        imageView.loadGlide(any = photo.urlO,
+        imageView.loadGlide(
+            any = photo.urlO,
             drawableRequestListener = object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
