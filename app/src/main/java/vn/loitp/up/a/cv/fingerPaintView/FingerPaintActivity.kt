@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.fingerPaintView
+package vn.loitp.up.a.cv.fingerPaintView
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -10,30 +10,35 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_finger_paint_view.*
 import vn.loitp.R
+import vn.loitp.databinding.AFingerPaintViewBinding
 
 @LogTag("FingerPaintActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class FingerPaintActivity : BaseActivityFont(), SeekBar.OnSeekBarChangeListener,
     View.OnClickListener {
+    private lateinit var binding: AFingerPaintViewBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_finger_paint_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AFingerPaintViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -52,58 +57,58 @@ class FingerPaintActivity : BaseActivityFont(), SeekBar.OnSeekBarChangeListener,
             }
             this.tvTitle?.text = FingerPaintActivity::class.java.simpleName
         }
-        close.setOnClickListener(this)
-        save.setOnClickListener(this)
-        undo.setOnClickListener(this)
-        clear.setOnClickListener(this)
-        red.setOnSeekBarChangeListener(this)
-        green.setOnSeekBarChangeListener(this)
-        blue.setOnSeekBarChangeListener(this)
-        tolerance.setOnSeekBarChangeListener(this)
-        width.setOnSeekBarChangeListener(this)
-        normal.setOnClickListener(this)
-        emboss.setOnClickListener(this)
-        blur.setOnClickListener(this)
+        binding.close.setOnClickListener(this)
+        binding.save.setOnClickListener(this)
+        binding.undo.setOnClickListener(this)
+        binding.clear.setOnClickListener(this)
+        binding.red.setOnSeekBarChangeListener(this)
+        binding.green.setOnSeekBarChangeListener(this)
+        binding.blue.setOnSeekBarChangeListener(this)
+        binding.tolerance.setOnSeekBarChangeListener(this)
+        binding.width.setOnSeekBarChangeListener(this)
+        binding.normal.setOnClickListener(this)
+        binding.emboss.setOnClickListener(this)
+        binding.blur.setOnClickListener(this)
     }
 
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
         when (seekBar?.id) {
-            red.id, green.id, blue.id -> {
-                val r = red.progress
-                val g = green.progress
-                val b = blue.progress
+            binding.red.id, binding.green.id, binding.blue.id -> {
+                val r = binding.red.progress
+                val g = binding.green.progress
+                val b = binding.blue.progress
                 val color = Color.argb(255, r, g, b)
-                finger.strokeColor = color
-                colorPreview.setBackgroundColor(color)
+                binding.finger.strokeColor = color
+                binding.colorPreview.setBackgroundColor(color)
             }
-            tolerance.id -> {
-                finger.touchTolerance = progress.toFloat()
+            binding.tolerance.id -> {
+                binding.finger.touchTolerance = progress.toFloat()
             }
-            width.id -> {
-                finger.strokeWidth = progress.toFloat()
+            binding.width.id -> {
+                binding.finger.strokeWidth = progress.toFloat()
             }
         }
     }
 
     override fun onClick(v: View?) {
         when (v) {
-            undo -> finger.undo()
-            clear -> finger.clear()
-            close -> hidePreview()
-            save -> showPreview()
-            emboss -> finger.emboss()
-            blur -> finger.blur()
-            normal -> finger.normal()
+            binding.undo -> binding.finger.undo()
+            binding.clear -> binding.finger.clear()
+            binding.close -> hidePreview()
+            binding.save -> showPreview()
+            binding.emboss -> binding.finger.emboss()
+            binding.blur -> binding.finger.blur()
+            binding.normal -> binding.finger.normal()
         }
     }
 
     private fun showPreview() {
-        previewContainer.visibility = View.VISIBLE
-        preview.setImageDrawable(finger.drawable)
+        binding.previewContainer.visibility = View.VISIBLE
+        binding.preview.setImageDrawable(binding.finger.drawable)
     }
 
     private fun hidePreview() {
-        previewContainer.visibility = View.INVISIBLE
+        binding.previewContainer.visibility = View.INVISIBLE
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -113,7 +118,7 @@ class FingerPaintActivity : BaseActivityFont(), SeekBar.OnSeekBarChangeListener,
     }
 
     override fun onBaseBackPressed() {
-        if (previewContainer.visibility == View.VISIBLE) {
+        if (binding.previewContainer.visibility == View.VISIBLE) {
             hidePreview()
         } else {
             super.onBaseBackPressed()
