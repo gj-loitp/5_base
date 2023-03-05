@@ -1,6 +1,7 @@
 package com.loitp.model
 
 import androidx.annotation.Keep
+import com.loitp.core.base.BaseModel
 
 @Keep
 data class QA(
@@ -12,4 +13,4 @@ data class QA(
     val ivQ: String = "",
     //next link if clicked
     val nextLink: String = "",
-)
+) : BaseModel()
