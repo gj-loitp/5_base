@@ -19,12 +19,12 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FACEBOOK_COMMENT_URL
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setColorProgressBar
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setProgressBarVisibility
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.l_a_fb_cmt_core.*
-import kotlinx.android.synthetic.main.l_v_l_edit_text.view.*
+import com.loitp.databinding.LAFbCmtCoreBinding
 
 /**
  * Created by Loitp on 04,August,2022
@@ -39,6 +39,7 @@ class FbCommentActivity : BaseActivityFont() {
     internal var isLoading: Boolean = false
     private var postUrl: String? = null
     private var mWebViewPop: WebView? = null
+    private lateinit var binding: LAFbCmtCoreBinding
 
     companion object {
         // the default number of comments should be visible
@@ -47,11 +48,14 @@ class FbCommentActivity : BaseActivityFont() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_fb_cmt_core
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LAFbCmtCoreBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         setLoading(isLoading = true)
@@ -61,7 +65,7 @@ class FbCommentActivity : BaseActivityFont() {
     private fun setupViews() {
         setupActionBar()
 
-        progressBar.setColorProgressBar(
+        binding.progressBar.setColorProgressBar(
             color = getColor(R.color.colorPrimary)
         )
 
@@ -80,18 +84,18 @@ class FbCommentActivity : BaseActivityFont() {
     }
 
     private fun setupActionBar() {
-        lActionBar.apply {
-            this.ivIconLeft?.setSafeOnClickListener {
-                onBaseBackPressed()
-            }
-            this.ivRight?.isVisible = false
-            this.tvTitle?.text = getString(R.string.fb_comment)
-        }
+//        binding.lActionBar.apply {
+//            this.ivIconLeft?.setSafeOnClickListener {
+//                onBaseBackPressed()
+//            }
+//            this.ivIconRight?.isVisible = false
+//            this.tvTitle?.text = getString(R.string.fb_comment)
+//        }
     }
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun loadComments() {
-        commentsWebView.apply {
+        binding.commentsWebView.apply {
             webViewClient = UriWebViewClient()
             webChromeClient = UriChromeClient()
             settings.javaScriptEnabled = true
@@ -106,11 +110,8 @@ class FbCommentActivity : BaseActivityFont() {
             CookieManager.getInstance().setAcceptThirdPartyCookies(this, true)
 
             // facebook comment widget including the article url
-            val html = "<!doctype html> <html lang=\"en\"> <head></head> <body> " +
-                    "<div id=\"fb-root\"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6\"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script> " +
-                    "<div class=\"fb-comments\" data-href=\"" + postUrl + "\" " +
-                    "data-numposts=\"" + NUMBER_OF_COMMENTS + "\" data-order-by=\"reverse_time\">" +
-                    "</div> </body> </html>"
+            val html =
+                "<!doctype html> <html lang=\"en\"> <head></head> <body> " + "<div id=\"fb-root\"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6\"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script> " + "<div class=\"fb-comments\" data-href=\"" + postUrl + "\" " + "data-numposts=\"" + NUMBER_OF_COMMENTS + "\" data-order-by=\"reverse_time\">" + "</div> </body> </html>"
 
             loadDataWithBaseURL("http://www.nothing.com", html, "text/html", "UTF-8", null)
             minimumHeight = 200
@@ -120,16 +121,13 @@ class FbCommentActivity : BaseActivityFont() {
     private fun setLoading(isLoading: Boolean) {
         this.isLoading = isLoading
         if (isLoading) {
-            progressBar.setProgressBarVisibility(View.VISIBLE)
+            binding.progressBar.setProgressBarVisibility(View.VISIBLE)
         } else {
-            setDelay(
-                mls = 1000,
-                runnable = {
-                    progressBar.setProgressBarVisibility(
-                        visibility = View.GONE
-                    )
-                }
-            )
+            setDelay(mls = 1000, runnable = {
+                binding.progressBar.setProgressBarVisibility(
+                    visibility = View.GONE
+                )
+            })
         }
         invalidateOptionsMenu()
     }
@@ -148,7 +146,7 @@ class FbCommentActivity : BaseActivityFont() {
             if (url.contains(other = "/plugins/close_popup.php?reload")) {
                 val handler = Handler(Looper.getMainLooper())
                 handler.postDelayed({
-                    rlWebview.removeView(mWebViewPop)
+                    binding.rlWebview.removeView(mWebViewPop)
                     loadComments()
                 }, 600)
             }
@@ -163,10 +161,7 @@ class FbCommentActivity : BaseActivityFont() {
 
         @SuppressLint("SetJavaScriptEnabled")
         override fun onCreateWindow(
-            view: WebView,
-            isDialog: Boolean,
-            isUserGesture: Boolean,
-            resultMsg: Message
+            view: WebView, isDialog: Boolean, isUserGesture: Boolean, resultMsg: Message
         ): Boolean {
             mWebViewPop = WebView(applicationContext)
             mWebViewPop?.let {
@@ -180,10 +175,9 @@ class FbCommentActivity : BaseActivityFont() {
                 it.settings.builtInZoomControls = false
                 it.settings.setSupportMultipleWindows(true)
                 it.layoutParams = FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
                 )
-                rlWebview.addView(it)
+                binding.rlWebview.addView(it)
             }
             val transport = resultMsg.obj as WebView.WebViewTransport
             transport.webView = mWebViewPop
