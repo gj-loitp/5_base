@@ -12,6 +12,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
+import com.loitp.core.ext.getSerializableCompat
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AOseroGameBinding
@@ -19,6 +20,7 @@ import vn.loitp.up.a.game.osero.md.Place
 import vn.loitp.up.a.game.osero.md.Stone
 import vn.loitp.up.a.game.osero.md.ai.AINone
 import vn.loitp.up.a.game.osero.md.ai.OseroAI
+import vn.loitp.up.a.game.pong.pong.Settings
 
 @LogTag("GameOseroActivity")
 @IsFullScreen(false)
@@ -75,8 +77,11 @@ class GameOseroActivity : BaseActivityFont(), GameView {
                     place.findViewById(R.id.gamePlaceImageView) as ImageView
                 }
             }
-        //TODO fix
-        val ai = intent.getSerializableExtra(EXTRA_NAME_AI) as? OseroAI ?: AINone()
+//        val ai = intent.getSerializableExtra(EXTRA_NAME_AI) as? OseroAI ?: AINone()
+
+        val ai =
+            intent?.extras?.getSerializableCompat(EXTRA_NAME_AI, OseroAI::class.java) ?: AINone()
+
         presenter.onCreate(this, ai)
     }
 
