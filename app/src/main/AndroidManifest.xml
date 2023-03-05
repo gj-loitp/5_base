@@ -1184,16 +1184,16 @@
             android:name=".up.a.anim.androidParticles.AndroidParticlesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.graph.MenuGraphViewActivity"
+            android:name=".up.a.cv.graph.MenuGraphViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.graph.algorithms.FruchtermanReingoldActivity"
+            android:name=".up.a.cv.graph.algorithms.FruchtermanReingoldActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.graph.algorithms.BuchheimWalkerActivity"
+            android:name=".up.a.cv.graph.algorithms.BuchheimWalkerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.graph.algorithms.SugiyamaActivity"
+            android:name=".up.a.cv.graph.algorithms.SugiyamaActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.simpleRatingBar.SimpleRatingBarActivity"

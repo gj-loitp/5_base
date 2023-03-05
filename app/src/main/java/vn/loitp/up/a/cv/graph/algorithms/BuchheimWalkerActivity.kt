@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.graph.algorithms
+package vn.loitp.up.a.cv.graph.algorithms
 
 import android.view.Menu
 import android.view.MenuItem
@@ -7,9 +7,8 @@ import dev.bandb.graphview.graph.Node
 import dev.bandb.graphview.layouts.tree.BuchheimWalkerConfiguration
 import dev.bandb.graphview.layouts.tree.BuchheimWalkerLayoutManager
 import dev.bandb.graphview.layouts.tree.TreeEdgeDecoration
-import kotlinx.android.synthetic.main.a_graph.*
 import vn.loitp.R
-import vn.loitp.a.cv.graph.GraphActivity
+import vn.loitp.up.a.cv.graph.GraphActivity
 
 class BuchheimWalkerActivity : GraphActivity() {
 
@@ -20,11 +19,11 @@ class BuchheimWalkerActivity : GraphActivity() {
             .setSubtreeSeparation(100)
             .setOrientation(BuchheimWalkerConfiguration.ORIENTATION_TOP_BOTTOM)
             .build()
-        recycler.layoutManager = BuchheimWalkerLayoutManager(this, configuration)
+        binding.recycler.layoutManager = BuchheimWalkerLayoutManager(this, configuration)
     }
 
     public override fun setEdgeDecoration() {
-        recycler.addItemDecoration(TreeEdgeDecoration())
+        binding.recycler.addItemDecoration(TreeEdgeDecoration())
     }
 
     public override fun createGraph(): Graph {
@@ -83,8 +82,8 @@ class BuchheimWalkerActivity : GraphActivity() {
                 return super.onOptionsItemSelected(item)
             }
         }
-        recycler.layoutManager = BuchheimWalkerLayoutManager(this, builder.build())
-        recycler.adapter = adapter
+        binding.recycler.layoutManager = BuchheimWalkerLayoutManager(this, builder.build())
+        binding.recycler.adapter = adapter
         return true
     }
 }

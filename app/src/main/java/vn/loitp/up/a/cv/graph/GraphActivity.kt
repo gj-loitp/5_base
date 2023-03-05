@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.graph
+package vn.loitp.up.a.cv.graph
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,20 +12,22 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import dev.bandb.graphview.AbstractGraphAdapter
 import dev.bandb.graphview.graph.Graph
 import dev.bandb.graphview.graph.Node
-import kotlinx.android.synthetic.main.a_graph.*
 import vn.loitp.R
+import vn.loitp.databinding.AGraphBinding
 import java.util.*
 
 @LogTag("GraphActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 abstract class GraphActivity : BaseActivityFont() {
+    lateinit var binding: AGraphBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_graph
+        return NOT_FOUND
     }
 
     protected lateinit var adapter: AbstractGraphAdapter<NodeViewHolder>
@@ -38,6 +40,9 @@ abstract class GraphActivity : BaseActivityFont() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AGraphBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val graph = createGraph()
         setLayoutManager()
@@ -61,13 +66,13 @@ abstract class GraphActivity : BaseActivityFont() {
             }
         }.apply {
             this.submitGraph(graph)
-            recycler.adapter = this
+            binding.recycler.adapter = this
         }
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setupFab(graph: Graph) {
-        addNode.setOnClickListener {
+        binding.addNode.setOnClickListener {
             val newNode = Node(nodeText)
             if (currentNode != null) {
                 graph.addEdge(currentNode!!, newNode)
@@ -76,19 +81,19 @@ abstract class GraphActivity : BaseActivityFont() {
             }
             adapter.notifyDataSetChanged()
         }
-        addNode.setOnLongClickListener {
+        binding.addNode.setOnLongClickListener {
             currentNode?.let { n ->
                 graph.removeNode(n)
                 currentNode = null
                 adapter.notifyDataSetChanged()
-                addNode.hide()
+                binding.addNode.hide()
             }
             true
         }
     }
 
     private fun setupToolbar() {
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
@@ -104,8 +109,8 @@ abstract class GraphActivity : BaseActivityFont() {
 
         init {
             itemView.setOnClickListener {
-                if (!addNode.isShown) {
-                    addNode.show()
+                if (!binding.addNode.isShown) {
+                    binding.addNode.show()
                 }
                 currentNode = adapter.getNode(bindingAdapterPosition)
                 Snackbar.make(

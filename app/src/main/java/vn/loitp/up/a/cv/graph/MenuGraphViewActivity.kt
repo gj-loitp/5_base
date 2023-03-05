@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.graph
+package vn.loitp.up.a.cv.graph
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,27 +13,32 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import kotlinx.android.synthetic.main.a_graph_view_menu.*
+import com.loitp.core.common.NOT_FOUND
 import vn.loitp.R
+import vn.loitp.databinding.AGraphViewMenuBinding
 
 @LogTag("MenuGraphViewActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class MenuGraphViewActivity : BaseActivityFont() {
+    private lateinit var binding: AGraphViewMenuBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_graph_view_menu
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AGraphViewMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupToolbar()
         setupRecyclerView()
     }
 
     private fun setupRecyclerView() {
-        graphs.apply {
+        binding.graphs.apply {
             layoutManager = LinearLayoutManager(this@MenuGraphViewActivity)
             adapter = GraphListAdapter()
             val decoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
@@ -42,7 +47,7 @@ class MenuGraphViewActivity : BaseActivityFont() {
     }
 
     private fun setupToolbar() {
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 

@@ -1,22 +1,21 @@
-package vn.loitp.a.cv.graph.algorithms
+package vn.loitp.up.a.cv.graph.algorithms
 
 import dev.bandb.graphview.graph.Graph
 import dev.bandb.graphview.graph.Node
 import dev.bandb.graphview.layouts.layered.SugiyamaArrowEdgeDecoration
 import dev.bandb.graphview.layouts.layered.SugiyamaConfiguration
 import dev.bandb.graphview.layouts.layered.SugiyamaLayoutManager
-import kotlinx.android.synthetic.main.a_graph.*
-import vn.loitp.a.cv.graph.GraphActivity
+import vn.loitp.up.a.cv.graph.GraphActivity
 
 class SugiyamaActivity : GraphActivity() {
 
     public override fun setLayoutManager() {
-        recycler.layoutManager =
+        binding.recycler.layoutManager =
             SugiyamaLayoutManager(this, SugiyamaConfiguration.Builder().build())
     }
 
     public override fun setEdgeDecoration() {
-        recycler.addItemDecoration(SugiyamaArrowEdgeDecoration())
+        binding.recycler.addItemDecoration(SugiyamaArrowEdgeDecoration())
     }
 
     public override fun createGraph(): Graph {
