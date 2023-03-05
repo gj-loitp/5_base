@@ -24,8 +24,6 @@ class GameActivity : BaseActivityFont() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        settings = intent.getSerializableExtra("settings") as Settings
-
         settings =
             intent?.extras?.getSerializableCompat("settings", Settings::class.java) as Settings
 

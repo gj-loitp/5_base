@@ -7,10 +7,7 @@ import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.ext.loadGlide
-import com.loitp.core.ext.replaceFragment
-import com.loitp.core.ext.setSafeOnClickListener
-import com.loitp.core.ext.toggleFullscreen
+import com.loitp.core.ext.*
 import com.loitp.game.findNumber.model.Level
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_a_find_number_single_play.*
@@ -74,9 +71,8 @@ class SinglePlayActivity : BaseActivityFont() {
     }
 
     private fun setupData() {
-        //TODO fix getSerializableExtra
-        val level = intent.getSerializableExtra(KEY_LEVEL)
-        if (level == null || level !is Level) {
+        val level = intent?.extras?.getSerializableCompat(KEY_LEVEL, Level::class.java)
+        if (level == null) {
             showShortInformation(getString(R.string.err_unknown_en))
             return
         }
