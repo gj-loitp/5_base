@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.fancyShowcase
+package vn.loitp.up.a.cv.fancyShowcase
 
 import android.os.Bundle
 import android.view.View
@@ -8,22 +8,29 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFancyShowcase
-import kotlinx.android.synthetic.main.a_fancy_showcase_recycler_view.*
+import com.loitp.core.common.NOT_FOUND
 import me.toptas.fancyshowcase.FancyShowCaseView
 import vn.loitp.R
-import vn.loitp.a.cv.fancyShowcase.adt.MyModel
-import vn.loitp.a.cv.fancyShowcase.adt.MyRecyclerViewAdapter
+import vn.loitp.databinding.AFancyShowcaseRecyclerViewBinding
+import vn.loitp.up.a.cv.fancyShowcase.adt.MyModel
+import vn.loitp.up.a.cv.fancyShowcase.adt.MyRecyclerViewAdapter
 
 @LogTag("RecyclerViewActivityFontFancyShowcase")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class RecyclerViewActivityFontFancyShowcase : BaseActivityFancyShowcase() {
+
+    private lateinit var binding: AFancyShowcaseRecyclerViewBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_fancy_showcase_recycler_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AFancyShowcaseRecyclerViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val modelList = ArrayList<MyModel>()
         for (i in 0..24) {
@@ -36,15 +43,15 @@ class RecyclerViewActivityFontFancyShowcase : BaseActivityFancyShowcase() {
             focus(v)
         }
 
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = layoutManager
-        recyclerView.viewTreeObserver.addOnGlobalLayoutListener(object :
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = layoutManager
+        binding.recyclerView.viewTreeObserver.addOnGlobalLayoutListener(object :
             ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
-                val width = recyclerView.width
-                val height = recyclerView.height
+                val width = binding.recyclerView.width
+                val height = binding.recyclerView.height
                 if (width > 0 && height > 0) {
-                    recyclerView.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                    binding.recyclerView.viewTreeObserver.removeOnGlobalLayoutListener(this)
                 }
 
                 focus(layoutManager.findViewByPosition(2)!!.findViewById(R.id.ivIcon))

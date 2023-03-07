@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.fancyShowcase
+package vn.loitp.up.a.cv.fancyShowcase
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -8,9 +8,9 @@ import android.os.Looper
 import android.view.View
 import android.view.animation.AnimationUtils
 import com.loitp.core.base.BaseActivityFancyShowcase
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.recolorNavigationBar
 import com.loitp.core.ext.recolorStatusBar
-import kotlinx.android.synthetic.main.a_fancy_showcase.*
 import kotlinx.android.synthetic.main.l_fancy_showcaseanimated_view.*
 import me.toptas.fancyshowcase.FancyShowCaseQueue
 import me.toptas.fancyshowcase.FancyShowCaseView
@@ -18,22 +18,27 @@ import me.toptas.fancyshowcase.FocusShape
 import me.toptas.fancyshowcase.listener.DismissListener
 import me.toptas.fancyshowcase.listener.OnViewInflateListener
 import vn.loitp.R
+import vn.loitp.databinding.AFancyShowcaseAnimatedBinding
 
 class AnimatedActivityFancyShowcase : BaseActivityFancyShowcase() {
 
     private lateinit var queue: FancyShowCaseQueue
     private lateinit var fancyView: FancyShowCaseView
     private lateinit var fancyView2: FancyShowCaseView
+    private lateinit var binding: AFancyShowcaseAnimatedBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_fancy_showcase_animated
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AFancyShowcaseAnimatedBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         fancyView = FancyShowCaseView.Builder(this)
-            .focusOn(btnFocus)
+            .focusOn(binding.btnFocus)
             .backgroundColor(Color.YELLOW)
             .focusShape(FocusShape.CIRCLE)
 //            .roundRectRadius(90)
@@ -66,7 +71,7 @@ class AnimatedActivityFancyShowcase : BaseActivityFancyShowcase() {
             .build()
 
         fancyView2 = FancyShowCaseView.Builder(this)
-            .focusOn(btnFocus2)
+            .focusOn(binding.btnFocus2)
             .customView(R.layout.l_fancy_showcaseanimated_view, object : OnViewInflateListener {
                 override fun onViewInflated(view: View) {
                     setAnimatedContent(fancyView2)
@@ -74,7 +79,7 @@ class AnimatedActivityFancyShowcase : BaseActivityFancyShowcase() {
             })
             .build()
 
-        btnFocus.setOnClickListener {
+        binding.btnFocus.setOnClickListener {
             queue = FancyShowCaseQueue().apply {
                 add(fancyView)
                 add(fancyView2)

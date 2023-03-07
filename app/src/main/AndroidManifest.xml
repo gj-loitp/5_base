@@ -1434,16 +1434,16 @@
             android:name=".up.a.anim.snowfall.SnowfallActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.fancyShowcase.FancyShowcaseActivity"
+            android:name=".up.a.cv.fancyShowcase.FancyShowcaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.fancyShowcase.SecondActivityFancyShowcase"
+            android:name=".up.a.cv.fancyShowcase.SecondActivityFancyShowcase"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.fancyShowcase.RecyclerViewActivityFontFancyShowcase"
+            android:name=".up.a.cv.fancyShowcase.RecyclerViewActivityFontFancyShowcase"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.fancyShowcase.AnimatedActivityFancyShowcase"
+            android:name=".up.a.cv.fancyShowcase.AnimatedActivityFancyShowcase"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.progress.progressView.ProgressViewActivity"

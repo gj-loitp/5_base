@@ -24,7 +24,7 @@ import vn.loitp.a.cv.dlg.MenuDialogActivity
 import vn.loitp.a.cv.dragView.MenuDragViewActivity
 import vn.loitp.a.cv.draggableFlipView.DraggableFlipViewActivity
 import vn.loitp.a.cv.et.MenuEditTextActivity
-import vn.loitp.a.cv.fancyShowcase.FancyShowcaseActivity
+import vn.loitp.up.a.cv.fancyShowcase.FancyShowcaseActivity
 import vn.loitp.up.a.cv.fbCmt.FacebookCommentActivity
 import vn.loitp.up.a.cv.fingerPaintView.FingerPaintActivity
 import vn.loitp.up.a.cv.graph.MenuGraphViewActivity

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.fancyShowcase.adt
+package vn.loitp.up.a.cv.fancyShowcase.adt
 
 import android.view.LayoutInflater
 import android.view.View
