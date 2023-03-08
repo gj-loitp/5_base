@@ -284,7 +284,7 @@ fun getSettingFromGGDrive(
 
 fun getPkgFromGGDrive(
     linkGGDriveSetting: String? = null,
-    onGGFailure: ((call: Call, e: IOException) -> Unit)? = null,
+    onGGFailure: ((call: Call, e: Exception) -> Unit)? = null,
     onGGResponse: ((pkg: Pkg?) -> Unit)? = null
 ) {
     if (linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
@@ -299,14 +299,18 @@ fun getPkgFromGGDrive(
 
         @Throws(IOException::class)
         override fun onResponse(call: Call, response: Response) {
-            if (response.isSuccessful) {
-                response.body?.let { responseBody ->
-                    val json = responseBody.string()
-                    val pkg = BaseApplication.gson.fromJson(json, Pkg::class.java)
-                    onGGResponse?.invoke(pkg)
+            try {
+                if (response.isSuccessful) {
+                    response.body?.let { responseBody ->
+                        val json = responseBody.string()
+                        val pkg = BaseApplication.gson.fromJson(json, Pkg::class.java)
+                        onGGResponse?.invoke(pkg)
+                    }
+                } else {
+                    onGGResponse?.invoke(null)
                 }
-            } else {
-                onGGResponse?.invoke(null)
+            } catch (e: Exception) {
+                onGGFailure?.invoke(call, e)
             }
         }
     })

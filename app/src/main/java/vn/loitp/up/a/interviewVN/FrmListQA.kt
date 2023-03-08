@@ -79,8 +79,10 @@ class FrmListQA(private val linkGGDrive: String?) : BaseFragmentFlow() {
         getPkgFromGGDrive(
             linkGGDriveSetting = linkGGDrive,
             onGGFailure = { _, e ->
-                hideDialogProgress()
-                showShortError(e.toString())
+                activity?.runOnUiThread {
+                    hideDialogProgress()
+                    showShortError(e.toString())
+                }
             },
             onGGResponse = { pkg ->
                 activity?.runOnUiThread {
