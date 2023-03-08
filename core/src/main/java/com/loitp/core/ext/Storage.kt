@@ -22,9 +22,14 @@ import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.model.BookInfoData
 import com.loitp.model.App
 import com.loitp.model.Pkg
+import com.loitp.restApi.restClient.RestClient
+import com.moczul.ok2curl.CurlInterceptor
+import com.moczul.ok2curl.logger.Logger
 import okhttp3.*
+import okhttp3.logging.HttpLoggingInterceptor
 import java.io.*
 import java.util.*
+import java.util.concurrent.TimeUnit
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 
@@ -261,7 +266,24 @@ fun getSettingFromGGDrive(
         return
     }
     val request = Request.Builder().url(linkGGDriveSetting).build()
-    val okHttpClient = OkHttpClient()
+//    val okHttpClient = OkHttpClient()
+
+    val logging = HttpLoggingInterceptor()
+    logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+
+    val okHttpClient = OkHttpClient.Builder()
+        .readTimeout(RestClient.CONNECT_TIMEOUT_TIME, TimeUnit.SECONDS)
+        .connectTimeout(RestClient.CONNECT_TIMEOUT_TIME, TimeUnit.SECONDS)
+        .addInterceptor(RestClient.restRequestInterceptor)
+        .addInterceptor(CurlInterceptor(object : Logger {
+            override fun log(message: String) {
+                e("Ok2Curl", message)
+            }
+        }))
+        .retryOnConnectionFailure(true)
+        .addInterceptor(logging) // <-- this is the important line!
+        .build()
+
     okHttpClient.newCall(request).enqueue(object : Callback {
         override fun onFailure(call: Call, e: IOException) {
             onGGFailure?.invoke(call, e)
