@@ -26,6 +26,7 @@ import com.loitp.views.dlg.slideImages.LSlideAdapter
 import com.loitp.views.loading.window.WP10ProgressBar
 import de.cketti.mailto.EmailIntentBuilder
 
+
 //check xem app hien tai co phai la default launcher hay khong
 fun Context.isDefaultLauncher(): Boolean {
     val intent = Intent(Intent.ACTION_MAIN)
@@ -229,11 +230,18 @@ fun Context?.openUrlInBrowser(
     if (this == null || url.isNullOrEmpty()) {
         return
     }
-    val defaultBrowser =
-        Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
-    defaultBrowser.data = Uri.parse(url)
-    this.startActivity(defaultBrowser)
-    this.tranIn()
+    try {
+        val defaultBrowser =
+            Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
+        defaultBrowser.data = Uri.parse(url)
+        this.startActivity(defaultBrowser)
+        this.tranIn()
+    } catch (e: Exception) {
+        val i = Intent(Intent.ACTION_VIEW)
+        i.data = Uri.parse(url)
+        this.startActivity(i)
+        this.tranIn()
+    }
 }
 
 fun Context?.openFacebookComment(
