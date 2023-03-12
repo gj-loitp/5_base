@@ -51,6 +51,8 @@ class CodeViewActivity : BaseActivityFont() {
             this.tvTitle?.text = CodeViewActivity::class.java.simpleName
         }
 
+//        binding.codeView.setCode(code())
+
         binding.codeView.setOptions(
             Options.Default.get(this)
 //            .withLanguage("python")
