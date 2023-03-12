@@ -17,16 +17,16 @@ import java.lang.reflect.Type
  */
 fun Context.isDarkTheme(): Boolean {
 //            return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
-    return getBoolean(IS_DARK_THEME, false)
+    return getBooleanPref(IS_DARK_THEME, false)
 }
 
 fun Context.setDarkTheme(isDarkTheme: Boolean) {
     if (isDarkTheme) {
 //                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        putBoolean(IS_DARK_THEME, true)
+        putBooleanPref(IS_DARK_THEME, true)
     } else {
 //                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        putBoolean(IS_DARK_THEME, false)
+        putBooleanPref(IS_DARK_THEME, false)
     }
 }
 
@@ -116,43 +116,43 @@ fun Context.getPassCode(): String? {
     return sharedPref.getString(PASS_CODE, defaultValue)
 }
 
-fun Context.getString(
+fun Context.getStringPref(
     key: String, defaultValue: String = ""
 ): String {
     return get(key = key, anonymousClass = String::class.java, defaultValue = defaultValue)
 }
 
-fun Context.getBoolean(
+fun Context.getBooleanPref(
     key: String, defaultValue: Boolean = false
 ): Boolean {
     return get(key = key, anonymousClass = Boolean::class.java, defaultValue = defaultValue)
 }
 
-fun Context.getFloat(
+fun Context.getFloatPref(
     key: String, defaultValue: Float = 0f
 ): Float {
     return get(key = key, anonymousClass = Float::class.java, defaultValue = defaultValue)
 }
 
-fun Context.getInt(
+fun Context.getIntPref(
     key: String, defaultValue: Int = 0
 ): Int {
     return get(key = key, anonymousClass = Int::class.java, defaultValue = defaultValue)
 }
 
-fun Context.getLong(
+fun Context.getLongPref(
     key: String, defaultValue: Long = 0L
 ): Long {
     return get(key = key, anonymousClass = Long::class.java, defaultValue = defaultValue)
 }
 
-fun <T> Context.getObject(
+fun <T> Context.getObjectPref(
     key: String, anonymousClass: Class<T>
 ): T {
     return get(key = key, anonymousClass = anonymousClass, defaultValue = "")
 }
 
-fun <T> Context.getObjectList(
+fun <T> Context.getObjectListPref(
     key: String, typeOfT: Type
 ): ArrayList<T> {
     val mSharedPreferences: SharedPreferences =
@@ -205,31 +205,31 @@ private fun <T> Context.get(
     }
 }
 
-fun Context.putString(
+fun Context.putStringPref(
     key: String, data: String
 ) {
     put(key = key, data = data)
 }
 
-fun Context.putBoolean(
+fun Context.putBooleanPref(
     key: String, data: Boolean
 ) {
     put(key = key, data = data)
 }
 
-fun Context.putFloat(
+fun Context.putFloatPref(
     key: String, data: Float
 ) {
     put(key = key, data = data)
 }
 
-fun Context.putInt(
+fun Context.putIntPref(
     key: String, data: Int
 ) {
     put(key = key, data = data)
 }
 
-fun Context.putLong(
+fun Context.putLongPref(
     key: String, data: Long
 ) {
     put(key = key, data = data)

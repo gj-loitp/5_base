@@ -14,7 +14,7 @@ import com.loitp.data.EventBusData
  */
 fun Context.initOnNetworkChange() {
     val isConnected = isConnected()
-    putBoolean(
+    putBooleanPref(
         KEY_BOOLEAN_IS_CONNECTED_NETWORK,
         isConnected
     )
@@ -39,9 +39,9 @@ fun Context.isConnected(): Boolean {
 fun Context.onNetworkConnectionChanged(isConnected: Boolean?) {
     if (isConnected == true) {
         val prevIsConnectedNetwork =
-            getBoolean(KEY_BOOLEAN_IS_CONNECTED_NETWORK)
+            getBooleanPref(KEY_BOOLEAN_IS_CONNECTED_NETWORK)
         if (prevIsConnectedNetwork != isConnected) {
-            putBoolean(
+            putBooleanPref(
                 key = KEY_BOOLEAN_IS_CONNECTED_NETWORK,
                 data = true
             )
@@ -49,9 +49,9 @@ fun Context.onNetworkConnectionChanged(isConnected: Boolean?) {
         }
     } else {
         val prevIsConnectedNetwork =
-            getBoolean(KEY_BOOLEAN_IS_CONNECTED_NETWORK)
+            getBooleanPref(KEY_BOOLEAN_IS_CONNECTED_NETWORK)
         if (prevIsConnectedNetwork != isConnected) {
-            putBoolean(
+            putBooleanPref(
                 key = KEY_BOOLEAN_IS_CONNECTED_NETWORK,
                 data = false
             )
