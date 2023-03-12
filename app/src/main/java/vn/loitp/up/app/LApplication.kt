@@ -9,6 +9,7 @@ import com.loitp.core.common.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
 import com.loitp.core.helper.ttt.db.TTTDatabase
 import com.loitp.data.ActivityData
 import com.onesignal.OneSignal
+import io.github.kbiakov.codeview.classifier.CodeProcessor
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.BuildConfig
@@ -63,6 +64,8 @@ class LApplication : BaseApplication() {
 //        setupTrackingG1()
 
         logE("currentActivity() ${currentActivity()}")
+
+        CodeProcessor.init(this)
     }
 
     @Suppress("unused")
