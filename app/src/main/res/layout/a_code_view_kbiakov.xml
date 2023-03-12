@@ -11,23 +11,32 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.factor.bouncy.BouncyNestedScrollView
-        android:layout_width="match_parent"
+    <!--    <com.factor.bouncy.BouncyNestedScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/lActionBar">-->
+
+    <!--        <androidx.appcompat.widget.LinearLayoutCompat-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="vertical">-->
+
+    <!--            <io.github.kbiakov.codeview.CodeView-->
+    <!--                android:id="@+id/codeView"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content" />-->
+    <!--        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+    <!--    </com.factor.bouncy.BouncyNestedScrollView>-->
+
+    <io.github.kbiakov.codeview.CodeView
+        android:id="@+id/codeView"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lActionBar">
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <io.github.kbiakov.codeview.CodeView
-                android:id="@+id/codeView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-    </com.factor.bouncy.BouncyNestedScrollView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lActionBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
