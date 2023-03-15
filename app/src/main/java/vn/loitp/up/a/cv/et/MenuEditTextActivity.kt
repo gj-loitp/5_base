@@ -15,8 +15,8 @@ import vn.loitp.a.cv.et.autoSuggest.EditTextAutoSuggestActivityFont
 import vn.loitp.a.cv.et.currency.CurrencyEditTextActivityFont
 import vn.loitp.a.cv.et.l.LEditTextActivity
 import vn.loitp.a.cv.et.materialTextField.MaterialTextFieldActivityFont
-import vn.loitp.a.cv.et.otpView.OtpViewActivityFont
-import vn.loitp.a.cv.et.textWatcher.EditTextTextWatcherActivityFont
+import vn.loitp.up.a.cv.et.otpView.OtpViewActivity
+import vn.loitp.up.a.cv.et.textWatcher.EditTextTextWatcherActivity
 import vn.loitp.databinding.AEtMenuBinding
 
 @LogTag("EditTextMenuActivity")
@@ -64,13 +64,13 @@ class MenuEditTextActivity : BaseActivityFont() {
             launchActivity(LEditTextActivity::class.java)
         }
         binding.btEditextTextWatcher.setSafeOnClickListener {
-            launchActivity(EditTextTextWatcherActivityFont::class.java)
+            launchActivity(EditTextTextWatcherActivity::class.java)
         }
         binding.btCurrencyEditText.setSafeOnClickListener {
             launchActivity(CurrencyEditTextActivityFont::class.java)
         }
         binding.btOTPView.setSafeOnClickListener {
-            launchActivity(OtpViewActivityFont::class.java)
+            launchActivity(OtpViewActivity::class.java)
         }
     }
 }
