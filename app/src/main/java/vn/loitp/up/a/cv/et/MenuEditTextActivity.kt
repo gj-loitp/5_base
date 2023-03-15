@@ -9,8 +9,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivityFont
-import vn.loitp.a.cv.et.autoResize.AutoResizeEditTextActivityFont
+import vn.loitp.up.a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivity
+import vn.loitp.up.a.cv.et.autoResize.AutoResizeEditTextActivity
 import vn.loitp.up.a.cv.et.autoSuggest.EditTextAutoSuggestActivity
 import vn.loitp.up.a.cv.et.currency.CurrencyEditTextActivity
 import vn.loitp.up.a.cv.et.l.LEditTextActivity
@@ -49,10 +49,10 @@ class MenuEditTextActivity : BaseActivityFont() {
             this.tvTitle?.text = MenuEditTextActivity::class.java.simpleName
         }
         binding.btAnimatedExpandableEditText.setSafeOnClickListener {
-            launchActivity(AnimatedExpandableEditTextActivityFont::class.java)
+            launchActivity(AnimatedExpandableEditTextActivity::class.java)
         }
         binding.btAutoResizeEditText.setSafeOnClickListener {
-            launchActivity(AutoResizeEditTextActivityFont::class.java)
+            launchActivity(AutoResizeEditTextActivity::class.java)
         }
         binding.btMaterialTextField.setSafeOnClickListener {
             launchActivity(MaterialTextFieldActivity::class.java)

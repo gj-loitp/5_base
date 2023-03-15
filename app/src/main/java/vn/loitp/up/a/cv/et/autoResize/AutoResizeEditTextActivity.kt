@@ -1,36 +1,41 @@
-package vn.loitp.a.cv.et.autoResize
+package vn.loitp.up.a.cv.et.autoResize
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_et_auto_resize.*
-import vn.loitp.R
+import vn.loitp.databinding.AEtAutoResizeBinding
 
 @LogTag("AutoResizeEditTextActivity")
 @IsFullScreen(false)
-class AutoResizeEditTextActivityFont : BaseActivityFont() {
+class AutoResizeEditTextActivity : BaseActivityFont() {
+    private lateinit var binding: AEtAutoResizeBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_et_auto_resize
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AEtAutoResizeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = AutoResizeEditTextActivityFont::class.java.simpleName
+            this.tvTitle?.text = AutoResizeEditTextActivity::class.java.simpleName
         }
     }
 }
