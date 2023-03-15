@@ -146,7 +146,7 @@
             android:name=".a.cv.bt.circularImageClick.CircularImageClickActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.et.MenuEditTextActivity"
+            android:name=".up.a.cv.et.MenuEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.et.materialTextField.MaterialTextFieldActivityFont"

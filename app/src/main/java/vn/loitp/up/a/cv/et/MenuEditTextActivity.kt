@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.et
+package vn.loitp.up.a.cv.et
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -6,10 +6,9 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_et_menu.*
-import vn.loitp.R
 import vn.loitp.a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivityFont
 import vn.loitp.a.cv.et.autoResize.AutoResizeEditTextActivityFont
 import vn.loitp.a.cv.et.autoSuggest.EditTextAutoSuggestActivityFont
@@ -18,24 +17,29 @@ import vn.loitp.a.cv.et.l.LEditTextActivity
 import vn.loitp.a.cv.et.materialTextField.MaterialTextFieldActivityFont
 import vn.loitp.a.cv.et.otpView.OtpViewActivityFont
 import vn.loitp.a.cv.et.textWatcher.EditTextTextWatcherActivityFont
+import vn.loitp.databinding.AEtMenuBinding
 
 @LogTag("EditTextMenuActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class MenuEditTextActivity : BaseActivityFont() {
+    private lateinit var binding: AEtMenuBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_et_menu
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AEtMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -44,28 +48,28 @@ class MenuEditTextActivity : BaseActivityFont() {
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = MenuEditTextActivity::class.java.simpleName
         }
-        btAnimatedExpandableEditText.setSafeOnClickListener {
+        binding.btAnimatedExpandableEditText.setSafeOnClickListener {
             launchActivity(AnimatedExpandableEditTextActivityFont::class.java)
         }
-        btAutoResizeEditText.setSafeOnClickListener {
+        binding.btAutoResizeEditText.setSafeOnClickListener {
             launchActivity(AutoResizeEditTextActivityFont::class.java)
         }
-        btMaterialTextField.setSafeOnClickListener {
+        binding.btMaterialTextField.setSafeOnClickListener {
             launchActivity(MaterialTextFieldActivityFont::class.java)
         }
-        btAutoSuggestEditText.setSafeOnClickListener {
+        binding.btAutoSuggestEditText.setSafeOnClickListener {
             launchActivity(EditTextAutoSuggestActivityFont::class.java)
         }
-        btLEditText.setSafeOnClickListener {
+        binding.btLEditText.setSafeOnClickListener {
             launchActivity(LEditTextActivity::class.java)
         }
-        btEditextTextWatcher.setSafeOnClickListener {
+        binding.btEditextTextWatcher.setSafeOnClickListener {
             launchActivity(EditTextTextWatcherActivityFont::class.java)
         }
-        btCurrencyEditText.setSafeOnClickListener {
+        binding.btCurrencyEditText.setSafeOnClickListener {
             launchActivity(CurrencyEditTextActivityFont::class.java)
         }
-        btOTPView.setSafeOnClickListener {
+        binding.btOTPView.setSafeOnClickListener {
             launchActivity(OtpViewActivityFont::class.java)
         }
     }
