@@ -149,7 +149,7 @@
             android:name=".up.a.cv.et.MenuEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.et.materialTextField.MaterialTextFieldActivityFont"
+            android:name=".up.a.cv.et.materialTextField.MaterialTextFieldActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.video.MenuVideoViewActivity"
@@ -706,7 +706,7 @@
             android:name=".a.cv.et.autoSuggest.EditTextAutoSuggestActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.et.l.LEditTextActivity"
+            android:name=".up.a.cv.et.l.LEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.demo.fragmentFlow.FragmentFlowActivity"

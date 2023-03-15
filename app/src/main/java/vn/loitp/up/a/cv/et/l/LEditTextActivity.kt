@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.et.l
+package vn.loitp.up.a.cv.et.l
 
 import android.graphics.Color
 import android.os.Bundle
@@ -11,29 +11,34 @@ import android.widget.ImageView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.hideKeyboard
 import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.et.l.LEditText
-import kotlinx.android.synthetic.main.a_et_l.*
 import vn.loitp.R
+import vn.loitp.databinding.AEtLBinding
 
 @LogTag("LEditTextActivity")
 @IsFullScreen(false)
 class LEditTextActivity : BaseActivityFont() {
+    private lateinit var binding: AEtLBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_et_l
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AEtLBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft?.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -42,7 +47,7 @@ class LEditTextActivity : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = LEditTextActivity::class.java.simpleName
         }
-        lEditTextId.apply {
+        binding.lEditTextId.apply {
             colorFocus = getColor(R.color.black)
             colorUnFocus = getColor(R.color.blue)
             colorError = getColor(R.color.red)
@@ -62,7 +67,7 @@ class LEditTextActivity : BaseActivityFont() {
             setImeiActionEditText(
                 imeOptions = EditorInfo.IME_ACTION_NEXT,
                 runnable = {
-                    lEditTextPw.editText.requestFocus()
+                    binding.lEditTextPw.editText.requestFocus()
                 }
             )
             callback = object : LEditText.Callback {
@@ -85,7 +90,7 @@ class LEditTextActivity : BaseActivityFont() {
             }
         }
         var isShowPw = false
-        lEditTextPw.apply {
+        binding.lEditTextPw.apply {
             colorFocus = getColor(R.color.black)
             colorUnFocus = getColor(R.color.blue)
             colorError = getColor(R.color.red)
@@ -136,21 +141,21 @@ class LEditTextActivity : BaseActivityFont() {
             }
         }
 
-        btLogin.setOnClickListener {
-            val id = lEditTextId.editText.text.toString()
-            val pw = lEditTextPw.editText.text.toString()
+        binding.btLogin.setOnClickListener {
+            val id = binding.lEditTextId.editText.text.toString()
+            val pw = binding.lEditTextPw.editText.text.toString()
             var isCorrectId = false
             var isCorrectPw = false
 
             if (id == "loitp") {
                 isCorrectId = true
             } else {
-                lEditTextId.showMessage("Wrong id!!!")
+                binding.lEditTextId.showMessage("Wrong id!!!")
             }
             if (pw == "123456789") {
                 isCorrectPw = true
             } else {
-                lEditTextPw.showMessage("Wrong pw!!!")
+                binding.lEditTextPw.showMessage("Wrong pw!!!")
             }
             if (isCorrectId && isCorrectPw) {
                 showShortInformation("Correct!!!")
