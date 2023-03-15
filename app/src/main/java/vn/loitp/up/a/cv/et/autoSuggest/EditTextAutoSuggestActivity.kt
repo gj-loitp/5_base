@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.et.autoSuggest
+package vn.loitp.up.a.cv.et.autoSuggest
 
 import android.graphics.Color
 import android.os.Bundle
@@ -8,6 +8,7 @@ import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.screenHeight
 import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -16,35 +17,39 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_et_auto_suggest.*
 import vn.loitp.R
+import vn.loitp.databinding.AEtAutoSuggestBinding
 
 @LogTag("EditTextAutoSuggestActivity")
 @IsFullScreen(false)
-class EditTextAutoSuggestActivityFont : BaseActivityFont() {
+class EditTextAutoSuggestActivity : BaseActivityFont() {
     private var disposableSearch: Disposable? = null
+    private lateinit var binding: AEtAutoSuggestBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_et_auto_suggest
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AEtAutoSuggestBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft?.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
                 }
             )
             this.ivIconRight?.isVisible = false
-            this.tvTitle?.text = EditTextAutoSuggestActivityFont::class.java.simpleName
+            this.tvTitle?.text = EditTextAutoSuggestActivity::class.java.simpleName
         }
-        aet0.apply {
+        binding.aet0.apply {
             this.popupHeight = screenHeight / 2
             this.vertPos = RelativePopupWindow.VerticalPosition.BELOW
             this.horizPos = RelativePopupWindow.HorizontalPosition.CENTER
@@ -56,7 +61,7 @@ class EditTextAutoSuggestActivityFont : BaseActivityFont() {
             this.setImeiAction(
                 imeOptions = EditorInfo.IME_ACTION_SEARCH,
                 runnable = {
-                    showShortInformation("Text ${aet0.editText.text}")
+                    showShortInformation("Text ${binding.aet0.editText.text}")
                 }
             )
             this.callback = object : LAutoSuggestEditText.Callback {
@@ -66,7 +71,7 @@ class EditTextAutoSuggestActivityFont : BaseActivityFont() {
             }
         }
 
-        aet1.apply {
+        binding.aet1.apply {
             this.popupWidth = screenWidth * 1 / 2
             this.popupHeight = screenHeight * 1 / 4
             this.vertPos = RelativePopupWindow.VerticalPosition.ALIGN_BOTTOM
@@ -77,7 +82,7 @@ class EditTextAutoSuggestActivityFont : BaseActivityFont() {
             this.setColorProgressBar(Color.GREEN)
             this.setBackgroundResource(R.drawable.l_bkg_horizontal)
             this.setImeiAction(EditorInfo.IME_ACTION_DONE) {
-                showShortInformation("Text ${aet1.editText.text}")
+                showShortInformation("Text ${binding.aet1.editText.text}")
             }
             this.callback = object : LAutoSuggestEditText.Callback {
                 override fun onTextChanged(text: String) {
@@ -110,10 +115,10 @@ class EditTextAutoSuggestActivityFont : BaseActivityFont() {
             }
             .subscribe(
                 {
-                    aet0.setResultList(it)
+                    binding.aet0.setResultList(it)
                 },
                 {
-                    aet0.clearResultList()
+                    binding.aet0.clearResultList()
                 }
             )
     }
@@ -141,10 +146,10 @@ class EditTextAutoSuggestActivityFont : BaseActivityFont() {
             }
             .subscribe(
                 {
-                    aet1.setResultList(it)
+                    binding.aet1.setResultList(it)
                 },
                 {
-                    aet1.clearResultList()
+                    binding.aet1.clearResultList()
                 }
             )
     }

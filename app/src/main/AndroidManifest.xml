@@ -703,7 +703,7 @@
             android:name=".up.a.cv.tv.stroked.StrokedTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.et.autoSuggest.EditTextAutoSuggestActivityFont"
+            android:name=".up.a.cv.et.autoSuggest.EditTextAutoSuggestActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.et.l.LEditTextActivity"
@@ -974,7 +974,7 @@
             android:name=".up.a.db.room.RoomActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.et.currency.CurrencyEditTextActivityFont"
+            android:name=".up.a.cv.et.currency.CurrencyEditTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:windowSoftInputMode="stateHidden" />
         <activity

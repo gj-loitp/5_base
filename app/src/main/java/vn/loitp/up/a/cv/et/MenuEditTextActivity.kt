@@ -11,8 +11,8 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.a.cv.et.animatedExpandable.AnimatedExpandableEditTextActivityFont
 import vn.loitp.a.cv.et.autoResize.AutoResizeEditTextActivityFont
-import vn.loitp.a.cv.et.autoSuggest.EditTextAutoSuggestActivityFont
-import vn.loitp.a.cv.et.currency.CurrencyEditTextActivityFont
+import vn.loitp.up.a.cv.et.autoSuggest.EditTextAutoSuggestActivity
+import vn.loitp.up.a.cv.et.currency.CurrencyEditTextActivity
 import vn.loitp.up.a.cv.et.l.LEditTextActivity
 import vn.loitp.up.a.cv.et.materialTextField.MaterialTextFieldActivity
 import vn.loitp.up.a.cv.et.otpView.OtpViewActivity
@@ -58,7 +58,7 @@ class MenuEditTextActivity : BaseActivityFont() {
             launchActivity(MaterialTextFieldActivity::class.java)
         }
         binding.btAutoSuggestEditText.setSafeOnClickListener {
-            launchActivity(EditTextAutoSuggestActivityFont::class.java)
+            launchActivity(EditTextAutoSuggestActivity::class.java)
         }
         binding.btLEditText.setSafeOnClickListener {
             launchActivity(LEditTextActivity::class.java)
@@ -67,7 +67,7 @@ class MenuEditTextActivity : BaseActivityFont() {
             launchActivity(EditTextTextWatcherActivity::class.java)
         }
         binding.btCurrencyEditText.setSafeOnClickListener {
-            launchActivity(CurrencyEditTextActivityFont::class.java)
+            launchActivity(CurrencyEditTextActivity::class.java)
         }
         binding.btOTPView.setSafeOnClickListener {
             launchActivity(OtpViewActivity::class.java)
