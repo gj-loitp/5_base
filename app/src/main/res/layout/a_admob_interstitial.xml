@@ -29,7 +29,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:text="@string/impossible_game"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textColor="@color/red" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/timer"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/game_title"
             android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textColor="@color/red" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/retry_button"
