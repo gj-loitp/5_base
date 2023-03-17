@@ -1,5 +1,6 @@
 package vn.loitp.up.a.demo.ad.interstitial
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
@@ -112,6 +113,7 @@ class InterstitialActivity : BaseActivityFont() {
 
     // Create the game timer, which counts down to the end of the level
     // and shows the "retry" button.
+    @SuppressLint("SetTextI18n")
     private fun createTimer(milliseconds: Long) {
         countdownTimer?.cancel()
         countdownTimer =
