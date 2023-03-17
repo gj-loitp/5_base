@@ -186,6 +186,10 @@ dependencies {
     api 'com.google.firebase:firebase-crashlytics-ktx'
     api 'com.google.firebase:firebase-config-ktx'
     api 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
+
+    //admob
+    api 'com.google.android.gms:play-services-ads:21.5.0'
+
 //    https://github.com/nikartm/FitButton
     api 'io.github.nikartm:fit-button:2.0.0'
 //    https://github.com/google/flexbox-layout
@@ -278,4 +282,3 @@ dependencies {
     // debugImplementation because LeakCanary should only run in debug builds.
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.10'
 }
-//apply plugin: 'com.google.gms.google-services'

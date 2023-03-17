@@ -127,9 +127,6 @@ Likewise may someone love you next.
     <string name="rxjava_2">RxJava 2</string>
     <string name="retrofit_2">Retrofit 2</string>
     <string name="menu_ads">Menu Ads</string>
-    <string name="admob_banner">Admob banner</string>
-    <string name="admob_interstitial">Admob Interstitial</string>
-    <string name="admob_rewarded_video">Admob rewarded video</string>
     <string name="main_menu">Main Menu</string>
     <string name="api">API</string>
     <string name="ads">Ads</string>
