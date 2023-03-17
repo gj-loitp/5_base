@@ -2,7 +2,6 @@ package vn.loitp.up.a.demo.ad.adaptiveBanner
 
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.util.Log
 import com.google.android.gms.ads.*
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
@@ -19,7 +18,7 @@ import vn.loitp.databinding.AAdmobAdaptiveBannerBinding
 class AdaptiveBannerActivity : BaseActivityFont() {
 
     private lateinit var binding: AAdmobAdaptiveBannerBinding
-    private lateinit var adView: AdView
+    private var adView: AdView? = null
     private var initialLayoutComplete = false
 
     // Determine the screen width (less decorations) to use for the ad width.
@@ -100,26 +99,28 @@ class AdaptiveBannerActivity : BaseActivityFont() {
     }
 
     private fun loadBanner() {
-        adView.adUnitId = getString(R.string.admob_test_adaptive_banner_id)
-        adView.setAdSize(adSize)
-        // Create an ad request.
-        val adRequest = AdRequest.Builder().build()
-        // Start loading the ad in the background.
-        adView.loadAd(adRequest)
+        adView?.let { ad ->
+            ad.adUnitId = getString(R.string.admob_test_adaptive_banner_id)
+            ad.setAdSize(adSize)
+            // Create an ad request.
+            val adRequest = AdRequest.Builder().build()
+            // Start loading the ad in the background.
+            ad.loadAd(adRequest)
+        }
     }
 
     public override fun onPause() {
-        adView.pause()
+        adView?.pause()
         super.onPause()
     }
 
     public override fun onResume() {
         super.onResume()
-        adView.resume()
+        adView?.resume()
     }
 
     public override fun onDestroy() {
-        adView.destroy()
+        adView?.destroy()
         super.onDestroy()
     }
 }
