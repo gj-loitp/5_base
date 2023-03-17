@@ -86,6 +86,25 @@ android {
             outputFileName = defaultConfig.applicationId + buildType.name + "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk"
         }
     }
+
+    flavorDimensions "type"
+    productFlavors {
+
+        dev {
+//            applicationId = "com.roy93group.forecast.dev"
+            dimension "type"
+            buildConfigField("String", "FLAVOR_buildEnv", '"dev"')
+            resValue "string", "app_name", "Base DEV"
+        }
+
+        production {
+//            applicationId = "com.roy93group.forecast.prod"
+            dimension "type"
+            buildConfigField("String", "FLAVOR_buildEnv", '"prod"')
+            resValue "string", "app_name", "Base"
+        }
+
+    }
 }
 
 repositories {
