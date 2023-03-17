@@ -1,4 +1,4 @@
-package vn.loitp.up.a.demo.ad
+package vn.loitp.up.a.demo.ad.adaptiveBanner
 
 import android.os.Bundle
 import com.loitp.annotation.IsAutoAnimation
@@ -6,19 +6,16 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.*
-import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.databinding.AMenuAdBinding
-import vn.loitp.up.a.demo.ad.adaptiveBanner.AdaptiveBannerActivity
-import vn.loitp.up.a.demo.ad.banner.BannerActivity
+import vn.loitp.databinding.AAdmobAdaptiveBannerBinding
 
-@LogTag("MenuAdActivity")
+@LogTag("AdaptiveBannerActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
-class MenuAdActivity : BaseActivityFont() {
+class AdaptiveBannerActivity : BaseActivityFont() {
 
-    private lateinit var binding: AMenuAdBinding
+    private lateinit var binding: AAdmobAdaptiveBannerBinding
 
     override fun setLayoutResourceId(): Int {
         return NOT_FOUND
@@ -27,7 +24,7 @@ class MenuAdActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = AMenuAdBinding.inflate(layoutInflater)
+        binding = AAdmobAdaptiveBannerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupViews()
@@ -41,15 +38,13 @@ class MenuAdActivity : BaseActivityFont() {
                 }
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
-            this.tvTitle?.text = MenuAdActivity::class.java.simpleName
-        }
-        binding.btAdaptiveBanner.setSafeOnClickListener {
-            launchActivity(AdaptiveBannerActivity::class.java)
-        }
-        binding.btBanner.setSafeOnClickListener {
-            launchActivity(BannerActivity::class.java)
+            this.tvTitle?.text = AdaptiveBannerActivity::class.java.simpleName
         }
 
+        setupAdmob()
     }
 
+    private fun setupAdmob() {
+
+    }
 }

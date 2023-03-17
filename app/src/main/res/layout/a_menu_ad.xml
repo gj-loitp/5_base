@@ -25,6 +25,11 @@
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAdaptiveBanner"
+                style="@style/ButtonMenu"
+                android:text="Adaptive Banner" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBanner"
                 style="@style/ButtonMenu"
                 android:text="Banner" />
