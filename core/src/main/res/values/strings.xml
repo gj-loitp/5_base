@@ -222,4 +222,5 @@
     <string name="admob_test_device_id_lg_v60" tools:ignore="Typos">969A00745257B14B6AF8C9BD1D6E02EC</string>
     <string name="admob_test_device_id_samsung_a50">D2CA64E6296C2FA32565EF6A4DC09533</string>
     <string name="admob_test_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_test_adaptive_banner_id">"ca-app-pub-3940256099942544/9214589741"</string>
 </resources>
