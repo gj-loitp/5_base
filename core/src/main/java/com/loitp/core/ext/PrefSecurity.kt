@@ -16,59 +16,59 @@ import java.lang.reflect.Type
 private const val PREFS_NAME = "PrefSecurity"
 private const val pw = "roy93group"
 
-fun Context.getStringSecurity(
+fun Context.getStringSecurityPref(
     key: String, defaultValue: String = ""
 ): String {
-    return getPrefSecurity(
+    return getPrefSecurityPref(
         key = key,
         anonymousClass = String::class.java,
         defaultValue = defaultValue
     )
 }
 
-fun Context.getBooleanSecurity(
+fun Context.getBooleanSecurityPref(
     key: String, defaultValue: Boolean = false
 ): Boolean {
-    return getPrefSecurity(
+    return getPrefSecurityPref(
         key = key,
         anonymousClass = Boolean::class.java,
         defaultValue = defaultValue
     )
 }
 
-fun Context.getFloatSecurity(
+fun Context.getFloatSecurityPref(
     key: String, defaultValue: Float = 0f
 ): Float {
-    return getPrefSecurity(
+    return getPrefSecurityPref(
         key = key,
         anonymousClass = Float::class.java,
         defaultValue = defaultValue
     )
 }
 
-fun Context.getIntSecurity(
+fun Context.getIntSecurityPref(
     key: String, defaultValue: Int = 0
 ): Int {
-    return getPrefSecurity(key = key, anonymousClass = Int::class.java, defaultValue = defaultValue)
+    return getPrefSecurityPref(key = key, anonymousClass = Int::class.java, defaultValue = defaultValue)
 }
 
-fun Context.getLongSecurity(
+fun Context.getLongSecurityPref(
     key: String, defaultValue: Long = 0L
 ): Long {
-    return getPrefSecurity(
+    return getPrefSecurityPref(
         key = key,
         anonymousClass = Long::class.java,
         defaultValue = defaultValue
     )
 }
 
-fun <T> Context.getObjectSecurity(
+fun <T> Context.getObjectSecurityPref(
     key: String, anonymousClass: Class<T>
 ): T {
-    return getPrefSecurity(key = key, anonymousClass = anonymousClass, defaultValue = "")
+    return getPrefSecurityPref(key = key, anonymousClass = anonymousClass, defaultValue = "")
 }
 
-fun <T> Context.getObjectListSecurity(
+fun <T> Context.getObjectListSecurityPref(
     key: String, typeOfT: Type
 ): ArrayList<T> {
     val mSharedPreferences: SharedPreferences =
@@ -85,7 +85,7 @@ fun <T> Context.getObjectListSecurity(
 }
 
 @Suppress("UNCHECKED_CAST")
-private fun <T> Context.getPrefSecurity(
+private fun <T> Context.getPrefSecurityPref(
     key: String, anonymousClass: Class<T>, defaultValue: Any
 ): T {
     val mSharedPreferences: SharedPreferences =
@@ -158,7 +158,7 @@ private fun <T> Context.getPrefSecurity(
     }
 }
 
-fun <T> Context.putPrefSecurity(
+fun <T> Context.putPrefSecurityPref(
     key: String, data: T
 ) {
     val mSharedPreferences: SharedPreferences =
@@ -178,7 +178,7 @@ fun <T> Context.putPrefSecurity(
     }
 }
 
-fun Context.clearPrefSecurity() {
+fun Context.clearPrefSecurityPref() {
     val mSharedPreferences: SharedPreferences =
         this.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     mSharedPreferences.edit().clear().apply()

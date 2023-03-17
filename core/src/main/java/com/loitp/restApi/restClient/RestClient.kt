@@ -24,11 +24,11 @@ import java.util.concurrent.TimeUnit
  */
 object RestClient {
     @Suppress("unused")
-    private const val TIMEOUT_TIME = 1
-    private const val CONNECT_TIMEOUT_TIME = 20L
+    const val TIMEOUT_TIME = 1
+    const val CONNECT_TIMEOUT_TIME = 20L
     private const val AUTHORIZATION = "Authorization"
     private var retrofit: Retrofit? = null
-    private var restRequestInterceptor = RestRequestInterceptor()
+    var restRequestInterceptor = RestRequestInterceptor()
 
     @JvmOverloads
     fun init(baseApiUrl: String, token: String = "") {

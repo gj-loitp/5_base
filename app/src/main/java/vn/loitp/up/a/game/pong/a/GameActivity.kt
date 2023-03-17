@@ -6,6 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
+import com.loitp.core.ext.getSerializableCompat
 import com.loitp.core.ext.hideDefaultControls
 import vn.loitp.databinding.APongGameBinding
 import vn.loitp.up.a.game.pong.pong.Settings
@@ -23,7 +24,9 @@ class GameActivity : BaseActivityFont() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        settings = intent.getSerializableExtra("settings") as Settings
+        settings =
+            intent?.extras?.getSerializableCompat("settings", Settings::class.java) as Settings
+
         super.onCreate(savedInstanceState)
 
         binding = APongGameBinding.inflate(layoutInflater)

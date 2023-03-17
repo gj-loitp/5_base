@@ -62,28 +62,28 @@ class EncryptionSharedPrefsActivity : BaseActivityFont() {
         }
 
         binding.btClearAll.setSafeOnClickListener {
-            this.clearPrefSecurity()
+            this.clearPrefSecurityPref()
         }
 
         binding.btPutString.setSafeOnClickListener {
-            putPrefSecurity(
+            putPrefSecurityPref(
                 KEY_STRING,
                 "This is a string!!! " + System.currentTimeMillis()
             )
         }
         binding.btGetString.setSafeOnClickListener {
-            val value = getStringSecurity(KEY_STRING)
+            val value = getStringSecurityPref(KEY_STRING)
             showLongInformation(value)
         }
 
         binding.btPutStringWithDefaultValue.setSafeOnClickListener {
-            putPrefSecurity(
+            putPrefSecurityPref(
                 KEY_STRING_WITH_DEFAULT_VALUE,
                 "This is a string!!! " + System.currentTimeMillis()
             )
         }
         binding.btGetStringWithDefaultValue.setSafeOnClickListener {
-            val value = getStringSecurity(
+            val value = getStringSecurityPref(
                 KEY_STRING_WITH_DEFAULT_VALUE,
                 "Default value"
             )
@@ -91,34 +91,34 @@ class EncryptionSharedPrefsActivity : BaseActivityFont() {
         }
 
         binding.btPutBoolean.setSafeOnClickListener {
-            putPrefSecurity(KEY_BOOLEAN, true)
+            putPrefSecurityPref(KEY_BOOLEAN, true)
         }
         binding.btGetBoolean.setSafeOnClickListener {
-            val value = getBooleanSecurity(KEY_BOOLEAN)
+            val value = getBooleanSecurityPref(KEY_BOOLEAN)
             showLongInformation("Value: $value")
         }
 
         binding.btPutFloat.setSafeOnClickListener {
-            putPrefSecurity(KEY_FLOAT, System.currentTimeMillis().toFloat())
+            putPrefSecurityPref(KEY_FLOAT, System.currentTimeMillis().toFloat())
         }
         binding.btGetFloat.setSafeOnClickListener {
-            val value = getFloatSecurity(KEY_FLOAT)
+            val value = getFloatSecurityPref(KEY_FLOAT)
             showLongInformation("Value: $value")
         }
 
         binding.btPutInt.setSafeOnClickListener {
-            putPrefSecurity(KEY_INT, System.currentTimeMillis().toInt())
+            putPrefSecurityPref(KEY_INT, System.currentTimeMillis().toInt())
         }
         binding.btGetInt.setSafeOnClickListener {
-            val value = getIntSecurity(KEY_INT)
+            val value = getIntSecurityPref(KEY_INT)
             showLongInformation("Value: $value")
         }
 
         binding.btPutLong.setSafeOnClickListener {
-            putPrefSecurity(KEY_LONG, System.currentTimeMillis())
+            putPrefSecurityPref(KEY_LONG, System.currentTimeMillis())
         }
         binding.btGetLong.setSafeOnClickListener {
-            val value = getLongSecurity(KEY_LONG)
+            val value = getLongSecurityPref(KEY_LONG)
             showLongInformation("Value: $value")
         }
 
@@ -126,10 +126,10 @@ class EncryptionSharedPrefsActivity : BaseActivityFont() {
             val user = User()
             user.email = "Email ${System.currentTimeMillis()}"
             user.fullName = "Name ${System.currentTimeMillis()}"
-            putPrefSecurity(KEY_OBJECT, user)
+            putPrefSecurityPref(KEY_OBJECT, user)
         }
         binding.btGetObject.setSafeOnClickListener {
-            val value = getObjectSecurity(KEY_OBJECT, User::class.java)
+            val value = getObjectSecurityPref(KEY_OBJECT, User::class.java)
             showLongInformation("Value: " + BaseApplication.gson.toJson(value))
         }
 
@@ -141,12 +141,12 @@ class EncryptionSharedPrefsActivity : BaseActivityFont() {
                 user.fullName = "Name ${System.currentTimeMillis()}"
                 list.add(user)
             }
-            putPrefSecurity(KEY_LIST_OBJECT, list)
+            putPrefSecurityPref(KEY_LIST_OBJECT, list)
         }
         binding.btListGetObject.setSafeOnClickListener {
             val type = object : TypeToken<List<User>>() {
             }.type
-            val value: ArrayList<User> = getObjectListSecurity(
+            val value: ArrayList<User> = getObjectListSecurityPref(
                 key = KEY_LIST_OBJECT,
                 typeOfT = type
             )

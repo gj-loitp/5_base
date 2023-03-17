@@ -71,8 +71,10 @@ class FrmListPackage : BaseFragmentFlow() {
         getPkgFromGGDrive(
             linkGGDriveSetting = "https://drive.google.com/uc?export=download&id=1bF_xmaIGsre7c-aGeDhgSnWH7IYoqq8K",
             onGGFailure = { _, e ->
-                hideDialogProgress()
-                showShortError(e.toString())
+                activity?.runOnUiThread {
+                    hideDialogProgress()
+                    showShortError(e.toString())
+                }
             },
             onGGResponse = { pkg ->
                 activity?.runOnUiThread {

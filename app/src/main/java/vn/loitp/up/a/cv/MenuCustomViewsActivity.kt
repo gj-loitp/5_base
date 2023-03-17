@@ -23,8 +23,8 @@ import vn.loitp.a.cv.cv.CardViewActivity
 import vn.loitp.a.cv.dlg.MenuDialogActivity
 import vn.loitp.a.cv.dragView.MenuDragViewActivity
 import vn.loitp.a.cv.draggableFlipView.DraggableFlipViewActivity
-import vn.loitp.a.cv.et.MenuEditTextActivity
-import vn.loitp.a.cv.fancyShowcase.FancyShowcaseActivity
+import vn.loitp.up.a.cv.et.MenuEditTextActivity
+import vn.loitp.up.a.cv.fancyShowcase.FancyShowcaseActivity
 import vn.loitp.up.a.cv.fbCmt.FacebookCommentActivity
 import vn.loitp.up.a.cv.fingerPaintView.FingerPaintActivity
 import vn.loitp.up.a.cv.graph.MenuGraphViewActivity
@@ -126,6 +126,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
         binding.btMenuGraphViewActivity.setOnClickListener(this)
         binding.btSimpleRatingBar.setOnClickListener(this)
         binding.btCodeView.setOnClickListener(this)
+        binding.btCodeViewKbiakov.setOnClickListener(this)
         binding.btWheelView.setOnClickListener(this)
         binding.btLuckyWheelActivity.setOnClickListener(this)
         binding.btCornerSheet.setOnClickListener(this)
@@ -176,6 +177,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
             binding.btMenuGraphViewActivity -> launchActivity(MenuGraphViewActivity::class.java)
             binding.btSimpleRatingBar -> launchActivity(SimpleRatingBarActivity::class.java)
             binding.btCodeView -> launchActivity(CodeViewActivity::class.java)
+            binding.btCodeViewKbiakov -> launchActivity(vn.loitp.a.cv.codeView.CodeViewActivity::class.java)
             binding.btWheelView -> launchActivity(WheelViewActivity::class.java)
             binding.btLuckyWheelActivity -> launchActivity(LuckyWheelActivity::class.java)
             binding.btCornerSheet -> launchActivity(CornetSheetExampleActivity::class.java)
