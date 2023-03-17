@@ -10,6 +10,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.*
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
+import vn.loitp.BuildConfig
 import vn.loitp.databinding.AAdmobAdaptiveBannerBinding
 
 @LogTag("AdaptiveBannerActivity")
@@ -100,7 +101,7 @@ class AdaptiveBannerActivity : BaseActivityFont() {
 
     private fun loadBanner() {
         adView?.let { ad ->
-            ad.adUnitId = getString(R.string.admob_test_adaptive_banner_id)
+            ad.adUnitId = getString(R.string.admob_adaptive_banner_id)
             ad.setAdSize(adSize)
             // Create an ad request.
             val adRequest = AdRequest.Builder().build()

@@ -21,7 +21,7 @@ import vn.loitp.databinding.AAdmobInterstitialBinding
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class InterstitialActivity : BaseActivityFont() {
-
+    private val GAME_LENGTH_MILLISECONDS = 3000L
     private lateinit var binding: AAdmobInterstitialBinding
     private var interstitialAd: InterstitialAd? = null
     private var countdownTimer: CountDownTimer? = null
@@ -89,7 +89,7 @@ class InterstitialActivity : BaseActivityFont() {
         val adRequest = AdRequest.Builder().build()
         InterstitialAd.load(
             /* context = */ this,
-            /* adUnitId = */ getString(R.string.admob_test_interstitial_id),
+            /* adUnitId = */ getString(R.string.admob_interstitial_id),
             /* adRequest = */ adRequest,
             /* loadCallback = */ object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
@@ -197,5 +197,3 @@ class InterstitialActivity : BaseActivityFont() {
         super.onPause()
     }
 }
-
-const val GAME_LENGTH_MILLISECONDS = 3000L

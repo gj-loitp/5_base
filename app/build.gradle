@@ -95,6 +95,11 @@ android {
             dimension "type"
             buildConfigField("String", "FLAVOR_buildEnv", '"dev"')
             resValue "string", "app_name", "Base DEV"
+
+            resValue("string", "ADMOB_APP_ID", "ca-app-pub-3940256099942544~3347511713")
+            resValue("string", "admob_banner_id", "ca-app-pub-3940256099942544/6300978111")
+            resValue("string", "admob_adaptive_banner_id", "ca-app-pub-3940256099942544/9214589741")
+            resValue("string", "admob_interstitial_id", "ca-app-pub-3940256099942544/1033173712")
         }
 
         production {
@@ -102,6 +107,12 @@ android {
             dimension "type"
             buildConfigField("String", "FLAVOR_buildEnv", '"prod"')
             resValue "string", "app_name", "Base"
+
+            //TODO update admob value for production
+            resValue("string", "ADMOB_APP_ID", "ca-app-pub-3940256099942544~3347511713")
+            resValue("string", "admob_banner_id", "ca-app-pub-3940256099942544/6300978111")
+            resValue("string", "admob_adaptive_banner_id", "ca-app-pub-3940256099942544/9214589741")
+            resValue("string", "admob_interstitial_id", "ca-app-pub-3940256099942544/1033173712")
         }
 
     }

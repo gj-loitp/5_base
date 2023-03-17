@@ -1,7 +1,6 @@
 package vn.loitp.up.a.demo.ad.banner
 
 import android.os.Bundle
-import android.util.Log
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration

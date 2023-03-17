@@ -1473,12 +1473,9 @@
             android:name=".up.a.demo.ad.interstitial.InterstitialActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
-
-        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
-        <!--        TODO change real admob app id-->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/admob_test_app_id" />
+            android:value="@string/ADMOB_APP_ID" />
     </application>
     <queries>
         <intent>

@@ -218,10 +218,6 @@
 \nIt’s those little bits of good put together that overwhelm the world.
 \nDon’t just think, do it. Now it is you turn, do it now, download my apps and rate 5 stars. Thank you!
 \nhttps://play.google.com/store/apps/dev?id=9198084038765766736</string>
-    <string name="admob_test_app_id">ca-app-pub-3940256099942544~3347511713</string>
     <string name="admob_test_device_id_lg_v60" tools:ignore="Typos">969A00745257B14B6AF8C9BD1D6E02EC</string>
     <string name="admob_test_device_id_samsung_a50">D2CA64E6296C2FA32565EF6A4DC09533</string>
-    <string name="admob_test_banner_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="admob_test_adaptive_banner_id">ca-app-pub-3940256099942544/9214589741</string>
-    <string name="admob_test_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>
 </resources>
