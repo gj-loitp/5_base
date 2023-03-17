@@ -1180,4 +1180,6 @@ Likewise may someone love you next.
     <string name="utils_core">Utils Core</string>
     <string name="feedback">Feedback</string>
     <string name="flutter_tutorial">Flutter Tutorial</string>
+    <string name="impossible_game">Impossible Game</string>
+    <string name="retry_button_text">Retry</string>
 </resources>
