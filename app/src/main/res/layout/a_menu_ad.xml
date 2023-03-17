@@ -33,6 +33,11 @@
                 android:id="@+id/btBanner"
                 style="@style/ButtonMenu"
                 android:text="Banner" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btInterstitial"
+                style="@style/ButtonMenu"
+                android:text="Interstitial" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>

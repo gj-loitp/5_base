@@ -12,6 +12,7 @@ import vn.loitp.R
 import vn.loitp.databinding.AMenuAdBinding
 import vn.loitp.up.a.demo.ad.adaptiveBanner.AdaptiveBannerActivity
 import vn.loitp.up.a.demo.ad.banner.BannerActivity
+import vn.loitp.up.a.demo.ad.interstitial.InterstitialActivity
 
 @LogTag("MenuAdActivity")
 @IsFullScreen(false)
@@ -48,6 +49,9 @@ class MenuAdActivity : BaseActivityFont() {
         }
         binding.btBanner.setSafeOnClickListener {
             launchActivity(BannerActivity::class.java)
+        }
+        binding.btInterstitial.setSafeOnClickListener {
+            launchActivity(InterstitialActivity::class.java)
         }
 
     }
