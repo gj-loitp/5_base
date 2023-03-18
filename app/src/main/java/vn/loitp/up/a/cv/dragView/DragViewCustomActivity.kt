@@ -1,6 +1,7 @@
 package vn.loitp.up.a.cv.dragView
 
 import android.os.Bundle
+import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
@@ -8,7 +9,6 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.tuanhav95.drag.DragView
 import com.tuanhav95.drag.utils.toPx
-import kotlinx.android.synthetic.main.l_drag_view_bottom.*
 import vn.loitp.R
 import vn.loitp.databinding.ADragViewCustomBinding
 import vn.loitp.up.a.cv.dragView.frm.BottomFragment
@@ -51,6 +51,8 @@ class DragViewCustomActivity : BaseActivityFont() {
 
             override fun onChangePercent(percent: Float) {
                 binding.alpha.alpha = 1 - percent
+
+                val shadow = findViewById<View>(R.id.shadow)
                 shadow.alpha = percent
             }
         })
