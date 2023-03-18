@@ -9,12 +9,13 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.a_menu_drag_view.*
 import vn.loitp.R
+import vn.loitp.databinding.AMenuDragViewBinding
 
 @LogTag("MenuDragViewActivity")
 @IsFullScreen(false)
 class MenuDragViewActivity : BaseActivityFont() {
+    private lateinit var binding: AMenuDragViewBinding
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_menu_drag_view
@@ -22,11 +23,15 @@ class MenuDragViewActivity : BaseActivityFont() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AMenuDragViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -35,15 +40,15 @@ class MenuDragViewActivity : BaseActivityFont() {
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = MenuDragViewActivity::class.java.simpleName
         }
-        btnNormal.setSafeOnClickListener {
+        binding.btnNormal.setSafeOnClickListener {
             startActivity(Intent(this, NormalActivity::class.java))
             this.tranIn()
         }
-        btnCustom.setSafeOnClickListener {
+        binding.btnCustom.setSafeOnClickListener {
             startActivity(Intent(this, DragViewCustomActivity::class.java))
             this.tranIn()
         }
-        btnExoplayer.setSafeOnClickListener {
+        binding.btnExoplayer.setSafeOnClickListener {
             startActivity(Intent(this, ExoPlayerActivity::class.java))
             this.tranIn()
         }

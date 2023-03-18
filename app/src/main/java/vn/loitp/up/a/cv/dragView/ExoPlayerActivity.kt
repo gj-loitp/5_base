@@ -8,9 +8,9 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.tuanhav95.drag.DragView
 import com.tuanhav95.drag.utils.toPx
-import kotlinx.android.synthetic.main.a_drag_view_custom.*
 import kotlinx.android.synthetic.main.l_drag_view_bottom.*
 import vn.loitp.R
+import vn.loitp.databinding.ADragViewCustomBinding
 import vn.loitp.up.a.cv.dragView.frm.BottomFragment
 import vn.loitp.up.a.cv.dragView.frm.ExoPlayerTopFragment
 import kotlin.math.max
@@ -19,6 +19,8 @@ import kotlin.math.min
 @LogTag("ExoPlayerActivity")
 @IsFullScreen(false)
 class ExoPlayerActivity : BaseActivityFont() {
+    private lateinit var binding: ADragViewCustomBinding
+
     override fun setLayoutResourceId(): Int {
         return R.layout.a_drag_view_custom
     }
@@ -26,11 +28,14 @@ class ExoPlayerActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADragViewCustomBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -40,12 +45,12 @@ class ExoPlayerActivity : BaseActivityFont() {
             this.tvTitle?.text = ExoPlayerActivity::class.java.simpleName
         }
 
-        dragView.setDragListener(object : DragView.DragListener {
+        binding.dragView.setDragListener(object : DragView.DragListener {
             override fun onChangeState(state: DragView.State) {
             }
 
             override fun onChangePercent(percent: Float) {
-                alpha.alpha = 1 - percent
+                binding.alpha.alpha = 1 - percent
                 shadow.alpha = percent
             }
         })
@@ -54,19 +59,19 @@ class ExoPlayerActivity : BaseActivityFont() {
             .commit()
         supportFragmentManager.beginTransaction().add(R.id.frameBottom, BottomFragment()).commit()
 
-        btnMax.setSafeOnClickListener { dragView.maximize() }
-        btnMin.setSafeOnClickListener { dragView.minimize() }
-        btnClose.setSafeOnClickListener { dragView.close() }
+        binding.btnMax.setSafeOnClickListener { binding.dragView.maximize() }
+        binding.btnMin.setSafeOnClickListener { binding.dragView.minimize() }
+        binding.btnClose.setSafeOnClickListener { binding.dragView.close() }
 
-        btnSetHeightMax.setSafeOnClickListener {
+        binding.btnSetHeightMax.setSafeOnClickListener {
             var heightMax = 0
-            if (etHeightMax.text?.isNotEmpty() == true) {
-                heightMax = etHeightMax.text.toString().toInt()
+            if (binding.etHeightMax.text?.isNotEmpty() == true) {
+                heightMax = binding.etHeightMax.text.toString().toInt()
             }
             heightMax = max(heightMax, 200)
             heightMax = min(heightMax, 400)
 
-            dragView.setHeightMax(heightMax.toPx(), true)
+            binding.dragView.setHeightMax(heightMax.toPx(), true)
         }
     }
 }
