@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.dragView
+package vn.loitp.up.a.cv.dragView
 
 import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
@@ -11,8 +11,8 @@ import com.tuanhav95.drag.utils.toPx
 import kotlinx.android.synthetic.main.a_drag_view_custom.*
 import kotlinx.android.synthetic.main.l_drag_view_bottom.*
 import vn.loitp.R
-import vn.loitp.a.cv.dragView.frm.BottomFragment
-import vn.loitp.a.cv.dragView.frm.ExoPlayerTopFragment
+import vn.loitp.up.a.cv.dragView.frm.BottomFragment
+import vn.loitp.up.a.cv.dragView.frm.ExoPlayerTopFragment
 import kotlin.math.max
 import kotlin.math.min
 

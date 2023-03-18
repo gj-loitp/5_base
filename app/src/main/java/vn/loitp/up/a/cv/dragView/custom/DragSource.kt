@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.dragView.custom
+package vn.loitp.up.a.cv.dragView.custom
 
 import android.content.Context
 import android.util.AttributeSet

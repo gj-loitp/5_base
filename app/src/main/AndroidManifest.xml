@@ -1092,16 +1092,16 @@
             android:name=".up.a.cv.vp.vp2.ViewPager2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dragView.MenuDragViewActivity"
+            android:name=".up.a.cv.dragView.MenuDragViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dragView.NormalActivity"
+            android:name=".up.a.cv.dragView.NormalActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dragView.DragViewCustomActivity"
+            android:name=".up.a.cv.dragView.DragViewCustomActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dragView.ExoPlayerActivity"
+            android:name=".up.a.cv.dragView.ExoPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.pulsingView.PulsingViewActivity"

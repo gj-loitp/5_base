@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.dragView.frm
+package vn.loitp.up.a.cv.dragView.frm
 
 import android.os.Bundle
 import android.view.LayoutInflater

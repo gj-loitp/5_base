@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.dragView
+package vn.loitp.up.a.cv.dragView
 
 import android.content.Intent
 import android.os.Bundle
