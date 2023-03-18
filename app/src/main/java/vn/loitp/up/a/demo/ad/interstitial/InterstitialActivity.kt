@@ -78,6 +78,7 @@ class InterstitialActivity : BaseActivityFont() {
         MobileAds.setRequestConfiguration(
             RequestConfiguration.Builder().setTestDeviceIds(
                 listOf(
+                    AdRequest.DEVICE_ID_EMULATOR,
                     getString(R.string.admob_test_device_id_lg_v60),
                     getString(R.string.admob_test_device_id_samsung_a50),
                 )
