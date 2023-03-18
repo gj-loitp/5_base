@@ -2,10 +2,10 @@ package vn.loitp.up.a.cv.dragView.custom
 
 import android.content.Context
 import android.util.AttributeSet
+import android.widget.FrameLayout
 import com.tuanhav95.drag.DragView
 import com.tuanhav95.drag.utils.inflate
 import com.tuanhav95.drag.utils.reWidth
-import kotlinx.android.synthetic.main.l_drag_view_top.view.*
 import vn.loitp.R
 
 class DragSource @JvmOverloads constructor(
@@ -39,6 +39,7 @@ class DragSource @JvmOverloads constructor(
             (mWidthWhenMiddle - (mWidthWhenMiddle - mWidthWhenMin) * (mCurrentPercent - mPercentWhenMiddle) / (1 - mPercentWhenMiddle))
         }
 
+        val frameTop = findViewById<FrameLayout>(R.id.frameTop)
         frameTop.reWidth(width.toInt())
     }
 }

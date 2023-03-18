@@ -15,8 +15,7 @@ import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
-import kotlinx.android.synthetic.main.f_drag_view_top_exo_player.*
-import vn.loitp.R
+import vn.loitp.databinding.FDragViewTopExoPlayerBinding
 
 class ExoPlayerTopFragment : Fragment(), Player.EventListener {
 
@@ -26,13 +25,15 @@ class ExoPlayerTopFragment : Fragment(), Player.EventListener {
 
     private var simpleExoPlayer: SimpleExoPlayer? = null
     private var mediaDataSourceFactory: DataSource.Factory? = null
+    private lateinit var binding: FDragViewTopExoPlayerBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.f_drag_view_top_exo_player, container, false)
+    ): View {
+        binding = FDragViewTopExoPlayerBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,12 +57,12 @@ class ExoPlayerTopFragment : Fragment(), Player.EventListener {
             it.playWhenReady = true
         }
 
-        playerView.setShutterBackgroundColor(Color.TRANSPARENT)
-        playerView.player = simpleExoPlayer
-        playerView.requestFocus()
+        binding.playerView.setShutterBackgroundColor(Color.TRANSPARENT)
+        binding.playerView.player = simpleExoPlayer
+        binding.playerView.requestFocus()
 
-        aspectRatioFrameLayout.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIXED_WIDTH
-        aspectRatioFrameLayout.setAspectRatio(16f / 9)
+        binding.aspectRatioFrameLayout.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIXED_WIDTH
+        binding.aspectRatioFrameLayout.setAspectRatio(16f / 9)
     }
 
     override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
