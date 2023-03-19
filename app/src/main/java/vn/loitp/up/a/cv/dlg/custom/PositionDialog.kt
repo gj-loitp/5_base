@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.dlg.custom
+package vn.loitp.up.a.cv.dlg.custom
 
 import android.annotation.SuppressLint
 import android.app.Activity

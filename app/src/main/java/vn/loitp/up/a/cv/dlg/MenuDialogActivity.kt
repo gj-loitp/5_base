@@ -8,8 +8,8 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.cv.dlg.custom.CustomDialogActivityFont
-import vn.loitp.a.cv.dlg.customProgress.CustomProgressDialogActivityFont
+import vn.loitp.up.a.cv.dlg.custom.CustomDialogActivity
+import vn.loitp.up.a.cv.dlg.customProgress.CustomProgressDialogActivity
 import vn.loitp.up.a.cv.dlg.original.DialogOriginalActivity
 import vn.loitp.up.a.cv.dlg.pretty.PrettyDialogActivity
 import vn.loitp.up.a.cv.dlg.slideImages.DialogSlideImagesActivity
@@ -50,13 +50,13 @@ class MenuDialogActivity : BaseActivityFont() {
             launchActivity(PrettyDialogActivity::class.java)
         }
         binding.btCustomProgressDialog.setSafeOnClickListener {
-            launchActivity(CustomProgressDialogActivityFont::class.java)
+            launchActivity(CustomProgressDialogActivity::class.java)
         }
         binding.btSlideImages.setSafeOnClickListener {
             launchActivity(DialogSlideImagesActivity::class.java)
         }
         binding.btCustomDialog.setSafeOnClickListener {
-            launchActivity(CustomDialogActivityFont::class.java)
+            launchActivity(CustomDialogActivity::class.java)
         }
     }
 }

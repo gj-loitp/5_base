@@ -609,7 +609,7 @@
             android:name=".up.a.cv.vp.refresh.RefreshViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dlg.customProgress.CustomProgressDialogActivityFont"
+            android:name=".up.a.cv.dlg.customProgress.CustomProgressDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.ab.navigationView.NavigationViewActivityFont"
@@ -758,7 +758,7 @@
             android:name=".up.a.cv.iv.pinchToZoom.PinchToZoomViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dlg.custom.CustomDialogActivityFont"
+            android:name=".up.a.cv.dlg.custom.CustomDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.progress.window.WindowProgressActivity"
