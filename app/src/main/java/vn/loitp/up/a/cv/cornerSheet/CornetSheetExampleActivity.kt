@@ -11,7 +11,7 @@ import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AExampleBinding
-import vn.loitp.up.a.cv.cornerSheet.sp.ShopActivityFont
+import vn.loitp.up.a.cv.cornerSheet.sp.ShopActivity
 import vn.loitp.up.app.EmptyActivity
 
 @LogTag("ExampleActivity")
@@ -55,7 +55,7 @@ class CornetSheetExampleActivity : BaseActivityFont() {
         }
 
         binding.supportSample.setOnClickListener {
-            launchActivity(ShopActivityFont::class.java)
+            launchActivity(ShopActivity::class.java)
         }
     }
 }

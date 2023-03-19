@@ -5,15 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.github.heyalex.CornerDrawer
 import com.github.heyalex.cornersheet.behavior.CornerSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.support_content.view.*
-import kotlinx.android.synthetic.main.support_header.view.*
 import vn.loitp.R
+import vn.loitp.databinding.FSupportBinding
 
 class SupportFragment : Fragment() {
+    private lateinit var binding: FSupportBinding
 
     private lateinit var backPressedCallback: OnBackPressedCallback
     lateinit var behavior: CornerSheetBehavior<CornerDrawer>
@@ -22,8 +23,14 @@ class SupportFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.f_support, container, false)
+    ): View {
+        binding = FSupportBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         behavior =
             BottomSheetBehavior.from(view.findViewById<CornerDrawer>(R.id.corner_drawer)) as CornerSheetBehavior<CornerDrawer>
         behavior.halfExpandedRatio = 0.7f
@@ -36,7 +43,7 @@ class SupportFragment : Fragment() {
         }
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, backPressedCallback)
 
-        view.header_root.setOnClickListener {
+        binding.cornerDrawer.findViewById<View>(R.id.header_root).setOnClickListener {
             if (behavior.state == BottomSheetBehavior.STATE_COLLAPSED) {
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
             } else {
@@ -44,9 +51,10 @@ class SupportFragment : Fragment() {
             }
         }
 
-        view.support_toolbar.setNavigationOnClickListener {
-            backPressedCallback.handleOnBackPressed()
-        }
+        binding.cornerDrawer.findViewById<Toolbar>(R.id.support_toolbar)
+            .setNavigationOnClickListener {
+                backPressedCallback.handleOnBackPressed()
+            }
 
         changeStatusBarIconColor(behavior.state == BottomSheetBehavior.STATE_EXPANDED)
 
@@ -69,7 +77,6 @@ class SupportFragment : Fragment() {
             }
         })
 
-        return view
     }
 
     fun changeStatusBarIconColor(isLight: Boolean) {

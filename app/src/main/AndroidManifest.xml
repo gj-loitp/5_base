@@ -1290,7 +1290,7 @@
             android:name=".up.a.cv.cornerSheet.BehaviorSampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.cornerSheet.sp.ShopActivityFont"
+            android:name=".up.a.cv.cornerSheet.sp.ShopActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.rv.dragDrop.MainActivityDragDrop"

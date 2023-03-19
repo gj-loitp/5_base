@@ -14,7 +14,7 @@ import vn.loitp.up.a.cv.cornerSheet.sp.shop.ShopFragment
 @LogTag("ShopActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class ShopActivityFont : BaseActivityFont() {
+class ShopActivity : BaseActivityFont() {
 
     lateinit var supportFragment: SupportFragment
 
