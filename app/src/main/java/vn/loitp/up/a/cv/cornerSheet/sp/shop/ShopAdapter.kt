@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.i_shop_item.view.*
-import vn.loitp.R
+import vn.loitp.databinding.IShopItemBinding
 
 object ShopDiff : DiffUtil.ItemCallback<ShopItem>() {
     override fun areItemsTheSame(
@@ -23,11 +22,11 @@ object ShopDiff : DiffUtil.ItemCallback<ShopItem>() {
     ) = oldItem == newItem
 }
 
-class ShopAdapter(val clickHandler: ShopItemClickListener) :
+class ShopAdapter(private val clickHandler: ShopItemClickListener) :
     ListAdapter<ShopItem, ShopAdapter.ShopItemViewHolder>(ShopDiff) {
     override fun onCreateViewHolder(parent: ViewGroup, itemType: Int): ShopItemViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.i_shop_item, parent, false)
-        return ShopItemViewHolder(view)
+        val binding = IShopItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ShopItemViewHolder(binding)
     }
 
     override fun onBindViewHolder(
@@ -37,17 +36,18 @@ class ShopAdapter(val clickHandler: ShopItemClickListener) :
         holder.bind(getItem(position), clickHandler)
     }
 
-    class ShopItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ShopItemViewHolder(val binding: IShopItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ShopItem, callbackHandler: ShopItemClickListener) {
-            itemView.shop_image.load(item.url)
-            itemView.shop_name.text = item.name
-            itemView.shop_image.transitionName = item.id.toString()
-            itemView.shop_name.transitionName = item.name + item.id.toString()
+            binding.shopImage.load(item.url)
+            binding.shopName.text = item.name
+            binding.shopImage.transitionName = item.id.toString()
+            binding.shopName.transitionName = item.name + item.id.toString()
 
-            itemView.root.setOnClickListener {
+            binding.root.setOnClickListener {
                 callbackHandler.onClick(
-                    image = itemView.shop_image,
-                    text = itemView.shop_name,
+                    image = binding.shopImage,
+                    text = binding.shopName,
                     shopItemId = item.id
                 )
             }

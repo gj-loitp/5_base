@@ -12,20 +12,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.heyalex.CornerDrawer
 import com.github.heyalex.cornersheet.behavior.CornerSheetHeaderBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.f_shop.*
 import vn.loitp.R
+import vn.loitp.databinding.FShopBinding
 import vn.loitp.up.a.cv.cornerSheet.sp.ShopActivity
 
 class ShopFragment : Fragment() {
-
+    private lateinit var binding: FShopBinding
     private lateinit var behavior: CornerSheetHeaderBehavior<CornerDrawer>
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.f_shop, container, false)
+    ): View {
+        binding = FShopBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,12 +34,12 @@ class ShopFragment : Fragment() {
         behavior =
             (activity as ShopActivity).supportFragment.behavior as CornerSheetHeaderBehavior<CornerDrawer>
 
-        toolbar.setOnApplyWindowInsetsListener { v, insets ->
+        binding.toolbar.setOnApplyWindowInsetsListener { v, insets ->
             v.updatePadding(top = insets.systemWindowInsetTop)
             insets
         }
 
-        toolbar.setNavigationOnClickListener {
+        binding.toolbar.setNavigationOnClickListener {
             requireActivity().finish()
         }
 

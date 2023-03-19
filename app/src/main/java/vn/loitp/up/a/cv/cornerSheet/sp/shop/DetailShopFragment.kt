@@ -9,14 +9,14 @@ import androidx.fragment.app.Fragment
 import com.github.heyalex.CornerDrawer
 import com.github.heyalex.cornersheet.behavior.CornerSheetBehavior
 import com.github.heyalex.cornersheet.behavior.CornerSheetHeaderBehavior
-import kotlinx.android.synthetic.main.f_detail_shop_item.*
-import kotlinx.android.synthetic.main.f_detail_shop_item.view.*
-import vn.loitp.R
+import com.loitp.core.base.BaseActivity
+import vn.loitp.databinding.FDetailShopItemBinding
 import vn.loitp.up.a.cv.cornerSheet.sp.ShopActivity
 
 class DetailShopFragment : Fragment() {
 
     private lateinit var behavior: CornerSheetHeaderBehavior<CornerDrawer>
+    private lateinit var binding: FDetailShopItemBinding
 
     override fun onDetach() {
         super.onDetach()
@@ -31,21 +31,24 @@ class DetailShopFragment : Fragment() {
             (activity as ShopActivity).supportFragment.behavior as CornerSheetHeaderBehavior<CornerDrawer>
 
         behavior.horizontalState = CornerSheetBehavior.STATE_EXPANDED
-        return inflater.inflate(R.layout.f_detail_shop_item, container, false)
+
+        binding = FDetailShopItemBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val item = getShopItem(requireArguments().getLong(shopId))
-        view.detail_shop_image.load(item.url)
-        view.name.text = item.name
-        view.desc.text = item.description
-        toolbar.setOnApplyWindowInsetsListener { v, insets ->
-            toolbar.updatePadding(top = insets.systemWindowInsetTop)
+
+        binding.detailShopImage.load(item.url)
+        binding.name.text = item.name
+        binding.desc.text = item.description
+        binding.toolbar.setOnApplyWindowInsetsListener { v, insets ->
+            binding.toolbar.updatePadding(top = insets.systemWindowInsetTop)
             insets
         }
-        toolbar.setNavigationOnClickListener {
-            requireActivity().onBackPressed()
+        binding.toolbar.setNavigationOnClickListener {
+            (requireActivity() as? BaseActivity)?.onBaseBackPressed()
         }
     }
 
