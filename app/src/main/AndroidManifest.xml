@@ -250,7 +250,7 @@
             android:name=".up.a.anim.flySchool.FlySchoolActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.dlg.MenuDialogActivity"
+            android:name=".up.a.cv.dlg.MenuDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.dlg.original.DialogOriginalActivityFont"
@@ -358,7 +358,7 @@
             android:name=".a.cv.bt.goodView.GoodViewActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.draggableFlipView.DraggableFlipViewActivity"
+            android:name=".up.a.cv.draggableFlipView.DraggableFlipViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.shadowViewHelper.ShadowViewHelperActivity"
