@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.cornerSheet.sp.shop
+package vn.loitp.up.a.cv.cornerSheet.sp.shop
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,7 @@ import com.github.heyalex.cornersheet.behavior.CornerSheetHeaderBehavior
 import kotlinx.android.synthetic.main.f_detail_shop_item.*
 import kotlinx.android.synthetic.main.f_detail_shop_item.view.*
 import vn.loitp.R
-import vn.loitp.a.cv.cornerSheet.sp.ShopActivityFont
+import vn.loitp.up.a.cv.cornerSheet.sp.ShopActivityFont
 
 class DetailShopFragment : Fragment() {
 

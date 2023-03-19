@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.cornerSheet.sp
+package vn.loitp.up.a.cv.cornerSheet.sp
 
 import android.os.Bundle
 import android.view.LayoutInflater

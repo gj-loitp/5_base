@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.cornerSheet
+package vn.loitp.up.a.cv.cornerSheet
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -13,28 +13,34 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import kotlinx.android.synthetic.main.a_main_cs.*
+import com.loitp.core.common.NOT_FOUND
 import vn.loitp.R
+import vn.loitp.databinding.AMainCsBinding
 import java.math.RoundingMode
 
 @LogTag("BehaviorSampleActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class BehaviorSampleActivity : BaseActivityFont() {
+    private lateinit var binding: AMainCsBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_main_cs
+        return NOT_FOUND
     }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AMainCsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val cornerDrawer = findViewById<View>(R.id.corner_behavior_container)
         val behavior = BottomSheetBehavior.from(cornerDrawer) as CornerMaterialSheetBehavior
 
         behavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                expandedValue.text = "Expanded value: ${
+                binding.expandedValue.text = "Expanded value: ${
                     slideOffset.toBigDecimal().setScale(
                         /* newScale = */ 2,
                         /* roundingMode = */ RoundingMode.UP
@@ -51,22 +57,22 @@ class BehaviorSampleActivity : BaseActivityFont() {
 
         findViewById<Toolbar>(R.id.toolbar).setOnClickListener {
             behavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
-            behavior_state.text = "HALF EXPANDED"
+            binding.behaviorState.text = "HALF EXPANDED"
         }
 
-        expand.setOnClickListener {
+        binding.expand.setOnClickListener {
             behavior.horizontalState = CornerSheetBehavior.STATE_EXPANDED
-            behavior_state.text = "EXPANDED"
+            binding.behaviorState.text = "EXPANDED"
         }
 
-        collapsed.setOnClickListener {
+        binding.collapsed.setOnClickListener {
             behavior.horizontalState = CornerSheetBehavior.STATE_COLLAPSED
-            behavior_state.text = "COLLAPSED"
+            binding.behaviorState.text = "COLLAPSED"
         }
 
-        hidden.setOnClickListener {
+        binding.hidden.setOnClickListener {
             behavior.horizontalState = CornerSheetBehavior.STATE_HIDDEN
-            behavior_state.text = "HIDDEN"
+            binding.behaviorState.text = "HIDDEN"
         }
 
         val seekbar = findViewById<AppCompatSeekBar>(R.id.seek_peek_height)

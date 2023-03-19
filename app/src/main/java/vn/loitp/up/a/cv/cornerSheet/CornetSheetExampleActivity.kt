@@ -1,32 +1,36 @@
-package vn.loitp.a.cv.cornerSheet
+package vn.loitp.up.a.cv.cornerSheet
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.core.ext.tranIn
-import kotlinx.android.synthetic.main.a_example.*
 import vn.loitp.R
-import vn.loitp.a.cv.cornerSheet.sp.ShopActivityFont
+import vn.loitp.databinding.AExampleBinding
+import vn.loitp.up.a.cv.cornerSheet.sp.ShopActivityFont
 import vn.loitp.up.app.EmptyActivity
 
 @LogTag("ExampleActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class CornetSheetExampleActivity : BaseActivityFont() {
+    private lateinit var binding: AExampleBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_example
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        lActionBar.apply {
+        binding = AExampleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -46,16 +50,12 @@ class CornetSheetExampleActivity : BaseActivityFont() {
             this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }
 
-        main.setOnClickListener {
-            val intent = Intent(this, BehaviorSampleActivity::class.java)
-            startActivity(intent)
-            this.tranIn()
+        binding.main.setOnClickListener {
+            launchActivity(BehaviorSampleActivity::class.java)
         }
 
-        support_sample.setOnClickListener {
-            val intent = Intent(this, ShopActivityFont::class.java)
-            startActivity(intent)
-            this.tranIn()
+        binding.supportSample.setOnClickListener {
+            launchActivity(ShopActivityFont::class.java)
         }
     }
 }

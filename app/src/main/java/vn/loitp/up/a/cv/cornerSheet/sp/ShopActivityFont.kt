@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.cornerSheet.sp
+package vn.loitp.up.a.cv.cornerSheet.sp
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import vn.loitp.R
-import vn.loitp.a.cv.cornerSheet.sp.shop.ShopFragment
+import vn.loitp.up.a.cv.cornerSheet.sp.shop.ShopFragment
 
 @LogTag("ShopActivity")
 @IsFullScreen(false)
