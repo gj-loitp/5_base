@@ -10,9 +10,9 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.a.cv.dlg.custom.CustomDialogActivityFont
 import vn.loitp.a.cv.dlg.customProgress.CustomProgressDialogActivityFont
-import vn.loitp.a.cv.dlg.original.DialogOriginalActivityFont
-import vn.loitp.a.cv.dlg.pretty.PrettyDialogActivityFont
-import vn.loitp.a.cv.dlg.slideImages.DialogSlideImagesActivityFont
+import vn.loitp.up.a.cv.dlg.original.DialogOriginalActivity
+import vn.loitp.up.a.cv.dlg.pretty.PrettyDialogActivity
+import vn.loitp.up.a.cv.dlg.slideImages.DialogSlideImagesActivity
 import vn.loitp.databinding.ADlgMenuBinding
 
 @LogTag("MenuDialogActivity")
@@ -44,16 +44,16 @@ class MenuDialogActivity : BaseActivityFont() {
             this.tvTitle?.text = MenuDialogActivity::class.java.simpleName
         }
         binding.btOriginalDialog.setSafeOnClickListener {
-            launchActivity(DialogOriginalActivityFont::class.java)
+            launchActivity(DialogOriginalActivity::class.java)
         }
         binding.btPrettyDialog.setSafeOnClickListener {
-            launchActivity(PrettyDialogActivityFont::class.java)
+            launchActivity(PrettyDialogActivity::class.java)
         }
         binding.btCustomProgressDialog.setSafeOnClickListener {
             launchActivity(CustomProgressDialogActivityFont::class.java)
         }
         binding.btSlideImages.setSafeOnClickListener {
-            launchActivity(DialogSlideImagesActivityFont::class.java)
+            launchActivity(DialogSlideImagesActivity::class.java)
         }
         binding.btCustomDialog.setSafeOnClickListener {
             launchActivity(CustomDialogActivityFont::class.java)

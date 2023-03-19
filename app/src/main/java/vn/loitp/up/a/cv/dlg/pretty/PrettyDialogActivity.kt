@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.dlg.pretty
+package vn.loitp.up.a.cv.dlg.pretty
 
 import android.graphics.Typeface
 import android.os.Bundle
@@ -8,29 +8,34 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.dlg.prettyDialog.PrettyDialog
-import kotlinx.android.synthetic.main.a_dlg_pretty.*
 import vn.loitp.R
+import vn.loitp.databinding.ADlgPrettyBinding
 
 @LogTag("PrettyDialogActivity")
 @IsFullScreen(false)
-class PrettyDialogActivityFont : BaseActivityFont(), OnClickListener {
+class PrettyDialogActivity : BaseActivityFont(), OnClickListener {
     private var prettyDialog: PrettyDialog? = null
+    private lateinit var binding: ADlgPrettyBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_dlg_pretty
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ADlgPrettyBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -47,20 +52,20 @@ class PrettyDialogActivityFont : BaseActivityFont(), OnClickListener {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = PrettyDialogActivityFont::class.java.simpleName
+            this.tvTitle?.text = PrettyDialogActivity::class.java.simpleName
         }
-        btShow1.setOnClickListener(this)
-        btShow2.setOnClickListener(this)
-        btShow3.setOnClickListener(this)
-        btShow4.setOnClickListener(this)
+        binding.btShow1.setOnClickListener(this)
+        binding.btShow2.setOnClickListener(this)
+        binding.btShow3.setOnClickListener(this)
+        binding.btShow4.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when (v) {
-            btShow1 -> show1()
-            btShow2 -> show2()
-            btShow3 -> show3()
-            btShow4 -> show4()
+            binding.btShow1 -> show1()
+            binding.btShow2 -> show2()
+            binding.btShow3 -> show3()
+            binding.btShow4 -> show4()
         }
     }
 
