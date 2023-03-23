@@ -2,6 +2,7 @@ package com.loitp.core.ext
 
 import android.text.TextUtils
 import android.util.Patterns
+import com.loitp.BuildConfig
 import com.loitp.core.utils.AppUtils
 import java.util.*
 import java.util.regex.Pattern
@@ -71,6 +72,7 @@ private val listPkg = listOf(
     "com.roygroup.base",
     "com.roygroup.vnexpress",
     "com.roygroup.base.demo",
+    "com.roygroup.dice",
 
     "com.roy93group.todo",
     "com.roy93group.vocabulary",
@@ -82,7 +84,7 @@ private val listPkg = listOf(
     "com.roy93group.forecast",
     "com.roy93group.joblogictest",
     "com.roy93group.androidinterview",
-    "com.roy93group.flutterinterview",
+    "com.roy93group.flutterinterview",//unused
 
     "com.bizman.bizman_dikauri",//for thanos bizman
     "com.songnob.adsplayer",//for thanos table tap
