@@ -17,7 +17,7 @@ import vn.loitp.a.cv.bb.MenuBottomNavigationActivity
 import vn.loitp.a.cv.bs.MenuBottomSheetActivity
 import vn.loitp.a.cv.bt.MenuButtonActivity
 import vn.loitp.a.cv.cal.MenuCalendarActivity
-import vn.loitp.a.cv.code.CodeViewActivity
+import vn.loitp.up.a.cv.code.CodeViewActivity
 import vn.loitp.up.a.cv.cornerSheet.CornetSheetExampleActivity
 import vn.loitp.up.a.cv.cv.CardViewActivity
 import vn.loitp.up.a.cv.dlg.MenuDialogActivity

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.code
+package vn.loitp.up.a.cv.code
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -20,12 +20,12 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_code_view.*
 import kotlinx.android.synthetic.main.bottom_sheet_dialog.*
 import vn.loitp.R
-import vn.loitp.a.cv.code.plugin.CommentManager
-import vn.loitp.a.cv.code.plugin.SourcePositionListener
-import vn.loitp.a.cv.code.plugin.UndoRedoManager
-import vn.loitp.a.cv.code.syntax.LanguageManager
-import vn.loitp.a.cv.code.syntax.LanguageName
-import vn.loitp.a.cv.code.syntax.ThemeName
+import vn.loitp.up.a.cv.code.plugin.CommentManager
+import vn.loitp.up.a.cv.code.plugin.SourcePositionListener
+import vn.loitp.up.a.cv.code.plugin.UndoRedoManager
+import vn.loitp.up.a.cv.code.syntax.LanguageManager
+import vn.loitp.up.a.cv.code.syntax.LanguageName
+import vn.loitp.up.a.cv.code.syntax.ThemeName
 import java.util.*
 import java.util.regex.Pattern
 

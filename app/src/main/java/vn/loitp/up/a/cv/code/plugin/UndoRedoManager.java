@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.code.plugin;
+package vn.loitp.up.a.cv.code.plugin;
 
 import android.text.Editable;
 import android.text.Selection;

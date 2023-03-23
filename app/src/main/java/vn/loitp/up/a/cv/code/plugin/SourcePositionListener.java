@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.code.plugin;
+package vn.loitp.up.a.cv.code.plugin;
 
 import android.text.Layout;
 import android.view.View;

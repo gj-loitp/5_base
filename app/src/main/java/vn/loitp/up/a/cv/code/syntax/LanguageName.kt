@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.code.syntax
+package vn.loitp.up.a.cv.code.syntax
 
 /**
  * List of examples languages for CodeView

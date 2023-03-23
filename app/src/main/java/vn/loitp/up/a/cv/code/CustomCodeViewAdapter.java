@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.code;
+package vn.loitp.up.a.cv.code;
 
 import android.content.Context;
 import android.view.LayoutInflater;
