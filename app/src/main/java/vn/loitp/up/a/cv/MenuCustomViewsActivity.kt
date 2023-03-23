@@ -17,12 +17,12 @@ import vn.loitp.a.cv.bb.MenuBottomNavigationActivity
 import vn.loitp.a.cv.bs.MenuBottomSheetActivity
 import vn.loitp.a.cv.bt.MenuButtonActivity
 import vn.loitp.a.cv.cal.MenuCalendarActivity
-import vn.loitp.a.cv.code.CodeViewActivity
-import vn.loitp.a.cv.cornerSheet.CornetSheetExampleActivity
-import vn.loitp.a.cv.cv.CardViewActivity
-import vn.loitp.a.cv.dlg.MenuDialogActivity
-import vn.loitp.a.cv.dragView.MenuDragViewActivity
-import vn.loitp.a.cv.draggableFlipView.DraggableFlipViewActivity
+import vn.loitp.up.a.cv.code.CodeViewActivity
+import vn.loitp.up.a.cv.cornerSheet.CornetSheetExampleActivity
+import vn.loitp.up.a.cv.cv.CardViewActivity
+import vn.loitp.up.a.cv.dlg.MenuDialogActivity
+import vn.loitp.up.a.cv.dragView.MenuDragViewActivity
+import vn.loitp.up.a.cv.draggableFlipView.DraggableFlipViewActivity
 import vn.loitp.up.a.cv.et.MenuEditTextActivity
 import vn.loitp.up.a.cv.fancyShowcase.FancyShowcaseActivity
 import vn.loitp.up.a.cv.fbCmt.FacebookCommentActivity
@@ -177,7 +177,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
             binding.btMenuGraphViewActivity -> launchActivity(MenuGraphViewActivity::class.java)
             binding.btSimpleRatingBar -> launchActivity(SimpleRatingBarActivity::class.java)
             binding.btCodeView -> launchActivity(CodeViewActivity::class.java)
-            binding.btCodeViewKbiakov -> launchActivity(vn.loitp.a.cv.codeView.CodeViewActivity::class.java)
+            binding.btCodeViewKbiakov -> launchActivity(vn.loitp.up.a.cv.codeView.CodeViewActivity::class.java)
             binding.btWheelView -> launchActivity(WheelViewActivity::class.java)
             binding.btLuckyWheelActivity -> launchActivity(LuckyWheelActivity::class.java)
             binding.btCornerSheet -> launchActivity(CornetSheetExampleActivity::class.java)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/header_root"
     android:layout_width="wrap_content"
@@ -8,21 +8,22 @@
     android:padding="16dp"
     tools:background="@android:color/black">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/header_icon"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:paddingLeft="6dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="0dp"
         android:src="@drawable/ic_message_24dp" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/header_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:paddingRight="6dp"
+        android:layout_marginStart="12dp"
+        android:paddingEnd="6dp"
         android:text="Support"
         android:textColor="@android:color/white"
-        android:textSize="16dp" />
+        android:textSize="@dimen/txt_medium" />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

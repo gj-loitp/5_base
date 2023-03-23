@@ -91,7 +91,7 @@ android {
     productFlavors {
 
         dev {
-//            applicationId = "com.roy93group.forecast.dev"
+//            applicationId = "com.roygroup.base.dev"
             dimension "type"
             buildConfigField("String", "FLAVOR_buildEnv", '"dev"')
             resValue "string", "app_name", "Base DEV"
@@ -103,7 +103,7 @@ android {
         }
 
         production {
-//            applicationId = "com.roy93group.forecast.prod"
+//            applicationId = "com.roygroup.base.prod"
             dimension "type"
             buildConfigField("String", "FLAVOR_buildEnv", '"prod"')
             resValue "string", "app_name", "Base"
