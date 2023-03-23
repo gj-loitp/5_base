@@ -106,7 +106,7 @@ dependencies {
     api 'androidx.navigation:navigation-fragment-ktx:2.5.3'
 
     //jsoup
-    api 'org.jsoup:jsoup:1.15.3'
+    api 'org.jsoup:jsoup:1.15.4'
 
     //https://github.com/adblockplus/libadblockplus-android
     api 'org.adblockplus:adblock-android-webview:4.4.0'
