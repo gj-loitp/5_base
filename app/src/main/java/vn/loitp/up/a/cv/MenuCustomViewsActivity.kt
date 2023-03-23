@@ -177,7 +177,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
             binding.btMenuGraphViewActivity -> launchActivity(MenuGraphViewActivity::class.java)
             binding.btSimpleRatingBar -> launchActivity(SimpleRatingBarActivity::class.java)
             binding.btCodeView -> launchActivity(CodeViewActivity::class.java)
-            binding.btCodeViewKbiakov -> launchActivity(vn.loitp.a.cv.codeView.CodeViewActivity::class.java)
+            binding.btCodeViewKbiakov -> launchActivity(vn.loitp.up.a.cv.codeView.CodeViewActivity::class.java)
             binding.btWheelView -> launchActivity(WheelViewActivity::class.java)
             binding.btLuckyWheelActivity -> launchActivity(LuckyWheelActivity::class.java)
             binding.btCornerSheet -> launchActivity(CornetSheetExampleActivity::class.java)

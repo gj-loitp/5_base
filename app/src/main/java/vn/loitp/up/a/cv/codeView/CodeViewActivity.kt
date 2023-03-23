@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.codeView
+package vn.loitp.up.a.cv.codeView
 
 import android.os.Bundle
 import androidx.core.view.isVisible
