@@ -95,6 +95,9 @@ android {
             dimension "type"
             buildConfigField("String", "FLAVOR_buildEnv", '"dev"')
             resValue "string", "app_name", "Base DEV"
+
+            resValue("string", "SDK_KEY", "e75FnQfS9XTTqM1Kne69U7PW_MBgAnGQTFvtwVVui6kRPKs5L7ws9twr5IQWwVfzPKZ5pF2IfDa7lguMgGlCyt")
+
         }
 
         production {
@@ -102,6 +105,9 @@ android {
             dimension "type"
             buildConfigField("String", "FLAVOR_buildEnv", '"prod"')
             resValue "string", "app_name", "Base"
+
+            resValue("string", "SDK_KEY", "e75FnQfS9XTTqM1Kne69U7PW_MBgAnGQTFvtwVVui6kRPKs5L7ws9twr5IQWwVfzPKZ5pF2IfDa7lguMgGlCyt")
+
         }
 
     }
@@ -208,6 +214,8 @@ dependencies {
 
     //admob
 //    api 'com.google.android.gms:play-services-ads:21.5.0'
+    //applovin
+    implementation 'com.applovin:applovin-sdk:11.8.2'
 
 //    https://github.com/nikartm/FitButton
     api 'io.github.nikartm:fit-button:2.0.0'
