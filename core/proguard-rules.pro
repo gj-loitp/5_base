@@ -172,3 +172,6 @@ public *;
 -keepclassmembers class com.dd.StrokeGradientDrawable {
     public void setStrokeColor(int);
 }
+
+-keep class com.google.android.gms.ads.identifier.** { *; }
+
