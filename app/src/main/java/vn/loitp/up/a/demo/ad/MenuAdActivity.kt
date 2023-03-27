@@ -10,7 +10,6 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AMenuAdBinding
-import vn.loitp.up.a.demo.ad.adaptiveBanner.AdaptiveBannerActivity
 import vn.loitp.up.a.demo.ad.banner.BannerActivity
 import vn.loitp.up.a.demo.ad.interstitial.InterstitialActivity
 
@@ -43,9 +42,6 @@ class MenuAdActivity : BaseActivityFont() {
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = MenuAdActivity::class.java.simpleName
-        }
-        binding.btAdaptiveBanner.setSafeOnClickListener {
-            launchActivity(AdaptiveBannerActivity::class.java)
         }
         binding.btBanner.setSafeOnClickListener {
             launchActivity(BannerActivity::class.java)
