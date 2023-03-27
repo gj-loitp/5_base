@@ -67,6 +67,9 @@ object Applovin {
                 }
 
             })
+            ad.setRevenueListener {
+                i(log, "onAdRevenuePaid")
+            }
 
             val isTablet = AppLovinSdkUtils.isTablet(c)
             val heightPx = AppLovinSdkUtils.dpToPx(c, if (isTablet) 90 else 50)
