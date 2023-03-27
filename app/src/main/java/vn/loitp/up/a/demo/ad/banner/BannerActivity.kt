@@ -51,7 +51,7 @@ class BannerActivity : BaseActivityFont() {
             this.tvTitle?.text = BannerActivity::class.java.simpleName
         }
 
-        adView = MaxAdView("YOUR_AD_UNIT_ID", this)
+        adView = MaxAdView(getString(R.string.BANNER), this)
         adView?.let { ad ->
             ad.setListener(object : MaxAdViewAdListener {
                 override fun onAdLoaded(p0: MaxAd?) {
@@ -96,10 +96,7 @@ class BannerActivity : BaseActivityFont() {
                 /* height = */ heightPx
             )
             ad.setBackgroundColor(Color.RED)
-
-            val rootView = findViewById<ViewGroup>(android.R.id.content)
-            rootView.addView(adView)
-
+            binding.flAd.addView(adView)
             ad.loadAd()
         }
     }
