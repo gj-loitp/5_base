@@ -18,6 +18,7 @@ import com.loitp.core.common.*
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AAdBannerBinding
+import vn.loitp.up.a.demo.ad.Applovin
 
 @LogTag("BannerActivity")
 @IsFullScreen(false)
@@ -51,54 +52,12 @@ class BannerActivity : BaseActivityFont() {
             this.tvTitle?.text = BannerActivity::class.java.simpleName
         }
 
-        adView = MaxAdView(getString(R.string.BANNER), this)
-        adView?.let { ad ->
-            ad.setListener(object : MaxAdViewAdListener {
-                override fun onAdLoaded(p0: MaxAd?) {
-                    logI("onAdLoaded")
-                }
-
-                override fun onAdDisplayed(p0: MaxAd?) {
-                    logI("onAdLoaded")
-                }
-
-                override fun onAdHidden(p0: MaxAd?) {
-                    logI("onAdHidden")
-                }
-
-                override fun onAdClicked(p0: MaxAd?) {
-                    logI("onAdClicked")
-                }
-
-                override fun onAdLoadFailed(p0: String?, p1: MaxError?) {
-                    logI("onAdLoadFailed")
-                }
-
-                override fun onAdDisplayFailed(p0: MaxAd?, p1: MaxError?) {
-                    logI("onAdDisplayFailed")
-                }
-
-                override fun onAdExpanded(p0: MaxAd?) {
-                    logI("onAdExpanded")
-                }
-
-                override fun onAdCollapsed(p0: MaxAd?) {
-                    logI("onAdCollapsed")
-                }
-
-            })
-
-            val isTablet = AppLovinSdkUtils.isTablet(this)
-            val heightPx = AppLovinSdkUtils.dpToPx(this, if (isTablet) 90 else 50)
-
-            ad.layoutParams = FrameLayout.LayoutParams(
-                /* width = */ ViewGroup.LayoutParams.MATCH_PARENT,
-                /* height = */ heightPx
-            )
-            ad.setBackgroundColor(Color.RED)
-            binding.flAd.addView(adView)
-            ad.loadAd()
-        }
+        adView = Applovin.createAdBanner(
+            c = this,
+            logTag = logTag,
+            bkgColor = Color.CYAN,
+            viewGroup = binding.flAd
+        )
     }
 
     override fun onDestroy() {
