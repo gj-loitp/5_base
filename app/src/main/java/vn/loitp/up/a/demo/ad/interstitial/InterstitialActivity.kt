@@ -7,6 +7,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.*
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AAdInterstitialBinding
@@ -39,6 +40,9 @@ class InterstitialActivity : BaseActivityFont() {
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = InterstitialActivity::class.java.simpleName
+        }
+        binding.btShow.setSafeOnClickListener {
+
         }
     }
 }
