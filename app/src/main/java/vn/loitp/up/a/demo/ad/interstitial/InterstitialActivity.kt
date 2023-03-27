@@ -9,13 +9,13 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.*
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.databinding.AAdmobInterstitialBinding
+import vn.loitp.databinding.AAdInterstitialBinding
 
 @LogTag("InterstitialActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class InterstitialActivity : BaseActivityFont() {
-    private lateinit var binding: AAdmobInterstitialBinding
+    private lateinit var binding: AAdInterstitialBinding
 
     override fun setLayoutResourceId(): Int {
         return NOT_FOUND
@@ -24,7 +24,7 @@ class InterstitialActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = AAdmobInterstitialBinding.inflate(layoutInflater)
+        binding = AAdInterstitialBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupViews()

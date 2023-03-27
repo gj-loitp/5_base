@@ -103,7 +103,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
         binding.btTrackingG1.setOnClickListener(this)
         binding.btFirebase.setOnClickListener(this)
         binding.btAlarm.setOnClickListener(this)
-        binding.btAdmob.setOnClickListener(this)
+        binding.btApplovin.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -157,7 +157,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
             binding.btTrackingG1 -> launchActivity(TrackingG1Activity::class.java)
             binding.btFirebase -> launchActivity(FirebaseActivity::class.java)
             binding.btAlarm -> launchActivity(AlarmMeActivity::class.java)
-            binding.btAdmob -> launchActivity(MenuAdActivity::class.java)
+            binding.btApplovin -> launchActivity(MenuAdActivity::class.java)
         }
     }
 }

@@ -16,13 +16,13 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.BuildConfig
 import vn.loitp.up.a.db.room.db.FNBDatabase
+import vn.loitp.up.a.demo.ad.Applovin
 import vn.loitp.up.common.Constants
 
 // build release de check
 
 //TODO viewbinding in base frm, base activity https://stackoverflow.com/questions/63686289/how-to-use-abstraction-with-viewbinding-with-base-activity
 //TODO service -> ko stop service dc
-//TODO why see ad khi nhan vao button Understand dang sai behaviour
 //TODO change link policy URL_POLICY_NOTION play console
 
 // GIT
@@ -68,6 +68,8 @@ class LApplication : BaseApplication() {
         logE("currentActivity() ${currentActivity()}")
 
         CodeProcessor.init(this)
+
+        Applovin.setupAd(this)
     }
 
     @Suppress("unused")
@@ -101,5 +103,4 @@ class LApplication : BaseApplication() {
         OneSignal.setAppId(Constants.ONE_SIGNAL_KEY)
         OneSignal.promptForPushNotifications()
     }
-
 }

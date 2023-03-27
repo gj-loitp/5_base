@@ -16,6 +16,7 @@ import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.ext.d
 import com.loitp.core.ext.e
+import com.loitp.core.ext.i
 import com.loitp.core.ext.showDialog1
 import com.loitp.data.EventBusData
 import io.reactivex.disposables.CompositeDisposable
@@ -68,6 +69,12 @@ abstract class BaseFragment : Fragment() {
     protected fun logE(msg: String) {
         logTag?.let {
             e(tag = it, msg = msg)
+        }
+    }
+
+    protected fun logI(msg: String) {
+        logTag?.let {
+            i(tag = it, msg = msg)
         }
     }
 
