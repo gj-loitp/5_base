@@ -1,6 +1,12 @@
 package vn.loitp.up.a.demo.ad.interstitial
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import com.applovin.mediation.MaxAd
+import com.applovin.mediation.MaxAdListener
+import com.applovin.mediation.MaxError
+import com.applovin.mediation.ads.MaxInterstitialAd
 import com.google.android.gms.ads.*
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
@@ -11,12 +17,17 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AAdInterstitialBinding
+import java.util.concurrent.TimeUnit
+import kotlin.math.min
+import kotlin.math.pow
 
 @LogTag("InterstitialActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(true)
 class InterstitialActivity : BaseActivityFont() {
     private lateinit var binding: AAdInterstitialBinding
+    private var interstitialAd: MaxInterstitialAd? = null
+    private var retryAttempt = 0
 
     override fun setLayoutResourceId(): Int {
         return NOT_FOUND
@@ -42,7 +53,59 @@ class InterstitialActivity : BaseActivityFont() {
             this.tvTitle?.text = InterstitialActivity::class.java.simpleName
         }
         binding.btShow.setSafeOnClickListener {
+            showAd()
+        }
 
+        interstitialAd = MaxInterstitialAd(getString(R.string.INTER), this)
+        interstitialAd?.setListener(object : MaxAdListener {
+            override fun onAdLoaded(p0: MaxAd?) {
+                retryAttempt = 0
+            }
+
+            override fun onAdDisplayed(p0: MaxAd?) {
+                logI("onAdDisplayed")
+            }
+
+            override fun onAdHidden(p0: MaxAd?) {
+                // Interstitial Ad is hidden. Pre-load the next ad
+                interstitialAd?.loadAd()
+            }
+
+            override fun onAdClicked(p0: MaxAd?) {
+                logI("onAdClicked")
+            }
+
+            override fun onAdLoadFailed(p0: String?, p1: MaxError?) {
+                retryAttempt++
+                val delayMillis = TimeUnit.SECONDS.toMillis(2.0.pow(min(6, retryAttempt)).toLong())
+
+                Handler(Looper.getMainLooper()).postDelayed(
+                    {
+                        interstitialAd?.loadAd()
+                    },
+                    delayMillis
+                )
+            }
+
+            override fun onAdDisplayFailed(p0: MaxAd?, p1: MaxError?) {
+                // Interstitial ad failed to display. We recommend loading the next ad.
+                interstitialAd?.loadAd()
+            }
+
+        })
+        interstitialAd?.setRevenueListener {
+            logI("onAdDisplayed")
+        }
+
+        // Load the first ad.
+        interstitialAd?.loadAd()
+    }
+
+    fun showAd() {
+        if (interstitialAd?.isReady == true) {
+            interstitialAd?.showAd()
         }
     }
+
+
 }
