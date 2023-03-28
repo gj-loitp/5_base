@@ -16,7 +16,7 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/flAd"
         app:layout_constraintTop_toBottomOf="@+id/lActionBar">
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -187,5 +187,13 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </com.factor.bouncy.BouncyNestedScrollView>
+
+    <FrameLayout
+        android:id="@+id/flAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

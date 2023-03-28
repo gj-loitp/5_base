@@ -65,5 +65,4 @@ class BannerActivity : BaseActivityFont() {
         super.onDestroy()
     }
 
-
 }

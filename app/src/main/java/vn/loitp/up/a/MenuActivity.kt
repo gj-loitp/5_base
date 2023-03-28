@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.core.view.isVisible
+import com.applovin.mediation.ads.MaxAdView
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsKeepScreenOn
@@ -22,6 +23,7 @@ import vn.loitp.up.a.api.MenuAPIActivity
 import vn.loitp.up.a.cv.MenuCustomViewsActivity
 import vn.loitp.up.a.db.MenuDatabaseActivity
 import vn.loitp.up.a.demo.MenuDemoActivity
+import vn.loitp.up.a.demo.ad.Applovin
 import vn.loitp.up.a.func.MenuFunctionActivity
 import vn.loitp.up.a.game.MenuGameActivity
 import vn.loitp.up.a.interviewVN.InterviewVNIQActivity
@@ -42,6 +44,7 @@ import vn.loitp.up.a.u.UtilsCoreActivity
 class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     private lateinit var binding: AMenuBinding
+    private var adView: MaxAdView? = null
 
     override fun setLayoutResourceId(): Int {
         return NOT_FOUND
@@ -58,6 +61,13 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        adView = Applovin.createAdBanner(
+            c = this,
+            logTag = logTag,
+            bkgColor = Color.TRANSPARENT,
+            viewGroup = binding.flAd
+        )
+
         binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
@@ -112,6 +122,11 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
         binding.btFeedback.setOnClickListener(this)
         binding.btInterviewVNIQActivity.setOnClickListener(this)
         binding.tvMoreApp.setOnClickListener(this)
+    }
+
+    override fun onDestroy() {
+        adView?.destroy()
+        super.onDestroy()
     }
 
     private fun setupConfigGoogle() {
