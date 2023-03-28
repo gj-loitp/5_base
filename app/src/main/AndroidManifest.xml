@@ -1463,19 +1463,18 @@
         <activity
             android:name=".up.a.demo.ad.MenuAdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="@string/SDK_KEY" />
+
         <activity
             android:name=".up.a.demo.ad.banner.BannerActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name=".up.a.demo.ad.adaptiveBanner.AdaptiveBannerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.demo.ad.interstitial.InterstitialActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/ADMOB_APP_ID" />
     </application>
     <queries>
         <intent>

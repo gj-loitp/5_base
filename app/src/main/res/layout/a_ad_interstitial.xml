@@ -12,13 +12,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/ad_view"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btShow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/admob_banner_id"
+        android:text="Show"
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toStartOf="parent" />
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

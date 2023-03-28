@@ -19,8 +19,8 @@ android {
         applicationId "com.roygroup.base"
         minSdkVersion 24
         targetSdk 33
-        versionCode 20230317
-        versionName "2023.03.17"
+        versionCode 20230328
+        versionName "2023.03.28"
         multiDexEnabled true
 
         renderscriptTargetApi 19
@@ -96,10 +96,9 @@ android {
             buildConfigField("String", "FLAVOR_buildEnv", '"dev"')
             resValue "string", "app_name", "Base DEV"
 
-            resValue("string", "ADMOB_APP_ID", "ca-app-pub-3940256099942544~3347511713")
-            resValue("string", "admob_banner_id", "ca-app-pub-3940256099942544/6300978111")
-            resValue("string", "admob_adaptive_banner_id", "ca-app-pub-3940256099942544/9214589741")
-            resValue("string", "admob_interstitial_id", "ca-app-pub-3940256099942544/1033173712")
+            resValue("string", "SDK_KEY", "e75FnQfS9XTTqM1Kne69U7PW_MBgAnGQTFvtwVVui6kRPKs5L7ws9twr5IQWwVfzPKZ5pF2IfDa7lguMgGlCyt")
+            resValue "string", "BANNER", "18a3d1924d3ebee6"
+            resValue "string", "INTER", "895d5d41cb20edb7"
         }
 
         production {
@@ -108,11 +107,9 @@ android {
             buildConfigField("String", "FLAVOR_buildEnv", '"prod"')
             resValue "string", "app_name", "Base"
 
-            //TODO update admob value for production
-            resValue("string", "ADMOB_APP_ID", "ca-app-pub-3940256099942544~3347511713")
-            resValue("string", "admob_banner_id", "ca-app-pub-3940256099942544/6300978111")
-            resValue("string", "admob_adaptive_banner_id", "ca-app-pub-3940256099942544/9214589741")
-            resValue("string", "admob_interstitial_id", "ca-app-pub-3940256099942544/1033173712")
+            resValue("string", "SDK_KEY", "e75FnQfS9XTTqM1Kne69U7PW_MBgAnGQTFvtwVVui6kRPKs5L7ws9twr5IQWwVfzPKZ5pF2IfDa7lguMgGlCyt")
+            resValue "string", "BANNER", "18a3d1924d3ebee6"
+            resValue "string", "INTER", "895d5d41cb20edb7"
         }
 
     }
@@ -218,7 +215,9 @@ dependencies {
     api 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
 
     //admob
-    api 'com.google.android.gms:play-services-ads:21.5.0'
+//    api 'com.google.android.gms:play-services-ads:21.5.0'
+    //applovin
+    implementation 'com.applovin:applovin-sdk:11.8.2'
 
 //    https://github.com/nikartm/FitButton
     api 'io.github.nikartm:fit-button:2.0.0'
@@ -247,7 +246,7 @@ dependencies {
 
 //    noinspection AnnotationProcessorOnCompilePath
     api 'io.realm:realm-android:0.82.1'
-    kapt "androidx.room:room-compiler:2.5.0"
+    kapt "androidx.room:room-compiler:2.5.1"
 //    https://github.com/devendroid/ReadMoreOption
     api 'com.github.devendroid:ReadMoreOption:1.0.2'
 //    https://github.com/rishabh876/RoundedImageView

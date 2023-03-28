@@ -360,6 +360,12 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
+    protected fun logI(msg: String) {
+        logTag?.let {
+            i(it, msg)
+        }
+    }
+
     fun showBottomSheetOptionFragment(
         isCancelableFragment: Boolean = true,
         isShowIvClose: Boolean = true,

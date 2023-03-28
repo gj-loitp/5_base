@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.google.android.material.navigation.NavigationView
+    <com.loitp.views.navigationView.NavigationViewWithCustomFont
         android:id="@+id/navView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -25,7 +25,7 @@
         app:headerLayout="@layout/view_drawer_behavior_nav_header_main"
         app:menu="@menu/activity_drawer_behavior_drawer" />
 
-    <com.google.android.material.navigation.NavigationView
+    <com.loitp.views.navigationView.NavigationViewWithCustomFont
         android:id="@+id/navViewNotification"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -34,6 +34,6 @@
         android:fitsSystemWindows="true">
 
         <include layout="@layout/view_drawer_behavior_content_notification" />
-    </com.google.android.material.navigation.NavigationView>
+    </com.loitp.views.navigationView.NavigationViewWithCustomFont>
 
 </com.infideap.drawerbehavior.AdvanceDrawerLayout>

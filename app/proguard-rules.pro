@@ -150,3 +150,5 @@
 -keep class com.huxq17.download.** { *; }
 -dontwarn okhttp3.**
 -dontwarn okio.**
+
+-keep class com.google.android.gms.ads.identifier.** { *; }

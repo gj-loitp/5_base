@@ -26,9 +26,9 @@
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btAdmob"
+                android:id="@+id/btApplovin"
                 style="@style/ButtonMenu"
-                android:text="Admob" />
+                android:text="Applovin" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAlarm"
