@@ -117,5 +117,4 @@ class InterstitialActivity : BaseActivityFont() {
         }
     }
 
-
 }

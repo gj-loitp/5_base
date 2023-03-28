@@ -7,7 +7,11 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.core.view.isVisible
+import com.applovin.mediation.MaxAd
+import com.applovin.mediation.MaxAdListener
+import com.applovin.mediation.MaxError
 import com.applovin.mediation.ads.MaxAdView
+import com.applovin.mediation.ads.MaxInterstitialAd
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsKeepScreenOn
@@ -36,6 +40,9 @@ import vn.loitp.up.a.sv.MenuServiceActivity
 import vn.loitp.up.a.tut.MenuTutorialActivity
 import vn.loitp.up.a.u.UtilsActivity
 import vn.loitp.up.a.u.UtilsCoreActivity
+import java.util.concurrent.TimeUnit
+import kotlin.math.min
+import kotlin.math.pow
 
 @LogTag("MenuActivity")
 @IsFullScreen(false)
@@ -45,6 +52,8 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     private lateinit var binding: AMenuBinding
     private var adView: MaxAdView? = null
+    private var interstitialAd: MaxInterstitialAd? = null
+    private var retryAttempt = 0
 
     override fun setLayoutResourceId(): Int {
         return NOT_FOUND
@@ -67,6 +76,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             bkgColor = Color.TRANSPARENT,
             viewGroup = binding.flAd
         )
+        createAdInter()
 
         binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
@@ -196,6 +206,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
+        showAd()
         when (v) {
             binding.btFlutter -> rateApp(packageName = "com.roy93group.fullter_tutorial")
             binding.btApi -> launchActivity(MenuAPIActivity::class.java)
@@ -243,6 +254,66 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             }
             binding.btInterviewVNIQActivity -> launchActivity(InterviewVNIQActivity::class.java)
             binding.tvMoreApp -> this.moreApp()
+        }
+    }
+
+    private fun createAdInter() {
+        interstitialAd = MaxInterstitialAd(getString(R.string.INTER), this)
+        interstitialAd?.let { ad ->
+            ad.setListener(object : MaxAdListener {
+                override fun onAdLoaded(p0: MaxAd?) {
+                    logI("onAdLoaded")
+                    retryAttempt = 0
+                }
+
+                override fun onAdDisplayed(p0: MaxAd?) {
+                    logI("onAdDisplayed")
+                }
+
+                override fun onAdHidden(p0: MaxAd?) {
+                    logI("onAdHidden")
+                    // Interstitial Ad is hidden. Pre-load the next ad
+                    interstitialAd?.loadAd()
+                }
+
+                override fun onAdClicked(p0: MaxAd?) {
+                    logI("onAdClicked")
+                }
+
+                override fun onAdLoadFailed(p0: String?, p1: MaxError?) {
+                    logI("onAdLoadFailed")
+                    retryAttempt++
+                    val delayMillis =
+                        TimeUnit.SECONDS.toMillis(2.0.pow(min(6, retryAttempt)).toLong())
+
+                    Handler(Looper.getMainLooper()).postDelayed(
+                        {
+                            interstitialAd?.loadAd()
+                        }, delayMillis
+                    )
+                }
+
+                override fun onAdDisplayFailed(p0: MaxAd?, p1: MaxError?) {
+                    logI("onAdDisplayFailed")
+                    // Interstitial ad failed to display. We recommend loading the next ad.
+                    interstitialAd?.loadAd()
+                }
+
+            })
+            ad.setRevenueListener {
+                logI("onAdDisplayed")
+            }
+
+            // Load the first ad.
+            ad.loadAd()
+        }
+    }
+
+    private fun showAd() {
+        interstitialAd?.let { ad ->
+            if (ad.isReady) {
+                ad.showAd()
+            }
         }
     }
 }
