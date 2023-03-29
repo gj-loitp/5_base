@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.bt.circularProgress
+package vn.loitp.up.a.cv.bt.circularProgress
 
 import android.animation.ValueAnimator
 import android.os.Bundle
@@ -8,34 +8,38 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
-import kotlinx.android.synthetic.main.l_cpb_sample_2.*
-import vn.loitp.R
+import vn.loitp.databinding.LCpbSample2Binding
 
 @LogTag("Sample2Activity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class Sample2ActivityFont : BaseActivityFont() {
+class Sample2Activity : BaseActivityFont() {
+    private lateinit var binding: LCpbSample2Binding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_cpb_sample_2
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        circularButton1.setSafeOnClickListener {
-            if (circularButton1.progress == 0) {
-                simulateSuccessProgress(circularButton1)
+        binding = LCpbSample2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.circularButton1.setSafeOnClickListener {
+            if (binding.circularButton1.progress == 0) {
+                simulateSuccessProgress(binding.circularButton1)
             } else {
-                circularButton1.progress = 0
+                binding.circularButton1.progress = 0
             }
         }
-        circularButton2.setSafeOnClickListener {
-            if (circularButton2.progress == 0) {
-                simulateErrorProgress(circularButton2)
+        binding.circularButton2.setSafeOnClickListener {
+            if (binding.circularButton2.progress == 0) {
+                simulateErrorProgress(binding.circularButton2)
             } else {
-                circularButton2.progress = 0
+                binding.circularButton2.progress = 0
             }
         }
     }

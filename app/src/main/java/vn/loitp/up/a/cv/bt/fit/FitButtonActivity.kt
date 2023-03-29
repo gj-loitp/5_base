@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.bt.fit
+package vn.loitp.up.a.cv.bt.fit
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -10,29 +10,34 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_fit_button.*
 import vn.loitp.R
+import vn.loitp.databinding.AFitButtonBinding
 
 @LogTag("FitButtonActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class FitButtonActivityFont : BaseActivityFont() {
+class FitButtonActivity : BaseActivityFont() {
+    private lateinit var binding: AFitButtonBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_fit_button
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AFitButtonBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -49,14 +54,14 @@ class FitButtonActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = FitButtonActivityFont::class.java.simpleName
+            this.tvTitle?.text = FitButtonActivity::class.java.simpleName
         }
 
         setupButton()
     }
 
     private fun setupButton() {
-        fbtn.setTextFont(R.font.bungee)
+        binding.fbtn.setTextFont(R.font.bungee)
             .setWidth(200)
             .setHeight(70)
             .setTextSize(20f)
@@ -72,12 +77,12 @@ class FitButtonActivityFont : BaseActivityFont() {
             .setRippleColor(Color.RED)
             .setOnClickListener {
                 changeButton()
-                showShortInformation("Click on ${fbtn.getText()}")
+                showShortInformation("Click on ${binding.fbtn.getText()}")
             }
     }
 
     private fun changeButton() {
-        fbtn.setButtonShape(Shape.CIRCLE)
+        binding.fbtn.setButtonShape(Shape.CIRCLE)
             .setDividerVisibility(View.GONE)
             .setTextVisibility(View.GONE)
     }

@@ -1239,7 +1239,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".a.cv.bt.fab.FabActivityFont"
+            android:name=".up.a.cv.bt.fab.FabActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.wheelView.WheelViewActivity"
@@ -1344,7 +1344,7 @@
             android:name=".up.a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.fit.FitButtonActivityFont"
+            android:name=".up.a.cv.bt.fit.FitButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.func.wallpo.WallpoActivity"
@@ -1359,22 +1359,22 @@
             android:name=".up.a.cv.layout.cornerCutLinear.CornerCutLinearLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularProgress.CPBActivityFont"
+            android:name=".up.a.cv.bt.circularProgress.CPBActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularProgress.Sample1ActivityFont"
+            android:name=".up.a.cv.bt.circularProgress.Sample1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularProgress.Sample2ActivityFont"
+            android:name=".up.a.cv.bt.circularProgress.Sample2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularProgress.Sample3ActivityFont"
+            android:name=".up.a.cv.bt.circularProgress.Sample3Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularProgress.Sample4ActivityFont"
+            android:name=".up.a.cv.bt.circularProgress.Sample4Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularProgress.Sample5ActivityFont"
+            android:name=".up.a.cv.bt.circularProgress.Sample5Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.layout.greedo.GreedoLayoutActivity"

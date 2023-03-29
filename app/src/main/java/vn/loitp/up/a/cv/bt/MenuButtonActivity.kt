@@ -11,9 +11,9 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.a.cv.bt.autoSize.AutoSizeButtonActivityFont
 import vn.loitp.a.cv.bt.circularImageClick.CircularImageClickActivityFont
-import vn.loitp.a.cv.bt.circularProgress.CPBActivityFont
-import vn.loitp.a.cv.bt.fab.FabActivityFont
-import vn.loitp.a.cv.bt.fit.FitButtonActivityFont
+import vn.loitp.up.a.cv.bt.circularProgress.CPBActivity
+import vn.loitp.up.a.cv.bt.fab.FabActivity
+import vn.loitp.up.a.cv.bt.fit.FitButtonActivity
 import vn.loitp.up.a.cv.bt.goodView.GoodViewActivity
 import vn.loitp.up.a.cv.bt.l.LButtonActivity
 import vn.loitp.up.a.cv.bt.q.QButtonActivity
@@ -67,9 +67,9 @@ class MenuButtonActivity : BaseActivityFont(), OnClickListener {
             binding.btlButton -> launchActivity(LButtonActivity::class.java)
             binding.btAutoSizeButton -> launchActivity(AutoSizeButtonActivityFont::class.java)
             binding.btQButton -> launchActivity(QButtonActivity::class.java)
-            binding.btFab -> launchActivity(FabActivityFont::class.java)
-            binding.btFitButtonActivity -> launchActivity(FitButtonActivityFont::class.java)
-            binding.btCircularProgressButton -> launchActivity(CPBActivityFont::class.java)
+            binding.btFab -> launchActivity(FabActivity::class.java)
+            binding.btFitButtonActivity -> launchActivity(FitButtonActivity::class.java)
+            binding.btCircularProgressButton -> launchActivity(CPBActivity::class.java)
         }
     }
 }

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.bt.circularProgress
+package vn.loitp.up.a.cv.bt.circularProgress
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -6,29 +6,34 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_cpb.*
 import vn.loitp.R
+import vn.loitp.databinding.ACpbBinding
 
 @LogTag("CPBActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class CPBActivityFont : BaseActivityFont() {
+class CPBActivity : BaseActivityFont() {
+    private lateinit var binding: ACpbBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_cpb
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ACpbBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -45,23 +50,23 @@ class CPBActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = CPBActivityFont::class.java.simpleName
+            this.tvTitle?.text = CPBActivity::class.java.simpleName
         }
 
-        bt1.setSafeOnClickListener {
-            launchActivity(Sample1ActivityFont::class.java)
+        binding.bt1.setSafeOnClickListener {
+            launchActivity(Sample1Activity::class.java)
         }
-        bt2.setSafeOnClickListener {
-            launchActivity(Sample2ActivityFont::class.java)
+        binding.bt2.setSafeOnClickListener {
+            launchActivity(Sample2Activity::class.java)
         }
-        bt3.setSafeOnClickListener {
-            launchActivity(Sample3ActivityFont::class.java)
+        binding.bt3.setSafeOnClickListener {
+            launchActivity(Sample3Activity::class.java)
         }
-        bt4.setSafeOnClickListener {
-            launchActivity(Sample4ActivityFont::class.java)
+        binding.bt4.setSafeOnClickListener {
+            launchActivity(Sample4Activity::class.java)
         }
-        bt5.setSafeOnClickListener {
-            launchActivity(Sample5ActivityFont::class.java)
+        binding.bt5.setSafeOnClickListener {
+            launchActivity(Sample5Activity::class.java)
         }
     }
 }
