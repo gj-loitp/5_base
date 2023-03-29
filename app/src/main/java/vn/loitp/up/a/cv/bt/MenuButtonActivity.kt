@@ -9,8 +9,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.cv.bt.autoSize.AutoSizeButtonActivityFont
-import vn.loitp.a.cv.bt.circularImageClick.CircularImageClickActivityFont
+import vn.loitp.up.a.cv.bt.autoSize.AutoSizeButtonActivity
+import vn.loitp.up.a.cv.bt.circularImageClick.CircularImageClickActivity
 import vn.loitp.up.a.cv.bt.circularProgress.CPBActivity
 import vn.loitp.up.a.cv.bt.fab.FabActivity
 import vn.loitp.up.a.cv.bt.fit.FitButtonActivity
@@ -62,10 +62,10 @@ class MenuButtonActivity : BaseActivityFont(), OnClickListener {
     override fun onClick(v: View) {
         when (v) {
             binding.btShineButton -> launchActivity(ShineButtonActivity::class.java)
-            binding.btCircularImageClick -> launchActivity(CircularImageClickActivityFont::class.java)
+            binding.btCircularImageClick -> launchActivity(CircularImageClickActivity::class.java)
             binding.btGoodView -> launchActivity(GoodViewActivity::class.java)
             binding.btlButton -> launchActivity(LButtonActivity::class.java)
-            binding.btAutoSizeButton -> launchActivity(AutoSizeButtonActivityFont::class.java)
+            binding.btAutoSizeButton -> launchActivity(AutoSizeButtonActivity::class.java)
             binding.btQButton -> launchActivity(QButtonActivity::class.java)
             binding.btFab -> launchActivity(FabActivity::class.java)
             binding.btFitButtonActivity -> launchActivity(FitButtonActivity::class.java)

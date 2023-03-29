@@ -143,7 +143,7 @@
             android:name=".up.a.pattern.mvp.MVPActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.circularImageClick.CircularImageClickActivityFont"
+            android:name=".up.a.cv.bt.circularImageClick.CircularImageClickActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.et.MenuEditTextActivity"
@@ -506,7 +506,7 @@
             android:name=".up.a.cv.bt.l.LButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.autoSize.AutoSizeButtonActivityFont"
+            android:name=".up.a.cv.bt.autoSize.AutoSizeButtonActivity"
             android:configChanges="keyboardHidden|orientation|uiMode|screenSize" />
         <activity
             android:name=".up.a.cv.lDebug.LDebugViewActivity"
