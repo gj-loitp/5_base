@@ -881,10 +881,10 @@
             android:name=".up.a.demo.architectureComponent.coroutine.CoroutineActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.cal.MenuCalendarActivity"
+            android:name=".up.a.cv.cal.MenuCalendarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.cal.cosmo.CosmoCalendarActivityFont"
+            android:name=".up.a.cv.cal.cosmo.CosmoCalendarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.api.coroutine.a.CoroutineAPIActivity"
