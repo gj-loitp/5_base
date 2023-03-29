@@ -56,10 +56,10 @@
             android:name=".up.a.cv.vp.parrallax.ParallaxViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.MenuButtonActivity"
+            android:name=".up.a.cv.bt.MenuButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.shine.ShineButtonActivityFont"
+            android:name=".up.a.cv.bt.shine.ShineButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.MenuAnimationActivity"
