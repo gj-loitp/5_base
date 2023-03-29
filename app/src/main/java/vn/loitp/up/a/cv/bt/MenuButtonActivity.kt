@@ -14,9 +14,9 @@ import vn.loitp.a.cv.bt.circularImageClick.CircularImageClickActivityFont
 import vn.loitp.a.cv.bt.circularProgress.CPBActivityFont
 import vn.loitp.a.cv.bt.fab.FabActivityFont
 import vn.loitp.a.cv.bt.fit.FitButtonActivityFont
-import vn.loitp.a.cv.bt.goodView.GoodViewActivityFont
-import vn.loitp.a.cv.bt.l.LButtonActivityFont
-import vn.loitp.a.cv.bt.q.QButtonActivityFont
+import vn.loitp.up.a.cv.bt.goodView.GoodViewActivity
+import vn.loitp.up.a.cv.bt.l.LButtonActivity
+import vn.loitp.up.a.cv.bt.q.QButtonActivity
 import vn.loitp.up.a.cv.bt.shine.ShineButtonActivity
 import vn.loitp.databinding.ActivityMenuButtonBinding
 
@@ -63,10 +63,10 @@ class MenuButtonActivity : BaseActivityFont(), OnClickListener {
         when (v) {
             binding.btShineButton -> launchActivity(ShineButtonActivity::class.java)
             binding.btCircularImageClick -> launchActivity(CircularImageClickActivityFont::class.java)
-            binding.btGoodView -> launchActivity(GoodViewActivityFont::class.java)
-            binding.btlButton -> launchActivity(LButtonActivityFont::class.java)
+            binding.btGoodView -> launchActivity(GoodViewActivity::class.java)
+            binding.btlButton -> launchActivity(LButtonActivity::class.java)
             binding.btAutoSizeButton -> launchActivity(AutoSizeButtonActivityFont::class.java)
-            binding.btQButton -> launchActivity(QButtonActivityFont::class.java)
+            binding.btQButton -> launchActivity(QButtonActivity::class.java)
             binding.btFab -> launchActivity(FabActivityFont::class.java)
             binding.btFitButtonActivity -> launchActivity(FitButtonActivityFont::class.java)
             binding.btCircularProgressButton -> launchActivity(CPBActivityFont::class.java)

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.bt.goodView
+package vn.loitp.up.a.cv.bt.goodView
 
 import android.graphics.Color
 import android.os.Bundle
@@ -6,30 +6,34 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.bt.goodView.LGoodView
-import kotlinx.android.synthetic.main.a_good_view.*
 import vn.loitp.R
+import vn.loitp.databinding.AGoodViewBinding
 
 @LogTag("GoodViewActivity")
 @IsFullScreen(false)
-class GoodViewActivityFont : BaseActivityFont() {
-
+class GoodViewActivity : BaseActivityFont() {
+    private lateinit var binding: AGoodViewBinding
     private var lGoodView: LGoodView? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_good_view
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AGoodViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setupViews()
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -46,18 +50,18 @@ class GoodViewActivityFont : BaseActivityFont() {
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = GoodViewActivityFont::class.java.simpleName
+            this.tvTitle?.text = GoodViewActivity::class.java.simpleName
         }
 
         lGoodView = LGoodView(this)
-        bt.setOnClickListener {
+        binding.bt.setOnClickListener {
             lGoodView?.let {
                 it.setText("+1")
-                it.show(v = bt)
+                it.show(v = binding.bt)
             }
         }
-        imageView.setOnClickListener {
-            imageView.setColorFilter(Color.TRANSPARENT)
+        binding.imageView.setOnClickListener {
+            binding.imageView.setColorFilter(Color.TRANSPARENT)
             lGoodView?.apply {
                 this.setImage(R.drawable.ic_account_circle_black_48dp)
                 // this.setDistance(1000)

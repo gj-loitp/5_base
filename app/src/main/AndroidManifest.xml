@@ -355,7 +355,7 @@
             android:name=".up.a.cv.treeView.TreeViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.goodView.GoodViewActivityFont"
+            android:name=".up.a.cv.bt.goodView.GoodViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.draggableFlipView.DraggableFlipViewActivity"
@@ -503,7 +503,7 @@
             android:name=".up.a.more.MoreActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.l.LButtonActivityFont"
+            android:name=".up.a.cv.bt.l.LButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".a.cv.bt.autoSize.AutoSizeButtonActivityFont"
@@ -868,7 +868,7 @@
             android:name=".up.a.cv.layout.roundable.RoundableLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bt.q.QButtonActivityFont"
+            android:name=".up.a.cv.bt.q.QButtonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.demo.architectureComponent.MenuArchitectureComponentActivity"
