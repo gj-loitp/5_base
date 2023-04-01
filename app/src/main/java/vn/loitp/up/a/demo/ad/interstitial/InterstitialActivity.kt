@@ -13,6 +13,8 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.*
+import com.loitp.core.ext.getRandomNumber
+import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
@@ -112,7 +114,11 @@ class InterstitialActivity : BaseActivityFont() {
     private fun showAd() {
         interstitialAd?.let { ad ->
             if (ad.isReady) {
-                ad.showAd()
+                showDialogProgress()
+                setDelay(500.getRandomNumber() + 500) {
+                    hideDialogProgress()
+                    ad.showAd()
+                }
             }
         }
     }
