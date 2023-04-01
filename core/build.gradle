@@ -128,7 +128,7 @@ dependencies {
     api 'com.simmorsal.recolor:recolor:1.1.0'
 
     //https://github.com/airbnb/lottie-android
-    api 'com.airbnb.android:lottie:5.2.0'
+    api 'com.airbnb.android:lottie:6.0.0'
 
     //https://github.com/EverythingMe/overscroll-decor
     api 'io.github.everythingme:overscroll-decor-android:1.1.1'
