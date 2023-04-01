@@ -15,28 +15,33 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.loadGlide
-import kotlinx.android.synthetic.main.a_scrollable_coordinator_layout.*
 import vn.loitp.R
+import vn.loitp.databinding.AScrollableCoordinatorLayoutBinding
 
 @LogTag("ScrollableCoordinatorLayoutActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class ScrollableCoordinatorLayoutActivityFont : BaseActivityFont() {
+    private lateinit var binding: AScrollableCoordinatorLayoutBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_scrollable_coordinator_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        recyclerView.apply {
+        binding = AScrollableCoordinatorLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.recyclerView.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = Adapter()
         }
 
-        fab.setOnClickListener { view ->
+        binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Meow", Snackbar.LENGTH_LONG).show()
         }
     }

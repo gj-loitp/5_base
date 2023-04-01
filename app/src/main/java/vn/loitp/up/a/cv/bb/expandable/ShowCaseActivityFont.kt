@@ -12,7 +12,7 @@ import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_showcase.*
 import vn.loitp.R
-import vn.loitp.up.a.cv.bb.expandable.screens.navi.NavigationComponentActivityFont
+import vn.loitp.up.a.cv.bb.expandable.screens.navi.NavigationComponentActivity
 import vn.loitp.up.a.cv.bb.expandable.screens.*
 import vn.loitp.up.app.EmptyActivity
 
@@ -31,11 +31,11 @@ class ShowCaseActivityFont : BaseActivityFont() {
                 title = getString(R.string.xml_declared_title),
                 description = getString(R.string.xml_declared_description)
             ),
-            createShowCase<JavaActivityFont>(
+            createShowCase<JavaActivity>(
                 title = getString(R.string.interop_title),
                 description = getString(R.string.interop_description)
             ),
-            createShowCase<CoordinatorLayoutActivityFont>(
+            createShowCase<CoordinatorLayoutActivity>(
                 title = getString(R.string.coordinator_base_title),
                 description = getString(R.string.coordinator_base_description)
             ),
@@ -43,7 +43,7 @@ class ShowCaseActivityFont : BaseActivityFont() {
                 title = getString(R.string.coordinator_scroll_title),
                 description = getString(R.string.coordinator_scroll_description)
             ),
-            createShowCase<NavigationComponentActivityFont>(
+            createShowCase<NavigationComponentActivity>(
                 title = getString(R.string.navigation_components_title),
                 description = getString(R.string.navigation_components_description)
             ),
@@ -51,7 +51,7 @@ class ShowCaseActivityFont : BaseActivityFont() {
                 title = getString(R.string.styles_title),
                 description = getString(R.string.styles_description)
             ),
-            createShowCase<NotificationBadgeActivityFont>(
+            createShowCase<NotificationBadgeActivity>(
                 title = getString(R.string.notification_badges_title),
                 description = getString(R.string.notification_badges_description)
             )

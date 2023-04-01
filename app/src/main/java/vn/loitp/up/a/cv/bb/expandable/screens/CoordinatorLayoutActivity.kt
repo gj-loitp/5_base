@@ -6,27 +6,31 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import kotlinx.android.synthetic.main.a_ebb_coordinator_layout.*
+import com.loitp.core.common.NOT_FOUND
 import vn.loitp.R
+import vn.loitp.databinding.AEbbCoordinatorLayoutBinding
 
 @LogTag("CoordinatorLayoutActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-class CoordinatorLayoutActivityFont : BaseActivityFont() {
+class CoordinatorLayoutActivity : BaseActivityFont() {
+    private lateinit var binding: AEbbCoordinatorLayoutBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_ebb_coordinator_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = AEbbCoordinatorLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     private fun setupViews() {
-        fab.setOnClickListener { view ->
+        binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Meow", Snackbar.LENGTH_LONG).show()
         }
     }

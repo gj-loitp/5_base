@@ -1308,7 +1308,7 @@
             android:name=".up.a.cv.bb.expandable.ShowCaseActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.bb.expandable.screens.JavaActivityFont"
+            android:name=".up.a.cv.bb.expandable.screens.JavaActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.bb.expandable.screens.XmlDeclaredActivityFont"
@@ -1317,19 +1317,19 @@
             android:name=".up.a.cv.bb.expandable.screens.ProgrammaticallyCreatedDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.bb.expandable.screens.CoordinatorLayoutActivityFont"
+            android:name=".up.a.cv.bb.expandable.screens.CoordinatorLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.bb.expandable.screens.ScrollableCoordinatorLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.bb.expandable.screens.navi.NavigationComponentActivityFont"
+            android:name=".up.a.cv.bb.expandable.screens.navi.NavigationComponentActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.bb.expandable.screens.StylesActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.bb.expandable.screens.NotificationBadgeActivityFont"
+            android:name=".up.a.cv.bb.expandable.screens.NotificationBadgeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.animatedStarsView.AnimatedStarsViewActivity"

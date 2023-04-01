@@ -16,7 +16,7 @@ import vn.loitp.R;
 @LogTag("CoordinatorLayoutActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-public class JavaActivityFont extends BaseActivityFont {
+public class JavaActivity extends BaseActivityFont {
 
     @Override
     protected int setLayoutResourceId() {
