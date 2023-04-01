@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.ab.collapsingToolbarLayoutWithTabLayout
+package vn.loitp.up.a.cv.ab.collapsingToolbarLayoutWithTabLayout
 
 import android.graphics.Color
 import android.os.Bundle
@@ -15,21 +15,26 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FONT_PATH
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.showPopup
-import kotlinx.android.synthetic.main.a_collapsingtoolbar_withtablayout.*
 import vn.loitp.R
+import vn.loitp.databinding.ACollapsingtoolbarWithtablayoutBinding
 
 @LogTag("CollapsingToolbarWithTabLayoutActivity")
 @IsFullScreen(false)
-class CollapsingToolbarWithTabLayoutActivityFont : BaseActivityFont(), OnClickListener {
+class CollapsingToolbarWithTabLayoutActivity : BaseActivityFont(), OnClickListener {
+    private lateinit var binding: ACollapsingtoolbarWithtablayoutBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_collapsingtoolbar_withtablayout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ACollapsingtoolbarWithtablayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -40,30 +45,30 @@ class CollapsingToolbarWithTabLayoutActivityFont : BaseActivityFont(), OnClickLi
             colorNavigationBar = getColor(R.color.colorPrimary)
         )
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
 
-        toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
-        toolbar.setNavigationOnClickListener {
+        binding.toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
+        binding.toolbar.setNavigationOnClickListener {
             onBaseBackPressed()
         }
 
-        fab.setOnClickListener(this)
+        binding.fab.setOnClickListener(this)
 
         val mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
 
-        viewPager.adapter = mSectionsPagerAdapter
+        binding.viewPager.adapter = mSectionsPagerAdapter
 
-        tabs.setupWithViewPager(viewPager)
-        tabs.changeTabsFont(fontName = FONT_PATH)
+        binding.tabs.setupWithViewPager(binding.viewPager)
+        binding.tabs.changeTabsFont(fontName = FONT_PATH)
     }
 
     override fun onClick(v: View) {
         when (v) {
-            fab -> {
+            binding.fab -> {
                 Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
             }
-            btMenu -> {
+            binding.btMenu -> {
                 this.showPopup(
                     showOnView = v,
                     menuRes = R.menu.menu_popup,

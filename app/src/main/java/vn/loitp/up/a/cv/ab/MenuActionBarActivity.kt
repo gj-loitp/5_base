@@ -9,8 +9,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
-import vn.loitp.a.cv.ab.collapsingToolbarLayout.CollapsingToolbarLayoutActivityFont
-import vn.loitp.a.cv.ab.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivityFont
+import vn.loitp.up.a.cv.ab.collapsingToolbarLayout.CollapsingToolbarLayoutActivity
+import vn.loitp.up.a.cv.ab.collapsingToolbarLayoutWithTabLayout.CollapsingToolbarWithTabLayoutActivity
 import vn.loitp.up.a.cv.ab.l.LActionbarActivity
 import vn.loitp.up.a.cv.ab.navigationView.NavigationViewActivity
 import vn.loitp.up.a.cv.ab.navigationViewWithText.NavigationViewWithTextActivity
@@ -52,9 +52,9 @@ class MenuActionBarActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            binding.btCollapsingToolBarLayout -> launchActivity(CollapsingToolbarLayoutActivityFont::class.java)
+            binding.btCollapsingToolBarLayout -> launchActivity(CollapsingToolbarLayoutActivity::class.java)
             binding.btCollapsingToolbarWithTabLayout -> launchActivity(
-                CollapsingToolbarWithTabLayoutActivityFont::class.java
+                CollapsingToolbarWithTabLayoutActivity::class.java
             )
             binding.btLActionBar -> launchActivity(LActionbarActivity::class.java)
             binding.btNavigationView -> launchActivity(NavigationViewActivity::class.java)

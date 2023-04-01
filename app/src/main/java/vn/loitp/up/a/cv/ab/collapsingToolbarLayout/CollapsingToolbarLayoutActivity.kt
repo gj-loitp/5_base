@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.ab.collapsingToolbarLayout
+package vn.loitp.up.a.cv.ab.collapsingToolbarLayout
 
 import android.graphics.Color
 import android.os.Bundle
@@ -8,21 +8,26 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.showPopup
 import com.loitp.views.layout.appBar.LAppBarLayout
-import kotlinx.android.synthetic.main.a_collapsing_toolbar_layout_with_tab_layout.*
 import vn.loitp.R
+import vn.loitp.databinding.ACollapsingToolbarLayoutWithTabLayoutBinding
 
 @LogTag("CollapsingToolbarLayoutActivity")
 @IsFullScreen(false)
-class CollapsingToolbarLayoutActivityFont : BaseActivityFont(), OnClickListener {
+class CollapsingToolbarLayoutActivity : BaseActivityFont(), OnClickListener {
+    private lateinit var binding: ACollapsingToolbarLayoutWithTabLayoutBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_collapsing_toolbar_layout_with_tab_layout
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ACollapsingToolbarLayoutWithTabLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -33,14 +38,14 @@ class CollapsingToolbarLayoutActivityFont : BaseActivityFont(), OnClickListener 
             colorNavigationBar = getColor(R.color.colorPrimary)
         )
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
 
-        toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
-        toolbar.setNavigationOnClickListener {
+        binding.toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
+        binding.toolbar.setNavigationOnClickListener {
             onBaseBackPressed()
         }
 
-        appBarLayout.setOnStateChangeListener(object : LAppBarLayout.OnStateChangeListener {
+        binding.appBarLayout.setOnStateChangeListener(object : LAppBarLayout.OnStateChangeListener {
             override fun onStateChange(toolbarChange: LAppBarLayout.State) {
                 when (toolbarChange) {
                     LAppBarLayout.State.COLLAPSED -> // COLLAPSED appBarLayout min
@@ -53,17 +58,17 @@ class CollapsingToolbarLayoutActivityFont : BaseActivityFont(), OnClickListener 
             }
         })
 
-        fab.setOnClickListener { view ->
+        binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
 
-        btMenu.setOnClickListener(this)
+        binding.btMenu.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when (v) {
-            btMenu -> this.showPopup(
+            binding.btMenu -> this.showPopup(
                 showOnView = v,
                 menuRes = R.menu.menu_popup,
                 callback = { menuItem ->
