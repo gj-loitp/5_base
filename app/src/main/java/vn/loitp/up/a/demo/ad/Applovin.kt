@@ -1,10 +1,12 @@
 package vn.loitp.up.a.demo.ad
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.applovin.mediation.MaxAd
+import com.applovin.mediation.MaxAdFormat
 import com.applovin.mediation.MaxAdViewAdListener
 import com.applovin.mediation.MaxError
 import com.applovin.mediation.ads.MaxAdView
@@ -20,18 +22,18 @@ object Applovin {
         AppLovinSdk.getInstance(c).mediationProvider = AppLovinMediationProvider.MAX
         AppLovinSdk.getInstance(c).initializeSdk {
             // AppLovin SDK is initialized, start loading ads now or later if ad gate is reached
-
         }
     }
 
     fun createAdBanner(
-        c: Context,
+        a: Activity,
         logTag: String?,
         bkgColor: Int = Color.RED,
-        viewGroup: ViewGroup
+        viewGroup: ViewGroup,
+        isAdaptiveBanner: Boolean
     ): MaxAdView {
         val log = "$logTag - createAdBanner"
-        val adView = MaxAdView(c.getString(R.string.BANNER), c)
+        val adView = MaxAdView(a.getString(R.string.BANNER), a)
         adView.let { ad ->
             ad.setListener(object : MaxAdViewAdListener {
                 override fun onAdLoaded(p0: MaxAd?) {
@@ -71,13 +73,28 @@ object Applovin {
                 i(log, "onAdRevenuePaid")
             }
 
-            val isTablet = AppLovinSdkUtils.isTablet(c)
-            val heightPx = AppLovinSdkUtils.dpToPx(c, if (isTablet) 90 else 50)
+            if (isAdaptiveBanner) {
+                // Stretch to the width of the screen for banners to be fully functional
+                val width = ViewGroup.LayoutParams.MATCH_PARENT
 
-            ad.layoutParams = FrameLayout.LayoutParams(
-                /* width = */ ViewGroup.LayoutParams.MATCH_PARENT,
-                /* height = */ heightPx
-            )
+                // Get the adaptive banner height.
+                val heightDp = MaxAdFormat.BANNER.getAdaptiveSize(a).height
+                val heightPx = AppLovinSdkUtils.dpToPx(a, heightDp)
+
+                ad.layoutParams = FrameLayout.LayoutParams(width, heightPx)
+                ad.setExtraParameter("adaptive_banner", "true")
+                ad.setLocalExtraParameter("adaptive_banner_width", 400)
+                ad.adFormat.getAdaptiveSize(400, a).height // Set your ad height to this value
+            } else {
+                val isTablet = AppLovinSdkUtils.isTablet(a)
+                val heightPx = AppLovinSdkUtils.dpToPx(a, if (isTablet) 90 else 50)
+
+                ad.layoutParams = FrameLayout.LayoutParams(
+                    /* width = */ ViewGroup.LayoutParams.MATCH_PARENT,
+                    /* height = */ heightPx
+                )
+            }
+
             ad.setBackgroundColor(bkgColor)
             viewGroup.addView(adView)
             ad.loadAd()

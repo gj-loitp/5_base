@@ -71,10 +71,11 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     private fun setupViews() {
         adView = Applovin.createAdBanner(
-            c = this,
+            a = this,
             logTag = logTag,
             bkgColor = Color.TRANSPARENT,
-            viewGroup = binding.flAd
+            viewGroup = binding.flAd,
+            isAdaptiveBanner = true,
         )
         createAdInter()
 
