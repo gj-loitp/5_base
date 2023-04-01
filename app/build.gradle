@@ -169,7 +169,7 @@ dependencies {
 //    https://github.com/dmytrodanylyk/circular-progress-button
     api 'com.github.dmytrodanylyk:circular-progress-button:1.2'
 //    https://github.com/coil-kt/coil
-    api("io.coil-kt:coil:2.2.2")
+    api("io.coil-kt:coil:2.3.0")
 
 //    https://github.com/shiburagi/Drawer-Behavior
     api 'com.infideap.drawerbehavior:drawer-behavior:1.0.1'
