@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.bs
+package vn.loitp.up.a.cv.bs
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,12 +10,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.toast.LToast.show
-import kotlinx.android.synthetic.main.a_menu_bottom_sheet.*
-import kotlinx.android.synthetic.main.bottom_sheet_0.*
 import vn.loitp.R
+import vn.loitp.databinding.AMenuBottomSheetBinding
 
 /**
  * Created by Loitp on 04,August,2022
@@ -28,32 +28,34 @@ import vn.loitp.R
 @IsFullScreen(false)
 class MenuBottomSheetActivity : BaseActivityFont() {
     private var bottomSheetBehavior: BottomSheetBehavior<*>? = null
+    private lateinit var binding: AMenuBottomSheetBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.a_menu_bottom_sheet
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AMenuBottomSheetBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+        binding.lActionBar.apply {
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = MenuBottomSheetActivity::class.java.simpleName
         }
-        btPayment.setSafeOnClickListener {
+        binding.layout0.btPayment.setSafeOnClickListener {
             show("Click layoutBottomSheet R.id.bt_payment")
         }
-        bottomSheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
+        bottomSheetBehavior = BottomSheetBehavior.from(binding.layout0.layoutBottomSheet)
         bottomSheetBehavior?.addBottomSheetCallback(object : BottomSheetCallback() {
             @SuppressLint("SetTextI18n")
             override fun onStateChanged(bottomSheet: View, newState: Int) {
@@ -63,11 +65,11 @@ class MenuBottomSheetActivity : BaseActivityFont() {
                     }
                     BottomSheetBehavior.STATE_EXPANDED -> {
                         logD("STATE_HIDDEN")
-                        bt0.text = "Close Sheet"
+                        binding.bt0.text = "Close Sheet"
                     }
                     BottomSheetBehavior.STATE_COLLAPSED -> {
                         logD("STATE_COLLAPSED")
-                        bt0.text = "Expand Sheet"
+                        binding.bt0.text = "Expand Sheet"
                     }
                     BottomSheetBehavior.STATE_DRAGGING -> {
                         logD("STATE_DRAGGING")
@@ -84,31 +86,30 @@ class MenuBottomSheetActivity : BaseActivityFont() {
                 logD("onSlide $slideOffset")
             }
         })
-        bt0.setSafeOnClickListener {
+        binding.bt0.setSafeOnClickListener {
             bottomSheetBehavior?.let { bsb ->
                 if (bsb.state != BottomSheetBehavior.STATE_EXPANDED) {
                     bsb.state = BottomSheetBehavior.STATE_EXPANDED
-                    bt0.text = "Close sheet"
+                    binding.bt0.text = "Close sheet"
                 } else {
                     bsb.state = BottomSheetBehavior.STATE_COLLAPSED
-                    bt0.text = "Expand sheet"
+                    binding.bt0.text = "Expand sheet"
                 }
             }
         }
-        bt1.setSafeOnClickListener {
+        binding.bt1.setSafeOnClickListener {
             @SuppressLint("InflateParams") val view =
                 layoutInflater.inflate(R.layout.f_bottom_sheet_dialog, null)
             val dialog = BottomSheetDialog(this)
             dialog.setContentView(view)
             dialog.show()
         }
-        bt2.setSafeOnClickListener {
+        binding.bt2.setSafeOnClickListener {
             val bottomSheetFragment = BottomSheetFragment()
             bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
         }
-        bt1Option.setSafeOnClickListener {
-            showBottomSheetOptionFragment(
-                isCancelableFragment = true,
+        binding.bt1Option.setSafeOnClickListener {
+            showBottomSheetOptionFragment(isCancelableFragment = true,
                 isShowIvClose = true,
                 title = "Title",
                 message = "Hellllllllllllllllllllllllllllloooooooooooo",
@@ -120,12 +121,10 @@ class MenuBottomSheetActivity : BaseActivityFont() {
                 onDismiss = {
                     showShortInformation("onDismiss")
                     logD("onDismiss")
-                }
-            )
+                })
         }
-        bt2Option.setSafeOnClickListener {
-            showBottomSheetOptionFragment(
-                isCancelableFragment = true,
+        binding.bt2Option.setSafeOnClickListener {
+            showBottomSheetOptionFragment(isCancelableFragment = true,
                 isShowIvClose = true,
                 title = "Title",
                 message = "Hellllllllllllllllllllllllllllloooooooooooo",
@@ -142,12 +141,10 @@ class MenuBottomSheetActivity : BaseActivityFont() {
                 onDismiss = {
                     showShortInformation("onDismiss")
                     logD("onDismiss")
-                }
-            )
+                })
         }
-        bt3Option.setSafeOnClickListener {
-            showBottomSheetOptionFragment(
-                isCancelableFragment = true,
+        binding.bt3Option.setSafeOnClickListener {
+            showBottomSheetOptionFragment(isCancelableFragment = true,
                 isShowIvClose = true,
                 title = "Title",
                 message = "Hellllllllllllllllllllllllllllloooooooooooo",
@@ -169,14 +166,12 @@ class MenuBottomSheetActivity : BaseActivityFont() {
                 onDismiss = {
                     showShortInformation("onDismiss")
                     logD("onDismiss")
-                }
-            )
+                })
         }
-        btBaseBottomSheet.setSafeOnClickListener {
+        binding.btBaseBottomSheet.setSafeOnClickListener {
             val bottomSheet = SampleBaseBottomSheet()
             bottomSheet.show(
-                supportFragmentManager,
-                bottomSheet.tag
+                supportFragmentManager, bottomSheet.tag
             )
         }
     }

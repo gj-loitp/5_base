@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.bs
+package vn.loitp.up.a.cv.bs
 
 import android.os.Bundle
 import android.view.LayoutInflater
