@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.androidRibbon
+package vn.loitp.up.a.cv.androidRibbon
 
 import android.content.Context
 import android.graphics.Color

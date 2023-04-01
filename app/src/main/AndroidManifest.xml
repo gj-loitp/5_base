@@ -364,7 +364,7 @@
             android:name=".up.a.anim.shadowViewHelper.ShadowViewHelperActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.answerView.AnswerViewActivity"
+            android:name=".up.a.cv.answerView.AnswerViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.layout.draggablePanel.DraggablePanelActivity"
@@ -1398,10 +1398,10 @@
             android:name=".up.a.cv.iv.coil.CoilActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.androidRibbon.RibbonActivity"
+            android:name=".up.a.cv.androidRibbon.RibbonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.androidRibbon.SecondActivity"
+            android:name=".up.a.cv.androidRibbon.SecondActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.layout.floatLayout.FloatLayoutActivity"

@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.answerView
+package vn.loitp.up.a.cv.answerView
 
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -7,12 +7,13 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.answerView.LAnswerView
-import kotlinx.android.synthetic.main.a_answer_view.*
 import vn.loitp.R
+import vn.loitp.databinding.AAnswerViewBinding
 
 @LogTag("AnswerViewActivity")
 @IsFullScreen(false)
 class AnswerViewActivity : BaseActivityFont() {
+    private lateinit var binding: AAnswerViewBinding
 
     override fun setLayoutResourceId(): Int {
         return R.layout.a_answer_view
@@ -20,6 +21,9 @@ class AnswerViewActivity : BaseActivityFont() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = AAnswerViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         // use xml
@@ -29,7 +33,7 @@ class AnswerViewActivity : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
@@ -41,17 +45,17 @@ class AnswerViewActivity : BaseActivityFont() {
     }
 
     private fun useXML() {
-        lAnswerView1.setNumber(1)
-        lAnswerView1.setOnAnswerChange(object : LAnswerView.OnAnswerChange {
+        binding.lAnswerView1.setNumber(1)
+        binding.lAnswerView1.setOnAnswerChange(object : LAnswerView.OnAnswerChange {
             override fun onAnswerChange(view: LAnswerView?, index: Int) {
                 showShortInformation("Click: $index")
             }
         })
-        lAnswerView1.activeChar = 'A'
+        binding.lAnswerView1.activeChar = 'A'
         // answerView1.resize(2)
 
-        lAnswerView2.setNumber(2)
-        lAnswerView2.setOnAnswerChange(object : LAnswerView.OnAnswerChange {
+        binding.lAnswerView2.setNumber(2)
+        binding.lAnswerView2.setOnAnswerChange(object : LAnswerView.OnAnswerChange {
             override fun onAnswerChange(view: LAnswerView?, index: Int) {
                 showShortInformation("Click: $index")
             }
@@ -74,7 +78,7 @@ class AnswerViewActivity : BaseActivityFont() {
                     showShortInformation("Click: $index")
                 }
             })
-            ll.addView(lAnswerView)
+            binding.ll.addView(lAnswerView)
         }
     }
 }
