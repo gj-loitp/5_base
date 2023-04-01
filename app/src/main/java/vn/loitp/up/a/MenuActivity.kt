@@ -206,19 +206,42 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        showAd()
         when (v) {
             binding.btFlutter -> rateApp(packageName = "com.roy93group.fullter_tutorial")
-            binding.btApi -> launchActivity(MenuAPIActivity::class.java)
-            binding.btAnimation -> launchActivity(MenuAnimationActivity::class.java)
-            binding.btCustomView -> launchActivity(MenuCustomViewsActivity::class.java)
-            binding.btDemo -> launchActivity(MenuDemoActivity::class.java)
+            binding.btApi -> {
+                showAd()
+                launchActivity(MenuAPIActivity::class.java)
+            }
+            binding.btAnimation -> {
+                showAd()
+                launchActivity(MenuAnimationActivity::class.java)
+            }
+            binding.btCustomView -> {
+                showAd()
+                launchActivity(MenuCustomViewsActivity::class.java)
+            }
+            binding.btDemo -> {
+                showAd()
+                launchActivity(MenuDemoActivity::class.java)
+            }
             binding.btRateApp -> this.rateApp(packageName)
             binding.btMoreApp -> this.moreApp()
-            binding.btFunction -> launchActivity(MenuFunctionActivity::class.java)
-            binding.btGame -> launchActivity(MenuGameActivity::class.java)
-            binding.btDatabase -> launchActivity(MenuDatabaseActivity::class.java)
-            binding.btPattern -> launchActivity(MenuPatternActivity::class.java)
+            binding.btFunction -> {
+                showAd()
+                launchActivity(MenuFunctionActivity::class.java)
+            }
+            binding.btGame -> {
+                showAd()
+                launchActivity(MenuGameActivity::class.java)
+            }
+            binding.btDatabase -> {
+                showAd()
+                launchActivity(MenuDatabaseActivity::class.java)
+            }
+            binding.btPattern -> {
+                showAd()
+                launchActivity(MenuPatternActivity::class.java)
+            }
             binding.btChat -> this.chatMessenger()
             binding.btGithub -> {
                 this.openUrlInBrowser(
@@ -226,6 +249,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                 )
             }
             binding.btAdHelper -> {
+                showAd()
                 launchActivity(cls = AdHelperActivity::class.java, data = {
                     it.putExtra(AD_HELPER_IS_ENGLISH_LANGUAGE, true)
                     it.putExtra(AD_HELPER_COLOR_PRIMARY, Color.RED)
@@ -235,14 +259,38 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                 })
             }
             binding.btFbFanpage -> this.likeFacebookFanpage()
-            binding.btFrmMore -> launchActivity(MoreActivity::class.java)
-            binding.btTutorial -> launchActivity(MenuTutorialActivity::class.java)
-            binding.btPicker -> launchActivity(MenuPickerActivity::class.java)
-            binding.btNetwork -> launchActivity(NetworkActivity::class.java)
-            binding.btSecurity -> launchActivity(MenuSecurityActivity::class.java)
-            binding.btService -> launchActivity(MenuServiceActivity::class.java)
-            binding.btUtils -> launchActivity(UtilsActivity::class.java)
-            binding.btUtilsCore -> launchActivity(UtilsCoreActivity::class.java)
+            binding.btFrmMore -> {
+                showAd()
+                launchActivity(MoreActivity::class.java)
+            }
+            binding.btTutorial -> {
+                showAd()
+                launchActivity(MenuTutorialActivity::class.java)
+            }
+            binding.btPicker -> {
+                showAd()
+                launchActivity(MenuPickerActivity::class.java)
+            }
+            binding.btNetwork -> {
+                showAd()
+                launchActivity(NetworkActivity::class.java)
+            }
+            binding.btSecurity -> {
+                showAd()
+                launchActivity(MenuSecurityActivity::class.java)
+            }
+            binding.btService -> {
+                showAd()
+                launchActivity(MenuServiceActivity::class.java)
+            }
+            binding.btUtils -> {
+                showAd()
+                launchActivity(UtilsActivity::class.java)
+            }
+            binding.btUtilsCore -> {
+                showAd()
+                launchActivity(UtilsCoreActivity::class.java)
+            }
             binding.btFeedback -> {
                 this.sendEmail(
                     to = "roy93group@gmail.com",
@@ -252,7 +300,10 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                     body = "..."
                 )
             }
-            binding.btInterviewVNIQActivity -> launchActivity(InterviewVNIQActivity::class.java)
+            binding.btInterviewVNIQActivity -> {
+                showAd()
+                launchActivity(InterviewVNIQActivity::class.java)
+            }
             binding.tvMoreApp -> this.moreApp()
         }
     }

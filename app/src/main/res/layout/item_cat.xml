@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vn.loitp.a.cv.bb.expandable.screens.SquareImageView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.loitp.views.iv.square.SquareImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ivItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

@@ -55,7 +55,9 @@
     </com.factor.bouncy.BouncyNestedScrollView>
 
     <!-- Adding bottom sheet after main content -->
-    <include layout="@layout/bottom_sheet_0" />
+    <include
+        android:id="@+id/layout0"
+        layout="@layout/bottom_sheet_0" />
 
     <com.loitp.views.ab.LActionBar
         android:id="@+id/lActionBar"

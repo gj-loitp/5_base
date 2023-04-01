@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
-    tools:context="vn.loitp.a.cv.bb.expandable.screens.CoordinatorLayoutActivityFont">
+    tools:context="vn.loitp.up.a.cv.bb.expandable.screens.CoordinatorLayoutActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
