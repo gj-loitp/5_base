@@ -11,7 +11,7 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AMenuBottomNavigationBarBinding
 import vn.loitp.up.a.cv.bb.bottomBar.BottomBarActivity
-import vn.loitp.up.a.cv.bb.expandable.ShowCaseActivityFont
+import vn.loitp.up.a.cv.bb.expandable.ShowCaseActivity
 
 @LogTag("BottomNavigationMenuActivity")
 @IsFullScreen(false)
@@ -46,7 +46,7 @@ class MenuBottomNavigationActivity : BaseActivityFont() {
             launchActivity(BottomBarActivity::class.java)
         }
         binding.btExpandableBottomBar.setSafeOnClickListener {
-            launchActivity(ShowCaseActivityFont::class.java)
+            launchActivity(ShowCaseActivity::class.java)
         }
     }
 }

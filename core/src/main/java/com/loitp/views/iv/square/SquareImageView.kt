@@ -1,4 +1,4 @@
-package vn.loitp.up.a.cv.bb.expandable.screens
+package com.loitp.views.iv.square
 
 import android.content.Context
 import android.util.AttributeSet

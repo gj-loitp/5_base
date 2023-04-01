@@ -1305,13 +1305,13 @@
             android:name=".up.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.bb.expandable.ShowCaseActivityFont"
+            android:name=".up.a.cv.bb.expandable.ShowCaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.bb.expandable.screens.JavaActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".up.a.cv.bb.expandable.screens.XmlDeclaredActivityFont"
+            android:name=".up.a.cv.bb.expandable.screens.XmlDeclaredActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.bb.expandable.screens.ProgrammaticallyCreatedDemoActivity"
