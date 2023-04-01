@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.a.cv.ab.MenuActionBarActivity
+import vn.loitp.up.a.cv.ab.MenuActionBarActivity
 import vn.loitp.up.a.cv.androidRibbon.RibbonActivity
 import vn.loitp.up.a.cv.answerView.AnswerViewActivity
 import vn.loitp.up.a.cv.bb.MenuBottomNavigationActivity

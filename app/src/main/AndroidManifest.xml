@@ -83,7 +83,7 @@
             android:name=".up.a.cv.sw.appCompat.AppcompatSwitchActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.ab.l.LActionbarActivityFont"
+            android:name=".up.a.cv.ab.l.LActionbarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.iv.MenuImageViewActivity"
@@ -199,7 +199,7 @@
             android:name=".up.a.cv.popupMenu.PopupMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.ab.MenuActionBarActivity"
+            android:name=".up.a.cv.ab.MenuActionBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity android:name=".up.a.demo.alarm.a.AlarmMeActivity">
             <!--
@@ -612,10 +612,10 @@
             android:name=".up.a.cv.dlg.customProgress.CustomProgressDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.ab.navigationView.NavigationViewActivityFont"
+            android:name=".up.a.cv.ab.navigationView.NavigationViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.ab.navigationViewWithText.NavigationViewWithTextActivityFont"
+            android:name=".up.a.cv.ab.navigationViewWithText.NavigationViewWithTextActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.rv.diffUtil.DiffUtilActivity"
