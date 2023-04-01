@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.bb.expandable.screens
+package vn.loitp.up.a.cv.bb.expandable.screens
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar

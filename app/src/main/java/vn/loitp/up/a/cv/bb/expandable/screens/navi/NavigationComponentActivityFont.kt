@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.bb.expandable.screens.navi
+package vn.loitp.up.a.cv.bb.expandable.screens.navi
 
 import android.os.Bundle
 import androidx.navigation.Navigation

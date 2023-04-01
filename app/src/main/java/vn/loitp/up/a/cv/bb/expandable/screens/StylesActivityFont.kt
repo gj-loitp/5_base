@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.bb.expandable.screens
+package vn.loitp.up.a.cv.bb.expandable.screens
 
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen

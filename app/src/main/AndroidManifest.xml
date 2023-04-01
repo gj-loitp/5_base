@@ -98,10 +98,10 @@
             android:name=".up.a.cv.tv.score.ScoreTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.MenuBottomNavigationActivity"
+            android:name=".up.a.cv.bb.MenuBottomNavigationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.bottomBar.BottomBarActivityFont"
+            android:name=".up.a.cv.bb.bottomBar.BottomBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.cv.tv.countDown.CountDownActivity"
@@ -1305,31 +1305,31 @@
             android:name=".up.a.cv.layout.androidSlidingUpPanel.AndroidSlidingUpPanelActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.ShowCaseActivityFont"
+            android:name=".up.a.cv.bb.expandable.ShowCaseActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.JavaActivityFont"
+            android:name=".up.a.cv.bb.expandable.screens.JavaActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.XmlDeclaredActivityFont"
+            android:name=".up.a.cv.bb.expandable.screens.XmlDeclaredActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.ProgrammaticallyCreatedDemoActivity"
+            android:name=".up.a.cv.bb.expandable.screens.ProgrammaticallyCreatedDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.CoordinatorLayoutActivityFont"
+            android:name=".up.a.cv.bb.expandable.screens.CoordinatorLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.ScrollableCoordinatorLayoutActivityFont"
+            android:name=".up.a.cv.bb.expandable.screens.ScrollableCoordinatorLayoutActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.navi.NavigationComponentActivityFont"
+            android:name=".up.a.cv.bb.expandable.screens.navi.NavigationComponentActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.StylesActivityFont"
+            android:name=".up.a.cv.bb.expandable.screens.StylesActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".a.cv.bb.expandable.screens.NotificationBadgeActivityFont"
+            android:name=".up.a.cv.bb.expandable.screens.NotificationBadgeActivityFont"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".up.a.anim.animatedStarsView.AnimatedStarsViewActivity"

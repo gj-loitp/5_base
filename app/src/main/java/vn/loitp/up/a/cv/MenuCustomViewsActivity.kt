@@ -13,7 +13,7 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.a.cv.ab.MenuActionBarActivity
 import vn.loitp.a.cv.androidRibbon.RibbonActivity
 import vn.loitp.a.cv.answerView.AnswerViewActivity
-import vn.loitp.a.cv.bb.MenuBottomNavigationActivity
+import vn.loitp.up.a.cv.bb.MenuBottomNavigationActivity
 import vn.loitp.up.a.cv.bs.MenuBottomSheetActivity
 import vn.loitp.up.a.cv.bt.MenuButtonActivity
 import vn.loitp.up.a.cv.cal.MenuCalendarActivity

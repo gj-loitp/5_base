@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.bb.expandable
+package vn.loitp.up.a.cv.bb.expandable
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,8 +12,8 @@ import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import kotlinx.android.synthetic.main.a_showcase.*
 import vn.loitp.R
-import vn.loitp.a.cv.bb.expandable.screens.*
-import vn.loitp.a.cv.bb.expandable.screens.navi.NavigationComponentActivityFont
+import vn.loitp.up.a.cv.bb.expandable.screens.navi.NavigationComponentActivityFont
+import vn.loitp.up.a.cv.bb.expandable.screens.*
 import vn.loitp.up.app.EmptyActivity
 
 @LogTag("ShowCaseActivity")

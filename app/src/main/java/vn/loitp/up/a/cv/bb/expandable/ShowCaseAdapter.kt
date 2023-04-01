@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.bb.expandable
+package vn.loitp.up.a.cv.bb.expandable
 
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater

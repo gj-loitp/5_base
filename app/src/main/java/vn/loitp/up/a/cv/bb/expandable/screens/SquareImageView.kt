@@ -1,4 +1,4 @@
-package vn.loitp.a.cv.bb.expandable.screens
+package vn.loitp.up.a.cv.bb.expandable.screens
 
 import android.content.Context
 import android.util.AttributeSet
