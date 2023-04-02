@@ -19,6 +19,7 @@ import vn.loitp.up.a.db.sqlite.SqliteActivity
 import vn.loitp.up.a.db.sqliteEncryption.SqliteEncryptionActivity
 import vn.loitp.up.a.db.sqliteMultiTable.SqliteMultiTableActivity
 import vn.loitp.up.a.db.sqliteMultiTableAdvance.SqliteMultiTableAdvanceActivity
+import vn.loitp.up.a.db.storage.StorageActivity
 import vn.loitp.up.a.demo.architectureComponent.room.WordActivity
 
 /**
@@ -94,6 +95,9 @@ class MenuDatabaseActivity : BaseActivityFont() {
         }
         binding.btRoom2.setSafeOnClickListener {
             launchActivity(RoomActivity::class.java)
+        }
+        binding.btStorage.setSafeOnClickListener {
+            launchActivity(StorageActivity::class.java)
         }
     }
 }
