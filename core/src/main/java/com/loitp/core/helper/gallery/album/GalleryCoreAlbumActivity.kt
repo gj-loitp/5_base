@@ -14,10 +14,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.KEY_REMOVE_ALBUM_FLICKR_LIST
 import com.loitp.core.common.SK_PHOTOSET_ID
 import com.loitp.core.common.SK_PHOTOSET_SIZE
-import com.loitp.core.ext.hideProgress
-import com.loitp.core.ext.showProgress
-import com.loitp.core.ext.tranIn
-import com.loitp.core.ext.transActivityNoAnimation
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.GalleryCorePhotosActivity
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
@@ -52,6 +49,7 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        isValidPackageName()
         setupViews()
     }
 

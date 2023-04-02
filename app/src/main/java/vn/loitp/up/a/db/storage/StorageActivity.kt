@@ -1,5 +1,6 @@
 package vn.loitp.up.a.db.storage
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsAutoAnimation
@@ -7,10 +8,12 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.databinding.AStorageScopeBinding
 
-@LogTag("StorageActivity")
+
+@LogTag("SAWZW")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class StorageActivity : BaseActivityFont() {
@@ -37,6 +40,13 @@ class StorageActivity : BaseActivityFont() {
             })
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = StorageActivity::class.java.simpleName
+        }
+
+        binding.btPdf.setSafeOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.type = "application/pdf"
+            intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+            startActivity(intent)
         }
     }
 

@@ -49,6 +49,8 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        isValidPackageName()
+
         setupViews()
     }
 

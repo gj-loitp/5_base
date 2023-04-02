@@ -12,6 +12,7 @@ import com.github.piasy.biv.view.GlideImageViewFactory
 import com.loitp.R
 import com.loitp.core.common.SK_PHOTO_PISITION
 import com.loitp.core.ext.hideProgress
+import com.loitp.core.ext.isValidPackageName
 import com.loitp.core.ext.setTextShadow
 import com.loitp.core.ext.showProgress
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
@@ -40,7 +41,6 @@ class FrmIvSlideCore : Fragment() {
         savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
-
         setupViews()
     }
 

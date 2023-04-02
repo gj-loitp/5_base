@@ -146,8 +146,6 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
 
-        isValidPackageName()
-
         onBackPressedDispatcher.addCallback(this) {
             onBaseBackPressed()
         }

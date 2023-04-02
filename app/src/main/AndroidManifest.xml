@@ -1474,6 +1474,9 @@
         <activity
             android:name=".up.a.demo.ad.interstitial.InterstitialActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".up.a.db.storage.StorageActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
     <queries>

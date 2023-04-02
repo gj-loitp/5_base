@@ -22,6 +22,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPdf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pdf"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>

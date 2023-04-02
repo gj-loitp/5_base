@@ -14,6 +14,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.hideSoftInput
 import com.loitp.core.ext.isDarkTheme
+import com.loitp.core.ext.isValidPackageName
 import com.loitp.core.helper.ttt.model.MenuComicTTT
 import com.loitp.core.helper.ttt.ui.f.FrmFavTTT
 import com.loitp.core.helper.ttt.ui.f.FrmHomeTTT
@@ -41,6 +42,8 @@ class TTTComicActivity : BaseActivityFont() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        isValidPackageName()
 
         setupData()
         setupViews()

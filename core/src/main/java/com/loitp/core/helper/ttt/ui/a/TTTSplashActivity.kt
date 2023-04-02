@@ -10,6 +10,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.isDarkTheme
+import com.loitp.core.ext.isValidPackageName
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.tranIn
 import com.permissionx.guolindev.PermissionX
@@ -32,6 +33,8 @@ class TTTSplashActivity : BaseActivityFont() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        isValidPackageName()
 
         setupViews()
         checkPermission()
