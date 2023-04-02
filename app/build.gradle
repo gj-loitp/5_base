@@ -273,6 +273,8 @@ dependencies {
     api 'com.github.TOrnelas:SegmentedProgressBar:0.0.3'
 //    https://github.com/fabiosassu/StackExpandableView
     api 'com.github.fabiosassu:StackExpandableView:1.0.2'
+//    https://github.com/tplloi/SimpleStorage
+    api "com.anggrayudi:storage:1.5.4"
 //    https://github.com/NicholasMata/Spotlight
     api 'com.github.nicholasmata:spotlight:0.2.0'
 
