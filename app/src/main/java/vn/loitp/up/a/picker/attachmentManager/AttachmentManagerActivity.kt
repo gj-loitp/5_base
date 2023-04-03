@@ -20,6 +20,7 @@ import vn.loitp.databinding.AAttachmentManagerBinding
 @LogTag("AttachmentManagerActivity")
 @IsFullScreen(false)
 class AttachmentManagerActivity : BaseActivityFont() {
+    //TODO do not work if target sdk 33
     private lateinit var binding: AAttachmentManagerBinding
 
     private var attachmentManager: AttachmentManager? = null

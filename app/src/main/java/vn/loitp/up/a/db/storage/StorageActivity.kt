@@ -43,10 +43,7 @@ class StorageActivity : BaseActivityFont() {
         }
 
         binding.btPdf.setSafeOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.type = "application/pdf"
-            intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
-            startActivity(intent)
+            //TODO
         }
     }
 
