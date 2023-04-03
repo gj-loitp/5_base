@@ -239,6 +239,9 @@ dependencies {
 //    https://github.com/mmoamenn/LuckyWheel_Android
     api 'com.github.mmoamenn:LuckyWheel_Android:0.3.0'
 
+//    https://github.com/ixiDev/MEE
+    api 'com.github.ixiDev:MEE:1.0.0'
+
     api 'com.github.g1-onetarget:onetargetsdk:1.3.5'
 
 //    https://github.com/MohammedAlaaMorsi/RangeSeekBar

@@ -80,6 +80,11 @@
                 android:text="@string/location" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMath"
+                style="@style/ButtonMenu"
+                android:text="Math" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNotification"
                 style="@style/ButtonMenu"
                 android:text="@string/notification" />

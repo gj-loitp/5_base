@@ -20,6 +20,7 @@ import vn.loitp.up.a.func.keyboard.KeyboardActivity
 import vn.loitp.up.a.func.keyboardHeightProvider.KeyboardHeightProviderActivity
 import vn.loitp.up.a.func.keyboardVisibility.KeyboardVisibilityActivity
 import vn.loitp.up.a.func.location.LocationActivity
+import vn.loitp.up.a.func.math.MathActivity
 import vn.loitp.up.a.func.noti.MenuNotificationActivity
 import vn.loitp.up.a.func.processPhoenix.ProcessPhoenixActivity
 import vn.loitp.up.a.func.pump.PumpActivity
@@ -53,11 +54,9 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
 
     private fun setupViews() {
         binding.lActionBar.apply {
-            this.ivIconLeft.setSafeOnClickListenerElastic(
-                runnable = {
-                    onBaseBackPressed()
-                }
-            )
+            this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
+                onBaseBackPressed()
+            })
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = MenuFunctionActivity::class.java.simpleName
         }
@@ -70,6 +69,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
         binding.btRecolor.setOnClickListener(this)
         binding.btActivityServiceComunicate.setOnClickListener(this)
         binding.btLocation.setOnClickListener(this)
+        binding.btMath.setOnClickListener(this)
         binding.btNotification.setOnClickListener(this)
         binding.btPump.setOnClickListener(this)
         binding.btViewDragHelperSimple.setOnClickListener(this)
@@ -97,6 +97,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
                 ActivityServiceCommunicateActivity::class.java
             )
             binding.btLocation -> launchActivity(LocationActivity::class.java)
+            binding.btMath -> launchActivity(MathActivity::class.java)
             binding.btNotification -> launchActivity(MenuNotificationActivity::class.java)
             binding.btPump -> launchActivity(PumpActivity::class.java)
             binding.btViewDragHelperSimple -> launchActivity(ViewDragHelperSimpleActivity::class.java)
