@@ -42,7 +42,7 @@ class AdHelperActivity : BaseActivityFont() {
     private var isLightIconStatusBar = true
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_ad_helper
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

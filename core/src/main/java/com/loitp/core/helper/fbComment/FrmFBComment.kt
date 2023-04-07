@@ -12,6 +12,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
+import android.widget.ProgressBar
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.LogTag
@@ -21,7 +23,6 @@ import com.loitp.core.ext.getColor
 import com.loitp.core.ext.setColorProgressBar
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setProgressBarVisibility
-import kotlinx.android.synthetic.main.l_f_fb_cmt.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -43,12 +44,20 @@ class FrmFBComment : BaseFragment() {
         private const val NUMBER_OF_COMMENTS = 50
     }
 
+    private lateinit var rlWebview: ConstraintLayout
+    private lateinit var commentsWebView: WebView
+    private lateinit var progressBar: ProgressBar
+
     override fun setLayoutResourceId(): Int {
         return R.layout.l_f_fb_cmt
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        rlWebview = view.findViewById(R.id.rlWebview)
+        commentsWebView = view.findViewById(R.id.commentsWebView)
+        progressBar = view.findViewById(R.id.progressBar)
 
         setupViews()
     }
