@@ -11,5 +11,15 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/imageSlider"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:iss_auto_cycle="false"
+        app:iss_delay="1000"
+        app:iss_no_dots="true"
+        app:iss_period="1000"
+        app:iss_text_align="CENTER"
+        app:iss_text_color="#FFA0A0"
+        app:layout_constraintTop_toBottomOf="@+id/lActionBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
