@@ -96,6 +96,8 @@ dependencies {
 
     //https://github.com/stfalcon-studio/StfalconImageViewer
     api 'com.github.stfalcon:stfalcon-imageviewer:1.0.1'
+//    https://github.com/denzcoskun/ImageSlideshow
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.2'
 
     //https://github.com/skydoves/TransformationLayout
     api "com.github.skydoves:transformationlayout:1.1.1"
