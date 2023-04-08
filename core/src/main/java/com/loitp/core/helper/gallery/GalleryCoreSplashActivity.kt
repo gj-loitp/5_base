@@ -11,13 +11,14 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.BKG_SPLASH_SCREEN
 import com.loitp.core.common.KEY_REMOVE_ALBUM_FLICKR_LIST
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.common.URL_IMG_2
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.album.GalleryCoreAlbumActivity
 import com.loitp.core.utils.AppUtils
+import com.loitp.databinding.LAFlickrGalleryCoreSplashBinding
 import com.loitp.restApi.restClient.RestClient
 import com.permissionx.guolindev.PermissionX
-import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_splash.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -30,13 +31,17 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_splash.*
 @LogTag("GalleryCoreSplashActivity")
 @IsFullScreen(false)
 class GalleryCoreSplashActivity : BaseActivityFont() {
+    private lateinit var binding: LAFlickrGalleryCoreSplashBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_flickr_gallery_core_splash
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LAFlickrGalleryCoreSplashBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         isValidPackageName()
 
@@ -53,10 +58,10 @@ class GalleryCoreSplashActivity : BaseActivityFont() {
         if (urlCoverSplashScreen.isNullOrEmpty()) {
             urlCoverSplashScreen = URL_IMG_2
         }
-        ivBkg.loadGlide(any = urlCoverSplashScreen)
-        tvCopyright.setTextShadow(color = null)
-        tvName.text = AppUtils.appName
-        tvName.setTextShadow(color = null)
+        binding.ivBkg.loadGlide(any = urlCoverSplashScreen)
+        binding.tvCopyright.setTextShadow(color = null)
+        binding.tvName.text = AppUtils.appName
+        binding.tvName.setTextShadow(color = null)
     }
 
     private fun goToHome() {
