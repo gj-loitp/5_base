@@ -106,7 +106,12 @@ object LToast {
 
     fun showShortWarning(
         msg: String?,
-        isTopAnchor: Boolean = true
+        isTopAnchor: Boolean = true,
+        drawableL: Int? = null,
+        drawableT: Int? = null,
+        drawableR: Int? = null,
+        drawableB: Int? = null,
+        padding: Int = 32,
     ) {
         val textResColor: Int
         val backgroundResColor: Int
@@ -122,13 +127,23 @@ object LToast {
             length = Toast.LENGTH_SHORT,
             backgroundResColor = backgroundResColor,
             textResColor = textResColor,
-            isTopAnchor = isTopAnchor
+            isTopAnchor = isTopAnchor,
+            drawableL = drawableL,
+            drawableT = drawableT,
+            drawableR = drawableR,
+            drawableB = drawableB,
+            padding = padding,
         )
     }
 
     fun showShortError(
         msg: String?,
-        isTopAnchor: Boolean = true
+        isTopAnchor: Boolean = true,
+        drawableL: Int? = null,
+        drawableT: Int? = null,
+        drawableR: Int? = null,
+        drawableB: Int? = null,
+        padding: Int = 32,
     ) {
         val textResColor: Int
         val backgroundResColor: Int
@@ -144,13 +159,23 @@ object LToast {
             length = Toast.LENGTH_SHORT,
             backgroundResColor = backgroundResColor,
             textResColor = textResColor,
-            isTopAnchor = isTopAnchor
+            isTopAnchor = isTopAnchor,
+            drawableL = drawableL,
+            drawableT = drawableT,
+            drawableR = drawableR,
+            drawableB = drawableB,
+            padding = padding,
         )
     }
 
     fun showLongInformation(
         msg: String?,
-        isTopAnchor: Boolean = true
+        isTopAnchor: Boolean = true,
+        drawableL: Int? = null,
+        drawableT: Int? = null,
+        drawableR: Int? = null,
+        drawableB: Int? = null,
+        padding: Int = 32,
     ) {
         val textResColor: Int
         val backgroundResColor: Int
@@ -166,13 +191,23 @@ object LToast {
             length = Toast.LENGTH_LONG,
             backgroundResColor = backgroundResColor,
             textResColor = textResColor,
-            isTopAnchor = isTopAnchor
+            isTopAnchor = isTopAnchor,
+            drawableL = drawableL,
+            drawableT = drawableT,
+            drawableR = drawableR,
+            drawableB = drawableB,
+            padding = padding,
         )
     }
 
     fun showLongWarning(
         msg: String?,
-        isTopAnchor: Boolean = true
+        isTopAnchor: Boolean = true,
+        drawableL: Int? = null,
+        drawableT: Int? = null,
+        drawableR: Int? = null,
+        drawableB: Int? = null,
+        padding: Int = 32,
     ) {
         val textResColor: Int
         val backgroundResColor: Int
@@ -188,13 +223,23 @@ object LToast {
             length = Toast.LENGTH_LONG,
             backgroundResColor = backgroundResColor,
             textResColor = textResColor,
-            isTopAnchor = isTopAnchor
+            isTopAnchor = isTopAnchor,
+            drawableL = drawableL,
+            drawableT = drawableT,
+            drawableR = drawableR,
+            drawableB = drawableB,
+            padding = padding,
         )
     }
 
     fun showLongError(
         msg: String?,
-        isTopAnchor: Boolean = true
+        isTopAnchor: Boolean = true,
+        drawableL: Int? = null,
+        drawableT: Int? = null,
+        drawableR: Int? = null,
+        drawableB: Int? = null,
+        padding: Int = 32,
     ) {
         val textResColor: Int
         val backgroundResColor: Int
@@ -210,7 +255,12 @@ object LToast {
             length = Toast.LENGTH_LONG,
             backgroundResColor = backgroundResColor,
             textResColor = textResColor,
-            isTopAnchor = isTopAnchor
+            isTopAnchor = isTopAnchor,
+            drawableL = drawableL,
+            drawableT = drawableT,
+            drawableR = drawableR,
+            drawableB = drawableB,
+            padding = padding,
         )
     }
 
