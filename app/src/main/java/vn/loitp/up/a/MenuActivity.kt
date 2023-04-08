@@ -206,7 +206,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
         showShortInformation(
             msg = getString(R.string.press_again_to_exit),
             isTopAnchor = false,
-            drawableL = R.drawable.ic_launcher,
+            drawableT = R.drawable.ic_copyright_black_48dp,
         )
 
         Handler(Looper.getMainLooper()).postDelayed({
