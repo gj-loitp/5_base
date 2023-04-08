@@ -24,7 +24,7 @@ class CustomProgressDialogActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        colorBkgProgressDialog = R.color.red50
+        colorBkgProgressDialog = R.color.black65
 
         binding = ADlgCustomProgressBinding.inflate(layoutInflater)
         setContentView(binding.root)

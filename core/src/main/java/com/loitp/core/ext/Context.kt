@@ -561,8 +561,8 @@ fun Context?.genCustomProgressDialog(
     if (this == null || this !is Activity) {
         return null
     }
-//    val dialog = Dialog(this, android.R.style.Theme_Translucent_NoTitleBar)
-    val dialog = Dialog(this, R.style.FullDialogTheme)
+    val dialog = Dialog(this, R.style.SplashTheme)
+
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
     dialog.setContentView(R.layout.l_d_custom_progress)
     dialog.setCanceledOnTouchOutside(false)
