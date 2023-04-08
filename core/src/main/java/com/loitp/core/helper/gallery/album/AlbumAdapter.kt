@@ -3,22 +3,20 @@ package com.loitp.core.helper.gallery.album
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.getDateCurrentTimeZone
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.randomColorLight
 import com.loitp.core.ext.setTextShadow
+import com.loitp.databinding.LIFlickrAlbumCoreBinding
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
-import kotlinx.android.synthetic.main.l_i_flickr_album_core.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -43,10 +41,12 @@ class AlbumAdapter(
         viewGroup: ViewGroup,
         position: Int
     ): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.l_i_flickr_album_core, viewGroup, false)
+        val binding = LIFlickrAlbumCoreBinding.inflate(
+            LayoutInflater.from(viewGroup.context),
+            viewGroup,
+            false
         )
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -63,11 +63,12 @@ class AlbumAdapter(
         }
     }
 
-    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+    inner class ViewHolder(val binding: LIFlickrAlbumCoreBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(p: Photoset) {
 
             val color = randomColorLight
-            itemView.imageView.loadGlide(
+            binding.imageView.loadGlide(
                 any = p.flickrLinkO(),
                 resPlaceHolder = color,
                 resError = color,
@@ -93,22 +94,22 @@ class AlbumAdapter(
                 }
             )
 
-            itemView.tvLabel.text = p.title?.content
+            binding.tvLabel.text = p.title?.content
 
             val update = p.dateUpdate.getDateCurrentTimeZone(
                 format = "dd-MM-yyyy HH:mm:ss"
             )
-            itemView.tvUpdate.text = update
-            itemView.tvNumber.text = p.photos
+            binding.tvUpdate.text = update
+            binding.tvNumber.text = p.photos
 
-            itemView.tvLabel.setTextShadow(color = Color.BLACK)
-            itemView.tvUpdate.setTextShadow(color = Color.BLACK)
-            itemView.tvNumber.setTextShadow(color = Color.BLACK)
+            binding.tvLabel.setTextShadow(color = Color.BLACK)
+            binding.tvUpdate.setTextShadow(color = Color.BLACK)
+            binding.tvNumber.setTextShadow(color = Color.BLACK)
 
-            itemView.frameLayout.setOnClickListener {
+            binding.frameLayout.setOnClickListener {
                 callback?.onClick(bindingAdapterPosition)
             }
-            itemView.frameLayout.setOnLongClickListener {
+            binding.frameLayout.setOnLongClickListener {
                 callback?.onLongClick(bindingAdapterPosition)
                 true
             }
