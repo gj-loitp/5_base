@@ -25,7 +25,6 @@ import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
 import com.loitp.views.toast.LToast
-import com.veyo.autorefreshnetworkconnection.AutoRefreshNetworkUtil
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import io.reactivex.disposables.CompositeDisposable
@@ -44,6 +43,7 @@ import org.greenrobot.eventbus.ThreadMode
 abstract class BaseActivity : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
     protected var logTag: String? = null
+    protected var colorBkgProgressDialog = R.color.black65
 
     private var delayMlsIdleTime: Long = 60 * 1000 // 60s
     private var handlerIdleTime: Handler? = null
@@ -437,7 +437,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showDialogProgress() {
         if (alertDialogProgress == null) {
-            alertDialogProgress = this.genCustomProgressDialog()
+            alertDialogProgress =
+                this.genCustomProgressDialog(getColor(colorBkgProgressDialog))
         }
         alertDialogProgress.show()
     }
