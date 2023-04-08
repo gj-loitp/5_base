@@ -44,6 +44,8 @@ android {
 
         buildConfigField("String", "PATH_MATERIAL_REQUEST", '"MaterialRequest"')
         buildConfigField("String", "PATH_MATERIAL_REQUEST_SEARCH", '"MaterialRequest/search"')
+
+        buildConfigField "Boolean", "EnableAdInter", "false"
     }
 
     dataBinding {

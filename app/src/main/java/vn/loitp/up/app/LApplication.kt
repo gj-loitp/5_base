@@ -54,7 +54,7 @@ class LApplication : BaseApplication() {
         Realm.setDefaultConfiguration(realmConfiguration)
 
         // config font
-        fontForAll = FONT_PATH
+//        fontForAll = FONT_PATH
 
         //room database
         FNBDatabase.getInstance(this)
