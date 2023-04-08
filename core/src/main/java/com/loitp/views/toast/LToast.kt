@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.core.ext.LAppResource.application
+import com.loitp.core.ext.addDrawableLTRB
 import com.loitp.core.ext.getColor
 import com.loitp.core.ext.isDarkTheme
 
@@ -28,7 +29,12 @@ object LToast {
         length: Int = Toast.LENGTH_SHORT,
         backgroundResColor: Int = R.color.red,
         textResColor: Int = R.color.white,
-        isTopAnchor: Boolean = true
+        isTopAnchor: Boolean = true,
+        drawableL: Int? = null,
+        drawableT: Int? = null,
+        drawableR: Int? = null,
+        drawableB: Int? = null,
+        padding: Int = 32,
     ) {
         if (msg.isNullOrEmpty()) {
             return
@@ -38,9 +44,20 @@ object LToast {
                 application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val layout = inf.inflate(R.layout.l_v_toast, null)
             val textView = layout.findViewById<AppCompatTextView>(R.id.tvLoading)
-            textView.text = msg
-            textView.setBackgroundColor(getColor(backgroundResColor))
-            textView.setTextColor(getColor(textResColor))
+            textView.apply {
+                text = msg
+                setBackgroundColor(getColor(backgroundResColor))
+                setTextColor(getColor(textResColor))
+
+                addDrawableLTRB(
+                    drawableL = drawableL,
+                    drawableT = drawableT,
+                    drawableR = drawableR,
+                    drawableB = drawableB,
+                    padding = padding
+                )
+            }
+
             val toast = Toast(application)
             if (isTopAnchor) {
                 toast.setGravity(Gravity.FILL_HORIZONTAL or Gravity.TOP, 0, 0)
@@ -57,7 +74,12 @@ object LToast {
 
     fun showShortInformation(
         msg: String?,
-        isTopAnchor: Boolean = true
+        isTopAnchor: Boolean = true,
+        drawableL: Int? = null,
+        drawableT: Int? = null,
+        drawableR: Int? = null,
+        drawableB: Int? = null,
+        padding: Int = 32,
     ) {
         val textResColor: Int
         val backgroundResColor: Int
@@ -73,7 +95,12 @@ object LToast {
             length = Toast.LENGTH_SHORT,
             backgroundResColor = backgroundResColor,
             textResColor = textResColor,
-            isTopAnchor = isTopAnchor
+            isTopAnchor = isTopAnchor,
+            drawableL = drawableL,
+            drawableT = drawableT,
+            drawableR = drawableR,
+            drawableB = drawableB,
+            padding = padding,
         )
     }
 

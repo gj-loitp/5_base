@@ -295,9 +295,24 @@ abstract class BaseActivity : AppCompatActivity() {
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
     fun showShortInformation(
-        msg: String?, isTopAnchor: Boolean = true
+        msg: String?,
+        isTopAnchor:
+        Boolean = true,
+        drawableL: Int? = null,
+        drawableT: Int? = null,
+        drawableR: Int? = null,
+        drawableB: Int? = null,
+        padding: Int = 32,
     ) {
-        LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
+        LToast.showShortInformation(
+            msg = msg,
+            isTopAnchor = isTopAnchor,
+            drawableL = drawableL,
+            drawableT = drawableT,
+            drawableR = drawableR,
+            drawableB = drawableB,
+            padding = padding,
+        )
     }
 
     fun showShortWarning(

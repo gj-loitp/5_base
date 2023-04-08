@@ -201,7 +201,14 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             return
         }
         this.doubleBackToExitPressedOnce = true
-        showSnackBarInfor(msg = getString(R.string.press_again_to_exit), isFullWidth = false)
+
+//        showSnackBarInfor(msg = getString(R.string.press_again_to_exit), isFullWidth = false)
+        showShortInformation(
+            msg = getString(R.string.press_again_to_exit),
+            isTopAnchor = false,
+            drawableL = R.drawable.ic_launcher,
+        )
+
         Handler(Looper.getMainLooper()).postDelayed({
             doubleBackToExitPressedOnce = false
         }, 2000)

@@ -7,6 +7,7 @@ import android.text.Html
 import android.text.TextUtils
 import android.util.TypedValue
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.widget.TextViewCompat
 import com.google.gson.GsonBuilder
 
@@ -22,6 +23,29 @@ fun TextView.setDrawableTint(
     color: Int
 ) {
     TextViewCompat.setCompoundDrawableTintList(this, ColorStateList.valueOf(color))
+}
+
+fun TextView.addDrawableLTRB(
+    drawableL: Int? = null,
+    drawableT: Int? = null,
+    drawableR: Int? = null,
+    drawableB: Int? = null,
+    padding: Int = 32,
+) {
+    val left = drawableL?.let {
+        ContextCompat.getDrawable(context, it)
+    }
+    val top = drawableT?.let {
+        ContextCompat.getDrawable(context, it)
+    }
+    val right = drawableR?.let {
+        ContextCompat.getDrawable(context, it)
+    }
+    val bottom = drawableB?.let {
+        ContextCompat.getDrawable(context, it)
+    }
+    compoundDrawablePadding = padding
+    setCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom)
 }
 
 fun TextView?.setMarquee(
