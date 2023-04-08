@@ -226,6 +226,9 @@ dependencies {
 //    https://github.com/google/flexbox-layout
     api 'com.google.android.flexbox:flexbox:3.0.0'
 
+//    https://github.com/denzcoskun/ImageSlideshow
+    api 'com.github.denzcoskun:ImageSlideshow:0.1.2'
+
 //    https://github.com/oss-bandb/GraphView
     api 'dev.bandb.graphview:graphview:0.8.1'
 //    https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter
