@@ -21,5 +21,6 @@
         app:iss_period="1000"
         app:iss_text_align="CENTER"
         app:iss_text_color="#FFA0A0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lActionBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
