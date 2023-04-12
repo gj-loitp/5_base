@@ -10,12 +10,10 @@ import com.loitp.R
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.PER_PAGE_SIZE
-import com.loitp.core.common.SK_PHOTOSET_ID
-import com.loitp.core.common.SK_PHOTOSET_SIZE
-import com.loitp.core.common.SK_PHOTO_ID
+import com.loitp.core.common.*
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.slide.GalleryCoreSlideActivity
+import com.loitp.databinding.LAFlickrGalleryCorePhotosBinding
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
@@ -24,7 +22,6 @@ import com.loitp.views.layout.swipeBack.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_photos.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -41,13 +38,17 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
     private var isLoading = false
     private var photosAdapter: PhotosAdapter? = null
     private var photoSetID: String? = null
+    private lateinit var binding: LAFlickrGalleryCorePhotosBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_flickr_gallery_core_photos
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LAFlickrGalleryCorePhotosBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         isValidPackageName()
 
@@ -79,22 +80,20 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
         currentPage = totalPage
 
         val column = 2
-        recyclerView.layoutManager = GridLayoutManager(this, column)
-        photosAdapter = PhotosAdapter(
-            callback = object : PhotosAdapter.Callback {
-                override fun onClick(photo: Photo, pos: Int) {
-                    val intent =
-                        Intent(this@GalleryCorePhotosActivity, GalleryCoreSlideActivity::class.java)
-                    intent.putExtra(SK_PHOTO_ID, photo.id)
-                    startActivity(intent)
-                    this@GalleryCorePhotosActivity.tranIn()
-                }
-
-                override fun onLongClick(photo: Photo, pos: Int) {
-                    this@GalleryCorePhotosActivity.share(msg = photo.urlO)
-                }
+        binding.recyclerView.layoutManager = GridLayoutManager(this, column)
+        photosAdapter = PhotosAdapter(callback = object : PhotosAdapter.Callback {
+            override fun onClick(photo: Photo, pos: Int) {
+                val intent =
+                    Intent(this@GalleryCorePhotosActivity, GalleryCoreSlideActivity::class.java)
+                intent.putExtra(SK_PHOTO_ID, photo.id)
+                startActivity(intent)
+                this@GalleryCorePhotosActivity.tranIn()
             }
-        )
+
+            override fun onLongClick(photo: Photo, pos: Int) {
+                this@GalleryCorePhotosActivity.share(msg = photo.urlO)
+            }
+        })
 
         photosAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
@@ -106,12 +105,12 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
             animAdapter.setDuration(1000)
 //            animAdapter.setInterpolator(OvershootInterpolator())
             animAdapter.setFirstOnly(true)
-            recyclerView.adapter = animAdapter
+            binding.recyclerView.adapter = animAdapter
         }
         // LUIUtil.setPullLikeIOSVertical(recyclerView)
 
         photosetsGetPhotos(photosetID = photoSetID)
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
@@ -122,15 +121,13 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
                 }
             }
         })
-        btPage.setSafeOnClickListener {
+        binding.btPage.setSafeOnClickListener {
             showListPage()
         }
 
-        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+        binding.swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
             override fun onViewPositionChanged(
-                mView: View?,
-                swipeBackFraction: Float,
-                swipeBackFactor: Float
+                mView: View?, swipeBackFraction: Float, swipeBackFactor: Float
             ) {
             }
 
@@ -149,16 +146,12 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
         for (i in 0 until size) {
             arr[i] = "Page " + (totalPage - i)
         }
-        this.showDialogList(
-            title = "Select page",
-            arr = arr,
-            onClick = { position ->
-                currentPage = totalPage - position
-                PhotosDataCore.instance.clearData()
-                updateAllViews()
-                photosetsGetPhotos(photoSetID)
-            }
-        )
+        this.showDialogList(title = "Select page", arr = arr, onClick = { position ->
+            currentPage = totalPage - position
+            PhotosDataCore.instance.clearData()
+            updateAllViews()
+            photosetsGetPhotos(photoSetID)
+        })
     }
 
     private fun photosetsGetPhotos(photosetID: String?) {
@@ -166,52 +159,48 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
             return
         }
         isLoading = true
-        progressBar.showProgress()
+        binding.progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
         val userID = FlickrConst.USER_KEY
         if (currentPage <= 0) {
             currentPage = 0
-            progressBar.hideProgress()
+            binding.progressBar.hideProgress()
             isLoading = false
             return
         }
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
-        compositeDisposable.add(
-            service.getPhotosetPhotos(
-                method = method,
-                apiKey = apiKey,
-                photosetId = photosetID,
-                userId = userID,
-                extras = primaryPhotoExtras,
-                perPage = PER_PAGE_SIZE,
-                page = currentPage,
-                format = format,
-                noJsonCallback = noJsonCallBack
-            )
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ wrapperPhotosetGetPhotos ->
-                    val s =
-                        wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
-                    tvTitle.text = s
-                    wrapperPhotosetGetPhotos?.photoset?.photo?.let {
-                        it.shuffle()
-                        PhotosDataCore.instance.addPhoto(it)
-                    }
-                    updateAllViews()
-                    progressBar.hideProgress()
-                    btPage.visibility = View.VISIBLE
-                    isLoading = false
-                }) { e: Throwable ->
-                    handleException(e)
-                    progressBar.hideProgress()
-                    isLoading = true
+        compositeDisposable.add(service.getPhotosetPhotos(
+            method = method,
+            apiKey = apiKey,
+            photosetId = photosetID,
+            userId = userID,
+            extras = primaryPhotoExtras,
+            perPage = PER_PAGE_SIZE,
+            page = currentPage,
+            format = format,
+            noJsonCallback = noJsonCallBack
+        ).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ wrapperPhotosetGetPhotos ->
+                val s =
+                    wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
+                binding.tvTitle.text = s
+                wrapperPhotosetGetPhotos?.photoset?.photo?.let {
+                    it.shuffle()
+                    PhotosDataCore.instance.addPhoto(it)
                 }
-        )
+                updateAllViews()
+                binding.progressBar.hideProgress()
+                binding.btPage.visibility = View.VISIBLE
+                isLoading = false
+            }) { e: Throwable ->
+                handleException(e)
+                binding.progressBar.hideProgress()
+                isLoading = true
+            })
     }
 
     @SuppressLint("NotifyDataSetChanged")
