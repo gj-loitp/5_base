@@ -9,10 +9,12 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.isDarkTheme
 import com.loitp.core.ext.isValidPackageName
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.tranIn
+import com.loitp.databinding.LATttComicSplashBinding
 import com.permissionx.guolindev.PermissionX
 
 /**
@@ -26,13 +28,17 @@ import com.permissionx.guolindev.PermissionX
 @LogTag("TTTSplashActivity")
 @IsFullScreen(false)
 class TTTSplashActivity : BaseActivityFont() {
+    private lateinit var binding: LATttComicSplashBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_ttt_comic_splash
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LATttComicSplashBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         isValidPackageName()
 
