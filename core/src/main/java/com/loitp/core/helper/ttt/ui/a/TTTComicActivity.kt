@@ -12,6 +12,7 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.hideSoftInput
 import com.loitp.core.ext.isDarkTheme
 import com.loitp.core.ext.isValidPackageName
@@ -19,9 +20,9 @@ import com.loitp.core.helper.ttt.model.MenuComicTTT
 import com.loitp.core.helper.ttt.ui.f.FrmFavTTT
 import com.loitp.core.helper.ttt.ui.f.FrmHomeTTT
 import com.loitp.core.helper.ttt.ui.f.FrmProfileTTT
+import com.loitp.databinding.LATttComicBinding
 import com.loitp.views.vp.vpTransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.MenuItemDescriptor
-import kotlinx.android.synthetic.main.l_a_ttt_comic.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -35,13 +36,17 @@ import kotlinx.android.synthetic.main.l_a_ttt_comic.*
 class TTTComicActivity : BaseActivityFont() {
 
     val listMenuComicTTT = ArrayList<MenuComicTTT>()
+    private lateinit var binding: LATttComicBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_ttt_comic
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LATttComicBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         isValidPackageName()
 
@@ -81,10 +86,10 @@ class TTTComicActivity : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        viewPager.adapter = SlidePagerAdapter(supportFragmentManager)
-        viewPager.offscreenPageLimit = listMenuComicTTT.size
-        viewPager.setPageTransformer(true, ZoomOutSlideTransformer())
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.viewPager.adapter = SlidePagerAdapter(supportFragmentManager)
+        binding.viewPager.offscreenPageLimit = listMenuComicTTT.size
+        binding.viewPager.setPageTransformer(true, ZoomOutSlideTransformer())
+        binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
             }
 
@@ -94,12 +99,12 @@ class TTTComicActivity : BaseActivityFont() {
             }
 
             override fun onPageSelected(position: Int) {
-                expandableBottomBar.menu.select(listMenuComicTTT[position].itemId)
+                binding.expandableBottomBar.menu.select(listMenuComicTTT[position].itemId)
                 this@TTTComicActivity.hideSoftInput()
             }
         })
 
-        expandableBottomBar.menu.add(
+        binding.expandableBottomBar.menu.add(
             MenuItemDescriptor.Builder(
                 context = this,
                 itemId = listMenuComicTTT[0].itemId,
@@ -108,7 +113,7 @@ class TTTComicActivity : BaseActivityFont() {
                 activeColor = listMenuComicTTT[0].activeColor
             ).build()
         )
-        expandableBottomBar.menu.add(
+        binding.expandableBottomBar.menu.add(
             MenuItemDescriptor.Builder(
                 context = this,
                 itemId = listMenuComicTTT[1].itemId,
@@ -117,7 +122,7 @@ class TTTComicActivity : BaseActivityFont() {
                 activeColor = listMenuComicTTT[1].activeColor
             ).build()
         )
-        expandableBottomBar.menu.add(
+        binding.expandableBottomBar.menu.add(
             MenuItemDescriptor.Builder(
                 context = this,
                 itemId = listMenuComicTTT[2].itemId,
@@ -127,15 +132,15 @@ class TTTComicActivity : BaseActivityFont() {
             ).build()
         )
 
-        expandableBottomBar.onItemSelectedListener = { _, menuItem, _ ->
+        binding.expandableBottomBar.onItemSelectedListener = { _, menuItem, _ ->
             logD("onItemSelectedListener " + menuItem.id)
             val index = getIndexOfListMenuComic(itemId = menuItem.id)
             index?.let {
-                viewPager.setCurrentItem(/* item = */ it, /* smoothScroll = */ true)
+                binding.viewPager.setCurrentItem(/* item = */ it, /* smoothScroll = */ true)
             }
         }
 
-        expandableBottomBar.onItemReselectedListener = { _, menuItem, _ ->
+        binding.expandableBottomBar.onItemReselectedListener = { _, menuItem, _ ->
             logD("onItemReselectedListener" + menuItem.id)
         }
     }
