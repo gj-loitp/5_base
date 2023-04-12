@@ -17,6 +17,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.*
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
+import com.loitp.databinding.LAFlickrGalleryCorePhotosOnlyBinding
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
@@ -26,7 +27,6 @@ import com.permissionx.guolindev.PermissionX
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_photos_only.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -38,6 +38,8 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_photos_only.*
 @LogTag("GalleryMemberActivity")
 @IsSwipeActivity(true)
 class GalleryMemberActivity : BaseActivityFont() {
+    private lateinit var binding: LAFlickrGalleryCorePhotosOnlyBinding
+
     private var currentPage = 0
     private var totalPage = 1
     private var isLoading: Boolean = false
@@ -46,11 +48,14 @@ class GalleryMemberActivity : BaseActivityFont() {
     private var photosSize: Int = 0
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_flickr_gallery_core_photos_only
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LAFlickrGalleryCorePhotosOnlyBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         checkPermission()
@@ -62,7 +67,7 @@ class GalleryMemberActivity : BaseActivityFont() {
 
         val resBkgRootView = intent.getIntExtra(BKG_ROOT_VIEW, NOT_FOUND)
         if (resBkgRootView != NOT_FOUND) {
-            rootView.setBackgroundResource(resBkgRootView)
+            binding.rootView.setBackgroundResource(resBkgRootView)
         }
 
         photoSetID = FLICKR_ID_MEMBERS
@@ -72,7 +77,7 @@ class GalleryMemberActivity : BaseActivityFont() {
         }
         photosSize = intent.getIntExtra(SK_PHOTOSET_SIZE, NOT_FOUND)
 
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
         memberAdapter = MemberAdapter(
             callback = object : MemberAdapter.Callback {
                 override fun onClick(
@@ -102,10 +107,10 @@ class GalleryMemberActivity : BaseActivityFont() {
             animAdapter.setDuration(1000)
 //            animAdapter.setInterpolator(OvershootInterpolator())
             animAdapter.setFirstOnly(true)
-            recyclerView.adapter = animAdapter
+            binding.recyclerView.adapter = animAdapter
         }
 
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
@@ -116,7 +121,7 @@ class GalleryMemberActivity : BaseActivityFont() {
             }
         })
 
-        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+        binding.swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
             override fun onViewPositionChanged(
                 mView: View?,
                 swipeBackFraction: Float,
@@ -154,7 +159,7 @@ class GalleryMemberActivity : BaseActivityFont() {
     }
 
     private fun getPhotoSets() {
-        progressBar.showProgress()
+        binding.progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -191,7 +196,7 @@ class GalleryMemberActivity : BaseActivityFont() {
                 }, { e ->
                     e.printStackTrace()
                     handleException(e)
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                 })
         )
     }
@@ -207,7 +212,7 @@ class GalleryMemberActivity : BaseActivityFont() {
         }
 //        logD("is calling photosetsGetPhotos $currentPage/$totalPage")
         isLoading = true
-        progressBar.showProgress()
+        binding.progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -215,7 +220,7 @@ class GalleryMemberActivity : BaseActivityFont() {
         if (currentPage <= 0) {
 //            logD("currentPage <= 0 -> return")
             currentPage = 0
-            progressBar.hideProgress()
+            binding.progressBar.hideProgress()
             return
         }
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
@@ -239,20 +244,20 @@ class GalleryMemberActivity : BaseActivityFont() {
                 .subscribe({ wrapperPhotoSetGetPhotos ->
                     val s =
                         wrapperPhotoSetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
-                    tvTitle.text = s
+                    binding.tvTitle.text = s
                     wrapperPhotoSetGetPhotos?.photoset?.photo?.let {
                         it.shuffle()
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()
 
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                     isLoading = false
                     currentPage--
                 }, { e ->
                     e.printStackTrace()
                     handleException(e)
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                     isLoading = true
                 })
         )
