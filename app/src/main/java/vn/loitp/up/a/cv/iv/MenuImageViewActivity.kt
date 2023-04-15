@@ -26,6 +26,7 @@ import vn.loitp.up.a.cv.iv.scrollParallax.ScrollParallaxIvActivity
 import vn.loitp.up.a.cv.iv.shapeableIv.ShapeableIvActivity
 import vn.loitp.up.a.cv.iv.stfaiconIv.ListActivity
 import vn.loitp.databinding.AIvMenuBinding
+import vn.loitp.up.a.cv.iv.imageSlideshow.ImageSlideshowActivity
 import vn.loitp.up.a.cv.iv.strectchy.StrectchyIvActivity
 import vn.loitp.up.a.cv.iv.touch.TouchIvActivity
 import vn.loitp.up.a.cv.iv.zoom.ZoomIvActivity
@@ -77,6 +78,7 @@ class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
         binding.btPreviewImageCollection.setOnClickListener(this)
         binding.btShapeableImageViewActivity.setOnClickListener(this)
         binding.btCoil.setOnClickListener(this)
+        binding.btImageSlideshow.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -102,6 +104,7 @@ class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
             binding.btPreviewImageCollection -> launchActivity(PreviewImageCollectionActivity::class.java)
             binding.btShapeableImageViewActivity -> launchActivity(ShapeableIvActivity::class.java)
             binding.btCoil -> launchActivity(CoilActivity::class.java)
+            binding.btImageSlideshow -> launchActivity(ImageSlideshowActivity::class.java)
         }
     }
 }

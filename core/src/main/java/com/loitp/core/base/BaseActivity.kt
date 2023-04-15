@@ -25,7 +25,6 @@ import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
 import com.loitp.views.toast.LToast
-import com.veyo.autorefreshnetworkconnection.AutoRefreshNetworkUtil
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import io.reactivex.disposables.CompositeDisposable
@@ -44,6 +43,7 @@ import org.greenrobot.eventbus.ThreadMode
 abstract class BaseActivity : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
     protected var logTag: String? = null
+    protected var colorBkgProgressDialog = R.color.black65
 
     private var delayMlsIdleTime: Long = 60 * 1000 // 60s
     private var handlerIdleTime: Handler? = null
@@ -145,8 +145,6 @@ abstract class BaseActivity : AppCompatActivity() {
             )
         }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
-
-        isValidPackageName()
 
         onBackPressedDispatcher.addCallback(this) {
             onBaseBackPressed()
@@ -297,9 +295,24 @@ abstract class BaseActivity : AppCompatActivity() {
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
     fun showShortInformation(
-        msg: String?, isTopAnchor: Boolean = true
+        msg: String?,
+        isTopAnchor:
+        Boolean = true,
+        drawableL: Int? = null,
+        drawableT: Int? = null,
+        drawableR: Int? = null,
+        drawableB: Int? = null,
+        padding: Int = 32,
     ) {
-        LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
+        LToast.showShortInformation(
+            msg = msg,
+            isTopAnchor = isTopAnchor,
+            drawableL = drawableL,
+            drawableT = drawableT,
+            drawableR = drawableR,
+            drawableB = drawableB,
+            padding = padding,
+        )
     }
 
     fun showShortWarning(
@@ -439,7 +452,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showDialogProgress() {
         if (alertDialogProgress == null) {
-            alertDialogProgress = this.genCustomProgressDialog()
+            alertDialogProgress =
+                this.genCustomProgressDialog(getColor(colorBkgProgressDialog))
         }
         alertDialogProgress.show()
     }

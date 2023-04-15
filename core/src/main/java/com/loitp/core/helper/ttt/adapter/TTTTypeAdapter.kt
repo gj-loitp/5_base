@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.helper.ttt.model.comictype.ComicType
-import kotlinx.android.synthetic.main.l_i_ttt_select_type.view.*
+import com.loitp.databinding.LITttSelectTypeBinding
 
 /**
  * Created by Loitp on 04,August,2022
@@ -28,8 +27,7 @@ class TTTTypeAdapter : BaseAdapter() {
 
     @SuppressLint("NotifyDataSetChanged")
     fun setData(
-        listComicType: ArrayList<ComicType>,
-        currentComicType: ComicType?
+        listComicType: ArrayList<ComicType>, currentComicType: ComicType?
     ) {
         this.listComicType.clear()
         this.listComicType.addAll(listComicType)
@@ -37,39 +35,31 @@ class TTTTypeAdapter : BaseAdapter() {
         notifyDataSetChanged()
     }
 
-    inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class DataViewHolder(val binding: LITttSelectTypeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(comicType: ComicType) {
             if (comicType.url == currentComicType?.url) {
-                itemView.ivFav.visibility = View.VISIBLE
+                binding.ivFav.visibility = View.VISIBLE
             } else {
-                itemView.ivFav.visibility = View.GONE
+                binding.ivFav.visibility = View.GONE
             }
-            itemView.tvType.text = comicType.type
-            itemView.cardView.setSafeOnClickListenerElastic(
-                runnable = {
-                    onClickRootListener?.invoke(comicType, bindingAdapterPosition)
-                }
-            )
+            binding.tvType.text = comicType.type
+            binding.cardView.setSafeOnClickListenerElastic(runnable = {
+                onClickRootListener?.invoke(comicType, bindingAdapterPosition)
+            })
         }
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ) =
-        DataViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                /* resource = */ R.layout.l_i_ttt_select_type,
-                /* root = */ parent,
-                /* attachToRoot = */ false
-            )
-        )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val binding =
+            LITttSelectTypeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return DataViewHolder(binding)
+    }
 
     override fun getItemCount(): Int = listComicType.size
 
     override fun onBindViewHolder(
-        holder: RecyclerView.ViewHolder,
-        position: Int
+        holder: RecyclerView.ViewHolder, position: Int
     ) {
         if (holder is DataViewHolder) {
             holder.bind(listComicType[position])

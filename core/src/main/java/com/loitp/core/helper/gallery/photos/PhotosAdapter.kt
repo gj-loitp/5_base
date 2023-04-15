@@ -3,22 +3,20 @@ package com.loitp.core.helper.gallery.photos
 import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.randomColorLight
 import com.loitp.core.ext.setTextShadow
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
+import com.loitp.databinding.LIFlickrPhotosCoreBinding
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
-import kotlinx.android.synthetic.main.l_i_flickr_photos_core.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -48,10 +46,13 @@ class PhotosAdapter internal constructor(
         viewGroup: ViewGroup,
         position: Int
     ): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.l_i_flickr_photos_core, viewGroup, false)
+
+        val binding = LIFlickrPhotosCoreBinding.inflate(
+            /* inflater = */ LayoutInflater.from(viewGroup.context),
+            /* parent = */ viewGroup,
+            /* attachToParent = */ false
         )
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -68,12 +69,13 @@ class PhotosAdapter internal constructor(
         }
     }
 
-    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+    inner class ViewHolder(val binding: LIFlickrPhotosCoreBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(photo: Photo) {
 
             val color = randomColorLight
-            itemView.imageView.loadGlide(
+            binding.imageView.loadGlide(
                 any = photo.flickrLink1024,
                 resPlaceHolder = color,
                 resError = color,
@@ -99,13 +101,13 @@ class PhotosAdapter internal constructor(
                 }
             )
 
-            itemView.tvSize.text = "${photo.widthO} x ${photo.heightO}"
-            itemView.tvSize.setTextShadow(color = null)
+            binding.tvSize.text = "${photo.widthO} x ${photo.heightO}"
+            binding.tvSize.setTextShadow(color = null)
 
-            itemView.layoutRootView.setOnClickListener {
+            binding.layoutRootView.setOnClickListener {
                 callback?.onClick(photo = photo, pos = bindingAdapterPosition)
             }
-            itemView.layoutRootView.setOnLongClickListener {
+            binding.layoutRootView.setOnLongClickListener {
                 callback?.onLongClick(photo = photo, pos = bindingAdapterPosition)
                 true
             }

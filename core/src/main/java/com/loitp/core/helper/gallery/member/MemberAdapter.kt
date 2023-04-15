@@ -11,14 +11,13 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.randomColorLight
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
+import com.loitp.databinding.LIFlickrPhotosMemberBinding
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
-import kotlinx.android.synthetic.main.l_i_flickr_photos_member.view.*
 import java.util.*
 
 /**
@@ -35,26 +34,21 @@ class MemberAdapter(
 
     interface Callback {
         fun onClick(
-            photo: Photo,
-            pos: Int,
-            imageView: ImageView,
-            textView: TextView
+            photo: Photo, pos: Int, imageView: ImageView, textView: TextView
         )
 
         fun onLongClick(
-            photo: Photo,
-            pos: Int
+            photo: Photo, pos: Int
         )
     }
 
     override fun onCreateViewHolder(
-        viewGroup: ViewGroup,
-        position: Int
+        viewGroup: ViewGroup, position: Int
     ): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.l_i_flickr_photos_member, viewGroup, false)
+        val binding = LIFlickrPhotosMemberBinding.inflate(
+            LayoutInflater.from(viewGroup.context), viewGroup, false
         )
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -62,8 +56,7 @@ class MemberAdapter(
     }
 
     override fun onBindViewHolder(
-        holder: RecyclerView.ViewHolder,
-        position: Int
+        holder: RecyclerView.ViewHolder, position: Int
     ) {
         if (holder is ViewHolder) {
             val photo = PhotosDataCore.instance.getPhotoList()[position]
@@ -71,13 +64,13 @@ class MemberAdapter(
         }
     }
 
-    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+    inner class ViewHolder(val binding: LIFlickrPhotosMemberBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(photo: Photo) {
 
             val color = randomColorLight
-            itemView.circleImageView.loadGlide(
-                any = photo.urlO,
+            binding.circleImageView.loadGlide(any = photo.urlO,
                 resPlaceHolder = color,
                 resError = color,
                 drawableRequestListener = object : RequestListener<Drawable> {
@@ -99,24 +92,23 @@ class MemberAdapter(
                     ): Boolean {
                         return false
                     }
-                }
-            )
+                })
 
             if (photo.title.lowercase(Locale.getDefault()).startsWith("null")) {
-                itemView.tvTitle.visibility = View.INVISIBLE
+                binding.tvTitle.visibility = View.INVISIBLE
             } else {
-                itemView.tvTitle.visibility = View.VISIBLE
-                itemView.tvTitle.text = photo.title
+                binding.tvTitle.visibility = View.VISIBLE
+                binding.tvTitle.text = photo.title
             }
-            itemView.fl.setOnClickListener {
+            binding.fl.setOnClickListener {
                 callback?.onClick(
                     photo = photo,
                     pos = bindingAdapterPosition,
-                    imageView = itemView.circleImageView,
-                    textView = itemView.tvTitle
+                    imageView = binding.circleImageView,
+                    textView = binding.tvTitle
                 )
             }
-            itemView.fl.setOnLongClickListener {
+            binding.fl.setOnLongClickListener {
                 callback?.onLongClick(photo = photo, pos = bindingAdapterPosition)
                 true
             }

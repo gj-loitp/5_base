@@ -2,7 +2,6 @@ package com.loitp.core.helper.gallery.albumOnly
 
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.view.isVisible
@@ -12,13 +11,12 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.daimajia.androidanimations.library.Techniques
-import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
+import com.loitp.databinding.LIFlickrPhotosCoreOnlyBinding
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
-import kotlinx.android.synthetic.main.l_i_flickr_photos_core_only.view.*
 import java.util.*
 
 /**
@@ -49,10 +47,13 @@ class PhotosOnlyAdapter(
         viewGroup: ViewGroup,
         position: Int
     ): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.l_i_flickr_photos_core_only, viewGroup, false)
-        )
+        val binding =
+            LIFlickrPhotosCoreOnlyBinding.inflate(
+                LayoutInflater.from(viewGroup.context),
+                viewGroup,
+                false
+            )
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -69,7 +70,8 @@ class PhotosOnlyAdapter(
         }
     }
 
-    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+    inner class ViewHolder(val binding: LIFlickrPhotosCoreOnlyBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         internal fun bind(
             p: Photo,
@@ -77,13 +79,13 @@ class PhotosOnlyAdapter(
         ) {
 
             val screenHeight = p.calculatorHeight(widthScreen = widthScreen)
-            itemView.iv.setSizeOfView(
+            binding.iv.setSizeOfView(
                 width = widthScreen,
                 height = screenHeight,
             )
 
             val color = randomColorLight
-            itemView.iv.loadGlide(
+            binding.iv.loadGlide(
                 any = p.urlO,
                 resPlaceHolder = color,
                 resError = color,
@@ -109,39 +111,39 @@ class PhotosOnlyAdapter(
                 })
 
             if (p.title.lowercase(Locale.getDefault()).startsWith("null")) {
-                itemView.tvTitle.isVisible = false
+                binding.tvTitle.isVisible = false
             } else {
-                itemView.tvTitle.isVisible = true
-                itemView.tvTitle.text = p.title
+                binding.tvTitle.isVisible = true
+                binding.tvTitle.text = p.title
             }
 
 //            itemView.tvTitle.isVisible = true
 //            itemView.tvTitle.text = "${p.widthO} x ${p.heightO}"
 
-            itemView.layoutRoot.setOnClickListener {
+            binding.layoutRoot.setOnClickListener {
                 callback?.onClick(photo = p, pos = position)
             }
-            itemView.layoutRoot.setOnLongClickListener {
+            binding.layoutRoot.setOnLongClickListener {
                 callback?.onLongClick(photo = p, pos = position)
                 true
             }
-            itemView.btDownload.setSafeOnClickListener {
+            binding.btDownload.setSafeOnClickListener {
                 it.play(techniques = Techniques.Flash)
                 callback?.onClickDownload(photo = p, pos = position)
             }
-            itemView.btShare.setSafeOnClickListener {
+            binding.btShare.setSafeOnClickListener {
                 it.play(techniques = Techniques.Flash)
                 callback?.onClickShare(photo = p, pos = position)
             }
-            itemView.btSetWallpaper.setSafeOnClickListener {
+            binding.btSetWallpaper.setSafeOnClickListener {
                 it.play(techniques = Techniques.Flash)
-                callback?.onClickSetWallpaper(photo = p, pos = position, imageView = itemView.iv)
+                callback?.onClickSetWallpaper(photo = p, pos = position, imageView = binding.iv)
             }
-            itemView.btReport.setSafeOnClickListener {
+            binding.btReport.setSafeOnClickListener {
                 it.play(techniques = Techniques.Flash)
                 callback?.onClickReport(photo = p, pos = position)
             }
-            itemView.btCmt.setSafeOnClickListener {
+            binding.btCmt.setSafeOnClickListener {
                 it.play(techniques = Techniques.Flash)
                 callback?.onClickCmt(photo = p, pos = position)
             }

@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.helper.ttt.model.comic.Comic
-import kotlinx.android.synthetic.main.l_i_ttt_comic.view.*
+import com.loitp.databinding.LITttComicBinding
 
 /**
  * Created by Loitp on 04,August,2022
@@ -33,44 +32,37 @@ class TTTListComicAdapter : BaseAdapter() {
         notifyDataSetChanged()
     }
 
-    inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class DataViewHolder(val binding: LITttComicBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(comic: Comic) {
             if (comic.urlImg.isEmpty()) {
-                itemView.ivCover.visibility = View.GONE
+                binding.ivCover.visibility = View.GONE
             } else {
-                itemView.ivCover.visibility = View.VISIBLE
-                itemView.ivCover.loadGlide(
+                binding.ivCover.visibility = View.VISIBLE
+                binding.ivCover.loadGlide(
                     any = comic.urlImg,
                 )
             }
-            itemView.tvTitle.text = comic.title
-            itemView.cardView.setSafeOnClickListenerElastic(
-                runnable = {
-                    onClickRootListener?.invoke(comic, bindingAdapterPosition)
-                }
-            )
+            binding.tvTitle.text = comic.title
+            binding.cardView.setSafeOnClickListenerElastic(runnable = {
+                onClickRootListener?.invoke(comic, bindingAdapterPosition)
+            })
         }
     }
 
     override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ) =
-        DataViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                /* resource = */ R.layout.l_i_ttt_comic,
-                /* root = */ parent,
-                /* attachToRoot = */ false
-            )
-        )
+        parent: ViewGroup, viewType: Int
+    ): RecyclerView.ViewHolder {
+        val binding = LITttComicBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return DataViewHolder(binding)
+    }
 
     override fun getItemCount(): Int = listComic.size
 
     override fun onBindViewHolder(
-        holder: RecyclerView.ViewHolder,
-        position: Int
+        holder: RecyclerView.ViewHolder, position: Int
     ) {
-        if (holder is com.loitp.core.helper.ttt.adapter.TTTListComicAdapter.DataViewHolder) {
+        if (holder is TTTListComicAdapter.DataViewHolder) {
             holder.bind(listComic[position])
         }
     }

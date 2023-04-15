@@ -4,10 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
+import androidx.appcompat.widget.AppCompatTextView
 import com.daimajia.androidanimations.library.Techniques
 import com.loitp.R
 import com.loitp.core.ext.play
-import kotlinx.android.synthetic.main.l_v_count_down.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -45,8 +45,11 @@ class LCountDownView : RelativeLayout {
         init()
     }
 
+    private lateinit var tvCountDown: AppCompatTextView
     private fun init() {
         inflate(context, R.layout.l_v_count_down, this)
+
+        tvCountDown = findViewById(R.id.tvCountDown)
     }
 
     fun start(number: Int) {
@@ -79,7 +82,7 @@ class LCountDownView : RelativeLayout {
                     tvCountDown.play(
                         techniques = Techniques.Flash,
                         onEnd = {
-                            tvCountDown?.visibility = GONE
+                            tvCountDown.visibility = GONE
                             callback?.onEnd()
                         }
                     )

@@ -6,19 +6,17 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.KEY_REMOVE_ALBUM_FLICKR_LIST
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.common.SK_PHOTOSET_ID
 import com.loitp.core.common.SK_PHOTOSET_SIZE
-import com.loitp.core.ext.hideProgress
-import com.loitp.core.ext.showProgress
-import com.loitp.core.ext.tranIn
-import com.loitp.core.ext.transActivityNoAnimation
+import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.GalleryCorePhotosActivity
+import com.loitp.databinding.LAFlickrGalleryCoreAlbumBinding
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetList.Photoset
 import com.loitp.restApi.flickr.service.FlickrService
@@ -28,7 +26,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
-import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_album.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -44,14 +41,19 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
     private var albumAdapter: AlbumAdapter? = null
     private val listPhotoSet = ArrayList<Photoset>()
     private var listRemoveAlbum = ArrayList<String>()
+    private lateinit var binding: LAFlickrGalleryCoreAlbumBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_flickr_gallery_core_album
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = LAFlickrGalleryCoreAlbumBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        isValidPackageName()
         setupViews()
     }
 
@@ -64,7 +66,7 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
         val animator = SlideInRightAnimator(OvershootInterpolator(1f))
         animator.addDuration = 1000
 
-        recyclerView.apply {
+        binding.recyclerView.apply {
             itemAnimator = animator
             layoutManager = LinearLayoutManager(this@GalleryCoreAlbumActivity)
             setHasFixedSize(true)
@@ -99,12 +101,12 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
             animAdapter.setDuration(1000)
 //          animAdapter.setInterpolator(OvershootInterpolator())
             animAdapter.setFirstOnly(true)
-            recyclerView.adapter = animAdapter
+            binding.recyclerView.adapter = animAdapter
         }
 
 //        LUIUtil.setPullLikeIOSVertical(this)
 
-        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+        binding.swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
             override fun onViewPositionChanged(
                 mView: View?,
                 swipeBackFraction: Float,
@@ -123,7 +125,7 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
     }
 
     private fun getListPhotosets() {
-        progressBar.showProgress()
+        binding.progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -169,10 +171,10 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
                     listPhotoSet.shuffle()
 
                     updateAllViews()
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                 }, { throwable ->
                     handleException(throwable)
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                 })
         )
     }

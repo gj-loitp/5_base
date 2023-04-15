@@ -70,7 +70,15 @@ public class EbookWithRealmActivity extends BaseActivityFont {
         // changes will be reflected automatically
         setRealmAdapter(Objects.requireNonNull(RealmController.Companion.with(this)).getBooks());
 
-        showShortInformation("Press card item for edit, long press to remove item", true);
+        showShortInformation(
+                "Press card item for edit, long press to remove item",
+                true,
+                null,
+                null,
+                null,
+                null,
+                32
+        );
 
         //add new item
         floatingActionButton.setOnClickListener(v -> addItem());
@@ -172,7 +180,14 @@ public class EbookWithRealmActivity extends BaseActivityFont {
                     book.setImageUrl(editThumbnail.getText().toString());
 
                     if (editTitle.getText() == null || editTitle.getText().toString().equals("") || editTitle.getText().toString().equals(" ")) {
-                        showShortInformation("Entry not saved, missing title", true);
+                        showShortInformation("Entry not saved, missing title",
+                                true,
+                                null,
+                                null,
+                                null,
+                                null,
+                                32
+                        );
                     } else {
                         // Persist your data easily
                         realm.beginTransaction();
@@ -248,10 +263,25 @@ public class EbookWithRealmActivity extends BaseActivityFont {
         booksAdapter.notifyItemRemoved(position);
         booksAdapter.notifyItemRangeChanged(position, Objects.requireNonNull(RealmController.getInstance()).getBooks().size());
 
-        showShortInformation("Removed book: " + title, true);
+        showShortInformation("Removed book: " + title,
+                true,
+                null,
+                null,
+                null,
+                null,
+                32
+        );
 
         if (RealmController.getInstance().getBooks().isEmpty()) {
-            showShortInformation("getMyBookList().isEmpty()", true);
+            showShortInformation(
+                    "getMyBookList().isEmpty()",
+                    true,
+                    null,
+                    null,
+                    null,
+                    null,
+                    32
+            );
         }
     }
 }

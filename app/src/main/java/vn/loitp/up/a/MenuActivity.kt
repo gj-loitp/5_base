@@ -20,6 +20,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.*
 import com.loitp.core.ext.*
 import com.loitp.core.helper.adHelper.AdHelperActivity
+import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.databinding.AMenuBinding
 import vn.loitp.up.a.anim.MenuAnimationActivity
@@ -71,10 +72,11 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     private fun setupViews() {
         adView = Applovin.createAdBanner(
-            c = this,
+            a = this,
             logTag = logTag,
             bkgColor = Color.TRANSPARENT,
-            viewGroup = binding.flAd
+            viewGroup = binding.flAd,
+            isAdaptiveBanner = true,
         )
         createAdInter()
 
@@ -199,7 +201,14 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             return
         }
         this.doubleBackToExitPressedOnce = true
-        showSnackBarInfor(msg = getString(R.string.press_again_to_exit), isFullWidth = false)
+
+//        showSnackBarInfor(msg = getString(R.string.press_again_to_exit), isFullWidth = false)
+        showShortInformation(
+            msg = getString(R.string.press_again_to_exit),
+            isTopAnchor = false,
+            drawableT = R.drawable.ic_copyright_black_48dp,
+        )
+
         Handler(Looper.getMainLooper()).postDelayed({
             doubleBackToExitPressedOnce = false
         }, 2000)
@@ -309,61 +318,65 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     }
 
     private fun createAdInter() {
-        interstitialAd = MaxInterstitialAd(getString(R.string.INTER), this)
-        interstitialAd?.let { ad ->
-            ad.setListener(object : MaxAdListener {
-                override fun onAdLoaded(p0: MaxAd?) {
-                    logI("onAdLoaded")
-                    retryAttempt = 0
-                }
+        if (BuildConfig.EnableAdInter) {
+            interstitialAd = MaxInterstitialAd(getString(R.string.INTER), this)
+            interstitialAd?.let { ad ->
+                ad.setListener(object : MaxAdListener {
+                    override fun onAdLoaded(p0: MaxAd?) {
+                        logI("onAdLoaded")
+                        retryAttempt = 0
+                    }
 
-                override fun onAdDisplayed(p0: MaxAd?) {
+                    override fun onAdDisplayed(p0: MaxAd?) {
+                        logI("onAdDisplayed")
+                    }
+
+                    override fun onAdHidden(p0: MaxAd?) {
+                        logI("onAdHidden")
+                        // Interstitial Ad is hidden. Pre-load the next ad
+                        interstitialAd?.loadAd()
+                    }
+
+                    override fun onAdClicked(p0: MaxAd?) {
+                        logI("onAdClicked")
+                    }
+
+                    override fun onAdLoadFailed(p0: String?, p1: MaxError?) {
+                        logI("onAdLoadFailed")
+                        retryAttempt++
+                        val delayMillis =
+                            TimeUnit.SECONDS.toMillis(2.0.pow(min(6, retryAttempt)).toLong())
+
+                        Handler(Looper.getMainLooper()).postDelayed(
+                            {
+                                interstitialAd?.loadAd()
+                            }, delayMillis
+                        )
+                    }
+
+                    override fun onAdDisplayFailed(p0: MaxAd?, p1: MaxError?) {
+                        logI("onAdDisplayFailed")
+                        // Interstitial ad failed to display. We recommend loading the next ad.
+                        interstitialAd?.loadAd()
+                    }
+
+                })
+                ad.setRevenueListener {
                     logI("onAdDisplayed")
                 }
 
-                override fun onAdHidden(p0: MaxAd?) {
-                    logI("onAdHidden")
-                    // Interstitial Ad is hidden. Pre-load the next ad
-                    interstitialAd?.loadAd()
-                }
-
-                override fun onAdClicked(p0: MaxAd?) {
-                    logI("onAdClicked")
-                }
-
-                override fun onAdLoadFailed(p0: String?, p1: MaxError?) {
-                    logI("onAdLoadFailed")
-                    retryAttempt++
-                    val delayMillis =
-                        TimeUnit.SECONDS.toMillis(2.0.pow(min(6, retryAttempt)).toLong())
-
-                    Handler(Looper.getMainLooper()).postDelayed(
-                        {
-                            interstitialAd?.loadAd()
-                        }, delayMillis
-                    )
-                }
-
-                override fun onAdDisplayFailed(p0: MaxAd?, p1: MaxError?) {
-                    logI("onAdDisplayFailed")
-                    // Interstitial ad failed to display. We recommend loading the next ad.
-                    interstitialAd?.loadAd()
-                }
-
-            })
-            ad.setRevenueListener {
-                logI("onAdDisplayed")
+                // Load the first ad.
+                ad.loadAd()
             }
-
-            // Load the first ad.
-            ad.loadAd()
         }
     }
 
     private fun showAd() {
-        interstitialAd?.let { ad ->
-            if (ad.isReady) {
-                ad.showAd()
+        if (BuildConfig.EnableAdInter) {
+            interstitialAd?.let { ad ->
+                if (ad.isReady) {
+                    ad.showAd()
+                }
             }
         }
     }

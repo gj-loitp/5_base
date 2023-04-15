@@ -6,17 +6,17 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
-import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.common.SK_PHOTO_ID
 import com.loitp.core.common.SK_PHOTO_PISITION
 import com.loitp.core.ext.sendEmail
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.share
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
-import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_slide.*
+import com.loitp.databinding.LAFlickrGalleryCoreSlideBinding
 
 /**
  * Created by Loitp on 04,August,2022
@@ -29,37 +29,42 @@ import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_slide.*
 @IsFullScreen(false)
 class GalleryCoreSlideActivity : BaseActivityFont() {
 
+    private lateinit var binding: LAFlickrGalleryCoreSlideBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_flickr_gallery_core_slide
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LAFlickrGalleryCoreSlideBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     private fun setupViews() {
         val slidePagerAdapter = SlidePagerAdapter(supportFragmentManager)
-        viewPager.adapter = slidePagerAdapter
+        binding.viewPager.adapter = slidePagerAdapter
 //        LUIUtil.setPullLikeIOSHorizontal(viewPager)
 //        viewPager.setPageTransformer(true, ZoomOutSlideTransformer())
         val photoID = intent.getStringExtra(SK_PHOTO_ID) ?: ""
         val position = instance.getPosition(photoID)
 
-        viewPager.currentItem = position
+        binding.viewPager.currentItem = position
 
-        btDownload.setSafeOnClickListener {
-            instance.getPhoto(position = viewPager.currentItem)?.urlO?.let {
+        binding.btDownload.setSafeOnClickListener {
+            instance.getPhoto(position = binding.viewPager.currentItem)?.urlO?.let {
                 save(url = it)
             }
         }
-        btShare.setSafeOnClickListener {
-            instance.getPhoto(viewPager.currentItem)?.urlO?.let {
+        binding.btShare.setSafeOnClickListener {
+            instance.getPhoto(binding.viewPager.currentItem)?.urlO?.let {
                 this.share(msg = it)
             }
         }
-        btReport.setSafeOnClickListener {
+        binding.btReport.setSafeOnClickListener {
             this.sendEmail()
         }
     }

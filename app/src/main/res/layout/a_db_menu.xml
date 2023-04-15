@@ -75,6 +75,11 @@
                 android:id="@+id/btSqliteMultiTableAdvance"
                 style="@style/ButtonMenu"
                 android:text="@string/sqlite_multi_table_advance" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btStorage"
+                style="@style/ButtonMenu"
+                android:text="Storage" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </com.factor.bouncy.BouncyNestedScrollView>
 

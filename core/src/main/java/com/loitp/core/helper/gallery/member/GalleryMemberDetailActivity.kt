@@ -7,19 +7,19 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.getSerializableCompat
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setZoomFitWidthScreen
 import com.loitp.core.ext.transActivityNoAnimation
+import com.loitp.databinding.LAFlickrMemberDetailBinding
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.views.layout.swipeBack.SwipeBackLayout
 import jp.wasabeef.glide.transformations.BlurTransformation
-import kotlinx.android.synthetic.main.l_a_flickr_member_detail.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -37,12 +37,17 @@ class GalleryMemberDetailActivity : BaseActivityFont() {
         const val PHOTO = "PHOTO"
     }
 
+    private lateinit var binding: LAFlickrMemberDetailBinding
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_flickr_member_detail
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LAFlickrMemberDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
@@ -53,7 +58,7 @@ class GalleryMemberDetailActivity : BaseActivityFont() {
             loadItem(photo = it)
         }
 
-        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+        binding.swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
             override fun onViewPositionChanged(
                 mView: View?, swipeBackFraction: Float, swipeBackFactor: Float
             ) {
@@ -71,13 +76,13 @@ class GalleryMemberDetailActivity : BaseActivityFont() {
     }
 
     private fun loadItem(photo: Photo) {
-        tvTitle.text = photo.title
-        imageViewBlur.loadGlide(
+        binding.tvTitle.text = photo.title
+        binding.imageViewBlur.loadGlide(
             any = photo.urlS,
             drawableRequestListener = null,
             transformation = BlurTransformation(25)
         )
-        imageView.loadGlide(
+        binding.imageView.loadGlide(
             any = photo.urlO,
             drawableRequestListener = object : RequestListener<Drawable> {
                 override fun onLoadFailed(
@@ -96,7 +101,7 @@ class GalleryMemberDetailActivity : BaseActivityFont() {
                     dataSource: DataSource,
                     isFirstResource: Boolean
                 ): Boolean {
-                    imageView.setZoomFitWidthScreen()
+                    binding.imageView.setZoomFitWidthScreen()
                     return false
                 }
             })

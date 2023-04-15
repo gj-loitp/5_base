@@ -20,6 +20,7 @@ import com.loitp.core.common.SK_PHOTOSET_ID
 import com.loitp.core.common.SK_PHOTOSET_SIZE
 import com.loitp.core.ext.*
 import com.loitp.core.helper.gallery.photos.PhotosDataCore
+import com.loitp.databinding.LAFlickrGalleryCorePhotosOnlyBinding
 import com.loitp.restApi.flickr.FlickrConst
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 import com.loitp.restApi.flickr.service.FlickrService
@@ -29,7 +30,6 @@ import com.permissionx.guolindev.PermissionX
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.l_a_flickr_gallery_core_photos_only.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -52,13 +52,19 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
     private var photosOnlyAdapter: PhotosOnlyAdapter? = null
     private var photoSetID: String? = null
     private var photosSize: Int = 0
+    private lateinit var binding: LAFlickrGalleryCorePhotosOnlyBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_flickr_gallery_core_photos_only
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LAFlickrGalleryCorePhotosOnlyBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        isValidPackageName()
 
         setupViews()
         checkPermission()
@@ -74,43 +80,41 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
             return
         }
         photosSize = intent.getIntExtra(SK_PHOTOSET_SIZE, NOT_FOUND)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        photosOnlyAdapter = PhotosOnlyAdapter(
-            callback = object : PhotosOnlyAdapter.Callback {
-                override fun onClick(photo: Photo, pos: Int) {
-                }
-
-                override fun onLongClick(photo: Photo, pos: Int) {
-                }
-
-                override fun onClickDownload(photo: Photo, pos: Int) {
-                    save(url = photo.urlO)
-                }
-
-                override fun onClickShare(photo: Photo, pos: Int) {
-                    this@GalleryCorePhotosOnlyActivity.share(
-                        msg = photo.urlO
-                    )
-                }
-
-                override fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView) {
-                    imageView.setWallpaperAndLockScreen(
-                        isSetWallpaper = true,
-                        isSetLockScreen = true,
-                    )
-                }
-
-                override fun onClickReport(photo: Photo, pos: Int) {
-                    this@GalleryCorePhotosOnlyActivity.sendEmail()
-                }
-
-                override fun onClickCmt(photo: Photo, pos: Int) {
-                    this@GalleryCorePhotosOnlyActivity.openFacebookComment(
-                        url = photo.urlO,
-                    )
-                }
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        photosOnlyAdapter = PhotosOnlyAdapter(callback = object : PhotosOnlyAdapter.Callback {
+            override fun onClick(photo: Photo, pos: Int) {
             }
-        )
+
+            override fun onLongClick(photo: Photo, pos: Int) {
+            }
+
+            override fun onClickDownload(photo: Photo, pos: Int) {
+                save(url = photo.urlO)
+            }
+
+            override fun onClickShare(photo: Photo, pos: Int) {
+                this@GalleryCorePhotosOnlyActivity.share(
+                    msg = photo.urlO
+                )
+            }
+
+            override fun onClickSetWallpaper(photo: Photo, pos: Int, imageView: ImageView) {
+                imageView.setWallpaperAndLockScreen(
+                    isSetWallpaper = true,
+                    isSetLockScreen = true,
+                )
+            }
+
+            override fun onClickReport(photo: Photo, pos: Int) {
+                this@GalleryCorePhotosOnlyActivity.sendEmail()
+            }
+
+            override fun onClickCmt(photo: Photo, pos: Int) {
+                this@GalleryCorePhotosOnlyActivity.openFacebookComment(
+                    url = photo.urlO,
+                )
+            }
+        })
         photosOnlyAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
 //            val animAdapter = ScaleInAnimationAdapter(it)
@@ -121,15 +125,14 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
             animAdapter.setDuration(1000)
 //            animAdapter.setInterpolator(OvershootInterpolator())
             animAdapter.setFirstOnly(true)
-            recyclerView.adapter = animAdapter
+            binding.recyclerView.adapter = animAdapter
         }
 
         // LUIUtil.setPullLikeIOSVertical(recyclerView)
 
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(
-                recyclerView: RecyclerView,
-                newState: Int
+                recyclerView: RecyclerView, newState: Int
             ) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
@@ -142,21 +145,18 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
             }
         })
 
-        btPage.setOnClickListener {
+        binding.btPage.setOnClickListener {
             showListPage()
         }
 
-        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+        binding.swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
             override fun onViewPositionChanged(
-                mView: View?,
-                swipeBackFraction: Float,
-                swipeBackFactor: Float
+                mView: View?, swipeBackFraction: Float, swipeBackFactor: Float
             ) {
             }
 
             override fun onViewSwipeFinished(
-                mView: View?,
-                isEnd: Boolean
+                mView: View?, isEnd: Boolean
             ) {
                 if (isEnd) {
                     finish()//correct
@@ -172,18 +172,14 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
         for (i in 0 until size) {
             arr[i] = "Page " + (totalPage - i)
         }
-        this.showDialogList(
-            title = "Select page",
-            arr = arr,
-            onClick = { position ->
-                currentPage = totalPage - position
-                PhotosDataCore.instance.clearData()
-                updateAllViews()
-                photoSetID?.let {
-                    photoSetsGetPhotos(it)
-                }
+        this.showDialogList(title = "Select page", arr = arr, onClick = { position ->
+            currentPage = totalPage - position
+            PhotosDataCore.instance.clearData()
+            updateAllViews()
+            photoSetID?.let {
+                photoSetsGetPhotos(it)
             }
-        )
+        })
     }
 
     private fun goToHome() {
@@ -209,7 +205,7 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
     }
 
     private fun getListPhotoSets() {
-        progressBar.showProgress()
+        binding.progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -229,10 +225,9 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
                 page = page,
                 perPage = perPage,
                 primaryPhotoExtras = primaryPhotoExtras,
-                format = format, noJsonCallback = noJsonCallBack
-            )
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                format = format,
+                noJsonCallback = noJsonCallBack
+            ).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotoSetGetlist ->
                     wrapperPhotoSetGetlist?.photosets?.photoset?.let { list ->
                         for (photoSet in list) {
@@ -245,7 +240,7 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
                     }
                 }, { e ->
                     handleException(e)
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                 })
         )
     }
@@ -255,7 +250,7 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
             return
         }
         isLoading = true
-        progressBar.showProgress()
+        binding.progressBar.showProgress()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -263,7 +258,7 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
         if (currentPage <= 0) {
 //            logD("currentPage <= 0 -> return")
             currentPage = 0
-            progressBar.hideProgress()
+            binding.progressBar.hideProgress()
             return
         }
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
@@ -281,26 +276,24 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
                 page = currentPage,
                 format = format,
                 noJsonCallback = noJsonCallBack
-            )
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+            ).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->
                     val s =
                         wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
-                    tvTitle.text = s
+                    binding.tvTitle.text = s
                     wrapperPhotosetGetPhotos?.photoset?.photo?.let {
                         it.shuffle()
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()
 
-                    progressBar.hideProgress()
-                    btPage.visibility = View.VISIBLE
+                    binding.progressBar.hideProgress()
+                    binding.btPage.visibility = View.VISIBLE
                     isLoading = false
                     currentPage--
                 }, { e ->
                     handleException(e)
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                     isLoading = true
                 })
         )
@@ -317,13 +310,11 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
         } else {
             Color.BLACK
         }
-        PermissionX.init(this)
-            .permissions(
+        PermissionX.init(this).permissions(
                 Manifest.permission.ACCESS_FINE_LOCATION,
 //                Manifest.permission.READ_EXTERNAL_STORAGE,
 //                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            )
-            .setDialogTintColor(lightColor = color, darkColor = color)
+            ).setDialogTintColor(lightColor = color, darkColor = color)
             .onExplainRequestReason { scope, deniedList, _ ->
                 val message = getString(R.string.app_name) + getString(R.string.needs_per)
                 scope.showRequestReasonDialog(
@@ -332,16 +323,14 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
                     positiveText = getString(R.string.allow),
                     negativeText = getString(R.string.deny)
                 )
-            }
-            .onForwardToSettings { scope, deniedList ->
+            }.onForwardToSettings { scope, deniedList ->
                 scope.showForwardToSettingsDialog(
                     permissions = deniedList,
                     message = getString(R.string.per_manually_msg),
                     positiveText = getString(R.string.ok),
                     negativeText = getString(R.string.cancel)
                 )
-            }
-            .request { allGranted, _, _ ->
+            }.request { allGranted, _, _ ->
                 if (allGranted) {
                     goToHome()
                 } else {
@@ -369,8 +358,6 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
             // Optionally,Set whether to repeatedly download the downloaded file,default false.
             .forceReDownload(true)
             // Optionally,Set how many threads are used when downloading,default 3.
-            .threadNum(3)
-            .setRetry(3, 200)
-            .submit()
+            .threadNum(3).setRetry(3, 200).submit()
     }
 }

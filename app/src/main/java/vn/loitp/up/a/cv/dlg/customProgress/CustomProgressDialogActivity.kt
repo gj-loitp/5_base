@@ -9,6 +9,7 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
+import vn.loitp.R
 import vn.loitp.databinding.ADlgCustomProgressBinding
 
 @LogTag("CustomProgressDialogActivity")
@@ -22,6 +23,8 @@ class CustomProgressDialogActivity : BaseActivityFont() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        colorBkgProgressDialog = R.color.black65
 
         binding = ADlgCustomProgressBinding.inflate(layoutInflater)
         setContentView(binding.root)

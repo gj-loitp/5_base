@@ -9,13 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.GlideImageViewFactory
-import com.loitp.R
 import com.loitp.core.common.SK_PHOTO_PISITION
 import com.loitp.core.ext.hideProgress
 import com.loitp.core.ext.setTextShadow
 import com.loitp.core.ext.showProgress
 import com.loitp.core.helper.gallery.photos.PhotosDataCore.Companion.instance
-import kotlinx.android.synthetic.main.l_i_flickr_photo_slide_iv_core.*
+import com.loitp.databinding.LIFlickrPhotoSlideIvCoreBinding
 import java.io.File
 
 /**
@@ -26,21 +25,19 @@ import java.io.File
  * freuss47@gmail.com
  */
 class FrmIvSlideCore : Fragment() {
+    private lateinit var binding: LIFlickrPhotoSlideIvCoreBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.l_i_flickr_photo_slide_iv_core, container, false)
+        binding = LIFlickrPhotoSlideIvCoreBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(
-        view: View,
-        savedInstanceState: Bundle?
+        view: View, savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
-
         setupViews()
     }
 
@@ -49,41 +46,39 @@ class FrmIvSlideCore : Fragment() {
         val position = bundle.getInt(SK_PHOTO_PISITION)
         val photo = instance.getPhoto(position)
 
-        tvProgress.setTextShadow(color = null)
-        biv.setImageViewFactory(GlideImageViewFactory())
+        binding.tvProgress.setTextShadow(color = null)
+        binding.biv.setImageViewFactory(GlideImageViewFactory())
 
-        biv.setImageLoaderCallback(object : ImageLoader.Callback {
+        binding.biv.setImageLoaderCallback(object : ImageLoader.Callback {
             override fun onCacheHit(
-                imageType: Int,
-                image: File
+                imageType: Int, image: File
             ) {
             }
 
             override fun onCacheMiss(
-                imageType: Int,
-                image: File
+                imageType: Int, image: File
             ) {
             }
 
             override fun onStart() {
-                progressBar.showProgress()
-                tvProgress.text = "0%"
+                binding.progressBar.showProgress()
+                binding.tvProgress.text = "0%"
             }
 
             @SuppressLint("SetTextI18n")
             override fun onProgress(progress: Int) {
-                tvProgress.visibility = View.VISIBLE
-                tvProgress.text = "$progress%"
+                binding.tvProgress.visibility = View.VISIBLE
+                binding.tvProgress.text = "$progress%"
             }
 
             override fun onFinish() {}
             override fun onSuccess(image: File) {
-                progressBar.hideProgress()
-                tvProgress.visibility = View.GONE
+                binding.progressBar.hideProgress()
+                binding.tvProgress.visibility = View.GONE
             }
 
             override fun onFail(error: Exception) {}
         })
-        biv.showImage(Uri.parse(photo?.urlS), Uri.parse(photo?.urlO))
+        binding.biv.showImage(Uri.parse(photo?.urlS), Uri.parse(photo?.urlO))
     }
 }

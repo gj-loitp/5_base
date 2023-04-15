@@ -95,6 +95,14 @@ class SplashActivity : BaseActivityFont() {
         val listPer = ArrayList<String>()
         listPer.add(Manifest.permission.ACCESS_FINE_LOCATION)
         listPer.add(Manifest.permission.CAMERA)
+
+//        listPer.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            //quyen nhay cam, can khai bao voi google
+            listPer.add(Manifest.permission.MANAGE_EXTERNAL_STORAGE)
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             listPer.add(Manifest.permission.POST_NOTIFICATIONS)
         }

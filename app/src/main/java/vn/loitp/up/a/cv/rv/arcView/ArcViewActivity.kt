@@ -12,7 +12,6 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.layout_include_arc_button.*
 import vn.loitp.R
 import vn.loitp.databinding.ARvArcViewBinding
 
@@ -62,7 +61,7 @@ class ArcViewActivity : BaseActivityFont(), View.OnClickListener {
         binding.btKickMe.setOnClickListener(this)
         binding.btKickSwapped.setOnClickListener(this)
         binding.layoutIncludeArcButton.includeButtonsStroke.setOnClickListener(this)
-        includeButtonsShadow.setOnClickListener(this)
+        binding.layoutIncludeArcButton.includeButtonsShadow.setOnClickListener(this)
         strokeArc = layoutInflater.inflate(
             R.layout.stroke_arc_linear_layout,
             binding.layoutIncludeArcButton.includeArcButtonsTempArc,

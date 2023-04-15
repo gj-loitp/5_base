@@ -19,8 +19,8 @@ import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setPullLikeIOSHorizontal
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.utils.AppUtils
+import com.loitp.databinding.LAAdHelperBinding
 import com.manojbhadane.QButton
-import kotlinx.android.synthetic.main.l_a_ad_helper.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -32,6 +32,8 @@ import kotlinx.android.synthetic.main.l_a_ad_helper.*
 @LogTag("AdHelperActivity")
 @IsFullScreen(false)
 class AdHelperActivity : BaseActivityFont() {
+    private lateinit var binding: LAAdHelperBinding
+
     private val adPageList = ArrayList<AdPage>()
     private var isEnglishLanguage: Boolean = false
     private var colorPrimary = 0
@@ -40,11 +42,14 @@ class AdHelperActivity : BaseActivityFont() {
     private var isLightIconStatusBar = true
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_ad_helper
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LAAdHelperBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         isEnglishLanguage = intent.getBooleanExtra(AD_HELPER_IS_ENGLISH_LANGUAGE, false)
         colorPrimary = intent.getIntExtra(AD_HELPER_COLOR_PRIMARY, 0)
@@ -123,21 +128,23 @@ class AdHelperActivity : BaseActivityFont() {
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        btBack.setSafeOnClickListener {
+        binding.btBack.setSafeOnClickListener {
             super.onBaseBackPressed()
         }
-        btPrevScreen.setOnClickListener { viewPager.currentItem = viewPager.currentItem - 1 }
-        btNextScreen.setOnClickListener {
-            if (viewPager.currentItem == adPageList.size - 1) {
+        binding.btPrevScreen.setOnClickListener {
+            binding.viewPager.currentItem = binding.viewPager.currentItem - 1
+        }
+        binding.btNextScreen.setOnClickListener {
+            if (binding.viewPager.currentItem == adPageList.size - 1) {
                 onBaseBackPressed()
             } else {
-                viewPager.currentItem = viewPager.currentItem + 1
+                binding.viewPager.currentItem = binding.viewPager.currentItem + 1
             }
         }
 
-        viewPager.adapter = SlidePagerAdapter()
-        viewPager.setPullLikeIOSHorizontal()
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.viewPager.adapter = SlidePagerAdapter()
+        binding.viewPager.setPullLikeIOSHorizontal()
+        binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
@@ -147,13 +154,13 @@ class AdHelperActivity : BaseActivityFont() {
             }
 
             override fun onPageSelected(position: Int) {
-                tvPage.text = (position + 1).toString() + "/" + adPageList.size
+                binding.tvPage.text = (position + 1).toString() + "/" + adPageList.size
                 when (position) {
-                    0 -> btPrevScreen.visibility = View.INVISIBLE
-                    adPageList.size - 1 -> btNextScreen.visibility = View.INVISIBLE
+                    0 -> binding.btPrevScreen.visibility = View.INVISIBLE
+                    adPageList.size - 1 -> binding.btNextScreen.visibility = View.INVISIBLE
                     else -> {
-                        btPrevScreen.visibility = View.VISIBLE
-                        btNextScreen.visibility = View.VISIBLE
+                        binding.btPrevScreen.visibility = View.VISIBLE
+                        binding.btNextScreen.visibility = View.VISIBLE
                     }
                 }
             }
@@ -162,14 +169,14 @@ class AdHelperActivity : BaseActivityFont() {
                 // do nothing
             }
         })
-        tvPage.text = (viewPager.currentItem + 1).toString() + "/" + adPageList.size
+        binding.tvPage.text = (binding.viewPager.currentItem + 1).toString() + "/" + adPageList.size
 
         if (colorPrimary != 0 && colorBackground != 0) {
-            layoutRootView.setBackgroundColor(colorBackground)
-            btBack.setColorFilter(colorPrimary)
-            btPrevScreen.setColorFilter(colorPrimary)
-            btNextScreen.setColorFilter(colorPrimary)
-            tvPage.setTextColor(colorPrimary)
+            binding.layoutRootView.setBackgroundColor(colorBackground)
+            binding.btBack.setColorFilter(colorPrimary)
+            binding.btPrevScreen.setColorFilter(colorPrimary)
+            binding.btNextScreen.setColorFilter(colorPrimary)
+            binding.tvPage.setTextColor(colorPrimary)
         }
     }
 

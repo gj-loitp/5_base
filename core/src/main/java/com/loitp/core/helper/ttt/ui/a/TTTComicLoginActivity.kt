@@ -2,11 +2,12 @@ package com.loitp.core.helper.ttt.ui.a
 
 import android.content.Intent
 import android.os.Bundle
-import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.tranIn
+import com.loitp.databinding.LATttComicLoginBinding
 
 /**
  * Created by Loitp on 04,August,2022
@@ -18,13 +19,17 @@ import com.loitp.core.ext.tranIn
 @LogTag("TTTComicLoginActivity")
 @IsFullScreen(false)
 class TTTComicLoginActivity : BaseActivityFont() {
+    private lateinit var binding: LATttComicLoginBinding
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_ttt_comic_login
+        return NOT_FOUND
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LATttComicLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
         setupViewModels()

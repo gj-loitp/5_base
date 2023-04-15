@@ -53,10 +53,11 @@ class BannerActivity : BaseActivityFont() {
         }
 
         adView = Applovin.createAdBanner(
-            c = this,
+            a = this,
             logTag = logTag,
             bkgColor = Color.CYAN,
-            viewGroup = binding.flAd
+            viewGroup = binding.flAd,
+            isAdaptiveBanner = true,
         )
     }
 

@@ -12,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
-import androidx.core.view.isVisible
 import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.IsSwipeActivity
@@ -23,7 +22,6 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setColorProgressBar
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setProgressBarVisibility
-import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.databinding.LAFbCmtCoreBinding
 
 /**

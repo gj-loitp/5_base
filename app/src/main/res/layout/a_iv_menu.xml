@@ -62,6 +62,11 @@
                 android:text="@string/fidgetspinner_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btImageSlideshow"
+                style="@style/ButtonMenu"
+                android:text="ImageSlideshow" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btKenburnView"
                 style="@style/ButtonMenu"
                 android:text="@string/kenburn_view" />

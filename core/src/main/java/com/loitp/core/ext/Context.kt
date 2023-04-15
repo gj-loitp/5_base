@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.media.RingtoneManager
 import android.net.Uri
@@ -555,11 +556,13 @@ fun Dialog?.hide() {
 
 @SuppressLint("InflateParams")
 fun Context?.genCustomProgressDialog(
+    colorBackground: Int
 ): Dialog? {
     if (this == null || this !is Activity) {
         return null
     }
-    val dialog = Dialog(this, android.R.style.Theme_Translucent_NoTitleBar)
+    val dialog = Dialog(this, R.style.SplashTheme)
+
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
     dialog.setContentView(R.layout.l_d_custom_progress)
     dialog.setCanceledOnTouchOutside(false)
@@ -569,7 +572,7 @@ fun Context?.genCustomProgressDialog(
     progressBar.showProgressBar()
 
     dialog.window?.let {
-        it.setBackgroundDrawable(ColorDrawable(getColor(R.color.black65)))
+        it.setBackgroundDrawable(ColorDrawable(colorBackground))
 
         val wlp = it.attributes
         wlp.gravity = Gravity.CENTER
