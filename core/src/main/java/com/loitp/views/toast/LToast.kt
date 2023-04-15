@@ -12,6 +12,7 @@ import com.loitp.core.ext.LAppResource.application
 import com.loitp.core.ext.addDrawableLTRB
 import com.loitp.core.ext.getColor
 import com.loitp.core.ext.isDarkTheme
+import com.loitp.core.ext.setDrawableTint
 
 /**
  * Created by Loitp on 04,August,2022
@@ -48,6 +49,7 @@ object LToast {
                 text = msg
                 setBackgroundColor(getColor(backgroundResColor))
                 setTextColor(getColor(textResColor))
+                setDrawableTint(getColor(textResColor))
 
                 addDrawableLTRB(
                     drawableL = drawableL,

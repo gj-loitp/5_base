@@ -9,7 +9,6 @@
         android:id="@+id/tvLoading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableTint="@color/white"
         android:gravity="center"
         android:padding="@dimen/margin_padding_medium"
         android:textSize="@dimen/txt_medium"
