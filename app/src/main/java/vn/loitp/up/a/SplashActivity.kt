@@ -99,6 +99,7 @@ class SplashActivity : BaseActivityFont() {
 //        listPer.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            //quyen nhay cam, can khai bao voi google
             listPer.add(Manifest.permission.MANAGE_EXTERNAL_STORAGE)
         }
 
