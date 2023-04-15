@@ -2,12 +2,13 @@ package vn.loitp.up.a.cv.video.exo
 
 import android.content.res.Configuration
 import android.os.Bundle
+import android.widget.ImageButton
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.isLandscape
-import kotlinx.android.synthetic.main.exo_playback_control_view.*
+import vn.loitp.R
 import vn.loitp.databinding.AVideoExoPlayer2Binding
 import vn.loitp.up.a.cv.video.exo.mng.PlayerManager
 
@@ -41,11 +42,13 @@ class ExoPlayerActivity2 : BaseActivityFont() {
         binding.controls.showTimeoutMs = 0
         playerManager?.init(context = this, playerView = binding.playerView, linkPlay = linkPlay)
         binding.controls.player = playerManager?.player
+
+        val exoFullScreen = binding.playerView.findViewById<ImageButton>(R.id.exo_fullscreen)
         playerManager?.updateSizePlayerView(
             playerView = binding.playerView,
-            exoFullscreen = exo_fullscreen
+            exoFullscreen = exoFullScreen
         )
-        exo_fullscreen.setOnClickListener {
+        exoFullScreen.setOnClickListener {
             playerManager?.toggleFullscreen(this)
         }
     }
@@ -76,15 +79,16 @@ class ExoPlayerActivity2 : BaseActivityFont() {
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
 
+        val exoFullScreen = binding.playerView.findViewById<ImageButton>(R.id.exo_fullscreen)
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             playerManager?.updateSizePlayerView(
                 playerView = binding.playerView,
-                exoFullscreen = exo_fullscreen
+                exoFullscreen = exoFullScreen
             )
         } else {
             playerManager?.updateSizePlayerView(
                 playerView = binding.playerView,
-                exoFullscreen = exo_fullscreen
+                exoFullscreen = exoFullScreen
             )
         }
     }
