@@ -174,7 +174,7 @@ dependencies {
 
     api "androidx.lifecycle:lifecycle-extensions:2.2.0"
     //noinspection LifecycleAnnotationProcessorWithJava8
-    kapt "androidx.lifecycle:lifecycle-compiler:2.6.0-rc01"
+    kapt "androidx.lifecycle:lifecycle-compiler:2.6.1"
 //    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
     //Room components
