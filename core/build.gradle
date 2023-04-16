@@ -224,8 +224,8 @@ dependencies {
 //    api 'com.github.sayyedrizwan:wallpo:1.4.0'
 
     // required to avoid crash on Android 12 API 31
-    api 'androidx.work:work-runtime-ktx:2.8.0'
-    api 'androidx.webkit:webkit:1.6.0'
+    api 'androidx.work:work-runtime-ktx:2.8.1'
+    api 'androidx.webkit:webkit:1.6.1'
 
 //    https://github.com/cketti/EmailIntentBuilder
     api 'de.cketti.mailto:email-intent-builder:2.0.0'
