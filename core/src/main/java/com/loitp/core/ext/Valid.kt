@@ -84,6 +84,7 @@ private val listPkg = listOf(
     "com.roy93group.forecast",
     "com.roy93group.joblogictest",
     "com.roy93group.androidinterview",
+    "com.roy93group.cal",
     "com.roy93group.flutterinterview",//unused
 
     "com.bizman.bizman_dikauri",//for thanos bizman
