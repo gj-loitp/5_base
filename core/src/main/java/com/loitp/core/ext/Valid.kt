@@ -2,7 +2,6 @@ package com.loitp.core.ext
 
 import android.text.TextUtils
 import android.util.Patterns
-import com.loitp.BuildConfig
 import com.loitp.core.utils.AppUtils
 import java.util.*
 import java.util.regex.Pattern
