@@ -209,7 +209,7 @@ class MainActivitySSImagePicker : BaseActivityFont(),
             }
         }
 
-        //C1 run tuan tu work
+        //C1 run tuan tu work -> se bi no responding
 //        showDialogProgress()
 //        val timeStart = System.currentTimeMillis()
 //        listTest.forEach { uri ->
@@ -220,20 +220,20 @@ class MainActivitySSImagePicker : BaseActivityFont(),
 //        hideDialogProgress()
 
         //C2 run parallel
-//        showDialogProgress()
-//        val timeStart = System.currentTimeMillis()
-//        //TODO run coroutine parallel
-//        GlobalScope.launch {
-//            listTest.mapIndexed { index, uri ->
-//                async {
-//                    logD(">>>index $index")
-//                    testResize(uri)
-//                }
-//            }.awaitAll()
-//            val timeEnd = System.currentTimeMillis()
-//            logD("bench ${timeEnd - timeStart}")
-//            hideDialogProgress()
-//        }
+        showDialogProgress()
+        val timeStart = System.currentTimeMillis()
+        //TODO run coroutine parallel
+        GlobalScope.launch {
+            listTest.mapIndexed { index, uri ->
+                async {
+                    logD(">>>index $index")
+                    testResize(uri)
+                }
+            }.awaitAll()
+            val timeEnd = System.currentTimeMillis()
+            logD("bench ${timeEnd - timeStart}")
+            hideDialogProgress()
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
