@@ -224,12 +224,16 @@ fun Activity.share(
 // like fanpage
 fun Activity?.likeFacebookFanpage(
 ) {
-    this?.apply {
-        val facebookIntent = Intent(Intent.ACTION_VIEW)
-        val facebookUrl = getFacebookPageURL()
-        facebookIntent.data = Uri.parse(facebookUrl)
-        startActivity(facebookIntent)
-        tranIn()
+    try {
+        this?.apply {
+            val facebookIntent = Intent(Intent.ACTION_VIEW)
+            val facebookUrl = getFacebookPageURL()
+            facebookIntent.data = Uri.parse(facebookUrl)
+            startActivity(facebookIntent)
+            tranIn()
+        }
+    } catch (e: Exception) {
+        e.printStackTrace()
     }
 }
 
