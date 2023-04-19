@@ -31,6 +31,11 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.picker.ssImage.PickerOptions
 import com.loitp.picker.ssImage.isAtLeast11
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.launch
 import vn.loitp.R
 import vn.loitp.databinding.AMainSsImagePickerBinding
 import vn.loitp.up.a.MenuActivity
@@ -187,6 +192,7 @@ class MainActivitySSImagePicker : BaseActivityFont(),
         }
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     @SuppressLint("NotifyDataSetChanged")
     private fun updateImageList(list: List<Uri>) {
         imageList.clear()
@@ -197,17 +203,37 @@ class MainActivitySSImagePicker : BaseActivityFont(),
 //        testResize(list.firstOrNull())
 
         val listTest = ArrayList<Uri>()
-        for (i in 0..3000) {
+        for (i in 0..500) {
             list.firstOrNull()?.let {
                 listTest.add(it)
             }
         }
-        val timeStart = System.currentTimeMillis()
-        listTest.forEach { uri ->
-            testResize(uri)
-        }
-        val timeEnd = System.currentTimeMillis()
-        logD("bench ${timeEnd - timeStart}")
+
+        //C1 run tuan tu work
+//        showDialogProgress()
+//        val timeStart = System.currentTimeMillis()
+//        listTest.forEach { uri ->
+//            testResize(uri)
+//        }
+//        val timeEnd = System.currentTimeMillis()
+//        logD("bench ${timeEnd - timeStart}")
+//        hideDialogProgress()
+
+        //C2 run parallel
+//        showDialogProgress()
+//        val timeStart = System.currentTimeMillis()
+//        //TODO run coroutine parallel
+//        GlobalScope.launch {
+//            listTest.mapIndexed { index, uri ->
+//                async {
+//                    logD(">>>index $index")
+//                    testResize(uri)
+//                }
+//            }.awaitAll()
+//            val timeEnd = System.currentTimeMillis()
+//            logD("bench ${timeEnd - timeStart}")
+//            hideDialogProgress()
+//        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
