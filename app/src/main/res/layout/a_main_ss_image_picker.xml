@@ -13,6 +13,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivTestResize"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/w_100"
+            android:layout_marginBottom="@dimen/margin_padding_small"
+            tools:src="@drawable/ic_launcher" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
