@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import androidx.core.view.isVisible
 import com.app.imagepickerlibrary.ImagePicker
 import com.app.imagepickerlibrary.ImagePicker.Companion.registerImagePicker
@@ -32,7 +33,9 @@ import com.loitp.picker.ssImage.isAtLeast11
 import vn.loitp.R
 import vn.loitp.databinding.AMainSsImagePickerBinding
 import vn.loitp.up.a.MenuActivity
+import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
 
 
 /**
@@ -211,7 +214,7 @@ class MainActivitySSImagePicker : BaseActivityFont(),
         val height = options.outHeight
         logD("size $width x $height")
 
-        val expectWidth = 100
+        val expectWidth = 20
         val expectHeight = expectWidth * height / width
         logD("expect size $expectWidth x $expectHeight")
 
@@ -238,9 +241,48 @@ class MainActivitySSImagePicker : BaseActivityFont(),
                     isFirstResource: Boolean
                 ): Boolean {
                     // resource is your loaded Bitmap
-                    resource?.let {
-                        logE("onResourceReady ${it.width}x${it.height}")
+                    resource?.let { bmp ->
+                        logE("onResourceReady ${bmp.width}x${bmp.height}")
+
+                        //save bitmap to file
+                        fun bitmapToFile(
+                            bitmap: Bitmap,
+                            fileNameToSave: String
+                        ): File? { // File name like "image.png"
+                            //create a file to write bitmap data
+                            var file: File? = null
+                            return try {
+                                file = File(
+                                    Environment.getExternalStorageDirectory()
+                                        .toString() + File.separator + fileNameToSave
+                                )
+                                file.createNewFile()
+
+                                //Convert bitmap to byte array
+                                val bos = ByteArrayOutputStream()
+                                bitmap.compress(
+                                    /* format = */ Bitmap.CompressFormat.PNG,
+                                    /* quality = */ 0,
+                                    /* stream = */ bos
+                                ) // YOU can also save it in JPEG
+                                val bitmapData = bos.toByteArray()
+
+                                //write the bytes in file
+                                val fos = FileOutputStream(file)
+                                fos.write(bitmapData)
+                                fos.flush()
+                                fos.close()
+                                file
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                                file // it will return null
+                            }
+                        }
+
+                        val f = bitmapToFile(bmp, "Img${System.currentTimeMillis()}.png")
+                        logE(">>>path ${f?.path}")
                     }
+
                     binding.ivTestResize.setImageBitmap(resource)
                     return true
                 }
