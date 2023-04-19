@@ -193,7 +193,21 @@ class MainActivitySSImagePicker : BaseActivityFont(),
         imageList.addAll(list)
         imageDataAdapter.notifyDataSetChanged()
 
-        testResize(list.firstOrNull())
+        //work
+//        testResize(list.firstOrNull())
+
+        val listTest = ArrayList<Uri>()
+        for (i in 0..3000) {
+            list.firstOrNull()?.let {
+                listTest.add(it)
+            }
+        }
+        val timeStart = System.currentTimeMillis()
+        listTest.forEach { uri ->
+            testResize(uri)
+        }
+        val timeEnd = System.currentTimeMillis()
+        logD("bench ${timeEnd - timeStart}")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
