@@ -67,33 +67,43 @@ fun Context.tranIn() {
         TYPE_ACTIVITY_TRANSITION_NO_ANIM -> {
             transActivityNoAnimation()
         }
+
         TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT -> {
             // do nothing
         }
+
         TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT -> {
             slideLeft()
         }
+
         TYPE_ACTIVITY_TRANSITION_SLIDE_RIGHT -> {
             slideRight()
         }
+
         TYPE_ACTIVITY_TRANSITION_SLIDE_DOWN -> {
             slideDown()
         }
+
         TYPE_ACTIVITY_TRANSITION_SLIDE_UP -> {
             slideUp()
         }
+
         TYPE_ACTIVITY_TRANSITION_FADE -> {
             fade()
         }
+
         TYPE_ACTIVITY_TRANSITION_ZOOM -> {
             zoom()
         }
+
         TYPE_ACTIVITY_TRANSITION_WINDMILL -> {
             windmill()
         }
+
         TYPE_ACTIVITY_TRANSITION_DIAGONAL -> {
             diagonal()
         }
+
         TYPE_ACTIVITY_TRANSITION_SPIN -> {
             spin()
         }
@@ -108,33 +118,43 @@ fun Context.tranOut() {
         TYPE_ACTIVITY_TRANSITION_NO_ANIM -> {
             transActivityNoAnimation()
         }
+
         TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT -> {
             // do nothing
         }
+
         TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT -> {
             slideRight()
         }
+
         TYPE_ACTIVITY_TRANSITION_SLIDE_RIGHT -> {
             slideLeft()
         }
+
         TYPE_ACTIVITY_TRANSITION_SLIDE_DOWN -> {
             slideUp()
         }
+
         TYPE_ACTIVITY_TRANSITION_SLIDE_UP -> {
             slideDown()
         }
+
         TYPE_ACTIVITY_TRANSITION_FADE -> {
             fade()
         }
+
         TYPE_ACTIVITY_TRANSITION_ZOOM -> {
             zoom()
         }
+
         TYPE_ACTIVITY_TRANSITION_WINDMILL -> {
             windmill()
         }
+
         TYPE_ACTIVITY_TRANSITION_DIAGONAL -> {
             diagonal()
         }
+
         TYPE_ACTIVITY_TRANSITION_SPIN -> {
             spin()
         }
@@ -349,7 +369,8 @@ fun Context.showDialog1(
     title: String? = null,
     msg: String? = null,
     button1: String = getString(R.string.confirm),
-    onClickButton1: ((Unit) -> Unit)? = null
+    onClickButton1: ((Unit) -> Unit)? = null,
+    onLongClickButton1: ((Unit) -> Unit)? = null,
 ): AlertDialog {
     val builder = if (isDarkTheme()) {
         AlertDialog.Builder(ContextThemeWrapper(this, R.style.DarkAlertDialogCustom))
@@ -380,6 +401,10 @@ fun Context.showDialog1(
     } else {
         val color = getColor(R.color.colorPrimary)
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
+    }
+    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnLongClickListener {
+        onLongClickButton1?.invoke(Unit)
+        true
     }
 
     return dialog

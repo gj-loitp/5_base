@@ -143,7 +143,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     private fun setupConfigGoogle() {
         val app = getGGAppSetting()
-        val isFullData = app.config?.isFullData == true
+        val isFullData = app?.config?.isFullData == true
         if (isFullData) {
             binding.btApi.isVisible = true
             binding.btAnimation.isVisible = true
@@ -221,42 +221,51 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                 showAd()
                 launchActivity(MenuAPIActivity::class.java)
             }
+
             binding.btAnimation -> {
                 showAd()
                 launchActivity(MenuAnimationActivity::class.java)
             }
+
             binding.btCustomView -> {
                 showAd()
                 launchActivity(MenuCustomViewsActivity::class.java)
             }
+
             binding.btDemo -> {
                 showAd()
                 launchActivity(MenuDemoActivity::class.java)
             }
+
             binding.btRateApp -> this.rateApp(packageName)
             binding.btMoreApp -> this.moreApp()
             binding.btFunction -> {
                 showAd()
                 launchActivity(MenuFunctionActivity::class.java)
             }
+
             binding.btGame -> {
                 showAd()
                 launchActivity(MenuGameActivity::class.java)
             }
+
             binding.btDatabase -> {
                 showAd()
                 launchActivity(MenuDatabaseActivity::class.java)
             }
+
             binding.btPattern -> {
                 showAd()
                 launchActivity(MenuPatternActivity::class.java)
             }
+
             binding.btChat -> this.chatMessenger()
             binding.btGithub -> {
                 this.openUrlInBrowser(
                     url = "https://github.com/tplloi/base"
                 )
             }
+
             binding.btAdHelper -> {
                 showAd()
                 launchActivity(cls = AdHelperActivity::class.java, data = {
@@ -267,39 +276,48 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                     it.putExtra(AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
                 })
             }
+
             binding.btFbFanpage -> this.likeFacebookFanpage()
             binding.btFrmMore -> {
                 showAd()
                 launchActivity(MoreActivity::class.java)
             }
+
             binding.btTutorial -> {
                 showAd()
                 launchActivity(MenuTutorialActivity::class.java)
             }
+
             binding.btPicker -> {
                 showAd()
                 launchActivity(MenuPickerActivity::class.java)
             }
+
             binding.btNetwork -> {
                 showAd()
                 launchActivity(NetworkActivity::class.java)
             }
+
             binding.btSecurity -> {
                 showAd()
                 launchActivity(MenuSecurityActivity::class.java)
             }
+
             binding.btService -> {
                 showAd()
                 launchActivity(MenuServiceActivity::class.java)
             }
+
             binding.btUtils -> {
                 showAd()
                 launchActivity(UtilsActivity::class.java)
             }
+
             binding.btUtilsCore -> {
                 showAd()
                 launchActivity(UtilsCoreActivity::class.java)
             }
+
             binding.btFeedback -> {
                 this.sendEmail(
                     to = "roy93group@gmail.com",
@@ -309,10 +327,12 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                     body = "..."
                 )
             }
+
             binding.btInterviewVNIQActivity -> {
                 showAd()
                 launchActivity(InterviewVNIQActivity::class.java)
             }
+
             binding.tvMoreApp -> this.moreApp()
         }
     }
