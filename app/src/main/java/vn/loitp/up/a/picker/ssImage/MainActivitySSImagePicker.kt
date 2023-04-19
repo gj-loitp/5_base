@@ -25,6 +25,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
+import com.loitp.core.ext.bitmapToFile
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -214,7 +215,7 @@ class MainActivitySSImagePicker : BaseActivityFont(),
         val height = options.outHeight
         logD("size $width x $height")
 
-        val expectWidth = 20
+        val expectWidth = 1000
         val expectHeight = expectWidth * height / width
         logD("expect size $expectWidth x $expectHeight")
 
@@ -245,45 +246,13 @@ class MainActivitySSImagePicker : BaseActivityFont(),
                         logE("onResourceReady ${bmp.width}x${bmp.height}")
 
                         //save bitmap to file
-                        fun bitmapToFile(
-                            bitmap: Bitmap,
-                            fileNameToSave: String
-                        ): File? { // File name like "image.png"
-                            //create a file to write bitmap data
-                            var file: File? = null
-                            return try {
-                                file = File(
-                                    Environment.getExternalStorageDirectory()
-                                        .toString() + File.separator + fileNameToSave
-                                )
-                                file.createNewFile()
-
-                                //Convert bitmap to byte array
-                                val bos = ByteArrayOutputStream()
-                                bitmap.compress(
-                                    /* format = */ Bitmap.CompressFormat.PNG,
-                                    /* quality = */ 0,
-                                    /* stream = */ bos
-                                ) // YOU can also save it in JPEG
-                                val bitmapData = bos.toByteArray()
-
-                                //write the bytes in file
-                                val fos = FileOutputStream(file)
-                                fos.write(bitmapData)
-                                fos.flush()
-                                fos.close()
-                                file
-                            } catch (e: Exception) {
-                                e.printStackTrace()
-                                file // it will return null
-                            }
-                        }
-
-                        val f = bitmapToFile(bmp, "Img${System.currentTimeMillis()}.png")
+                        val f = bmp.bitmapToFile("Img${System.currentTimeMillis()}.png")
                         logE(">>>path ${f?.path}")
                     }
 
-                    binding.ivTestResize.setImageBitmap(resource)
+                    binding.ivTestResize.postDelayed({
+                        binding.ivTestResize.setImageBitmap(resource)
+                    }, 10)
                     return true
                 }
             }).submit()

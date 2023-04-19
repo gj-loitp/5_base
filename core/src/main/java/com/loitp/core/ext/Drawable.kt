@@ -1,6 +1,11 @@
 package com.loitp.core.ext
 
+import android.graphics.Bitmap
 import android.graphics.drawable.GradientDrawable
+import android.os.Environment
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileOutputStream
 
 /**
  * Created by Loitp on 06,January,2023
@@ -30,3 +35,35 @@ fun createGradientDrawableWithColor(
     return gradientDrawable
 }
 
+fun Bitmap.bitmapToFile(
+    fileNameToSave: String
+): File? { // File name like "image.png"
+    //create a file to write bitmap data
+    var file: File? = null
+    return try {
+        file = File(
+            Environment.getExternalStorageDirectory()
+                .toString() + File.separator + fileNameToSave
+        )
+        file.createNewFile()
+
+        //Convert bitmap to byte array
+        val bos = ByteArrayOutputStream()
+        this.compress(
+            /* format = */ Bitmap.CompressFormat.PNG,
+            /* quality = */ 0,
+            /* stream = */ bos
+        ) // YOU can also save it in JPEG
+        val bitmapData = bos.toByteArray()
+
+        //write the bytes in file
+        val fos = FileOutputStream(file)
+        fos.write(bitmapData)
+        fos.flush()
+        fos.close()
+        file
+    } catch (e: Exception) {
+        e.printStackTrace()
+        file // it will return null
+    }
+}
