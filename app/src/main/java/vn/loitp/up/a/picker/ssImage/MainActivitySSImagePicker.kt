@@ -5,7 +5,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import androidx.core.view.isVisible
 import com.app.imagepickerlibrary.ImagePicker
 import com.app.imagepickerlibrary.ImagePicker.Companion.registerImagePicker
@@ -39,9 +38,6 @@ import kotlinx.coroutines.launch
 import vn.loitp.R
 import vn.loitp.databinding.AMainSsImagePickerBinding
 import vn.loitp.up.a.MenuActivity
-import java.io.ByteArrayOutputStream
-import java.io.File
-import java.io.FileOutputStream
 
 
 /**
@@ -222,7 +218,7 @@ class MainActivitySSImagePicker : BaseActivityFont(),
         //C2 run parallel
         showDialogProgress()
         val timeStart = System.currentTimeMillis()
-        //TODO run coroutine parallel
+        //run coroutine parallel
         GlobalScope.launch {
             listTest.mapIndexed { index, uri ->
                 async {
