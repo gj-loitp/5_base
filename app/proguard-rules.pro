@@ -151,4 +151,46 @@
 -dontwarn okhttp3.**
 -dontwarn okio.**
 
+-keepclassmembers class com.dd.StrokeGradientDrawable {
+    public void setStrokeColor(int);
+}
+
 -keep class com.google.android.gms.ads.identifier.** { *; }
+
+
+##glide
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public class * extends com.bumptech.glide.module.AppGlideModule
+-keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
+  **[] $VALUES;
+  public *;
+}
+
+# Retrofit 2.X
+## https://square.github.io/retrofit/ ##
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+
+-keepclasseswithmembers class * {
+    @retrofit2.http.* <methods>;
+}
+
+##jsoup
+-keep public class org.jsoup.** {
+public *;
+}
+
+# Preserve all Dexter classes and method names
+
+#-keepattributes InnerClasses, Signature, *Annotation*
+#-keep class com.karumi.dexter.** { *; }
+#-keep interface com.karumi.dexter.** { *; }
+#-keepclasseswithmembernames class com.karumi.dexter.** { *; }
+#-keepclasseswithmembernames interface com.karumi.dexter.** { *; }
+
+# uCrop
+-dontwarn com.yalantis.ucrop**
+-keep class com.yalantis.ucrop** { *; }
+-keep interface com.yalantis.ucrop** { *; }
