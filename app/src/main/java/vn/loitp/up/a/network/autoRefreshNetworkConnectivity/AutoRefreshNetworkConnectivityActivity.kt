@@ -11,6 +11,7 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
+import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import com.veyo.autorefreshnetworkconnection.listener.StopReceiveDisconnectedListener
 import vn.loitp.R
 import vn.loitp.databinding.AAutoRefreshNetworkConnectivityBinding
@@ -58,15 +59,15 @@ class AutoRefreshNetworkConnectivityActivity : BaseActivityFont() {
     private fun setupConfig() {
         CheckNetworkConnectionHelper
             .getInstance()
-            .registerNetworkChangeListener(object : StopReceiveDisconnectedListener() {
+            .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
+                override fun onConnected() {
+                    binding.tv.text = getString(R.string.network_connected)
+                    showShortInformation(getString(R.string.network_connected))
+                }
+
                 override fun onDisconnected() {
                     binding.tv.text = getString(R.string.network_disconnected)
                     showShortInformation(getString(R.string.network_disconnected))
-                }
-
-                override fun onNetworkConnected() {
-                    binding.tv.text = getString(R.string.network_connected)
-                    showShortInformation(getString(R.string.network_connected))
                 }
 
                 override fun getContext(): Context {
