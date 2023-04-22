@@ -1,21 +1,3 @@
-# Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in E:\Installation\Ung_Dung_Lap_Trinh\Java\IDE\AndroidStudio\SDK/tools/proguard/proguard-android.txt
-# You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
-
-# Add any project specific keep options here:
-
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
-
 -ignorewarnings
 
 #google
@@ -120,6 +102,43 @@
 -keep class com.wang.avi.** { *; }
 -keep class com.wang.avi.indicators.** { *; }
 ##for loading view
+
+# Basic ProGuard rules for Firebase Android SDK 2.0.0+
+-keep class com.firebase.** { *; }
+-keep class org.apache.** { *; }
+-keepnames class com.fasterxml.jackson.** { *; }
+-keepnames class javax.servlet.** { *; }
+-keepnames class org.ietf.jgss.** { *; }
+-dontwarn org.apache.**
+-dontwarn org.w3c.dom.**
+
+##pdf view
+-keep class com.shockwave.**
+
+#renderscript
+-dontwarn androidx.renderscript.*
+-keepclassmembers class androidx.renderscript.RenderScript {
+  native *** rsn*(...);
+  native *** n*(...);
+}
+
+#https://github.com/mmin18/RealtimeBlurView
+-keep class android.support.v8.renderscript.** { *; }
+-keep class androidx.renderscript.** { *; }
+
+#-keep class com.veyo.** { *; }
+#-keep interface com.veyo.** { *; }
+
+-keep class com.huxq17.download.** { *; }
+-dontwarn okhttp3.**
+-dontwarn okio.**
+
+-keepclassmembers class com.dd.StrokeGradientDrawable {
+    public void setStrokeColor(int);
+}
+
+-keep class com.google.android.gms.ads.identifier.** { *; }
+
 
 ##glide
 -keep public class * implements com.bumptech.glide.module.GlideModule
