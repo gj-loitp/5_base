@@ -25,8 +25,6 @@ import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
 import com.loitp.views.toast.LToast
-import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
-import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -133,7 +131,7 @@ abstract class BaseActivity : AppCompatActivity() {
             window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         }
 
-        registerNetworkChangeListener()
+//        registerNetworkChangeListener()
 
         // auto animation
         val isAutoAnimation = javaClass.getAnnotation(IsAutoAnimation::class.java)?.value ?: false
@@ -247,7 +245,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        unRegisterNetworkChangeListener()
+//        unRegisterNetworkChangeListener()
         EventBus.getDefault().unregister(this)
         compositeDisposable.clear()
         stopIdleTimeHandler()
@@ -508,25 +506,25 @@ abstract class BaseActivity : AppCompatActivity() {
         onBaseBackPressed()
     }
 
-    private fun registerNetworkChangeListener() {
-        CheckNetworkConnectionHelper.getInstance()
-            .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
-                override fun onConnected() {
-                    onNetworkConnectionChanged(isConnected = true)
-                }
+//    private fun registerNetworkChangeListener() {
+//        CheckNetworkConnectionHelper.getInstance()
+//            .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
+//                override fun onConnected() {
+//                    onNetworkConnectionChanged(isConnected = true)
+//                }
+//
+//                override fun onDisconnected() {
+//                    onNetworkConnectionChanged(isConnected = false)
+//                }
+//
+//                override fun getContext(): Context {
+//                    return this@BaseActivity
+//                }
+//            })
+//    }
 
-                override fun onDisconnected() {
-                    onNetworkConnectionChanged(isConnected = false)
-                }
-
-                override fun getContext(): Context {
-                    return this@BaseActivity
-                }
-            })
-    }
-
-    private fun unRegisterNetworkChangeListener() {
-//        AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
-    }
+//    private fun unRegisterNetworkChangeListener() {
+////        AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
+//    }
 
 }

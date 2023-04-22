@@ -37,7 +37,7 @@ private const val TEXT_SIZE_EPUB_PERCENT = "TEXT_SIZE_EPUB"
 private var JSON_BOOK_ASSET = "JSON_BOOK_ASSET"
 private const val PASS_CODE = "PASS_CODE"
 private const val GG_APP_SETTING = "GG_APP_SETTING"
-const val KEY_BOOLEAN_IS_CONNECTED_NETWORK = "KEY_BOOLEAN_IS_CONNECTED_NETWORK"
+//const val KEY_BOOLEAN_IS_CONNECTED_NETWORK = "KEY_BOOLEAN_IS_CONNECTED_NETWORK"
 
 fun Context.getGGAppSetting(): App? {
     return try {

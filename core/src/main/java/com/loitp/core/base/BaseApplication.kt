@@ -60,7 +60,7 @@ open class BaseApplication : MultiDexApplication(), LifecycleObserver {
         BigImageViewer.initialize(GlideImageLoader.with(applicationContext))
 
         // network
-        this.initOnNetworkChange()
+//        this.initOnNetworkChange()
 
         // dark mode
         val isDarkTheme = isDarkTheme()
