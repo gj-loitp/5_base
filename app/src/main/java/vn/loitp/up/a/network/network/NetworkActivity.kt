@@ -1,4 +1,4 @@
-package vn.loitp.up.a.network
+package vn.loitp.up.a.network.network
 
 import android.annotation.SuppressLint
 import android.os.Bundle

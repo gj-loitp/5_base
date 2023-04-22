@@ -33,7 +33,8 @@ import vn.loitp.up.a.func.MenuFunctionActivity
 import vn.loitp.up.a.game.MenuGameActivity
 import vn.loitp.up.a.interviewVN.InterviewVNIQActivity
 import vn.loitp.up.a.more.MoreActivity
-import vn.loitp.up.a.network.NetworkActivity
+import vn.loitp.up.a.network.MenuNetworkActivity
+import vn.loitp.up.a.network.network.NetworkActivity
 import vn.loitp.up.a.pattern.MenuPatternActivity
 import vn.loitp.up.a.picker.MenuPickerActivity
 import vn.loitp.up.a.sec.MenuSecurityActivity
@@ -145,8 +146,6 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
         val app = getGGAppSetting()
         val isFullData = app?.config?.isFullData == true
         if (isFullData) {
-            binding.btApi.isVisible = true
-            binding.btAnimation.isVisible = true
             binding.btCustomView.isVisible = true
             binding.btDemo.isVisible = true
             binding.btFunction.isVisible = true
@@ -161,14 +160,11 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             binding.btFrmMore.isVisible = true
             binding.btTutorial.isVisible = true
             binding.btPicker.isVisible = true
-            binding.btNetwork.isVisible = true
             binding.btSecurity.isVisible = true
             binding.btService.isVisible = true
             binding.btUtils.isVisible = true
             binding.btGame.isVisible = true
         } else {
-            binding.btApi.isVisible = true
-            binding.btAnimation.isVisible = false
             binding.btCustomView.isVisible = false
             binding.btDemo.isVisible = false
             binding.btFunction.isVisible = false
@@ -183,7 +179,6 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             binding.btFrmMore.isVisible = false
             binding.btTutorial.isVisible = false
             binding.btPicker.isVisible = false
-            binding.btNetwork.isVisible = true
             binding.btSecurity.isVisible = false
             binding.btService.isVisible = false
             binding.btUtils.isVisible = false
@@ -295,7 +290,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
             binding.btNetwork -> {
                 showAd()
-                launchActivity(NetworkActivity::class.java)
+                launchActivity(MenuNetworkActivity::class.java)
             }
 
             binding.btSecurity -> {
