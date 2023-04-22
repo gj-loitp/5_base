@@ -65,21 +65,21 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = MenuDemoActivity::class.java.simpleName
         }
-        if (BuildConfig.DEBUG) {
-            binding.btGalleryCore.visibility = View.VISIBLE
-            binding.btGalleryCoreAlbum.visibility = View.VISIBLE
-            binding.btGalleryMember.visibility = View.VISIBLE
-            binding.btGalleryCoreAlbumFrm.visibility = View.VISIBLE
-            binding.btEpubReader.visibility = View.VISIBLE
-            binding.btTTT.visibility = View.VISIBLE
-        } else {
-            binding.btGalleryCore.visibility = View.GONE
-            binding.btGalleryCoreAlbum.visibility = View.GONE
-            binding.btGalleryMember.visibility = View.GONE
-            binding.btGalleryCoreAlbumFrm.visibility = View.GONE
-            binding.btEpubReader.visibility = View.GONE
-            binding.btTTT.visibility = View.GONE
-        }
+//        if (BuildConfig.DEBUG) {
+//            binding.btGalleryCore.visibility = View.VISIBLE
+//            binding.btGalleryCoreAlbum.visibility = View.VISIBLE
+//            binding.btGalleryMember.visibility = View.VISIBLE
+//            binding.btGalleryCoreAlbumFrm.visibility = View.VISIBLE
+//            binding.btEpubReader.visibility = View.VISIBLE
+//            binding.btTTT.visibility = View.VISIBLE
+//        } else {
+//            binding.btGalleryCore.visibility = View.GONE
+//            binding.btGalleryCoreAlbum.visibility = View.GONE
+//            binding.btGalleryMember.visibility = View.GONE
+//            binding.btGalleryCoreAlbumFrm.visibility = View.GONE
+//            binding.btEpubReader.visibility = View.GONE
+//            binding.btTTT.visibility = View.GONE
+//        }
 
         binding.btSound.setOnClickListener(this)
         binding.btTextToSpeech.setOnClickListener(this)
