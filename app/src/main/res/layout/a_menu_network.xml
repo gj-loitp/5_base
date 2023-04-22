@@ -29,6 +29,11 @@
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAutoRefreshNetWorkConnectivity"
+                style="@style/ButtonMenu"
+                android:text="Auto Refresh Network Connectivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNetwork"
                 style="@style/ButtonMenu"
                 android:text="@string/network" />

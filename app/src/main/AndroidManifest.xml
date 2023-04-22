@@ -1489,6 +1489,9 @@
         <activity
             android:name=".up.a.network.MenuNetworkActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".up.a.network.autoRefreshNetworkConnectivity.AutoRefreshNetworkConnectivityActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
     <queries>

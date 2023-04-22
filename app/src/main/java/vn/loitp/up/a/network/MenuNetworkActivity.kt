@@ -10,6 +10,7 @@ import com.loitp.core.common.*
 import com.loitp.core.ext.*
 import vn.loitp.R
 import vn.loitp.databinding.AMenuNetworkBinding
+import vn.loitp.up.a.network.autoRefreshNetworkConnectivity.AutoRefreshNetworkConnectivityActivity
 import vn.loitp.up.a.network.network.NetworkActivity
 
 @LogTag("MenuNetworkActivity")
@@ -43,6 +44,9 @@ class MenuNetworkActivity : BaseActivityFont() {
         }
         binding.btNetwork.setSafeOnClickListener {
             launchActivity(NetworkActivity::class.java)
+        }
+        binding.btAutoRefreshNetWorkConnectivity.setSafeOnClickListener {
+            launchActivity(AutoRefreshNetworkConnectivityActivity::class.java)
         }
     }
 }
