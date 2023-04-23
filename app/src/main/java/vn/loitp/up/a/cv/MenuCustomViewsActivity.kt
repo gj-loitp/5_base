@@ -48,6 +48,7 @@ import vn.loitp.up.a.cv.spotlight.SpotlightActivity
 import vn.loitp.up.a.cv.stackExpandableView.StackExpandableViewActivity
 import vn.loitp.up.a.cv.sticker.StickerActivity
 import vn.loitp.up.a.cv.sw.MenuSwitchToggleActivity
+import vn.loitp.up.a.cv.tagSphere.TagSphereActivity
 import vn.loitp.up.a.cv.treeView.TreeViewActivity
 import vn.loitp.up.a.cv.tv.MenuTextViewActivity
 import vn.loitp.up.a.cv.video.MenuVideoViewActivity
@@ -134,6 +135,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
         binding.btAndroidRibbon.setOnClickListener(this)
         binding.btSpotlight.setOnClickListener(this)
         binding.btFancyShowcase.setOnClickListener(this)
+        binding.btTagSphere.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -185,6 +187,7 @@ class MenuCustomViewsActivity : BaseActivityFont(), OnClickListener {
             binding.btAndroidRibbon -> launchActivity(RibbonActivity::class.java)
             binding.btSpotlight -> launchActivity(SpotlightActivity::class.java)
             binding.btFancyShowcase -> launchActivity(FancyShowcaseActivity::class.java)
+            binding.btTagSphere -> launchActivity(TagSphereActivity::class.java)
         }
 
     }
