@@ -12,6 +12,7 @@ import vn.loitp.R
 import vn.loitp.databinding.AMenuNetworkBinding
 import vn.loitp.up.a.network.autoRefreshNetworkConnectivity.AutoRefreshNetworkConnectivityActivity
 import vn.loitp.up.a.network.network.NetworkActivity
+import vn.loitp.up.a.network.networkX.NetworkXActivity
 
 @LogTag("MenuNetworkActivity")
 @IsFullScreen(false)
@@ -47,6 +48,9 @@ class MenuNetworkActivity : BaseActivityFont() {
         }
         binding.btAutoRefreshNetWorkConnectivity.setSafeOnClickListener {
             launchActivity(AutoRefreshNetworkConnectivityActivity::class.java)
+        }
+        binding.btNetworkX.setSafeOnClickListener {
+            launchActivity(NetworkXActivity::class.java)
         }
     }
 }

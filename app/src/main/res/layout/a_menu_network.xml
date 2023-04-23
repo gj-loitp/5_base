@@ -38,6 +38,11 @@
                 style="@style/ButtonMenu"
                 android:text="@string/network" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNetworkX"
+                style="@style/ButtonMenu"
+                android:text="Network X" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </com.factor.bouncy.BouncyNestedScrollView>
 

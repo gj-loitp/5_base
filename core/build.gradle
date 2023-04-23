@@ -229,4 +229,7 @@ dependencies {
 
     //https://github.com/natario1/ZoomLayout
     api 'com.otaliastudios:zoomlayout:1.9.0'
+
+//    https://github.com/rommansabbir/NetworkX
+    api 'com.github.rommansabbir:NetworkX:4.2.0'
 }
