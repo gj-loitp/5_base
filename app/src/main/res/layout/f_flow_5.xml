@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_padding_medium"
         android:backgroundTint="@color/white"
-        android:text="This is Flow 5, Go Next"
+        android:text="Pop"
         android:textColor="@color/black"
         android:textSize="@dimen/txt_medium" />
 

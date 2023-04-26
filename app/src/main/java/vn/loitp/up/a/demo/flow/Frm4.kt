@@ -27,6 +27,9 @@ class Frm4 : BaseFragment() {
         btGoNext.setOnClickListener {
             activity?.addFragment(R.id.fl1, Frm5(), true)
         }
+        btPop.setOnClickListener {
+            activity?.supportFragmentManager?.popBackStack()
+        }
     }
 
 }

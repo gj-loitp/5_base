@@ -16,4 +16,14 @@
         android:textColor="@color/black"
         android:textSize="@dimen/txt_medium" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btPop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:backgroundTint="@color/white"
+        android:text="Pop"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_medium" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>

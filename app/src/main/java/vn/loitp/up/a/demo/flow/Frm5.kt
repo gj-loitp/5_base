@@ -26,7 +26,7 @@ class Frm5 : BaseFragment() {
 
     private fun setupView() {
         btPop.setOnClickListener {
-
+            activity?.supportFragmentManager?.popBackStack()
         }
     }
 
