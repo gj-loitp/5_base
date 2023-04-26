@@ -11,6 +11,7 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.addFragment
 import kotlinx.android.synthetic.main.f_flow_1.*
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.yield
 import vn.loitp.R
 
 @LogTag("loitppFrm1")
@@ -40,20 +41,18 @@ class Frm1 : BaseFragment() {
         viewModel = getViewModel(FlowViewModel::class.java)
         viewModel?.let { vm ->
             vm.nameLiveEvent.observe(viewLifecycleOwner) { name ->
-                logD(">>>name $logTag $name")
+//                logD(">>>name $logTag $name")
                 tv.text = name
             }
         }
         viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel?.countState?.collect { value ->
-                    logE(">>>>>>~~~~value $value")
+//                    logE(">>>>>>~~~~value $value")
                     tvCount.text = "$value"
                 }
-            }
-            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel?.timeState?.collect { value ->
-                    logE(">>>>>>~~~~value $value")
+                    logE(">>>>>>~~~~value timeState $value")
                     tvTime.text = value
                 }
             }

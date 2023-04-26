@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.f_flow_3.*
 import kotlinx.coroutines.launch
 import vn.loitp.R
 
-@LogTag("loitppFrm3")
+@LogTag("Frm3")
 class Frm3 : BaseFragment() {
     private var viewModel: FlowViewModel? = null
     override fun setLayoutResourceId(): Int {
