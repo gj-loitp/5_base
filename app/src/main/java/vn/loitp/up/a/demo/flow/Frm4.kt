@@ -38,13 +38,13 @@ class Frm4 : BaseFragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupViewModels() {
         viewModel = getViewModel(FlowViewModel::class.java)
         viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel?.countState?.collect { value ->
-                    logE(">>>>>>~~~~value $value")
-                    btPop.text = "Pop countState $value"
+                viewModel?.timeState?.collect { value ->
+                    tvTime.text = "timeState $value"
                 }
             }
         }

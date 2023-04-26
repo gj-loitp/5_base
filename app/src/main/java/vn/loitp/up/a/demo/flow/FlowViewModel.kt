@@ -54,7 +54,8 @@ class FlowViewModel : BaseViewModel() {
 
     fun updateTimeState() {
         ioScope.launch {
-            _timeState.emit("Loitp ${System.currentTimeMillis()}")
+//            _timeState.emit(System.currentTimeMillis().toString())
+            _timeState.value = System.currentTimeMillis().toString()
         }
     }
 }

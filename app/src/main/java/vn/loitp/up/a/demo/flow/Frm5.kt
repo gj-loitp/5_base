@@ -8,7 +8,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import com.loitp.core.ext.addFragment
 import kotlinx.android.synthetic.main.f_flow_4.*
 import kotlinx.android.synthetic.main.f_flow_5.btEmit
 import kotlinx.android.synthetic.main.f_flow_5.btPop
@@ -40,12 +39,13 @@ class Frm5 : BaseFragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupViewModels() {
         viewModel = getViewModel(FlowViewModel::class.java)
         viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel?.timeState?.collect { value ->
-                    btPop.text = value
+                    tvTime.text = "time state $value"
                 }
             }
         }

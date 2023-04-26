@@ -27,7 +27,7 @@
         android:id="@+id/tvTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
+        android:text="Time state"
         android:textColor="@color/black"
         android:textSize="@dimen/txt_medium" />
 

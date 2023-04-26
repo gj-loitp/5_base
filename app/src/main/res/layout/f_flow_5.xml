@@ -6,6 +6,11 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btEmit"
         android:layout_width="wrap_content"
