@@ -44,7 +44,7 @@ class Frm4 : BaseFragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel?.timeState?.collect { value ->
-                    tvTime.text = "timeState $value"
+                    tvTime.text = value
                 }
             }
         }
