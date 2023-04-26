@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
+import com.loitp.core.ext.addFragment
 import kotlinx.android.synthetic.main.f_flow_1.*
 import kotlinx.coroutines.launch
 import vn.loitp.R
@@ -31,7 +32,7 @@ class Frm1 : BaseFragment() {
 
     private fun setupView() {
         btGoNext.setOnClickListener {
-
+            activity?.addFragment(R.id.fl1, Frm4(), true)
         }
     }
 
