@@ -20,6 +20,7 @@ import vn.loitp.databinding.AFlowBinding
 class FlowActivity : BaseActivityFont() {
 
     private lateinit var binding: AFlowBinding
+    private val frm1 = Frm1()
     private val frm2 = Frm2()
     private val frm3 = Frm3()
 
@@ -50,6 +51,7 @@ class FlowActivity : BaseActivityFont() {
             this.tvTitle?.text = FlowActivity::class.java.simpleName
         }
 
+        addFragment(R.id.fl1, frm1, false)
         addFragment(R.id.fl2, frm2, false)
         addFragment(R.id.fl3, frm3, false)
     }
