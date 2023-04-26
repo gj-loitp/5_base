@@ -47,13 +47,17 @@ class Frm1 : BaseFragment() {
         }
         viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel?.countState?.collect { value ->
+                launch {
+                    viewModel?.countState?.collect { value ->
 //                    logE(">>>>>>~~~~value $value")
-                    tvCount.text = "$value"
+                        tvCount.text = "$value"
+                    }
                 }
-                viewModel?.timeState?.collect { value ->
-                    logE(">>>>>>~~~~value timeState $value")
-                    tvTime.text = value
+                launch {
+                    viewModel?.timeState?.collect { value ->
+                        logE(">>>>>>~~~~value timeState $value")
+                        tvTime.text = value
+                    }
                 }
             }
         }
