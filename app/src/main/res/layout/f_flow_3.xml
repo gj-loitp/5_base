@@ -15,6 +15,7 @@
         android:textSize="@dimen/txt_medium" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_padding_medium"
