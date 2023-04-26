@@ -3,10 +3,13 @@ package vn.loitp.up.a.demo.flow
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
-import kotlinx.android.synthetic.main.f_flow_3.btClick
-import kotlinx.android.synthetic.main.f_flow_3.tv
+import kotlinx.android.synthetic.main.f_flow_3.*
+import kotlinx.coroutines.launch
 import vn.loitp.R
 
 @LogTag("loitppFrm3")
@@ -18,8 +21,7 @@ class Frm3 : BaseFragment() {
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(
-        view: View,
-        savedInstanceState: Bundle?
+        view: View, savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
         setupView()
@@ -27,9 +29,10 @@ class Frm3 : BaseFragment() {
     }
 
     private fun setupView() {
-        tv.text = "Hello"
+        tvName.text = "Hello"
         btClick.setOnClickListener {
             viewModel?.setName(System.currentTimeMillis().toString())
+            viewModel?.incrementCount()
         }
     }
 
@@ -38,7 +41,14 @@ class Frm3 : BaseFragment() {
         viewModel?.let { vm ->
             vm.nameLiveEvent.observe(viewLifecycleOwner) { name ->
                 logD(">>>name $logTag $name")
-                tv.text = name
+                tvName.text = name
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel?.countState?.collect { value ->
+                    tvCount.text = "$value"
+                }
             }
         }
     }
