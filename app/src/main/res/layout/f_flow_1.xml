@@ -23,6 +23,14 @@
         android:textColor="@color/black"
         android:textSize="@dimen/txt_medium" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_medium" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btGoNext"
         android:layout_width="wrap_content"

@@ -51,6 +51,12 @@ class Frm1 : BaseFragment() {
                     tvCount.text = "$value"
                 }
             }
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel?.timeState?.collect { value ->
+                    logE(">>>>>>~~~~value $value")
+                    tvTime.text = value
+                }
+            }
         }
     }
 }

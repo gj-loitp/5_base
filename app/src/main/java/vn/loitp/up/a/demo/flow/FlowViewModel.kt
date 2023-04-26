@@ -18,6 +18,7 @@ import com.loitp.sv.liveData.QueuedMutableLiveData
 import com.loitp.sv.liveData.SingleLiveEvent
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
@@ -36,6 +37,9 @@ class FlowViewModel : BaseViewModel() {
     private val _countState = MutableStateFlow(0)
     val countState: StateFlow<Int> = _countState
 
+    private val _timeState = MutableStateFlow(System.currentTimeMillis().toString())
+    val timeState: StateFlow<String> = _timeState.asStateFlow()
+
     fun setName(s: String) {
         ioScope.launch {
             nameLiveEvent.postValue(s)
@@ -45,6 +49,12 @@ class FlowViewModel : BaseViewModel() {
     fun incrementCount() {
         ioScope.launch {
             _countState.value++
+        }
+    }
+
+    fun updateTimeState() {
+        ioScope.launch {
+            _timeState.emit("Loitp ${System.currentTimeMillis()}")
         }
     }
 }
