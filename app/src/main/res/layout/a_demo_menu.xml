@@ -61,6 +61,11 @@
                 android:text="@string/android_floating_widget_like_facebook_chat_head" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFlow"
+                style="@style/ButtonMenu"
+                android:text="Flow" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFragmentFlow"
                 style="@style/ButtonMenu"
                 android:text="@string/fragment_flow" />

@@ -22,6 +22,7 @@ import vn.loitp.up.a.demo.epubReader.MenuEpubReaderActivity
 import vn.loitp.up.a.demo.firebase.FirebaseActivity
 import vn.loitp.up.a.demo.floatingVideo.FloatingWidgetVideoActivity
 import vn.loitp.up.a.demo.floatingWidget.FloatingWidgetActivity
+import vn.loitp.up.a.demo.flow.FlowActivity
 import vn.loitp.up.a.demo.fragmentFlow.FragmentFlowActivity
 import vn.loitp.up.a.demo.fragmentNavigation.FragmentNavigationActivity
 import vn.loitp.up.a.demo.galleryCoreAlbumFrm.GalleryCoreAlbumFrmActivity
@@ -104,6 +105,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
         binding.btFirebase.setOnClickListener(this)
         binding.btAlarm.setOnClickListener(this)
         binding.btApplovin.setOnClickListener(this)
+        binding.btFlow.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -130,6 +132,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
                         )
                     })
             }
+
             binding.btGalleryCoreAlbum -> {
                 launchActivity(
                     cls = GalleryCorePhotosOnlyActivity::class.java,
@@ -141,6 +144,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
                         )
                     })
             }
+
             binding.btGalleryMember -> launchActivity(GalleryMemberActivity::class.java)
             binding.btEpubReader -> launchActivity(MenuEpubReaderActivity::class.java)
             binding.bt2InstanceActivity -> launchActivity(Activity1::class.java)
@@ -158,6 +162,7 @@ class MenuDemoActivity : BaseActivityFont(), View.OnClickListener {
             binding.btFirebase -> launchActivity(FirebaseActivity::class.java)
             binding.btAlarm -> launchActivity(AlarmMeActivity::class.java)
             binding.btApplovin -> launchActivity(MenuAdActivity::class.java)
+            binding.btFlow -> launchActivity(FlowActivity::class.java)
         }
     }
 }
