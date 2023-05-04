@@ -11,7 +11,6 @@ import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.addFragment
 import kotlinx.android.synthetic.main.f_flow_1.*
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.yield
 import vn.loitp.R
 
 @LogTag("loitppFrm1")
@@ -54,8 +53,8 @@ class Frm1 : BaseFragment() {
                     }
                 }
                 launch {
-                    viewModel?.timeState?.collect { value ->
-                        logE(">>>>>>~~~~value timeState $value")
+                    viewModel?.timeStateWithDefaultValue?.collect { value ->
+                        logE(">>>>>>~~~~value timeState with default value $value")
                         tvTime.text = value
                     }
                 }

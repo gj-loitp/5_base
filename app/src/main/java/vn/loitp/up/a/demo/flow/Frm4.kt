@@ -43,7 +43,7 @@ class Frm4 : BaseFragment() {
         viewModel = getViewModel(FlowViewModel::class.java)
         viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel?.timeState?.collect { value ->
+                viewModel?.timeStateWithDefaultValue?.collect { value ->
                     logE(">>>>>>~~~~value timeState $value")
                     tvTime.text = value
                 }
