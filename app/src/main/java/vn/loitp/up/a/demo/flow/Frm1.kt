@@ -10,6 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.ext.addFragment
 import kotlinx.android.synthetic.main.f_flow_1.*
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import vn.loitp.R
 
@@ -59,7 +60,7 @@ class Frm1 : BaseFragment() {
                     }
                 }
                 launch {
-                    viewModel?.topics?.collect { value ->
+                    viewModel?.timeStateNoDefaultValue?.collectLatest { value ->
                         logE(">>>>>>~~~~value timeState no default value $value")
                         tvNoDf.text = value
                     }
