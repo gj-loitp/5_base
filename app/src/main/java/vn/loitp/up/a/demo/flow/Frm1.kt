@@ -59,7 +59,7 @@ class Frm1 : BaseFragment() {
                     }
                 }
                 launch {
-                    viewModel?.timeStateNoDefaultValue?.collect { value ->
+                    viewModel?.topics?.collect { value ->
                         logE(">>>>>>~~~~value timeState no default value $value")
                         tvNoDf.text = value
                     }

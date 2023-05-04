@@ -3,9 +3,14 @@ package vn.loitp.up.a.demo.flow
 import androidx.lifecycle.MutableLiveData
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseViewModel
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import java.util.* // ktlint-disable no-wildcard-imports
 
@@ -25,8 +30,14 @@ class FlowViewModel : BaseViewModel() {
     private val _timeStateWithDefaultValue = MutableStateFlow(System.currentTimeMillis().toString())
     val timeStateWithDefaultValue: StateFlow<String> = _timeStateWithDefaultValue.asStateFlow()
 
-    private val _timeStateNoDefaultValue = MutableStateFlow(System.currentTimeMillis().toString())
-    val timeStateNoDefaultValue: StateFlow<String> = _timeStateNoDefaultValue.asStateFlow()
+//    private val _timeStateNoDefaultValue = MutableStateFlow(System.currentTimeMillis().toString())
+//    val timeStateNoDefaultValue: StateFlow<String> = _timeStateNoDefaultValue.asStateFlow()
+
+    private val _topics = MutableSharedFlow<String>(
+//        replay = 1,
+//        onBufferOverflow = BufferOverflow.DROP_OLDEST
+    )
+    val topics = _topics.asSharedFlow()
 
     fun setName(s: String) {
         ioScope.launch {
@@ -49,7 +60,7 @@ class FlowViewModel : BaseViewModel() {
 
     fun updateTimeStateNoDefaultValue() {
         ioScope.launch {
-            _timeStateNoDefaultValue.emit(System.currentTimeMillis().toString())
+            _topics.emit(System.currentTimeMillis().toString())
         }
     }
 }
