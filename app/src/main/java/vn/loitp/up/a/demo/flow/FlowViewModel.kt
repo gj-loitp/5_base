@@ -31,10 +31,10 @@ class FlowViewModel : BaseViewModel() {
     val timeStateWithDefaultValue: StateFlow<String> = _timeStateWithDefaultValue.asStateFlow()
 
     private val _timeStateNoDefaultValue = MutableSharedFlow<String>(
-//        replay = 1,
-//        onBufferOverflow = BufferOverflow.DROP_OLDEST
+        replay = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST
     )
-    val timeStateNoDefaultValue = _timeStateNoDefaultValue.asSharedFlow()
+    val timeStateNoDefaultValue = _timeStateNoDefaultValue.asSharedFlow().distinctUntilChanged()
 
     fun setName(s: String) {
         ioScope.launch {
@@ -57,7 +57,7 @@ class FlowViewModel : BaseViewModel() {
 
     fun updateTimeStateNoDefaultValue() {
         ioScope.launch {
-            _timeStateNoDefaultValue.emit(System.nanoTime().toString())
+            _timeStateNoDefaultValue.tryEmit(System.nanoTime().toString())
         }
     }
 }
