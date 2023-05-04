@@ -25,6 +25,9 @@ class FlowViewModel : BaseViewModel() {
     private val _timeStateWithDefaultValue = MutableStateFlow(System.currentTimeMillis().toString())
     val timeStateWithDefaultValue: StateFlow<String> = _timeStateWithDefaultValue.asStateFlow()
 
+    private val _timeStateNoDefaultValue = MutableStateFlow(System.currentTimeMillis().toString())
+    val timeStateNoDefaultValue: StateFlow<String> = _timeStateNoDefaultValue.asStateFlow()
+
     fun setName(s: String) {
         ioScope.launch {
             nameLiveEvent.postValue(s)
@@ -37,10 +40,16 @@ class FlowViewModel : BaseViewModel() {
         }
     }
 
-    fun updateTimeState() {
+    fun updateTimeStateWithDefaultValue() {
         ioScope.launch {
             _timeStateWithDefaultValue.emit(System.currentTimeMillis().toString())
 //            _timeState.value = System.currentTimeMillis().toString()
+        }
+    }
+
+    fun updateTimeStateNoDefaultValue() {
+        ioScope.launch {
+            _timeStateNoDefaultValue.emit(System.currentTimeMillis().toString())
         }
     }
 }

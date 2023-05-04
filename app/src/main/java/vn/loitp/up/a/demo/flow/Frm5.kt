@@ -35,7 +35,8 @@ class Frm5 : BaseFragment() {
             activity?.supportFragmentManager?.popBackStack()
         }
         btEmit.setOnClickListener {
-            viewModel?.updateTimeState()
+            viewModel?.updateTimeStateWithDefaultValue()
+            viewModel?.updateTimeStateNoDefaultValue()
         }
     }
 
