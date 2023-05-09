@@ -197,7 +197,7 @@ class CoroutineActivity : BaseActivityFont() {
         logD("timeStart $timeStart")
 
         val list = ArrayList<String>()
-        for (i in 0..50) {
+        for (i in 0..5000) {
             list.add(System.currentTimeMillis().toString())
         }
 
