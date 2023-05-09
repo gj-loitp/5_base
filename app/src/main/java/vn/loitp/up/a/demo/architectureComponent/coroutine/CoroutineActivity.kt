@@ -216,6 +216,7 @@ class CoroutineActivity : BaseActivityFont() {
 //                    delay(delayInMls.toLong())
 
                     fakeDoLongTask(
+                        scope = scope,
                         index = index,
                         callBack = {
                             val timeEndItem = System.currentTimeMillis()
@@ -226,7 +227,7 @@ class CoroutineActivity : BaseActivityFont() {
                                 logD(">>>FINISH")
                                 val timeEnd = System.currentTimeMillis()
                                 logD("timeEnd $timeEnd -> bench ${timeEnd - timeStart}")
-                                scope.cancel()
+//                                scope.cancel()
                             }
                         })
                 }
@@ -238,18 +239,21 @@ class CoroutineActivity : BaseActivityFont() {
         }
     }
 
-    private suspend fun fakeDoLongTask(index: Int, callBack: ((String) -> Unit)) {
+    private suspend fun fakeDoLongTask(
+        scope: CoroutineScope,
+        index: Int,
+        callBack: ((String) -> Unit)
+    ) {
         logD("$index fakeDoLongTask======")
-        val scope = CoroutineScope(Dispatchers.IO)
         scope.launch {
             logD("$index fakeDoLongTask")
-            withContext(Dispatchers.Default) {
-                val delayInMls = getRandomNumber(9_000) + 1_000
-                delay(delayInMls.toLong())
-                callBack.invoke(System.currentTimeMillis().toString())
-            }
-            logD("$index fakeDoLongTask cancel")
-            scope.cancel()
+
+            val delayInMls = getRandomNumber(9_000) + 1_000
+            delay(delayInMls.toLong())
+            callBack.invoke(System.currentTimeMillis().toString())
+
+//            logD("$index fakeDoLongTask cancel")
+//            scope.cancel()
         }
     }
 }
