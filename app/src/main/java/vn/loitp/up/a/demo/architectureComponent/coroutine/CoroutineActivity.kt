@@ -5,6 +5,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
+import com.loitp.core.ext.getRandomNumber
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -69,6 +70,9 @@ class CoroutineActivity : BaseActivityFont() {
         }
         binding.btTestConvertAsyncTaskToCoroutine.setSafeOnClickListener {
             convertAsyncTaskToCoroutine()
+        }
+        binding.btTestAwaitAll.setSafeOnClickListener {
+            testAwaitAll()
         }
     }
 
@@ -183,11 +187,48 @@ class CoroutineActivity : BaseActivityFont() {
     private fun convertAsyncTaskToCoroutine() {
         val coroutineTask = CoroutineTask()
         coroutineTask.startTask()
-        setDelay(
-            mls = 2000,
-            runnable = Runnable {
-                // coroutineTask.cancel()
+        setDelay(mls = 2000, runnable = Runnable {
+            // coroutineTask.cancel()
+        })
+    }
+
+    private fun testAwaitAll() {
+        val timeStart = System.currentTimeMillis()
+        logD("timeStart $timeStart")
+
+        val list = ArrayList<String>()
+        for (i in 0..50) {
+            list.add(System.currentTimeMillis().toString())
+        }
+
+        val scope = CoroutineScope(Dispatchers.Main.immediate)
+        var countSuccess = 0
+        val sizeExpect = list.size
+        scope.launch {
+
+            fun doLongTask(index: Int) {
+                launch {
+                    logD("======doLongTask index $index")
+                    val timeStartItem = System.currentTimeMillis()
+                    //min 1_000, max 10_000
+                    val delayInMls = getRandomNumber(9_000) + 1_000
+                    delay(delayInMls.toLong())
+                    val timeEndItem = System.currentTimeMillis()
+                    logD("index $index take ${timeEndItem - timeStartItem}")
+
+                    countSuccess++
+                    if (countSuccess == sizeExpect) {
+                        logD(">>>FINISH")
+                        val timeEnd = System.currentTimeMillis()
+                        logD("timeEnd $timeEnd -> bench ${timeEnd - timeStart}")
+                        scope.cancel()
+                    }
+                }
             }
-        )
+
+            list.forEachIndexed { index, _ ->
+                doLongTask(index)
+            }
+        }
     }
 }
