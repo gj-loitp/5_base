@@ -197,7 +197,7 @@ class CoroutineActivity : BaseActivityFont() {
         logD("timeStart $timeStart")
 
         val list = ArrayList<String>()
-        for (i in 0..50) {
+        for (i in 0..5) {
             list.add(System.currentTimeMillis().toString())
         }
 
@@ -238,15 +238,17 @@ class CoroutineActivity : BaseActivityFont() {
         }
     }
 
-    private fun fakeDoLongTask(index: Int, callBack: ((String) -> Unit)) {
-        logD("fakeDoLongTask index $index")
+    private suspend fun fakeDoLongTask(index: Int, callBack: ((String) -> Unit)) {
+        logD("$index fakeDoLongTask======")
         val scope = CoroutineScope(Dispatchers.IO)
         scope.launch {
+            logD("$index fakeDoLongTask")
             withContext(Dispatchers.Default) {
                 val delayInMls = getRandomNumber(9_000) + 1_000
                 delay(delayInMls.toLong())
                 callBack.invoke(System.currentTimeMillis().toString())
             }
+            logD("$index fakeDoLongTask cancel")
             scope.cancel()
         }
     }
