@@ -197,7 +197,7 @@ class CoroutineActivity : BaseActivityFont() {
         logD("timeStart $timeStart")
 
         val list = ArrayList<String>()
-        for (i in 0..5000) {
+        for (i in 0..50) {
             list.add(System.currentTimeMillis().toString())
         }
 
@@ -210,25 +210,44 @@ class CoroutineActivity : BaseActivityFont() {
                 launch {
                     logD("======doLongTask index $index")
                     val timeStartItem = System.currentTimeMillis()
-                    //min 1_000, max 10_000
-                    val delayInMls = getRandomNumber(9_000) + 1_000
-                    delay(delayInMls.toLong())
-                    val timeEndItem = System.currentTimeMillis()
-                    logD("index $index take ${timeEndItem - timeStartItem}")
 
-                    countSuccess++
-                    if (countSuccess == sizeExpect) {
-                        logD(">>>FINISH")
-                        val timeEnd = System.currentTimeMillis()
-                        logD("timeEnd $timeEnd -> bench ${timeEnd - timeStart}")
-                        scope.cancel()
-                    }
+                    //min 1_000, max 10_000
+//                    val delayInMls = getRandomNumber(9_000) + 1_000
+//                    delay(delayInMls.toLong())
+
+                    fakeDoLongTask(
+                        index = index,
+                        callBack = {
+                            val timeEndItem = System.currentTimeMillis()
+                            logD("index $index take ${timeEndItem - timeStartItem}")
+
+                            countSuccess++
+                            if (countSuccess == sizeExpect) {
+                                logD(">>>FINISH")
+                                val timeEnd = System.currentTimeMillis()
+                                logD("timeEnd $timeEnd -> bench ${timeEnd - timeStart}")
+                                scope.cancel()
+                            }
+                        })
                 }
             }
 
             list.forEachIndexed { index, _ ->
                 doLongTask(index)
             }
+        }
+    }
+
+    private fun fakeDoLongTask(index: Int, callBack: ((String) -> Unit)) {
+        logD("fakeDoLongTask index $index")
+        val scope = CoroutineScope(Dispatchers.IO)
+        scope.launch {
+            withContext(Dispatchers.Default) {
+                val delayInMls = getRandomNumber(9_000) + 1_000
+                delay(delayInMls.toLong())
+                callBack.invoke(System.currentTimeMillis().toString())
+            }
+            scope.cancel()
         }
     }
 }
