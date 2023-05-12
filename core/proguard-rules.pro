@@ -184,9 +184,6 @@ public *;
 #-keep class com.veyo.** { *; }
 #-keep interface com.veyo.** { *; }
 
--keep class com.huxq17.download.** { *; }
--dontwarn okhttp3.**
--dontwarn okio.**
 
 -keepclassmembers class com.dd.StrokeGradientDrawable {
     public void setStrokeColor(int);
