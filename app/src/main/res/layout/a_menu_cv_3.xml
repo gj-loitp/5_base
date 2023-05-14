@@ -2,6 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
@@ -35,6 +37,19 @@
             <include
                 android:id="@+id/layoutCommonButton"
                 layout="@layout/layout_cv3_button"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btFab"
+                style="@style/Widget.Material3.Button.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fab"
+                android:textSize="@dimen/txt_medium" />
+
+            <include
+                android:id="@+id/layoutFab"
+                layout="@layout/layout_cv3_fab"
                 android:visibility="gone" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
