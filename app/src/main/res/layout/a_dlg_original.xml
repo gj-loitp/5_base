@@ -54,6 +54,17 @@
                 android:id="@+id/btInputDialog"
                 style="@style/ButtonMenu"
                 android:text="@string/input_dialog" />
+
+            <Button
+                android:id="@+id/bt1"
+                style="@style/Widget.Material3.Button.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
+                android:layout_marginEnd="@dimen/margin_padding_medium"
+                android:text="Material3"
+                android:textSize="@dimen/txt_medium" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
