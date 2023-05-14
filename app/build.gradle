@@ -244,6 +244,8 @@ dependencies {
 //    https://github.com/mmoamenn/LuckyWheel_Android
     api 'com.github.mmoamenn:LuckyWheel_Android:0.3.0'
 
+//    https://github.com/tplloi/material-range-bar
+    api 'com.appyvet:materialrangebar:1.4.8'
 //    https://github.com/ixiDev/MEE
     api 'com.github.ixiDev:MEE:1.0.0'
 
