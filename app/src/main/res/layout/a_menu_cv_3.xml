@@ -17,7 +17,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lActionBar">
 
-        <include layout="@layout/layout_cv3_button" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_padding_medium">
+
+            <Button
+                android:id="@+id/btCommonButton"
+                style="@style/Widget.Material3.Button.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/common_button"
+                android:textSize="@dimen/txt_medium" />
+
+            <include
+                android:id="@+id/layoutCommonButton"
+                layout="@layout/layout_cv3_button"
+                android:visibility="gone" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
     </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

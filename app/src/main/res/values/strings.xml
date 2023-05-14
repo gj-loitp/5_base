@@ -1184,4 +1184,5 @@ Likewise may someone love you next.
     <string name="network_disconnected">Network Disconnected!</string>
     <string name="network_connected">Network Connected!</string>
     <string name="material_you">Material You</string>
+    <string name="common_button">Common button</string>
 </resources>
