@@ -64,6 +64,19 @@
                 android:id="@+id/layoutIndicator"
                 layout="@layout/layout_cv3_indicator"
                 android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btSwitch"
+                style="@style/Widget.Material3.Button.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_switch"
+                android:textSize="@dimen/txt_medium" />
+
+            <include
+                android:id="@+id/layoutSwitch"
+                layout="@layout/layout_cv3_switch"
+                android:visibility="gone" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
