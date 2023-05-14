@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_padding_medium"
+    tools:ignore="HardcodedText">
+
+    <Button
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Widget.Material3.Button.ElevatedButton"
+        android:textSize="@dimen/txt_medium" />
+
+    <Button
+        android:id="@+id/elevatedButton"
+        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Widget.Material3.Button.ElevatedButton.Icon"
+        android:textSize="@dimen/txt_medium" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filled button"
+        android:textSize="@dimen/txt_medium" />
+
+    <Button
+        style="@style/Widget.Material3.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Widget.Material3.Button.Icon"
+        android:textSize="@dimen/txt_medium" />
+
+    <Button
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Widget.Material3.Button.TonalButton"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_medium" />
+
+    <Button
+        style="@style/Widget.Material3.Button.TonalButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Widget.Material3.Button.TonalButton.Icon"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_medium"
+        app:icon="@drawable/ic_add_a_photo_24dp" />
+</androidx.appcompat.widget.LinearLayoutCompat>
