@@ -340,4 +340,13 @@
     <style name="RoundCornerBottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/drawable_bottom_sheet_dialog</item>
     </style>
+
+    <style name="Widget.App.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Switch</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Switch" parent="">
+        <item name="colorPrimary">?attr/themeTextColor</item>
+        <item name="colorSurfaceVariant">?attr/themeTextColor</item>
+    </style>
 </resources>

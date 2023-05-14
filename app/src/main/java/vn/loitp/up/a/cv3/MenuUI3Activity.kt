@@ -58,6 +58,9 @@ class MenuUI3Activity : BaseActivityFont() {
         binding.btIndicator.setOnClickListener {
             binding.layoutIndicator.root.isVisible = !binding.layoutIndicator.root.isVisible
         }
+        binding.btSwitch.setOnClickListener {
+            binding.layoutSwitch.root.isVisible = !binding.layoutSwitch.root.isVisible
+        }
     }
 
 }

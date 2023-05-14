@@ -1185,4 +1185,5 @@ Likewise may someone love you next.
     <string name="network_connected">Network Connected!</string>
     <string name="material_you">Material You</string>
     <string name="common_button">Common button</string>
+    <string name="_switch">Switch</string>
 </resources>
