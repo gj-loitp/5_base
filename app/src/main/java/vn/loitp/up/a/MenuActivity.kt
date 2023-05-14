@@ -26,6 +26,7 @@ import vn.loitp.databinding.AMenuBinding
 import vn.loitp.up.a.anim.MenuAnimationActivity
 import vn.loitp.up.a.api.MenuAPIActivity
 import vn.loitp.up.a.cv.MenuCustomViewsActivity
+import vn.loitp.up.a.cv3.MenuUI3Activity
 import vn.loitp.up.a.db.MenuDatabaseActivity
 import vn.loitp.up.a.demo.MenuDemoActivity
 import vn.loitp.up.a.demo.ad.Applovin
@@ -34,7 +35,6 @@ import vn.loitp.up.a.game.MenuGameActivity
 import vn.loitp.up.a.interviewVN.InterviewVNIQActivity
 import vn.loitp.up.a.more.MoreActivity
 import vn.loitp.up.a.network.MenuNetworkActivity
-import vn.loitp.up.a.network.network.NetworkActivity
 import vn.loitp.up.a.pattern.MenuPatternActivity
 import vn.loitp.up.a.picker.MenuPickerActivity
 import vn.loitp.up.a.sec.MenuSecurityActivity
@@ -113,6 +113,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
         binding.btApi.setOnClickListener(this)
         binding.btAnimation.setOnClickListener(this)
         binding.btCustomView.setOnClickListener(this)
+        binding.btCustomView3.setOnClickListener(this)
         binding.btDemo.setOnClickListener(this)
         binding.btFunction.setOnClickListener(this)
         binding.btRateApp.setOnClickListener(this)
@@ -225,6 +226,11 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             binding.btCustomView -> {
                 showAd()
                 launchActivity(MenuCustomViewsActivity::class.java)
+            }
+
+            binding.btCustomView3 -> {
+                showAd()
+                launchActivity(MenuUI3Activity::class.java)
             }
 
             binding.btDemo -> {

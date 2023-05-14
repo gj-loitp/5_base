@@ -1183,4 +1183,5 @@ Likewise may someone love you next.
     <string name="retry_button_text">Retry</string>
     <string name="network_disconnected">Network Disconnected!</string>
     <string name="network_connected">Network Connected!</string>
+    <string name="material_you">Material You</string>
 </resources>
