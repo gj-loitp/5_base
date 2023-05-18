@@ -65,6 +65,10 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             //adapter content
             val contentAdapter = ContentAdapter()
             contentAdapter.setData(dummyContent.listContentDetail)
+            contentAdapter.onClickRootListener = { cd, pos ->
+                cd.isSelected = !(cd.isSelected ?: false)
+                contentAdapter.notifyItemChanged(pos)
+            }
             concatAdapter.addAdapter(contentAdapter)
         }
         concatAdapter.notifyDataSetChanged()
@@ -77,7 +81,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             dummyContent.id = i
             dummyContent.title = "Title $i"
             val listContentDetail = ArrayList<ContentDetail>()
-            for (j in 0..getRandomNumber(5)) {
+            for (j in 0..getRandomNumber(15)) {
                 val contentDetail = ContentDetail()
                 contentDetail.name = "Name $j"
                 if (j % 2 == 0) {

@@ -25,4 +25,14 @@
         android:textSize="@dimen/txt_medium"
         tools:text="@string/loitp" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivCheck"
+        android:layout_width="@dimen/w_35"
+        android:layout_height="@dimen/w_35"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_ss_check_circle"
+        android:tint="@color/red"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
 </RelativeLayout>

@@ -3,6 +3,7 @@ package vn.loitp.up.a.cv.rv.concatAdapter2.adt
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
@@ -13,8 +14,9 @@ import vn.loitp.up.a.cv.rv.concatAdapter2.model.ContentDetail
 
 @LogTag("ContentAdapter")
 class ContentAdapter() : BaseAdapter() {
+
     private var listContentDetail = ArrayList<ContentDetail>()
-    var onClickRootListener: ((ContentDetail, Int) -> Unit)? = null
+    var onClickRootListener: ((cd: ContentDetail, pos: Int) -> Unit)? = null
 
     @SuppressLint("NotifyDataSetChanged")
     fun setData(list: ArrayList<ContentDetail>) {
@@ -28,6 +30,7 @@ class ContentAdapter() : BaseAdapter() {
         fun bind(contentDetail: ContentDetail) {
             binding.tv.text = contentDetail.name
             binding.iv.loadGlide(contentDetail.img)
+            binding.ivCheck.isVisible = contentDetail.isSelected ?: false
 
             binding.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(contentDetail, bindingAdapterPosition)
