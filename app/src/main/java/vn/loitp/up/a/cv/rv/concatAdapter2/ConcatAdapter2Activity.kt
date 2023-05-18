@@ -14,6 +14,7 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.getRandomNumber
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.databinding.AConcatAdapter2Binding
+import vn.loitp.up.a.cv.rv.concatAdapter2.adt.ContentAdapter
 import vn.loitp.up.a.cv.rv.concatAdapter2.adt.TitleAdapter
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.ContentDetail
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.DummyContent
@@ -26,7 +27,6 @@ class ConcatAdapter2Activity : BaseActivityFont() {
 
     private lateinit var binding: AConcatAdapter2Binding
     private var listDummyContent = ArrayList<DummyContent>()//input data
-    private var listContentDetail = ArrayList<ContentDetail>()//transform data
     private val concatAdapter = ConcatAdapter()
 
     override fun setLayoutResourceId(): Int {
@@ -39,8 +39,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
         binding = AConcatAdapter2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupData()//input data
-        transformData()//transform data in order to fit with my recycler view
+        setupData()
         setupViews()
     }
 
@@ -57,24 +56,28 @@ class ConcatAdapter2Activity : BaseActivityFont() {
         binding.rv.layoutManager = LinearLayoutManager(this)
         binding.rv.adapter = concatAdapter
 
-        listContentDetail.forEach { cd ->
-            if (cd.isParentTitle == true) {
-                val titleAdapter = TitleAdapter()
-                titleAdapter.setData(cd)
-                concatAdapter.addAdapter(titleAdapter)
-            }
+        listDummyContent.forEach { dummyContent ->
+            //adapter title
+            val titleAdapter = TitleAdapter()
+            titleAdapter.setData(dummyContent.title)
+            concatAdapter.addAdapter(titleAdapter)
+
+            //adapter content
+            val contentAdapter = ContentAdapter()
+            contentAdapter.setData(dummyContent.listContentDetail)
+            concatAdapter.addAdapter(contentAdapter)
         }
         concatAdapter.notifyDataSetChanged()
     }
 
     private fun setupData() {
         listDummyContent.clear()
-        for (i in 0..2) {
+        for (i in 0..5) {
             val dummyContent = DummyContent()
             dummyContent.id = i
             dummyContent.title = "Title $i"
             val listContentDetail = ArrayList<ContentDetail>()
-            for (j in 0..getRandomNumber(2)) {
+            for (j in 0..getRandomNumber(5)) {
                 val contentDetail = ContentDetail()
                 contentDetail.name = "Name $j"
                 if (j % 2 == 0) {
@@ -88,33 +91,5 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             listDummyContent.add(dummyContent)
         }
         logD(">>>setupData listDummyContent ${BaseApplication.gson.toJson(listDummyContent)}")
-    }
-
-    private fun transformData() {
-        listContentDetail.clear()
-        listDummyContent.forEach { dummyContent ->
-            //map title
-            val contentDetailTitle = ContentDetail()
-            contentDetailTitle.parentId = dummyContent.id
-            contentDetailTitle.parentTitle = dummyContent.title
-            contentDetailTitle.isParentTitle = true
-            listContentDetail.add(contentDetailTitle)
-
-            //map item child
-            dummyContent.listContentDetail.forEach { cd ->
-                val contentDetailChild = ContentDetail()
-                contentDetailChild.name = cd.name
-                contentDetailChild.img = cd.img
-                contentDetailChild.isSelected = cd.isSelected
-                //map parent
-                contentDetailChild.parentId = dummyContent.id
-                contentDetailChild.parentTitle = dummyContent.title
-                contentDetailChild.isParentTitle = false
-
-                listContentDetail.add(contentDetailChild)
-            }
-        }
-        logD(">>>transformData listContentDetail ${BaseApplication.gson.toJson(listContentDetail)}")
-
     }
 }

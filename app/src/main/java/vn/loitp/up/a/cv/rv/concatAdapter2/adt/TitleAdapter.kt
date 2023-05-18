@@ -7,16 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import vn.loitp.databinding.IConcat2TitleBinding
-import vn.loitp.up.a.cv.rv.concatAdapter2.model.ContentDetail
 
 @LogTag("TitleAdapter")
 class TitleAdapter : BaseAdapter() {
 
-    private var contentDetail: ContentDetail? = null
+    private var title: String? = null
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(contentDetail: ContentDetail) {
-        this.contentDetail = contentDetail
+    fun setData(title: String?) {
+        this.title = title
         notifyDataSetChanged()
     }
 
@@ -24,8 +23,8 @@ class TitleAdapter : BaseAdapter() {
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        fun bind(contentDetail: ContentDetail) {
-            binding.tv.text = "${contentDetail.parentId} ${contentDetail.parentTitle}"
+        fun bind(title: String) {
+            binding.tv.text = title
         }
     }
 
@@ -41,7 +40,7 @@ class TitleAdapter : BaseAdapter() {
         holder: RecyclerView.ViewHolder, position: Int
     ) {
         if (holder is DataViewHolder) {
-            contentDetail?.let {
+            title?.let {
                 holder.bind(it)
             }
         }
