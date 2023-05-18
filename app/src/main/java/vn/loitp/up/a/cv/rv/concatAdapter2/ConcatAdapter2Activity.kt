@@ -12,6 +12,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.getRandomNumber
+import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.databinding.AConcatAdapter2Binding
 import vn.loitp.up.a.cv.rv.concatAdapter2.adt.ContentAdapter
@@ -72,6 +73,16 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             concatAdapter.addAdapter(contentAdapter)
         }
         concatAdapter.notifyDataSetChanged()
+
+        binding.btSelectAll.setSafeOnClickListener {
+            selectAll()
+        }
+        binding.btSelectUnselectAll.setSafeOnClickListener {
+            unselectAll()
+        }
+        binding.btSave.setSafeOnClickListener {
+            save()
+        }
     }
 
     private fun setupData() {
@@ -95,5 +106,43 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             listDummyContent.add(dummyContent)
         }
         logD(">>>setupData listDummyContent ${BaseApplication.gson.toJson(listDummyContent)}")
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun selectAll() {
+        listDummyContent.forEach { dc ->
+            dc.listContentDetail.forEach { contentDetail ->
+                contentDetail.isSelected = true
+            }
+        }
+        concatAdapter.notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun unselectAll() {
+        listDummyContent.forEach { dc ->
+            dc.listContentDetail.forEach { contentDetail ->
+                contentDetail.isSelected = false
+            }
+        }
+        concatAdapter.notifyDataSetChanged()
+    }
+
+    private fun save() {
+        val listContentDetailSelected = ArrayList<ContentDetail>()
+        listDummyContent.forEach { dc ->
+            dc.listContentDetail.forEach { contentDetail ->
+                if (contentDetail.isSelected == true) {
+                    listContentDetailSelected.add(contentDetail)
+                }
+            }
+        }
+        val msg = ">>>save listContentDetailSelected ${
+            BaseApplication.gson.toJson(
+                listContentDetailSelected
+            )
+        }"
+        logD(msg)
+        showLongInformation(msg)
     }
 }
