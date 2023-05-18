@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
@@ -29,6 +30,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
     private lateinit var binding: AConcatAdapter2Binding
     private var listDummyContent = ArrayList<DummyContent>()//input data
     private val concatAdapter = ConcatAdapter()
+    private var maxColumn = 3
 
     override fun setLayoutResourceId(): Int {
         return NOT_FOUND
@@ -54,7 +56,8 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             this.tvTitle?.text = ConcatAdapter2Activity::class.java.simpleName
         }
 
-        binding.rv.layoutManager = LinearLayoutManager(this)
+        val layoutManager = getAdjustedGridLayoutManager()
+        binding.rv.layoutManager = layoutManager
         binding.rv.adapter = concatAdapter
 
         listDummyContent.forEach { dummyContent ->
@@ -83,6 +86,24 @@ class ConcatAdapter2Activity : BaseActivityFont() {
         binding.btSave.setSafeOnClickListener {
             save()
         }
+        binding.btColumn.setSafeOnClickListener {
+            setColumn()
+        }
+    }
+
+    private fun getAdjustedGridLayoutManager(): GridLayoutManager {
+        val layoutManager = GridLayoutManager(this, maxColumn)
+        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return when (concatAdapter.getItemViewType(position)) {
+                    TYPE_1 -> 1
+                    TYPE_2 -> maxColumn
+                    else -> 1
+                }
+            }
+        }
+        return layoutManager
     }
 
     private fun setupData() {
@@ -144,5 +165,14 @@ class ConcatAdapter2Activity : BaseActivityFont() {
         }"
         logD(msg)
         showLongInformation(msg)
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun setColumn() {
+        maxColumn++
+        if (maxColumn > 3) {
+            maxColumn = 1
+        }
+        concatAdapter.notifyDataSetChanged()
     }
 }

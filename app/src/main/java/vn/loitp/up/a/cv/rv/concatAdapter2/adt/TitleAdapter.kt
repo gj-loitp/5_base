@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.adapter.BaseAdapter
 import vn.loitp.databinding.IConcat2TitleBinding
+import vn.loitp.up.a.cv.rv.concatAdapter2.TYPE_1
 
 @LogTag("TitleAdapter")
 class TitleAdapter : BaseAdapter() {
@@ -24,7 +25,7 @@ class TitleAdapter : BaseAdapter() {
 
         @SuppressLint("SetTextI18n")
         fun bind(title: String) {
-            binding.tv.text = title
+            binding.tv.text = title + "~" + getItemViewType(bindingAdapterPosition)
         }
     }
 
@@ -44,5 +45,9 @@ class TitleAdapter : BaseAdapter() {
                 holder.bind(it)
             }
         }
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return TYPE_1
     }
 }

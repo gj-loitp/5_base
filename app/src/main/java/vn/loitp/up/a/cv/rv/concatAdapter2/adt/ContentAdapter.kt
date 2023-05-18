@@ -10,6 +10,7 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
 import vn.loitp.databinding.IConcat2DetailBinding
+import vn.loitp.up.a.cv.rv.concatAdapter2.TYPE_2
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.ContentDetail
 
 @LogTag("ContentAdapter")
@@ -27,8 +28,9 @@ class ContentAdapter() : BaseAdapter() {
 
     inner class DataViewHolder(val binding: IConcat2DetailBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
         fun bind(contentDetail: ContentDetail) {
-            binding.tv.text = contentDetail.name
+            binding.tv.text = contentDetail.name + "~" + getItemViewType(bindingAdapterPosition)
             binding.iv.loadGlide(contentDetail.img)
             binding.ivCheck.isVisible = contentDetail.isSelected ?: false
 
@@ -52,5 +54,9 @@ class ContentAdapter() : BaseAdapter() {
         if (holder is DataViewHolder) {
             holder.bind(listContentDetail[position])
         }
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return TYPE_2
     }
 }
