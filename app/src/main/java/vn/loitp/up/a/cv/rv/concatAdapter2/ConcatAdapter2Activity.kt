@@ -78,7 +78,8 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             contentAdapter.setData(dummyContent.listContentDetail)
             contentAdapter.onClickRootListener = { cd, pos ->
                 cd.isSelected = !(cd.isSelected ?: false)
-                contentAdapter.notifyItemChanged(pos)
+//                contentAdapter.notifyItemChanged(pos)
+                concatAdapter.notifyDataSetChanged()
             }
             concatAdapter.addAdapter(contentAdapter)
         }
