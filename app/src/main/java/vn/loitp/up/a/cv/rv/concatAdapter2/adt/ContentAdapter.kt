@@ -10,7 +10,7 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListener
 import vn.loitp.databinding.IConcat2DetailBinding
-import vn.loitp.up.a.cv.rv.concatAdapter2.TYPE_2
+import vn.loitp.up.a.cv.rv.concatAdapter2.TYPE_CONTENT
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.ContentDetail
 
 @LogTag("ContentAdapter")
@@ -57,6 +57,6 @@ class ContentAdapter() : BaseAdapter() {
     }
 
     override fun getItemViewType(position: Int): Int {
-        return TYPE_2
+        return TYPE_CONTENT
     }
 }

@@ -99,8 +99,8 @@ class ConcatAdapter2Activity : BaseActivityFont() {
         layoutManager.spanSizeLookup = object : SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 return when (concatAdapter.getItemViewType(position)) {
-                    TYPE_1 -> 1
-                    TYPE_2 -> maxColumn
+                    TYPE_TITLE -> 1
+                    TYPE_CONTENT -> maxColumn
                     else -> 1
                 }
             }
