@@ -1,7 +1,10 @@
 package vn.loitp.up.a.cv.rv.concatAdapter2
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.ConcatAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
@@ -11,6 +14,7 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.getRandomNumber
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.databinding.AConcatAdapter2Binding
+import vn.loitp.up.a.cv.rv.concatAdapter2.adt.TitleAdapter
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.ContentDetail
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.DummyContent
 import vn.loitp.up.common.Constants
@@ -23,6 +27,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
     private lateinit var binding: AConcatAdapter2Binding
     private var listDummyContent = ArrayList<DummyContent>()//input data
     private var listContentDetail = ArrayList<ContentDetail>()//transform data
+    private val concatAdapter = ConcatAdapter()
 
     override fun setLayoutResourceId(): Int {
         return NOT_FOUND
@@ -39,6 +44,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
         setupViews()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupViews() {
         binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
@@ -47,6 +53,18 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = ConcatAdapter2Activity::class.java.simpleName
         }
+
+        binding.rv.layoutManager = LinearLayoutManager(this)
+        binding.rv.adapter = concatAdapter
+
+        listContentDetail.forEach { cd ->
+            if (cd.isParentTitle == true) {
+                val titleAdapter = TitleAdapter()
+                titleAdapter.setData(cd)
+                concatAdapter.addAdapter(titleAdapter)
+            }
+        }
+        concatAdapter.notifyDataSetChanged()
     }
 
     private fun setupData() {
