@@ -18,16 +18,15 @@ class UsersAdapter(
     var onClickRootListener: ((User, Int) -> Unit)? = null
 
     fun setData(listUser: ArrayList<User>) {
-//        this.listUser.clear()
-//        this.listUser.addAll(listUser)
-//        notifyDataSetChanged()
-
         this.listUser.clear()
-        listUser.forEachIndexed { index, user ->
-            this.listUser.add(user)
-            notifyItemInserted(index)
-        }
+        this.listUser.addAll(listUser)
+        notifyDataSetChanged()
 
+//        this.listUser.clear()
+//        listUser.forEachIndexed { index, user ->
+//            this.listUser.add(user)
+//            notifyItemInserted(index)
+//        }
     }
 
     inner class DataViewHolder(val binding: IUserBinding) : RecyclerView.ViewHolder(binding.root) {
