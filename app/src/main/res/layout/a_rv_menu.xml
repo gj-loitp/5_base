@@ -46,7 +46,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btConcatAdapter"
                 style="@style/ButtonMenu"
-                android:text="@string/merge_adapter" />
+                android:text="Concat Adapter" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btConcatAdapter2"
+                style="@style/ButtonMenu"
+                android:text="Concat Adapter 2" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDiffUtil"

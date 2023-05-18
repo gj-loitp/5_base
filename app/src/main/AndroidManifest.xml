@@ -1507,6 +1507,9 @@
         <activity
             android:name=".up.a.cv.sb.materialrangebar.MaterialRangeBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".up.a.cv.rv.concatAdapter2.ConcatAdapter2Activity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
     <queries>
