@@ -6,7 +6,6 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
@@ -31,7 +30,14 @@ class ConcatAdapter2Activity : BaseActivityFont() {
 
     private lateinit var binding: AConcatAdapter2Binding
     private var listDummyContent = ArrayList<DummyContent>()//input data
-    private val concatAdapter = ConcatAdapter()
+
+    //    private val concatAdapter = ConcatAdapter()
+    private val concatAdapter: ConcatAdapter by lazy {
+        val config = ConcatAdapter.Config.Builder().apply {
+            setIsolateViewTypes(false)
+        }.build()
+        ConcatAdapter(config, emptyList())
+    }
     private var maxColumn = 3
 
     override fun setLayoutResourceId(): Int {
@@ -95,13 +101,13 @@ class ConcatAdapter2Activity : BaseActivityFont() {
 
     private fun getAdjustedGridLayoutManager(): GridLayoutManager {
         val layoutManager = GridLayoutManager(this, maxColumn)
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
+//        layoutManager.orientation = LinearLayoutManager.VERTICAL
         layoutManager.spanSizeLookup = object : SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 return when (concatAdapter.getItemViewType(position)) {
-                    TYPE_TITLE -> 1
-                    TYPE_CONTENT -> maxColumn
-                    else -> 1
+                    TYPE_TITLE -> maxColumn
+                    TYPE_CONTENT -> 1
+                    else -> maxColumn
                 }
             }
         }
