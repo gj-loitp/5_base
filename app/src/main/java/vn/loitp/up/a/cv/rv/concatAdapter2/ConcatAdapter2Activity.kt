@@ -38,7 +38,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
         }.build()
         ConcatAdapter(config, emptyList())
     }
-    private var maxColumn = 3
+    private var maxColumn = 5
 
     override fun setLayoutResourceId(): Int {
         return NOT_FOUND
@@ -64,8 +64,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             this.tvTitle?.text = ConcatAdapter2Activity::class.java.simpleName
         }
 
-        val layoutManager = getAdjustedGridLayoutManager()
-        binding.rv.layoutManager = layoutManager
+        adjustedGridLayoutManager()
         binding.rv.adapter = concatAdapter
 
         listDummyContent.forEach { dummyContent ->
@@ -99,9 +98,8 @@ class ConcatAdapter2Activity : BaseActivityFont() {
         }
     }
 
-    private fun getAdjustedGridLayoutManager(): GridLayoutManager {
+    private fun adjustedGridLayoutManager() {
         val layoutManager = GridLayoutManager(this, maxColumn)
-//        layoutManager.orientation = LinearLayoutManager.VERTICAL
         layoutManager.spanSizeLookup = object : SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 return when (concatAdapter.getItemViewType(position)) {
@@ -111,7 +109,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
                 }
             }
         }
-        return layoutManager
+        binding.rv.layoutManager = layoutManager
     }
 
     private fun setupData() {
@@ -178,9 +176,10 @@ class ConcatAdapter2Activity : BaseActivityFont() {
     @SuppressLint("NotifyDataSetChanged")
     private fun setColumn() {
         maxColumn++
-        if (maxColumn > 3) {
+        if (maxColumn > 10) {
             maxColumn = 1
         }
+        adjustedGridLayoutManager()
         concatAdapter.notifyDataSetChanged()
     }
 }
