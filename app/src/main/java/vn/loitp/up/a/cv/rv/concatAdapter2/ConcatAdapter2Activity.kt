@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
@@ -21,6 +22,7 @@ import vn.loitp.up.a.cv.rv.concatAdapter2.adt.TitleAdapter
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.ContentDetail
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.DummyContent
 import vn.loitp.up.common.Constants
+
 
 @LogTag("loitpConcatAdapter2Activity")
 @IsFullScreen(false)
@@ -94,7 +96,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
     private fun getAdjustedGridLayoutManager(): GridLayoutManager {
         val layoutManager = GridLayoutManager(this, maxColumn)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
-        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+        layoutManager.spanSizeLookup = object : SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 return when (concatAdapter.getItemViewType(position)) {
                     TYPE_1 -> 1
