@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:background="#EEFFFD">
+    android:background="@color/yellow">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
-        android:textSize="16sp"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"

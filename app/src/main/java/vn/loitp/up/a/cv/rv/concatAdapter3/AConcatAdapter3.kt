@@ -9,7 +9,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
-import vn.loitp.databinding.ActivityMainBinding
+import vn.loitp.databinding.AConcatAdapter3Binding
 
 @LogTag("AConcatAdapter3")
 @IsFullScreen(false)
@@ -20,8 +20,8 @@ class AConcatAdapter3 : BaseActivityFont() {
         return NOT_FOUND
     }
 
-    private val binding: ActivityMainBinding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
+    private val binding: AConcatAdapter3Binding by lazy {
+        AConcatAdapter3Binding.inflate(layoutInflater)
     }
 
     private val oneColumnAdapter: OneColumnAdapter by lazy {

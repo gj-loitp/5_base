@@ -3,7 +3,7 @@ package vn.loitp.up.a.cv.rv.concatAdapter3
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import vn.loitp.databinding.ViewHorizontalBinding
+import vn.loitp.databinding.VConcatAdapte3HorizontalBinding
 
 class HorizontalAdapter(private val onClick: (String) -> Unit) :
     RecyclerView.Adapter<HorizontalViewHolder>() {
@@ -15,7 +15,7 @@ class HorizontalAdapter(private val onClick: (String) -> Unit) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HorizontalViewHolder {
         return HorizontalViewHolder(
-            ViewHorizontalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            VConcatAdapte3HorizontalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 

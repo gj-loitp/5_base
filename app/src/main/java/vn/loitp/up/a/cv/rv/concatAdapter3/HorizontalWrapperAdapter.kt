@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import vn.loitp.databinding.ViewHorizontalWrapperBinding
+import vn.loitp.databinding.VConcatAdapter3HorizontalWrapperBinding
 
 class HorizontalWrapperAdapter(
     private val adapter: HorizontalAdapter
@@ -18,7 +18,7 @@ class HorizontalWrapperAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HorizontalWrapperViewHolder {
         return HorizontalWrapperViewHolder(
-            ViewHorizontalWrapperBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            VConcatAdapter3HorizontalWrapperBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 

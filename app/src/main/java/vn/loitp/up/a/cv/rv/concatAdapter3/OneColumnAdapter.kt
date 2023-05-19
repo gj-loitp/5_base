@@ -3,7 +3,7 @@ package vn.loitp.up.a.cv.rv.concatAdapter3
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import vn.loitp.databinding.ViewOneColumnBinding
+import vn.loitp.databinding.VConcatAdapter3OneColumnBinding
 
 class OneColumnAdapter(
     private val onClick: (String) -> Unit
@@ -16,7 +16,11 @@ class OneColumnAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OneColumnViewHolder {
         return OneColumnViewHolder(
-            ViewOneColumnBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            VConcatAdapter3OneColumnBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         )
     }
 
