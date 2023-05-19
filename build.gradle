@@ -30,7 +30,7 @@ allprojects {
             url "https://maven.google.com"
         }
         maven { url 'https://jitpack.io' }
-        maven { url 'https://github.com/500px/greedo-layout-for-android/raw/master/releases/' }
+//        maven { url 'https://github.com/500px/greedo-layout-for-android/raw/master/releases/' }
 //        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
 }
