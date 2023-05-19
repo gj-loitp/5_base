@@ -16,6 +16,7 @@ import vn.loitp.up.a.cv.rv.book.BookViewActivity
 import vn.loitp.up.a.cv.rv.carouselRv.CarouselRecyclerViewActivity
 import vn.loitp.up.a.cv.rv.concatAdapter.ConcatAdapterActivity
 import vn.loitp.up.a.cv.rv.concatAdapter2.ConcatAdapter2Activity
+import vn.loitp.up.a.cv.rv.concatAdapter3.AConcatAdapter3
 import vn.loitp.up.a.cv.rv.diffUtil.DiffUtilActivity
 import vn.loitp.up.a.cv.rv.dragAndDropDemo.DragAndDropDemoActivity
 import vn.loitp.up.a.cv.rv.dragDrop.MainActivityDragDrop
@@ -77,6 +78,7 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
         binding.btRecyclerTabLayout.setOnClickListener(this)
         binding.btConcatAdapter.setOnClickListener(this)
         binding.btConcatAdapter2.setOnClickListener(this)
+        binding.btConcatAdapter3.setOnClickListener(this)
         binding.btFooter.setOnClickListener(this)
         binding.btFooter2.setOnClickListener(this)
         binding.btNetView.setOnClickListener(this)
@@ -135,6 +137,7 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
             binding.btLoopingLayout -> launchActivity(LoopingLayoutActivity::class.java)
             binding.btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
             binding.btConcatAdapter2 -> launchActivity(ConcatAdapter2Activity::class.java)
+            binding.btConcatAdapter3 -> launchActivity(AConcatAdapter3::class.java)
         }
     }
 }

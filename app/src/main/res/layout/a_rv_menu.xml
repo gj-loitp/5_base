@@ -54,6 +54,11 @@
                 android:text="Concat Adapter 2" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btConcatAdapter3"
+                style="@style/ButtonMenu"
+                android:text="Concat Adapter 3" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDiffUtil"
                 style="@style/ButtonMenu"
                 android:text="@string/diff_util" />
