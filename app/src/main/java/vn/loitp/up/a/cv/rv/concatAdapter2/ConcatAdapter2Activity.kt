@@ -23,7 +23,7 @@ import vn.loitp.up.a.cv.rv.concatAdapter2.model.DummyContent
 import vn.loitp.up.common.Constants
 
 
-@LogTag("loitpConcatAdapter2Activity")
+@LogTag("ConcatAdapter2Activity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class ConcatAdapter2Activity : BaseActivityFont() {
@@ -31,7 +31,6 @@ class ConcatAdapter2Activity : BaseActivityFont() {
     private lateinit var binding: AConcatAdapter2Binding
     private var listDummyContent = ArrayList<DummyContent>()//input data
 
-    //    private val concatAdapter = ConcatAdapter()
     private val concatAdapter: ConcatAdapter by lazy {
         val config = ConcatAdapter.Config.Builder().apply {
             setIsolateViewTypes(false)
