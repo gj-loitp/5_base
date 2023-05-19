@@ -1181,4 +1181,9 @@ Likewise may someone love you next.
     <string name="flutter_tutorial">Flutter Tutorial</string>
     <string name="impossible_game">Impossible Game</string>
     <string name="retry_button_text">Retry</string>
+    <string name="network_disconnected">Network Disconnected!</string>
+    <string name="network_connected">Network Connected!</string>
+    <string name="material_you">Material You</string>
+    <string name="common_button">Common button</string>
+    <string name="_switch">Switch</string>
 </resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btGoNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:backgroundTint="@color/white"
+        android:text="Go Next"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_medium" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btPop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:backgroundTint="@color/white"
+        android:text="Pop"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_medium" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

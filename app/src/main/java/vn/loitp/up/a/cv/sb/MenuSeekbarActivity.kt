@@ -11,6 +11,7 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.ASbMenuBinding
 import vn.loitp.up.a.cv.sb.boxedVertical.BoxedVerticalSeekBarActivity
+import vn.loitp.up.a.cv.sb.materialrangebar.MaterialRangeBarActivity
 import vn.loitp.up.a.cv.sb.range.RangeSeekbarActivity
 import vn.loitp.up.a.cv.sb.rubberPicker.RubberPickerActivity
 import vn.loitp.up.a.cv.sb.sb.SeekbarActivity
@@ -64,6 +65,9 @@ class MenuSeekbarActivity : BaseActivityFont() {
         }
         binding.btRubberPicker.setSafeOnClickListener {
             launchActivity(RubberPickerActivity::class.java)
+        }
+        binding.btMaterialRangeBar.setSafeOnClickListener {
+            launchActivity(MaterialRangeBarActivity::class.java)
         }
     }
 }

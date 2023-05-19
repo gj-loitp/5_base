@@ -9,11 +9,13 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.widget.EditText
 import androidx.core.view.isVisible
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
+import vn.loitp.R
 import vn.loitp.databinding.ADlgOriginalBinding
 
 @LogTag("DialogOriginalActivity")
@@ -40,8 +42,7 @@ class DialogOriginalActivity : BaseActivityFont(), OnClickListener {
             this.ivIconLeft.setSafeOnClickListenerElastic(
                 runnable = {
                     onBaseBackPressed()
-                }
-            )
+                })
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = DialogOriginalActivity::class.java.simpleName
         }
@@ -51,6 +52,22 @@ class DialogOriginalActivity : BaseActivityFont(), OnClickListener {
         binding.btShowList.setOnClickListener(this)
         binding.btProgressDialog.setOnClickListener(this)
         binding.btInputDialog.setOnClickListener(this)
+
+        binding.bt1.setSafeOnClickListener {
+            MaterialAlertDialogBuilder(this)
+                .setTitle(resources.getString(R.string.title))
+                .setBackgroundInsetStart(getDimenValue(R.dimen.round_medium))
+                .setBackgroundInsetEnd(getDimenValue(R.dimen.round_medium))
+                .setBackgroundInsetTop(getDimenValue(R.dimen.round_medium))
+                .setBackgroundInsetBottom(getDimenValue(R.dimen.round_medium))
+                .setMessage("supporting_text").setNeutralButton("cancel") { dialog, which ->
+                    // Respond to neutral button press
+                }.setNegativeButton("decline") { dialog, which ->
+                    // Respond to negative button press
+                }.setPositiveButton("accept") { dialog, which ->
+                    // Respond to positive button press
+                }.show()
+        }
     }
 
     override fun onDestroy() {

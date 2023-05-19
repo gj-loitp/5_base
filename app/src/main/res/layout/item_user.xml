@@ -38,7 +38,7 @@
             android:textSize="@dimen/txt_small" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvTime"
+            android:id="@+id/tvTimeDf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/red"

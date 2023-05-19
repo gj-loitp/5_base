@@ -12,18 +12,18 @@ import com.loitp.data.EventBusData
  * +840766040293
  * freuss47@gmail.com
  */
-fun Context.initOnNetworkChange() {
-    val isConnected = isConnected()
-    putBooleanPref(
-        KEY_BOOLEAN_IS_CONNECTED_NETWORK,
-        isConnected
-    )
-}
+//fun Context.initOnNetworkChange() {
+//    val isConnected = isConnected()
+//    putBooleanPref(
+//        KEY_BOOLEAN_IS_CONNECTED_NETWORK,
+//        isConnected
+//    )
+//}
 
 fun Context.isConnected(): Boolean {
     val connectivityManager =
-        this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    val networkCapabilities = connectivityManager.activeNetwork ?: return false
+        this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+    val networkCapabilities = connectivityManager?.activeNetwork ?: return false
     val actNw = connectivityManager.getNetworkCapabilities(networkCapabilities)
         ?: return false
     val result = when {
@@ -36,26 +36,26 @@ fun Context.isConnected(): Boolean {
     return result
 }
 
-fun Context.onNetworkConnectionChanged(isConnected: Boolean?) {
-    if (isConnected == true) {
-        val prevIsConnectedNetwork =
-            getBooleanPref(KEY_BOOLEAN_IS_CONNECTED_NETWORK)
-        if (prevIsConnectedNetwork != isConnected) {
-            putBooleanPref(
-                key = KEY_BOOLEAN_IS_CONNECTED_NETWORK,
-                data = true
-            )
-            EventBusData.instance.sendConnectChange(isConnected = true)
-        }
-    } else {
-        val prevIsConnectedNetwork =
-            getBooleanPref(KEY_BOOLEAN_IS_CONNECTED_NETWORK)
-        if (prevIsConnectedNetwork != isConnected) {
-            putBooleanPref(
-                key = KEY_BOOLEAN_IS_CONNECTED_NETWORK,
-                data = false
-            )
-            EventBusData.instance.sendConnectChange(isConnected = false)
-        }
-    }
-}
+//fun Context.onNetworkConnectionChanged(isConnected: Boolean?) {
+//    if (isConnected == true) {
+//        val prevIsConnectedNetwork =
+//            getBooleanPref(KEY_BOOLEAN_IS_CONNECTED_NETWORK)
+//        if (prevIsConnectedNetwork != isConnected) {
+//            putBooleanPref(
+//                key = KEY_BOOLEAN_IS_CONNECTED_NETWORK,
+//                data = true
+//            )
+//            EventBusData.instance.sendConnectChange(isConnected = true)
+//        }
+//    } else {
+//        val prevIsConnectedNetwork =
+//            getBooleanPref(KEY_BOOLEAN_IS_CONNECTED_NETWORK)
+//        if (prevIsConnectedNetwork != isConnected) {
+//            putBooleanPref(
+//                key = KEY_BOOLEAN_IS_CONNECTED_NETWORK,
+//                data = false
+//            )
+//            EventBusData.instance.sendConnectChange(isConnected = false)
+//        }
+//    }
+//}

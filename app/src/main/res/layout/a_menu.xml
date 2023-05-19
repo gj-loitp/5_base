@@ -72,6 +72,11 @@
                 android:text="@string/custom_views" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCustomView3"
+                style="@style/ButtonMenu"
+                android:text="@string/material_you" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDatabase"
                 style="@style/ButtonMenu"
                 android:text="@string/database" />

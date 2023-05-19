@@ -26,6 +26,7 @@ import vn.loitp.databinding.AMenuBinding
 import vn.loitp.up.a.anim.MenuAnimationActivity
 import vn.loitp.up.a.api.MenuAPIActivity
 import vn.loitp.up.a.cv.MenuCustomViewsActivity
+import vn.loitp.up.a.cv3.MenuUI3Activity
 import vn.loitp.up.a.db.MenuDatabaseActivity
 import vn.loitp.up.a.demo.MenuDemoActivity
 import vn.loitp.up.a.demo.ad.Applovin
@@ -33,7 +34,7 @@ import vn.loitp.up.a.func.MenuFunctionActivity
 import vn.loitp.up.a.game.MenuGameActivity
 import vn.loitp.up.a.interviewVN.InterviewVNIQActivity
 import vn.loitp.up.a.more.MoreActivity
-import vn.loitp.up.a.network.NetworkActivity
+import vn.loitp.up.a.network.MenuNetworkActivity
 import vn.loitp.up.a.pattern.MenuPatternActivity
 import vn.loitp.up.a.picker.MenuPickerActivity
 import vn.loitp.up.a.sec.MenuSecurityActivity
@@ -112,6 +113,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
         binding.btApi.setOnClickListener(this)
         binding.btAnimation.setOnClickListener(this)
         binding.btCustomView.setOnClickListener(this)
+        binding.btCustomView3.setOnClickListener(this)
         binding.btDemo.setOnClickListener(this)
         binding.btFunction.setOnClickListener(this)
         binding.btRateApp.setOnClickListener(this)
@@ -143,10 +145,8 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
 
     private fun setupConfigGoogle() {
         val app = getGGAppSetting()
-        val isFullData = app.config?.isFullData == true
+        val isFullData = app?.config?.isFullData == true
         if (isFullData) {
-            binding.btApi.isVisible = true
-            binding.btAnimation.isVisible = true
             binding.btCustomView.isVisible = true
             binding.btDemo.isVisible = true
             binding.btFunction.isVisible = true
@@ -161,14 +161,11 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             binding.btFrmMore.isVisible = true
             binding.btTutorial.isVisible = true
             binding.btPicker.isVisible = true
-            binding.btNetwork.isVisible = true
             binding.btSecurity.isVisible = true
             binding.btService.isVisible = true
             binding.btUtils.isVisible = true
             binding.btGame.isVisible = true
         } else {
-            binding.btApi.isVisible = true
-            binding.btAnimation.isVisible = false
             binding.btCustomView.isVisible = false
             binding.btDemo.isVisible = false
             binding.btFunction.isVisible = false
@@ -183,7 +180,6 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             binding.btFrmMore.isVisible = false
             binding.btTutorial.isVisible = false
             binding.btPicker.isVisible = false
-            binding.btNetwork.isVisible = true
             binding.btSecurity.isVisible = false
             binding.btService.isVisible = false
             binding.btUtils.isVisible = false
@@ -221,42 +217,56 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                 showAd()
                 launchActivity(MenuAPIActivity::class.java)
             }
+
             binding.btAnimation -> {
                 showAd()
                 launchActivity(MenuAnimationActivity::class.java)
             }
+
             binding.btCustomView -> {
                 showAd()
                 launchActivity(MenuCustomViewsActivity::class.java)
             }
+
+            binding.btCustomView3 -> {
+                showAd()
+                launchActivity(MenuUI3Activity::class.java)
+            }
+
             binding.btDemo -> {
                 showAd()
                 launchActivity(MenuDemoActivity::class.java)
             }
+
             binding.btRateApp -> this.rateApp(packageName)
             binding.btMoreApp -> this.moreApp()
             binding.btFunction -> {
                 showAd()
                 launchActivity(MenuFunctionActivity::class.java)
             }
+
             binding.btGame -> {
                 showAd()
                 launchActivity(MenuGameActivity::class.java)
             }
+
             binding.btDatabase -> {
                 showAd()
                 launchActivity(MenuDatabaseActivity::class.java)
             }
+
             binding.btPattern -> {
                 showAd()
                 launchActivity(MenuPatternActivity::class.java)
             }
+
             binding.btChat -> this.chatMessenger()
             binding.btGithub -> {
                 this.openUrlInBrowser(
                     url = "https://github.com/tplloi/base"
                 )
             }
+
             binding.btAdHelper -> {
                 showAd()
                 launchActivity(cls = AdHelperActivity::class.java, data = {
@@ -267,39 +277,48 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                     it.putExtra(AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
                 })
             }
+
             binding.btFbFanpage -> this.likeFacebookFanpage()
             binding.btFrmMore -> {
                 showAd()
                 launchActivity(MoreActivity::class.java)
             }
+
             binding.btTutorial -> {
                 showAd()
                 launchActivity(MenuTutorialActivity::class.java)
             }
+
             binding.btPicker -> {
                 showAd()
                 launchActivity(MenuPickerActivity::class.java)
             }
+
             binding.btNetwork -> {
                 showAd()
-                launchActivity(NetworkActivity::class.java)
+                launchActivity(MenuNetworkActivity::class.java)
             }
+
             binding.btSecurity -> {
                 showAd()
                 launchActivity(MenuSecurityActivity::class.java)
             }
+
             binding.btService -> {
                 showAd()
                 launchActivity(MenuServiceActivity::class.java)
             }
+
             binding.btUtils -> {
                 showAd()
                 launchActivity(UtilsActivity::class.java)
             }
+
             binding.btUtilsCore -> {
                 showAd()
                 launchActivity(UtilsCoreActivity::class.java)
             }
+
             binding.btFeedback -> {
                 this.sendEmail(
                     to = "roy93group@gmail.com",
@@ -309,10 +328,12 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                     body = "..."
                 )
             }
+
             binding.btInterviewVNIQActivity -> {
                 showAd()
                 launchActivity(InterviewVNIQActivity::class.java)
             }
+
             binding.tvMoreApp -> this.moreApp()
         }
     }

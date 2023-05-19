@@ -37,13 +37,17 @@ private const val TEXT_SIZE_EPUB_PERCENT = "TEXT_SIZE_EPUB"
 private var JSON_BOOK_ASSET = "JSON_BOOK_ASSET"
 private const val PASS_CODE = "PASS_CODE"
 private const val GG_APP_SETTING = "GG_APP_SETTING"
-const val KEY_BOOLEAN_IS_CONNECTED_NETWORK = "KEY_BOOLEAN_IS_CONNECTED_NETWORK"
+//const val KEY_BOOLEAN_IS_CONNECTED_NETWORK = "KEY_BOOLEAN_IS_CONNECTED_NETWORK"
 
-fun Context.getGGAppSetting(): App {
-    val pref = this.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-    return BaseApplication.gson.fromJson(
-        pref.getString(GG_APP_SETTING, ""), App::class.java
-    )
+fun Context.getGGAppSetting(): App? {
+    return try {
+        val pref = this.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
+        BaseApplication.gson.fromJson(
+            pref.getString(GG_APP_SETTING, ""), App::class.java
+        )
+    } catch (e: Exception) {
+        null
+    }
 }
 
 fun Context.setGGAppSetting(user: App) {
@@ -174,6 +178,7 @@ private fun <T> Context.get(
         String::class.java -> {
             return mSharedPreferences.getString(key, defaultValue as String) as T
         }
+
         Boolean::class.java -> {
             return java.lang.Boolean.valueOf(
                 mSharedPreferences.getBoolean(
@@ -181,6 +186,7 @@ private fun <T> Context.get(
                 )
             ) as T
         }
+
         Float::class.java -> {
             return java.lang.Float.valueOf(
                 mSharedPreferences.getFloat(
@@ -188,9 +194,11 @@ private fun <T> Context.get(
                 )
             ) as T
         }
+
         Int::class.java -> {
             return Integer.valueOf(mSharedPreferences.getInt(key, defaultValue as Int)) as T
         }
+
         Long::class.java -> {
             return java.lang.Long.valueOf(
                 mSharedPreferences.getLong(
@@ -198,6 +206,7 @@ private fun <T> Context.get(
                 )
             ) as T
         }
+
         else -> {
             val json = mSharedPreferences.getString(key, "")
             return BaseApplication.gson.fromJson(json, anonymousClass)
@@ -257,18 +266,23 @@ private fun <T> Context.put(
         is String -> {
             editor.putString(key, data)
         }
+
         is Boolean -> {
             editor.putBoolean(key, data)
         }
+
         is Float -> {
             editor.putFloat(key, data)
         }
+
         is Int -> {
             editor.putInt(key, data)
         }
+
         is Long -> {
             editor.putLong(key, data)
         }
+
         else -> {
             val json = BaseApplication.gson.toJson(data)
             editor.putString(key, json)

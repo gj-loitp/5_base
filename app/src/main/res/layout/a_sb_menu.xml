@@ -32,6 +32,11 @@
                 android:text="@string/boxed_vertical_seekbar" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMaterialRangeBar"
+                style="@style/ButtonMenu"
+                android:text="MaterialRangeBar" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRangeSeekBar"
                 style="@style/ButtonMenu"
                 android:text="RangeSeekbarActivity" />

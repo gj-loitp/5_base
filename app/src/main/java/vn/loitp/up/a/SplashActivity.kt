@@ -195,9 +195,19 @@ class SplashActivity : BaseActivityFont() {
                 getString(R.string.check_ur_connection)
             }
             val alertDial =
-                this.showDialog1(title = "Warning", msg = title, button1 = "Ok", onClickButton1 = {
-                    onBaseBackPressed()
-                })
+                this.showDialog1(
+                    title = "Warning",
+                    msg = title,
+                    button1 = "Ok",
+                    onClickButton1 = {
+                        onBaseBackPressed()
+                    },
+                    onLongClickButton1 = {
+                        //long click to by pass, this feature is hidden and normal user dont know that
+                        isCheckReadyDone = true
+                        goToHome()
+                    }
+                )
             alertDial.setCancelable(false)
         }
     }
@@ -205,8 +215,9 @@ class SplashActivity : BaseActivityFont() {
     private fun checkReady() {
         if (getCheckAppReady()) {
             val app = getGGAppSetting()
-            val isFullData = app.config?.isFullData == true
+            val isFullData = app?.config?.isFullData == true
             if (isFullData) {
+                setCheckAppReady(true)
                 isCheckReadyDone = true
                 goToHome()
                 return

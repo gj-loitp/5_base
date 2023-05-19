@@ -13,6 +13,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.ext.*
 import com.loitp.core.utils.Utils
 import com.loitp.game.findNumber.db.FindNumberDatabase
+import com.rommansabbir.networkx.NetworkXLifecycle
+import com.rommansabbir.networkx.NetworkXProvider
+import com.rommansabbir.networkx.SmartConfig
 
 
 /**
@@ -60,7 +63,7 @@ open class BaseApplication : MultiDexApplication(), LifecycleObserver {
         BigImageViewer.initialize(GlideImageLoader.with(applicationContext))
 
         // network
-        this.initOnNetworkChange()
+//        this.initOnNetworkChange()
 
         // dark mode
         val isDarkTheme = isDarkTheme()
@@ -68,6 +71,15 @@ open class BaseApplication : MultiDexApplication(), LifecycleObserver {
 
         //game find number database
         FindNumberDatabase.getInstance(this)
+
+        //network x
+        NetworkXProvider.enable(
+            SmartConfig(
+                application = this,
+                enableSpeedMeter = true,
+                lifecycle = NetworkXLifecycle.Application
+            )
+        )
     }
 
     protected fun logD(msg: String) {
@@ -91,25 +103,31 @@ open class BaseApplication : MultiDexApplication(), LifecycleObserver {
             Lifecycle.Event.ON_CREATE -> {
 //                logE("ON_CREATE")
             }
+
             Lifecycle.Event.ON_START -> {
 //                logE("ON_START")
 //                logE(">>>onAppInForeground")
                 onAppInForeground()
             }
+
             Lifecycle.Event.ON_RESUME -> {
 //                logE("ON_RESUME")
             }
+
             Lifecycle.Event.ON_PAUSE -> {
 //                logE("ON_PAUSE")
             }
+
             Lifecycle.Event.ON_STOP -> {
 //                logE("ON_STOP")
 //                logE(">>>onAppInBackground")
                 onAppInBackground()
             }
+
             Lifecycle.Event.ON_DESTROY -> {
 //                logE("ON_DESTROY")
             }
+
             else -> {}
         }
     }

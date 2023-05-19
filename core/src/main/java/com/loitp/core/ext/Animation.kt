@@ -1,5 +1,6 @@
 package com.loitp.core.ext
 
+import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.view.View
 import android.view.animation.*
@@ -77,17 +78,56 @@ fun View.playAnimRandomDuration(
     duration: Long = Random.nextLong(501)
 ) {
     val anim = ScaleAnimation(
-        0.0f,
-        1.0f,
-        0.0f,
-        1.0f,
-        Animation.RELATIVE_TO_SELF,
-        0.5f,
-        Animation.RELATIVE_TO_SELF,
-        0.5f
+        /* fromX = */ 0.0f,
+        /* toX = */ 1.0f,
+        /* fromY = */ 0.0f,
+        /* toY = */ 1.0f,
+        /* pivotXType = */ Animation.RELATIVE_TO_SELF,
+        /* pivotXValue = */ 0.5f,
+        /* pivotYType = */ Animation.RELATIVE_TO_SELF,
+        /* pivotYValue = */ 0.5f
     )
     anim.duration = duration // to make duration random number between [0,500)
 //            anim.duration = Random.nextLong(501) //to make duration random number between [0,500)
 //            anim.duration = 500 //to make duration random number between [0,500)
     this.startAnimation(anim)
+}
+
+fun View.playAnimRotate(
+    fillAfter: Boolean = true,
+    repeatCount: Int = Animation.INFINITE,
+    repeatMode: Int = ObjectAnimator.INFINITE,
+    duration: Long = 1500,
+    interpolator: Interpolator = LinearInterpolator(),
+    listener: Animation.AnimationListener? = null,
+) {
+    val rotateAnimation = RotateAnimation(
+        /* fromDegrees = */ 0f,
+        /* toDegrees = */ 359f,
+        /* pivotXType = */ Animation.RELATIVE_TO_SELF,
+        /* pivotXValue = */ 0.5f,
+        /* pivotYType = */ Animation.RELATIVE_TO_SELF,
+        /* pivotYValue = */ 0.5f
+
+    )
+    rotateAnimation.fillAfter = fillAfter
+    rotateAnimation.repeatCount = repeatCount
+    rotateAnimation.repeatMode = repeatMode
+    rotateAnimation.duration = duration
+    rotateAnimation.interpolator = interpolator
+    rotateAnimation.setAnimationListener(listener)
+//    rotateAnimation.setAnimationListener(object : Animation.AnimationListener {
+//        override fun onAnimationStart(animation: Animation?) {}
+//        override fun onAnimationRepeat(animation: Animation?) {}
+//        override fun onAnimationEnd(animation: Animation?) {}
+//    })
+    this.startAnimation(rotateAnimation)
+}
+
+fun View.playAnimMoving() {
+    val anim = ObjectAnimator.ofFloat(this, View.TRANSLATION_Y, 30f)
+    anim.repeatCount = Animation.INFINITE
+    anim.repeatMode = ObjectAnimator.REVERSE
+    anim.duration = 1500
+    anim.start()
 }

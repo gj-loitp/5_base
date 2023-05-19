@@ -228,6 +228,11 @@
                 android:text="@string/tree_view" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTagSphere"
+                style="@style/ButtonMenu"
+                android:text="Tag Sphere" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btVideoView"
                 style="@style/ButtonMenu"
                 android:text="@string/videoview" />

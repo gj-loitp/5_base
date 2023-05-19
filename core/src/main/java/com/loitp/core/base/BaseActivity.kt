@@ -2,7 +2,6 @@ package com.loitp.core.base
 
 import android.app.Activity
 import android.app.Dialog
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -18,15 +17,33 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.loitp.BuildConfig
 import com.loitp.R
-import com.loitp.annotation.*
+import com.loitp.annotation.IsAutoAnimation
+import com.loitp.annotation.IsFullScreen
+import com.loitp.annotation.IsKeepScreenOn
+import com.loitp.annotation.IsShowAnimWhenExit
+import com.loitp.annotation.IsSwipeActivity
+import com.loitp.annotation.LogTag
 import com.loitp.core.common.NOT_FOUND
-import com.loitp.core.ext.*
+import com.loitp.core.ext.allowInfiniteLines
+import com.loitp.core.ext.d
+import com.loitp.core.ext.e
+import com.loitp.core.ext.genCustomProgressDialog
+import com.loitp.core.ext.hide
+import com.loitp.core.ext.i
+import com.loitp.core.ext.isDarkTheme
+import com.loitp.core.ext.recolorNavigationBar
+import com.loitp.core.ext.recolorStatusBar
+import com.loitp.core.ext.show
+import com.loitp.core.ext.showDialog1
+import com.loitp.core.ext.tranIn
+import com.loitp.core.ext.tranOut
+import com.loitp.core.ext.withBackground
 import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
 import com.loitp.views.toast.LToast
-import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
-import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
+import com.rommansabbir.networkx.LastKnownSpeed
+import com.rommansabbir.networkx.NetworkXProvider
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -133,7 +150,7 @@ abstract class BaseActivity : AppCompatActivity() {
             window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         }
 
-        registerNetworkChangeListener()
+//        registerNetworkChangeListener()
 
         // auto animation
         val isAutoAnimation = javaClass.getAnnotation(IsAutoAnimation::class.java)?.value ?: false
@@ -146,10 +163,11 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
 
+        setupNetworkX()
+
         onBackPressedDispatcher.addCallback(this) {
             onBaseBackPressed()
         }
-
     }
 
     open fun onBaseBackPressed() {
@@ -247,7 +265,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        unRegisterNetworkChangeListener()
+//        unRegisterNetworkChangeListener()
         EventBus.getDefault().unregister(this)
         compositeDisposable.clear()
         stopIdleTimeHandler()
@@ -286,13 +304,6 @@ abstract class BaseActivity : AppCompatActivity() {
                 runnable?.run()
             })
     }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onMessageEvent(event: EventBusData.ConnectEvent) {
-        onNetworkChange(event = event)
-    }
-
-    open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
     fun showShortInformation(
         msg: String?,
@@ -508,25 +519,21 @@ abstract class BaseActivity : AppCompatActivity() {
         onBaseBackPressed()
     }
 
-    private fun registerNetworkChangeListener() {
-        CheckNetworkConnectionHelper.getInstance()
-            .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
-                override fun onConnected() {
-                    onNetworkConnectionChanged(isConnected = true)
-                }
-
-                override fun onDisconnected() {
-                    onNetworkConnectionChanged(isConnected = false)
-                }
-
-                override fun getContext(): Context {
-                    return this@BaseActivity
-                }
-            })
+    private fun setupNetworkX() {
+        NetworkXProvider.isInternetConnectedLiveData.observe(this) {
+//            isInternetConnectedLiveData(it)
+            EventBusData.instance.sendConnectChange(it)
+        }
+        NetworkXProvider.lastKnownSpeedLiveData.observe(this) {
+            lastKnownSpeedLiveData(it)
+        }
     }
 
-    private fun unRegisterNetworkChangeListener() {
-//        AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onMessageEvent(event: EventBusData.ConnectEvent) {
+        onNetworkChange(event = event)
     }
 
+    open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
+    open fun lastKnownSpeedLiveData(lastKnownSpeed: LastKnownSpeed) {}
 }

@@ -20,6 +20,7 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.databinding.AAdInterstitialBinding
+import vn.loitp.up.app.EmptyActivity
 import java.util.concurrent.TimeUnit
 import kotlin.math.min
 import kotlin.math.pow
@@ -54,7 +55,9 @@ class InterstitialActivity : BaseActivityFont() {
             this.tvTitle?.text = InterstitialActivity::class.java.simpleName
         }
         binding.btShow.setSafeOnClickListener {
-            showAd()
+            showAd {
+                launchActivity(EmptyActivity::class.java)
+            }
         }
 
         createAdInter()
@@ -114,7 +117,7 @@ class InterstitialActivity : BaseActivityFont() {
         }
     }
 
-    private fun showAd() {
+    private fun showAd(runnable: Runnable) {
         if (BuildConfig.EnableAdInter) {
             interstitialAd?.let { ad ->
                 if (ad.isReady) {
@@ -122,6 +125,7 @@ class InterstitialActivity : BaseActivityFont() {
                     setDelay(500.getRandomNumber() + 500) {
                         hideDialogProgress()
                         ad.showAd()
+                        runnable.run()
                     }
                 }
             }

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.appyvet.materialrangebar.RangeBar
+                android:id="@+id/rangebar1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                app:mrb_barWeight="2dp"
+                app:mrb_connectingLineColors="@array/connecting_colors"
+                app:mrb_connectingLineWeight="4dp"
+                app:mrb_leftThumbColor="#FFB300"
+                app:mrb_minThumbDistance="-1"
+                app:mrb_pinColor="#6c3f6a"
+                app:mrb_pinMaxFont="15sp"
+                app:mrb_pinMinFont="12sp"
+                app:mrb_pinRadius="14dp"
+                app:mrb_pinTextColor="@color/white"
+                app:mrb_rangeBar="true"
+                app:mrb_rangeBarPaddingBottom="30dp"
+                app:mrb_rangeBar_rounded="true"
+                app:mrb_rightThumbColor="#1E88E5"
+                app:mrb_temporaryPins="true"
+                app:mrb_thumbBoundaryColor="@color/deepPink"
+                app:mrb_thumbBoundarySize="2dp"
+                app:mrb_thumbSize="10dp"
+                app:mrb_tickBottomLabels="@array/ticks_labels"
+                app:mrb_tickColors="@array/tick_colors"
+                app:mrb_tickDefaultColor="@color/blue"
+                app:mrb_tickDefaultLabel="label"
+                app:mrb_tickEnd="10"
+                app:mrb_tickHeight="4dp"
+                app:mrb_tickInterval="1"
+                app:mrb_tickLabelColor="@color/red"
+                app:mrb_tickLabelSelectedColor="@color/green"
+                app:mrb_tickLabelSize="4sp"
+                app:mrb_tickStart="1"
+                app:mrb_tickTopLabels="@array/ticks_labels" />
+
+            <com.appyvet.materialrangebar.RangeBar
+                android:id="@+id/rangebar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="@dimen/margin_padding_medium"
+                android:layout_marginEnd="40dp"
+                app:mrb_barWeight="2dp"
+                app:mrb_connectingLineColors="@array/connecting_colors"
+                app:mrb_connectingLineWeight="4dp"
+                app:mrb_leftThumbColor="#FFB300"
+                app:mrb_minThumbDistance="-1"
+                app:mrb_pinColor="#6c3f6a"
+                app:mrb_pinMaxFont="15sp"
+                app:mrb_pinMinFont="12sp"
+                app:mrb_pinRadius="14dp"
+                app:mrb_pinTextColor="@color/white"
+                app:mrb_rangeBar="false"
+                app:mrb_rangeBarPaddingBottom="30dp"
+                app:mrb_rangeBar_rounded="true"
+                app:mrb_rightThumbColor="#1E88E5"
+                app:mrb_temporaryPins="true"
+                app:mrb_thumbBoundaryColor="@color/red"
+                app:mrb_thumbBoundarySize="2dp"
+                app:mrb_thumbSize="10dp"
+                app:mrb_tickBottomLabels="@array/ticks_labels"
+                app:mrb_tickColors="@array/tick_colors"
+                app:mrb_tickDefaultColor="@color/ripple_material_dark"
+                app:mrb_tickDefaultLabel="label"
+                app:mrb_tickEnd="10"
+                app:mrb_tickHeight="4dp"
+                app:mrb_tickInterval="1"
+                app:mrb_tickLabelColor="@color/deepPink"
+                app:mrb_tickLabelSelectedColor="@color/cyan"
+                app:mrb_tickLabelSize="4sp"
+                app:mrb_tickStart="1"
+                app:mrb_tickTopLabels="@array/ticks_labels" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
