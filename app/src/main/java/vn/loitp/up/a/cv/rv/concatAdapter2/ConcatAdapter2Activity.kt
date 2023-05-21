@@ -37,7 +37,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
         }.build()
         ConcatAdapter(config, emptyList())
     }
-    private var maxColumn = 5
+    private var maxColumn = 3
 
     override fun setLayoutResourceId(): Int {
         return NOT_FOUND
@@ -77,8 +77,14 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             contentAdapter.setData(dummyContent.listContentDetail)
             contentAdapter.onClickRootListener = { cd, pos ->
                 cd.isSelected = !(cd.isSelected ?: false)
+
 //                contentAdapter.notifyItemChanged(pos)
-                concatAdapter.notifyDataSetChanged()
+//                concatAdapter.notifyDataSetChanged()
+                concatAdapter.adapters.forEach {
+                    if (it is ContentAdapter) {
+                        it.notifyDataSetChanged()
+                    }
+                }
             }
             concatAdapter.addAdapter(contentAdapter)
         }
