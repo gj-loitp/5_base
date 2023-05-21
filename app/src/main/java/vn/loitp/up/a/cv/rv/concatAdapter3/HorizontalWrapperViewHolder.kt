@@ -3,10 +3,10 @@ package vn.loitp.up.a.cv.rv.concatAdapter3
 import androidx.core.view.doOnPreDraw
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import vn.loitp.databinding.ViewHorizontalWrapperBinding
+import vn.loitp.databinding.VConcatAdapter3HorizontalWrapperBinding
 
 class HorizontalWrapperViewHolder(
-    private val binding: ViewHorizontalWrapperBinding
+    private val binding: VConcatAdapter3HorizontalWrapperBinding
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(adapter: HorizontalAdapter, lastScrollX: Int, onScrolled: (Int) -> Unit) {
         val context = binding.root.context

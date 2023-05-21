@@ -18,6 +18,7 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.databinding.AConcatAdapter2Binding
 import vn.loitp.up.a.cv.rv.concatAdapter2.adt.ContentAdapter
 import vn.loitp.up.a.cv.rv.concatAdapter2.adt.TitleAdapter
+import vn.loitp.up.a.cv.rv.concatAdapter2.adt.maxSelected
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.ContentDetail
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.DummyContent
 import vn.loitp.up.common.Constants
@@ -30,6 +31,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
 
     private lateinit var binding: AConcatAdapter2Binding
     private var listDummyContent = ArrayList<DummyContent>()//input data
+    private var listSelected = ArrayList<Long>()
 
     private val concatAdapter: ConcatAdapter by lazy {
         val config = ConcatAdapter.Config.Builder().apply {
@@ -37,7 +39,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
         }.build()
         ConcatAdapter(config, emptyList())
     }
-    private var maxColumn = 5
+    private var maxColumn = 3
 
     override fun setLayoutResourceId(): Int {
         return NOT_FOUND
@@ -77,16 +79,30 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             contentAdapter.setData(dummyContent.listContentDetail)
             contentAdapter.onClickRootListener = { cd, pos ->
                 cd.isSelected = !(cd.isSelected ?: false)
+
+                if (cd.isSelected == true) {
+                    listSelected.add(cd.id)
+                } else {
+                    listSelected.remove(cd.id)
+                }
+                contentAdapter.updateListSelected(listSelected)
+
 //                contentAdapter.notifyItemChanged(pos)
-                concatAdapter.notifyDataSetChanged()
+//                concatAdapter.notifyDataSetChanged()
+                concatAdapter.adapters.forEach {
+                    if (it is ContentAdapter) {
+                        it.notifyDataSetChanged()
+                    }
+                }
+
+                if (listSelected.size == maxSelected) {
+                    showShortError("You choose max size!")
+                }
             }
             concatAdapter.addAdapter(contentAdapter)
         }
         concatAdapter.notifyDataSetChanged()
 
-        binding.btSelectAll.setSafeOnClickListener {
-            selectAll()
-        }
         binding.btSelectUnselectAll.setSafeOnClickListener {
             unselectAll()
         }
@@ -121,6 +137,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             val listContentDetail = ArrayList<ContentDetail>()
             for (j in 0..getRandomNumber(15)) {
                 val contentDetail = ContentDetail()
+                contentDetail.id = System.nanoTime()
                 contentDetail.name = "Name $j"
                 if (j % 2 == 0) {
                     contentDetail.img = Constants.URL_IMG_1
@@ -136,17 +153,8 @@ class ConcatAdapter2Activity : BaseActivityFont() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun selectAll() {
-        listDummyContent.forEach { dc ->
-            dc.listContentDetail.forEach { contentDetail ->
-                contentDetail.isSelected = true
-            }
-        }
-        concatAdapter.notifyDataSetChanged()
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
     private fun unselectAll() {
+        listSelected.clear()
         listDummyContent.forEach { dc ->
             dc.listContentDetail.forEach { contentDetail ->
                 contentDetail.isSelected = false
@@ -157,19 +165,28 @@ class ConcatAdapter2Activity : BaseActivityFont() {
 
     private fun save() {
         val listContentDetailSelected = ArrayList<ContentDetail>()
-        listDummyContent.forEach { dc ->
-            dc.listContentDetail.forEach { contentDetail ->
-                if (contentDetail.isSelected == true) {
-                    listContentDetailSelected.add(contentDetail)
+
+        fun getContentDetail(id: Long): ContentDetail? {
+            listDummyContent.forEach { dc ->
+                dc.listContentDetail.forEach { contentDetail ->
+                    if (contentDetail.isSelected == true && contentDetail.id == id) {
+                        return contentDetail
+                    }
                 }
             }
+            return null
         }
-        val msg = ">>>save listContentDetailSelected ${
-            BaseApplication.gson.toJson(
-                listContentDetailSelected
-            )
-        }"
-        logD(msg)
+
+        listSelected.forEach {
+            val contentDetail = getContentDetail(it)
+            contentDetail?.let {
+                listContentDetailSelected.add(it)
+            }
+        }
+        var msg = ""
+        listContentDetailSelected.forEach {
+            msg += "${it.id} - ${it.name}\n"
+        }
         showLongInformation(msg)
     }
 

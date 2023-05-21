@@ -13,11 +13,27 @@ import vn.loitp.databinding.IConcat2DetailBinding
 import vn.loitp.up.a.cv.rv.concatAdapter2.TYPE_CONTENT
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.ContentDetail
 
+var maxSelected = 10
 @LogTag("ContentAdapter")
-class ContentAdapter() : BaseAdapter() {
+class ContentAdapter : BaseAdapter() {
 
     private var listContentDetail = ArrayList<ContentDetail>()
     var onClickRootListener: ((cd: ContentDetail, pos: Int) -> Unit)? = null
+
+    private var listSelected = ArrayList<Long>()
+
+    private fun getSelectedIndex(id: Long): Int? {
+        listSelected.forEachIndexed { index, value ->
+            if (id == value) {
+                return index
+            }
+        }
+        return null
+    }
+
+    fun updateListSelected(list: ArrayList<Long>) {
+        listSelected = list
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     fun setData(list: ArrayList<ContentDetail>) {
@@ -32,12 +48,37 @@ class ContentAdapter() : BaseAdapter() {
         fun bind(contentDetail: ContentDetail) {
             binding.tv.text = contentDetail.name + "~" + getItemViewType(bindingAdapterPosition)
             binding.iv.loadGlide(contentDetail.img)
-            binding.ivCheck.isVisible = contentDetail.isSelected ?: false
+
+            if (contentDetail.isSelected == true) {
+                binding.ivCheck.isVisible = true
+                binding.tvCount.isVisible = true
+
+                binding.tvCount.text =
+                    "${getSelectedIndex(contentDetail.id)?.plus(1)}"//+1 because user count from 1
+            } else {
+                binding.ivCheck.isVisible = false
+                binding.tvCount.isVisible = false
+            }
+
+            if (isValidClick()) {
+                binding.flDim.isVisible = false
+            } else {
+                binding.flDim.isVisible = contentDetail.isSelected != true
+            }
 
             binding.layoutRoot.setSafeOnClickListener {
-                onClickRootListener?.invoke(contentDetail, bindingAdapterPosition)
+                if (isValidClick() || contentDetail.isSelected == true) {
+                    onClickRootListener?.invoke(contentDetail, bindingAdapterPosition)
+                }
             }
         }
+    }
+
+    private fun isValidClick(): Boolean {
+        if (listSelected.size < maxSelected) {
+            return true
+        }
+        return false
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

@@ -5,13 +5,14 @@
     android:layout_width="120dp"
     android:layout_height="120dp"
     android:layout_margin="8dp"
-    android:background="#F2F9FF">
+    android:background="@color/red">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/txt_large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
