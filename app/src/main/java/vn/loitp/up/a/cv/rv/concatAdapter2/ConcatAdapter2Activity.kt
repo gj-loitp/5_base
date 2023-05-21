@@ -2,7 +2,6 @@ package vn.loitp.up.a.cv.rv.concatAdapter2
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.Selection.selectAll
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
@@ -19,6 +18,7 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.databinding.AConcatAdapter2Binding
 import vn.loitp.up.a.cv.rv.concatAdapter2.adt.ContentAdapter
 import vn.loitp.up.a.cv.rv.concatAdapter2.adt.TitleAdapter
+import vn.loitp.up.a.cv.rv.concatAdapter2.adt.maxSelected
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.ContentDetail
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.DummyContent
 import vn.loitp.up.common.Constants
@@ -93,6 +93,10 @@ class ConcatAdapter2Activity : BaseActivityFont() {
                     if (it is ContentAdapter) {
                         it.notifyDataSetChanged()
                     }
+                }
+
+                if (listSelected.size == maxSelected) {
+                    showShortError("You choose max size!")
                 }
             }
             concatAdapter.addAdapter(contentAdapter)

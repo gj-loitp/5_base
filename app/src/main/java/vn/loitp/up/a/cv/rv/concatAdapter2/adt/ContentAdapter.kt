@@ -13,6 +13,7 @@ import vn.loitp.databinding.IConcat2DetailBinding
 import vn.loitp.up.a.cv.rv.concatAdapter2.TYPE_CONTENT
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.ContentDetail
 
+var maxSelected = 10
 @LogTag("ContentAdapter")
 class ContentAdapter : BaseAdapter() {
 
@@ -20,12 +21,11 @@ class ContentAdapter : BaseAdapter() {
     var onClickRootListener: ((cd: ContentDetail, pos: Int) -> Unit)? = null
 
     private var listSelected = ArrayList<Long>()
-    private var maxSelected = 10
 
     private fun getSelectedIndex(id: Long): Int? {
         listSelected.forEachIndexed { index, value ->
             if (id == value) {
-                return index + 1//because user count from 1
+                return index
             }
         }
         return null
@@ -53,7 +53,8 @@ class ContentAdapter : BaseAdapter() {
                 binding.ivCheck.isVisible = true
                 binding.tvCount.isVisible = true
 
-                binding.tvCount.text = "${getSelectedIndex(contentDetail.id)}/ $maxSelected"
+                binding.tvCount.text =
+                    "${getSelectedIndex(contentDetail.id)?.plus(1)}"//+1 because user count from 1
             } else {
                 binding.ivCheck.isVisible = false
                 binding.tvCount.isVisible = false
@@ -66,7 +67,7 @@ class ContentAdapter : BaseAdapter() {
             }
 
             binding.layoutRoot.setSafeOnClickListener {
-                if (isValidClick()) {
+                if (isValidClick() || contentDetail.isSelected == true) {
                     onClickRootListener?.invoke(contentDetail, bindingAdapterPosition)
                 }
             }
