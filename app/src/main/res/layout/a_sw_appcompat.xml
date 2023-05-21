@@ -24,27 +24,18 @@
             android:gravity="center"
             android:text="@string/change_the_color_of_a_switchcompat" />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <com.loitp.views.sw.appcompatSw.LColorSwitchCompat
+            android:id="@+id/sw"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="@dimen/margin_padding_medium">
-
-            <com.loitp.views.sw.appcompatSw.LColorSwitchCompat
-                android:id="@+id/sw"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/dark_theme"
-                android:textColor="?attr/themeTextColor"
-                app:bgOffColor="@color/vip1"
-                app:bgOnColor="@color/vip2"
-                app:toggleOffColor="@color/vip3"
-                app:toggleOnColor="@color/vip4" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_padding_medium"
+            android:text="@string/dark_theme"
+            android:textColor="?attr/themeTextColor"
+            app:bgOffColor="@color/vip1"
+            app:bgOnColor="@color/vip2"
+            app:toggleOffColor="@color/vip3"
+            app:toggleOnColor="@color/vip4" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView"
@@ -53,6 +44,18 @@
             android:padding="@dimen/txt_medium"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_padding_medium"
+            android:checked="true"
+            android:switchMinWidth="56dp"
+            android:text="Switch style like IOS:"
+            android:thumb="@drawable/sw_thumb_selector"
+            app:thumbTint="@color/white"
+            app:track="@drawable/sw_track_selector"
+            app:trackTintMode="multiply" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
