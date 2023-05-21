@@ -14,7 +14,7 @@ import vn.loitp.up.a.cv.rv.concatAdapter2.TYPE_CONTENT
 import vn.loitp.up.a.cv.rv.concatAdapter2.model.ContentDetail
 
 @LogTag("ContentAdapter")
-class ContentAdapter() : BaseAdapter() {
+class ContentAdapter : BaseAdapter() {
 
     private var listContentDetail = ArrayList<ContentDetail>()
     var onClickRootListener: ((cd: ContentDetail, pos: Int) -> Unit)? = null
@@ -32,7 +32,14 @@ class ContentAdapter() : BaseAdapter() {
         fun bind(contentDetail: ContentDetail) {
             binding.tv.text = contentDetail.name + "~" + getItemViewType(bindingAdapterPosition)
             binding.iv.loadGlide(contentDetail.img)
-            binding.ivCheck.isVisible = contentDetail.isSelected ?: false
+
+            if (contentDetail.isSelected == true) {
+                binding.ivCheck.isVisible = true
+                binding.tvCount.isVisible = true
+            } else {
+                binding.ivCheck.isVisible = false
+                binding.tvCount.isVisible = false
+            }
 
             binding.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(contentDetail, bindingAdapterPosition)

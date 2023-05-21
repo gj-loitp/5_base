@@ -78,6 +78,8 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             contentAdapter.onClickRootListener = { cd, pos ->
                 cd.isSelected = !(cd.isSelected ?: false)
 
+
+
 //                contentAdapter.notifyItemChanged(pos)
 //                concatAdapter.notifyDataSetChanged()
                 concatAdapter.adapters.forEach {
@@ -127,6 +129,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             val listContentDetail = ArrayList<ContentDetail>()
             for (j in 0..getRandomNumber(15)) {
                 val contentDetail = ContentDetail()
+                contentDetail.id = System.nanoTime()
                 contentDetail.name = "Name $j"
                 if (j % 2 == 0) {
                     contentDetail.img = Constants.URL_IMG_1

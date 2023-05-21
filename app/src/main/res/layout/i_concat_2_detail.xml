@@ -35,4 +35,16 @@
         android:visibility="gone"
         tools:visibility="visible" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/deepPink"
+        android:gravity="center"
+        android:padding="@dimen/margin_padding_small"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_medium"
+        android:visibility="gone"
+        tools:text="10"
+        tools:visibility="visible" />
 </RelativeLayout>
