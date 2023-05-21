@@ -62,7 +62,7 @@ class ContentAdapter : BaseAdapter() {
             if (isValidClick()) {
                 binding.flDim.isVisible = false
             } else {
-                binding.flDim.isVisible = true
+                binding.flDim.isVisible = contentDetail.isSelected != true
             }
 
             binding.layoutRoot.setSafeOnClickListener {

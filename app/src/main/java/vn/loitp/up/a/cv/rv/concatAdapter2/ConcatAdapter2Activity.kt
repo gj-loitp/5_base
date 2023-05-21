@@ -2,6 +2,7 @@ package vn.loitp.up.a.cv.rv.concatAdapter2
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Selection.selectAll
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
@@ -98,9 +99,6 @@ class ConcatAdapter2Activity : BaseActivityFont() {
         }
         concatAdapter.notifyDataSetChanged()
 
-        binding.btSelectAll.setSafeOnClickListener {
-            selectAll()
-        }
         binding.btSelectUnselectAll.setSafeOnClickListener {
             unselectAll()
         }
@@ -148,16 +146,6 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             listDummyContent.add(dummyContent)
         }
         logD(">>>setupData listDummyContent ${BaseApplication.gson.toJson(listDummyContent)}")
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    private fun selectAll() {
-        listDummyContent.forEach { dc ->
-            dc.listContentDetail.forEach { contentDetail ->
-                contentDetail.isSelected = true
-            }
-        }
-        concatAdapter.notifyDataSetChanged()
     }
 
     @SuppressLint("NotifyDataSetChanged")
