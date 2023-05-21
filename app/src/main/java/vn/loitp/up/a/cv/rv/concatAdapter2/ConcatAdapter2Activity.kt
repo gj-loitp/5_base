@@ -154,6 +154,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun unselectAll() {
+        listSelected.clear()
         listDummyContent.forEach { dc ->
             dc.listContentDetail.forEach { contentDetail ->
                 contentDetail.isSelected = false
