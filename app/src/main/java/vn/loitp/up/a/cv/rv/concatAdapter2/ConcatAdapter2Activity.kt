@@ -30,6 +30,7 @@ class ConcatAdapter2Activity : BaseActivityFont() {
 
     private lateinit var binding: AConcatAdapter2Binding
     private var listDummyContent = ArrayList<DummyContent>()//input data
+    private var listSelected = ArrayList<Long>()
 
     private val concatAdapter: ConcatAdapter by lazy {
         val config = ConcatAdapter.Config.Builder().apply {
@@ -78,7 +79,12 @@ class ConcatAdapter2Activity : BaseActivityFont() {
             contentAdapter.onClickRootListener = { cd, pos ->
                 cd.isSelected = !(cd.isSelected ?: false)
 
-
+                if (cd.isSelected == true) {
+                    listSelected.add(cd.id)
+                } else {
+                    listSelected.remove(cd.id)
+                }
+                contentAdapter.updateListSelected(listSelected)
 
 //                contentAdapter.notifyItemChanged(pos)
 //                concatAdapter.notifyDataSetChanged()

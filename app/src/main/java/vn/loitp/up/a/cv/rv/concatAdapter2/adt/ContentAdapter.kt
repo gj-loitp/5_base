@@ -19,6 +19,22 @@ class ContentAdapter : BaseAdapter() {
     private var listContentDetail = ArrayList<ContentDetail>()
     var onClickRootListener: ((cd: ContentDetail, pos: Int) -> Unit)? = null
 
+    private var listSelected = ArrayList<Long>()
+    private var maxSelected = 10
+
+    private fun getSelectedIndex(id: Long): Int? {
+        listSelected.forEachIndexed { index, value ->
+            if (id == value) {
+                return index + 1//because user count from 1
+            }
+        }
+        return null
+    }
+
+    fun updateListSelected(list: ArrayList<Long>) {
+        listSelected = list
+    }
+
     @SuppressLint("NotifyDataSetChanged")
     fun setData(list: ArrayList<ContentDetail>) {
         this.listContentDetail.clear()
@@ -36,15 +52,26 @@ class ContentAdapter : BaseAdapter() {
             if (contentDetail.isSelected == true) {
                 binding.ivCheck.isVisible = true
                 binding.tvCount.isVisible = true
+
+                binding.tvCount.text = "${getSelectedIndex(contentDetail.id)}/ $maxSelected"
             } else {
                 binding.ivCheck.isVisible = false
                 binding.tvCount.isVisible = false
             }
 
             binding.layoutRoot.setSafeOnClickListener {
-                onClickRootListener?.invoke(contentDetail, bindingAdapterPosition)
+                if (isValidClick()) {
+                    onClickRootListener?.invoke(contentDetail, bindingAdapterPosition)
+                }
             }
         }
+    }
+
+    private fun isValidClick(): Boolean {
+        if (listSelected.size < maxSelected) {
+            return true
+        }
+        return false
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
