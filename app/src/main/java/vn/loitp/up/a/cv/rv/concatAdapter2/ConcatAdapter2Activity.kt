@@ -172,19 +172,28 @@ class ConcatAdapter2Activity : BaseActivityFont() {
 
     private fun save() {
         val listContentDetailSelected = ArrayList<ContentDetail>()
-        listDummyContent.forEach { dc ->
-            dc.listContentDetail.forEach { contentDetail ->
-                if (contentDetail.isSelected == true) {
-                    listContentDetailSelected.add(contentDetail)
+
+        fun getContentDetail(id: Long): ContentDetail? {
+            listDummyContent.forEach { dc ->
+                dc.listContentDetail.forEach { contentDetail ->
+                    if (contentDetail.isSelected == true && contentDetail.id == id) {
+                        return contentDetail
+                    }
                 }
             }
+            return null
         }
-        val msg = ">>>save listContentDetailSelected ${
-            BaseApplication.gson.toJson(
-                listContentDetailSelected
-            )
-        }"
-        logD(msg)
+
+        listSelected.forEach {
+            val contentDetail = getContentDetail(it)
+            contentDetail?.let {
+                listContentDetailSelected.add(it)
+            }
+        }
+        var msg = ""
+        listContentDetailSelected.forEach {
+            msg += "${it.id} - ${it.name}\n"
+        }
         showLongInformation(msg)
     }
 

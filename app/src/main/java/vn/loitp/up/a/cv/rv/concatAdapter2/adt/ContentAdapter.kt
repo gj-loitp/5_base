@@ -59,6 +59,12 @@ class ContentAdapter : BaseAdapter() {
                 binding.tvCount.isVisible = false
             }
 
+            if (isValidClick()) {
+                binding.flDim.isVisible = false
+            } else {
+                binding.flDim.isVisible = true
+            }
+
             binding.layoutRoot.setSafeOnClickListener {
                 if (isValidClick()) {
                     onClickRootListener?.invoke(contentDetail, bindingAdapterPosition)
