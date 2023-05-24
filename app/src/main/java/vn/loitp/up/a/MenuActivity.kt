@@ -68,7 +68,6 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
         setContentView(binding.root)
 
         setupViews()
-        setupConfigGoogle()
     }
 
     private fun setupViews() {
@@ -141,50 +140,6 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     override fun onDestroy() {
         adView?.destroy()
         super.onDestroy()
-    }
-
-    private fun setupConfigGoogle() {
-        val app = getGGAppSetting()
-        val isFullData = app?.config?.isFullData == true
-        if (isFullData) {
-            binding.btCustomView.isVisible = true
-            binding.btDemo.isVisible = true
-            binding.btFunction.isVisible = true
-            binding.btRateApp.isVisible = true
-            binding.btMoreApp.isVisible = true
-            binding.btDatabase.isVisible = true
-            binding.btPattern.isVisible = true
-            binding.btChat.isVisible = true
-            binding.btGithub.isVisible = true
-            binding.btAdHelper.isVisible = true
-            binding.btFbFanpage.isVisible = true
-            binding.btFrmMore.isVisible = true
-            binding.btTutorial.isVisible = true
-            binding.btPicker.isVisible = true
-            binding.btSecurity.isVisible = true
-            binding.btService.isVisible = true
-            binding.btUtils.isVisible = true
-            binding.btGame.isVisible = true
-        } else {
-            binding.btCustomView.isVisible = false
-            binding.btDemo.isVisible = false
-            binding.btFunction.isVisible = false
-            binding.btRateApp.isVisible = true
-            binding.btMoreApp.isVisible = true
-            binding.btDatabase.isVisible = false
-            binding.btPattern.isVisible = false
-            binding.btChat.isVisible = false
-            binding.btGithub.isVisible = false
-            binding.btAdHelper.isVisible = false
-            binding.btFbFanpage.isVisible = false
-            binding.btFrmMore.isVisible = false
-            binding.btTutorial.isVisible = false
-            binding.btPicker.isVisible = false
-            binding.btSecurity.isVisible = false
-            binding.btService.isVisible = false
-            binding.btUtils.isVisible = false
-            binding.btGame.isVisible = false
-        }
     }
 
     private var doubleBackToExitPressedOnce = false

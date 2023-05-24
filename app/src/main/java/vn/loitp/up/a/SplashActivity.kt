@@ -32,7 +32,7 @@ class SplashActivity : BaseActivityFont() {
     private lateinit var binding: ASplashBinding
 
     private var isAnimDone = false
-    private var isCheckReadyDone = false
+//    private var isCheckReadyDone = false
     private var isShowDialogCheck = false
 
     override fun setLayoutResourceId(): Int {
@@ -133,13 +133,15 @@ class SplashActivity : BaseActivityFont() {
                 )
             }.request { allGranted, _, _ ->
                 if (allGranted) {
-                    val isNeedCheckReady = true
-                    if (isNeedCheckReady) {
-                        checkReady()
-                    } else {
-                        isCheckReadyDone = true
-                        goToHome()
-                    }
+//                    val isNeedCheckReady = false
+//                    if (isNeedCheckReady) {
+//                        checkReady()
+//                    } else {
+//                        isCheckReadyDone = true
+//                        goToHome()
+//                    }
+//                    isCheckReadyDone = true
+                    goToHome()
                 } else {
                     finish()//correct
                     this.tranOut()
@@ -174,8 +176,9 @@ class SplashActivity : BaseActivityFont() {
     }
 
     private fun goToHome() {
-        logD("goToHome isAnimDone $isAnimDone, isCheckReadyDone $isCheckReadyDone")
-        if (isAnimDone && isCheckReadyDone) {
+//        logD("goToHome isAnimDone $isAnimDone, isCheckReadyDone $isCheckReadyDone")
+//        if (isAnimDone && isCheckReadyDone) {
+        if (isAnimDone) {
             runOnUiThread {
                 isCanWriteSystem(onSuccess = {
                     val intent = Intent(this, MenuActivity::class.java)
@@ -187,61 +190,61 @@ class SplashActivity : BaseActivityFont() {
         }
     }
 
-    private fun showDialogNotReady() {
-        runOnUiThread {
-            val title = if (this.isConnected()) {
-                "This app is not available now"
-            } else {
-                getString(R.string.check_ur_connection)
-            }
-            val alertDial =
-                this.showDialog1(
-                    title = "Warning",
-                    msg = title,
-                    button1 = "Ok",
-                    onClickButton1 = {
-                        onBaseBackPressed()
-                    },
-                    onLongClickButton1 = {
-                        //long click to by pass, this feature is hidden and normal user dont know that
-                        isCheckReadyDone = true
-                        goToHome()
-                    }
-                )
-            alertDial.setCancelable(false)
-        }
-    }
+//    private fun showDialogNotReady() {
+//        runOnUiThread {
+//            val title = if (this.isConnected()) {
+//                "This app is not available now"
+//            } else {
+//                getString(R.string.check_ur_connection)
+//            }
+//            val alertDial =
+//                this.showDialog1(
+//                    title = "Warning",
+//                    msg = title,
+//                    button1 = "Ok",
+//                    onClickButton1 = {
+//                        onBaseBackPressed()
+//                    },
+//                    onLongClickButton1 = {
+//                        //long click to by pass, this feature is hidden and normal user dont know that
+//                        isCheckReadyDone = true
+//                        goToHome()
+//                    }
+//                )
+//            alertDial.setCancelable(false)
+//        }
+//    }
 
-    private fun checkReady() {
-        if (getCheckAppReady()) {
-            val app = getGGAppSetting()
-            val isFullData = app?.config?.isFullData == true
-            if (isFullData) {
-                setCheckAppReady(true)
-                isCheckReadyDone = true
-                goToHome()
-                return
-            } else {
-                //continue to download config from drive
-            }
-        }
-        //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
-        val linkGGDriveConfigSetting =
-            "https://drive.google.com/uc?export=download&id=16pwq28ZTeP5p1ZeJmgwjHsOofE12XRIf"
-        getSettingFromGGDrive(linkGGDriveSetting = linkGGDriveConfigSetting,
-            onGGFailure = { _: Call, _: IOException ->
-                showDialogNotReady()
-            },
-            onGGResponse = { app: App? ->
-                logD(">>>checkReady " + BaseApplication.gson.toJson(app))
-                if (app == null || app.config?.isReady == false) {
-                    showDialogNotReady()
-                } else {
-                    setCheckAppReady(true)
-                    setGGAppSetting(app)
-                    isCheckReadyDone = true
-                    goToHome()
-                }
-            })
-    }
+//    private fun checkReady() {
+//        if (getCheckAppReady()) {
+//            val app = getGGAppSetting()
+//            val isFullData = app?.config?.isFullData == true
+//            if (isFullData) {
+//                setCheckAppReady(true)
+//                isCheckReadyDone = true
+//                goToHome()
+//                return
+//            } else {
+//                //continue to download config from drive
+//            }
+//        }
+//        //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
+//        val linkGGDriveConfigSetting =
+//            "https://drive.google.com/uc?export=download&id=16pwq28ZTeP5p1ZeJmgwjHsOofE12XRIf"
+//        getSettingFromGGDrive(linkGGDriveSetting = linkGGDriveConfigSetting,
+//            onGGFailure = { _: Call, _: IOException ->
+//                showDialogNotReady()
+//            },
+//            onGGResponse = { app: App? ->
+//                logD(">>>checkReady " + BaseApplication.gson.toJson(app))
+//                if (app == null || app.config?.isReady == false) {
+//                    showDialogNotReady()
+//                } else {
+//                    setCheckAppReady(true)
+//                    setGGAppSetting(app)
+//                    isCheckReadyDone = true
+//                    goToHome()
+//                }
+//            })
+//    }
 }
