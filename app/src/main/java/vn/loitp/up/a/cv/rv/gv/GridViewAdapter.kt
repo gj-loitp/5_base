@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.loitp.core.ext.loadGlide
 import vn.loitp.R
+import vn.loitp.up.common.Constants
 
 class GridViewAdapter(
     private val list: ArrayList<String>
@@ -50,7 +52,12 @@ class GridViewAdapter(
         }
 
         viewHolder.tv?.text = list[position]
-        viewHolder.iv?.setImageResource(R.drawable.ic_launcher)
+//        viewHolder.iv?.setImageResource(R.drawable.ic_launcher)
+        if (position % 2 == 0) {
+            viewHolder.iv?.loadGlide(Constants.URL_IMG_LARGE)
+        } else {
+            viewHolder.iv?.loadGlide(Constants.URL_IMG_LARGE_2)
+        }
         return view
     }
 }
