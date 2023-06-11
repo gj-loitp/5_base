@@ -42,8 +42,8 @@ class GridViewAdapter(
                 parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             view = inflater.inflate(R.layout.i_gv, parent, false)
             viewHolder = ViewHolder()
-            viewHolder.tv = view.findViewById(R.id.tvBookTitle)
-            viewHolder.iv = view.findViewById(R.id.ivCover)
+            viewHolder.tv = view.findViewById(R.id.tv)
+            viewHolder.iv = view.findViewById(R.id.iv)
             view.tag = viewHolder
         } else {
             viewHolder = view.tag as ViewHolder
