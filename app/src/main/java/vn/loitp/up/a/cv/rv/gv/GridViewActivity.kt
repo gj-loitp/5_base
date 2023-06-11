@@ -1,6 +1,7 @@
 package vn.loitp.up.a.cv.rv.gv
 
 import android.os.Bundle
+import android.os.Environment
 import android.view.View
 import android.widget.AdapterView
 import com.loitp.annotation.IsFullScreen
@@ -10,13 +11,13 @@ import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import vn.loitp.R
 import vn.loitp.databinding.AGvBinding
-import vn.loitp.up.common.Constants
 
-@LogTag("GridViewActivity")
+@LogTag("loitpGridViewActivity")
 @IsFullScreen(false)
 class GridViewActivity : BaseActivityFont() {
 
     private lateinit var binding: AGvBinding
+    val list = ArrayList<String>()
 
     override fun setLayoutResourceId(): Int {
         return NOT_FOUND
@@ -39,7 +40,6 @@ class GridViewActivity : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = GridViewActivity::class.java.simpleName
         }
-        val list = ArrayList<String>()
         for (i in 0..100) {
             list.add("Loitp $i")
         }
@@ -49,5 +49,24 @@ class GridViewActivity : BaseActivityFont() {
             AdapterView.OnItemClickListener { adapterView: AdapterView<*>, _: View?, i: Int, _: Long ->
                 logD(">>> i $i")
             }
+
+        binding.btPick.setSafeOnClickListener {
+            getListFiles()
+        }
+    }
+
+    private fun getListFiles() {
+        val fl =
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM + "/test large")
+        val files = fl.listFiles()
+        if (files.isNullOrEmpty()) {
+            showShortError("No file in folder: Environment.DIRECTORY_DCIM/test large")
+        }
+        files?.let {
+            logD("getListFiles ${files.size}")
+            for (i in files.indices) {
+                logD("getListFiles ${files[i].name} + ${files[i].path}")
+            }
+        }
     }
 }

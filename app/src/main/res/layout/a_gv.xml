@@ -30,6 +30,14 @@
             android:layout_height="match_parent"
             android:numColumns="5"
             android:stretchMode="columnWidth" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btPick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:text="Pick" />
     </RelativeLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
