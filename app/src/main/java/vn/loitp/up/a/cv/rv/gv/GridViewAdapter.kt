@@ -1,6 +1,7 @@
 package vn.loitp.up.a.cv.rv.gv
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +9,15 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.loitp.core.ext.loadGlide
-import vn.loitp.R
 import vn.loitp.up.common.Constants
+import java.io.File
+
 
 class GridViewAdapter() : BaseAdapter() {
     private val list = ArrayList<String>()
@@ -49,10 +56,10 @@ class GridViewAdapter() : BaseAdapter() {
         if (view == null) {
             val inflater =
                 parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            view = inflater.inflate(R.layout.i_gv, parent, false)
+            view = inflater.inflate(vn.loitp.R.layout.i_gv, parent, false)
             viewHolder = ViewHolder()
-            viewHolder.tv = view.findViewById(R.id.tv)
-            viewHolder.iv = view.findViewById(R.id.iv)
+            viewHolder.tv = view.findViewById(vn.loitp.R.id.tv)
+            viewHolder.iv = view.findViewById(vn.loitp.R.id.iv)
             view.tag = viewHolder
         } else {
             viewHolder = view.tag as ViewHolder
@@ -68,7 +75,41 @@ class GridViewAdapter() : BaseAdapter() {
             }
         } else {
             val path = list[position]
-            viewHolder.iv?.loadGlide(path)
+//            viewHolder.iv?.loadGlide(path)
+
+            viewHolder.iv?.let { iv ->
+                Glide.with(iv.context)
+                    .load(path)
+                    .into(iv)
+
+//                Glide.with(iv.context)
+//                    .asBitmap().load(File(path))
+//                    .listener(object : RequestListener<Bitmap?> {
+//                        override fun onLoadFailed(
+//                            e: GlideException?,
+//                            model: Any?,
+//                            target: Target<Bitmap?>?,
+//                            isFirstResource: Boolean
+//                        ): Boolean {
+//                            iv.setImageDrawable(null)
+//                            return false
+//                        }
+//
+//                        override fun onResourceReady(
+//                            resource: Bitmap?,
+//                            model: Any?,
+//                            target: Target<Bitmap?>?,
+//                            dataSource: DataSource?,
+//                            isFirstResource: Boolean
+//                        ): Boolean {
+//                            iv.setImageBitmap(resource)
+//                            return false;
+//                        }
+//                    }
+//                    ).submit()
+
+
+            }
         }
         return view
     }
