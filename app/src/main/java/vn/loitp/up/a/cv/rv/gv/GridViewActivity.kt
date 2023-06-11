@@ -18,6 +18,7 @@ class GridViewActivity : BaseActivityFont() {
 
     private lateinit var binding: AGvBinding
     val list = ArrayList<String>()
+    val adapter = GridViewAdapter()
 
     override fun setLayoutResourceId(): Int {
         return NOT_FOUND
@@ -43,12 +44,13 @@ class GridViewActivity : BaseActivityFont() {
         for (i in 0..100) {
             list.add("Loitp $i")
         }
-        val adapter = GridViewAdapter(list = list)
+
         binding.gv.adapter = adapter
         binding.gv.onItemClickListener =
             AdapterView.OnItemClickListener { adapterView: AdapterView<*>, _: View?, i: Int, _: Long ->
                 logD(">>> i $i")
             }
+        adapter.updateList(list = list, isLoadImageNetwork = true)
 
         binding.btPick.setSafeOnClickListener {
             getListFiles()
@@ -61,12 +63,14 @@ class GridViewActivity : BaseActivityFont() {
         val files = fl.listFiles()
         if (files.isNullOrEmpty()) {
             showShortError("No file in folder: Environment.DIRECTORY_DCIM/test large")
+            return
         }
-        files?.let {
-            logD("getListFiles ${files.size}")
-            for (i in files.indices) {
-                logD("getListFiles ${files[i].name} + ${files[i].path}")
-            }
+        list.clear()
+        logD("getListFiles ${files.size}")
+        for (i in files.indices) {
+            logD("getListFiles ${files[i].name} + ${files[i].path}")
+            list.add(files[i].path)
         }
+        adapter.updateList(list = list, isLoadImageNetwork = false)
     }
 }

@@ -12,9 +12,9 @@ import com.loitp.core.ext.loadGlide
 import vn.loitp.R
 import vn.loitp.up.common.Constants
 
-class GridViewAdapter(
-    private val list: ArrayList<String>
-) : BaseAdapter() {
+class GridViewAdapter() : BaseAdapter() {
+    private val list = ArrayList<String>()
+    private var isLoadImageNetwork = true
 
     private class ViewHolder {
         var tv: TextView? = null
@@ -31,6 +31,13 @@ class GridViewAdapter(
 
     override fun getItemId(i: Int): Long {
         return 0
+    }
+
+    fun updateList(list: ArrayList<String>, isLoadImageNetwork: Boolean) {
+        this.isLoadImageNetwork = isLoadImageNetwork
+        this.list.clear()
+        this.list.addAll(list)
+        notifyDataSetChanged()
     }
 
     override fun getView(
@@ -52,11 +59,16 @@ class GridViewAdapter(
         }
 
         viewHolder.tv?.text = list[position]
-//        viewHolder.iv?.setImageResource(R.drawable.ic_launcher)
-        if (position % 2 == 0) {
-            viewHolder.iv?.loadGlide(Constants.URL_IMG_LARGE)
+
+        if (isLoadImageNetwork) {
+            if (position % 2 == 0) {
+                viewHolder.iv?.loadGlide(Constants.URL_IMG_LARGE)
+            } else {
+                viewHolder.iv?.loadGlide(Constants.URL_IMG_LARGE_2)
+            }
         } else {
-            viewHolder.iv?.loadGlide(Constants.URL_IMG_LARGE_2)
+            val path = list[position]
+            viewHolder.iv?.loadGlide(path)
         }
         return view
     }
