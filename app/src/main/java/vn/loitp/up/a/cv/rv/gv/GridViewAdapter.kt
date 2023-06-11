@@ -1,7 +1,6 @@
 package vn.loitp.up.a.cv.rv.gv
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,14 +8,9 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
+import androidx.core.view.isVisible
 import com.loitp.core.ext.loadGlide
 import vn.loitp.up.common.Constants
-import java.io.File
 
 
 class GridViewAdapter() : BaseAdapter() {
@@ -73,14 +67,18 @@ class GridViewAdapter() : BaseAdapter() {
             } else {
                 viewHolder.iv?.loadGlide(Constants.URL_IMG_LARGE_2)
             }
+            viewHolder.tv?.isVisible = true
         } else {
             val path = list[position]
-//            viewHolder.iv?.loadGlide(path)
-
+            viewHolder.tv?.isVisible = false
             viewHolder.iv?.let { iv ->
-                Glide.with(iv.context)
-                    .load(path)
-                    .into(iv)
+                iv.loadGlide(path)
+
+//                Glide.with(iv.context)
+//                    .load(path)
+//                    .placeholder(R.drawable.ic_launcher)
+//                    .error(R.drawable.l_error_404)
+//                    .into(iv)
 
 //                Glide.with(iv.context)
 //                    .asBitmap().load(File(path))
