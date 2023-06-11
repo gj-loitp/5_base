@@ -1513,6 +1513,9 @@
         <activity
             android:name=".up.a.cv.rv.concatAdapter3.AConcatAdapter3"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".up.a.cv.rv.gv.GridViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
     </application>
     <queries>

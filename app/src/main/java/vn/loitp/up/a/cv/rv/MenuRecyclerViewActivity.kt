@@ -30,6 +30,7 @@ import vn.loitp.up.a.cv.rv.footer.RecyclerViewFooterActivity
 import vn.loitp.up.a.cv.rv.footer2.RecyclerViewFooter2Activity
 import vn.loitp.up.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerHorizontalActivity
 import vn.loitp.up.a.cv.rv.galleryLayoutManager.GalleryLayoutManagerVerticalActivityFont
+import vn.loitp.up.a.cv.rv.gv.GridViewActivity
 import vn.loitp.up.a.cv.rv.looping.LoopingLayoutActivity
 import vn.loitp.up.a.cv.rv.netView.NetViewActivity
 import vn.loitp.up.a.cv.rv.normalRv.RecyclerViewActivity
@@ -94,6 +95,7 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
         binding.btDragAndDropDemoActivity.setOnClickListener(this)
         binding.btLoopingLayout.setOnClickListener(this)
         binding.btGreedoLayout.setOnClickListener(this)
+        binding.btGridView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -138,6 +140,7 @@ class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
             binding.btGreedoLayout -> launchActivity(GreedoLayoutActivity::class.java)
             binding.btConcatAdapter2 -> launchActivity(ConcatAdapter2Activity::class.java)
             binding.btConcatAdapter3 -> launchActivity(AConcatAdapter3::class.java)
+            binding.btGridView -> launchActivity(GridViewActivity::class.java)
         }
     }
 }
