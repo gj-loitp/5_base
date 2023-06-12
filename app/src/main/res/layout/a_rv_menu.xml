@@ -129,6 +129,11 @@
                 android:text="Greedo Layout" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGridView"
+                style="@style/ButtonMenu"
+                android:text="GridView" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btLoopingLayout"
                 style="@style/ButtonMenu"
                 android:text="Looping Layout" />

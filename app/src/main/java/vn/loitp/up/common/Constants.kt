@@ -8,6 +8,7 @@ class Constants {
         const val URL_IMG_1 = "https://c1.staticflickr.com/1/845/40847237574_ae65bef0c9_b.jpg"
         const val URL_IMG_2 = "https://c1.staticflickr.com/1/799/40665855145_d5908c4740_b.jpg"
         const val URL_IMG_LONG = "https://c2.staticflickr.com/6/5476/29412311793_8067369e64_b.jpg"
+        const val URL_IMG_LARGE_2 = "https://upload.wikimedia.org/wikipedia/commons/f/ff/Pizigani_1367_Chart_10MB.jpg"
 
         @Suppress("unused")
         const val URL_IMG_LONG_1 =
