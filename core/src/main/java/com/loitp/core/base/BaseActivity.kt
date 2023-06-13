@@ -68,7 +68,7 @@ abstract class BaseActivity : AppCompatActivity() {
     private var isIdleTime = false
     private var isShowAnimWhenExit = true
 
-    private var alertDialogProgress: Dialog? = null
+    var alertDialogProgress: Dialog? = null
 
     //TODO delete soon, use view binding instead
     protected abstract fun setLayoutResourceId(): Int
