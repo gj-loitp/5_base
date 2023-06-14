@@ -21,6 +21,7 @@ import vn.loitp.up.common.Constants
 
 // build release de check
 
+//TODO app ad ext miss info
 //TODO hide ad banner when no connection
 //TODO viewbinding in base frm, base activity https://stackoverflow.com/questions/63686289/how-to-use-abstraction-with-viewbinding-with-base-activity
 //TODO service -> ko stop service dc

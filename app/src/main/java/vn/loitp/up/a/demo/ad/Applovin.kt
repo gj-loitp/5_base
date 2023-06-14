@@ -14,12 +14,16 @@ import com.applovin.sdk.AppLovinMediationProvider
 import com.applovin.sdk.AppLovinSdk
 import com.applovin.sdk.AppLovinSdkUtils
 import com.loitp.core.ext.i
+import vn.loitp.BuildConfig
 import vn.loitp.R
 
 object Applovin {
     fun setupAd(c: Context) {
         // Initialize the AppLovin SDK
         AppLovinSdk.getInstance(c).mediationProvider = AppLovinMediationProvider.MAX
+        if (BuildConfig.DEBUG) {
+            AppLovinSdk.getInstance(c).showMediationDebugger()
+        }
         AppLovinSdk.getInstance(c).initializeSdk {
             // AppLovin SDK is initialized, start loading ads now or later if ad gate is reached
         }
