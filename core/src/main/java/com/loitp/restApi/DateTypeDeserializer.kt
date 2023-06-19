@@ -1,5 +1,6 @@
 package com.loitp.restApi
 
+import androidx.annotation.Keep
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer
 import com.google.gson.JsonElement
@@ -16,6 +17,7 @@ import java.util.* // ktlint-disable no-wildcard-imports
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 class DateTypeDeserializer : JsonDeserializer<Date> {
 
     companion object {

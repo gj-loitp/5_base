@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.Keep
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.R
@@ -35,6 +36,7 @@ import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 @LogTag("GalleryMemberActivity")
 @IsSwipeActivity(true)
 class GalleryMemberActivity : BaseActivityFont() {

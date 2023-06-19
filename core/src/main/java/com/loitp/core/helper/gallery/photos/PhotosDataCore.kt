@@ -1,5 +1,6 @@
 package com.loitp.core.helper.gallery.photos
 
+import androidx.annotation.Keep
 import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
 
 /**
@@ -9,6 +10,7 @@ import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 class PhotosDataCore private constructor() {
     private var photoList = ArrayList<Photo>()
 

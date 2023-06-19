@@ -3,6 +3,7 @@ package com.loitp.core.helper.gallery.member
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.Keep
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
@@ -28,6 +29,7 @@ import jp.wasabeef.glide.transformations.BlurTransformation
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 @LogTag("GalleryMemberDetailActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)

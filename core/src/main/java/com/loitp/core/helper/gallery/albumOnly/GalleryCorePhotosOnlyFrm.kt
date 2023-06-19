@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import androidx.annotation.Keep
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.huxq17.download.Pump
 import com.huxq17.download.core.DownloadListener
@@ -36,6 +37,7 @@ import kotlinx.android.synthetic.main.l_f_flickr_gallery_core_photos_only.*
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 @LogTag("GalleryCorePhotosOnlyFrm")
 class GalleryCorePhotosOnlyFrm(
     private val onTop: ((Unit) -> Unit)? = null,

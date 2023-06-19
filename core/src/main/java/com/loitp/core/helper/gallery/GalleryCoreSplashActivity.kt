@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import androidx.annotation.Keep
 import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
@@ -27,6 +28,7 @@ import com.permissionx.guolindev.PermissionX
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 @SuppressLint("CustomSplashScreen")
 @LogTag("GalleryCoreSplashActivity")
 @IsFullScreen(false)

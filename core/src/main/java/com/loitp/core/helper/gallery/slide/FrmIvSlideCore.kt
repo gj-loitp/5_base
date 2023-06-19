@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.Keep
 import androidx.fragment.app.Fragment
 import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.GlideImageViewFactory
@@ -24,6 +25,7 @@ import java.io.File
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 class FrmIvSlideCore : Fragment() {
     private lateinit var binding: LIFlickrPhotoSlideIvCoreBinding
 

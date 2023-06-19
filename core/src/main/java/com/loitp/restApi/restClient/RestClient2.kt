@@ -1,6 +1,7 @@
 package com.loitp.restApi.restClient
 
 import android.text.TextUtils
+import androidx.annotation.Keep
 import com.google.gson.GsonBuilder
 import com.loitp.core.ext.e
 import com.loitp.restApi.DateTypeDeserializer
@@ -22,6 +23,7 @@ import java.util.concurrent.TimeUnit
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 object RestClient2 {
     @Suppress("unused")
     private const val TIMEOUT_TIME = 1

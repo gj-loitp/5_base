@@ -1,5 +1,7 @@
 package com.loitp.restApi.flickr
 
+import androidx.annotation.Keep
+
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -7,6 +9,7 @@ package com.loitp.restApi.flickr
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 class FlickrConst {
     companion object {
         @JvmField

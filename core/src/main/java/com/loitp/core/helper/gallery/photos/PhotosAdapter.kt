@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.Keep
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -25,6 +26,7 @@ import com.loitp.restApi.flickr.model.photoSetGetPhotos.Photo
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 @LogTag("PhotosAdapter")
 class PhotosAdapter internal constructor(
     private val callback: Callback?
