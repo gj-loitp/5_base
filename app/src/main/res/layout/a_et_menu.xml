@@ -61,6 +61,11 @@
                 android:text="OTP View" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPinEditTextField"
+                style="@style/ButtonMenu"
+                android:text="PinEditTextField" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btEditextTextWatcher"
                 style="@style/ButtonMenu"
                 android:text="@string/text_watcher" />

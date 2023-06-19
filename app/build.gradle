@@ -266,6 +266,8 @@ dependencies {
 //    https://github.com/Chrisvin/RubberPicker
     api 'com.github.Chrisvin:RubberPicker:v1.5'
 
+//    https://github.com/poovamraj/PinEditTextField
+    api 'com.github.poovamraj:PinEditTextField:1.2.6'
 //    https://github.com/Crysis21/PulsingView
     api 'ro.holdone:pulseview:1.0.2'
 //    https://github.com/AgnaldoNP/PreviewImageCollection
