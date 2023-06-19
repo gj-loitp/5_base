@@ -153,7 +153,7 @@ dependencies {
     api "androidx.biometric:biometric:1.2.0-alpha05"
 //    https://github.com/lopspower/Biometric
     api 'com.mikhaellopez:biometric:1.1.0'
-
+    api 'jp.wasabeef:blurry:4.0.1'
 
 //    https://github.com/sparrow007/CarouselRecyclerview
     api 'com.github.sparrow007:carouselrecyclerview:1.2.5'
@@ -266,6 +266,8 @@ dependencies {
 //    https://github.com/Chrisvin/RubberPicker
     api 'com.github.Chrisvin:RubberPicker:v1.5'
 
+//    https://github.com/poovamraj/PinEditTextField
+    api 'com.github.poovamraj:PinEditTextField:1.2.6'
 //    https://github.com/Crysis21/PulsingView
     api 'ro.holdone:pulseview:1.0.2'
 //    https://github.com/AgnaldoNP/PreviewImageCollection

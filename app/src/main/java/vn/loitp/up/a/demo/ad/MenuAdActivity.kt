@@ -1,6 +1,7 @@
 package vn.loitp.up.a.demo.ad
 
 import android.os.Bundle
+import com.applovin.sdk.AppLovinSdk
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
@@ -8,6 +9,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.*
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
+import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.databinding.AMenuAdBinding
 import vn.loitp.up.a.demo.ad.banner.BannerActivity
@@ -48,6 +50,13 @@ class MenuAdActivity : BaseActivityFont() {
         }
         binding.btInterstitial.setSafeOnClickListener {
             launchActivity(InterstitialActivity::class.java)
+        }
+        binding.btShowMediationDebugger.setSafeOnClickListener {
+            if (BuildConfig.DEBUG) {
+                AppLovinSdk.getInstance(this).showMediationDebugger()
+            } else {
+                showShortError("Only available in debug mode")
+            }
         }
 
     }

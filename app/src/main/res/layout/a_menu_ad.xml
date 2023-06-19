@@ -33,6 +33,11 @@
                 android:id="@+id/btInterstitial"
                 style="@style/ButtonMenu"
                 android:text="Interstitial" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShowMediationDebugger"
+                style="@style/ButtonMenu"
+                android:text="showMediationDebugger" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>

@@ -32,6 +32,11 @@
                 android:text="@string/big_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btBlurry"
+                style="@style/ButtonMenu"
+                android:text="Blurry" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBigImageViewWithScrollView"
                 style="@style/ButtonMenu"
                 android:text="@string/big_imageview_with_scrollview" />

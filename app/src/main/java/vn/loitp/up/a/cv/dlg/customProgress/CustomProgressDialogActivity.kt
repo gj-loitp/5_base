@@ -1,6 +1,7 @@
 package vn.loitp.up.a.cv.dlg.customProgress
 
 import android.os.Bundle
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
@@ -44,6 +45,20 @@ class CustomProgressDialogActivity : BaseActivityFont() {
         }
         binding.bt0.setSafeOnClickListener {
             showDialogProgress()
+
+            //customize
+            alertDialogProgress?.findViewById<AppCompatTextView>(R.id.tvMsg)?.let { tvMsg ->
+                tvMsg.isVisible = true
+                tvMsg.text = "1"
+                tvMsg.postDelayed({
+                    tvMsg.text = "2"
+
+                    tvMsg.postDelayed({
+                        tvMsg.text = "3"
+                    }, 1_000)
+                }, 1_000)
+            }
+
             setDelay(mls = 4000, runnable = {
                 hideDialogProgress()
             })
