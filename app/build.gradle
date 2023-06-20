@@ -223,6 +223,8 @@ dependencies {
 
 //    https://github.com/nikartm/FitButton
     api 'io.github.nikartm:fit-button:2.0.0'
+//    https://github.com/hariprasanths/FloatingToast
+    api 'hari.floatingtoast:floatingtoast:0.1.1'
 //    https://github.com/google/flexbox-layout
     api 'com.google.android.flexbox:flexbox:3.0.0'
 

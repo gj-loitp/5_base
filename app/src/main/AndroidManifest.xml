@@ -1522,7 +1522,9 @@
         <activity
             android:name=".up.a.cv.et.pinEditTextField.PinEditTextFieldActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-
+        <activity
+            android:name=".up.a.func.floatingToast.FloatingToastActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
     <queries>
         <intent>

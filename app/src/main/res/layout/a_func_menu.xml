@@ -40,6 +40,11 @@
                 android:text="@string/drag_drop_sample" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFloatingToast"
+                style="@style/ButtonMenu"
+                android:text="FloatingToast" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btToggleFullScreen"
                 style="@style/ButtonMenu"
                 android:text="@string/toggle_fullscreen" />

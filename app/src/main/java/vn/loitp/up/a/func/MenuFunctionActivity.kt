@@ -12,6 +12,7 @@ import vn.loitp.R
 import vn.loitp.databinding.AFuncMenuBinding
 import vn.loitp.up.a.func.activityAndService.ActivityServiceCommunicateActivity
 import vn.loitp.up.a.func.dragDrop.DragDropSampleActivity
+import vn.loitp.up.a.func.floatingToast.FloatingToastActivity
 import vn.loitp.up.a.func.fullScreen.FullScreenActivity
 import vn.loitp.up.a.func.glide.GlideActivity
 import vn.loitp.up.a.func.hashmap.HashMapActivity
@@ -82,6 +83,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
         binding.btWallpoActivity.setOnClickListener(this)
         binding.btProcessPhoenix.setOnClickListener(this)
         binding.btKeyboardVisibility.setOnClickListener(this)
+        binding.btFloatingToast.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -110,6 +112,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btWallpoActivity -> launchActivity(WallpoActivity::class.java)
             binding.btProcessPhoenix -> launchActivity(ProcessPhoenixActivity::class.java)
             binding.btKeyboardVisibility -> launchActivity(KeyboardVisibilityActivity::class.java)
+            binding.btFloatingToast -> launchActivity(FloatingToastActivity::class.java)
         }
     }
 }
