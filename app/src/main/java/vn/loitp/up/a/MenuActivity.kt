@@ -294,7 +294,8 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     }
 
     private fun createAdInter() {
-        if (BuildConfig.EnableAdInter) {
+        val enableAdInter = getString(R.string.EnableAdInter) == "true"
+        if (enableAdInter) {
             interstitialAd = MaxInterstitialAd(getString(R.string.INTER), this)
             interstitialAd?.let { ad ->
                 ad.setListener(object : MaxAdListener {
@@ -348,7 +349,8 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     }
 
     private fun showAd() {
-        if (BuildConfig.EnableAdInter) {
+        val enableAdInter = getString(R.string.EnableAdInter) == "true"
+        if (enableAdInter) {
             interstitialAd?.let { ad ->
                 if (ad.isReady) {
                     ad.showAd()

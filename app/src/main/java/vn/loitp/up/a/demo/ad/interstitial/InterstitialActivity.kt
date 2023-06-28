@@ -64,7 +64,8 @@ class InterstitialActivity : BaseActivityFont() {
     }
 
     private fun createAdInter() {
-        if (BuildConfig.EnableAdInter) {
+        val enableAdInter = getString(R.string.EnableAdInter) == "true"
+        if (enableAdInter) {
             interstitialAd = MaxInterstitialAd(getString(R.string.INTER), this)
             interstitialAd?.let { ad ->
                 ad.setListener(object : MaxAdListener {
@@ -118,7 +119,8 @@ class InterstitialActivity : BaseActivityFont() {
     }
 
     private fun showAd(runnable: Runnable) {
-        if (BuildConfig.EnableAdInter) {
+        val enableAdInter = getString(R.string.EnableAdInter) == "true"
+        if (enableAdInter) {
             interstitialAd?.let { ad ->
                 if (ad.isReady) {
                     showDialogProgress()
