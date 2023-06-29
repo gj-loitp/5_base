@@ -3,8 +3,10 @@ package vn.loitp.up.a.demo.ad
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
+import android.util.Log
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.Toast
 import com.applovin.mediation.MaxAd
 import com.applovin.mediation.MaxAdFormat
 import com.applovin.mediation.MaxAdViewAdListener
@@ -13,19 +15,35 @@ import com.applovin.mediation.ads.MaxAdView
 import com.applovin.sdk.AppLovinMediationProvider
 import com.applovin.sdk.AppLovinSdk
 import com.applovin.sdk.AppLovinSdkUtils
+import com.loitp.core.ext.e
 import com.loitp.core.ext.i
 import vn.loitp.BuildConfig
 import vn.loitp.R
 
 object Applovin {
     fun setupAd(c: Context) {
+        // Please check config in gradle
+        // Please add key in manifest
+
         // Initialize the AppLovin SDK
         AppLovinSdk.getInstance(c).mediationProvider = AppLovinMediationProvider.MAX
-        if (BuildConfig.DEBUG) {
-            AppLovinSdk.getInstance(c).showMediationDebugger()
-        }
+        showMediationDebugger(c)
         AppLovinSdk.getInstance(c).initializeSdk {
             // AppLovin SDK is initialized, start loading ads now or later if ad gate is reached
+            e("Applovin", "setupAd initializeSdk $it")
+            if (BuildConfig.DEBUG) {
+                Toast.makeText(
+                    c,
+                    "Debug toast initializeSdk isTestModeEnabled: ${it.isTestModeEnabled}",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+    }
+
+    fun showMediationDebugger(c: Context) {
+        if (BuildConfig.DEBUG) {
+            AppLovinSdk.getInstance(c).showMediationDebugger()
         }
     }
 
