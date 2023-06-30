@@ -27,7 +27,7 @@ object Applovin {
 
         // Initialize the AppLovin SDK
         AppLovinSdk.getInstance(c).mediationProvider = AppLovinMediationProvider.MAX
-        showMediationDebugger(c)
+//        showMediationDebugger(c)
         AppLovinSdk.getInstance(c).initializeSdk {
             // AppLovin SDK is initialized, start loading ads now or later if ad gate is reached
             e("Applovin", "setupAd initializeSdk $it")
@@ -44,6 +44,12 @@ object Applovin {
     fun showMediationDebugger(c: Context) {
         if (BuildConfig.DEBUG) {
             AppLovinSdk.getInstance(c).showMediationDebugger()
+        }else {
+            Toast.makeText(
+                c,
+                "This feature is only available in debug mode",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 

@@ -53,7 +53,7 @@ class MenuAdActivity : BaseActivityFont() {
         }
         binding.btShowMediationDebugger.setSafeOnClickListener {
             if (BuildConfig.DEBUG) {
-                AppLovinSdk.getInstance(this).showMediationDebugger()
+                Applovin.showMediationDebugger(this)
             } else {
                 showShortError("Only available in debug mode")
             }
