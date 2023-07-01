@@ -175,7 +175,7 @@ dependencies {
 //    https://github.com/dmytrodanylyk/circular-progress-button
     api 'com.github.dmytrodanylyk:circular-progress-button:1.2'
 //    https://github.com/coil-kt/coil
-    api("io.coil-kt:coil:2.3.0")
+    api("io.coil-kt:coil:2.4.0")
 
 //    https://github.com/shiburagi/Drawer-Behavior
     api 'com.infideap.drawerbehavior:drawer-behavior:1.0.1'
@@ -264,7 +264,7 @@ dependencies {
 
 //    noinspection AnnotationProcessorOnCompilePath
     api 'io.realm:realm-android:0.82.1'
-    kapt "androidx.room:room-compiler:2.5.1"
+    kapt "androidx.room:room-compiler:2.5.2"
 //    https://github.com/devendroid/ReadMoreOption
     api 'com.github.devendroid:ReadMoreOption:1.0.2'
 //    https://github.com/rishabh876/RoundedImageView
