@@ -376,8 +376,11 @@ fun View?.hideSoftInput(
     }
 }
 
-fun View.showMySnackBar(){
+fun View.showMySnackBar(
+    resId: Int,
+    msg: String,
+) {
     MySnackBar
-        .make(this)
+        .make(view = this, resId = resId, msg = msg)
         .show()
 }

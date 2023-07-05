@@ -117,7 +117,10 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btKeyboardVisibility -> launchActivity(KeyboardVisibilityActivity::class.java)
             binding.btFloatingToast -> launchActivity(FloatingToastActivity::class.java)
             binding.btCustomSnackbar -> {
-                binding.btCustomSnackbar.showMySnackBar()
+                binding.btCustomSnackbar.showMySnackBar(
+                    R.drawable.ic_launcher,
+                    "Hello I'm custom snackBar"
+                )
             }
         }
     }

@@ -24,7 +24,11 @@ class MySnackBar(
 
     companion object {
 
-        fun make(view: View): MySnackBar {
+        fun make(
+            view: View,
+            resId: Int,
+            msg: String,
+        ): MySnackBar {
 
             // First we find a suitable parent for our custom view
             val parent = view.findSuitableParent() ?: throw IllegalArgumentException(
@@ -37,6 +41,8 @@ class MySnackBar(
                 parent,
                 false
             ) as MySnackBarView
+
+            customView.updateUI(resId = resId, msg = msg)
 
             // We create and return our Snackbar
             return MySnackBar(

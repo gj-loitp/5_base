@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.snackbar.ContentViewCallback
 import com.loitp.R
@@ -18,11 +19,24 @@ class MySnackBarView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr), ContentViewCallback {
 
     private val ivIconSnackBar: ImageView
+    private val tvMessageSnackBar: TextView
 
     init {
         View.inflate(context, R.layout.v_my_snack_bar, this)
         clipToPadding = false
         this.ivIconSnackBar = findViewById(R.id.ivIconSnackBar)
+        this.tvMessageSnackBar = findViewById(R.id.tvMessageSnackBar)
+
+//        this.ivIconSnackBar.setImageResource(R.drawable.ic_launcher)
+//        this.tvMessageSnackBar.text = "tvMessageSnackBar"
+    }
+
+    fun updateUI(
+        resId: Int = R.drawable.ic_launcher,
+        msg: String,
+    ) {
+        this.ivIconSnackBar.setImageResource(resId)
+        this.tvMessageSnackBar.text = msg
     }
 
     override fun animateContentIn(delay: Int, duration: Int) {
