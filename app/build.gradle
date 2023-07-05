@@ -103,6 +103,7 @@ android {
             resValue "string", "INTER", "895d5d41cb20edb7"
 
             resValue "string", "EnableAdInter", "false"
+            resValue "string", "EnableAdBanner", "false"
         }
 
         production {
@@ -116,6 +117,7 @@ android {
             resValue "string", "INTER", "895d5d41cb20edb7"
 
             resValue "string", "EnableAdInter", "true"
+            resValue "string", "EnableAdBanner", "true"
         }
 
     }

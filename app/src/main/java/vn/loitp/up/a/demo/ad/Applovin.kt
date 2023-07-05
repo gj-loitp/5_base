@@ -45,7 +45,7 @@ object Applovin {
     fun showMediationDebugger(c: Context) {
         if (BuildConfig.DEBUG) {
             AppLovinSdk.getInstance(c).showMediationDebugger()
-        }else {
+        } else {
             Toast.makeText(
                 c,
                 "This feature is only available in debug mode",
@@ -62,7 +62,16 @@ object Applovin {
         isAdaptiveBanner: Boolean
     ): MaxAdView {
         val log = "$logTag - createAdBanner"
-        val adView = MaxAdView(a.getString(R.string.BANNER), a)
+        val enableAdBanner = a.getString(R.string.EnableAdBanner) == "true"
+        var id = "1234567890123456" // dummy id
+        if (enableAdBanner) {
+            id = a.getString(R.string.BANNER)
+            viewGroup.isVisible = true
+        } else {
+            viewGroup.isVisible = false
+        }
+        i(log, "enableAdBanner $enableAdBanner -> $id")
+        val adView = MaxAdView(id, a)
         adView.let { ad ->
             ad.setListener(object : MaxAdViewAdListener {
                 override fun onAdLoaded(p0: MaxAd?) {

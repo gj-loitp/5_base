@@ -8,6 +8,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
+import com.loitp.views.snackBar.ChefSnackbar
 import vn.loitp.R
 import vn.loitp.databinding.AFuncMenuBinding
 import vn.loitp.up.a.func.activityAndService.ActivityServiceCommunicateActivity
@@ -84,6 +85,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
         binding.btProcessPhoenix.setOnClickListener(this)
         binding.btKeyboardVisibility.setOnClickListener(this)
         binding.btFloatingToast.setOnClickListener(this)
+        binding.btCustomSnackbar.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -113,6 +115,11 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btProcessPhoenix -> launchActivity(ProcessPhoenixActivity::class.java)
             binding.btKeyboardVisibility -> launchActivity(KeyboardVisibilityActivity::class.java)
             binding.btFloatingToast -> launchActivity(FloatingToastActivity::class.java)
+            binding.btCustomSnackbar -> {
+                ChefSnackbar
+                    .make(binding.btCustomSnackbar)
+                    .show()
+            }
         }
     }
 }
