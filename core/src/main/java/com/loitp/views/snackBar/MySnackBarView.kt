@@ -37,17 +37,26 @@ class MySnackBarView @JvmOverloads constructor(
     ) {
         this.ivIconSnackBar.setImageResource(resId)
         this.tvMessageSnackBar.text = msg
-    }
 
-    override fun animateContentIn(delay: Int, duration: Int) {
         val scaleX = ObjectAnimator.ofFloat(ivIconSnackBar, View.SCALE_X, 0f, 1f)
         val scaleY = ObjectAnimator.ofFloat(ivIconSnackBar, View.SCALE_Y, 0f, 1f)
         val animatorSet = AnimatorSet().apply {
             interpolator = OvershootInterpolator()
-            setDuration(500)
+            duration = 1000
             playTogether(scaleX, scaleY)
         }
         animatorSet.start()
+    }
+
+    override fun animateContentIn(delay: Int, duration: Int) {
+//        val scaleX = ObjectAnimator.ofFloat(ivIconSnackBar, View.SCALE_X, 0f, 1f)
+//        val scaleY = ObjectAnimator.ofFloat(ivIconSnackBar, View.SCALE_Y, 0f, 1f)
+//        val animatorSet = AnimatorSet().apply {
+//            interpolator = OvershootInterpolator()
+//            setDuration(500)
+//            playTogether(scaleX, scaleY)
+//        }
+//        animatorSet.start()
     }
 
     override fun animateContentOut(delay: Int, duration: Int) {
