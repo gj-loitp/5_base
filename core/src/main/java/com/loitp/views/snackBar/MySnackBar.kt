@@ -7,20 +7,24 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.loitp.R
 
-//TODO loitp refactor custom snackbar and move to code base
-class ChefSnackbar(
+class MySnackBar(
     parent: ViewGroup,
-    content: ChefSnackbarView
-) : BaseTransientBottomBar<ChefSnackbar>(parent, content, content) {
+    content: MySnackBarView
+) : BaseTransientBottomBar<MySnackBar>(parent, content, content) {
 
     init {
-        getView().setBackgroundColor(ContextCompat.getColor(view.context, android.R.color.transparent))
+        getView().setBackgroundColor(
+            ContextCompat.getColor(
+                view.context,
+                android.R.color.transparent
+            )
+        )
         getView().setPadding(0, 0, 0, 0)
     }
 
     companion object {
 
-        fun make(view: View): ChefSnackbar {
+        fun make(view: View): MySnackBar {
 
             // First we find a suitable parent for our custom view
             val parent = view.findSuitableParent() ?: throw IllegalArgumentException(
@@ -29,13 +33,13 @@ class ChefSnackbar(
 
             // We inflate our custom view
             val customView = LayoutInflater.from(view.context).inflate(
-                R.layout.layout_snackbar_chef,
+                R.layout.layout_my_snack_bar,
                 parent,
                 false
-            ) as ChefSnackbarView
+            ) as MySnackBarView
 
             // We create and return our Snackbar
-            return ChefSnackbar(
+            return MySnackBar(
                 parent,
                 customView
             )

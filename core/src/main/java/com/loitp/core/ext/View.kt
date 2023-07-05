@@ -26,6 +26,7 @@ import com.google.android.material.tabs.TabLayout
 import com.loitp.R
 import com.loitp.core.common.ARR_RANDOM_BKG
 import com.loitp.core.utils.ConvertUtils
+import com.loitp.views.snackBar.MySnackBar
 import com.skydoves.elasticviews.elasticAnimation
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 
@@ -373,4 +374,10 @@ fun View?.hideSoftInput(
         val imm = it.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(this.windowToken, 0)
     }
+}
+
+fun View.showMySnackBar(){
+    MySnackBar
+        .make(this)
+        .show()
 }

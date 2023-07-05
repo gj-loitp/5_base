@@ -11,23 +11,23 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.snackbar.ContentViewCallback
 import com.loitp.R
 
-class ChefSnackbarView @JvmOverloads constructor(
+class MySnackBarView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr), ContentViewCallback {
 
-    private val chefImage: ImageView
+    private val ivIconSnackBar: ImageView
 
     init {
-        View.inflate(context, R.layout.view_snackbar_chef, this)
+        View.inflate(context, R.layout.v_my_snack_bar, this)
         clipToPadding = false
-        this.chefImage = findViewById(R.id.chef_image)
+        this.ivIconSnackBar = findViewById(R.id.ivIconSnackBar)
     }
 
     override fun animateContentIn(delay: Int, duration: Int) {
-        val scaleX = ObjectAnimator.ofFloat(chefImage, View.SCALE_X, 0f, 1f)
-        val scaleY = ObjectAnimator.ofFloat(chefImage, View.SCALE_Y, 0f, 1f)
+        val scaleX = ObjectAnimator.ofFloat(ivIconSnackBar, View.SCALE_X, 0f, 1f)
+        val scaleY = ObjectAnimator.ofFloat(ivIconSnackBar, View.SCALE_Y, 0f, 1f)
         val animatorSet = AnimatorSet().apply {
             interpolator = OvershootInterpolator()
             setDuration(500)
