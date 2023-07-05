@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.loitp.R
 
+//TODO loitp refactor custom snackbar and move to code base
 class ChefSnackbar(
     parent: ViewGroup,
     content: ChefSnackbarView
