@@ -18,9 +18,9 @@ import vn.loitp.databinding.ADlgCustomProgressBinding
 class CustomProgressDialogActivity : BaseActivityFont() {
     private lateinit var binding: ADlgCustomProgressBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -26,9 +26,9 @@ class ResideMenuActivity : BaseActivityFont(), View.OnClickListener {
     private var itemCalendar: ResideMenuItem? = null
     private var itemSettings: ResideMenuItem? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

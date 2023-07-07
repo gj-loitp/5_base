@@ -17,9 +17,9 @@ class HeartLayoutActivity : BaseActivityFont() {
     private val mRandom = Random()
     private lateinit var binding: ALayoutHeartBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_heart
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_layout_heart
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -28,9 +28,9 @@ class GalleryLayoutManagerVerticalActivityFont : BaseActivityFont() {
     private var galleryAdapterVertical: GalleryAdapterVertical? = null
     private lateinit var binding: ARvMenuGalleryLayoutManagerBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

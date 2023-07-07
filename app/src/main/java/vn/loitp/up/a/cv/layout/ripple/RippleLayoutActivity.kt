@@ -14,9 +14,9 @@ import vn.loitp.databinding.ALayoutRippleBinding
 class RippleLayoutActivity : BaseActivityFont() {
     private lateinit var binding: ALayoutRippleBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -21,9 +21,9 @@ class DragDropSwipeGridRecyclerviewActivity : BaseActivityFont() {
     private var dragDropAdapter: DragDropAdapter? = null
     private val numberOfColumns = 2
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

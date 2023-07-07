@@ -37,9 +37,9 @@ import vn.loitp.up.a.cv.iv.zoom.ZoomIvActivity
 class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
     private lateinit var binding: AIvMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

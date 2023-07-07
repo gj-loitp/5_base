@@ -20,9 +20,9 @@ import vn.loitp.databinding.ARvCarouselBinding
 class CarouselRecyclerViewActivity : BaseActivityFont() {
     private lateinit var binding: ARvCarouselBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -18,9 +18,9 @@ import vn.loitp.databinding.ARibbonBinding
 class RibbonActivity : BaseActivityFont() {
     private lateinit var binding: ARibbonBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -17,9 +17,9 @@ import vn.loitp.databinding.ALActionBarBinding
 class LActionbarActivity : BaseActivityFont() {
     private lateinit var binding: ALActionBarBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

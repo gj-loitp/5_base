@@ -22,9 +22,9 @@ open class RvTabImitationLoopActivity : BaseActivityFont(), ViewPager.OnPageChan
     private lateinit var mAdapterTab: RvTabImitationLoopPagerAdapter
     private var mItems = ArrayList<String>()
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

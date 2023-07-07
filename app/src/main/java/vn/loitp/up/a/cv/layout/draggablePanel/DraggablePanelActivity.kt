@@ -16,9 +16,9 @@ import vn.loitp.databinding.ADraggablePanelBinding
 class DraggablePanelActivity : BaseActivityFont() {
     private lateinit var binding: ADraggablePanelBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

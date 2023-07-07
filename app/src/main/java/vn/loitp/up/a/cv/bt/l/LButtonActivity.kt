@@ -17,9 +17,9 @@ import vn.loitp.databinding.ALButtonBinding
 class LButtonActivity : BaseActivityFont(), OnClickListener {
     private lateinit var binding: ALButtonBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

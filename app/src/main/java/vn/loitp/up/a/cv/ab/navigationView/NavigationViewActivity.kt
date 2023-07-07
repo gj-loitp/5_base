@@ -17,9 +17,9 @@ import vn.loitp.databinding.ANavigationViewBinding
 class NavigationViewActivity : BaseActivityFont() {
     private lateinit var binding: ANavigationViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

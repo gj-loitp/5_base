@@ -27,9 +27,9 @@ class StackExpandableViewActivity : BaseActivityFont() {
     private lateinit var binding: AStackExpandableViewBinding
     private var counter = STARTING_ITEM_NUMBER
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -21,9 +21,9 @@ class PrettyDialogActivity : BaseActivityFont(), OnClickListener {
     private var prettyDialog: PrettyDialog? = null
     private lateinit var binding: ADlgPrettyBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

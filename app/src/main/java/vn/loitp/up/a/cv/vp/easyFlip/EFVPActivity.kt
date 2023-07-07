@@ -32,9 +32,9 @@ class EFVPActivity : BaseActivityFont() {
     private var bookFlipTransformer = BookFlipPageTransformer()
     var cardFlipTransformer = CardFlipPageTransformer()
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

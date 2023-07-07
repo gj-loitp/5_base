@@ -26,9 +26,9 @@ class AsyncTaskRxActivity : BaseActivityFont(), View.OnClickListener {
     private var taskTest1: TaskTest1? = null
     private var disposable: Disposable? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

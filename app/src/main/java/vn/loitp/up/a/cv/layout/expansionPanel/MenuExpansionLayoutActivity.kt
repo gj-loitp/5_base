@@ -19,9 +19,9 @@ import vn.loitp.databinding.AMenuExpansionPanelBinding
 class MenuExpansionLayoutActivity : BaseActivityFont() {
     private lateinit var binding: AMenuExpansionPanelBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

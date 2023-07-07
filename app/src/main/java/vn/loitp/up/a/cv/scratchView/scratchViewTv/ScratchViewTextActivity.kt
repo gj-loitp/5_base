@@ -16,9 +16,9 @@ import vn.loitp.databinding.AScratchTvBinding
 class ScratchViewTextActivity : BaseActivityFont() {
     private lateinit var binding: AScratchTvBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

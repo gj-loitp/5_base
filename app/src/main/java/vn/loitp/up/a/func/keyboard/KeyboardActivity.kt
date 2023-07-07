@@ -22,9 +22,9 @@ class KeyboardActivity : BaseActivityFont() {
 
     private lateinit var binding: AFuncKeyboardBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("CheckResult", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

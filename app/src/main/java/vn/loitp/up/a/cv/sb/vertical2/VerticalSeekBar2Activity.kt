@@ -19,9 +19,9 @@ import vn.loitp.databinding.ASbVerticalBinding
 class VerticalSeekBar2Activity : BaseActivityFont() {
     private lateinit var binding: ASbVerticalBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

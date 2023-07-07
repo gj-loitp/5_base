@@ -18,9 +18,9 @@ import vn.loitp.up.common.Constants
 class BigIvWithSvActivity : BaseActivityFont() {
     private lateinit var binding: ABigIvWithSvBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

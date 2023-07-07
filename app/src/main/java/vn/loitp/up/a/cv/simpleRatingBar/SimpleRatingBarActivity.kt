@@ -25,9 +25,9 @@ import vn.loitp.up.app.EmptyActivity
 class SimpleRatingBarActivity : BaseActivityFont() {
     private lateinit var binding: ASimpleRatingBarBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

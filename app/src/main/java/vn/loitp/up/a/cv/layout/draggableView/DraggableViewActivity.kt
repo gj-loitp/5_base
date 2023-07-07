@@ -15,9 +15,9 @@ import vn.loitp.databinding.ADraggableViewBinding
 class DraggableViewActivity : BaseActivityFont() {
     private lateinit var binding: ADraggableViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -27,9 +27,9 @@ class ConstraintSetActivity : BaseActivityFont() {
     private val mConstraintSetBig = ConstraintSet()
     private lateinit var binding: AConstraintSetBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

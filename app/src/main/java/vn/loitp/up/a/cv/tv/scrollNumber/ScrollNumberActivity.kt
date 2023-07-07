@@ -14,9 +14,9 @@ import vn.loitp.databinding.ATvScrollNumberBinding
 class ScrollNumberActivity : BaseActivityFont() {
     private lateinit var binding: ATvScrollNumberBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

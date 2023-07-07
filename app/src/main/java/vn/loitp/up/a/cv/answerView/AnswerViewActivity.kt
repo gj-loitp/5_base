@@ -5,6 +5,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.answerView.LAnswerView
 import vn.loitp.R
@@ -15,9 +16,9 @@ import vn.loitp.databinding.AAnswerViewBinding
 class AnswerViewActivity : BaseActivityFont() {
     private lateinit var binding: AAnswerViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_answer_view
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -22,11 +22,9 @@ import vn.loitp.databinding.ARxJava2DisposableBinding
 class DisposableExampleActivity : BaseActivityFont() {
 
     private lateinit var binding: ARxJava2DisposableBinding
-
-
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

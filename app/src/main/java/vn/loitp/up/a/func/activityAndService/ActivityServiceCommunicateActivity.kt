@@ -29,9 +29,9 @@ class ActivityServiceCommunicateActivity : BaseActivityFont() {
 
     private lateinit var binding: AFuncServiceCommunicateBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_func_service_communicate
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_func_service_communicate
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

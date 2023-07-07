@@ -19,9 +19,9 @@ import vn.loitp.databinding.AWheelViewBinding
 class WheelViewActivity : BaseActivityFont() {
     private lateinit var binding: AWheelViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

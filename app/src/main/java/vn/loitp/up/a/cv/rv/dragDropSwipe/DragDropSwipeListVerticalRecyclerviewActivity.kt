@@ -20,9 +20,9 @@ class DragDropSwipeListVerticalRecyclerviewActivity : BaseActivityFont() {
 
     private var dragDropAdapter: DragDropAdapter? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

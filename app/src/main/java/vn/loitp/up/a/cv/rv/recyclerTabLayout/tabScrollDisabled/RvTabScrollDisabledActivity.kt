@@ -19,9 +19,9 @@ import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
 class RvTabScrollDisabledActivity : BaseActivityFont() {
     private lateinit var binding: ARecyclerTabLayoutDemoTabScrollDisabledBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

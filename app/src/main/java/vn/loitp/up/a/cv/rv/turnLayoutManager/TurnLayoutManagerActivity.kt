@@ -18,8 +18,8 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.a_turn_layout_manager.*
 import vn.loitp.R
+import vn.loitp.databinding.ATurnLayoutManagerBinding
 
 @LogTag("TurnLayoutManagerActivity")
 @IsFullScreen(false)
@@ -27,20 +27,23 @@ import vn.loitp.R
 class TurnLayoutManagerActivity : BaseActivityFont() {
 
     private var layoutManager: TurnLayoutManager? = null
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_turn_layout_manager
-    }
+    private lateinit var binding: ATurnLayoutManagerBinding
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_turn_layout_manager
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ATurnLayoutManagerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupViews()
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        lActionBar.apply {
+        binding.lActionBar.apply {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
@@ -65,26 +68,26 @@ class TurnLayoutManagerActivity : BaseActivityFont() {
             /* orientation = */ TurnLayoutManager.Orientation.VERTICAL,
             /* radius = */ radius,
             /* peekDistance = */ peek,
-            /* rotate = */ rotate.isChecked
+            /* rotate = */ binding.rotate.isChecked
         )
-        recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = layoutManager
+        binding.recyclerView.adapter = adapter
         adapter.notifyDataSetChanged()
-        seekRadius.setOnSeekBarChangeListener(radiusListener)
-        seekPeek.setOnSeekBarChangeListener(peekListener)
-        seekRadius.progress = radius
-        seekPeek.progress = peek
-        gravity.onItemSelectedListener = gravityOptionsClickListener
-        orientation.onItemSelectedListener = orientationOptionsClickListener
-        gravity.adapter = GravityAdapter(this, R.layout.view_spinner_item_tlm)
-        orientation.adapter = OrientationAdapter(this, R.layout.view_spinner_item_tlm)
-        rotate.setOnCheckedChangeListener(rotateListener)
-        tvControlHandle.setOnClickListener(controlsHandleClickListener)
+        binding.seekRadius.setOnSeekBarChangeListener(radiusListener)
+        binding.seekPeek.setOnSeekBarChangeListener(peekListener)
+        binding.seekRadius.progress = radius
+        binding.seekPeek.progress = peek
+        binding.gravity.onItemSelectedListener = gravityOptionsClickListener
+        binding.orientation.onItemSelectedListener = orientationOptionsClickListener
+        binding.gravity.adapter = GravityAdapter(this, R.layout.view_spinner_item_tlm)
+        binding.orientation.adapter = OrientationAdapter(this, R.layout.view_spinner_item_tlm)
+        binding.rotate.setOnCheckedChangeListener(rotateListener)
+        binding.tvControlHandle.setOnClickListener(controlsHandleClickListener)
     }
 
     private val radiusListener: OnSeekBarChangeListener = object : OnSeekBarChangeListener {
         override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-            tvRadius.text = resources.getString(R.string.radius_format, progress)
+            binding.tvRadius.text = resources.getString(R.string.radius_format, progress)
             if (fromUser) {
                 layoutManager?.setRadius(progress)
             }
@@ -101,7 +104,7 @@ class TurnLayoutManagerActivity : BaseActivityFont() {
 
     private val peekListener: OnSeekBarChangeListener = object : OnSeekBarChangeListener {
         override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-            tvPeekText.text = resources.getString(R.string.peek_format, progress)
+            binding.tvPeekText.text = resources.getString(R.string.peek_format, progress)
             if (fromUser) {
                 layoutManager?.setPeekDistance(progress)
             }
@@ -126,6 +129,7 @@ class TurnLayoutManagerActivity : BaseActivityFont() {
                         layoutManager?.orientation = TurnLayoutManager.VERTICAL
                         return
                     }
+
                     1 -> layoutManager?.orientation = TurnLayoutManager.HORIZONTAL
                     else -> {}
                 }
@@ -144,6 +148,7 @@ class TurnLayoutManagerActivity : BaseActivityFont() {
                         layoutManager?.setGravity(TurnLayoutManager.Gravity.START)
                         return
                     }
+
                     1 -> layoutManager?.setGravity(TurnLayoutManager.Gravity.END)
                     else -> {}
                 }
@@ -160,9 +165,9 @@ class TurnLayoutManagerActivity : BaseActivityFont() {
 
     private val controlsHandleClickListener = View.OnClickListener {
         val translationY =
-            if (rlControlPanel.translationY == 0f) rlControlPanel.height.toFloat() else 0f
-        rlControlPanel.animate().translationY(translationY).start()
-        tvControlHandle.animate().translationY(translationY).start()
+            if (binding.rlControlPanel.translationY == 0f) binding.rlControlPanel.height.toFloat() else 0f
+        binding.rlControlPanel.animate().translationY(translationY).start()
+        binding.tvControlHandle.animate().translationY(translationY).start()
     }
 
     private class OrientationAdapter(

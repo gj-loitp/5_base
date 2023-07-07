@@ -11,12 +11,25 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.ext.*
+import com.loitp.core.ext.hideProgress
+import com.loitp.core.ext.play
+import com.loitp.core.ext.setDelay
+import com.loitp.core.ext.setSafeOnClickListenerElastic
+import com.loitp.core.ext.showProgress
+import com.loitp.core.ext.toggleFullscreen
+import com.loitp.databinding.LAFindNumberSingleLevelBinding
 import com.loitp.game.findNumber.adt.LevelAdapter
 import com.loitp.game.findNumber.model.Level
 import com.loitp.game.findNumber.vm.FindNumberViewModel
 import com.tombayley.activitycircularreveal.CircularReveal
-import kotlinx.android.synthetic.main.l_a_find_number_single_level.*
+import kotlinx.android.synthetic.main.l_a_find_number_single_level.ivBack
+import kotlinx.android.synthetic.main.l_a_find_number_single_level.ivPlay
+import kotlinx.android.synthetic.main.l_a_find_number_single_level.ivSpiral
+import kotlinx.android.synthetic.main.l_a_find_number_single_level.layoutLevel
+import kotlinx.android.synthetic.main.l_a_find_number_single_level.progressBar
+import kotlinx.android.synthetic.main.l_a_find_number_single_level.rootView
+import kotlinx.android.synthetic.main.l_a_find_number_single_level.rvLevel
+import kotlinx.android.synthetic.main.l_a_find_number_single_level.tvLevels
 
 /**
  * Created by Loitp on 04,August,2022
@@ -32,13 +45,17 @@ class SingleLevelActivity : BaseActivityFont() {
     private var activityCircularReveal: CircularReveal? = null
     private var levelAdapter = LevelAdapter()
     private var findNumberViewModel: FindNumberViewModel? = null
+    private lateinit var binding: LAFindNumberSingleLevelBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_find_number_single_level
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LAFindNumberSingleLevelBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         this.toggleFullscreen(isFullScreen = true)
         activityCircularReveal = CircularReveal(rootView)

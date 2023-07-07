@@ -20,9 +20,9 @@ import vn.loitp.databinding.ADlgMenuBinding
 class MenuDialogActivity : BaseActivityFont() {
     private lateinit var binding: ADlgMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -27,9 +27,9 @@ class PdfDemoActivity : BaseActivityFont() {
     private var pdfStreamCoroutine: PdfStreamCoroutine? = null
     private lateinit var binding: ADemoPdfBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_demo_pdf
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

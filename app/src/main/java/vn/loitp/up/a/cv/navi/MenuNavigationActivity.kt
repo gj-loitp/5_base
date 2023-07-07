@@ -18,9 +18,9 @@ import vn.loitp.up.a.cv.navi.arc.ArcNavigationViewActivity
 class MenuNavigationActivity : BaseActivityFont() {
     private lateinit var binding: ANaviMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

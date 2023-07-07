@@ -28,9 +28,9 @@ class Retrofit2Activity : BaseActivityFont(), Retrofit2Adapter.Listener {
     private val baseURL = "https://api.nomics.com/v1/"
     private lateinit var sampleService: SampleService
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

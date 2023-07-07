@@ -25,9 +25,9 @@ class ViewModelActivity : BaseActivityFont() {
     private lateinit var colorChangerViewModel: ColorChangerViewModel
     private lateinit var timeChangerViewModel: TimeChangerViewModel
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

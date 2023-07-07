@@ -19,9 +19,9 @@ import vn.loitp.databinding.ATvTextDecoratorBinding
 class TextDecoratorActivity : BaseActivityFont() {
     private lateinit var binding: ATvTextDecoratorBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

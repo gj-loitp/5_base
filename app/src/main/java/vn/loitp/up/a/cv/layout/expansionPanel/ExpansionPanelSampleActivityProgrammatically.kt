@@ -28,9 +28,9 @@ import vn.loitp.up.a.cv.layout.expansionPanel.Utils.dpToPx
 class ExpansionPanelSampleActivityProgrammatically : BaseActivityFont() {
     private lateinit var binding: AExpansionPanelSampleProgrammaticallyBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

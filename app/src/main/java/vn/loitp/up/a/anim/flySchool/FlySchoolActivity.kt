@@ -17,9 +17,9 @@ import vn.loitp.databinding.AAnimationFlySchoolBinding
 class FlySchoolActivity : BaseActivityFont() {
     private lateinit var binding: AAnimationFlySchoolBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

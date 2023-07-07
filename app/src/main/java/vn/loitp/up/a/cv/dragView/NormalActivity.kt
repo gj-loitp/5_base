@@ -18,9 +18,9 @@ import vn.loitp.up.a.cv.dragView.frm.NormalTopFragment
 class NormalActivity : BaseActivityFont() {
     private lateinit var binding: ADragViewNormalBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

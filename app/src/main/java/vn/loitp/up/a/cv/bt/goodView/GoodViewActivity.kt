@@ -19,9 +19,9 @@ class GoodViewActivity : BaseActivityFont() {
     private lateinit var binding: AGoodViewBinding
     private var lGoodView: LGoodView? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

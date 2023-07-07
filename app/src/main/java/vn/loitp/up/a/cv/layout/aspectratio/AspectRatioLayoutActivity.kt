@@ -14,9 +14,9 @@ import vn.loitp.databinding.AAspectRatioLayoutBinding
 class AspectRatioLayoutActivity : BaseActivityFont() {
     private lateinit var binding: AAspectRatioLayoutBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -18,9 +18,9 @@ import vn.loitp.databinding.ALayoutSwipeRefreshSvBinding
 class SwipeRefreshLayoutScrollViewActivity : BaseActivityFont() {
     private lateinit var binding: ALayoutSwipeRefreshSvBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

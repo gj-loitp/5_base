@@ -19,9 +19,9 @@ import vn.loitp.databinding.AFabBinding
 class FabActivity : BaseActivityFont() {
     private lateinit var binding: AFabBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

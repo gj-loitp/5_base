@@ -19,9 +19,9 @@ import vn.loitp.databinding.APictureGalleryDemoBinding
 class PictureGalleryDemoActivity : BaseActivityFont() {
     private lateinit var binding: APictureGalleryDemoBinding
     lateinit var pagerAdapter: GalleryPagerAdapter
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

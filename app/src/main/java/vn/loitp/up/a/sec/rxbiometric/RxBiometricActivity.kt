@@ -30,9 +30,9 @@ class RxBiometricActivity : BaseActivityFont() {
     private lateinit var binding: ASecRxBiometricBinding
     private var disposable: Disposable? = null
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_sec_rx_biometric
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_sec_rx_biometric
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

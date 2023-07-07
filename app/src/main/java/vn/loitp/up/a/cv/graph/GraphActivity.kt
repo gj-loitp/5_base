@@ -26,9 +26,9 @@ import java.util.*
 abstract class GraphActivity : BaseActivityFont() {
     lateinit var binding: AGraphBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     protected lateinit var adapter: AbstractGraphAdapter<NodeViewHolder>
     private var currentNode: Node? = null

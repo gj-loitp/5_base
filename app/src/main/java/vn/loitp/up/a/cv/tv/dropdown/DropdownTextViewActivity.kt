@@ -23,9 +23,9 @@ class DropdownTextViewActivity : BaseActivityFont() {
 
     private val text = "Click to visit <a href=\"en/page\"> Page </a>"
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

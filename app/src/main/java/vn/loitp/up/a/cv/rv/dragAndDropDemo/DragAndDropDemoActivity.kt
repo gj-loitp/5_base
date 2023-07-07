@@ -29,9 +29,9 @@ class DragAndDropDemoActivity : BaseActivityFont() {
     private var selectedWord = ""
     private lateinit var binding: ARvDragAndDropDemoBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

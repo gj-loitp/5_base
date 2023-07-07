@@ -20,9 +20,9 @@ class GridViewActivity : BaseActivityFont() {
     val list = ArrayList<String>()
     val adapter = GridViewAdapter()
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

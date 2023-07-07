@@ -23,9 +23,9 @@ class RecolorActivity : BaseActivityFont() {
     private var isStatusBarColorChanged = false
     private var isNavigationBarColorChanged = false
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

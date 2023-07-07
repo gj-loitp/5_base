@@ -23,9 +23,9 @@ class ArcViewActivity : BaseActivityFont(), View.OnClickListener {
     private lateinit var shadowArc: ArcLinearLayout
     private lateinit var binding: ARvArcViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

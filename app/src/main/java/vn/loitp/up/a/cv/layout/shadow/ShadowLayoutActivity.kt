@@ -19,9 +19,9 @@ import vn.loitp.databinding.ALayoutShadowBinding
 class ShadowLayoutActivity : BaseActivityFont(), View.OnClickListener {
     private lateinit var binding: ALayoutShadowBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

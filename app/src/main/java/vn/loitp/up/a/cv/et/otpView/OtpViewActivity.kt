@@ -20,9 +20,9 @@ import vn.loitp.databinding.AEtOtpBinding
 class OtpViewActivity : BaseActivityFont() {
     private lateinit var binding: AEtOtpBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

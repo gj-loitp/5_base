@@ -17,9 +17,9 @@ class KeyboardHeightProviderActivity : BaseActivityFont() {
     private lateinit var binding: AKbHeightProviderBinding
     private var keyboardHeightProvider: KeyboardHeightProvider? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

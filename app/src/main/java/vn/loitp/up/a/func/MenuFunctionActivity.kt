@@ -42,9 +42,9 @@ import vn.loitp.up.a.func.wallpo.WallpoActivity
 class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
     private lateinit var binding: AFuncMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

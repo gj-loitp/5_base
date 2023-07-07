@@ -19,9 +19,9 @@ class MenuCoordinatorLayoutActivity : BaseActivityFont(), View.OnClickListener {
 
     private lateinit var binding: AMenuCoordinatorLayoutBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

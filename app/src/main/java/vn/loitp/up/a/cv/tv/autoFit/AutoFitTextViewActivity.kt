@@ -16,9 +16,9 @@ import vn.loitp.databinding.ATvAutoFitBinding
 class AutoFitTextViewActivity : BaseActivityFont() {
     private lateinit var binding: ATvAutoFitBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -16,9 +16,9 @@ class ViewDragHelperSimpleActivity1 : BaseActivityFont(), VDHView.Callback {
 
     private lateinit var binding: AFuncViewDragHelperSimple1Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

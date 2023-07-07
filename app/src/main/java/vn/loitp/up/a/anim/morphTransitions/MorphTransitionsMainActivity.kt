@@ -19,9 +19,9 @@ import vn.loitp.databinding.AMorphTransitionsMainBinding
 class MorphTransitionsMainActivity : BaseActivityFont() {
     private lateinit var binding: AMorphTransitionsMainBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_morph_transitions_main
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_morph_transitions_main
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

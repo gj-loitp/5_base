@@ -41,9 +41,9 @@ class AdHelperActivity : BaseActivityFont() {
     private var colorStatusBar = 0
     private var isLightIconStatusBar = true
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

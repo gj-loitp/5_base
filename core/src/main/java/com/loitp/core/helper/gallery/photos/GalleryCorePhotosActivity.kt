@@ -42,9 +42,9 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
     private var photoSetID: String? = null
     private lateinit var binding: LAFlickrGalleryCorePhotosBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

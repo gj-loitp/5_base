@@ -16,9 +16,9 @@ import vn.loitp.databinding.AElasticViewBinding
 class ElasticActivity : BaseActivityFont() {
     private lateinit var binding: AElasticViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

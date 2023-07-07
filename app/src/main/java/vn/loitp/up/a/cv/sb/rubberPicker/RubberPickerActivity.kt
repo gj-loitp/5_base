@@ -23,9 +23,9 @@ import vn.loitp.databinding.ASbRubberPickerBinding
 class RubberPickerActivity : BaseActivityFont() {
     private lateinit var binding: ASbRubberPickerBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -46,9 +46,9 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
     private var listRemoveAlbum = ArrayList<String>()
     private lateinit var binding: LAFlickrGalleryCoreAlbumBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

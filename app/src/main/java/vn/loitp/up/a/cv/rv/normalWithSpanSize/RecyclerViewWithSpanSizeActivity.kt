@@ -24,9 +24,9 @@ class RecyclerViewWithSpanSizeActivity : BaseActivityFont() {
     private var moviesAdapter: MoviesAdapter? = null
     private lateinit var binding: ARvBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

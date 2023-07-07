@@ -21,9 +21,9 @@ import vn.loitp.databinding.ATvReadMoreOptionBinding
 class ReadMoreOptionActivity : BaseActivityFont() {
     private lateinit var binding: ATvReadMoreOptionBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

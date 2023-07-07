@@ -26,9 +26,9 @@ import vn.loitp.up.a.cv.et.pinEditTextField.PinEditTextFieldActivity
 class MenuEditTextActivity : BaseActivityFont() {
     private lateinit var binding: AEtMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

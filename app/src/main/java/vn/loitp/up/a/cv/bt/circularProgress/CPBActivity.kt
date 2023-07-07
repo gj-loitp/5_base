@@ -19,9 +19,9 @@ import vn.loitp.databinding.ACpbBinding
 class CPBActivity : BaseActivityFont() {
     private lateinit var binding: ACpbBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

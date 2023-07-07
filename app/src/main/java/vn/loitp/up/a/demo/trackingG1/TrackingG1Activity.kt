@@ -22,9 +22,9 @@ import vn.loitp.databinding.ATrackingG1Binding
 class TrackingG1Activity : BaseActivityFont() {
     private lateinit var binding: ATrackingG1Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -27,9 +27,9 @@ import vn.loitp.databinding.AFirebaseBinding
 class FirebaseActivity : BaseActivityFont() {
     private lateinit var binding: AFirebaseBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_firebase
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_firebase
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

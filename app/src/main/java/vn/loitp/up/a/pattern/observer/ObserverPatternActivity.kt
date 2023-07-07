@@ -19,9 +19,9 @@ class ObserverPatternActivity : BaseActivityFont(), RepositoryObserver {
     private var mUserDataRepository: Subject? = null
     private lateinit var binding: APatternObserverBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

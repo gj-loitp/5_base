@@ -20,9 +20,9 @@ class WallpoActivity : BaseActivityFont() {
 
     private lateinit var binding: AWallpoBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

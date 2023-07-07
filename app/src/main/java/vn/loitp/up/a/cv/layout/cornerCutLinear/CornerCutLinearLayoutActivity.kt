@@ -46,9 +46,9 @@ class CornerCutLinearLayoutActivity : BaseActivityFont() {
         }
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_corner_cut_linear
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_layout_corner_cut_linear
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

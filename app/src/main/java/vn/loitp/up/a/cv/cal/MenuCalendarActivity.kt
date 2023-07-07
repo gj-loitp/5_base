@@ -16,9 +16,9 @@ import vn.loitp.up.a.cv.cal.cosmo.CosmoCalendarActivity
 class MenuCalendarActivity : BaseActivityFont() {
     private lateinit var binding: ActivityMenuCalendarBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -21,9 +21,9 @@ class FloatDragNoTitleActivity : BaseActivity() {
     private var mDecorView: View? = null
     private lateinit var binding: A0Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

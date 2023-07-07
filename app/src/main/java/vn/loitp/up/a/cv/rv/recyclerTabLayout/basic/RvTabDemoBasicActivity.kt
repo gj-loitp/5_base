@@ -19,9 +19,9 @@ import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
 open class RvTabDemoBasicActivity : BaseActivityFont() {
     private lateinit var binding: ARecyclerTabLayoutBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

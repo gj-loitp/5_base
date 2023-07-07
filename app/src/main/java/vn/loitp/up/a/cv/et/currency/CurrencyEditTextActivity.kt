@@ -15,9 +15,9 @@ import vn.loitp.databinding.AEtCurrencyBinding
 class CurrencyEditTextActivity : BaseActivityFont() {
     private lateinit var binding: AEtCurrencyBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

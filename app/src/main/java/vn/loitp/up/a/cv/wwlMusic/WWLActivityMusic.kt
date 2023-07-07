@@ -25,9 +25,9 @@ class WWLActivityMusic : BaseActivityFont(), LWWLMusic.Listener, FragmentHost {
     private var frmWatch: WWLWatchFragment? = null
     private var frmPlaylist: WWLPlaylistFragment? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

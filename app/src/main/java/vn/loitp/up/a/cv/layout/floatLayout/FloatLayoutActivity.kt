@@ -27,9 +27,9 @@ import vn.loitp.databinding.ALayoutFloatBinding
 class FloatLayoutActivity : BaseActivityFont() {
     private lateinit var binding: ALayoutFloatBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

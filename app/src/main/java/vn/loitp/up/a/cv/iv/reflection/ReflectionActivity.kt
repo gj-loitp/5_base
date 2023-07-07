@@ -19,9 +19,9 @@ import vn.loitp.databinding.AIvReflectionBinding
 class ReflectionActivity : BaseActivityFont() {
     private lateinit var binding: AIvReflectionBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

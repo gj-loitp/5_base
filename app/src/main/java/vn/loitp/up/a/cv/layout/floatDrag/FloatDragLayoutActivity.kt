@@ -25,9 +25,9 @@ class FloatDragLayoutActivity : BaseActivityFont(), View.OnClickListener {
     private lateinit var binding: AFloatDragLayoutBinding
     private var floatDragPopupWindow: FloatDragPopupWindow? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

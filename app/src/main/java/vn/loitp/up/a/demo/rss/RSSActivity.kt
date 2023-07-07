@@ -14,9 +14,9 @@ import vn.loitp.databinding.ARssBinding
 class RSSActivity : BaseActivityFont() {
     private lateinit var binding: ARssBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

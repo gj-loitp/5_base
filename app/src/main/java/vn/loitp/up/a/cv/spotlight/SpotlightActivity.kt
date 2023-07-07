@@ -21,9 +21,9 @@ import vn.loitp.databinding.ASpotlightBinding
 class SpotlightActivity : BaseActivityFont() {
     private lateinit var binding: ASpotlightBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

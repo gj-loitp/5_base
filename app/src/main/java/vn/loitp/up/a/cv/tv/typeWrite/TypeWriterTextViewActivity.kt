@@ -16,9 +16,9 @@ class TypeWriterTextViewActivity : BaseActivityFont() {
 
     private lateinit var binding: ATvTypeWriterBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

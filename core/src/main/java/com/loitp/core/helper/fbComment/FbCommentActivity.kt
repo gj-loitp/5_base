@@ -45,9 +45,9 @@ class FbCommentActivity : BaseActivityFont() {
         private const val NUMBER_OF_COMMENTS = 50
     }
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

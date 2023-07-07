@@ -19,9 +19,9 @@ import vn.loitp.databinding.AAndroidParticlesBinding
 class AndroidParticlesActivity : BaseActivityFont() {
     private lateinit var binding: AAndroidParticlesBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

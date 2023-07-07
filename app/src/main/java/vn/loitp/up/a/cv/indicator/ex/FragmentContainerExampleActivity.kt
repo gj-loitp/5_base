@@ -33,9 +33,9 @@ class FragmentContainerExampleActivity : BaseActivityFont() {
     private val mFragments: MutableList<Fragment> = ArrayList()
     private val mFragmentContainerHelper = FragmentContainerHelper()
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

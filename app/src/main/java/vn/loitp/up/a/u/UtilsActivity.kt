@@ -23,9 +23,9 @@ class UtilsActivity : BaseActivityFont() {
     private lateinit var binding: AUtilsBinding
     private val listClass = ArrayList<String>()
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

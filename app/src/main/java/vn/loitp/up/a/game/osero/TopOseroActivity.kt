@@ -21,9 +21,9 @@ import vn.loitp.up.a.game.osero.md.ai.OseroAI
 class TopOseroActivity : BaseActivityFont() {
     private lateinit var binding: AOseroTopBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_osero_top
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_osero_top
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

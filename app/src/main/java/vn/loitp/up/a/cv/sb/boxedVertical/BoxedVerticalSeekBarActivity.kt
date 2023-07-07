@@ -18,9 +18,9 @@ class BoxedVerticalSeekBarActivity : BaseActivityFont() {
     private val stringList = ArrayList<String>()
     private lateinit var binding: ASbBoxedVerticalBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

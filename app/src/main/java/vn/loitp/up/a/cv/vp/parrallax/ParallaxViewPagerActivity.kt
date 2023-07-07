@@ -24,9 +24,9 @@ class ParallaxViewPagerActivity : BaseActivityFont() {
     private val resList: MutableList<Int> = ArrayList()
     private lateinit var binding: AVpParallaxBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

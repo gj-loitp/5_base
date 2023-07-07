@@ -13,9 +13,9 @@ class SwipeRevealLayoutGridActivity : BaseActivityFont() {
     private lateinit var binding: ASwipeRevealLayoutGridBinding
     private var gridAdapter: GridAdapter? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

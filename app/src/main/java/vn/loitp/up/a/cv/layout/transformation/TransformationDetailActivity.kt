@@ -36,9 +36,9 @@ class TransformationDetailActivity : BaseActivityFont() {
 
     private lateinit var binding: ALayoutTransformationDetailBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         onTransformationEndContainer(intent.getParcelableExtra(activityTransitionName))

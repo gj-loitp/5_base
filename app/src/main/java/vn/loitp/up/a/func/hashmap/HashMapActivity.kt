@@ -18,9 +18,9 @@ class HashMapActivity : BaseActivityFont(), View.OnClickListener {
     private val map: MutableMap<String, String> = HashMap()
     private var autoKey = 0
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

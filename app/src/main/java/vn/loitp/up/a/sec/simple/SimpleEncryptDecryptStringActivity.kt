@@ -6,6 +6,7 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import kotlinx.android.synthetic.main.a_encrypt_decrypt_string.*
 import vn.loitp.R
@@ -19,9 +20,9 @@ class SimpleEncryptDecryptStringActivity : BaseActivityFont() {
     private val password = "Loitp@123KawasakiZ1000R"
     private lateinit var binding: AEncryptDecryptStringBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_encrypt_decrypt_string
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -28,9 +28,9 @@ class BannerActivity : BaseActivityFont() {
     private lateinit var binding: AAdBannerBinding
     private var adView: MaxAdView? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

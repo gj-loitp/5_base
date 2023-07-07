@@ -20,9 +20,9 @@ class TTTAPIPageListActivity : BaseActivityFont() {
     private lateinit var binding: ATttApiPageListBinding
     private var tttViewModel: TTTViewModel? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

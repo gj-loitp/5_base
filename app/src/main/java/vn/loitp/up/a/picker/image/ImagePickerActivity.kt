@@ -33,9 +33,9 @@ class ImagePickerActivity : BaseActivityFont() {
         adapter?.setData(it)
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_picker_image_demo
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_picker_image_demo
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

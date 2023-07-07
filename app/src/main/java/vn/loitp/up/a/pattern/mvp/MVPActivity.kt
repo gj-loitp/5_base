@@ -19,9 +19,9 @@ class MVPActivity : BaseActivityFont(), DemoPresenter.View {
     private lateinit var binding: APatternMvpBinding
     private lateinit var demoPresenter: DemoPresenter
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

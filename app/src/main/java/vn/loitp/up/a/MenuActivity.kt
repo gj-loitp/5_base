@@ -57,9 +57,9 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     private var interstitialAd: MaxInterstitialAd? = null
     private var retryAttempt = 0
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

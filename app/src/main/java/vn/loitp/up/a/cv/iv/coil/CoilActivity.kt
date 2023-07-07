@@ -23,9 +23,9 @@ import vn.loitp.up.common.Constants.Companion.URL_IMG_2
 class CoilActivity : BaseActivityFont() {
     private lateinit var binding: ACoilBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

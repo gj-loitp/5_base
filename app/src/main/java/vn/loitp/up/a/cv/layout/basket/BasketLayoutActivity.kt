@@ -16,9 +16,9 @@ import vn.loitp.databinding.ABasketLayoutBinding
 class BasketLayoutActivity : BaseActivityFont() {
     private lateinit var binding: ABasketLayoutBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

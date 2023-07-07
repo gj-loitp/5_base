@@ -26,9 +26,9 @@ import vn.loitp.up.a.cv.rv.recyclerTabLayout.years.RvTabYearsActivity
 class MenuRecyclerTabLayoutActivity : BaseActivityFont(), AdapterView.OnItemClickListener {
     private lateinit var binding: AMenuRvTabLayoutBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

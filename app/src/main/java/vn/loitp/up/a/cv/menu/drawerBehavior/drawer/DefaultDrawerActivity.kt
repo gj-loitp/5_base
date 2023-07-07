@@ -21,9 +21,9 @@ class DefaultDrawerActivity : BaseActivityFont(), NavigationView.OnNavigationIte
 
     private lateinit var binding: ADrawerBehaviorDefaultBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

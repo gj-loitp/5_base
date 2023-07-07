@@ -18,9 +18,9 @@ import vn.loitp.databinding.ASwToggleBinding
 class ToggleActivity : BaseActivityFont() {
     private lateinit var binding: ASwToggleBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

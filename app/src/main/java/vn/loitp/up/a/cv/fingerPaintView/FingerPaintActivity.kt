@@ -23,9 +23,9 @@ class FingerPaintActivity : BaseActivityFont(), SeekBar.OnSeekBarChangeListener,
     View.OnClickListener {
     private lateinit var binding: AFingerPaintViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -20,9 +20,9 @@ class PanoramaIvActivity : BaseActivityFont() {
     private var gyroscopeObserver: GyroscopeObserver? = null
     private lateinit var binding: AIvPanoramaBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

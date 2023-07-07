@@ -32,9 +32,9 @@ class SqliteMultiTableAdvanceActivity : BaseActivityFont(), View.OnClickListener
     private lateinit var inspectionDatabaseHelper: InspectionDatabaseHelper
     private lateinit var binding: ADbSqliteMultiTableAdvanceBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

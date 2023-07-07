@@ -21,9 +21,9 @@ class TreeViewActivity : BaseActivityFont() {
     private var nodeCount = 0
     private lateinit var binding: ATreeViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

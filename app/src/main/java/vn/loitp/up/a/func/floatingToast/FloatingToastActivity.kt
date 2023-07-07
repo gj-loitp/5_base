@@ -24,9 +24,9 @@ class FloatingToastActivity : BaseActivityFont() {
 
     private lateinit var binding: AFloatingToastBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

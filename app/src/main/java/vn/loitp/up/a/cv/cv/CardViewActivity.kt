@@ -19,9 +19,9 @@ import vn.loitp.databinding.ACardViewBinding
 class CardViewActivity : BaseActivityFont() {
     private lateinit var binding: ACardViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

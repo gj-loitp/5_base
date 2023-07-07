@@ -15,13 +15,13 @@ import vn.loitp.up.a.pattern.mvvm.vm.UserViewModel
 @IsFullScreen(false)
 class MVVMActivity : BaseActivityFont() {
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_pattern_mvvm
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_pattern_mvvm
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setContentView(R.layout.a_pattern_mvvm)
         setupViews()
     }
 

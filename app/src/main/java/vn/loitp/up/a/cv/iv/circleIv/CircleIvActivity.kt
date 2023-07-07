@@ -20,9 +20,9 @@ import vn.loitp.up.common.Constants
 class CircleIvActivity : BaseActivityFont() {
     private lateinit var binding: AIvCircleBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

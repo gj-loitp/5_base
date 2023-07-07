@@ -16,9 +16,9 @@ import vn.loitp.databinding.ADraggableFlipViewBinding
 class DraggableFlipViewActivity : BaseActivityFont() {
     private lateinit var binding: ADraggableFlipViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

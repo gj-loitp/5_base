@@ -21,9 +21,9 @@ import vn.loitp.databinding.ATextarcBinding
 class TextArcActivity : BaseActivityFont() {
     private lateinit var binding: ATextarcBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

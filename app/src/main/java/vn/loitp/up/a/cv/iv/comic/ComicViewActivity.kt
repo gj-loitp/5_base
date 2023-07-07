@@ -21,9 +21,9 @@ import vn.loitp.databinding.AComicViewBinding
 class ComicViewActivity : BaseActivityFont() {
     private lateinit var binding: AComicViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

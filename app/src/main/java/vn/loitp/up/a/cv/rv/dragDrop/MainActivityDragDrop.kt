@@ -20,9 +20,9 @@ class MainActivityDragDrop : BaseActivityFont(), CustomListener {
 
     private lateinit var binding: AMainDragDropBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

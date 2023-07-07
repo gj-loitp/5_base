@@ -15,9 +15,9 @@ import vn.loitp.databinding.ATvExtraBinding
 class ExtraTextViewActivity : BaseActivityFont() {
     private lateinit var binding: ATvExtraBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

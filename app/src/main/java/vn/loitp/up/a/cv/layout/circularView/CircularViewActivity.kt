@@ -18,9 +18,9 @@ import vn.loitp.databinding.ALayoutCircularViewBinding
 class CircularViewActivity : BaseActivityFont() {
     private lateinit var binding: ALayoutCircularViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

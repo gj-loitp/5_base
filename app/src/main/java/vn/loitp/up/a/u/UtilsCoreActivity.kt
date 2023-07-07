@@ -21,9 +21,9 @@ import java.math.BigDecimal
 class UtilsCoreActivity : BaseActivityFont() {
 
     private lateinit var binding: AUtilsCoreBinding
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

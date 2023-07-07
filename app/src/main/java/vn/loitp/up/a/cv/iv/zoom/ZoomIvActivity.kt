@@ -15,9 +15,9 @@ import vn.loitp.databinding.AIvZoomBinding
 class ZoomIvActivity : BaseActivityFont() {
     private lateinit var binding: AIvZoomBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

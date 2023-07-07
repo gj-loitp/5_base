@@ -17,9 +17,9 @@ import vn.loitp.databinding.ASwitchTbgCustomButtonBinding
 class TBGCustomButtonActivity : BaseActivityFont() {
     private lateinit var binding: ASwitchTbgCustomButtonBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

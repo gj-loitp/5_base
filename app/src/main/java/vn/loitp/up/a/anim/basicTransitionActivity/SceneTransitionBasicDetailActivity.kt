@@ -31,9 +31,9 @@ class SceneTransitionBasicDetailActivity : BaseActivityFont() {
     private var mItem: Item? = null
     private lateinit var binding: AAnimationSceneTransitionBasicDetailsBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

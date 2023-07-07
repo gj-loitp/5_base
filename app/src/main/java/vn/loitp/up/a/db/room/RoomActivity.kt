@@ -22,9 +22,9 @@ class RoomActivity : BaseActivityFont() {
     private var homeViewModel: HomeViewModel? = null
     private lateinit var binding: ADbRoom2Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

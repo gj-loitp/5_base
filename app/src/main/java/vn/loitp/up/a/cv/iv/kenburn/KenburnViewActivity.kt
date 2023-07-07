@@ -22,9 +22,9 @@ import vn.loitp.up.app.EmptyActivity
 class KenburnViewActivity : BaseActivityFont() {
     private lateinit var binding: AKenburnViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

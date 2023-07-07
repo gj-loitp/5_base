@@ -17,9 +17,9 @@ import vn.loitp.up.app.EmptyActivity
 class ContinuousScrollableImageViewActivity : BaseActivityFont() {
     private lateinit var binding: AIvContinuousScrollableBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

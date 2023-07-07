@@ -15,9 +15,9 @@ class ViewPagerVerticalActivity : BaseActivityFont() {
     private lateinit var binding: AVpVerticalBinding
     private val stringList: MutableList<String> = ArrayList()
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

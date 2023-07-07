@@ -14,9 +14,9 @@ import vn.loitp.databinding.ASwitchTbgSingleBinding
 class TBGSingleSelectActivity : BaseActivityFont() {
     private lateinit var binding: ASwitchTbgSingleBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

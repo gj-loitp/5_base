@@ -25,9 +25,9 @@ import java.util.*
 class AndroidSlidingUpPanelActivity : BaseActivityFont() {
     private lateinit var binding: AAndroidSlidingUpPanelBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

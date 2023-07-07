@@ -37,9 +37,9 @@ import vn.loitp.up.a.cv.tv.zoom.ZoomTextViewActivity
 class MenuTextViewActivity : BaseActivityFont(), OnClickListener {
     private lateinit var binding: AMenuTvBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -22,9 +22,9 @@ class MenuAdActivity : BaseActivityFont() {
 
     private lateinit var binding: AMenuAdBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

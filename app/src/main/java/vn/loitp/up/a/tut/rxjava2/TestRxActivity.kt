@@ -29,9 +29,9 @@ class TestRxActivity : BaseActivityFont(), View.OnClickListener {
 
     private lateinit var binding: ARxTestBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_rx_test
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_rx_test
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

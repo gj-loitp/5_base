@@ -30,9 +30,9 @@ class GradientColorPickerBarActivity : BaseActivityFont() {
         )
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_picker_gradient_color_picker_bar
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_picker_gradient_color_picker_bar
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

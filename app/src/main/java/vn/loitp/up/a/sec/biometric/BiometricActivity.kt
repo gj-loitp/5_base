@@ -37,9 +37,9 @@ class BiometricActivity : BaseActivityFont() {
     private lateinit var callBack: BiometricPrompt.AuthenticationCallback
     private var keyguardManager: KeyguardManager? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

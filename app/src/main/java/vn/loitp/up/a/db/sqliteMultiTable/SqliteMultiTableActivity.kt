@@ -30,9 +30,9 @@ class SqliteMultiTableActivity : BaseActivityFont() {
     private lateinit var databaseHelper: DatabaseHelper
     private lateinit var binding: ADbSqliteMultiTableBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_db_sqlite_multi_table
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_db_sqlite_multi_table
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

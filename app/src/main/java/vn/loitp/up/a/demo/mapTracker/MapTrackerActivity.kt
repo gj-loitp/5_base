@@ -56,9 +56,9 @@ class MapTrackerActivity :
     private val listLoc = ArrayList<Loc>()
     private lateinit var binding: AMapTrackerBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

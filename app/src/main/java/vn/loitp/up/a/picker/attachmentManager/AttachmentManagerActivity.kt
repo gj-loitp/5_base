@@ -68,9 +68,9 @@ class AttachmentManagerActivity : BaseActivityFont() {
         "image/*",
     )
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_attachment_manager
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_attachment_manager
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -15,9 +15,9 @@ import vn.loitp.databinding.AEtTextWatcherBinding
 class EditTextTextWatcherActivity : BaseActivityFont() {
     private lateinit var binding: AEtTextWatcherBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -45,9 +45,9 @@ class DynamicTabExampleActivity : BaseActivityFont() {
     private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
     private var mCommonNavigator: CommonNavigator? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -39,15 +39,15 @@ public class AlarmMeActivity extends BaseActivityFont {
     private final int CONTEXT_MENU_DELETE = 1;
     private final int CONTEXT_MENU_DUPLICATE = 2;
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.a_alarm_list;
-    }
+//    @Override
+//    protected int setLayoutResourceId() {
+//        return R.layout.a_alarm_list;
+//    }
 
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-
+        setContentView(R.layout.a_alarm_list);
         setupViews();
         mCurrentAlarm = null;
     }

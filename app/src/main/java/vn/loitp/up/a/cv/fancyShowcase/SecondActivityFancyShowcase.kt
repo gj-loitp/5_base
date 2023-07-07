@@ -15,9 +15,9 @@ import vn.loitp.databinding.AFancyShowcaseSecondBinding
 class SecondActivityFancyShowcase : BaseActivityFancyShowcase() {
     private lateinit var binding: AFancyShowcaseSecondBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

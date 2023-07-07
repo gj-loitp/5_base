@@ -26,9 +26,9 @@ class MapExampleActivity : BaseActivityFont() {
 
     private lateinit var binding: ARxjava2FlowableBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_rxjava2_flowable
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_rxjava2_flowable
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

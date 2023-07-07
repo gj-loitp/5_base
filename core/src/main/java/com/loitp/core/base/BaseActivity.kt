@@ -70,8 +70,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     var alertDialogProgress: Dialog? = null
 
-    //TODO delete soon, use view binding instead
-    protected abstract fun setLayoutResourceId(): Int
+//    protected abstract fun setLayoutResourceId(): Int
 
     protected fun setTransparentStatusNavigationBar() {
         // https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
@@ -120,10 +119,10 @@ abstract class BaseActivity : AppCompatActivity() {
             supportRequestWindowFeature(Window.FEATURE_NO_TITLE) // requestFeature() must be called before adding content
         }
 
-        val layoutId = setLayoutResourceId()
-        if (layoutId != NOT_FOUND) {
-            setContentView(setLayoutResourceId())
-        }
+//        val layoutId = setLayoutResourceId()
+//        if (layoutId != NOT_FOUND) {
+//            setContentView(setLayoutResourceId())
+//        }
 
         if (isFullScreen) {
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

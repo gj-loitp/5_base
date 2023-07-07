@@ -19,9 +19,9 @@ import vn.loitp.databinding.ACollapsingToolbarLayoutWithTabLayoutBinding
 class CollapsingToolbarLayoutActivity : BaseActivityFont(), OnClickListener {
     private lateinit var binding: ACollapsingToolbarLayoutWithTabLayoutBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

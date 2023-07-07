@@ -20,9 +20,9 @@ class MenuServiceActivity : BaseActivityFont(), View.OnClickListener {
 
     private lateinit var binding: ASvMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

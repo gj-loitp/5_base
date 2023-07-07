@@ -21,9 +21,9 @@ import vn.loitp.databinding.ALayoutChessBinding
 class ChessLayoutActivity : BaseActivityFont() {
     private lateinit var binding: ALayoutChessBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     private var mRows = 10
     private var mCols = 10

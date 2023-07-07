@@ -16,9 +16,9 @@ import vn.loitp.databinding.AEtMaterialTextfieldBinding
 class MaterialTextFieldActivity : BaseActivityFont() {
     private lateinit var binding: AEtMaterialTextfieldBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

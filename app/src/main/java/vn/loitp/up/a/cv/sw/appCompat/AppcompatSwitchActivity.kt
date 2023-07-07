@@ -17,9 +17,9 @@ import vn.loitp.databinding.ASwAppcompatBinding
 class AppcompatSwitchActivity : BaseActivityFont() {
     private lateinit var binding: ASwAppcompatBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

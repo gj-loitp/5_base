@@ -23,9 +23,9 @@ class MenuVideoViewActivity : BaseActivityFont() {
 
     private lateinit var binding: AVideoMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_video_menu
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_video_menu
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -21,9 +21,9 @@ class PinchToZoomViewPagerActivity : BaseActivityFont() {
     private val list = ArrayList<String>()
     private lateinit var binding: AIvPinchToZoomVpBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

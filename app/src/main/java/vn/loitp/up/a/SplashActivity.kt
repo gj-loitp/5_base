@@ -35,9 +35,9 @@ class SplashActivity : BaseActivityFont() {
 //    private var isCheckReadyDone = false
     private var isShowDialogCheck = false
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

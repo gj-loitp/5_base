@@ -42,9 +42,9 @@ class GameOseroActivity : BaseActivityFont(), GameView {
     private val presenter = GamePresenter()
     private val boardSize = presenter.boardSize
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {

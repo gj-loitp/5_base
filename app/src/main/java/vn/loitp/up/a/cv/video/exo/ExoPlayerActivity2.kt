@@ -20,9 +20,9 @@ class ExoPlayerActivity2 : BaseActivityFont() {
     private var playerManager: PlayerManager? = null
     private lateinit var binding: AVideoExoPlayer2Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

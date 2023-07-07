@@ -19,9 +19,9 @@ import vn.loitp.up.a.cv.rv.recyclerTabLayout.utils.DemoData
 class RvTabCustomView02Activity : BaseActivityFont() {
     private lateinit var binding: ARecyclerTabLayoutDemoCustomView02Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

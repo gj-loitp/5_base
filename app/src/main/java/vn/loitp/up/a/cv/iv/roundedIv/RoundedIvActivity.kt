@@ -20,9 +20,9 @@ import vn.loitp.databinding.AIvRoundedBinding
 class RoundedIvActivity : BaseActivityFont() {
     private lateinit var binding: AIvRoundedBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

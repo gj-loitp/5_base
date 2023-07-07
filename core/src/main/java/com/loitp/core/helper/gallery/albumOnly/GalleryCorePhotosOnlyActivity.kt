@@ -56,9 +56,9 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
     private var photosSize: Int = 0
     private lateinit var binding: LAFlickrGalleryCorePhotosOnlyBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

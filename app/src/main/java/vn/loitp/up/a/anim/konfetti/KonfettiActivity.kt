@@ -20,9 +20,9 @@ import vn.loitp.databinding.AKonfettiBinding
 class KonfettiActivity : BaseActivityFont() {
     private lateinit var binding: AKonfettiBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

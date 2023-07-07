@@ -15,9 +15,9 @@ import vn.loitp.databinding.AIvFidgetSpinnerBinding
 class FidgetSpinnerIvActivity : BaseActivityFont() {
     private lateinit var binding: AIvFidgetSpinnerBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

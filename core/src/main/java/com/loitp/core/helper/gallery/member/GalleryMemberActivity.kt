@@ -49,9 +49,9 @@ class GalleryMemberActivity : BaseActivityFont() {
     private var photoSetID: String? = null
     private var photosSize: Int = 0
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

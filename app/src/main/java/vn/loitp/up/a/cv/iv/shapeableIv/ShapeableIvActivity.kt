@@ -20,9 +20,9 @@ import vn.loitp.databinding.AIvShapeableBinding
 class ShapeableIvActivity : BaseActivityFont() {
     private lateinit var binding: AIvShapeableBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

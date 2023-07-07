@@ -46,9 +46,9 @@ class CodeViewActivity : BaseActivityFont() {
     private val useModernAutoCompleteAdapter = true
     private lateinit var binding: ACodeViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -26,9 +26,9 @@ class ListActivity : BaseActivityFont() {
     private var stfAdapter: StfAdapter? = null
     private lateinit var binding: AIvStfaiconListBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

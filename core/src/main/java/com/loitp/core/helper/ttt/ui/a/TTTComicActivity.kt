@@ -38,9 +38,9 @@ class TTTComicActivity : BaseActivityFont() {
     val listMenuComicTTT = ArrayList<MenuComicTTT>()
     private lateinit var binding: LATttComicBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

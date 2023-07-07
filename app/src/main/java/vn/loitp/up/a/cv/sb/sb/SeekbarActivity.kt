@@ -15,9 +15,9 @@ import vn.loitp.databinding.ASbBinding
 class SeekbarActivity : BaseActivityFont() {
     private lateinit var binding: ASbBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
