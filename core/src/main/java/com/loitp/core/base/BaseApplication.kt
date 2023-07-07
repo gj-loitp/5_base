@@ -32,15 +32,15 @@ git push -f*/
 open class BaseApplication : MultiDexApplication(), LifecycleObserver {
 
     private var logTag: String? = null
-    private val mFTActivityLifecycleCallbacks = FTActivityLifecycleCallbacks()
+//    private val mFTActivityLifecycleCallbacks = FTActivityLifecycleCallbacks()
 
     companion object {
         val gson: Gson = Gson()
         private var instance: BaseApplication? = null
 
-        fun currentActivity(): Activity? {
-            return instance?.mFTActivityLifecycleCallbacks?.currentActivity
-        }
+//        fun currentActivity(): Activity? {
+//            return instance?.mFTActivityLifecycleCallbacks?.currentActivity
+//        }
     }
 
     init {
@@ -51,7 +51,7 @@ open class BaseApplication : MultiDexApplication(), LifecycleObserver {
         super.onCreate()
 
         ProcessLifecycleOwner.get().lifecycle.addObserver(lifecycleEventObserver)
-        registerActivityLifecycleCallbacks(mFTActivityLifecycleCallbacks)
+//        registerActivityLifecycleCallbacks(mFTActivityLifecycleCallbacks)
 
         logTag = javaClass.getAnnotation(LogTag::class.java)?.value
 
