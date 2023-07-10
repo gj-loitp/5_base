@@ -13,6 +13,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 android {
+    namespace 'vn.loitp'
     compileSdk 33
 
     defaultConfig {
@@ -81,7 +82,6 @@ android {
 //            applicationIdSuffix ".debug"
         }
     }
-    namespace 'vn.loitp'
 
     android.applicationVariants.all { variant ->
         variant.outputs.all {
@@ -120,6 +120,15 @@ android {
             resValue "string", "EnableAdBanner", "true"
         }
 
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
 
@@ -247,7 +256,7 @@ dependencies {
 //    api 'com.fivehundredpx:greedo-layout:1.5.1'
     api 'com.github.500px:greedo-layout-for-android:v1.5.3'
 
-
+    api 'com.github.Mindinventory:Lassi:1.2.0'
     api 'com.thedeanda:lorem:2.1'
 //    https://github.com/BeksOmega/looping-layout
     api 'com.github.beksomega:loopinglayout:0.4.1'

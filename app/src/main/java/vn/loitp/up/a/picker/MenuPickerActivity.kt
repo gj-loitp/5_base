@@ -13,6 +13,7 @@ import vn.loitp.databinding.APickerMenuBinding
 import vn.loitp.up.a.picker.attachmentManager.AttachmentManagerActivity
 import vn.loitp.up.a.picker.gradientColorPickerBar.GradientColorPickerBarActivity
 import vn.loitp.up.a.picker.image.ImagePickerActivity
+import vn.loitp.up.a.picker.lassi.LassiActivity
 import vn.loitp.up.a.picker.number.NumberPickerActivity
 import vn.loitp.up.a.picker.shiftColor.ShiftColorPickerActivity
 import vn.loitp.up.a.picker.ssImage.MainActivitySSImagePicker
@@ -25,10 +26,6 @@ import vn.loitp.up.a.picker.unicornFile.UnicornFilePickerActivity
 class MenuPickerActivity : BaseActivityFont() {
 
     private lateinit var binding: APickerMenuBinding
-
-//    override fun setLayoutResourceId(): Int {
-//        return NOT_FOUND
-//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,6 +69,9 @@ class MenuPickerActivity : BaseActivityFont() {
         }
         binding.btImagePicker.setSafeOnClickListener {
             launchActivity(ImagePickerActivity::class.java)
+        }
+        binding.btLassi.setSafeOnClickListener {
+            launchActivity(LassiActivity::class.java)
         }
     }
 }

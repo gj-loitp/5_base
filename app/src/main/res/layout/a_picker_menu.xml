@@ -42,6 +42,11 @@
                 android:text="ImagePicker" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLassi"
+                style="@style/ButtonMenu"
+                android:text="Lassi (+++)" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNumberPicker"
                 style="@style/ButtonMenu"
                 android:text="Number Picker" />
