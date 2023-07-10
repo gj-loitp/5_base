@@ -160,7 +160,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clChild"
-            app:spanCount="2"
+            app:spanCount="3"
             tools:listitem="@layout/row_selected_media" />
 
         <androidx.appcompat.widget.AppCompatImageView

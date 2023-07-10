@@ -81,7 +81,7 @@ class LassiActivity : BaseActivityFont(), View.OnClickListener {
                 val intent = Lassi(this)
                     .with(LassiOption.CAMERA_AND_GALLERY)
                     .setMaxCount(1)
-                    .setGridSize(2)
+                    .setGridSize(3)
                     .setPlaceHolder(R.drawable.ic_image_placeholder)
                     .setErrorDrawable(R.drawable.ic_image_placeholder)
                     .setSelectionDrawable(R.drawable.ic_checked_media)
