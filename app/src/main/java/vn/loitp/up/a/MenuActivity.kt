@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import androidx.core.view.isVisible
 import com.applovin.mediation.MaxAd
 import com.applovin.mediation.MaxAdListener
 import com.applovin.mediation.MaxError
@@ -20,7 +19,6 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.*
 import com.loitp.core.ext.*
 import com.loitp.core.helper.adHelper.AdHelperActivity
-import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.databinding.AMenuBinding
 import vn.loitp.up.a.anim.MenuAnimationActivity
@@ -29,7 +27,7 @@ import vn.loitp.up.a.cv.MenuCustomViewsActivity
 import vn.loitp.up.a.cv3.MenuUI3Activity
 import vn.loitp.up.a.db.MenuDatabaseActivity
 import vn.loitp.up.a.demo.MenuDemoActivity
-import vn.loitp.up.a.demo.ad.Applovin
+import vn.loitp.up.a.demo.ad.createAdBanner
 import vn.loitp.up.a.func.MenuFunctionActivity
 import vn.loitp.up.a.game.MenuGameActivity
 import vn.loitp.up.a.interviewVN.InterviewVNIQActivity
@@ -71,8 +69,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     }
 
     private fun setupViews() {
-        adView = Applovin.createAdBanner(
-            a = this,
+        adView = this@MenuActivity.createAdBanner(
             logTag = logTag,
             bkgColor = Color.TRANSPARENT,
             viewGroup = binding.flAd,

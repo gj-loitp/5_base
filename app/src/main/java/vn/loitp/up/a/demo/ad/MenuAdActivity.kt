@@ -1,7 +1,6 @@
 package vn.loitp.up.a.demo.ad
 
 import android.os.Bundle
-import com.applovin.sdk.AppLovinSdk
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
@@ -53,7 +52,7 @@ class MenuAdActivity : BaseActivityFont() {
         }
         binding.btShowMediationDebugger.setSafeOnClickListener {
             if (BuildConfig.DEBUG) {
-                Applovin.showMediationDebugger(this)
+                this.showMediationDebuggerApplovin()
             } else {
                 showShortError("Only available in debug mode")
             }

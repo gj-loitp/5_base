@@ -21,124 +21,121 @@ import com.loitp.core.ext.i
 import vn.loitp.BuildConfig
 import vn.loitp.R
 
-object Applovin {
-    fun setupAd(c: Context) {
-        // Please check config in gradle
-        // Please add key in manifest
+fun Context.setupApplovinAd() {
+    // Please check config in gradle
+    // Please add key in manifest
 
-        // Initialize the AppLovin SDK
-        AppLovinSdk.getInstance(c).mediationProvider = AppLovinMediationProvider.MAX
+    // Initialize the AppLovin SDK
+    AppLovinSdk.getInstance(this).mediationProvider = AppLovinMediationProvider.MAX
 //        showMediationDebugger(c)
-        AppLovinSdk.getInstance(c).initializeSdk {
-            // AppLovin SDK is initialized, start loading ads now or later if ad gate is reached
-            e("Applovin", "setupAd initializeSdk $it")
-            if (BuildConfig.DEBUG) {
-                Toast.makeText(
-                    c,
-                    "Debug toast initializeSdk isTestModeEnabled: ${it.isTestModeEnabled}",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-        }
-    }
-
-    fun showMediationDebugger(c: Context) {
+    AppLovinSdk.getInstance(this).initializeSdk {
+        // AppLovin SDK is initialized, start loading ads now or later if ad gate is reached
+        e("Applovin", "setupAd initializeSdk $it")
         if (BuildConfig.DEBUG) {
-            AppLovinSdk.getInstance(c).showMediationDebugger()
-        } else {
             Toast.makeText(
-                c,
-                "This feature is only available in debug mode",
-                Toast.LENGTH_LONG
+                /* context = */ this,
+                /* text = */ "Debug toast initializeSdk isTestModeEnabled: ${it.isTestModeEnabled}",
+                /* duration = */ Toast.LENGTH_LONG
             ).show()
         }
     }
+}
 
-    fun createAdBanner(
-        a: Activity,
-        logTag: String?,
-        bkgColor: Int = Color.RED,
-        viewGroup: ViewGroup,
-        isAdaptiveBanner: Boolean
-    ): MaxAdView {
-        val log = "$logTag - createAdBanner"
-        val enableAdBanner = a.getString(R.string.EnableAdBanner) == "true"
-        var id = "1234567890123456" // dummy id
-        if (enableAdBanner) {
-            id = a.getString(R.string.BANNER)
-            viewGroup.isVisible = true
-        } else {
-            viewGroup.isVisible = false
-        }
-        i(log, "enableAdBanner $enableAdBanner -> $id")
-        val adView = MaxAdView(id, a)
-        adView.let { ad ->
-            ad.setListener(object : MaxAdViewAdListener {
-                override fun onAdLoaded(p0: MaxAd?) {
-                    i(log, "onAdLoaded")
-                    viewGroup.isVisible = true
-                }
-
-                override fun onAdDisplayed(p0: MaxAd?) {
-                    i(log, "onAdDisplayed")
-                }
-
-                override fun onAdHidden(p0: MaxAd?) {
-                    i(log, "onAdHidden")
-                }
-
-                override fun onAdClicked(p0: MaxAd?) {
-                    i(log, "onAdClicked")
-                }
-
-                override fun onAdLoadFailed(p0: String?, p1: MaxError?) {
-                    i(log, "onAdLoadFailed")
-                    viewGroup.isVisible = false
-                }
-
-                override fun onAdDisplayFailed(p0: MaxAd?, p1: MaxError?) {
-                    i(log, "onAdDisplayFailed")
-                }
-
-                override fun onAdExpanded(p0: MaxAd?) {
-                    i(log, "onAdExpanded")
-                }
-
-                override fun onAdCollapsed(p0: MaxAd?) {
-                    i(log, "onAdCollapsed")
-                }
-
-            })
-            ad.setRevenueListener {
-                i(log, "onAdRevenuePaid")
-            }
-
-            if (isAdaptiveBanner) {
-                // Stretch to the width of the screen for banners to be fully functional
-                val width = ViewGroup.LayoutParams.MATCH_PARENT
-
-                // Get the adaptive banner height.
-                val heightDp = MaxAdFormat.BANNER.getAdaptiveSize(a).height
-                val heightPx = AppLovinSdkUtils.dpToPx(a, heightDp)
-
-                ad.layoutParams = FrameLayout.LayoutParams(width, heightPx)
-                ad.setExtraParameter("adaptive_banner", "true")
-                ad.setLocalExtraParameter("adaptive_banner_width", 400)
-                ad.adFormat.getAdaptiveSize(400, a).height // Set your ad height to this value
-            } else {
-                val isTablet = AppLovinSdkUtils.isTablet(a)
-                val heightPx = AppLovinSdkUtils.dpToPx(a, if (isTablet) 90 else 50)
-
-                ad.layoutParams = FrameLayout.LayoutParams(
-                    /* width = */ ViewGroup.LayoutParams.MATCH_PARENT,
-                    /* height = */ heightPx
-                )
-            }
-
-            ad.setBackgroundColor(bkgColor)
-            viewGroup.addView(adView)
-            ad.loadAd()
-        }
-        return adView
+fun Context.showMediationDebuggerApplovin() {
+    if (BuildConfig.DEBUG) {
+        AppLovinSdk.getInstance(this).showMediationDebugger()
+    } else {
+        Toast.makeText(
+            /* context = */ this,
+            /* text = */ "This feature is only available in debug mode",
+            /* duration = */ Toast.LENGTH_LONG
+        ).show()
     }
+}
+
+fun Activity.createAdBanner(
+    logTag: String?,
+    bkgColor: Int = Color.RED,
+    viewGroup: ViewGroup?,
+    isAdaptiveBanner: Boolean
+): MaxAdView {
+    val log = "$logTag - createAdBanner"
+    val enableAdBanner = this.getString(R.string.EnableAdBanner) == "true"
+    var id = "1234567890123456" // dummy id
+    if (enableAdBanner) {
+        id = this.getString(R.string.BANNER)
+        viewGroup?.isVisible = true
+    } else {
+        viewGroup?.isVisible = false
+    }
+    i(log, "enableAdBanner $enableAdBanner -> $id")
+    val adView = MaxAdView(id, this)
+    adView.let { ad ->
+        ad.setListener(object : MaxAdViewAdListener {
+            override fun onAdLoaded(p0: MaxAd?) {
+                i(log, "onAdLoaded")
+                viewGroup?.isVisible = true
+            }
+
+            override fun onAdDisplayed(p0: MaxAd?) {
+                i(log, "onAdDisplayed")
+            }
+
+            override fun onAdHidden(p0: MaxAd?) {
+                i(log, "onAdHidden")
+            }
+
+            override fun onAdClicked(p0: MaxAd?) {
+                i(log, "onAdClicked")
+            }
+
+            override fun onAdLoadFailed(p0: String?, p1: MaxError?) {
+                i(log, "onAdLoadFailed")
+                viewGroup?.isVisible = false
+            }
+
+            override fun onAdDisplayFailed(p0: MaxAd?, p1: MaxError?) {
+                i(log, "onAdDisplayFailed")
+            }
+
+            override fun onAdExpanded(p0: MaxAd?) {
+                i(log, "onAdExpanded")
+            }
+
+            override fun onAdCollapsed(p0: MaxAd?) {
+                i(log, "onAdCollapsed")
+            }
+
+        })
+        ad.setRevenueListener {
+            i(log, "onAdRevenuePaid")
+        }
+
+        if (isAdaptiveBanner) {
+            // Stretch to the width of the screen for banners to be fully functional
+            val width = ViewGroup.LayoutParams.MATCH_PARENT
+
+            // Get the adaptive banner height.
+            val heightDp = MaxAdFormat.BANNER.getAdaptiveSize(this).height
+            val heightPx = AppLovinSdkUtils.dpToPx(this, heightDp)
+
+            ad.layoutParams = FrameLayout.LayoutParams(width, heightPx)
+            ad.setExtraParameter("adaptive_banner", "true")
+            ad.setLocalExtraParameter("adaptive_banner_width", 400)
+            ad.adFormat.getAdaptiveSize(400, this).height // Set your ad height to this value
+        } else {
+            val isTablet = AppLovinSdkUtils.isTablet(this)
+            val heightPx = AppLovinSdkUtils.dpToPx(this, if (isTablet) 90 else 50)
+
+            ad.layoutParams = FrameLayout.LayoutParams(
+                /* width = */ ViewGroup.LayoutParams.MATCH_PARENT,
+                /* height = */ heightPx
+            )
+        }
+
+        ad.setBackgroundColor(bkgColor)
+        viewGroup?.addView(adView)
+        ad.loadAd()
+    }
+    return adView
 }

@@ -16,7 +16,7 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.BuildConfig
 import vn.loitp.up.a.db.room.db.FNBDatabase
-import vn.loitp.up.a.demo.ad.Applovin
+import vn.loitp.up.a.demo.ad.setupApplovinAd
 import vn.loitp.up.common.Constants
 
 // build release de check
@@ -69,7 +69,7 @@ class LApplication : BaseApplication() {
 
         CodeProcessor.init(this)
 
-        Applovin.setupAd(this)
+        this.setupApplovinAd()
     }
 
     @Suppress("unused")
