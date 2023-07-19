@@ -99,11 +99,11 @@ android {
             resValue "string", "app_name", "Base DEV"
 
             resValue("string", "SDK_KEY", "e75FnQfS9XTTqM1Kne69U7PW_MBgAnGQTFvtwVVui6kRPKs5L7ws9twr5IQWwVfzPKZ5pF2IfDa7lguMgGlCyt")
-            resValue "string", "BANNER", "18a3d1924d3ebee6"
-            resValue "string", "INTER", "895d5d41cb20edb7"
+            resValue("string", "BANNER", "18a3d1924d3ebee6")
+            resValue("string", "INTER", "895d5d41cb20edb7")
 
-            resValue "string", "EnableAdInter", "false"
-            resValue "string", "EnableAdBanner", "false"
+            resValue("string", "EnableAdInter", "false")
+            resValue("string", "EnableAdBanner", "false")
         }
 
         production {
@@ -113,11 +113,11 @@ android {
             resValue "string", "app_name", "Base"
 
             resValue("string", "SDK_KEY", "e75FnQfS9XTTqM1Kne69U7PW_MBgAnGQTFvtwVVui6kRPKs5L7ws9twr5IQWwVfzPKZ5pF2IfDa7lguMgGlCyt")
-            resValue "string", "BANNER", "18a3d1924d3ebee6"
-            resValue "string", "INTER", "895d5d41cb20edb7"
+            resValue("string", "BANNER", "18a3d1924d3ebee6")
+            resValue("string", "INTER", "895d5d41cb20edb7")
 
-            resValue "string", "EnableAdInter", "true"
-            resValue "string", "EnableAdBanner", "true"
+            resValue("string", "EnableAdInter", "true")
+            resValue("string", "EnableAdBanner", "true")
         }
 
     }
