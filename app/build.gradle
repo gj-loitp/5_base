@@ -234,7 +234,7 @@ dependencies {
     //admob
 //    api 'com.google.android.gms:play-services-ads:21.5.0'
     //applovin
-    implementation 'com.applovin:applovin-sdk:11.10.1'
+    implementation 'com.applovin:applovin-sdk:11.11.1'
 
 //    https://github.com/nikartm/FitButton
     api 'io.github.nikartm:fit-button:2.0.0'
