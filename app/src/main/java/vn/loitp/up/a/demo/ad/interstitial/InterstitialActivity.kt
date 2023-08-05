@@ -118,11 +118,11 @@ class InterstitialActivity : BaseActivityFont() {
         }
     }
 
-    private fun showAd(runnable: Runnable) {
+    private fun showAd(runnable: Runnable? = null) {
         val enableAdInter = getString(R.string.EnableAdInter) == "true"
         if (enableAdInter) {
             if (interstitialAd == null) {
-                runnable.run()
+                runnable?.run()
             } else {
                 interstitialAd?.let { ad ->
                     if (ad.isReady) {
@@ -130,15 +130,15 @@ class InterstitialActivity : BaseActivityFont() {
                         setDelay(500.getRandomNumber() + 500) {
                             hideDialogProgress()
                             ad.showAd()
-                            runnable.run()
+                            runnable?.run()
                         }
                     } else {
-                        runnable.run()
+                        runnable?.run()
                     }
                 }
             }
         } else {
-            runnable.run()
+            runnable?.run()
         }
     }
 

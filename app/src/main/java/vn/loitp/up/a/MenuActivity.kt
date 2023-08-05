@@ -345,14 +345,27 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
         }
     }
 
-    private fun showAd() {
+    private fun showAd(runnable: Runnable? = null) {
         val enableAdInter = getString(R.string.EnableAdInter) == "true"
         if (enableAdInter) {
-            interstitialAd?.let { ad ->
-                if (ad.isReady) {
-                    ad.showAd()
+            if (interstitialAd == null) {
+                runnable?.run()
+            } else {
+                interstitialAd?.let { ad ->
+                    if (ad.isReady) {
+                        showDialogProgress()
+                        setDelay(500.getRandomNumber() + 500) {
+                            hideDialogProgress()
+                            ad.showAd()
+                            runnable?.run()
+                        }
+                    } else {
+                        runnable?.run()
+                    }
                 }
             }
+        } else {
+            runnable?.run()
         }
     }
 }
