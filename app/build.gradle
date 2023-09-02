@@ -89,7 +89,9 @@ android {
         }
     }
 
-    flavorDimensions "type"
+//    flavorDimensions "type"
+    flavorDimensions.add("type")
+
     productFlavors {
 
         dev {
