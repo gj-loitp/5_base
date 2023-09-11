@@ -128,9 +128,9 @@ class GameView(
         ball.move()
     }
 
-    override fun draw(canvas: Canvas?) {
+    override fun draw(canvas: Canvas) {
         super.draw(canvas)
-        canvas?.also {
+        canvas.also {
             it.drawColor(getColor(R.color.colorPrimaryDark))
             paddleA.draw(it)
             paddleB.draw(it)

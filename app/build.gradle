@@ -14,14 +14,14 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     namespace 'vn.loitp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.roygroup.base"
         minSdkVersion 24
-        targetSdk 33
-        versionCode 20230702
-        versionName "2023.07.02"
+        targetSdk 34
+        versionCode 20230911
+        versionName "2023.09.11"
         multiDexEnabled true
 
         renderscriptTargetApi 19
@@ -83,13 +83,12 @@ android {
         }
     }
 
-    android.applicationVariants.all { variant ->
-        variant.outputs.all {
+    android.applicationVariants.configureEach { variant ->
+        variant.outputs.configureEach {
             outputFileName = defaultConfig.applicationId + buildType.name + "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk"
         }
     }
 
-//    flavorDimensions "type"
     flavorDimensions.add("type")
 
     productFlavors {
@@ -104,8 +103,8 @@ android {
             resValue("string", "BANNER", "18a3d1924d3ebee6")
             resValue("string", "INTER", "895d5d41cb20edb7")
 
-            resValue("string", "EnableAdInter", "true")
-            resValue("string", "EnableAdBanner", "true")
+            resValue("string", "EnableAdInter", "false")
+            resValue("string", "EnableAdBanner", "false")
         }
 
         production {
