@@ -183,7 +183,7 @@ dependencies {
     //ViewModel Kotlin support
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     //Coroutines
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
 
     //https://github.com/florent37/ExpansionPanel
     api 'com.github.florent37:expansionpanel:1.2.4'
