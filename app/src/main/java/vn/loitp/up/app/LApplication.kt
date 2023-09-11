@@ -5,9 +5,7 @@ import com.g1.onetargetsdk.core.Configuration
 import com.g1.onetargetsdk.core.IAM
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.common.FONT_PATH
 import com.loitp.core.common.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
-import com.loitp.core.ext.fontForAll
 import com.loitp.core.helper.ttt.db.TTTDatabase
 import com.loitp.data.ActivityData
 import com.onesignal.OneSignal

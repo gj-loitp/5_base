@@ -162,8 +162,8 @@ dependencies {
     api 'com.github.SimformSolutionsPvtLtd:SSImagePicker:2.0'
 
     //https://github.com/InflationX/Calligraphy
-    api 'io.github.inflationx:calligraphy3:3.1.1'
-    api 'io.github.inflationx:viewpump:2.0.3'
+//    api 'io.github.inflationx:calligraphy3:3.1.1'
+//    api 'io.github.inflationx:viewpump:2.0.3'
 
     //https://github.com/Yalantis/uCrop
 //    api 'com.yalantis:ucrop:2.2.0'

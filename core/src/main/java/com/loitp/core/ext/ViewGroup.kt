@@ -10,7 +10,6 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.tabs.TabLayout
-import io.github.inflationx.calligraphy3.CalligraphyUtils
 
 fun <T : View> ViewGroup.getOrNull(index: Int): T? {
     @Suppress("UNCHECKED_CAST") return if (this.childCount > 0 && index in 0 until this.childCount) this[index] as T
@@ -28,11 +27,7 @@ fun TabLayout.changeTabsFont(
         for (i in 0 until childCount) {
             val tabViewChild = vgTab.getChildAt(i)
             if (tabViewChild is TextView) {
-                CalligraphyUtils.applyFontToTextView(
-                    /* context = */ context,
-                    /* textView = */tabViewChild,
-                    /* filePath = */fontName
-                )
+                //TODO iplm logic change font here
             }
         }
     }
