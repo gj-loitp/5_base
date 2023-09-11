@@ -88,9 +88,7 @@ class LStrokedTextView : AppCompatTextView {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     }
 
-    override fun onDraw(canvas: Canvas?) {
-        if (canvas == null) return
-
+    override fun onDraw(canvas: Canvas) {
         reinitialzieStaticLayout()
         with(canvas) {
             save()
