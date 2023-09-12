@@ -6,12 +6,12 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
-import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.core.ext.LAppResource.application
 import com.loitp.core.ext.addDrawableLTRB
 import com.loitp.core.ext.getColor
 import com.loitp.core.ext.isDarkTheme
+import com.loitp.core.ext.isDebugMode
 import com.loitp.core.ext.setDrawableTint
 
 /**
@@ -267,13 +267,13 @@ object LToast {
     }
 
     fun showShortDebug(msg: String?) {
-        if (BuildConfig.DEBUG) {
-            showShortDebug(msg)
+        if (isDebugMode()) {
+            showShortInformation(msg)
         }
     }
 
     fun showLongDebug(msg: String?) {
-        if (BuildConfig.DEBUG) {
+        if (isDebugMode()) {
             showLongInformation(msg)
         }
     }

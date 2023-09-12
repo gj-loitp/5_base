@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
-import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
@@ -351,15 +350,11 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showShortDebug(msg: String?) {
-        if (BuildConfig.DEBUG) {
-            LToast.showShortDebug("Debug: $msg")
-        }
+        LToast.showShortDebug("Debug: $msg")
     }
 
     fun showLongDebug(msg: String?) {
-        if (BuildConfig.DEBUG) {
-            LToast.showLongDebug("Debug: $msg")
-        }
+        LToast.showLongDebug("Debug: $msg")
     }
 
     protected fun <T : ViewModel> getViewModel(className: Class<T>): T {

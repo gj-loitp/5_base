@@ -6,10 +6,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.R
 import vn.loitp.databinding.APvBinding
 
 @LogTag("ProgressViewActivity")
@@ -85,7 +83,7 @@ class ProgressViewActivity : BaseActivityFont() {
                     }
                 )
                 isVisible = true
-                setImageResource(R.drawable.ic_baseline_code_48)
+                setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = ProgressViewActivity::class.java.simpleName
         }

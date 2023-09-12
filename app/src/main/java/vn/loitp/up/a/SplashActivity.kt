@@ -12,17 +12,12 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.base.BaseApplication
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
-import com.loitp.model.App
 import com.permissionx.guolindev.PermissionX
-import okhttp3.Call
 import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.databinding.ASplashBinding
 import vn.loitp.up.a.anim.konfetti.Presets
-import java.io.IOException
 
 @SuppressLint("CustomSplashScreen")
 @LogTag("SplashActivity")
@@ -117,18 +112,18 @@ class SplashActivity : BaseActivityFont() {
 
         PermissionX.init(this).permissions(listPer).setDialogTintColor(color, color)
             .onExplainRequestReason { scope, deniedList, _ ->
-                val message = getString(R.string.app_name) + getString(R.string.needs_per)
+                val message = getString(R.string.app_name) + getString(com.loitp.R.string.needs_per)
                 scope.showRequestReasonDialog(
                     permissions = deniedList,
                     message = message,
-                    positiveText = getString(R.string.allow),
-                    negativeText = getString(R.string.deny)
+                    positiveText = getString(com.loitp.R.string.allow),
+                    negativeText = getString(com.loitp.R.string.deny)
                 )
             }.onForwardToSettings { scope, deniedList ->
                 scope.showForwardToSettingsDialog(
                     permissions = deniedList,
-                    message = getString(R.string.per_manually_msg),
-                    positiveText = getString(R.string.ok),
+                    message = getString(com.loitp.R.string.per_manually_msg),
+                    positiveText = getString(com.loitp.R.string.ok),
                     negativeText = getString(R.string.cancel)
                 )
             }.request { allGranted, _, _ ->
@@ -159,7 +154,7 @@ class SplashActivity : BaseActivityFont() {
         } else {
             val alertDialog = this.showDialog2(title = "Need Permissions",
                 msg = "This app needs permission to allow modifying system settings",
-                button1 = getString(R.string.ok),
+                button1 = getString(com.loitp.R.string.ok),
                 button2 = getString(R.string.cancel),
                 onClickButton1 = {
                     val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)

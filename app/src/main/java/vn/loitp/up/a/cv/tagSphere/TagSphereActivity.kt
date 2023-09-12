@@ -8,15 +8,9 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import com.loitp.views.tagsphere.OnTagLongPressedListener
-import com.loitp.views.tagsphere.OnTagTapListener
-import com.loitp.views.tagsphere.item.TagItem
 import com.loitp.views.tagsphere.item.TextTagItem
-import com.loitp.views.tagsphere.utils.EasingFunction
-import vn.loitp.R
 import vn.loitp.databinding.ATagSphereBinding
 
 @LogTag("TagSphereActivity")
@@ -51,14 +45,14 @@ class TagSphereActivity : BaseActivityFont() {
                     )
                 })
                 isVisible = true
-                setImageResource(R.drawable.ic_baseline_code_48)
+                setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = TagSphereActivity::class.java.simpleName
         }
 
         binding.tagView.setTextPaint(TextPaint().apply {
             isAntiAlias = true
-            textSize = resources.getDimension(R.dimen.txt_medium)
+            textSize = resources.getDimension(com.loitp.R.dimen.txt_medium)
             color = Color.DKGRAY
         })
 //        binding.tagView.setRadius(1.5f)

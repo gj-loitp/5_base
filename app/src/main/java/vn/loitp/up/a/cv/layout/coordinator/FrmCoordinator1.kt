@@ -26,9 +26,9 @@ class FrmCoordinator1 : BaseFragment() {
     }
 
     private fun setupViews() {
-        tl.addTab(tl.newTab().setIcon(R.drawable.ic_add_black_48dp))
-        tl.addTab(tl.newTab().setIcon(R.drawable.ic_bug_report_black_48dp))
-        tl.addTab(tl.newTab().setIcon(R.drawable.ic_chat_black_48dp))
+        tl.addTab(tl.newTab().setIcon(com.loitp.R.drawable.ic_add_black_48dp))
+        tl.addTab(tl.newTab().setIcon(com.loitp.R.drawable.ic_bug_report_black_48dp))
+        tl.addTab(tl.newTab().setIcon(com.loitp.R.drawable.ic_chat_black_48dp))
         tl.addTab(tl.newTab().setText("Send"))
         tl.addTab(tl.newTab().setText("Send & Post"))
 

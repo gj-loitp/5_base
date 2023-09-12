@@ -5,7 +5,6 @@ import android.content.SharedPreferences
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.common.IS_DARK_THEME
 import com.loitp.core.utils.AppUtils
-import com.loitp.model.App
 import java.lang.reflect.Type
 
 /**

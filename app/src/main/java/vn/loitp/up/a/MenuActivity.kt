@@ -81,7 +81,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
-            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.ivIconRight?.setImageResource(com.loitp.R.color.transparent)
             this.tvTitle?.text = MenuActivity::class.java.simpleName
         }
         binding.tvPolicy.apply {
@@ -150,11 +150,11 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
         }
         this.doubleBackToExitPressedOnce = true
 
-//        showSnackBarInfor(msg = getString(R.string.press_again_to_exit), isFullWidth = false)
+//        showSnackBarInfor(msg = getString(com.loitp.R.string.press_again_to_exit), isFullWidth = false)
         showShortInformation(
-            msg = getString(R.string.press_again_to_exit),
+            msg = getString(com.loitp.R.string.press_again_to_exit),
             isTopAnchor = false,
-            drawableT = R.drawable.ic_copyright_black_48dp,
+            drawableT = com.loitp.R.drawable.ic_copyright_black_48dp,
         )
 
         Handler(Looper.getMainLooper()).postDelayed({

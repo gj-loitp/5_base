@@ -177,7 +177,7 @@ class LDebugViewService : Service(), OnTouchListener {
         val currentTime = System.currentTimeMillis().getDateCurrentTimeZoneMls("HH:mm:ss")
         val textView = TextView(this)
         textView.setTextSizePx(
-            getDimenValue(R.dimen.txt_medium).toFloat()
+            getDimenValue(com.loitp.R.dimen.txt_medium).toFloat()
         )
         if (msgFromActivity.any == null) {
             textView.text = currentTime + " : " + msgFromActivity.msg

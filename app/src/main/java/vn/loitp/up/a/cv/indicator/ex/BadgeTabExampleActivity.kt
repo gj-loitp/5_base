@@ -14,7 +14,6 @@ import android.widget.TextView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
@@ -143,7 +142,7 @@ class BadgeTabExampleActivity : BaseActivityFont() {
         val titleContainer = commonNavigator.titleContainer // must after setNavigator
         titleContainer.showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE
         titleContainer.dividerPadding = UIUtil.dip2px(this, 15.0)
-        titleContainer.dividerDrawable = getDrawable(R.drawable.simple_splitter)
+        titleContainer.dividerDrawable = getDrawable(com.loitp.R.drawable.simple_splitter)
         ViewPagerHelper.bind(binding.magicIndicator1, binding.viewPager)
     }
 
@@ -215,7 +214,7 @@ class BadgeTabExampleActivity : BaseActivityFont() {
     }
 
     private fun initMagicIndicator3() {
-        binding.magicIndicator3.setBackgroundResource(R.drawable.round_indicator_bg)
+        binding.magicIndicator3.setBackgroundResource(com.loitp.R.drawable.round_indicator_bg)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {

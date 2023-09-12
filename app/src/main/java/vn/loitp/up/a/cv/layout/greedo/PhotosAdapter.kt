@@ -50,7 +50,7 @@ class PhotosAdapter(private val mContext: Context) : RecyclerView.Adapter<PhotoV
         holder.mImageView.loadGlide(
             any = mImageResIds[getLoopedIndex(position)],
             resPlaceHolder = R.color.transparent,
-            resError = R.color.red,
+            resError = com.loitp.R.color.red,
             transformation = null,
             drawableRequestListener = null
         )

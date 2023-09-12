@@ -1,6 +1,5 @@
 package com.loitp.core.base
 
-import android.app.Activity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleObserver
@@ -10,7 +9,11 @@ import com.github.piasy.biv.BigImageViewer
 import com.github.piasy.biv.loader.glide.GlideImageLoader
 import com.google.gson.Gson
 import com.loitp.annotation.LogTag
-import com.loitp.core.ext.*
+import com.loitp.core.ext.d
+import com.loitp.core.ext.e
+import com.loitp.core.ext.init
+import com.loitp.core.ext.isDarkTheme
+import com.loitp.core.ext.setDarkTheme
 import com.loitp.core.utils.Utils
 import com.loitp.game.findNumber.db.FindNumberDatabase
 import com.rommansabbir.networkx.NetworkXLifecycle
@@ -126,6 +129,7 @@ open class BaseApplication : MultiDexApplication(), LifecycleObserver {
 
             Lifecycle.Event.ON_DESTROY -> {
 //                logE("ON_DESTROY")
+                instance = null
             }
 
             else -> {}

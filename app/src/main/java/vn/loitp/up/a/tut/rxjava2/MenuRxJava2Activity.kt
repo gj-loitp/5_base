@@ -7,10 +7,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.tranIn
-import vn.loitp.R
 import vn.loitp.databinding.ARxJava2MenuBinding
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
@@ -40,7 +38,7 @@ class MenuRxJava2Activity : BaseActivityFont(), View.OnClickListener {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
-            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.ivIconRight?.setImageResource(com.loitp.R.color.transparent)
             this.tvTitle?.text = MenuRxJava2Activity::class.java.simpleName
         }
         binding.btDisposableExampleActivity.setOnClickListener(this)

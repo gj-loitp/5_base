@@ -13,7 +13,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import vn.loitp.R
 import vn.loitp.databinding.ADlgOriginalBinding
@@ -56,10 +55,10 @@ class DialogOriginalActivity : BaseActivityFont(), OnClickListener {
         binding.bt1.setSafeOnClickListener {
             MaterialAlertDialogBuilder(this)
                 .setTitle(resources.getString(R.string.title))
-                .setBackgroundInsetStart(getDimenValue(R.dimen.round_medium))
-                .setBackgroundInsetEnd(getDimenValue(R.dimen.round_medium))
-                .setBackgroundInsetTop(getDimenValue(R.dimen.round_medium))
-                .setBackgroundInsetBottom(getDimenValue(R.dimen.round_medium))
+                .setBackgroundInsetStart(getDimenValue(com.loitp.R.dimen.round_medium))
+                .setBackgroundInsetEnd(getDimenValue(com.loitp.R.dimen.round_medium))
+                .setBackgroundInsetTop(getDimenValue(com.loitp.R.dimen.round_medium))
+                .setBackgroundInsetBottom(getDimenValue(com.loitp.R.dimen.round_medium))
                 .setMessage("supporting_text").setNeutralButton("cancel") { dialog, which ->
                     // Respond to neutral button press
                 }.setNegativeButton("decline") { dialog, which ->

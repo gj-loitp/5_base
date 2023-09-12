@@ -10,7 +10,6 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.base.OnBackPressedListener
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.addFragment
 import vn.loitp.R
 import vn.loitp.databinding.AInterviewVnIqBinding
@@ -62,7 +61,7 @@ class InterviewVNIQActivity : BaseActivityFont() {
             return
         }
         this.doubleBackToExitPressedOnce = true
-        showShortInformation(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
+        showShortInformation(msg = getString(com.loitp.R.string.press_again_to_exit), isTopAnchor = false)
         Handler(Looper.getMainLooper()).postDelayed({
             doubleBackToExitPressedOnce = false
         }, 2000)

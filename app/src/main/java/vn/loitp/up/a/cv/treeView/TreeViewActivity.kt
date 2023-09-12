@@ -6,7 +6,6 @@ import android.widget.TextView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.treeView.BaseTreeAdapter
 import com.loitp.views.treeView.TreeNode
@@ -46,7 +45,7 @@ class TreeViewActivity : BaseActivityFont() {
         }
 
         val adapter: BaseTreeAdapter<*> =
-            object : BaseTreeAdapter<ViewHolder>(this, R.layout.l_v_node) {
+            object : BaseTreeAdapter<ViewHolder>(this, com.loitp.R.layout.l_v_node) {
                 override fun onCreateViewHolder(view: View): ViewHolder {
                     return ViewHolder(view)
                 }

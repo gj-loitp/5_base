@@ -5,7 +5,6 @@ import android.view.View
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.tv.textDecorator.LTextDecorator
 import com.loitp.views.tv.textDecorator.OnTextClickListener
@@ -47,7 +46,7 @@ class TextDecoratorActivity : BaseActivityFont() {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et porta ipsum. Praesent vitae libero a mi sodales accumsan. Donec tempor nulla turpis, vitae pellentesque ligula consectetur sed. Quisque commodo lorem eget ipsum pulvinar consequat. Nam erat risus, rhoncus quis ligula sed, tempor venenatis nulla. Duis quis placerat quam."
         LTextDecorator.decorate(textView = binding.tvContent, content = text)
             .setTextColor(R.color.colorAccent, "Lorem", "amet")
-            .setBackgroundColor(R.color.red, "dolor", "elit")
+            .setBackgroundColor(com.loitp.R.color.red, "dolor", "elit")
             .strikethrough("Duis", "Praesent")
             .underline("sodales", "quam")
             .setSubscript("vitae")

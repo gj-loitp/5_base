@@ -11,7 +11,6 @@ import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.ext.d
@@ -224,18 +223,14 @@ abstract class BaseFragment : Fragment() {
     }
 
     protected fun showShortDebug(msg: String?) {
-        if (BuildConfig.DEBUG) {
-            if (activity is BaseActivity) {
-                (activity as BaseActivity).showShortDebug(msg = msg)
-            }
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showShortDebug(msg = msg)
         }
     }
 
     protected fun showLongDebug(msg: String?) {
-        if (BuildConfig.DEBUG) {
-            if (activity is BaseActivity) {
-                (activity as BaseActivity).showLongInformation(msg = msg)
-            }
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showLongDebug(msg = msg)
         }
     }
 

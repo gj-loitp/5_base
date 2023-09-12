@@ -5,13 +5,11 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import jp.wasabeef.glide.transformations.CropCircleTransformation
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
-import vn.loitp.R
 import vn.loitp.databinding.AIvCircleBinding
 import vn.loitp.up.common.Constants
 
@@ -41,7 +39,7 @@ class CircleIvActivity : BaseActivityFont() {
             this.ivIconRight?.isVisible = false
             this.tvTitle?.text = CircleIvActivity::class.java.simpleName
         }
-        val resPlaceHolder = R.color.red
+        val resPlaceHolder = com.loitp.R.color.red
         binding.imageView.loadGlide(
             any = "https://kenh14cdn.com/2019/2/25/2-1551076391040835580731.jpg",
             resPlaceHolder = resPlaceHolder,

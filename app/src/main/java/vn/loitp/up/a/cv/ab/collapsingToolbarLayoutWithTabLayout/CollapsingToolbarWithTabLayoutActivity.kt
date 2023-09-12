@@ -15,7 +15,6 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FONT_PATH
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.showPopup
 import vn.loitp.R
@@ -47,7 +46,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseActivityFont(), OnClickListen
 
         setSupportActionBar(binding.toolbar)
 
-        binding.toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
+        binding.toolbar.setNavigationIcon(androidx.appcompat.R.drawable.abc_ic_ab_back_material)
         binding.toolbar.setNavigationOnClickListener {
             onBaseBackPressed()
         }
@@ -89,7 +88,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseActivityFont(), OnClickListen
         ): View? {
             val rootView = inflater.inflate(R.layout.frm_text, container, false)
             val textView = rootView.findViewById<TextView>(R.id.textView)
-            textView.setText(R.string.large_text)
+            textView.setText(com.loitp.R.string.large_text)
             return rootView
         }
 

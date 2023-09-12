@@ -47,7 +47,7 @@ class RibbonActivity : BaseActivityFont() {
                     }
                 )
                 isVisible = true
-                setImageResource(R.drawable.ic_baseline_code_48)
+                setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = RibbonActivity::class.java.simpleName
         }

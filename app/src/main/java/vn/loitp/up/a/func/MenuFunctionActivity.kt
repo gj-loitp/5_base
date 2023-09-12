@@ -6,10 +6,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.showMySnackBar
-import com.loitp.views.snackBar.MySnackBar
 import vn.loitp.R
 import vn.loitp.databinding.AFuncMenuBinding
 import vn.loitp.up.a.func.activityAndService.ActivityServiceCommunicateActivity
@@ -118,7 +116,7 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btFloatingToast -> launchActivity(FloatingToastActivity::class.java)
             binding.btCustomSnackbar -> {
                 binding.btCustomSnackbar.showMySnackBar(
-                    R.drawable.ic_launcher,
+                    com.loitp.R.drawable.ic_launcher,
                     "Hello I'm custom snackBar"
                 )
             }

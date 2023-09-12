@@ -356,11 +356,11 @@ fun Snackbar.withBackground(resId: Int): Snackbar {
 
 fun Snackbar.allowInfiniteLines(): Snackbar {
     return apply {
-        (view.findViewById<View?>(R.id.snackbar_text) as? TextView?)?.let {
+        (view.findViewById<View?>(com.google.android.material.R.id.snackbar_text) as? TextView?)?.let {
             it.isSingleLine = false
             it.setTextColor(Color.WHITE)
             it.setTextSizePx(
-                size = getDimenValue(R.dimen.txt_medium).toFloat()
+                size = getDimenValue(com.loitp.R.dimen.txt_medium).toFloat()
             )
             it.textAlignment = View.TEXT_ALIGNMENT_CENTER
         }

@@ -167,7 +167,7 @@ class SqliteMultiTableActivity : BaseActivityFont() {
         val tv = TextView(this)
         tv.text = msg
         tv.setTextSizePx(
-            size = resources.getDimension(R.dimen.txt_small)
+            size = resources.getDimension(com.loitp.R.dimen.txt_small)
         )
         binding.ll.addView(tv)
     }

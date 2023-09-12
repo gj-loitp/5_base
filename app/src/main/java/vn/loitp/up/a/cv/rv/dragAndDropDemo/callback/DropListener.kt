@@ -6,7 +6,6 @@ import android.graphics.drawable.ColorDrawable
 import android.view.DragEvent
 import android.view.View
 import androidx.core.content.ContextCompat
-import vn.loitp.R
 
 /**
  * Callback for the target view where dragged items will be dropped
@@ -19,7 +18,7 @@ class DropListener(private val onDrop: () -> Unit) : View.OnDragListener {
         when (dragEvent.action) {
             // animate and highlight a background under the view to show the borders of the drop area
             DragEvent.ACTION_DRAG_ENTERED -> {
-                val bgColor = ContextCompat.getColor(view.context, R.color.whiteTrans)
+                val bgColor = ContextCompat.getColor(view.context, com.loitp.R.color.whiteTrans)
                 if (view.background is ColorDrawable && (view.background as ColorDrawable).color == bgColor) return true
 
                 ValueAnimator.ofArgb(Color.TRANSPARENT, bgColor).apply {
@@ -32,7 +31,7 @@ class DropListener(private val onDrop: () -> Unit) : View.OnDragListener {
             }
             // animate and hide the highlight under the drop area
             DragEvent.ACTION_DRAG_ENDED -> {
-                val bgColor = ContextCompat.getColor(view.context, R.color.whiteTrans)
+                val bgColor = ContextCompat.getColor(view.context, com.loitp.R.color.whiteTrans)
                 if (view.background is ColorDrawable && (view.background as ColorDrawable).color == Color.TRANSPARENT) return true
 
                 ValueAnimator.ofArgb(bgColor, Color.TRANSPARENT).apply {

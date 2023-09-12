@@ -6,7 +6,6 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -25,7 +24,7 @@ class CustomProgressDialogActivity : BaseActivityFont() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        colorBkgProgressDialog = R.color.black65
+        colorBkgProgressDialog = com.loitp.R.color.black65
 
         binding = ADlgCustomProgressBinding.inflate(layoutInflater)
         setContentView(binding.root)

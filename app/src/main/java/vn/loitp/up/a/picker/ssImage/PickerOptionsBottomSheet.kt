@@ -36,7 +36,7 @@ class PickerOptionsBottomSheet : BottomSheetDialogFragment(), View.OnClickListen
     private lateinit var binding: BottomSheetPickerOptionsBinding
 
     override fun getTheme(): Int {
-        return R.style.PickerOptionsBottomSheetDialog
+        return com.loitp.R.style.PickerOptionsBottomSheetDialog
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -166,7 +166,7 @@ class PickerOptionsBottomSheet : BottomSheetDialogFragment(), View.OnClickListen
     private fun isDataValid(): Boolean {
         val sizeValue = binding.pickSizeTie.text.toString().toFloatOrNull()
         if (sizeValue == null || sizeValue <= 0) {
-            Toast.makeText(requireContext(), R.string.error_size_value, Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), com.loitp.R.string.error_size_value, Toast.LENGTH_LONG).show()
             return false
         }
         return true

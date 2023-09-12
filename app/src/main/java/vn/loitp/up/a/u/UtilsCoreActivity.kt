@@ -194,7 +194,7 @@ class UtilsCoreActivity : BaseActivityFont() {
             onClickBtLauncher()
         }
 
-        binding.tv.setMarquee(getString(R.string.large_dummy_text))
+        binding.tv.setMarquee(getString(com.loitp.R.string.large_dummy_text))
         binding.v1.setBackgroundDrawable(createGradientDrawableWithRandomColor())
         binding.v2.setBackgroundDrawable(createGradientDrawableWithColor(Color.RED, Color.GREEN))
         binding.v3.setCircleViewWithColor(Color.GREEN, Color.CYAN)

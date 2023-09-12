@@ -8,10 +8,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.R
 import vn.loitp.databinding.ALoopingLayoutBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 import vn.loitp.up.a.cv.rv.normalRv.MoviesAdapter
@@ -56,7 +54,7 @@ class LoopingLayoutActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = LoopingLayoutActivity::class.java.simpleName
         }

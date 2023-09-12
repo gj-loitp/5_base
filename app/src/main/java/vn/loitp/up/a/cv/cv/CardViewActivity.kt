@@ -6,11 +6,9 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setCornerCardView
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.R
 import vn.loitp.databinding.ACardViewBinding
 
 @LogTag("CardViewActivity")
@@ -44,10 +42,10 @@ class CardViewActivity : BaseActivityFont() {
         }
 
         binding.btChange.setSafeOnClickListener {
-            val radiusTL = resources.getDimension(R.dimen.round_small)
-            val radiusTR = resources.getDimension(R.dimen.round_medium)
-            val radiusBL = resources.getDimension(R.dimen.round_large)
-            val radiusBR = resources.getDimension(R.dimen.round_largest)
+            val radiusTL = resources.getDimension(com.loitp.R.dimen.round_small)
+            val radiusTR = resources.getDimension(com.loitp.R.dimen.round_medium)
+            val radiusBL = resources.getDimension(com.loitp.R.dimen.round_large)
+            val radiusBR = resources.getDimension(com.loitp.R.dimen.round_largest)
 
             binding.mcvTest.setCornerCardView(
                 radiusTL = radiusTL,

@@ -6,7 +6,6 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.restApi.restClient.RestClient
 import vn.loitp.R
@@ -54,7 +53,7 @@ class MenuAPIActivity : BaseActivityFont(), View.OnClickListener {
         when (v) {
             binding.btCoroutineAPI -> launchActivity(CoroutineAPIActivity::class.java)
             binding.btGalleryAPI -> {
-                RestClient.init(baseApiUrl = getString(R.string.flickr_URL))
+                RestClient.init(baseApiUrl = getString(com.loitp.R.string.flickr_URL))
                 launchActivity(GalleryAPIActivity::class.java)
             }
             binding.btComicAPI -> launchActivity(MenuTTTAPIActivity::class.java)

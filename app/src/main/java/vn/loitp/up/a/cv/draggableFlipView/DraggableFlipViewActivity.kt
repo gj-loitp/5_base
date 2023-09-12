@@ -5,10 +5,8 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.R
 import vn.loitp.databinding.ADraggableFlipViewBinding
 
 @LogTag("DraggableFlipViewActivity")
@@ -45,7 +43,7 @@ class DraggableFlipViewActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = DraggableFlipViewActivity::class.java.simpleName
         }

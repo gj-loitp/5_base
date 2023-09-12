@@ -8,7 +8,6 @@ import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.screenHeight
 import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -80,7 +79,7 @@ class EditTextAutoSuggestActivity : BaseActivityFont() {
             this.setHinTextColor(Color.RED)
             this.editText.setTextColor(Color.BLUE)
             this.setColorProgressBar(Color.GREEN)
-            this.setBackgroundResource(R.drawable.l_bkg_horizontal)
+            this.setBackgroundResource(com.loitp.R.drawable.l_bkg_horizontal)
             this.setImeiAction(EditorInfo.IME_ACTION_DONE) {
                 showShortInformation("Text ${binding.aet1.editText.text}")
             }

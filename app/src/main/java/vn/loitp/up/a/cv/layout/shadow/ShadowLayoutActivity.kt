@@ -7,11 +7,9 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utils.ConvertUtils
-import vn.loitp.R
 import vn.loitp.databinding.ALayoutShadowBinding
 
 @LogTag("ShadowLayoutActivity")
@@ -48,7 +46,7 @@ class ShadowLayoutActivity : BaseActivityFont(), View.OnClickListener {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = ShadowLayoutActivity::class.java.simpleName
         }
@@ -59,7 +57,7 @@ class ShadowLayoutActivity : BaseActivityFont(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            binding.tvChangeOval -> binding.slOval.setShadowColor(getColor(R.color.black50))
+            binding.tvChangeOval -> binding.slOval.setShadowColor(getColor(com.loitp.R.color.black50))
             binding.tvChangeRadius -> binding.slRectangle.setShadowColor(Color.parseColor("#EE00FF7F"))
             binding.tvChangeRectangle -> binding.slRadius.setShadowRadius(
                 ConvertUtils.dp2px(12f).toFloat()

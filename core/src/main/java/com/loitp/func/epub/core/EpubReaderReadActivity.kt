@@ -325,7 +325,7 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
                 setEnableCopyContent(isEnableCopyContent = true)
                 id = idWebView
 //                logD(">>>setFragmentView data $data")
-                val fontSizePx = getDimenValue(R.dimen.txt_small)
+                val fontSizePx = getDimenValue(com.loitp.R.dimen.txt_small)
                 val paddingPx = getDimenValue(R.dimen.margin_padding_small)
 //                logD(">>>setFragmentView fontSizePx $fontSizePx, paddingPx $paddingPx")
                 if (isDarkTheme()) {

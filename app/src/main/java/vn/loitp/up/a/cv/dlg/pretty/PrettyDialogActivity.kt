@@ -8,11 +8,9 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.dlg.prettyDialog.PrettyDialog
-import vn.loitp.R
 import vn.loitp.databinding.ADlgPrettyBinding
 
 @LogTag("PrettyDialogActivity")
@@ -50,7 +48,7 @@ class PrettyDialogActivity : BaseActivityFont(), OnClickListener {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = PrettyDialogActivity::class.java.simpleName
         }
@@ -79,8 +77,8 @@ class PrettyDialogActivity : BaseActivityFont(), OnClickListener {
         prettyDialog?.apply {
             setTitle("PrettyDialog Title")
                 .setMessage("PrettyDialog Message")
-                .setIcon(R.drawable.ic_info_black_48dp)
-                .setIconTint(R.color.green)
+                .setIcon(com.loitp.R.drawable.ic_info_black_48dp)
+                .setIconTint(com.loitp.R.color.green)
                 .setIconCallback {
                     showShortInformation("onClick setIconCallback")
                     prettyDialog?.cancel()
@@ -95,16 +93,16 @@ class PrettyDialogActivity : BaseActivityFont(), OnClickListener {
         prettyDialog?.apply {
             setTitle("PrettyDialog Title")
                 .setMessage("PrettyDialog Message")
-                .setIcon(R.drawable.ic_info_black_48dp)
-                .setIconTint(R.color.green)
+                .setIcon(com.loitp.R.drawable.ic_info_black_48dp)
+                .setIconTint(com.loitp.R.color.green)
                 .setIconCallback {
                     showShortInformation("onClick setIconCallback")
                 }
                 // OK button
                 .addButton(
                     "OK", // button text
-                    R.color.white,
-                    R.color.green
+                    com.loitp.R.color.white,
+                    com.loitp.R.color.green
                 ) {
                     showShortInformation("onClick OK")
                     prettyDialog?.cancel()
@@ -112,8 +110,8 @@ class PrettyDialogActivity : BaseActivityFont(), OnClickListener {
                 // Cancel button
                 .addButton(
                     "Cancel",
-                    R.color.white,
-                    R.color.red
+                    com.loitp.R.color.white,
+                    com.loitp.R.color.red
                 ) {
                     showShortInformation("onClick Cancel")
                     prettyDialog?.cancel()
@@ -121,8 +119,8 @@ class PrettyDialogActivity : BaseActivityFont(), OnClickListener {
                 // 3rd button
                 .addButton(
                     "Option 3",
-                    R.color.black,
-                    R.color.gray
+                    com.loitp.R.color.black,
+                    com.loitp.R.color.gray
                 ) {
                     showShortInformation("onClick Option 3")
                     prettyDialog?.cancel()
@@ -135,23 +133,23 @@ class PrettyDialogActivity : BaseActivityFont(), OnClickListener {
         prettyDialog = PrettyDialog(this)
         prettyDialog?.apply {
             setTitle("PrettyDialog Title")
-                .setTitleColor(R.color.blue)
+                .setTitleColor(com.loitp.R.color.blue)
                 .setMessage("By agreeing to our terms and conditions, you agree to our terms and conditions.")
-                .setMessageColor(R.color.gray)
+                .setMessageColor(com.loitp.R.color.gray)
                 .setTypeface(Typeface.createFromAsset(resources.assets, "fonts/android_font.TTF"))
                 .setAnimationEnabled(true)
-                .setIcon(R.drawable.ic_info_black_48dp)
-                .setIconTint(R.color.green)
-                .setTextSizeTitle(resources.getDimension(R.dimen.txt_medium))
-                .setTextSizeMsg(resources.getDimension(R.dimen.txt_medium))
+                .setIcon(com.loitp.R.drawable.ic_info_black_48dp)
+                .setIconTint(com.loitp.R.color.green)
+                .setTextSizeTitle(resources.getDimension(com.loitp.R.dimen.txt_medium))
+                .setTextSizeMsg(resources.getDimension(com.loitp.R.dimen.txt_medium))
                 .setIconCallback {
                     showShortInformation("onClick setIconCallback")
                 }
                 // OK button
                 .addButton(
                     "OK", // button text
-                    R.color.white,
-                    R.color.green
+                    com.loitp.R.color.white,
+                    com.loitp.R.color.green
                 ) {
                     showShortInformation("onClick OK")
                     prettyDialog?.cancel()
@@ -159,8 +157,8 @@ class PrettyDialogActivity : BaseActivityFont(), OnClickListener {
                 // Cancel button
                 .addButton(
                     "Cancel",
-                    R.color.white,
-                    R.color.red
+                    com.loitp.R.color.white,
+                    com.loitp.R.color.red
                 ) {
                     showShortInformation("onClick Cancel")
                     prettyDialog?.cancel()
@@ -168,13 +166,13 @@ class PrettyDialogActivity : BaseActivityFont(), OnClickListener {
                 // 3rd button
                 .addButton(
                     "Option 3",
-                    R.color.black,
-                    R.color.gray
+                    com.loitp.R.color.black,
+                    com.loitp.R.color.gray
                 ) {
                     showShortInformation("onClick Option 3")
                     prettyDialog?.cancel()
                 }
-                .setTextSizeButton(resources.getDimension(R.dimen.txt_medium))
+                .setTextSizeButton(resources.getDimension(com.loitp.R.dimen.txt_medium))
                 .show()
         }
     }

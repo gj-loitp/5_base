@@ -15,7 +15,7 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
-import java.util.*
+import java.util.Locale
 
 /**
  * Created by Loitp on 04,August,2022
@@ -27,7 +27,7 @@ import java.util.*
 class CurrencyEditText @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = R.attr.editTextStyle
+    defStyleAttr: Int = com.google.android.material.R.attr.editTextStyle
 ) : TextInputEditText(context, attrs, defStyleAttr) {
 
     // private const val prefix = "VND "

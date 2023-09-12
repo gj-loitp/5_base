@@ -8,7 +8,6 @@ import android.widget.FrameLayout
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivity
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.layout.floatDrag.DisplayUtil
 import com.loitp.views.layout.floatDrag.FloatDragLayout
@@ -48,7 +47,7 @@ class FloatDragNoTitleActivity : BaseActivity() {
         mDecorView = window.decorView
         val rootView = mDecorView?.findViewById<ViewGroup>(android.R.id.content)
         val floatDragLayout = FloatDragLayout(this)
-        floatDragLayout.setBackgroundResource(R.drawable.l_heart_icon)
+        floatDragLayout.setBackgroundResource(com.loitp.R.drawable.l_heart_icon)
         val size = DisplayUtil.dp2px(this, 100)
         val layoutParams = FrameLayout.LayoutParams(size, size)
         floatDragLayout.layoutParams = layoutParams

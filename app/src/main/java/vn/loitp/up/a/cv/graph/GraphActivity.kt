@@ -12,7 +12,6 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import dev.bandb.graphview.AbstractGraphAdapter
 import dev.bandb.graphview.graph.Graph
 import dev.bandb.graphview.graph.Node
@@ -57,7 +56,7 @@ abstract class GraphActivity : BaseActivityFont() {
         adapter = object : AbstractGraphAdapter<NodeViewHolder>() {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NodeViewHolder {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.l_v_node, parent, false)
+                    .inflate(com.loitp.R.layout.l_v_node, parent, false)
                 return NodeViewHolder(view)
             }
 

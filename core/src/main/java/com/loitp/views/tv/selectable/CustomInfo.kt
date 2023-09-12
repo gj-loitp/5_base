@@ -3,7 +3,7 @@ package com.loitp.views.tv.selectable
 import android.text.Spannable
 import android.text.Spanned
 import android.text.style.CharacterStyle
-import com.loitp.BuildConfig
+import com.loitp.core.ext.isDebugMode
 import kotlin.math.max
 import kotlin.math.min
 
@@ -111,7 +111,7 @@ class CustomInfo {
     var start: Int
         get() = mStart
         set(start) {
-            if (BuildConfig.DEBUG && start < 0) {
+            if (isDebugMode() && start < 0) {
                 error("Assertion failed")
             }
             mStart = start
@@ -119,7 +119,7 @@ class CustomInfo {
     var end: Int
         get() = mEnd
         set(end) {
-            if (BuildConfig.DEBUG && end < 0) {
+            if (isDebugMode() && end < 0) {
                 error("Assertion failed")
             }
             mEnd = end

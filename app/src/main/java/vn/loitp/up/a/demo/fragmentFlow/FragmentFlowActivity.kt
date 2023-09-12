@@ -77,7 +77,7 @@ class FragmentFlowActivity : BaseActivityFont() {
             return
         }
         this.doubleBackToExitPressedOnce = true
-        showShortInformation(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
+        showShortInformation(msg = getString(com.loitp.R.string.press_again_to_exit), isTopAnchor = false)
         Handler(Looper.getMainLooper()).postDelayed({
             doubleBackToExitPressedOnce = false
         }, 2000)

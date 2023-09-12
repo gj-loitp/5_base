@@ -45,7 +45,7 @@ class MenuUI3Activity : BaseActivityFont() {
                     )
                 })
                 isVisible = true
-                setImageResource(R.drawable.ic_baseline_code_48)
+                setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = MenuUI3Activity::class.java.simpleName
         }

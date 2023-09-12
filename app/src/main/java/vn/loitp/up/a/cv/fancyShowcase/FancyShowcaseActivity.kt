@@ -17,7 +17,6 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFancyShowcase
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import me.toptas.fancyshowcase.FancyShowCaseView
@@ -69,7 +68,7 @@ class FancyShowcaseActivity : BaseActivityFancyShowcase() {
                     }
                 )
                 isVisible = true
-                setImageResource(R.drawable.ic_baseline_code_48)
+                setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = FancyShowcaseActivity::class.java.simpleName
         }

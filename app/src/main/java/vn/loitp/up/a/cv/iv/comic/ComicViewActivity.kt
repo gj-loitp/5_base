@@ -10,7 +10,6 @@ import com.bumptech.glide.Glide
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AComicViewBinding
@@ -88,10 +87,10 @@ class ComicViewActivity : BaseActivityFont() {
 
             if (mConvertView == null) {
                 mConvertView = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.l_v_comic_view, parent, false)
+                    .inflate(com.loitp.R.layout.l_v_comic_view, parent, false)
 
                 holder = ComicHolder()
-                holder.ivComic = mConvertView!!.findViewById(R.id.ivComic)
+                holder.ivComic = mConvertView!!.findViewById(com.loitp.R.id.ivComic)
                 mConvertView.tag = holder
             } else {
                 holder = mConvertView.tag as ComicHolder

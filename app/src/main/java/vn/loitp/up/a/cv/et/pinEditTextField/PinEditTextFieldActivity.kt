@@ -6,11 +6,9 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.poovam.pinedittextfield.PinField
-import vn.loitp.R
 import vn.loitp.databinding.APinEditTextFieldBinding
 
 
@@ -46,7 +44,7 @@ class PinEditTextFieldActivity : BaseActivityFont() {
                     )
                 })
                 isVisible = true
-                setImageResource(R.drawable.ic_baseline_code_48)
+                setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = PinEditTextFieldActivity::class.java.simpleName
         }

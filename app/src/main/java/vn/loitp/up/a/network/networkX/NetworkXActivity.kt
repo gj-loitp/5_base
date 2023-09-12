@@ -10,7 +10,6 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.rommansabbir.networkx.NetworkXProvider
-import vn.loitp.R
 import vn.loitp.databinding.ANetworkXBinding
 
 @LogTag("NetworkXActivity")
@@ -42,7 +41,7 @@ class NetworkXActivity : BaseActivityFont() {
                     )
                 })
                 isVisible = true
-                setImageResource(R.drawable.ic_baseline_code_48)
+                setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = NetworkXActivity::class.java.simpleName
         }

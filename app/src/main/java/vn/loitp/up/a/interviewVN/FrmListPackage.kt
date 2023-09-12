@@ -81,7 +81,7 @@ class FrmListPackage : BaseFragmentFlow() {
                     hideDialogProgress()
                     val list = pkg?.data
                     if (list.isNullOrEmpty()) {
-                        showShortError(getString(R.string.no_data_eng))
+                        showShortError(getString(com.loitp.R.string.no_data_eng))
                     } else {
                         qaAdapter.setData(list)
                     }

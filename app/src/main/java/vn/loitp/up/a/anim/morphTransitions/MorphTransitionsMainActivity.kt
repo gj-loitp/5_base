@@ -50,12 +50,12 @@ class MorphTransitionsMainActivity : BaseActivityFont() {
             FabTransform.addExtras(
                 intent,
                 ContextCompat.getColor(this@MorphTransitionsMainActivity, R.color.colorAccent),
-                R.drawable.ic_account_circle_black_48dp,
+                com.loitp.R.drawable.ic_account_circle_black_48dp,
             )
             val options = ActivityOptions.makeSceneTransitionAnimation(
                 this@MorphTransitionsMainActivity,
                 binding.fab,
-                getString(R.string.transition_morph)
+                getString(com.loitp.R.string.transition_morph)
             )
             startActivity(intent, options.toBundle())
         }
@@ -81,12 +81,12 @@ class MorphTransitionsMainActivity : BaseActivityFont() {
         MorphTransform.addExtras(
             intent,
             ContextCompat.getColor(this@MorphTransitionsMainActivity, R.color.colorAccent),
-            resources.getDimensionPixelSize(R.dimen.round_medium)
+            resources.getDimensionPixelSize(com.loitp.R.dimen.round_medium)
         )
         val options = ActivityOptions.makeSceneTransitionAnimation(
             this@MorphTransitionsMainActivity,
             view,
-            getString(R.string.transition_morph)
+            getString(com.loitp.R.string.transition_morph)
         )
         startActivity(intent, options.toBundle())
     }

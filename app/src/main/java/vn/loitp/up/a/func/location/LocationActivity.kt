@@ -19,7 +19,6 @@ import com.google.android.gms.location.*
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import com.permissionx.guolindev.PermissionX
 import vn.loitp.BuildConfig
@@ -265,19 +264,19 @@ class LocationActivity : BaseActivityFont() {
             )
             .setDialogTintColor(color, color)
             .onExplainRequestReason { scope, deniedList, _ ->
-                val message = getString(R.string.app_name) + getString(R.string.needs_per)
+                val message = getString(R.string.app_name) + getString(com.loitp.R.string.needs_per)
                 scope.showRequestReasonDialog(
                     permissions = deniedList,
                     message = message,
-                    positiveText = getString(R.string.allow),
-                    negativeText = getString(R.string.deny)
+                    positiveText = getString(com.loitp.R.string.allow),
+                    negativeText = getString(com.loitp.R.string.deny)
                 )
             }
             .onForwardToSettings { scope, deniedList ->
                 scope.showForwardToSettingsDialog(
                     permissions = deniedList,
-                    message = getString(R.string.per_manually_msg),
-                    positiveText = getString(R.string.ok),
+                    message = getString(com.loitp.R.string.per_manually_msg),
+                    positiveText = getString(com.loitp.R.string.ok),
                     negativeText = getString(R.string.cancel)
                 )
             }

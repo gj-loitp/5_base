@@ -14,7 +14,6 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.common.URL_IMG
 import com.loitp.core.common.URL_IMG_1
 import com.loitp.core.ext.openUrlInBrowser
@@ -63,7 +62,7 @@ class PreviewImageCollectionActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = PreviewImageCollectionActivity::class.java.simpleName
         }
@@ -181,7 +180,7 @@ class PreviewImageCollectionActivity : BaseActivityFont() {
         }
 
         binding.imageCollectionView.addImage(
-            bitmap = BitmapFactory.decodeResource(resources, R.drawable.bkg_1),
+            bitmap = BitmapFactory.decodeResource(resources, com.loitp.R.drawable.bkg_1),
             onClick = object : ImageCollectionView.OnImageClickListener {
                 override fun onClick(bitmap: Bitmap, imageView: ImageView) {
                     showShortInformation("Test Click image 08")
@@ -189,7 +188,7 @@ class PreviewImageCollectionActivity : BaseActivityFont() {
             }
         )
         binding.imageCollectionView.addImage(
-            bitmap = BitmapFactory.decodeResource(resources, R.drawable.bkg_2),
+            bitmap = BitmapFactory.decodeResource(resources, com.loitp.R.drawable.bkg_2),
             onLongClick = object : ImageCollectionView.OnImageLongClickListener {
                 override fun onLongClick(bitmap: Bitmap, imageView: ImageView) {
                     showShortInformation("Long Click")
@@ -197,7 +196,7 @@ class PreviewImageCollectionActivity : BaseActivityFont() {
             }
         )
         binding.imageCollectionView.addImageK(
-            drawableRes = R.drawable.bkg_3,
+            drawableRes = com.loitp.R.drawable.bkg_3,
             onClickUnit = { _: Bitmap?, _: ImageView? ->
                 showShortInformation("landscape_02")
             }
@@ -223,13 +222,13 @@ class PreviewImageCollectionActivity : BaseActivityFont() {
         binding.imageCollectionView.addImage(
             bitmap = BitmapFactory.decodeResource(
                 /* res = */ resources,
-                /* id = */ R.drawable.bkg_1
+                /* id = */ com.loitp.R.drawable.bkg_1
             )
         )
         binding.imageCollectionView.addImage(
             bitmap = BitmapFactory.decodeResource(
                 /* res = */ resources,
-                /* id = */ R.drawable.bkg_2
+                /* id = */ com.loitp.R.drawable.bkg_2
             )
         )
         binding.imageCollectionView.addImage(
