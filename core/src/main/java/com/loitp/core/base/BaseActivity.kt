@@ -23,7 +23,6 @@ import com.loitp.annotation.IsKeepScreenOn
 import com.loitp.annotation.IsShowAnimWhenExit
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.allowInfiniteLines
 import com.loitp.core.ext.d
 import com.loitp.core.ext.e
@@ -42,8 +41,6 @@ import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
 import com.loitp.views.toast.LToast
-import com.rommansabbir.networkx.LastKnownSpeed
-import com.rommansabbir.networkx.NetworkXProvider
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -161,8 +158,6 @@ abstract class BaseActivity : AppCompatActivity() {
             )
         }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
-
-        setupNetworkX()
 
         onBackPressedDispatcher.addCallback(this) {
             onBaseBackPressed()
@@ -518,21 +513,10 @@ abstract class BaseActivity : AppCompatActivity() {
         onBaseBackPressed()
     }
 
-    private fun setupNetworkX() {
-        NetworkXProvider.isInternetConnectedLiveData.observe(this) {
-//            isInternetConnectedLiveData(it)
-            EventBusData.instance.sendConnectChange(it)
-        }
-        NetworkXProvider.lastKnownSpeedLiveData.observe(this) {
-            lastKnownSpeedLiveData(it)
-        }
-    }
-
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
         onNetworkChange(event = event)
     }
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
-    open fun lastKnownSpeedLiveData(lastKnownSpeed: LastKnownSpeed) {}
 }

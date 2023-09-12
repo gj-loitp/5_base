@@ -5,8 +5,6 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
-import com.loitp.core.ext.isConnected
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.data.EventBusData
@@ -25,10 +23,6 @@ class NetworkActivity : BaseActivityFont() {
 
     private lateinit var binding: ANetworkBinding
 
-//    override fun setLayoutResourceId(): Int {
-//        return NOT_FOUND
-//    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -46,7 +40,6 @@ class NetworkActivity : BaseActivityFont() {
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.tvTitle?.text = NetworkActivity::class.java.simpleName
         }
-        showStatus(this.isConnected())
         binding.btn.setSafeOnClickListener {
             doSomeWork()
         }
@@ -54,13 +47,7 @@ class NetworkActivity : BaseActivityFont() {
 
     override fun onNetworkChange(event: EventBusData.ConnectEvent) {
         super.onNetworkChange(event)
-        logD("onNetworkChange: " + event.isConnected)
-        showStatus(event.isConnected)
-    }
-
-    @SuppressLint("SetTextI18n")
-    private fun showStatus(isConnected: Boolean) {
-        binding.textView.text = "isConnected: $isConnected"
+        showShortInformation("onNetworkChange: " + event.isConnected)
     }
 
     override fun onDestroy() {
