@@ -14,11 +14,16 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     namespace 'vn.loitp'
-    compileSdk 34
+//    compileSdk 34
+//    buildToolsVersion '33.0.1'
+//    ndkVersion '25.1.8937393'
 
     defaultConfig {
         applicationId "com.roygroup.base"
         minSdkVersion 24
+        compileSdk 34
+        buildToolsVersion = '34.0.0'
+        ndkVersion = '25.1.8937393'
         targetSdk 34
         versionCode 20230911
         versionName "2023.09.11"
