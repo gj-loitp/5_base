@@ -22,6 +22,11 @@ android {
         renderscriptSupportModeEnabled true
 
         multiDexEnabled true
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
     }
 
     dataBinding {

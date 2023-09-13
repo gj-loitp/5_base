@@ -28,6 +28,11 @@ android {
         versionCode 20230911
         versionName "2023.09.11"
         multiDexEnabled true
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
