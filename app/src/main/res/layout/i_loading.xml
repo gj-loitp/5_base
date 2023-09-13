@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ProgressBar xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.progressindicator.CircularProgressIndicator xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/progressBar"
     android:layout_width="match_parent"
     android:layout_height="@dimen/w_100"
     android:contentDescription="@string/app_name"
-
+    android:indeterminate="true"
     android:padding="@dimen/margin_padding_medium"
+    app:indicatorColor="?attr/themeTextColor"
+    app:trackCornerRadius="@dimen/round_largest"
     tools:ignore="UnusedAttribute" />

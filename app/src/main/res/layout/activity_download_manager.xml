@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/ScrollVertical"
     android:layout_width="match_parent"
@@ -49,14 +50,17 @@
                     style="@style/ButtonMenu"
                     android:text="resume download" />
 
-                <ProgressBar
+                <com.google.android.material.progressindicator.CircularProgressIndicator
                     android:id="@+id/sbDownloadProgress"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/green"
+                    android:indeterminate="true"
                     android:indeterminateOnly="false"
-                    android:padding="@dimen/margin_padding_medium" />
+                    android:padding="@dimen/margin_padding_medium"
+                    app:indicatorColor="?attr/themeTextColor"
+                    app:trackCornerRadius="@dimen/round_largest" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvPercent"
@@ -113,14 +117,17 @@
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
-                <ProgressBar
+                <com.google.android.material.progressindicator.CircularProgressIndicator
                     android:id="@+id/sbDownloadProgressZip"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/green"
+                    android:indeterminate="true"
                     android:indeterminateOnly="false"
-                    android:padding="@dimen/margin_padding_medium" />
+                    android:padding="@dimen/margin_padding_medium"
+                    app:indicatorColor="?attr/themeTextColor"
+                    app:trackCornerRadius="@dimen/round_largest" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvPercentZip"
@@ -217,11 +224,13 @@
             android:visibility="gone"
             tools:visibility="gone">
 
-            <ProgressBar
+            <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/green"
-                android:progressTint="@color/deepPink" />
+                android:indeterminate="true"
+                app:indicatorColor="?attr/themeTextColor"
+                app:trackCornerRadius="@dimen/round_largest" />
         </LinearLayout>
     </FrameLayout>
 

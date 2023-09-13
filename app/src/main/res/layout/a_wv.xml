@@ -104,7 +104,10 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
     </HorizontalScrollView>
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:indeterminate="true"
+        app:trackCornerRadius="@dimen/round_largest"
+        app:indicatorColor="?attr/themeTextColor"
         android:id="@+id/pb"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:animateLayoutChanges="true"
     android:background="?attr/themeBackgroundColor"
     android:orientation="vertical"
@@ -44,13 +45,16 @@
             android:visibility="gone"
             tools:visibility="visible" />
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/pb"
             style="?android:attr/progressBarStyleHorizontal"
+            app:indicatorColor="?attr/themeTextColor"
+            app:trackCornerRadius="@dimen/round_largest"
             android:layout_width="match_parent"
             android:layout_height="@dimen/w_10"
             android:layout_centerInParent="true"
             android:layout_margin="@dimen/margin_padding_medium"
+            android:indeterminate="true"
             android:max="100"
             android:visibility="gone"
             tools:progress="50"
