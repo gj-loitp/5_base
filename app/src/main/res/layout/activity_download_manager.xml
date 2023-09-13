@@ -56,8 +56,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/green"
                     android:indeterminateOnly="false"
-                    android:padding="@dimen/margin_padding_medium"
-                    android:progressTint="@color/red" />
+                    android:padding="@dimen/margin_padding_medium" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvPercent"
@@ -121,9 +120,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/green"
                     android:indeterminateOnly="false"
-                    android:indeterminateTint="@color/red"
-                    android:padding="@dimen/margin_padding_medium"
-                    android:progressTint="@color/deepPink" />
+                    android:padding="@dimen/margin_padding_medium" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvPercentZip"
@@ -224,9 +221,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/green"
-                android:indeterminateTint="@color/blue"
-                android:progressTint="@color/deepPink"
-                tools:ignore="UnusedAttribute" />
+                android:progressTint="@color/deepPink" />
         </LinearLayout>
     </FrameLayout>
 

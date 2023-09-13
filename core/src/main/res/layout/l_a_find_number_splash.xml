@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.flaviofaria.kenburnsview.KenBurnsView
         android:layout_width="match_parent"
@@ -32,13 +33,16 @@
         android:textColor="@color/white"
         android:textSize="@dimen/txt_larger" />
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progressBar"
+        app:trackCornerRadius="@dimen/round_largest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/margin_padding_medium"
-        android:indeterminateTint="?attr/themeTextColor" />
+        android:indeterminate="true"
+        app:indicatorColor="?attr/themeTextColor"
+         />
 </RelativeLayout>

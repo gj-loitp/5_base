@@ -17,13 +17,15 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/red_cat" />
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_padding_medium"
-        android:indeterminateTint="?attr/themeTextColor"
+        android:indeterminate="true"
+        app:indicatorColor="?attr/themeTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/animationView" />
+        app:layout_constraintTop_toBottomOf="@+id/animationView"
+        app:trackCornerRadius="@dimen/round_largest" />
 </androidx.constraintlayout.widget.ConstraintLayout>

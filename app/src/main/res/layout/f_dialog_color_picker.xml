@@ -18,7 +18,7 @@
         android:layout_marginTop="@dimen/margin_padding_medium"
         android:max="255"
         android:progress="0"
-        android:progressTint="?attr/themeTextColor"
+
         android:thumbTint="?attr/themeTextColor" />
 
     <androidx.appcompat.widget.AppCompatSeekBar
@@ -28,7 +28,7 @@
         android:layout_marginTop="@dimen/margin_padding_medium"
         android:max="255"
         android:progress="0"
-        android:progressTint="?attr/themeTextColor"
+
         android:thumbTint="?attr/themeTextColor" />
 
     <androidx.appcompat.widget.AppCompatSeekBar
@@ -38,7 +38,7 @@
         android:layout_marginTop="@dimen/margin_padding_medium"
         android:max="255"
         android:progress="0"
-        android:progressTint="?attr/themeTextColor"
+
         android:thumbTint="?attr/themeTextColor" />
 
     <androidx.appcompat.widget.AppCompatButton
