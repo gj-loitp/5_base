@@ -29,6 +29,7 @@ import vn.loitp.up.a.cv3.MenuUI3Activity
 import vn.loitp.up.a.db.MenuDatabaseActivity
 import vn.loitp.up.a.demo.MenuDemoActivity
 import vn.loitp.up.a.demo.ad.createAdBanner
+import vn.loitp.up.a.demo.ad.destroyAdBanner
 import vn.loitp.up.a.func.MenuFunctionActivity
 import vn.loitp.up.a.game.MenuGameActivity
 import vn.loitp.up.a.interviewVN.InterviewVNIQActivity
@@ -136,7 +137,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     }
 
     override fun onDestroy() {
-        adView?.destroy()
+        binding.flAd.destroyAdBanner(adView)
         super.onDestroy()
     }
 

@@ -144,3 +144,8 @@ fun Activity.createAdBanner(
     }
     return adView
 }
+
+fun ViewGroup.destroyAdBanner(adView: MaxAdView?) {
+    adView?.destroy()
+    this.removeAllViews()
+}

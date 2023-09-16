@@ -12,6 +12,7 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AAdBannerBinding
 import vn.loitp.up.a.demo.ad.createAdBanner
+import vn.loitp.up.a.demo.ad.destroyAdBanner
 
 @LogTag("BannerActivity")
 @IsFullScreen(false)
@@ -54,7 +55,7 @@ class BannerActivity : BaseActivityFont() {
     }
 
     override fun onDestroy() {
-        adView?.destroy()
+        binding.flAd.destroyAdBanner(adView)
         super.onDestroy()
     }
 
