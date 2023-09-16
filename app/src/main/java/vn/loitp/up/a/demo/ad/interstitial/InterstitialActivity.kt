@@ -3,6 +3,7 @@ package vn.loitp.up.a.demo.ad.interstitial
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 import com.applovin.mediation.MaxAd
 import com.applovin.mediation.MaxAdListener
 import com.applovin.mediation.MaxError
@@ -138,6 +139,7 @@ class InterstitialActivity : BaseActivityFont() {
                 }
             }
         } else {
+            Toast.makeText(this, "Applovin show ad Inter in debug mode", Toast.LENGTH_SHORT).show()
             runnable?.run()
         }
     }

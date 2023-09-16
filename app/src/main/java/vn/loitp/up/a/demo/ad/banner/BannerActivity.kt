@@ -47,7 +47,7 @@ class BannerActivity : BaseActivityFont() {
 
         adView = this@BannerActivity.createAdBanner(
             logTag = logTag,
-            bkgColor = Color.CYAN,
+            bkgColor = getColor(R.color.colorPrimary),
             viewGroup = binding.flAd,
             isAdaptiveBanner = true,
         )

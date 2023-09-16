@@ -57,16 +57,16 @@ fun Activity.createAdBanner(
     logTag: String?,
     bkgColor: Int = Color.RED,
     viewGroup: ViewGroup?,
-    isAdaptiveBanner: Boolean
+    isAdaptiveBanner: Boolean,
 ): MaxAdView {
     val log = "$logTag - createAdBanner"
     val enableAdBanner = this.getString(R.string.EnableAdBanner) == "true"
     var id = "1234567890123456" // dummy id
     if (enableAdBanner) {
         id = this.getString(R.string.BANNER)
-        viewGroup?.isVisible = true
+//        viewGroup?.isVisible = true
     } else {
-        viewGroup?.isVisible = false
+//        viewGroup?.isVisible = false
     }
     i(log, "enableAdBanner $enableAdBanner -> $id")
     val adView = MaxAdView(id, this)
@@ -74,7 +74,7 @@ fun Activity.createAdBanner(
         ad.setListener(object : MaxAdViewAdListener {
             override fun onAdLoaded(p0: MaxAd?) {
                 i(log, "onAdLoaded")
-                viewGroup?.isVisible = true
+//                viewGroup?.isVisible = true
             }
 
             override fun onAdDisplayed(p0: MaxAd?) {
@@ -133,7 +133,12 @@ fun Activity.createAdBanner(
             )
         }
 
-        ad.setBackgroundColor(bkgColor)
+
+        if (enableAdBanner) {
+            ad.setBackgroundColor(bkgColor)
+        } else {
+            ad.setBackgroundColor(getColor(com.loitp.R.color.red))
+        }
         viewGroup?.addView(adView)
         ad.loadAd()
     }

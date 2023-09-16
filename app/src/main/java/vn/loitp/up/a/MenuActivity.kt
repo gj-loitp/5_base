@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.widget.Toast
 import com.applovin.mediation.MaxAd
 import com.applovin.mediation.MaxAdListener
 import com.applovin.mediation.MaxError
@@ -71,7 +72,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
     private fun setupViews() {
         adView = this@MenuActivity.createAdBanner(
             logTag = logTag,
-            bkgColor = Color.TRANSPARENT,
+            bkgColor = getColor(R.color.colorPrimary),
             viewGroup = binding.flAd,
             isAdaptiveBanner = true,
         )
@@ -365,6 +366,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
                 }
             }
         } else {
+            Toast.makeText(this, "Applovin show ad Inter in debug mode", Toast.LENGTH_SHORT).show()
             runnable?.run()
         }
     }
