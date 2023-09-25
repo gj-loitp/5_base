@@ -52,7 +52,6 @@
 
                 <com.google.android.material.progressindicator.CircularProgressIndicator
                     android:id="@+id/sbDownloadProgress"
-                    style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/green"
@@ -119,7 +118,6 @@
 
                 <com.google.android.material.progressindicator.CircularProgressIndicator
                     android:id="@+id/sbDownloadProgressZip"
-                    style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/green"

@@ -105,15 +105,14 @@
     </HorizontalScrollView>
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:indeterminate="true"
-        app:trackCornerRadius="@dimen/round_largest"
-        app:indicatorColor="?attr/themeTextColor"
         android:id="@+id/pb"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
         android:indeterminateOnly="false"
-         />
+        app:indicatorColor="?attr/themeTextColor"
+        app:trackCornerRadius="@dimen/round_largest" />
 
     <com.loitp.views.wv.LWebViewAdblock
         android:id="@+id/lWebView"
