@@ -290,6 +290,9 @@
             android:name=".up.a.func.simpleFingerGestures.SimpleFingerGesturesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
+            android:name=".up.a.cv.wv.superWebView.SuperWebViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
             android:name=".up.a.cv.tv.autoFit.AutoFitTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
