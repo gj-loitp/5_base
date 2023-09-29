@@ -23,20 +23,25 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.databinding.ASuperWvBinding
+import vn.loitp.up.a.func.activityAndService.ActivityServiceCommunicateActivity
 
 @LogTag("EmptyActivity")
 @IsFullScreen(false)
 @IsAutoAnimation(false)
-//TODO currentWebsite start activity bundle
 class SuperWebViewActivity : BaseActivityFont() {
-    private val currentWebsite =
-        "https://github.com/roozbehzarei/SuperWebView/blob/master/app/src/main/java/com/roozbehzarei/webview/MainActivity.kt"
+    companion object {
+        const val KEY_URL = "KEY_URL"
+    }
+
+    private var currentWebsite: String = "https://www.facebook.com/loitp93/"
     private lateinit var binding: ASuperWvBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ASuperWvBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        currentWebsite = intent?.getStringExtra(KEY_URL) ?: ""
 
         setupViews()
     }
@@ -112,7 +117,7 @@ class SuperWebViewActivity : BaseActivityFont() {
         mCallback.isEnabled = true
     }
 
-    private fun onBack(){
+    private fun onBack() {
         if (binding.webView.canGoBack()) {
             binding.webView.goBack()
         } else {

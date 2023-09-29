@@ -42,7 +42,9 @@ class MenuWebViewActivity : BaseActivityFont() {
             launchActivity(LWebViewActivity::class.java)
         }
         binding.btSuperWebView.setSafeOnClickListener {
-            launchActivity(SuperWebViewActivity::class.java)
+            launchActivity(SuperWebViewActivity::class.java, data = {
+                it.putExtra(SuperWebViewActivity.KEY_URL, "https://github.com/gj-loitp")
+            })
         }
         binding.btWebViewWrapContent.setSafeOnClickListener {
             launchActivity(WebViewWrapContentActivity::class.java)
