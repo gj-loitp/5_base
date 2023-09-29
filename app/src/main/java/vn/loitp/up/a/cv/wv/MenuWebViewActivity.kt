@@ -6,12 +6,11 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.databinding.AMenuWvBinding
 import vn.loitp.up.a.cv.wv.l.LWebViewActivity
-import vn.loitp.up.a.cv.wv.superWebView.SuperWebViewActivity
+import com.loitp.views.wv.superWebView.SuperWebViewActivity
 import vn.loitp.up.a.cv.wv.wrapContent.WebViewWrapContentActivity
 
 @LogTag("MenuWebViewActivity")

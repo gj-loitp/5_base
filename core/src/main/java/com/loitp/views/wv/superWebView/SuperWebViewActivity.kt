@@ -1,4 +1,4 @@
-package vn.loitp.up.a.cv.wv.superWebView
+package com.loitp.views.wv.superWebView
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -22,8 +22,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.databinding.ASuperWvBinding
-import vn.loitp.up.a.func.activityAndService.ActivityServiceCommunicateActivity
+import com.loitp.databinding.ASuperWvBinding
 
 @LogTag("EmptyActivity")
 @IsFullScreen(false)
