@@ -25,6 +25,7 @@ import com.loitp.core.helper.fbComment.FbCommentActivity
 import com.loitp.data.ActivityData
 import com.loitp.views.dlg.slideImages.LSlideAdapter
 import com.loitp.views.loading.window.WP10ProgressBar
+import com.loitp.views.wv.superWebView.SuperWebViewActivity
 import de.cketti.mailto.EmailIntentBuilder
 
 
@@ -51,7 +52,7 @@ fun Context.isDefaultLauncher(): Boolean {
 
 //mo app setting default cua device
 fun Context.launchSystemSetting(
-    packageName: String
+    packageName: String,
 ) {
     val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
     intent.data = Uri.parse("package:$packageName")
@@ -242,26 +243,38 @@ fun Context?.sendEmail(
 
 fun Context.openBrowserPolicy(
 ) {
-    this.openUrlInBrowser(url = URL_POLICY_NOTION)
+    this.openUrlInBrowser(url = URL_POLICY_NOTION, isUsingInternalWebView = false, withAnim = false)
 }
 
 fun Context?.openUrlInBrowser(
-    url: String?
+    url: String?,
+    isUsingInternalWebView: Boolean = true,
+    withAnim: Boolean = true,
 ) {
     if (this == null || url.isNullOrEmpty()) {
         return
     }
-    try {
-        val defaultBrowser =
-            Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
-        defaultBrowser.data = Uri.parse(url)
-        this.startActivity(defaultBrowser)
-        this.tranIn()
-    } catch (e: Exception) {
-        val i = Intent(Intent.ACTION_VIEW)
-        i.data = Uri.parse(url)
-        this.startActivity(i)
-        this.tranIn()
+    if (isUsingInternalWebView) {
+        val intent = Intent(/* packageContext = */ this, /* cls = */ SuperWebViewActivity::class.java)
+        intent.putExtra(SuperWebViewActivity.KEY_URL, url)
+        this.startActivity(intent)
+        if (withAnim) {
+            this.tranIn()
+        }
+    } else {
+        try {
+//            val defaultBrowser =
+//                Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
+//            defaultBrowser.data = Uri.parse(url)
+//            this.startActivity(defaultBrowser)
+//            this.tranIn()
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(url)
+            this.startActivity(i)
+            this.tranIn()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
 
@@ -305,7 +318,7 @@ fun Context.showNotification(
     title: String,
     body: String,
     iconRes: Int,
-    notificationIntent: Intent
+    notificationIntent: Intent,
 ) {
     if (title.isEmpty() || body.isEmpty()) {
         return
@@ -416,7 +429,7 @@ fun Context.showDialog2(
     button1: String = this.getString(R.string.confirm),
     button2: String = this.getString(R.string.cancel),
     onClickButton1: ((Unit) -> Unit)? = null,
-    onClickButton2: ((Unit) -> Unit)? = null
+    onClickButton2: ((Unit) -> Unit)? = null,
 ): AlertDialog {
     val builder = if (isDarkTheme()) {
         AlertDialog.Builder(ContextThemeWrapper(this, R.style.DarkAlertDialogCustom))
@@ -462,7 +475,7 @@ fun Context.showDialog3(
     button3: String? = null,
     onClickButton1: ((Unit) -> Unit)? = null,
     onClickButton2: ((Unit) -> Unit)? = null,
-    onClickButton3: ((Unit) -> Unit)? = null
+    onClickButton3: ((Unit) -> Unit)? = null,
 ): AlertDialog {
     val builder = if (isDarkTheme()) {
         AlertDialog.Builder(ContextThemeWrapper(this, R.style.DarkAlertDialogCustom))
@@ -521,7 +534,7 @@ fun Context.showDialog3(
 fun Context.showDialogList(
     title: String? = null,
     arr: Array<String?>,
-    onClick: ((Int) -> Unit)? = null
+    onClick: ((Int) -> Unit)? = null,
 ): AlertDialog {
     val builder = if (isDarkTheme()) {
         AlertDialog.Builder(ContextThemeWrapper(this, R.style.DarkAlertDialogCustom))
@@ -550,7 +563,7 @@ fun Context.showProgressDialog(
     isCancelAble: Boolean,
     style: Int,
     buttonTitle: String?,
-    onClickButton1: ((Unit) -> Unit)? = null
+    onClickButton1: ((Unit) -> Unit)? = null,
 ): ProgressDialog {
     val progressDialog = ProgressDialog(this)
     progressDialog.max = max
@@ -581,7 +594,7 @@ fun Dialog?.hide() {
 
 @SuppressLint("InflateParams")
 fun Context?.genCustomProgressDialog(
-    colorBackground: Int
+    colorBackground: Int,
 ): Dialog? {
     if (this == null || this !is Activity) {
         return null
@@ -626,7 +639,7 @@ fun Context.showDialogSlide(
     imgList: List<String>,
     amount: Float,
     isShowController: Boolean,
-    isShowIconClose: Boolean
+    isShowIconClose: Boolean,
 ): Dialog {
     val dialog = Dialog(this, android.R.style.Theme_Translucent_NoTitleBar)
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)

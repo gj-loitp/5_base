@@ -89,9 +89,7 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
         binding.tvPolicy.apply {
             this.setTextUnderline()
             setSafeOnClickListener {
-                this@MenuActivity.openUrlInBrowser(
-                    url = URL_POLICY_NOTION
-                )
+                this@MenuActivity.openBrowserPolicy()
             }
         }
         binding.swDarkTheme.apply {
