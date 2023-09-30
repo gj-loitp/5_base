@@ -152,7 +152,7 @@ dependencies {
     api project(':core')
 
 //    https://github.com/gj-loitp/base
-//    implementation 'com.github.gj-loitp:base:4.6.50'
+//    implementation 'com.github.gj-loitp:base:4.6.51'
 
     api 'com.daimajia.androidanimations:library:2.4@aar'
 //    https://github.com/hannesa2/AndroidSlidingUpPanel
