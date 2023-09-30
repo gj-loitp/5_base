@@ -16,6 +16,7 @@ import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
+import com.loitp.BuildConfig
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
@@ -57,10 +58,10 @@ class SuperWebViewActivity : BaseActivityFont() {
                         url = "https://github.com/roozbehzarei/SuperWebView"
                     )
                 })
-                isVisible = true
+                isVisible = BuildConfig.DEBUG
                 setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
-            this.tvTitle?.text = SuperWebViewActivity::class.java.simpleName
+//            this.tvTitle?.text = SuperWebViewActivity::class.java.simpleName
         }
 
         binding.webView.webViewClient = MyWebViewClient()
@@ -148,6 +149,7 @@ class SuperWebViewActivity : BaseActivityFont() {
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
             binding.progressIndicator.visibility = View.INVISIBLE
+            binding.lActionBar.tvTitle?.text = view?.title ?: ""
         }
 
         override fun onReceivedError(
