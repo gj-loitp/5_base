@@ -25,13 +25,8 @@ import vn.loitp.databinding.ATurnLayoutManagerBinding
 @IsFullScreen(false)
 @IsAutoAnimation(false)
 class TurnLayoutManagerActivity : BaseActivityFont() {
-
     private var layoutManager: TurnLayoutManager? = null
     private lateinit var binding: ATurnLayoutManagerBinding
-//    override fun setLayoutResourceId(): Int {
-//        return R.layout.a_turn_layout_manager
-//    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
