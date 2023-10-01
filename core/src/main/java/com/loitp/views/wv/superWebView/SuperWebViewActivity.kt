@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
@@ -17,10 +18,12 @@ import androidx.core.view.isVisible
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
 import com.loitp.BuildConfig
+import com.loitp.R
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.ext.LAppResource
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.databinding.ASuperWvBinding
@@ -49,6 +52,7 @@ class SuperWebViewActivity : BaseActivityFont() {
     @SuppressLint("SetJavaScriptEnabled")
     private fun setupViews() {
         binding.lActionBar.apply {
+//            this.mcv?.setCardBackgroundColor(getColor(R.color.white50))
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBack()
             })
@@ -104,10 +108,20 @@ class SuperWebViewActivity : BaseActivityFont() {
 //        val backgroundColor = backgroundTypedValue.resourceId
 //        binding.srl.setProgressBackgroundColorSchemeResource(backgroundColor)
 
-        binding.webView.viewTreeObserver.addOnScrollChangedListener {
-            binding.root.isEnabled = binding.webView.scrollY == 0
-        }
+//        binding.webView.viewTreeObserver.addOnScrollChangedListener {
+//            binding.root.isEnabled = binding.webView.scrollY == 0
+//        }
 
+        binding.webView.onScrollChangedCallback =
+            ObservableWebView.OnScrollChangedCallback { l, t, oldl, oldt ->
+                if (t > oldt) {
+//                    System.out.println("Swipe UP")
+                    binding.lActionBar.isVisible = false
+                } else if (t < oldt) {
+//                    System.out.println("Swipe Down")
+                    binding.lActionBar.isVisible = true
+                }
+            }
         /**
          * If there's no web page history, close the application
          */
