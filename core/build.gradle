@@ -9,7 +9,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-group = 'com.github.tplloi'
+//group = 'com.github.tplloi'
+group = 'com.github.gj-loitp'
 
 android {
     compileSdk 34
