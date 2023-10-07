@@ -10,7 +10,7 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import source.TextSource
+import com.loitp.func.mee.source.TextSource
 import vn.loitp.databinding.AMathBinding
 
 @LogTag("MathActivity")
