@@ -21,6 +21,8 @@ import com.loitp.core.ext.i
 import vn.loitp.BuildConfig
 import vn.loitp.R
 
+//for java, check pj hex viewer
+
 fun Context.setupApplovinAd() {
     // Please check config in gradle
     // Please add key in manifest
