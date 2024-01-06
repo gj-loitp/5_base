@@ -1,10 +1,3 @@
-/**
- * Created by Loitp on 04,August,2022
- * Galaxy One company,
- * Vietnam
- * +840766040293
- * freuss47@gmail.com*/
-
 buildscript {
     repositories {
         google()
@@ -13,7 +6,7 @@ buildscript {
     }
     dependencies {
         //https://mvnrepository.com/artifact/com.android.tools.build/gradle?repo=google
-        classpath 'com.android.tools.build:gradle:8.1.2'
+        classpath 'com.android.tools.build:gradle:8.1.4'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.21"
