@@ -348,7 +348,7 @@ dependencies {
 
 //    https://github.com/DanielMartinus/konfetti
 //    api 'nl.dionsegijn:konfetti-compose:2.0.2'
-    api 'nl.dionsegijn:konfetti-xml:2.0.2'
+    api 'nl.dionsegijn:konfetti-xml:2.0.3'
 
 //    https://github.com/psuzn/WheelView
     api 'com.github.psuzn:WheelView:v1.0.2'
