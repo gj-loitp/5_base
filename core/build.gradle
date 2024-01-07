@@ -163,7 +163,7 @@ dependencies {
     //google service https://developers.google.com/android/guides/setup
     //compile 'com.google.android.gms:play-services-plus:15.0.1'
     //api 'com.google.android.gms:play-services-cast-framework:16.1.0'
-    api 'com.google.android.gms:play-services-maps:18.1.0'
+    api 'com.google.android.gms:play-services-maps:18.2.0'
 //    api 'com.google.android.gms:play-services-ads:21.1.0'
     api 'com.google.android.gms:play-services-location:21.0.1'
 
@@ -198,7 +198,7 @@ dependencies {
     //ViewModel Kotlin support
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
     //Coroutines
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
 
     //https://github.com/florent37/ExpansionPanel
     api 'com.github.florent37:expansionpanel:1.2.4'
