@@ -25,8 +25,8 @@ android {
         buildToolsVersion = '34.0.0'
         ndkVersion = '25.1.8937393'
         targetSdk 34
-        versionCode 20230911
-        versionName "2023.09.11"
+        versionCode 20240107
+        versionName "2024.01.07"
         multiDexEnabled true
         kapt {
             arguments {
