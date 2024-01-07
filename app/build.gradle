@@ -287,7 +287,7 @@ dependencies {
 
 //    noinspection AnnotationProcessorOnCompilePath
     api 'io.realm:realm-android:0.82.1'
-    kapt "androidx.room:room-compiler:2.5.2"
+    kapt "androidx.room:room-compiler:2.6.1"
 //    https://github.com/devendroid/ReadMoreOption
     api 'com.github.devendroid:ReadMoreOption:1.0.2'
 //    https://github.com/rishabh876/RoundedImageView
