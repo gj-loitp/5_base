@@ -22,7 +22,7 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
 
     constructor(
         context: Context,
-        attrs: AttributeSet?
+        attrs: AttributeSet?,
     ) : super(context, attrs) {
         init()
     }
@@ -30,7 +30,7 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
     constructor(
         context: Context?,
         attrs: AttributeSet?,
-        defStyle: Int
+        defStyle: Int,
     ) : super(
         context,
         attrs,
@@ -58,7 +58,7 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
 
     override fun setShape(
         imgObject: ImgObject,
-        drawableRes: Int
+        drawableRes: Int,
     ) {
         if (ivGift == null || ivAvatar == null) {
             return
@@ -74,19 +74,19 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(
                             e: GlideException?,
-                            model: Any,
+                            model: Any?,
                             target: Target<Drawable?>,
-                            isFirstResource: Boolean
+                            isFirstResource: Boolean,
                         ): Boolean {
                             return false
                         }
 
                         override fun onResourceReady(
-                            resource: Drawable?,
+                            resource: Drawable,
                             model: Any,
                             target: Target<Drawable?>,
                             dataSource: DataSource,
-                            isFirstResource: Boolean
+                            isFirstResource: Boolean,
                         ): Boolean {
                             return false
                         }
@@ -113,19 +113,19 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
             drawableRequestListener = object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
-                    model: Any,
+                    model: Any?,
                     target: Target<Drawable?>,
-                    isFirstResource: Boolean
+                    isFirstResource: Boolean,
                 ): Boolean {
                     return false
                 }
 
                 override fun onResourceReady(
-                    resource: Drawable?,
+                    resource: Drawable,
                     model: Any,
-                    target: Target<Drawable?>,
+                    target: Target<Drawable>?,
                     dataSource: DataSource,
-                    isFirstResource: Boolean
+                    isFirstResource: Boolean,
                 ): Boolean {
                     return false
                 }

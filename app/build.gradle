@@ -25,8 +25,8 @@ android {
         buildToolsVersion = '34.0.0'
         ndkVersion = '25.1.8937393'
         targetSdk 34
-        versionCode 20240107
-        versionName "2024.01.07"
+        versionCode 20240720
+        versionName "2024.07.20"
         multiDexEnabled true
         kapt {
             arguments {
@@ -37,26 +37,18 @@ android {
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
 
-//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
         buildConfigField("String", "RECAPTCHA_KEY", '"6LcposQUAAAAAB7X6uNt4cmmdMgGEIaOJfAkCVvy"')
-
         buildConfigField("String", "PATH_MAIN", '"api/"')
         buildConfigField("String", "PATH_LOGIN", '"authentication/login/mobile"')
         buildConfigField("String", "PATH_LOGOUT", '"authentication/logout"')
         buildConfigField("String", "PATH_ME", '"authentication/me"')
-
         buildConfigField("String", "PATH_PRODUCT_ODER", '"ProductOrder"')
         buildConfigField("String", "PATH_PRODUCT_ODER_SEARCH", '"ProductOrder/search"')
-
         buildConfigField("String", "PATH_PLANT", '"SAPData/Plants"')
         buildConfigField("String", "PATH_LOTCELL", '"SAPData/LotCells"')
         buildConfigField("String", "PATH_MATERIAL_DATA", '"SAPData/MaterialDatas"')
-
         buildConfigField("String", "PATH_MATERIAL_REQUEST", '"MaterialRequest"')
         buildConfigField("String", "PATH_MATERIAL_REQUEST_SEARCH", '"MaterialRequest/search"')
-
-//        buildConfigField "Boolean", "EnableAdInter", "false"
     }
 
     dataBinding {
@@ -143,11 +135,6 @@ android {
     }
 }
 
-//repositories {
-//    mavenCentral()
-//    maven { url "https://jitpack.io" }
-//}
-
 dependencies {
     api project(':core')
 //    https://github.com/gj-loitp/base
@@ -224,7 +211,7 @@ dependencies {
     //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
 
 //    https://github.com/JakeWharton/ProcessPhoenix
-    api 'com.jakewharton:process-phoenix:2.1.2'
+    api 'com.jakewharton:process-phoenix:3.0.0'
 
 //    https://github.com/rosenpin/fading-text-view
     api 'com.github.rosenpin:fading-text-view:3.0'
@@ -244,8 +231,9 @@ dependencies {
 
     //admob
 //    api 'com.google.android.gms:play-services-ads:21.5.0'
+
     //applovin
-    implementation 'com.applovin:applovin-sdk:12.1.0'
+    implementation 'com.applovin:applovin-sdk:12.5.0'
 
 //    https://github.com/nikartm/FitButton
     api 'io.github.nikartm:fit-button:2.0.0'
@@ -286,6 +274,7 @@ dependencies {
 
 //    noinspection AnnotationProcessorOnCompilePath
     api 'io.realm:realm-android:0.82.1'
+    //noinspection KaptUsageInsteadOfKsp
     kapt "androidx.room:room-compiler:2.6.1"
 //    https://github.com/devendroid/ReadMoreOption
     api 'com.github.devendroid:ReadMoreOption:1.0.2'
@@ -356,5 +345,5 @@ dependencies {
     api 'com.veyo:autorefreshnetworkconnection:1.0.6'
 
     // debugImplementation because LeakCanary should only run in debug builds.
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.12'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.14'
 }

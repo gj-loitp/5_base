@@ -77,17 +77,17 @@ class AlbumAdapter(
                 drawableRequestListener = object : RequestListener<Drawable> {
                     override fun onLoadFailed(
                         e: GlideException?,
-                        model: Any,
-                        target: Target<Drawable?>,
+                        model: Any?,
+                        target: Target<Drawable>,
                         isFirstResource: Boolean
                     ): Boolean {
                         return false
                     }
 
                     override fun onResourceReady(
-                        resource: Drawable?,
+                        resource: Drawable,
                         model: Any,
-                        target: Target<Drawable?>,
+                        target: Target<Drawable>?,
                         dataSource: DataSource,
                         isFirstResource: Boolean
                     ): Boolean {
