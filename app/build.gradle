@@ -25,8 +25,8 @@ android {
         buildToolsVersion = '34.0.0'
         ndkVersion = '25.1.8937393'
         targetSdk 34
-        versionCode 20240107
-        versionName "2024.01.07"
+        versionCode 20240720
+        versionName "2024.07.20"
         multiDexEnabled true
         kapt {
             arguments {
@@ -37,26 +37,18 @@ android {
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
 
-//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
         buildConfigField("String", "RECAPTCHA_KEY", '"6LcposQUAAAAAB7X6uNt4cmmdMgGEIaOJfAkCVvy"')
-
         buildConfigField("String", "PATH_MAIN", '"api/"')
         buildConfigField("String", "PATH_LOGIN", '"authentication/login/mobile"')
         buildConfigField("String", "PATH_LOGOUT", '"authentication/logout"')
         buildConfigField("String", "PATH_ME", '"authentication/me"')
-
         buildConfigField("String", "PATH_PRODUCT_ODER", '"ProductOrder"')
         buildConfigField("String", "PATH_PRODUCT_ODER_SEARCH", '"ProductOrder/search"')
-
         buildConfigField("String", "PATH_PLANT", '"SAPData/Plants"')
         buildConfigField("String", "PATH_LOTCELL", '"SAPData/LotCells"')
         buildConfigField("String", "PATH_MATERIAL_DATA", '"SAPData/MaterialDatas"')
-
         buildConfigField("String", "PATH_MATERIAL_REQUEST", '"MaterialRequest"')
         buildConfigField("String", "PATH_MATERIAL_REQUEST_SEARCH", '"MaterialRequest/search"')
-
-//        buildConfigField "Boolean", "EnableAdInter", "false"
     }
 
     dataBinding {
@@ -142,11 +134,6 @@ android {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
-
-//repositories {
-//    mavenCentral()
-//    maven { url "https://jitpack.io" }
-//}
 
 dependencies {
     api project(':core')
@@ -356,5 +343,5 @@ dependencies {
     api 'com.veyo:autorefreshnetworkconnection:1.0.6'
 
     // debugImplementation because LeakCanary should only run in debug builds.
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.12'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.14'
 }
