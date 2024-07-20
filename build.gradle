@@ -15,20 +15,19 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
-        maven {
-            url "https://maven.google.com"
-        }
-        maven { url 'https://jitpack.io' }
-//        maven { url 'https://github.com/500px/greedo-layout-for-android/raw/master/releases/' }
-//        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
-    }
-}
+//allprojects {
+//    repositories {
+//        gradlePluginPortal()
+//        mavenCentral()
+//        google()
+//        maven {
+//            url "https://maven.google.com"
+//        }
+//        maven { url 'https://jitpack.io' }
+//    }
+//}
 
 tasks.register('clean', Delete) {
     delete rootProject.buildDir
 }
+

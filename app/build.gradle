@@ -113,8 +113,8 @@ android {
             resValue("string", "BANNER", "18a3d1924d3ebee6")
             resValue("string", "INTER", "895d5d41cb20edb7")
 
-            resValue("string", "EnableAdInter", "false")
-            resValue("string", "EnableAdBanner", "false")
+            resValue("string", "EnableAdInter", "true")
+            resValue("string", "EnableAdBanner", "true")
         }
 
         production {
@@ -143,10 +143,10 @@ android {
     }
 }
 
-repositories {
-    mavenCentral()
-    maven { url "https://jitpack.io" }
-}
+//repositories {
+//    mavenCentral()
+//    maven { url "https://jitpack.io" }
+//}
 
 dependencies {
     api project(':core')

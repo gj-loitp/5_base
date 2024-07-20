@@ -174,7 +174,7 @@ dependencies {
     api 'com.guolindev.permissionx:permissionx:1.7.1'
 
 //    https://github.com/SimformSolutionsPvtLtd/SSImagePicker
-    api 'com.github.SimformSolutionsPvtLtd:SSImagePicker:2.0'
+    api 'com.github.SimformSolutionsPvtLtd:SSImagePicker:2.1'
 
     //https://github.com/InflationX/Calligraphy
 //    api 'io.github.inflationx:calligraphy3:3.1.1'
