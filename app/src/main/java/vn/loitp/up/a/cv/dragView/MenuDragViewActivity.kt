@@ -6,6 +6,7 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.tranIn
@@ -17,9 +18,9 @@ import vn.loitp.databinding.AMenuDragViewBinding
 class MenuDragViewActivity : BaseActivityFont() {
     private lateinit var binding: AMenuDragViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_menu_drag_view
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

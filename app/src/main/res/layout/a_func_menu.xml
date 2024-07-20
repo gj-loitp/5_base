@@ -35,9 +35,19 @@
                 android:text="@string/activity_service_comunicate" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCustomSnackbar"
+                style="@style/ButtonMenu"
+                android:text="Custom Snackbar" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDragDropSample"
                 style="@style/ButtonMenu"
                 android:text="@string/drag_drop_sample" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFloatingToast"
+                style="@style/ButtonMenu"
+                android:text="FloatingToast" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btToggleFullScreen"

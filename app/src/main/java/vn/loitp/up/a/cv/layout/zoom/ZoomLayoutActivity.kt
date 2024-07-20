@@ -18,9 +18,9 @@ class ZoomLayoutActivity : BaseActivityFont() {
 
     private lateinit var binding: ALayoutZoomBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +47,7 @@ class ZoomLayoutActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = ZoomLayoutActivity::class.java.simpleName
         }

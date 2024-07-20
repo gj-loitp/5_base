@@ -20,9 +20,9 @@ class DragDropSwipeListVerticalRecyclerviewActivity : BaseActivityFont() {
 
     private var dragDropAdapter: DragDropAdapter? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +57,7 @@ class DragDropSwipeListVerticalRecyclerviewActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text =
                 DragDropSwipeListVerticalRecyclerviewActivity::class.java.simpleName

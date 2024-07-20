@@ -8,7 +8,9 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import vn.loitp.R
+import vn.loitp.databinding.ASupportBinding
 import vn.loitp.up.a.cv.cornerSheet.sp.shop.ShopFragment
 
 @LogTag("ShopActivity")
@@ -17,13 +19,16 @@ import vn.loitp.up.a.cv.cornerSheet.sp.shop.ShopFragment
 class ShopActivity : BaseActivityFont() {
 
     lateinit var supportFragment: SupportFragment
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_support
-    }
+    private lateinit var binding: ASupportBinding
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ASupportBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         window.let {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)

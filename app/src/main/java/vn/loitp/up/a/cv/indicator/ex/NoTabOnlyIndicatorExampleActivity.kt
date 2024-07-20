@@ -33,9 +33,9 @@ class NoTabOnlyIndicatorExampleActivity : BaseActivityFont() {
     private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
     private lateinit var binding: ANoTabOnlyIndicatorExampleLayoutBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

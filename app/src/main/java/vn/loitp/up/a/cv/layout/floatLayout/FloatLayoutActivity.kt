@@ -27,9 +27,9 @@ import vn.loitp.databinding.ALayoutFloatBinding
 class FloatLayoutActivity : BaseActivityFont() {
     private lateinit var binding: ALayoutFloatBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +56,7 @@ class FloatLayoutActivity : BaseActivityFont() {
                     }
                 )
                 isVisible = true
-                setImageResource(R.drawable.ic_baseline_code_48)
+                setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = FloatLayoutActivity::class.java.simpleName
         }

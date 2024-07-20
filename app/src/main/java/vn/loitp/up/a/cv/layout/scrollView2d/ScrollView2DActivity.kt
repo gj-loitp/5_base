@@ -15,9 +15,9 @@ import vn.loitp.databinding.ALayoutScrollView2dBinding
 class ScrollView2DActivity : BaseActivityFont() {
     private lateinit var binding: ALayoutScrollView2dBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

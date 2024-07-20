@@ -30,9 +30,9 @@ class GradientColorPickerBarActivity : BaseActivityFont() {
         )
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_picker_gradient_color_picker_bar
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_picker_gradient_color_picker_bar
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +59,7 @@ class GradientColorPickerBarActivity : BaseActivityFont() {
                     }
                 )
                 isVisible = true
-                setImageResource(R.drawable.ic_baseline_code_48)
+                setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = GradientColorPickerBarActivity::class.java.simpleName
         }

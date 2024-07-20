@@ -20,9 +20,9 @@ import vn.loitp.up.a.cv.vp.auto.FrmIv.Companion.newInstance
 class ViewPagerAutoActivity : BaseActivityFont() {
     private lateinit var binding: AVpAutoBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

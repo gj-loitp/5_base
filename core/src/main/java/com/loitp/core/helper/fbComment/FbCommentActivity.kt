@@ -12,13 +12,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
-import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FACEBOOK_COMMENT_URL
-import com.loitp.core.common.NOT_FOUND
+import com.loitp.core.ext.isDebugMode
 import com.loitp.core.ext.setColorProgressBar
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setProgressBarVisibility
@@ -45,9 +44,9 @@ class FbCommentActivity : BaseActivityFont() {
         private const val NUMBER_OF_COMMENTS = 50
     }
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +66,7 @@ class FbCommentActivity : BaseActivityFont() {
             color = getColor(R.color.colorPrimary)
         )
 
-        postUrl = if (BuildConfig.DEBUG) {
+        postUrl = if (isDebugMode()) {
             "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/"
         } else {
             intent.getStringExtra(FACEBOOK_COMMENT_URL)

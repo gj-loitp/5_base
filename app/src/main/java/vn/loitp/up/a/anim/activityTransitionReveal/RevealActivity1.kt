@@ -8,7 +8,6 @@ import androidx.core.content.ContextCompat
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.tombayley.activitycircularreveal.CircularReveal
@@ -25,9 +24,9 @@ class RevealActivity1 : BaseActivityFont() {
 
     private lateinit var binding: AReveal1Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,7 +70,7 @@ class RevealActivity1 : BaseActivityFont() {
             duration = 1000
         ).apply {
             revealColor = ContextCompat.getColor(
-                this@RevealActivity1, R.color.green
+                this@RevealActivity1, com.loitp.R.color.green
             )
             requestCode = REQUEST_CODE
         }

@@ -23,9 +23,9 @@ class DragDropSwipeListHorizontalRecyclerviewActivity : BaseActivityFont() {
     private lateinit var binding: ARvDragDropSwipeListHorizontalBinding
     private var dragDropAdapter: DragDropAdapter? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +60,7 @@ class DragDropSwipeListHorizontalRecyclerviewActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text =
                 DragDropSwipeListHorizontalRecyclerviewActivity::class.java.simpleName

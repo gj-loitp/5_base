@@ -12,7 +12,6 @@ import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import vn.loitp.R
 import vn.loitp.databinding.ARxjava2FlowableBinding
 import vn.loitp.up.a.tut.rxjava2.md.ApiUser
 import vn.loitp.up.a.tut.rxjava2.md.User
@@ -26,9 +25,9 @@ class MapExampleActivity : BaseActivityFont() {
 
     private lateinit var binding: ARxjava2FlowableBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_rxjava2_flowable
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_rxjava2_flowable
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +45,7 @@ class MapExampleActivity : BaseActivityFont() {
                     onBaseBackPressed()
                 }
             )
-            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.ivIconRight?.setImageResource(com.loitp.R.color.transparent)
             this.tvTitle?.text = MapExampleActivity::class.java.simpleName
         }
         binding.btn.setSafeOnClickListener {

@@ -21,9 +21,9 @@ import vn.loitp.up.a.cv.vp.auto.FrmIv
 class LockableViewPagerActivity : BaseActivityFont() {
     private lateinit var binding: AVpLockableBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

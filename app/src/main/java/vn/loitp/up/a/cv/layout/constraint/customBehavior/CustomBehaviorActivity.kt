@@ -16,9 +16,9 @@ import vn.loitp.databinding.ACustomBehaviorBinding
 class CustomBehaviorActivity : BaseActivityFont() {
     private lateinit var binding: ACustomBehaviorBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -35,8 +35,8 @@ public class AlarmListAdapter extends BaseAdapter {
         mInflater = LayoutInflater.from(context);
         mDateTime = new DateTime(context);
 
-        mColorOutdated = getColor(R.color.gray);
-        mColorActive = getColor(R.color.red);
+        mColorOutdated = getColor(com.loitp.R.color.gray);
+        mColorActive = getColor(com.loitp.R.color.red);
 
         mAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 

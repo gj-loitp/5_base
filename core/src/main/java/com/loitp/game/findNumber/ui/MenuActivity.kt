@@ -12,8 +12,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.moreApp
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.toggleFullscreen
+import com.loitp.databinding.LAFindNumberMenuBinding
 import com.tombayley.activitycircularreveal.CircularReveal
-import kotlinx.android.synthetic.main.l_a_find_number_menu.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -26,18 +26,21 @@ import kotlinx.android.synthetic.main.l_a_find_number_menu.*
 @IsFullScreen(true)
 @IsSwipeActivity(true)
 class MenuActivity : BaseActivityFont() {
-
+    private lateinit var binding: LAFindNumberMenuBinding
     private var activityCircularReveal: CircularReveal? = null
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_find_number_menu
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = LAFindNumberMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         this.toggleFullscreen(isFullScreen = true)
-        activityCircularReveal = CircularReveal(rootView)
+        activityCircularReveal = CircularReveal(binding.rootView)
         activityCircularReveal?.onActivityCreate(intent)
 
         setupViews()
@@ -51,24 +54,24 @@ class MenuActivity : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        ivBack.setSafeOnClickListenerElastic(
+        binding.ivBack.setSafeOnClickListenerElastic(
             runnable = {
                 onBaseBackPressed()
             }
         )
-        ivMore.setSafeOnClickListenerElastic(
+        binding.ivMore.setSafeOnClickListenerElastic(
             runnable = {
                 this.moreApp()
             }
         )
-        btSinglePlayer.setSafeOnClickListenerElastic(
+        binding.btSinglePlayer.setSafeOnClickListenerElastic(
             runnable = {
                 val intent = Intent(this, SingleLevelActivity::class.java)
                 val builder = CircularReveal.Builder(
-                    this,
-                    btSinglePlayer,
-                    intent,
-                    1000
+                    activity = this,
+                    viewClicked = binding.btSinglePlayer,
+                    intent = intent,
+                    duration = 1000
                 ).apply {
                     revealColor = ContextCompat.getColor(
                         this@MenuActivity,
@@ -79,7 +82,7 @@ class MenuActivity : BaseActivityFont() {
                 CircularReveal.presentActivity(builder)
             }
         )
-        btTwoPlayers.setSafeOnClickListenerElastic(
+        binding.btTwoPlayers.setSafeOnClickListenerElastic(
             runnable = {
                 // TODO 2 players
             }

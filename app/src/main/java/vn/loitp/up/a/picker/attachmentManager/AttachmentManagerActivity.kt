@@ -14,7 +14,6 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.mirza.attachmentmanager.managers.AttachmentManager
 import com.mirza.attachmentmanager.models.AttachmentDetail
-import vn.loitp.R
 import vn.loitp.databinding.AAttachmentManagerBinding
 
 @LogTag("AttachmentManagerActivity")
@@ -68,9 +67,9 @@ class AttachmentManagerActivity : BaseActivityFont() {
         "image/*",
     )
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_attachment_manager
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_attachment_manager
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,11 +79,11 @@ class AttachmentManagerActivity : BaseActivityFont() {
 
         attachmentManager = AttachmentManager.AttachmentBuilder(this) // must pass Context
             .fragment(null) // pass fragment reference if you are in fragment
-            .setUiTitle(getString(R.string.m_choose)) // title of dialog or bottom sheet
+            .setUiTitle(getString(com.mirza.attachmentmanager.R.string.m_choose)) // title of dialog or bottom sheet
             .allowMultiple(true) // set true if you want make multiple selection, default is false
             .asBottomSheet(true) // set true if you need to show selection as bottom sheet, default is as Dialog
-            .setOptionsTextColor(R.color.red)
-            .setImagesColor(R.color.deepPink)
+            .setOptionsTextColor(com.loitp.R.color.red)
+            .setImagesColor(com.loitp.R.color.deepPink)
 //            .hide(HideOption.DOCUMENT)// You can hide any option do you want
             .setMaxPhotoSize(200000) // Set max camera photo size in bytes
             .galleryMimeTypes(gallery) // mime types for gallery
@@ -111,7 +110,7 @@ class AttachmentManagerActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = AttachmentManagerActivity::class.java.simpleName
         }

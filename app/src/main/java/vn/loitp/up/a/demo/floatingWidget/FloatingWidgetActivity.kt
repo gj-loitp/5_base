@@ -19,9 +19,9 @@ import vn.loitp.databinding.ADemoFloatingWidgetBinding
 class FloatingWidgetActivity : BaseActivityFont() {
 
     private lateinit var binding: ADemoFloatingWidgetBinding
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

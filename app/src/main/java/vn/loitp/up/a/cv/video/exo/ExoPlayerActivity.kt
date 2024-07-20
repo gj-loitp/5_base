@@ -22,9 +22,9 @@ class ExoPlayerActivity : BaseActivityFont() {
     private var linkPlay = ""
     private lateinit var binding: AVideoExoPlayerBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -17,9 +17,9 @@ class ScratchViewImageActivity : BaseActivityFont() {
 
     private lateinit var binding: AScratchIvBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

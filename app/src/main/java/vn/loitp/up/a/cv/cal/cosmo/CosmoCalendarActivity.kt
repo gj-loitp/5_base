@@ -41,9 +41,9 @@ class CosmoCalendarActivity : BaseActivityFont(), RadioGroup.OnCheckedChangeList
 
     private lateinit var binding: ACosmoCalendarBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.ATvScrollNumberBinding
@@ -14,9 +13,9 @@ import vn.loitp.databinding.ATvScrollNumberBinding
 class ScrollNumberActivity : BaseActivityFont() {
     private lateinit var binding: ATvScrollNumberBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +36,11 @@ class ScrollNumberActivity : BaseActivityFont() {
         }
         binding.multiScrollNumber.setTextColors(
             intArrayOf(
-                R.color.red50, R.color.orange, R.color.blue, R.color.green, R.color.purple
+                com.loitp.R.color.red50,
+                com.loitp.R.color.orange,
+                com.loitp.R.color.blue,
+                com.loitp.R.color.green,
+                com.loitp.R.color.purple
             )
         )
         // scrollNumber.setTextSize(64)

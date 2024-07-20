@@ -23,9 +23,9 @@ class AnimationViewActivity : BaseActivityFont() {
     private var listAnim: List<Techniques> = ArrayList()
     private var listString: Array<String?>? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -23,9 +23,9 @@ import vn.loitp.up.a.cv.layout.expansionPanel.ExpansionPanelSampleActivityRecycl
 class ExpansionPanelSampleActivityRecycler : BaseActivityFont() {
     private lateinit var binding: AExpansionPanelSampleRecyclerBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

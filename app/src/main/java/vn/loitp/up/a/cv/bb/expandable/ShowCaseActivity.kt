@@ -56,9 +56,9 @@ class ShowCaseActivity : BaseActivityFont() {
     }
     private lateinit var binding: AShowcaseBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +77,7 @@ class ShowCaseActivity : BaseActivityFont() {
                     )
                 })
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = EmptyActivity::class.java.simpleName
         }

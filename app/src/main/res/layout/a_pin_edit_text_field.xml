@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.loitp.views.ab.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lActionBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.poovam.pinedittextfield.LinePinField
+                android:id="@+id/lineField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:inputType="text"
+                android:textSelectHandle="@drawable/text_handle"
+                android:textSize="16sp"
+                app:bottomTextPaddingDp="15dp"
+                app:distanceInBetween="10dp"
+                app:fieldColor="@color/colorPrimary"
+                app:highlightColor="@color/colorAccent"
+                app:highlightType="allFields"
+                app:isCursorEnabled="true"
+                app:isCustomBackground="true"
+                app:lineThickness="5dp"
+                app:noOfFields="4" />
+
+            <com.poovam.pinedittextfield.SquarePinField
+                android:id="@+id/squareField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:inputType="text"
+                android:textSelectHandle="@drawable/text_handle"
+                android:textSize="16sp"
+                app:cornerRadius="10dp"
+                app:fieldBgColor="#ddd"
+                app:noOfFields="4" />
+
+            <com.poovam.pinedittextfield.CirclePinField
+                android:id="@+id/circleField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSelectHandle="@drawable/text_handle"
+                android:textSize="16sp"
+                app:circleRadius="15dp"
+                app:fieldBgColor="#ddd"
+                app:fillerColor="@color/colorPrimary"
+                app:fillerRadius="2dp"
+                app:noOfFields="4" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

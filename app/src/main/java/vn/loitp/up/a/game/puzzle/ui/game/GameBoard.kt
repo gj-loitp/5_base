@@ -10,7 +10,6 @@ import android.util.AttributeSet
 import android.util.Size
 import android.view.View
 import androidx.core.content.ContextCompat
-import vn.loitp.R
 import vn.loitp.up.a.game.puzzle.ui.game.state.PuzzleGrid
 import kotlin.math.ceil
 
@@ -19,7 +18,7 @@ class GameBoard(
     context: Context,
     attrs: AttributeSet
 ) : View(context, attrs) {
-    private val highlightColor = ContextCompat.getColor(context, R.color.green)
+    private val highlightColor = ContextCompat.getColor(context, com.loitp.R.color.green)
 
     private val paint = Paint()
     private var animator: ValueAnimator? = null

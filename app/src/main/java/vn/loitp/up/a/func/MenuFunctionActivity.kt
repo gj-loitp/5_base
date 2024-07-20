@@ -6,12 +6,13 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
+import com.loitp.core.ext.showMySnackBar
 import vn.loitp.R
 import vn.loitp.databinding.AFuncMenuBinding
 import vn.loitp.up.a.func.activityAndService.ActivityServiceCommunicateActivity
 import vn.loitp.up.a.func.dragDrop.DragDropSampleActivity
+import vn.loitp.up.a.func.floatingToast.FloatingToastActivity
 import vn.loitp.up.a.func.fullScreen.FullScreenActivity
 import vn.loitp.up.a.func.glide.GlideActivity
 import vn.loitp.up.a.func.hashmap.HashMapActivity
@@ -39,9 +40,9 @@ import vn.loitp.up.a.func.wallpo.WallpoActivity
 class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
     private lateinit var binding: AFuncMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,6 +83,8 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
         binding.btWallpoActivity.setOnClickListener(this)
         binding.btProcessPhoenix.setOnClickListener(this)
         binding.btKeyboardVisibility.setOnClickListener(this)
+        binding.btFloatingToast.setOnClickListener(this)
+        binding.btCustomSnackbar.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -110,6 +113,13 @@ class MenuFunctionActivity : BaseActivityFont(), View.OnClickListener {
             binding.btWallpoActivity -> launchActivity(WallpoActivity::class.java)
             binding.btProcessPhoenix -> launchActivity(ProcessPhoenixActivity::class.java)
             binding.btKeyboardVisibility -> launchActivity(KeyboardVisibilityActivity::class.java)
+            binding.btFloatingToast -> launchActivity(FloatingToastActivity::class.java)
+            binding.btCustomSnackbar -> {
+                binding.btCustomSnackbar.showMySnackBar(
+                    com.loitp.R.drawable.ic_launcher,
+                    "Hello I'm custom snackBar"
+                )
+            }
         }
     }
 }

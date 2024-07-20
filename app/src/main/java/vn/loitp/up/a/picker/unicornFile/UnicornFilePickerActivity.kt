@@ -13,7 +13,6 @@ import androidx.core.app.ActivityCompat
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
@@ -34,9 +33,9 @@ class UnicornFilePickerActivity : BaseActivityFont() {
 
     private lateinit var binding: AUnicornFilePickerBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,7 +78,7 @@ class UnicornFilePickerActivity : BaseActivityFont() {
                     .showHiddenFiles(false)
                     .setFilters(arrayOf("png", "jpg", "jpeg"))
                     .addItemDivider(true)
-                    .theme(R.style.UnicornFilePicker_Dracula)
+                    .theme(abhishekti7.unicorn.filepicker.R.style.UnicornFilePicker_Dracula)
                     .build()
                     .forResult(Constants.REQ_UNICORN_FILE)
             } else {
@@ -96,7 +95,7 @@ class UnicornFilePickerActivity : BaseActivityFont() {
                     .showHiddenFiles(false)
                     .setFilters(arrayOf("mp4", "mp3"))
                     .addItemDivider(true)
-                    .theme(R.style.UnicornFilePicker_Default)
+                    .theme(abhishekti7.unicorn.filepicker.R.style.UnicornFilePicker_Default)
                     .build()
                     .forResult(Constants.REQ_UNICORN_FILE)
             } else {

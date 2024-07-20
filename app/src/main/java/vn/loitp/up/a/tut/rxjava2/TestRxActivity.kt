@@ -17,7 +17,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
-import vn.loitp.R
 import vn.loitp.databinding.ARxTestBinding
 import vn.loitp.up.a.tut.rxjava2.md.Bike
 import java.util.concurrent.TimeUnit
@@ -29,9 +28,9 @@ class TestRxActivity : BaseActivityFont(), View.OnClickListener {
 
     private lateinit var binding: ARxTestBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_rx_test
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_rx_test
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +48,7 @@ class TestRxActivity : BaseActivityFont(), View.OnClickListener {
                     onBaseBackPressed()
                 }
             )
-            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.ivIconRight?.setImageResource(com.loitp.R.color.transparent)
             this.tvTitle?.text = TestRxActivity::class.java.simpleName
         }
         binding.bt0.setOnClickListener(this)

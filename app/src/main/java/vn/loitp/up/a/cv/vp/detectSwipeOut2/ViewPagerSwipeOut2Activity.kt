@@ -22,9 +22,9 @@ import vn.loitp.up.a.cv.vp.auto.FrmIv.Companion.newInstance
 class ViewPagerSwipeOut2Activity : BaseActivityFont() {
     private lateinit var binding: AVpSwipeOut2Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

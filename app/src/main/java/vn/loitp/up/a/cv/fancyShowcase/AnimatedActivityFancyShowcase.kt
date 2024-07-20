@@ -27,9 +27,9 @@ class AnimatedActivityFancyShowcase : BaseActivityFancyShowcase() {
     private lateinit var fancyView2: FancyShowCaseView
     private lateinit var binding: AFancyShowcaseAnimatedBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

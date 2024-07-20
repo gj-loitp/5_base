@@ -19,9 +19,9 @@ class PongMainActivity : BaseActivityFont() {
     private lateinit var binding: APongMainBinding
     private var settings = Settings()
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

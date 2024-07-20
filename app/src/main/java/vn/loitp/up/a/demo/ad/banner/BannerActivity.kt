@@ -2,14 +2,7 @@ package vn.loitp.up.a.demo.ad.banner
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.ViewGroup
-import android.widget.FrameLayout
-import com.applovin.mediation.MaxAd
-import com.applovin.mediation.MaxAdRevenueListener
-import com.applovin.mediation.MaxAdViewAdListener
-import com.applovin.mediation.MaxError
 import com.applovin.mediation.ads.MaxAdView
-import com.applovin.sdk.AppLovinSdkUtils
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
@@ -18,7 +11,8 @@ import com.loitp.core.common.*
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AAdBannerBinding
-import vn.loitp.up.a.demo.ad.Applovin
+import vn.loitp.up.a.demo.ad.createAdBanner
+import vn.loitp.up.a.demo.ad.destroyAdBanner
 
 @LogTag("BannerActivity")
 @IsFullScreen(false)
@@ -28,9 +22,9 @@ class BannerActivity : BaseActivityFont() {
     private lateinit var binding: AAdBannerBinding
     private var adView: MaxAdView? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,17 +46,16 @@ class BannerActivity : BaseActivityFont() {
             this.tvTitle?.text = BannerActivity::class.java.simpleName
         }
 
-        adView = Applovin.createAdBanner(
-            a = this,
+        adView = this@BannerActivity.createAdBanner(
             logTag = logTag,
-            bkgColor = Color.CYAN,
+            bkgColor = getColor(R.color.colorPrimary),
             viewGroup = binding.flAd,
             isAdaptiveBanner = true,
         )
     }
 
     override fun onDestroy() {
-        adView?.destroy()
+        binding.flAd.destroyAdBanner(adView)
         super.onDestroy()
     }
 

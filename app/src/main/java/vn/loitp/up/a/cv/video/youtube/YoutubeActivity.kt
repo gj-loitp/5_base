@@ -17,9 +17,9 @@ import vn.loitp.databinding.AVideoYoutubeBinding
 class YoutubeActivity : BaseActivityFont() {
     private lateinit var binding: AVideoYoutubeBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

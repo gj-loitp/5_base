@@ -7,11 +7,9 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.getDimenValue
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.R
 import vn.loitp.databinding.AIvShapeableBinding
 
 @LogTag("ShapeableImageViewActivity")
@@ -20,9 +18,9 @@ import vn.loitp.databinding.AIvShapeableBinding
 class ShapeableIvActivity : BaseActivityFont() {
     private lateinit var binding: AIvShapeableBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,16 +43,16 @@ class ShapeableIvActivity : BaseActivityFont() {
                     )
                 })
                 isVisible = true
-                setImageResource(R.drawable.ic_baseline_code_48)
+                setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = ShapeableIvActivity::class.java.simpleName
         }
 
         binding.siv.shapeAppearanceModel =
             binding.siv.shapeAppearanceModel.toBuilder().setTopRightCorner(
-                    CornerFamily.ROUNDED, getDimenValue(R.dimen.round_largest).toFloat()
+                    CornerFamily.ROUNDED, getDimenValue(com.loitp.R.dimen.round_largest).toFloat()
                 ).setBottomLeftCorner(
-                    CornerFamily.ROUNDED, getDimenValue(R.dimen.round_medium).toFloat()
+                    CornerFamily.ROUNDED, getDimenValue(com.loitp.R.dimen.round_medium).toFloat()
                 ).build()
     }
 }

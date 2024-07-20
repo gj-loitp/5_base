@@ -8,7 +8,6 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import hakobastvatsatryan.DropdownTextView
@@ -23,9 +22,9 @@ class DropdownTextViewActivity : BaseActivityFont() {
 
     private val text = "Click to visit <a href=\"en/page\"> Page </a>"
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +52,7 @@ class DropdownTextViewActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = DropdownTextViewActivity::class.java.simpleName
         }
@@ -80,7 +79,7 @@ class DropdownTextViewActivity : BaseActivityFont() {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             ).apply {
-                resources.getDimension(R.dimen.margin_padding_medium).toInt().apply {
+                resources.getDimension(com.loitp.R.dimen.margin_padding_medium).toInt().apply {
                     setMargins(this, this, this, this)
                 }
             })

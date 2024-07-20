@@ -51,7 +51,7 @@ class FrmViewPager2 : Fragment() {
             binding.tv.text = getString(R.string.app_name)
             for (i in 0 until count) {
                 val imageView = ImageView(activity)
-                imageView.setImageResource(R.drawable.ic_account_circle_black_48dp)
+                imageView.setImageResource(com.loitp.R.drawable.ic_account_circle_black_48dp)
                 binding.ll.addView(imageView)
             }
         }

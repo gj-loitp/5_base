@@ -11,8 +11,6 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
-import vn.loitp.R
 import vn.loitp.databinding.AMorphTranstionsDialogBinding
 
 @LogTag("DialogActivity")
@@ -34,9 +32,9 @@ class MorphTransitionsDialogActivity : BaseActivityFont() {
 
     private lateinit var binding: AMorphTranstionsDialogBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +51,7 @@ class MorphTransitionsDialogActivity : BaseActivityFont() {
                 activity = this,
                 target = binding.container,
                 endColor = Color.WHITE,
-                endCornerRadius = resources.getDimensionPixelSize(R.dimen.round_medium)
+                endCornerRadius = resources.getDimensionPixelSize(com.loitp.R.dimen.round_medium)
             )
         }
     }

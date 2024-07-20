@@ -5,9 +5,8 @@ import com.g1.onetargetsdk.core.Configuration
 import com.g1.onetargetsdk.core.IAM
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.common.FONT_PATH
 import com.loitp.core.common.TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
-import com.loitp.core.ext.fontForAll
+import com.loitp.core.ext.setDebugMode
 import com.loitp.core.helper.ttt.db.TTTDatabase
 import com.loitp.data.ActivityData
 import com.onesignal.OneSignal
@@ -16,14 +15,14 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.BuildConfig
 import vn.loitp.up.a.db.room.db.FNBDatabase
-import vn.loitp.up.a.demo.ad.Applovin
+import vn.loitp.up.a.demo.ad.setupApplovinAd
 import vn.loitp.up.common.Constants
 
 // build release de check
 
+//TODO app ad ext miss info
 //TODO viewbinding in base frm, base activity https://stackoverflow.com/questions/63686289/how-to-use-abstraction-with-viewbinding-with-base-activity
 //TODO service -> ko stop service dc
-//TODO change link policy URL_POLICY_NOTION play console
 
 // GIT
 // combine 2 commit gan nhat lam 1, co thay doi tren github
@@ -41,6 +40,12 @@ class LApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
+
+        if (BuildConfig.DEBUG) {
+            setDebugMode(true)
+        } else {
+            setDebugMode(false)
+        }
 
         // config activity transition default
         ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
@@ -65,11 +70,11 @@ class LApplication : BaseApplication() {
         setupOneSignal()
 //        setupTrackingG1()
 
-        logE("currentActivity() ${currentActivity()}")
+//        logE("currentActivity() ${currentActivity()}")
 
         CodeProcessor.init(this)
 
-        Applovin.setupAd(this)
+        this.setupApplovinAd()
     }
 
     @Suppress("unused")
@@ -89,12 +94,12 @@ class LApplication : BaseApplication() {
 
     override fun onAppInBackground() {
         super.onAppInBackground()
-        logD("onAppInBackground")
+        logD(">>>Lifecycle App onAppInBackground")
     }
 
     override fun onAppInForeground() {
         super.onAppInForeground()
-        logD("onAppInForeground")
+        logD(">>>Lifecycle App onAppInForeground")
     }
 
     private fun setupOneSignal() {

@@ -17,9 +17,9 @@ class GlideActivity : BaseActivityFont(), View.OnClickListener {
 
     private lateinit var binding: AFuncGlideBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

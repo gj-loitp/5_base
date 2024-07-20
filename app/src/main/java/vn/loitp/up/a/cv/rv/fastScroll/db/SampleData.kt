@@ -1,7 +1,6 @@
 package vn.loitp.up.a.cv.rv.fastScroll.db
 
 import com.thedeanda.lorem.LoremIpsum
-import vn.loitp.R
 
 val SAMPLE_DATA_TEXT = LoremIpsum.getInstance()
     .getWords(200)
@@ -14,7 +13,7 @@ val SAMPLE_DATA_TEXT_AND_HEADERS =
     listOf(
         ListItem.HeaderItem(
             title = "Favorites",
-            iconRes = R.drawable.indicator_favorites,
+            iconRes = com.reddit.indicatorfastscroll.R.drawable.indicator_favorites,
             showInFastScroll = true
         )
     ) +
@@ -26,7 +25,7 @@ val SAMPLE_DATA_TEXT_AND_HEADERS =
             listOf(
                 ListItem.HeaderItem(
                     title = "All",
-                    iconRes = R.drawable.indicator_words,
+                    iconRes = com.reddit.indicatorfastscroll.R.drawable.indicator_words,
                     showInFastScroll = false
                 )
             ) +

@@ -23,9 +23,9 @@ class MenuVideoViewActivity : BaseActivityFont() {
 
     private lateinit var binding: AVideoMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_video_menu
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_video_menu
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +61,7 @@ class MenuVideoViewActivity : BaseActivityFont() {
                     KEY_VIDEO_LINK_PLAY,
                     "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
                 )
-                it.putExtra(KEY_VIDEO_LINK_IMA_AD, getString(R.string.ad_tag_url))
+                it.putExtra(KEY_VIDEO_LINK_IMA_AD, getString(com.loitp.R.string.ad_tag_url))
 
             })
         }

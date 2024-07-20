@@ -16,9 +16,9 @@ import vn.loitp.databinding.ATvSelectableBinding
 class SelectableTextViewActivity : BaseActivityFont() {
     private lateinit var binding: ATvSelectableBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

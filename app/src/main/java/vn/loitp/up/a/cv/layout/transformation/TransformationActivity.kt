@@ -17,9 +17,9 @@ class TransformationActivity : BaseActivityFont() {
 
     private lateinit var binding: ATransformationMainBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

@@ -26,6 +26,7 @@ import com.google.android.material.tabs.TabLayout
 import com.loitp.R
 import com.loitp.core.common.ARR_RANDOM_BKG
 import com.loitp.core.utils.ConvertUtils
+import com.loitp.views.snackBar.MySnackBar
 import com.skydoves.elasticviews.elasticAnimation
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 
@@ -355,11 +356,11 @@ fun Snackbar.withBackground(resId: Int): Snackbar {
 
 fun Snackbar.allowInfiniteLines(): Snackbar {
     return apply {
-        (view.findViewById<View?>(R.id.snackbar_text) as? TextView?)?.let {
+        (view.findViewById<View?>(com.google.android.material.R.id.snackbar_text) as? TextView?)?.let {
             it.isSingleLine = false
             it.setTextColor(Color.WHITE)
             it.setTextSizePx(
-                size = getDimenValue(R.dimen.txt_medium).toFloat()
+                size = getDimenValue(com.loitp.R.dimen.txt_medium).toFloat()
             )
             it.textAlignment = View.TEXT_ALIGNMENT_CENTER
         }
@@ -373,4 +374,13 @@ fun View?.hideSoftInput(
         val imm = it.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(this.windowToken, 0)
     }
+}
+
+fun View.showMySnackBar(
+    resId: Int,
+    msg: String,
+) {
+    MySnackBar
+        .make(view = this, resId = resId, msg = msg)
+        .show()
 }

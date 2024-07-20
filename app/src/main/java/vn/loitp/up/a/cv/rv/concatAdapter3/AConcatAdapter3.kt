@@ -16,9 +16,9 @@ import vn.loitp.databinding.AConcatAdapter3Binding
 @IsAutoAnimation(true)
 class AConcatAdapter3 : BaseActivityFont() {
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     private val binding: AConcatAdapter3Binding by lazy {
         AConcatAdapter3Binding.inflate(layoutInflater)

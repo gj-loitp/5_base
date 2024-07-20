@@ -140,7 +140,7 @@ class FloatingViewVideoService : Service() {
     private fun playVideo() {
         val linkPlay =
             "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
-        val linkIMAAd = getString(R.string.ad_tag_url)
+        val linkIMAAd = getString(com.loitp.R.string.ad_tag_url)
 
         playerManager = PlayerManager(context = this, urlIMAAd = linkIMAAd)
         playerView?.let { pv ->

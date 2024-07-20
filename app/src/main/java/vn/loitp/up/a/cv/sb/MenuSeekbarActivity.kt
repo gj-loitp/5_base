@@ -25,9 +25,9 @@ class MenuSeekbarActivity : BaseActivityFont() {
 
     private lateinit var binding: ASbMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

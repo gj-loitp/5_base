@@ -22,9 +22,9 @@ class GreedoLayoutActivity : BaseActivityFont() {
 
     private lateinit var binding: ALayoutGreedoBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +47,7 @@ class GreedoLayoutActivity : BaseActivityFont() {
                     )
                 })
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = GreedoLayoutActivity::class.java.simpleName
         }

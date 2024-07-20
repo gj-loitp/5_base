@@ -8,7 +8,6 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.ext.setTextSizePx
 import vn.loitp.R
@@ -32,9 +31,9 @@ class SqliteMultiTableAdvanceActivity : BaseActivityFont(), View.OnClickListener
     private lateinit var inspectionDatabaseHelper: InspectionDatabaseHelper
     private lateinit var binding: ADbSqliteMultiTableAdvanceBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,7 +77,7 @@ class SqliteMultiTableAdvanceActivity : BaseActivityFont(), View.OnClickListener
         val tv = TextView(this)
         tv.text = msg
         tv.setTextSizePx(
-            size = resources.getDimension(R.dimen.txt_small)
+            size = resources.getDimension(com.loitp.R.dimen.txt_small)
         )
         tv.setTextColor(Color.RED)
         binding.ll.addView(tv)

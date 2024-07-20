@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentTransaction
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.views.menu.resideMenu.ResideMenu
 import com.loitp.views.menu.resideMenu.ResideMenuItem
 import vn.loitp.R
@@ -26,9 +25,9 @@ class ResideMenuActivity : BaseActivityFont(), View.OnClickListener {
     private var itemCalendar: ResideMenuItem? = null
     private var itemSettings: ResideMenuItem? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +44,7 @@ class ResideMenuActivity : BaseActivityFont(), View.OnClickListener {
     private fun setupUIResideMenuItem(resideMenuItem: ResideMenuItem) {
         resideMenuItem.setTextColor(Color.BLACK)
         resideMenuItem.setTextShadow(Color.WHITE)
-        resideMenuItem.setTextSize(resources.getDimension(R.dimen.txt_medium))
+        resideMenuItem.setTextSize(resources.getDimension(com.loitp.R.dimen.txt_medium))
         resideMenuItem.setIvIconSizeDp(20)
     }
 
@@ -53,7 +52,7 @@ class ResideMenuActivity : BaseActivityFont(), View.OnClickListener {
         resideMenu = ResideMenu(this)
         resideMenu?.apply {
             this.realtimeBlurView.setBlurRadius(50f)
-            this.realtimeBlurView.setOverlayColor(getColor(R.color.black65))
+            this.realtimeBlurView.setOverlayColor(getColor(com.loitp.R.color.black65))
             this.setUse3D(true)
             this.setBackground(R.drawable.iv)
             this.attachToActivity(this@ResideMenuActivity)

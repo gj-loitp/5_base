@@ -4,13 +4,11 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import io.reactivex.Single
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
-import vn.loitp.R
 import vn.loitp.databinding.ARxjava2FlowableBinding
 
 // https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
@@ -21,9 +19,9 @@ class SingleObserverExampleActivity : BaseActivityFont() {
 
     private lateinit var binding: ARxjava2FlowableBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +39,7 @@ class SingleObserverExampleActivity : BaseActivityFont() {
                     onBaseBackPressed()
                 }
             )
-            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.ivIconRight?.setImageResource(com.loitp.R.color.transparent)
             this.tvTitle?.text = SingleObserverExampleActivity::class.java.simpleName
         }
         binding.btn.setSafeOnClickListener {

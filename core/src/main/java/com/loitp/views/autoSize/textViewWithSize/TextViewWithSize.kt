@@ -47,9 +47,9 @@ class TextViewWithSize : AppCompatTextView {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.txt_medium))
+            setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(com.loitp.R.dimen.txt_medium))
         } else {
-            setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.txt_small))
+            setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(com.loitp.R.dimen.txt_small))
         }
     }
 }

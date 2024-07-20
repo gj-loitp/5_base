@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.sw.toggle.LabeledSwitch
 import com.loitp.views.sw.toggle.OnToggledListener
@@ -18,9 +17,9 @@ import vn.loitp.databinding.ASwToggleBinding
 class ToggleActivity : BaseActivityFont() {
     private lateinit var binding: ASwToggleBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +49,7 @@ class ToggleActivity : BaseActivityFont() {
         binding.llc.setOnClickListener {
             binding.ls.performClick()
         }
-        binding.ls.setColorBorder(getColor(R.color.deepPink))
+        binding.ls.setColorBorder(getColor(com.loitp.R.color.deepPink))
         binding.ls.setOnToggledListener(object : OnToggledListener {
             override fun onSwitched(labeledSwitch: LabeledSwitch, isOn: Boolean) {
                 showShortInformation("isOn $isOn")

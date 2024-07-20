@@ -14,9 +14,9 @@ import vn.loitp.databinding.ARvParallaxBinding
 class ParallaxRecyclerViewActivity : BaseActivityFont() {
     private lateinit var binding: ARvParallaxBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -27,6 +27,18 @@ fun Application.init() {
     application = this
 }
 
+
+private const val KEY_IS_DEBUG_MODE = "KEY_IS_DEBUG_MODE"
+fun setDebugMode(
+    isDebugMode: Boolean = false
+) {
+    application.putBooleanPref(key = KEY_IS_DEBUG_MODE, data = isDebugMode)
+}
+
+fun isDebugMode(): Boolean {
+    return application.getBooleanPref(key = KEY_IS_DEBUG_MODE, defaultValue = false)
+}
+
 fun getColor(@ColorRes colorRes: Int): Int = application.let {
     ContextCompat.getColor(it, colorRes)
 }
@@ -38,7 +50,6 @@ fun getColor(
     val color = ContextCompat.getColor(it, colorRes)
     return color.setAlphaComponent(alpha = alpha)
 }
-
 
 fun getColorStateList(@ColorRes colorRes: Int): ColorStateList? = application.let {
     ContextCompat.getColorStateList(it, colorRes)

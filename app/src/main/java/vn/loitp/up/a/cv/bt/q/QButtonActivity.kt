@@ -15,9 +15,9 @@ import vn.loitp.databinding.AQButtonBinding
 class QButtonActivity : BaseActivityFont() {
     private lateinit var binding: AQButtonBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

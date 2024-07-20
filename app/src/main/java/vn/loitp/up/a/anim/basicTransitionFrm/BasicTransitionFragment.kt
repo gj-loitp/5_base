@@ -94,7 +94,7 @@ class BasicTransitionFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
                 val square = mSceneRoot?.findViewById<View>(R.id.transition_square)
                 square?.let {
                     val params = it.layoutParams
-                    val newSize = resources.getDimensionPixelSize(R.dimen.w_100)
+                    val newSize = resources.getDimensionPixelSize(com.loitp.R.dimen.w_100)
                     params?.width = newSize
                     params?.height = newSize
                     it.layoutParams = params

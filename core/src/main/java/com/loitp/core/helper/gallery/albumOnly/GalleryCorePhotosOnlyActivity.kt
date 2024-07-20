@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import androidx.annotation.Keep
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.huxq17.download.Pump
@@ -38,6 +39,7 @@ import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 @LogTag("GalleryCorePhotosOnlyActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)
@@ -54,9 +56,9 @@ class GalleryCorePhotosOnlyActivity : BaseActivityFont() {
     private var photosSize: Int = 0
     private lateinit var binding: LAFlickrGalleryCorePhotosOnlyBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

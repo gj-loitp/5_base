@@ -43,14 +43,15 @@ public class EbookWithRealmActivity extends BaseActivityFont {
     private LayoutInflater layoutInflater;
     private RecyclerView recyclerView;
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.a_ebook_with_realm;
-    }
+    //    @Override
+    //    protected int setLayoutResourceId() {
+    //        return R.layout.a_ebook_with_realm;
+    //    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.a_ebook_with_realm);
         FloatingActionButton floatingActionButton = findViewById(R.id.fab);
         recyclerView = findViewById(R.id.recycler);
 

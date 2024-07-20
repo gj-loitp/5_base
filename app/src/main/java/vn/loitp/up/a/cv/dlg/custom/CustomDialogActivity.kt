@@ -17,9 +17,9 @@ class CustomDialogActivity : BaseActivityFont() {
     private var isFullScreen: Boolean = false
     private lateinit var binding: ADlgCustomBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_dlg_custom
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

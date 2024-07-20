@@ -22,9 +22,9 @@ class BasicTransition1Activity : BaseActivityFont() {
 
     private lateinit var binding: AAnimationBasicTransition1Binding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_animation_basic_transition_1
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

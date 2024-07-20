@@ -14,9 +14,9 @@ class SwipeRevealLayoutRecyclerActivity : BaseActivityFont() {
     private lateinit var binding: ARecyclerBinding
     private var recyclerAdapter: RecyclerAdapter? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

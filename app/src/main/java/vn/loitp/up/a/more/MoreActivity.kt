@@ -16,9 +16,9 @@ class MoreActivity : BaseActivityFont() {
 
     private lateinit var binding: AMoreBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_more
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_more
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

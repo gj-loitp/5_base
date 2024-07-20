@@ -28,9 +28,9 @@ class MenuLottieActivity : BaseActivityFont() {
     private val lottieItemList: MutableList<LottieItem> = ArrayList()
     private lateinit var binding: AAnimationLottieBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

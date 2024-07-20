@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import net.lucode.hackware.magicindicator.FragmentContainerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
@@ -33,9 +32,9 @@ class FragmentContainerExampleActivity : BaseActivityFont() {
     private val mFragments: MutableList<Fragment> = ArrayList()
     private val mFragmentContainerHelper = FragmentContainerHelper()
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,7 +99,7 @@ class FragmentContainerExampleActivity : BaseActivityFont() {
     }
 
     private fun initMagicIndicator1() {
-        binding.magicIndicator1.setBackgroundResource(R.drawable.round_indicator_bg)
+        binding.magicIndicator1.setBackgroundResource(com.loitp.R.drawable.round_indicator_bg)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {

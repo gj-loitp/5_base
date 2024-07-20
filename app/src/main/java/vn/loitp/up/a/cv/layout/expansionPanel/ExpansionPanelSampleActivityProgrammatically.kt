@@ -17,7 +17,6 @@ import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AExpansionPanelSampleProgrammaticallyBinding
@@ -28,9 +27,9 @@ import vn.loitp.up.a.cv.layout.expansionPanel.Utils.dpToPx
 class ExpansionPanelSampleActivityProgrammatically : BaseActivityFont() {
     private lateinit var binding: AExpansionPanelSampleProgrammaticallyBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -128,11 +127,12 @@ class ExpansionPanelSampleActivityProgrammatically : BaseActivityFont() {
         ) // equivalent to addView(linearLayout)
         // image
         val expansionIndicator: ImageView = AppCompatImageView(this)
-        expansionIndicator.setImageResource(R.drawable.ic_expansion_header_indicator_grey_24dp)
+        expansionIndicator.setImageResource(com.github.florent37.expansionpanel.R.drawable.ic_expansion_header_indicator_grey_24dp)
         val imageLayoutParams = RelativeLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
+
         imageLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
         imageLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL)
         layout.addView(expansionIndicator, imageLayoutParams)

@@ -14,12 +14,12 @@ import android.webkit.*
 import android.widget.FrameLayout
 import android.widget.ProgressBar
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
 import com.loitp.core.common.FACEBOOK_COMMENT_URL
 import com.loitp.core.ext.getColor
+import com.loitp.core.ext.isDebugMode
 import com.loitp.core.ext.setColorProgressBar
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.setProgressBarVisibility
@@ -73,8 +73,9 @@ class FrmFBComment : BaseFragment() {
         }
         val bundle = arguments ?: return
         postUrl = bundle.getString(FACEBOOK_COMMENT_URL)
-        if (BuildConfig.DEBUG) {
+        if (isDebugMode()) {
             postUrl = "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/"
+            showShortDebug("isDebugMode() postUrl $postUrl")
         }
         if (postUrl.isNullOrEmpty()) {
             rlWebview.visibility = View.GONE

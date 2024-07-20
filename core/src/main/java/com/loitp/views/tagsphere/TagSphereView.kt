@@ -39,10 +39,10 @@ class TagSphereView @JvmOverloads constructor(
         }
     }
 
-    override fun onDraw(c: Canvas?) {
+    override fun onDraw(c: Canvas) {
         super.onDraw(c)
         if (isAttachedToWindow) {
-            c?.let { viewDelegate.onDraw(it) }
+            c.let { viewDelegate.onDraw(it) }
         }
     }
 

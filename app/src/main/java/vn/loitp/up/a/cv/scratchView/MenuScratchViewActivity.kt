@@ -19,9 +19,9 @@ import vn.loitp.up.a.cv.scratchView.scratchViewTv.ScratchViewTextActivity
 class MenuScratchViewActivity : BaseActivityFont() {
     private lateinit var binding: AMenuScratchViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -13,10 +13,10 @@ import android.view.ViewTreeObserver.OnTouchModeChangeListener
 import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.widget.AppCompatTextView
-import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.core.ext.getColor
 import com.loitp.core.ext.getDrawable
+import com.loitp.core.ext.isDebugMode
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -362,7 +362,7 @@ class CustomTextView : AppCompatTextView {
         scrollY: Int,
         coords: IntArray
     ) {
-        if (BuildConfig.DEBUG && coords.size < 2) {
+        if (isDebugMode() && coords.size < 2) {
             error("Assertion failed")
         }
         coords[1] = -1

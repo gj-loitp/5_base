@@ -22,9 +22,9 @@ class ViewPager2DemoActivity : BaseActivityFont() {
     private val itemsList = arrayListOf<Int>()
     private var sliderAdapter = ScreenSlideRecyclerAdapter(itemsList)
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

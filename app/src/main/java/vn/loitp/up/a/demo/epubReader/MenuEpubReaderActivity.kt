@@ -26,9 +26,9 @@ class MenuEpubReaderActivity : BaseActivityFont() {
 
     private var epubViewModel: EpubViewModel? = null
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_demo_epub_reader
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_demo_epub_reader
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

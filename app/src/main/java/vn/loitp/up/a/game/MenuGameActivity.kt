@@ -21,9 +21,9 @@ class MenuGameActivity : BaseActivityFont() {
 
     private lateinit var binding: AGameMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_game_menu
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

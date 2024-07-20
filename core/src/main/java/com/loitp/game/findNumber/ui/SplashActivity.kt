@@ -14,8 +14,8 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.play
 import com.loitp.core.ext.setDelay
 import com.loitp.core.ext.toggleFullscreen
+import com.loitp.databinding.LAFindNumberSplashBinding
 import com.tombayley.activitycircularreveal.CircularReveal
-import kotlinx.android.synthetic.main.l_a_find_number_splash.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -29,16 +29,21 @@ import kotlinx.android.synthetic.main.l_a_find_number_splash.*
 @IsFullScreen(true)
 class SplashActivity : BaseActivityFont() {
 
+    private lateinit var binding: LAFindNumberSplashBinding
+
     companion object {
         const val REQUEST_CODE = 69
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_find_number_splash
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LAFindNumberSplashBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         this.toggleFullscreen(isFullScreen = true)
         setupViews()
@@ -51,18 +56,18 @@ class SplashActivity : BaseActivityFont() {
 
     private fun goToHome() {
         setDelay(100) {
-            ivFindTheNumber?.visibility = View.VISIBLE
-            ivFindTheNumber?.play(
+            binding.ivFindTheNumber.visibility = View.VISIBLE
+            binding.ivFindTheNumber.play(
                 duration = 500,
                 techniques = Techniques.ZoomIn,
                 onEnd = {
                     if (!this.isFinishing) {
                         val intent = Intent(this, MenuActivity::class.java)
                         val builder = CircularReveal.Builder(
-                            this,
-                            progressBar,
-                            intent,
-                            1000
+                            activity = this,
+                            viewClicked = binding.progressBar,
+                            intent = intent,
+                            duration = 1000
                         ).apply {
                             revealColor = ContextCompat.getColor(
                                 this@SplashActivity,

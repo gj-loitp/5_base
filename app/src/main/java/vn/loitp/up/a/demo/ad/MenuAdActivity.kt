@@ -8,6 +8,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.*
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
+import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.databinding.AMenuAdBinding
 import vn.loitp.up.a.demo.ad.banner.BannerActivity
@@ -20,9 +21,9 @@ class MenuAdActivity : BaseActivityFont() {
 
     private lateinit var binding: AMenuAdBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +49,13 @@ class MenuAdActivity : BaseActivityFont() {
         }
         binding.btInterstitial.setSafeOnClickListener {
             launchActivity(InterstitialActivity::class.java)
+        }
+        binding.btShowMediationDebugger.setSafeOnClickListener {
+            if (BuildConfig.DEBUG) {
+                this.showMediationDebuggerApplovin()
+            } else {
+                showShortError("Only available in debug mode")
+            }
         }
 
     }

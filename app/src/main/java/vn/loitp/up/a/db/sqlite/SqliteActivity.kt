@@ -28,9 +28,9 @@ class SqliteActivity : BaseActivityFont(), View.OnClickListener {
     private var databaseHandler: DatabaseHandler? = null
     private lateinit var binding: ADbSqliteBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -14,9 +14,9 @@ import vn.loitp.databinding.AExpansionPanelSampleMainViewGroupBinding
 class ExpansionPanelSampleActivityViewGroup : BaseActivityFont() {
     private lateinit var binding: AExpansionPanelSampleMainViewGroupBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

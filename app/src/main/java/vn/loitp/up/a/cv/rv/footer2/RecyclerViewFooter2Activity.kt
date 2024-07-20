@@ -27,9 +27,9 @@ class RecyclerViewFooter2Activity : BaseActivityFont() {
     private var footer2Adapter: Footer2Adapter? = null
     private lateinit var binding: ARvFooter2Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

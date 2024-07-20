@@ -11,7 +11,6 @@ import android.widget.ImageView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.hideKeyboard
 import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -24,9 +23,9 @@ import vn.loitp.databinding.AEtLBinding
 class LEditTextActivity : BaseActivityFont() {
     private lateinit var binding: AEtLBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,11 +47,11 @@ class LEditTextActivity : BaseActivityFont() {
             this.tvTitle?.text = LEditTextActivity::class.java.simpleName
         }
         binding.lEditTextId.apply {
-            colorFocus = getColor(R.color.black)
-            colorUnFocus = getColor(R.color.blue)
-            colorError = getColor(R.color.red)
+            colorFocus = getColor(com.loitp.R.color.black)
+            colorUnFocus = getColor(com.loitp.R.color.blue)
+            colorError = getColor(com.loitp.R.color.red)
             ivLeft.setImageResource(R.drawable.ic_launcher_loitp)
-            ivRight.setImageResource(R.drawable.ic_close_black_48dp)
+            ivRight.setImageResource(com.loitp.R.drawable.ic_close_black_48dp)
             setStrokeWidth(5)
             setCardElevation(15f)
             setCardBackgroundColor(Color.WHITE)
@@ -91,11 +90,11 @@ class LEditTextActivity : BaseActivityFont() {
         }
         var isShowPw = false
         binding.lEditTextPw.apply {
-            colorFocus = getColor(R.color.black)
-            colorUnFocus = getColor(R.color.blue)
-            colorError = getColor(R.color.red)
+            colorFocus = getColor(com.loitp.R.color.black)
+            colorUnFocus = getColor(com.loitp.R.color.blue)
+            colorError = getColor(com.loitp.R.color.red)
             ivLeft.setImageResource(R.drawable.ic_launcher_loitp)
-            ivRight.setImageResource(R.drawable.ic_visibility_black_48dp)
+            ivRight.setImageResource(com.loitp.R.drawable.ic_visibility_black_48dp)
             setStrokeWidth(5)
             setCardElevation(15f)
             setCardBackgroundColor(Color.WHITE)
@@ -113,12 +112,12 @@ class LEditTextActivity : BaseActivityFont() {
             callback = object : LEditText.Callback {
                 override fun onClickIvRight(imageView: ImageView) {
                     if (isShowPw) {
-                        ivRight.setImageResource(R.drawable.ic_visibility_black_48dp)
+                        ivRight.setImageResource(com.loitp.R.drawable.ic_visibility_black_48dp)
                         editText.transformationMethod = PasswordTransformationMethod.getInstance()
                         setLastCursorEditText()
                         isShowPw = false
                     } else {
-                        ivRight.setImageResource(R.drawable.ic_visibility_off_black_48dp)
+                        ivRight.setImageResource(com.loitp.R.drawable.ic_visibility_off_black_48dp)
                         editText.transformationMethod =
                             HideReturnsTransformationMethod.getInstance()
                         setLastCursorEditText()

@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.tuanhav95.drag.DragView
@@ -18,9 +17,9 @@ import vn.loitp.up.a.cv.dragView.frm.NormalTopFragment
 class NormalActivity : BaseActivityFont() {
     private lateinit var binding: ADragViewNormalBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,9 +47,8 @@ class NormalActivity : BaseActivityFont() {
             }
         })
 
-        supportFragmentManager.beginTransaction().add(R.id.frameFirst, NormalTopFragment()).commit()
-        supportFragmentManager.beginTransaction().add(R.id.frameSecond, BottomFragment()).commit()
-
+        supportFragmentManager.beginTransaction().add(com.tuanhav95.drag.R.id.frameFirst, NormalTopFragment()).commit()
+        supportFragmentManager.beginTransaction().add(com.tuanhav95.drag.R.id.frameSecond, BottomFragment()).commit()
         binding.btnMax.setSafeOnClickListener { binding.dragView.maximize() }
         binding.btnMin.setSafeOnClickListener { binding.dragView.minimize() }
         binding.btnClose.setSafeOnClickListener { binding.dragView.close() }

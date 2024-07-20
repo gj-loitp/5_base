@@ -6,11 +6,11 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.databinding.AMenuWvBinding
 import vn.loitp.up.a.cv.wv.l.LWebViewActivity
+import com.loitp.views.wv.superWebView.SuperWebViewActivity
 import vn.loitp.up.a.cv.wv.wrapContent.WebViewWrapContentActivity
 
 @LogTag("MenuWebViewActivity")
@@ -19,10 +19,6 @@ import vn.loitp.up.a.cv.wv.wrapContent.WebViewWrapContentActivity
 class MenuWebViewActivity : BaseActivityFont() {
 
     private lateinit var binding: AMenuWvBinding
-
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +39,11 @@ class MenuWebViewActivity : BaseActivityFont() {
         }
         binding.btLWebView.setSafeOnClickListener {
             launchActivity(LWebViewActivity::class.java)
+        }
+        binding.btSuperWebView.setSafeOnClickListener {
+            launchActivity(SuperWebViewActivity::class.java, data = {
+                it.putExtra(SuperWebViewActivity.KEY_URL, "https://github.com/gj-loitp")
+            })
         }
         binding.btWebViewWrapContent.setSafeOnClickListener {
             launchActivity(WebViewWrapContentActivity::class.java)

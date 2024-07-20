@@ -21,9 +21,9 @@ import vn.loitp.databinding.ANotificationBadgeBinding
 class NotificationBadgeActivity : BaseActivityFont() {
     private lateinit var binding: ANotificationBadgeBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

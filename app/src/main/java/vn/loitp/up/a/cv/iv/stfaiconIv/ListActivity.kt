@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.stfalcon.imageviewer.StfalconImageViewer
@@ -26,9 +25,9 @@ class ListActivity : BaseActivityFont() {
     private var stfAdapter: StfAdapter? = null
     private lateinit var binding: AIvStfaiconListBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +74,7 @@ class ListActivity : BaseActivityFont() {
                             mv.cover,
                         )
                     }
-                        .withBackgroundColorResource(R.color.black85)
+                        .withBackgroundColorResource(com.loitp.R.color.black85)
                         .allowSwipeToDismiss(true)
                         .allowZooming(true)
                         .withHiddenStatusBar(false)

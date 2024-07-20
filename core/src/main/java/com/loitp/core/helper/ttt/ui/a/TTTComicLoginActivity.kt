@@ -21,9 +21,9 @@ import com.loitp.databinding.LATttComicLoginBinding
 class TTTComicLoginActivity : BaseActivityFont() {
     private lateinit var binding: LATttComicLoginBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

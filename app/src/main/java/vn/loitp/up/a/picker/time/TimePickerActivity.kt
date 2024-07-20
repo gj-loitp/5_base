@@ -23,9 +23,9 @@ class TimePickerActivity : BaseActivityFont() {
     private var picker: TimePickerDialog? = null
     private var pickerRange: RangeTimePickerDialog? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

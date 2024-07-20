@@ -28,9 +28,9 @@ class GalleryLayoutManagerVerticalActivityFont : BaseActivityFont() {
     private var galleryAdapterVertical: GalleryAdapterVertical? = null
     private lateinit var binding: ARvMenuGalleryLayoutManagerBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +58,7 @@ class GalleryLayoutManagerVerticalActivityFont : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = GalleryLayoutManagerVerticalActivityFont::class.java.simpleName
         }

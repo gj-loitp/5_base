@@ -19,7 +19,6 @@ import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
-import vn.loitp.R
 import vn.loitp.databinding.ASecRxBiometricBinding
 
 @LogTag("RxBiometricActivity")
@@ -30,9 +29,9 @@ class RxBiometricActivity : BaseActivityFont() {
     private lateinit var binding: ASecRxBiometricBinding
     private var disposable: Disposable? = null
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_sec_rx_biometric
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_sec_rx_biometric
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +54,7 @@ class RxBiometricActivity : BaseActivityFont() {
                     )
                 })
                 isVisible = true
-                setImageResource(R.drawable.ic_baseline_code_48)
+                setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = RxBiometricActivity::class.java.simpleName
         }

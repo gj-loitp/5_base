@@ -21,9 +21,9 @@ class SensorActivity : BaseActivityFont() {
     private var orientationListener: OrientationListener? = null
     private lateinit var binding: AFuncSensorBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

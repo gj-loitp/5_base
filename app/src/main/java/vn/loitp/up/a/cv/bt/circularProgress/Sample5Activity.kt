@@ -14,9 +14,9 @@ import vn.loitp.databinding.LCpbSample5Binding
 class Sample5Activity : BaseActivityFont() {
     private lateinit var binding: LCpbSample5Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -41,9 +41,9 @@ class ConcatAdapter2Activity : BaseActivityFont() {
     }
     private var maxColumn = 3
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -29,15 +29,15 @@ public class ScrollablePanelActivity extends BaseActivityFont {
     public static final SimpleDateFormat DAY_UI_MONTH_DAY_FORMAT = new SimpleDateFormat("MM-dd");
     public static final SimpleDateFormat WEEK_FORMAT = new SimpleDateFormat("EEE", Locale.US);
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.a_scrollable_panel;
-    }
+//    @Override
+//    protected int setLayoutResourceId() {
+//        return R.layout.a_scrollable_panel;
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.a_scrollable_panel);
         setupViews();
     }
 

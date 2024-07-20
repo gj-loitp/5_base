@@ -6,11 +6,9 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.bt.goodView.LGoodView
-import vn.loitp.R
 import vn.loitp.databinding.AGoodViewBinding
 
 @LogTag("GoodViewActivity")
@@ -19,9 +17,9 @@ class GoodViewActivity : BaseActivityFont() {
     private lateinit var binding: AGoodViewBinding
     private var lGoodView: LGoodView? = null
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +46,7 @@ class GoodViewActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = GoodViewActivity::class.java.simpleName
         }
@@ -63,7 +61,7 @@ class GoodViewActivity : BaseActivityFont() {
         binding.imageView.setOnClickListener {
             binding.imageView.setColorFilter(Color.TRANSPARENT)
             lGoodView?.apply {
-                this.setImage(R.drawable.ic_account_circle_black_48dp)
+                this.setImage(com.loitp.R.drawable.ic_account_circle_black_48dp)
                 // this.setDistance(1000)
                 // this.setTranslateY(0, 10000)
                 // this.setAlpha(0, 0.5f)

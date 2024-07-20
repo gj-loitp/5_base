@@ -31,9 +31,9 @@ class ConcatAdapterActivity : BaseActivityFont() {
     private var newsAdapter: NewsAdapter? = null
     private val loadingAdapter = LoadingAdapter()
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +60,7 @@ class ConcatAdapterActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = ConcatAdapterActivity::class.java.simpleName
         }

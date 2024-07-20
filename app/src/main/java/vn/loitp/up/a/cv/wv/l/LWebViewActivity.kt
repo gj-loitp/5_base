@@ -8,7 +8,6 @@ import android.webkit.WebView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.getDimenValue
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
@@ -24,9 +23,9 @@ class LWebViewActivity : BaseActivityFont() {
     private var isDetectButtonClickWeb = false
     private lateinit var binding: AWvBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,10 +93,10 @@ class LWebViewActivity : BaseActivityFont() {
             isDetectButtonClickAsset = false
             isDetectButtonClickWeb = false
             onDetectClick()
-            val fontSizePx = getDimenValue(R.dimen.txt_small)
-            val paddingPx = getDimenValue(R.dimen.margin_padding_small)
+            val fontSizePx = getDimenValue(com.loitp.R.dimen.txt_small)
+            val paddingPx = getDimenValue(com.loitp.R.dimen.margin_padding_small)
             binding.lWebView.loadDataString(
-                bodyContent = getString(R.string.large_dummy_text),
+                bodyContent = getString(com.loitp.R.string.large_dummy_text),
                 backgroundColor = "black",
                 textColor = "white",
                 textAlign = "justify",

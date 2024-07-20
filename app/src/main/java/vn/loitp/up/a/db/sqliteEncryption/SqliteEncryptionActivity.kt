@@ -31,9 +31,9 @@ class SqliteEncryptionActivity : BaseActivityFont(), View.OnClickListener {
     private lateinit var bikeDatabase: BikeDatabase
     private lateinit var binding: ADbSqliteEncryptionBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

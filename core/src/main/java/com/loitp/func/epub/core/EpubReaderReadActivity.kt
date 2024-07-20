@@ -24,8 +24,11 @@ import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
+import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
 import com.loitp.core.utils.ConvertUtils
+import com.loitp.databinding.LAEpubReaderReadBinding
+import com.loitp.databinding.LATttComicSplashBinding
 import com.loitp.func.epub.BookSection
 import com.loitp.func.epub.Reader
 import com.loitp.func.epub.core.PageFragment.OnFragmentReadyListener
@@ -35,7 +38,6 @@ import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.model.BookInfoData
 import com.loitp.func.epub.vm.EpubViewModel
 import com.loitp.views.wv.LWebViewAdblock
-import kotlinx.android.synthetic.main.l_a_epub_reader_read.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -47,6 +49,7 @@ import kotlinx.android.synthetic.main.l_a_epub_reader_read.*
 @LogTag("EpubReaderReadActivity")
 @IsFullScreen(false)
 class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
+    private lateinit var binding: LAEpubReaderReadBinding
 
     companion object {
         private const val idWebView = 696969
@@ -60,12 +63,15 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
     private var bookInfo: BookInfo? = null
     private var epubViewModel: EpubViewModel? = null
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_epub_reader_read
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LAEpubReaderReadBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         bookInfo = BookInfoData.instance.bookInfo
         if (bookInfo == null) {
@@ -84,10 +90,10 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
     private fun setupViews() {
         setCoverBitmap()
         val titleBook = bookInfo?.title ?: getString(R.string.loading)
-        tvTitle.text = titleBook
+        binding.tvTitle.text = titleBook
 
         sectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
-        viewPager.apply {
+        binding.viewPager.apply {
             this.setPullLikeIOSHorizontal()
             this.offscreenPageLimit = 2
 //            this.setPageTransformer(true, ZoomOutSlideTransformer())
@@ -100,24 +106,24 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
                 }
 
                 override fun onPageSelected(position: Int) {
-                    tvPage.text = "$position"
+                    binding.tvPage.text = "$position"
                 }
 
                 override fun onPageScrollStateChanged(state: Int) {}
             })
         }
 
-        btBack.setSafeOnClickListener {
+        binding.btBack.setSafeOnClickListener {
 //            onBackPressed()
             onBaseBackPressed()
         }
-        btZoomIn.setSafeOnClickListener {
+        binding.btZoomIn.setSafeOnClickListener {
             handleZoomIn()
         }
-        btZoomOut.setSafeOnClickListener {
+        binding.btZoomOut.setSafeOnClickListener {
             handleZoomOut()
         }
-        llGuide.setSafeOnClickListener {
+        binding.llGuide.setSafeOnClickListener {
             handleGuide()
         }
     }
@@ -132,37 +138,40 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
 
                 if (isDoing == false && isSuccess == true) {
                     setDelay(mls = 1000, runnable = {
-                        rlSplash.visibility = View.GONE
+                        binding.rlSplash.visibility = View.GONE
                     })
-                    viewPager.adapter = sectionsPagerAdapter
+                    binding.viewPager.adapter = sectionsPagerAdapter
                     val lastSavedPage = actionData.data ?: 1
                     logD("loadDataActionLiveData lastSavedPage $lastSavedPage")
-                    viewPager.currentItem = lastSavedPage
+                    binding.viewPager.currentItem = lastSavedPage
                     if (lastSavedPage == 0) {
-                        tvPage.text = "0"
+                        binding.tvPage.text = "0"
                     }
-                    llGuide.visibility = View.VISIBLE
+                    binding.llGuide.visibility = View.VISIBLE
                 }
             }
         }
     }
 
     private fun handleZoomIn() {
-        btZoomIn.play(techniques = Techniques.Pulse)
+        binding.btZoomIn.play(techniques = Techniques.Pulse)
 
         sectionsPagerAdapter?.let { adapter ->
             try {
-                val pageFragment = adapter.instantiateItem(viewPager, viewPager.currentItem)
+                val pageFragment =
+                    adapter.instantiateItem(binding.viewPager, binding.viewPager.currentItem)
                 if (pageFragment is PageFragment) {
                     zoomIn(pageFragment = pageFragment)
                 }
 
-                val pageFragmentNext = adapter.instantiateItem(viewPager, viewPager.currentItem + 1)
+                val pageFragmentNext =
+                    adapter.instantiateItem(binding.viewPager, binding.viewPager.currentItem + 1)
                 if (pageFragmentNext is PageFragment) {
                     zoomIn(pageFragment = pageFragmentNext)
                 }
 
-                val pageFragmentPrev = adapter.instantiateItem(viewPager, viewPager.currentItem - 1)
+                val pageFragmentPrev =
+                    adapter.instantiateItem(binding.viewPager, binding.viewPager.currentItem - 1)
                 if (pageFragmentPrev is PageFragment) {
                     zoomIn(pageFragment = pageFragmentPrev)
                 }
@@ -173,20 +182,23 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
     }
 
     private fun handleZoomOut() {
-        btZoomOut.play(techniques = Techniques.Pulse)
+        binding.btZoomOut.play(techniques = Techniques.Pulse)
         sectionsPagerAdapter?.let { adapter ->
             try {
-                val pageFragment = adapter.instantiateItem(viewPager, viewPager.currentItem)
+                val pageFragment =
+                    adapter.instantiateItem(binding.viewPager, binding.viewPager.currentItem)
                 if (pageFragment is PageFragment) {
                     zoomOut(pageFragment)
                 }
 
-                val pageFragmentNext = adapter.instantiateItem(viewPager, viewPager.currentItem + 1)
+                val pageFragmentNext =
+                    adapter.instantiateItem(binding.viewPager, binding.viewPager.currentItem + 1)
                 if (pageFragmentNext is PageFragment) {
                     zoomOut(pageFragmentNext)
                 }
 
-                val pageFragmentPrev = adapter.instantiateItem(viewPager, viewPager.currentItem - 1)
+                val pageFragmentPrev =
+                    adapter.instantiateItem(binding.viewPager, binding.viewPager.currentItem - 1)
                 if (pageFragmentPrev is PageFragment) {
                     zoomOut(pageFragmentPrev)
                 }
@@ -197,7 +209,7 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
     }
 
     private fun handleGuide() {
-        llGuide.visibility = View.GONE
+        binding.llGuide.visibility = View.GONE
     }
 
     private fun setCoverBitmap() {
@@ -205,7 +217,7 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
             val isCoverImageNotExists = bi.isCoverImageNotExists
             if (isCoverImageNotExists) {
                 // Searched before and not found.
-                ivCover.setImageResource(defaultCover)
+                binding.ivCover.setImageResource(defaultCover)
             } else {
                 // Not searched for coverImage for this position yet. It may exist.
                 val savedBitmap = bi.coverImageBitmap
@@ -214,7 +226,7 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
                     if (coverImageAsBytes == null) {
                         // Searched and not found.
                         bi.isCoverImageNotExists = true
-                        ivCover.setImageResource(defaultCover)
+                        binding.ivCover.setImageResource(defaultCover)
                     } else {
                         val bitmap = decodeBitmapFromByteArray(
                             coverImage = coverImageAsBytes,
@@ -223,10 +235,10 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
                         )
                         bi.coverImageBitmap = bitmap
                         bi.coverImage = null
-                        ivCover.setImageBitmap(bitmap)
+                        binding.ivCover.setImageBitmap(bitmap)
                     }
                 } else {
-                    ivCover.setImageBitmap(savedBitmap)
+                    binding.ivCover.setImageBitmap(savedBitmap)
                 }
             }
         }
@@ -270,8 +282,8 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
     public override fun onStop() {
         super.onStop()
         try {
-            reader.saveProgress(viewPager.currentItem)
-            showShortInformation(msg = "Saved page: " + viewPager.currentItem + "...")
+            reader.saveProgress(binding.viewPager.currentItem)
+            showShortInformation(msg = "Saved page: " + binding.viewPager.currentItem + "...")
         } catch (e: ReadingException) {
             e.printStackTrace()
             showShortError(msg = "Progress is not saved: " + e.message)
@@ -313,7 +325,7 @@ class EpubReaderReadActivity : BaseActivityFont(), OnFragmentReadyListener {
                 setEnableCopyContent(isEnableCopyContent = true)
                 id = idWebView
 //                logD(">>>setFragmentView data $data")
-                val fontSizePx = getDimenValue(R.dimen.txt_small)
+                val fontSizePx = getDimenValue(com.loitp.R.dimen.txt_small)
                 val paddingPx = getDimenValue(R.dimen.margin_padding_small)
 //                logD(">>>setFragmentView fontSizePx $fontSizePx, paddingPx $paddingPx")
                 if (isDarkTheme()) {

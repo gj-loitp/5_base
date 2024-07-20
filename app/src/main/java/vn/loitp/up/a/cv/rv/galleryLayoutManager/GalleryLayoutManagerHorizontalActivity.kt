@@ -10,12 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.views.rv.gallery.GalleryLayoutManager
 import com.loitp.views.rv.gallery.GalleryLayoutManager.ItemTransformer
-import vn.loitp.R
 import vn.loitp.databinding.ARvMenuGalleryLayoutManagerBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 import vn.loitp.up.a.cv.rv.normalRvWithSingletonData.DummyData.Companion.instance
@@ -28,9 +26,9 @@ class GalleryLayoutManagerHorizontalActivity : BaseActivityFont() {
     private var mAdapter: GalleryAdapter? = null
     private lateinit var binding: ARvMenuGalleryLayoutManagerBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +57,7 @@ class GalleryLayoutManagerHorizontalActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = GalleryLayoutManagerHorizontalActivity::class.java.simpleName
         }

@@ -14,9 +14,9 @@ import vn.loitp.databinding.ALayoutRoundableBinding
 class RoundableLayoutActivity : BaseActivityFont() {
     private lateinit var binding: ALayoutRoundableBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

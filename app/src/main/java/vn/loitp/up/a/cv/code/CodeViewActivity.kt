@@ -46,9 +46,9 @@ class CodeViewActivity : BaseActivityFont() {
     private val useModernAutoCompleteAdapter = true
     private lateinit var binding: ACodeViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,7 +74,7 @@ class CodeViewActivity : BaseActivityFont() {
                     )
                 })
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = CodeViewActivity::class.java.simpleName
         }

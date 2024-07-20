@@ -19,9 +19,9 @@ import vn.loitp.up.a.cv.menu.reside.ResideMenuActivity
 class MenuMenuActivity : BaseActivityFont() {
     private lateinit var binding: AMenuMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

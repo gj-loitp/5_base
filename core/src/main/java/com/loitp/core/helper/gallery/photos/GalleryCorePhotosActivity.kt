@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.Keep
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.loitp.R
@@ -30,6 +31,7 @@ import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 @LogTag("GalleryCorePhotosActivity")
 @IsSwipeActivity(true)
 class GalleryCorePhotosActivity : BaseActivityFont() {
@@ -40,9 +42,9 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
     private var photoSetID: String? = null
     private lateinit var binding: LAFlickrGalleryCorePhotosBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +52,7 @@ class GalleryCorePhotosActivity : BaseActivityFont() {
         binding = LAFlickrGalleryCorePhotosBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        RestClient.init(getString(R.string.flickr_URL))
         isValidPackageName()
 
         setupViews()

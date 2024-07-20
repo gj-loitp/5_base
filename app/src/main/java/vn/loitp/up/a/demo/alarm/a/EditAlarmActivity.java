@@ -50,14 +50,15 @@ public class EditAlarmActivity extends BaseActivityFont {
     static final int TIME_DIALOG_ID = 1;
     static final int DAYS_DIALOG_ID = 2;
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.a_alarm_edit;
-    }
+//    @Override
+//    protected int setLayoutResourceId() {
+//        return R.layout.a_alarm_edit;
+//    }
 
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        setContentView(R.layout.a_alarm_edit);
 
         mTitle = findViewById(R.id.title);
         CheckBox mAlarmEnabled = findViewById(R.id.alarm_checkbox);

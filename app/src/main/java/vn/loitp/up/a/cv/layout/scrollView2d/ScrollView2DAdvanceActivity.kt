@@ -30,9 +30,9 @@ class ScrollView2DAdvanceActivity : BaseActivityFont() {
 
     private lateinit var binding: ALayoutScrollview2dAdvanceBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

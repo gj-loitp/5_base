@@ -9,7 +9,6 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AConstraintSetBinding
@@ -27,9 +26,9 @@ class ConstraintSetActivity : BaseActivityFont() {
     private val mConstraintSetBig = ConstraintSet()
     private lateinit var binding: AConstraintSetBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +58,7 @@ class ConstraintSetActivity : BaseActivityFont() {
                 applyConfig()
             }
         }
-        binding.tvContent.text = getString(R.string.large_text)
+        binding.tvContent.text = getString(com.loitp.R.string.large_text)
         binding.imageView.setOnClickListener {
             toggleMode()
         }

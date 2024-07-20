@@ -18,9 +18,9 @@ import vn.loitp.databinding.AWvWrapContentBinding
 class WebViewWrapContentActivity : BaseActivityFont() {
     private lateinit var binding: AWvWrapContentBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

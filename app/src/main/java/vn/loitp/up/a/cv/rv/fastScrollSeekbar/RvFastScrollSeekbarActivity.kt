@@ -27,9 +27,9 @@ class RvFastScrollSeekbarActivity : BaseActivityFont() {
     private var isOnTracking = false
     private lateinit var binding: ARvFastScrollSeekBarBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -38,9 +38,9 @@ class TTTComicActivity : BaseActivityFont() {
     val listMenuComicTTT = ArrayList<MenuComicTTT>()
     private lateinit var binding: LATttComicBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -188,7 +188,7 @@ class TTTComicActivity : BaseActivityFont() {
             return
         }
         this.doubleBackToExitPressedOnce = true
-        showShortInformation(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
+        showShortInformation(msg = getString(com.loitp.R.string.press_again_to_exit), isTopAnchor = false)
         Handler(Looper.getMainLooper()).postDelayed({
             doubleBackToExitPressedOnce = false
         }, 2000)

@@ -16,9 +16,9 @@ import vn.loitp.databinding.AStickerBinding
 class StickerActivity : BaseActivityFont() {
     private lateinit var binding: AStickerBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

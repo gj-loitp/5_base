@@ -16,9 +16,9 @@ import vn.loitp.databinding.AFacebookCommentBinding
 class FacebookCommentActivity : BaseActivityFont() {
     private lateinit var binding: AFacebookCommentBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,5 +1,6 @@
 package com.loitp.restApi.restClient
 
+import androidx.annotation.Keep
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.util.*
@@ -11,6 +12,7 @@ import java.util.*
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 class RestRequestInterceptor : Interceptor {
     private val headers = Hashtable<String, String>()
 

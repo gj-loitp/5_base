@@ -46,9 +46,9 @@ import vn.loitp.up.a.cv.rv.turnLayoutManager.TurnLayoutManagerActivity
 class MenuRecyclerViewActivity : BaseActivityFont(), View.OnClickListener {
     private lateinit var binding: ARvMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

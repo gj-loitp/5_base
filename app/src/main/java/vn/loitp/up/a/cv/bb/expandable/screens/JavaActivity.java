@@ -18,14 +18,16 @@ import vn.loitp.R;
 @IsAutoAnimation(false)
 public class JavaActivity extends BaseActivityFont {
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.a_java;
-    }
+//    @Override
+//    protected int setLayoutResourceId() {
+//        return R.layout.a_java;
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.a_java);
 
         ExpandableBottomBar expandableBottomBar = findViewById(R.id.expandableBottomBar);
         Menu menu = expandableBottomBar.getMenu();

@@ -46,9 +46,9 @@ class CornerCutLinearLayoutActivity : BaseActivityFont() {
         }
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_layout_corner_cut_linear
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_layout_corner_cut_linear
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +75,7 @@ class CornerCutLinearLayoutActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = CornerCutLinearLayoutActivity::class.java.simpleName
         }

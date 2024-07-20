@@ -44,15 +44,15 @@ public class AlarmNotification extends BaseActivityFont {
     private DateTime mDateTime;
     private TextView mTextView;
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.a_alarm_notification;
-    }
+//    @Override
+//    protected int setLayoutResourceId() {
+//        return R.layout.a_alarm_notification;
+//    }
 
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-
+        setContentView(R.layout.a_alarm_notification);
         getWindow().addFlags(
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
                         WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |

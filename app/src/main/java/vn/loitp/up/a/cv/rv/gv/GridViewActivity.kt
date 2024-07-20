@@ -7,9 +7,7 @@ import android.widget.AdapterView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
-import vn.loitp.R
 import vn.loitp.databinding.AGvBinding
 
 @LogTag("loitpGridViewActivity")
@@ -20,9 +18,9 @@ class GridViewActivity : BaseActivityFont() {
     val list = ArrayList<String>()
     val adapter = GridViewAdapter()
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +36,7 @@ class GridViewActivity : BaseActivityFont() {
             this.ivIconLeft.setSafeOnClickListenerElastic(runnable = {
                 onBaseBackPressed()
             })
-            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.ivIconRight?.setImageResource(com.loitp.R.color.transparent)
             this.tvTitle?.text = GridViewActivity::class.java.simpleName
         }
         for (i in 0..100) {

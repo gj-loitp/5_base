@@ -14,9 +14,9 @@ import vn.loitp.databinding.AEtAnimatedExpandaleBinding
 class AnimatedExpandableEditTextActivity : BaseActivityFont() {
     private lateinit var binding: AEtAnimatedExpandaleBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

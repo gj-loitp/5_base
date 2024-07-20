@@ -161,7 +161,7 @@ constructor(
     /**
      * Draw stars on view's canvas
      */
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
 
         if (!initiated && !started) return
 
@@ -173,9 +173,15 @@ constructor(
             if (stars.isNotEmpty()) {
                 // onDraw each star on the canvas
                 starsIterator = stars.iterator()
-                starsIterator.forEach { newCanvas = it.onDraw(newCanvas) }
+                starsIterator.forEach {
+                    it.onDraw(newCanvas)?.let { c ->
+                        newCanvas = c
+                    }
+                }
 
-                newCanvas = meteorite?.onDraw(newCanvas)
+                meteorite?.onDraw(newCanvas)?.let { c ->
+                    newCanvas = c
+                }
 
                 // reset flag
                 starsCalculatedFlag = false

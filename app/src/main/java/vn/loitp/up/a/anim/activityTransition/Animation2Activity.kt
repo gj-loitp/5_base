@@ -14,9 +14,9 @@ class Animation2Activity : BaseActivityFont() {
 
     private lateinit var binding: AAnimation2Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -20,9 +20,9 @@ class StorageActivity : BaseActivityFont() {
 
     private lateinit var binding: AStorageScopeBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

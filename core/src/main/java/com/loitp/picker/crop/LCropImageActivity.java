@@ -45,13 +45,10 @@ public class LCropImageActivity extends BaseActivityFont implements LCropImageVi
     private ImageButton btn_confirm;
 
     @Override
-    protected int setLayoutResourceId() {
-        return R.layout.l_a_l_crop_image;
-    }
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.l_a_l_crop_image);
 
         changeSystembarColor();
         lCropImageView = findViewById(R.id.cropImageView);

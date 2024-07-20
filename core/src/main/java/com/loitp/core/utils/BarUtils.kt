@@ -15,7 +15,6 @@ import androidx.annotation.ColorInt
 import androidx.annotation.IntRange
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.drawerlayout.widget.DrawerLayout
-import com.loitp.R
 import com.loitp.core.common.NOT_FOUND
 
 /**
@@ -79,7 +78,7 @@ class BarUtils private constructor() {
             @ColorInt color: Int,
             @IntRange(from = 0, to = 255) statusBarAlpha: Int
         ) {
-            val contentView = activity.findViewById<ViewGroup>(R.id.content)
+            val contentView = activity.findViewById<ViewGroup>(androidx.appcompat.R.id.content)
             val rootView = contentView.getChildAt(0)
             val statusBarHeight = getStatusBarHeight(activity)
             if (rootView != null && rootView is CoordinatorLayout) {
@@ -115,7 +114,7 @@ class BarUtils private constructor() {
             @ColorInt color: Int
         ) {
             transparentStatusBar(activity)
-            val contentView = activity.findViewById<ViewGroup>(R.id.content)
+            val contentView = activity.findViewById<ViewGroup>(androidx.appcompat.R.id.content)
             val fakeStatusBarView = contentView.findViewWithTag<View>(FAKE_STATUS_BAR_VIEW_TAG)
             if (fakeStatusBarView != null) {
                 if (fakeStatusBarView.visibility == View.GONE) {
@@ -434,7 +433,7 @@ class BarUtils private constructor() {
             if (fakeStatusBarView != null) {
                 decorView.removeView(fakeStatusBarView)
                 val rootView =
-                    (activity.findViewById<View>(R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
+                    (activity.findViewById<View>(androidx.appcompat.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
                 rootView.setPadding(0, 0, 0, 0)
             }
         }
@@ -443,7 +442,7 @@ class BarUtils private constructor() {
             activity: Activity,
             @IntRange(from = 0, to = 255) statusBarAlpha: Int
         ) {
-            val contentView = activity.findViewById<ViewGroup>(R.id.content)
+            val contentView = activity.findViewById<ViewGroup>(androidx.appcompat.R.id.content)
             val fakeTranslucentView = contentView.findViewWithTag<View>(FAKE_TRANSLUCENT_VIEW_TAG)
             if (fakeTranslucentView != null) {
                 if (fakeTranslucentView.visibility == View.GONE) {
@@ -474,7 +473,7 @@ class BarUtils private constructor() {
         private fun setRootView(
             activity: Activity
         ) {
-            val parent = activity.findViewById<ViewGroup>(R.id.content)
+            val parent = activity.findViewById<ViewGroup>(androidx.appcompat.R.id.content)
             var i = 0
             val count = parent.childCount
             while (i < count) {
@@ -581,7 +580,7 @@ class BarUtils private constructor() {
                 return NOT_FOUND
             }
             val tv = TypedValue()
-            return if (activity.theme.resolveAttribute(R.attr.actionBarSize, tv, true)) {
+            return if (activity.theme.resolveAttribute(com.google.android.material.R.attr.actionBarSize, tv, true)) {
                 TypedValue.complexToDimensionPixelSize(tv.data, activity.resources.displayMetrics)
             } else {
                 0

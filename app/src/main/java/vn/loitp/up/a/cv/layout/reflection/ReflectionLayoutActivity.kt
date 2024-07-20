@@ -19,9 +19,9 @@ import vn.loitp.databinding.ALayoutReflectionBinding
 class ReflectionLayoutActivity : BaseActivityFont() {
     private lateinit var binding: ALayoutReflectionBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +49,7 @@ class ReflectionLayoutActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = ReflectionLayoutActivity::class.java.simpleName
         }

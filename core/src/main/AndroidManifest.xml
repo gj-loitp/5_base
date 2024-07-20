@@ -138,6 +138,10 @@
             android:name="com.app.imagepickerlibrary.ui.activity.ImagePickerActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/SSImagePicker" />
+        <activity
+            android:name=".views.wv.superWebView.SuperWebViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

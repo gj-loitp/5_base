@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/transparent"
+    android:paddingBottom="@dimen/margin_padding_large"
     tools:background="@color/deepPink">
 
     <androidx.appcompat.widget.AppCompatImageView

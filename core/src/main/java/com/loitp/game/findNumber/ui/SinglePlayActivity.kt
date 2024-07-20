@@ -8,9 +8,9 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.ext.*
+import com.loitp.databinding.LAFindNumberSinglePlayBinding
 import com.loitp.game.findNumber.model.Level
 import com.tombayley.activitycircularreveal.CircularReveal
-import kotlinx.android.synthetic.main.l_a_find_number_single_play.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.l_a_find_number_single_play.*
 @IsFullScreen(true)
 @IsSwipeActivity(true)
 class SinglePlayActivity : BaseActivityFont() {
+    private lateinit var binding: LAFindNumberSinglePlayBinding
 
     companion object {
         const val KEY_LEVEL = "KEY_LEVEL"
@@ -32,15 +33,18 @@ class SinglePlayActivity : BaseActivityFont() {
     private var frmFindNumberPlay: FrmFindNumberPlay? = null
     private var currentLevel: Level? = null
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_find_number_single_play
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = LAFindNumberSinglePlayBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         this.toggleFullscreen(isFullScreen = true)
-        activityCircularReveal = CircularReveal(rootView)
+        activityCircularReveal = CircularReveal(binding.rootView)
         activityCircularReveal?.onActivityCreate(intent)
         setupData()
         setupViews()
@@ -53,7 +57,7 @@ class SinglePlayActivity : BaseActivityFont() {
     }
 
     private fun setupViews() {
-        ivBackground.loadGlide(any = currentLevel?.bkg)
+        binding.ivBackground.loadGlide(any = currentLevel?.bkg)
         frmFindNumberPlay?.let {
             this.replaceFragment(
                 containerFrameLayoutIdRes = R.id.layoutContainer,
@@ -61,7 +65,7 @@ class SinglePlayActivity : BaseActivityFont() {
                 isAddToBackStack = false
             )
         }
-        ivBack.setSafeOnClickListener {
+        binding.ivBack.setSafeOnClickListener {
             // TODO popup exit
         }
     }

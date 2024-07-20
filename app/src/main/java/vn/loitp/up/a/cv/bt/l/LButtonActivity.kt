@@ -7,7 +7,6 @@ import androidx.core.view.isVisible
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.ALButtonBinding
@@ -17,9 +16,9 @@ import vn.loitp.databinding.ALButtonBinding
 class LButtonActivity : BaseActivityFont(), OnClickListener {
     private lateinit var binding: ALButtonBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,10 +42,10 @@ class LButtonActivity : BaseActivityFont(), OnClickListener {
 
         binding.bt0.setOnClickListener(this)
 
-        binding.bt1.setPressedDrawable(R.drawable.l_circle_color_primary)
+        binding.bt1.setPressedDrawable(com.loitp.R.drawable.l_circle_color_primary)
         binding.bt1.setOnClickListener(this)
 
-        binding.bt2.setPressedDrawable(R.drawable.l_bt_color_primary)
+        binding.bt2.setPressedDrawable(com.loitp.R.drawable.l_bt_color_primary)
         binding.bt2.setOnClickListener(this)
     }
 

@@ -18,6 +18,7 @@ import vn.loitp.up.a.cv.et.materialTextField.MaterialTextFieldActivity
 import vn.loitp.up.a.cv.et.otpView.OtpViewActivity
 import vn.loitp.up.a.cv.et.textWatcher.EditTextTextWatcherActivity
 import vn.loitp.databinding.AEtMenuBinding
+import vn.loitp.up.a.cv.et.pinEditTextField.PinEditTextFieldActivity
 
 @LogTag("EditTextMenuActivity")
 @IsFullScreen(false)
@@ -25,9 +26,9 @@ import vn.loitp.databinding.AEtMenuBinding
 class MenuEditTextActivity : BaseActivityFont() {
     private lateinit var binding: AEtMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,5 +73,9 @@ class MenuEditTextActivity : BaseActivityFont() {
         binding.btOTPView.setSafeOnClickListener {
             launchActivity(OtpViewActivity::class.java)
         }
+        binding.btPinEditTextField.setSafeOnClickListener {
+            launchActivity(PinEditTextFieldActivity::class.java)
+        }
+
     }
 }

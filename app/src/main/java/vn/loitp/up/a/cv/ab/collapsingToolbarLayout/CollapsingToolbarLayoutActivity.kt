@@ -8,7 +8,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.showPopup
 import com.loitp.views.layout.appBar.LAppBarLayout
 import vn.loitp.R
@@ -19,9 +18,9 @@ import vn.loitp.databinding.ACollapsingToolbarLayoutWithTabLayoutBinding
 class CollapsingToolbarLayoutActivity : BaseActivityFont(), OnClickListener {
     private lateinit var binding: ACollapsingToolbarLayoutWithTabLayoutBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +39,7 @@ class CollapsingToolbarLayoutActivity : BaseActivityFont(), OnClickListener {
 
         setSupportActionBar(binding.toolbar)
 
-        binding.toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
+        binding.toolbar.setNavigationIcon(androidx.appcompat.R.drawable.abc_ic_ab_back_material)
         binding.toolbar.setNavigationOnClickListener {
             onBaseBackPressed()
         }

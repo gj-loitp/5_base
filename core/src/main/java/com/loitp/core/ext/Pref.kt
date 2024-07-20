@@ -5,7 +5,6 @@ import android.content.SharedPreferences
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.common.IS_DARK_THEME
 import com.loitp.core.utils.AppUtils
-import com.loitp.model.App
 import java.lang.reflect.Type
 
 /**
@@ -39,33 +38,32 @@ private const val PASS_CODE = "PASS_CODE"
 private const val GG_APP_SETTING = "GG_APP_SETTING"
 //const val KEY_BOOLEAN_IS_CONNECTED_NETWORK = "KEY_BOOLEAN_IS_CONNECTED_NETWORK"
 
-fun Context.getGGAppSetting(): App? {
-    return try {
-        val pref = this.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-        BaseApplication.gson.fromJson(
-            pref.getString(GG_APP_SETTING, ""), App::class.java
-        )
-    } catch (e: Exception) {
-        null
-    }
-}
+//fun Context.getGGAppSetting(): App? {
+//    return try {
+//        val pref = this.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
+//        BaseApplication.gson.fromJson(
+//            pref.getString(GG_APP_SETTING, ""), App::class.java
+//        )
+//    } catch (e: Exception) {
+//        null
+//    }
+//}
+//fun Context.setGGAppSetting(user: App) {
+//    val editor = this.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+//    editor.putString(GG_APP_SETTING, BaseApplication.gson.toJson(user))
+//    editor.apply()
+//}
 
-fun Context.setGGAppSetting(user: App) {
-    val editor = this.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
-    editor.putString(GG_APP_SETTING, BaseApplication.gson.toJson(user))
-    editor.apply()
-}
-
-fun Context.getCheckAppReady(): Boolean {
-    val prefs = this.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-    return prefs.getBoolean(CHECK_APP_READY, false)
-}
-
-fun Context.setCheckAppReady(value: Boolean) {
-    val editor = this.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
-    editor.putBoolean(CHECK_APP_READY, value)
-    editor.apply()
-}
+//fun Context.getCheckAppReady(): Boolean {
+//    val prefs = this.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
+//    return prefs.getBoolean(CHECK_APP_READY, false)
+//}
+//
+//fun Context.setCheckAppReady(value: Boolean) {
+//    val editor = this.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+//    editor.putBoolean(CHECK_APP_READY, value)
+//    editor.apply()
+//}
 
 fun Context.getPreLoad(): Boolean {
     val prefs = this.getSharedPreferences(PREFERENCES_FILE_NAME, 0)

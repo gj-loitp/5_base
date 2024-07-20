@@ -17,9 +17,9 @@ class SimpleFingerGesturesActivity : BaseActivityFont() {
 
     private lateinit var binding: AFuncSimpleFingerGesturesBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_func_simple_finger_gestures
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

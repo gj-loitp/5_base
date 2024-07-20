@@ -16,9 +16,9 @@ import vn.loitp.up.a.cv.progress.segmentedPb.pager.PagerAdapter
 class StandardExampleActivity : BaseActivityFont() {
     private lateinit var binding: AStandardExampleBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

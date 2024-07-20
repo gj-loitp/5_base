@@ -10,7 +10,6 @@ import android.widget.ImageView
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
@@ -22,9 +21,9 @@ class DragDropSampleActivity : BaseActivityFont() {
 
     private lateinit var binding: AFuncDragDropSampleBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +51,7 @@ class DragDropSampleActivity : BaseActivityFont() {
         binding.ivTrash.setOnDragListener(
             TrashDragListener(
                 enterShape = R.drawable.ic_launcher_loitp,
-                normalShape = R.drawable.ic_search_black_48dp
+                normalShape = com.loitp.R.drawable.ic_search_black_48dp
             )
         )
         binding.ivTrash.setSafeOnClickListener {

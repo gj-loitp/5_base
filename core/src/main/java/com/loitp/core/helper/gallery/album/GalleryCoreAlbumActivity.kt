@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.OvershootInterpolator
+import androidx.annotation.Keep
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.loitp.R
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
@@ -34,6 +36,7 @@ import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 @LogTag("GalleryCoreAlbumActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)
@@ -43,9 +46,9 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
     private var listRemoveAlbum = ArrayList<String>()
     private lateinit var binding: LAFlickrGalleryCoreAlbumBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -126,6 +129,7 @@ class GalleryCoreAlbumActivity : BaseActivityFont() {
 
     private fun getListPhotosets() {
         binding.progressBar.showProgress()
+        RestClient.init(getString(R.string.flickr_URL))
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY

@@ -25,9 +25,9 @@ import vn.loitp.databinding.ActivityMenuButtonBinding
 class MenuButtonActivity : BaseActivityFont(), OnClickListener {
     private lateinit var binding: ActivityMenuButtonBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -19,9 +19,9 @@ import vn.loitp.databinding.ASbVerticalBinding
 class VerticalSeekBar2Activity : BaseActivityFont() {
     private lateinit var binding: ASbVerticalBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +49,7 @@ class VerticalSeekBar2Activity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = VerticalSeekBar2Activity::class.java.simpleName
         }

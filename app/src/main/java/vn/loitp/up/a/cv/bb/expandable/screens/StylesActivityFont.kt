@@ -14,9 +14,9 @@ import vn.loitp.databinding.AStylesBinding
 class StylesActivityFont : BaseActivityFont() {
     private lateinit var binding: AStylesBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

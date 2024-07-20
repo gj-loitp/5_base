@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.Keep
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -27,6 +28,7 @@ import java.util.*
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 @LogTag("MemberAdapter")
 class MemberAdapter(
     private val callback: Callback?

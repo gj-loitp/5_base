@@ -23,9 +23,9 @@ class ArcViewActivity : BaseActivityFont(), View.OnClickListener {
     private lateinit var shadowArc: ArcLinearLayout
     private lateinit var binding: ARvArcViewBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +53,7 @@ class ArcViewActivity : BaseActivityFont(), View.OnClickListener {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = ArcViewActivity::class.java.simpleName
         }

@@ -12,7 +12,6 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.R
 import vn.loitp.databinding.AAutoScrollContentBinding
 
 @LogTag("AutoScrollContentActivity")
@@ -28,9 +27,9 @@ class AutoScrollContentActivity : BaseActivityFont() {
     private var orientationLm = LinearLayoutManager.HORIZONTAL
     private var currentSpeed = 40
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_auto_scroll_content
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +56,7 @@ class AutoScrollContentActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = AutoScrollContentActivity::class.java.simpleName
         }

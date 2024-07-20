@@ -26,9 +26,9 @@ class SceneTransitionBasicActivity : BaseActivityFont(), AdapterView.OnItemClick
 
     private lateinit var binding: AAnimationSceneTransitionBasicBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

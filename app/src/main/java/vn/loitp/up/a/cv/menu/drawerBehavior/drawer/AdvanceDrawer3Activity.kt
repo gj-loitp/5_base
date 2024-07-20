@@ -22,9 +22,9 @@ class AdvanceDrawer3Activity : BaseActivityFont(), NavigationView.OnNavigationIt
 
     private lateinit var binding: ADrawerBehaviorAdvance3Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

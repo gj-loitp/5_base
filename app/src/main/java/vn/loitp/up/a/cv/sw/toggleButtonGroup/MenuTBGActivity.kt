@@ -19,9 +19,9 @@ class MenuTBGActivity : BaseActivityFont() {
 
     private lateinit var binding: AMenuSwitchTbgBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

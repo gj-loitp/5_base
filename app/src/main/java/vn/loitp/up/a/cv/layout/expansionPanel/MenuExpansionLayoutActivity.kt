@@ -19,9 +19,9 @@ import vn.loitp.databinding.AMenuExpansionPanelBinding
 class MenuExpansionLayoutActivity : BaseActivityFont() {
     private lateinit var binding: AMenuExpansionPanelBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +48,7 @@ class MenuExpansionLayoutActivity : BaseActivityFont() {
                     }
                 )
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = MenuExpansionLayoutActivity::class.java.simpleName
         }

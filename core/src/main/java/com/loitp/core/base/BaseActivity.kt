@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
-import com.loitp.BuildConfig
 import com.loitp.R
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
@@ -23,7 +22,6 @@ import com.loitp.annotation.IsKeepScreenOn
 import com.loitp.annotation.IsShowAnimWhenExit
 import com.loitp.annotation.IsSwipeActivity
 import com.loitp.annotation.LogTag
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.allowInfiniteLines
 import com.loitp.core.ext.d
 import com.loitp.core.ext.e
@@ -42,8 +40,6 @@ import com.loitp.data.EventBusData
 import com.loitp.views.bs.BottomSheetOptionFragment
 import com.loitp.views.smoothTransition.SwitchAnimationUtil
 import com.loitp.views.toast.LToast
-import com.rommansabbir.networkx.LastKnownSpeed
-import com.rommansabbir.networkx.NetworkXProvider
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -68,10 +64,9 @@ abstract class BaseActivity : AppCompatActivity() {
     private var isIdleTime = false
     private var isShowAnimWhenExit = true
 
-    private var alertDialogProgress: Dialog? = null
+    var alertDialogProgress: Dialog? = null
 
-    //TODO delete soon, use view binding instead
-    protected abstract fun setLayoutResourceId(): Int
+//    protected abstract fun setLayoutResourceId(): Int
 
     protected fun setTransparentStatusNavigationBar() {
         // https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
@@ -120,10 +115,10 @@ abstract class BaseActivity : AppCompatActivity() {
             supportRequestWindowFeature(Window.FEATURE_NO_TITLE) // requestFeature() must be called before adding content
         }
 
-        val layoutId = setLayoutResourceId()
-        if (layoutId != NOT_FOUND) {
-            setContentView(setLayoutResourceId())
-        }
+//        val layoutId = setLayoutResourceId()
+//        if (layoutId != NOT_FOUND) {
+//            setContentView(setLayoutResourceId())
+//        }
 
         if (isFullScreen) {
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -162,8 +157,6 @@ abstract class BaseActivity : AppCompatActivity() {
             )
         }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
-
-        setupNetworkX()
 
         onBackPressedDispatcher.addCallback(this) {
             onBaseBackPressed()
@@ -357,15 +350,11 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showShortDebug(msg: String?) {
-        if (BuildConfig.DEBUG) {
-            LToast.showShortDebug("Debug: $msg")
-        }
+        LToast.showShortDebug("Debug: $msg")
     }
 
     fun showLongDebug(msg: String?) {
-        if (BuildConfig.DEBUG) {
-            LToast.showLongDebug("Debug: $msg")
-        }
+        LToast.showLongDebug("Debug: $msg")
     }
 
     protected fun <T : ViewModel> getViewModel(className: Class<T>): T {
@@ -519,21 +508,10 @@ abstract class BaseActivity : AppCompatActivity() {
         onBaseBackPressed()
     }
 
-    private fun setupNetworkX() {
-        NetworkXProvider.isInternetConnectedLiveData.observe(this) {
-//            isInternetConnectedLiveData(it)
-            EventBusData.instance.sendConnectChange(it)
-        }
-        NetworkXProvider.lastKnownSpeedLiveData.observe(this) {
-            lastKnownSpeedLiveData(it)
-        }
-    }
-
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
         onNetworkChange(event = event)
     }
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
-    open fun lastKnownSpeedLiveData(lastKnownSpeed: LastKnownSpeed) {}
 }

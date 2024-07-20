@@ -9,7 +9,15 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.loitp.R
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.*
+import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.bt1
+import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.bt2
+import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.bt3
+import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.ivClose
+import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.layoutRootView
+import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.tvMsg
+import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.tvTitle
+import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.viewSpace1
+import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.viewSpace2
 
 /**
  * Created by Loitp on 04,August,2022
@@ -52,7 +60,7 @@ class BottomSheetOptionFragment(
         // https://stackoverflow.com/questions/37104960/bottomsheetdialog-with-transparent-background
         dialog?.apply {
             setOnShowListener {
-                val bottomSheet = findViewById<View?>(R.id.design_bottom_sheet)
+                val bottomSheet = findViewById<View?>(com.google.android.material.R.id.design_bottom_sheet)
                 bottomSheet?.setBackgroundResource(android.R.color.transparent)
             }
         }

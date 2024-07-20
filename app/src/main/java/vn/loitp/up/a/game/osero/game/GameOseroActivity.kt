@@ -11,7 +11,6 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.getSerializableCompat
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
@@ -20,7 +19,6 @@ import vn.loitp.up.a.game.osero.md.Place
 import vn.loitp.up.a.game.osero.md.Stone
 import vn.loitp.up.a.game.osero.md.ai.AINone
 import vn.loitp.up.a.game.osero.md.ai.OseroAI
-import vn.loitp.up.a.game.pong.pong.Settings
 
 @LogTag("GameOseroActivity")
 @IsFullScreen(false)
@@ -42,9 +40,9 @@ class GameOseroActivity : BaseActivityFont(), GameView {
     private val presenter = GamePresenter()
     private val boardSize = presenter.boardSize
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -129,7 +127,7 @@ class GameOseroActivity : BaseActivityFont(), GameView {
             placeList[it.x][it.y].setBackgroundColor(
                 ContextCompat.getColor(
                     this,
-                    R.color.lightGreen
+                    com.loitp.R.color.lightGreen
                 )
             )
         }
@@ -137,6 +135,6 @@ class GameOseroActivity : BaseActivityFont(), GameView {
 
     override fun clearAllMarkPlaces() {
         placeList.flatten()
-            .forEach { it.setBackgroundColor(ContextCompat.getColor(this, R.color.green)) }
+            .forEach { it.setBackgroundColor(ContextCompat.getColor(this, com.loitp.R.color.green)) }
     }
 }

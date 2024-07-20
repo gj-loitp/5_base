@@ -23,7 +23,6 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.bitmapToFile
 import com.loitp.core.ext.openUrlInBrowser
 import com.loitp.core.ext.setSafeOnClickListener
@@ -35,7 +34,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
-import vn.loitp.R
 import vn.loitp.databinding.AMainSsImagePickerBinding
 import vn.loitp.up.a.MenuActivity
 
@@ -60,9 +58,9 @@ class MainActivitySSImagePicker : BaseActivityFont(),
     private val imageDataAdapter = ImageDataAdapter(imageList)
     private var pickerOptions = PickerOptions.default()
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,7 +87,7 @@ class MainActivitySSImagePicker : BaseActivityFont(),
                     )
                 })
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = MenuActivity::class.java.simpleName
         }
@@ -101,7 +99,7 @@ class MainActivitySSImagePicker : BaseActivityFont(),
             openImagePicker()
         }
         binding.openSheetButton.setSafeOnClickListener {
-            val fragment = SSPickerOptionsBottomSheet.newInstance(R.style.CustomPickerBottomSheet)
+            val fragment = SSPickerOptionsBottomSheet.newInstance(com.loitp.R.style.CustomPickerBottomSheet)
             fragment.show(supportFragmentManager, SSPickerOptionsBottomSheet.BOTTOM_SHEET_TAG)
         }
     }

@@ -104,7 +104,7 @@ class LSuggestPopupView(
             button.text = s
             button.setTextColor(Color.BLACK)
             button.setTextSizePx(
-                size = context.resources.getDimension(R.dimen.txt_medium)
+                size = context.resources.getDimension(com.loitp.R.dimen.txt_medium)
             )
             button.setRipple()
             button.setOnClickListener {

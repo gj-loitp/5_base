@@ -18,7 +18,7 @@ class PositionDialog : BaseDialogFragment() {
 
     @SuppressLint("InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialogBuilder = AlertDialog.Builder(context, R.style.FullDialogTheme)
+        val dialogBuilder = AlertDialog.Builder(context, com.loitp.R.style.FullDialogTheme)
         val inflater = LayoutInflater.from(context)
         val dialogView = inflater.inflate(R.layout.dlg_position, null)
         dialogBuilder.setView(dialogView)

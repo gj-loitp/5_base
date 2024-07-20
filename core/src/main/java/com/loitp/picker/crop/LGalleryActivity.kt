@@ -18,7 +18,7 @@ import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.tranOut
 import com.loitp.core.utils.ConvertUtils
-import kotlinx.android.synthetic.main.l_a_l_gallery.*
+import com.loitp.databinding.LALGalleryBinding
 import java.io.File
 
 /**
@@ -31,6 +31,7 @@ import java.io.File
 @LogTag("LGalleryActivity")
 @IsFullScreen(false)
 class LGalleryActivity : BaseActivityFont(), View.OnClickListener {
+    private lateinit var binding: LALGalleryBinding
 
     companion object {
         const val RETURN_VALUE = "RETURN_VALUE"
@@ -38,24 +39,27 @@ class LGalleryActivity : BaseActivityFont(), View.OnClickListener {
 
     private val listThumbsData = ArrayList<String>()
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_a_l_gallery
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = LALGalleryBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         storeImage
         val galleryAdapter = GalleryAdapter()
         galleryAdapter.addAllDataList(listThumbsData)
         val gridLayoutManager = GridLayoutManager(this, 3)
-        galleryList.layoutManager = gridLayoutManager
-        galleryList.adapter = galleryAdapter
-        btClose.setOnClickListener(this)
+        binding.galleryList.layoutManager = gridLayoutManager
+        binding.galleryList.adapter = galleryAdapter
+        binding.btClose.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
-        if (view == btClose) {
+        if (view == binding.btClose) {
             onBaseBackPressed()
         }
     }

@@ -21,9 +21,9 @@ import kotlin.math.min
 class ExoPlayerActivity : BaseActivityFont() {
     private lateinit var binding: ADragViewCustomBinding
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.a_drag_view_custom
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return R.layout.a_drag_view_custom
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

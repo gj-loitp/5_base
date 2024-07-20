@@ -22,9 +22,9 @@ import vn.loitp.up.a.cv.progress.window.WindowProgressActivity
 class MenuProgressActivity : BaseActivityFont() {
     private lateinit var binding: APbMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

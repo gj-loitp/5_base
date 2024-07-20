@@ -20,9 +20,9 @@ import vn.loitp.databinding.AXmlDeclaredBinding
 class XmlDeclaredActivity : BaseActivityFont() {
     private lateinit var binding: AXmlDeclaredBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

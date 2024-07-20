@@ -6,7 +6,6 @@ import android.content.Context
 import android.util.ArrayMap
 import android.view.animation.AnimationUtils
 import android.view.animation.Interpolator
-import com.loitp.R
 
 internal object AnimUtils {
     private var fastOutSlowIn: Interpolator? = null
@@ -17,7 +16,7 @@ internal object AnimUtils {
     fun getFastOutSlowInInterpolator(context: Context?): Interpolator? {
         if (fastOutSlowIn == null) {
             fastOutSlowIn =
-                AnimationUtils.loadInterpolator(context, R.interpolator.fast_out_slow_in)
+                AnimationUtils.loadInterpolator(context, androidx.appcompat.R.interpolator.fast_out_slow_in)
         }
         return fastOutSlowIn
     }

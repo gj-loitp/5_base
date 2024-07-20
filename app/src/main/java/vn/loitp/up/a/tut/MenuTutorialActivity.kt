@@ -5,10 +5,8 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import vn.loitp.R
 import vn.loitp.databinding.ATutMenuBinding
 import vn.loitp.up.a.tut.retrofit2.Retrofit2Activity
 import vn.loitp.up.a.tut.rxjava2.MenuRxJava2Activity
@@ -20,9 +18,9 @@ class MenuTutorialActivity : BaseActivityFont() {
 
     private lateinit var binding: ATutMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +38,7 @@ class MenuTutorialActivity : BaseActivityFont() {
                     onBaseBackPressed()
                 }
             )
-            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.ivIconRight?.setImageResource(com.loitp.R.color.transparent)
             this.tvTitle?.text = MenuTutorialActivity::class.java.simpleName
         }
         binding.btRxJava2.setSafeOnClickListener {

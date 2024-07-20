@@ -19,9 +19,9 @@ import vn.loitp.databinding.A2Binding
 class Activity2 : BaseActivityFont() {
     private lateinit var binding: A2Binding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

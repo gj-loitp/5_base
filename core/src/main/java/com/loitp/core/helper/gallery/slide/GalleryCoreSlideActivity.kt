@@ -1,6 +1,7 @@
 package com.loitp.core.helper.gallery.slide
 
 import android.os.Bundle
+import androidx.annotation.Keep
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -25,15 +26,16 @@ import com.loitp.databinding.LAFlickrGalleryCoreSlideBinding
  * +840766040293
  * freuss47@gmail.com
  */
+@Keep
 @LogTag("GalleryCoreSlideActivity")
 @IsFullScreen(false)
 class GalleryCoreSlideActivity : BaseActivityFont() {
 
     private lateinit var binding: LAFlickrGalleryCoreSlideBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -223,11 +223,11 @@ class FingerPaintImageView @JvmOverloads constructor(
 
     private fun handleTouchEnd() = getCurrentPath()?.lineTo(currentX, currentY)
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         brushBitmap?.eraseColor(Color.TRANSPARENT)
         brushCanvas?.drawColor(Color.TRANSPARENT)
-        canvas?.save()
+        canvas.save()
         for (index in paths.indices) {
             val path = paths[index]
             if (index >= countDrawn) {

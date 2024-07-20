@@ -16,9 +16,9 @@ import vn.loitp.databinding.ATvStrokedBinding
 class StrokedTextViewActivity : BaseActivityFont() {
     private lateinit var binding: ATvStrokedBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

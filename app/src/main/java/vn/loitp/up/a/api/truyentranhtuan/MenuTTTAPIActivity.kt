@@ -18,9 +18,10 @@ import vn.loitp.databinding.AMenuTttApiBinding
 @IsAutoAnimation(true)
 class MenuTTTAPIActivity : BaseActivityFont() {
     private lateinit var binding: AMenuTttApiBinding
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -29,9 +29,9 @@ class GameActivityFont : BaseActivityFont() {
 
     private lateinit var binding: ActivityGamePuzzleBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     private val viewModel: BoardOptionsViewModel by lazy {
         ViewModelProviders.of(this)[BoardOptionsViewModel::class.java]

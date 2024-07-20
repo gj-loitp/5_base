@@ -6,9 +6,7 @@ import android.os.Bundle
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.views.nav.LTextNavigationView
-import vn.loitp.R
 import vn.loitp.databinding.ANavigationViewWithTextBinding
 
 @LogTag("NavigationViewWithTextActivity")
@@ -16,9 +14,9 @@ import vn.loitp.databinding.ANavigationViewWithTextBinding
 class NavigationViewWithTextActivity : BaseActivityFont() {
     private lateinit var binding: ANavigationViewWithTextBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +32,8 @@ class NavigationViewWithTextActivity : BaseActivityFont() {
             setTextNext("Next")
             setTextPrev("Prev Prev Prev")
             setTextSize(dpPrev = 22f, dpText = 18f, dpNext = 22f)
-            colorOn = getColor(R.color.red)
-            colorOff = getColor(R.color.gray)
+            colorOn = getColor(com.loitp.R.color.red)
+            colorOff = getColor(com.loitp.R.color.gray)
             tv?.setTextColor(Color.BLACK)
         }
 

@@ -17,9 +17,9 @@ import vn.loitp.databinding.ATvAutoCompleteBinding
 class AutoCompleteTextViewActivity : BaseActivityFont() {
     private lateinit var binding: ATvAutoCompleteBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

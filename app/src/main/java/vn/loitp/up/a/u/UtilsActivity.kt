@@ -9,11 +9,9 @@ import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.FONT_PATH
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.changeTabsFont
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.core.utils.*
-import vn.loitp.R
 import vn.loitp.databinding.AUtilsBinding
 
 @LogTag("UtilsActivity")
@@ -23,9 +21,9 @@ class UtilsActivity : BaseActivityFont() {
     private lateinit var binding: AUtilsBinding
     private val listClass = ArrayList<String>()
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +42,7 @@ class UtilsActivity : BaseActivityFont() {
                     onBaseBackPressed()
                 }
             )
-            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.ivIconRight?.setImageResource(com.loitp.R.color.transparent)
             this.tvTitle?.text = UtilsActivity::class.java.simpleName
         }
         binding.viewPager.adapter = SlidePagerAdapter(supportFragmentManager)

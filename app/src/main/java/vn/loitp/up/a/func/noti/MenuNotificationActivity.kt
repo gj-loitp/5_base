@@ -41,9 +41,9 @@ class MenuNotificationActivity : BaseActivityFont(), View.OnClickListener {
     private var notti: Notti? = null
     private val channelId = "my_package_channel"
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

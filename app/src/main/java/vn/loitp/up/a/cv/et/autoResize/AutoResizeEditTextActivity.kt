@@ -14,9 +14,9 @@ import vn.loitp.databinding.AEtAutoResizeBinding
 class AutoResizeEditTextActivity : BaseActivityFont() {
     private lateinit var binding: AEtAutoResizeBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

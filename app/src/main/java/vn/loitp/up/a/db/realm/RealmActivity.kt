@@ -24,9 +24,9 @@ class RealmActivity : BaseActivityFont() {
     private lateinit var mRealm: Realm
     private lateinit var binding: ADbRealmBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

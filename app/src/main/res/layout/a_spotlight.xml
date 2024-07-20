@@ -23,13 +23,15 @@
             android:paddingTop="@dimen/margin_padding_medium"
             android:paddingBottom="@dimen/margin_padding_medium">
 
-            <ProgressBar
+            <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:id="@+id/progressBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:indeterminateTint="?attr/themeTextColor"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:indeterminate="true"
+                app:indicatorColor="?attr/themeTextColor"
+                app:layout_constraintTop_toTopOf="parent"
+                app:trackCornerRadius="@dimen/round_largest" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv"

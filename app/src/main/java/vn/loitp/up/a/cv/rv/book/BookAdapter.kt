@@ -10,7 +10,6 @@ import com.loitp.core.adapter.BaseAdapter
 import com.loitp.core.ext.loadGlide
 import com.loitp.core.ext.screenWidth
 import com.loitp.core.ext.setMargins
-import vn.loitp.R
 import vn.loitp.databinding.IBookBinding
 import vn.loitp.up.a.cv.rv.normalRv.Movie
 
@@ -57,13 +56,13 @@ class BookAdapter(
             binding.textView.visibility = View.VISIBLE
             when (indexEachColumn) {
                 0 -> {
-                    binding.bkg.setImageResource(R.drawable.l_grid_item_background_left)
+                    binding.bkg.setImageResource(com.loitp.R.drawable.l_grid_item_background_left)
                 }
                 column - 1 -> {
-                    binding.bkg.setImageResource(R.drawable.l_grid_item_background_right)
+                    binding.bkg.setImageResource(com.loitp.R.drawable.l_grid_item_background_right)
                 }
                 else -> {
-                    binding.bkg.setImageResource(R.drawable.l_grid_item_background_center)
+                    binding.bkg.setImageResource(com.loitp.R.drawable.l_grid_item_background_center)
                 }
             }
             binding.imageView.setMargins(

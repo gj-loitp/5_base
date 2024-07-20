@@ -12,17 +12,12 @@ import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.base.BaseApplication
-import com.loitp.core.common.NOT_FOUND
 import com.loitp.core.ext.*
-import com.loitp.model.App
 import com.permissionx.guolindev.PermissionX
-import okhttp3.Call
 import vn.loitp.BuildConfig
 import vn.loitp.R
 import vn.loitp.databinding.ASplashBinding
 import vn.loitp.up.a.anim.konfetti.Presets
-import java.io.IOException
 
 @SuppressLint("CustomSplashScreen")
 @LogTag("SplashActivity")
@@ -32,12 +27,12 @@ class SplashActivity : BaseActivityFont() {
     private lateinit var binding: ASplashBinding
 
     private var isAnimDone = false
-    private var isCheckReadyDone = false
+//    private var isCheckReadyDone = false
     private var isShowDialogCheck = false
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -117,29 +112,31 @@ class SplashActivity : BaseActivityFont() {
 
         PermissionX.init(this).permissions(listPer).setDialogTintColor(color, color)
             .onExplainRequestReason { scope, deniedList, _ ->
-                val message = getString(R.string.app_name) + getString(R.string.needs_per)
+                val message = getString(R.string.app_name) + getString(com.loitp.R.string.needs_per)
                 scope.showRequestReasonDialog(
                     permissions = deniedList,
                     message = message,
-                    positiveText = getString(R.string.allow),
-                    negativeText = getString(R.string.deny)
+                    positiveText = getString(com.loitp.R.string.allow),
+                    negativeText = getString(com.loitp.R.string.deny)
                 )
             }.onForwardToSettings { scope, deniedList ->
                 scope.showForwardToSettingsDialog(
                     permissions = deniedList,
-                    message = getString(R.string.per_manually_msg),
-                    positiveText = getString(R.string.ok),
+                    message = getString(com.loitp.R.string.per_manually_msg),
+                    positiveText = getString(com.loitp.R.string.ok),
                     negativeText = getString(R.string.cancel)
                 )
             }.request { allGranted, _, _ ->
                 if (allGranted) {
-                    val isNeedCheckReady = true
-                    if (isNeedCheckReady) {
-                        checkReady()
-                    } else {
-                        isCheckReadyDone = true
-                        goToHome()
-                    }
+//                    val isNeedCheckReady = false
+//                    if (isNeedCheckReady) {
+//                        checkReady()
+//                    } else {
+//                        isCheckReadyDone = true
+//                        goToHome()
+//                    }
+//                    isCheckReadyDone = true
+                    goToHome()
                 } else {
                     finish()//correct
                     this.tranOut()
@@ -157,7 +154,7 @@ class SplashActivity : BaseActivityFont() {
         } else {
             val alertDialog = this.showDialog2(title = "Need Permissions",
                 msg = "This app needs permission to allow modifying system settings",
-                button1 = getString(R.string.ok),
+                button1 = getString(com.loitp.R.string.ok),
                 button2 = getString(R.string.cancel),
                 onClickButton1 = {
                     val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
@@ -174,8 +171,9 @@ class SplashActivity : BaseActivityFont() {
     }
 
     private fun goToHome() {
-        logD("goToHome isAnimDone $isAnimDone, isCheckReadyDone $isCheckReadyDone")
-        if (isAnimDone && isCheckReadyDone) {
+//        logD("goToHome isAnimDone $isAnimDone, isCheckReadyDone $isCheckReadyDone")
+//        if (isAnimDone && isCheckReadyDone) {
+        if (isAnimDone) {
             runOnUiThread {
                 isCanWriteSystem(onSuccess = {
                     val intent = Intent(this, MenuActivity::class.java)
@@ -187,61 +185,61 @@ class SplashActivity : BaseActivityFont() {
         }
     }
 
-    private fun showDialogNotReady() {
-        runOnUiThread {
-            val title = if (this.isConnected()) {
-                "This app is not available now"
-            } else {
-                getString(R.string.check_ur_connection)
-            }
-            val alertDial =
-                this.showDialog1(
-                    title = "Warning",
-                    msg = title,
-                    button1 = "Ok",
-                    onClickButton1 = {
-                        onBaseBackPressed()
-                    },
-                    onLongClickButton1 = {
-                        //long click to by pass, this feature is hidden and normal user dont know that
-                        isCheckReadyDone = true
-                        goToHome()
-                    }
-                )
-            alertDial.setCancelable(false)
-        }
-    }
+//    private fun showDialogNotReady() {
+//        runOnUiThread {
+//            val title = if (this.isConnected()) {
+//                "This app is not available now"
+//            } else {
+//                getString(R.string.check_ur_connection)
+//            }
+//            val alertDial =
+//                this.showDialog1(
+//                    title = "Warning",
+//                    msg = title,
+//                    button1 = "Ok",
+//                    onClickButton1 = {
+//                        onBaseBackPressed()
+//                    },
+//                    onLongClickButton1 = {
+//                        //long click to by pass, this feature is hidden and normal user dont know that
+//                        isCheckReadyDone = true
+//                        goToHome()
+//                    }
+//                )
+//            alertDial.setCancelable(false)
+//        }
+//    }
 
-    private fun checkReady() {
-        if (getCheckAppReady()) {
-            val app = getGGAppSetting()
-            val isFullData = app?.config?.isFullData == true
-            if (isFullData) {
-                setCheckAppReady(true)
-                isCheckReadyDone = true
-                goToHome()
-                return
-            } else {
-                //continue to download config from drive
-            }
-        }
-        //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
-        val linkGGDriveConfigSetting =
-            "https://drive.google.com/uc?export=download&id=16pwq28ZTeP5p1ZeJmgwjHsOofE12XRIf"
-        getSettingFromGGDrive(linkGGDriveSetting = linkGGDriveConfigSetting,
-            onGGFailure = { _: Call, _: IOException ->
-                showDialogNotReady()
-            },
-            onGGResponse = { app: App? ->
-                logD(">>>checkReady " + BaseApplication.gson.toJson(app))
-                if (app == null || app.config?.isReady == false) {
-                    showDialogNotReady()
-                } else {
-                    setCheckAppReady(true)
-                    setGGAppSetting(app)
-                    isCheckReadyDone = true
-                    goToHome()
-                }
-            })
-    }
+//    private fun checkReady() {
+//        if (getCheckAppReady()) {
+//            val app = getGGAppSetting()
+//            val isFullData = app?.config?.isFullData == true
+//            if (isFullData) {
+//                setCheckAppReady(true)
+//                isCheckReadyDone = true
+//                goToHome()
+//                return
+//            } else {
+//                //continue to download config from drive
+//            }
+//        }
+//        //https://drive.google.com/drive/u/0/folders/1STvbrMp_WSvPrpdm8DYzgekdlwXKsCS9
+//        val linkGGDriveConfigSetting =
+//            "https://drive.google.com/uc?export=download&id=16pwq28ZTeP5p1ZeJmgwjHsOofE12XRIf"
+//        getSettingFromGGDrive(linkGGDriveSetting = linkGGDriveConfigSetting,
+//            onGGFailure = { _: Call, _: IOException ->
+//                showDialogNotReady()
+//            },
+//            onGGResponse = { app: App? ->
+//                logD(">>>checkReady " + BaseApplication.gson.toJson(app))
+//                if (app == null || app.config?.isReady == false) {
+//                    showDialogNotReady()
+//                } else {
+//                    setCheckAppReady(true)
+//                    setGGAppSetting(app)
+//                    isCheckReadyDone = true
+//                    goToHome()
+//                }
+//            })
+//    }
 }

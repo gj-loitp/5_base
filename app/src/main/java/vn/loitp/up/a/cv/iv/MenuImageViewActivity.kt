@@ -26,6 +26,7 @@ import vn.loitp.up.a.cv.iv.scrollParallax.ScrollParallaxIvActivity
 import vn.loitp.up.a.cv.iv.shapeableIv.ShapeableIvActivity
 import vn.loitp.up.a.cv.iv.stfaiconIv.ListActivity
 import vn.loitp.databinding.AIvMenuBinding
+import vn.loitp.up.a.cv.iv.blurry.BlurryActivity
 import vn.loitp.up.a.cv.iv.imageSlideshow.ImageSlideshowActivity
 import vn.loitp.up.a.cv.iv.strectchy.StrectchyIvActivity
 import vn.loitp.up.a.cv.iv.touch.TouchIvActivity
@@ -36,9 +37,9 @@ import vn.loitp.up.a.cv.iv.zoom.ZoomIvActivity
 class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
     private lateinit var binding: AIvMenuBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,6 +80,7 @@ class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
         binding.btShapeableImageViewActivity.setOnClickListener(this)
         binding.btCoil.setOnClickListener(this)
         binding.btImageSlideshow.setOnClickListener(this)
+        binding.btBlurry.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -105,6 +107,7 @@ class MenuImageViewActivity : BaseActivityFont(), OnClickListener {
             binding.btShapeableImageViewActivity -> launchActivity(ShapeableIvActivity::class.java)
             binding.btCoil -> launchActivity(CoilActivity::class.java)
             binding.btImageSlideshow -> launchActivity(ImageSlideshowActivity::class.java)
+            binding.btBlurry -> launchActivity(BlurryActivity::class.java)
         }
     }
 }

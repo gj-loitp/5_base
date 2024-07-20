@@ -24,9 +24,9 @@ import vn.loitp.databinding.ASbRangeBinding
 class RangeSeekbarActivity : BaseActivityFont() {
     private lateinit var binding: ASbRangeBinding
 
-    override fun setLayoutResourceId(): Int {
-        return NOT_FOUND
-    }
+//    override fun setLayoutResourceId(): Int {
+//        return NOT_FOUND
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +50,7 @@ class RangeSeekbarActivity : BaseActivityFont() {
                     )
                 })
                 it.isVisible = true
-                it.setImageResource(R.drawable.ic_baseline_code_48)
+                it.setImageResource(com.loitp.R.drawable.ic_baseline_code_48)
             }
             this.tvTitle?.text = RangeSeekbarActivity::class.java.simpleName
         }

@@ -33,6 +33,11 @@
                 android:text="LWebViewActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSuperWebView"
+                style="@style/ButtonMenu"
+                android:text="SuperWebView" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btWebViewWrapContent"
                 style="@style/ButtonMenu"
                 android:text="WebViewWrapContentActivity" />
