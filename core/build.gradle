@@ -163,7 +163,7 @@ dependencies {
     //google service https://developers.google.com/android/guides/setup
     //compile 'com.google.android.gms:play-services-plus:15.0.1'
     //api 'com.google.android.gms:play-services-cast-framework:16.1.0'
-    api 'com.google.android.gms:play-services-maps:18.2.0'
+    api 'com.google.android.gms:play-services-maps:19.0.0'
 //    api 'com.google.android.gms:play-services-ads:21.1.0'
     api 'com.google.android.gms:play-services-location:21.0.1'
 
