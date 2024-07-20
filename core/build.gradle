@@ -238,7 +238,7 @@ dependencies {
 
     // required to avoid crash on Android 12 API 31
     api 'androidx.work:work-runtime-ktx:2.9.0'
-    api 'androidx.webkit:webkit:1.9.0'
+    api 'androidx.webkit:webkit:1.11.0'
 
 //    https://github.com/cketti/EmailIntentBuilder
     api 'de.cketti.mailto:email-intent-builder:2.0.0'
