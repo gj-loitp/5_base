@@ -1,13 +1,11 @@
 package vn.loitp.up.a.demo.ad.banner
 
-import android.graphics.Color
 import android.os.Bundle
 import com.applovin.mediation.ads.MaxAdView
 import com.loitp.annotation.IsAutoAnimation
 import com.loitp.annotation.IsFullScreen
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
-import com.loitp.core.common.*
 import com.loitp.core.ext.setSafeOnClickListenerElastic
 import vn.loitp.R
 import vn.loitp.databinding.AAdBannerBinding

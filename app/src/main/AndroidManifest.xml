@@ -1466,9 +1466,9 @@
             android:name=".up.a.demo.ad.MenuAdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
-        <meta-data
-            android:name="applovin.sdk.key"
-            android:value="@string/SDK_KEY" />
+<!--        <meta-data-->
+<!--            android:name="applovin.sdk.key"-->
+<!--            android:value="@string/SDK_KEY" />-->
 
         <activity
             android:name=".up.a.demo.ad.banner.BannerActivity"

@@ -3,7 +3,6 @@ package vn.loitp.up.a.demo.ad
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.Toast
@@ -15,31 +14,45 @@ import com.applovin.mediation.MaxError
 import com.applovin.mediation.ads.MaxAdView
 import com.applovin.sdk.AppLovinMediationProvider
 import com.applovin.sdk.AppLovinSdk
+import com.applovin.sdk.AppLovinSdkInitializationConfiguration
 import com.applovin.sdk.AppLovinSdkUtils
+import com.google.android.gms.ads.identifier.AdvertisingIdClient
 import com.loitp.core.ext.e
 import com.loitp.core.ext.i
 import vn.loitp.BuildConfig
 import vn.loitp.R
+import java.util.Collections
+import java.util.concurrent.Executors
 
 //for java, check pj hex viewer
+//for compose, check pj...
 
 fun Context.setupApplovinAd() {
     // Please check config in gradle
-    // Please add key in manifest
 
-    // Initialize the AppLovin SDK
-    AppLovinSdk.getInstance(this).mediationProvider = AppLovinMediationProvider.MAX
-//        showMediationDebugger(c)
-    AppLovinSdk.getInstance(this).initializeSdk {
-        // AppLovin SDK is initialized, start loading ads now or later if ad gate is reached
-        e("Applovin", "setupAd initializeSdk $it")
-        if (BuildConfig.DEBUG) {
-            Toast.makeText(
-                /* context = */ this,
-                /* text = */ "Debug toast initializeSdk isTestModeEnabled: ${it.isTestModeEnabled}",
-                /* duration = */ Toast.LENGTH_LONG
-            ).show()
+    val executor = Executors.newSingleThreadExecutor()
+    executor.execute {
+        val initConfigBuilder = AppLovinSdkInitializationConfiguration.builder(getString(R.string.SDK_KEY), this)
+        initConfigBuilder.mediationProvider = AppLovinMediationProvider.MAX
+        // Enable test mode by default for the current device. Cannot be run on the main thread.
+        val currentGaid = AdvertisingIdClient.getAdvertisingIdInfo(this).id
+        if (currentGaid != null) {
+            initConfigBuilder.testDeviceAdvertisingIds = Collections.singletonList(currentGaid)
         }
+        // Initialize the AppLovin SDK
+        val sdk = AppLovinSdk.getInstance(this)
+        sdk.initialize(initConfigBuilder.build()) {
+            // AppLovin SDK is initialized, start loading ads now or later if ad gate is reached
+            e("Applovin", "setupAd initializeSdk $it")
+            if (BuildConfig.DEBUG) {
+                Toast.makeText(
+                    /* context = */ this,
+                    /* text = */ "Debug toast initializeSdk isTestModeEnabled: ${it.isTestModeEnabled}",
+                    /* duration = */ Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+        executor.shutdown()
     }
 }
 
