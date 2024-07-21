@@ -152,7 +152,7 @@ fun Activity.createAdBanner(
         if (enableAdBanner) {
             ad.setBackgroundColor(bkgColor)
         } else {
-            ad.setBackgroundColor(getColor(com.loitp.R.color.red))
+            ad.setBackgroundColor(Color.TRANSPARENT)
         }
         viewGroup?.addView(adView)
         ad.loadAd()
