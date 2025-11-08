@@ -22,14 +22,6 @@ import com.loitp.game.findNumber.adt.LevelAdapter
 import com.loitp.game.findNumber.model.Level
 import com.loitp.game.findNumber.vm.FindNumberViewModel
 import com.tombayley.activitycircularreveal.CircularReveal
-import kotlinx.android.synthetic.main.l_a_find_number_single_level.ivBack
-import kotlinx.android.synthetic.main.l_a_find_number_single_level.ivPlay
-import kotlinx.android.synthetic.main.l_a_find_number_single_level.ivSpiral
-import kotlinx.android.synthetic.main.l_a_find_number_single_level.layoutLevel
-import kotlinx.android.synthetic.main.l_a_find_number_single_level.progressBar
-import kotlinx.android.synthetic.main.l_a_find_number_single_level.rootView
-import kotlinx.android.synthetic.main.l_a_find_number_single_level.rvLevel
-import kotlinx.android.synthetic.main.l_a_find_number_single_level.tvLevels
 
 /**
  * Created by Loitp on 04,August,2022
@@ -58,7 +50,7 @@ class SingleLevelActivity : BaseActivityFont() {
         setContentView(binding.root)
 
         this.toggleFullscreen(isFullScreen = true)
-        activityCircularReveal = CircularReveal(rootView)
+        activityCircularReveal = CircularReveal(binding.rootView)
         activityCircularReveal?.onActivityCreate(intent)
 
         setupViews()
@@ -76,43 +68,43 @@ class SingleLevelActivity : BaseActivityFont() {
         levelAdapter.onClickRootView = { level, view ->
             playGame(level = level, view = view)
         }
-        rvLevel.layoutManager = GridLayoutManager(this, 4)
-        rvLevel.adapter = levelAdapter
+        binding.rvLevel.layoutManager = GridLayoutManager(this, 4)
+        binding.rvLevel.adapter = levelAdapter
 
         setDelay(100) {
-            tvLevels?.visibility = View.VISIBLE
-            tvLevels?.play(
+            binding.tvLevels.visibility = View.VISIBLE
+            binding.tvLevels.play(
                 duration = 1000,
                 techniques = Techniques.ZoomInDown
             )
 
-            ivBack?.visibility = View.VISIBLE
-            ivBack?.play(
+            binding.ivBack.visibility = View.VISIBLE
+            binding.ivBack.play(
                 duration = 1000,
                 techniques = Techniques.ZoomInUp
             )
 
-            ivPlay?.visibility = View.VISIBLE
-            ivPlay?.play(
+            binding.ivPlay.visibility = View.VISIBLE
+            binding.ivPlay.play(
                 duration = 1000,
                 techniques = Techniques.ZoomInUp
             )
 
-            ivSpiral?.visibility = View.VISIBLE
-            ivSpiral?.play(
+            binding.ivSpiral.visibility = View.VISIBLE
+            binding.ivSpiral.play(
                 duration = 5000,
                 techniques = Techniques.RotateIn,
                 repeatCount = -1
             )
         }
-        tvLevels.setSafeOnClickListenerElastic(
+        binding.tvLevels.setSafeOnClickListenerElastic(
         )
-        ivBack.setSafeOnClickListenerElastic(
+        binding.ivBack.setSafeOnClickListenerElastic(
             runnable = {
                 onBaseBackPressed()
             }
         )
-        ivPlay.setSafeOnClickListenerElastic(
+        binding.ivPlay.setSafeOnClickListenerElastic(
             runnable = {
                 findNumberViewModel?.getFirstLevelOpen()
             }
@@ -126,9 +118,9 @@ class SingleLevelActivity : BaseActivityFont() {
             vm.listLevelActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
-                    progressBar.showProgress()
+                    binding.progressBar.showProgress()
                 } else {
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                 }
 
                 if (isDoing == false && actionData.isSuccess == true) {
@@ -136,8 +128,8 @@ class SingleLevelActivity : BaseActivityFont() {
                         levelAdapter.setListLevel(listLevel = listLevel)
 
                         setDelay(mls = 100, runnable = {
-                            layoutLevel?.visibility = View.VISIBLE
-                            layoutLevel?.play(
+                            binding.layoutLevel.visibility = View.VISIBLE
+                            binding.layoutLevel.play(
                                 duration = 1000,
                                 techniques = Techniques.FadeInUp
                             )
@@ -149,14 +141,14 @@ class SingleLevelActivity : BaseActivityFont() {
             vm.firstLevelOpenActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
-                    progressBar.showProgress()
+                    binding.progressBar.showProgress()
                 } else {
-                    progressBar.hideProgress()
+                    binding.progressBar.hideProgress()
                 }
 
                 if (isDoing == false && actionData.isSuccess == true) {
                     actionData.data?.let { firstLevelOpen ->
-                        playGame(level = firstLevelOpen, view = ivPlay)
+                        playGame(level = firstLevelOpen, view = binding.ivPlay)
                     }
                 }
             }

@@ -3,7 +3,9 @@ package com.loitp.core.helper.ttt.ui.f
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseApplication
 import com.loitp.core.base.BaseFragment
@@ -11,7 +13,6 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.helper.ttt.helper.ComicUtils
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
 import com.loitp.R
-import kotlinx.android.synthetic.main.l_f_ttt_comic_home.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -26,6 +27,9 @@ class FrmHomeTTT : BaseFragment() {
     private var tTTViewModel: TTTViewModel? = null
     private var tTTListComicAdapter = com.loitp.core.helper.ttt.adapter.TTTListComicAdapter()
 
+    private lateinit var btSelectType: AppCompatButton
+    private lateinit var recyclerView: RecyclerView
+
     override fun setLayoutResourceId(): Int {
         return R.layout.l_f_ttt_comic_home
     }
@@ -35,6 +39,9 @@ class FrmHomeTTT : BaseFragment() {
         savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
+
+        btSelectType = view.findViewById(R.id.btSelectType)
+        recyclerView = view.findViewById(R.id.recyclerView)
 
         setupViews()
         setupViewModels()

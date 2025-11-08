@@ -29,8 +29,8 @@ import com.loitp.core.ext.genCustomProgressDialog
 import com.loitp.core.ext.hide
 import com.loitp.core.ext.i
 import com.loitp.core.ext.isDarkTheme
-import com.loitp.core.ext.recolorNavigationBar
-import com.loitp.core.ext.recolorStatusBar
+// import com.loitp.core.ext.recolorNavigationBar
+// import com.loitp.core.ext.recolorStatusBar
 import com.loitp.core.ext.show
 import com.loitp.core.ext.showDialog1
 import com.loitp.core.ext.tranIn
@@ -240,6 +240,8 @@ abstract class BaseActivity : AppCompatActivity() {
                 decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
         if (withRecolorEfx) {
+            // ReColor library not available - using setCustomStatusBar instead
+            /*
             this.recolorStatusBar(
                 startColor = null,
                 endColor = colorBackground,
@@ -249,6 +251,10 @@ abstract class BaseActivity : AppCompatActivity() {
                 startColor = null,
                 endColor = colorBackground,
                 duration = 300
+            )
+            */
+            this.setCustomStatusBar(
+                colorStatusBar = colorBackground, colorNavigationBar = colorBackground
             )
         } else {
             this.setCustomStatusBar(

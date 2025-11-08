@@ -27,8 +27,6 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 
-import timber.log.Timber;
-
 /**
  * Created by Loitp on 04,August,2022
  * Galaxy One company,
@@ -320,7 +318,8 @@ final class BitmapUtils {
                 }
             }
         } catch (Exception e) {
-            Timber.tag("AIC").w(e, "Failed to resize cropped image, return bitmap before resize");
+            // Log: Failed to resize cropped image, return bitmap before resize
+            e.printStackTrace();
         }
         return bitmap;
     }

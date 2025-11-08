@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew:*)",
+      "Bash(chmod:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(find:*)",
+      "Read(//Users/loitran/AndroidStudioProjects/**)",
+      "Bash(test:*)",
+      "Bash(tee:*)",
+      "Read(//private/tmp/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

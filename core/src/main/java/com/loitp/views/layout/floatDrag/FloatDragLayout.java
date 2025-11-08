@@ -19,7 +19,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 
 import kotlin.Suppress;
-import timber.log.Timber;
 
 /**
  * Created by Loitp on 04,August,2022
@@ -86,7 +85,7 @@ public class FloatDragLayout extends FrameLayout {
         int mNavigationBarHeight = DisplayUtil.getNavigationBarHeight(context);
         mScreenHardHeight = DisplayUtil.getScreenHardwareHeight(context);
         int mScreenHardWidth = DisplayUtil.getScreenHardwareWidth(context);
-        Timber.tag(TAG).d("FloatDragLayout init mScreenContentWidth=" + mScreenContentWidth + ", mScreenContentHeight=" + mScreenContentHeight + ", mScreenHardWidth=" + mScreenHardWidth + ",mScreenHardHeight=" + mScreenHardHeight + ",StatusHeight=" + mStatusHeight + ",mNavigationBarHeight" + mNavigationBarHeight);
+        // Log: FloatDragLayout init with screen dimensions
     }
 
     @Override

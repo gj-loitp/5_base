@@ -8,16 +8,16 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 //group = 'com.github.tplloi'
 group = 'com.github.gj-loitp'
 
 android {
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         minSdkVersion 24
-        targetSdk 34
+        targetSdk 35
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
@@ -49,12 +49,12 @@ android {
 }
 
 dependencies {
-    api 'org.jetbrains.kotlin:kotlin-stdlib:1.8.22'
+    api 'org.jetbrains.kotlin:kotlin-stdlib:1.9.25'
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     //glide
     api 'com.github.bumptech.glide:glide:4.16.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
+    kapt 'com.github.bumptech.glide:compiler:4.16.0'
 
     //https://github.com/Piasy/BigImageViewer
     api 'com.github.piasy:BigImageViewer:1.8.1'
@@ -96,7 +96,7 @@ dependencies {
     api 'com.google.android.material:material:1.12.0'
     api 'androidx.recyclerview:recyclerview:1.3.2'
     api 'androidx.cardview:cardview:1.0.0'
-    api 'androidx.constraintlayout:constraintlayout:2.2.0-alpha13'
+    api 'androidx.constraintlayout:constraintlayout:2.2.0'
     api 'com.github.st235:expandablebottombar:1.5.1'
 
 //    https://github.com/hoomanmmd/FadeOutParticle
@@ -107,10 +107,11 @@ dependencies {
     //https://github.com/flavioarfaria/KenBurnsView
     api 'com.flaviofaria:kenburnsview:1.0.7'
     //https://github.com/kakajika/RelativePopupWindow
-    api 'com.labo.kaji:relativepopupwindow:0.4.1'
+//    api 'com.labo.kaji:relativepopupwindow:0.4.1' // Not available
 
     //https://github.com/stfalcon-studio/StfalconImageViewer
-    api 'com.github.stfalcon:stfalcon-imageviewer:1.0.1'
+//    api 'com.github.stfalcon:stfalcon-imageviewer:1.0.1' // 401 JitPack error
+//    api 'com.github.stfalcon-studio:StfalconImageViewer:v1.0.1' // Not available
 
     //https://github.com/skydoves/TransformationLayout
     api "com.github.skydoves:transformationlayout:1.1.1"
@@ -124,7 +125,7 @@ dependencies {
     api 'org.jsoup:jsoup:1.16.2'
 
     //https://github.com/adblockplus/libadblockplus-android
-    api 'org.adblockplus:adblock-android-webview:4.4.0'
+//    api 'org.adblockplus:adblock-android-webview:4.4.0' // Not available
 
     //multidex
     api 'androidx.multidex:multidex:2.0.1'
@@ -137,10 +138,10 @@ dependencies {
     api 'com.daimajia.androidanimations:library:2.4@aar'
 
     //https://github.com/MasayukiSuda/EasingInterpolator
-    api 'com.daasuu:EasingInterpolator:1.3.0'
+//    api 'com.daasuu:EasingInterpolator:1.3.0' // Not available
 
     //https://github.com/SIMMORSAL/ReColor
-    api 'com.simmorsal.recolor:recolor:1.1.0'
+//    api 'com.simmorsal.recolor:recolor:1.1.0' // Not available
 
     //https://github.com/airbnb/lottie-android
     api 'com.airbnb.android:lottie:6.1.0'
@@ -174,7 +175,7 @@ dependencies {
     api 'com.guolindev.permissionx:permissionx:1.7.1'
 
 //    https://github.com/SimformSolutionsPvtLtd/SSImagePicker
-    api 'com.github.SimformSolutionsPvtLtd:SSImagePicker:2.1'
+    api 'com.github.SimformSolutionsPvtLtd:SSImagePicker:2.4'
 
     //https://github.com/InflationX/Calligraphy
 //    api 'io.github.inflationx:calligraphy3:3.1.1'
@@ -209,7 +210,7 @@ dependencies {
     api 'io.github.florent37:shapeofview:1.4.7'
 
     //https://github.com/mmin18/RealtimeBlurView
-    api 'com.github.mmin18:realtimeblurview:1.2.1'
+//    api 'com.github.mmin18:realtimeblurview:1.2.1' // Not available
 
     //https://github.com/hdodenhof/CircleImageView
     api 'de.hdodenhof:circleimageview:3.1.0'
@@ -220,10 +221,10 @@ dependencies {
     api 'com.github.iammert:TileProgressView:0.1'
 
     //https://github.com/manojbhadane/QButton
-    api 'com.github.manojbhadane:QButton:v1.3'
+//    api 'com.github.manojbhadane:QButton:v1.3' // 401 JitPack error
 
     //https://github.com/ChadCSong/ShineButton
-    api 'com.sackcentury:shinebutton:1.0.0'
+//    api 'com.sackcentury:shinebutton:1.0.0' // Depends on unavailable EasingInterpolator
 
     //https://github.com/alirezat775/downloader
 //    api 'com.github.alirezat775:downloader:1.0.2'

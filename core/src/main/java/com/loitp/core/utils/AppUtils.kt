@@ -424,7 +424,7 @@ class AppUtils private constructor() {
             if (pm == null || pi == null) {
                 return null
             }
-            val ai = pi.applicationInfo
+            val ai = pi.applicationInfo ?: return null
             val packageName = pi.packageName
             val name = ai.loadLabel(pm).toString()
             val icon = ai.loadIcon(pm)

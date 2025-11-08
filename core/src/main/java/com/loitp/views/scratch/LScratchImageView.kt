@@ -10,7 +10,6 @@ import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatImageView
 import com.loitp.R
 import com.loitp.core.ext.getColor
-import timber.log.Timber
 import kotlin.math.abs
 
 /**
@@ -314,7 +313,7 @@ class LScratchImageView : AppCompatImageView {
 
             // Do not create multiple calls to compare.
             if (mThreadCount > 1) {
-                Timber.tag("Captcha").d("Count greater than 1")
+                // Log: Count greater than 1
                 return
             }
             mThreadCount++

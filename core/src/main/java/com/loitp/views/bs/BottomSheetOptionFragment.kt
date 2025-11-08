@@ -6,18 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.loitp.R
 import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.setSafeOnClickListenerElastic
-import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.bt1
-import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.bt2
-import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.bt3
-import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.ivClose
-import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.layoutRootView
-import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.tvMsg
-import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.tvTitle
-import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.viewSpace1
-import kotlinx.android.synthetic.main.l_f_bottom_sheet_dialog_option.viewSpace2
 
 /**
  * Created by Loitp on 04,August,2022
@@ -42,6 +36,16 @@ class BottomSheetOptionFragment(
 
     private var onDismissNotify = true
 
+    private lateinit var layoutRootView: ConstraintLayout
+    private lateinit var ivClose: ImageView
+    private lateinit var tvTitle: TextView
+    private lateinit var tvMsg: TextView
+    private lateinit var bt1: TextView
+    private lateinit var bt2: TextView
+    private lateinit var bt3: TextView
+    private lateinit var viewSpace1: View
+    private lateinit var viewSpace2: View
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -56,6 +60,16 @@ class BottomSheetOptionFragment(
         savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
+
+        layoutRootView = view.findViewById(R.id.layoutRootView)
+        ivClose = view.findViewById(R.id.ivClose)
+        tvTitle = view.findViewById(R.id.tvTitle)
+        tvMsg = view.findViewById(R.id.tvMsg)
+        bt1 = view.findViewById(R.id.bt1)
+        bt2 = view.findViewById(R.id.bt2)
+        bt3 = view.findViewById(R.id.bt3)
+        viewSpace1 = view.findViewById(R.id.viewSpace1)
+        viewSpace2 = view.findViewById(R.id.viewSpace2)
 
         // https://stackoverflow.com/questions/37104960/bottomsheetdialog-with-transparent-background
         dialog?.apply {

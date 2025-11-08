@@ -11,8 +11,8 @@ import com.loitp.core.helper.ttt.db.TTTDatabase
 import com.loitp.data.ActivityData
 import com.onesignal.OneSignal
 import io.github.kbiakov.codeview.classifier.CodeProcessor
-import io.realm.Realm
-import io.realm.RealmConfiguration
+// import io.realm.Realm
+// import io.realm.RealmConfiguration
 import vn.loitp.BuildConfig
 import vn.loitp.up.a.db.room.db.FNBDatabase
 import vn.loitp.up.a.demo.ad.setupApplovinAd
@@ -50,13 +50,13 @@ class LApplication : BaseApplication() {
         // config activity transition default
         ActivityData.instance.type = TYPE_ACTIVITY_TRANSITION_SLIDE_LEFT
 
-        // config realm
-        val realmConfiguration = RealmConfiguration.Builder(this)
-            .name(Realm.DEFAULT_REALM_NAME)
-            .schemaVersion(0)
-            .deleteRealmIfMigrationNeeded()
-            .build()
-        Realm.setDefaultConfiguration(realmConfiguration)
+        // config realm - Realm is not available
+        // val realmConfiguration = RealmConfiguration.Builder(this)
+        //     .name(Realm.DEFAULT_REALM_NAME)
+        //     .schemaVersion(0)
+        //     .deleteRealmIfMigrationNeeded()
+        //     .build()
+        // Realm.setDefaultConfiguration(realmConfiguration)
 
         // config font
 //        fontForAll = FONT_PATH

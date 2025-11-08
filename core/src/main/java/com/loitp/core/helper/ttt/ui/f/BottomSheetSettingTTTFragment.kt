@@ -11,7 +11,7 @@ import com.loitp.core.base.BaseBottomSheetFragment
 import com.loitp.core.ext.isDarkTheme
 import com.loitp.core.ext.setDarkTheme
 import com.loitp.core.ext.showDialog2
-import kotlinx.android.synthetic.main.l_f_ttt_setting.*
+import com.loitp.views.sw.appcompatSw.LColorSwitchCompat
 
 /**
  * Created by Loitp on 04,August,2022
@@ -31,11 +31,15 @@ class BottomSheetSettingTTTFragment : BaseBottomSheetFragment(
     private var dialog: AlertDialog? = null
     var onSwitchTheme: ((Unit) -> Unit)? = null
 
+    private lateinit var sw: LColorSwitchCompat
+
     override fun onViewCreated(
         view: View,
         savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
+
+        sw = view.findViewById(R.id.sw)
 
         setupViews()
     }

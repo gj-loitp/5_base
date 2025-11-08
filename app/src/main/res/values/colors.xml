@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Missing colors from removed libraries -->
+    <color name="color_text">#000000</color>
+    <color name="background">#FFFFFF</color>
+
     <color name="colorPrimary">#009688</color>
     <color name="colorPrimaryLight">#009688</color>
     <color name="colorPrimaryDark">#01201D</color>

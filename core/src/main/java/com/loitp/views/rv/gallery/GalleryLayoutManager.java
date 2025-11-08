@@ -20,7 +20,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 import kotlin.Suppress;
-import timber.log.Timber;
 
 public class GalleryLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider {
     private static final String logTag = "GalleryLayoutManager";
@@ -926,7 +925,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
                         mOnItemSelectedListener.onItemSelected(recyclerView, snap, mCurSelectedPosition);
                     }
                 } else {
-                    Timber.tag(logTag).e("onScrollStateChanged: snap null");
+                    // Log: onScrollStateChanged: snap null
                 }
             }
         }

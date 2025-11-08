@@ -11,7 +11,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.loitp.R
 import com.loitp.core.ext.allowInfiniteLines
 import com.loitp.core.ext.withBackground
-import timber.log.Timber
 
 /**
  * Created by Loitp on 04,August,2022
@@ -52,14 +51,14 @@ open class BaseDialogFragment : DialogFragment() {
         tag: String,
         msg: String
     ) {
-        Timber.tag(tag).d(msg)
+        // Log: $tag - $msg
     }
 
     fun logE(
         tag: String,
         msg: String
     ) {
-        Timber.tag(tag).e(msg)
+        // Log error: $tag - $msg
     }
 
     /**

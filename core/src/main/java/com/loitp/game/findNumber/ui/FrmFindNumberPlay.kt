@@ -21,7 +21,6 @@ import com.loitp.core.ext.setSafeOnClickListenerElastic
 import com.loitp.game.findNumber.dlg.FindNumberWinActivity
 import com.loitp.game.findNumber.model.Level
 import com.loitp.views.tv.autoFit.LAutoFitTextView
-import kotlinx.android.synthetic.main.l_f_find_number_play.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -38,12 +37,18 @@ class FrmFindNumberPlay(
     private var numberTarget = 1
     private val listData = ArrayList<String>()
 
+    private lateinit var tvNumberTarget: LAutoFitTextView
+    private lateinit var layoutRootView: ConstraintLayout
+
     override fun setLayoutResourceId(): Int {
         return R.layout.l_f_find_number_play
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        tvNumberTarget = view.findViewById(R.id.tvNumberTarget)
+        layoutRootView = view.findViewById(R.id.layoutRootView)
 
         setupViews()
         setupDataLevel()

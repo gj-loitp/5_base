@@ -19,25 +19,23 @@ import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseActivityFont
 import com.loitp.core.common.*
 import com.loitp.core.ext.*
-import com.loitp.core.helper.adHelper.AdHelperActivity
 import vn.loitp.R
 import vn.loitp.databinding.AMenuBinding
 import vn.loitp.up.a.anim.MenuAnimationActivity
 import vn.loitp.up.a.api.MenuAPIActivity
-import vn.loitp.up.a.cv.MenuCustomViewsActivity
+// import vn.loitp.up.a.cv.MenuCustomViewsActivity // Deleted
 import vn.loitp.up.a.cv3.MenuUI3Activity
-import vn.loitp.up.a.db.MenuDatabaseActivity
-import vn.loitp.up.a.demo.MenuDemoActivity
+// import vn.loitp.up.a.db.MenuDatabaseActivity // Deleted
+// import vn.loitp.up.a.demo.MenuDemoActivity // Deleted
 import vn.loitp.up.a.demo.ad.createAdBanner
 import vn.loitp.up.a.demo.ad.destroyAdBanner
-import vn.loitp.up.a.func.MenuFunctionActivity
+// import vn.loitp.up.a.func.MenuFunctionActivity // Deleted
 import vn.loitp.up.a.game.MenuGameActivity
-import vn.loitp.up.a.interviewVN.InterviewVNIQActivity
-import vn.loitp.up.a.more.MoreActivity
-import vn.loitp.up.a.network.MenuNetworkActivity
+// import vn.loitp.up.a.interviewVN.InterviewVNIQActivity // Deleted
+// import vn.loitp.up.a.network.MenuNetworkActivity // Deleted
 import vn.loitp.up.a.pattern.MenuPatternActivity
-import vn.loitp.up.a.picker.MenuPickerActivity
-import vn.loitp.up.a.sec.MenuSecurityActivity
+// import vn.loitp.up.a.picker.MenuPickerActivity // Deleted
+// import vn.loitp.up.a.sec.MenuSecurityActivity // Deleted
 import vn.loitp.up.a.sv.MenuServiceActivity
 import vn.loitp.up.a.tut.MenuTutorialActivity
 import vn.loitp.up.a.u.UtilsActivity
@@ -176,8 +174,8 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             }
 
             binding.btCustomView -> {
-                showAd()
-                launchActivity(MenuCustomViewsActivity::class.java)
+                // MenuCustomViewsActivity has been removed
+                showShortInformation("MenuCustomViewsActivity has been removed")
             }
 
             binding.btCustomView3 -> {
@@ -186,15 +184,15 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             }
 
             binding.btDemo -> {
-                showAd()
-                launchActivity(MenuDemoActivity::class.java)
+                // MenuDemoActivity has been removed
+                showShortInformation("MenuDemoActivity has been removed")
             }
 
             binding.btRateApp -> this.rateApp(packageName)
             binding.btMoreApp -> this.moreApp()
             binding.btFunction -> {
-                showAd()
-                launchActivity(MenuFunctionActivity::class.java)
+                // MenuFunctionActivity has been removed
+                showShortInformation("MenuFunctionActivity has been removed")
             }
 
             binding.btGame -> {
@@ -203,8 +201,8 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             }
 
             binding.btDatabase -> {
-                showAd()
-                launchActivity(MenuDatabaseActivity::class.java)
+                // MenuDatabaseActivity has been removed
+                showShortInformation("MenuDatabaseActivity has been removed")
             }
 
             binding.btPattern -> {
@@ -220,20 +218,14 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             }
 
             binding.btAdHelper -> {
-                showAd()
-                launchActivity(cls = AdHelperActivity::class.java, data = {
-                    it.putExtra(AD_HELPER_IS_ENGLISH_LANGUAGE, true)
-                    it.putExtra(AD_HELPER_COLOR_PRIMARY, Color.RED)
-                    it.putExtra(AD_HELPER_COLOR_BACKGROUND, Color.YELLOW)
-                    it.putExtra(AD_HELPER_COLOR_STATUS_BAR, Color.GREEN)
-                    it.putExtra(AD_HELPER_IS_LIGHT_ICON_STATUS_BAR, true)
-                })
+                // AdHelperActivity has been removed
+                showShortInformation("AdHelperActivity has been removed")
             }
 
             binding.btFbFanpage -> this.likeFacebookFanpage()
             binding.btFrmMore -> {
-                showAd()
-                launchActivity(MoreActivity::class.java)
+                // MoreActivity has been removed
+                showShortInformation("MoreActivity has been removed")
             }
 
             binding.btTutorial -> {
@@ -242,18 +234,18 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             }
 
             binding.btPicker -> {
-                showAd()
-                launchActivity(MenuPickerActivity::class.java)
+                // MenuPickerActivity has been removed
+                showShortInformation("MenuPickerActivity has been removed")
             }
 
             binding.btNetwork -> {
-                showAd()
-                launchActivity(MenuNetworkActivity::class.java)
+                // MenuNetworkActivity has been removed
+                showShortInformation("MenuNetworkActivity has been removed")
             }
 
             binding.btSecurity -> {
-                showAd()
-                launchActivity(MenuSecurityActivity::class.java)
+                // MenuSecurityActivity has been removed
+                showShortInformation("MenuSecurityActivity has been removed")
             }
 
             binding.btService -> {
@@ -282,8 +274,8 @@ class MenuActivity : BaseActivityFont(), View.OnClickListener {
             }
 
             binding.btInterviewVNIQActivity -> {
-                showAd()
-                launchActivity(InterviewVNIQActivity::class.java)
+                // InterviewVNIQActivity has been removed
+                showShortInformation("InterviewVNIQActivity has been removed")
             }
 
             binding.tvMoreApp -> this.moreApp()

@@ -17,7 +17,7 @@ import com.loitp.core.base.BaseApplication
 import com.loitp.core.utils.FileUtils
 import com.loitp.core.utils.SDCardUtils
 import com.loitp.core.utils.Utils
-import com.loitp.func.epub.core.EpubReaderReadActivity
+// import com.loitp.func.epub.core.EpubReaderReadActivity
 import com.loitp.func.epub.model.BookInfo
 import com.loitp.func.epub.model.BookInfoData
 import com.loitp.model.App
@@ -651,6 +651,8 @@ private fun calculateInSampleSize(
     return inSampleSize
 }
 
+// EpubReaderReadActivity removed - commenting out this function
+/*
 fun Activity?.readEpub(
     bookInfo: BookInfo?
 ) {
@@ -662,6 +664,7 @@ fun Activity?.readEpub(
     this.startActivity(intent)
     this.tranIn()
 }
+*/
 
 fun cleanInternalCache(): Boolean {
     return FileUtils.deleteFilesInDir(Utils.getContext()?.cacheDir)

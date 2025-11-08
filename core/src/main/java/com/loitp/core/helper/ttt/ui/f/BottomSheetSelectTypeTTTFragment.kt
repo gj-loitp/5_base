@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.loitp.R
 import com.loitp.annotation.LogTag
@@ -11,7 +12,6 @@ import com.loitp.core.base.BaseBottomSheetFragment
 import com.loitp.core.helper.ttt.adapter.TTTTypeAdapter
 import com.loitp.core.helper.ttt.helper.ComicUtils
 import com.loitp.core.helper.ttt.viewmodel.TTTViewModel
-import kotlinx.android.synthetic.main.l_f_ttt_select_type.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -52,8 +52,10 @@ class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
             tTTViewModel?.setComicType(comicType)
             dismiss()
         }
-        recyclerView.layoutManager = GridLayoutManager(context, 2)
-        recyclerView.adapter = tTTypeAdapter
+        view?.findViewById<RecyclerView>(R.id.recyclerView)?.apply {
+            layoutManager = GridLayoutManager(context, 2)
+            adapter = tTTypeAdapter
+        }
     }
 
     private fun setupViewModels() {

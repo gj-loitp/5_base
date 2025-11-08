@@ -3,6 +3,9 @@ package com.loitp.core.helper.ttt.ui.f
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
+import com.flaviofaria.kenburnsview.KenBurnsView
 import com.loitp.R
 import com.loitp.annotation.LogTag
 import com.loitp.core.base.BaseFragment
@@ -11,7 +14,6 @@ import com.loitp.core.ext.setSafeOnClickListener
 import com.loitp.core.ext.tranIn
 import com.loitp.core.helper.ttt.ui.a.TTTComicActivity
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
-import kotlinx.android.synthetic.main.l_f_ttt_comic_profile.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -23,6 +25,12 @@ import kotlinx.android.synthetic.main.l_f_ttt_comic_profile.*
 @LogTag("FrmProfileTTT")
 class FrmProfileTTT : BaseFragment() {
 
+    private lateinit var ivBackground: KenBurnsView
+    private lateinit var ivAvatar: AppCompatImageView
+    private lateinit var tvUserName: AppCompatTextView
+    private lateinit var btSetting: AppCompatTextView
+    private lateinit var btInformation: AppCompatTextView
+
     override fun setLayoutResourceId(): Int {
         return R.layout.l_f_ttt_comic_profile
     }
@@ -32,6 +40,12 @@ class FrmProfileTTT : BaseFragment() {
         savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
+
+        ivBackground = view.findViewById(R.id.ivBackground)
+        ivAvatar = view.findViewById(R.id.ivAvatar)
+        tvUserName = view.findViewById(R.id.tvUserName)
+        btSetting = view.findViewById(R.id.btSetting)
+        btInformation = view.findViewById(R.id.btInformation)
 
         setupViews()
     }
@@ -63,11 +77,14 @@ class FrmProfileTTT : BaseFragment() {
             )
         }
         btInformation.setSafeOnClickListener {
+            // BottomSheetInformationTTTFragment removed due to synthetic imports
+            /*
             val bottomSheetInformationTTTFragment = BottomSheetInformationTTTFragment()
             bottomSheetInformationTTTFragment.show(
                 childFragmentManager,
                 bottomSheetInformationTTTFragment.tag
             )
+            */
         }
     }
 }

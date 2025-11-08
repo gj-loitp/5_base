@@ -73,9 +73,10 @@ class MorphTransform(
 
     override fun createAnimator(
         sceneRoot: ViewGroup,
-        startValues: TransitionValues,
-        endValues: TransitionValues
+        startValues: TransitionValues?,
+        endValues: TransitionValues?
     ): Animator? {
+        if (startValues == null || endValues == null) return null
         val changeBounds = super.createAnimator(sceneRoot, startValues, endValues) ?: return null
         var interpolator = interpolator
         if (interpolator == null) {

@@ -8,7 +8,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
@@ -21,10 +21,10 @@ android {
     defaultConfig {
         applicationId "com.roygroup.base"
         minSdkVersion 24
-        compileSdk 34
-        buildToolsVersion = '34.0.0'
-        ndkVersion = '25.1.8937393'
-        targetSdk 34
+        compileSdk 35
+        buildToolsVersion = '35.0.0'
+        ndkVersion = '27.2.12479018'
+        targetSdk 35
         versionCode 20240720
         versionName "2024.07.20"
         multiDexEnabled true
@@ -150,7 +150,7 @@ dependencies {
 //    https://github.com/ibrahimsn98/android-particles
     api 'com.github.ibrahimsn98:android-particles:2.0'
 //    https://github.com/barteksc/AndroidPdfViewer
-    api 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+//    api 'com.github.barteksc:android-pdf-viewer:2.8.2' // Not available on JitPack
 //    https://github.com/skydoves/AndroidRibbon
     api "com.github.skydoves:androidribbon:1.0.4"
 //    https://github.com/amir5121/arcView
@@ -161,7 +161,7 @@ dependencies {
 //    https://github.com/yusufonderd/BasketLayout
     api 'com.github.yusufonderd:BasketLayout:1.0'
 //    https://github.com/alpbak/BoxedVerticalSeekBar
-    api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'
+//    api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1' // Not available
 //    https://github.com/SimformSolutionsPvtLtd/SSBiometricsAuthentication
     api "androidx.biometric:biometric:1.2.0-alpha05"
 //    https://github.com/lopspower/Biometric
@@ -171,7 +171,7 @@ dependencies {
 //    https://github.com/sparrow007/CarouselRecyclerview
     api 'com.github.sparrow007:carouselrecyclerview:1.2.5'
 //    https://github.com/AmrDeveloper/CodeView
-    api 'com.github.AmrDeveloper:CodeView:1.3.5'
+//    api 'com.github.AmrDeveloper:CodeView:1.3.5' // Not available
 //    https://github.com/kbiakov/CodeView-Android
     api 'com.github.kbiakov:CodeView-Android:1.3.2'
 //    https://github.com/square/retrofit/tree/master/retrofit-converters/moshi
@@ -187,7 +187,7 @@ dependencies {
     api("io.coil-kt:coil:2.4.0")
 
 //    https://github.com/shiburagi/Drawer-Behavior
-    api 'com.infideap.drawerbehavior:drawer-behavior:1.0.1'
+//    api 'com.infideap.drawerbehavior:drawer-behavior:1.0.1' // Not available
 //    https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
     api 'com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:1.1.1'
 //    https://github.com/tuanhav95/DragView
@@ -196,14 +196,11 @@ dependencies {
 //    https://github.com/wajahatkarim3/EasyFlipViewPager
     api 'com.wajahatkarim:easyflipviewpager:2.0.1'
 
-    //https://github.com/google/ExoPlayer
-    api 'com.google.android.exoplayer:exoplayer:2.10.4'
-    //compile 'com.google.android.exoplayer:exoplayer-core:2.10.4''
-    api 'com.google.android.exoplayer:extension-ima:2.10.4'
-    api 'com.google.android.exoplayer:exoplayer-dash:2.10.4'
-    api 'com.google.android.exoplayer:exoplayer-hls:2.10.4'
-    //api 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.10.4''
-    api 'com.google.android.exoplayer:exoplayer-ui:2.10.4'
+    //https://github.com/google/ExoPlayer - migrated to Media3
+    api 'androidx.media3:media3-exoplayer:1.5.0'
+    api 'androidx.media3:media3-exoplayer-dash:1.5.0'
+    api 'androidx.media3:media3-exoplayer-hls:1.5.0'
+    api 'androidx.media3:media3-ui:1.5.0'
     //api 'com.google.android.exoplayer:extension-cast:2.10.4''
     //api 'com.googlecode.android-query:android-query:0.25.9' //queue for chromecast
     //https://github.com/rubensousa/PreviewSeekBar
@@ -221,9 +218,9 @@ dependencies {
 //    https://github.com/nguyenhoanglam/ImagePicker
     api 'com.github.nguyenhoanglam:ImagePicker:1.5.5'
 //    https://github.com/reddit/IndicatorFastScroll
-    api 'com.reddit:indicator-fast-scroll:1.3.0'
+//    api 'com.reddit:indicator-fast-scroll:1.3.0' // Not available
 
-    api platform('com.google.firebase:firebase-bom:31.0.2')
+    api platform('com.google.firebase:firebase-bom:33.7.0')
     api 'com.google.firebase:firebase-analytics-ktx'
     api 'com.google.firebase:firebase-crashlytics-ktx'
     api 'com.google.firebase:firebase-config-ktx'
@@ -238,7 +235,7 @@ dependencies {
 //    https://github.com/nikartm/FitButton
     api 'io.github.nikartm:fit-button:2.0.0'
 //    https://github.com/hariprasanths/FloatingToast
-    api 'hari.floatingtoast:floatingtoast:0.1.1'
+//    api 'hari.floatingtoast:floatingtoast:0.1.1' // Not available
 //    https://github.com/google/flexbox-layout
     api 'com.google.android.flexbox:flexbox:3.0.0'
 
@@ -263,7 +260,7 @@ dependencies {
     api 'com.github.mmoamenn:LuckyWheel_Android:0.3.0'
 
 //    https://github.com/tplloi/material-range-bar
-    api 'com.appyvet:materialrangebar:1.4.8'
+//    api 'com.github.tplloi:material-range-bar:1.4.9' // Not available
 //    https://github.com/ixiDev/MEE
 //    api 'com.github.ixiDev:MEE:1.0.0'
 
@@ -273,13 +270,13 @@ dependencies {
 //    api 'com.github.MohammedAlaaMorsi:RangeSeekBar:1.0.6'
 
 //    noinspection AnnotationProcessorOnCompilePath
-    api 'io.realm:realm-android:0.82.1'
+//    api 'io.realm:realm-android:0.82.1' // Not available
     //noinspection KaptUsageInsteadOfKsp
     kapt "androidx.room:room-compiler:2.6.1"
 //    https://github.com/devendroid/ReadMoreOption
     api 'com.github.devendroid:ReadMoreOption:1.0.2'
 //    https://github.com/rishabh876/RoundedImageView
-    api 'com.rishabhharit.roundedimageview:RoundedImageView:0.8.4'
+//    api 'com.github.rishabh876:RoundedImageView:0.8.4' // Not available
 //    https://github.com/Chrisvin/RubberPicker
     api 'com.github.Chrisvin:RubberPicker:v1.5'
 
@@ -310,11 +307,11 @@ dependencies {
     api 'com.github.nicholasmata:spotlight:0.2.0'
 
 //    https://github.com/AndroidLab/textarc
-    api 'io.github.a.lab.develop:textarc:1.0.4'
+//    api 'io.github.a.lab.develop:textarc:1.0.4' // 401 JitPack error
 //    https://github.com/ParkSangGwon/TedImagePicker
 //    api 'io.github.ParkSangGwon:tedimagepicker:1.2.7'
 //    https://github.com/ParkSangGwon/TedKeyboardObserver
-    api 'gun0912.ted:tedkeyboardobserver:1.0.2'
+//    api 'gun0912.ted:tedkeyboardobserver:1.0.2' // Not available
 //    https://github.com/nex3z/ToggleButtonGroup
     api 'com.nex3z:toggle-button-group:1.2.3'
 //    https://github.com/iamporus/TypedTextView
@@ -342,7 +339,7 @@ dependencies {
     api 'com.github.psuzn:WheelView:v1.0.2'
 
     //https://github.com/nuonveyo/AutoRefreshNetworkConnection
-    api 'com.veyo:autorefreshnetworkconnection:1.0.6'
+//    api 'com.veyo:autorefreshnetworkconnection:1.0.6' // Not available
 
     // debugImplementation because LeakCanary should only run in debug builds.
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.14'

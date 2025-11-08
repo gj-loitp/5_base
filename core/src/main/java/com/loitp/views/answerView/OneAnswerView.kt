@@ -5,10 +5,10 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
+import android.widget.TextView
 import com.loitp.R
 import com.loitp.core.ext.getColor
 import com.loitp.core.ext.getDrawable
-import kotlinx.android.synthetic.main.l_v_answer_view.view.*
 
 /**
  * Created by Loitp on 04,August,2022
@@ -54,8 +54,12 @@ class OneAnswerView : LinearLayout {
 
     @JvmField
     var active = false
+
+    private lateinit var chooice: TextView
+
     private fun init() {
         LayoutInflater.from(context).inflate(R.layout.l_v_answer_view, this, true)
+        chooice = findViewById(R.id.chooice)
     }
 
     fun setActive(

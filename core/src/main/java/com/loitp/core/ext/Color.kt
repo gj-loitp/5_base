@@ -9,8 +9,8 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.graphics.ColorUtils
 import com.loitp.R
-import com.simmorsal.recolor_project.OnReColorFinish
-import com.simmorsal.recolor_project.ReColor
+// import com.simmorsal.recolor_project.OnReColorFinish
+// import com.simmorsal.recolor_project.ReColor
 import java.util.*
 
 /**
@@ -107,6 +107,8 @@ fun Int.setAlphaComponent(
     return ColorUtils.setAlphaComponent(/* color = */ this, /* alpha = */ alpha)
 }
 
+// ReColor library not available - commented out
+/*
 fun Context.recolorStatusBarPulse(
     pulseColor: Int,
     pulseSpeed: Int = 300,
@@ -119,7 +121,9 @@ fun Context.recolorStatusBarPulse(
         pulseCount,
     )
 }
+*/
 
+/*
 fun Context.recolorStatusBar(
     startColor: Int? = null,
     endColor: Int,
@@ -141,7 +145,9 @@ fun Context.recolorStatusBar(
         /* duration = */duration
     ).setOnReColorFinish(onReColorFinish)
 }
+*/
 
+/*
 fun Context.recolorNavigationBarPulse(
     pulseColor: Int,
     pulseSpeed: Int = 300,
@@ -154,7 +160,9 @@ fun Context.recolorNavigationBarPulse(
         pulseCount,
     )
 }
+*/
 
+/*
 fun Context.recolorNavigationBar(
     startColor: Int? = null,
     endColor: Int,
@@ -176,7 +184,9 @@ fun Context.recolorNavigationBar(
         /* duration = */duration
     ).setOnReColorFinish(onReColorFinish)
 }
+*/
 
+/*
 fun View.recolor(
     startColor: Int,
     endColor: Int,
@@ -229,6 +239,7 @@ fun View.recolor(
     }
 
 }
+*/
 
 val colors: IntArray
     get() = intArrayOf(

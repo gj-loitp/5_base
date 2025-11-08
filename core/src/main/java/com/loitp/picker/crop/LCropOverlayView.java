@@ -17,7 +17,6 @@ import android.view.View;
 import java.util.Arrays;
 
 import kotlin.Suppress;
-import timber.log.Timber;
 
 /**
  * Created by Loitp on 04,August,2022
@@ -1011,7 +1010,8 @@ public class LCropOverlayView extends View {
                 mCropWindowChangeListener.onCropWindowChanged(inProgress);
             }
         } catch (Exception e) {
-            Timber.tag("AIC").e(e, "Exception in crop window changed");
+            // Log: Exception in crop window changed
+            e.printStackTrace();
         }
     }
     //endregion

@@ -124,9 +124,10 @@ class FabTransform : Transition {
 
     override fun createAnimator(
         sceneRoot: ViewGroup,
-        startValues: TransitionValues,
-        endValues: TransitionValues
-    ): Animator {
+        startValues: TransitionValues?,
+        endValues: TransitionValues?
+    ): Animator? {
+        if (startValues == null || endValues == null) return null
 
         val transition = AnimatorSet()
 
